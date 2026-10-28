@@ -43,6 +43,12 @@ export function guidedReadingModeLabel(mode) {
   return MODE_LABELS[mode] || "";
 }
 
+export function guidedReadingBookModeLabel(book = {}) {
+  return book.readingMode === "decodable" && Number.isInteger(book.decodableScope?.afterCycle)
+    ? `Decodable · after Cycle ${book.decodableScope.afterCycle}`
+    : guidedReadingModeLabel(book.readingMode);
+}
+
 export function childGuidedReadingModeLabel(bookOrMetadata = {}) {
   const metadata = bookOrMetadata?.readingMode
     ? bookOrMetadata

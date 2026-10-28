@@ -48,9 +48,16 @@ const requestedLevel = process.argv
 if (requestedLevel && !["A", "B", "C"].includes(requestedLevel)) {
   throw new Error(`Unsupported Guided Reading level: ${requestedLevel}`);
 }
-const selectedBooks = requestedLevel
-  ? guidedReadingBooks.filter(book => book.level === requestedLevel)
-  : guidedReadingBooks;
+const bookPrefixIndex = process.argv.indexOf("--book-prefix");
+const requestedBookPrefix = bookPrefixIndex < 0 ? null : process.argv[bookPrefixIndex + 1];
+if (bookPrefixIndex >= 0 && (!requestedBookPrefix?.trim() || requestedBookPrefix.startsWith("--"))) {
+  throw new Error("Expected --book-prefix with an existing Guided Reading book ID prefix.");
+}
+const selectedBooks = guidedReadingBooks.filter(book =>
+  (!requestedLevel || book.level === requestedLevel)
+  && (!requestedBookPrefix || book.id.startsWith(requestedBookPrefix))
+);
+if (!selectedBooks.length) throw new Error("The requested Guided Reading selection contains no books.");
 
 const spokenWordOverrides = Object.freeze({
   "000": "thousand",
@@ -257,7 +264,7 @@ for (const book of selectedBooks) {
 // Story Quest words use the same whole-word and letter-spelling support as
 // Guided Reading. Include their complete visible vocabulary in an all-level
 // generation run so a tappable story word can never end in a silent state.
-if (!requestedLevel) {
+if (!requestedLevel && !requestedBookPrefix && !requestedPageText) {
   for (const quest of storyQuests) {
     for (const page of quest.pages || []) {
       collectVisibleWordAudio(
@@ -360,7 +367,7 @@ const maps = Object.fromEntries(
   ["guided_page", "isolated_word"].map(role => [
     role,
     Object.fromEntries([
-      ...(requestedLevel || requestedPageText ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
+      ...(requestedLevel || requestedPageText || requestedBookPrefix ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
       ...records
         .filter(record => record.role === role)
         .sort((left, right) =>
@@ -381,6 +388,7 @@ if (!dryRun) {
 const result = {
   mode: dryRun ? "dry-run" : "generate",
   level: requestedLevel || "all",
+  ...(requestedBookPrefix ? { bookPrefix: requestedBookPrefix } : {}),
   ...(requestedPageText ? { selectedPageText: requestedPageText } : {}),
   voice: voiceName,
   activeBooks: inventory.activeBookCount,

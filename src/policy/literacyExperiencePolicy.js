@@ -1,5 +1,6 @@
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
+import { auditDecodableBook, decodableTeachingWords } from "../utils/guidedReading/decodableScope.js";
 export { resolveConfirmedElPlacement } from "./elPlacementPolicy.js";
 
 // One instructional contract for the three child experiences. These are not
@@ -25,6 +26,9 @@ export const CHILD_READING_PURPOSE_COPY = Object.freeze({
 });
 
 export function childBookReadingPurpose(purpose = {}) {
+  if (purpose.decodablePractice) {
+    return { label: "Try the words", reason: "Try reading, then tap a word for help." };
+  }
   if (purpose.id === READING_PURPOSES.INDEPENDENT) {
     return { label: "Read it yourself", reason: CHILD_READING_PURPOSE_COPY.independent };
   }
@@ -108,6 +112,26 @@ function placementFromProgress(studentProgress = {}) {
  * supported meaning-building, with narration and decoding help.
  */
 export function classifyBookReadingPurpose(book = {}, studentProgress = {}) {
+  if (book.readingMode === "decodable") {
+    const audit = auditDecodableBook(book);
+    const teachingWords = decodableTeachingWords(book);
+    // Existing placement records identify a teaching anchor, not the child's
+    // command of every particular sound and exception in this manuscript.
+    // Keep the book available without turning a curricular match into a new
+    // independent-reading result or relying on the broad substring analyzer.
+    return {
+      id: READING_PURPOSES.SUPPORTED,
+      label: audit.valid ? "Decodable practice" : "Read with help",
+      shortLabel: audit.valid ? "Sound out" : "Reading help",
+      reason: audit.valid
+        ? `Practice after Cycle ${audit.afterCycle}. Check the taught sounds${teachingWords ? ` and these words first: ${teachingWords}` : " first"}. A cycle placement alone does not confirm independent reading.`
+        : "The book's phonics scope needs review; use reading help.",
+      anchorCycle: null,
+      decodablePractice: audit.valid,
+      prerequisiteCycle: audit.valid ? audit.afterCycle : null,
+      notYetIndependentWords: audit.valid ? [] : audit.unsupportedWords
+    };
+  }
   if (book.readingBandProfile === "read-aloud") {
     return {
       id: READING_PURPOSES.SUPPORTED,

@@ -34,14 +34,14 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
-  itemCount: 226,
-  sourceFingerprint: "1c2043e8c1df038b31b16e42cfd738d111660e2bea934e8d82fea4cb5f9b074f",
+  itemCount: 246,
+  sourceFingerprint: "f66d6a4f8e091beb50ed58dd8288521a7af1ebe0118775cad84caca470670914",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-09-22",
+  reviewedAt: "2026-10-28",
   reviewer: "Editorial and source review",
-  claim: "All 226 books and 2,019 pages have current manuscript, visual-file, exact-text narration, and provenance evidence. The 20 Willow Street books contain 160 compact pages and 180 directly reviewed self-created images. Direct human listening is not recorded for the 160 Willow Street page clips; acceptance follows continuous QA and does not claim those clips have been listened to. Reported defects, quarantine, and media-integrity failures remain blocking."
+  claim: "All 246 graded books and 2,169 pages received complete manuscript and ordered image review. The original 226 graded books received nine page-line corrections, one title correction and scoped illustration repairs. Small Steps adds 20 cumulative decodable books, 150 pages and 20 covers with explicit cycle, pronunciation, exception-word and independent sequence evidence. Exact-current narration and file integrity are checked; independent recognition screening retains two uncertain word readings, not confirmed defects. No classroom outcome, publisher-level equivalence or direct human listening is claimed. Reported defects, quarantine and media-integrity failures remain blocking."
 });
 
 // Additive shared-story reviews do not refresh or approve changes to the

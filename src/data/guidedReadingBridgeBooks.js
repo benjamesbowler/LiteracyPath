@@ -215,7 +215,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["The gate stops halfway across the garden path.", "Wide illustrated entrance view: the green wooden garden gate is stuck halfway open; Maya holds it gently while Leo looks along the ground, with one gray stone partly hidden below."],
-      ["Maya pulls once, but the gate stays still.", "Maya gives one careful pull at the handle while keeping fingers away from hinges; the gate remains fixed, and Leo watches the lower rail instead of adding force."],
+      ["Maya pulls once, but the gate stays still.", "Maya, in her mustard cardigan, pulls the green gate's latch-side handle while Leo, with auburn hair and a rust-and-cream striped shirt, watches the lower rail. The gray stone remains on the ground beneath the gate; neither child lifts it yet. Keep the stone path, gray-roof shed, and blue watering can."],
       ["Leo kneels and sees a stone underneath.", "Low close view from the safe latch side: Leo points to a small loose gray stone wedged beneath the gate's bottom rail; Maya steadies the gate and the hinge side stays clear."],
       ["They close the gate before moving the stone.", "Maya gently returns the gate to its closed position while Leo steps back; show the stone now accessible on the path and both children's hands away from the hinge."],
       ["Leo lifts the loose stone with both hands.", "Leo uses both hands to lift the small manageable stone from the path while Maya holds a garden bucket nearby; posture is safe, and the gate remains fully closed."],
@@ -363,21 +363,21 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     cast: ["WILLOW-SAMIR"],
     repeatedLanguage: "the kite",
     safetyNote: "An adult uses scissors and helps fly the kite in open ground, far from roads, trees, and power lines.",
-    coverBrief: "Illustrated Willow Street Park, Samir flying a simple blue diamond paper kite with crossed lightweight sticks and ribbon tail in a broad open field; adult beside him, distant trees and roads, no wires or text.",
+    coverBrief: "Illustrated Willow Street Park: Samir flies one blue diamond paper kite with crossed wooden sticks and one continuous blue ribbon tail. A white line runs from the blue-ended spool through his raised hand to the sticks' crossing. The page-one adult supervises: warm brown skin, side-part wavy black hair, short beard and moustache, forest-green crewneck, tan trousers, dark gray trainers. Broad open grass, distant trees, quiet cream lower panel, no roads, wires, or text.",
     storyBibleReview: nonfictionReview(
       "How can a child make and safely fly a simple paper kite?",
       "Shape paper, attach supports, add tail and line, inspect, then choose a safe open flying place.",
       "A balanced frame, secure tail, and open windy space help the kite lift safely."
     ),
     rows: [
-      ["Ask an adult to cut a paper diamond.", "Illustrated craft table: an adult cuts thick blue paper into a broad diamond while Samir watches from the other side; scissors stay in adult hands, with ruler, tape, and sticks arranged clearly."],
-      ["Lay two light sticks across the diamond.", "Overhead view of Samir placing one long and one short lightweight stick in a cross on the blue paper diamond; their meeting point is centered and scissors are absent."],
-      ["Tape both sticks firmly to the paper.", "Samir presses four short tape strips over the stick ends and one at the crossing; the diamond stays flat, supports remain straight, and adult supervision is visible."],
-      ["Tie a ribbon tail to the bottom.", "Close view of the adult helping Samir tie a long soft ribbon tail through a reinforced hole at the kite's bottom point; frame and blue paper remain unchanged."],
-      ["Ask an adult to tie the line where the sticks cross.", "Adult hands attach the kite string securely around the crossed sticks at the center while Samir holds the spool; show a simple safe knot and no string around fingers."],
-      ["Check the kite's tape, tail, and line together.", "Samir and the adult inspect every connection before leaving: tape strips flat, ribbon tail secure, flying line centered, paper unbroken; present all checks in one uncluttered view."],
-      ["Choose open ground, far from roads and wires.", "Wide Willow Street Park field with Samir and adult selecting open grass; roads, trees, and any utility lines are far beyond the flying area, under moderate wind."],
-      ["Face the breeze and let the kite rise.", "Samir faces the breeze while the adult stands beside him; the blue diamond kite rises on a controlled line, ribbon tail streaming steadily, with safe open space in every direction." ]
+      ["Ask an adult to cut a paper diamond.", "At a wooden outdoor park table, an adult cuts blue paper into a diamond while Samir watches. Adult anchor: warm brown skin, side-part wavy black hair, short beard and moustache, forest-green crewneck. Scissors stay in adult hands; ruler, tape, two sticks, and a blue-ended spool of white line lie on the table."],
+      ["Lay two light sticks across the diamond.", "At the same wooden park table, Samir lays two light wooden sticks across the flat blue diamond while the same bearded adult in a forest-green crewneck watches. Blue ribbon and a blue-ended spool of white line remain beside the paper; scissors are absent."],
+      ["Tape both sticks firmly to the paper.", "Samir presses short tape strips over the stick ends and crossing on the flat blue diamond at the wooden park table. The same bearded adult in a forest-green crewneck supervises. The single blue ribbon and blue-ended white-line spool lie nearby; grass and trees continue the outdoor setting."],
+      ["Tie a ribbon tail to the bottom.", "At the same outdoor table, the bearded adult in a forest-green crewneck helps Samir attach one continuous blue ribbon by one end at the kite's bottom point. A tiny knot end stays beside the attachment; the single long tail trails across the table. The taped wooden cross and blue paper remain unchanged."],
+      ["Ask an adult to tie the line where the sticks cross.", "Kneeling on park grass beside Samir, the same bearded adult in a forest-green crewneck, tan trousers, and dark gray trainers ties white line at the kite's central stick crossing. Samir holds the blue-ended spool. Tape remains visible at the four stick ends and crossing; one blue ribbon tail lies on the grass."],
+      ["Check the kite's tape, tail, and line together.", "Samir and the same bearded adult kneel on park grass to inspect the blue kite: tape at the wooden stick ends and crossing, one attached blue ribbon tail, white line from the center to the blue-ended spool. Adult clothing stays forest-green crewneck, tan trousers, and dark gray trainers."],
+      ["Choose open ground, far from roads and wires.", "Wide Willow Street Park field: the same bearded adult in a forest-green crewneck, tan trousers, and dark gray trainers points across the open grass. Samir holds the blue kite and white-line spool. One blue ribbon tail hangs below the kite; trees and benches remain at the distant field edges, with no roads or wires in the flying area."],
+      ["Keep the wind behind you and let the kite rise.", "Samir faces right with the wind behind him, flying the blue diamond kite above the open grass; its single blue ribbon tail streams to the right. One white line runs from his blue-ended spool through his raised hand to the sticks' crossing. The same bearded adult in a forest-green crewneck, tan trousers, and dark gray trainers supervises beside him. Distant trees, clear flying space, no roads or wires." ]
     ]
   }),
   makeBook({
@@ -408,7 +408,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
   }),
   makeBook({
     slug: "make-fruit-and-yoghurt-cups",
-    title: "Make Fruit and Yoghurt Cups",
+    title: "Make Fruit and Yogurt Cups",
     type: "nonfiction",
     bridgeGenre: "procedure",
     visualTreatment: "willow-street-illustrated",
@@ -477,7 +477,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Rain falls onto roofs, gardens, roads, and rivers.", "Photorealistic neighborhood landscape during moderate rain: droplets visibly reach tiled roofs, planted garden soil, wet road, and a small river in the distance; safe normal weather, no storm damage."],
       ["Some rainwater soaks slowly into loose garden soil.", "Photorealistic macro view of rain soaking into dark crumbly garden soil around plant roots, with fewer surface puddles; realistic pore texture and diffuse overcast light."],
       ["Some rainwater runs downhill across hard pavement.", "Photorealistic low-angle view of shallow rainwater following the slope of an unbranded pavement toward the curb; flow direction visible through tiny leaves, no dangerous flood depth."],
-      ["Roof gutters carry water into pipes or water butts.", "Photorealistic house detail: clean roof gutter channels rain into a downpipe that branches to a covered rain barrel, with overflow continuing safely toward drainage; accurate fittings, no labels."],
+      ["Roof gutters carry water into pipes or rain barrels.", "Photorealistic house detail: clean roof gutter channels rain into a downpipe that branches to a covered rain barrel, with overflow continuing safely toward drainage; accurate fittings, no labels."],
       ["Street drains guide water away from busy roads.", "Photorealistic curb drain receiving a thin sheet of road runoff while vehicles remain distant; grate openings, curb slope, and water direction mechanically plausible, with no person entering the road."],
       ["Small streams join wider rivers moving toward the sea.", "Photorealistic aerial-oblique landscape where two narrow streams visibly meet a broader river winding toward a coastal horizon; natural banks, accurate scale, clear connected flow."],
       ["Sunlight warms water, and some rises as vapor.", "Photorealistic calm reservoir after rain under returning sunlight; subtle atmospheric haze rises from the surface without cartoon arrows, with warm light glinting on realistic water."],
@@ -505,7 +505,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Firefighters pull on protective clothing before they leave.", "Photorealistic gear area: firefighters put on boots, trousers, jackets, helmets, gloves, and breathing equipment in correct sequence; no exposed flames, complete protective kit, realistic adult anatomy."],
       ["The engine carries people, water, hoses, and tools.", "Photorealistic open-side equipment view of the parked fire engine: hose reels, water controls, ladders, hand tools, and crew seats clearly organized; no brands or misleading loose equipment."],
       ["At emergencies, firefighters work together under one leader.", "Photorealistic safe training-ground response: a crew follows one officer's hand signal while positioning a hose line toward a controlled practice target; full gear, no identifiable casualty."],
-      ["They may stop fires, rescue people, or give first aid.", "Photorealistic three-part station display using separate real training photographs: hose practice, ladder rescue dummy, and first-aid mannequin; dignified non-graphic scenes with accurate equipment."],
+      ["They may stop fires, rescue people, or give first aid.", "Photorealistic calm first-aid scene beside the fire station: a gloved firefighter gently wraps a clean bandage around a seated adult's forearm, with another firefighter and a first-aid kit nearby. No blood or visible injury; relaxed expressions, accurate protective clothing and natural anatomy."],
       ["Back at the station, every tool is cleaned and checked.", "Photorealistic return-to-station scene: firefighters wash hose, inspect breathing apparatus, and replace tools in labeled-by-shape compartments without readable words; wet floor managed safely."],
       ["Firefighters train often, ready for the next call.", "Photorealistic station drill yard: crew practice carrying a ladder and communicating together under instructor supervision; engine waits in bay, bright daylight, calm readiness rather than alarm." ]
     ]

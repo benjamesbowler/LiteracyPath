@@ -61,6 +61,7 @@ const COMPACT_STABLE_RULE = Object.freeze({
 });
 
 const CANON_PREFIX_BY_SERIES = Object.freeze({
+  "small-steps": "SMALL-",
   "bob-and-nan": "HUMAN-",
   "james-and-anna": "HUMAN-",
   "aiden-and-betty": "HUMAN-",

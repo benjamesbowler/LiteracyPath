@@ -139,7 +139,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::5": {
-    "displayedText": "Past the last dune, the green sea filled the sky. Aiden stopped. \"Wow,\" was all he said.",
+    "displayedText": "Past the last dune, they saw the wide green sea. Aiden stopped. \"Wow,\" was all he said.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::6": {
@@ -603,7 +603,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::6": {
-    "displayedText": "Fluff stops running.",
+    "displayedText": "Fluff stays beside Bob.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::7": {
@@ -807,7 +807,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-10-vet::4": {
-    "displayedText": "Fluff sits on the bed.",
+    "displayedText": "Fluff sits on the table.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-10-vet::5": {
@@ -3715,7 +3715,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-49::4": {
-    "displayedText": "Gloves help warm my hands.",
+    "displayedText": "Mittens keep my hands warm.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-49::5": {
@@ -4399,7 +4399,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-05-how-seeds-grow::7": {
-    "displayedText": "After pollination, new seeds grow inside the plant's pods.",
+    "displayedText": "After pollination, new seeds grow inside this plant's pods.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-05-how-seeds-grow::8": {
@@ -5423,7 +5423,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::10": {
-    "displayedText": "Grumpy shows his friends.",
+    "displayedText": "Grumpy shows his friends weeks later.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::11": {
@@ -6339,7 +6339,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::3": {
-    "displayedText": "Pip took his lantern and started down the marsh path alone. After one worried pause, Stone lifted a foot and slowly followed his smaller friend.",
+    "displayedText": "Pip started down the winding marsh path on his own. After one worried pause, Stone lifted a foot and slowly followed his smaller friend.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::4": {
@@ -7438,6 +7438,606 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "small-steps-01::1": {
+    "displayedText": "I am a cat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::2": {
+    "displayedText": "Sam is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::3": {
+    "displayedText": "Can I fit on the mat?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::4": {
+    "displayedText": "I sit. I do not fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::5": {
+    "displayedText": "Sam is big. I sit on Sam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::6": {
+    "displayedText": "I fit!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::1": {
+    "displayedText": "Mud is on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::2": {
+    "displayedText": "I rub the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::3": {
+    "displayedText": "Mud is on my rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::4": {
+    "displayedText": "I rub. Mud is on my rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::5": {
+    "displayedText": "I rub my rag in a tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::6": {
+    "displayedText": "No mud on my rag. I rub the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::7": {
+    "displayedText": "No mud on the rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::8": {
+    "displayedText": "Mud is on my hat!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::1": {
+    "displayedText": "Can the pup fit in a box?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::2": {
+    "displayedText": "\"Pup, sit in the box.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::3": {
+    "displayedText": "No. The box is not big.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::4": {
+    "displayedText": "I tug a big box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::5": {
+    "displayedText": "\"Pup, sit in the big box.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::6": {
+    "displayedText": "The pup is in the big box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::7": {
+    "displayedText": "My hat is a box!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::1": {
+    "displayedText": "\"Yum! A bun!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::2": {
+    "displayedText": "The bun is hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::3": {
+    "displayedText": "I fan the bun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::4": {
+    "displayedText": "The bun is hot!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::5": {
+    "displayedText": "\"Dad, cut the bun.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::6": {
+    "displayedText": "I fan the bun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::7": {
+    "displayedText": "The bun is not hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::8": {
+    "displayedText": "\"Yum!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::1": {
+    "displayedText": "Dad is a vet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::2": {
+    "displayedText": "The hen is in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::3": {
+    "displayedText": "I get the hen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::4": {
+    "displayedText": "The hen is not on my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::5": {
+    "displayedText": "The vet and I sit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::6": {
+    "displayedText": "I tap my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::7": {
+    "displayedText": "The hen is on my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::8": {
+    "displayedText": "The vet and I pet the hen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::1": {
+    "displayedText": "The jam is in a pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::2": {
+    "displayedText": "I tug at the lid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::3": {
+    "displayedText": "The lid is on the pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::4": {
+    "displayedText": "\"Dad, tug at the lid.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::5": {
+    "displayedText": "Dad and I tug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::6": {
+    "displayedText": "The lid is not on the pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::7": {
+    "displayedText": "I dip my bun in the jam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::8": {
+    "displayedText": "Jam is on Dad!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::1": {
+    "displayedText": "A hat is in my bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::2": {
+    "displayedText": "A mug is in my bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::3": {
+    "displayedText": "A log is in my bag!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::4": {
+    "displayedText": "Can I zip my bag?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::5": {
+    "displayedText": "I tug. No!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::6": {
+    "displayedText": "I set the log on a mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::7": {
+    "displayedText": "I zip my bag!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::1": {
+    "displayedText": "I get a red hat and a red cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::2": {
+    "displayedText": "I run in the big hat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::3": {
+    "displayedText": "The hat is on the rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::4": {
+    "displayedText": "I get the hat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::5": {
+    "displayedText": "I set the big hat on Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::6": {
+    "displayedText": "The big hat is for Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::7": {
+    "displayedText": "I run in the red cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::8": {
+    "displayedText": "Dad and I run.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::1": {
+    "displayedText": "I am a cat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::2": {
+    "displayedText": "I nap in the shop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::3": {
+    "displayedText": "Sam and Dot chat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::4": {
+    "displayedText": "I sit up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::5": {
+    "displayedText": "I get in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::6": {
+    "displayedText": "Sam and Dot shut the shop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::7": {
+    "displayedText": "I nap in the box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::1": {
+    "displayedText": "I get a big chip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::2": {
+    "displayedText": "The chip is in the mud!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::3": {
+    "displayedText": "I set the chip in the bin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::4": {
+    "displayedText": "I get a chip in a dish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::5": {
+    "displayedText": "\"This chip is good!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::6": {
+    "displayedText": "A bit of chip is on my chin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::7": {
+    "displayedText": "\"Is your chin a dish?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::8": {
+    "displayedText": "I get the bit of chip. \"It is not!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::1": {
+    "displayedText": "Dot and I get a fish kit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::2": {
+    "displayedText": "I get a thin fin and a fat leg.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::3": {
+    "displayedText": "I set the leg on the fish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::4": {
+    "displayedText": "\"That is not a fin!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::5": {
+    "displayedText": "I set the leg in the box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::6": {
+    "displayedText": "I set the thin fin on the fish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::7": {
+    "displayedText": "\"This is a fish!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::1": {
+    "displayedText": "I get a ball and a tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::2": {
+    "displayedText": "I set the ball on the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::3": {
+    "displayedText": "I see the ball fall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::4": {
+    "displayedText": "\"Can the ball fit in the tin?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::5": {
+    "displayedText": "I set the ball in the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::6": {
+    "displayedText": "I sit. The ball is in the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::1": {
+    "displayedText": "I am a pig. I am hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::2": {
+    "displayedText": "I dig in the mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::3": {
+    "displayedText": "I do not fit in the pit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::4": {
+    "displayedText": "I dig and dig.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::5": {
+    "displayedText": "I sit in the big pit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::6": {
+    "displayedText": "Mud is on my chin!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::7": {
+    "displayedText": "I nap in the mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::1": {
+    "displayedText": "I look for a red cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::2": {
+    "displayedText": "I get a map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::3": {
+    "displayedText": "I run to the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::4": {
+    "displayedText": "The cap is not in the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::5": {
+    "displayedText": "The dot is on a log!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::6": {
+    "displayedText": "I run to the log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::7": {
+    "displayedText": "I get the red cap!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::1": {
+    "displayedText": "The pup is in the mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::2": {
+    "displayedText": "I put the pup in a tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::3": {
+    "displayedText": "I rub the pup with a rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::4": {
+    "displayedText": "The rag is not wet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::5": {
+    "displayedText": "I dip the rag in the tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::6": {
+    "displayedText": "I rub the pup with the wet rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::7": {
+    "displayedText": "The mud is on the rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::8": {
+    "displayedText": "The pup is out. I am wet!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::1": {
+    "displayedText": "The ball is in a big tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::2": {
+    "displayedText": "I dip a cup in the tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::3": {
+    "displayedText": "The ball is not in the cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::4": {
+    "displayedText": "I get the red net.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::5": {
+    "displayedText": "The ball is in the net!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::6": {
+    "displayedText": "I put the net on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::7": {
+    "displayedText": "I lob the wet ball at Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::8": {
+    "displayedText": "Dad is wet!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::1": {
+    "displayedText": "The van is in a log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::2": {
+    "displayedText": "I tug on the van.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::3": {
+    "displayedText": "The van is in the log!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::4": {
+    "displayedText": "When can the van whiz?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::5": {
+    "displayedText": "I tip the log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::6": {
+    "displayedText": "The van is out!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::7": {
+    "displayedText": "I let the van whiz.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::8": {
+    "displayedText": "Whiz! The van is on Dad!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::1": {
+    "displayedText": "Pink ink is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::2": {
+    "displayedText": "I rub the ink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::3": {
+    "displayedText": "The mat is pink!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::4": {
+    "displayedText": "I put a rag in the sink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::5": {
+    "displayedText": "The rag is wet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::6": {
+    "displayedText": "I dab the mat with the wet rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::7": {
+    "displayedText": "The mat is not pink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::8": {
+    "displayedText": "The rag is pink!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::1": {
+    "displayedText": "I sing a song.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::2": {
+    "displayedText": "I bang on a pan.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::3": {
+    "displayedText": "The cat is in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::4": {
+    "displayedText": "\"Hush, Sam! Sing the song!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::5": {
+    "displayedText": "I put the pan on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::6": {
+    "displayedText": "I sing the song.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::7": {
+    "displayedText": "Dad and I sing the song.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::8": {
+    "displayedText": "The cat is on the pan!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::1": {
+    "displayedText": "The bell is in a mess.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::2": {
+    "displayedText": "I puff on the fuzz.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::3": {
+    "displayedText": "The fuzz is on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::4": {
+    "displayedText": "The bell is not in the fuzz.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::5": {
+    "displayedText": "I tip the cup. Ding!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::6": {
+    "displayedText": "The bell is in the cup!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::7": {
+    "displayedText": "I put the fuzz in a bin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::8": {
+    "displayedText": "I ring the bell. Ding!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "willow-street-a-snail-comes-out-at-night::1": {
     "displayedText": "By day, the snail rests in a cool shelter.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -7787,7 +8387,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-make-a-paper-kite::8": {
-    "displayedText": "Face the breeze and let the kite rise.",
+    "displayedText": "Keep the wind behind you and let the kite rise.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-make-fruit-and-yoghurt-cups::1": {
@@ -8059,7 +8659,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-where-rainwater-goes::4": {
-    "displayedText": "Roof gutters carry water into pipes or water butts.",
+    "displayedText": "Roof gutters carry water into pipes or rain barrels.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-where-rainwater-goes::5": {

@@ -19,6 +19,16 @@ const EXTENDED = Object.freeze({
   readingBandProfile: "extended",
   readingMode: "supported-read-together"
 });
+const DECODABLE = Object.freeze({
+  readingBandProfile: "standard",
+  readingMode: "decodable"
+});
+const SMALL_STEPS_BOOK_IDS = Object.freeze([
+  "small-steps-01", "small-steps-02", "small-steps-03", "small-steps-04", "small-steps-05",
+  "small-steps-06", "small-steps-07", "small-steps-08", "small-steps-09", "small-steps-10",
+  "small-steps-11", "small-steps-12", "small-steps-13", "small-steps-14", "small-steps-15",
+  "small-steps-16", "small-steps-17", "small-steps-18", "small-steps-19", "small-steps-20"
+]);
 
 const CURRENT_BOOK_IDS = Object.freeze([
   "gr-a-26", "gr-a-27", "gr-a-28", "gr-a-29", "gr-b-31", "gr-b-32", "gr-b-33", "gr-b-34", "gr-b-35", "gr-c-37", "gr-c-38", "gr-c-39", "gr-d-42", "gr-d-43", "gr-d-44", "gr-d-45", "gr-e-46", "gr-e-47", "gr-e-48", "gr-e-49", "gr-e-50",
@@ -40,6 +50,7 @@ const CURRENT_BOOK_IDS = Object.freeze([
 export const GUIDED_READING_BOOK_METADATA = Object.freeze(Object.fromEntries(
   [
     ...CURRENT_BOOK_IDS.map(id => [id, id.startsWith("moonwood-tales-c-") ? EXTENDED : STANDARD]),
+    ...SMALL_STEPS_BOOK_IDS.map(id => [id, DECODABLE]),
     [MISSING_SANDWICH_BOOK_ID, Object.freeze({
       readingBandProfile: "read-aloud",
       readingMode: "supported-read-together"

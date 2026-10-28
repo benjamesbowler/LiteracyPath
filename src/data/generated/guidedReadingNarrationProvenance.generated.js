@@ -4,15 +4,17 @@ export const GUIDED_READING_NARRATION_PROVENANCE = Object.freeze({
   "auditedAudioHashMismatchCount": 0,
   "auditedPageAudioTextMismatchCount": 0,
   "auditedWordSequenceMismatchCount": 0,
-  "corpusSha256": "942fdebcd37e4d84fa72e48fc3136151d36402fee8c2336a70bf8d2653d0569d",
-  "exactPageAudioByText": Object.freeze({}),
+  "corpusSha256": "8cdc346c8df6ac234da93da8fd060a1e05afe60ce1999f563176bed73316de15",
+  "exactPageAudioByText": Object.freeze({
+  "The bun is hot.": "/audio/production/en-US/guided_page/the-bun-is-hot-44b1eb534f.mp3"
+}),
   "generatedBy": "tools/checkGuidedReadingNarrationProvenance.mjs --refresh",
-  "liveBookCount": 226,
-  "livePageCount": 2019,
+  "liveBookCount": 246,
+  "livePageCount": 2169,
   "narrationRebuildClearanceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "productionManifestPageCount": 1603,
   "productionManifestSha256": "8f073c32ac2c9d6c66639ac89501a3146858976e52f29711f94ee94fae3c08f1",
-  "resolvedNormalizedCollisionCount": 0,
+  "resolvedNormalizedCollisionCount": 1,
   "schemaVersion": 2,
   "voice": "en-US-Chirp3-HD-Leda"
 });

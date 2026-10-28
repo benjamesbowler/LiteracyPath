@@ -429,6 +429,11 @@
 .guided-record-options:not([open]) > div { display: none; }
 .guided-reader-shell .guided-mode-toggle button { min-height: 56px; }
 .guided-transport .guided-return-control .guided-transport-label { display: inline; }
+/* Keep the labelled return action on wider screens. On phones its accessible
+   name remains available while the icon fits beside Next and More. */
+@media (max-width: 600px) {
+  .guided-transport .guided-return-control .guided-transport-label { display: none; }
+}
 .guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio { color: var(--lp-ink) !important; background: var(--lp-cream) !important; border-color: var(--lp-line) !important; box-shadow: none !important; }
 .guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio.active { background: var(--lp-sky) !important; box-shadow: inset 4px 0 var(--lp-sage) !important; }
 @media (min-width: 820px) { .guided-transport .guided-read-page-audio .guided-transport-label { display: inline; } }

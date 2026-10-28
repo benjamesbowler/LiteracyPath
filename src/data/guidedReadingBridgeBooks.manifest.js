@@ -27,7 +27,7 @@ export const WILLOW_STREET_BOOK_MANIFEST = Object.freeze([
   row("grow-a-bean-in-a-jar", "Grow a Bean in a Jar", "procedure", "willow-street-illustrated", ["WILLOW-MAYA"]),
   row("make-a-paper-kite", "Make a Paper Kite", "procedure", "willow-street-illustrated", ["WILLOW-SAMIR"]),
   row("build-a-cardboard-ramp", "Build a Cardboard Ramp", "procedure", "willow-street-illustrated", ["WILLOW-LEO"]),
-  row("make-fruit-and-yoghurt-cups", "Make Fruit and Yoghurt Cups", "procedure", "willow-street-illustrated", ["WILLOW-ZOE"]),
+  row("make-fruit-and-yoghurt-cups", "Make Fruit and Yogurt Cups", "procedure", "willow-street-illustrated", ["WILLOW-ZOE"]),
   row("from-wheat-to-bread", "From Wheat to Bread", "photorealistic-nonfiction", "self-created-photorealistic", []),
   row("where-rainwater-goes", "Where Rainwater Goes", "photorealistic-nonfiction", "self-created-photorealistic", []),
   row("inside-a-fire-station", "Inside a Fire Station", "photorealistic-nonfiction", "self-created-photorealistic", []),

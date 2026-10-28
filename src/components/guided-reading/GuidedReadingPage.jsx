@@ -44,7 +44,8 @@ import {
 import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
-import { guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { guidedReadingBookModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { DecodableBookGuide } from "./DecodableBookGuide.jsx";
 import { classifyBookReadingPurpose } from "../../policy/literacyExperiencePolicy.js";
 import { TeacherRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import { CHILD_COPY } from "../../copy/childCopy.js";
@@ -2288,6 +2289,7 @@ export function GuidedReadingPage({
                       <div className="guided-book-info">
                         <h3 className="guided-book-title">{book.title}</h3>
                         <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} · {appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} · {book.pages.length} pages</p>
+                        <DecodableBookGuide book={book} />
                         <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                         <button
                           className="guided-book-action"
@@ -2377,7 +2379,8 @@ export function GuidedReadingPage({
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
-                    <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</p>
+                    <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingBookModeLabel(book)} · {book.pages.length} pages</p>
+                    <DecodableBookGuide book={book} />
                     <p className="guided-book-text-analysis">{appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)}</p>
                     <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                     <p className="guided-book-progress">
@@ -2469,6 +2472,7 @@ export function GuidedReadingPage({
               </div>
             </section>
           )}
+          {!isStudentMode && !isReaderFullscreen && <DecodableBookGuide book={selectedBook} />}
           <div className="guided-reader-card">
             {isPictureBookReader ? (
               <GuidedReadingTransport

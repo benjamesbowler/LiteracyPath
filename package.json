@@ -242,7 +242,8 @@
     "generate:comprehension-leda": "node tools/generateComprehensionLedaAudio.mjs",
     "check:comprehension-leda": "node tools/generateComprehensionLedaAudio.mjs --check && node tools/checkComprehensionLedaAudio.mjs",
     "generate:comprehension-pictures": "node tools/generateComprehensionPictures.mjs",
-    "check:comprehension-pictures": "node tools/generateComprehensionPictures.mjs --check && node tools/checkComprehensionPictures.mjs"
+    "check:comprehension-pictures": "node tools/generateComprehensionPictures.mjs --check && node tools/checkComprehensionPictures.mjs",
+    "check:guided-reading-decodable-scope": "node tools/checkGuidedReadingDecodableScope.mjs"
   },
   "dependencies": {
     "@fontsource/andika": "^5.3.0",

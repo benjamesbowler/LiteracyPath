@@ -18,7 +18,7 @@ const APPROVED_TITLES = Object.freeze([
   "Grow a Bean in a Jar",
   "Make a Paper Kite",
   "Build a Cardboard Ramp",
-  "Make Fruit and Yoghurt Cups",
+  "Make Fruit and Yogurt Cups",
   "From Wheat to Bread",
   "Where Rainwater Goes",
   "Inside a Fire Station",
@@ -123,7 +123,7 @@ test("procedures publish a complete safe order", () => {
 });
 
 test("food and ramp procedures expose every safety and comparison step to readers", () => {
-  const fruit = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Make Fruit and Yoghurt Cups");
+  const fruit = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Make Fruit and Yogurt Cups");
   assert.match(fruit.pages[0].text, /adult.*check.*allerg/iu);
   assert.match(fruit.pages[1].text, /wash.*hands.*fruit/iu);
   assert.match(fruit.pages[2].text, /adult.*cut/iu);

@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 6871,
+    "imageCount": 7467,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -104,6 +104,1488 @@ export const appVisualAssetReview = {
       "path": "/game-assets/sound-seekers/worlds/moonwood-trail-v2.webp",
       "sha256": "406e677c099d8f338c2a8dc07195d033dd5ee677adc1a7e1c4d2107131c513f3",
       "status": "approved"
+    },
+    {
+      "path": "/guided-reading/card-covers/01d88c3769b2ff32e18d165b.webp",
+      "sha256": "01d88c3769b2ff32e18d165b8000e7f4330fc341e620c5139a790de2d8552be0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/025e5dcced0f6883dbaf75d2.webp",
+      "sha256": "025e5dcced0f6883dbaf75d2b69b711b0567468c25ad761130b195166a34e1ba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0291c3799d123ce2cf4e25fb.webp",
+      "sha256": "0291c3799d123ce2cf4e25fb6e8c2276174824c771593d8e5bd20df37179d66d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/032116bd2c33b9658e06136f.webp",
+      "sha256": "032116bd2c33b9658e06136fdc93285f4938dfd2c92198244b0cfebcba3f0b82",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/049114c01a8d507424c66d7c.webp",
+      "sha256": "049114c01a8d507424c66d7c6beb95bf68b68d690721ce46f81cb1613c56c962",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0a9df7dcf488a60b3800123f.webp",
+      "sha256": "0a9df7dcf488a60b3800123f6d253b0b3303ced82d767cae0d3a00d179b85990",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0c3f97e2e1fdf3350c9eda42.webp",
+      "sha256": "0c3f97e2e1fdf3350c9eda42d33fe54426d5e460fc1f11ba3e918bc481283377",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0e3350157731122f3b32d3a4.webp",
+      "sha256": "0e3350157731122f3b32d3a41deeb44ecf5a916b16bfb9c7aa314e0ae52da3f5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0e98db6136b665d6fe6e5299.webp",
+      "sha256": "0e98db6136b665d6fe6e529928366d86f7e8704b146fee515d59a64367120627",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0eab814bda01c1c36b5bf087.webp",
+      "sha256": "0eab814bda01c1c36b5bf087c6179aa6a3fe2ea8809ee98178a56039f8e9219c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0eb26c46f0ebf0236ba98ddc.webp",
+      "sha256": "0eb26c46f0ebf0236ba98ddcc7609da61d6ee5b12911b5bfba7f014b7b1838ed",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/0fe8ebe4fec9b5303b78cf52.webp",
+      "sha256": "0fe8ebe4fec9b5303b78cf52bd5330bbb7bed00115307a802af95d923b93dd85",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/127aa469279a0840ad56f6ae.webp",
+      "sha256": "127aa469279a0840ad56f6aead1b164628e00cb214ce7fb4dc0d94a3af6de5b2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/141a99d43963792515af7e14.webp",
+      "sha256": "141a99d43963792515af7e14e15bd84b1078c93b04627af96c4666e2bf44f5cf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1536ad88354e4cf97c70d020.webp",
+      "sha256": "1536ad88354e4cf97c70d020caea3a533dc21cbc738f5126251c0a5547473f53",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/155a554f604257b2aa4c6e45.webp",
+      "sha256": "155a554f604257b2aa4c6e45e0d72723337fa59712df005653c7087da2e2526b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1678d36d6356b47c3631d935.webp",
+      "sha256": "1678d36d6356b47c3631d9355e41dc8ba9472e4510508cf7046b3131105e53dd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1759df7205ae6858661ed415.webp",
+      "sha256": "1759df7205ae6858661ed4157eb7be51da607e481ea505e6b8107ce93476248f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/17726720ed29b3d80036551a.webp",
+      "sha256": "17726720ed29b3d80036551a5d44e1efda3770ccb46e3f435b21e6cf97aaf08e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/17fcfd836ffc82d95d00ce83.webp",
+      "sha256": "17fcfd836ffc82d95d00ce839b7af16108ac869f17d209cfd7baa6fda9434f03",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/181b0b98d9cb1a8801c6cc0e.webp",
+      "sha256": "181b0b98d9cb1a8801c6cc0e6a7681f16383136243f6d5380489ed3a9b12a444",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/191bcd7759ba360140914858.webp",
+      "sha256": "191bcd7759ba3601409148583e9b3394f208f4affc5106478331a64a36961411",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1958c334371b00cee945a2e1.webp",
+      "sha256": "1958c334371b00cee945a2e16d49191301000290c1e95663bca8c956630a7832",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1a42fc5972dfe9bdbb80da9f.webp",
+      "sha256": "1a42fc5972dfe9bdbb80da9ff05095e1179888677f777c0a1601fe86051ed14d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1b35b5acb958760235c67ab1.webp",
+      "sha256": "1b35b5acb958760235c67ab1e3e018bc871eef4fe3650bd6b2b31b2c173849df",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1e0777615eec1971b733fc04.webp",
+      "sha256": "1e0777615eec1971b733fc044e2a7533a8a8fe67e2d35b89533a5822a2e68949",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1eaf60f94974f7b8cc1e1a70.webp",
+      "sha256": "1eaf60f94974f7b8cc1e1a70b1dd8addec368ad4d0d1b45c013a840d119bdb4f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/1f4589effff2739173ece318.webp",
+      "sha256": "1f4589effff2739173ece318b72659de8b669307a77b635f26feb957f0a52832",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/207837e425e25c7c1c7cfdef.webp",
+      "sha256": "207837e425e25c7c1c7cfdef7c786b7e4f6d20294f0d1f00d0e8571d57f769ad",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2112fb5bd100dc9061668ea6.webp",
+      "sha256": "2112fb5bd100dc9061668ea66d45e1f60a8e0b8ca5fa1ce2f3c1736c85779bb4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/21a6c4fe37938289b113ac54.webp",
+      "sha256": "21a6c4fe37938289b113ac5486db42206631599208f95a3b7e36548d0193b251",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/21cc018cfa9fbcf45cdb214e.webp",
+      "sha256": "21cc018cfa9fbcf45cdb214e17ee9e571862e93aaedf60208fa876cb08b58657",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2411c3809acb8b37f32237bd.webp",
+      "sha256": "2411c3809acb8b37f32237bd1539415003b20dd080969525698d98fd85e88ed5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/25af4a6edadfb03936d101f6.webp",
+      "sha256": "25af4a6edadfb03936d101f69a68bb7fb0b8e3496652a124cf7913139d6e7eab",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/260ed78209811ddd4cb12808.webp",
+      "sha256": "260ed78209811ddd4cb1280819173cd4e704066987c8eb446ea913c0dceae181",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/26c7ad82838e31135a39822c.webp",
+      "sha256": "26c7ad82838e31135a39822c2ed241f5cdefcefdfa1d6c059bbaa593e1226e6e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/26f3acc22b3bc38c7127b26e.webp",
+      "sha256": "26f3acc22b3bc38c7127b26ec4194a68b3bd8628a9ab08b7c995778f5a95a60d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/27f12d1be9f40b2147406e47.webp",
+      "sha256": "27f12d1be9f40b2147406e47108b381a97e6dd3ed0aa147233e577868ebbfbd0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2a6573750efa4330e003ff0f.webp",
+      "sha256": "2a6573750efa4330e003ff0ff5c0f711d4eeb76f2f0c499b0fe7b597dc045a97",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2cd76e32a4d0a943e936d943.webp",
+      "sha256": "2cd76e32a4d0a943e936d9435a2f4874b0b17caf28ff10bee070bc660bf7c78d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2d6e7751f36c745456240c6f.webp",
+      "sha256": "2d6e7751f36c745456240c6fea88d58e96623797125890866cb1fbe70a993f60",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2db11c40b9ad84b65cf12e0a.webp",
+      "sha256": "2db11c40b9ad84b65cf12e0a7e9ca47d40c9d56f3be3db3eb450ad671bd79f1b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2dc1b021412b43b28398e291.webp",
+      "sha256": "2dc1b021412b43b28398e2914a8828f16699d57aa753305d630712475da93ab0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/339e55f22b82435ca56cde57.webp",
+      "sha256": "339e55f22b82435ca56cde5784e81772e73ae4ff45338d5f893b56d20b4e3f7e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/357cc3b23296cb63143ca47f.webp",
+      "sha256": "357cc3b23296cb63143ca47ff93088e148196574b3e946c0fbda1ef207a61bf2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/359267a3f36448b29514c7c9.webp",
+      "sha256": "359267a3f36448b29514c7c9a83df56ce4eb1c481873676807778eec49a81654",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3593cf1fad63735360bbb337.webp",
+      "sha256": "3593cf1fad63735360bbb3376452a4f34829b5d79c69083fe651f16d5003e056",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/372631c5262b78e466924132.webp",
+      "sha256": "372631c5262b78e466924132357f559b582ffbe97d706dc5399360e7017b09e2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/377db7033238d4f462a9bab1.webp",
+      "sha256": "377db7033238d4f462a9bab165b983414721252585d74fc693181f1cda0752e5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/37a4a2eb197ada0ca35f5439.webp",
+      "sha256": "37a4a2eb197ada0ca35f54396fca514f65322a8f886fd80db75bc2f9d98c34bc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/37a52f60e07e293de3b2bed1.webp",
+      "sha256": "37a52f60e07e293de3b2bed1c0c86624bd3d16fca34e428c78173c14f28f8924",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3a9f0b24962cf901550f406b.webp",
+      "sha256": "3a9f0b24962cf901550f406b0ce20d5a8bef4b3b422859b2c6c87913d79fa172",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3ad5b58b56a687c5f42b5b5a.webp",
+      "sha256": "3ad5b58b56a687c5f42b5b5aeb3d565045c80eccbf0efa9883f2b5469beedfa3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3b2dd4efc604074cf0f90791.webp",
+      "sha256": "3b2dd4efc604074cf0f9079168f0810eb589adac86769b0951b53ac66b002759",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3b5123231f0d141ebd0e8888.webp",
+      "sha256": "3b5123231f0d141ebd0e88883371193cd5e242f39f0c4ca12c43144d34396c0e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3bcd57afa0d5ba60eefbda5a.webp",
+      "sha256": "3bcd57afa0d5ba60eefbda5a38d999c08f4ce312cb6ab0357659f60c66e0b28f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3c84e4ed2a67f89119fffadd.webp",
+      "sha256": "3c84e4ed2a67f89119fffaddd2d3244ac0df7775bbfa1cc79e29cc0fb2518c75",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3eadd813ee1250e17a747f14.webp",
+      "sha256": "3eadd813ee1250e17a747f144ed8ed367b03e9c5d0a29fdd973ae1fab2ddfc05",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/3fecd37b41beba9f1ec5658f.webp",
+      "sha256": "3fecd37b41beba9f1ec5658f2645008718873e321cc880f450563418ddc8c4af",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/40d766121c5fb154aeaab975.webp",
+      "sha256": "40d766121c5fb154aeaab97551e3c27c2433a35267e2dfa149128137607a9f04",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/411a22fccf91c74349106f7a.webp",
+      "sha256": "411a22fccf91c74349106f7a560fcd3b07ddb21e2ae8112ec23d8cc142c21859",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/417e3462e76e7b2acf0fca42.webp",
+      "sha256": "417e3462e76e7b2acf0fca42d49c17b85e6a4424cee3eab92af3c3fda73da4de",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/41dcb510865048359f9b303a.webp",
+      "sha256": "41dcb510865048359f9b303a0d488e577f2ac72a4343207e4df8ff38300d6cc1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/426c29bbc5ceaf710ac17514.webp",
+      "sha256": "426c29bbc5ceaf710ac175146fae3e08ae7d4949249385c2ece02965726be2f0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/43141d51febe4d7e49429735.webp",
+      "sha256": "43141d51febe4d7e49429735289ea615c8b87ec6bad1fa18aa974b7026fdeb5f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/43f076092c320046e0c6dbdd.webp",
+      "sha256": "43f076092c320046e0c6dbddaba54b106cac4edcba912c126218152daa704615",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/44cded1f9b485d7664dc2d52.webp",
+      "sha256": "44cded1f9b485d7664dc2d52988b9ba97e0d3c710b216360f1b355a8d2dc58ab",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/450237432e8fedc6494fcd9b.webp",
+      "sha256": "450237432e8fedc6494fcd9b93ed1772f73175cfd2205479370a15a4e45600df",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/459659149b546f5087e9b2a1.webp",
+      "sha256": "459659149b546f5087e9b2a164d0b3f9862e0cc995bdd15b5cf76c692b7829ed",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4619618c244393f31d49c737.webp",
+      "sha256": "4619618c244393f31d49c737be15b346e312103bf1086dfd8a9320e8555c36e4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/46c1a48b2817d0c96987a201.webp",
+      "sha256": "46c1a48b2817d0c96987a20120df079b96459206d7a99584f51cca83bbf58995",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/47a8e0a49f621ac555a647d6.webp",
+      "sha256": "47a8e0a49f621ac555a647d6929e14f9b95d6f78253395210a0005b4fbb72e74",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4a7805e884f4ec4004064cae.webp",
+      "sha256": "4a7805e884f4ec4004064cae36ed4d2a2ebe0c47f427e6b76454fe969e8242fc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4ae37981b282ac8242fc7820.webp",
+      "sha256": "4ae37981b282ac8242fc78201c914b111c23c33d0db80dcf852118cb998f6122",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4c029b6f457fb80554902e25.webp",
+      "sha256": "4c029b6f457fb80554902e252ad1410b8caf4aaef1fede0ca59c413f672b229b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4ccd8831bbdfec0b69d46562.webp",
+      "sha256": "4ccd8831bbdfec0b69d465629062c90a6b18ebbe8ddb5f59313f635722149f84",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4d95fc1d6bfc262cee6e29b8.webp",
+      "sha256": "4d95fc1d6bfc262cee6e29b858fba91458b5900a4f6f583f1a92cc5b10087829",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4df0173d8e4668a8590c4045.webp",
+      "sha256": "4df0173d8e4668a8590c40455230751b32d37955040a65ad6110d75df67aea74",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4ec7b9149db2be949e6b7143.webp",
+      "sha256": "4ec7b9149db2be949e6b71434895ae9758f21cd7efe3054ec82da363bd4ac146",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4f19cb38e4bcdd1334a81050.webp",
+      "sha256": "4f19cb38e4bcdd1334a81050f2bb27d0990aa6c3cc8a4ac041c32b4faeeaf6b2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4fb630956577710776bd3429.webp",
+      "sha256": "4fb630956577710776bd3429bce89acedfb2b409a101fcde15e5887d27c696a2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5184c22c26bbe1560de77888.webp",
+      "sha256": "5184c22c26bbe1560de77888482780b049f01b5e1051bb8d628d7bd56205c280",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/52644d55cecdfc58687c29a7.webp",
+      "sha256": "52644d55cecdfc58687c29a7205a43003b7d3024fcfdf48a8afffcad06e962be",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/56df91d5af8f89597f70559f.webp",
+      "sha256": "56df91d5af8f89597f70559f0d70e8cedf4bbee1ce3394e6cc29304b24f8e080",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5962e006e5284f4df20dcdc7.webp",
+      "sha256": "5962e006e5284f4df20dcdc78ea633d3d5ca0f8f23fcf2ea5e94c7668c449524",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/59e8a88d88a3f82ffdfd741a.webp",
+      "sha256": "59e8a88d88a3f82ffdfd741a062d1f24f1e056fb63a980d4fa5190def8157ded",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5acfdfb983a26f63337a7a05.webp",
+      "sha256": "5acfdfb983a26f63337a7a057033a2028171b7b52dbdd192136d2f5c3e232005",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5bfce3e6462d95e7096aad97.webp",
+      "sha256": "5bfce3e6462d95e7096aad9731c287efdef9d3604daea4bc28366ee26e59eb9b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5c4153cd5e5446c0dc7d2efc.webp",
+      "sha256": "5c4153cd5e5446c0dc7d2efcb9c1b67e88ccfd8fc75ff000a67a2be87b87caad",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5d25b360be0e41c9212d0e92.webp",
+      "sha256": "5d25b360be0e41c9212d0e920f5570b47d7410548b0884784d74730e7f4b9ca3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5ea4fc28bb6741ef5db603ad.webp",
+      "sha256": "5ea4fc28bb6741ef5db603adc9145269539a9609a755c0fafd39e7dfc4b04890",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5ee19b96824c2b3edb0402de.webp",
+      "sha256": "5ee19b96824c2b3edb0402def1ed51817c4f541593c4c8c87d1933b1a08b1d80",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5ee900f8ca70944b7da51a2e.webp",
+      "sha256": "5ee900f8ca70944b7da51a2e418e5148ad0c14ecafeca11a338499ee066dd3a6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5f6d048d931aac0c70bd9eca.webp",
+      "sha256": "5f6d048d931aac0c70bd9eca08eb6eaf1d679b04960ff956d884efd85e39d469",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/605d1cf496f4dcae9d7467d1.webp",
+      "sha256": "605d1cf496f4dcae9d7467d1bb2d02b6b8b3873fca57cefc8575a08b433dd69a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/60798c5f304a7b0dab7dfe9b.webp",
+      "sha256": "60798c5f304a7b0dab7dfe9b95f439a293c26ff1aca2992dd0f46c29cc7572d2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/62ed49d1316618c01b4a042d.webp",
+      "sha256": "62ed49d1316618c01b4a042d23a2cef3fe7cece872700612d121e1a7f1a092fd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/643d0f47288f7c7b1b1daf6b.webp",
+      "sha256": "643d0f47288f7c7b1b1daf6bd9e5047cc45223fcb5c21696499fa357d1ffeee6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/65499a4d6d507182ce0b45ac.webp",
+      "sha256": "65499a4d6d507182ce0b45ac0207c4a6f624daa4d0a57b473697ec3e620a8297",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/65936e692e7a182158be5da8.webp",
+      "sha256": "65936e692e7a182158be5da88e4235e9c3c8c6c0e7c4558edf731ab947f1d574",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/65a0562b2e46ba0457d692ce.webp",
+      "sha256": "65a0562b2e46ba0457d692cee431e07e7c2d79ac34ab3eda40edfbe22881d03a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/68cb6972f06536b33dad63fe.webp",
+      "sha256": "68cb6972f06536b33dad63fe52ee96598235d46bb994df9c8246a5e391e1e4cd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/69ba63fb17819cac1a2ed7b8.webp",
+      "sha256": "69ba63fb17819cac1a2ed7b87a445b7d8b82959191258cc52c8914146bbf97f9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/6c07e802379fab5883fc5968.webp",
+      "sha256": "6c07e802379fab5883fc5968f5bdcd70d483da52ad288b398aa4a9a92894a63a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/6c0e618c1d9aac564f876409.webp",
+      "sha256": "6c0e618c1d9aac564f8764092fb3284b63afdabb27f74c8992faff48da8c0fc9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/6d8c27db93b11f542be43f96.webp",
+      "sha256": "6d8c27db93b11f542be43f96529fc17a0680669ebdfc2eeb899314db8a08ebfc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/6e37742cde8211230e27036d.webp",
+      "sha256": "6e37742cde8211230e27036d813ff18a29b319a036fe8eb63b0d890f3d9a0f21",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/6f492ba545216dad65bc9e3b.webp",
+      "sha256": "6f492ba545216dad65bc9e3b25fca5559a1150e181c50e81f6e168f0285fa3fb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/70ab56f754390eef995f7164.webp",
+      "sha256": "70ab56f754390eef995f71644df0755465c8b4d84fe1faa54f9f58deb51fecd6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/715d816b4f6ea9f2ca656e77.webp",
+      "sha256": "715d816b4f6ea9f2ca656e776105d34c56433cdb257ffaa74a1687b4f76d04c5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/72475025e7de459acf015c3f.webp",
+      "sha256": "72475025e7de459acf015c3fedc2bbdf9610fd26e3aa5842ad766aa20c5a5179",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/726cfa32b468b2a0bf1df240.webp",
+      "sha256": "726cfa32b468b2a0bf1df240bbefccf387b54d31542196851f910977ec3cf8e8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7362f75ff77bea1f04d446c7.webp",
+      "sha256": "7362f75ff77bea1f04d446c76e9f34a13c5a36dcb08ef5b4139f9fd9d8aa1ee2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7386b612638e255dd8061f62.webp",
+      "sha256": "7386b612638e255dd8061f62c92117b28b01e968bfb340bfc0c8ebf8f3c58c79",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/73db5198eb4aefeb62e07c25.webp",
+      "sha256": "73db5198eb4aefeb62e07c25f06968d6c5c64d2395b5793abb83e611ec3cf902",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/76020f55b2c98a8fcb3082fa.webp",
+      "sha256": "76020f55b2c98a8fcb3082fa8af93ce69516c42933f94977be97938d32bdcd78",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/76e6fe4193aafc469b457e4f.webp",
+      "sha256": "76e6fe4193aafc469b457e4f105652ac46f5ccf2fb8f01d42bf1f9c39cbd7cb7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/78076944f1a9d872cf5a5d38.webp",
+      "sha256": "78076944f1a9d872cf5a5d38983f193615aca475d961b3b2df5bbab7d067794d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/785ec3fc5f2793c4b45b11e7.webp",
+      "sha256": "785ec3fc5f2793c4b45b11e75311b0578ab87156ba136f7873b4b230af058353",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/786956a5f997358ec9705f2b.webp",
+      "sha256": "786956a5f997358ec9705f2bb865acf2df91ff922613b0c41e04122a13bc5bb4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/79b9ee200a3580f9e6f435a2.webp",
+      "sha256": "79b9ee200a3580f9e6f435a2329afd488a0fc1add464816c8bb69d498920ce72",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7a5cda5ca224e96369b174d2.webp",
+      "sha256": "7a5cda5ca224e96369b174d26786b65862dc7ba6f8262e1da04ce7af50c38ac1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7a9928aa100feb675061c113.webp",
+      "sha256": "7a9928aa100feb675061c11350ec1dce33ed78eafe64ff58254c3e6e55450c1d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7bffdfecaf282513a96c6d62.webp",
+      "sha256": "7bffdfecaf282513a96c6d621f59e2ea161b674a18beca48947c91522933c1c7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7d7bdee24f410015a0b9ccb6.webp",
+      "sha256": "7d7bdee24f410015a0b9ccb62419bcd4a58dfaac60220adbe81cdc98ea6c583c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7e25165da2c61b559b6cd9c8.webp",
+      "sha256": "7e25165da2c61b559b6cd9c86951c47216858072d2d04f31807dd610b641b05f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/7e5b96256246a48780b14069.webp",
+      "sha256": "7e5b96256246a48780b14069833fcb20b3ccf7006d064455e8f1615b6d5f8970",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/80afdbc43f5535f38f75e277.webp",
+      "sha256": "80afdbc43f5535f38f75e277fd862bb48d984e57c78a57f1de2e1eb4d9ed4d50",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/81ae8124a49a533a330739c4.webp",
+      "sha256": "81ae8124a49a533a330739c43e6bdfec42dcc7a4773e4ef80218df65a6bd85d7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/81eaf1dc3d76590304aa5b46.webp",
+      "sha256": "81eaf1dc3d76590304aa5b4693364f6dc40520252d1f98fa76f4c4563991a41c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/83f7d215fffba6a55ed434a6.webp",
+      "sha256": "83f7d215fffba6a55ed434a69fbdab578887481c38228d52589ed4eaec9d6cfc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/85648f3e76b28b9d92d3b320.webp",
+      "sha256": "85648f3e76b28b9d92d3b3204bb7ff9720a518f5412b7d813b890f24b3ae42e3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8738f2b7eded78199db37cf5.webp",
+      "sha256": "8738f2b7eded78199db37cf5e46bf0675c27d51b96c2cc653384910ddf0aab7a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/87dd2901eff02725855bf7d2.webp",
+      "sha256": "87dd2901eff02725855bf7d2daa946eaf95643e9cc50cf6bb06250cb86bd2956",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8a8b9f2dc63e8a101d4fde35.webp",
+      "sha256": "8a8b9f2dc63e8a101d4fde3508a4aebb0c522d69090f21de94b4d74db06aa40e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8ad4ef0357b6171235ba2217.webp",
+      "sha256": "8ad4ef0357b6171235ba2217cddb597839ee67e95415200210c3a4951dd2684d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8b1f58e4fc9ac728b571cb46.webp",
+      "sha256": "8b1f58e4fc9ac728b571cb4624f8221be5eb4c127ae528d4572476222ffc0980",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8be873b2f0e5960c971ed3e1.webp",
+      "sha256": "8be873b2f0e5960c971ed3e163879e34d11cf41a2f92ad4295fb71af0767d125",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8c96aef7cbd8dac20089d7e6.webp",
+      "sha256": "8c96aef7cbd8dac20089d7e68515e5fa00d7aaf6f18d3b2e0bfe1605f987ffaa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8cdf4e0ae3a74350f7ca2a8e.webp",
+      "sha256": "8cdf4e0ae3a74350f7ca2a8e1e7eabef6c0a9c3756c6e3da3aa02f4bc5450ca9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8d2047a3ffd44f1d4eda9b9b.webp",
+      "sha256": "8d2047a3ffd44f1d4eda9b9bf618c95e26fd9ab5a814d2fc6d8652e30d3d14a7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8debd1c98a3d236ef147075e.webp",
+      "sha256": "8debd1c98a3d236ef147075e6de1981fc63e8bca75af896abedfc3154dbbc37a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8e4485d2a07a32885066a284.webp",
+      "sha256": "8e4485d2a07a32885066a28423f8963051d121051ed72132a881db814cf11ab7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/8f56a7a107aeae1994327488.webp",
+      "sha256": "8f56a7a107aeae19943274887f411c69092cb48b74c1e0bc3f80f4017518e0b7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9119bb3dbdd3ec0755d70a81.webp",
+      "sha256": "9119bb3dbdd3ec0755d70a8114a5ccdc8ce8c2094624a88ffa83a803528275ce",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/917fdf5c8b8a2c78a18f99d4.webp",
+      "sha256": "917fdf5c8b8a2c78a18f99d4495000e30c81457444b0475ebc9331e90e37c8dc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/934cccd78449c4264ec7f90f.webp",
+      "sha256": "934cccd78449c4264ec7f90f3511cb7da514e5fd398928df98bdffbf2ae1e495",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9406c5dde894e8aee64c946b.webp",
+      "sha256": "9406c5dde894e8aee64c946b256d35306af464a5230edc3778206d117e702fea",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9785891a334a29d990a6a19a.webp",
+      "sha256": "9785891a334a29d990a6a19a6ca4791943be0cfea5fd2009a158d8037c7dee1c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/97b83a39255da9ed101c7089.webp",
+      "sha256": "97b83a39255da9ed101c7089370e20d6ab3a41e247d015475261d47a6abeed39",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/985e68946180305cae8d4c52.webp",
+      "sha256": "985e68946180305cae8d4c52ef22d25eeca93005a058a38bde5abc3d53150eb8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/98cda6d160d2a31efa6ef05f.webp",
+      "sha256": "98cda6d160d2a31efa6ef05f19ad0e852600203a71c6eb23c34920c3a04ab6ab",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9951f18cd02c8c0ee480ecae.webp",
+      "sha256": "9951f18cd02c8c0ee480ecaec5036ce07798cbd0dab3a9e1484c096c92917eff",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9afcefc80dabef5d41cf8465.webp",
+      "sha256": "9afcefc80dabef5d41cf84650d056e9028ee6b28ebdc086566070dd1deaa27d8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9b5df9f53e7a7668b99a95b1.webp",
+      "sha256": "9b5df9f53e7a7668b99a95b18cf9f76fc5b61049435e876ad7b9242ba5524f5c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9c634ebe018fbe26fb6374cd.webp",
+      "sha256": "9c634ebe018fbe26fb6374cde8ce7e65c7b3d44cd4b186cce1ce8915bdde50b2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9c9621ddece7d278b1fe227a.webp",
+      "sha256": "9c9621ddece7d278b1fe227ac3ce392c9b6785d9ec3c670bb916b9a9342fc16f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9d022b5fa5df070d9e7b79c2.webp",
+      "sha256": "9d022b5fa5df070d9e7b79c2de7481348545e873595f3ca39a5e2d8f93fdf980",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9d7a6558a190b7d612119e62.webp",
+      "sha256": "9d7a6558a190b7d612119e6253170a2217bb389b357af8b03aadbeac1b25d785",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9d8f1752ed1110cd26cf1896.webp",
+      "sha256": "9d8f1752ed1110cd26cf18961c181f27e72d0ed541b409e55e0db0768f0e6409",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9e2fcea00940fbf395283923.webp",
+      "sha256": "9e2fcea00940fbf395283923a7ae71dd645ee84982e9af3c7b7e04f2238b008d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9ed3c61b71fdbd6ea19e98e8.webp",
+      "sha256": "9ed3c61b71fdbd6ea19e98e848594faa657f3bf65799055710ea0ff295a988d0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/9fe003a6fcba024568bfcd5d.webp",
+      "sha256": "9fe003a6fcba024568bfcd5df02ce8a6283d0d83e8389d7c4cd0bae37a744f95",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a053ccfa8d2c2ba003636df5.webp",
+      "sha256": "a053ccfa8d2c2ba003636df51e29cf5f4c391008adbf56c3a70a4688fd665472",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a0961a9c63267a15c89a7cdb.webp",
+      "sha256": "a0961a9c63267a15c89a7cdb333e759a2b7caee2612d9d943225349101f9dc6c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a097c06330624be1ca992882.webp",
+      "sha256": "a097c06330624be1ca99288210ae4542d235a62d2d61668a31fff35ff5f95e47",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a3f1209804064596d4319a0c.webp",
+      "sha256": "a3f1209804064596d4319a0c7dd4bd9d21a0421d06f87233a31894aeba20e9fd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a3f4e1a4d266404f255bf0ec.webp",
+      "sha256": "a3f4e1a4d266404f255bf0ec241d78c1ff67e94d0156519994eda3ca64fd034a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a420925601f8c5bce8b35d94.webp",
+      "sha256": "a420925601f8c5bce8b35d94aa42a8a3912928570233b18071f193a25521dd13",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a441be272b7c048aa6fa535b.webp",
+      "sha256": "a441be272b7c048aa6fa535b1a33947caa248589c0d6ca105eee49c3678ffd15",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a5749f307e0976c82c2b6197.webp",
+      "sha256": "a5749f307e0976c82c2b6197dcabb414530adcf49a3eac40e637899a043541b9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a5c0866e10f44a45d6bc6ddd.webp",
+      "sha256": "a5c0866e10f44a45d6bc6dddcafd0afd8f59536831061063857ab0dc43f6575a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a6f88128146aa712a1b17f4d.webp",
+      "sha256": "a6f88128146aa712a1b17f4d3f3112b7c5f53020b3601fc5ffec90d2978fe7cd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a8d1d869775ac22556b45972.webp",
+      "sha256": "a8d1d869775ac22556b45972ed7fea9d70e578bbd21c83ee0d778319532ef87c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/a97a67cd859bd66b3310d10b.webp",
+      "sha256": "a97a67cd859bd66b3310d10b058335ab73dce08dc0080b17f331ba385e19e19f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/acaed092c6ce6bd90e86b7f6.webp",
+      "sha256": "acaed092c6ce6bd90e86b7f6a1020bb07053d0848b2ff2fdb603f818e4d0bd4c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b00cac2fd58ece1749e0d11c.webp",
+      "sha256": "b00cac2fd58ece1749e0d11cf25fb878125106e22660bfdd545c571a783cf6d8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b13af6ed677ce37e9c47edf9.webp",
+      "sha256": "b13af6ed677ce37e9c47edf97957e03fb467e35a9c790fea2f348723ce26241a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b19ae2931b62fabc40c18060.webp",
+      "sha256": "b19ae2931b62fabc40c18060a912739538fc1d3a0f67d539b03568f602f5de37",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b41e648e6580b79587de9ff1.webp",
+      "sha256": "b41e648e6580b79587de9ff1c760d4e272241e1665d99f16e4e5cd1ab3dfdc1e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b53001bd1499aef61f3e5c2d.webp",
+      "sha256": "b53001bd1499aef61f3e5c2d31dc88ebddc7b1f951ee69f911ecbf2d0abedb56",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b74c7d211161b5182a9c4c4d.webp",
+      "sha256": "b74c7d211161b5182a9c4c4d5488576f690eadcaad10ce85f4d11eb265f5f176",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b7acc6eb6daef4fa968593f4.webp",
+      "sha256": "b7acc6eb6daef4fa968593f4b0cbb8626d23204b38dc180e48e684b54bee2583",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b8bd3758410458c7d58c200c.webp",
+      "sha256": "b8bd3758410458c7d58c200ceaff2a55956e3532d2c92de8001ba3974940ad38",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/b9339baeb490cc03852cc2c1.webp",
+      "sha256": "b9339baeb490cc03852cc2c14714221c95f5c8208668ab34f6595916a8f4186d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/bbd96d7cfa6a7517726ff97a.webp",
+      "sha256": "bbd96d7cfa6a7517726ff97a469d83cce63539efc660fbbac349593e84affbe6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/bbfb94df63ccfd06cdc076f8.webp",
+      "sha256": "bbfb94df63ccfd06cdc076f86f3566ac5d44c296a60f11fcad2de725b1d70c3e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/bdabdd0aa50c007036179f81.webp",
+      "sha256": "bdabdd0aa50c007036179f818a80253a40834a8cd7055d9d5c5b54080de1082f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/beeb384e4e7830dc8409ac10.webp",
+      "sha256": "beeb384e4e7830dc8409ac10abc1715f52ae8b24a3955e3770933be8ef57e2e5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/beebfdef02dd87a9f2a07086.webp",
+      "sha256": "beebfdef02dd87a9f2a07086f2884d22dcc1fa250ab3a3965ca48d5570b2cf2a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/c0865fbfa9aabfde2b092c70.webp",
+      "sha256": "c0865fbfa9aabfde2b092c705a6c0837d1cd069dab603502d2a2d8c493348ee6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/c1ce29485356453b70ca937c.webp",
+      "sha256": "c1ce29485356453b70ca937cc160320db00f37e09ca9abd0379a7ad2d740a1ab",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/c2b269c10228ff0b63871927.webp",
+      "sha256": "c2b269c10228ff0b63871927d1c9286080f0e18ebdacb5a08e0eb49a52c9d44d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/c6e18461314a93d75dce9bd3.webp",
+      "sha256": "c6e18461314a93d75dce9bd398be3dda86349e683bb544b955910c7543930773",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/cb1e757ffdd83c708ce52192.webp",
+      "sha256": "cb1e757ffdd83c708ce521926127db4a79f9412ffc665b2e296d472dc05eae89",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/cb272616229db1fcd084c158.webp",
+      "sha256": "cb272616229db1fcd084c158bb01425f4b9526751b0a6147c582073f3e8075f7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/cdf81c42b13d52735ee48536.webp",
+      "sha256": "cdf81c42b13d52735ee4853636869664ce116412bfd72579f5d7b7b02c3279a6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/cfe003b04d645ff655577ccb.webp",
+      "sha256": "cfe003b04d645ff655577ccbccc9ab7f721ea49ac001805ba607100e5a007bb7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d000f931a840c17fdf687a4f.webp",
+      "sha256": "d000f931a840c17fdf687a4f04dab28e7d6357bf41e2fc15292ae430e14d8d2e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d0acd206561f03b5e3878df1.webp",
+      "sha256": "d0acd206561f03b5e3878df105ffd3b496f5dcef23192ca2e1112ed1c624a27e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d0c60dae9f72c2ed574bf4d5.webp",
+      "sha256": "d0c60dae9f72c2ed574bf4d55d6828cc5a2ed3590276078ea383abc1eadbc17a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d0f19d9e8f554a805568b568.webp",
+      "sha256": "d0f19d9e8f554a805568b5683207527f10a2f78bd7c044dc5be3d8b91acb09aa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d0f2cdb08394064e6ff8ec29.webp",
+      "sha256": "d0f2cdb08394064e6ff8ec2938782a3bc3c24ea6fc5a5fab0118ee6692810c8f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d1059eb387b71aa6f0cc8576.webp",
+      "sha256": "d1059eb387b71aa6f0cc857624e7522b6baa49f918c10562f35e85c76c4d0769",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d4e2442778c1554d9a4ec67a.webp",
+      "sha256": "d4e2442778c1554d9a4ec67a380491effdbf2300676bf3dbbfde5906eb65d767",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/d57c6d0c59d345e8e0336c2d.webp",
+      "sha256": "d57c6d0c59d345e8e0336c2d24b5f7d7a780ebd803506a61710f4f6267874b7b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/dbaea051b5c89710f70ce8b1.webp",
+      "sha256": "dbaea051b5c89710f70ce8b1d04bbec64a33b2209c513c03b08168b04ea02702",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/dc447275b666f0ace2c8ac25.webp",
+      "sha256": "dc447275b666f0ace2c8ac25d7c86ce2a9d680d130d413e2b868419ec30897b8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/dd339ca02158fb5c03f90b43.webp",
+      "sha256": "dd339ca02158fb5c03f90b4326b6d6a12f35f56382561160e21f00a390a9bddf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/ddcee894e4637e85349fdb72.webp",
+      "sha256": "ddcee894e4637e85349fdb7205227746eebc9f13fa7941917ad21178c9b68478",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/def7424bee7cde6e80275953.webp",
+      "sha256": "def7424bee7cde6e80275953e1436bd16deddd77fb1931ae66d8e79d40b3ce6f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e09c75e719b6d695c7f4e234.webp",
+      "sha256": "e09c75e719b6d695c7f4e23416524164aefa08bca6207efb682876057db144ec",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e0abb9b8d8dc07d2877a36af.webp",
+      "sha256": "e0abb9b8d8dc07d2877a36aff4aa907c5db95ffaf70d3a97561b1b6412604922",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e14560e965a3718daf45ad1f.webp",
+      "sha256": "e14560e965a3718daf45ad1ff6127305deb622b56b24f9d7dca777254e30d70a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e215d54f9866a262e6e8ad55.webp",
+      "sha256": "e215d54f9866a262e6e8ad55e2273b551a79d871ee24ac42fab35f4913f3c2c3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e281b7aaac8da22f8f827c06.webp",
+      "sha256": "e281b7aaac8da22f8f827c063fbe85c51273b8768bcf39a2b523b06657c0d6f3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e2df26370e6fc5d96b88b262.webp",
+      "sha256": "e2df26370e6fc5d96b88b2624c909b011333e23b3cb40d45399b1c8058ecb48d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e4bdf18d40609896afbe754c.webp",
+      "sha256": "e4bdf18d40609896afbe754c0d5721231e60d810e144ec59a3d5f10c35bd4eca",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e4e6318dfc9dd41b8626f0d0.webp",
+      "sha256": "e4e6318dfc9dd41b8626f0d0ea86d6d4b62c0307e4e43e07bdd2c4ce367db637",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e54e45417c0cae1396bf4a45.webp",
+      "sha256": "e54e45417c0cae1396bf4a45fdcb460b5521920ac9785f42ca053a244cd0a921",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e5e69df618eb956b0c4cd542.webp",
+      "sha256": "e5e69df618eb956b0c4cd5422a6ea9ae5b96cd2ecbbeb982262282953d5cab8e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/e88d9d945224632875ae3b4a.webp",
+      "sha256": "e88d9d945224632875ae3b4a5eb373454fa0d879d908f9e163670f258730d347",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/ea1f5367b4b062cf9326858a.webp",
+      "sha256": "ea1f5367b4b062cf9326858a7889381162a77964cdf0ba663cb5a7a6127e3c13",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/eb1f0f32b4dbde4186dd2645.webp",
+      "sha256": "eb1f0f32b4dbde4186dd2645a8c1eca70d77880981d28b08948a45bf6c8fdea2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/ecc09e1410f834c96ccb21b6.webp",
+      "sha256": "ecc09e1410f834c96ccb21b6e228de429c6d68e836c4116a2732c47cad9969da",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/ed509669572a057aeeaa9781.webp",
+      "sha256": "ed509669572a057aeeaa9781cd9cae794c0023c15757f091e1ffc4a60c8e345d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/ef59016efcc72c8b4b2b9637.webp",
+      "sha256": "ef59016efcc72c8b4b2b9637a413e33cecdaea0e9665e940c2dd92c50abfb875",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/ef8aa37c1ebc8857edca2f12.webp",
+      "sha256": "ef8aa37c1ebc8857edca2f128e4cf61147b548fc3dec4a4c8db242bbfae95fce",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f2d33a649bf958b03c6075ed.webp",
+      "sha256": "f2d33a649bf958b03c6075edc221f18a42a7d4f64f1604570f081db1abd47306",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f2ee81591cf72fc87bfb1fe5.webp",
+      "sha256": "f2ee81591cf72fc87bfb1fe56a0c6429e9047eb2ed6f7687d441c4861581dba2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f44d5d1287aa459debc8f5bd.webp",
+      "sha256": "f44d5d1287aa459debc8f5bdf6a139d723286548a560c167b9c514e25deb80b1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f4e1897dc858b13f8c87cf45.webp",
+      "sha256": "f4e1897dc858b13f8c87cf45522f7964d3e3526710fcdea413a6b709c8623091",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f5ec878f3334a198d3438c06.webp",
+      "sha256": "f5ec878f3334a198d3438c06bf23bc7d80c6745222522bd34371cf18f59aee49",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f7e27d06801170377f430669.webp",
+      "sha256": "f7e27d06801170377f430669faf986b35b314749b2efc3556327c02e85e30c1d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f7efeb33b832e8f770f1b747.webp",
+      "sha256": "f7efeb33b832e8f770f1b747379f202f29bcd63534ffbe616107d33208b64936",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f85b38ee6ff461d17647fa94.webp",
+      "sha256": "f85b38ee6ff461d17647fa9443f423df0c8b173601e48898304fab9dcb9c932b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f8a6cc9bf1cb031d668a7625.webp",
+      "sha256": "f8a6cc9bf1cb031d668a7625d7df97be5b9b2c1cc2d9b30abf2879d93cadf0ce",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/f9dba7e4fa56f028f4ad2be2.webp",
+      "sha256": "f9dba7e4fa56f028f4ad2be2fb7241db84019b1450f77eab899e1a7aed93ed2e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fa95ce36e40616421169ca3b.webp",
+      "sha256": "fa95ce36e40616421169ca3bf726791ff423e9631b48170809b4cdcdd4d1d130",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fb13b2da912d74e8848e8d43.webp",
+      "sha256": "fb13b2da912d74e8848e8d43c25b4d505dd648342b99512861e54c51d52b3275",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fb949f304e64d6d043b7a98b.webp",
+      "sha256": "fb949f304e64d6d043b7a98b6b73560b4e3addb2916eeb880dcc0a5c43661749",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fc161679b990019087c4b744.webp",
+      "sha256": "fc161679b990019087c4b744f64028d57e840d42cef19f22399d0daead8ba4dd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fccbcecc5f1e0a3bfed7c76c.webp",
+      "sha256": "fccbcecc5f1e0a3bfed7c76cbe0253d2f82c09d3658b3da5797f6d9b4d2c1c3f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fd2913498f1d1b04a85a02c2.webp",
+      "sha256": "fd2913498f1d1b04a85a02c2b53f6e177abf2478bcb90ba9c768a2c6743787ee",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fdaf077b565cd4db6ddb4551.webp",
+      "sha256": "fdaf077b565cd4db6ddb45511da462b4e981457be6138030695484045fc75580",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/febd8f0e2912c1312935ffc8.webp",
+      "sha256": "febd8f0e2912c1312935ffc850c974807490d54579bd2cc9e3e9bef58cd4b2cd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/fec0940f949c4f4364d6f154.webp",
+      "sha256": "fec0940f949c4f4364d6f154d4030202fc2a796c0c4e344ba59408a6249b9bec",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/covers/gr-a-26-cover.webp",
@@ -223,2352 +1705,2822 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
       "sha256": "6521ffff3f523517ec803176b0e230cdb7c6334e1c1bd34dbc4ac8f32756df61",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-001.webp",
       "sha256": "45737f1630b25b464d05e41bc8c5b43409c2496f2d4b25a0ccccb91e5a9a8773",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-002.webp",
       "sha256": "1d77c42f9ee5fd5fe3e631a226349f25cbcdd28e4d562fbb813274372a41eff4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-003.webp",
       "sha256": "2925aa44b120b5f8fe9b30c2a244ca405de0a4eb51b8cc957d5513ad86dda058",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-004.webp",
       "sha256": "939049389eea1f62b1b51b9b394f4cfc045c36a3417516aa64ccebdeada0bd15",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-005.webp",
       "sha256": "2c0b99d48edb321a33a485939bbf701596f9f36fdbffb7ff75a956898f8626d4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-006.webp",
       "sha256": "8b668dafe52130bb091ae09d7ec575d8779158497b46011388ad00655be1cb1f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/page-007.webp",
       "sha256": "f4827f4bb4e8ed3b580034273b69566ef04e26b6bb83ed2e4bdf44c88f34eaf8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/cover.webp",
       "sha256": "d3b375b7718bbb17c66a3d2216b79a189a13febd84fa9ac4d451f60256a705f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-001.webp",
       "sha256": "1cd99dc7dfc48b43ccad84af4a3dc173862590756f7897163c1982ccdf431718",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-002.webp",
       "sha256": "58136805b1719f9f84cc6c08b8ce44867366d1ede0e69485571f11ff119dc60c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-003.webp",
       "sha256": "73bbc49208103cb11b2250422b404d3011c9c5b1dfd4da0834ac39196279e20b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-004.webp",
       "sha256": "74acaf770f1f87d35b2ac1ee6c6c277c5d180b2e4c48da02eae9494ab3094821",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-005.webp",
       "sha256": "d54ec5c00c4da1dee418b9ebbf01c3af2c8a5ec57de726e97345401c154f58c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-006.webp",
       "sha256": "2c017c2223700d7242c77d084b72b5e44f6e4fdbd3896a73527dc95888aca90d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-007.webp",
       "sha256": "37129914bd416ccc63c779c57aa789875e973c3c595f61d32e32e9363b0a6403",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/cover.webp",
       "sha256": "d8de17ab724bb7de19a054214db397c1c813b2cb857aa1a2a84f3254a7062227",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-001.webp",
       "sha256": "3b59d79e3288b9b94837a846015f575d144d7922a0e637dd05e0470e3dbafa6a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-002.webp",
       "sha256": "823f5598a3b7396f1ef92dea1325a756a4351fb03d4b7033ab94889e99b7bfe5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-003.webp",
       "sha256": "4a83b5ea2d852062202a48d077581f5e2af59bf7bffeade0beb6cf3a73459abf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-004.webp",
       "sha256": "59371ec91965d02a272a4be5f0df03d67d4954c5137ebacec664fe3cb69ec750",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-005.webp",
       "sha256": "92ed9d3896a84618e6ff1fab90e67fb557ff2692af90eff6eca54b761fcb8044",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-006.webp",
       "sha256": "e8cefc13ed8add601fb3110e680294530c9b52975a3937479868f9675ef3dede",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-007.webp",
       "sha256": "39d086910202ae2493a23cb15dda4c5ca0e2d5a94b1e1b28da1605529c84639e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/cover.webp",
       "sha256": "48f3a0f37b4af69cbd56a69af4dd7d17598ab2d4008f20c4ba24eaa688b28d53",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-001.webp",
       "sha256": "0c96d1870e0b7bdb7fa505e39da2a0f82e83449bc678b81efc2f485decdcdfae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-002.webp",
       "sha256": "4ff2452a1acb45c34952458698962472c38b9d648cc5759a517a5b0cc771e5cf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-003.webp",
       "sha256": "bab3076307dd6b9f04e71d58d11d4da482b80b1ae614961f2a7434016eb2b755",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-004.webp",
       "sha256": "7955a8b5fee52298f6456acc4109f9d4af52bd1ed2cacf4218f191bd3e135feb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-005.webp",
       "sha256": "0c3851e88cbc93b96565916d70e91439e6bfc50ec56e524181336e56ad2c6bff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-006.webp",
       "sha256": "c074c10684a9154f0a41a8607ce60520e37114cd1709bbaa25dd50567f716775",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-04/page-007.webp",
       "sha256": "27b876105479c14e81d4e48e8911f5847641be840c2f8aafef09477e5b636644",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/cover.webp",
       "sha256": "c01436f39c13e1e9818d6006ddccd5ad3a05edb9a8f5e8ba34d7c232bd8feb53",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-001.webp",
       "sha256": "69d9ddd5f14b28058d60a094bc59f13634b134b99d101a896cf97063a64c31ee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-002.webp",
       "sha256": "f766539a641979c6e52fc7a8cced9a3f464d7241a01eb20786a6be798e3fbfdd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-003.webp",
       "sha256": "2fc6966c7d215a0f705907119cba061b3d0dc105b37469193adce5660ac1aac9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-004.webp",
       "sha256": "87ea95d3a712046e3796a5618d1995ad4a46fb2204c3405e53293705658e2e8f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-005.webp",
       "sha256": "4541ca0fe3a807df7c5da94e8df5a08d6e8957eab26bdc815679132e2a0f9c33",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-006.webp",
       "sha256": "0d4616bc0583f707c010ae8dd4b7c31038b897c26932e1d33362e6f1cbcc5f86",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-05/page-007.webp",
       "sha256": "792b9a0ac0e9e23ba27fa777d3929472a88e31df566cca8012e2a2e6a2415eae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/cover.webp",
       "sha256": "3692647e531a18754a39e51282cb0311b7e5865d6766b43eef2b1cd084be3dfb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-001.webp",
       "sha256": "b25ca391e972ff807f745803147bfd2dbcf49544936c364b78d16f00edbc75c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-002.webp",
       "sha256": "c87988705ead70c63b15d83e99dbca626f0d52f894176fea92e0c40711f7d711",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-003.webp",
       "sha256": "c4db0de17ea8d534f5792bb095b1fb8e8c2f6e7eba20709ca36f54351d883c46",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-004.webp",
       "sha256": "935ca16fbbd2ab3453fd9167d87846f4157c8f7ef74339b330369db555ad2d60",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-005.webp",
       "sha256": "fbfdb1830f750d9f94aa5aeb675efc748a3f291e6063f5b5c31851c2687af343",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-006.webp",
       "sha256": "aa47494bdd4bef2898d25b71810ba374f713760b616af03841be2dc505c89d53",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-007.webp",
       "sha256": "7cc04d24b027e164322240bc2b80cc5593a0f96b29bb98115b24a5ed75140e6b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/cover.webp",
       "sha256": "577d82bd2c1f37dbbfd7372d54c0efb251c0f8f8e05a220dd535920f442b7b7d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-001.webp",
       "sha256": "087132dac3255de6677e5d7172ce1f19114237fb185984b63c053985b3466228",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-002.webp",
       "sha256": "34ee479bda6a1e0bc8689e15554580a35248ac6bf64191ad8c7bbbd03555ee19",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-003.webp",
       "sha256": "2f36255fcb77ab845e9ad3dcce9f7cf6511dff79bfeabda7c63cd70e13d31925",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-004.webp",
       "sha256": "889c43d5e734fe0ea0ea4f3ac146fbbcb768ae3ab70b9a3668879bb0b83eddda",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-005.webp",
       "sha256": "37162198fa9116b8369921787922c36a865c996f9dc61c047ad29ea8af414290",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-006.webp",
       "sha256": "1558099848291c095440b57b486ae65946bff47a2de169213b157aba6220fbee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-07/page-007.webp",
       "sha256": "b84ff4b1b02ecb85ee6c83dacf2905b1d853a1db0c3cd13806736f2bb461b92b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/cover.webp",
       "sha256": "55000d9cffbeb2b51e320c05988e41b2f8fc299e744f46e4a47a50c8f2c817c4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-001.webp",
       "sha256": "b376f07b8187be743e43cff6ea8f304c8a86928ff66744d6644a9e7afcb0dae5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-002.webp",
       "sha256": "25969f6136075e4375491e1ad087a824568f7fce99e4db6801164f0873e16f1c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-003.webp",
       "sha256": "cf3539112ef6cc3b487afb46cd86ed2dce4a5db6a17f54929f252f6cddd93677",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-004.webp",
       "sha256": "afe932f77f65f6f1d746c289f72d1b60ed6b7639164dfbfde18cae6115c07ee8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-005.webp",
       "sha256": "47810c21a7bbdfe5fcdf109dd753dfdbffebdd8641819d5573052679f50a8d6c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-006.webp",
       "sha256": "d1192851a8f56f79f96974718ec947bd7cf8a36cace5638c598a1710afea6ea2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-08/page-007.webp",
       "sha256": "b9a6294c28d4dcf2c3b4bac8ecb1bd17cbffd131de642c7ac2250a0eca90b4ed",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/cover.webp",
       "sha256": "ecf017ae9e53f4ade94b58c6ec9242844e048e73cf57735d879d36c22cdd7d68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-001.webp",
       "sha256": "d2d262a65d4ecb81231d9f7be2cb0ccd813442b7d3aa88736c661917b5626399",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-002.webp",
       "sha256": "0c9c3f36ba2e6374bd086b88d9d1d8fd66436e90023624e6ff02939716a6fd82",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-003.webp",
       "sha256": "2e87932e5b5d384121b33eb59fa074babff67751c9b8633b0c65d14b543430bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-004.webp",
       "sha256": "7254c5af8ca226d46929d83ceb60a80ed17d5b8b3b4e0452539c8f5147900567",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-005.webp",
       "sha256": "74f18e8ee098cb2502651d25c1a9309f1b583611d8c9f245bb0c134fa4d3ddf6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-006.webp",
       "sha256": "2d1d54c6527d7983a4eecacaaf306ea69e44dec07d7abcf2395c26e1a73f479a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-09/page-007.webp",
       "sha256": "f74de7fb3d5536d1c6ea05c8c28dae09e4d456f261cdac64f33364fb558b3fbb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/cover.webp",
       "sha256": "75864941c529ec0cbecde0e4d7b9826efb83492f04ce9831b6f3e3dd5be1f429",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-001.webp",
       "sha256": "b5deffd54adca69c5da9d0e918d231ddee2fbd032de4b1d140212b1f2401602d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-002.webp",
       "sha256": "3196e5e9126dfb13c1a64bf08f4cef381c938390f44e6df7bc7f2e0c183c0e4f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-003.webp",
       "sha256": "7003bd52748e159928e38764abdfe9598bd8e993a5e8a89b9b7448645bfaa3c6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-004.webp",
       "sha256": "1feb74872e74eb93bc79c3bec63c5a036368bb71430e16f5b0e8d4dfefb2e673",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-005.webp",
       "sha256": "8f2588b53d4c3bc85fb9464b3895b40b44cb0568751398bd47185d63fe945d9d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-006.webp",
       "sha256": "011c773f0658f749d1ad1e498ac70c06abb18761bfb33e8e6c84fe12420ce190",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-10/page-007.webp",
       "sha256": "0fbc5f343f88a123bb860069185891be18f6c7dbfff312a6d1c14172196b326a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/cover.webp",
       "sha256": "a96d55528ea91a89e0969fbbb005501a1e77bc8bb5f71c494bac8737601813fa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-001.webp",
       "sha256": "91f21fb5e018c405905b96b7de489200587b5f2c6ba46b3fbc91c8c59edb7a07",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-002.webp",
       "sha256": "de9403cc2c76561016faaedff66fd32529919df612518159d5b1c00d2e840996",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-003.webp",
       "sha256": "819f701351d953fa421ac9b7682b9d0f14831dd562036b5626041a5901244091",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-004.webp",
       "sha256": "485ff677c9be7fb635a40643206fe232eb9992f55fff6d301f3c4e48939d69eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-005.webp",
       "sha256": "a4f6dd7abee1e05f7439da4d585a23b22b42af53ae0789300cfea46b99788db8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-006.webp",
       "sha256": "f4279848b988c5b8cfd97a921fe2ae7cd478351558637f3503067831e69b7d56",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-11/page-007.webp",
       "sha256": "1af5e313eabfc3dbd4d78ee15cdfd4cd07243fdd5c979f274b2bbc7ef083fd5c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/cover.webp",
-      "sha256": "ddaaa74813f39b67c0c0e2b07a53a4a2a4018931e665d0010d453c06a5eca046",
-      "status": "approved"
+      "sha256": "646e35c2f3219a47b3fa25d4ebd8c5ed13840c48c70380394c769ec226a70e2b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-001.webp",
       "sha256": "daf27f96c668d4d54397af4a25cb7c4ab959f29071efdb1170876f6effe6f254",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-002.webp",
       "sha256": "6a07d5dd0e1f7e3398570c4c49be627b9b7e050ad7ff41deab7480b7c1f46e8a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-003.webp",
-      "sha256": "75301c0e23b65b437d2f91e78ff50d52ff4532a64cc4f05e6a0fa2998b527a31",
-      "status": "approved"
+      "sha256": "e3380c08fdba8a8ec95da0fd19acdf0ddbde96252fcc3c1ade49d4f576e09033",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-004.webp",
       "sha256": "054618dc54f80c009959fbae5dbd7e1cd68cccecdea1f5810b56064b8ff1ab75",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-005.webp",
       "sha256": "fa2daf08dd364d79517ac8622360129d626c9ef0f9f86671b7a19407bf4461c6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-006.webp",
       "sha256": "7d14dd26b06ac83939b82e12c1427ece058b5726fc925a81a5a7081e5722c764",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-007.webp",
       "sha256": "d17c6ce68043c676f4140601992dabc0cb51c4a5823bb42c1c6e62824e34c4fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/cover.webp",
       "sha256": "1e2496db89b2d888d8ccbf89d2c94d8e22dadd2da4b9efdeab1b79b31e6ba713",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-001.webp",
       "sha256": "822e4f36915de5ef38e59b846874e9f847df943e03b9c2dcd7157373c7137604",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-002.webp",
       "sha256": "1302ae6206c7abc2aa128eaec190ce53844b63037d6b77340c4239492b041175",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-003.webp",
       "sha256": "6cdb32d10c7a0b382f417349db2ae017daef9887883ac95def4d9247097613c1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-004.webp",
       "sha256": "ac219ee11be2f6adb0b33c886a4a3e67503a282ee9e69e7792415d13eb59b9e7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-005.webp",
       "sha256": "3056ccbde3991d99e498f3993410784d209ecb060f5dab8185266bd0c010afec",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-006.webp",
       "sha256": "40b5c59c8311c55f62953325d8e2e1cbfa1b7342c6d7258290f1231a6e8f85c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-13/page-007.webp",
       "sha256": "ac1639bcf52fd835fff536f254bab4638c499390c2524f4bf59b9fca0e1ed3be",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/cover.webp",
       "sha256": "0f6bb4f91a5d67217f45c7d76cc15cf1313f59926e6d612a27e5711d311e4699",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-001.webp",
       "sha256": "3e9ff266ed4a653b071b4912feeb4276566e46dfe840aed6467df24f3f2bddd2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-002.webp",
       "sha256": "6d76bb369f777eb617c69f0ee1693834ceb5024c4730d51dea8024c5e106acb4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-003.webp",
       "sha256": "caf9ef9a8ad797792896f1750b9e94937d676190d01fcf6bcc5f47b8d38c4432",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-004.webp",
       "sha256": "7d1f40b2676ed5b35ad23f30dcf4f9bb9ee8c09f91298108bf3b3eb409551f12",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-005.webp",
       "sha256": "f0d50fac70682df7752f4335bda2816e3361cf1c80b50c79eb2b9df028a0965d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-006.webp",
       "sha256": "7550eb154b59dc9c6872949a8a5064b28e700eda5c659e02d391cbe192448750",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-14/page-007.webp",
       "sha256": "de05a8f63b54995900d43ba30a362cf4afd2aceeba21e4b1b72e067b49b7a12f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/cover.webp",
       "sha256": "fe1e50dff6239d42f17a0bce589fd03c86ad2e5a8321061e2be1b9b109aa2972",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-001.webp",
-      "sha256": "38352c3b102a79640e5fd499d00f2348571424aa7fa77799952c66416db57158",
-      "status": "approved"
+      "sha256": "9704f5ecdd5b2bcca25733468b2968093070f4368a6bd6a7e58a484c849db302",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-002.webp",
       "sha256": "87398ddf9741cd0f7ff838d048b3ddf71535a1f32ec10d98e1978759c9ee65c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-003.webp",
       "sha256": "d9d14ddea0d99ebf6bc3f775eaa84fd304f2e9cd9862b8415ac688c96a980c07",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-004.webp",
       "sha256": "d5ebbe8336ece017e566ca585ff9ccc11f6a622f3c280caa2d919ecee7785777",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-005.webp",
       "sha256": "36e5dc923509b0b3aedd92e736d34b6967f68f1f1abde6037c4d8cb02c3fcd1e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-006.webp",
       "sha256": "014ebfd51c769fe44309aa4503f88ec659dcf93bc4a0e87ba95e6edfe84e7106",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-15/page-007.webp",
       "sha256": "cc5416f9c8eb64aafadf573f1dd6a7be52a76886a4afe96f1981671640a0df8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/cover.webp",
       "sha256": "0330ce34a5c9a1341d200ccf66d6ac96f81acc6c80e1667e392060b73f29e78c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-001.webp",
       "sha256": "13fc6b15429e2ee985529671647e0c0874cf56779422883a3a6bf8f3b3598139",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-002.webp",
       "sha256": "3bc5eec97cb7a76e4ab7670cfd3994294744ad899fcf6e2472f78ab99ff29e2a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-003.webp",
       "sha256": "6c6a9bedff731ac2e63f37b9701c7a7ee91eccaf8ca6172e6849f6268930d043",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-004.webp",
       "sha256": "e07de2ea2a37582047dda33974cf86432532de1978dc705a977580360a6ab11e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-005.webp",
       "sha256": "7cb49bf4f49c9444c3cf54002b3a8dad1d3f3e35a9f09b012522128b595588b0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-006.webp",
       "sha256": "667ce089781a90346379862e5110b6a96ef6c2097039e69c49d7928c4323da98",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-16/page-007.webp",
       "sha256": "3fb64ab7e53fc52499e43b7758e1afb1b064f239f4b3220a6f2b0dafe78ed9ac",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/cover.webp",
       "sha256": "0b125fe0d6779d9f53d1c94cb58898a65638e21e8e83699eea33e2908e73e372",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-001.webp",
       "sha256": "5d23a96cb12f7a3247bea9e871ce8c9e2845feea643d3feef53c1b74b2885e47",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-002.webp",
       "sha256": "6aa00a3f019c40d5aaec1237da1143aafb84168026c1ad542e695363c92c6373",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-003.webp",
       "sha256": "5b57cc4af94c7cf309c7e4cddaa004907b09277ea3e4352e2103637e340e4a79",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-004.webp",
       "sha256": "d651f592e9bf7c2ed343c248d016eb7bd30dc64c731e0144d46cf89039d692e8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-005.webp",
       "sha256": "26b7eaffdd791612c8659e98c5a54334bb5188ded9dcf3c6e8f969807fd8f273",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-006.webp",
       "sha256": "00d31560da2e6430ac2a9c3d5b6ad624e66c51d3c9a9e9b9ea32db5f4e7dc274",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-17/page-007.webp",
       "sha256": "7bf8514bda18bd1eb89ab9b5168bbe21b29fd626ccf25e38414b7ad4de57d621",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
       "sha256": "6132d925dcfe5783706f5b100ec289c0bda137c1e637055d7b1e993414fbe7cb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-001.webp",
       "sha256": "b1ea09e01f0aad0fe08e689559a3e4777d5b5537f8ddb08f0ac0403bb5c87baf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-002.webp",
       "sha256": "4130c64b4c92ef0990dc4343ad1a8e65f61b4c51a13f96d296c59b40ae45f380",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-003.webp",
       "sha256": "91742de492d73866c2c345e6dfff8cfe80aec2fd9b51a7ad675b4d41df3cb386",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-004.webp",
       "sha256": "3c7119705ebc8310fc0e4509677ae73bf902a57634087beb4447d4ea132076d7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-005.webp",
       "sha256": "b9a5f340dee6831b6ab02df06529b448965c15cdf74c043b56d3b1d22383ec56",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-006.webp",
       "sha256": "3fa9e34336272466492742fe24818a849c48495807b8cdfdd9ada3190195705a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/page-007.webp",
       "sha256": "b773da10d05513d4ec95c1534573be85a96182f0338ad9e088c7fed6a1bafef9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/cover.webp",
       "sha256": "65a6c7a9db4a4d299e69f96064f642b7982e73f75da6a654e205f43ee17b1b08",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-001.webp",
       "sha256": "95a4d6873d73387df1b378ee63f7e57a39f3bd40c9434511dea039297ccf9c21",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-002.webp",
       "sha256": "1917fe36861ef8ca211403df1ec08667b00483d6315aa0f16f79be2c655b1af3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-003.webp",
       "sha256": "9ca7292ea4a50aeb9e40c2ecf35cbc416949795f430958fb23145da68fdf6956",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-004.webp",
       "sha256": "35398569a775da5d1bbdb1ea43d3b9f130ad07af0fd08e8438b0bfe6e880b426",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-005.webp",
       "sha256": "69d849c5f76079dfd07c131a1ecd93e77b498d4e70804f3da7838fedc4b46965",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-006.webp",
       "sha256": "64c2b6050e633ef276c671e322381047fe21264cf441edc1e230e8ff7ad55d0b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-19/page-007.webp",
       "sha256": "f52eab7931dd3597bdcb6fa2ee32bf7dc67038ca7f699b66fe043eb7e2900b71",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/cover.webp",
       "sha256": "c52a4b8775af9c80fe5e2bdb54bf0adddc0c6e9a385e2221f2aeb6b66b2150ab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-001.webp",
       "sha256": "c10148d5ef287034e9183b1816f307e9dd9931831f2e7f2941d8e63646fbc462",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-002.webp",
       "sha256": "beb6634d6b858f9184448d3ca1933942c1901f75a1dbf3bf5d3afcf09240faee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-003.webp",
       "sha256": "ac64f4b22cedd9423d5083e1be9c6fce343b82155c806c260072e228b0d19b6b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-004.webp",
       "sha256": "42aa7711733fe3adebb6cfdbd818271004b547e5fabfdcc87d11ac10bb691a9c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-005.webp",
       "sha256": "ca85dcb051a79c136f42b8389e396063ef12e363808a986c6c898f1af76e6510",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-006.webp",
       "sha256": "704a1133b92a6dd8eee0b747fc419ca50ea807d92797e3706548ba9242738219",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-007.webp",
       "sha256": "f2f2888084f806eaeb0bc47ee4df1c368f3ca4f56e8d80e6429c07cdaeb472f5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/cover.webp",
       "sha256": "5c65604a4239786e5b945ed7fcae70fbfc890533d8685822a31e14aab652b8f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-001.webp",
       "sha256": "b6b7fdaf42d7387d6d9cb18c775bdefa515fc6a878e1125e0244924d056fa5b2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-002.webp",
       "sha256": "f632debc72f6cfb9c2e70a055e84a6f8360d3dc9623c627b007f14e7d27dced9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-003.webp",
       "sha256": "f32c512fa92141a99af3201605cf81529acd65fca28098521dc88464a9298cb2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-004.webp",
       "sha256": "364ea14da17733c236bcbeb3020f969dae49ec194b23b2a97d124a64a58ee385",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-005.webp",
       "sha256": "fa8458cab0ce036f506ee113231267ea65469af6d1eb692d50f2acf7321eef8c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-006.webp",
       "sha256": "9c57ac73b382fe65e91be4c10e7003d8e4f087f66dea6a43916a2aebccc38b54",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-01/page-007.webp",
       "sha256": "1c161b66585f8ca339cfef3f4e65eb5a9e5eb90e7695cd29eb9215fd4b2711c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/cover.webp",
       "sha256": "939da8f106ff7ee6e003bcd4e6c1d76c1eed26057a8f7af71482d28096515bf6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-001.webp",
       "sha256": "9e043068590289ab8378a44302321a02254bcf8b20c397278ce106b58869a2d6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-002.webp",
       "sha256": "9b019187ef7cd9ba4239a2b74b0a0ef5422317ed3b891e94cad07e9ded1ef9cb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-003.webp",
       "sha256": "e6c33a5f805a270a2e0c5305f942e78561b6f64dfba981c9667a8263c70d03c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-004.webp",
       "sha256": "8e94bd03434d68fc478d95114c113d4e76c0041dd431afc10c652ac8911eef7a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-005.webp",
       "sha256": "8f922dcc19d148c7e7dc7612089f3f34043dd5d56c1d514c95852bf7afd77bd3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-006.webp",
       "sha256": "8883459875e0d23966ba7279985fbdf3a34e34975695fa081525a84fef5792ca",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-007.webp",
       "sha256": "c6e5e12a6f11cdef21dc00e02e8614a723becae2fa7d3be67c41b2cb5014f3fb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-008.webp",
       "sha256": "b341f9fab3637754db362c7f78e62309dce7c8a2aa282e361c38f8a303212c96",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-02/page-009.webp",
       "sha256": "a79378fbc59ce78e98b5f6f010f6147bda3ca8f5536c8d994a5665d50e34d127",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/cover.webp",
       "sha256": "6c42bf96577aff78548e4e59aa1ab2fa48905feddb57af70da18f10297c1f6a3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-001.webp",
       "sha256": "fac4ac73c2ce5cf820ca9f3c4b14cb4602083e0ed80f4e457506b2cdf211c619",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-002.webp",
       "sha256": "7560a5d56de6c5e740868076a0a0f12adadf6a1cca91b48edac1246b340a0d42",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-003.webp",
       "sha256": "16af9d26bdad2dcf3430de31ac07c1ff21dd9b738cd4d3915c10d716effc0ad7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-004.webp",
       "sha256": "c13a1d2cf598b58140568e35222baa142d9213d6bb37834a4d6be8bf0e981088",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-005.webp",
       "sha256": "1ad4b04aa390957228bee38f73a065eeed4ba91bc8c9eef2c227856446735515",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-006.webp",
       "sha256": "e50122ec9a79a6e4f4b7cffd4c1e46bcacca72c4b93654df59f0efe241120b83",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-03/page-007.webp",
       "sha256": "169b5cb17a4c7b2e9c3b5e1d8bd4869d3acc8309731a06cc2921f9faab5b1906",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/cover.webp",
       "sha256": "5d35006b2e48fea482c900eb4f6ade40e93220a0401f01790f94e99d8e475bf1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-001.webp",
       "sha256": "ffc5eaaa4f4e11546f626d0702f1517cc715a16450d438952a9c076bbca71f1f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-002.webp",
       "sha256": "855b8d1cc1159dac902f239c0c64111bb4e30c5b58a0d6265b79c65aba82e574",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-003.webp",
       "sha256": "42be70fc58a0edb75d3706608d502d11c1cde59e682fdef56a109e6a5a3396be",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-004.webp",
       "sha256": "0a011208e6b1b0b830689b0b0892c07757787c2d8ebfdc7291a15b8ece450e64",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-005.webp",
       "sha256": "20d7fb84f2f3477eb718fa47e9b36c356a43f5596c568ddb4b1f04685f014ac3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-006.webp",
       "sha256": "f7abae0d2d7947191ec36bf6ffc49a5bc2f882d70a437b26444b81bf2a7b6bf2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-007.webp",
       "sha256": "64e526dc825a60c1cb3a3d429f50cfe35b2c1940bd66647de7d802cf92431fe2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-04/page-008.webp",
       "sha256": "f849992f7da1833e0858bce010babd14df6d18a5d7be2b99288f69f58d05f743",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/cover.webp",
       "sha256": "d6cedd8f41aaacca26092e34248c123f2f5b944b08eebec96b0eb0eb999c6fa4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-001.webp",
       "sha256": "b43242d7b060a22bb3670c6b288828a990e6d1fe2df9571b5709f5a1cc6fd1c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-002.webp",
       "sha256": "70586801a709d24be23ad063f719df4ea90468ffb486cdbc1ec7a9873f2e905c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-003.webp",
       "sha256": "26325b390c3c803c19b8985da738b1f5b5bc4047103762b2b1b149b017b8fb6f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-004.webp",
       "sha256": "01c3aac280701142148658f986db5728e106e3f0d9b239fbbfd615e6b9653c4b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-005.webp",
       "sha256": "5ebe3262c1ab6d28e9eb27266ed218648e2f7e10fdc10ce92878384960c48d6a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-006.webp",
       "sha256": "fe020ffd34eafa819c877413ebce457b01d118455eeab6c9e1922e1419ddbd95",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-007.webp",
       "sha256": "99324b64651a7f4ec003d4c8c1a9a633a6900daf12238af72952feb1530edf18",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-05/page-008.webp",
       "sha256": "4c55019b2e6252d08eee68914720206606cd1aa7c5e30e8c6b599f89a038225f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/cover.webp",
       "sha256": "c3ed49cb8558fbaddd748d7ca7b9138af3639db3f6c96c731cf2b884e94a3f36",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-001.webp",
       "sha256": "2f0966ad096a9f7fddf51ff85c609f7f3f874a342edd39a1174540200f0076ac",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-002.webp",
       "sha256": "3c133dfdfec1f27db0d2f2a44e6543b47038b671f8382235257ae40040af640a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-003.webp",
       "sha256": "54b4f54d0be8276102977fc9445f4b970d1118fc4fbe80d3c71d0d44cf547338",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-004.webp",
       "sha256": "1a02d5910867845c1279bf46d0425a45493c461da28bbe114f45ef0d8dbf68b3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-005.webp",
       "sha256": "65196df440235038d63cba6bc9486021fb510660015c6e2032b289ba59ae238e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-006.webp",
       "sha256": "7e27bab9a41e7c6e5582169a87d957fef6ff2fb537976db8ae0442a3cc1ca085",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-007.webp",
       "sha256": "a7feb893ccac604228928217aa9ff01dd15a747586c9b39da6de261fe2595508",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-06/page-008.webp",
       "sha256": "ab10187a9481747c58811a84e74856ffd9aa59216200c74db9c6568691840b03",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/cover.webp",
       "sha256": "3b2f52557a452ed179e33cc1e188bbb6176c31a9b0ff3aaace3796a7dc74c021",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-001.webp",
       "sha256": "ac05eac108d26c08fd6d78b059601dd1d784e6e469ab41d69771638a27479682",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-002.webp",
       "sha256": "d36b8add56b65d3c5646ba89c096d94777f2a7ad7ad7ca24aad948390654ef7b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-003.webp",
       "sha256": "9f717a3c5827606da6e420106105d201ee345a8a6f6ee38f29f7ac56b5ed884d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-004.webp",
       "sha256": "56d642ebc8891a14e0d1c5d13e9d09f36564571efd957b1d58de17614d0a2b73",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-005.webp",
       "sha256": "fa135313edc5f67b072f6030730784308047011ea61d7c19e58b9316b4ef6413",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-006.webp",
       "sha256": "701f457fc3898747508d4ce6b1f8ba5dad307c142b1490d485203670e53e1008",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-007.webp",
       "sha256": "9648a2e673de127e139bc136839f9a15ea548b14f4bde3368c4d0555ca2665dc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-07/page-008.webp",
       "sha256": "05e3166471c8869209f3bf803b8c684bab7cb3a0ea5860c63bb56729854a01bf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/cover.webp",
-      "sha256": "66022d3e44446663aadc532e79c900e19b4dc945313fd2c2ce424a7b29ec47c5",
-      "status": "approved"
+      "sha256": "bd5bfff0f8bb75bfc82d2c7c79ce9205799bc0f8d9e968d361f4f8df1c824342",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-001.webp",
       "sha256": "bfa5ef5ce8f7617457808fd283445e8377c67f2fdd5755435378200ef83a73d7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-002.webp",
       "sha256": "1515177ce382c63cb10cb6aa0265b4b77546ab78d42cdf73ee96c8a28f21a1ab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-003.webp",
       "sha256": "87e2a97bc7d1818b83b80530de05a49b452fb0339904a8431fd1921ec3d35070",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-004.webp",
       "sha256": "4179572e56f93350e5b3e7f7b076f50b9cb9ebeff0677aaf7643043dc01fa737",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-005.webp",
       "sha256": "14fa9b4accc6af81736c5180efbaf7f1a5c137cd6dadbc61e4a0954f883afd84",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-006.webp",
       "sha256": "47371d021dfc40b99b5bfae2ed3ed2ddbd73366357599dffc6bb4209e805cfe5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-007.webp",
       "sha256": "4f1ba98c6c53ca47e4c9c410a4cc347e67f875d226356b0ba277da5435c85c43",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-08/page-008.webp",
       "sha256": "64ce1a3f706819b71915a9957071b0f0d2d1c7ec99fb0bd5fc1030fa9e25c973",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/cover.webp",
       "sha256": "10443a8499484968df7df4723992fbc68f243047071388c499a1ce8a5c0ffe68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/page-001.webp",
       "sha256": "2ab96cdc57d70622c760a0155ef4f4586ee9bd0cbb8ec15c1e58280ada5385bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/page-002.webp",
       "sha256": "670f283d785006036ced1fde362119cb18a70d13f7e46cb6170adc9714c3a786",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/page-003.webp",
       "sha256": "dd9c6d7e948debc5d2d83789f1804af93fca638a1e51998e0301867657aa2c49",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/page-004.webp",
       "sha256": "e194c69891087df4107c5ae9b4abdf2364dca905c2a50610cc9ba536f293c417",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/page-005.webp",
       "sha256": "448450d79bbd77b69aed6cd03df03d6c1f052468706ffbe6ea1aa83cd4f7340d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-09/page-006.webp",
       "sha256": "22330e464d70205b31790a49e311c87996d61badf819e866a1506c9b465afe40",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/cover.webp",
       "sha256": "21bb1823aa011ee75ba37182bb086dbf0f47996e53de61fe0311932fcb4be984",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-001.webp",
       "sha256": "7cd2f3f0c126f446569fab2e426b87dc59ff45eeaa82b4be1a671b51b19d60c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-002.webp",
       "sha256": "d48c0c1149f88ecfc85a2ac06c211e4ea5cc5bb885a6b0fce73e181e92cb3f10",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-003.webp",
       "sha256": "84bd3ed371beab6b668117428e5c7e8c7d33c38f51339768be35341a6cba11ef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-004.webp",
       "sha256": "7e2cdc3290201ac3e0f2db1c85f58ec590e67964eef01ba1ba69bd1cf420ceee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-005.webp",
       "sha256": "3d00d86b0b69fa03b78f1f67299b1a7e91aa9b8961271a9fa5e44fd12ff6aa42",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-006.webp",
       "sha256": "ed04d87be076f04368252592cb73d844fb60a3e285a1106b1b095eb67fa90bea",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-007.webp",
       "sha256": "bd160917179ea0167c437487f5fe14f511efc23d6f9e3966d53883f4e103cc65",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-10/page-008.webp",
       "sha256": "b13cd0fc474fd738bf228cfc437cfcf14fc6d223e5d2c3676877b3071fc5b4dc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/cover.webp",
       "sha256": "cb87fcc83f64f01e4ed833b5d48f75697b0dce13583244b12b4bcc47c319a27d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-001.webp",
       "sha256": "cfd63090e4fb8e9ba726af005f48ff33c4ad3046fc57854de701ca83d2b20f3e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-002.webp",
       "sha256": "132548ade5c9d8ae3268a6ad78be7a7bf64585db366bb64879371364f8451801",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-003.webp",
       "sha256": "eb6a97b4c165ac9999f5f39f7318d578ce7487169aef796494aadaef42e686b0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-004.webp",
       "sha256": "08519383904c4481eb57d9ee9e90800bbdc8ad3b030713c9d0851be8a5f597ae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-005.webp",
       "sha256": "c8a6fb2afe6f0570ed44ae2b774779d353de3ed3debd9048522c0ba5a9a4985b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-006.webp",
       "sha256": "f1aa29263a85bd4cedad40bf0830a1b8e3af750e8bdca8ecadcccd6fce9d36e5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-007.webp",
       "sha256": "620c4424fbc2c4869d0e15a4eecf106d062b835fa2aad25a57574aa4027dd11d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/cover.webp",
       "sha256": "11c639f95af6d60625de042302059cec10d93631e17abca6a0089e1e84052c12",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-001.webp",
       "sha256": "77b4fc9e85c626e16aa6c8cfb7078bd5d5a8bf03920b3f3e971612d554a2a455",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-002.webp",
       "sha256": "5e653cf54e5919abe63add51d4a1e9317c14c517763bd0b4a1a08ad0b718afa1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-003.webp",
       "sha256": "91374e91e9996d61d2df2c5debec0082481ceeee4b2fe17e474404a97b587d24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-004.webp",
       "sha256": "b45c49866e7c37aae81b24264b217e52b14fd7a9d6746b0293d6d4e8465d4491",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-005.webp",
       "sha256": "190fc1202e37b532f5ebdace4ada4e6bb2980e840f6728fe8074a1049af39004",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-006.webp",
       "sha256": "cb0f4e415618b1dc33969cba0cd118a561bb89e85f51061e7cf2236d215ae92e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/page-007.webp",
       "sha256": "8b83cb40f5f4c235564e1633209d7f91b7ea8463fed4cdd6544c98cb8367ee21",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/cover.webp",
       "sha256": "99371487beca311af8c380ea68cf21e6fb4ea8e96a9b88f9249c628a75db16bd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/page-001.webp",
       "sha256": "ffe6b30bcd56137f72e49cb905c426539794a5003e583e634aeef37295d7f612",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/page-002.webp",
       "sha256": "ffe6b30bcd56137f72e49cb905c426539794a5003e583e634aeef37295d7f612",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/page-003.webp",
       "sha256": "23aaac76ab6db428a56cdfc92893da0761f27f12dcc3a67c89734a634b828adc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/page-004.webp",
       "sha256": "805398123def955c94ea2db79afc1889a5e74aa7b7b357c4ed23f0b9e6b50d06",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/page-005.webp",
       "sha256": "a65f3dd1bfaa2907f4702d3afba0b116175aab1757838ed89d82d7b979035626",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/page-006.webp",
       "sha256": "6dcd60182f099ac2787cebc8168da63592259d6509974a0ddc13c2f5781028de",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/cover.webp",
       "sha256": "cca250e231627dff0330e8ea1bd3e072f42b7dc4b905d86f155f69fc21ab4b6e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-001.webp",
       "sha256": "29f98c150309f6abe619351d7f3b8fabf9c9f8592b15590ec6fce54bfe7f35f1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-002.webp",
       "sha256": "14c24d340a8b42cb70df0a7537eaf2fa0ba40ab562abe495b304fddbe8464e3f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-003.webp",
       "sha256": "1f0f51329c30aaf5b91414953658703469877f981685bad140bcfc77045e8ad4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-004.webp",
       "sha256": "b396427ab2bbcbe57c89674b836ce2952e7422b1edea20781928cf7e53d4ddf9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-005.webp",
       "sha256": "9354e8b27c482518fd5e70812e56b6a3e50efd30ecea37372c72ee259509a4ab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-006.webp",
       "sha256": "14277eac3ffb1f50646a132e5d4df22851264b1af6bca64096df2a20fa3bafc8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-14/page-007.webp",
       "sha256": "2c0c7fa842e3ffb57db69be829b7bdebe94c4a21f5db65aff90d8efeab1ee4d9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/cover.webp",
       "sha256": "8e0379bb5a021c0051ad48121bd490a82af82b61c192ce0dd7beeff4b3f3c671",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-001.webp",
       "sha256": "bf188521a8f2b3bee36e17aef7cee1d1a2ab95f23db601b5e20292f0f1547183",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-002.webp",
       "sha256": "ed37b1c3cd07cf87b7fb78de2dc0cd5940c4560481c6d278544c52eb595eb22f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-003.webp",
       "sha256": "1dff51382fa5c412a8f2d997bb6cd5db918bf567bdb441efdfd3e71a88295c96",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-004.webp",
       "sha256": "f5ab856ab78c7235dd4df1ef45c283a5acaa0252b81979ebc39b6221339c5a4a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-005.webp",
       "sha256": "ce06c6b43853ef622cb84cf329528632e0e9ab59cf5930d2d187a985f1011561",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-006.webp",
       "sha256": "9df0bf67e2cbd25394443671f1e425991adf3147a8fd05ffe1d5a889bc5f7c30",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-15/page-007.webp",
       "sha256": "fdee7ed0434dd35fdc334e5797f21103fb0d7b97e662a9d02f75a24e1330d496",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/cover.webp",
       "sha256": "1b323f19f6f948a8072d92fe2a8cf01ed88ddee1dc808d5f3a4ba3969db251ff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-001.webp",
       "sha256": "335a2458dec0dcd2767f24ab639825dc5f4f549693a627282773c90c15851fd6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-002.webp",
       "sha256": "ee44d8b0b788da5f78ab3d9aeab5749224a0034f955385cb851fc04cc249df4d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-003.webp",
       "sha256": "a5416462b682bb0c0aabaaeb27a9d4fc0fdbf5282ac233e659c4308cf231c480",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-004.webp",
       "sha256": "762bf1af5df63933931962d9bf10c8a8b481e06d6f699685fcdcdd532c03be48",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-005.webp",
       "sha256": "d3e4201b5e41c7b09f5a584ad576e9066c0fb80f58306ad07bcec1b604c1d9d9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-006.webp",
       "sha256": "ae3b806d283fa926795d887428b3bbef1c07b8dd551103541715f22f893e90fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-16/page-007.webp",
       "sha256": "d262af26dd3ec79517b1134d69ca04f79b38e83348bfcdcf84db9d6238e7ab4a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/cover.webp",
-      "sha256": "635f02f22a28012d8811147f4649b1c44a6d884f16319201d4d957ed27f0c4d7",
-      "status": "approved"
+      "sha256": "f2f5784fcf4ea979e78c6685791158267a2d9bc9960a0d51ee317a7d8aee7634",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-001.webp",
       "sha256": "2caf078a5f29a6c6259635fd5b7184eb8d7300573042157390a6dcaa7680140a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-002.webp",
       "sha256": "9db026c4b3fbd22eb5eec57f5d0bffde64e1d3589aa6551833be705f6e2fedcb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-003.webp",
       "sha256": "93901375b4bb58242102a6932bdebe2a04a7678eaa5aa0b6bad6509d57172e16",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-004.webp",
       "sha256": "1d7611a69c6c4515a6cab7938345affd7bbc02e4f0726118557fe7bb27c80c5d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-005.webp",
       "sha256": "610e5abb8d8f5b58d414d7622a61fb033e269e7d8fae775df31c5f0887f87ab1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-006.webp",
       "sha256": "44457a26ab47ba3bd480ef34242f93165481cdd1865f4e74bac7b7976498fe1b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-17/page-007.webp",
       "sha256": "380c8047a6cf61facab3eafc54145d0f012c8566a5331584e362e08c1430c47f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/cover.webp",
       "sha256": "1aa6769a13ff34103e4445546b09d3f7a0c495d3fa5c87f1e6aa828109929ba6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-001.webp",
       "sha256": "ee1f3ff0a78dd760bfe5586b18a1e99670991644841b14abcd59d599c82c3fcd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-002.webp",
       "sha256": "90298c009bfa3960347985605d03b261d3f951a966942ebad450e634bc9b974c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-003.webp",
       "sha256": "d96047b8b4cbedb483e20f5199b47331dd0fc21d09f2ec3061c26dc311df1747",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-004.webp",
       "sha256": "417f58f932afa33ce3d1260fe20665beed6f2fff8daf8c2a30277146cc4bab8f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-005.webp",
       "sha256": "7c73d912f8de63b33dcd32455a9fb76d80af873154a5ca2daf651347fe9af002",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-006.webp",
       "sha256": "f4661ec1fcb5218775caf13fbf22458d73e3dce6d6a71c9433f023705b266362",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-18/page-007.webp",
       "sha256": "0fb4d5266889ad2a2800d47b054495b052d7808e5ec58e168886d0aed81c3929",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/cover.webp",
       "sha256": "6e066d64c25fcf4140a1567ce506e8031df52a569dd462942a36df862c7520aa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-001.webp",
       "sha256": "4a04a8568eb9c92bd7f51d3ac477db19ace9182574db2b17d186cad68dda8d05",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-002.webp",
       "sha256": "bf93012af3d2fd451b35b5b8c2756d1d3b4e4a40fafd8310b8e938f1226ebd36",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-003.webp",
       "sha256": "cb27395cea8cf7d6dadee9ffb793942e20121c9715b425fbd467548e250c40a0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-004.webp",
       "sha256": "6a5374922af0c35ec98dcda3c52aa03c409bf80fbff11aa72d8a2637c27b3830",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-005.webp",
       "sha256": "1a96d02cb4500ce7a475f15306748514295aeee61b332662f171000d9b04e4b2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-006.webp",
       "sha256": "3bb8f39ac7bff9c3cbc1341c59977f24cfdce7c2dd001a8abadfa09dc585bd7a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-19/page-007.webp",
       "sha256": "956c1e8c868238afde9a3810349ef30cebd6ffcea87d0890d01250d7f353acee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/cover.webp",
       "sha256": "95fe60b0cd1a9ee13cca924eb527e59e65c62be202c67c8716571f49ba38e075",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-001.webp",
       "sha256": "855917944c6d9375d70da6f5be53bf47a551114f84ecc0f9cb3c8188e8980069",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-002.webp",
       "sha256": "2c403312fbc68b4890b2ffb56a19e40d46edbef1ccbe46640af79c98e40f1386",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-003.webp",
       "sha256": "2cdacb5e8d2f09abe263db58a160e1502ae3a57b50e0abd8eb8ab9692754ede5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-004.webp",
       "sha256": "9ffa81f9ecd7badb713fb9ec692bbaa24fe708a08ed8ffdcc218ab1456e005d8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-005.webp",
       "sha256": "3cfff49537e16f73582822d13e592ffbd28baeea6362b5866bbaa3f5d1b950f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-006.webp",
       "sha256": "6986dbc4ace03a652ff880716fb5833db904759d138a43ecc47dc69149e04690",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-007.webp",
       "sha256": "5db83cb8b93ee5b0089fe60f6a8c31056c671b9efbb5101add0431d3d27aef27",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-20/page-008.webp",
       "sha256": "051396d4c6559bb95bb5ba0ac3554ffe6c5d5314ceec5adc41c9246f695d7481",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/cover.webp",
       "sha256": "58aef9bde772571a7849910232645ce5c4c446a630a10947d9e7980e9898a21a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-001.webp",
       "sha256": "7ad8536ea1159e9d38b02a6c7123ca5eed2871aa7518c80f1979b56618898306",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-002.webp",
       "sha256": "719256d8f2eba123b4e83d5f1ea2c2d6c042d2eb46dce44c8987681ed6b39a32",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-003.webp",
       "sha256": "8c8dcfc0239131a5d06f3a16a3f5d3daeeb4a9755efdc8eeda69d1a93d431336",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-004.webp",
       "sha256": "5c1568ac6adc7e45e9c7e5bee98c8b9834ee4dc9555ea27fc6118b6d2c268f06",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-005.webp",
       "sha256": "3b4a2b3373fd970429d6a9fa007bad33b7d6c2732eb8628efa9e482caccf9152",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-006.webp",
       "sha256": "398ae36052f8292b8d818695138743cafd749d1aab7df541c0e35db8b921b20a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-21/page-007.webp",
       "sha256": "765ea685822706a601ae99254ab3e747b226683746cbf55d51cb0bd5918ea744",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/cover.webp",
       "sha256": "5b56e57464447562156a51635eca0051fa4868ef1e1f7981b2de2cb0694de09e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-001.webp",
       "sha256": "e7d24f302fd0fd6f5ed30b55b67b1ced7ec31079fe332f3cfa6304294befab63",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-002.webp",
       "sha256": "7e6b35807f7df210bff0e5d15af1f685e32456e1603b6331ad9b98e992373b47",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-003.webp",
       "sha256": "ce46234ef3b9bc926847720b5e2b54cc9a424960a0be7bf17b2cb634e40bd978",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-004.webp",
       "sha256": "c7c79f9de34c67d54c24a93c2d5d53e3bbff07fade0e2a72b6a4f0642a63df08",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-005.webp",
       "sha256": "09e12c2be2f0b77761799579a83b1dbf2a5598b2bb4c4cce68ba6d7b8ff796ec",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-006.webp",
       "sha256": "3af6e72098db3bbe8d739e78fb8dd12f3df235800a0eaf4483ba0dce385239c8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-22/page-007.webp",
       "sha256": "a17fab2487bd28e69f6f4d95c8f29456964510277353de578ca5a35d661d49bf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/cover.webp",
-      "sha256": "f570483e93993caed19f63b921b3316a7f82ad15555e4f52cf9f42fb536f2c5e",
-      "status": "approved"
+      "sha256": "aac9333432f21470233a94807c40eca5c2dcd6df3726a82d650306b207cd4a40",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-001.webp",
       "sha256": "79891877c0de37d113f07508e013416eaee4f7946104f7e6d2f18612df0479a8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-002.webp",
       "sha256": "c7217d8670ed6b7055292f5fccb8583c147709e9a36b53d1f9168f6f901cd719",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-003.webp",
       "sha256": "70f0292478e1c38d887ad8d52a3b8a94c4e47daa1a17384d8f78ad959166a5de",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-004.webp",
       "sha256": "72e0c64b74381dca7a7a8150758c6c42ebb42c9dafc6193b5f7880618771677a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-005.webp",
       "sha256": "a58aef89b4ee21a212180385ae579f698ca1cd832c56d90df78e44172d0d47e5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-006.webp",
       "sha256": "f7daa2a8835003eee1a6f8f9d69c16ca6364f9ecfb624a821e7e33682d59a3bd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-007.webp",
       "sha256": "eca145b68cc19f656889d2d6e03b513f2425513e07ec967286981381db95c21a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-008.webp",
       "sha256": "21e3b86122b2bc7e0f50f7287addc1700f63194e19ffdfa673bcb89a18d6e869",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/cover.webp",
       "sha256": "99eb2e0e0ed230a47e827b685bfce7adcf21d9a4669ff2c16744aaad58d50516",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-001.webp",
       "sha256": "75e27d3c9e3fe084076fc0926ff131bd4bbd8aa14a228c6428a135aebab71828",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-002.webp",
       "sha256": "4a850cf2fc95fb78ccb63162ff7c35e5b019fb1ca9734f40f9b7cfba410dbf5a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-003.webp",
       "sha256": "f0f119887aa07a7f6e5a05f4a6f214452b0042e6714372b5d569d78b58ca67fe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-004.webp",
       "sha256": "cc0c8cfc9f30e4a3733fbe2745397a9c48fadf4eac013db84a3a2690c1ae08a3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-005.webp",
       "sha256": "c636753f6d2b7e5f0fcb263a6ff3f12ace7f1c2de188e084fd39425ad00ee23b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-006.webp",
       "sha256": "7f94f570f3218b7865aed9a47651f52a2590ba1f5dcbedc012e9ce064691a8c1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-007.webp",
       "sha256": "812774bb460be5cf5f9ae5eafc592d3a54ee279ed42cdabbebe8e8e7f656fde1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/cover.webp",
       "sha256": "ac2cb606e6e1bec2fbe856f389a4ec9f7fa8d108ee92e30f909dc7832d8cdba7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-001.webp",
       "sha256": "93db1898a81be04e9a0cd58c4c6680a0b7cc5b70032f810f660f8bcb5daf2c48",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-002.webp",
       "sha256": "5ffe5c76f617dd2c9e9db99d52a15ee1173ce33f8089b56574732f717245fab9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-003.webp",
       "sha256": "0480db614afcea05ea75c5d3efc75ca596f85f1d40a88d8d73de465b80682789",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-004.webp",
       "sha256": "17a1b5cfae4c474696ea08dc7fa0b432d5887c21fb9247a7a82d077d61a4768c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-005.webp",
       "sha256": "abd327c88fa7939081b9a32a316a199995263a5cd89b6d2ab7e7abb0c0789d9d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-006.webp",
       "sha256": "641021832c7d07f11905f451e656e87632d784c70070644dd981c2ee89a7054d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-007.webp",
       "sha256": "b5857af5df83b63ccc4532848e891e78a554dcb3c60b16bac45f9802a636fe36",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-008.webp",
       "sha256": "e6c2489b1525cb8c16fe3b2118ac82e67623c74dde129364d4e7823644f72a1b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-25/page-009.webp",
       "sha256": "990104ded896415119373771f48436261db2612485d4601533f35de4b0a0b8cd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/cover.webp",
       "sha256": "a21c694e7d51518feab474ab4c1f7c351ea91469842db312d7bccb701bc904a3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-001.webp",
       "sha256": "81b6b5171d1e762d04f8adedd24e47fc172b6494bf61725eebcb9d720170aa99",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-002.webp",
       "sha256": "3cdebfb698cb5ab92c6fe5f89734605e5abc5674a0c467dc2def67a4e4dc3767",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-003.webp",
       "sha256": "d293aa5a2ef9c998c951ade1093d0a1174f4c6e236512de9e04f112f19ffe28a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-004.webp",
       "sha256": "b298479045f3a38c866fae3a92db8eb1aba621c6585a63851ccfa0fa04307a24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-005.webp",
       "sha256": "d038fe33d591df7457e564f639bf4abeafcf9d5b3057183cc3cb58152b49b9c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-006.webp",
       "sha256": "fd5a8f586c2642e42b5537cf83e0e676e7264b813caa15dbbb3c0ea7653d9366",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-007.webp",
       "sha256": "733209b965b3f238ec7815ee7abe696e5e86566e76078658a1a7ae480da1d388",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-008.webp",
       "sha256": "22c473c695c52136a5c468d72bff0466723fd8aa2ac7a2ba6ef273ae40dd3a61",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-009.webp",
       "sha256": "2968013e2659acd18110d01fcbca51b07eac25963cfeeced55b1a21f7bcb12db",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/cover.webp",
       "sha256": "b6e7028b60301e24f338429d7d1847f3adb3e57be3475e71b11edf026f8db727",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-001.webp",
       "sha256": "2206d73d25904ab5974687871e06e10e72eef182a02b1ca2ddadd7bdd3184890",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-002.webp",
       "sha256": "661d1afe2b363894ced4155d833b0b83dd387ac13cde3a4b02393ed78f1043f8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-003.webp",
       "sha256": "ac08721abda1215a12cdbf08efaff32b912dc067df59dd638118a6478b9ecae3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-004.webp",
       "sha256": "06dc71781a807ecbc2e17e9c375f4f2ff34c220cb8865c7fb35f8c02ab2e170c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-005.webp",
       "sha256": "3db99cc93068b3f33d5e36e870b2b336fe88157b96c6f73f8872f49fe0a3526a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-006.webp",
       "sha256": "2b04d97ae30a4aa572042358200197714bbf3b8e7c84729ab252b55ccbbdac40",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-007.webp",
       "sha256": "1b6baee6b0201da24555fe319a00269e30736826de5b02b064e0609b4b3bfbbf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-008.webp",
       "sha256": "fad07c39376c04cf1b9940dd0a17b735908f9747171df9b9b45096be34aa12cc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-009.webp",
       "sha256": "20cfe6d70e0b586c94db81140d7780a3b634fb2692572ca60b80159c2723d146",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/cover.webp",
       "sha256": "e71e3f1867874baa4f2930abb6cdb3f1a2da1f847b25bfaf9b0facf9e01fd95a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-001.webp",
       "sha256": "cce286283342e546ba1407c3b0a3596fa22c72669e63c256a65282ecc51cbca2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-002.webp",
       "sha256": "3cef334f482de0e865ecfbb4b1cb1d50d5c183578bef6994de0e7d3f600310f5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-003.webp",
       "sha256": "5b24d43e3d26c20cd95a609c9c427daa729af7381931e2635ace3feda2d9e920",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-004.webp",
       "sha256": "0961d5d1a1c8675e1ef99503a5fe3acf5e7d655a7a6d8d916f3ef56d76248232",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-005.webp",
       "sha256": "cdcc7ede82033429d7bb28e6d262c835465da6b90bf32378f4c745052e761a83",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-006.webp",
       "sha256": "05856b3ab21c716fb86ad64dd17c9effe7ee055d80efcbb2428a2b1128194649",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-007.webp",
       "sha256": "5f66f77b532455632deae6e5047d0d9e409b15769bf675b92a1c035b10e98618",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-008.webp",
       "sha256": "d3abc6f7280be5fd5c4f38135410b85844d1c22aff9d24bbf0ca5847b39065c3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/page-009.webp",
       "sha256": "b880b881782ea0e921ff1089fa38ce38fd1618019b1f1f52fc5a870fba96a39a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/cover.webp",
       "sha256": "926963c295a450be4f69385f498b2c7c0bf883c29c93f7a51267abf0048ed9c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-001.webp",
       "sha256": "d5689f2a09bf9c76fecc0882764637950d897be8abc74b913b3e4a1e683be323",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-002.webp",
       "sha256": "ee7ed969e106814aed7e4f731b9a4379dba1fbcc66cbec52ae8d77751187105b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-003.webp",
       "sha256": "6c38cb5c7c02327436ecc667003e59492effbae2a11de677b5af0df66d463ee1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-004.webp",
       "sha256": "e92de8ddce4a98178531484d07d674a4bb34a92e9920d05690e2d92f3680be45",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-005.webp",
       "sha256": "e22ebed672703a413e85fe5e418d14865f69f1909ffd2127d39228d330226f4e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-006.webp",
       "sha256": "570c894d553d1644520fb2b84e902422f1454320e05a52ca2f7218bf0033ec1a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-007.webp",
       "sha256": "984d1065fc1a21d5c7e6162529ae4d021732cb33174c52775a7e4af2245ccfa9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-008.webp",
       "sha256": "b9d5ec2c8d143dc0cc6a76df974e5c6a0ce0a204c07e8356bb35545fc784ce1c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-009.webp",
       "sha256": "3bc9d23e841b91e055f270fcff11449f24dc1bc79a5f72a48083901b1ddfd6ad",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/cover.webp",
       "sha256": "9146060e3ea3acb52fa0c36c6f17da54b0c3c6c216bc06490ceaa1d071d3b6ad",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-001.webp",
       "sha256": "428f0ff3e3540b680d5d73df0c901e9bbb6fba66c150a3b28c6f9acd02d8e53b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-002.webp",
       "sha256": "1e46b044bf8fb3ba467594aa09fb07bee9cc61718edd15bd7f790f024a24be2d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-003.webp",
       "sha256": "63c7741b5ed2481ea2fd6ee9d41abc6debeb84a4c32a7971ee60e2a7c7a77ae6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-004.webp",
       "sha256": "bb549ad4a3f5397f83a203d2a4116bae8ef925dffd6f91864f8bf96ca7e94e63",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-005.webp",
       "sha256": "4291770d0720b02c0e2114f58528a9a524a169c87bde34054c5c0970e55caf28",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-006.webp",
       "sha256": "6764a59d0723b0447a6dc950ee54e20808b6d095e8610ceb97d99be684f07935",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-007.webp",
       "sha256": "373bda77db9b1d4b74ce5bc55b1300aa95679bc5325b196315167e95a25e7d3e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-008.webp",
       "sha256": "b79e70f709e3c7e269ff98985e2a67231cc8b68bf95e0fdd7552a91789b9ccb2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-009.webp",
       "sha256": "269e7e3ec7ca45aaeddb0b86af008a1f646a691c914e29aa494b833fe3fedb05",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/cover.webp",
       "sha256": "f43ee538bb27e0305a66eaa9b1175c17935148ebc794ba203fbe1f1d3529c43e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-001.webp",
       "sha256": "fc5fa76e639ad5260772918b95a22b46beecbf4e6c3947010eecd60b376744ab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-002.webp",
       "sha256": "f19d446d1ed698afacccee283f51a555332ecfe378576aca17073e0d996d0715",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-003.webp",
       "sha256": "58364d0c7faa9ca8ba657ee99b5e822867d75a28797e7f9881e04770a175e52d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-004.webp",
       "sha256": "77cad0b338d1f4c8c0548bca01a384d5dbcc9ebdf6cdb8dd9d9bd42439953c44",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-005.webp",
       "sha256": "8b9737d956543cf1a55a260cb8b5bc028850019e95d54e01013e97fb66c7f4bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-006.webp",
       "sha256": "46e1ab1f3361e201b2ecfe97818c8c9429151decaee41b7f19299aed7644b904",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-007.webp",
       "sha256": "f5ead19ee20d3fb11e19e617b78d0ab33be09dffbf95173338c9117a90fe4662",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-008.webp",
       "sha256": "f9f24621276e70f0e9f60f77fc9b64caaae1fedfe83f1e54cc911cb9fe73243c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-009.webp",
       "sha256": "d966d773e7c385c55c2bb260cf153218ac86df66edb221a91e749361ec870405",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/cover.webp",
       "sha256": "0ba035b5c8ccf157e949b8797dc1aeb1d745d488bc697927dde1b61784b5be13",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-001.webp",
       "sha256": "1a8915d362abbf4016df2556c70edcebf4ebcb1eb12a2ccf5c668b795715029f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-002.webp",
       "sha256": "a911ee09b4a86f523985f2bb5238b1dfc72bc4520d9fa22f6a4da5e242518dd1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-003.webp",
       "sha256": "e21f4d4718b45e268c46b561cc833be8ab0cc7b42b935ce23208ad1b71456513",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-004.webp",
       "sha256": "3d5b67da5201fdd8ee5ff92a68b603eec96c94c1e5265c95a0b1fb0159a521e5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-005.webp",
       "sha256": "9669944a139e68d620e065ef6c820b18b70c179fac0fe2d75070587c7e22f76e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-006.webp",
       "sha256": "74da2f49f53d1cafe2fbbdd7e2e4cba1190d31a1b3523fe1122043bdc3a0c206",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-007.webp",
       "sha256": "bbd21827b5a1b2d86d624a0d3d255e4f242d927232b4bee968ff1336ddf77431",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-008.webp",
       "sha256": "6e44e88f3a904ee9d7032fda3ca14a75094eb29f824ac17edc4814a1ecae3cb5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-009.webp",
       "sha256": "ab822fc5f3db17c16c5887297b38947dadebb5f1e128a5a2fda3e306fde87523",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/cover.webp",
       "sha256": "3e2ed3200712dc06235f57d9c1e34e6fb41b877d55e6e7aced6c9b3887c40063",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-001.webp",
       "sha256": "0c80c6e260972a03e94be571467e4bd3475e45e4d28c261c1f1fa322082353b8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-002.webp",
       "sha256": "d7d05d0bed83ecf611c3f37caa3adb95a2e4ac8d2a818422a5631c0d28ac911a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-003.webp",
       "sha256": "23c93bc9e040a1e3b74aba70e973d3be9162302c45314b1245a8a66b71094343",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-004.webp",
       "sha256": "186ac7c22f84f222d4af48f968615b2969ad0760fed99b4ea34cbbf275e049c4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-005.webp",
       "sha256": "352f311adaab715cc2f1bf2c60694f2f4cbf627b15ac8c7dd0b942ccf3d1820f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-006.webp",
       "sha256": "808c1f643dfd8e8eabe18894d69fcc16b717a2b283c59e117dff6518607aa34a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-007.webp",
       "sha256": "4826d187e4b9b991d1d7d165e8989c2be9e37fa970809d1edfc7b232bc900795",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-008.webp",
       "sha256": "bc0b8f51b2853fec2ffabd02f8ac9c12a1a9a4cce6cda144b6e8e19cb1027499",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-08/page-009.webp",
-      "sha256": "3c9cb373dd57061a83b86fff624fd15e6da0b5726091851b1b736461b53f73f6",
-      "status": "approved"
+      "sha256": "bedc56e3c49c9fe48e4771c0d5c782ba18cf03a7252d1dc5d206b096cd366dbc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/cover.webp",
       "sha256": "e1e5297855f92d152c0a6d24235287c86cde762b951018ee2e81b71f7826517c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-001.webp",
       "sha256": "c22f23b2aeee91da3f8401011439652e4eae9a3c4e2adc8fe4772b8e86418601",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-002.webp",
       "sha256": "db6052fbce8cad895d802dcb0534c1c6b1f65b59ddb0e2f74ad504da3017e07a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-003.webp",
       "sha256": "26c90d71962b4d55184bc3893eab1e0f351e6dc091047703f056748318db16eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-004.webp",
       "sha256": "dadf911007441f7ee6c85e8613005bb2ba654bff4f7cbb2b8698ebb199c61c0c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-005.webp",
       "sha256": "1958b5e04d2fde17e617fce385fbe60cecc3f4101da17397bb60fe5868861577",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-006.webp",
       "sha256": "1c2da5a7867122c52d47fc7a93899bd0010edfabd10e73b1ebafd68c331d2a71",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-007.webp",
       "sha256": "d7c4309472e0c32f1badedae0fdc35e106b0cdf39d08e03889c2f77c989ce373",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-008.webp",
       "sha256": "ba5ae3e2a525c414636fe367c96a406df4fcf69b97b8c3f309fe9fc9b8eee685",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-09/page-009.webp",
       "sha256": "e366ce2cdb7d8601a47c90a75a5cdae36593ebea36e40ed0a7ab3942948f421b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/cover.webp",
       "sha256": "f49cbc35c363aec8631e8974b46910b266c9cbda27788be09dbbd111eb7b83cd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-001.webp",
       "sha256": "9aa39a955d7db22b7b0c75873e2098eb77c8fa79d8d882a43d61f4c407bd699b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-002.webp",
       "sha256": "8c29bf8037d2e17a725cd16c4c5417ab4e2f57edc8f6e02bd073bb5d63aa5e42",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-003.webp",
       "sha256": "e235eec65e1e6f311f3718c15e0e77acd58788dc7517de51fcac8078fda7f39e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-004.webp",
       "sha256": "8bdf71d5690ec1adfc0f323951466031973774daa8960516c71414fc0ce52fa7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-005.webp",
       "sha256": "730f42a7901597e2b1ebd88953051f0893d6ff5034801fbae0f335fbb825aa4a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-006.webp",
       "sha256": "a707209aa3793cf08a219c44831c2ef90016f77af5e312edfa7e1ee22a874c1c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-007.webp",
       "sha256": "a9525a17b03a3733c1fa0dcb7a0ba5730b3660a414d2027c3881beed1bf98208",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-008.webp",
       "sha256": "9636d2768e1b01dbc5440f75f0f3cb6e5c49c2fc3ab13842b99e5827b0893f07",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-10/page-009.webp",
       "sha256": "6871ad7d917b0b0e2aabc60cde17a4fe1161cadff5cfab85fe68ebc2be17d79e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/pages/gr-a-26-page-1.webp",
@@ -3262,1118 +5214,1419 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/regen/covers/gr-a-26-cover.webp",
-      "sha256": "4087fa8b0e3a4c91563f7f964c9d0d3c8d93e8ea4658fcbf488449ba4292e8c8",
-      "status": "approved"
+      "sha256": "e35c55b87ffea0ed3ab381cfd7c0c9a8d5a2099a7f67fddc1da95bfe94a84bfc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-a-27-cover.webp",
-      "sha256": "53229e4cdf399ab68f7d76018693e185e1df48e3727474f49361590f6818c291",
-      "status": "approved"
+      "sha256": "faae877ba687204d9cc1c81fdcd0d7b36bc89b5e06bbe3282731369b4f96e3f4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-a-28-cover.webp",
-      "sha256": "54d7a990349862c89d92678a666f94d27d4a7e6b5fa135a3dfbc5abb86e3447a",
-      "status": "approved"
+      "sha256": "8138677e38a91e2ca83f59479b258208875e65edf634f5146fedd03b69a798ff",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-a-29-cover.webp",
-      "sha256": "e898f71f0689b7861f4072c09ab4cbce2ee875e7f556f2b76b86841f90c0dcd5",
-      "status": "approved"
+      "sha256": "67d73e94168afcb7e6851408577f2bda6b4c7c8c84fb0e25bc3441c72503a982",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-b-31-cover.webp",
-      "sha256": "683d7e3eb6c3c6d0ab1f81eadab23d0c28b4930ad2d3d786f0d5cb282b9f3b69",
-      "status": "approved"
+      "sha256": "85cb171b7108ebe2555238be7bccc27fa877b56c7cee7740681e59be9ea5bf8e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-b-32-cover.webp",
-      "sha256": "e263347c1ca71c0f5b5be89dd5aed1916b855362b169770feb3fb407e91353cb",
-      "status": "approved"
+      "sha256": "6d5eb8e2b84697380c3d42e2f16fa8935df128fc590844be17655c65f96c13a7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-b-33-cover.webp",
-      "sha256": "e0206bff05c010261b645d0bbef4535e79a94cae781175a128b2b89f78079624",
-      "status": "approved"
+      "sha256": "2b6fa2160835acadaec30bd374506789662af8ab273eb5eff63193ca418a0498",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-b-34-cover.webp",
-      "sha256": "51b760f06ee866fa6cd298fd3383bf20e14c62dcc9d468b337bec74fb3010487",
-      "status": "approved"
+      "sha256": "2b8f3d48bca5262b638922aafb12a3acfbf5b11e314f9c150a06833a175f226d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-b-35-cover.webp",
-      "sha256": "9bb6dfd247a0be93df2e89f0d17006a9d44622d9f98360ead600e2f451a84a98",
-      "status": "approved"
+      "sha256": "c255c61eb68acf865227e489723c04de29457281a4cce0294847d5c7ca9af3fd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-c-37-cover.webp",
-      "sha256": "4fa72432d54d95c5b4499a160d8b27e5e791dbf70ebbbac847787aaf3fa32391",
-      "status": "approved"
+      "sha256": "c1934a4b6c9872aa3823375f0fbf950ddd88c0ef1d36b03a460e86fd928d2063",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-c-38-cover.webp",
-      "sha256": "e53e475b9ecbb3352b70de4085ad55e17f7917d68c4cf45225e4f9f17d092900",
-      "status": "approved"
+      "sha256": "bbac46240d22578180a7692f1d5c4dee7a013f22c3612031552a7a92d5ff372f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-c-39-cover.webp",
-      "sha256": "79cc36c2d00a531a3a19cad90015b1a2987dc72abbe8ef853d16e0ae4262a07a",
-      "status": "approved"
+      "sha256": "990f6ccbb2fe513892da3cd66190175ccd68b03450e0cb4aea74bf0c5bbcacfe",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-d-42-cover.webp",
-      "sha256": "13f4796be5f81285f35f42673954db9c8ede7bf2693ef45e9320d6836696eca4",
-      "status": "approved"
+      "sha256": "6d35c023b4e2d2dfbf5e1d07039d744240520fbe869180f0b4cbb40991b5994d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-d-43-cover.webp",
-      "sha256": "703d164ca465822901d34a2df464990da35ad5c06a08f0fd10fdf4846574ece9",
-      "status": "approved"
+      "sha256": "6c128d039dfa224d6a008e40e3b3e61e118d5fb5e646e17adc35aa3ec5923552",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-d-44-cover.webp",
-      "sha256": "d21d93f8434a4da2cada15836f3a1736e61b1f8fa8e0d97d3728e58538e194dd",
-      "status": "approved"
+      "sha256": "bb9f68640694019ab6d0260166ca3df0be1667dd322bb22f8c7840072259cf44",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-d-45-cover.webp",
-      "sha256": "48b79b838034b22d49dd556a6fd7c80a2b255f056e2fd6aa55e85e0bb26aa44a",
-      "status": "approved"
+      "sha256": "dd8b75feb894ab4be48677e4ec69e899eb5a33e08369da68e29fdb3befe6ae65",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-e-46-cover.webp",
-      "sha256": "e26c20a9c0a0e1505bfe7f77a6f372be9c3a8baa26300921883fa375d672c8c9",
-      "status": "approved"
+      "sha256": "3ad4789789b8f45043b37542a2a7d1a0a23faff486d6f09b43665cd35b1a49e5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-e-47-cover.webp",
-      "sha256": "d021dad45926ee13660ed967d6bd8ea49e0be8815e6cd2e03c18b385979d4cfd",
-      "status": "approved"
+      "sha256": "56b5cf4d27f4f614529c826181126a0c997fdf77a3384f7f320dc694b3b28bbb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-e-48-cover.webp",
-      "sha256": "03fce22d2cd3f4211b0b19a723570dd5e9e3c1cf3f8c36172bb29f8c30d39969",
-      "status": "approved"
+      "sha256": "3255b87253bf738c4c74a2216db11d939eae44d93658b8cf48ae53005f16bb44",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-e-49-cover.webp",
-      "sha256": "de416af7b89ddd346cd6204204840aa4d0087a14e255a08fabb9004970687499",
-      "status": "approved"
+      "sha256": "9558560c6421a27163ca0f304f5f9bd17128e2eef9e6f203959b9d4e4e199e70",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/covers/gr-e-50-cover.webp",
-      "sha256": "2671dd50f8ab2d5c154bb20b7a8bcab86578b70697bec20e466b92f9bf3f17f5",
-      "status": "approved"
+      "sha256": "6bb6c9ebed9f2efb65df80c361e469f8252fe6b5c1c1f1d94e84d41c3693d586",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-26-page-01.webp",
-      "sha256": "ef8a98d6b0d132263fc65ec3cf78bbb05482f5986fa1df6c5aa4bf500889a8cf",
-      "status": "approved"
+      "sha256": "2ac919efb0c528a62e43abbb31ea2108389be91c37b3e705d565a437ef004ec4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-26-page-02.webp",
-      "sha256": "e3d61e28faa295a2ded4a28b4116fa614d711f8847fa03a23fc14bc496b50fa5",
-      "status": "approved"
+      "sha256": "1b8f8c792dcf5f38fea217baea8fecf7e378471a4345d3dbf29b10ea3a8665be",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-26-page-03.webp",
-      "sha256": "9911b7f8528705370aef50882cbb2e3db2160842350182251fce62adb6862bbf",
-      "status": "approved"
+      "sha256": "8e23105bacd2e233ae316db7a48b4d42677befc536d06e308a33eb6a5d087ad8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-26-page-04.webp",
-      "sha256": "6c313da6534c87490ebd9fbccc26e16398f951a1ffe389dd99b7e87f74c543bb",
-      "status": "approved"
+      "sha256": "228cd25c21d3cbcce5178bfca76317c50db8503a8be768d96c1e72aab22342a1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-26-page-05.webp",
-      "sha256": "f45bae21261d7080e5e71977343656c730f58d9814b45fcf86345e82f9c99386",
-      "status": "approved"
+      "sha256": "28c0fd7f3ebcef70d78debb02b5223e1205b02a47aa8e0c993c56f8a4956cb28",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-26-page-06.webp",
-      "sha256": "ba8f8ef8be99abe5e5969ce68d765a2411c95a9b19c93809b304ae0437eb0fa4",
-      "status": "approved"
+      "sha256": "dddb773c8e0204c6e3794f9fff39c3aeb91122be7b549e3c154793bb5b86fe6a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-27-page-01.webp",
-      "sha256": "6703185d13c1e7501876485262f0f5756e9d725c5c84ad0626f73fd2c1d9e0c0",
-      "status": "approved"
+      "sha256": "b728dca879eae115023aa97669e0c563f129adf5e3bb236a357d3579e6bc5bd1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-27-page-02.webp",
-      "sha256": "526e6543ae6d1a32adba15d80e6f2c6be6ec28242864eee30e00c1d0b89f9a93",
-      "status": "approved"
+      "sha256": "7d23652a9bfbac8ede20104d7b054fd180b557abbc8209e13ca230b76f3108aa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-27-page-03.webp",
-      "sha256": "bb4cbe90be23376b006b0791484a9833f08089a509e610ecdee9ab9c4ba143fa",
-      "status": "approved"
+      "sha256": "a52013aed949bdea35ef7e26bb46d1ce93076b0e7ef2b45a781f36f277baa965",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-27-page-04.webp",
-      "sha256": "56522b3f3e9b66b4a3f47c418e91ec704c406018668a7d366b8ac2f232f2658a",
-      "status": "approved"
+      "sha256": "87c820fcea305b617a557fbf5f4d65dda629cd0609c790af11196a8140fad3c0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-27-page-05.webp",
-      "sha256": "444e274fa301ad13f8f1f8708928b81376bdd8c3fc93d295d82899b723638555",
-      "status": "approved"
+      "sha256": "21ab75b80eeda275f4092d0cbedd04e0d001fa195ffa1d7c13dae1b103c2cc2d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-27-page-06.webp",
-      "sha256": "3b5e2eb520e952227903d3d2daaa4a8a75d445f378059fb021dc678dfb49696c",
-      "status": "approved"
+      "sha256": "8d3c90fc9be82e2262e8c90560cd72af7cd91cc42c9763fcb4d3db3834e9ff01",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-28-page-01.webp",
-      "sha256": "08978f9233e0ca4c45d0f7d870e7b8462a01e14fd0d1c5c5be7c54e9f720ec17",
-      "status": "approved"
+      "sha256": "61bb3f1f1f07cd82e0b5d8f0b9b76abad4aa26bbcdb0b90217fd5d2e90557b5a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-28-page-02.webp",
-      "sha256": "04258f9c99e40d71f1825fcd94782fd778f17d1937c2776d079716520f06cb46",
-      "status": "approved"
+      "sha256": "748f1a780985d53a0557441814903c83899a7bafaccbbe8d1002d6f5b97165e6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-28-page-03.webp",
-      "sha256": "9df068818e5157f9ed26cd675ff97c660b0ed657d1c00163ada687dc950180c1",
-      "status": "approved"
+      "sha256": "3f2d9391df287d20492048d11ef63171f9ceffac202b0811aff5cdb3e2491345",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-28-page-04.webp",
-      "sha256": "86e6866a97a5eb20248ac93b65dc67c956dbc2d9bcdf40f113668e348315c84e",
-      "status": "approved"
+      "sha256": "d6cd076c47d98d4511325efced132e80d824142a48eb0f26810a04e0b611310a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-28-page-05.webp",
-      "sha256": "033a37cabc50aca0e6a7ae9bf5a8f8c38f8ae9c3ec4bc87b5a56143e05e4044b",
-      "status": "approved"
+      "sha256": "d7eb38b079a02731ed4199dc983e9a044f8c4b1aaebaa0da55445c0e4856fa8d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-28-page-06.webp",
-      "sha256": "c3012988d6106c59a28a460009f7b3d46c3694a10ced0416a10c90145ca2f3b4",
-      "status": "approved"
+      "sha256": "667fd29d8589312d698675eb60f654fb4e159a58f65a41dd97d5531e61f01bb6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-29-page-01.webp",
-      "sha256": "2d4695ff3339cc4811fd115ac44579b9ae14ee55e40f1259db26643df3083e9a",
-      "status": "approved"
+      "sha256": "29ce31ca4ce75816709432023ec242247ea99610d264edac32b4e753dc62de3d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-29-page-02.webp",
-      "sha256": "9f57afdbfc6c51a85f8887fb3f4b4eaefce8d1999a8651eaa7024f8d91aeaac2",
-      "status": "approved"
+      "sha256": "0f44376101aef4eb94f5d5ae25f1eb656e03d7e42d34c52fd856b3b1753a8436",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-29-page-03.webp",
-      "sha256": "f57380c1cd2683bea9e42ed418cac4b3ba17add246f96f19d34da1acd83d2880",
-      "status": "approved"
+      "sha256": "1ff559d9ce271ebd8f1ab2fd9521a2368f86deb910c7afb277926ac9499ce037",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-29-page-04.webp",
-      "sha256": "024b515527f088a0a86ac0b2bd87168d4b408b124fa935133405040bb0bbcf25",
-      "status": "approved"
+      "sha256": "a7caad310b9ac9e70083b26106cfddf3f22aa0530d72f24b9ed0ff97ddc06e94",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-29-page-05.webp",
-      "sha256": "87b19e199253b6175f616999a2a538d8ea34dfa1cd780e95cf71fad4ccac7279",
-      "status": "approved"
+      "sha256": "f9844b6dfe0dc6bb6341c91c5854bfe9784a48bcbcfe63dc8bb9695d4b967856",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-a-29-page-06.webp",
-      "sha256": "db25604f3745332e02c3e92c6e559f500a488441dd5c8d2e433a43c213d35c87",
-      "status": "approved"
+      "sha256": "d9113adf133720fc1e3a0c6f088ae06056aa1de9ecbe943280e5af42a97b6d3a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-01.webp",
-      "sha256": "1b9af48bac413c6529da6353e192cdd2ab95de70b66928403a588343fc6f4567",
-      "status": "approved"
+      "sha256": "7915546508e29c6f05037ab044a03435616208303033a1a6523b5401af273db5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-02.webp",
-      "sha256": "4c2f9b78e1e780c6fcdd97e52b2e115c05e07dbcab6962b6197c8bb38c7be1cc",
-      "status": "approved"
+      "sha256": "1aff9a1f9ab9169bd498b18c85cb35b5279550a3682d1abb8bcc7c0de6b370bf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-03.webp",
-      "sha256": "9b0f7f8094a7d1b8685c7d6ced5e00aa8d7dbd21e0f07a5124fff59d149d0e51",
-      "status": "approved"
+      "sha256": "3ec06a3faebc95015a26f5cb67c1db227630e99f65b0bb2e7deb464c28b780ae",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-04.webp",
-      "sha256": "f76e13341833321982e1b68ec7da1c6ed4d1f2e0c7dbcd44593af68171e7d997",
-      "status": "approved"
+      "sha256": "0ee295e977fde2b869097e11557657f10db05a41b08109801d3db00b39119d0e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-05.webp",
-      "sha256": "385ebf3c29a353cecb1f86f2835f283f54ecf18b8c155da83aa0ffa1644711f6",
-      "status": "approved"
+      "sha256": "7f6734ddd2862526e1752e87e82ebe6522a58df76f9b8c5b6533125d61f52a60",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-06.webp",
-      "sha256": "884bd0a01806362c687c6213624fbcfcc1cf200046090e340b93568722e45157",
-      "status": "approved"
+      "sha256": "5b2e971928daf07db53517cf778126149d8294382690b0096e58d3bcd5c5da7a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-32-page-01.webp",
-      "sha256": "c1765a86bdb53a89d07f22f3b63158927de96bdcce12f19ebec6c5b72ea34dd0",
-      "status": "approved"
+      "sha256": "ca3295b017a8096a092265c40b247e696bfae451eede2fdcf2ec20095db9b88b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-32-page-02.webp",
-      "sha256": "df1787ddfc1999c8b8dc1b9b4089080255dfc67ab7dfe01202a79fe640c1c25a",
-      "status": "approved"
+      "sha256": "e831b9e3ef960242454968b9e1ce3ee164e0973dec616099febf29923fc1afee",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-32-page-03.webp",
-      "sha256": "c80a762f2d1463cb16ea606bd8f464ae1a743210d08131c48359e862cbed14b7",
-      "status": "approved"
+      "sha256": "954abe0dc83a9de9b57235918a784c95673827c8fe70f4d62737f238c3392203",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-32-page-04.webp",
-      "sha256": "0bbfaccbb2bf28b07b994279b3aa71fb48e45b3e46f23d65dbc72b1495444353",
-      "status": "approved"
+      "sha256": "6113d8a07755eb02cce99fdf3b1d88f46e9a3740bd6b05f27861788491cfc2a9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-32-page-05.webp",
-      "sha256": "4dec7628f676e6d07fc2a52086f408a5746ebded7af12ebe1ed0a6228896a13b",
-      "status": "approved"
+      "sha256": "ca3a0e3304c2865c52f45071b1cfe0a7e75d25941b02da2eae37dc0e93d362bb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-32-page-06.webp",
-      "sha256": "9b4595dbda3d685f19fdb9a21adda774649d07068ac63efb93e3b8cc98071513",
-      "status": "approved"
+      "sha256": "0af25b5e50ff14482feff948a0a945d543193c2dc70461da2a5dcc0abb9a9fa2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-33-page-01.webp",
-      "sha256": "1e5c4f0c148926282255ec6dc1a2544b4671006f315c0d8d41b0481c81601277",
-      "status": "approved"
+      "sha256": "4be08525f3a5e2a03ba79b1fc4cc11ebc6ede1be55a13ca158f0d0a253c149e8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-33-page-02.webp",
-      "sha256": "ec9d137fbadb15fb3002b201b8238e529a94eca982b64a320fa3b7911e3dd992",
-      "status": "approved"
+      "sha256": "4bee29ff7225e8525dd533ac2b7f361feef0122623ce15e2ad13d813fff0bd64",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-33-page-03.webp",
-      "sha256": "9a87ebb3cdf2110a07beb812aac9bc0d8f15bec6e22405ab02206148b454ebdd",
-      "status": "approved"
+      "sha256": "332923782504a77698c21654bb0f6c5df3e7acccbe45de847f3f121158513ea9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-33-page-04.webp",
-      "sha256": "ac79d1021b74f083cc195733e3e73eb4612fbcfbbc9f449fd6d5c87c826aa9c4",
-      "status": "approved"
+      "sha256": "9cac1c4671c14031539cd02a601c3a8a6f98192e371b024627d26ff077ac5dfd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-33-page-05.webp",
-      "sha256": "a09be448961fe5bd1ccb5e72e244e994a2b9c38913f058d568c889e63a8c3dd5",
-      "status": "approved"
+      "sha256": "1c0d6bb4aaa99fbf42ab97e89362423ea7498e34e7e11197d3bd4d6d49ecff78",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-33-page-06.webp",
-      "sha256": "5188c3b638fb34446a79d69c126e2a49f0263e440b62462f2289fd04f4201106",
-      "status": "approved"
+      "sha256": "41eec29ce432b0aa3299ed0d9b76cb81400c542f1d64df6c7570e45f68d49924",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-34-page-01.webp",
-      "sha256": "96bbd9508e46ffe0fbfb7a28eaea731f23dc16d51a36e7e0ceb5543bb1632dcd",
-      "status": "approved"
+      "sha256": "2b2c63e1c6096f0e214625f6113a5c358f1aa4dac12caff0d7bb7219c8943536",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-34-page-02.webp",
-      "sha256": "a4262d9cffc1281d1f3ed9c2cc5154123ea5ceb46c42e8c7b938f245bef43a0c",
-      "status": "approved"
+      "sha256": "b3135cfdffe09fe7df2e6790d155da9f5bd7edd1c224351b0d07ce21f696b1ae",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-34-page-03.webp",
-      "sha256": "09cd8b03996247c56d73f613002bf0340fdea07758d8d324b8d6f5737c8155cb",
-      "status": "approved"
+      "sha256": "f770b553a032ac823b2d00396619b48608c9209fe0b54b1249188ab3cd61976b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-34-page-04.webp",
-      "sha256": "09144d9b6cbb2368a2fa0097f42fe1a65ab6dd19b2ae50e3740c0f22640b3489",
-      "status": "approved"
+      "sha256": "97782c927c659a710ee6f4dfbdf1a27d0482234951bb5e03e853349d7ee067a6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-34-page-05.webp",
-      "sha256": "00ac80a3c968f4018036577b636ce22a0196d57c69fb97536430c59d01e5c867",
-      "status": "approved"
+      "sha256": "8e76d0bd8f4a8924de153980112ba3456d333356a719ca28511df3b662649ad9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-34-page-06.webp",
-      "sha256": "9c770ec574f022e096ca7b0041988aa7803267c0707661de3f8bfbd9935ad2aa",
-      "status": "approved"
+      "sha256": "0ee3484f7e8a5e611581d6e3acbfc8018db2caa89cb205222a5b8864d7500854",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-35-page-01.webp",
-      "sha256": "96b093bd3ae98f35093214f544f333e3dcd79405f6a5e50194f739d8b9414532",
-      "status": "approved"
+      "sha256": "e1d5929f6a07e531d8c2e77f01349e54bb006a906ef048c8a40fdf75739b0d0c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-35-page-02.webp",
-      "sha256": "29634461c91b443986b5ac8ec251f035db8aaec3001435408cf51fe183c54b3a",
-      "status": "approved"
+      "sha256": "b4ef70e9480302f5333e911fef85de3458347b9d10775d416bf4bcd96e6b8ce2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-35-page-03.webp",
-      "sha256": "0bf0b017c768e80209dba6212d7efaddb601072370bc056463ab4a09c8f5d8ab",
-      "status": "approved"
+      "sha256": "057404f7bde7fe593a49b7f3fb237ffe9372efd104f445c098f074cc71ebd6ba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-35-page-04.webp",
-      "sha256": "1992b995291bf9a6def38707ed98f9756336e7c3c3946f75a9c37077cbada83c",
-      "status": "approved"
+      "sha256": "64aaa6d2361d17d51e8f45282f66a075723c4230bb31da8b40314e0628f248c5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-35-page-05.webp",
-      "sha256": "af13a22355dbd926409b4a1e113113f2d610842f03c8a056425553142634d57b",
-      "status": "approved"
+      "sha256": "33ffcda36fe397024a8f4edbb2add4d8b2fadbfabd14b812a4b3d9d8e3020fe9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-35-page-06.webp",
-      "sha256": "4c39047039aa84a43cb907ce82d7ce1de5b6569495e252f15190d38513a7470c",
-      "status": "approved"
+      "sha256": "171511beab05ec3a1165e4b2f7cccba9ea14021b1bf9c3be3afcdddb2c9e1b56",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-37-page-01.webp",
-      "sha256": "c39e5994f6a5dc05eaa758a3719f7558b9825d439d84f25bc6b84575d4f97ca4",
-      "status": "approved"
+      "sha256": "588758f5c38ce33eb6248673c5a6af5dfe4a6eeb34def1bc05fb621cd1119bee",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-37-page-02.webp",
-      "sha256": "9a006854738d0dea49f4dc8f6e6d2e5349f7dd6ee5460be86ecb7daf22eb27b9",
-      "status": "approved"
+      "sha256": "b91741b228f7f480c4845136e99f1adfb2f44a5bfbdc0ec644f4eeb8613c70f1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-37-page-03.webp",
-      "sha256": "844cbec6442d11ef82717d1b28c47b6a7988a7d2dfdcf786f263e0dfc4328382",
-      "status": "approved"
+      "sha256": "02de0f69015bcb6471fca9ea6b055d672c45e4e08c8cb6d129af617e5188d302",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-37-page-04.webp",
-      "sha256": "36d7af24ab154c19a9668b12f8a2bd7f82e48dbdbc91f05188b014cc7405862c",
-      "status": "approved"
+      "sha256": "61adb2ff89bb0837d0807b8d01ea65792e333493b21cbb37d0d4a1882cd1073b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-37-page-05.webp",
-      "sha256": "e4258e87a8a3946005a5332d47a2df493ca53448038410649ca25cf66594d03a",
-      "status": "approved"
+      "sha256": "097ffef7e43edc5da35b7ec651e71b7992279b9ea9950b1667dec9385198941c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-37-page-06.webp",
-      "sha256": "1099045072977cdcfc4c47d7217033a975980d5ef9e7a53811252397068888e8",
-      "status": "approved"
+      "sha256": "dd734d372842b230cdb59733a1175d330d89208a0aa1cb2545395eec89590e33",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-38-page-01.webp",
-      "sha256": "d2480505e8e33c8bd8878c743dc21a645c18ef6a24947771b1b7db989fbf38ef",
-      "status": "approved"
+      "sha256": "2a88bc48bbcac74ab86613a38b9ca91993481cd271d1bffc16c6eafb79d3ace7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-38-page-02.webp",
-      "sha256": "9c37e88f9581c314023b88888d7436b71ec482fb75a4e1fff9186e11ac071642",
-      "status": "approved"
+      "sha256": "0b6bedd84ab0cc3bded824f5346e62fd40de35b3a5157ef9313a915a8166f047",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-38-page-03.webp",
-      "sha256": "76b67b00662bf11bb30f8944dda151f25b82ec3f01d72a22b2da26f0df2062cd",
-      "status": "approved"
+      "sha256": "b5838716c8556f88017e69d579c6f9137b3176f391824d097d8d5460dfc7f5c1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-38-page-04.webp",
-      "sha256": "e5760f6eec8053ae1eb662bea8b1544623220ac40094bdbe2f8fcef07d03bd46",
-      "status": "approved"
+      "sha256": "be08eafaea9ac6e96a98d58ec1c8a5ef394bd4f0172a988232fd1b62a623f6de",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-38-page-05.webp",
-      "sha256": "13e22a45f217ac4c60d61bb5a351f018aed0588d91d100e6155f081381bdac4c",
-      "status": "approved"
+      "sha256": "b0e5cae8961ed676f37df20ae693e98d4805020f3072627ae5ed368b544071c9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-38-page-06.webp",
-      "sha256": "3992b76ed2a96edb9ed5201d2b2a8fe44b463ac06767b337341a18776ede9c8c",
-      "status": "approved"
+      "sha256": "e9784a39b6999f25f0a6230a5337ee22af2a14a3591c898e3a870705a1326a97",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-01.webp",
-      "sha256": "fe3c0ad9363b38e87009340f8a953aef39e91ff974897bdeea1a3ddb7b58bd09",
-      "status": "approved"
+      "sha256": "955d8ef466036a4652b5395109832d45cce9fc34380b9f61b23f577954347ba3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-02.webp",
-      "sha256": "f6e411d49bf8a5104e5bd9051cf0ea918b9b32ca8f02973c286091a8dd0330bf",
-      "status": "approved"
+      "sha256": "ddba9b1160121af9dcd6da262c12b29e7b50ee80a57a5bb3bbd9cc5c6161213f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-03.webp",
-      "sha256": "449a4e346252ba3a3748ba0cf77640abc256c8a02581f5929dcc2dee593db528",
-      "status": "approved"
+      "sha256": "8e4ce9a757652d26b2d3d074b9b9253c3515d7a9d6779899ddc02697568c0e44",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-04.webp",
-      "sha256": "02a00744530cdc922c2406fc5051b20d2d077e3300ea2fa0b85305ad035b8d7a",
-      "status": "approved"
+      "sha256": "20b9bd0a7216cbdd59797ef7f2a3dde44bbf034af5b40f61fde589881cf83295",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-05.webp",
-      "sha256": "9f820084bf34260c66984ae7d033ac668fa2ad8fb8149474585bf3b0c1af9241",
-      "status": "approved"
+      "sha256": "e4eda1a9f1376564e1d32a3160250173d1d174561c4708926cb1768498fb9c65",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-06.webp",
-      "sha256": "574f0ab82713d6b4398b4797d07543712af5515b47a65c3ba0686dae060a42ad",
-      "status": "approved"
+      "sha256": "ee0c62e258d293689f6ed1c4f9118fbb3bcf846bf0a287cd3a3f26a8f9a309c4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-42-page-01.webp",
-      "sha256": "e5f1e8c32426192011fc9a7002c3e9df7d8ff6f6dc5dff7db2b6345823559d8e",
-      "status": "approved"
+      "sha256": "d0177e784b3c6a6eb37ae0a0ee93f082dc0e3b1719bce4830dbbf39010894024",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-42-page-02.webp",
-      "sha256": "db37ec8ff6025d5162242d2ff78aa62b71e2936ed6bb8524cbb824eae7f1472d",
-      "status": "approved"
+      "sha256": "b37e6cb4bd4a8b6cdd007b98272b817f7eb5a9087ce6d08c39dd7959ab9677e5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-42-page-03.webp",
-      "sha256": "ec52a292fc6b776d29c3d4231b32101a10ae13a911e02372ec969a11800996fe",
-      "status": "approved"
+      "sha256": "9c5700feef8cedbf43e90b4fb86202f7789b8af933a209b04a6fce403ddacb5b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-42-page-04.webp",
-      "sha256": "062f9a50c907740fe1b34c0d3a2ca6955c11cc61fe39ee61626bc24064205efc",
-      "status": "approved"
+      "sha256": "36586cb8345432849075aef0c7361f9686d99960a8d8c4cabb2bfb571a3c889a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-42-page-05.webp",
-      "sha256": "4840a3ca9c2d13ccc2b936f827bfc0c25cff3cc239148ea3177da0b5705c5848",
-      "status": "approved"
+      "sha256": "2f2170c69852a9f0c7b19e71c97a407962a48a9b53e52fc19f05b0ae8936a55f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-42-page-06.webp",
-      "sha256": "f004df088821006bfe006a919c9819bba5d4adedfef215aa6f9806f4b9825f4b",
-      "status": "approved"
+      "sha256": "7c1d2ea162937ee1c209b0b139f904cdee05939185c48df4685f1965bd669716",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-01.webp",
-      "sha256": "00bfc365ea852647fb292203cd4e7dcf670a4eb4158b7aff9ddaf56f9e084f1f",
-      "status": "approved"
+      "sha256": "f7a675885e0d75999b96bd667ef5103ac55b81aa9af5700608c57b53bae87837",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-02.webp",
-      "sha256": "f036dd9e1789e00d6b18e6b779ae60ed2f43d414e97b8e18bbb44310ff7758b6",
-      "status": "approved"
+      "sha256": "b213cda000bc270311eb52cfbc02259c3838cdbee749ad70c6ff1bd2c8895591",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-03.webp",
-      "sha256": "1502aea41222df5f8ec0eb98a844100e4276dd1edb22d1ada38c08d545b89a85",
-      "status": "approved"
+      "sha256": "5aa9a10116aee98b7a6059fc03fa1241f3ae05b09c70e14a3fc105af34e2a2af",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-04.webp",
-      "sha256": "21ecea226d61aad2b14269013f05969a73716763b4671b5d0cd8203818cd06ec",
-      "status": "approved"
+      "sha256": "c6febb970533b22b528fa7ef431d54d1ed857aa8741141aea1636f7c41341695",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-05.webp",
-      "sha256": "bb04a963f112b1811ee422fc9f31ce65f6afb6542e3a100ea5a7392d35f3d7f5",
-      "status": "approved"
+      "sha256": "593136a25c984a84ed63614775873b6afc51f25ec6f0e1beba6b942393b2415f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-06.webp",
-      "sha256": "79be7cde17f286d448f9becde5810e8067a9c9faa4b3d015c33fd1175a14dded",
-      "status": "approved"
+      "sha256": "0dc3e3c8efda83b75f80d520da9c01ffc9e1ffe07687f6c9eba21837efcd118c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-44-page-01.webp",
-      "sha256": "396651985b7d64084540efe21efa12a261be47579710ff14fe81f771f3a7df36",
-      "status": "approved"
+      "sha256": "38fd8c79080bd7c859f8733faee56b6fd558b8d6db1422ec1ae740428a8ef51d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-44-page-02.webp",
-      "sha256": "e973ca37c89e9aee7bf2baad47dee76c19edfc7222a623ac1f67b8cece59e8f1",
-      "status": "approved"
+      "sha256": "403afc8a3e86417209a33fd59f35c6583b4cd8bfe8239510d07c4286ebc13e35",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-44-page-03.webp",
-      "sha256": "86e4a80de26c6238426573636491a309525e35ed989cfa50d034764e3a5375d8",
-      "status": "approved"
+      "sha256": "9fc6ec5b694faf611e3b776d53b73602923c86a8cc1529696a91383e7dd38a58",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-44-page-04.webp",
-      "sha256": "9c7e801f71fd1ad768e4b13374bf31103c243b36bd866139b0a955458a973dec",
-      "status": "approved"
+      "sha256": "c169fc77b2f8a97890439520290fd543eeaa88114d1415168a3ed4dac80f5173",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-44-page-05.webp",
-      "sha256": "6f8ab9fe5613b706e8827d54c17859fb1c06aa4099dade0a4a391c29e30d908e",
-      "status": "approved"
+      "sha256": "bfa708b12540205787d902dab77797ff8646c36d6a558219aaac91e7a9f75788",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-44-page-06.webp",
-      "sha256": "8035a7c72aa907c237d65a21b6aba4c939abe044026f0139b286febb569636d5",
-      "status": "approved"
+      "sha256": "90da93b8f9739fa72488ed81bafbf92e9bc59fe28a624678de6b9d285689f734",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-01.webp",
-      "sha256": "445fb3ac368f9c71d77bd0c071981ab458c8235bf059d4445759b8a5a6ef6ef5",
-      "status": "approved"
+      "sha256": "c188576575fe5d2bba6a3b2334b6db2c75f169667be32f3b9b5560e6841934f3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-02.webp",
-      "sha256": "3c2700ac1317971c669917c43d727f497af1817250509fbf086be519517f524c",
-      "status": "approved"
+      "sha256": "0c62adbc543ca1669cb2693ff094410ca57ba4666e02e4cbdcdcc0f953881111",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-03.webp",
-      "sha256": "008348ff6eadfc7d3c8b6b7fb577e9aaf58a287c27d24e4f67360187dedf2ae2",
-      "status": "approved"
+      "sha256": "d98481592a89a40332c7ce2566cdbe5574e4cbde0567bd7a50207cc64b00c656",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-04.webp",
-      "sha256": "78a2ceba481dce653f16192ea4b8f0cd07d6a4501c56faa3f3f507139532bc3f",
-      "status": "approved"
+      "sha256": "3582066140654eba740435717e1c148c2fc9870e2fb6940e1c695e11925e3b7d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-05.webp",
-      "sha256": "79a0b25cd90240c2fa33bc3804ae1b345814a3e7d8be90566b164616c2f055ba",
-      "status": "approved"
+      "sha256": "fc66e6a7cadec0a897626cda59001671805b77cb1b9a4ac2394272c8b751a915",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-06.webp",
-      "sha256": "63c449533784469d600eb57c031fef413ffb150a6da7fdb348e944d70216739f",
-      "status": "approved"
+      "sha256": "30493d93b24c1ed1f04d56f4621e028dcc5885836ea8a61dc77657d38970c80e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-46-page-01.webp",
-      "sha256": "70f080ada82dba9dfb871586857f83ce8ae54672d3aa3883c2829c55783afc2e",
-      "status": "approved"
+      "sha256": "4e85cc83b33294bb20b91328b779417420b0d25acf1d0db67f0f5a2cc5ec9aec",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-46-page-02.webp",
-      "sha256": "861286933b2d061e7d58cdc3235c73cca72ad32828d46dbdd3f35853f75a7d5b",
-      "status": "approved"
+      "sha256": "dbec4e62875896214b9be2d15cc8b18ff1db56fe3e222e677bf12c98b3bd8cca",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-46-page-03.webp",
-      "sha256": "84bee53527583800d646b3c483e21e25c8b1e4599b5a0eec5e3f2f3da5b0f89a",
-      "status": "approved"
+      "sha256": "7fc1d192064546c95d65d5a224e9e6c5608b4cfea682934f2d8191068eec57f4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-46-page-04.webp",
-      "sha256": "d6fdc66028b8a193112e64aead215a2c494e3713dbd14f67a54dc7bc51ba3944",
-      "status": "approved"
+      "sha256": "89dc85cf96bf7657505eb33d751b2c6fbdf2a195b63d5c7425415106e80f942e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-46-page-05.webp",
-      "sha256": "e32d94980112d2dc4a2c1c76c4121ac6eef74f266d4e0541a4e9dcde8e8d86ee",
-      "status": "approved"
+      "sha256": "5f8acfbfd670ad3e8aca6f8f3b3bf27ca3577f2c2cbe3736ba56a6ebf6b49ecb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-46-page-06.webp",
-      "sha256": "cf8d13ecfb2a2f99fa0c15c286a24934f3b7a59e29ae54ae232f5a339975148d",
-      "status": "approved"
+      "sha256": "29a819ffd6bcd536f252f25963a1192e1138cf3e4b901e3c2afa6a97d2aaf207",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-47-page-01.webp",
-      "sha256": "039c8dab65fdb652cb20756fdc70d6bf52b4458e0869944c3ffc32fc86ed7ca9",
-      "status": "approved"
+      "sha256": "546b91ae121b2727c86052a7f035d272c8bae81d46d75553054912b306cc842e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-47-page-02.webp",
-      "sha256": "ba9de12970102dfc91db136f246fb5835b3101891af9dd99666dceda970434c4",
-      "status": "approved"
+      "sha256": "4138fcfea1821bc14ab8822ea52e23c058d48c9405ecb1e3bce42f2ef8d4d724",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-47-page-03.webp",
-      "sha256": "1f67cc89989585a0aa0090e98d894c62290bfb2dbcce3bbc201b87d8cebaec99",
-      "status": "approved"
+      "sha256": "ffde7e805f1bdb9cdb6877287ff287c15a7b7435fc34999d02f5695bfcba533b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-47-page-04.webp",
-      "sha256": "21ae9b3f5d39bdb77ec7b59d5176021fc0cdf708b825cbed7106445bae8a5296",
-      "status": "approved"
+      "sha256": "b8437e43e8cbaf25adb7eebe5ff881d578998eac9874ba626799a1b8ce9fd354",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-47-page-05.webp",
-      "sha256": "135553cacc1ae8d956dbea6c077e3e0ef66aaf98302e1c20e2b650e286a247ac",
-      "status": "approved"
+      "sha256": "3d2197c55a9f4abfc3cd84eb18c076bef05beadfe9ec0c63c8dfc625ea292bdb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-47-page-06.webp",
-      "sha256": "af2e17d9effefb013b2c92226dfffce7556e82ea674325bdab5570cabeec3123",
-      "status": "approved"
+      "sha256": "60ab4618e272f1f4f52db2b7fdda01d8c5396cf0500f43df62af1072fd0f7961",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-48-page-01.webp",
-      "sha256": "302e3f42d330f51c3ec6db5cca5f22d0099b31ac8b3a340a932ec227e4ee097a",
-      "status": "approved"
+      "sha256": "c3ed4e68138b57e48e0d6aa4a867c7800fedbaa7ae13d3c19e5df6f502531934",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-48-page-02.webp",
-      "sha256": "38016b0373371e3d1512cac5743be06a4621661ed889a6e6c4c019018c2b918c",
-      "status": "approved"
+      "sha256": "418c3211717b1580ac2d6f8350dc6d234616ccee2a5b79bb2514d1fbf68b765e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-48-page-03.webp",
-      "sha256": "6f682577940227495b6b96533ca2761245f54354e779bd25dec9c6475f7e588d",
-      "status": "approved"
+      "sha256": "f59dc389e0a21eb361c67b8005eb53edabf4fdfef57387efa0e7470090844841",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-48-page-04.webp",
-      "sha256": "8535995ab1ced85c7e9c06d6fd71ce5d8f020b2b3da90890dab2fd45ef8e9188",
-      "status": "approved"
+      "sha256": "04fe10f66ee49d8f3f72299fc0c52fa975abc8c6150c17409a9c10787438dfc4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-48-page-05.webp",
-      "sha256": "0d5c5548d1c39d64829bffb6f85df577e75cdb61cb9fa76575545ac3c5964095",
-      "status": "approved"
+      "sha256": "eb0bb6fe68c0951dcd1179a97fcb3c8137c42f1e5313cbd54bc84a52685226a9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-48-page-06.webp",
-      "sha256": "64a7962b4a5cdbe74d674e17dbedf739951fac7a4caf3b2680d575ed4545c93d",
-      "status": "approved"
+      "sha256": "6639d84a39a15ca0ff353f216d24ffa911beddc46be265952dbf615fabdf18e6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-49-page-01.webp",
-      "sha256": "c8254a5b2b1025afac60ce6759faa746897de18cdca7076e27cedd16ab8cc35d",
-      "status": "approved"
+      "sha256": "24b390091aa96971937990f4cb0edb831df16ffbd19e6aaac7d982a680c21370",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-49-page-02.webp",
-      "sha256": "27bea39163ee3c990f9e4e1f3a3454cbe9f33760f9e2013599862776890abee3",
-      "status": "approved"
+      "sha256": "a06104f3d85fc501c21d55f84edb4f7be545bb0b5db3a21a28e8870514f1ebb7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-49-page-03.webp",
-      "sha256": "90738c0ab4dfd77d5d2c27a3782a91fb1251337866c968c136d46e941cf4e2f7",
-      "status": "approved"
+      "sha256": "1889b37672e4438285c5419fa124935252de18ccad9a0b59063b899277ab3555",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-49-page-04.webp",
-      "sha256": "96008ee77c770e08a36f5bb08aeb00b3b893cb8c50c40c3bf5a914e29f683597",
-      "status": "approved"
+      "sha256": "aed38ab99802360def4d7c2ecea21eec1670385da87ec8cb69ec84e437cd3f44",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-49-page-05.webp",
-      "sha256": "86400c9111d3f36eb29e0c4a407a55bec5f2068e29258ace868ae12c933db168",
-      "status": "approved"
+      "sha256": "bb7f8ed48c0b611402c3c2ef4a5e400d89eff309e576b61ea78c3dda9c22f32a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-49-page-06.webp",
-      "sha256": "f7a33cd904a82e0ac1a8f981617504f81e99d00099f42fc51fd4366d96fa7388",
-      "status": "approved"
+      "sha256": "fe745291b368597d22d086188fbd41c14accf4fc2d437691a0b097df77074b0e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-50-page-01.webp",
-      "sha256": "f4a6bccf6a078498a5fc211a41fc4e27ffd0623febe47c464385157bfae9fa33",
-      "status": "approved"
+      "sha256": "301e6166c3fd06638066d76a712af3eb986db0c2c8e875d058a63d5ff3e8275a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-50-page-02.webp",
-      "sha256": "fa9845051ae242387ce84c2b1a5109b776f4af328bb6769e9ad5a4ae4b38f7f9",
-      "status": "approved"
+      "sha256": "bd1406d31f2b407e6a8f17f2ad186817b6195f728d4b2351b154afd86fa032c2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-50-page-03.webp",
-      "sha256": "a7be00842ace3cc4af6e051e42ef70d4107e974d7b7e88a60b7382b994ffd775",
-      "status": "approved"
+      "sha256": "6c8ece69f4b4344c5a2dd3606a60186566de4929b137b9e140f44cca6c961a01",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-50-page-04.webp",
-      "sha256": "6c35f941d5969073005234776ea97e2baf7770b3511467bcd9793ee10a9fa523",
-      "status": "approved"
+      "sha256": "8a72a775c85513d38001de73ab99d3298878e94e61c88bb8610e12cd6a1205e8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-50-page-05.webp",
-      "sha256": "9d35397528af3a4edcc3e390386f9621ffde1b5dd4483ce060097d0a1a6b0a50",
-      "status": "approved"
+      "sha256": "db9db13fab4fa261d7c7c3af77138be3ad4fb8af5ab567811afcd823b90297d9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/regen/pages/gr-e-50-page-06.webp",
-      "sha256": "7d4ba348a0e759f316ba054609f51017db2e6cb758b8684d38b7e0f97e51834d",
-      "status": "approved"
+      "sha256": "855d6571a0286b0305dbd346f0de733b205ee918c8ba8900aa54141662f1bf97",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/cover.webp",
+      "sha256": "922e28b24007fbbab08de9f6997a77164092a5136f09fbaf529439bfa683964c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-01.webp",
+      "sha256": "7942c129ee0846593260c7da44d0df68cb1a19549b9e4b1c9d35e19783090892",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-02.webp",
+      "sha256": "45f5c1faaa764fa9acbe2b4ab2f0b9c7615bf032e698a7277ba4fae8fc8009c2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-03.webp",
+      "sha256": "4c61f7e668e7822aa7abe34f877a147fc8bb5cdc5efe41fdf300672493387de0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-04.webp",
+      "sha256": "add5d42ceb2b430c3f5afa410f5025375519266ca44947e0c1c347c863280701",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-05.webp",
+      "sha256": "ff928b47ac0a250f161f7194b8da561f02381234500bb54c8ffc01713d2cbda9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-06.webp",
+      "sha256": "4b3fd41efba3b3c7490683dbba98215d2a79f7f3abcbf56c9a50c07c20915332",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-07.webp",
+      "sha256": "c5ec2811c8b331f4412cffbb424609911ae0798aedd281abcc488d032163cd76",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-08.webp",
+      "sha256": "6fceb0a497dd33e8b03032a79dd39e0578933a5b950dcd5e347c430435d58fd5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-09.webp",
+      "sha256": "67085501b69b5dfb70c7b50b3408f7b5ea2c45dc1aa59bebcf82ccdd1d05986b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-10.webp",
+      "sha256": "4f933fbab9cfafb8934fd23854d0311b09a90206fd1e09269821efa47c0b93f7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-11.webp",
+      "sha256": "66f91be349cb2918d62759b82f5342281ded1795af6fac76f0c091a57f825952",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/science/missing-sandwich/page-12.webp",
+      "sha256": "4eb53546175bf4dbc9dc1baa2dbba60d859044e6c38f122121a6d5e5534f46fa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/cover.webp",
       "sha256": "5fa14151f0f4e4271bd82ec6d5078b03af3636104665e2e342ef30a88c182a60",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-001.webp",
       "sha256": "1f07632601fcab09fa0e29fc991c613347122aab97d8da8e126d04074b785ad8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-002.webp",
       "sha256": "50cc3ca256ccbda4ace34544839df192650213b0aa25926fe03aa29a96e5ac17",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-003.webp",
       "sha256": "dce052f632d96f4d89911ee0f15d147b9784038eb51ef6f188271348ce165317",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-004.webp",
       "sha256": "af819b31dea25f266c9036623d7fcfbd0490e791fe504922e327afdb05b263d7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-005.webp",
       "sha256": "dbcc9b8593ad4880e64ba6a619f33c43b761828672b179afc3ef477b3dfaeb25",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-006.webp",
       "sha256": "b147bec8056b12bd7fc6b2bd77ef97c040b496497a28ee0bf4ad26c20d17cfd9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-007.webp",
       "sha256": "49a31381d4c9508d436f2d55559b6ac56f4575fdece1741c61f60d4e816a313d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
       "sha256": "b11f90754a3e9235a94319a6ccaa1ca4683f9c50187121437005c11ff8301d38",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-009.webp",
       "sha256": "9bf3e1d4006cd0bcb9c5d1d5840cd7659252c5f28a81c3563c0c0bbf1abe182c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-010.webp",
       "sha256": "4932f12f8b0c5e9ea732c0bb1c81da1b8f1872d9ab07576da515dbb630bfa6cf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-011.webp",
       "sha256": "2d96d0870184407e448cf224cfba0826ce1515e4e6f6908b98f0a8ef4908cd69",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-012.webp",
       "sha256": "82f3dadc20ba6d4c2ba3b7bb615fcf39a07388a801c00c3cc88446717bb7b0b9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-013.webp",
       "sha256": "4b8988f17be153eb6b1a113af59565cc1bbd21066a90e40120f22b661243b69d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/cover.webp",
       "sha256": "19527e72190fa968360617cdd07e8836e2537f7c2996a6cfbee582d471866172",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-001.webp",
       "sha256": "17e16fad8eefe7a0a85d2e2bfb460f40ef0192872343e51a363ce03c05396ccb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-002.webp",
       "sha256": "46b5f45108ca6eee7b4cfed3f756b84246ca5c1d035618f49811a6ee446f9e03",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-003.webp",
       "sha256": "240cf75a6a7da4a86a953c9f3fa3e646d5bec5553d747c13ee216afb2d403f9f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-004.webp",
       "sha256": "d4dcb8ec0cc0237a7b3a305fa9b44aa62c016c7630954d454db20856b10a6b3c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-005.webp",
       "sha256": "ad8abfc08cec3794c028c5e0b5f985074bcbaeab8d1166affc2470f4d25c464e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-006.webp",
       "sha256": "6c20652d9d04cc697d61ba5c28d5ea0f60d240ff8d2977a3ef369a7442c4ba13",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-007.webp",
       "sha256": "9ca98c7378f1f643c666680f8a2d5867bc536a8016065d390a0afdf178d344dc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-008.webp",
       "sha256": "9bd689c6cf3f54007d6fa214a978133c192d5eb85b09afe1b5d7a69110a908c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-009.webp",
       "sha256": "d018196d17809a0829ca0c1514db54dd3933b96dd479551209bc98cfaecbd032",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-010.webp",
       "sha256": "66b58fc98c1b40dfd5cc6534230b04e2061bca0d0480c863eec09b79d6974db1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-011.webp",
       "sha256": "6510e30b7ad74513fa730b61fe2fb7785167d221b8d53dbb827470b9942e0d32",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-012.webp",
       "sha256": "817d573268fa0f4b550f7dddd169269235a39f4a64da81b3f7e3d7ab4a8acc34",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-013.webp",
       "sha256": "627e47482aee35d7d5b353b90da638478d336eb0839f0b6195d55fa13eddf1bd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/cover.webp",
       "sha256": "51567727c9d38927135cfcb4f1d8e7d930259049143a771a76db2f4681cb0f9b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-001.webp",
       "sha256": "86fef09fcbacc6074d2e840acb114e402129c4291490356ac08bbf2d2c56e848",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-002.webp",
       "sha256": "5b346bffe9d133c27ae663f911372c1f47eac1a210e3da99978984d33a96a40c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-003.webp",
       "sha256": "e4c06e55217440ee4a017a983e9c03b2c1e7a13c3fbb2e13c641df6577b722f5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-004.webp",
       "sha256": "d8ce38394659b54d308b4791f8fbf1790da9d6257e9c0426a86085b2d7b80ca6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-005.webp",
       "sha256": "6c81c7fb3f3a8259fe56bd6e5dc0f1614d55e3c30d0dd866728606348d7d0137",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-006.webp",
       "sha256": "e5cc8f7da50c8d1cf4f887c108e489cfe9fcf7359a3a33680395a15bef32435e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-007.webp",
       "sha256": "714588a45aef9246ade2198c599ee41944d400292bedce27f73bb9ce6f520bb0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-008.webp",
-      "sha256": "a1f89fa5c11a9817b9c837b082ca2f506c76d6042b77168a89f4d543e5f2d416",
-      "status": "approved"
+      "sha256": "df3b65aac7c029664126648ea037b363f4e86c9abbbf3618e5c8ef03bc844ced",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-009.webp",
       "sha256": "8efcb8fc3e2c74ceabbce9a375991e943e50b27bbb1e07e3bec177eba6d87e2f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-010.webp",
       "sha256": "57752c8c9c5752657f986301b7db5cb4e21a1fd9448207967fa7e99d84a0c108",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-011.webp",
       "sha256": "2180d0d31efdc311737c664197f7d549763b02afa317c49912a8c53f9c45e420",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-012.webp",
       "sha256": "b57258205c6e91ddd6e533c02b23589154b69750b625019e1aaa7b230953857d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-013.webp",
       "sha256": "32a0b581a4daf05ed93e90ef4524f4c9e07a6314873bf11817becf4abc851e19",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/cover.webp",
       "sha256": "ed2baea3f6397b2dcf5678241ad097d60160535e722075c2426ff231796b0ba2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-001.webp",
       "sha256": "d45a16da0354924d2622a54ba79dc6bd0a202e994ac2db7b10ac5f84400e028a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-002.webp",
       "sha256": "b15f0159b6bd3e58d586803373eb438a2fe6c765d3b7931fea04761e87ab1a13",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-003.webp",
       "sha256": "443e5886ab4cf178c698c98e83aead19353e853dabb70a97bdeb2c8be97c3d73",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-004.webp",
       "sha256": "c38115673ac3942fc18af873757deb5e5396eb644dc0668a392f9c045d772177",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-005.webp",
       "sha256": "bd2daeadf5833618ba34ed8ec41224d96cd886ac7c0e25fd64001ed2bf10a746",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-006.webp",
       "sha256": "ece072308c1be6764b936e7cbe540e09e4e0a719d55b6478f67b2044c025ac02",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-007.webp",
       "sha256": "1e162439f8c66c68dc1dddbadfcbf4d653cc52216f4038a436ccb595bc3a5d6d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-008.webp",
       "sha256": "cb5a5048160ffdcd738d414ee30a501c92c6a47c43d92b1cfbe9d0e084e06641",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-009.webp",
       "sha256": "4de87f4514a962915c6c87c3333930853d63c33842bbb0d48848bddedc1558c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-010.webp",
       "sha256": "4cea2096ad79a63407ec5aedb62b1ee1f401bd97c8fbca6a8a3cac553ee4de6d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-011.webp",
       "sha256": "5a51390dccc8da747afeee3cb606795efc3e919ae2a5e9fe90b7b61f74e0d7dd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-012.webp",
       "sha256": "6dddef48b85b3b8c417f6633475cfaf67b354c08adfa910aa4315a752a50ba66",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-013.webp",
       "sha256": "41f751d42a1e988105e44d2ab904a78d0ac2d51ed3dfdaf89a1219d40f4a01c6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-014.webp",
       "sha256": "3ca836696121584ac986cd7548e63989eaacb3b2bdd25b425971ea798daadf8a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/cover.webp",
       "sha256": "aa22198ae6a93fcb6b0a4dd8c856849aeec32c327caf471b3924edce57edc7a2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-001.webp",
       "sha256": "a5015cbfb16891cbd74c9876279ab9134e1af96a1104b3b07650a468d2c409fc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-002.webp",
       "sha256": "fb18b87ca0e92b7e64f28facc82dbf1c8b25443af38ca867903c497aea61908f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-003.webp",
       "sha256": "c6952f5f1ca7165971345beac7d1f72311e49df4b422bbcf6e060960b4edab68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-004.webp",
       "sha256": "28671a7a790779fa83766456dc8fce392c41a0045c5f0985670fec218c7bfe97",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-005.webp",
       "sha256": "a29b37a39e0e5ece848081bda1ed0428660ad083589657cda7ad47d6554d2234",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-006.webp",
       "sha256": "8638b88d416a9e84dee91c1af6e78c0cac86ca6b9dc287b620aaa7cfdda56612",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-007.webp",
       "sha256": "48db35fbb33175ee4f9d133465f6d9a6365eee93c744377832542834cb8811a8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-008.webp",
       "sha256": "47c9e4915faa1333e8846af991fa63ddaea22cbab8994a5b86029f083892193d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-009.webp",
       "sha256": "56b7f5e0c9459024396c79a4c9114c90d4d47f2142fb368a4f83ad93b68025a8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-010.webp",
       "sha256": "7726295ba7e7775317a89f3c014d3ae38b4d83b04871298c5cf7698b34d33a1e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-011.webp",
       "sha256": "29070cca0a36de3d563ba6c1a97f2071a9b2642f44bc8fe02e0a81a88b55b04b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-012.webp",
       "sha256": "839601db783c8de9f769455566527e582679faceb5978d74f52a01cb89e19854",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-013.webp",
       "sha256": "6eff7183208b8933471a495d9ddbbaa16bb5ab5668866f68e37424c605d51c25",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-014.webp",
       "sha256": "e2e7e866785bb00e4d152f45282176c7478205bbb4e192c1f8f9a4f509bf27fc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/cover.webp",
       "sha256": "af8ba390e97fed7f7702f6b83933729c99957f296e0e5436a129ab66f3040b03",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-001.webp",
       "sha256": "4932e0c33a266561171c4c263617c9b177230867fc1ddb658f695cfc7ad89b75",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-002.webp",
       "sha256": "e5ef3a6eeb479f1e1bc79bca7829beebd7f9a0c2f8ae86e5e6c067bd26a70a71",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-003.webp",
       "sha256": "55340c995341f2505afc6eb70b21aeefeaf7056f794a53b88e25e56e0ed14f9a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-004.webp",
@@ -4383,2327 +6636,2792 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-005.webp",
       "sha256": "e2d39dac00c5cadc4ab41d978ca554b831d8926924a5fd9e10861ac548add645",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-006.webp",
       "sha256": "97aca1e366b97c1010a10e99b8b977fed25e258e34c8b85add4d5eee0db37350",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-007.webp",
       "sha256": "4272225877048673140d6cbba7ad9e7c853c1b0a950beeaff10c7ba4952157ce",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-008.webp",
       "sha256": "ac82b4d612de1de2b9ac09c9da88fe7d17b0cff8eb4617be6366f5f804ecebf0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-009.webp",
       "sha256": "a993a7dcf568d108d02dd16731fa996f6bc34a64da46be5f1a0eb53ef84984de",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-010.webp",
       "sha256": "d845d0ac44a9702be84dea7f7b1a2685067c89ba117fd1bb5145f28a54d035f2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-011.webp",
       "sha256": "c6d7681c77bb4f29b7bc602d6a4fe5933d19268f793e82ff6db657f23dbf4373",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-012.webp",
       "sha256": "e3141d82e3eaab2f53adf6e76f598200baffa827cfef0f9ad928cbaaebaff572",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-013.webp",
       "sha256": "e7140c06a5e5aac10b8954bc8923cef560b77af93f513746b9f659db5f349fc7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/cover.webp",
       "sha256": "9c77db40b845e90cacf43093fb5a862d9d855b0b7c21859708315ce1423b4ecd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-001.webp",
       "sha256": "6987d0941f0371da0b9d596fa444d86b8a21821439ed46bf91895529a2f79ff5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-002.webp",
       "sha256": "86ed3a50b8de9769851eb5e9d79ca33d13539797890715cfbf515df749361ff6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-003.webp",
       "sha256": "fb771f4ed422cec2baced45ba87e27b8c43b5861eb611bbe3433ecb47d206fdb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-004.webp",
       "sha256": "b4db6ebc1378df57f9de48ed27efab6cf3c5904c753e8e368a38fc07b06d8409",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-005.webp",
       "sha256": "aeac30dc850707f11751882c59ad27065aecb3c4b1a729acd0ced30131866571",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-006.webp",
       "sha256": "100fcaac5b7242a0e092ce228e1fe673893906c78dce5b3596a1bf98359b5037",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-007.webp",
       "sha256": "e99f89ab0216ad737cde2ff4a41d47993ed201945a8ef888586ed6476178c286",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-008.webp",
       "sha256": "840b62cd546b3fdfc7ed1543a748dba5c10c30805715ff16f5a8e22822446fee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-009.webp",
       "sha256": "0a37f8ec55b30484add6783f8eccd7e3fb6ca69fd305b3faf2194dfe11640ef3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-010.webp",
       "sha256": "251b6d447390d82b6bb1e91894364aae776672e16a7ac21d614501734d2e9fd2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-011.webp",
       "sha256": "cfb2a88e818216af6a9b1c53e31c141e10451afe1f596da3d2cf549b91b3d2b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-012.webp",
       "sha256": "114d3b71c11ea3d97d885ec19bd137592111aea5b19fc52cb5d917c19987eaa1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-013.webp",
       "sha256": "a16040e05be8256bbde68bc489940426f83724f6c300c0e1692ef263f8755331",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/cover.webp",
       "sha256": "22e57e6d03e6ac12f06a823b4f9217369f5e98cc12b8cb1d985090e418a32919",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-001.webp",
       "sha256": "22458070403f2e26c61070bcc8384b76c606d846a6b3f31850ea643c55bda6b1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-002.webp",
       "sha256": "6af3312ef503e8cf50b5574220bfe275025b5c5831f1b78559ce173cb1aed996",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-003.webp",
       "sha256": "4f51272eab8b41f7dbb5ae32c4a9db644c24ed3363dc7a9a4ed5dfcb6c16cacc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-004.webp",
       "sha256": "c02505b762ca4e797ee8e2d58de2e24fc5df0a11e46e6fec3c7563b689359f8e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-005.webp",
       "sha256": "3a7ccef41a1aeb569b25d53742c3c1b6a9737464e8c5b96816e2a94ce3f60f95",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-006.webp",
       "sha256": "64b13dd8922efbd8d930f765d08b27abaa721725c51376af7eeab3a49bf91cb9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-007.webp",
       "sha256": "2f631357951abfd7a71af329698882510437d4c7e40472791e85b007aeb02626",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-008.webp",
       "sha256": "d23686d8b06a35591244cbde1814a6a07744550ba5d651944a26309fda731770",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-009.webp",
       "sha256": "14fd3981330d35b0d5522fd483d0aaa6940aa09755f3a2f054f9bb95573a5430",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-010.webp",
       "sha256": "2711c4a42b566fffa2be9370148dce572c576cc75de255ef5c73ee24a509bba8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-011.webp",
       "sha256": "3dd40c0698e7134e6c3c17d0c4b566f7ac7d83bbba8c3273772a5f9b658cb301",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-012.webp",
       "sha256": "d64b4883363205e0b1f142aa1b8a253b43a476766383578b8f198f1cdd5bb54d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-013.webp",
       "sha256": "37eadaaf3c9ad2865c07174753b6fc25f3bfb468f8e47169a1fd81ef16f10ed1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/cover.webp",
       "sha256": "915c768bc3608986b1c543297d6092238272c410c6c5be2edead3e31ed29d351",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-001.webp",
       "sha256": "19a6d730fa15f37a1fb61307a8e4ce1ae0c6b2128e84a18aa83b2c6ab0ee24f5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-002.webp",
       "sha256": "c9f0515a6b779d331192a42ed96f3f6fd0f15316413041c97127dfd1563a0369",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-003.webp",
       "sha256": "409aee0bc982748f14a2bbb4d368fea81df93afa3a824ba90afecacf065e02d8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-004.webp",
       "sha256": "5025a6107fe1f5515c3dee41fe828c2c96a934730bfbaeb794af87eef913e3e0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-005.webp",
       "sha256": "9ff49da93864c3fee23d5f7377f3480464c1e0e4c3c9259fe793bb77e5009473",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-006.webp",
       "sha256": "2a7e51f885d6b6c7d50bc5e5ac1a266f3ea4aeb5421fa58648964486efe224d3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-007.webp",
       "sha256": "b72f7fa8c2e9ab06d97541f47b1398a46501f232d665f833c2c78a1241f2be43",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-008.webp",
       "sha256": "f341f732c15cca02b4bca663fd8690feb0dea1591b233363e6827f0f4b071612",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-009.webp",
       "sha256": "ed0c443af28bd00d7158c09c5fb0c272512c6f8eebab74fdb1d629ef0e1d08fe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-010.webp",
       "sha256": "60a9119cdad28c4e9e894ab73ffa0051250e0010473aff72995995f1f95843ba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-011.webp",
       "sha256": "57d45dafa937213546781a7678880e130fb0bb3bab6b28d1b937a5d951afd2ca",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-012.webp",
       "sha256": "5d8c2b79fafc290f057165342ead7a6ef81ec5be44a7e6d255ba07d6fe20afab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-013.webp",
       "sha256": "25f2dae106bcb3db355a23b996ba6c17144021ef3a276b34816355eb54414b0b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/cover.webp",
       "sha256": "4fd1e0c1b3d5026bbb49ff4482ba44c69ee1e7f808ab1668c408befdfe761c7f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-001.webp",
       "sha256": "0d48f28c9fac4e4e89db7f31156f6bca9895b0ead1e29d508af9d7ca1b3df205",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-002.webp",
       "sha256": "ca2a089795448d60c208220dc1f8356a7a6c12dfa4412c816669df7d8aac7c2f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-003.webp",
       "sha256": "119e4247d277d243529258f0d762d97b78c5cdf1dd44677019fb468b488478b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-004.webp",
       "sha256": "1ef92341da2d85415bde351ec9910acf37963c3c59b5fbfdedcecad263f4cc21",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-005.webp",
       "sha256": "ec24090ec2f5d0b4a1f75c4ea228dad06d2e3e00dc75f5ce606106ae0475b579",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-006.webp",
       "sha256": "f37fc392b0553d3e0f33ee547df1764a865fa2b3aac12486cc97298bac1aba08",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-007.webp",
       "sha256": "ad69a0af5bdc1095b828dffef7c90abd71ef9a2c61848564c0309fbb33f1766c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-008.webp",
       "sha256": "c917f37e2d0ee61ae944124ce3fcb376a781c5f108361f2262860adf7d2ad3ca",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-009.webp",
       "sha256": "863d3339d4b3c37628e149b8499375954471c00e7d6306b227a09f745b2bb2a6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-010.webp",
       "sha256": "37a5e3dc209d458006424fd0d350e5510c6f1c3cd7d1ae1959a016680b6ddcef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-011.webp",
       "sha256": "8d62e33d2bb8cc9143b429997f63cc59b0c9c006a124680aac85dffe22468dbd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-012.webp",
       "sha256": "ce08bf386ba40bac6332877266ff6fd8a167e1d14d6005a81af22a164c066839",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-013.webp",
-      "sha256": "6a5432d9e92df56c7b5c1cd6578ed9f2ae1c7773849084527d903834772e6408",
-      "status": "approved"
+      "sha256": "66cbcf02beef338f80409174911c8b9f38965172a0bdf962e7920cfd8f258ec9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/cover.webp",
       "sha256": "0b91d9d75fe41a97c07b5eaee96b98de11b623d8af5a8ecd0168450348f78ea0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-001.webp",
       "sha256": "8baae9ce47571a51ad2b0a6d9c5495c92a078374ca8c318e4e12aa7c590ed20c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-002.webp",
       "sha256": "167fcc99ad31380c8cf0aa13be2d2e9ecc9942b5041b76cbf01e17afa2837b0a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-003.webp",
       "sha256": "a1bfe814d8d6da63d815c2bbd8b896fb905bccce4edde2021cc37304c58f9fd5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-004.webp",
       "sha256": "8240848c7470d5899594bb89f8561fc5a11514df4a3cd10c101872159f4396fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-005.webp",
       "sha256": "dd591c40397c2956ad066c7877f295ad34951395d01e16712a6617fea775c784",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-006.webp",
       "sha256": "7671e0e5bc2232bb768f739966922bfc1fe9dddb90a427da032edcf98b6cdcee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-01/page-007.webp",
       "sha256": "c3cd0cb1979d22e099286c31d4e72e2cb595e4ed84bad82d5583957ccc0ebccf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/cover.webp",
       "sha256": "94d3b7eaf9a866cb56f16c917e36051cbd8c035b8d9ba7a3d43f20d2d839c542",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-001.webp",
       "sha256": "cf0271ac302e4c7311f25f6f5cdf69d8162872cadf0bd29af02a68ebdf78c89d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-002.webp",
       "sha256": "a9699af85f8a0cb7f5241fd0a374d083732013a407c6c783b3da4b37bfd9eb25",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-003.webp",
       "sha256": "78a868bb4a3291059796989885c70c14bdbe53626d00153d544e2fe36997200f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-004.webp",
       "sha256": "4d2ea066e19bcd2f11e8e106a49a7dd36d20e55b8575b04eef5004eb72516bd7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-005.webp",
       "sha256": "74bd19c963c1b0f2063f3effabd9d8b163075438b17c555cf63e680384944970",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-006.webp",
       "sha256": "28378dfdcc053a1180c48fb23d992d307fc38e12869c6d8ae9f1d2687889cdb8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-007.webp",
       "sha256": "3ec690405aa7fbd76e6d17a63ef34f08069a0d28c07749b586cf304de0d62fc3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/cover.webp",
       "sha256": "ba1c3e93adf2d6fbbfb0a7fb313974f0ef5dbb2c64865f619570d0fe534a3415",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-001.webp",
       "sha256": "6044127946142b366476e20f271cbdc1945ca77b71db96cc80f9200147b1922e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-002.webp",
       "sha256": "8c07816affdf298ff1ec591b86577ffc80cf84e646d87ab20c33be28beaea9a4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-003.webp",
       "sha256": "b7f0d4745defabfee9a717fea1bf4e2a50703a9f90fbc8c0544bd33ef134709b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-004.webp",
       "sha256": "158bd05423fed694a529196f769cf449e905e83a5f8bdfb5350364e8b4f28184",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-005.webp",
       "sha256": "1c807439581ccc347e9d206b5e906078ff644927f66475ded51f270b31cff2da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-006.webp",
       "sha256": "2b3a34c0bd4314edd385841831531890eceb9c07a9d365bb2f0d6a75edfde7fa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-007.webp",
       "sha256": "abcc1e57b5afb086faf7ac012441cfc8fa23956f00a030db36ac282b2a2be86d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/cover.webp",
       "sha256": "5ebd483aa34a106f29adc16aab4005839bd3eae7675b9393ea24820100fa910e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-001.webp",
       "sha256": "22603e644953c2ed001507958bcce010b6387678e5328f6ba64471cb530f3b17",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-002.webp",
       "sha256": "4172e48aac380cc252f5951533de18ad485f5f202e770a8a5e0926b4e7edcc76",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-003.webp",
       "sha256": "d5f4f4986f648f068b35612a4a5fe26f1a74c50dbe11682a758e8d6347745d40",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-004.webp",
       "sha256": "ae577c530a23dc0e8ecc7416f711b70f9c183840ac4c07e36542892abda7d463",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-005.webp",
       "sha256": "cda7b030657d1f9710f5fcd262f04bda5d5730388fbed8dcdb597cd46552ce09",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-006.webp",
       "sha256": "4473d33cbdbe82190d936ca04e3a25ff096a370914af7b936ec5c33d83341107",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-04/page-007.webp",
-      "sha256": "1b58e95dadb349e22ac059791abbab8b1c031877e9c1afc6ed076e2fbcf64512",
-      "status": "approved"
+      "sha256": "9d62b2276dd6f1477f90b0d2daae2afe45e1d1eca2494737618da1668d675682",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/cover.webp",
       "sha256": "4ce6aa87002314ec9dbc522ac966ded6ed2a37daab332051b8aa654ff6b504b0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-001.webp",
-      "sha256": "7a84178b141d998141072f3d2b1a5972502b68915a0a58ba890a391bcaa2c0f2",
-      "status": "approved"
+      "sha256": "26ac43f30bf30d55a358a4ee0ce69927fa3e0f740b08175629fdd9324e981c46",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-002.webp",
       "sha256": "c17ea7fade0609228c7c8d82dd614fb12177cecff4596eb82a6554a7fcfbe3f8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-003.webp",
       "sha256": "09ec039d2ff1e74a28a3a8d0fb2933a34a7d7614ab2abb40ae047d5bf746fcd8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-004.webp",
       "sha256": "7bac6b398c373b519d3b4427b4c6dc48274bb98c78516721c8b51da19c04eea8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-005.webp",
-      "sha256": "1957e7203f7c1c04931840bca8e958a97280bbba3fee01eedd5ec2b130013fe8",
-      "status": "approved"
+      "sha256": "f40973aacd6795387dcdb1b486971008034f9839999a40a6d45781a2477fe6ee",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-006.webp",
       "sha256": "3d4448ab36e95546b8d6fe22e8648e1d6c68c691891e15c0233ebbf91f5f441b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-05/page-007.webp",
       "sha256": "8168afb03ac9ffe160a8c2cb102f7d4c3ecb12aac5e62f3fdf48a5d9fef38d99",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/cover.webp",
       "sha256": "1d662cc7d41fde1c757393967f17d753ccb62c9b3c78efd4acf8a00aa7b6e779",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-001.webp",
       "sha256": "273790736d633bbac8b2b000cf553c927d69d8d4d4830ed6b7922d5b54695e50",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-002.webp",
       "sha256": "4afedbbfd0281b4f2684a2c16287ab356c784928549c37ff15f9b6d1b24aec9d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-003.webp",
       "sha256": "f757f459134c59573302931442b68f237727c627f130a9a8a3fc67c65c302d41",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-004.webp",
       "sha256": "f6360d0dac199860b5e109e754379aa83db5612ace0c7b587023d521251aa744",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-005.webp",
       "sha256": "cf7c8e970667ec19b4c3af43e82f8ff3758e2991c9ad7655e879fe8460cb6598",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-006.webp",
       "sha256": "23970bd60e1cf5d2ffae6e1007325d48d71b8e02ce5377d8a2f412053ee3bb2e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-007.webp",
       "sha256": "b0ff924314c4961fa99ccdff188bf810cfd94c9a182bef38383d9574f900ca05",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-06/page-008.webp",
       "sha256": "d23a65c40cab3370282276bc853c99b3d5df6adc54d239d9e3fec1a50d0e5603",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/cover.webp",
       "sha256": "a13388bd31b1dc8a642ec73debd55ee597813af670a41671056f7b82868f256e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-001.webp",
       "sha256": "a41ff217741384e469179fc30ba30c9b1a3913aab0abcf5b988613a68ba12b99",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-002.webp",
       "sha256": "90cef0fe105d817a554c1c3db5f1c9f47b73cc5698a64e28ddab3cc40ff91f52",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-003.webp",
-      "sha256": "1bbc626fc6b832c2c526295c27517a2b8a30f3beb91cba13946b4053047f5197",
-      "status": "approved"
+      "sha256": "2852d593d54c060cacd6ca1274af63c5fa88ee4f1e647c38971e80a361e0b3c6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-004.webp",
       "sha256": "058062bf32086a7ba9f38137a834b6e847d433d3aec1dd0640bbb0d66c48bc66",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-005.webp",
       "sha256": "31b4e835d06cf37c34b061be1c01a8d664b53ccd0d3fc5b73b2f8c4388eb3085",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-006.webp",
       "sha256": "caff3e1e6f429192e95a2c95699147db790c8ceb24d862c66c6aa33a89fd29ea",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-007.webp",
-      "sha256": "4a426f9084bbf4d61c669124f6cd0f499bf4f261f59982106b7989151961dc8c",
-      "status": "approved"
+      "sha256": "85860b9fb28ae95036f944a2a76cce654b1d84ba4d613bb4f395b6703eea8623",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-07/page-008.webp",
       "sha256": "f336af85c57ce4dd35e7ae1f4f935a0a34e91b2ee1c610d21e9089e9933e639d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/cover.webp",
       "sha256": "180d7611590f72769c3df1d6ae73fedb650a01a8c3e960b0e67bd9e74c977358",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-001.webp",
       "sha256": "7908acd672c0132e6ee3fc117c1ea2f667e076b14bd5b7830fe56d451dc70503",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-002.webp",
       "sha256": "6bad420afc6c54d4271c6d3aaf6ee12cf930d6550db27f62769ccf8b972a6623",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-003.webp",
       "sha256": "efd62c644d129b6956cb1657c3a3cbed4b8f829c18f7def718d207a2eee07b39",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-004.webp",
       "sha256": "c86caff370d6799cd063af65f22b85e8c03f33a297744bb5f6cf8b8d56acf510",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-005.webp",
       "sha256": "687591bd2ff1f10d4b3a91a7e72274769520443e668bbb2b606e829a1d4e83c3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-006.webp",
       "sha256": "7296c37b88c21b27d21f69151118d3a3e3251259afb0c0556f101098bb2f8b97",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-007.webp",
       "sha256": "1386f026fe8eb124374a6b8c9940234f6040277f380da4c53c97b697fa50dd0d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-008.webp",
       "sha256": "12e1e619eaaedaedbea6ec34e5d29f155f2567032b91346a6db6bc96a00c585e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/cover.webp",
       "sha256": "712a08bbdeb7aa79ccc6aaf663928f95e228bbe829ae66aaa994ee77d2a1b144",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-001.webp",
       "sha256": "5d1e6e46585e986062b86a2cfff20d1f59fd32a9b95e700ba2e9ce1fb265d4c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-002.webp",
       "sha256": "6e9d55bfa6e5428e416c3c8a6db56c10dd268facd76e614584e45f5f6d4b2f69",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-003.webp",
       "sha256": "9559a91916ac9954128d2bc455a0745dd552e2ac322da3a252bdb17bcd8f3714",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-004.webp",
       "sha256": "3022ee4cd4c0850485d3f04c92250b88023d20dd1d4dda3b7ce7ebd5df10531e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-005.webp",
       "sha256": "5222d2e14d3b274390da4e3fc554f9f844f4f810d015175c25689d96abda6a9d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-006.webp",
       "sha256": "9d51b2dbcc95d1576e0e20d2908b76d9b4c4e10bf8633818212b4a119b5883c1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-007.webp",
       "sha256": "90efd756e878c554d4a6dc8779fb08c999151b3221f873712282317aec7ff4b9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-09/page-008.webp",
-      "sha256": "9afea9d85cd5c2cc82477e7e87d0aa231796b404fbb2481e47473a540c423afa",
-      "status": "approved"
+      "sha256": "3e985ea019b51733856c494d687536e0a4d8d977e87bc38cba01a0c3328f4220",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/cover.webp",
       "sha256": "f7987107e5cc7c7baed4ffd197a995b1c89484871e86e6c349ff1acf831ae942",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-001.webp",
       "sha256": "8c8311d14a7f306d84cca649bcd307a8f37f92e0f04cc183c5ea0a939c61c621",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-002.webp",
       "sha256": "e17f34ae91a9d04e25e51e10c74a4ff7a5fba8e04ff13be7cdd3022027fa6dfa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-003.webp",
       "sha256": "9d875800d606a250e4decbfe8fe3c9db7c5197ee804dd57056318b22f3172b73",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-004.webp",
       "sha256": "ad23dc60063a55e678ae38e73f439e452bdfda0d3fa8f5b766490317add1070c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-005.webp",
       "sha256": "25e65513bdfd691a6ee96d931edd14cfb5f9481de587a0f418a1f720deeaed97",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-006.webp",
       "sha256": "517802069e8c6733e2a75ef46e1a7bed6eb6ff4b5637b1fa75d39fd2fe53d882",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-007.webp",
       "sha256": "ab00b28055b3340ffdcef6bd927dd8500b976f474ed5eebe303c9fffd8b09888",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-10/page-008.webp",
       "sha256": "f6036395a8ae15bd21d2626f48dfa910d3dda732d3964659274413d6cba5f08d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/cover.webp",
       "sha256": "c119afcf4ba4b9f006086458b86e10d75643e1d682435542e5798eeabe6b7a11",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-001.webp",
       "sha256": "e7312f1833c7f21b6469b240e1b9ba42aa5cb20c22c3f3d3b4ca97f4a8f86e41",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-002.webp",
       "sha256": "f676359ecba54af6ce7f3f90cd4c1d75cb7e6d85ea2426831541694a414c5b10",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-003.webp",
       "sha256": "b056edbf9db03d6925b96e8c56ec7edc76fc6acf1a464590ec7db8a68e231dee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-004.webp",
       "sha256": "fc60dffc1db0412445fbc8f06b0c624fc0f4eb977e8e25fb44f77825bb960f33",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-005.webp",
       "sha256": "937b46cf76022f1d5e3ab08e33295bea4166ff2e9951c6d2d90ddc4d79280552",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-006.webp",
       "sha256": "8423e05e9d06da1c9bf4d70ee57cec85cfcf96b1e35cc436b542cd1a20734ec7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-007.webp",
       "sha256": "fa70b2f4e3f370a378c9ff30731069700fe85e16e334aac2c6eeefd93fa37400",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-01/page-008.webp",
       "sha256": "2ff605f29bd66ba553e161a1681e60f490c6ef06d36365159a4155307747279e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/cover.webp",
       "sha256": "f55db2fda6810a5ee396b5d9ab730d2de18535c37f5959451e1981ba62201145",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-001.webp",
       "sha256": "e8fbf94c7ed9b273efdffa095ef2e9e7c5ce295f7d1479289eeb951832208815",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-002.webp",
       "sha256": "cdcd6cf2733fe123a1011189f57618ae836db33412cafa4f86227ac19e81346a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-003.webp",
       "sha256": "02d42339216a2a2208923378f6fb65abc562c7dc76c5f75dd508b643c93e762c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-004.webp",
       "sha256": "06a554ed1403f929af58bd11aaaf5064423c477d63268f7a83cabb9dec17f4fe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-005.webp",
-      "sha256": "b280ab4849c7587cd41562c94bf2fe1aa5ebc8858c9a75e45267e6ccc60d4cf6",
-      "status": "approved"
+      "sha256": "e343dbc424027e3bf03eca723ea64ab666017915d26c9bde45b3bd2270a0cd83",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-006.webp",
       "sha256": "c5f1dc47c2ccc324703cc761bfec2dac618472df01664be3ac8a6348fbff740a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-007.webp",
       "sha256": "b4f18ecf81c63aa926302512c432f8b0633f4206c5faedb475c96782fc741487",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-02/page-008.webp",
       "sha256": "df9e2da1bb4949683cff423fa06a484048369fdb05afe56b7c8ab363b6664540",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/cover.webp",
       "sha256": "d946dca15e3f105ba2439defbedb92a4570215123f43f7bd542207198f1eee2a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-001.webp",
       "sha256": "0c6b787c13c4c4ea63197ee169d5e83b36a413041eb3c54bf6e781cf0a954988",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-002.webp",
       "sha256": "28c5d88e343624ed39280ebdc2c9a7435976613f25d3b4e88dc61e64e0685fb7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-003.webp",
       "sha256": "a56acf72a5727ae0046778cab72c8f60033fc3396fc00c338c1ac0f32f36dcb8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-004.webp",
       "sha256": "7f44b850964900ca67be189ba93df4993179fedffc4762bce334a9f77bab551c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-005.webp",
-      "sha256": "cfd241cd898c4402c4557476ed5f0f7fbb01934a43c37a5fc04f73479a800908",
-      "status": "approved"
+      "sha256": "62c8981799def4d420822d2bf62be58a9415fa908f24b2794b140b10eeddff9f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-006.webp",
       "sha256": "c01f255080f569466fc0bbcb676a8037615046bc045877053528bf31a2feb4b1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-007.webp",
       "sha256": "78ff8f7be14f2e9ba4a3e78f28d29abd049bc1acb34cea8b262675f2d95e882a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-03/page-008.webp",
       "sha256": "97ac77e101228520b9d6b24642139136a1e4c006f63be02caf71dcea26954b6e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/cover.webp",
       "sha256": "81d3224619b4f79952087e490cad0da37c1e99e9ff388b7ec8fdaaa9625bef30",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-001.webp",
       "sha256": "27229f487b7d3dcab510b24828f1d134f9d0bca821eb3674cbb6ab572240830d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-002.webp",
       "sha256": "3f058beeb00da8e5162807d6c2283da29ebca455fdb978684e587e4c0c0ea3e1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-003.webp",
       "sha256": "7c6546c5cecc87ec96c6273b393b39c04f2e5d3a58bdad2206a5136c993bb03b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-004.webp",
       "sha256": "d998ad25342e0825416e251baa2fab40935da772acc5cf4f6efc78dc342af73d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-005.webp",
-      "sha256": "707aa4329f743d43b013208a3484ca4da032a4c13515ebcc65142f99839c8eac",
-      "status": "approved"
+      "sha256": "3ae2618725019f2284b1d88831bb4b749e6942414b6a2a8c5133dcbb77d27594",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-006.webp",
-      "sha256": "3b2aff8edbe8f55da7f5c03fd05ef52b38a9c1143330028a007149ab7bdef70f",
-      "status": "approved"
+      "sha256": "a0d7b0e11c8764f92bad9f97a99dc4f701995b5829756453bd79b4741049862e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-007.webp",
       "sha256": "2d0b9117d0a77d64c756c9910fc20d60165bb5d9cbab679e41be9982c7628921",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-04/page-008.webp",
       "sha256": "e64ebb5ba6876e37e96818cb6d6c5487332efbdced7a9218cdc4b32a37e47ca3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/cover.webp",
       "sha256": "04dcc091e35ce6b30deef0c1f30a249eed9217d3b4b1a4be7d5dd8bc6e06143f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-001.webp",
       "sha256": "9966ee1abc7f4c690632a074aac1af6363e3c90ec38068d2dfa3fd0be18fd78e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-002.webp",
       "sha256": "86ca3081aa00625bfcdb6b4de34a5dd04827d62f80b3ca5864ab4ba59f0f8cbc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-003.webp",
       "sha256": "6e81b7080acbe457e43f6f6739e0d02845496861f6d2bc1128650bba9feedbc9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-004.webp",
       "sha256": "0812d5a109f2a21e1a39fa31b46e1d38849de2815e7fe068f7900336cd5bf134",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-005.webp",
       "sha256": "2d4d0bb190d60e5f8a22bd72ed2e17e5a65e29ea54f40648b56fe20d3c33d16c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-006.webp",
       "sha256": "31aeb84879321f1d96993da3627f6bd16e55cf768a5129be56c565b7949d5908",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-007.webp",
       "sha256": "34982510d22763b11e5dc17ca7e7507a3c0ac5b3d76ddfcde7a75df308d1fb32",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-05/page-008.webp",
       "sha256": "dddc2848d2859088eb84b85c4bc8609bf9df1990722e51c09a6010ee9192d622",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/cover.webp",
       "sha256": "29801c1a671ff74fcccd0ec37d077518ae78687475ca81878a9760e0767cc6f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-001.webp",
       "sha256": "522bea594392187c730e1800abeddd319a3a84a8c78a2b22835b1a838a80ac3b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-002.webp",
       "sha256": "689fea9eb640dbc8cf15db8bc637538747125cfee4976b599cae9d43fc78d802",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-003.webp",
       "sha256": "a5a866f7bebaac897d4dc737d923c5543cd5c088822125ff13f52ed78c304f1f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-004.webp",
       "sha256": "18cc9f51fccbcde33768e8da9e6b7d3593f0279aa0f2a1124d66bafc07a2c0f6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-005.webp",
       "sha256": "2ed50d5a85d3b4769df10ca0b1756b50726699ff6e4a920f5238e5f9aacc0ea9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-006.webp",
       "sha256": "3cd0ff1b08f9d2114c1f74abb6be2210496fd7b270b91c13e92bb0ae9fb32bbc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-007.webp",
       "sha256": "68bdd82fb6afdea8276f7f02af631e492ac88e5a93851059a40cb80d8521e450",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-06/page-008.webp",
       "sha256": "a6905610824c4b61128d9bb951db6bc4a29c00612bba31b43e6fa7e18caa8299",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/cover.webp",
       "sha256": "2f14e5115b2c01f2d8d49695cb52f98c5cf2a440a22936ea3f36b5de59381c1a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-001.webp",
       "sha256": "dec6133be24e323dea94f9369cd968d73ab08554aada48a9f59e1f51a3126a93",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-002.webp",
       "sha256": "b45fadda859ba431c239ca67b387455cc8e838ad43f9246108a230eb0178c0ae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-003.webp",
       "sha256": "37f7812301b9320aa59dea9f36929f843368066bfbe5d9c17cfba7566f4cabe5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-004.webp",
       "sha256": "40a376b9bf179fce10b62c24a5264fb650236512c8cb1b3f56951c45e929958f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-005.webp",
       "sha256": "8832e86346fed2f52d5fcb37b71d7e7780d95b129b52484c7f1335b4354a68ba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-006.webp",
       "sha256": "0cc31191849c9f50b0fd37f1eac8fb851e2c28d7b3b63975a25d83be5a3cc104",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-007.webp",
       "sha256": "4860cdae7aaa5050aec9d41271d8ebd3b05e5e210cc44e5a82e7603664ae2bbe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-07/page-008.webp",
-      "sha256": "22480f96be45e53cb821b63d134a1062819b4d59339577e06a3ab9a318f8f456",
-      "status": "approved"
+      "sha256": "ab011eff1f690db3459c741d93da2112ee809e22340a32cc07f954bed03611c6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/cover.webp",
       "sha256": "38d739b0a87255495947b2e4bff1470f1af3094c60e2da5f0c549c7eed175310",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-001.webp",
       "sha256": "cf46c87f5c0635a1a1fecd5a7768b53650310acce160cc5ae8f88b3c3fc2087e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-002.webp",
       "sha256": "f7a5e902595604f6fad3f24a77effe25424d38ad14fd45d0810febeb71dfd88a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-003.webp",
       "sha256": "d4c7d1fb00322e2496f5d9065348011c0336827e7b1753685c2c4c5ed2b7dd12",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-004.webp",
       "sha256": "bd25939a0d2c4a15901d6abc3b44b7d3e2fb88d20b6f30719b2ef93b3b4f4c8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-005.webp",
       "sha256": "7107ee83675dccab212398efa3cccba53b564942cc9af1ace0634882fe802b58",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-006.webp",
       "sha256": "c82dd8d3f91ba648bf7b199cb4ee64e49086978badc568287cc5be32904eb8b4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-007.webp",
       "sha256": "e37ff80596db88eefb7f93438c8793859638af357127da31e3b4ad070e1fcce5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-08/page-008.webp",
-      "sha256": "6022a6aaedb93b66099e5d0e3cbbe72bb32e34c830613d39c1f1290257fd971e",
-      "status": "approved"
+      "sha256": "4efaebcf8bd878cf53f453a968f90bf67714c0f07e417cc5477ac48439c4a7d6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/cover.webp",
       "sha256": "fa45d57524e119293b3416701c095857d4d57f7c3a45604694940c75c495a6c4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-001.webp",
       "sha256": "d697704865666b391582063f906a58a4a394651d196b7aede1e2291e495370a6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-002.webp",
       "sha256": "4c8d9ff9f296820895be03ca767802d8ff3be674559c3125ba12fcfc19d434b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-003.webp",
       "sha256": "f72307f970e6d20551463475da1573c447bb94df15134c7d474ab13dae144c40",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-004.webp",
       "sha256": "71d655d22bacf09278505e1a89b1bcbbc35c22f5a95c085aeebcf3f2c03ee427",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-005.webp",
-      "sha256": "0cbf4fe55dc36e7128e485a849b4162b9fdb335c6a9768614e085abe840d3185",
-      "status": "approved"
+      "sha256": "6a30a66b1fe2e77b917ea3100452c1030338e4d83f54700de2b15ebb9265cb2c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-006.webp",
-      "sha256": "498ed20a7543ce8838b41b0cf4b5ad21db86d1346538a94f19c26c4db995cc4e",
-      "status": "approved"
+      "sha256": "ef6853f9ef974c6c84cb0967f3627a496450acd893ad7899873617d03f7a2ed2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-007.webp",
       "sha256": "04deeb48b0d5e25471c2210fa454e035ececdbab1de93bf810c1a71fd8308d4b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-09/page-008.webp",
-      "sha256": "e1c8f7a9d63781c2f8551fe83027ef89ecc778ea6e26e0dd191fba1534e70bd9",
-      "status": "approved"
+      "sha256": "993d42766bd1d8a6ed8b650e195f89053efa2ecf900aa007eabc0984ac03caa1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/cover.webp",
       "sha256": "3221dd1118304a860b530877bc8c40abbd9d9c1007406791783465380241a324",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-001.webp",
       "sha256": "1f080d3ec96ec558ec21dc2cfa3dcf71da1716b55ea6619c7f2f17ea30f14dba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-002.webp",
-      "sha256": "566f1538ed41087c9ea800e7e1b7ce70370e942da260b7df52c3944549c7e617",
-      "status": "approved"
+      "sha256": "f66e77aca76e872811c5f68f6e5733e274d9271947dfe956ef1a2653cff32ec7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-003.webp",
       "sha256": "468f94e70881b812974d523c5586b19c218af362eff3c38f6f4e3ebec094434e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-004.webp",
       "sha256": "d675bfbb8fc1a19af5c22416303d8d41681577bcd94dfc998bd6bdea6784a2eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-005.webp",
       "sha256": "1e1359a59ebc846bd214d323a0aa5ea8c73d0b441358ae056c81baf21fa7d0b2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-006.webp",
       "sha256": "355023bf51afbbcfbd18d9a63bc73598f855adb730583ddcbd024cf59454ff7d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-007.webp",
       "sha256": "bc728ba2c83e7c7a3558de4bdba4907603519c9d8dd1a2ccb79ebf7f116fc85b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-10/page-008.webp",
-      "sha256": "5e5bbc00fcdb9c160ba32cf794ae696fe9439088ede38217c7013cc81ff5df5c",
-      "status": "approved"
+      "sha256": "0f2967629f178ec7952768dbca2d330587b7d080fc49cbf61782b8c4dbf8bc88",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/cover.webp",
       "sha256": "e242f31d3cc4fb536cfd801a89745cf903785ecc5cadf0db7ad320c8d70e61ee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-001.webp",
       "sha256": "e79a31dec299531e705af3e29f5e38b2728964d19eb9d6116d46fea0151b7484",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-002.webp",
       "sha256": "8060c1157d49c9ae301f596c0bea8f25e8db020259d56479443f9a7b83e7daa2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-003.webp",
       "sha256": "da8aefcaf0f4cdd61fe335b572968bd6dd39276c854edb22ff6630a8ac9d6934",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-004.webp",
       "sha256": "e2cc69599dd2eeadb5db41d35613b811e7cd27300a76b7e8841cb6189c2a2b60",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-005.webp",
       "sha256": "ba9c0d61908cf86e00cc2664ae356543ed6b250ed400df7eda2961ddccfb0092",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-006.webp",
       "sha256": "55d1a2f3ac527f99009685e563ca63eacd659b970f6746e299a0036696cad3bf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-007.webp",
       "sha256": "2ee35d9f54df887dd2b99891455f62fbbffe55236c9af123240266e16b327ff1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-008.webp",
       "sha256": "bfc018305eefbc3626426cece238d169d368b24076b01fff0fe0a31a83f5ad49",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-009.webp",
       "sha256": "df5756316b507004440133de9b301b3b9014ffd53c343429297c752c1c51c86a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-010.webp",
       "sha256": "8719901873152731cf91038be88cf165b4596cc19988549e456d382db9cfcef9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-011.webp",
       "sha256": "72083ff08d768cd40a3b312bbeff18b8f8d98fe72c6394e175e51103f8a2e3e5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-11/page-012.webp",
       "sha256": "c41860cebb74a2534a848c20d04b0b01fa237f3a10aa6320207c0b890fdf5146",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/cover.webp",
       "sha256": "05ed6e9a3dd2406e02aa7c634dc7010400b198c4f8e036ec169ee49510577bb1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-001.webp",
       "sha256": "8893dd0c5fb41f38b01309fc5bed4b37899ce68ed11cb09c8518d1c206b07e37",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-002.webp",
       "sha256": "e6bcd1a1441dad7e1ccd031491f741065ae64f338b22973853c75900810e7bf1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-003.webp",
       "sha256": "b7d361aa7a8e9d66206c4f25d86a287d50dcf6af827649446f66f981629509c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-004.webp",
       "sha256": "b26efb22f4c9ba9d093cdfd814ab44be226ea7beb0327e63cfd33b6c8990c897",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-005.webp",
       "sha256": "b539cae941d2f7889ca7e02cea47e7add258db40cd8de66f724d38b2d0bd29e0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-006.webp",
       "sha256": "c89a498a4fc03e42260ed5df4d1c825581da037eefb8fd4f00c81cf3b435f729",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-007.webp",
       "sha256": "9d5fd5d2116287873a28a9bfafd684eff878427c82c787ac390b18376e862fe4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-008.webp",
       "sha256": "4dd0a893305c80264ca95609fb8eaa6010a079c6317e7e160de27c36f55c7642",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-009.webp",
-      "sha256": "cbf0d66b796ef61beaeee378e17a88934961a50e96bc9864f2bf72e6b063d81c",
-      "status": "approved"
+      "sha256": "82e78863ef1fc160599f95694403cb86d0fdf0d16cb29b61c9e4224d2e97a53f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-010.webp",
       "sha256": "ac626c50596751e2afac324bfe54696e1ab2eb117e567f867415b9366edecf51",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-011.webp",
       "sha256": "e5e4b6d72c9878bcbfcc19a390ab687f636fe98d811b18ebb36f8bdeea51cb7a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-012.webp",
       "sha256": "fd14937a2914be8a7c55e17ae6bfe26fd5ab849d29706482c334a0d493138104",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/cover.webp",
       "sha256": "c0dcd81c835f7434409ac96a3bc894f3a377a1b1a403a658ad724d084f2cc3f2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-001.webp",
       "sha256": "166e5935b26051b04f0795c211b3dfc468abd27a3e0c45b805ce3faed213d57c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-002.webp",
       "sha256": "2f8661621f8ce798f338e6c0adcb796a28c0fc9c3eea77130fcfeba3a7ab2f6e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-003.webp",
       "sha256": "73cc61df1dbb905f4a417babc057c0417e95afa4939a5b1901436c6dcd164fdb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-004.webp",
       "sha256": "fddf5f38ac8557a9c1844eb2d1330ce7dfd16b08166c8fdea5a792ce32fc3c71",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-005.webp",
       "sha256": "2be4668326c1a9386b6c2f6aa6b881806b6e4e3415a49612a8a965fc3d3704bd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-006.webp",
       "sha256": "ccde19f4a23ea666899555c996f0d2adff7c2fecb5a84e55723af08c5fcb76d4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-007.webp",
       "sha256": "41d85268195622a2699541f68e37bceae8c240ed3530a865d7d75d06d72fc354",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-008.webp",
       "sha256": "8145aedaa63271a5ff5a3412e2d14fb39bf18daadfceaf12736f36f027c7deb3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-009.webp",
       "sha256": "b2d52a87eae2dcdc8b53c211b9f08ced66d2583028f485d832662f2407378b83",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-010.webp",
       "sha256": "ff674b721b8078e887482b889b5221239b109bc429e6c47878bd3d1d1559e31a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-011.webp",
       "sha256": "4fa66bb3543f498c35310d75eeb375f0c30ce40bf88f15a1e554a3c1cf7e7681",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-012.webp",
       "sha256": "cf2457ad4a5c1816d6ac46406200e57edf759ba7c140db6b30e8b9c356f5f40d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/cover.webp",
       "sha256": "5e9f4298ac09417833c26a5c21f5ef02ab6c3be19060e0506ee1c8af524d031d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-001.webp",
       "sha256": "68dca5b60d8cc7dc803e9f38a15403d0937512199e994200a7cf53c4264c069e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-002.webp",
       "sha256": "cc4ef289f5b9982005994d0a39b9689b08c651451c5f1b6e1c6b18cafe8832a5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-003.webp",
       "sha256": "e51fe9d0ad81c98af318e5c837278aa26b16b5c2d8158d9ca050f652faf02e6e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-004.webp",
       "sha256": "8d5a6c7fb6a65ed6b70bcf83e184d729cde5a9ff1e1cd3f4b9a368ee7d472f10",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-005.webp",
       "sha256": "27fbb47510e7565aedab03712bf7da0025c85031cb502936531be56f41f437bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-006.webp",
       "sha256": "a48765ff4967cd791fa70ab26888607ebf8303659190f4d96ccae9eafe051098",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-007.webp",
       "sha256": "3d165bfec0a4fbaaaad00b716ffe68de7d3cdac699a2abf34b0de5ea9026281b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-008.webp",
       "sha256": "245e07af7bf5e685734d9a057aaac8fd635e15e23d62add78b52109491d5b580",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-009.webp",
       "sha256": "5d619648104e9f98b8f43ddd57181f71d4f72557b2a47fbcf6214eac59a4e01a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-010.webp",
       "sha256": "eb3d130f67d9e84d5be2b1f5a5f9452004609e4599e10fb03565a50bb318195f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-011.webp",
       "sha256": "ec437130b11450fcf941a8575b0cbaf6f0001b3be659b3e948b121af16aec5fc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-14/page-012.webp",
       "sha256": "18aa00d81b3fcf64659cae29acabb97cf3a92e1c67e36af039e565720daf7d83",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/cover.webp",
       "sha256": "a82a289d2adf2ee3de22fb0410d286be524f9315f17062a0dcff8486f449d40b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-001.webp",
       "sha256": "4c1cb41aa51aaf3042b1637ccb357e75f756599847d35ff77ab98ec3c024e43a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-002.webp",
       "sha256": "aaf9b2595bead1296c1f4cb2469f1e76afe5e45e58ebde1dc18f0dd2eb1f6bbc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-003.webp",
-      "sha256": "df35dedd5a20f288cf7bb298ae9de1b01de57d1339b5ee536c3a0b2042274473",
-      "status": "approved"
+      "sha256": "5e461d14e05cb4665331943b01b78c46155547794950ef170c89b0a5e3a433d6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-004.webp",
-      "sha256": "2b1489fa939bb9ca7351f9d83bda92d7f2ccd8d1cebbdf3f22cc7566c13e7875",
-      "status": "approved"
+      "sha256": "ad0adcb130015ce4d2e4b43100d66872cdc566a8490208b07b1f297e3fdef570",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-005.webp",
       "sha256": "2cbbb3150cd5215d269a4f7d4ac60e342ff9f7fb810139b4cc9be6ae2e8fda77",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-006.webp",
       "sha256": "977e84b72776080b3a5ea207feb543d6d304ac26edf7b893f0198f128497e188",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-007.webp",
       "sha256": "254d32a14cf0077a2b05eee7e78664d33b910ad950fdf8fc9e97292c9c931bfb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-008.webp",
-      "sha256": "babb34bad133ed7116a89b66ef6f08d0df718aaa3a099d0de703eb05117d3e67",
-      "status": "approved"
+      "sha256": "b4a724f5b78d1d72e5de0f613f6982d9c52663f6d6cea113d8f24f43ce1cba4a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-009.webp",
-      "sha256": "1b5683e511a0b9229670f3a8b920f3ef6474b1b9cda752c9dbeb5a7f67a03f53",
-      "status": "approved"
+      "sha256": "4ae12a761e3bc5f1ebd193fcae5891ffd348bae8c40a374dad685edc344b99c2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-010.webp",
-      "sha256": "724a10e3427561902cce1b86d9506a0d0e17ea8832f187c161c85fd2fb21a297",
-      "status": "approved"
+      "sha256": "b64f864a59ee49ebf14049daaeba0987050407e174b633dbdccbd09aa108b247",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-011.webp",
       "sha256": "6c4d58632614eedc372b105b1cf7de4c8176eb052b0934088b0a24df81ae9d7e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-012.webp",
       "sha256": "74ff41d3ed73351029122b7d91dc3444d2abd643584e6f0680d85980bb8a98c4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/cover.webp",
       "sha256": "cbe9581da54a1092b117b5548914acebed1bdf240735bd7e271b6b6e1449a68f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-001.webp",
       "sha256": "12cfbf1d13b0ccb539f226123b7d76c49e4958108eb48bfec27f2bfeabed0c9c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-002.webp",
       "sha256": "d0a76775777908e73549ecdcd4698579a35226724c6bbb7267656bdfcfcd9763",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-003.webp",
       "sha256": "2819e807b12df3de9044a80a2abf864b5703f1111655077cf75cb75ceba787b8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-004.webp",
       "sha256": "8fb395eb2373069f5e535da096c57635120fe96532eda02f4ae1f41f5ed1b64e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-005.webp",
       "sha256": "a347f8240612499286ad149b8fc34e07e853491955da7b9f8e8c1ef1295acc75",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-006.webp",
       "sha256": "07ceee1083d79fc5fdc95be2b55420593710933ee7e965100dae2c3b9619493a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-007.webp",
       "sha256": "ab0213fd1ff87b8a4a622f56ab108ebc251fbc47c27377c5f7be0b2ac0dd0e69",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-008.webp",
       "sha256": "7fffbf06be494dfb0f039fbab0c973318bfdd89310fb83d38743ee8155e7e87f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-009.webp",
       "sha256": "dd0887ec3c16119233b62834066e01f6e3cb846758f934c835b0892e3852820c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-010.webp",
       "sha256": "eddf0cafa67d1e38f4114a6778f092da591f376c7f803898cc58eaf9fb637bb0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-011.webp",
       "sha256": "6c8e41562360edde235e02305d2e56c5e187e11de6472f155e0fec540ef05fdd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-012.webp",
       "sha256": "c84bda3f3b9439e92c9e8e82b7286b437cc8ef0f9250c7d1863636912ebe4612",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/cover.webp",
       "sha256": "cfd928b0836c25335a636a76a15ae46b8c2d08b023ad3d6a5e60ff7855c76456",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-001.webp",
       "sha256": "8ad4455aa6fec7cab20c3b50df4ad5a9da9cf43482ca365ce1d40eca2dbbb1f9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-002.webp",
       "sha256": "dff9af0474ab6fa7d0fd01176077acfcf1b51fc1dc636b4e3be279845a56b357",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-003.webp",
       "sha256": "6564666fd7824bf4f574747d7e50c2fd6ac2320655e73593cb1c1808ec96e128",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-004.webp",
       "sha256": "8176840e4bd3a0ead4b583737f6b8d379d8a9dc7b2df37b8fd4686d7bb82db3e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-005.webp",
       "sha256": "fa3bd347dfe703f098554a73462d429477883c04ed74aced109731007b24229c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-006.webp",
       "sha256": "b6a550960aa2698761d0a5f3604647f7a657e29aea55165b778150df5dbec850",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-007.webp",
       "sha256": "76bf534736e06d2cfef81a81a014f4720a99c9f4999ac44234859f703a9a9c40",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-008.webp",
       "sha256": "a4945f59dc68ad551771fc6b1eccd2d00decd0746db560d40baa3f75f8c7d7f2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-009.webp",
       "sha256": "439f30a6f3f1c96029d7a27e7acc4bb415bea68eb3c92d01ab1d9e0eae95c5cc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-010.webp",
       "sha256": "13efd9234c5ac41805cfdb993d1805723cfe9d3746a520b09b0eadcd94a62789",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-011.webp",
       "sha256": "a666c9e643b46a59cf6bc22882c4a6335ef695f52774cb1f45609527d1fd0079",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-012.webp",
       "sha256": "9c2eb6b6fce055b239ee69a5614f68e55ac2298d0af30161423855da07249f01",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/cover.webp",
       "sha256": "016adc49e8c19e1f9ca0ce2102c9ae7dc757a51b35103e1e3b7b39140bc64f2a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-001.webp",
       "sha256": "359ac043fc4f726f3ff904c713850f516a2665d09ddf8d273f96620c35b2edf1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-002.webp",
       "sha256": "60b6afe854f07f7aab9490b1595f3f73852cb323b29760f5aa151a8fc75c94fe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-003.webp",
       "sha256": "4e833c58c0db989eb90ee22a6ede6a09a24d7847e76cfd249d9599c5fb835b64",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-004.webp",
       "sha256": "0cf636955fff6db3f662395b5014fddf2398246231566b90419822dd64307d8f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-005.webp",
       "sha256": "7d6b3edfc85bc707267e7d32e1f19fdb54e03469f00d1df3782b936ac7f66caa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-006.webp",
       "sha256": "c2ef73f6e6ed705d26cde9656571415e84cf77ff1f2c217f0d8342ab1d6f81fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-007.webp",
       "sha256": "ecaf339b7a436ba9576ea3d1ea49b16e56acf6de735dce665b5a1923dfe06b26",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-008.webp",
       "sha256": "5b32ef3186afada39aca57acc3fbcf2f736876b89920bb410aa4bf74b37a5d62",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-009.webp",
-      "sha256": "50c29cf5fd8f54aee4c1ce67daded67bbe6116b9a784d9ee1feadcbdc0e9fb6b",
-      "status": "approved"
+      "sha256": "29b1f1156b117899a66337c389372e5b878ad4d112dd4a8146af0c018e3e5497",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-010.webp",
-      "sha256": "1ac0bc521516089465a9e26c2412f5982def89b3eb643260cce0bd8a0ad90b8e",
-      "status": "approved"
+      "sha256": "726a4c197c66b26c1a424130bb4def60f1f28dc109760a50814e295a639041d9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-011.webp",
-      "sha256": "350437bd84e7465b6a5dd7c53f9ca8d803e99a8d7be9c8aca30a283564f1c41a",
-      "status": "approved"
+      "sha256": "11e1d424beaf2944bc5a01c475baf9a9c1ce36fc15b80e52fafddf1a5b5554f6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-18/page-012.webp",
-      "sha256": "e9ea1a61c714209ba0ffe0457469641b2096873fb27325a0debd33cd74d919e7",
-      "status": "approved"
+      "sha256": "1af8d08b8d2653882f574d6a5db8c9dae49c82d53d0024d97e28f82c135d451a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/cover.webp",
       "sha256": "443ec0c0d76ea855685c4bdb69b30f23a150de615342df0608186abcf09c6484",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-001.webp",
       "sha256": "d5416bb881d27db99c3b8f002f21096985e6374501bc647be267df8ae3a1941a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-002.webp",
       "sha256": "1d7e7332f2da8b52d941ba9193f8f6d9f1083dae89ead0d5b32ed860d4839352",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-003.webp",
       "sha256": "ef762018a28850553dfb19b217e46361adffa862bda9e2e0271f7baca18302f9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-004.webp",
       "sha256": "6a73db893f7fc3f26cff2b68a6fcc2b0bb027c44170b545ac713bcf1d6faed30",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-005.webp",
       "sha256": "18510d0d09b8d3e13a01c4354804010b5492929fe61af6598d37b6ea350ea57d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-006.webp",
       "sha256": "a58a56adade550c66fa4617869c8d5eb59ba4d4ea869fae910227c570d1f4b50",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-007.webp",
       "sha256": "bc04ed19e7f463b56ea281e09d84ad31f4e7cc748b38b5ae23baf464108d53ef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-008.webp",
       "sha256": "207dff1aa9d201b2257d549c31a404d73339ff96a951c2d8ec7e8e69578c949e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-009.webp",
       "sha256": "613093ad0526fe68c4816f4492e0c0e578ff2ab7270963a289ca971c69658bd9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-010.webp",
       "sha256": "569fdd12b6e7052a0721e4037734306e89f12b376c3e15257394c86ca9791ef4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-011.webp",
       "sha256": "76604dbadafbc28eb9b9a2c8bb333351e917b499cdd531c18f08c3f9afaa1570",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-19/page-012.webp",
       "sha256": "72eb58721561b115e50c1bb86c8f1267e9944c6986538883bb53cfba3601d257",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/cover.webp",
       "sha256": "394e8ba4aaec6d0cbe0f24fa93b7163e51a9214b0bd9f40a361c29f6400d4ebd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-001.webp",
       "sha256": "c1927c554be6946de1e40acb4044e2317250b5e12da619eeeb5a12850f292a65",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-002.webp",
       "sha256": "7b612317b14f185e36027d20c546011f82576aa349d913f188353bd884912744",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-003.webp",
       "sha256": "9432175160ac53f5e82e7c5f64ec3adca93fe7ff75dfc09254588eddf8c05783",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-004.webp",
       "sha256": "f81d52b79daeb81c2e8b58a08d14b8989ac04637727d07b4dc43c14af28b9599",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-005.webp",
       "sha256": "f56831a6b8d9a780e40c0219d2acdb0068223eb909fbd8619fe3d04c417fe463",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-006.webp",
       "sha256": "b3b02264f6db93fdf5c60e6e367441e78c74e181e9de408527ba3bd5ae21f5d4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-007.webp",
       "sha256": "3e375d1e2c9796564e4fa9a89bf99736d57009017a08360efd9daac8d6c9e14f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-008.webp",
       "sha256": "dd613faa35505c7c0559fdbd555f70e7fcc12ccb63167693246cdd0036883069",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-009.webp",
       "sha256": "06140b32d9065ee23623b57f1759cb4063ee0585d9370ecbea877f1eeaa80abd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-010.webp",
       "sha256": "521c91a8c24ff4a1e91aee2ce88b02ef02b3b88826d4c5c23edcdb3f3dd663e5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-011.webp",
       "sha256": "1ead87fd247a7ae7394d11baeeffb37b708399517a7d3a793cd449a80cb9d965",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-20/page-012.webp",
       "sha256": "82cd6d439b32d8db3519502c2873790105442020bc825eef0da2202259991a4c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/cover.webp",
       "sha256": "66fdd78ea877cddcb946b59dd4f13583d3cb49d2656ac485bd294828947cfa45",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-001.webp",
       "sha256": "66fdd78ea877cddcb946b59dd4f13583d3cb49d2656ac485bd294828947cfa45",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-002.webp",
-      "sha256": "4fde78afdb7f2e4eeff5f8c15acff282fd4d1ec09970306e521aaf7674cd7ea6",
-      "status": "approved"
+      "sha256": "f752c7153686d78915f834995f7ae1f1450b97ea4cdfeb9fdff0ed6db1cebd06",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-003.webp",
-      "sha256": "05713a868525a11754f88706cd723c5dedd2edd592c7800dc336db2acef9f241",
-      "status": "approved"
+      "sha256": "b93bc3ebe704d495b47cf52f4fd5c7110c4b59c003521408fb0db19bde53df4d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-004.webp",
-      "sha256": "604c3375a7cb39a9a004532b9e7512601dd41a33f446028cdf6b485fdeb16696",
-      "status": "approved"
+      "sha256": "9641c3f097775cce8e4755ce4b230ca14144f0615ddd1e9558f351b7371832df",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-005.webp",
       "sha256": "bee5d55e7823dc74a61846049e0feeff0404a0dbe4654f9f60b95a60d7c0ba73",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-006.webp",
       "sha256": "9f5627fc1aff2d1e67f9b73cef71d544bf000b8fb291f30e67a405fd92fbe422",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-007.webp",
       "sha256": "5f0d07879039cc8e1fdf91e30e1bbbaab15d229a7a7a6096508c88773afc0085",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-008.webp",
       "sha256": "7c0efb5702355af17c99741a964b3eaf4061e3027293effca66576e0d918c42e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/cover.webp",
       "sha256": "15199adaeae9f9acbfd78b022b8d7ebb6835d239e97773a9dab1d23fab0daea9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-001.webp",
       "sha256": "dfb48c3cac3c322eccc62c71c89ac274a1968b2b47c36af047b0b22c624e1a4e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-002.webp",
       "sha256": "6cf314cdebcf10d82de56ea1a57e299c554df763f8efdf661e9d88c8a54912da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-003.webp",
       "sha256": "765fa48e4bac33a9d875604553c1f0146b910e86c75802c936fea45e8fc9b4d7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-004.webp",
       "sha256": "45035d21f04ad4017c062e33f3f1071f9a069b11bfde0a6e640b863fcb6daa8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-005.webp",
       "sha256": "c6cb84ecaf7e25e10a9e01ee69378b0c60fd66794a4c7cf5a52628fa76761324",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-006.webp",
       "sha256": "1d4735634a38dff74ef3c7c6e1f5c83e5b42bf2a93080ee6d77803f716d1c641",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-007.webp",
       "sha256": "c5057f430530c20fd3b6661e71d00320bbbb3fd9930694edc9302515a80089a3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-008.webp",
       "sha256": "3d048a6a760b00fb8cba8a3b44b449bba81f06a9a283d9989939efbad43436da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/cover.webp",
       "sha256": "e3ff54b1028b4743133dd02b810ae3adad2b866c028ad283cbc74abef3ecc5fa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-001.webp",
       "sha256": "e3ff54b1028b4743133dd02b810ae3adad2b866c028ad283cbc74abef3ecc5fa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-002.webp",
       "sha256": "8e0ef219811fcc99b15e3c2f1b2ffaeca467d2d029619a2059d42d07dea79a44",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-003.webp",
       "sha256": "72b5459f3042f2f6393d8d73a6847ae1bd667dbbace3fd571cdf3de44e8284ea",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-004.webp",
       "sha256": "8977494a8b0b7e6b837e006b061382c7da807ed8768a2d2b7b27195ec28acde4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-005.webp",
       "sha256": "df6dbc484fe3f3fcb6ef2b48f651f68a62d2e1c4ec4dd59c874e362244f0fd11",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-006.webp",
       "sha256": "ebefdc25bd1575da7064c2ec71b7ed490d4e6e1a14c250c63d9ff60c816e13f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-007.webp",
       "sha256": "af2b94409ae8a1800c6319af47da18d05ac77c75742a3af36c3be0602c767efa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-23/page-008.webp",
       "sha256": "877cefdea5bffaf982ca49e998ba695ed6ff6bb7dd8d2a3c3a9db2e22ca794a0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/cover.webp",
       "sha256": "9cc3ba198c7d91b94885e8015bd80d3f4e9bafbacbd59e1c2ecf80e81559ff68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-001.webp",
       "sha256": "9cc3ba198c7d91b94885e8015bd80d3f4e9bafbacbd59e1c2ecf80e81559ff68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-002.webp",
       "sha256": "4261eff21ba186d319448557779911cad685d4fc31c2b3986e2272e74f88b074",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-003.webp",
       "sha256": "a8c647ce0b49034885f79604731a692bf593c35f326fbe6b6eefade98b00d74c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-004.webp",
       "sha256": "624593180781b4cba0ca94afb9f76089f88f2190d42c48fa86d30c25b3481902",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-005.webp",
       "sha256": "413e528e2c1b88ed39083195ec4c296766e10dc2f95bc353817b26fcf185c7aa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-006.webp",
-      "sha256": "08359a218bcd344c8c75e9105aa4934fea952d0d9ccb0726c91fa768314b1cdc",
-      "status": "approved"
+      "sha256": "6689a0a41ded3bbf111249d69c197b471890cf04ae3daa48fdb91b64077c2aba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-007.webp",
       "sha256": "87ab6d21b01be3fda8fa9cd59a17b66a7586852d0ba18327c8717f9703994b1c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-24/page-008.webp",
       "sha256": "64fb833fcfec34eb3687ecea4ca9a8913c492bee6c6e9819d480729ad12426a4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/cover.webp",
       "sha256": "33160c708fdfa53f87ff67472b01378f1843854917f572e6736ea5576ec04d0c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-001.webp",
       "sha256": "33160c708fdfa53f87ff67472b01378f1843854917f572e6736ea5576ec04d0c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-002.webp",
       "sha256": "f902a093959ca047ee67dd3e5d7e4a9008b121971622d983ee2d9d96bab9f0c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-003.webp",
       "sha256": "0bc67b2e7dc815217a17268abdd30726414aa0e4236faf1bd4ec4847c4a056a7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-004.webp",
       "sha256": "fc7cfafde2735c4002591027c80a4644d26d0ca91d1e0b7a1ab12d2bdaf35f41",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-005.webp",
       "sha256": "09be5857dcf0f29121815e4ce5d6d6a8464063eb863e0aa96dafdbe32b25e7d3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-006.webp",
       "sha256": "ad3a62c1e12af5c616fbe9d69fc799c37c340aee7d480c872babc068ef031b9e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-007.webp",
       "sha256": "330e74bb6ff8b92c341b53f8c7857b8f5d9b9101bc2d12137dd810e56ebd583c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-008.webp",
       "sha256": "124b8127b0b6333e4cd60f9cebaed471b26e5cbfb643696fe9dc3665abf7f05b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/cover.webp",
       "sha256": "ddee962aa682fd065bc71ddcac95b7500420c89781d8c435b170c9cd7dd70c32",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-001.webp",
       "sha256": "ddee962aa682fd065bc71ddcac95b7500420c89781d8c435b170c9cd7dd70c32",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-002.webp",
       "sha256": "ce78cbfe1717d4f911e68c0bdf62166d3ab3ead6bdb2b50cb360c5e033d9565d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-003.webp",
       "sha256": "5b4a2ebaa6ddb57a79e5f6119d79649de1d715faf791dc01e25a9d282f131b86",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-004.webp",
       "sha256": "5ccb93b5dc02888b7859ce13f3ae1da81688a2de9efc40cffa009f42ab6da648",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-005.webp",
       "sha256": "62e6440b5910227a7d533dce370a05b5936ebe43649949792ffbc68dc60d90b5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-006.webp",
       "sha256": "c8180d8d395efded928e84a856b64df4a25458cfc4e8273a51fed55197765163",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-007.webp",
       "sha256": "557cf8d3d990f96c10e2b834b5a92c2d613b7c4e9e0e03dda4d92640b0fa90f1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-26/page-008.webp",
       "sha256": "6d3a91150a2debd222aedab84c512d77f9d8cee561aa84161cf10bc97458259f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/cover.webp",
-      "sha256": "4c0bfbf612c57869e9c24200578db278cf2ba6014ff3e078a61e472090f97b5f",
-      "status": "approved"
+      "sha256": "a3d0d3b77fd97a25605671fef20b3a20cc8b43319dab2d326df31c7fd83da92c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-001.webp",
       "sha256": "1203786f77b7fd610d59a95be94ffbbfafad221e0397750f4afb5bb368e33542",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-002.webp",
       "sha256": "0f5da17c8c25d5c409c50749078fc90ab79642988146e98efb27e9bd68508efa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-003.webp",
       "sha256": "084645cc623e33ca04bcb17629e89499e6a5ff85bfdfbe0e494762c4a0ea862f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-004.webp",
       "sha256": "ec39ca72cbcb4c5a060c56669d1f21fff300b7ba4c7972537e22d4f8ede93dc1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-005.webp",
       "sha256": "4bf899fa4baa0f3b2be198f82b633fe7a7e8585e38630c430705e6813e980e5c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-006.webp",
       "sha256": "06a9a5fcf4ef943c81397f26d319e3c8029fa88a51b307b0b355c287e0caa195",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-007.webp",
       "sha256": "b7200f8a4b12aaa4ca1c4b6bd4f326109d552680ab6fa9b85806a8bfb83965d9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-27/page-008.webp",
       "sha256": "464d53de50d4a5c498fd5c86e134fb30e24837491efe38fdb9ae2b6a1fbccf0a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/cover.webp",
       "sha256": "7f6cd067a15cea3095a4940d5f11746af96cedab92ac74fbeff02b5bb36ec7ce",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-001.webp",
       "sha256": "70c74ee8178d8708880df7057041acbf02f0ec82e8502be8303ef775de8dbecd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-002.webp",
       "sha256": "8a4edcffe8458da17431a033ddeab239af82f26cb24ed8af7bb0e7fff721b80d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-003.webp",
       "sha256": "e6b7307581cba1008dcddca5ff24de41987bd2f2d3e91b81b3704298c8614b69",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-004.webp",
       "sha256": "620b07558d5d39569b28f8d3e5be05c9e6d51e86a8d67e774aa2bd5ea3c18720",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-005.webp",
       "sha256": "475935fc45bf12ae803d9882d6658552d53c7165a8f36361f6de158b24852855",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-006.webp",
       "sha256": "0796e43c5dbbf21047c45af948491c517f066ad9f28d3726b9d6b35b91c6f8c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-007.webp",
       "sha256": "599ef8bc62c829823d0dbc92aa525dbded02152cda3d4f77421c2650a91ff3b3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-28/page-008.webp",
       "sha256": "610816f96c417227f474faf9a34fbfcc12476842828736ffa2b27778bbbcca95",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/cover.webp",
       "sha256": "dbab69a4663c7ffbb68644bca5e0fccd173d7e7890c45417954c1c2ba78df2eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-001.webp",
       "sha256": "dbab69a4663c7ffbb68644bca5e0fccd173d7e7890c45417954c1c2ba78df2eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-002.webp",
       "sha256": "b112b7c21dff374565ebe931d41ae897cd3c92d50d0deca7caf5c50455705c0d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-003.webp",
       "sha256": "0499b97edd5234d289771b0bc219a8ed34088072528882066d538741e67e245f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-004.webp",
       "sha256": "986691d1d3b54c618e98fa17bb4983917e281714fdd89e498708537d9425104a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-005.webp",
       "sha256": "2e3c993702226c4d6221d7d9d80c130a913dc89db04453ada87bebedbd2cffb8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-006.webp",
       "sha256": "ad0e8ec1b13d2138bedcda34801d6aabe8f14592745550d79bcfbd769aa8f240",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-007.webp",
       "sha256": "9243099ded5aac7563cae2a9e5ee405f5e381248e3c1704c6dabc1214e765c4b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-29/page-008.webp",
       "sha256": "210694cd1738a3e94db368be48bdbc2055f5cbeb631e7e5346e18e53868d5eb9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/cover.webp",
       "sha256": "2e5584fde33099998dd6cc5d4b90c9bc5bb004963cced14f922463deefc55b15",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-001.webp",
       "sha256": "2e5584fde33099998dd6cc5d4b90c9bc5bb004963cced14f922463deefc55b15",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-002.webp",
       "sha256": "18ce31753630b53f7f7c0defdbf631b4e3315ae47188d1b57a8af1291ea3297c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-003.webp",
       "sha256": "b641f78d5ac3c53ed2e9f1f1d6404b1bd99b51aabaaae17a1bed8fa214be9eb4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-004.webp",
       "sha256": "7f9c1352ea8b9dabd6437c1480135993b417d770651a1c965f7438cfc7e44da3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-005.webp",
       "sha256": "73b1903326994afb37c9e47273b6c0b5a731de1a8f784b0626b5021ede39e78d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-006.webp",
       "sha256": "21daa05e933cd8284a52498e60ecc40accce054b5578e699c39666d6614e6647",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-007.webp",
       "sha256": "5b5c3640828929ff27d22ab6cd740e3f9b66bbc85557d9257729565ddc208dae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-30/page-008.webp",
       "sha256": "3d7d1662944120ccfa544d4af2c0b7f3fc7341018227bf4c6d0865f69696ea3a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/cover.webp",
       "sha256": "023f5ee1e564479749960c85c025aaff7b9ca9e96ce06ae46ca7355cdf199033",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-001.webp",
       "sha256": "023f5ee1e564479749960c85c025aaff7b9ca9e96ce06ae46ca7355cdf199033",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-002.webp",
       "sha256": "ddc9cb63ae7af6eacb767e2249409e0ffb8b84dcc0acd96e445cc4d3359a2f89",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-003.webp",
       "sha256": "6658254337488a83a6a476a4fd33f7b17af0bc3ab0cdd9821527bffaeaa504cc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-004.webp",
       "sha256": "6ccdcbf51eb9812568ca364ab9a50e52db8c3f88b5fcfc514b8bdf5572691b24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-005.webp",
@@ -6713,17 +9431,20 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-006.webp",
       "sha256": "203e9138e5652b11e854942767bee16d1062c6b9db6b9c1437739c938d362a10",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-007.webp",
       "sha256": "94df10f0863429b72f5f04227ccfd399e276dc79eacc198210078da44efebad2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-008.webp",
       "sha256": "521912df1873e9aa67422a4e286d7072c8bbe970bac84acbc4f5a21c8986a989",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-009.webp",
@@ -6733,122 +9454,146 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-010.webp",
       "sha256": "a224c2e85b4e19699fa1496d45fb0085bb87459df93167eeb3cb48ba9c0d9e2e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-011.webp",
       "sha256": "d9d3012327e631971a24e83cd3151a9e3967d388f2bff56db37c29e13e3937f6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-012.webp",
       "sha256": "77474649e47b04b15aaf6ef146d8a6fe957254c44f13546ec145ab00f71e1952",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-013.webp",
       "sha256": "070300eb4cd7bc11aa85a49712eb6de1f67796627a56234d80ee5f3c584e2e38",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-014.webp",
       "sha256": "93bc41b7495b8e83593c516aeffb2266dcfaf810444476cdae1f6b0d7ead0eb8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/cover.webp",
       "sha256": "985e310925e82fc3f2944186297516a10427ff71c7c4443d355cc66dcce0c2c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-001.webp",
       "sha256": "985e310925e82fc3f2944186297516a10427ff71c7c4443d355cc66dcce0c2c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-002.webp",
       "sha256": "b6d922ee7b52f8a2c7bfbbcf8318f7b58b01b89e6269c687daba21d3ec66a296",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-003.webp",
       "sha256": "ffb114b780d09311b9738e8586080c93606cc59b072703cd4d90de2697eac383",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-004.webp",
       "sha256": "9da8b7567b3cac19947c2b4b606b8d281183dfa9e9738e358477287c9b7cde62",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-005.webp",
       "sha256": "9e5d7a337d2a3e375cd93ec65bf3e24780e7f37444a6f2267d6df17bda39fb0d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-006.webp",
       "sha256": "b234e49c3b8dcd8546a8477ee893a3b4535022ead3acf617b49cd881c59a3078",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-007.webp",
       "sha256": "eb0d9b5eb1eab7cb7e0d64e54a20e4a97eb827c739ae07546cadf07007801205",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-008.webp",
       "sha256": "4b3dc8a229580bf814d84317042380b1e10d8a7b2dfc85cc20031f5ffbaa15aa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-009.webp",
       "sha256": "f58f07f8fbf733a96bb52f59098be6c9367049a3958ec4607b246e2a38b3f407",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-010.webp",
       "sha256": "7d2112ae11263151e86c7794417b2f562aea531ac1d88cf2a9724add220b065a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-011.webp",
       "sha256": "a5e3025c4289fa349b61b37e1b4f75994644712f104949784326c7bc74b209f5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-012.webp",
       "sha256": "e7a1b0297e07d877c6bba449c6dba24a698d205313096ffeec1be48797201d86",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/cover.webp",
       "sha256": "f590a7d726334d7f51c521a61a7fb7b441f5944f9cf14be695532ba3996f007c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-001.webp",
       "sha256": "f590a7d726334d7f51c521a61a7fb7b441f5944f9cf14be695532ba3996f007c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-002.webp",
       "sha256": "a69c487040bb78e8a54d65c9ca1526e427f180dcdc60fc8a0d0ea18fe8f25fb3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-003.webp",
       "sha256": "566f206e271a7ae3add1e4b7c04057a2922ecb88d48fcbdc135bf87c0dcba1cc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-004.webp",
       "sha256": "fd64dcc9adfbfd2faeadb19077379ed151e06b7ac2c1ae26bee3f9c694104ffd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-005.webp",
       "sha256": "8889a2bf60010ed3cd47b1f2d5299f1bc94015873d47efb96a56ab15d8c48a04",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-006.webp",
@@ -6858,62 +9603,74 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-007.webp",
       "sha256": "7865b74413799299cf1202e54941334d6234cede670f19bc2fe0e62c8ff25352",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-008.webp",
       "sha256": "2dc2e4f9fc36691d92a5afde26f2c218d8a745c9694f3754f107b348c8f4de5e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-009.webp",
       "sha256": "6ebcfcb39defea23406f5f327b6a0718a8703d7efe61a87a551f97e770355ed6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-010.webp",
       "sha256": "eef3c13f005a8daa86844cd1f1f61149eaca1bdff16b7c46106ca548293344ea",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-011.webp",
       "sha256": "703013b7417d835fc8236d669f31aa78235a3829b9fdabcd9be04f5c13663338",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-012.webp",
       "sha256": "d23036a457b22f919217785595a58855e85694e717b15d3d84068ab523073907",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-013.webp",
       "sha256": "0ed90ac957e5917423e4a57352e2b265358aeffe302f9e0529d5607abad3f177",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/cover.webp",
       "sha256": "c313339b85088016f574f99071e16081f88095502fbf4073f068f0986fd06d5b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-001.webp",
       "sha256": "c313339b85088016f574f99071e16081f88095502fbf4073f068f0986fd06d5b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-002.webp",
       "sha256": "8a4230fec7506492e2075b5dba5d69960c37d0c6d20d5215ad45ee59f0ca6001",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-003.webp",
       "sha256": "5f778a074af1365d7334dbf15c43d487038e29bd3269f3c27d0fc10c0c4cb26a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-004.webp",
       "sha256": "bc77eb2c3c6262270c24de363bdfa80967244ecfa7a31b0c17bc962c53c1a234",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-005.webp",
@@ -6923,57 +9680,68 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-006.webp",
       "sha256": "971c8ce0afab1a386862ecd982d52d1565b3344cd71050d8ea5c0b6450d9ea1e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-007.webp",
-      "sha256": "aa100de55b255cf5e510849a371d5494781e731fdfee8b15156f97e04f108dd5",
-      "status": "approved"
+      "sha256": "f6b31417e6a5f750a8dcda3190fed83424f327e9d50bdb5d32ee75c1b3fc8da1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-008.webp",
       "sha256": "f7f0587a53e5257bc014bf38b87e2ba6cb71e4a875877ebdb1796bbe712cd8ee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-009.webp",
       "sha256": "398bddcb1291486dffe16714f9a66545007b369dc522b71ea8a98e6b0331aabf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-010.webp",
       "sha256": "25adca6bc904f1c7e926d706db2c60eb3fcf252489f6308a301fd122d659d6f7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-011.webp",
       "sha256": "424d6dcce6d701b4028ca1ad7f716af0c77501ba1e42eb655f700af81a8fc6c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-012.webp",
       "sha256": "bd389c7e2ae613db6a2c4fe082b4bf607b7ecc7ab1211553ed2f9d43bfccee54",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-013.webp",
       "sha256": "4b98e6d0882b6d85edd2794b9ef557ad4b3e4477a046b1db46f6f98a7dfd72a5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/cover.webp",
       "sha256": "40eb0446fa73bc32d87cd36729e6263ee2ceca46cc3f9f16977b80659d0fe318",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-001.webp",
       "sha256": "40eb0446fa73bc32d87cd36729e6263ee2ceca46cc3f9f16977b80659d0fe318",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-002.webp",
       "sha256": "78218a86c9632487c1a8533580dc00b8b72f5cb74945dbfd1fb079b399c78ab9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-003.webp",
@@ -6983,12 +9751,14 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-004.webp",
       "sha256": "aedb759fe3177534ed79d81c7e3fa4c3ee9b3110612e270eb1ee39f1a831aa7f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-005.webp",
       "sha256": "6821bed97accab22ebd2f7ba5f7ce1df1a772c03a86ee7464dc0aa0ef103e1df",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-006.webp",
@@ -6998,172 +9768,206 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-007.webp",
       "sha256": "cf8911b575ff902018cca330725036d1cc0f0b9d45cc6775c9895bc9576e9456",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-008.webp",
       "sha256": "a7ae1dfb7d8a6e8e484583187b7711de9b2eff40322c501efd6900a56848774f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-009.webp",
       "sha256": "11a605e9df73e8c9b8fe5dd8f93ac4f10cf27e9d923ad32f54ac361ce005d3f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-010.webp",
       "sha256": "eafbc1f82cc355ba79a51f1befb378611064625ca4b3e5c026fe7a0848c7e844",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-011.webp",
       "sha256": "a4d976fe6e621e7f2fa193f4170959ba9309cd55ad69f6df16f340b0d83d7b98",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-012.webp",
       "sha256": "81664d518422e036de16abcd144c6f604f4fecafd4af05316d5dc3e2a426db6e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-013.webp",
       "sha256": "b705b5d6945810be1acf3cba3ce86e9b0d33fc7b077889596bb83ccec76b1f89",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-014.webp",
       "sha256": "f9a41857ab56c0a5aa94ce0796d0a0b49bb3383c42005e3bae495e33d046b455",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/cover.webp",
       "sha256": "3752bdf2baf271958ab261d0ccb93cac47610cb71ca8e644eb5495318917fe20",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-001.webp",
       "sha256": "49378ccc47e6e27c90740552b525db25176a4fbcfbda322d28a18684689c06a3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-002.webp",
       "sha256": "51e5ef5ebdaad65608240ccd0b5fa9b1ac6b37a77c24a1e0edd534d48a9de2fe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-003.webp",
       "sha256": "2c78b7dd68776746e73e25f190cc0bca880efba5375cf61976fdecfc87431f77",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-004.webp",
       "sha256": "b2cfa0ef056e9355fa1098277899bd185adbc14bc4a101a51138b99818a39da8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-005.webp",
       "sha256": "6da0a2ea76a018d70fea6f800208df51ccc42007a0ad02e89a21be94cedb2831",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-006.webp",
       "sha256": "4a6c60b49ea8784855411ed2f37ef2798eb624a4f2e0d54aa32a5751d3384137",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-007.webp",
       "sha256": "0fa929fc2c6d5f294214c95deb4e594c5c8be57c66662c2c0f90649e8a2e6b02",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-008.webp",
       "sha256": "ab8e29b1241aca33425e569d6852a9acc343b42932028964a81e9b8df19115a5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-009.webp",
       "sha256": "0b9f2fa9efd03e91557d69685745004f183167670d5c213396a17d4cd83fe0bc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-010.webp",
       "sha256": "05877df82d390445a1f5f9910f13f4b1a7fecb83f0bc7917ce3ad599e552d046",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-011.webp",
       "sha256": "bba7e86cd49b79106ae872e920ddf6608c3c9fc7c4a72c30a855181acfc2cfb3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-06/page-012.webp",
       "sha256": "5a648c2cc62374f065195047e67add982e0a3258c7324c6fb6f169498ba65769",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/cover.webp",
       "sha256": "430f259f05732f34b9fff775fb0f9d9f65d3a961c5b834a9b8f9b8465a5980ea",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-001.webp",
       "sha256": "d86cb8bad46b3215fd985cd42ebadb4a9572534e680442aa5fafc351677492f6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-002.webp",
       "sha256": "6d5f2dc61c02bf7c6900bea7264333c9413c253f7ba258beef4741276be0331c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-003.webp",
       "sha256": "756a1601ed9c8fbdd67fbf1637a043db9f662bb042c40faf33f9012e00d5f261",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-004.webp",
       "sha256": "cdb16e7613c6355069900922a0cad5a91205ad0885b3945b5d8516d3b609f5e6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-005.webp",
       "sha256": "cc97633ca9ef9d6bf33d8e8c0628056da67ef17945fadddd7fd78c0d7002ce5f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-006.webp",
       "sha256": "4824df10382d73f47f50ae3d11cb67b364bfdb2ac2dd221651a55354d79846ff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-007.webp",
       "sha256": "f7844969ee01c1d55d1612d2ebd43ec43f36896466753accfc16ea0e5f98d830",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-008.webp",
       "sha256": "2e60db84340f240045b2afbf84b4b7c2ebe90b537b79b4a88eeb724946c2855f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-009.webp",
       "sha256": "c18cc3e5cc4fdddb4f7e019ea7bf6605659986c4d46ec58c61c373178f9a1156",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-010.webp",
       "sha256": "4ae157d9d9e3dbc9e01dfe9c701e483774058e5a92f9d4199b3cbfac8c4f307c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-011.webp",
       "sha256": "b928a7580f4b30d3b0bdc6484f6a324a589f1cb37e99f9b27bf1c6e008640b90",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-012.webp",
       "sha256": "886297cbaab80f6e689f54ac64b31c1f5638d3daf52d881b0abbedfbe4d2bb3d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-013.webp",
@@ -7173,112 +9977,134 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-08/cover.webp",
       "sha256": "91c2cfd3c5e074af0f9b2e6775ac42fcf92a5420c2f6e82a79b51b52d38f94ab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-001.webp",
       "sha256": "acbaf973c008c416b6562a5e903dbde6be52e6c15534dff50bb20e2daa8f400e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-002.webp",
       "sha256": "35be1ab579e5ba9c5b45dc4a4ec3eee4cdb85cc3fdc3af9fa553799ad6219002",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-003.webp",
       "sha256": "f3c69b4f1ed3cf91772fd44be5fc1570e7c372547df02a1fe9d0b3f8b8bed0ec",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-004.webp",
       "sha256": "bbc059e80b84a6865b8a8e83fc92a643e5e2e20c3240812e95c0bb09ff47549d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-005.webp",
       "sha256": "354ce7670e4d49288ebf16afa59e8190791a90b0c9373a4bf3a9693d918bb285",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-006.webp",
       "sha256": "ac8d777feb54389a00968480b2768691967a63ae0c3d68da9ad335529ad40b08",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-007.webp",
       "sha256": "aee8db5867eea4cc57d3ed70808be4bed74a130df3b9144895289a0813dd01bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-008.webp",
       "sha256": "19efc4fe9a712567710389745295609abd51c34d0233e34daa14ddc88f1554b4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-009.webp",
-      "sha256": "063f1a0d8328935c708fb7a8c3e1a92eb6f29380ffb826b7506d8ff8a72adb91",
-      "status": "approved"
+      "sha256": "8e8a10e451327d294feeb05d1198f383f2099e105cbed1dfdadfd3c6783b239d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-010.webp",
-      "sha256": "7c922ff190c3107ae2aba15be99378b647a85e32d80c3c0ea30ed681090be1e0",
-      "status": "approved"
+      "sha256": "74ee57d062d6cd6bf9b541e9e9f00110b5681699724ca56ca08f888728d05166",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-011.webp",
       "sha256": "7d5ac56cfacea74344e297010a32d4b1aef31d36a0e1b4513540c758d00a2f5f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-012.webp",
-      "sha256": "49734552e471a4033274d494ae45f18673b9f286944076f6b74bcebbf470ea77",
-      "status": "approved"
+      "sha256": "986e6326ffd3cfb5527be1d3912a3799b37194c417c138bde19af1b59ac8ec85",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/cover.webp",
       "sha256": "2a46e9a26b7034bb55a357d594dd092bc08ad4d6cd3c0c681725bdc438fe23c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-001.webp",
       "sha256": "4884db357f9eaf00c460af46e758093421d545660bbe49017c356679972306a8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-002.webp",
       "sha256": "7ed232856fa368a1e6a32aed40c0cace8c640dfcc744bf50fc78690efdce03db",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-003.webp",
       "sha256": "05778dad2ba106e6303edddeb47e012122466f40994eff3843a48199a081d592",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-004.webp",
       "sha256": "1f075275baa511acd092e22ede3885d646cd93634e41970ad70e2c702345ab72",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-005.webp",
       "sha256": "bbd601687a448405b177115cf57a3c018c91e74443d684fbe377050347bd67fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-006.webp",
       "sha256": "4d72f6263137eca3b11d52ddc2007a66d9c8f50d0abf23c2dfd56e7868463e67",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-007.webp",
       "sha256": "40191e293784d96f9adb0b154eeb714f301390499f195162187fa76003137f03",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-008.webp",
       "sha256": "8c20bbe59c32c3eda6ff00a4b5f10c335a030244b41ec80b21bfa19042f25e5e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-009.webp",
@@ -7287,43 +10113,51 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-010.webp",
-      "sha256": "535a95a683c7eaeba544bb3194e6dacfa809517805d0d3d684221aa1f4ee4abd",
-      "status": "approved"
+      "sha256": "774ea3d08cdc431bc6b72d01b1574943e18a9968ded3782f92e7a78ea0685133",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-011.webp",
       "sha256": "367f1c7b6a226b9f9be67752455dc7e5371c98d3849190430120ebcf50e8610c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-012.webp",
       "sha256": "9328f3b6bc146bbf305c91dbf03eab2e26eed30853236e1c6a8055d035dee71a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-013.webp",
       "sha256": "800f6cad07c8f9a2726ef474d45ffaad49e4be1d066a5155d0a20d07fcfe4801",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/cover.webp",
       "sha256": "2cdd9ce5057fa30275427728360b71865f304a905d8fe8899f3b78feeedbd93a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-001.webp",
       "sha256": "339353f13a90c1ecd51b65b30571ad694bfb91db08e2313f8e9d608194633b1c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-002.webp",
       "sha256": "6a13058fbe6792393c3da0fffa1abef07427647ac550ccb0cc12f065962dcf25",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-003.webp",
       "sha256": "818888d518d6f1d24a8a6810fe308e89c8be0341101e2253992eb38ed54e0161",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-004.webp",
@@ -7332,13 +10166,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-005.webp",
-      "sha256": "a36dbfa869b44405822c57537092b55dc0406fb8a2ea6431cd3f292913dd03db",
-      "status": "approved"
+      "sha256": "3d56c9c93584c34e1165c5c609df57ab5365866073e065ef35ae724e36f512c6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-006.webp",
-      "sha256": "e4b79940d0b708c7c5730dd5f4709b25c909b90836231bc8c1f85070c1db9734",
-      "status": "approved"
+      "sha256": "e77f0740563544a41a771492641bded227f02cb801f7780761e85366b6795a19",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-007.webp",
@@ -7348,652 +10184,782 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-008.webp",
       "sha256": "cd56cc2681e784b6232b67822f0abf3e35e7474d4c705d6090ffbc6632bfd7d6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-009.webp",
       "sha256": "cccc761067abcafe36e53c252ce028d3a3739bb7a4062e49f1bee38feb37c9a6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-010.webp",
       "sha256": "d03739f7af02b2dc140bc843c9de822667de4fd14f4ae0fcb6c48037e899720a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-011.webp",
       "sha256": "595e64e296126a5f0dbdaaede81aaba29508b2cc804a0f0aa8ca771634a10635",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-012.webp",
       "sha256": "fdabb5ccaa76073604f70175b0d9c2560bde5c025bca8d3611a4e45116cba095",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-013.webp",
       "sha256": "1e3b0217f8dc24dfd73fc4f3e3a4010188c34ca63430dcda6aec3d94dc6a51e4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-014.webp",
-      "sha256": "bcbf01e30818ffa909abe31d4f4bb8f81b527ba7a5bb20d3df0be5b602a02437",
-      "status": "approved"
+      "sha256": "b26bff90c362dc7fb7a78979534ec1a67f9d963fd08c60169976d53614c45f11",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/cover.webp",
       "sha256": "2a5b31cb4fa8e352c6c8a5d8064dc71cafd0fe6fa3e2e447cf65bc7f58d6ff39",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-001.webp",
       "sha256": "3d641a38c2997395756362cfce9c736a3c9d157ab1be8731e49d2e52247cda92",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-002.webp",
       "sha256": "bea23ca7f6b8d415615cbf518b107a08eca6be75f7d45a63c477edd1522dcce9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-003.webp",
       "sha256": "38cce036bb20e7a7ad484344f09be6b93496abb7a90bae98b8e33895a81c9ba9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-004.webp",
       "sha256": "002c51e4ff0ed021ccc69ba1e7da37ba31159999fd589aaafb44a5da4421ad0b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-005.webp",
       "sha256": "fede181868ffab42488aec716d78cd9c66e1ed04bb41e6bcb79be9e561c6b111",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-006.webp",
       "sha256": "18296ee22d20d04be9071cf001bdb6613477aa5ea24d27116948bdb471fedfbf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-007.webp",
       "sha256": "eb77321b1c3986407bceaae7db5304769f990a0f34c062f661b026a7064b5ac8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-008.webp",
       "sha256": "27c4be6f0493a5118a9c366530665f32becf7fc69377b015138fb4f657defd27",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-01/page-009.webp",
       "sha256": "984e27c65fe2502700ce9249a97c224161594400b632734fdefd4fdb38a44de5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/cover.webp",
       "sha256": "54bd0e97fb4abe9baebd3ab54e2648adb943f9080e0387594dea3ff1b045b3c5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-001.webp",
       "sha256": "246629685886eae7a2e4992f5fc796e3ce569260f72cf79c98c9ceec05d4258a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-002.webp",
       "sha256": "42e6d52b28b8a2810427b9e279d11cec2775987083f53774022852460497f4ac",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-003.webp",
       "sha256": "b75d65d2565a99d6675126dbc2c2f595572a5ffcae67d21d7db6cbe21adbf9cb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-004.webp",
       "sha256": "98a0adb17bcb0806f8e8938cb512934bb7b0593265ca6cc60eecfbc90219323b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-005.webp",
       "sha256": "a43e753f85c6e44e971ccff187a3522a18002159b505928c2db0fc44bb6979ec",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-006.webp",
       "sha256": "79703b0e1646ea2bd5d5497e346b9c55fceddc24f02b4860b85a840a73319a70",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-007.webp",
       "sha256": "b89ecd314a754ca8c392d6c9897df71713ce36815705defd0dbaf505aac6896b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-008.webp",
       "sha256": "d38ec0b7e17b9e8e73d69e61682e230a7ce0eceda00eabc8541ad6bbe9a9c572",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-009.webp",
       "sha256": "ed0021d52b010cb677108e9702b9154bdb6f692365af21297279921d321d8b68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/cover.webp",
       "sha256": "e94a5937f7cb0d6d944b7da60d3cb729cbc0b635a96e16525ef15c75b9fcf000",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-001.webp",
       "sha256": "8ad852fc960c189bcb07abc4cfa94ea905389c1772946486999594b2da58a6a4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-002.webp",
       "sha256": "c528458bbc05fe45fbbdc15ba9997f68c8d129808c12e50d3ffe1354144b96d3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-003.webp",
       "sha256": "147c2960281f1db6dbd058b89e9fc09687058b721825309f9b2b0ac018246517",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-004.webp",
       "sha256": "817bd333a4b8389defcf73dc1112431134e2a2557c2976f9845da5f381f6bd34",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-005.webp",
       "sha256": "f8ef7d698d6f2bdabcfeeb13ba96be5ea5f122ef91f8e01dc1ae96ef15fbaff9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-006.webp",
       "sha256": "6441986f49576847cb12686284ab3b230fefc55fbd363fef811e3bc03500ae02",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-007.webp",
       "sha256": "d1059175a72ea5eef96e04736b1adf54e663ed3acb9db58ffec71a1f2b20d1e3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-008.webp",
       "sha256": "6c2cf712684c21e398888ed739e763d2b3d9a50ca568bd902b14fc4fe474236d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/cover.webp",
       "sha256": "6779d80489b004f8cdd5d94fe3d2ae7f1f51ecbddc346f558e7e49935179ffe0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-001.webp",
       "sha256": "723e3b9a75282606b1c767706478d5d7b93c0dbd3633566f44fbced288a1ce3b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-002.webp",
       "sha256": "e45784e21cb2d5ccb1b33eb344d500f8de7b45aa44506640b01450b8e61e67e4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-003.webp",
-      "sha256": "fcbc8f0ba4bd2f3d54e4d3791fba52ff505821e1074b3d0d593943495fa0329e",
-      "status": "approved"
+      "sha256": "75230e6172c4eccaa7999f9ba762db0ec9bc19dc898d3bba08cbff4c441bf1aa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-004.webp",
       "sha256": "c3bde306fffc9dc590f181031da7db693ce2cf12e5368147290b05676360deab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-005.webp",
-      "sha256": "07c4675321b5eb9d61673398309afa0c6924320b7752fc7a47531b197745afc8",
-      "status": "approved"
+      "sha256": "32a85db063d499ccefe28e5f1011e860922b238b1f24712d88b34d16e79e66f6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-006.webp",
-      "sha256": "b1a88a8aac9c8d42d51275716452716338f4b10d2df87ad75390b7cddafab931",
-      "status": "approved"
+      "sha256": "6db2b79e288449605ee480a7cd302e3406cbc3842dbfd01a7a1816fccded423a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-04/page-007.webp",
-      "sha256": "9439847bf3b910d21b0bb1b4e76c1859addc2ce5b16459ba21d4f0b29d5234e9",
-      "status": "approved"
+      "sha256": "2a38f558aa08eba39d5a3758d407b8aaf406305e8d6a0aac4eb2a10a1d32a021",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/cover.webp",
       "sha256": "a309403c4d440209be2622ec068a9a6d753f0de26fbc4eee89fa20c1c50e2588",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-001.webp",
-      "sha256": "290eddb0c434f6bdde3a66d8ea6726b83fae59ae5e77c05ea08d45221a756c8e",
-      "status": "approved"
+      "sha256": "09b1059fb6cf66f89f17c5db130d401f2ec002d09473f48b34fe49a9f519a443",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-002.webp",
       "sha256": "fd419822f746235b9f3e7a8eb17c632ac149b0e80d6a985de285f29e8d79ee1d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-003.webp",
       "sha256": "17c3c529376ee2d3db5cd581488e4aa25f18ae67ac372b21548ee6518c9df199",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-004.webp",
       "sha256": "ee845e8fbb132a810cb948318d3237ffc95f9183e96285722ce0cf5f780976ee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-005.webp",
       "sha256": "7bd192f3c63fca4aff8f9363c4346982cc27e6b339b3893eb093b3c34eea6c52",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-006.webp",
       "sha256": "322ccf2d1c832b92a89d622cde0fb62dbef2e8d7600fdd28b8dd43c5e58008d3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-007.webp",
       "sha256": "a0cfc53671f14b345621de7e4e595f427e75e85dc7c1b6872112bc20f0d794c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-008.webp",
       "sha256": "4ca5025f122c70c335c7a5e85ac33d9f6a373d560f67d78f0a60b4a733b61448",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-009.webp",
       "sha256": "b0ff0b5114a84311ff6ff9494d05135ae1e2311de53f9b579e4d09d42984a11e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-010.webp",
       "sha256": "f48fedc405c9d5bd7644ec4bd26a593e0f905aeeb86c484baf47af47847d01ba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/cover.webp",
       "sha256": "7089d042f3c9b33d5fe1ed78ae19553ab438df776cf593f40cbdfeac6159abc6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-001.webp",
       "sha256": "1d0d6cc8738b9640283343f66804d44a06dc9c51de7fae15c9436e6a55004b1b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-002.webp",
       "sha256": "fd838254650ae2ee74f215c6d20f5aeee518eaa4aaa5f6b8699d33c44e8ae851",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-003.webp",
       "sha256": "a93710bb8bf4becffa43ea754398c866c7357954b8d2b5dfd7bf7d3910584427",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-004.webp",
       "sha256": "2618dc36e0c525b26a3873eeaaef19f86c9c24d132ab06909ade7a5a652c0de9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-005.webp",
       "sha256": "db7794a8cbd86f5b3fd80221334a1146a1befb713e1981bc625a8150ed2c38f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-006.webp",
       "sha256": "f9a973113f6bc4ff252185656005d69ec8f4d37ad395fdc9818afdf86beb1989",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-007.webp",
       "sha256": "685cdf4c6cbc143bfa389c734fcf62c4d6819b6bb9a36f9b81f850974cc05de5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-008.webp",
       "sha256": "a9cbe6ef5fb8b0b2bd242ddcaca72813119094cf33ba681b1029527caccf9a27",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-009.webp",
       "sha256": "a74afba261144a75b698133ef673604d670f15d3338786c8bcb26f92ea13675a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/cover.webp",
       "sha256": "855ef639861d72d58acb1e7f522967e5426a42e3777cf8ac0ee68c4cb7bdfd5b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-001.webp",
       "sha256": "31382f085a103b81eca9fc0df84f579cf9e7ce19d01898e86f5d11abec620d47",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-002.webp",
       "sha256": "2ca44f2df89f6ec6d2b5aa62619f2568b84881393beb682803c478c9e3429a64",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-003.webp",
       "sha256": "67a89595e026f18bce201ffe1a70327064b38e6ea0b5ad00b5f7dc4fcadf9c32",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-004.webp",
       "sha256": "5963f5e520ee434cab1cc3d270ef8887a8b87229791441bd85dcb27a2a715120",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-005.webp",
       "sha256": "8ea4096f5fc6c76f0b79ee770ae6d21bf38ceed380cc662a72b6ee01c6880ae7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-006.webp",
       "sha256": "86e8bd354345784917c83698fd08fabc6e9de27fad7fa5b8482e707d029d0c70",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-007.webp",
       "sha256": "565078021de64c7e20e96d1d51787647d2c021a1b24db378655228e598b32d4d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-008.webp",
       "sha256": "473a8b22fb63f9b62c6e493e9db4a6c5c9d2ae82f2f50c13baffcb00a33e4395",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-009.webp",
       "sha256": "507eb492c21d7336274a169918cb54a87f02d5a4f166e67d52b39cb377b2ef1e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-07/page-010.webp",
       "sha256": "8fa14e5e00c720b4205c9c041d70052d48c39ebb6a1b3fbb662c76e392016873",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/cover.webp",
       "sha256": "98984ddeb035539fa68a44c12230cae406a9782938cd4237cdb354612e5f033d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-001.webp",
       "sha256": "2864b1d109cd8180f45d14b8c7be36fddd5230bbc7b2e0ae4d42f20b72dd1e86",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-002.webp",
       "sha256": "cfc53f4a2f866797939a5d0d54848995aeef5e5cd56049d22cb8e437a9eced10",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-003.webp",
       "sha256": "3b204746520cb29019b0eeb97f5a4e0333609be11e80d5f74968cd232f1b40dd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-004.webp",
       "sha256": "45c2c5ff676e6ec418f17e0aaf607da796c5e5f9692ef5e60ded81547e0c361a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-005.webp",
       "sha256": "0de8cabfc4aa44cc20be569b2b4020d8cca98926abd5b6b3d7a20d3c662ffa8a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-006.webp",
       "sha256": "d5c8310f5a79742e548b4c2b71732364fe61c47f0064dff8f0b99c9458d1b499",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-007.webp",
       "sha256": "4fa387a7224cc322680893ddedea31fbfb0fa2b5fa0a98f032254f628a0e54de",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-008.webp",
       "sha256": "166d152c0a9e3df76d13b5a3c2be422d6d74f566d346095e60c9718137406f5c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-009.webp",
       "sha256": "5f37129a3ad68cd815a794fea6ea3bf64111070278f2d878a0e14cd95f0a6314",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/cover.webp",
       "sha256": "500e02fb017ce113f592f95345a3925482ae0a159c72873c5adb3a3c4a924e72",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-001.webp",
       "sha256": "21c8eb2f88132e4d5795641a793c3a51832851d8b2fb4d7ecfe74890b3e29bb0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-002.webp",
       "sha256": "08743f60ca429909b7af80d475b9fb96d8923cb1ebd891783ed6454885bb0834",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-003.webp",
       "sha256": "02dce160fab84309a261d89bce7ee620fc1f01358f878231b8ab0c37fd5d0618",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-004.webp",
       "sha256": "7affd860378cac04f62203073d36f787937a3279065eda2b9d96cab38720791e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-005.webp",
       "sha256": "f8a1c9315129e3a527bbe18dbf9fc4b35dbbd289f9041721df26f84197bf64bc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-006.webp",
       "sha256": "88ea58c313071af033c8a208022d03a1e188248163be0035c3eec4ac47553df5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-007.webp",
       "sha256": "b6b4e8c09d06ed0e85ca454352f8e5b6af9efcb3896baf1dd6596f402acdb252",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-008.webp",
       "sha256": "85ff9844562a9802151e54db146ea36b17c9afcbf31149eb27cea137a1ba4894",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-009.webp",
       "sha256": "2940f1c8b996ef693e56e475a3b885f54c3bc272b0c33b47dcf3e3f8b2690044",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/cover.webp",
       "sha256": "d457931e34b5d3d1d4e8284d354ca74022b726769d7dda1f67c45e2155b000a0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-001.webp",
       "sha256": "395975c3639cc5f0910c3679d20697c2eed2fd24baaabd0af9707963c4e6c2b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-002.webp",
       "sha256": "c489600e1a5dc0125a274424dc4cad25e1f49a5971d6a62acfb68a8bfe17d0cb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-003.webp",
       "sha256": "d37555b51adffd008496616984a6185db864b0b1628a353e514964bb77d34591",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-004.webp",
       "sha256": "75e820e12ae6e12b4de4f7da96ad994470c3978bffbdd882f2d3277e84e931f6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-005.webp",
       "sha256": "147fcec273acd5d6d27d00751d4c54036ddc1db7cb7953c73b8b7d2d19d6db41",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-006.webp",
       "sha256": "a8a51ed187e86f1bc11ae4af8f866d78b56ca1bd2f464a5e28cbfcb624454dd6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-007.webp",
       "sha256": "47ea354ebb8000991e4f41ba0bc5345e7b3f30965bd0c4c8953c310308bc4be2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-008.webp",
       "sha256": "a1af2160a56501809512907dce86a01f9ca9c47396fe3656289da3b25377a29f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-10/page-009.webp",
       "sha256": "a2e9c5ca3ea55ae63c1cb96504fc306433ad47fd918fbfd3b320d85d30b5bf22",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/cover.webp",
       "sha256": "cdfb59257bc62459805b61f1ca7c728ddc9d675da66adbb51f461dd7970c8cab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-001.webp",
       "sha256": "e1cd61782c091ede33cbcfcf093e01848ef730c8663a8960fe2d4e6210e440cf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-002.webp",
       "sha256": "bbd7c77bc2906ba48da954b21cbf7eb7420407562414fc8e311769dce39583dd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-003.webp",
       "sha256": "11f76305026e455a5195061b6d7101094e530629ddb20574dc3dea4040f4f991",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-004.webp",
       "sha256": "56e5cee83ee01ba11e3068f71226ca89860dd73a4d7cf3b7cae0d5053a9c9910",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-005.webp",
       "sha256": "298aae7a95fde9ea9b9716e709fa57113b80be4c5feff51bdaa8dd6ad456af55",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-006.webp",
       "sha256": "3b088cd76643e92a7beb2335fb049c011be0f13fef79cf0b4e7ec20374d787e2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-007.webp",
       "sha256": "06f0952a59a1189416edd5551ee6a8cccffc0ea31f79f64a39cb2362697e795c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-008.webp",
       "sha256": "151bd1a204003b78917b5b1376873bceb0a35f1f2540097dc83d21e9544f8769",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-009.webp",
-      "sha256": "c76f4210716e3f0176521cad37240384e3247a3b8d1e77d966887ca4b2fc3f50",
-      "status": "approved"
+      "sha256": "7e8628cbe84f4a420a59fc6928b92f5c578df9eabaf4eededa7708e94c7b4782",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-010.webp",
-      "sha256": "7b752a8942dc954357b2be677eb62b0065f72b83b512dff20a4f90edf4a652e2",
-      "status": "approved"
+      "sha256": "091e8de8fbcbae4c70c0f36b1601bb66932e90a6c80ba4e0fcb1e0f14ece97b4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/cover.webp",
       "sha256": "e7d3d671b5b488e7cad318ef4d1565977260277c8f272077c2abdaa02ae4f620",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-001.webp",
       "sha256": "ca09c6f7579c71b911c3e5bf01d093137e9dc2fa31c85c08dd358c9c25cc0645",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-002.webp",
-      "sha256": "a9213a37ca809d70bc7a6875f56c3d96d9c8fd9d2d14e11633d9da103a65532e",
-      "status": "approved"
+      "sha256": "e8c3168024e56d93d70f35eff8eca028a36e9a315b699067e060c67423ab59a1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-003.webp",
       "sha256": "68f48dd2b542d130e3897a4cb8fb42d509cfa041d96e776ba067830babb0d48f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-004.webp",
       "sha256": "966971cbd78e0b3ff6cb25dd23d6d960f2ff56ef696fa28b6d707a50b74e51b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-005.webp",
-      "sha256": "b92f65c5c68fe1585425a0ad098f23cd6d4d1fd63aa0f2744a3ece5f0bae9cec",
-      "status": "approved"
+      "sha256": "cd875d8d398ef2fc4a2a6831bcb331e7c6fb6bacc92de2fa462f8d1e468fca13",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-006.webp",
       "sha256": "9ffe9c14e2a9cf83da8c92530b17ca9c70a57bfeff0ac3132adc750766d6b106",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-007.webp",
       "sha256": "1da644f8c64413f9784e0a8b04af230c56b9861e50d4376bd63ed81d37569fae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/cover.webp",
       "sha256": "adbed0bdec6280a342ee69992878845c3e20b07fcdc3656b14a85300f6532bcd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-001.webp",
       "sha256": "171312b8fceab7ebe03abc44be4cc49887917fe96468b35325016a4971b39ce1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-002.webp",
       "sha256": "283d76bc26e952a8a000dd172810629fdb3acde4824c5ef661d66192c02463da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-003.webp",
       "sha256": "c2f619034ef1e833b82e295bff61607766f52b73a9ff8d405bdf6f69c8af71bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-004.webp",
       "sha256": "8f9324db6a19d56bc7433812b0ac3acef03713fbfd8ca1849f70c6444c11c645",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-005.webp",
@@ -8003,517 +10969,620 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-006.webp",
       "sha256": "9d05858246dfcc52448f167b8ed9c0610bcc46bd805a864746bcfb501a16f805",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-007.webp",
       "sha256": "e3538200696027ee4eacd19eed4b2d3d170428eff8d4a407e56a7bff44c674d0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-008.webp",
-      "sha256": "8944c990c63fca4b7200c5b9e685157e8a71524f4fd33838d315e6254a246233",
-      "status": "approved"
+      "sha256": "ef978937657419147910ca0f4014c868b9eff5f0e178c6827917ccfe8e4bf9eb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-009.webp",
       "sha256": "38fd1982d063f4f16f5f6e3ae3ceab73086ac51b70f5bd299b703cac9e12a468",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/cover.webp",
       "sha256": "8a4e8a612282db201752193e4dae36353c6491d66c03379252d1fec4073e7ed5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-001.webp",
       "sha256": "ff7c111b3243a9d436f2e542a00b78a893bd01d6212acd09471524ca07f88a9c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-002.webp",
       "sha256": "a7ca50c274382991e93227611fbe040e732f4e2829402b76822b57bf489910bc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-003.webp",
       "sha256": "1790137ec744f2d644d168ccb70678ed624bc67c4aa8284d3f810b20a9dbc185",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-004.webp",
       "sha256": "190a49a02f915a853820eb70183672ec170d995d6edcf8dae95204645f731846",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-005.webp",
       "sha256": "cb9b3679ca5c7b07f547b4bac6524de95b156e8f6bbdc63a9ba3378ddea5e27a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-006.webp",
       "sha256": "4e92ff2f4be4312a8b65c773af4ffa019c030740388303f93b206bda22d14bae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-007.webp",
       "sha256": "f0ec89977aac50bca509e0d4454a5e6f4f2412f83f3c23f6584ddd3905e04fde",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-008.webp",
       "sha256": "cc8bf7b6764c88cbe0d90bc45311448509a50200c3d77df9b1a747ec929653ff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-009.webp",
       "sha256": "1fb2e62e20425bbfc44e2e0641638dcee1b7906eda63c076fa3b6ea804c1b546",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-14/page-010.webp",
       "sha256": "9d77b04fe026b27cc61afbb745ea5ee9975d9afde41b8140c8c3a3fb89566592",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/cover.webp",
       "sha256": "3387d5ee982095ecedafac25fe3f35e639bb3d7dcd06e1d324d3da6b44120b79",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-001.webp",
       "sha256": "62f27bd6b199bf28ae87e956c0b0661a450cb94efea2f34294a4af5e254d8064",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-002.webp",
       "sha256": "3d4017f948fbc721acb51e8b196f3e3edf30277e6e20bd16f5be2c3f33a5b03e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-003.webp",
       "sha256": "a77d3b0033ae4fa857acd3bf52bb2cae19f013db19403629188ba0070b2a13d1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-004.webp",
       "sha256": "9aa8043391aa0fe017389b4f5244f0451d472b763dc9132e82bba692ccd3ac9c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-005.webp",
       "sha256": "1f5a7b9c4f0f8edd978d000682da373707e8a47bcb44c09f6331d9acf43fb259",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-006.webp",
       "sha256": "95dbc10a0c8500e33ab1f2d8a2c8edae6f943eaca48a053ca84eb962eef6a0e0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-007.webp",
       "sha256": "2b8ddb1cf1482522fd4ceb7fa08abf6ccbcad2ff7131c7d3788568312bf8917d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-008.webp",
       "sha256": "b79f9755487f28570adba94d635d365702a68a139eccdfb985a535249748abf3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-009.webp",
       "sha256": "593ad1c86a04e249b66ad990312555b43266ce32166ae996872e641b1240558f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-15/page-010.webp",
       "sha256": "6a5998d59ddd749386852900c5476c3c17e838e423155191943322af2ed51607",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/cover.webp",
       "sha256": "f10d1ec5998b389acec932db7a33bedaa9fab4f660632f313c5e790176793949",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-001.webp",
       "sha256": "85c697c0dad8088574a0eb4cae2eaa6fba9a153aa7d98a0c0be1e29978f3fe7e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-002.webp",
       "sha256": "3bbc14a4154802d6f46973abd1ffac86a98f4a60ea86861b32a040ea04b46f70",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-003.webp",
       "sha256": "37ca0a5e9d062a5015a1f795b0ab47e667fff9d36f7402e4fdb4481e241f8ebe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-004.webp",
       "sha256": "3684c908fc96dec00ae3aebaa4ffe13a91b235a1bb52250c8d2b6c0e7388cbd1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-005.webp",
       "sha256": "dfcd99c9cfa0f8f5e863e4730272a56beaa0d5b44981ecaf732472a7ac81b692",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-006.webp",
       "sha256": "27ad6e036af526a566a1480ef767e7da707a15286bdc132bd221c5ffa4c5e18f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-007.webp",
       "sha256": "ea321aea62dd38b17a825a0f8fb0073f543eea2d80554c9eef21b21856e54f8b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-008.webp",
       "sha256": "6638e69bff918ea138d91366838733dbf6b233f2916ddff8296b1b0929ca40bd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-16/page-009.webp",
       "sha256": "e41bd722f38b23515ea2afc67bc092842cd78655b6e963d609cafb183ce94489",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/cover.webp",
       "sha256": "320d95ce43491ad571321c2e842bad85ece76cb93dab92e449614c4273fee9f7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-001.webp",
       "sha256": "33707c0dcb3e9c5b874fe923a56f8a8a399f7dcf42e40241af781cdbf5a30890",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-002.webp",
       "sha256": "07a642f039085cc7a4be61f3bbb96352a2976d3fe3fcfa4e2c4567f087722652",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-003.webp",
       "sha256": "b275dce6f73c3496e02a24d1c7223a09c2b05acd519eec333a254cf7466afdbd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-004.webp",
       "sha256": "4e09e73291582640da39aa5b59cf01620071d164d214a3333573623e1f37fb59",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-005.webp",
       "sha256": "77e3920102726f25b8eff853e33e797fbae51982d84cb3affa810ca4fd8caa52",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-006.webp",
       "sha256": "e7d896f885dffb7d1e1bb4bdcc53f85d7cb5706925555736fefbc7283865c8c6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-007.webp",
       "sha256": "cc405f3ebae9ec4033fa252db08209bd5a89679857fd997b063121fd786f64e1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-008.webp",
       "sha256": "c14188c8e82c09e1f7b2511b8b027221deef50326722c6da52506d9e6b3f77e1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-009.webp",
       "sha256": "b6b84a18f83e196df7f5dbe38023dffc16f3243a1c6409182efd68e4c0e676ff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-17/page-010.webp",
       "sha256": "e7b3241cad3dd1f2eb677e782595ae65fc72ae7de912859f900f19b4b46594e3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/cover.webp",
       "sha256": "8d5fdd249d7c719286277c1ca917203b2a87eaaa6cc22ca663d0df0340e49aa1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-001.webp",
       "sha256": "da7d8b3cf3954f25fad362a90c3c941938fea7b5d858a8a6f4f61de7d068d0b2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-002.webp",
       "sha256": "f4a15de826942e47e68d917b36932b0cf982bfe406d19fe5cd2b8144c1c525c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-003.webp",
       "sha256": "7a4e899b3072ceb38c2e8f0956e9aff5baf20b168db6e290e23ffee6af11d937",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-004.webp",
       "sha256": "41201024f29abc846ab4bdf57b52e0a9d208e248170ff08594063558f5545ea7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-005.webp",
       "sha256": "a6eca8325865fd093759cab7d6c57e4b24377f8ae863cdc8c07d55e5fc7701b8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-006.webp",
       "sha256": "e868077949e7b0837594ffaad0eee517934de9eaf8ac1f6d3105352e82af3761",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-007.webp",
       "sha256": "d91bc6d95ff62257955ca33d77d340713d0552f04201024c861840da6a033665",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-008.webp",
       "sha256": "3789d6f8ed3cc9ed3ad97e17f285345819a310994bd56917436b141710f51ec5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-18/page-009.webp",
-      "sha256": "fed654850d58843b78a635c5b658ba11726c48c3c381c0c00b0d430c3a96b5d4",
-      "status": "approved"
+      "sha256": "bc24d8b8c8db0e848ae45a98425c8a40bf0a66dd32af9e647e65933e8efdd7d9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/cover.webp",
       "sha256": "c24d9de52b19f8eb7bc0d0b323e761495f139a3b051b9713f9c64ca18ea89e59",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-001.webp",
       "sha256": "0a669cfd33ca14da2b6baa074e05243c554913f90a3dce3820a88f055f76c87f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-002.webp",
       "sha256": "8a545c7a3a6727bbe85b81f66485ef84453649d49a494ce521f22e3f4c0b8415",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-003.webp",
       "sha256": "d26e26a4cb1235b3cdd533469f27b7f85c18ab82ee048ca0a4f7c5143338c3fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-004.webp",
       "sha256": "98549411a452476e7a74524ee37c5aeeaf505b97374cc7043f5c1b87043773ed",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-005.webp",
       "sha256": "364830a29c55d6fac721159c8c35af21d0d358744bf32a205f30a8a0e0230800",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-006.webp",
       "sha256": "bc619fc75fc2f299f45f887c3869a00a33704753630f4245964fc55a16e95e88",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-007.webp",
       "sha256": "1b8e9875e286a960959b07229d2b60224dbfd21941ca99b2ddaf1716162e8f25",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-008.webp",
       "sha256": "6e39542f9fc063bec41568e162d90ecc9726b333184b989e44f46a756a1ac99e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-19/page-009.webp",
       "sha256": "c132e273692ba68dea4462bb65f42328a3c00779de39cf6c151c8dc76bf1a21c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/cover.webp",
       "sha256": "e37530fcc442f9282e849d21d499ad864558826fb79f99ab41034c240cfea694",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-001.webp",
       "sha256": "65fb24fbb037a07aee3c3460ac1946e198d9e13b7683217f90431a61931e867a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-002.webp",
       "sha256": "e17aa6e0f1947250a8ba87edc7c2d900a52ab08d5f34f63116c05f04bc361d71",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-003.webp",
       "sha256": "57b6fc2ba73595f2a8acfc67b590e8a62c48cd91aabb3839cc4f264770881281",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-004.webp",
       "sha256": "2b44fad4520d7485802fff7cfe5a146143aead880a91deef1056dee7136c1a03",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-005.webp",
       "sha256": "fa99e714e1522919a049d8e22c546fa0067add6847d8ab49c7f7595bb6fbcd34",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-006.webp",
       "sha256": "98640542f51772b878fb2c9efa25d58e0e275e5ef2e8871c1cb7ce8281843a4e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-007.webp",
       "sha256": "807f8853ff3a0e98fd029142fd8be6eb69c63c40cf0b7e2a8613bee217bd189f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-008.webp",
       "sha256": "a1af5760d91e757b2dab60ff6d321e80388e999933c83f8ed6281383e84593c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-009.webp",
       "sha256": "e065e0f11b42b3986d9e2b23ea241a61fbc81f5febb9d63946ecad788d7d2ec8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-20/page-010.webp",
       "sha256": "f1ec1251c0221d0b0912f812fa23cbe79ec35972091cbb8c593bc569bda17fd0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/cover.webp",
       "sha256": "7e842091dbf33fed97b5c8b56a5a0849ff4bbfd2b40ba600ee4e22f9958b7448",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-001.webp",
       "sha256": "dadff1e0fc0b79ddd668bf2b3c6da6832f808fdee3f27716d4c7bbccd835c14d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-002.webp",
       "sha256": "08042ff53f354129b2b5385e0dc90f0c7507088ac3894111b99091026a70bc72",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-003.webp",
       "sha256": "701b1b59feeeccdc518dc9920c7bee14153e6d19dec690eae974ddbee0b99b1f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-004.webp",
       "sha256": "104093648b816aba215da5d7dfee9b1094cea44fed9db48f26fb1dfa44134fb0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-005.webp",
       "sha256": "00477595d1dd037ba96053ee1a3acd7782230706ef28c68ad43fd0ed8dbdd4c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-006.webp",
       "sha256": "01e0a6fafe25bdcfc4380438822b9f1d4e1500be7524d64a3debe62ced647616",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-007.webp",
       "sha256": "5368e500f0371d29eac91e4c3e5cd35055f4c8f0f787b6ceefa39928274a6557",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-008.webp",
       "sha256": "ac624263181e39cd986ae942a171bcf34b134448c702162dea9302f26896fca2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-009.webp",
       "sha256": "4b78dd04e44c596ebf7f29bd04e7f480b537d6e3eb800f0718cbdabab3b1cbc4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/cover.webp",
       "sha256": "dc68b4b2b9ac41db7268f42653767764633d728898ddaccdb909b34cb6a7e042",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-001.webp",
       "sha256": "0d82fc664ba75ac7c677b60210611f11ea0f785ecff280cc3c6c79df1b30a349",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-002.webp",
       "sha256": "000f234237cace1936e83549713de73210d4d6c8d20d122116db00ea29f4c13f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-003.webp",
       "sha256": "ef2d3cb34f67367613101ee5f082e8df4886e4263851acc868e3c20135228cfa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-004.webp",
       "sha256": "f6017c5866ae71dc48033670f4ac691d6d9f1f9591507ca9124b3b4de7620af8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-005.webp",
       "sha256": "99c3945f121c2890beaadb8a0ad57e333bbdd404904ef92dffd27f904a557b89",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-006.webp",
       "sha256": "3bf4702712320ad0eedabb8acca567992b1fa9b297ffb7dfc7d02b3d00c56784",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-007.webp",
       "sha256": "0364382cd392d22050f69ade6e24c811c3b260572386a43404efa2462b133de5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-008.webp",
       "sha256": "cdfe03f5a31efb102990c860afdce5a84b6c30560a213dfb1a8086decb6b64aa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/cover.webp",
       "sha256": "3f6aef0ed3b6a1268e25e458197da8cc2f637c4deefa699f2cbe6f36a11d07d9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-001.webp",
       "sha256": "002e1a6da19e6523d385db90c0a1483bd040e2c203180133a4bfb73b8b55b98e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-002.webp",
       "sha256": "ec1cef0d2bb59c7310a418dd0683a15461978b925c23477a2da1e244f6599095",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-003.webp",
       "sha256": "4d2bf93b00a8de079dddeaef84c6f16e2c9c483609926799cbdda33ee1258cb5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-004.webp",
       "sha256": "fd8bff46a8e6d9d2f321588953f1a0d304cd113367ec2a4e793e518d8b6f6426",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-005.webp",
       "sha256": "37fdb45cdb03fe0e86a685913214cf843623c927e89408244dcfae7637f6b130",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-006.webp",
@@ -8523,12 +11592,14 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-007.webp",
       "sha256": "a4043e85afa0f2da488c809996925b01ba25b40262279dc9b874e3e0a9728c8e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-008.webp",
       "sha256": "738356a40660e376f4b1a46e9e42b55f20a4de337a9c47e726f64e9dbb27c2d8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-009.webp",
@@ -8538,57 +11609,68 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-010.webp",
       "sha256": "c94a04cd2f65671962126aa13bf9556322d9e01ae5129ce811ea537f45f54fdd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-23/page-011.webp",
       "sha256": "a66dbed4cedddd648d7dc0cd2616d4195d61ceb325a381be8146432f3e4c7208",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/cover.webp",
       "sha256": "a15b091c48196c59df864f77da39cc48ee8fc0410fc93b989fd43a8f983da8b1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-001.webp",
       "sha256": "15db75355336d98b42f4353a702cfe3f69b4ab0439a2486d3256836e54acc6c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-002.webp",
       "sha256": "b446a542ed3a11be82720e6f1027a758f332df3b8e8cb32c161a5268d9487621",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-003.webp",
       "sha256": "572567b74c338603c8fdd15754ec5cab93657e4a0e46307a209896f8431db2fc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-004.webp",
       "sha256": "6c2280061203ea7f6fe08a9f90ba870bee24e5b374ae60c88a85313e62b6028b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-005.webp",
       "sha256": "cc9a3f698ab4b1148ba1626f0d2297cdebfd46f5e13e6036d082c21717296109",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-006.webp",
       "sha256": "7350a52c92e2eeb62c4cfbe77fcfb2f7dbe248deea87251f92781433529d63aa",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-007.webp",
       "sha256": "92784ba47a5f8423ab53c236336fbedf2348996965744b22f887f14f74d3da14",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-008.webp",
       "sha256": "d01ef9ea280730e02cd8769407381bf3346bd0d87a47f9d64afe217fc3c6aaa2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-009.webp",
@@ -8598,37 +11680,44 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-010.webp",
       "sha256": "c997eda93fcc1967cc93b1a7cfb5222a281382bc1b7525b559c4219977884821",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-24/page-011.webp",
       "sha256": "afd3ea51d0c361e2ca43dea6d2eb151a92a512d0bd189aeece60d38983f222ae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/cover.webp",
-      "sha256": "96d52bd9b04ec6a1d283472af2ca0768b490c50e6a162becd02b540ebc123dd2",
-      "status": "approved"
+      "sha256": "1af870982bfe30854781af3a21c65ac13eb8184f487acb42fb3ad6fc9cb4e193",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-001.webp",
       "sha256": "09f5639fb5d2642c871cf6b2bd3d741d4359c68b7bf6f23f45d0454cb4a3a9bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-002.webp",
       "sha256": "c0dc25648e252ad3fa2ff881b168801e2162f0d692808fa6891f271a8c817ca0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-003.webp",
       "sha256": "685e89ae374b525804153c911480cc43992aa38e9e3a4f4710c19a1a15f3fb64",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-004.webp",
-      "sha256": "aae6fc6c60940ac0cd18d31edaf653d5b5ac62d8bb60aaf491f623f6c91df873",
-      "status": "approved"
+      "sha256": "71afe552f3bc10e1049fc0995b381d7e4d52d4ee24e250642ecd67a7d7298944",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-005.webp",
@@ -8638,27 +11727,32 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-006.webp",
       "sha256": "1817f1c6dbad4fe5860fa46a87fdefbd80ed7504ab55d34c8404946f6f0ed699",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-007.webp",
-      "sha256": "d0eb2a07a7e659aa44da03d0bdc552ac385818142daa3a3e358e76d2f93d43e5",
-      "status": "approved"
+      "sha256": "07d3e12569a4b4d73093476e94762a0a7c10aec1c87e7d48e1fdb87d3e9455ff",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-008.webp",
-      "sha256": "d2b613012c39ed853ea2ee78b0d7fdba22c07881d339f0b8c84e8d4cf30c7581",
-      "status": "approved"
+      "sha256": "8dd1cf46415197043a1645348a6b7b4f39873eb7f788249fcffef2a6dc67d16b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-009.webp",
-      "sha256": "00205b1322993af15a033784ceff0e75345d5fded521c41c9f183b92720870ea",
-      "status": "approved"
+      "sha256": "d600aa04e99c0553e6e44e047d62b9faf2a7ab7876e1286f71e63a0cb8f39785",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-010.webp",
-      "sha256": "31d6ce5cdad9976a6f4e5bdc935848b1687360714bcfcc642eb014da2dafa76d",
-      "status": "approved"
+      "sha256": "72f63acda425cc0e572d392d13ac50f2bbe524f09aec064b95bed97ebc5b5abf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-011.webp",
@@ -8672,2742 +11766,5289 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-25/page-013.webp",
-      "sha256": "54fd7f5e6c690de405ed8eb209efcac7896dee742b68b21883b57f80bc26a58d",
-      "status": "approved"
+      "sha256": "36d08c467016d0ba3b6867c3ccb163d4856f2cf529c08777b2b2f6bdc14d6791",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/cover.webp",
       "sha256": "61dfcbb2847d5fe9e304475e5a7d875246b20ecb9b3baf0faa46f62c6a52599a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-001.webp",
       "sha256": "6d28a51dce0859dba84d14993e052058db727427adf81a9e26c3df4be478111d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-002.webp",
       "sha256": "c89d003dbafccc7b159bda6bb0037c7eb04ac53a42629c6f97f894a69ede8aa9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-003.webp",
       "sha256": "dbf66e0a62a508841939eda7da075da4339f67f6b56f12a9fae1f12723b89d0e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-004.webp",
       "sha256": "70f5a7531bae50f602cadafdb77a149d28f63227e5945f2ef6331ee5854f34f5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-005.webp",
       "sha256": "ff2a2e01e96883f4d53285ea080f826368fbe865ee4217ad2491dc598bbf51c3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-006.webp",
       "sha256": "1d7c64d6e7151a38e961fa914a75f3f5cd702ac365ac42f9d57709773cb84e57",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-007.webp",
       "sha256": "46f0a5ae9b8dd6d3674f524fcb44c533f567782d716020e683b15aa20222daab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-26/page-008.webp",
       "sha256": "6c0402961c9c875a489f5e6ec630d35af9fcc14c544a0fa39d86d1bd862fba0e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/cover.webp",
       "sha256": "2cdda889e7bd98700fe303f585043812bed0602e4d95c667008b1c26f3b2a654",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-001.webp",
       "sha256": "2d367b7fc8c4b55860317ef11e8c8f4924cf46d1fd0d07867e8961a18d4f805d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-002.webp",
       "sha256": "c737945e577680dfa2f2280d320a6d2cfa5c915b25c8dd3aaea3b3c67ad35cf5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-003.webp",
       "sha256": "519c669e73fd11cc971d2c462d903f5c18443744a6b4ab1c1a877bb0e7e4bc4e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-004.webp",
       "sha256": "e427767d9596210f0994419596affcb46b0cbce6f46f93ded7b7629657557c81",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-005.webp",
       "sha256": "bb16acd2cd3233ad6f89371e9780136bbe84663b27f261e71e4bcda92b645cba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-006.webp",
       "sha256": "e4d57f5d18102a14bcef7cde7e352d3656a99559f49c6b8274ba86c03edec9ff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-007.webp",
       "sha256": "2ea83631ae4c39a11bfd1e62679d0d54824655ff0bc267fbe8f76467a7f148ec",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-27/page-008.webp",
       "sha256": "25f3dab4743a5dcac9dd213bc85279125554bdfa73c785a9e067533e23b4e739",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/cover.webp",
       "sha256": "d3f60498036f764930e0d066e27af14ed86ca0e718aba72e288fa3821dc26b0f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-001.webp",
       "sha256": "d3f60498036f764930e0d066e27af14ed86ca0e718aba72e288fa3821dc26b0f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-002.webp",
       "sha256": "220423436fcf7b3fe32329e8636feac8453d2af0261983fae91511e6763e1a7c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-003.webp",
       "sha256": "7cd75ded07801d82ea57ac9a67e094dc85d29624b703106cd0466bf344b2cd6d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-004.webp",
       "sha256": "3e5d2060ba8157cb23407c537656480f1dce603630cca1ebed31673ad85bdb1a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-005.webp",
       "sha256": "b86045c4cb92320c7ef530c4ff7c7f2589c97f96930d520cf5453f8b41632db1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-006.webp",
       "sha256": "45c28abb7eb1df3b5472610a1f2cd54a02f1d3a18e00f30ce926b15a0cf8efd5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-007.webp",
       "sha256": "f272feeee793f9c90d9233f9f54464820aeb99aa23b436fedd30e40042cdd838",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-28/page-008.webp",
       "sha256": "b4b01a22cc3d1c8831c395fa316a1f62f8480e7628c749fe8b5747881de2331e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/cover.webp",
       "sha256": "dee3d24cc96d3cef7ee96024c8f6b83fe82849272b9fb2cda4f6bc2326d54ba6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-001.webp",
       "sha256": "dee3d24cc96d3cef7ee96024c8f6b83fe82849272b9fb2cda4f6bc2326d54ba6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-002.webp",
       "sha256": "dab076b23db3d2dc077093b8dbf00ca5879f065eb61c1bf74de064686b024086",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-003.webp",
       "sha256": "27b9862c3641535cbd7ec232e6091b3a6ad1db9785891322ee50d5dbc582560a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-004.webp",
       "sha256": "acaac297d12a88eab091aa5dccbd8c1f70e3496c3bb98cafc07e681fc8c333cd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-005.webp",
       "sha256": "b9977426dd93765c59f02cc24b1cf6879e5a04beaaffd57cf635fd342c2919bc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-006.webp",
       "sha256": "71aaa6fd500d548caa1a3d68083da0b935cf71a75292487ffc34b2c095339ca0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-007.webp",
       "sha256": "67eabf719317a0d4fc7ead844a99f670b1a8f5bed9517b43f76cc87b4125c70d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-29/page-008.webp",
       "sha256": "936771688a427c34d14d55c5e85a7eca54db95a13b4fd345741e0ec9652ed4b3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/cover.webp",
       "sha256": "1ca3c536717e0ec833817eed98a603d26c11c33a5519b1da9c0eccc747625d7e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-001.webp",
       "sha256": "1ca3c536717e0ec833817eed98a603d26c11c33a5519b1da9c0eccc747625d7e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-002.webp",
       "sha256": "e0e8e56bce7c16662883840b08b0a9fbe30fd0dd5edf349d640d25c44a0245b4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-003.webp",
       "sha256": "d6af94f2cdc52b6ada83be4df3c7ed2d45ba43153684183e393ce4ba5f0f919a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-004.webp",
       "sha256": "b51ad27bd514b6739fa9d07741c5044ab5f7180130096265ac9b92f9fc2c97b6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-005.webp",
       "sha256": "9d8877145bf818cda93692d4308a5b1a76381f242e236a55b600b907ec18504f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-006.webp",
       "sha256": "ae6c9d1f8bd6bc203dad478c4d7054c76a3442937fd411256a3ca27f790dee9c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-007.webp",
       "sha256": "514d9fa49b5a5cebe70a92ab4b010ff0ca6c8f7fb40f8609af59251155836519",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-30/page-008.webp",
       "sha256": "3f3a6e247e7f726003e67988b792d9fcd759bb319babfe7f44aefe63862a52d4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/cover.webp",
       "sha256": "736fdd90a3ce7204a2b0e6e9368919d400798265eb0e5f36a7e34f555a21d97d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-001.webp",
       "sha256": "35de66b00da99427e2f8ba6ae0210d9cd8f790ad973d77f85c60885e52614e0c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-002.webp",
       "sha256": "0786149945b0d34acae0ae77f0acd962495d7ddc75829e1998a01027430d61cc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-003.webp",
       "sha256": "669b386ef609d24d80e61d91f24adabfecf9b3f4e334587c4e841d0119f861ef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-004.webp",
       "sha256": "bb2ccc5f13fa9d6858fdbf067eb24c952307b3192923a6a318589e6f7dea0530",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-005.webp",
       "sha256": "cd9d62c5141be80afed83212ca66c00b708a66aa04541888471257837c546931",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-006.webp",
       "sha256": "603cae3d99d07e06ad9394c06eac768b6503ee150a65c930960d7bdfc9f62296",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-007.webp",
       "sha256": "3a71774a223e05bc0c17083e2fae7ac9cf613d56d17256a50d3ca1c1ea2d7b96",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-31/page-008.webp",
       "sha256": "ce64c19cd9699c448eeb8b5a438c44514e368dedb174c62d8f1bcdf9e8df75d2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/cover.webp",
       "sha256": "edc797e1e239eaf7330d429c2b3076bf72aecd5cd8594fcc74b30d6e19aa1739",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-001.webp",
       "sha256": "edc797e1e239eaf7330d429c2b3076bf72aecd5cd8594fcc74b30d6e19aa1739",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-002.webp",
       "sha256": "8ed620e312a43f514d4d506f3f730b7389341cb51d8c9b5491e8445fa83bcf3d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-003.webp",
       "sha256": "478907d9fe0557e72aa09d12e892285999cf1334df6779e6fc220eb7a196c280",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-004.webp",
       "sha256": "d887f214e3e9d8cf0cf76a53480820ca3a981fd6a2232fbe8460ff7bea1c1d7c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-005.webp",
       "sha256": "f0acdeb9c649fea198495c184bb92fef9475d8913095deb1d2db09cee99e72d2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-006.webp",
       "sha256": "7e6b6ddb7d49697c800283f986eb86b9ac85b6df797bab850d430c281c07d1cd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-007.webp",
       "sha256": "2dc857a80a1d1e0e9d4c073a879df4613cd8534bd9befea400da63a2d730fea6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-32/page-008.webp",
       "sha256": "460aaf39a8a002bed020646f6eae11d6e5d144351039173f54e03efc75f851ac",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/cover.webp",
       "sha256": "7c08216a39eb1a1a4b885c23ff085bd763145e62b3509ef57a998092660073f2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-001.webp",
       "sha256": "7634c2b56f5623048d3fe27565650f16933b83e9bbaa324eeadb3eaccb0f6b48",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-002.webp",
       "sha256": "8965853ec46e0dd18208c1ec1a65d3f99e7c7413c72bb01684959173d702d44a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-003.webp",
       "sha256": "7699a609f09764487ef5f996dd650d5ba35b7bfc0a9bce515e83282bff3ce80a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-004.webp",
       "sha256": "08d25c264dacb4dab623938a397d16ec128ae3a812ffa11e10923316ecd9a74d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-005.webp",
       "sha256": "4fa894a8a8eb96ec65869e87d347ef7ca34fe30dfb1f04bb5a86fb685d0ca355",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-006.webp",
       "sha256": "d75a22db293d96624ebce83bb839865c02549cda54c63d68cfc85c556b7c0c9f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-007.webp",
       "sha256": "5ebe2ca26c97437fbe3076185a2ebf7491886927a1192fa79c23842ebd6bdd8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-33/page-008.webp",
       "sha256": "01da66e5ec30d792556926e4df9445f31661fe752cddf05c3cf417fe58e1e868",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/cover.webp",
       "sha256": "6acbd1cacbcf0d2c44d108543101b72a77dca625f90bb7b0c30119d41ea2edc3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-001.webp",
       "sha256": "23f5b0b0598092ed6513695ad5ccf85d432e71f0fd4062e6f19efa0180535bcb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-002.webp",
       "sha256": "f9c0b9e0172e9b56a47fa1a88d04fea9cd894a131a91ba25403bffd42db686e8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-003.webp",
       "sha256": "90cd826fc25859298465adcb89d416716ccf00c8d8d8f49f4a08418a7d743f8f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-004.webp",
       "sha256": "6e0252ecc3a17f0bbd69f34918721ad0187b5a58159647d8e39f37ed8a4d900b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-005.webp",
       "sha256": "8a4735885ee66b1944de62fca5b1241eea903853d97c53432480009e00f0ad24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-006.webp",
       "sha256": "f2b06c705c4ea281a4a1f881e8901cf756a59ed14b801eafffd9cd294fc21d6d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-007.webp",
       "sha256": "7ec8290b577ab03f38e132cda5551ed2635ffd1e100464ebff9766c7634f2791",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-34/page-008.webp",
       "sha256": "0fabb0315c1596c194ff17f8233c60a49dd7356e4e0b800652ea45b4c70649b8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/cover.webp",
-      "sha256": "01e66696a8f7da25ca63d906fe64c8cfa145982fa09ec4484b11062bd33980a3",
-      "status": "approved"
+      "sha256": "7ad92dfa84ba2b99ab4c500aeb1829e5286619711a5e0f7d2e124fd1dfa09ae8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-001.webp",
-      "sha256": "15f963eed94f5a7af77674399b16fa437292020f8ebd9fb7cf90246e9680daa0",
-      "status": "approved"
+      "sha256": "d56ed18ebd4873810cc7b59de2a8ba45658abac6b40d86592aba048192ee8258",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-002.webp",
       "sha256": "56c86772d9a2c65643ae6e0a8e7be1d4643ae5825253b90bef88902cf863dfd7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-003.webp",
       "sha256": "c5c0d26fd9d74b8595c963142acb0c1f99f7ed6bf139b959532df2697792c6b5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-004.webp",
       "sha256": "3ded93793b5e10fcb7f311e8f767fc50f174d540ac048d223a9ec85906addb09",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-005.webp",
       "sha256": "a36cbdd27cdb392d87ce0bce81ef8657b3e20a0ef49b1f72f321e5debbe6a369",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-006.webp",
       "sha256": "8f61333dcf4136eacdf560f87db9eb137eddc423b2cd0ae966562be8532ea533",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-007.webp",
       "sha256": "4d75f68be7993ae4e1a031b2d094e8f4f8ef0c62af0abbb3448322f8abd8fc8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-35/page-008.webp",
       "sha256": "64696abc6fe8b24494df0c70794dd6b7f468d310c380f0e9cbb4d0dbd065f76d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/cover.webp",
       "sha256": "cd16dba38dc472b6a099ff5b5ae70993c1b054fa1c879abd4ec41c84334bd866",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-001.webp",
       "sha256": "d88ffff77c032df07745c6c9752e0aae88c2af16e7b9b17798baf497780ee9b2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-002.webp",
       "sha256": "f64afae10146597638d9d98ef5088870d72a511e16c84773b74289cd4a39207c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-003.webp",
       "sha256": "0121e3bdcb257bb9a0b986d5c09b681785818cbd7b867fc29068fe6c9b26492c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-004.webp",
       "sha256": "d27a28d80447f8c456ebe5322758b864a05a977a1ba9c6e99d2e22c9959fb77e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-005.webp",
       "sha256": "301be29070832244cd8692a78096340583acd2cca725f17e4aad98e0d2bef3f3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-006.webp",
       "sha256": "8363486deb0473614d946631bda39a6094b08d02e1a224e394bbfab9639c4246",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-007.webp",
-      "sha256": "7ccdc0886209a68f1d9ceb62b99847404669462070f42ee70002ded4396ea182",
-      "status": "approved"
+      "sha256": "f80d3012bd7fe4e92e29292e5fbc9bbe66572f82fb7d29a6b19c512839816078",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-008.webp",
       "sha256": "918188fa4c37eb321a262f189ce964626097bd8a8ff315ecacb3053fc1d579d9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-009.webp",
       "sha256": "7d81df9966bdcb8c5d4f1f49a664b978c5946f6b4d25ff89382e9f9e673fc38e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-010.webp",
       "sha256": "3f463590811bd73f63f799ae2fe2e7f3e6481f39bbdb1af0d37965876a933c62",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-011.webp",
-      "sha256": "c9c5e415f0cd0f921e1d21152cbe5d438fdbc3fcf4622982bb56faa8e2029dc9",
-      "status": "approved"
+      "sha256": "46691d47e5cbf8813586e5f97d41cb2089a51c6207f7055a9d23bd4342e2571e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-012.webp",
       "sha256": "cc7970bd5b2e8df6c69afc98458f6450999a8148b4a34af84d1b9cf9faab9e8f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/cover.webp",
       "sha256": "dbd3e5c22d8169de872426c8ac15d76b44e443a6c9e6e2e7cd01aec3d86bf234",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-001.webp",
       "sha256": "88b37a5fea2c11101d97e4ef386e5fc9eeb717993c0e26197f1a77e2188e993b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-002.webp",
       "sha256": "b8b3e373f13ae9c0ea50b84fae71ad2983713e604102e30ea8cc8a65964f76be",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-003.webp",
       "sha256": "34dbd42c05bf22c6a88ef396dfaaeddfe16063c2287c977c536c00db98ce0f49",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-004.webp",
       "sha256": "47bccff12e428b61b1987c704c9af9d05cf5558f79315494f69c33306d21681c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-005.webp",
-      "sha256": "53cd6a81808e115242093ee6d00dc80b4dfc9012e834392a49c796458dc77786",
-      "status": "approved"
+      "sha256": "59e50f2193cb8addb92a8e505c8b2dc977c61c9b844fdb5e78ab856a01e77f5b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-006.webp",
       "sha256": "1ae2afd97734f2bd0f40016021615df2cb3af53476dd335b316e8a18563f6a95",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-007.webp",
       "sha256": "938a631d7184fcf05a6145c2ecca9f34fec9500cd093e79f7a1ecff7eaab59cb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-008.webp",
       "sha256": "7bb4d8d3d9e35ead2d503bb9fb0179f4ef970469ee867a424743b62cc60adb9d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-009.webp",
       "sha256": "d4e7ad42286d9ee952d436a98a1683d1f53d44e1c92c9f7dca1500df798b0391",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-010.webp",
       "sha256": "4e7955530e145807c430ccbd377c556de84e8d220fe4ed463d507cbf30a482d8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-011.webp",
       "sha256": "f158d2a09436be8cf3673031be9fb52b304495360fb151ea2cc92dde858f5f74",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-012.webp",
       "sha256": "883fe107dcea43f44519dfd0c684eaa5bb04b24c6f3d77803569a64766e9bdb2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/cover.webp",
       "sha256": "cd72c44cf9e3096dd460ec391df5777ddfcc374a8259e39f0112f9bd04833d7e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-001.webp",
       "sha256": "319375d53b783fbad568ff121e051bf0287224e5f8de22ba9fce04d559cee5f6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-002.webp",
       "sha256": "4f713dfae76f1546ec8886d80b2c92d62febc954bb4d4c8e1eeb3afdddd4eb1a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-003.webp",
       "sha256": "baca71bafa01caf347c6d6185fe4079b654e48efa901b7dc4683c1098f98829e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-004.webp",
       "sha256": "9bbbd685fe77b1caf8b6d98028807504632ed0128762dd25db857000c2f15ca5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-005.webp",
       "sha256": "db1cf54b9e216d1d119289e3b22b410e087fe8d6062f5b8613af73e96b7dd83f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-006.webp",
       "sha256": "65fa02f25f9c18b46e6fa9b28328e03c23d63ea9113797a88e724e177fcfd085",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-007.webp",
       "sha256": "27e7607348a1448a3f5ee5592b795eaa057bb2613d225a7a741a122beba2f205",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-008.webp",
       "sha256": "42e3e5e43afb9a3e6a010778a9df00edf5e3607454515536a790109cc99ba4f7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-009.webp",
       "sha256": "5a87e36459dc532c6f45a053756255cf5af0f4921cca000229d694104f7c1bb8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-010.webp",
       "sha256": "07c505bb95dd3d333499e13e1bb34ca0cc2185b434c857d42b34dde2d0a7fe92",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-011.webp",
       "sha256": "04cb5fb341625dc5cbf68a6a9724d45ae8359fb9abaf29e7b66539958662409a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-012.webp",
       "sha256": "e5e362e726877a5c896e8edc4339d00203690fd26894d1aab69a69200252d006",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/cover.webp",
       "sha256": "023350a580fb54ea1649abef326a39bb3ae36424c4c4c723cef12bcdb10aff98",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-001.webp",
-      "sha256": "569c6189fe9c1552d323c85c673fab8615ac07f3137f4ef4de66d9cbf5bd55ce",
-      "status": "approved"
+      "sha256": "21dcc89ea2b9cf3e16d19bd610989c0853e4dfc172b5cb5bb4816c02b338162c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-002.webp",
       "sha256": "71e02db3a3329cc553d3ef6fb784016de815613e141f7d747004ba6c66400b4f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-003.webp",
       "sha256": "9626f8dcc9838457086d0ea64d60d268c1441659bfbadf736e5c4e2cdf065a0c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-004.webp",
       "sha256": "03d03e0248f7cd24c7e66dead6cedb84232bce9f8ea547b76bde8fb9e0070e21",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-005.webp",
       "sha256": "247ef0339a8766389ccabc3d9f1cbcb1615bbb0b3fb97db9d69440c6f74e8997",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-006.webp",
       "sha256": "9e55ac8a3c1dd313d53fa6c7149eb6a339403ec0cde1542bd5f3ed8d6b329f4b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-007.webp",
       "sha256": "b4042f50890395ed45ff41c4e01d110975f9c812abb9acbbedfdb3edae183ab1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-008.webp",
       "sha256": "5138d66ba8cc705de64e5503d114fe0be0c7be4b27ca58cff1d92a90b329fda0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-009.webp",
       "sha256": "3c02032ae83528941998525bdd35ba85ec9ea6cc7691626c9c7e27269d58b5dc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-010.webp",
       "sha256": "44b8262b6f4f4b85887e28bf04ea2e5a2210ce251676e26a6cb83a113c45cc19",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-011.webp",
-      "sha256": "0f8b1035ae7e029f890e5a2518b9f165c827be5d12d05da9749242170330598c",
-      "status": "approved"
+      "sha256": "5ea6f044dee6ca8e90d6f841fbfe99f95c087146518f1010c55abecbc73db99a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-012.webp",
-      "sha256": "cd81337755e8b0bcdf846a729aca70c28d901508ce759aef380b2c97babf98ea",
-      "status": "approved"
+      "sha256": "82f515848c2b6b544e532b996406153a938721971955d7431f517203745ed387",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/cover.webp",
       "sha256": "3b2d1b6f0fcfce869145166af4d858c28839e748029544242f05ed249fe90925",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-001.webp",
       "sha256": "5395532a0958879353fdc7d0bc2a7b2e3338a468491be402d75bab744b0a6217",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-002.webp",
       "sha256": "9d72eaed3cbdf4d2236bcc4e1c699cf2feff28c525330cb8fdf37d91eb33af3b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-003.webp",
       "sha256": "3338b69e76ad7e8ab09e9c46d611d8446cb8c1ec51f6e27a17096d1086857715",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-004.webp",
       "sha256": "ac43bfe537dfbed9d7eda8b636a3e503ecaad3220c99a088505e7ed563e2ae41",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-005.webp",
       "sha256": "f3967240fa6b22384cb12d29f7087d376367b893ef265b1fd489a174588a1e60",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-006.webp",
-      "sha256": "4ab5677d56dc9b13dabc449c1255ec9895b1166d4fd9666bcdef29bc19290ea1",
-      "status": "approved"
+      "sha256": "9602a60701568e179ba654e5b624d45bb04f4e6006773131a76198c6613a4a4a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-007.webp",
       "sha256": "bd073e31e6623f83574dbf66b42dc6ff476115fee077c708e1a255b76f5df881",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-008.webp",
       "sha256": "100ddf4de80342d720156f67441f6faa31117dc483e81c20b3ad253b2eff4e77",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-009.webp",
       "sha256": "2c58766c6e0211d0d5d18bcbbfe2fa180b9dd7fbf1b0b27ac04c7298392283f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-010.webp",
       "sha256": "6be25cc8f736c23d05e7ad92b6179786304d58bcd6c46a2301e6238c1c976401",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-011.webp",
       "sha256": "9dd917e16a17cc1c89a849db35b9a3d74bc20677d017666cfa5471ae54f07971",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-012.webp",
       "sha256": "ae2ec612e9b6034f8da67d6f46d739af5c28a89504eb9d2a115acec92a56e5a7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/cover.webp",
       "sha256": "813ee9428d6028192f1b4b9314e897b0c73cf69bde4c9e0db3726278f023d864",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-001.webp",
       "sha256": "bf154e368681c2477bb0b065237562e92ba073ded13f369f2442578411731186",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-002.webp",
       "sha256": "0ca4118f7635e5862e1049776b17927a98c20c516804660d4302e2aba381fd51",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-003.webp",
       "sha256": "f9d05277e4a31c7b043c01f691d21de993670d58cb2b611d0204958bbbdbe7ad",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-004.webp",
       "sha256": "1c5cd0b97d1e2921bdc6128da03476c6bc7d43261bfa7954bdd51a28f25a0927",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-005.webp",
       "sha256": "03213053f36c21b250e0df1709baf4e3e96f4ac8d7e8c461d106da8480645129",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-006.webp",
       "sha256": "4bae4f61d084c02cbc7b05d1bc327c4ff12484fe6eee1b107b5e688184a95f83",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-007.webp",
       "sha256": "158191dc02d3c4c63e7222b6525b94d93b7d53009d3fedf1bde545907be78c7e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-008.webp",
       "sha256": "da8f8e6b742cb21a9451889e4eb69852685298d5dcfbe752a69bd22cbbd53553",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-009.webp",
       "sha256": "ca5045ca1fc78cf69c73ed6d94bb049047c560bf1e4532ac8ab1feac3d678433",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-010.webp",
       "sha256": "b48cce71b0bcb46528109a3ed281cff2a9d899c4bcccf98e6d34760dfd393348",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-011.webp",
       "sha256": "e70e991afd1439198c2dc5895cd42abd6fcda817be7586596a1467372a7e3a2a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-012.webp",
       "sha256": "ea9afdc4388cd6ad727067ae4cad443db07f8e5dddd93a92bfc83981e053f9da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/cover.webp",
       "sha256": "672ed30dcd069043e1fdcfb87cc75e76c1a231ecdf0f60f8d71155e2a78584ad",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-001.webp",
       "sha256": "40cdeb30f6531d0d5d887a5ec74515d2458429f50758bd40665f643c7b461cf2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-002.webp",
       "sha256": "d20dbd486f378cd8ac6bac11769d2864a9735ee21d20b79e5b90a8acf4ebc5b3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-003.webp",
       "sha256": "211222649bd00e7b589f7218cdcbf15de4d145460ecf776070e368b8e21bec48",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-004.webp",
       "sha256": "e82ad68806ac93b6dea51434dcee6432092d913bf5d22d5fb5a135c72dd68722",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-005.webp",
       "sha256": "8f9c6aac81c48f9c1214f73a1e13fadc658edabd03593e208aa9b7912380ac24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-006.webp",
       "sha256": "6b78dc01efcf40af8928d7ada28e9c003d760aa9ee5aa3a23fd23179a0a4d7c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-007.webp",
       "sha256": "d6206d4efd4eafa10135068027db0bb2d431634055a5df4d3bb7835ff4d7e039",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-008.webp",
       "sha256": "0a5b8c3a53b3264f743ac43383c09e1cc264dd6ca85352bd2547316e873cc58d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-009.webp",
       "sha256": "0207a33cddf58d61fd1432265258f8efc6c130931743e64468afda003c04f3a4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-010.webp",
       "sha256": "2b27f798e26fbb29f7dea862755c70b7a13629778faddb57e7628ba19ec49215",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-011.webp",
       "sha256": "c6b24b14a40e4a01b69fdfdf4084c404bab613d113557d50f0ac38877cf93e43",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-012.webp",
       "sha256": "bf58cc347790c29aa8858b8190820adec8dd473d1f1369ce176fe7dafa06ec8b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/cover.webp",
       "sha256": "a907c29f006f707805ad3ad493e1202803109fac96d1779bfc25c6422009886b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-001.webp",
       "sha256": "1f83414a87c9be10e1637540f5527f5a274851faf8478a487e9a54ad904cde8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-002.webp",
       "sha256": "e1a752ea8283b7edb26f15adb0131ee6d300872ec1b95827a8b70ede9f3581ad",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-003.webp",
       "sha256": "706e0fc2aaca9cbb5f0835b7481e765394fa47c251e16816a82d398b15d5dbe0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-004.webp",
-      "sha256": "844eb1701f03936bd8f0a8516ceb8937848c64a48d13ecd366c93fa4fd9fef09",
-      "status": "approved"
+      "sha256": "6f3cb490605c4726826c7cb57f70877d3a5eca60fc8a0679d81d0278135e7910",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-005.webp",
-      "sha256": "9ba7b36b4b9428fe5ab91873a8c4608263d6e5a83eb713a4d9c30502b005d7ec",
-      "status": "approved"
+      "sha256": "f7c453bb30c72779aefd6770dad4de298af381f6eb90ff811ec964c31c61bbdb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-006.webp",
-      "sha256": "d14cd5093ab735c9ab9cc5391a0176f239b8cbc40a939d45bfb6b80e9cea2747",
-      "status": "approved"
+      "sha256": "ce75cccb296561bbf099b49149ee3916269a0a44c1231dddf007b15ecab9a4b2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-007.webp",
-      "sha256": "9bb04ebc54d06ec95c91cf92db1eb5b1e131573cb46c9e84b751e4d2ca048662",
-      "status": "approved"
+      "sha256": "8a662f286191f31d2b237350d236da51842e5932e38ad21b8609504106e6e908",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-008.webp",
-      "sha256": "bb3e89c9b54af3d10fbb5e74cc3c9560047f5a6dac056757853853ac1b4ad9ec",
-      "status": "approved"
+      "sha256": "177eaa44e79971eb85b94c3884b83c46ef0389e13723033c92dcbe95077cc018",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-009.webp",
-      "sha256": "9f9bbf2a568fda3139dbc891eefe6582c7db6a07237686174ed5f2cc4cbbb3ea",
-      "status": "approved"
+      "sha256": "b1ba5aa46a527bf95623881317ed761f7ab1b92a3472ac0c834a11bf671fd448",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-010.webp",
-      "sha256": "8f423f82f1a23380fdfd95283fac2218eb0d95348cc642a89173e7dad590fa95",
-      "status": "approved"
+      "sha256": "9ab005c3b398d1058ddc5111a53d8db67dc24a7e4f55e2775037c963463a9a1c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-011.webp",
-      "sha256": "4ce7559a35505512e49fbd408d5e6fbf18b250e571db1fb60a284af968aef194",
-      "status": "approved"
+      "sha256": "af7ba4b2896fb28058465833ac9993027833a97f24f92fdbb4948f73c49df2c5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-012.webp",
       "sha256": "e5a9ee43c6162dc649ef7bb3b529e8f40b8ce123295a2a4c4460d9133db4657e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-013.webp",
-      "sha256": "86291041531229498669a5cbc978a0c6813974d79bfaa39f5a565a7c5de46c7f",
-      "status": "approved"
+      "sha256": "1a5cf0c0e7bc410c41c58e79736b54280da9f5a2738da93ad882c99c78f019c4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/cover.webp",
       "sha256": "8dbc99b96358209a673c4b736ab8ffe477dc967be41886f928a5c112f33f6d5d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-001.webp",
       "sha256": "6618244bc2acad52ff33cef10a743173916620ec419169a706f6589dc9dafa53",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-002.webp",
       "sha256": "24b3a5314b75168621706d1010e5f05b787a28d724b3803771fc2c2b78309d2c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-003.webp",
       "sha256": "ea556a6110de6853a9ec4407ba48ba5d3a750a7e7339883e03cd99c4340630ce",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-004.webp",
       "sha256": "d0d5da95a8a91acb6451ff1caacf94fe3860bf152a900af1779f1f0bb4400718",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-005.webp",
       "sha256": "587d95c2ba299552eb1cc9605c2ec02e73caa05efbaf25e126b5a0bd92b36e36",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-006.webp",
       "sha256": "8bf24570c4ccd7bde0baeea459ec28496969ea278e97880ed065ae0b7d264b57",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-007.webp",
       "sha256": "b9a2ffae8a97e2f98050b9903625fc6bb841c35ace5622f4f095459868d0b0c8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-008.webp",
       "sha256": "3db5e93ce0965c4cfb390ddb4635e83644c7d495bcd4714eeda5ba90e05b0153",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-009.webp",
       "sha256": "eaca213a03e7438136eaf0a025767d0862f345ec97709bc5116acf5be266d218",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-010.webp",
       "sha256": "49650dca23fa25cf0ca645652a079cdc62b1c4b102892d505c9b206227febbe8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-011.webp",
       "sha256": "5e1e190f1c82c62e1ff70168f5e0028c7b39da19839655de730020ad68544b8b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-012.webp",
-      "sha256": "91dc35a127da4c97e98fd3da60ce36826bdfd332a0a93fa3c2444d5f546f33d7",
-      "status": "approved"
+      "sha256": "f054732910801db974e56937ec06ce73fbde985d4937cd1f90526921e42e8fda",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-013.webp",
-      "sha256": "4328a38a9ac2abc8483d9e02802ae74be7edfc681da5bd2d42c9eb659f88b85e",
-      "status": "approved"
+      "sha256": "14d1312387416ad3b8726180b8c31f4156222a3db5b6106b18cd6765ad1a2577",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-014.webp",
       "sha256": "a32591f4917fd81c27c9af366bf0a571c199c4071e3b6aa24bcf9510b37f8f02",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/cover.webp",
       "sha256": "2e7c85b26cbb7eaffe4bbfee85dbd00e280c9a8dd5d15523d340a11b43be8a77",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-001.webp",
       "sha256": "146145e7900305bca8dd2baefad0a965fef3f4b7623908c04561fdf6e727c22d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-002.webp",
       "sha256": "6545e97ef541928b6859825dd36e9ea83ce02b969355e49866dac30a39110925",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-003.webp",
       "sha256": "bd193feb67a2b9b2dd9d0fd78ca2020933b205c0fb76baa13636267c365b7e5b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-004.webp",
       "sha256": "4ee483d26b5ba4a16ff82bf9eaf5b6e289e48680fc0d3517878c3ae723f9aa99",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-005.webp",
       "sha256": "4c14d87b2625c816d32f80da65fd53b4c1481b04768237c34037046a7012efdc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-006.webp",
       "sha256": "03e3a0558be6e552fa92632d94e0b5bcb92e9545c360c366c24527b4e55e4ac7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-007.webp",
       "sha256": "be7157b429e72cd470fc494d0d528cccb7b1308bba597e5d6f246cf2478f7482",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-008.webp",
       "sha256": "c176be043325351fd6b76c22eefab836ec8913d1e6280261770858d6c7a7cf3b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-009.webp",
-      "sha256": "2fbe7519df8b7dbdb1b9783aeb853e5cc39e6ecc5e7b738d87d1cab480ae74b3",
-      "status": "approved"
+      "sha256": "22d5c2e1abd7f63d41992cb2ac2cf536fdd5aca13fc1fc5187e3df0c125d5d16",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-010.webp",
       "sha256": "fb72bc6c9f8dee888873fd783222b38306d00ff2a6a8ab2043c6d702f59c9bad",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-011.webp",
       "sha256": "59a255112a5c7c2eaa058b2f5d9243f2e2affd44c1739527b8b9d4dfb88676b6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-012.webp",
-      "sha256": "ff1c02219e6875855972b9808877bb1fb78ca95f15559b25f422b7994ef9a447",
-      "status": "approved"
+      "sha256": "94f8b9031d22c9e764f8a1e06dcaa98d6f6ed1790c8a131993c5a30d08af99a7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-013.webp",
       "sha256": "25ac4e4336e9c550585af3ffe099d532bf226a32afb1ad818fef7bea767c71b1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-014.webp",
       "sha256": "d0e5329404c8eccc45122bb3d0ff7ef5b6e6876bd6dd67ce3f635d1d545b3c5a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/cover.webp",
-      "sha256": "87121e541ba3c985aa27c0f7f20fba77a96eb50c803116d621091eaeb5e9c44e",
-      "status": "approved"
+      "sha256": "5784e1e2cc60d994b2f1dd24f310a46597b7983fc1b3631b39c7457ced5eef59",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-001.webp",
-      "sha256": "fd57db04ba7adc09180363272848cce86b817939f4aeef4b17bae0671b72c70d",
-      "status": "approved"
+      "sha256": "c45204c7a0985d2197c1dc81cf8fb9974dcadfc7e479b9111d0ac05bd0b21b2c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-002.webp",
-      "sha256": "b44b5efd51f6ea7894febcaed573b076ae4df775f0760bd5142adc0ae050c369",
-      "status": "approved"
+      "sha256": "235cb7f6ea805ed3e98124a57a33b5d5bc4db682d6d601077eec5724e0fd6f88",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-003.webp",
-      "sha256": "17f2652b250ab51326a1cc86445be2e050975c39df345f7b349aabddf7f9cf4a",
-      "status": "approved"
+      "sha256": "4f3e845d3bd4d4e84fcdaf32876c06ebcd4caf69ab4f0885b65cdc56b1c345ba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-004.webp",
-      "sha256": "54c8d550f0e53616177a995d501ddde7723f626c73c897c91f1511c23f2fb21b",
-      "status": "approved"
+      "sha256": "9b0be34bca37e04aa2582ed8590eda1dc9b4744971d60d40d94c0038571dfb0e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-005.webp",
-      "sha256": "b2e987695a78519e3391fd89c872edae97367385dfcdf95c639358c77083dc51",
-      "status": "approved"
+      "sha256": "f87e7b0e445b3f92f33060bffc686dbf1311ea9dfc8c9248d7065582c1f4bb49",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-006.webp",
-      "sha256": "4ed870337f982ffe3a9d7087c3e0f2db730c785cb26d282ba65e40a7affac285",
-      "status": "approved"
+      "sha256": "51eab05a976716dce3782fe8c014cc93941ca3ca7610ef839c9799016495bad6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-007.webp",
-      "sha256": "9e6b743d25dbcc41526bb231a97a847367547848573f3c7e057e952cf9ac0cff",
-      "status": "approved"
+      "sha256": "4cd7aabe8a04c2458c0b1d7528b6eea81ffdfc517dfa7b556d304c6f15c12b1e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-008.webp",
-      "sha256": "05d0d2c54c2976c8dd1d6f98b3149ad8f3eee6d618337498568eb2a73f823360",
-      "status": "approved"
+      "sha256": "758b7538776cf9d330d36ffce263b57c8a8182ec7a1d2adacb08c4c9ac220aa4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-009.webp",
-      "sha256": "2b51c4a839a3e31fb5d77e625e2894c0846e0f11aed966d8c903a41681970d8c",
-      "status": "approved"
+      "sha256": "9337f5228b55c880dc576247ac460279cdf873713585395e3ede922e87c8f89c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-010.webp",
       "sha256": "a06913ec850798b47a37aea973afd15f8d916ef3bcfd7f94c1f477a345b20bc0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-011.webp",
-      "sha256": "0823faf013f32b16eeaec05072e3d011dcaa157f8714b271b50e57a69e12b774",
-      "status": "approved"
+      "sha256": "1649418fae9ed8229225d565082683940ff96e82662044a6add044bf656c7422",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-012.webp",
       "sha256": "878d8254dddb4d5f6b7349c89432a2fb2fe352341770d3f62f04ffb73468486b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/cover.webp",
-      "sha256": "b3acb39b834c1828218f08357c2ad516ec353dc76eca0ca5b37bc27f14f5ca7e",
-      "status": "approved"
+      "sha256": "143f0aa4cc94913629289f49e748029d0ed516403aaffa9ff04ef67a30476a7e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-001.webp",
       "sha256": "27bd295907e49f3a0a8b7b00936344cbc35081168136d49b3f1eb512449895ba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-002.webp",
       "sha256": "254df70c958d10051d009acbed597dc410c0853657e2b940865de8c68195faf2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-003.webp",
       "sha256": "c8e0c13c1318c7f706238df2858d4e29873c19e91868a102fe295fda7972cf9d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-004.webp",
       "sha256": "6f0c05ed46247b8cf2859f7ea4a308cda96681d1d98849698341170754977ec2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-005.webp",
       "sha256": "10dd54ff33bb2da97dd6a97f1667db62966a72f412f9d667459810db95359b2c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-006.webp",
       "sha256": "172ed36e62d913496cf41bf0ddd8bc1ecfe6e8bb746ca2e7a476f8eeb135b912",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-007.webp",
       "sha256": "f155fb3795133912bb29aa46964b95091c4619393d9e9841c48b3de6f332cd6e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-008.webp",
       "sha256": "6aaa98fc18c91edd936ca5956a04939dcd7e72428361907537e4b02c619b4189",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-009.webp",
       "sha256": "717023d34e36f37e5c6c6941f8f53054b5da7b1b2ea142fe6da34ff28aa0cd47",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-010.webp",
       "sha256": "dbcf7a9231ead4285f01b8371a08efcbf0a77c9c3655c5d7c260a9fb541560f1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-011.webp",
       "sha256": "4febb22b208b4996d2f1403feba0df85e257f61d5a40c8025bee9a8860aff2f1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-012.webp",
       "sha256": "9048e9250618c90b36b9aee92ed243a5e259dcd0370e53b07cb6806d97a3d41a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/cover.webp",
       "sha256": "66ecfbc98233733ae07d468a684a58357a1f4ef4e60e493e18aa9208dc076e65",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-001.webp",
       "sha256": "323c76069342cd476cc9b3b159d04ed4e66fb096b7f79bd02d9dba2c1df2e7bb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-002.webp",
       "sha256": "66a0ac5873cb2ba2bcb58470bafc35034d4dbf34c6fa1ad9c80619512fcb6e43",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-003.webp",
       "sha256": "af543ae9a0f82e24905d62f1e05c1a043e4d67447a791f795343d3ac5ac4a655",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-004.webp",
       "sha256": "01ae5524ddf6bf04657e6c7ff85add130c9c8963d1c5084afe1f9934aa6e9e99",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-005.webp",
       "sha256": "74b8cc70b5f7e1ecf4744b355f9e327d5039e217fb3d7f722711a93a87d43b47",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-006.webp",
       "sha256": "107cd31a50f46a369200eeb09b050a91b42fb8da1fd53b60958dae8656733565",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-007.webp",
       "sha256": "4dfa4521ac74875424860722dc1ad3d8a16b10a54a8c50693d47303805a465e6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-008.webp",
       "sha256": "7bc964fb6ab3206d8e88db2d8088d1c4d5c1084bd50a53dc0baf8b472d55b344",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-009.webp",
       "sha256": "f582589eca2068f41cb95042a3976e0df6358fb88627b93751ea80363c4f8684",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-010.webp",
       "sha256": "ad21268ff976031edf1891a0ca44065056bbcfda6f65d983a42f091e8a1c680c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-011.webp",
       "sha256": "ba99bbc945e65f66b68a34d7c2f9604a1f48a5e78c615c47e0e035c489c13200",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-012.webp",
       "sha256": "7bfe51c3077b3d674221813284026a62cc0b578c11595fcae241fbe4adf8cb3f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/cover.webp",
       "sha256": "9b9cee5417a7e80b0d94027c0a44de7e1063b5bc999c36e932609ac63baa78fb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-001.webp",
       "sha256": "13b3e137f414d6072e7b390da23a7667a777d0fc9f2cf1baf2e93aac337c7047",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-002.webp",
       "sha256": "8227ed7d8f1813e67434682d57f82724ae2f5457c29034f0f69c2328c30f3fae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-003.webp",
       "sha256": "b9403fbd110dce6775822d9844b0fdd7bf2d6b2cc0d03cb69844bd23173573b9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-004.webp",
       "sha256": "cf33ffe9219620a1c666576a424e3152a5cbf7a0709f5d0304969bc4291c1967",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-005.webp",
       "sha256": "a804f9a59eb4d6c80813ee4b143b45d3578b7957c19f8dc884404e237d9dcb7b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-006.webp",
       "sha256": "71af434401846974edc4f432414cc79414dc376302a743f86b953496f2c8a1ce",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-007.webp",
       "sha256": "2ac455ca3372d402a749423b110a03d1c839881d66b602895d994fd7236967f4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-008.webp",
       "sha256": "5b9e2f2a706f62d54d716a52b01b11858d40025c5d07303da2b02db65afa72b8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-009.webp",
       "sha256": "105f5a58253e4647ed708cfcccf6ac448766ec2419bb640a2703777ff2da94ff",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-010.webp",
       "sha256": "a3bddcd271a6f7a8aea70314775041ec9bf988ae0199cb85e5b74b56aa775398",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-011.webp",
       "sha256": "8af553cdef6f0b9d91eb0387dd45da2110f3f838206c9a604ed31fc287c1312e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-012.webp",
-      "sha256": "03e5df6ed5ee545bb4173ca83e5cf3253cf88ab34e2f7fd7ed4639ec5e568b0f",
-      "status": "approved"
+      "sha256": "21de7859e817f12c25b8aabf81633c71ab0ed11a4cc31db4cb9a9a8b4f3f7d76",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/cover.webp",
       "sha256": "2d94b68ce197183e5403fc43cb368ecadd18639c77c01db4ab0dbfa493bb0dbf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-001.webp",
       "sha256": "673fb284bd0d136e822b2d853db3507f235d44bbd4fc4e9378388bc69c8b3eb1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-002.webp",
       "sha256": "fad038a6146e47f9924bee97233c3d5a0d6da6289c5c273fcce56c2725ca008c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-003.webp",
       "sha256": "24384147edbfeb1553478a78b0b272234a256ebf90ebe3789c98a6dbad9ff2fe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-004.webp",
       "sha256": "4c8a72db1eb5ea90bc9da92bdae0aafd04f3df554a8034f4b2e88c39ff2ef8dd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-005.webp",
       "sha256": "f6b7d67f69f5f03d74010749c3a589be510ab2c23774316a7edc61661b0968f7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-006.webp",
       "sha256": "f439a9a3a8e08990afd90d105716e01e341c6c74029d03649c2f50c897cdcace",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-007.webp",
       "sha256": "5a03aa0c8197a2d04022a858d77fe4ce5fd6de1127faa6413cede526cced511f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-008.webp",
       "sha256": "7d7121b6b914ca443ff33b76aabf39d01c74be36013642f1c2e3b1a4a054cde2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-009.webp",
-      "sha256": "beee0c40ce2189191e824f098d417b4b0868b321591032d35e92cce18ae6c769",
-      "status": "approved"
+      "sha256": "ac744bdc195e36f85d2a65b7b7e7ac554fcd922e1203082cce0f0ab01a535ee1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-010.webp",
-      "sha256": "0c6499c4d16dabf6bce583b2ca73493d726b04fc374a7621aac37c4dac65b4f6",
-      "status": "approved"
+      "sha256": "4043063b211703d7a74d5eeb1809cbfc777a89dd4954334c8badbce7a6c47c0f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-011.webp",
-      "sha256": "34eaebf4a42529a1e0eeb827ef5f1bc56197ac7393a3d83c41b6d158a5ea1724",
-      "status": "approved"
+      "sha256": "1e43a73a1bad5a52ad0e4f4230bd4eb48c3a9c95a8f482545b3bb30a017061ec",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-012.webp",
       "sha256": "4104cea52f3491978e4a04fa31aab886af7e0219b91f1929658963b63eada22a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/cover.webp",
       "sha256": "e77233d44e1f355cd8bd1ed52cb3c8dc8db23b671a0a1e79643c77daffc042d8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-001.webp",
       "sha256": "5a51f0bf5a9a173dea5b6334f314706ab215fe29cc2de070f4960bbd599968d2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-002.webp",
-      "sha256": "b337eadb20fa8012c39eefd5691b95cc13c5174b584e2952f6ef95f03095d17d",
-      "status": "approved"
+      "sha256": "dedc5ce193a6a3237da3109d091eb93a841cf7d1623e2d895463ceb7bd814ae6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-003.webp",
       "sha256": "e704907474fbdb1a56e1d619039dc6bf4d428cb38a3635206c0a3c8085551517",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-004.webp",
       "sha256": "d3e1a91c08ef533cbf3d003c166b18fd8387078e674c417105e459ac362263d5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-005.webp",
       "sha256": "1a243705743a05f035d5bdd843f131e63918904cb9d8d93df58009fb0cb91e64",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-006.webp",
       "sha256": "51d18b1df807f4a14ccbda2e20c0aab5c922bdc202b5d4aea660db4de81045a9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-007.webp",
       "sha256": "c85729304c68a1e512ee1defe0952860ebfe0af75e9de47375e6f719b176dfcb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-008.webp",
       "sha256": "6d4d30eff7f8b14af8ddd06f7696c02c88611ad589ca6c0e6b462156bd0e69d6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-009.webp",
       "sha256": "f417349de3e957702633ad5791ef3d37cdc5ce6012dc292044cb9b71b2eee226",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-010.webp",
       "sha256": "8a5f53a09fcd78a8ae86f5f20c9543e96c880878e142a3b4a3ac3c935d6a1868",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-011.webp",
-      "sha256": "835dc6b5e98e69817f2c4055996e13a30f4371ae60aa81f19939c7e1d056123a",
-      "status": "approved"
+      "sha256": "8b5a076ddcb6ab6ceaa431fd35131c9e6c7a5c06d13d012dae877a948779d11c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-012.webp",
       "sha256": "af381be233af87ab5c0cd66554546df3f3f301961eeeff7a7e134a24f1676b90",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/cover.webp",
       "sha256": "ed68b1144a9ef2abd5e96b29c260d99dcce651595cd15771dce132d7da9fd4ef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-001.webp",
       "sha256": "e7e590974ed36ec3639b50a0fb6ef76e4e36a95d2e00e326c203cc6cff6d33c1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-002.webp",
       "sha256": "70aa00e2d6ba137018b227ff90a0256bc5b7a57a9236d18681708300880c2513",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-003.webp",
       "sha256": "4094137317113da34c2a8d86790dd84de69f51fd2de603dd41b7ed2b95bdb1a9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-004.webp",
       "sha256": "fa48a349274a3e97409f635729e8467fb09ddfe57f84ca3929cfb90c9844c52a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-005.webp",
       "sha256": "4e6caed4a2c6a4a6fbf17304ff0050c1c88c94f808b69e3e7a45053eb1e6f588",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-006.webp",
-      "sha256": "2f196a0100e1c533ba7bace09a6125dbbf6f2c95adfec08ff93367272159769e",
-      "status": "approved"
+      "sha256": "8ae78e2da9517f47f2fab627f59319a3bc9b37c7d157df05e7d9996baa07fbd0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-007.webp",
-      "sha256": "d7859cc9012c39e83a0d9b4c9d35710296f7ca94f783046e38af229862274039",
-      "status": "approved"
+      "sha256": "5c47a7582b95139a616f893d8b14d841eeea8b515edea6b6bb88789931be6d88",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-008.webp",
-      "sha256": "0686090cad880088cb5a2a405114ea9a3c2c2ebf5803a00bc2e95b7085f6248f",
-      "status": "approved"
+      "sha256": "eb5e287496e50d5884a5c28c13cc59981d08166f62fa57c262d0df8408ed0c6e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-009.webp",
       "sha256": "9274ef8c8a641272b9660b9b4429568d79527ef73782cbef6a2cf9eb260ce71e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-010.webp",
-      "sha256": "9603c4f43d1fcdb67cf85e58aaeafc8f672723745c9f95a79fde45279a6874e9",
-      "status": "approved"
+      "sha256": "904d35263ecbc8d78d35cee6db1ea5dc1b833cdabe90a85e34bc83a45d590ecc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-011.webp",
-      "sha256": "695f3516fd68e516c7c1cfe72cf7062315e658b30e531bbec85144c05d422aec",
-      "status": "approved"
+      "sha256": "78f76a9caad2a433e4cb373ac6cba92ae20d7fb69f477a3d4edc1bc774ca8573",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-012.webp",
       "sha256": "22c9b2584124524d57061796813fea9bad802413b3329ae2fb7fdfaf798acdcf",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/cover.webp",
-      "sha256": "4c9c61a3451eb24196ca8deb6b9509bb146d0e72ed6a3895f67a57dc5360b16b",
-      "status": "approved"
+      "sha256": "1957a66322a11ff5de2202ff64a3ad5810cfb18c161fa4ca94665e059b117a09",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-001.webp",
       "sha256": "d2a1186492aa368d8883532c1c974a12aab43d0b83d97d20ec5bcda8b429ecd7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-002.webp",
       "sha256": "8b2898a24009d8190fa0c4af2d59f3517a91eb019c8f056e94f753220bb3430b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-003.webp",
       "sha256": "f461927cd36a32a2edf604d22821b109cebbc6eabcd107683da5e24833caaee7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-004.webp",
-      "sha256": "6e5057b5baac84ef61aee07c170ea9e5d0de32f3102644202e57550445f59ecb",
-      "status": "approved"
+      "sha256": "57ad03ef17db1fc037761ec7c82facf819d8aca983efe8fe68101781b50cea8e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-005.webp",
-      "sha256": "7f664d30b8e83cd259f06d688e5e52e8848afca1e5cec1a5f4641da01a885cd1",
-      "status": "approved"
+      "sha256": "fbfa41aea61de7e18c5445a341fd0d4129c11bb41b779911abff373556f94f3a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-006.webp",
-      "sha256": "a517f94d1c65f0c54791be6005724ada8ab8ca22cf068b5f348526554a06462f",
-      "status": "approved"
+      "sha256": "c5bbbd91a3256c196bd589ee810987207cb4ae78e227f651bd015fcffa2c255a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-007.webp",
       "sha256": "89a73ec6055ff290c46986337f2affb0ed0b1856d2326976b6f24eeab9c6a795",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-008.webp",
       "sha256": "ac1c2b6d62d7d0014a37bbbe694b10e1a3ec2b65924aced7173e9be38a688c73",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-009.webp",
       "sha256": "84a9287e39cfcaa387abc69fa69d51df76163647549fb5673f8c360ea6e728e8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-010.webp",
-      "sha256": "55938f54fcc1de4ce68f2c9e4a88a3d572f168fbfbeaffe59affd37883aca044",
-      "status": "approved"
+      "sha256": "b0c8051b4033002836d9a2cf138be1acd4e2d16062d2f5f1d44ec766a3fc41fc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-011.webp",
-      "sha256": "7f2a0b1f205df1288a9355c80bc077afa424c5b9a8383f8b2c6677d57c6cd7e5",
-      "status": "approved"
+      "sha256": "1ac9e936dd5e77b093e490404548ac0960bd22cbec877499916a8e11ac34bf02",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-012.webp",
-      "sha256": "e25b20f11d42edd80ec0b3591006ac480f2d5f3499e196239a8171bbf28b2777",
-      "status": "approved"
+      "sha256": "f7be36dacfd988bc06df072661f21bbd0b8e433ff735365209475e31cc875e8a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/cover.webp",
       "sha256": "37bad30bfdc9510a1d4b62233a08570fb83a87668c03c228efa7a79e01bd224e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-001.webp",
       "sha256": "ae0685b303923f4f03d231aef8c698e9e76850796c82d7817ed55318a3fc3276",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-002.webp",
-      "sha256": "f65211d83831dfc98539405a6f8312e9d913c2af93ac54bf25536cd2d4821c12",
-      "status": "approved"
+      "sha256": "74460e55e8a806d85e4de1a7f630afea4feb398712445033c39034c2a78065ee",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-003.webp",
-      "sha256": "6582479d1160a5f9b0624fb13d2d3eadaaf15d6def8b3da4e3899c6a4316647b",
-      "status": "approved"
+      "sha256": "3135a7406630f35b60a74aad7daa1a39877398856837e472693b472983efcd8d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-004.webp",
       "sha256": "485e5069d555d914d1fcd5fc62fdac903adb6c51b387c9c89d048bfbd600b457",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-005.webp",
       "sha256": "625c05a0950d347b1e142396ecf1ee25639e5001f79a470e25c74a6cb306806f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-006.webp",
       "sha256": "c9a51b6e64132062999a500e6c115aa9a2dd594067556088c2ab02ed8cde52c3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-007.webp",
       "sha256": "c297199f204d2ca6108832f46b77e420aab75b92bc07b1bc7b30679ca8b542b1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-008.webp",
       "sha256": "3741bc573f8f158594a11a75800056d0dcc71755b25988215298bc83ff9efdcd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-009.webp",
-      "sha256": "d368884c22c1c3ce8e8055c04180179c3fe9880868b54f1d948a3db233f5f4c9",
-      "status": "approved"
+      "sha256": "a7f02930fbb35649ae3b8bce814da539d32af3da450af427824f21f2784730c7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-010.webp",
-      "sha256": "3ad84674cf1ba098987623c268c9682d71b17d38d5187793a361c94713ad05ec",
-      "status": "approved"
+      "sha256": "af686db0a4c8f852852fd2a243a7e169b0f192e50496a2fbe961ad355dc48fb4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-011.webp",
-      "sha256": "dc58d7ebc61f3b8a12d03b26c0df46b062a7c5d198e50a7cbd8924f3ef3cd817",
-      "status": "approved"
+      "sha256": "5fc6a0facbba505c74a79af1299a60bef21d4a27c4620f38feccae62b3738d06",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-012.webp",
-      "sha256": "b7bfcf879d7a5869b5a001390b7f64284fdea56cedb2d4bfb92cb32af003d4e7",
-      "status": "approved"
+      "sha256": "028e31520f75a9668a58899a29f5fa7cd27a3b81354c90df4bc7a7862ed55590",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/cover.webp",
-      "sha256": "d79f000127d1298e23be270c610e7dfdd575fa7bd3374fb5ae59ad024daad356",
-      "status": "approved"
+      "sha256": "267254fac28ff97599b4b21b499b9a4b64e03c493b81d2441a0c44d6b36779af",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-001.webp",
       "sha256": "ce3fb75137d677a5a9e92985d18c55aa37fbcc6a60cfdbda047daa7e1ed0940a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-002.webp",
       "sha256": "a1aa41beca1775e7fc36e6c4343f36edb834393b04792d660f76301cab0be6e6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-003.webp",
       "sha256": "e2f9ccad900e67a53a1afc9e45becfae13fd082e179725ad7a16e3f945648681",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-004.webp",
       "sha256": "850431dc88dee131d74fc7dc550066047fc8de40628b8c6a63ed33cca2f15aec",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-005.webp",
       "sha256": "98802e5f539f8d31888e56630866535dcfc2d99f62b1c076f09b2d8a8d349ad0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-006.webp",
       "sha256": "f692c3b855c91539b0cccf55d38fd9ac66bc6e022f766478acbb2046858cb2f4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-007.webp",
       "sha256": "417fcc6d299c8c7850b94e0a83440f75c5b2fa87b02a8d920d10dcc141d79b4a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-008.webp",
       "sha256": "010be447e15335147eb12d921a26316f392847de4247685d95fb15abee6a0dbd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-009.webp",
       "sha256": "b7a7adbd43730c554b9ce351f4dd2abae829a92f489e470295c3b7700de34a09",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-010.webp",
       "sha256": "c7f615e6cff263f3ae6d85d159427e479c65489d29db3df265b82303f43b37fd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-011.webp",
       "sha256": "887159db7842826bb5fcad37f0a97f38b9834a91a57271430c9ccdf9ac38bd2e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-012.webp",
       "sha256": "3dec94c47fe5b82eb26b682c4ba1d259b83e9a77ef91f2012935293cbe894c05",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/cover.webp",
       "sha256": "d9dfb75f4a2657fcb44e20a8120c421fb7aa9adf17b7317fc909cec31a2d80d5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-001.webp",
       "sha256": "334435d96b7eb3f6a4c64c5140fd62e97a1edd591a369890956e56437b8f3c24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-002.webp",
       "sha256": "746e19ef494bdb8303c30aa9e40f7e21260bc8539c625c02874164bc2fa5c703",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-003.webp",
-      "sha256": "f0569ff194518d5169a27bbe6bcf8c88ec52f8eaa96df7d57f165808a6ed4fc1",
-      "status": "approved"
+      "sha256": "64f87dc84a0b92f7c48b442061c78775ff6a57fabe288b3ccbd14df1c9b2e2df",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-004.webp",
       "sha256": "31fa519c71fa4f235f0921c977421697398ebacd4122c2f6d28a0c63bae6068a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-005.webp",
       "sha256": "e0fb1a6108d726ec94546cefbfe3e927f8cecc9e8a117796a307a5251ba03905",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-006.webp",
       "sha256": "220cc05ccde7ac81b4b730c3cd7552ddf3264d1173e2efec474002ef5c90590c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-007.webp",
       "sha256": "44d4887b75cb17d8eeb8135f504d16f9a57cd4162f162a8bd3933b36b7c76865",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-008.webp",
       "sha256": "bf61b16b9059424027660b428ccdb30e85b527e767ace7d4ec49b94d19b0d075",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-009.webp",
       "sha256": "85650d40a9d3f79cc5c6c2b5c91add8661c215180b98f3489be11e17fbf8d702",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-010.webp",
       "sha256": "51939992a84c1bcf0830a726d23aa5ac5d02166beee14c28328dd31728da792a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-011.webp",
-      "sha256": "1201cc7d7cef5e8fd5f8f60bbb9bcbacffef25ac69373f9d8572191fb01ab5af",
-      "status": "approved"
+      "sha256": "af0a4d81c7c949b4e97f9b2809d17146889c00cbeaa9c8eb92e896cf58b0cd29",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-012.webp",
       "sha256": "3051893fbca8f12ba331892d9c49b52cebd4023342b383748db0bde49aecb988",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/cover.webp",
-      "sha256": "cfd108d00b0141bb936eb1a823b40c7121cb5ec30083d079078dd1e40e6bfd41",
-      "status": "approved"
+      "sha256": "064dff4d4517c0a5e201eba4db6ae1f41773367e27ddde65ebfd40e1e1e7c5aa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-001.webp",
-      "sha256": "d99981b855fa3b59b29fbcc05c55166e541df51bc746f7c7b06e83ad2f706776",
-      "status": "approved"
+      "sha256": "220c521599947d6d1f38b13707b52179ea01f912a6cda9c0cc6c72be10f21f67",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-002.webp",
-      "sha256": "f375a81f8f1180cd48e3e1d5e9bb4ea8628b22be99480a55fbb0450333237f08",
-      "status": "approved"
+      "sha256": "357286540d769dcb0fa581453c17fb00bd5355922bf74a8a452443b21b135473",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-003.webp",
       "sha256": "bc1ea510bbc9cd527484a35366502eff37e55fe3aa88ab5d82bfe748910b41c0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-004.webp",
-      "sha256": "a4c1fcc72ac33986db59a1652fb62ad17dac64512add917200aeea3e6fbf92b8",
-      "status": "approved"
+      "sha256": "33609ed9a981aaf7741ffae5da1b4950c48ba1239c1357f6797ce954d4bb5b13",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-005.webp",
       "sha256": "9ad80062b6a153b009507adc3b0941f8e5117aa29601799441d039c9da320299",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-006.webp",
       "sha256": "3aca903fcf24c7d87e8fed227ec7a158cdccf204d42da5184b0048b86b09348c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-007.webp",
       "sha256": "47f30cd2e7cbe7a26083b85d6117ceeff229150481031dea1113b5127b24db5d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-008.webp",
-      "sha256": "732f83a1e094d12dcfaf7cd253f8b7e5af245e4695d861106c63ebab4df47f11",
-      "status": "approved"
+      "sha256": "1ba7e93b069765a86585b8b8d406739b7ce305e3a644802816228f27d54df8c8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-009.webp",
       "sha256": "567acc6f3722febc5aeb804de1df42fd8d116a6de586f199ad87df5095bce6f9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-010.webp",
-      "sha256": "ab33f17912736996b55c1db90e86b441d1562f25bb43751c5cb1373ecc4679e7",
-      "status": "approved"
+      "sha256": "b10a171a8f7f35fc36ef7214d9e5395c62bc8b5b014d971ca70b80ba51ae7d23",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-011.webp",
-      "sha256": "a44a3d793d5ce418d14ced24dfb76cd1320516836f3a70122d3db801282fa28e",
-      "status": "approved"
+      "sha256": "943cc7bc7488eec943f7d09d3ba6db2832d4a797c17a514dc581e8e991361645",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/page-012.webp",
-      "sha256": "2b48c2c1bbc5efce6eca3abffa2c60f9e7a0ce2552b1b0a5b05f800954ae45b5",
-      "status": "approved"
+      "sha256": "5e79d38c7cceb187829c5b1f92dbc0c18290aa172a7639f7c9d57526a3ce626a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/cover.webp",
       "sha256": "b050a2477fb6a8bf8885effa3cd4aa5d9ebea90af398b3452cee3c3a76854d63",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-001.webp",
       "sha256": "e2551de28e7be56659281954eba602d8ac051e00617d9e4417f21476e9a05ce5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-002.webp",
-      "sha256": "d466196396ad4b804560c95f17b01c2def4f8c67946ed381443c1c37dc704b77",
-      "status": "approved"
+      "sha256": "b476d77b746301f792713557a0a61517855bcff1503990f163470fe0b893b0ff",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-003.webp",
       "sha256": "506285473c1ee5c2cb7aefcee02b586ee25699596552b4215edcfaeadf9e5f46",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-004.webp",
       "sha256": "e0b32eb90eddbaf2b267440380204ff24857a25f4a393a28565dda485aafa635",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-005.webp",
       "sha256": "55115fe795f345c145fb0b9ffc399366d3fdde6163e0e33fda951e3acc8ccace",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-006.webp",
       "sha256": "358306a915cdbb81c274354a0272a7bba39fca03d936927ff3bf379afa4ae328",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-007.webp",
       "sha256": "0ff9087528883cf2837ff62cefe623bfff3e3b15ca30a91ed612d18890b49391",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-008.webp",
       "sha256": "52872a63972ccc45c4c132a7b0b6a2506e3fc2de43197d26652e114ade48a481",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-009.webp",
       "sha256": "eabd90b57dbc38adf7e1edc0c6a6d077506f33ef1250288e9fc857aa365cc4b5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-010.webp",
       "sha256": "0385af4742575be67c2e90633a9deb3b0afb4e448cf274f7b937918bf144a79d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-011.webp",
       "sha256": "3d07a1ad8dd29cbc1728041ad32f7ed53e7410979d7ba7dcd9604c1c89b14ce2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-23/page-012.webp",
       "sha256": "e527b26523bad344e3f2c7d2660cd6c9625a088ad8bb24e927ec9028c0c527f2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/cover.webp",
-      "sha256": "8a17e29b2cc60c4c16a0eed95091ce8793264eb46008feada1660cf440579cef",
-      "status": "approved"
+      "sha256": "1dbc76a1a07ceafdcf6e3c062858c4454a7ac0b4751db248d03e3f5da637aed6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-001.webp",
       "sha256": "e7668716aaa2c9519997f0ae7a07138ebabffc70526e08a0c67cc103e7d4cda6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-002.webp",
       "sha256": "d2eef8a9f73b252bc221fb84eb8d30c1825e8f158980ad35a184fbef8fdb7584",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-003.webp",
       "sha256": "ba8eb15eea8f74c2663452e245c838b8fca56537d7ef64c93e39f414e5b3cead",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-004.webp",
       "sha256": "040c347fd9b47e8fb29aa09a1b58eda415cef7ea8a2c119344480a4fabad5e56",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-005.webp",
       "sha256": "fb3d657149150b522f583cc9770604b4159c59b707fbf1cd1f6533dc4028c11e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-006.webp",
       "sha256": "7b8bf7a83e16d377fb1bcce94db6b4649d47975da0b6e276fc7adc2834c72b34",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-007.webp",
       "sha256": "b403e535365dd9c867eaf5f32309a3212e2a5b3330cc927ee852364f302846c9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-008.webp",
       "sha256": "4b89db4a3c8857a4a838ad4425f091e281de2c6b26854a44739ca606209af8ee",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-009.webp",
       "sha256": "87488e1b1a91e66059dc60e22db51563dbc35e7cbd687515f3c0e5627d164aa0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-010.webp",
       "sha256": "a55a162d6951f91eac5f54dc25ab153fb9bdea2fa1d6e8f3e2bcb5f624c798d6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-011.webp",
       "sha256": "f71cab6f5848257ff85e76bc92272a703eb10f811e5de5c681256a5bbec1d4d4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-012.webp",
       "sha256": "9fc286f25da16093274d63dea4374c71d64d312b5500dffb69937dd1f4f51607",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/cover.webp",
       "sha256": "8e5b1f2511816433eadd7161a9f54526bb0893b91a25ac507e6a0f3f9cbca863",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-001.webp",
       "sha256": "edb8f37f29b14a0ae14fba2433a0bfff848e71493f08d32cacca5d1efe5aaf4a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-002.webp",
       "sha256": "d6bf91c2e2ea100f1690e8d7ef1cbb8fd15460ad9dcd54fa3c7fce404c5d82c5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-003.webp",
       "sha256": "475dd8d65bc9a67d3e4020cf9ae97892ce3a5b1544c0b7dfdd26af55e47cdf52",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-004.webp",
       "sha256": "678630ca540ce1edccdd7ab550b18ee655fc921cb41355e91a90a5238e661ebe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-005.webp",
       "sha256": "91720707eb2991d43ec44bf6e995b74a94ff99f8c519265246923b9547d75d3a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-006.webp",
       "sha256": "511193039762a19117b539d9728d4d2b6bd4ae12ae7b053326296ffe95a9b855",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-007.webp",
       "sha256": "6de21c21a814448c1f47b6a59f10893d6dbd3abeae5c67ac0180b865e82c191b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-008.webp",
       "sha256": "3f8eead18f5729577456dd18f65fbd348a8dc66996bad148dcc87bbc50d660da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-009.webp",
       "sha256": "ed205f4f47c23c8d7334231c55bb2b1137b2fb0cb5a59be8850be75a7cccee64",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-010.webp",
       "sha256": "56883f0220b9c3dd8a6724c24ec95a210872cf12a7f275a510131c8d558becb1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-011.webp",
       "sha256": "e603729a46e778b56ea51b9b515b09f6fa301202c47edacff03daff90ec9b43b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/page-012.webp",
       "sha256": "c0794c18e8e2bf8dfff4ac7dc9f3fb29b58a4c4e28f6d1bfbd3aee020e1772c7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/cover.webp",
       "sha256": "3b677d76976ed742ba23891c9ded0e001c08c75faef99f32fe7cb7882b61de12",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-001.webp",
-      "sha256": "8648ab5c7eea2f250ea03a0fc81a3ba535bcf79938512ba2577504f6386eecb2",
-      "status": "approved"
+      "sha256": "cba0b70b84c5a7396935ffef3618cce0ca421b76933be9295239459f90581966",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-002.webp",
       "sha256": "398d4fa1f62ca05c6c9b005853873cf827bcf0e5e23016f50fcb02a324ef59c1",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-003.webp",
       "sha256": "6211e70d98799898b2958baa3e524ed41d548b5cedc466f2e69b2ba9752c0793",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-004.webp",
       "sha256": "4bed488cca63b4f8c389fac29b3a97083122a38f92259bf51f11702e933a5f61",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-005.webp",
       "sha256": "57c6dd3451aee8e99a93f4425ec19275a6ac929836ac37f034227fa1f8ac845e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-006.webp",
       "sha256": "bdeb12be352c013a1f43ff9fdb8843562ac0f2fdca1d1f4f808086a9320a710c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-007.webp",
-      "sha256": "7dc0aed35953436dcc8b27ce70107e5527ba8c92b6174955229aa71603f21fd6",
-      "status": "approved"
+      "sha256": "7067aab7160b87cefd596daa4730f138b561007c402b80dd5df3386f60e66225",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-008.webp",
       "sha256": "2dfb5b90267f1c300324b4a10761c5c4df428ad8564c2e244bbcdf638cc060eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-009.webp",
-      "sha256": "a8b3bbe4ee7d3625b3fed310a28c09e41242ff6c45d0ce39d78a2680a62b5988",
-      "status": "approved"
+      "sha256": "6503a6e11c9cd7315cd61ed2c89744b119cca7ab3b8fbba81edad9534f657d1d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-010.webp",
-      "sha256": "f865fe373264e31c4b35baf84f053e057650954bad52dfeb2ee415c6b7afbd28",
-      "status": "approved"
+      "sha256": "9c5a956c4bee0b1c29ca0f03be7a4789a38f68f18f46c6b3497a52adbc96d33b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/cover.webp",
       "sha256": "4dc0d2dc1556cee04d0e121102c800b15a69d29802b750b78015daecf4a2886b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-001.webp",
       "sha256": "4dc0d2dc1556cee04d0e121102c800b15a69d29802b750b78015daecf4a2886b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-002.webp",
       "sha256": "37b7bf26c301610915786ad60b8249f8766ebe8d82c91a950af81ee76d007461",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-003.webp",
       "sha256": "d242801dfb3f86e740d76e38f59723395676df5dd7f7bc14cd1db1babb2a4a8f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-004.webp",
       "sha256": "345bac2250b56e31903c7492ebcc6970c26072bd4f8a66e1dd9d4738373bc3dd",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-005.webp",
       "sha256": "fda9643e3e21817ebf8e7ce4b5f594d14c25090114b2043ff68ab5add54606b3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-006.webp",
       "sha256": "278edb9cbc21dd3d103f4b0402fde66a4e4f08e6991cf6622435d4df5d772a9f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-007.webp",
       "sha256": "dd06e8fa8ffe45d69693a650059ec3f3cc98b29eced35a4f2e365e17afded4c8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-008.webp",
       "sha256": "56c1e543443ee4f1f1d05d07fd242ffa7d126a0ddd6b3ee5d45a65e39d51fad3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-009.webp",
       "sha256": "64918d2ce9dd23f95f6f264d341f1d15b4982a3f79c9f6a59037cdb41ab30c15",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-010.webp",
       "sha256": "90799678849c95486061247eaae08a41772443d714df1fb0c21a9b405b879c78",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/cover.webp",
-      "sha256": "9d7f664a43dc127b99265dc929d0202c451e0f3eda4f295430167e8e050036f4",
-      "status": "approved"
+      "sha256": "b79d94ccafcb12ebca0d5c39d4b1eed11563f9331152f2d16e3be8eb4219b752",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-001.webp",
       "sha256": "ed4298109037102cc1f7791e081b7dfeb0359ff60607cb4a8069272aaa3af39c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-002.webp",
       "sha256": "5f44b9a8da7caffc80d1c85d1cedd8c81014eaa70349549985c2cb2f208bf28e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-003.webp",
       "sha256": "3205c30cb577510e26420d68cb78313a84f8844b026f0ea542ee26a4a0ba435b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-004.webp",
       "sha256": "4209735eea59a83385c186807ef8efc35aaa03e7bb56186df8812ed9d7a95a3f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-005.webp",
       "sha256": "94da5279db5aa643852c920061ef00f6493742ab006d2fb9464512ee1267be24",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-006.webp",
       "sha256": "25a4a931acc306107afdb5064cdbbe68c513e30a4ecea2d4f396ef6489c45174",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-007.webp",
       "sha256": "60a76c69d07138e6cf8e2ef7bc161d1eb5c7ef21450bb2af4534f52e5a85af19",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-008.webp",
       "sha256": "0ba4d08fd2e50b562457a4a76201b82b5144e3b9b3efc53fb6d8d469f4da87d4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-009.webp",
       "sha256": "af81fba68ac07a29cc27deb36f92b600771b80d6f89197f5da53c287d24d30ab",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-010.webp",
       "sha256": "a76aeb88c75bc4e76f876583fb70ac801991d259486c652ef9900fc5e21583b9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/cover.webp",
-      "sha256": "885be33002799638edb8c1b90008e89174eff0922a5a5e20cc14dac57252d9d0",
-      "status": "approved"
+      "sha256": "ca66f99a76d745af23c319a97dc2f97692bf3b30bb8cfa18161ec39a32737d69",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-001.webp",
       "sha256": "040e0196c3d90da4fa92e6649d8d1e9b1a700a6fa66d65d94870d1e1200da20c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-002.webp",
       "sha256": "68fd7bb4bb19f6d58cda7c9a7a0d3fcb100340be000c6a4f2eb69f834774ade7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-003.webp",
       "sha256": "dd4015d6347445b8bfc35403143f6dad9a03386f12611092911a588fe6071204",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-004.webp",
       "sha256": "be1512281923079201e764d078c8e68413bfd7dec2b6de9c1f77af3b600f2bbc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-005.webp",
       "sha256": "a13dd9d514910f3e4b9278694ec1401704dae094a674f4863c3554149432ed3e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-006.webp",
       "sha256": "702ab01f1a5cb44662b702506d561c4d2df4138a8b9a070bbb55f809c2fe021a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-007.webp",
       "sha256": "d135795c9ce277eb78ea715c9e444ebd95723a666373b14c8c906e026dc31226",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-008.webp",
       "sha256": "e86b44ae9ad4eaa7055c81f190ae5a01928aa1e6edf22d040669b4553bda8a4b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-009.webp",
       "sha256": "f2ca9ecebddacdf5d6ad5739cc72d930a333c1fc20dcec0b971d03df5f8d7e41",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-010.webp",
       "sha256": "0f843d9c9bcf25d5ffe104aa3130809e3d324c212c3a3b01271eaa456e486f70",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/cover.webp",
-      "sha256": "fdaae2e245e6e974a5524b98deeb21025f294769219828317abcdcf11f91a177",
-      "status": "approved"
+      "sha256": "780e6475477705ae0cf51cb1271c798d1d62b718ed735430da1f254fc7e80364",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-001.webp",
       "sha256": "e90a52b0a42368d785059230751c09f9774927ef4e7bba1fbf81768d7f220445",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-002.webp",
       "sha256": "6e84732cb1e156671336f0253442f71298ae0561cae9c0588a701c2c699a9ead",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-003.webp",
       "sha256": "bb9044de063d396233aab881d27b27b6942ad0ee3f4c9f061e63dff74e21c830",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-004.webp",
       "sha256": "118290f32cecd68b980818d84599fce3034b4c61122bc01b1bc9f4ecfe2a8dfb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-005.webp",
       "sha256": "f90cb7e0c27a3f5523087450c5d418807dba87c3999b532ca831cca7349da3ba",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-006.webp",
       "sha256": "26ff068ffeb76fcb102e584de9821481cca33c4fa8cd5495de95505a231a07af",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-007.webp",
-      "sha256": "dc06ac66278f39c4bedd462ac41c55cba66b963861056c943439449f3d41261f",
-      "status": "approved"
+      "sha256": "262211e5b846dd74757b587ab5857ec9703711058d329395e7c0d4c2f6547110",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-008.webp",
       "sha256": "372a91149a9c1074f8497440059690245562bd7baea7cf0d73b6323915322d8b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-009.webp",
       "sha256": "0986c27191c428d3d52cac9d1aa6f803514215bb62ce552300a94117051bd602",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-010.webp",
       "sha256": "e379da456593aec6624b6021ec58d79226135a0aa3e375547b93c4413ce4bff8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/cover.webp",
       "sha256": "d6b71f968422ce051d5b0898cf451845cc0a2bc08a59ebdb4f5e1532bb2f6585",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-001.webp",
       "sha256": "54d39a7b0e175968456b0d42b3a759867f9dbd449a7ae400b8ba2c8d7d51bd05",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-002.webp",
       "sha256": "a7e3dac74a14087a0a947bce1d1ded12b81922309fe013a18ecadd086bf51fbb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-003.webp",
       "sha256": "f6010221b4ebddf09e564f5c2f76b41e079aa828ee4893fe031eaf1fee801f5e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-004.webp",
       "sha256": "3294b869151da64be767525035eec7fd947e0dd407691c61021ce1bed967cfc0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-005.webp",
       "sha256": "fa827f1cb96766de180c4655f26b0883a9a8a1d57838c4d7cfa726d88b753494",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-006.webp",
       "sha256": "ce07be31ade513c881e1905178a521810c94529b131bc6a2b744e0a87ab3ffef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-007.webp",
       "sha256": "0242aa76b4d421a4d72570ff1d07adf84a700b6f216ef29ef80fd6cec844ccdb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-008.webp",
       "sha256": "ac9316e33267f3b1b89860f4a13ee9a2c9e1bc04fee757b96ca5b325c28daed4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-009.webp",
-      "sha256": "eb013b410a1f21c266bba31e78e6da5a059d61371b804eae2becbc194280aacf",
-      "status": "approved"
+      "sha256": "46b4cb768a1783c033f3ab3d8710776a6278856f7e223e80efba1f3d3a203814",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/page-010.webp",
       "sha256": "c4bca891ad1f65154f0e42c68625891bf7f339f1041391e9b49ec1c8e4722374",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/cover.webp",
       "sha256": "b7790e743a39c64cbfd4ddc5dd77bc50cc3aeebcfc46ef38f662591b15ae847d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-001.webp",
       "sha256": "8076b99cb4ea2edc13ae282c49259fb75b17939d216b402246c7626546acf3ce",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-002.webp",
       "sha256": "888dfb51f8b28f9d76684d0d20ab2a113a57c3357c5594d623ad22e734312c50",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-003.webp",
       "sha256": "fe9037e0032c85dd82a475390110ee8322c92f66813e36b3881ca5c08759f3f4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-004.webp",
       "sha256": "71aa94e48735ebc7467512a990716ccd35d52538f8226ad884788ea159c833c2",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-005.webp",
       "sha256": "d3b35d4814d0f3fb995cc637ce0f92435167dae368896df807666ce6b0fa6ecc",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-006.webp",
       "sha256": "7441546e917cacf3add83364408efecb626d7d2fce6f178b422e37d364f97b5a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-007.webp",
       "sha256": "bc7cb25e7bc75199acd7fefaca1023beb27873edf32058f1d5c05981b6f7341d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-008.webp",
       "sha256": "5ff7e84abdb95c18d74119ee3fdc4e9e1d705668066b5cd52d6d7d310f55db7f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-009.webp",
       "sha256": "75b1f568870567b9c4fb5a0a8363916c782a174c60fd250913783c3d2725902f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-32/page-010.webp",
       "sha256": "bb3ac8c80ee7dc6039009faa48776858de4c0cc1aa9acaa8d9feadcca03f5e13",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/cover.webp",
-      "sha256": "d571268e5b02ffd0200d88701ad9a54bf9554bac7b0ddad9b100a58a7eecdd94",
-      "status": "approved"
+      "sha256": "1fb30fd4c55e61f4be1ba2703197e520bcddd95d9da1af906d56b717bb5dd9b9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-001.webp",
       "sha256": "9afdde8d1ec2f878e579956d7d3ee6e0180576b4f137fc9fc07fcf2adb50110c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-002.webp",
       "sha256": "c51fc893cd98011c502fdfba8b924e9d2f98e3316bd4d98be5240bf1b4ef2187",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-003.webp",
       "sha256": "be91bd82a681daf3bad45b45fe4b91f8ab1fdca0593c4cdb7a6f8521162bf0b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-004.webp",
-      "sha256": "6ddc12a6cbaf564c3cbde9ef0de5304cae6e3d6c126fe16e27dda8fc52395807",
-      "status": "approved"
+      "sha256": "387043e2b7d6dc5ea169a162c5da5ea9819ee3d61d85d549e44274b89722ef42",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-005.webp",
       "sha256": "0240245af3a234fac90fab37d3d188946f0790b967ead0da59a80f3306cf62eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-006.webp",
       "sha256": "c06f9bc8d2dc8ed899da31fe3cbcb1e76688625b8b958a1c8ca50852f9068b14",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-007.webp",
       "sha256": "4a81d6f665edb77a94b6374d9f2415242223d5d317fd0a62ff4611a13ca2f976",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-008.webp",
       "sha256": "b1763875b931d9d2b532cfb3fa6fec4c419ff192b857770091be25da32942c36",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-009.webp",
       "sha256": "c35f36c74c4299b19b6485af893231a9b92abcc4797d4ea8a85ce75217037a3f",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-33/page-010.webp",
       "sha256": "e8e214eaa1dd23a492eab06da8ed538465300f1209019789e7e679f4ca7a8380",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/cover.webp",
       "sha256": "d34d0d1b324691b4c1eb8793d97824f91f1b71af590590bac5cf1828fdb6c95b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-001.webp",
       "sha256": "052ebbd683f4cdcbef545b7cdf64a75b1caf22b1f4382e368ed49455ccedfa3c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-002.webp",
       "sha256": "f16a8a31c6bd351406d9b47355e3b530fb8554727ab508f5b65ab0414a43ce1e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-003.webp",
       "sha256": "620dff72e25f5db42dce07e3c2c35e6993a1518a424b7519aa68db3e0b2e9424",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-004.webp",
       "sha256": "4e6d1a68c356548eba3379d6f88565f5110efb21f7f722b1bdce519a0c6fb049",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-005.webp",
       "sha256": "150f8952319629a0f984d9c9c8764673d8872c77b52cc9b5e64469a0daa41806",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-006.webp",
       "sha256": "72ed24053c4ef838febafc61b9950af8fa182ca71f2e566f8804a17160fcce12",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-007.webp",
       "sha256": "1e2bcfda4b206f94d823b896e84d77bb51571f4895ad245757318621224a149b",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-008.webp",
       "sha256": "e1aa472def5847de7493e9c652bb25bf243cc798316302a83d70dd54f388d9ef",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-009.webp",
       "sha256": "b4a646277ecb56facdc623a23e25b6d769fd88e380fa084e016eb5f4db0c3b30",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-34/page-010.webp",
-      "sha256": "54efb39ce989427c79d73b313ea04d348f197f02834aa90c962bd378953706c4",
-      "status": "approved"
+      "sha256": "b897408e3b1fa510180a7761eccfd580daf65d9ad30a1f6f627931261c9dc8e2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/cover.webp",
-      "sha256": "729661ea379f4226a3735713c3842fc560c6b6e10f245554ec5cc63a34c81f6d",
-      "status": "approved"
+      "sha256": "418fc774a9122c02f1b95106c6fbe6d20d1f9ad294112693c02a5a3a992f121d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-001.webp",
       "sha256": "39d28afb20963821eb9e3b4dc09c2c096c1f66538f9c6b6f86a5945f91640381",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-002.webp",
       "sha256": "33f72648d8c1873bd2c63f6168aef057a41e6a96cb4bf47153f7dc9e3c02818c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-003.webp",
       "sha256": "b267bed370ac1a96856fcea145c2a9c8c78b55f2fa877014d0bb02d71a696d58",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-004.webp",
       "sha256": "7c196adb4f7d52669d29e73ff34a470b4f9237aeb4ea9b7f99b794b6aa35af0e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-005.webp",
       "sha256": "8fc345585e301a9a0a01b8508903eeec8894c8330cfd5be1506007e1506594da",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-006.webp",
       "sha256": "c5b68b1343d6b7b28f7f084b262a62ac42c3f479ebb9c9c6851da414fbf881f0",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-007.webp",
       "sha256": "bc6b166e07b66576866afe9d40facc0fb7911d8d3403c44915489d2b73f7d852",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-008.webp",
       "sha256": "78635fa78b0b2c3c88eff391a9329f7a7a1b87b7362564ca607d28fe54f38fd5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-009.webp",
-      "sha256": "4c7037e941cc2ccb6d9d69f436b06b1b7ed4d71f315fe543acd27702a36b3212",
-      "status": "approved"
+      "sha256": "b79db26ff7033ac67e42d78ee108514ea7c0df7eeebd6708c1260a674a87ad1c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-010.webp",
-      "sha256": "8d771d4732006c3ead9456f0350e7a83c80cce91c01a7a79f0bd4bb09870d07b",
-      "status": "approved"
+      "sha256": "02cb6c877addb952e308096b22957176a8996a2ff9421f04efa196b5c6c16598",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/cover.webp",
+      "sha256": "37862af440ecbee49d36c4c3a200090ebd6e977a170fcb750d95770d9e0b2b40",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/page-01.webp",
+      "sha256": "01381861e3ef2ab0ede3ba1f0cf00587fdee60012fe4b424bf9676d1d66d3da9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/page-02.webp",
+      "sha256": "5db4732a5cc86fa9dad4a3202938df04512ce04f2e3e16cb318c1530dcc5ff23",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/page-03.webp",
+      "sha256": "8320609762fd81cd01603b8f14312d1a504b3273758e9cf1b311c3a9d1d51284",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/page-04.webp",
+      "sha256": "a5a965e82edd8d735902d0b55cdab6e0eb77d59b4671082f55dacbec0732b623",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/page-05.webp",
+      "sha256": "25a269701f32cb5f43f6077462c763f5da2ba70e7d0c7e06e1fa7cc22921fbf4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-01/page-06.webp",
+      "sha256": "84edd35677f4d1c65e4212d6822b6efbe3cbc869e9a09acbc3248820e0dc5e6b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/cover.webp",
+      "sha256": "acd7b0166f73db872ccb60d54947c01bd0e8812899086e9c2cf665e680b0beaf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-01.webp",
+      "sha256": "b13a0c43f204952260ade57c1662813d1718b151e4780d072a7df58c650934a7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-02.webp",
+      "sha256": "573720db7d89f06649601bd1470e45715d0fbf1b2e83c47f0d71660b26309929",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-03.webp",
+      "sha256": "8a03b0bc394ad64c035546f915382cc1920d57ddf023c019746c704f13e81cba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-04.webp",
+      "sha256": "d3b69eaccfa6d0f10a7f079a1320d0a2f06cf663821b3e757be27e785e31e89c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-05.webp",
+      "sha256": "ef5d272f6843cb4820b25defec178e231b89f51576c1f963b96db9760d1828dc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-06.webp",
+      "sha256": "c15e2d43d372677352c3359524a8b0fef31f7565195e6f70e9b78c011a37b582",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-07.webp",
+      "sha256": "5dbfc6368e5508a726c170835c36570bbd11d16063a6d6db061455439c0d91e7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-02/page-08.webp",
+      "sha256": "e0aaa755b916f671b8d4378bbf0547e6c15e93d310ab3a1300fe58153746f0ea",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/cover.webp",
+      "sha256": "dc2ddd04c40de49d9def8df2d05ec6338743b1e092eff694f588e6c30572e2fc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-01.webp",
+      "sha256": "72e02f8b7b48b9faab83f65e63ec7aea43aa1e4af132e525116863903e58ec30",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-02.webp",
+      "sha256": "f530e6b5f3324c352d07a8c1689a7e1ebca838fd2cef657aa4df41b1decbf22b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-03.webp",
+      "sha256": "557cab9ba6e919044b33ab76dac8366739dad1aca3e6a10f99b26c30fbbff0e3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-04.webp",
+      "sha256": "c50c439968ad4aa011f3bcc449d9f31811b1feffd2b93e1cafaf6b0b13f266e7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-05.webp",
+      "sha256": "a72d6f3bd766fd004d87e5339a257b79f732f39ab1b81d871a2bf9d4b75a4c3b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-06.webp",
+      "sha256": "bc14e01478694984adb665b30ef5be3dc4a62e011e91e453c75c2fcafe2a8e15",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-03/page-07.webp",
+      "sha256": "a3fbab0590d23ca675aa4bdc148b159096b186db60ae25fb4bea1f02ac4be974",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/cover.webp",
+      "sha256": "e00965d9dcd04b1a6bb6447ac8cf5359de10596204657628914cf9a744faf018",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-01.webp",
+      "sha256": "7b62d12e0447504fc96ab2982e85b7de39477cb2ebb005a79362817a763eba66",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-02.webp",
+      "sha256": "acaedebedb952b67055aa534a77421692e37758f09d29b63cf2cedcab90940c2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-03.webp",
+      "sha256": "1b295ca567d7fcca6b63b280de56fb17e901ccf6614dce9961d02e6c31f613d9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-04.webp",
+      "sha256": "2c0c2864fc798f60eb1b0b21a1d78779a730fb99c4704d9b5551ed3592d7ae9f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-05.webp",
+      "sha256": "7a09750088c23335d59fdc0c38a4c50c7807b3ed06576f86a7a4c9574e21d55d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-06.webp",
+      "sha256": "5a718572ee12387ad025c8f4ce473acccab78e9e7504257a57fcdd917a016461",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-07.webp",
+      "sha256": "47e7eb3f3deb7de8695dd72325a86ea608fc9b2696f833c49dbcbcbb8cd3ebbe",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-04/page-08.webp",
+      "sha256": "326c93f244f871bd3903bbbe5058503e57d9d58f55ac11b5aae9d991f1d05651",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/cover.webp",
+      "sha256": "43c51c9bef5c280a1c1bad44bbd0f14af610bbd2d0ba92c6688c7d978b34a31b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-01.webp",
+      "sha256": "9ed4dca4c8314409e65861eabc4e4a69f91e2c442d74efcedc9b0a1a7d9c21ac",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-02.webp",
+      "sha256": "a0a66dda2edc5273d6be55a1098d71977f3837f2b3e791612c3bf3ed38534f9d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-03.webp",
+      "sha256": "f360c8afdd23f21ad6458a869966d754fc29647a687b540f7105bd5b681e4556",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-04.webp",
+      "sha256": "e39b0f98218b03ae235c8a297a65546ca394fd3b553d7bfe29aa36d862606897",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-05.webp",
+      "sha256": "eb5ecda4eeb3870de26696d6cc3e155279bf0f20a2eb59d49fe909d2ad896f11",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-06.webp",
+      "sha256": "34e3df36180b35c06280a67637d106633b33652d9e02631cdd42e200b6a6a20a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-07.webp",
+      "sha256": "377c09dc231aa66fceedd9378bf61a6f80e7a56228c7f41975ffc3cb9e09a340",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-05/page-08.webp",
+      "sha256": "04944252fbb6cde93088d22c910cd3083dbe99b165f4ebf8906c48a9afc4e188",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/cover.webp",
+      "sha256": "a4978f800698b758156e48001a3cb9fea7d81c6a7196d1f77c15a95f32eeebea",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-01.webp",
+      "sha256": "c5dd002fa78910618972327c4395aceeb59d6bc9d7be1c8c38020b77ca9bfd46",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-02.webp",
+      "sha256": "a0be8977353d46dc67e98c9e266059d3d2b064ef4d32f093f3adee8984b19701",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-03.webp",
+      "sha256": "580bf9ea502394673700cdd2ac75cab755c1bfa69262472b95e1cf0ce4029181",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-04.webp",
+      "sha256": "49c3b3d849103781204ac6bf2404fb80ef18a41c2fb1d50f6c20a4b8985793cc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-05.webp",
+      "sha256": "bf5819b0762c04b26ff44ab3773ec5c5b6c916796bdb36df62fbe540aa91deef",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-06.webp",
+      "sha256": "37ff7c76be0214c023d8c493d57b00264fe4a3a433a23411e87fe5dd38924d69",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-07.webp",
+      "sha256": "d942a8f620b9b1c3461cc2f9401259f9516fe743b35cc6b89e6aeea67eb65e1b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-06/page-08.webp",
+      "sha256": "f6693f44c6aed8fade91741f35bc0b85e01a09b5104b24bb3d7db321d677aca6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/cover.webp",
+      "sha256": "b4efd53eeaadd0e73529c4ca5ce643545dbbf48d9e5d0dfe3c4e46effb3bccfe",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-01.webp",
+      "sha256": "a201569a705c68075e335d88dc05aab321212c8396576f28c525e23022d71d79",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-02.webp",
+      "sha256": "a7336424719d1196f4601cced161e792bb94ca3f36b7806bde1bc77fb1d4e533",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-03.webp",
+      "sha256": "1ed4b52fb8678c904f9feb696a46620d91c346d6a1c0c3a68cd7209d1927191b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-04.webp",
+      "sha256": "f83edb25c13f09b54fdf0194c951877e9dc3f93423e8dd1a1babca8548bf5190",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-05.webp",
+      "sha256": "dd3e2955d1c3209496fee5ab1a62a99f9ef7619e96acbc42a05c56ccbf02b25a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-06.webp",
+      "sha256": "ba8d99b553fb11bc465ed1d58ea11cd3c5b1b7b3814a5adc0dc1de32dbd25362",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-07/page-07.webp",
+      "sha256": "6c5fbfd28bfeef8e08b1e4a2be7ccdb56015f7c2129995bc7fd08dfd6a0e5ab1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/cover.webp",
+      "sha256": "a3ae9a681d279bcdd8f4a848f244999031fc20479b986b9971708fa414c5ee32",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-01.webp",
+      "sha256": "955f413020a44fcd30ffd350c6d69205e00c988ed4d9495a5a7df8220c6c8dba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-02.webp",
+      "sha256": "7e675a52c57339387279872f6e99e2936ec205ca0660b752baa58557ac52e14b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-03.webp",
+      "sha256": "e4ee451cbf4c175da559199f78c554d3ac81f706c060475a85f724aced3f71f5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-04.webp",
+      "sha256": "0578d963a73660d111ea203ab7e12f7ad608ef6ea35ff8dc4022fc1383b12758",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-05.webp",
+      "sha256": "216bd3673958118cc3e0ca39ff3ce89f9033d3db3b1f6ed1b3bb1b50569e17f9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-06.webp",
+      "sha256": "baa927c5fad8d9e55b83d07646a6777192ee668ac2752d1e9056a8ee03d89d5e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-07.webp",
+      "sha256": "6b5d2a9c1b01bc2ba16d54490eb8c9a07435e7d70ec746e1b06e690c55ca7a7f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-08/page-08.webp",
+      "sha256": "32793bbfcceedd53ea0e461170a5fec02d3637fe321c55c490140d4c05a89054",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/cover.webp",
+      "sha256": "aa5990c27fa60da4e3d5892fa06ebd27a6dae28f92568e788bf0adab164dcba2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-01.webp",
+      "sha256": "92eeafe6cf77457420530b8fc96816a8a6de19370669698b2f7a86654033f46f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-02.webp",
+      "sha256": "ad00f19ce1b8010a290b134c457da65011b6d3363d456947f8d9361f2a10e440",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-03.webp",
+      "sha256": "9d3c4489d190b81a20affb7aefd70c6108e97a9fce83d00a27c9e1df2e3cb6c0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-04.webp",
+      "sha256": "91f8bb02750bfa50fd67cbdb8768e14b25267e6b7a661e471c6ac2909fc2404c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-05.webp",
+      "sha256": "ab2493ceed6448dbabbe8e677d5f19da0d70d6f61d72859d052d42323250c5b6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-06.webp",
+      "sha256": "594da941157c8e0cd75e559d223eca549ea5b47b23be052c2afd22a10eb0ad28",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-09/page-07.webp",
+      "sha256": "a7b4bb180940759b259dec97cdcfe16ef1fc3c0c3849a17e690c8a5cf40ab5d4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/cover.webp",
+      "sha256": "fe684d573cecce055e7cd53cc91f7ca3cf3063fe55a64f28f1b166b6cd7e83ce",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-01.webp",
+      "sha256": "9d2b5848a935c0be6c3ff9199e765181d9d0bdcb6e1233474b7587d21f05570d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-02.webp",
+      "sha256": "957348e3a11a02628d6b439d151dc18e73db54d67725ef7378f2158cf4c8265d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-03.webp",
+      "sha256": "a5f163f7fc0be41f6578afc078665146449790242f92c67b175198c95079941c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-04.webp",
+      "sha256": "0ff05285e0cca1f4f8ea99385db20e75b0b51d231a7fb67b0c4d13ce2121e932",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-05.webp",
+      "sha256": "c639a64c5128282b2aa93384ce22f0316fbe10f8dd31835003a0f8acc898c140",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-06.webp",
+      "sha256": "9702941c7aadea52c5c6231715bd8a31ed14c023f6f7248c710adc1a6c8425dc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-07.webp",
+      "sha256": "aef69afed5a72dd84857e8406cc5302cdeb8bedf71b5582d150cf301c002250e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-10/page-08.webp",
+      "sha256": "b534bff285eaaa1f2e6f9fc8847a934ba2e9db5d4fa5648a8fcb05d3ca3cc3c9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/cover.webp",
+      "sha256": "a6fe4193ec2dc68cbe0a0df812402f0beade08d23b2394ffa3108003b7c02a88",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-01.webp",
+      "sha256": "13940161c576256538037ad9343183c1bc9a8678b972cfed060c92eede300111",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-02.webp",
+      "sha256": "111a9b18c7a4a277847a07f49a5e41dfdb1e8f47a3e16af1a7627a3fc9a5083a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-03.webp",
+      "sha256": "336ca4db6b59e541b5762cb0e2a5a38922e9dba182f67add19c08d4de46f7041",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-04.webp",
+      "sha256": "9097b97e49b74026abbb8f037626f66c194ca5c09a8417a0949eb4d9dbffcf08",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-05.webp",
+      "sha256": "2bacb0aff9eafe9ededaca4b960f8ed7b7f83df0e4db757dadf7a4e5cd22803d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-06.webp",
+      "sha256": "2581244d4b24d24f2a0810f4009bcd86aea362976411070ac6ab305dabe123c4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-11/page-07.webp",
+      "sha256": "9398e2e2b1ce8da601a8deb0715945502235216ed597e8bd45e2c03e5b32df6c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/cover.webp",
+      "sha256": "028cea5d8b82f27299174ddbc642b32f02b0631ae80bfcc503450b3fb25829bf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/page-01.webp",
+      "sha256": "3de0a58647e5a5e8bec352ebaea01f0d4db935008ad9c5ad071bbacd4a0a923c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/page-02.webp",
+      "sha256": "a0054f4f5f1928b3f6eb020b90f11a9b59fb708ce20cef34dcb4fb143a3ea2f4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/page-03.webp",
+      "sha256": "447d81f6a1d4e8912d14375c0a601f08adb96feddb80c3230028410ce9acbb4c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/page-04.webp",
+      "sha256": "85f37d47d4657bb022fa98c6361a152aac7c12f3e62eae16a104c889c1a30b60",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/page-05.webp",
+      "sha256": "50df62c45bb75361cf06e1f1f157da76aa9149992857c4ebfbfa41e46d419a2c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-12/page-06.webp",
+      "sha256": "de51f4b2d4b37f862692cfa321e69c098254d5ab70984ff49098b9d774f3dc6d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/cover.webp",
+      "sha256": "d2f09b6b39d9ba23c8227f8c60bc6a3686d1928872fe39f0b3e7ccec795faa45",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-01.webp",
+      "sha256": "e2caaf1e766497e51956de802ace73f2efd5b0c70a4306d249f6f5702991972d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-02.webp",
+      "sha256": "3bd5f95fe3f9797cb55111310e938cdead3052d02b905969e39d52bf6f7df5e4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-03.webp",
+      "sha256": "f437960fa512f1484e83021d607df931b64754a063e73ea3c3ea59398215bbc9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-04.webp",
+      "sha256": "49d23e616a03b5110c0913a7ae6ca97f785bdbcdffaa982f1db8ceb3ce4b2ec8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-05.webp",
+      "sha256": "842402fc5d9e5cf5d32f37af0c40bd24778baa19e6be6b558a174457f0085432",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-06.webp",
+      "sha256": "ef2188058f1c1ab82a5321796f0a8a429f5c9f2902960026f00690602867f422",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-13/page-07.webp",
+      "sha256": "cdde5181b46626a9f6ce254885164f7e3202ccc4d53bcfc5ec55ec56352739b7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/cover.webp",
+      "sha256": "571a2caf7b8c2af9aae9f14208a0a19627042e103777bbe5d287abe1cdfafbd1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-01.webp",
+      "sha256": "0efb466e51a15e3817a062447691eb84be77e72439d9e4ca8c228314d73011ff",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-02.webp",
+      "sha256": "2766f173b6af0a271a3f99955e94195b7dcca5b969484420f81e3b8f9e1b40f2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-03.webp",
+      "sha256": "80588b893a4abb382d5544ac7a299c069243d53fdfaefd4cf5544dd9ed0e50bc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-04.webp",
+      "sha256": "f0761b49ff59526de175900874fe398a3082622dcd7818942448fbaf05db9794",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-05.webp",
+      "sha256": "984cc2b492c5920e92115c67dff3d662cc2b87058f081211a1c034451f11d820",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-06.webp",
+      "sha256": "a0651917a91d2431b162c15cfb9f7b8d0e7739c98e8e1d8681205236e7d68b16",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-14/page-07.webp",
+      "sha256": "c11c45cff5b06daab6f6730d3aad420e509fa1f87713b1cd2e50640ab2810be0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/cover.webp",
+      "sha256": "7a616985685e964a8650dbf9043e7f0e6e0096bbb34a089fb2ab58f7c40292ca",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-01.webp",
+      "sha256": "144efed97bfd06a11f0baac7b1d28bb1a709c785b8a38d9023b8bc992d8bd683",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-02.webp",
+      "sha256": "4b16038de9a2f686234d77777f1c2229e6b98436f68adc9b0483db8f30d55cb4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-03.webp",
+      "sha256": "7f025cbd0269829a28af785d28bf50ce9a1fe23164a9fa8955931ae0d3043736",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-04.webp",
+      "sha256": "190a270c1b4f344c33793b94aa5bbfaccb43c43c8cc78df3c205e9ec001013b5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-05.webp",
+      "sha256": "f823b409529235851037473cee1405565ba1d6377936edcbbfbfd010c5ecdcea",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-06.webp",
+      "sha256": "3b0eff589bb6daad24edd11e2c13d8ee77c4a3970ddaf56ad9601f11012a1a5a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-07.webp",
+      "sha256": "6b2c38ee3d695504f06d3c83a9114a5ade3167e6c5ed2dd1a0a531a6064cfb45",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-15/page-08.webp",
+      "sha256": "26841d3126ee9ceee4673b3ce49f176697db90a69b841c15309d87eeeb23af58",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/cover.webp",
+      "sha256": "fbe9bf3cb6e1b7c91a2d6e528c063fa50f7b9cedcf8aa189dfd1e8899cc75850",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-01.webp",
+      "sha256": "a5047971785a2a53c2ed1f4e0770fbf71dc7a67d0a4e4f3c16204a5ee6d4b633",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-02.webp",
+      "sha256": "238c46234aab8b8195be5e968f4befa487de59444238d13b550de230d0036fff",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-03.webp",
+      "sha256": "a071ec1bf7226f517bf3b8850db3de665fdbaa23199c1b3916c95767edef6cc3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-04.webp",
+      "sha256": "5ff1931889f93cf167bc09329b513b77648a8fcf6079a0fe1792399a4fd2d8f6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-05.webp",
+      "sha256": "5b1995abaca9857700c95254c73548bde8e1fe40c05afb1a32965f0de63dc8dd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-06.webp",
+      "sha256": "4cafa789f19868ec392c1e1da125ddf7e83a30e639f4dd9a1b090d412e17640b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-07.webp",
+      "sha256": "a7a01d4a3f456d0ae2934fb5305bf5049bddeaeed984c7cc9a70c96a6357bcd3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-16/page-08.webp",
+      "sha256": "9e2b987d961edac9f91e82d64ad434740f9f255523ae720df78e7cf6bb3cc930",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/cover.webp",
+      "sha256": "f670f96b5c8bc705e51b7f85c3dca10f421bfac4e9e5bb2c7cc6ef06d6baf7d8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-01.webp",
+      "sha256": "7a07e1199c2afe9ca98f1f63524f2cb42ad36700984d565e610a33df9e2808f5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-02.webp",
+      "sha256": "01586a63d5cc8f26ea32392a37159c704cea5dce5e7d4926c216b6b1f4583a0a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-03.webp",
+      "sha256": "b36d9e615fae608ebbc4fa3eb793478a8bee1d126f0f3c8626a75404f6574efe",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-04.webp",
+      "sha256": "987eb7a71598ea535e30831970e7258d86040872acaaadcfb5003c5ff20623bd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-05.webp",
+      "sha256": "524b3906e0fad1191d7d7273ef74a161409dacf0d44142290c8b6c17c723da00",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-06.webp",
+      "sha256": "c544b9a64ea831f7a2da8d9c0cbf18063f0ce827f7b4af62033b7b0cc4285094",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-07.webp",
+      "sha256": "c8daec196d94fa6646af8ff3a17573a52628ea5dcc1c5667297b116b4e172037",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-17/page-08.webp",
+      "sha256": "705eb17c3d351e5e88749fe7c8c1713d5cda716123867a6cb6f284280e481e15",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/cover.webp",
+      "sha256": "801d5c3c3122352fe5305ae9c28ec55bb07c4f3d4e9e92ef43a08da1cab2ae25",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-01.webp",
+      "sha256": "a6d607a6e0d491349d7e581cecc6853cf8ad381e612c07f5f641b9fab47474c8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-02.webp",
+      "sha256": "50f2e078e85c64b7707d79cb3e1fd5e6bc867f797bfc3074313aa8308dc2fe98",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-03.webp",
+      "sha256": "4912ad90684630e8988489081dd8b38c5b235d7144e2e01e204bf531043a243e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-04.webp",
+      "sha256": "9f7b7fe564637211d0737341c5aebf61a0805b673b67d8fc5e5cec8d079e95bf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-05.webp",
+      "sha256": "b429a121c62b89105a8c1595e87fca983c297d67a79c15b18d3d7b26cb24a472",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-06.webp",
+      "sha256": "49f8fd3c2f07b058facfb8003d538c1371e8d4f0472a67dfdfa8c9ddd4c1ba1b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-07.webp",
+      "sha256": "897f8238c6a7b91f7b3032ce9bd6efbd73e1bea3e4272fffcc2f2c520e94e462",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-18/page-08.webp",
+      "sha256": "d73a45b08f686ece9fa840f09fcfa6f812a30723009573b578bf94ae68ecbfd7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/cover.webp",
+      "sha256": "f0fd3ccbab898e33b0053c655b75fa0fdc4edf728acf6b4a0142a614d1228fb3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-01.webp",
+      "sha256": "58185c46048013d68ac672b6761e5b792396cbf08961196745a9e485a43610bd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-02.webp",
+      "sha256": "6bf1a2495f3fc877ec2de64cb616629e6debeff48816b10e94d8d47461d083d3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-03.webp",
+      "sha256": "561170ba05dffc42fb5c4828503ad0b31f447911454ec11d3ff6a17edf9442fb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-04.webp",
+      "sha256": "99293682e5e7a599f8476c830ab6eb4cd5ab991723ac16cc4104912e4d504fd7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-05.webp",
+      "sha256": "be24e0f85fdf490f877491fd1a926c26b1c06de1c2ff192918bce3ee5eb45f14",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-06.webp",
+      "sha256": "8634ff99e523863b61591bfa6dc11b877313418d47239894dcd321e4381937a6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-07.webp",
+      "sha256": "f20ba361b763ea108ef7c1f96e81c0619a09066f69997e79375717b93a4e84cc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-19/page-08.webp",
+      "sha256": "4661b78f21e06936f883ca12581c3f3bcfbbdea2b391b618b8444a2c14ff595a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/cover.webp",
+      "sha256": "96a179656bfdb9febc8e13c0b554c9394caddb318bd71cd1e94a3857467312c4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-01.webp",
+      "sha256": "e95deb85ad695ac114cdd30be5f50575b075061add2cebf5dd8b4289018a89ae",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-02.webp",
+      "sha256": "2556078ddb23a5e6006a0c4bc477c00d51bc682062464014c4d30568c095846e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-03.webp",
+      "sha256": "8df15c4d180fc9123ec33463017a31a897e4ed15547fc02335a3273ca10e9bfd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-04.webp",
+      "sha256": "c54a8614d37193fdbdba4ba3d691e55af890f942a46a13e1f10f47aea6398405",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-05.webp",
+      "sha256": "e13f99f287be09e05cac2352ff2e14da7ff7080763cdf1336f937a3183a8d811",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-06.webp",
+      "sha256": "9dd797701ecbf916f0c229eb227d98c8df7bb1fdf9b807c1f9b428f1caf5ff72",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-07.webp",
+      "sha256": "3fc73ca33fd459d760500551de422776f6eee3a8746119084e4ba1bfddc8c809",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/small-steps/book-20/page-08.webp",
+      "sha256": "168b0c0d2e5ebaa49f13c008911322f6fb964119a677aad7d753ecaa0343f6cd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/cover.webp",
+      "sha256": "4f962f53886fd198f0702e24a4745dd853bbae668681247065a21ef22a5dc618",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-01.webp",
+      "sha256": "61d2c19854f00a9aae8baa7e76a5ca19dab302712635a73e666c00c76e9eb361",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-02.webp",
+      "sha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-03.webp",
+      "sha256": "eaf6ddf2d25eff8b03af8ab8ced5261229480b85ce95ab465b21824ea79dcbb5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-04.webp",
+      "sha256": "87417d2d4a1ef08fa8e19895f4dfbe1a348de6d7a81b646d98fb32441067f880",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-05.webp",
+      "sha256": "a9442cf7b7ad95170b1f3c49c4861b316dcd9e83d32a652246119019bb979f3d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-06.webp",
+      "sha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-07.webp",
+      "sha256": "ad0a9481761fd626d41b40336e275ccdab38033947aa81298066526e805f75b6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-08.webp",
+      "sha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/cover.webp",
       "sha256": "4f851518a180934a13179fc626d7c6543033ca752c1e21fd8cf83de4b0804884",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-01.webp",
       "sha256": "ca20db0b111d0363f2e7742e172febe9a789d4b78867c108f251b551ddc0d280",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-02.webp",
       "sha256": "6503133611c990960e2ba46449a51f9c779fbe9b031233cc61d167bf7c725c99",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp",
       "sha256": "d0fde57952f463157a59916325fed91e444f7acfb5dc3cee40dc66f084428a7c",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-04.webp",
       "sha256": "ce2a1a3b4ed3e590171a5bc5b0e33c411148c3a06d16b31f9979c8c48cbeaddc",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-05.webp",
       "sha256": "4a86da8a671acbcd1b251aceafd143907b529c57d18a9195d038190efda2061b",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-06.webp",
       "sha256": "1f9968d48989ea50b95da88029c31da336c13a82a034d0c9216e71466a22e917",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp",
       "sha256": "52e394a9931e02aa97cb371e768d8578d0ddd1b6375e6a5f9f4be2c6e4417d4b",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-08.webp",
       "sha256": "e7ea09a2b57c682b17679d38b560eeefc238a189659eec2f13787c51fc4d8019",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/cover.webp",
+      "sha256": "cba1d7e4e20c437aea6b20615b280305b7a044c8e8edd4e1e83be46831fad0c1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-01.webp",
+      "sha256": "d60417a522cc38d5624598f26e2634473682349ef8946f2912121b8095d59a95",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-02.webp",
+      "sha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-03.webp",
+      "sha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-04.webp",
+      "sha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-05.webp",
+      "sha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-06.webp",
+      "sha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-07.webp",
+      "sha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-08.webp",
+      "sha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/cover.webp",
+      "sha256": "0bcf0d087a5121a00f905f4782b0e759f768022fb80ebb012a2fd24c56aba624",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-01.webp",
+      "sha256": "b7b88b990f0af59c3f4fac05dc87bd0ac637ea38d2618017322333d5cb90baf6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-02.webp",
+      "sha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-03.webp",
+      "sha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-04.webp",
+      "sha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-05.webp",
+      "sha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-06.webp",
+      "sha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/dumplings-for-new-year/page-07.webp",
       "sha256": "a88db6e269fe55a65a4d6594eb3e92cf3ad30aa01e16eb69463014191e36c3a6",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-08.webp",
+      "sha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/cover.webp",
+      "sha256": "10dbc0f19e593937c37b752dafd3021cce9eea394168217bb29acd81cec65423",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-01.webp",
+      "sha256": "0ac47e4e2e9da5908fcfc6dd7ade0d32d7f0851941d264dcafdcf5d47fd991eb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-02.webp",
+      "sha256": "6ffcc755341329d59e824a6f93f55e91c8b727d8e3c0f1a87bb446a37e1ce3e1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-03.webp",
+      "sha256": "6d5f8874ff21b5810fe8b2999f2367d2108b2938155304f6b0abf42ce84b72e3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-04.webp",
+      "sha256": "339b097cfa9e3f69989d78856962a57f3a0b05f9cfdc07cff02682985a39cc06",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-05.webp",
+      "sha256": "24631b06e5ee434063f8b8e01e70ca6463b47d3609578c51946e61500ce3027b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-06.webp",
+      "sha256": "4c96fcb09a65d380aa25aea991fadcd24098f050d89f04038b61f919a0a37b15",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-07.webp",
+      "sha256": "8fb3fa3c70ff30af53e62fea789858f5155f95fad8082d8c648374c52253110b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-08.webp",
+      "sha256": "96d4db29068704b08f5b73e92890b5a79aafd8d29aa947a9665cfd75ecf90be7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/cover.webp",
+      "sha256": "1f539fa2988eeb4b3a7d86666b027a43f882628966fe2c3018e113e30eeeaba5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-01.webp",
+      "sha256": "700713e2ec9ecf097f2c433166c7f0aef60750b02a9025f5c2a905a8fcc9533d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-02.webp",
+      "sha256": "9d2053e1ad92cfcaa3608b4b11f0f6a92ea5acc34f7a892f7280426205998c45",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-03.webp",
+      "sha256": "a9df31f761de425a8af7e1e835f5018efd0a26c67f22be8d07a39c791ef1d4ed",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-04.webp",
+      "sha256": "667ea2179c5463d257d57ddcc45240a8ea09fe0b380ca82e28353552fbfc30f7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-05.webp",
+      "sha256": "4a521666e1da318361821458adb8190c7d54e6263ae70507683ec4d1496470b3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-06.webp",
+      "sha256": "51a23243af49ae6424adf271aee9faeccd8c96fc744b709ff5d322f724519e16",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-07.webp",
+      "sha256": "b310085f71e481894eaa45151113207311d0ebaa0c705f6086f8ba29ad67f339",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-08.webp",
+      "sha256": "48b27ac261f373c9ebfcbe8444f0cc7f17addd5f1d9ee59316607868d64d1205",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/cover.webp",
+      "sha256": "cb87f5d6b4e5344498e7841123d8221b68a5eafc6b978bd605ca156ac664062e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-01.webp",
+      "sha256": "a39c92e77b98e78205bc1bb026214d4b34786839171d9c8b525e00c97268bfeb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-02.webp",
+      "sha256": "3ef33eb354408f5e478b08a0bd585b50c91b9136d42434c7141e52300df42f8e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-03.webp",
+      "sha256": "7a4c67c8c187165efcacadbc0b5f0fc31082137982b545d8ac22811717b193dc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-04.webp",
+      "sha256": "9efd0a528c3233ece4936f2dca7ca4d6d8a9a9e860b8064dbf7ff5b69d621a75",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-05.webp",
+      "sha256": "dccdd3f99a34b9ea61cddd2d7153244859789cb00525c998c63b1114642548b8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-06.webp",
+      "sha256": "bdf7df94d80063dfdd62cbc0ac51c5a14843e0e4573a66bf22c598ee25cee31d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-07.webp",
+      "sha256": "e51a985b63de6a5533f8e20ac70ba33f88ad4c64bfff8fb833734e7f0ab36aa4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-08.webp",
+      "sha256": "9511f8d5208389a3760d65aa778ada3e81596d290ce5aa958e33a519c11ade42",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/cover.webp",
+      "sha256": "3f1ba881d24bfb57b3a303dcbc38c99cd7d582d06ed9d962905ee5e580fb368b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-01.webp",
+      "sha256": "a6629c1a217b0bef462203571cd0d6bb964147f471190ac3effd9138625f46e5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-02.webp",
+      "sha256": "432edd32cd6178b92c8783c3498893761f5add88e83a3df8feb1f372f19dd8dc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-03.webp",
+      "sha256": "7a1697021d1150306e9a826fcd19b8914eaa8aa0837aee0948738f870f8f9328",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-04.webp",
+      "sha256": "1f55974f2a5bfa5329536171914b5b9cc3fb2ac4aa99bdd8f180827c5ba13b3d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-05.webp",
+      "sha256": "996937ba7628e68713bebdc1d995e7accc207f2d1fb31c91d7993e1f355462e3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-06.webp",
+      "sha256": "050d3275e827dc03b629e074487a59b4b86091f64f57a771fb21984565302913",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-07.webp",
+      "sha256": "eb3355f7b7d68d2d76b86c144e8f6b8e3731658616cc5cd40cac4bcc0b51c3dd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-08.webp",
+      "sha256": "13f278c669ad267ceb5517eb35eceb768c6a267d422b9e6c497a0b3ebed13a8e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/cover.webp",
+      "sha256": "ac1c12015ad513d116b2c739a24a0c0d7f4251d5bf798b813c0795926e616a37",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-01.webp",
+      "sha256": "55986237ffc5e0e03325e2f590d69cac0fd13583616d5cf2427bf3e966bc0982",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-02.webp",
+      "sha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-03.webp",
+      "sha256": "80e8d2203e7e2f09cfefa3c2ba75e76b057df8b5d78a902e4e996c7431de0046",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-04.webp",
+      "sha256": "641ad1d7c9c2c888e3acf96a8ccf19d7f0bbd76bfe23378d47c24528acd04ccb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-05.webp",
+      "sha256": "8020eb6030d9b501b65a56ca2fce5cb1e553d5f91ebd42cc553d627eef9de9cc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-06.webp",
+      "sha256": "70b5ce0177440d8419e7aac99d1233e0f59ade96efd42f27bad2d22a56650924",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-07.webp",
+      "sha256": "7ab4243b423bc2dd5ea9d3da028a02dcd2c11b255cf67530366a4893b4a89870",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-08.webp",
+      "sha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/cover.webp",
+      "sha256": "161a0be3c28120d61776f7d7b47cb25e221c4128ba942022b88217d0e817c66f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-01.webp",
+      "sha256": "13b9e23c1867ff1d640e018f6ed6035697fcbcbf620865dc196f0d9377ac9170",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-02.webp",
+      "sha256": "6b3ed5cdf7d78a4a4816efe27c534e8c725a038077a5201c8ea3ea5039c4f998",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-03.webp",
+      "sha256": "1ef91889ce90be6457b133bc7f877bda81c40a4bc914ccb7f1456299e65f4784",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-04.webp",
+      "sha256": "1bcdae2dd41026acbfc501abd6e0dae898de66a0d68a1d751ba22100ff3e34ba",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-05.webp",
+      "sha256": "f0df532fd9ccd8f3fbc119efe04237ed509bdadd6f76ec1a571e718af541955c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-06.webp",
+      "sha256": "8e29af9d809a86b7df2aca3b21247efb170556129778c7855dc7f0386f936ff5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-07.webp",
+      "sha256": "7ff781e9c78506fc90a571a79a20ae80be2ec2803dd4da5c46fde9ae097a40e9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-08.webp",
+      "sha256": "3eb58b8e2cf53f9c9abbba93eb819ddc08488cb8c19b03534b3a0edb13023c8b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/cover.webp",
+      "sha256": "b7368e1ce48eb44834e0f4491ec5657d28079406a4b7a00faf52458ae2dfdefc",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-01.webp",
+      "sha256": "877693a544a2faa2a3b3b4bab4df1d95c203b420c8b37ab1876a9fa8acf0e372",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-02.webp",
+      "sha256": "3347bf08eb6ecea63e4e75fb1122a4e6b8a3e76b284457ab6a36866b54631f41",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-03.webp",
+      "sha256": "f58a70856c74bb9141addc97302be8344641f43c46992999337c2bdc0e77b132",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-04.webp",
+      "sha256": "9a1530bb682a1bb1cb99322d4219b7d12f7e8027b74bfad89e328c872eb7ace7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-05.webp",
+      "sha256": "ac9e8c713ea883f92df1dee8da142e91161a6ef1795afda91ddbcfa61746f14c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-06.webp",
+      "sha256": "c16ca3648e2561ca8f24d84297a4aad26dffcd22b881f5bdf10cfaff55a247e9",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-07.webp",
+      "sha256": "920a525753d43221ac72a4335d685feb000a6e556f9e391178881c1bd65c88ca",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-08.webp",
+      "sha256": "7378466ed9a8b009dd8046f4eba3a291a4366d7f2bbe453413896210c9bd3d84",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/cover.webp",
+      "sha256": "3983120fbf9745521b02a420ab56d4fee37169ff9fb06abfcc0420f0622cadd1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-01.webp",
+      "sha256": "33257e057e941563168318118162b237f651aaeb664d7ac661488dd45f9865c1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-02.webp",
+      "sha256": "77ee1d0cee7df7a5bfd3edd77d5eb4ee626852f3c7fa5c6ed1a7cfeabcbaff62",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-03.webp",
+      "sha256": "d882d72717a0d3d203e74d9e3d904d1243de33ab3fbd5284c8ae167fffbbf629",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-04.webp",
+      "sha256": "7f13a56075d9510fa03bfb3c7eeaa348ac91bfae1cb4fabe5eac8fb6331d14b1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-05.webp",
+      "sha256": "967dd66dcd8c6afed0a44c9642a305185398a88f8aa5e9a4bc1717b066fe50f7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp",
+      "sha256": "1c83fb82e3ede9448bad7b7aef36b7de3000721ee9558d2bfbc322dfd1b67235",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-07.webp",
+      "sha256": "b01bcc620f3957775226e84180bfadf769a6fddb8b8f112e781fec21cefc0d89",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-08.webp",
+      "sha256": "4c78756c636bdde2d8c40119ed70047ee89bdc1aebdde46b0edbf203d6c137c1",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/cover.webp",
+      "sha256": "27c6f347431fe393d5dfd6ff5ed97f9dd6357d6c66cd9ef7cc1c0015cf02cf37",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-01.webp",
+      "sha256": "2687d8b5bb12be6b17fa21df1f5e63305cf4bd0a091020cc64c99f535ef8e53c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-02.webp",
+      "sha256": "54dc7e9dc53a8bcde24f0fd76e5b82392e5c128f763c92e0fad2553711196cfa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-03.webp",
+      "sha256": "1a510691174b61ba729479442b5f4895425cbb96d77bb846f6143d41781e2160",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-04.webp",
+      "sha256": "8b1fa82dc26bcccecca7db2576b3f125f9f32c493d6f15614ca2909f8656d961",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-05.webp",
+      "sha256": "016ef4d54919940f92a4bdd638a99b562292df66be263491c3da2570f8fd20fd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-06.webp",
+      "sha256": "c096efac3790f203ceef45cb450e2bad199666cb79f8150cb010cb136e2228d0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-07.webp",
+      "sha256": "eac810f41084443d94a33e9a48f1931c4ef0d5098949b2d9ebdefad10906ed73",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-08.webp",
+      "sha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/cover.webp",
+      "sha256": "43b0239805d18ed870567bcb2f30a8d75fb93b8668a161c0775eb1dc2953faae",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-01.webp",
+      "sha256": "39bd6f7edb5730a788807ddc362df7bc1797659d1d58d954d2929619fd133a4b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-02.webp",
+      "sha256": "5a73e3206b1cc45c3539c23078c7fd70dfc615525ce89ff30dc7b24bb71641b4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-03.webp",
+      "sha256": "cf84f47abf33cc254142fdb2cb4f91270f6054407abe35fb2677575afa29e0bd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-04.webp",
+      "sha256": "7fcec0d81fcfc6090e9b9922cbec6503730abffa227fe30ab18f8cd14006f0d7",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-05.webp",
+      "sha256": "19d0f0cb0aaa6e7e1c349f277ba2c4f124055d31878279c1c1690cea18f29de5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-06.webp",
+      "sha256": "79fda2ff09cd47c75f93c8c19f8b4b1348f9ce05fadceee6b9cb2cd565c407cb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-07.webp",
+      "sha256": "2308a901370db1a54f76a7cf7d84824c459b638ae1f96980e2f3e4c5e66b4d67",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-garden-gate/page-08.webp",
+      "sha256": "28f10348ece3b1ebbf7ad63f6fb93f43fd019c58bf3711a5a34522765dfba3c0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/cover.webp",
+      "sha256": "2828a3b94b29dbe6cffb5cc30858410aaa3cd5ee0c325e6881a26a519cbfcafa",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-01.webp",
+      "sha256": "85637a88012c921b51e9a6852b16f201031e6394d164747647c09a52efcf29d4",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-02.webp",
+      "sha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-03.webp",
+      "sha256": "cea73446eeb6ceb3137d5c8865d92a75c0e3a6d36902e5d8ba1fa44f2ff474ad",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-04.webp",
+      "sha256": "24432d886260a6614b2ec7c61e3a101e75ab544c655889f131df8654f6108b83",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-05.webp",
+      "sha256": "72c8d5a4fe2e7739a41f25bb2f73db4dc5370bc39c9b5da875ac5b23f9c4621d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-06.webp",
+      "sha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-07.webp",
+      "sha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-08.webp",
+      "sha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/cover.webp",
+      "sha256": "aa608fd9a85979eab32719a79e89ecb527f39778abe6b41adfa88dee13c3c490",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp",
       "sha256": "684eecae91081e3e220a487b960a1099c6acceafbe426c2ec0f20353cb1436e5",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
       "sha256": "24f31ebd337b5d2c92196592b96336d9fa8c07133d9c3be09ffa45d711cac2e3",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
       "sha256": "d797a7dfed17d83a6dcf99c8321226ba9c9d20baef4d8245f35d339f9851b66c",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp",
       "sha256": "ad0925e46f3ba676b71c0940457c2b8ec0996c7abab498fe9b3e21f57861c243",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-05.webp",
+      "sha256": "839dd76f57623f50f6c649937153a95e6197ecf646fcfd91e7a5cffdde596e81",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-06.webp",
+      "sha256": "e00e5682698991703620c8a7bc19e7f3310edfc3f353dbf0236c3fd404b78054",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-07.webp",
+      "sha256": "19f5c24a5fbc364c477d39255d885d24e6d88687d19cf6d1997d828e198e4ebd",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-08.webp",
+      "sha256": "29b38c2ce2b0fb9298a9ecc02c1a0f9cff2909fad8c821dce80ff8828ed7d17e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/cover.webp",
+      "sha256": "b7e38edf20dc009e4a485eff733199403db4a86e73b16f18a6af27cf3cedf18c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-01.webp",
+      "sha256": "e33b490894ae70696a2bf2c68f0469b91b5239b31e53d0f295f7c7163817f61e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-02.webp",
+      "sha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-03.webp",
+      "sha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+      "sha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-05.webp",
+      "sha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-06.webp",
+      "sha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-07.webp",
+      "sha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-08.webp",
+      "sha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/cover.webp",
+      "sha256": "465bfbd7d6e15824c75ddabe77c450e1696f294dfa40163f0de92ed5aa214233",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-01.webp",
+      "sha256": "ee0b17c0fc674e5dc60602b7a12553a939d97389b55594e60b7c212d215aea75",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-02.webp",
+      "sha256": "3636990dbf5768cd318e0005874a91637b38d311e533a5f0f597738303cd4300",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-03.webp",
+      "sha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-04.webp",
+      "sha256": "f1e8048fd27427991aa079a5aa8842252e1167a9876c7d01493edff52e2f2688",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-05.webp",
+      "sha256": "3b61dcf91a7f04a3d3c681d4be6931d94a05a6e84aa1d2e80dc341b31a82d736",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-06.webp",
+      "sha256": "c4c910a752171c7be69128e3112fc44340fbb78af35647082f92c2f1543d7844",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-07.webp",
+      "sha256": "f41688241e046c5bcb4c0f2d1d03217980d008ac9e9a10bcfbba80593ecdb7a3",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-08.webp",
+      "sha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/cover.webp",
+      "sha256": "a21c04e54df9d4532b665c9ed248ddb9f064bc804e999f6107757ea32fc7c723",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-01.webp",
+      "sha256": "ca01509c7d64bd04451a8c8914d8bf10cdfd99f5af42c7640ac740266d5a22f5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-02.webp",
+      "sha256": "df2bb6039a940edd2b3875bae65719a19aa473d657283fefd023bfdada0ce431",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-03.webp",
+      "sha256": "cd033afed79bb349adef559df2c70957c3ee68d62d2e0ba93cf14310eac2839e",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-04.webp",
+      "sha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-05.webp",
+      "sha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-06.webp",
+      "sha256": "4710e312dc96c0cf6e3d6d6e9e1d673132745cf79f098b7850b57d054d30ac57",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-07.webp",
+      "sha256": "70dd4b69fbf53aa089f071d495b4857799c1d43f32c61d0dd7e67d610f7dc6bb",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-08.webp",
+      "sha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/cover.webp",
+      "sha256": "1fa7da0e523b9173031baf5bf41be0418dd9270b39d80e455ce94de839382e6f",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-01.webp",
+      "sha256": "2725fafe511fa2c5c64c2762b6a05665b3e9ba2798a8423e63b9767afef447e6",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-02.webp",
+      "sha256": "28f51fcb6376909579c847a3fa03f7527daa2a8343296151f98e1796e93a6a26",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-03.webp",
+      "sha256": "a102c24cd45456a7ff6b140e69baf4e64992c626f000df965e4216a1fab166e5",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-04.webp",
+      "sha256": "38184f053da1250bc28658a6b4e956b0561acb8fb77624b1fa7775cd8c2f8ede",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-05.webp",
+      "sha256": "7e0c139b7fce3e757fb271fd353b5f758cc77fac8cd3311a63e38c23cb9b33bf",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-06.webp",
+      "sha256": "4ed7c1e222cac7ca39b5091fc4b711351d71a2c3a2a466076b62b8593b858dda",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-07.webp",
+      "sha256": "8196afed842fad7d764d1b149df3b4de2bfb505054fea823c7cd21ca722597db",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-08.webp",
+      "sha256": "653c15b0d434ccf3ac8adb53874cb2ee66164b5cbf3cad0c2d7d8c30f0cca7c8",
+      "status": "approved",
+      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/images/assessment/blends/act.webp",

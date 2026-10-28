@@ -58,6 +58,16 @@ human-listening observations remain unknown under the existing beta policy.
 
 ## Book shelves, Skills trail and admin usage
 
+Guided Reading now contains 247 books and 2,181 pages, including the 20-book
+[Small Steps sequence](../guided-reading/SMALL_STEPS_CONTENT_BIBLE.md). Its
+cycle prerequisites and explicitly taught exception words are separate from
+app text bands and individual mastery. The 28 October original-catalogue audit
+and Small Steps production evidence are retained in ignored
+`.artifacts/guided-reading-audit-2026-10-28/` and
+`.artifacts/guided-reading-decodable-2026-10-28/`. Those scoped reviews do not
+clear unrelated or historical app-wide visual-register failures, establish
+human listening, or certify equivalence with another publisher.
+
 The owner requests reviewed **App level A–H** shelves in both child and teacher
 libraries. These describe book text and remain separate from instructional
 placement. The [text analysis authority](../guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md)

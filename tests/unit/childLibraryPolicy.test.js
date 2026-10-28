@@ -11,6 +11,17 @@ import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runt
 import assert from "node:assert/strict";
 import test from "node:test";
 
+test("the complete Small Steps collection preserves its teaching sequence instead of title order", () => {
+  const books = [
+    { id: "small-steps-03", seriesId: "small-steps", seriesOrder: 3, title: "A Box", pages: [] },
+    { id: "small-steps-01", seriesId: "small-steps", seriesOrder: 1, title: "The Mat", pages: [] },
+    { id: "small-steps-02", seriesId: "small-steps", seriesOrder: 2, title: "Mud", pages: [] }
+  ];
+  const [shelf] = buildBookShelves({ books, mode: "all", order: ["small-steps-03"], slots: 3 });
+  assert.deepEqual(shelf.books.map(row => row.book.id), ["small-steps-01", "small-steps-02", "small-steps-03"]);
+  assert.equal(shelf.total, 3);
+});
+
 import { storyQuests } from "../../src/data/storyQuests.js";
 import { selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import {

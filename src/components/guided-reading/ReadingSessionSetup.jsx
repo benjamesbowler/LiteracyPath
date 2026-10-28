@@ -6,7 +6,9 @@ import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import "./readingSession.css";
 import { filterPublishedGuidedReadingBooks } from "../../policy/guidedReadingApprovalPolicy.js";
 import { TeacherSessionFrame } from "../teacher/sessions/TeacherSessionFrame.jsx";
-import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { guidedReadingBandLabel, guidedReadingBookModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+
+import { DecodableBookGuide } from "./DecodableBookGuide.jsx";
 
 const EMPTY_IDS = Object.freeze([]);
 
@@ -120,7 +122,7 @@ function ReadingSessionSetupBody({
 
         <TeacherSessionFrame phase="prepare" protocol="reading" audience={`${selectedStudents.length} selected students`} students={selectedStudents}>
         <TeacherFunnelStep
-          answer={selectedBook ? `${selectedBook.title} · ${guidedReadingBandLabel(selectedBook.readingBandProfile, selectedBook.level)} · ${guidedReadingModeLabel(selectedBook.readingMode)}` : ""}
+          answer={selectedBook ? `${selectedBook.title} · ${guidedReadingBandLabel(selectedBook.readingBandProfile, selectedBook.level)} · ${guidedReadingBookModeLabel(selectedBook)}` : ""}
           number="1"
           onChange={() => setStep(1)}
           open={step === 1}
@@ -139,10 +141,11 @@ function ReadingSessionSetupBody({
                 type="button"
               >
                 <strong>{book.title}</strong>
-                <span>{guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</span>
+                <span>{guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingBookModeLabel(book)} · {book.pages.length} pages</span>
               </button>
             ))}
           </div>
+          <DecodableBookGuide book={selectedBook} />
           <button
             className="lp-button lp-button-primary"
             disabled={!selectedBook}

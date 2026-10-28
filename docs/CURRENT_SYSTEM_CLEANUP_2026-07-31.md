@@ -15,6 +15,23 @@ candidate reviews and the temporary dependency link are removed after final
 verification; required audit/browser/audio/SQL evidence stays under ignored
 `.artifacts/beginner-vocabulary/`. Protected animation work is outside this scope.
 
+## Guided Reading audit and Small Steps — 28 October 2026
+
+The [Small Steps Bible](guided-reading/SMALL_STEPS_CONTENT_BIBLE.md) owns the
+20 new cumulative decodable books, with explicit sound/word prerequisites
+separate from app text bands. The runtime catalogue has 247 books and 2,181
+pages. Current art, exact narration, natural descriptions and teaching prompts
+remain in their canonical runtime sources; generated audit reports and direct
+review evidence remain in the task's ignored artifact folders.
+
+Removed the failed task-created Python 3.14 environment and 42 unused derived
+contact sheets for inactive assets. No public source asset was removed. Those
+outputs are reproducible; accepted media, repair evidence and source receipts
+remain. The working ASR runtime and downloaded models are retained as active
+inputs for the newly authorized additional 50 books. Protected shelved animation
+paths were checked and untouched. Exact cleanup receipt:
+`.artifacts/guided-reading-decodable-2026-10-28/cleanup-final.json`.
+
 ## Reading Comprehension — 27 October 2026
 
 A single original passage bank now drives whole-group, small-group and student

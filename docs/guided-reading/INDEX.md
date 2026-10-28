@@ -7,12 +7,13 @@ The live book modules are the authority:
 - `src/data/guidedStoryBooks.js`
 - `src/data/firstFactsActualLevelABooks.js`
 - `src/data/guidedReadingBridgeBooks.js`
+- `src/data/guidedReadingSmallStepsBooks.js`
 - `src/data/guidedReadingBookMetadata.js`
 - `src/data/guidedReadingDiscussionPrompts.js`
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The current catalogue contains 227 books. Its retained instructional placement profiles contain 65 in A, 86 in B, 75
+The current catalogue contains 247 books. Its retained instructional placement profiles contain 65 in A, 106 in B, 75
 in C, and one science picture book under **Read Together**. Level C is shown in two honest bands:
 
 - **C Standard** for compact independent or lightly supported reading, including
@@ -39,6 +40,11 @@ full resolution. The delivery manifest does not redefine book or artwork authori
 Each shelf card also names its reading mode: **Decodable**,
 **Predictable / Levelled**, or **Supported Read-Together**. The letter level is
 not a claim that one book is all three.
+
+Small Steps adds 20 original decodable books (150 story pages), ordered after
+Cycles 10–24. Its [content Bible](SMALL_STEPS_CONTENT_BIBLE.md) governs the
+reviewed word code, explicit exception words, character canon and media quality.
+The teacher sees prerequisites; a cycle label is not a learner assessment.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as

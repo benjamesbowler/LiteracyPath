@@ -261,7 +261,7 @@
       "sha256": "38184f053da1250bc28658a6b4e956b0561acb8fb77624b1fa7775cd8c2f8ede",
       "width": 1365,
       "height": 768,
-      "textSha256": "a4d8e7868825c5edbf2b654107245b9473579aad72647ee62a7cc134e6f06663",
+      "textSha256": "ba076cf0fe619f3262b154a6daa067ed6951044c1cbfb533c9022b1a8dd62aee",
       "briefSha256": "8574d42de2fdad63cf3954fe8abfc8d734f43aeff43818833e306c338d3f79e7",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
@@ -269,7 +269,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "38184f053da1250bc28658a6b4e956b0561acb8fb77624b1fa7775cd8c2f8ede",
-        "notes": "Original-detail review approved for Where Rainwater Goes page 4: gutter, downpipe, covered barrel, and overflow; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+        "notes": "Original-detail review approved for Where Rainwater Goes page 4: gutter, downpipe, covered barrel, and overflow; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-433b0147-9972-487e-b254-d9602ff796d0.png"
     },
@@ -467,20 +468,22 @@
       "bookId": "willow-street-inside-a-fire-station",
       "pageNumber": 6,
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-06.webp",
-      "sha256": "68a422bc323234d3eb088487be09f3dece5099316c1f75141c338032496cc55f",
+      "sha256": "8e29af9d809a86b7df2aca3b21247efb170556129778c7855dc7f0386f936ff5",
       "width": 1365,
       "height": 768,
       "textSha256": "c1083151bd24c9ba090fc7a53379bf8ec4edf160edfbb2f0a331cc495dd380d3",
-      "briefSha256": "77e1f827fa130033038bde4bff747db99c9787af63cf6c2642f51aa615c5d0bb",
+      "briefSha256": "33a046e5285a5e3c4238ca4f01571b245bed4896196f801d4aa2197407dae69c",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
       "generatorProvenance": "self-created",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "68a422bc323234d3eb088487be09f3dece5099316c1f75141c338032496cc55f",
-        "notes": "Original-detail review approved for Inside a Fire Station page 6: logo-free hose and cone practice without emergency spectacle; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+        "reviewedSha256": "8e29af9d809a86b7df2aca3b21247efb170556129778c7855dc7f0386f936ff5",
+        "notes": "Visible non-graphic first-aid action replaces irrelevant hose maintenance.",
+        "reviewedAt": "2026-10-28"
       },
-      "sourceImageGenOutput": "exec-1932a17c-871e-4c13-af0c-67a199eaa84b.png"
+      "sourceImageGenOutput": "exec-17d6dbe9-f5d0-4ae3-9098-cb02b41dcf2c.png",
+      "cacheVersion": "8e29af9d809a"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
