@@ -1,6 +1,7 @@
 import { loadLiteracyPracticeBank, literacyPracticeAudioCues, LITERACY_PRACTICE_SKILLS } from './literacyPracticeBank.js';
 import { loadLiteracyMockItems } from './literacyMockItems.js';
 import { getLedaInstructionAudioPath, getLedaWordAudioPath } from './ledaProductionAudio.js';
+import { retainPublishedMockSkillsSources } from './literacyMockSkillsSourceHistory.js';
 import { buildLiteracyMockDepthItems } from './literacyMockDepthItems.js';
 import { buildLiteracyMockComprehensionDepthItems } from './literacyMockComprehensionDepth.js';
 import { literacyMockTaskCeiling } from './literacyMockTaskCeilings.js';
@@ -18,13 +19,14 @@ import { buildLiteracyMockV7 } from './literacyMockV7.js';
 import { buildLiteracyMockV8 } from './literacyMockV8.js';
 import { buildLiteracyMockV9 } from './literacyMockV9.js';
 import { buildLiteracyMockV11 } from './literacyMockV11.js';
+import { buildLiteracyMockV12 } from './literacyMockV12.js';
 import { buildLiteracyMockV10 } from './literacyMockV10.js';
 import { LITERACY_MOCK_FOUNDATION_SKILLS } from '../policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export { LITERACY_MOCK_TUTORIAL_IDS, literacyMockTutorialIdsForVersion, scoreLiteracyMockResponse } from './literacyMockRuntimeContract.js';
 export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_SKILLS = Object.freeze([...LITERACY_PRACTICE_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS]);
-export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
+export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
   language: 'language_writing', writing: 'language_writing',
@@ -248,6 +250,7 @@ const pendingBanks = new Map();
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v12') return buildLiteracyMockV12(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v11'}),source=>normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v8') return buildLiteracyMockV8(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v7'}), source => normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v9') return buildLiteracyMockV9(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v8'}), source => normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v11') return buildLiteracyMockV11(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v10'}),source=>normalizeLiteracyMockItem(source,{contentVersion}));
@@ -275,7 +278,7 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
       const { LITERACY_MOCK_V3 } = await import('./generated/literacyMockV3.generated.js');
       return LITERACY_MOCK_V3.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
     }
-    const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
+    const sources = [...retainPublishedMockSkillsSources(await loadLiteracyPracticeBank({ includeReference: false })), ...await loadLiteracyMockItems()];
     const normalizeActive = source => normalizeLiteracyMockItem(correctLiteracyMockFoundationDemand(correctLiteracyMockWritingDemand(correctLiteracyMockPhonicsDemand(correctLiteracyMockComprehensionLabels(source)))), { contentVersion });
     const bank = sources.filter(item => !item.retentionOnly && item.active !== false)
       .map(normalizeActive);

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { LITERACY_MOCK_RUNTIME_V11 as bank } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
+import { LITERACY_MOCK_RUNTIME_V12 as bank } from '../../src/data/generated/literacyMockRuntimeV12.generated.js';
 import { createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from '../../src/components/teacher/wholeClassPracticeModel.js';
 import { wholeClassMockQuestionPrompt } from '../../src/utils/literacyMockNarration.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
@@ -106,7 +106,7 @@ test('individual learner recordings retain the two-second processing pause',asyn
     };
   });
   const item=createWholeClassMockSession(bank,{area:'sound_awareness',band:'5',seed,count:12}).rounds[0];
-  await page.goto(`/tests/fixtures/literacy-mock.html?mode=format&version=literacy-mock-v11&item=${encodeURIComponent(item.id)}`);
+  await page.goto(`/tests/fixtures/literacy-mock.html?mode=format&version=literacy-mock-v12&item=${encodeURIComponent(item.id)}`);
   const instruction=item.requiredAudioCues.filter(cue=>cue.role!=='choice').at(-1).path;
   const firstChoice=mockChoices(item,'browser-format').map(choice=>item.requiredAudioCues.find(cue=>cue.role==='choice' && cue.choiceId===choice.id)).find(Boolean).path;
   await expect.poll(()=>page.evaluate(path=>window.nativeMockAudio.some(event=>event.path===path && event.type==='play'),firstChoice),{timeout:30000}).toBe(true);

@@ -1,6 +1,6 @@
 import { isIndependentOutcome } from "./outcomeIndependence.js";
 
-export const CYCLE_ACTIVITY_REVISION = "cycle-play-content-depth-2026-09-28";
+export const CYCLE_ACTIVITY_REVISION = "cycle-play-familiar-words-2026-10-28";
 export const CYCLE_PRACTICE_VERSION = "cycle-practice-v2";
 export const CYCLE_PRACTICE_POLICY_VERSION = "cycle-practice-policy-v2";
 export const CYCLE_PRACTICE_MINIMUM_SECONDS = 1800;

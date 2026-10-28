@@ -4964,16 +4964,16 @@ export const questions = [
   "question": "Which printed word matches the recording?",
   "spokenPrompt": "Jug. Which printed word matches the recording?",
   "choices": [
-   "jig",
+   "jam",
    "jet",
    "jug",
    "jog"
   ],
   "answerOptions": [
    {
-    "value": "jig",
-    "label": "jig",
-    "text": "jig"
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
    },
    {
     "value": "jet",
@@ -4995,7 +4995,7 @@ export const questions = [
   "correctAnswer": "jug",
   "distractorRationales": {
    "jog": "D-VOWEL",
-   "jig": "D-VOWEL",
+   "jam": "D-VOWEL",
    "jet": "D-VOWEL"
   },
   "mediaTier": "audio-required",
@@ -5956,7 +5956,7 @@ export const questions = [
   "choices": [
    "beg",
    "big",
-   "bog",
+   "bug",
    "bag"
   ],
   "answerOptions": [
@@ -5971,9 +5971,9 @@ export const questions = [
     "text": "big"
    },
    {
-    "value": "bog",
-    "label": "bog",
-    "text": "bog"
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
    },
    {
     "value": "bag",
@@ -5986,7 +5986,7 @@ export const questions = [
   "distractorRationales": {
    "beg": "D-VOWEL",
    "big": "D-VOWEL",
-   "bog": "D-VOWEL"
+   "bug": "D-VOWEL"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -8642,12 +8642,12 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Vet. Which printed word matches the recording?",
+  "spokenPrompt": "Set. Which printed word matches the recording?",
   "choices": [
    "net",
-   "vet",
-   "vat",
-   "vest"
+   "set",
+   "sat",
+   "sit"
   ],
   "answerOptions": [
    {
@@ -8656,30 +8656,30 @@ export const questions = [
     "text": "net"
    },
    {
-    "value": "vet",
-    "label": "vet",
-    "text": "vet"
+    "value": "set",
+    "label": "set",
+    "text": "set"
    },
    {
-    "value": "vat",
-    "label": "vat",
-    "text": "vat"
+    "value": "sat",
+    "label": "sat",
+    "text": "sat"
    },
    {
-    "value": "vest",
-    "label": "vest",
-    "text": "vest"
+    "value": "sit",
+    "label": "sit",
+    "text": "sit"
    }
   ],
-  "answer": "vet",
-  "correctAnswer": "vet",
+  "answer": "set",
+  "correctAnswer": "set",
   "distractorRationales": {
    "net": "D-VISUAL-NEIGHBOR",
-   "vat": "D-VOWEL",
-   "vest": "D-PATTERN-TRAP"
+   "sat": "D-VOWEL",
+   "sit": "D-VOWEL"
   },
   "mediaTier": "audio-required",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceModality": "audio+print",
@@ -8688,7 +8688,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "vet",
+  "targetWord": "set",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -8709,7 +8709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "sat and sit keep both consonants, so the heard vowel is needed; net checks the onset"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v8r",

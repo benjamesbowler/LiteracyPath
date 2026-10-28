@@ -1,12 +1,14 @@
 # Adaptive Literacy Test: actual task demand
 
-New sittings use **v11 / areas-v6**. This standard supplements the
+New sittings use **v12 / areas-v6**. This standard supplements the
 [session contract](LITERACY_MOCK_SESSIONS.md) and
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md).
-`src/policy/literacyMockDemandV11.js` owns current literal classification and
-`src/policy/literacyMockProgressionV11.js` owns progression. V11 retains the
-reviewed operations, repairs the full single-choice bank to four options and
-adds fresh familiar targets without changing any V1–V10 publication.
+`src/policy/literacyMockDemandV12.js` owns current literal classification and
+`src/policy/literacyMockProgressionV11.js` retains the existing progression. V12
+adds reviewed familiar vocabulary at First steps and Starter, seven pictured
+action/feeling-word families and eight sentence-capitalization situations.
+It inherits V11's four-choice operations and leaves every V1–V11 publication,
+original admission and saved response unchanged.
 
 Every area begins independently at **First steps (0)**. Three consecutive fresh
 independent correct answers are required to leave First steps; two are required
@@ -36,7 +38,7 @@ guarantee that every child finds every task in a higher band harder. Reports
 therefore retain area-specific accuracy, the actual sampled tasks and demand,
 without RIT, percentile, grade-equivalence or an overall literacy level.
 
-## V11 repeated observations, content and bounded length
+## V12 publication with V11 repeated observations and bounded length
 
 An area ends after two independent correct ceiling observations, two independent
 incorrect floor observations, or repeated lower success and two errors at the
@@ -63,20 +65,22 @@ directions require exactly one initial capital, so an all-capital distractor
 cannot also satisfy the instruction. Blocked artwork is excluded, including
 the former table illustration and the unsafe bud reading candidate.
 
-`literacyMockRetakesV11.test.js` exercises five same-child sittings for correct,
+`literacyMockRetakesV12.test.js` exercises five same-child sittings for correct,
 incorrect, reversal, alternating and uneven patterns at three seeds, with real
 media, exact selected values, global freshness and offline byte/asset bounds.
 A prolonged assisted First-steps path must also fit the retained offline pool.
-`literacyMockPublicationV11Sql.test.js` verifies canonical publication, delivery,
+`literacyMockPublicationV12Sql.test.js` verifies the forward publication; the
+unchanged `literacyMockPublicationV11Sql.test.js` verifies canonical delivery,
 retry receipts, late help, denied stale higher questions and teacher evidence.
 Browser coverage must exercise complete child paths, reports, actual audio
 ended/playing timing and four visible response controls.
 
-Generate with `tools/generateLiteracyMockV11.mjs`; apply
-`20261020030000_literacy_mock_progression_v11.sql` before
-`20261020030001_literacy_mock_catalogue_v11.sql`. V11 uses
-`teacher_prepare_literacy_mock_session_v11`. These files and passing local gates
-do not imply hosted application or physical-iPad acceptance.
+Generate the new publication with `tools/generateBeginnerVocabularyQuarantine.mjs`
+and `tools/generateLiteracyMockV12.mjs`. Apply the forward vocabulary review,
+V12 schema and V12 catalogue migrations in timestamp order; the current RPC is
+`teacher_prepare_literacy_mock_session_v12`. The original V11 generator,
+migrations and RPC retain their historical contracts. These files and passing
+local gates do not imply hosted application or physical-iPad acceptance.
 
 ## Historical V10 sound-demand safeguards
 

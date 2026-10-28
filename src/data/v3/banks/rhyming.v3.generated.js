@@ -4073,11 +4073,11 @@ export const questions = [
   "questionType": "visual_card_choice",
   "prompt": "Which word rhymes with the word you hear?",
   "question": "Which word rhymes with the word you hear?",
-  "spokenPrompt": "Fig. Which word rhymes with it?",
+  "spokenPrompt": "Wig. Which word rhymes with it?",
   "choices": [
    "pin",
    "pig",
-   "fish",
+   "web",
    "dog"
   ],
   "answerOptions": [
@@ -4092,9 +4092,9 @@ export const questions = [
     "text": "pig"
    },
    {
-    "value": "fish",
-    "label": "fish",
-    "text": "fish"
+    "value": "web",
+    "label": "web",
+    "text": "web"
    },
    {
     "value": "dog",
@@ -4105,7 +4105,7 @@ export const questions = [
   "answer": "pig",
   "correctAnswer": "pig",
   "distractorRationales": {
-   "fish": "D-ONSET",
+   "web": "D-ONSET",
    "dog": "D-VOWEL",
    "pin": "D-RIME-NEAR"
   },
@@ -4119,7 +4119,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "fig",
+  "targetWord": "wig",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -4130,7 +4130,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/in/pin-02.webp",
     "/images/assessment/rhyming/variants/ig/pig-02.webp",
-    "/images/assessment/digraphs/fish.webp",
+    "/images/assessment/objective-words/web.webp",
     "/images/assessment/objective-words/dog.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -4167,13 +4167,13 @@ export const questions = [
     "imageAlt": "pig"
    },
    {
-    "id": "lp3.rhyming.l1.A.ig.v1_card_fish",
-    "word": "fish",
-    "value": "fish",
-    "label": "fish",
-    "image": "/images/assessment/digraphs/fish.webp",
-    "imagePath": "/images/assessment/digraphs/fish.webp",
-    "imageAlt": "fish"
+    "id": "lp3.rhyming.l1.A.ig.v1_card_web",
+    "word": "web",
+    "value": "web",
+    "label": "web",
+    "image": "/images/assessment/objective-words/web.webp",
+    "imagePath": "/images/assessment/objective-words/web.webp",
+    "imageAlt": "web"
    },
    {
     "id": "lp3.rhyming.l1.A.ig.v1_card_dog",
@@ -4208,10 +4208,10 @@ export const questions = [
   "questionType": "visual_card_choice",
   "prompt": "Which word rhymes with the word you hear?",
   "question": "Which word rhymes with the word you hear?",
-  "spokenPrompt": "Twig. Which word rhymes with it?",
+  "spokenPrompt": "Pig. Which word rhymes with it?",
   "choices": [
    "wig",
-   "tent",
+   "pin",
    "bug",
    "web"
   ],
@@ -4222,9 +4222,9 @@ export const questions = [
     "text": "wig"
    },
    {
-    "value": "tent",
-    "label": "tent",
-    "text": "tent"
+    "value": "pin",
+    "label": "pin",
+    "text": "pin"
    },
    {
     "value": "bug",
@@ -4240,7 +4240,7 @@ export const questions = [
   "answer": "wig",
   "correctAnswer": "wig",
   "distractorRationales": {
-   "tent": "D-ONSET",
+   "pin": "D-ONSET",
    "bug": "D-VOWEL",
    "web": "D-RIME-NEAR"
   },
@@ -4254,7 +4254,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "twig",
+  "targetWord": "pig",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -4264,7 +4264,7 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/generated/phonics-quality/wig.webp",
-    "/images/assessment/objective-words/tent.webp",
+    "/images/assessment/rhyming/variants/in/pin-02.webp",
     "/images/assessment/rhyming/variants/bug/bug-02.webp",
     "/images/assessment/objective-words/web.webp"
    ],
@@ -4293,13 +4293,13 @@ export const questions = [
     "imageAlt": "wig"
    },
    {
-    "id": "lp3.rhyming.l1.B.ig.v2_card_tent",
-    "word": "tent",
-    "value": "tent",
-    "label": "tent",
-    "image": "/images/assessment/objective-words/tent.webp",
-    "imagePath": "/images/assessment/objective-words/tent.webp",
-    "imageAlt": "tent"
+    "id": "lp3.rhyming.l1.B.ig.v2_card_pin",
+    "word": "pin",
+    "value": "pin",
+    "label": "pin",
+    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imageAlt": "pin"
    },
    {
     "id": "lp3.rhyming.l1.B.ig.v2_card_bug",
@@ -4343,18 +4343,18 @@ export const questions = [
   "questionType": "visual_card_choice",
   "prompt": "Which word rhymes with the word you hear?",
   "question": "Which word rhymes with the word you hear?",
-  "spokenPrompt": "Jig. Which word rhymes with it?",
+  "spokenPrompt": "Dig. Which word rhymes with it?",
   "choices": [
-   "jam",
+   "dog",
    "log",
    "lid",
    "pig"
   ],
   "answerOptions": [
    {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
     "value": "log",
@@ -4375,7 +4375,7 @@ export const questions = [
   "answer": "pig",
   "correctAnswer": "pig",
   "distractorRationales": {
-   "jam": "D-ONSET",
+   "dog": "D-ONSET",
    "log": "D-VOWEL",
    "lid": "D-RIME-NEAR"
   },
@@ -4389,7 +4389,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "jig",
+  "targetWord": "dig",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -4398,7 +4398,7 @@ export const questions = [
    "itemId": "lp3.rhyming.l1.C.ig.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/jam.webp",
+    "/images/assessment/objective-words/dog.webp",
     "/images/assessment/rhyming/variants/og/log-02.webp",
     "/images/assessment/objective-words/lid.webp",
     "/images/assessment/rhyming/variants/ig/pig-02.webp"
@@ -4419,13 +4419,13 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.rhyming.l1.C.ig.v3_card_jam",
-    "word": "jam",
-    "value": "jam",
-    "label": "jam",
-    "image": "/images/assessment/objective-words/jam.webp",
-    "imagePath": "/images/assessment/objective-words/jam.webp",
-    "imageAlt": "jam"
+    "id": "lp3.rhyming.l1.C.ig.v3_card_dog",
+    "word": "dog",
+    "value": "dog",
+    "label": "dog",
+    "image": "/images/assessment/objective-words/dog.webp",
+    "imagePath": "/images/assessment/objective-words/dog.webp",
+    "imageAlt": "dog"
    },
    {
     "id": "lp3.rhyming.l1.C.ig.v3_card_log",

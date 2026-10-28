@@ -100,11 +100,20 @@ test("heard-only final sounds need a reviewed contract and a real target recordi
 });
 
 test("runtime sound questions resolve the same approved production word clips as the renderer", async () => {
+  // Exercise a current familiar target; underpants is retained in the audio
+  // catalogue for history but no longer belongs to the active beginner bank.
+  const word = "umbrella";
   const question = (await loadAssessmentSkillBankCandidates("initial_sounds"))
-    .find(item => item.targetWord === "underpants");
+    .find(item => item.level === 1 && item.targetWord === word);
+  assert.ok(question, `the active initial-sound bank must contain ${word}`);
   const withoutSerializedAudio = { ...question, audio: undefined, audioPath: undefined, audioUrl: undefined };
-  assert.ok(getLedaWordAudioPath("underpants"));
+  const productionClip = getLedaWordAudioPath(word);
+  assert.ok(productionClip);
   assert.deepEqual(getEarlySkillRuntimeEligibilityIssues(withoutSerializedAudio, { skillId: "initial_sounds", level: 1 }), []);
+  const missingClip = getEarlySkillRuntimeEligibilityIssues(withoutSerializedAudio, {
+    skillId: "initial_sounds", level: 1, pathExists: path => path !== productionClip
+  });
+  assert.ok(missingClip.includes("listen prompt is missing required runtime audio"));
 });
 
 test("the compact word catalogue matches current production repairs without carrying narration", () => {

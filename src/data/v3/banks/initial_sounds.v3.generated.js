@@ -229,16 +229,16 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Ant. Which word has the same starting sound?",
   "choices": [
-   "igloo",
+   "orange",
    "umbrella",
    "apple",
    "egg"
   ],
   "answerOptions": [
    {
-    "value": "igloo",
-    "label": "igloo",
-    "text": "igloo"
+    "value": "orange",
+    "label": "orange",
+    "text": "orange"
    },
    {
     "value": "umbrella",
@@ -260,7 +260,7 @@ export const questions = [
   "correctAnswer": "apple",
   "distractorRationales": {
    "egg": "D-VOWEL",
-   "igloo": "D-VOWEL",
+   "orange": "D-VOWEL",
    "umbrella": "D-VOWEL"
   },
   "mediaTier": "image-required",
@@ -283,7 +283,7 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.a.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/release-media/igloo-d714f227.webp",
+    "/images/assessment/objective-words/orange.webp",
     "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
     "/images/assessment/objective-words/apple.webp",
     "/images/assessment/objective-words/egg.webp"
@@ -304,13 +304,13 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.a.v3_card_igloo",
-    "word": "igloo",
-    "value": "igloo",
-    "label": "igloo",
-    "image": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imagePath": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imageAlt": "igloo"
+    "id": "lp3.initial_sounds.l1.C.a.v3_card_orange",
+    "word": "orange",
+    "value": "orange",
+    "label": "orange",
+    "image": "/images/assessment/objective-words/orange.webp",
+    "imagePath": "/images/assessment/objective-words/orange.webp",
+    "imageAlt": "orange"
    },
    {
     "id": "lp3.initial_sounds.l1.C.a.v3_card_umbrella",
@@ -2845,18 +2845,18 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Engine. Which letter matches the first sound?",
+  "spokenPrompt": "Elbow. Which letter matches the first sound?",
   "choices": [
-   "n",
+   "l",
    "e",
    "i",
    "c"
   ],
   "answerOptions": [
    {
-    "value": "n",
-    "label": "n",
-    "text": "n"
+    "value": "l",
+    "label": "l",
+    "text": "l"
    },
    {
     "value": "e",
@@ -2877,7 +2877,7 @@ export const questions = [
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
-   "n": "D-POSITION",
+   "l": "D-DEVELOPMENTAL",
    "i": "D-VOWEL",
    "c": "D-VISUAL-NEIGHBOR"
   },
@@ -2891,7 +2891,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "engine",
+  "targetWord": "elbow",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2900,14 +2900,14 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.B.e.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/generated/initial-sounds-l2/engine.webp"
+    "/images/assessment/objective-words/elbow.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "engine"
+   "alt": "elbow"
   },
-  "requiredImageAssetKey": "engine",
-  "stimulusMediaId": "engine",
+  "requiredImageAssetKey": "elbow",
+  "stimulusMediaId": "elbow",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2918,12 +2918,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-  "resolvedImageAssetKey": "engine",
-  "imageAlt": "engine"
+  "imagePath": "/images/assessment/objective-words/elbow.webp",
+  "imageUrl": "/images/assessment/objective-words/elbow.webp",
+  "targetImage": "/images/assessment/objective-words/elbow.webp",
+  "targetImagePath": "/images/assessment/objective-words/elbow.webp",
+  "resolvedImageAssetKey": "elbow",
+  "imageAlt": "elbow"
  },
  {
   "id": "lp3.initial_sounds.l1.C.e.v3",
@@ -2949,21 +2949,21 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Egg. Which word has the same starting sound?",
   "choices": [
-   "igloo",
-   "octopus",
+   "umbrella",
+   "orange",
    "elbow",
    "apple"
   ],
   "answerOptions": [
    {
-    "value": "igloo",
-    "label": "igloo",
-    "text": "igloo"
+    "value": "umbrella",
+    "label": "umbrella",
+    "text": "umbrella"
    },
    {
-    "value": "octopus",
-    "label": "octopus",
-    "text": "octopus"
+    "value": "orange",
+    "label": "orange",
+    "text": "orange"
    },
    {
     "value": "elbow",
@@ -2980,8 +2980,8 @@ export const questions = [
   "correctAnswer": "elbow",
   "distractorRationales": {
    "apple": "D-VOWEL",
-   "igloo": "D-VOWEL",
-   "octopus": "D-VOWEL"
+   "umbrella": "D-VOWEL",
+   "orange": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3003,8 +3003,8 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.e.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/release-media/igloo-d714f227.webp",
-    "/images/assessment/objective-words/octopus.webp",
+    "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+    "/images/assessment/objective-words/orange.webp",
     "/images/assessment/objective-words/elbow.webp",
     "/images/assessment/objective-words/apple.webp"
    ],
@@ -3024,22 +3024,22 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.e.v3_card_igloo",
-    "word": "igloo",
-    "value": "igloo",
-    "label": "igloo",
-    "image": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imagePath": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imageAlt": "igloo"
+    "id": "lp3.initial_sounds.l1.C.e.v3_card_umbrella",
+    "word": "umbrella",
+    "value": "umbrella",
+    "label": "umbrella",
+    "image": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+    "imagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+    "imageAlt": "umbrella"
    },
    {
-    "id": "lp3.initial_sounds.l1.C.e.v3_card_octopus",
-    "word": "octopus",
-    "value": "octopus",
-    "label": "octopus",
-    "image": "/images/assessment/objective-words/octopus.webp",
-    "imagePath": "/images/assessment/objective-words/octopus.webp",
-    "imageAlt": "octopus"
+    "id": "lp3.initial_sounds.l1.C.e.v3_card_orange",
+    "word": "orange",
+    "value": "orange",
+    "label": "orange",
+    "image": "/images/assessment/objective-words/orange.webp",
+    "imagePath": "/images/assessment/objective-words/orange.webp",
+    "imageAlt": "orange"
    },
    {
     "id": "lp3.initial_sounds.l1.C.e.v3_card_elbow",
@@ -5463,12 +5463,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Igloo. Which letter matches the first sound?",
+  "spokenPrompt": "In. Which letter matches the first sound?",
   "choices": [
    "i",
    "e",
    "l",
-   "o"
+   "n"
   ],
   "answerOptions": [
    {
@@ -5487,9 +5487,9 @@ export const questions = [
     "text": "l"
    },
    {
-    "value": "o",
-    "label": "o",
-    "text": "o"
+    "value": "n",
+    "label": "n",
+    "text": "n"
    }
   ],
   "answer": "i",
@@ -5497,9 +5497,9 @@ export const questions = [
   "distractorRationales": {
    "e": "D-VOWEL",
    "l": "D-VISUAL-NEIGHBOR",
-   "o": "D-DEVELOPMENTAL"
+   "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5509,23 +5509,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "igloo",
+  "audioRole": "target_word",
+  "targetWord": "in",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.A.i.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/igloo-d714f227.webp"
-   ],
-   "alt": "igloo",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "igloo",
-  "stimulusMediaId": "igloo",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5535,13 +5531,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/igloo-d714f227.webp",
-  "imageUrl": "/images/assessment/release-media/igloo-d714f227.webp",
-  "targetImage": "/images/assessment/release-media/igloo-d714f227.webp",
-  "targetImagePath": "/images/assessment/release-media/igloo-d714f227.webp",
-  "resolvedImageAssetKey": "igloo",
-  "imageAlt": "igloo"
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
  },
  {
   "id": "lp3.initial_sounds.l1.B.i.v2",
@@ -5565,18 +5555,18 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Ink. Which letter matches the first sound?",
+  "spokenPrompt": "Is. Which letter matches the first sound?",
   "choices": [
-   "k",
+   "z",
    "i",
    "e",
    "l"
   ],
   "answerOptions": [
    {
-    "value": "k",
-    "label": "k",
-    "text": "k"
+    "value": "z",
+    "label": "z",
+    "text": "z"
    },
    {
     "value": "i",
@@ -5597,11 +5587,11 @@ export const questions = [
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
-   "k": "D-POSITION",
+   "z": "D-POSITION",
    "e": "D-VOWEL",
    "l": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5611,23 +5601,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "ink",
+  "audioRole": "target_word",
+  "targetWord": "is",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.i.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/objective-words/ink.webp"
-   ],
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved",
-   "alt": "ink"
+   "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ink",
-  "stimulusMediaId": "ink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5637,13 +5623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/objective-words/ink.webp",
-  "imageUrl": "/images/assessment/objective-words/ink.webp",
-  "targetImage": "/images/assessment/objective-words/ink.webp",
-  "targetImagePath": "/images/assessment/objective-words/ink.webp",
-  "resolvedImageAssetKey": "ink",
-  "imageAlt": "ink"
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
  },
  {
   "id": "lp3.initial_sounds.l1.C.i.v3",
@@ -5662,73 +5642,67 @@ export const questions = [
   "form": "C",
   "itemType": "initial_sound",
   "itemKey": "i",
-  "formatType": "INITIAL_SOUND_PAIR_SELECT",
-  "templateType": "INITIAL_SOUND_PAIR_SELECT",
-  "questionType": "visual_card_choice",
-  "prompt": "Which word has the same starting sound?",
-  "question": "Which word has the same starting sound?",
-  "spokenPrompt": "Ink. Which word has the same starting sound?",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "It. Which letter matches the first sound?",
   "choices": [
-   "apple",
-   "octopus",
-   "igloo",
-   "egg"
+   "e",
+   "t",
+   "i",
+   "a"
   ],
   "answerOptions": [
    {
-    "value": "apple",
-    "label": "apple",
-    "text": "apple"
+    "value": "e",
+    "label": "e",
+    "text": "e"
    },
    {
-    "value": "octopus",
-    "label": "octopus",
-    "text": "octopus"
+    "value": "t",
+    "label": "t",
+    "text": "t"
    },
    {
-    "value": "igloo",
-    "label": "igloo",
-    "text": "igloo"
+    "value": "i",
+    "label": "i",
+    "text": "i"
    },
    {
-    "value": "egg",
-    "label": "egg",
-    "text": "egg"
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
-  "answer": "igloo",
-  "correctAnswer": "igloo",
+  "answer": "i",
+  "correctAnswer": "i",
   "distractorRationales": {
-   "egg": "D-VOWEL",
-   "apple": "D-VOWEL",
-   "octopus": "D-VOWEL"
+   "a": "D-VOWEL",
+   "e": "D-VOWEL",
+   "t": "D-POSITION"
   },
-  "mediaTier": "image-required",
-  "phonicsPosition": "initial",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "initial_sound_discrimination",
-  "hideWrittenLabels": true,
+  "constructClaim": "initial_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "ink",
+  "audioRole": "target_word",
+  "targetWord": "it",
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.C.i.v3",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/objective-words/apple.webp",
-    "/images/assessment/objective-words/octopus.webp",
-    "/images/assessment/release-media/igloo-d714f227.webp",
-    "/images/assessment/objective-words/egg.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
@@ -5741,45 +5715,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.i.v3_card_apple",
-    "word": "apple",
-    "value": "apple",
-    "label": "apple",
-    "image": "/images/assessment/objective-words/apple.webp",
-    "imagePath": "/images/assessment/objective-words/apple.webp",
-    "imageAlt": "apple"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.i.v3_card_octopus",
-    "word": "octopus",
-    "value": "octopus",
-    "label": "octopus",
-    "image": "/images/assessment/objective-words/octopus.webp",
-    "imagePath": "/images/assessment/objective-words/octopus.webp",
-    "imageAlt": "octopus"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.i.v3_card_igloo",
-    "word": "igloo",
-    "value": "igloo",
-    "label": "igloo",
-    "image": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imagePath": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imageAlt": "igloo"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.i.v3_card_egg",
-    "word": "egg",
-    "value": "egg",
-    "label": "egg",
-    "image": "/images/assessment/objective-words/egg.webp",
-    "imagePath": "/images/assessment/objective-words/egg.webp",
-    "imageAlt": "egg"
-   }
-  ]
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
  },
  {
   "id": "lp3.initial_sounds.l2.A.i.v1",
@@ -6332,7 +6268,7 @@ export const questions = [
    "drum",
    "chick",
    "mug",
-   "jellyfish"
+   "jam"
   ],
   "answerOptions": [
    {
@@ -6351,13 +6287,13 @@ export const questions = [
     "text": "mug"
    },
    {
-    "value": "jellyfish",
-    "label": "jellyfish",
-    "text": "jellyfish"
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
    }
   ],
-  "answer": "jellyfish",
-  "correctAnswer": "jellyfish",
+  "answer": "jam",
+  "correctAnswer": "jam",
   "distractorRationales": {
    "chick": "D-ONSET",
    "mug": "D-RIME-NEAR",
@@ -6386,7 +6322,7 @@ export const questions = [
     "/images/assessment/blends/drum.webp",
     "/images/assessment/digraphs/chick.webp",
     "/images/assessment/objective-words/mug.webp",
-    "/images/assessment/generated/initial-sounds-l2/jellyfish.webp"
+    "/images/assessment/objective-words/jam.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -6431,13 +6367,13 @@ export const questions = [
     "imageAlt": "mug"
    },
    {
-    "id": "lp3.initial_sounds.l1.C.j.v3_card_jellyfish",
-    "word": "jellyfish",
-    "value": "jellyfish",
-    "label": "jellyfish",
-    "image": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
-    "imagePath": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
-    "imageAlt": "jellyfish"
+    "id": "lp3.initial_sounds.l1.C.j.v3_card_jam",
+    "word": "jam",
+    "value": "jam",
+    "label": "jam",
+    "image": "/images/assessment/objective-words/jam.webp",
+    "imagePath": "/images/assessment/objective-words/jam.webp",
+    "imageAlt": "jam"
    }
   ]
  },
@@ -9523,12 +9459,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Octopus. Which letter matches the first sound?",
+  "spokenPrompt": "On. Which letter matches the first sound?",
   "choices": [
    "c",
-   "s",
+   "n",
    "o",
-   "u"
+   "e"
   ],
   "answerOptions": [
    {
@@ -9537,9 +9473,9 @@ export const questions = [
     "text": "c"
    },
    {
-    "value": "s",
-    "label": "s",
-    "text": "s"
+    "value": "n",
+    "label": "n",
+    "text": "n"
    },
    {
     "value": "o",
@@ -9547,19 +9483,19 @@ export const questions = [
     "text": "o"
    },
    {
-    "value": "u",
-    "label": "u",
-    "text": "u"
+    "value": "e",
+    "label": "e",
+    "text": "e"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
-   "s": "D-POSITION",
-   "u": "D-VOWEL",
+   "n": "D-POSITION",
+   "e": "D-VOWEL",
    "c": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9569,23 +9505,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "octopus",
+  "audioRole": "target_word",
+  "targetWord": "on",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.A.o.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/objective-words/octopus.webp"
-   ],
-   "alt": "octopus",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "octopus",
-  "stimulusMediaId": "octopus",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9595,13 +9527,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/objective-words/octopus.webp",
-  "imageUrl": "/images/assessment/objective-words/octopus.webp",
-  "targetImage": "/images/assessment/objective-words/octopus.webp",
-  "targetImagePath": "/images/assessment/objective-words/octopus.webp",
-  "resolvedImageAssetKey": "octopus",
-  "imageAlt": "octopus"
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
  },
  {
   "id": "lp3.initial_sounds.l1.B.o.v2",
@@ -9704,98 +9630,6 @@ export const questions = [
   "targetImagePath": "/images/assessment/objective-words/orange.webp",
   "resolvedImageAssetKey": "orange",
   "imageAlt": "orange"
- },
- {
-  "id": "lp3.initial_sounds.l1.C.o.v3",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "initial_sounds",
-  "assessmentSkillId": "initial_sounds",
-  "skillName": "Initial Sounds",
-  "skill": "Initial Sounds",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "C",
-  "itemType": "initial_sound",
-  "itemKey": "o",
-  "formatType": "FIRST_SOUND",
-  "templateType": "FIRST_SOUND",
-  "questionType": "multiple_choice",
-  "prompt": "Which letter matches the first sound?",
-  "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Ox. Which letter matches the first sound?",
-  "choices": [
-   "o",
-   "u",
-   "a",
-   "s"
-  ],
-  "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
-   {
-    "value": "s",
-    "label": "s",
-    "text": "s"
-   }
-  ],
-  "answer": "o",
-  "correctAnswer": "o",
-  "distractorRationales": {
-   "s": "D-POSITION",
-   "u": "D-VOWEL",
-   "a": "D-VOWEL"
-  },
-  "mediaTier": "audio-required",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": false,
-  "evidenceModality": "audio+print",
-  "evidenceRole": "mastery",
-  "constructClaim": "initial_sound_grapheme_mapping",
-  "hideWrittenLabels": false,
-  "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "audioRole": "target_word",
-  "targetWord": "ox",
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "assessmentMediaDecision": {
-   "itemId": "lp3.initial_sounds.l1.C.o.v3",
-   "role": "text-only",
-   "paths": [],
-   "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
-  },
-  "active": true,
-  "qaStatus": "verified",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "generatedBy": "assessment-rebuild-gate",
-   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
-   "wave": "",
-   "standardVersion": "v3"
-  },
-  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
  },
  {
   "id": "lp3.initial_sounds.l2.A.o.v1",
@@ -10321,17 +10155,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Pig. Which word has the same starting sound?",
   "choices": [
-   "lid",
    "pen",
    "boat",
-   "map"
+   "map",
+   "lid"
   ],
   "answerOptions": [
-   {
-    "value": "lid",
-    "label": "lid",
-    "text": "lid"
-   },
    {
     "value": "pen",
     "label": "pen",
@@ -10346,6 +10175,11 @@ export const questions = [
     "value": "map",
     "label": "map",
     "text": "map"
+   },
+   {
+    "value": "lid",
+    "label": "lid",
+    "text": "lid"
    }
   ],
   "answer": "pen",
@@ -10375,10 +10209,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.p.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/lid.webp",
     "/images/assessment/objective-words/pen.webp",
     "/images/assessment/objective-words/boat.webp",
-    "/images/assessment/objective-words/map.webp"
+    "/images/assessment/objective-words/map.webp",
+    "/images/assessment/objective-words/lid.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -10395,15 +10229,6 @@ export const questions = [
   },
   "notes": "map ends /p/; lid shares the short /i/ but ends differently",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.p.v3_card_lid",
-    "word": "lid",
-    "value": "lid",
-    "label": "lid",
-    "image": "/images/assessment/objective-words/lid.webp",
-    "imagePath": "/images/assessment/objective-words/lid.webp",
-    "imageAlt": "lid"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.p.v3_card_pen",
     "word": "pen",
@@ -10430,6 +10255,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/map.webp",
     "imagePath": "/images/assessment/objective-words/map.webp",
     "imageAlt": "map"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.p.v3_card_lid",
+    "word": "lid",
+    "value": "lid",
+    "label": "lid",
+    "image": "/images/assessment/objective-words/lid.webp",
+    "imagePath": "/images/assessment/objective-words/lid.webp",
+    "imageAlt": "lid"
    }
   ]
  },
@@ -11001,17 +10835,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Ring. Which word has the same starting sound?",
   "choices": [
-   "deer",
    "king",
    "rocket",
-   "wheel"
+   "wheel",
+   "deer"
   ],
   "answerOptions": [
-   {
-    "value": "deer",
-    "label": "deer",
-    "text": "deer"
-   },
    {
     "value": "king",
     "label": "king",
@@ -11026,6 +10855,11 @@ export const questions = [
     "value": "wheel",
     "label": "wheel",
     "text": "wheel"
+   },
+   {
+    "value": "deer",
+    "label": "deer",
+    "text": "deer"
    }
   ],
   "answer": "rocket",
@@ -11055,10 +10889,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.r.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/deer.webp",
     "/images/assessment/objective-words/king.webp",
     "/images/assessment/generated/initial-sounds-l2/rocket.webp",
-    "/images/assessment/objective-words/wheel.webp"
+    "/images/assessment/objective-words/wheel.webp",
+    "/images/assessment/objective-words/deer.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -11075,15 +10909,6 @@ export const questions = [
   },
   "notes": "deer ends /r/; king rhymes with the anchor",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.r.v3_card_deer",
-    "word": "deer",
-    "value": "deer",
-    "label": "deer",
-    "image": "/images/assessment/objective-words/deer.webp",
-    "imagePath": "/images/assessment/objective-words/deer.webp",
-    "imageAlt": "deer"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.r.v3_card_king",
     "word": "king",
@@ -11110,6 +10935,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/wheel.webp",
     "imagePath": "/images/assessment/objective-words/wheel.webp",
     "imageAlt": "wheel"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.r.v3_card_deer",
+    "word": "deer",
+    "value": "deer",
+    "label": "deer",
+    "image": "/images/assessment/objective-words/deer.webp",
+    "imagePath": "/images/assessment/objective-words/deer.webp",
+    "imageAlt": "deer"
    }
   ]
  },
@@ -11681,17 +11515,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Sun. Which word has the same starting sound?",
   "choices": [
-   "zebra",
    "glass",
    "mug",
-   "seal"
+   "seal",
+   "zebra"
   ],
   "answerOptions": [
-   {
-    "value": "zebra",
-    "label": "zebra",
-    "text": "zebra"
-   },
    {
     "value": "glass",
     "label": "glass",
@@ -11706,6 +11535,11 @@ export const questions = [
     "value": "seal",
     "label": "seal",
     "text": "seal"
+   },
+   {
+    "value": "zebra",
+    "label": "zebra",
+    "text": "zebra"
    }
   ],
   "answer": "seal",
@@ -11735,10 +11569,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.s.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/zebra.webp",
     "/images/assessment/objective-words/glass.webp",
     "/images/assessment/objective-words/mug.webp",
-    "/images/assessment/objective-words/seal.webp"
+    "/images/assessment/objective-words/seal.webp",
+    "/images/assessment/objective-words/zebra.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -11755,15 +11589,6 @@ export const questions = [
   },
   "notes": "glass ends /s/; mug shares the short vowel but not the rime",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.s.v3_card_zebra",
-    "word": "zebra",
-    "value": "zebra",
-    "label": "zebra",
-    "image": "/images/assessment/objective-words/zebra.webp",
-    "imagePath": "/images/assessment/objective-words/zebra.webp",
-    "imageAlt": "zebra"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.s.v3_card_glass",
     "word": "glass",
@@ -11790,6 +11615,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/seal.webp",
     "imagePath": "/images/assessment/objective-words/seal.webp",
     "imageAlt": "seal"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.s.v3_card_zebra",
+    "word": "zebra",
+    "value": "zebra",
+    "label": "zebra",
+    "image": "/images/assessment/objective-words/zebra.webp",
+    "imagePath": "/images/assessment/objective-words/zebra.webp",
+    "imageAlt": "zebra"
    }
   ]
  },
@@ -12351,17 +12185,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Tent. Which word has the same starting sound?",
   "choices": [
-   "tiger",
    "dog",
    "hat",
-   "net"
+   "net",
+   "tiger"
   ],
   "answerOptions": [
-   {
-    "value": "tiger",
-    "label": "tiger",
-    "text": "tiger"
-   },
    {
     "value": "dog",
     "label": "dog",
@@ -12376,6 +12205,11 @@ export const questions = [
     "value": "net",
     "label": "net",
     "text": "net"
+   },
+   {
+    "value": "tiger",
+    "label": "tiger",
+    "text": "tiger"
    }
   ],
   "answer": "tiger",
@@ -12405,10 +12239,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.t.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/tiger.webp",
     "/images/assessment/objective-words/dog.webp",
     "/images/assessment/objective-words/hat.webp",
-    "/images/assessment/objective-words/net.webp"
+    "/images/assessment/objective-words/net.webp",
+    "/images/assessment/objective-words/tiger.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -12425,15 +12259,6 @@ export const questions = [
   },
   "notes": "hat ends /t/; net shares the anchor's -et ending",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.t.v3_card_tiger",
-    "word": "tiger",
-    "value": "tiger",
-    "label": "tiger",
-    "image": "/images/assessment/objective-words/tiger.webp",
-    "imagePath": "/images/assessment/objective-words/tiger.webp",
-    "imageAlt": "tiger"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.t.v3_card_dog",
     "word": "dog",
@@ -12460,6 +12285,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/net.webp",
     "imagePath": "/images/assessment/objective-words/net.webp",
     "imageAlt": "net"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.t.v3_card_tiger",
+    "word": "tiger",
+    "value": "tiger",
+    "label": "tiger",
+    "image": "/images/assessment/objective-words/tiger.webp",
+    "imagePath": "/images/assessment/objective-words/tiger.webp",
+    "imageAlt": "tiger"
    }
   ]
  },
@@ -12927,12 +12761,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Underpants. Which letter matches the first sound?",
+  "spokenPrompt": "Up. Which letter matches the first sound?",
   "choices": [
    "u",
    "o",
    "n",
-   "s"
+   "p"
   ],
   "answerOptions": [
    {
@@ -12951,19 +12785,19 @@ export const questions = [
     "text": "n"
    },
    {
-    "value": "s",
-    "label": "s",
-    "text": "s"
+    "value": "p",
+    "label": "p",
+    "text": "p"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
-   "s": "D-POSITION",
+   "p": "D-POSITION",
    "o": "D-VOWEL",
    "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12973,23 +12807,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "underpants",
+  "audioRole": "target_word",
+  "targetWord": "up",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.u.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/initial-sounds-l2/underpants.webp"
-   ],
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved",
-   "alt": "underpants"
+   "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "underpants",
-  "stimulusMediaId": "underpants",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12999,13 +12829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/underpants.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/underpants.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/underpants.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/underpants.webp",
-  "resolvedImageAssetKey": "underpants",
-  "imageAlt": "underpants"
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
  },
  {
   "id": "lp3.initial_sounds.l1.C.u.v3",
@@ -13031,17 +12855,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Up. Which word has the same starting sound?",
   "choices": [
-   "igloo",
    "umbrella",
    "ant",
-   "engine"
+   "elbow",
+   "orange"
   ],
   "answerOptions": [
-   {
-    "value": "igloo",
-    "label": "igloo",
-    "text": "igloo"
-   },
    {
     "value": "umbrella",
     "label": "umbrella",
@@ -13053,17 +12872,22 @@ export const questions = [
     "text": "ant"
    },
    {
-    "value": "engine",
-    "label": "engine",
-    "text": "engine"
+    "value": "elbow",
+    "label": "elbow",
+    "text": "elbow"
+   },
+   {
+    "value": "orange",
+    "label": "orange",
+    "text": "orange"
    }
   ],
   "answer": "umbrella",
   "correctAnswer": "umbrella",
   "distractorRationales": {
    "ant": "D-VOWEL",
-   "engine": "D-VOWEL",
-   "igloo": "D-VOWEL"
+   "elbow": "D-VOWEL",
+   "orange": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -13085,10 +12909,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.u.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/release-media/igloo-d714f227.webp",
     "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
     "/images/assessment/objective-words/ant.webp",
-    "/images/assessment/generated/initial-sounds-l2/engine.webp"
+    "/images/assessment/objective-words/elbow.webp",
+    "/images/assessment/objective-words/orange.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options",
@@ -13105,15 +12929,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.u.v3_card_igloo",
-    "word": "igloo",
-    "value": "igloo",
-    "label": "igloo",
-    "image": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imagePath": "/images/assessment/release-media/igloo-d714f227.webp",
-    "imageAlt": "igloo"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.u.v3_card_umbrella",
     "word": "umbrella",
@@ -13133,13 +12948,22 @@ export const questions = [
     "imageAlt": "ant"
    },
    {
-    "id": "lp3.initial_sounds.l1.C.u.v3_card_engine",
-    "word": "engine",
-    "value": "engine",
-    "label": "engine",
-    "image": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-    "imagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-    "imageAlt": "engine"
+    "id": "lp3.initial_sounds.l1.C.u.v3_card_elbow",
+    "word": "elbow",
+    "value": "elbow",
+    "label": "elbow",
+    "image": "/images/assessment/objective-words/elbow.webp",
+    "imagePath": "/images/assessment/objective-words/elbow.webp",
+    "imageAlt": "elbow"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.u.v3_card_orange",
+    "word": "orange",
+    "value": "orange",
+    "label": "orange",
+    "image": "/images/assessment/objective-words/orange.webp",
+    "imagePath": "/images/assessment/objective-words/orange.webp",
+    "imageAlt": "orange"
    }
   ]
  },
@@ -13657,17 +13481,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Van. Which word has the same starting sound?",
   "choices": [
-   "web",
    "pan",
    "vase",
-   "fan"
+   "fan",
+   "web"
   ],
   "answerOptions": [
-   {
-    "value": "web",
-    "label": "web",
-    "text": "web"
-   },
    {
     "value": "pan",
     "label": "pan",
@@ -13682,6 +13501,11 @@ export const questions = [
     "value": "fan",
     "label": "fan",
     "text": "fan"
+   },
+   {
+    "value": "web",
+    "label": "web",
+    "text": "web"
    }
   ],
   "answer": "vase",
@@ -13711,10 +13535,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.v.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/web.webp",
     "/images/assessment/objective-words/pan.webp",
     "/images/assessment/objective-words/vase.webp",
-    "/images/assessment/objective-words/fan.webp"
+    "/images/assessment/objective-words/fan.webp",
+    "/images/assessment/objective-words/web.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -13731,15 +13555,6 @@ export const questions = [
   },
   "notes": "fan is the f/v voicing trap; pan rhymes with the anchor",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.v.v3_card_web",
-    "word": "web",
-    "value": "web",
-    "label": "web",
-    "image": "/images/assessment/objective-words/web.webp",
-    "imagePath": "/images/assessment/objective-words/web.webp",
-    "imageAlt": "web"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.v.v3_card_pan",
     "word": "pan",
@@ -13766,6 +13581,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/fan.webp",
     "imagePath": "/images/assessment/objective-words/fan.webp",
     "imageAlt": "fan"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.v.v3_card_web",
+    "word": "web",
+    "value": "web",
+    "label": "web",
+    "image": "/images/assessment/objective-words/web.webp",
+    "imagePath": "/images/assessment/objective-words/web.webp",
+    "imageAlt": "web"
    }
   ]
  },
@@ -14233,10 +14057,10 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Wasp. Which letter matches the first sound?",
+  "spokenPrompt": "Watch. Which letter matches the first sound?",
   "choices": [
    "u",
-   "p",
+   "t",
    "w",
    "v"
   ],
@@ -14247,9 +14071,9 @@ export const questions = [
     "text": "u"
    },
    {
-    "value": "p",
-    "label": "p",
-    "text": "p"
+    "value": "t",
+    "label": "t",
+    "text": "t"
    },
    {
     "value": "w",
@@ -14267,7 +14091,7 @@ export const questions = [
   "distractorRationales": {
    "v": "D-ONSET",
    "u": "D-VISUAL-NEIGHBOR",
-   "p": "D-POSITION"
+   "t": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -14279,7 +14103,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "wasp",
+  "targetWord": "watch",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -14288,14 +14112,14 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.B.w.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/objective-words/wasp.webp"
+    "/images/assessment/objective-words/watch.webp"
    ],
-   "alt": "wasp",
+   "alt": "watch",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "wasp",
-  "stimulusMediaId": "wasp",
+  "requiredImageAssetKey": "watch",
+  "stimulusMediaId": "watch",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14306,12 +14130,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/objective-words/wasp.webp",
-  "imageUrl": "/images/assessment/objective-words/wasp.webp",
-  "targetImage": "/images/assessment/objective-words/wasp.webp",
-  "targetImagePath": "/images/assessment/objective-words/wasp.webp",
-  "resolvedImageAssetKey": "wasp",
-  "imageAlt": "wasp"
+  "imagePath": "/images/assessment/objective-words/watch.webp",
+  "imageUrl": "/images/assessment/objective-words/watch.webp",
+  "targetImage": "/images/assessment/objective-words/watch.webp",
+  "targetImagePath": "/images/assessment/objective-words/watch.webp",
+  "resolvedImageAssetKey": "watch",
+  "imageAlt": "watch"
  },
  {
   "id": "lp3.initial_sounds.l1.C.w.v3",
@@ -14337,17 +14161,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Web. Which word has the same starting sound?",
   "choices": [
-   "vase",
    "mop",
    "net",
-   "window"
+   "window",
+   "vase"
   ],
   "answerOptions": [
-   {
-    "value": "vase",
-    "label": "vase",
-    "text": "vase"
-   },
    {
     "value": "mop",
     "label": "mop",
@@ -14362,6 +14181,11 @@ export const questions = [
     "value": "window",
     "label": "window",
     "text": "window"
+   },
+   {
+    "value": "vase",
+    "label": "vase",
+    "text": "vase"
    }
   ],
   "answer": "window",
@@ -14391,10 +14215,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.w.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/vase.webp",
     "/images/assessment/objective-words/mop.webp",
     "/images/assessment/objective-words/net.webp",
-    "/images/assessment/objective-words/window.webp"
+    "/images/assessment/objective-words/window.webp",
+    "/images/assessment/objective-words/vase.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -14411,15 +14235,6 @@ export const questions = [
   },
   "notes": "a net looks and works like a web — semantic pull with a different onset",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.w.v3_card_vase",
-    "word": "vase",
-    "value": "vase",
-    "label": "vase",
-    "image": "/images/assessment/objective-words/vase.webp",
-    "imagePath": "/images/assessment/objective-words/vase.webp",
-    "imageAlt": "vase"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.w.v3_card_mop",
     "word": "mop",
@@ -14446,6 +14261,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/window.webp",
     "imagePath": "/images/assessment/objective-words/window.webp",
     "imageAlt": "window"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.w.v3_card_vase",
+    "word": "vase",
+    "value": "vase",
+    "label": "vase",
+    "image": "/images/assessment/objective-words/vase.webp",
+    "imagePath": "/images/assessment/objective-words/vase.webp",
+    "imageAlt": "vase"
    }
   ]
  },
@@ -15017,17 +14841,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Yes. Which letter matches the first sound?",
   "choices": [
-   "y",
    "j",
    "w",
-   "s"
+   "s",
+   "y"
   ],
   "answerOptions": [
-   {
-    "value": "y",
-    "label": "y",
-    "text": "y"
-   },
    {
     "value": "j",
     "label": "j",
@@ -15042,6 +14861,11 @@ export const questions = [
     "value": "s",
     "label": "s",
     "text": "s"
+   },
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
    }
   ],
   "answer": "y",
@@ -15599,17 +15423,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Zoo. Which word has the same starting sound?",
   "choices": [
-   "ship",
    "zebra",
    "seal",
-   "rose"
+   "rose",
+   "ship"
   ],
   "answerOptions": [
-   {
-    "value": "ship",
-    "label": "ship",
-    "text": "ship"
-   },
    {
     "value": "zebra",
     "label": "zebra",
@@ -15624,6 +15443,11 @@ export const questions = [
     "value": "rose",
     "label": "rose",
     "text": "rose"
+   },
+   {
+    "value": "ship",
+    "label": "ship",
+    "text": "ship"
    }
   ],
   "answer": "zebra",
@@ -15653,10 +15477,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l1.C.z.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/ship.webp",
     "/images/assessment/objective-words/zebra.webp",
     "/images/assessment/objective-words/seal.webp",
-    "/images/assessment/objective-words/rose.webp"
+    "/images/assessment/objective-words/rose.webp",
+    "/images/assessment/objective-words/ship.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -15673,15 +15497,6 @@ export const questions = [
   },
   "notes": "rose ends /z/; ship shares the short-i vowel",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l1.C.z.v3_card_ship",
-    "word": "ship",
-    "value": "ship",
-    "label": "ship",
-    "image": "/images/assessment/objective-words/ship.webp",
-    "imagePath": "/images/assessment/objective-words/ship.webp",
-    "imageAlt": "ship"
-   },
    {
     "id": "lp3.initial_sounds.l1.C.z.v3_card_zebra",
     "word": "zebra",
@@ -15708,6 +15523,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/rose.webp",
     "imagePath": "/images/assessment/objective-words/rose.webp",
     "imageAlt": "rose"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.z.v3_card_ship",
+    "word": "ship",
+    "value": "ship",
+    "label": "ship",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
+    "imageAlt": "ship"
    }
   ]
  },
@@ -16165,23 +15989,23 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Fig. Which letter matches the first sound?",
+  "spokenPrompt": "Fun. Which letter matches the first sound?",
   "choices": [
-   "t",
-   "g",
+   "s",
+   "n",
    "f",
    "v"
   ],
   "answerOptions": [
    {
-    "value": "t",
-    "label": "t",
-    "text": "t"
+    "value": "s",
+    "label": "s",
+    "text": "s"
    },
    {
-    "value": "g",
-    "label": "g",
-    "text": "g"
+    "value": "n",
+    "label": "n",
+    "text": "n"
    },
    {
     "value": "f",
@@ -16197,8 +16021,8 @@ export const questions = [
   "answer": "f",
   "correctAnswer": "f",
   "distractorRationales": {
-   "t": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION",
+   "s": "D-ONSET",
+   "n": "D-POSITION",
    "v": "D-ONSET"
   },
   "mediaTier": "audio-required",
@@ -16212,7 +16036,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "fig",
+  "targetWord": "fun",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -17795,12 +17619,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Axe. Which letter matches the first sound?",
+  "spokenPrompt": "At. Which letter matches the first sound?",
   "choices": [
    "a",
-   "e",
+   "i",
    "o",
-   "s"
+   "t"
   ],
   "answerOptions": [
    {
@@ -17809,9 +17633,9 @@ export const questions = [
     "text": "a"
    },
    {
-    "value": "e",
-    "label": "e",
-    "text": "e"
+    "value": "i",
+    "label": "i",
+    "text": "i"
    },
    {
     "value": "o",
@@ -17819,17 +17643,17 @@ export const questions = [
     "text": "o"
    },
    {
-    "value": "s",
-    "label": "s",
-    "text": "s"
+    "value": "t",
+    "label": "t",
+    "text": "t"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
    "o": "D-VOWEL",
-   "s": "D-POSITION",
-   "e": "D-VOWEL"
+   "t": "D-POSITION",
+   "i": "D-VOWEL"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -17842,7 +17666,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "axe",
+  "targetWord": "at",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -17863,7 +17687,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Isolate the initial sound of the new familiar spoken target axe; no printed target supplies the key."
+  "notes": "Isolate the initial sound of the new familiar spoken target at; no printed target supplies the key."
  },
  {
   "id": "lp3.initial_sounds.l2.B.a.v102",
@@ -17981,17 +17805,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Bat. Which letter matches the first sound?",
   "choices": [
-   "a",
    "t",
    "b",
-   "p"
+   "p",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "t",
     "label": "t",
@@ -18006,6 +17825,11 @@ export const questions = [
     "value": "p",
     "label": "p",
     "text": "p"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "b",
@@ -18533,17 +18357,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "End. Which letter matches the first sound?",
   "choices": [
-   "i",
    "n",
    "d",
-   "e"
+   "e",
+   "i"
   ],
   "answerOptions": [
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
    {
     "value": "n",
     "label": "n",
@@ -18558,6 +18377,11 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
    }
   ],
   "answer": "e",
@@ -19085,17 +18909,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Hip. Which letter matches the first sound?",
   "choices": [
-   "h",
    "n",
    "i",
-   "p"
+   "p",
+   "h"
   ],
   "answerOptions": [
-   {
-    "value": "h",
-    "label": "h",
-    "text": "h"
-   },
    {
     "value": "n",
     "label": "n",
@@ -19110,6 +18929,11 @@ export const questions = [
     "value": "p",
     "label": "p",
     "text": "p"
+   },
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
    }
   ],
   "answer": "h",
@@ -19637,17 +19461,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Kid. Which letter matches the first sound?",
   "choices": [
-   "d",
    "k",
    "g",
-   "i"
+   "i",
+   "d"
   ],
   "answerOptions": [
-   {
-    "value": "d",
-    "label": "d",
-    "text": "d"
-   },
    {
     "value": "k",
     "label": "k",
@@ -19662,6 +19481,11 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
    }
   ],
   "answer": "k",
@@ -20189,17 +20013,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Nap. Which letter matches the first sound?",
   "choices": [
-   "a",
    "p",
    "n",
-   "m"
+   "m",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "p",
     "label": "p",
@@ -20214,6 +20033,11 @@ export const questions = [
     "value": "m",
     "label": "m",
     "text": "m"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "n",
@@ -20741,17 +20565,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Rug. Which letter matches the first sound?",
   "choices": [
-   "w",
    "u",
    "g",
-   "r"
+   "r",
+   "w"
   ],
   "answerOptions": [
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
    {
     "value": "u",
     "label": "u",
@@ -20766,6 +20585,11 @@ export const questions = [
     "value": "r",
     "label": "r",
     "text": "r"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
    }
   ],
   "answer": "r",
@@ -21293,17 +21117,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Us. Which letter matches the first sound?",
   "choices": [
-   "u",
    "o",
    "s",
-   "i"
+   "i",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "o",
     "label": "o",
@@ -21318,6 +21137,11 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "u",
@@ -21845,17 +21669,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Yell. Which letter matches the first sound?",
   "choices": [
-   "l",
    "y",
    "j",
-   "e"
+   "e",
+   "l"
   ],
   "answerOptions": [
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
-   },
    {
     "value": "y",
     "label": "y",
@@ -21870,6 +21689,11 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
    }
   ],
   "answer": "y",

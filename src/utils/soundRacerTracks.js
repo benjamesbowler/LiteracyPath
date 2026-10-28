@@ -1,5 +1,7 @@
 import {
   rocketRunLadder,
+  isBeginnerSoundGameDifficulty,
+  isBeginnerSoundGameWord,
   wordStartsWithTargetSound,
   wordsStartingWithTargetSound
 } from "./rocketRunRounds.js";
@@ -177,7 +179,8 @@ function buildDeterministicRound(target, { count, difficulty, rng }) {
 
   // Correct pool: words that match the exact production phoneme cue. Spelling
   // alone is insufficient for short vowels, hard c/g and voiced/unvoiced th.
-  const correctPool = wordsStartingWithTargetSound(g);
+  const beginner = isBeginnerSoundGameDifficulty(difficulty);
+  const correctPool = wordsStartingWithTargetSound(g).filter(word => !beginner || isBeginnerSoundGameWord(word));
   let cp = correctPool.filter(inRange);
   if (cp.length < count) cp = correctPool;
   const correct = shuffleSeeded([...new Set(cp)], rng).slice(0, Math.max(0, count));
@@ -185,7 +188,7 @@ function buildDeterministicRound(target, { count, difficulty, rng }) {
   const correctSet = new Set(correct);
 
   // Distractor pool: sound-distinct from target and not already a correct word
-  const distractorPool = ALL_WORDS.filter(
+  const distractorPool = ALL_WORDS.filter(word => !beginner || isBeginnerSoundGameWord(word)).filter(
     w => !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w)
   );
   let dp = distractorPool.filter(inRange);
@@ -266,7 +269,7 @@ export function buildSoundRacerEvidenceResult({
 
 export function buildTrack(target, { difficulty, seed } = {}) {
   const g = String(target || "").toLowerCase();
-  const d = String(difficulty || "").toLowerCase();
+  const d = String(difficulty || "easy").toLowerCase();
   const rng = makeRng(seed, g, d);
   const profile = TRACK_PROFILES[d] || DEFAULT_TRACK_PROFILE;
   const { totalLength, gateCount } = profile;

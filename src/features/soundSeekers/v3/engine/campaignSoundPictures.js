@@ -1,6 +1,6 @@
 import { getChildWordAsset } from '../../../../data/childAssets.js';
 import { DOMAINS,MECHANICS } from './challenges.js';
-import { targetInfo,wordImage } from './lexicon.js';
+import { targetInfo,teachingAnchorImage } from './lexicon.js';
 
 /** An explicitly supported sound anchor, never an independent reading clue.
  * Saved presentation fields cannot substitute a different word or picture.
@@ -15,7 +15,7 @@ export function soundPictureCue(beat,{targetId:requestedTarget}={}) {
     if(requestedTarget&&requestedTarget!==targetId)return null;
   }else return null;
   if(!targetId||!beat.targetIds?.includes(targetId))return null;
-  const info=targetInfo(targetId),word=info?.anchorWord,image=word?wordImage(word):'';
+  const info=targetInfo(targetId),word=info?.anchorWord,image=word?teachingAnchorImage(word):'';
   if(!image)return null;
   return {targetId,grapheme:info.grapheme,word,image,audio:getChildWordAsset(word)?.audio||''};
 }

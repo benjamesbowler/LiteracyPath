@@ -16,7 +16,7 @@ export function literacyMockWorkingSummary(pupil, { domains=null, now=Date.now()
   const source=(pupil?.responses || []).filter(row=>!domains || domains.includes(row.domainId));
   const independent=source.filter(row=>row.classification==='independent');
   const recent=independent.filter(row=>row.recent===true);
-  const boundaryAdaptive=pupil?.boundaryAdaptive===true || ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(pupil?.contentVersion)
+  const boundaryAdaptive=pupil?.boundaryAdaptive===true || ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(pupil?.contentVersion)
     || source.some(row=>row.itemSnapshot?.adaptiveAreaVersion===LITERACY_MOCK_V9_AREA_VERSION);
   const areaAdaptive=pupil?.areaAdaptive===true || boundaryAdaptive;
   const boundaryStates=boundaryAdaptive ? literacyMockBoundaryStateV9(source,{contentVersion:pupil?.contentVersion}) : null;

@@ -25,16 +25,16 @@ export const questions = [
   "question": "Which pair has opposite meanings?",
   "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "hot — heated",
+   "hot — hotter",
    "hot — cold",
-   "hot — scorching",
+   "hot — burning",
    "hot — warm"
   ],
   "answerOptions": [
    {
-    "value": "hot — heated",
-    "label": "hot — heated",
-    "text": "hot — heated"
+    "value": "hot — hotter",
+    "label": "hot — hotter",
+    "text": "hot — hotter"
    },
    {
     "value": "hot — cold",
@@ -42,9 +42,9 @@ export const questions = [
     "text": "hot — cold"
    },
    {
-    "value": "hot — scorching",
-    "label": "hot — scorching",
-    "text": "hot — scorching"
+    "value": "hot — burning",
+    "label": "hot — burning",
+    "text": "hot — burning"
    },
    {
     "value": "hot — warm",
@@ -55,8 +55,8 @@ export const questions = [
   "answer": "hot — cold",
   "correctAnswer": "hot — cold",
   "distractorRationales": {
-   "hot — heated": "D-SAME-DOMAIN",
-   "hot — scorching": "D-SAME-DOMAIN",
+   "hot — hotter": "D-SAME-DOMAIN",
+   "hot — burning": "D-SAME-DOMAIN",
    "hot — warm": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
@@ -466,7 +466,7 @@ export const questions = [
   "spokenPrompt": "This gate is wide. Which word is its opposite?",
   "choices": [
    "narrow",
-   "broad",
+   "wide",
    "deep",
    "thick"
   ],
@@ -477,9 +477,9 @@ export const questions = [
     "text": "narrow"
    },
    {
-    "value": "broad",
-    "label": "broad",
-    "text": "broad"
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
    },
    {
     "value": "deep",
@@ -495,7 +495,7 @@ export const questions = [
   "answer": "narrow",
   "correctAnswer": "narrow",
   "distractorRationales": {
-   "broad": "D-SAME-DOMAIN",
+   "wide": "D-SAME-DOMAIN",
    "deep": "D-TOPIC-ADJACENT",
    "thick": "D-SAME-DOMAIN"
   },
@@ -555,7 +555,7 @@ export const questions = [
   "choices": [
    "happy — sad",
    "happy — proud",
-   "happy — hopeful",
+   "happy — tired",
    "happy — glad"
   ],
   "answerOptions": [
@@ -570,9 +570,9 @@ export const questions = [
     "text": "happy — proud"
    },
    {
-    "value": "happy — hopeful",
-    "label": "happy — hopeful",
-    "text": "happy — hopeful"
+    "value": "happy — tired",
+    "label": "happy — tired",
+    "text": "happy — tired"
    },
    {
     "value": "happy — glad",
@@ -585,7 +585,7 @@ export const questions = [
   "distractorRationales": {
    "happy — sad": "D-OPPOSITE",
    "happy — proud": "D-TOPIC-ADJACENT",
-   "happy — hopeful": "D-SAME-DOMAIN"
+   "happy — tired": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1081,16 +1081,16 @@ export const questions = [
   "question": "Which pair has opposite meanings?",
   "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "awake — watchful",
+   "awake — up",
    "awake — asleep",
-   "awake — alert",
-   "awake — lively"
+   "awake — ready",
+   "awake — moving"
   ],
   "answerOptions": [
    {
-    "value": "awake — watchful",
-    "label": "awake — watchful",
-    "text": "awake — watchful"
+    "value": "awake — up",
+    "label": "awake — up",
+    "text": "awake — up"
    },
    {
     "value": "awake — asleep",
@@ -1098,22 +1098,22 @@ export const questions = [
     "text": "awake — asleep"
    },
    {
-    "value": "awake — alert",
-    "label": "awake — alert",
-    "text": "awake — alert"
+    "value": "awake — ready",
+    "label": "awake — ready",
+    "text": "awake — ready"
    },
    {
-    "value": "awake — lively",
-    "label": "awake — lively",
-    "text": "awake — lively"
+    "value": "awake — moving",
+    "label": "awake — moving",
+    "text": "awake — moving"
    }
   ],
   "answer": "awake — asleep",
   "correctAnswer": "awake — asleep",
   "distractorRationales": {
-   "awake — lively": "D-TOPIC-ADJACENT",
-   "awake — watchful": "D-SAME-DOMAIN",
-   "awake — alert": "D-SAME-DOMAIN"
+   "awake — moving": "D-TOPIC-ADJACENT",
+   "awake — up": "D-SAME-DOMAIN",
+   "awake — ready": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1143,7 +1143,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Asleep reverses awake; alert, lively and watchful do not."
+  "notes": "Asleep reverses awake; ready, moving and up do not."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2",
@@ -1436,7 +1436,7 @@ export const questions = [
    "fresh",
    "dirty",
    "washed",
-   "spotless"
+   "cleaned"
   ],
   "answerOptions": [
    {
@@ -1455,16 +1455,16 @@ export const questions = [
     "text": "washed"
    },
    {
-    "value": "spotless",
-    "label": "spotless",
-    "text": "spotless"
+    "value": "cleaned",
+    "label": "cleaned",
+    "text": "cleaned"
    }
   ],
   "answer": "dirty",
   "correctAnswer": "dirty",
   "distractorRationales": {
    "washed": "D-TOPIC-ADJACENT",
-   "spotless": "D-SAME-DOMAIN",
+   "cleaned": "D-SAME-DOMAIN",
    "fresh": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
@@ -1611,7 +1611,7 @@ export const questions = [
   "choices": [
    "dark",
    "pale",
-   "glossy",
+   "shiny",
    "light"
   ],
   "answerOptions": [
@@ -1626,9 +1626,9 @@ export const questions = [
     "text": "pale"
    },
    {
-    "value": "glossy",
-    "label": "glossy",
-    "text": "glossy"
+    "value": "shiny",
+    "label": "shiny",
+    "text": "shiny"
    },
    {
     "value": "light",
@@ -1639,7 +1639,7 @@ export const questions = [
   "answer": "light",
   "correctAnswer": "light",
   "distractorRationales": {
-   "glossy": "D-SAME-DOMAIN",
+   "shiny": "D-SAME-DOMAIN",
    "dark": "D-OPPOSITE",
    "pale": "D-TOPIC-ADJACENT"
   },
@@ -1874,7 +1874,7 @@ export const questions = [
   "spokenPrompt": "The child feels scared. Which word means the same?",
   "choices": [
    "afraid",
-   "fearless",
+   "brave",
    "angry",
    "lonely"
   ],
@@ -1885,9 +1885,9 @@ export const questions = [
     "text": "afraid"
    },
    {
-    "value": "fearless",
-    "label": "fearless",
-    "text": "fearless"
+    "value": "brave",
+    "label": "brave",
+    "text": "brave"
    },
    {
     "value": "angry",
@@ -1903,7 +1903,7 @@ export const questions = [
   "answer": "afraid",
   "correctAnswer": "afraid",
   "distractorRationales": {
-   "fearless": "D-OPPOSITE",
+   "brave": "D-OPPOSITE",
    "angry": "D-TOPIC-ADJACENT",
    "lonely": "D-SAME-DOMAIN"
   },
@@ -1962,7 +1962,7 @@ export const questions = [
   "spokenPrompt": "Pick a word that means quick.",
   "choices": [
    "slow",
-   "steady",
+   "still",
    "early",
    "fast"
   ],
@@ -1973,9 +1973,9 @@ export const questions = [
     "text": "slow"
    },
    {
-    "value": "steady",
-    "label": "steady",
-    "text": "steady"
+    "value": "still",
+    "label": "still",
+    "text": "still"
    },
    {
     "value": "early",
@@ -1992,7 +1992,7 @@ export const questions = [
   "correctAnswer": "fast",
   "distractorRationales": {
    "slow": "D-OPPOSITE",
-   "steady": "D-TOPIC-ADJACENT",
+   "still": "D-TOPIC-ADJACENT",
    "early": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
@@ -2049,16 +2049,16 @@ export const questions = [
   "question": "Which word means about the same as sleepy?",
   "spokenPrompt": "Which word means about the same as sleepy?",
   "choices": [
-   "cozy",
+   "warm",
    "calm",
    "tired",
-   "alert"
+   "awake"
   ],
   "answerOptions": [
    {
-    "value": "cozy",
-    "label": "cozy",
-    "text": "cozy"
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
    },
    {
     "value": "calm",
@@ -2071,16 +2071,16 @@ export const questions = [
     "text": "tired"
    },
    {
-    "value": "alert",
-    "label": "alert",
-    "text": "alert"
+    "value": "awake",
+    "label": "awake",
+    "text": "awake"
    }
   ],
   "answer": "tired",
   "correctAnswer": "tired",
   "distractorRationales": {
-   "alert": "D-OPPOSITE",
-   "cozy": "D-TOPIC-ADJACENT",
+   "awake": "D-OPPOSITE",
+   "warm": "D-TOPIC-ADJACENT",
    "calm": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
@@ -4635,8 +4635,8 @@ export const questions = [
   "choices": [
    "sit — stand",
    "sit — rest",
-   "sit — kneel",
-   "sit — crouch"
+   "sit — bend",
+   "sit — lean"
   ],
   "answerOptions": [
    {
@@ -4650,22 +4650,22 @@ export const questions = [
     "text": "sit — rest"
    },
    {
-    "value": "sit — kneel",
-    "label": "sit — kneel",
-    "text": "sit — kneel"
+    "value": "sit — bend",
+    "label": "sit — bend",
+    "text": "sit — bend"
    },
    {
-    "value": "sit — crouch",
-    "label": "sit — crouch",
-    "text": "sit — crouch"
+    "value": "sit — lean",
+    "label": "sit — lean",
+    "text": "sit — lean"
    }
   ],
   "answer": "sit — stand",
   "correctAnswer": "sit — stand",
   "distractorRationales": {
-   "sit — crouch": "D-SAME-DOMAIN",
+   "sit — lean": "D-SAME-DOMAIN",
    "sit — rest": "D-SAME-DOMAIN",
-   "sit — kneel": "D-TOPIC-ADJACENT"
+   "sit — bend": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4695,7 +4695,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Stand is the conventional opposite posture to sit. Kneeling and crouching are other bent-body postures; rest does not specify posture."
+  "notes": "Stand is the conventional opposite posture to sit. Bending and leaning can happen while sitting or standing; rest does not specify posture."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r",
@@ -4723,8 +4723,8 @@ export const questions = [
   "choices": [
    "glows — warms",
    "glows — shines",
-   "glows — dims",
-   "glows — flickers"
+   "glows — fades",
+   "glows — flashes"
   ],
   "answerOptions": [
    {
@@ -4738,21 +4738,21 @@ export const questions = [
     "text": "glows — shines"
    },
    {
-    "value": "glows — dims",
-    "label": "glows — dims",
-    "text": "glows — dims"
+    "value": "glows — fades",
+    "label": "glows — fades",
+    "text": "glows — fades"
    },
    {
-    "value": "glows — flickers",
-    "label": "glows — flickers",
-    "text": "glows — flickers"
+    "value": "glows — flashes",
+    "label": "glows — flashes",
+    "text": "glows — flashes"
    }
   ],
   "answer": "glows — shines",
   "correctAnswer": "glows — shines",
   "distractorRationales": {
-   "glows — dims": "D-OPPOSITE",
-   "glows — flickers": "D-TOPIC-ADJACENT",
+   "glows — fades": "D-OPPOSITE",
+   "glows — flashes": "D-TOPIC-ADJACENT",
    "glows — warms": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
@@ -5343,7 +5343,7 @@ export const questions = [
   "choices": [
    "push — press",
    "push — shove",
-   "push — nudge",
+   "push — move",
    "push — pull"
   ],
   "answerOptions": [
@@ -5358,9 +5358,9 @@ export const questions = [
     "text": "push — shove"
    },
    {
-    "value": "push — nudge",
-    "label": "push — nudge",
-    "text": "push — nudge"
+    "value": "push — move",
+    "label": "push — move",
+    "text": "push — move"
    },
    {
     "value": "push — pull",
@@ -5373,7 +5373,7 @@ export const questions = [
   "distractorRationales": {
    "push — press": "D-SAME-DOMAIN",
    "push — shove": "D-TOPIC-ADJACENT",
-   "push — nudge": "D-SAME-DOMAIN"
+   "push — move": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5429,16 +5429,16 @@ export const questions = [
   "question": "A fast car moves quickly. Choose the opposite of fast.",
   "spokenPrompt": "A fast car moves quickly. Choose the opposite of fast.",
   "choices": [
-   "rapid",
+   "fast",
    "slow",
    "speedy",
    "quick"
   ],
   "answerOptions": [
    {
-    "value": "rapid",
-    "label": "rapid",
-    "text": "rapid"
+    "value": "fast",
+    "label": "fast",
+    "text": "fast"
    },
    {
     "value": "slow",
@@ -5461,7 +5461,7 @@ export const questions = [
   "distractorRationales": {
    "speedy": "D-SAME-DOMAIN",
    "quick": "D-TOPIC-ADJACENT",
-   "rapid": "D-SAME-DOMAIN"
+   "fast": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5696,7 +5696,7 @@ export const questions = [
    "soft — hard",
    "soft — fluffy",
    "soft — squishy",
-   "soft — spongy"
+   "soft — thin"
   ],
   "answerOptions": [
    {
@@ -5715,16 +5715,16 @@ export const questions = [
     "text": "soft — squishy"
    },
    {
-    "value": "soft — spongy",
-    "label": "soft — spongy",
-    "text": "soft — spongy"
+    "value": "soft — thin",
+    "label": "soft — thin",
+    "text": "soft — thin"
    }
   ],
   "answer": "soft — hard",
   "correctAnswer": "soft — hard",
   "distractorRationales": {
    "soft — squishy": "D-TOPIC-ADJACENT",
-   "soft — spongy": "D-SAME-DOMAIN",
+   "soft — thin": "D-TOPIC-ADJACENT",
    "soft — fluffy": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
@@ -5781,16 +5781,16 @@ export const questions = [
   "question": "The stone feels smooth. Choose the opposite of smooth.",
   "spokenPrompt": "The stone feels smooth. Choose the opposite of smooth.",
   "choices": [
-   "even",
+   "hard",
    "rough",
-   "silky",
-   "slick"
+   "soft",
+   "flat"
   ],
   "answerOptions": [
    {
-    "value": "even",
-    "label": "even",
-    "text": "even"
+    "value": "hard",
+    "label": "hard",
+    "text": "hard"
    },
    {
     "value": "rough",
@@ -5798,22 +5798,22 @@ export const questions = [
     "text": "rough"
    },
    {
-    "value": "silky",
-    "label": "silky",
-    "text": "silky"
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
    },
    {
-    "value": "slick",
-    "label": "slick",
-    "text": "slick"
+    "value": "flat",
+    "label": "flat",
+    "text": "flat"
    }
   ],
   "answer": "rough",
   "correctAnswer": "rough",
   "distractorRationales": {
-   "silky": "D-SAME-DOMAIN",
-   "slick": "D-TOPIC-ADJACENT",
-   "even": "D-SAME-DOMAIN"
+   "soft": "D-SAME-DOMAIN",
+   "flat": "D-TOPIC-ADJACENT",
+   "hard": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6758,7 +6758,7 @@ export const questions = [
   "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
    "give — share",
-   "give — offer",
+   "give — send",
    "give — take",
    "give — lend"
   ],
@@ -6769,9 +6769,9 @@ export const questions = [
     "text": "give — share"
    },
    {
-    "value": "give — offer",
-    "label": "give — offer",
-    "text": "give — offer"
+    "value": "give — send",
+    "label": "give — send",
+    "text": "give — send"
    },
    {
     "value": "give — take",
@@ -6787,7 +6787,7 @@ export const questions = [
   "answer": "give — take",
   "correctAnswer": "give — take",
   "distractorRationales": {
-   "give — offer": "D-SAME-DOMAIN",
+   "give — send": "D-SAME-DOMAIN",
    "give — lend": "D-TOPIC-ADJACENT",
    "give — share": "D-SAME-DOMAIN"
   },
@@ -6847,7 +6847,7 @@ export const questions = [
   "choices": [
    "neat — messy",
    "neat — bare",
-   "neat — fancy",
+   "neat — pretty",
    "neat — tidy"
   ],
   "answerOptions": [
@@ -6862,9 +6862,9 @@ export const questions = [
     "text": "neat — bare"
    },
    {
-    "value": "neat — fancy",
-    "label": "neat — fancy",
-    "text": "neat — fancy"
+    "value": "neat — pretty",
+    "label": "neat — pretty",
+    "text": "neat — pretty"
    },
    {
     "value": "neat — tidy",
@@ -6877,7 +6877,7 @@ export const questions = [
   "distractorRationales": {
    "neat — messy": "D-OPPOSITE",
    "neat — bare": "D-TOPIC-ADJACENT",
-   "neat — fancy": "D-SAME-DOMAIN"
+   "neat — pretty": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6907,7 +6907,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Tidy matches neat. Messy reverses order; bare and fancy describe decoration rather than tidiness."
+  "notes": "Tidy matches neat. Messy reverses order; bare and pretty describe appearance rather than tidiness."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_precise.v31r",
@@ -7112,7 +7112,7 @@ export const questions = [
   "spokenPrompt": "Which word means the opposite of ‘empty’?",
   "choices": [
    "hollow",
-   "vacant",
+   "clear",
    "bare",
    "full"
   ],
@@ -7123,9 +7123,9 @@ export const questions = [
     "text": "hollow"
    },
    {
-    "value": "vacant",
-    "label": "vacant",
-    "text": "vacant"
+    "value": "clear",
+    "label": "clear",
+    "text": "clear"
    },
    {
     "value": "bare",
@@ -7142,7 +7142,7 @@ export const questions = [
   "correctAnswer": "full",
   "distractorRationales": {
    "hollow": "D-SAME-DOMAIN",
-   "vacant": "D-SAME-DOMAIN",
+   "clear": "D-SAME-DOMAIN",
    "bare": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
@@ -7287,26 +7287,26 @@ export const questions = [
   "question": "Which pair has opposite meanings?",
   "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "awake — alert",
-   "awake — watchful",
-   "awake — wakeful",
+   "awake — ready",
+   "awake — up",
+   "awake — busy",
    "awake — asleep"
   ],
   "answerOptions": [
    {
-    "value": "awake — alert",
-    "label": "awake — alert",
-    "text": "awake — alert"
+    "value": "awake — ready",
+    "label": "awake — ready",
+    "text": "awake — ready"
    },
    {
-    "value": "awake — watchful",
-    "label": "awake — watchful",
-    "text": "awake — watchful"
+    "value": "awake — up",
+    "label": "awake — up",
+    "text": "awake — up"
    },
    {
-    "value": "awake — wakeful",
-    "label": "awake — wakeful",
-    "text": "awake — wakeful"
+    "value": "awake — busy",
+    "label": "awake — busy",
+    "text": "awake — busy"
    },
    {
     "value": "awake — asleep",
@@ -7317,9 +7317,9 @@ export const questions = [
   "answer": "awake — asleep",
   "correctAnswer": "awake — asleep",
   "distractorRationales": {
-   "awake — alert": "D-SAME-DOMAIN",
-   "awake — watchful": "D-SAME-DOMAIN",
-   "awake — wakeful": "D-SAME-DOMAIN"
+   "awake — ready": "D-SAME-DOMAIN",
+   "awake — up": "D-SAME-DOMAIN",
+   "awake — busy": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,

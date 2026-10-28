@@ -1,5 +1,20 @@
 # Current system cleanup — 31 July 2026
 
+## Beginner vocabulary — 28 October 2026
+
+Beginner vocabulary is reviewed separately from task demand and word length.
+Current Mock MAP uses the V12 publication; its complete five-retake gate runs
+alongside the unchanged V11 gate, preserving all scenarios and thresholds. Historical
+V1–V11 publications and the exact Skills/audio source records needed to reproduce
+them remain preserved. Existing media used by old answers remains referenced and
+is not deleted merely because an entry question is now excluded.
+
+Current Skills, Cycle/Adventure, easy phonics games and the Sound Seekers /y/
+anchor use the corrected source authorities. Disposable intermediate logs,
+candidate reviews and the temporary dependency link are removed after final
+verification; required audit/browser/audio/SQL evidence stays under ignored
+`.artifacts/beginner-vocabulary/`. Protected animation work is outside this scope.
+
 ## Reading Comprehension — 27 October 2026
 
 A single original passage bank now drives whole-group, small-group and student

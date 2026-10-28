@@ -9,6 +9,45 @@ import { onsetGrapheme, sharesSound } from "../components/elQuest/elQuestEngine.
 const CLEAN = word => /^[a-z]{2,6}$/.test(word);
 const ALL_WORDS = [...new Set(Object.values(LETTER_EXAMPLES).flat())].filter(CLEAN);
 
+// Familiarity is reviewed independently from spelling length. Short words
+// such as vat, ebb and cod are not beginner vocabulary. This boundary applies
+// to every visible choice, including fallback pools in the related games.
+export const BEGINNER_SOUND_GAME_WORDS = Object.freeze((
+  'a am an and as at add ant apple animal ankle angry '+
+  'ball bag bat bear bed bee bell big bike bird boat book boy bug bus back '+
+  'cat cap cup can car cow cut cake call camp card coat cold cook cool corn cub '+
+  'dog duck desk dig dad day did dip dot dark dish doll down '+
+  'egg end elf elbow empty exit '+
+  'fan fish fox fat fed fin fit fog fun fur fall fast feet five flag frog '+
+  'goat gum gap gift get got game gate girl give glad goal gold golf good grin green grow grape grass '+
+  'hat hop hen house had ham hay hid hit hot hug hand hard help hill horse '+
+  'if ill in it ink itch into insect igloo inside '+
+  'jam jet jug jump jar jaw job jog joy jeep joke jelly juice jacket '+
+  'kit kid kite key keep kick kind king kiss kitten '+
+  'log lap leaf lamp leg lid lip lot luck lamb lake list lock lion '+
+  'moon mouse map mat mad man men milk mop mud mug mom moss melon '+
+  'net nap nest nose new nod not nut nail near neck need nine noon note '+
+  'off on ox onto orange '+
+  'pan pig pot pup pad paw pay pen pet pie pin pop pack park pick play pond pool '+
+  'queen quilt '+
+  'run red rug rabbit rag rat ray rib rip rod row rain rest ring rock '+
+  'sun sit sock seal sad set six sand seed sick sing soap soft soup '+
+  'top tap tent turtle tag tan ten tin tip toe toy tub tug tall tick toast tree truck '+
+  'up under umbrella '+
+  'van vest vase very voice '+
+  'wolf watch wave web wig wag way wet win wait walk wash week well will wish water '+
+  'box fox mix six '+
+  'yawn yell yum yet yard year your young yours '+
+  'zip zap zoo zero zebra zipper zoom '+
+  'ship sheep shop shark shell shut she shy shed shoe show shade shake share sharp sheet shine shirt short '+
+  'chip chair cheese chin chop chat chew chain chalk chase check cheek cheer chest chick child '+
+  'thumb three thin think thank thick throw thing '+
+  'what when why whale wheel where which while white'
+).trim().split(/\s+/));
+const beginnerWords = new Set(BEGINNER_SOUND_GAME_WORDS);
+export const isBeginnerSoundGameWord = word => beginnerWords.has(word);
+export const isBeginnerSoundGameDifficulty = difficulty => ['easy', 'low'].includes(String(difficulty || 'easy').toLowerCase());
+
 // Extra onset words per grapheme, vetted by hand for this game: 2-6 letters
 // (CLEAN-passing), genuinely starting with the grapheme (hard c/g only, no
 // silent letters like knee/knit, no soft c/g like city/gem), and concrete and
@@ -54,8 +93,8 @@ const EXTRA_WORDS = {
 // sound even though their first printed grapheme matches.
 const TARGET_SOUND_OVERRIDES = Object.freeze({
   a: Object.freeze(["add", "am", "an", "and", "as", "at", "act", "ash", "alley", "ankle", "actor", "angry", "animal", "apple", "attic", "action", "adder", "album", "anchor"]),
-  e: Object.freeze(["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "engine", "empty", "echo", "ember"]),
-  i: Object.freeze(["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"]),
+  e: Object.freeze(["egg", "end", "exit", "ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "engine", "empty", "echo", "ember"]),
+  i: Object.freeze(["ink", "if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"]),
   o: Object.freeze(["odd", "odds", "off", "on", "ox", "oxen", "onto", "offer", "often", "office", "option", "orange", "omelet", "oblong"]),
   c: Object.freeze(["cab", "cat", "can", "cap", "car", "cod", "cop", "cow", "cub", "cut", "cake", "call", "camp", "card", "coat", "cold", "cook", "cool", "corn"]),
   g: Object.freeze(["gas", "get", "got", "guy", "game", "gate", "girl", "give", "glad", "goal", "gold", "golf", "good", "grin", "green", "grow", "grab", "glow", "grape", "grass"]),
@@ -122,12 +161,14 @@ export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty, ran
   const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
 
   const correctPool = wordsStartingWithTargetSound(g);
-  let cp = correctPool.filter(inRange);
-  if (cp.length < 3) cp = correctPool;                 // never starve a small sound
+  const beginner = isBeginnerSoundGameDifficulty(difficulty);
+  const eligibleCorrect = beginner ? correctPool.filter(isBeginnerSoundGameWord) : correctPool;
+  let cp = eligibleCorrect.filter(inRange);
+  if (cp.length < 3) cp = eligibleCorrect;                 // never starve a small sound
   const correct = uniqueSample(cp, count, random);             // distinct, no cycling/repeats
 
   const correctSet = new Set(correct);
-  const distractorPool = ALL_WORDS.filter(w => !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w));
+  const distractorPool = ALL_WORDS.filter(w => (!beginner || isBeginnerSoundGameWord(w)) && !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w));
   let dp = distractorPool.filter(inRange);
   if (dp.length < count) dp = distractorPool;
   const distractors = uniqueSample(dp, count + Math.ceil(count / 2), random); // more, all distinct

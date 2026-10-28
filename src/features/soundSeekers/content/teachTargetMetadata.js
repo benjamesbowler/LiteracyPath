@@ -33,7 +33,7 @@ export const SOUND_SEEKERS_TEACH_TARGETS = Object.freeze({
   c: anchor("cat", ["c", "c"]),
   g: anchor("goat", ["g", "g"]),
   p: anchor("pig", ["p", "p"]),
-  y: anchor("yak", ["y", "y"]),
+  y: anchor("yawn", ["y", "y"]),
   x: anchor("box", ["x", "x"]),
   e: anchor("egg", ["e", "short_e"]),
   v: anchor("van", ["v", "v"]),

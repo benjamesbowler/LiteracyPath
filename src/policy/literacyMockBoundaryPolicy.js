@@ -5,7 +5,7 @@ import { literacyMockProgressionV11, LITERACY_MOCK_V11_AREA_BUDGETS,
   LITERACY_MOCK_V11_MAX_ITEMS, LITERACY_MOCK_V11_AREA_VERSION } from './literacyMockProgressionV11.js';
 
 export function literacyMockBoundaryLimits(version) {
-  return version === 'literacy-mock-v11'
+  return ['literacy-mock-v11','literacy-mock-v12'].includes(version)
     ? { budgets: LITERACY_MOCK_V11_AREA_BUDGETS, maximum: LITERACY_MOCK_V11_MAX_ITEMS, areaVersion: LITERACY_MOCK_V11_AREA_VERSION }
     : { budgets: LITERACY_MOCK_V9_AREA_BUDGETS, maximum: LITERACY_MOCK_V9_MAX_ITEMS, areaVersion: LITERACY_MOCK_V9_AREA_VERSION };
 }
@@ -17,12 +17,12 @@ export function literacyMockBoundaryVersion(rows = [], { bank, contentVersion } 
     || rows.find(row => row.contentVersion)?.contentVersion;
 }
 export function literacyMockBoundaryState(rows = [], options = {}) {
-  return literacyMockBoundaryVersion(rows, options) === 'literacy-mock-v11'
+  return ['literacy-mock-v11','literacy-mock-v12'].includes(literacyMockBoundaryVersion(rows, options))
     ? literacyMockProgressionV11(rows, options) : literacyMockBoundaryStateV9(rows, options);
 }
 export function literacyMockBoundarySchedule(rows = [], options = {}) {
   const version = literacyMockBoundaryVersion(rows, options);
-  if (version !== 'literacy-mock-v11') return literacyMockBoundaryScheduleV9(rows, options);
+  if (!['literacy-mock-v11','literacy-mock-v12'].includes(version)) return literacyMockBoundaryScheduleV9(rows, options);
   const byId = options.bank instanceof Map ? options.bank : new Map((options.bank || []).map(item => [item.id,item]));
   const prefix = rows.filter(row => row.responseStatus !== 'media_failed').map(row => (byId.get(row.questionId) || row.itemSnapshot || row.questionSnapshot || row).domainId);
   const {budgets,maximum} = literacyMockBoundaryLimits(version);
@@ -45,6 +45,6 @@ export function literacyMockBoundarySchedule(rows = [], options = {}) {
 // a response. The next unseen item alone is replaced by the observed demand.
 export function literacyMockBoundaryPlaceholderBand(version,domain,ordinal){
  if(domain==='print')return ordinal>5?2:0;
- if(version!=='literacy-mock-v11')return 0;
+ if(!['literacy-mock-v11','literacy-mock-v12'].includes(version))return 0;
  return Math.min(LITERACY_MOCK_AREA_MAX[domain],ordinal<=3?0:1+Math.floor((ordinal-4)/2));
 }

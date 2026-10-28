@@ -99,8 +99,8 @@ const bank = {
     // ---------------- a (phase 1)
     fs("a", 1, 1, 1, "apple", ["a", "e", "o", "l"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
     fs("a", 1, 1, 2, "ant", ["a", "e", "o", "t"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
-    ps("a", 1, 1, 3, "ant", ["apple", "egg", "igloo", "umbrella"], "apple",
-      { egg: "D-VOWEL", igloo: "D-VOWEL", umbrella: "D-VOWEL" }),
+    ps("a", 1, 1, 3, "ant", ["apple", "egg", "orange", "umbrella"], "apple",
+      { egg: "D-VOWEL", orange: "D-VOWEL", umbrella: "D-VOWEL" }),
     fs("a", 2, 1, 1, "astronaut", ["a", "u", "o", "t"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
     fs("a", 2, 1, 2, "apple", ["a", "e", "i", "l"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
     ps("a", 2, 1, 3, "apple", ["ant", "egg", "igloo", "umbrella"], "ant",
@@ -144,9 +144,9 @@ const bank = {
 
     // ---------------- e (phase 1)
     fs("e", 1, 1, 1, "egg", ["e", "i", "c", "g"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    fs("e", 1, 1, 2, "engine", ["e", "i", "c", "n"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    ps("e", 1, 1, 3, "egg", ["elbow", "apple", "igloo", "octopus"], "elbow",
-      { apple: "D-VOWEL", igloo: "D-VOWEL", octopus: "D-VOWEL" }),
+    fs("e", 1, 1, 2, "elbow", ["e", "i", "c", "l"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"]),
+    ps("e", 1, 1, 3, "egg", ["elbow", "apple", "umbrella", "orange"], "elbow",
+      { apple: "D-VOWEL", umbrella: "D-VOWEL", orange: "D-VOWEL" }),
     fs("e", 2, 1, 1, "elephant", ["e", "i", "c", "t"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     fs("e", 2, 1, 2, "elbow", ["e", "i", "c", "w"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"]),
     ps("e", 2, 1, 3, "engine", ["egg", "ant", "igloo", "octopus"], "egg",
@@ -189,10 +189,9 @@ const bank = {
       "breathy panel: /h/ key against three /f/ starters"),
 
     // ---------------- i (phase 1)
-    fs("i", 1, 1, 1, "igloo", ["i", "e", "l", "o"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"]),
-    fs("i", 1, 1, 2, "ink", ["i", "e", "l", "k"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    ps("i", 1, 1, 3, "ink", ["igloo", "egg", "apple", "octopus"], "igloo",
-      { egg: "D-VOWEL", apple: "D-VOWEL", octopus: "D-VOWEL" }),
+    heard("i", 1, 1, 1, "in", ["i", "e", "l", "n"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    heard("i", 1, 1, 2, "is", ["i", "e", "l", "z"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    heard("i", 1, 1, 3, "it", ["i", "a", "e", "t"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
     heard("i", 2, 1, 1, "insect", ["i", "e", "j", "t"], ["D-VOWEL", "D-DEVELOPMENTAL", "D-POSITION"]),
     fs("i", 2, 1, 2, "iguana", ["i", "e", "o", "n"], ["D-VOWEL", "D-VOWEL", "D-DEVELOPMENTAL"]),
     ps("i", 2, 1, 3, "inside", ["igloo", "egg", "apple", "orange"], "igloo",
@@ -201,7 +200,7 @@ const bank = {
     // ---------------- j (phase 1) — g never appears (it can spell /dʒ/)
     heard("j", 1, 1, 1, "jet", ["j", "y", "i", "t"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     fs("j", 1, 1, 2, "jam", ["j", "y", "i", "m"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    ps("j", 1, 1, 3, "jet", ["jellyfish", "drum", "chick", "mug"], "jellyfish",
+    ps("j", 1, 1, 3, "jet", ["jam", "drum", "chick", "mug"], "jam",
       { drum: "D-ONSET", chick: "D-ONSET", mug: "D-RIME-NEAR" },
       "chick begins with the voiceless /tʃ/ neighbour; mug shares the short vowel"),
     fs("j", 2, 1, 1, "jacket", ["j", "d", "i", "t"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
@@ -260,9 +259,8 @@ const bank = {
       "nasal panel: /n/ key against three /m/ starters"),
 
     // ---------------- o (phase 2)
-    fs("o", 1, 2, 1, "octopus", ["o", "u", "c", "s"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    heard("o", 1, 2, 1, "on", ["o", "e", "c", "n"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     fs("o", 1, 2, 2, "orange", ["o", "u", "c", "n"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"]),
-    heard("o", 1, 2, 3, "ox", ["o", "u", "a", "s"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
     fs("o", 2, 2, 1, "octopus", ["o", "u", "e", "s"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
     fs("o", 2, 2, 2, "orange", ["o", "a", "u", "e"], ["D-VOWEL", "D-VOWEL", "D-DEVELOPMENTAL"]),
     heard("o", 2, 2, 3, "on", ["o", "a", "i", "n"], ["D-VOWEL", "D-VOWEL", "D-POSITION"]),
@@ -317,9 +315,9 @@ const bank = {
 
     // ---------------- u (phase 2)
     fs("u", 1, 2, 1, "umbrella", ["u", "o", "n", "a"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    fs("u", 1, 2, 2, "underpants", ["u", "o", "n", "s"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    ps("u", 1, 2, 3, "up", ["umbrella", "ant", "engine", "igloo"], "umbrella",
-      { ant: "D-VOWEL", engine: "D-VOWEL", igloo: "D-VOWEL" }),
+    heard("u", 1, 2, 2, "up", ["u", "o", "n", "p"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    ps("u", 1, 2, 3, "up", ["umbrella", "ant", "elbow", "orange"], "umbrella",
+      { ant: "D-VOWEL", elbow: "D-VOWEL", orange: "D-VOWEL" }),
     fs("u", 2, 2, 1, "undershirt", ["u", "o", "n", "t"], ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     heard("u", 2, 2, 2, "under", ["u", "a", "i", "e"]),
     heard("u", 2, 2, 3, "upstairs", ["u", "i", "e", "o"]),
@@ -338,7 +336,7 @@ const bank = {
 
     // ---------------- w (phase 2)
     fs("w", 1, 2, 1, "web", ["w", "v", "m", "b"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    fs("w", 1, 2, 2, "wasp", ["w", "v", "u", "p"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    fs("w", 1, 2, 2, "watch", ["w", "v", "u", "t"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"]),
     ps("w", 1, 2, 3, "web", ["window", "vase", "mop", "net"], "window",
       { vase: "D-ONSET", mop: "D-VISUAL-NEIGHBOR", net: "D-SEMANTIC" },
       "a net looks and works like a web — semantic pull with a different onset"),
@@ -371,7 +369,7 @@ const bank = {
 
     // Additional unseen anchors complete two eight-item retention sittings.
     { ...heard("d", 1, 1, 20, "dig", ["d", "t", "p", "g"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
-    { ...heard("f", 1, 1, 20, "fig", ["f", "v", "t", "g"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
+    { ...heard("f", 1, 1, 20, "fun", ["f", "v", "s", "n"], ["D-ONSET", "D-ONSET", "D-POSITION"]), retention: true },
     { ...heard("p", 1, 2, 20, "pet", ["p", "b", "q", "t"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
     { ...heard("l", 1, 1, 20, "leaf", ["l", "r", "i", "f"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
     { ...heard("h", 2, 1, 20, "headphones", ["h", "f", "n", "z"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },

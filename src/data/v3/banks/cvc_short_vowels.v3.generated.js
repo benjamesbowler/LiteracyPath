@@ -4800,16 +4800,16 @@ export const questions = [
   "question": "Which word names the picture?",
   "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "bog",
+   "bus",
    "bug",
    "bag",
    "big"
   ],
   "answerOptions": [
    {
-    "value": "bog",
-    "label": "bog",
-    "text": "bog"
+    "value": "bus",
+    "label": "bus",
+    "text": "bus"
    },
    {
     "value": "bug",
@@ -4832,7 +4832,7 @@ export const questions = [
   "distractorRationales": {
    "bag": "D-VOWEL",
    "big": "D-VOWEL",
-   "bog": "D-VOWEL"
+   "bus": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,

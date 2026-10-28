@@ -535,6 +535,7 @@ export const PRONUNCIATION_CORPUS_RECORD_IDS = Object.freeze([
   "work",
   "would",
   "yak",
+  "yawn",
   "year",
   "yes",
   "you",
@@ -543,5 +544,5 @@ export const PRONUNCIATION_CORPUS_RECORD_IDS = Object.freeze([
   "zap",
   "zip"
 ]);
-export const PRONUNCIATION_CORPUS_CONTENT_HASH = "e1fe7ad102b23013afe91e27280ae92c045df776a2cb53320ec8a44f754747cb";
+export const PRONUNCIATION_CORPUS_CONTENT_HASH = "d9263f84766c2ec2fea06a159424582d20d3a665a1b96cdd2a436695078b9479";
 export const PRONUNCIATION_CORPUS_RECORD_COUNT = PRONUNCIATION_CORPUS_RECORD_IDS.length;

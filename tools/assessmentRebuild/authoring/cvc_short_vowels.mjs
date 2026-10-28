@@ -178,7 +178,7 @@ const bank = {
     mv("short_u", 1, 2, 1, "bug", "b_g", ["u", "a", "i", "o"],
       "b-a-g and b-i-g are real words — the bug image pins the target"),
     mv("short_u", 1, 2, 2, "sun", "s_n", ["u", "o", "i", "a"]),
-    pp("short_u", 1, 2, 3, "bug", ["bug", "bag", "big", "bog"], {}),
+    pp("short_u", 1, 2, 3, "bug", ["bug", "bag", "big", "bus"], {}),
     pp("short_u", 1, 2, 4, "nut", ["nut", "net", "not", "mat"],
       { net: "D-VOWEL", not: "D-VOWEL", mat: "D-RIME-NEAR" }),
     svw("short_u", 1, 2, 5, "u", ["bug", "cube", "bag", "big"], "bug",

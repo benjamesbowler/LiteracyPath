@@ -109,6 +109,15 @@ saved round retains its original options, IDs, private key, mistakes, assistance
 and evidence, including earlier two-choice auditory rounds. Resuming or refreshing
 teaching media never regenerates a saved question or rewrites historical responses.
 
+The October 28 beginner vocabulary review changes the spoken /y/ teaching anchor
+from yak to yawn. Its existing recorded word and inspected yawning picture support
+the oral introduction; the action scene is not admitted to clean-object answer
+cards, and the anchor does not claim independently decodable status. Its explicit
+pronunciation matches the pinned CMU reference. The former yak pronunciation and
+meaning remain resolvable for historical teaching records. Familiar oral anchors
+must not depend on niche vocabulary merely to illustrate an easy initial sound;
+later explicitly taught vocabulary keeps its declared curriculum scope.
+
 ## Art, audio and access
 
 The approved Blender Bouncy is the golden spring-legged lamb. Bouncy, Woolly,

@@ -65,7 +65,9 @@ there are no drag, timing, steering or typing requirements.
   Cycle 1 offers Letter Find once and omits Missing Letters until a CVC word
   is taught. Older Cycle 1 `build` links still open Letter Find. The shared
   picture pool retains the programme's exclusions for ambiguous or unsuitable
-  basic picture labels; the existing spoken, illustrated yawn example keeps Y
+  basic picture labels, including unfamiliar names such as vulture, narwhal,
+  quiver and thimble. The shared filter covers targets and every picture
+  distractor; the existing spoken, illustrated yawn example keeps Y
   picture review available alongside yo-yo. CVC pictures are pinned to reviewed,
   text-free artwork so they do not
   print the answer. A containing letter does not establish a word's initial

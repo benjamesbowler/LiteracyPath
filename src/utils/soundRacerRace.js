@@ -1,5 +1,5 @@
 import { buildTrack, soundRacerLadder } from './soundRacerTracks.js';
-import { wordsStartingWithTargetSound } from './rocketRunRounds.js';
+import { wordsStartingWithTargetSound, isBeginnerSoundGameDifficulty, isBeginnerSoundGameWord } from './rocketRunRounds.js';
 import { onsetGrapheme, sharesSound } from '../components/elQuest/elQuestEngine.js';
 import { getLedaWordAudioPath } from '../data/ledaProductionAudio.js';
 import { AUDIO_QUEST_PATHS } from '../data/generated/audioQuestPaths.generated.js';
@@ -22,9 +22,10 @@ export function buildSoundRacerRace(target, options = {}) {
   const variants = Array.from({ length: 3 }, (_, index) => index === 0 ? circuit
     : buildTrack(target, { ...options, seed: `${options.seed ?? 0}:race:${index}` }));
   const band = { easy: [2, 4], low: [2, 4], medium: [3, 5], mid: [3, 5], hard: [4, 6], high: [4, 6] }[options.difficulty] || [2, 4];
-  const reviewed = wordsStartingWithTargetSound(target).filter(word => word.length >= band[0] && word.length <= band[1] && hasReleasedWord(word));
+  const beginner = isBeginnerSoundGameDifficulty(options.difficulty || 'easy');
+  const reviewed = wordsStartingWithTargetSound(target).filter(word => (!beginner || isBeginnerSoundGameWord(word)) && word.length >= band[0] && word.length <= band[1] && hasReleasedWord(word));
   const correct = [...new Set([...circuit.gates.filter(gate => gate.correct).map(gate => gate.word), ...reviewed])].filter(word => reviewed.includes(word)).slice(0, 18);
-  const distractors = releasedRaceVocabulary().filter(word => word.length >= band[0] && word.length <= band[1] && !sharesSound(onsetGrapheme(word), target));
+  const distractors = releasedRaceVocabulary().filter(word => (!beginner || isBeginnerSoundGameWord(word)) && word.length >= band[0] && word.length <= band[1] && !sharesSound(onsetGrapheme(word), target));
   if (correct.length < 9 || distractors.length < 12) throw new Error(`Sound Racer lacks recorded race vocabulary for ${target}`);
   const laps = 3;
   let wordIndex = 0, distractorIndex = 0;

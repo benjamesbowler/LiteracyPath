@@ -97,6 +97,7 @@ const EXPLICIT = Object.freeze({
   egg: [["e", "short_e", "regular"], ["gg", "g", "regular"]],
   web: [["w", "w", "regular"], ["e", "short_e", "regular"], ["b", "b", "regular"]],
   queen: [["qu", "qu", "regular"], ["ee", "ee", "regular"], ["n", "n", "regular"]],
+  yawn: [["y", "y", "regular"], ["aw", "aw", "regular"], ["n", "n", "regular"]],
   yak: [["y", "y", "regular"], ["a", "short_a", "regular"], ["k", "k", "regular"]],
 
   i: [["i", "i_e", "irregular"]],
@@ -261,6 +262,7 @@ const MEANING_HINTS = Object.freeze({
   egg: ["noun", "An oval object laid by a bird."],
   web: ["noun", "Silk threads spun by a spider."],
   queen: ["noun", "A woman who rules a kingdom."],
+  yawn: ["verb", "Open your mouth wide and take a breath when you feel tired."],
   yak: ["noun", "A large shaggy animal with horns."],
 
   ship: ["noun", "A large boat that carries people or things across water."],
@@ -881,7 +883,9 @@ function meaningIdFor(word) {
 }
 
 function buildCorpus() {
-  const entries = new Map();
+  // Retain the former oral anchor for saved teaching records. It is not in
+  // the current introductions or independently decodable practice inventory.
+  const entries = new Map([['yak', { word: 'yak', taughtAt: new Set(['s5']), decodable: false, heartWord: false, connectedText: false, oralAnchor: true }]]);
   for (const stop of QUEST_STOPS) {
     const story = storyTokens(stop);
     for (const value of [...stop.words, ...stop.heartWords, ...story]) {

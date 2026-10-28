@@ -12,6 +12,8 @@ import { AUDIO_FILE_PATHS } from "../../src/data/generated/audioFilePaths.genera
 import { getPreferredPhonemeAudioPath } from "../../src/data/phonemeAudioBank.js";
 import {
   rocketRunTargets,
+  wordsStartingWithTargetSound,
+  isBeginnerSoundGameWord,
   wordStartsWithTargetSound
 } from "../../src/utils/rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
@@ -86,22 +88,24 @@ test("every track has ≥ needed correct gates and is winnable", () => {
 });
 
 // 2. Every starting track asks for 10 unique correct words with no repeated word gates
-test("every track starts with 10 unique correct words and no repeated word gates", () => {
+test("live tracks keep ten targets; sparse optional easy sounds never pad with unfamiliar words", () => {
   for (const g of TEST_TARGETS) {
     for (const d of ["easy", "medium", "hard"]) {
       const track = buildTrack(g, { difficulty: d, seed: 7 });
       const correctWords = track.gates.filter(gate => gate.correct).map(gate => gate.word);
       const wordGates = track.gates.filter(gate => gate.kind === "word").map(gate => gate.word);
 
-      assert.equal(track.needed, 10, `${g}/${d}: expected 10 needed words`);
-      assert.equal(correctWords.length, 10, `${g}/${d}: expected 10 correct word gates`);
-      assert.equal(new Set(correctWords).size, 10, `${g}/${d}: correct word repeated`);
+      const expected = d === 'easy' ? Math.min(10, wordsStartingWithTargetSound(g).filter(isBeginnerSoundGameWord).length) : 10;
+      assert.equal(track.needed, expected, `${g}/${d}: exact eligible target count`);
+      assert.equal(correctWords.length, expected, `${g}/${d}: expected correct word gates`);
+      assert.equal(new Set(correctWords).size, expected, `${g}/${d}: correct word repeated`);
+      if (soundRacerLadder(d).includes(g)) assert.equal(expected, 10, `${g}/${d}: live outing retains ten targets`);
       assert.equal(new Set(wordGates).size, wordGates.length, `${g}/${d}: starting track reused a word`);
     }
   }
 });
 
-test("every correct word stays inside its difficulty length band", () => {
+test("easy uses familiar words; harder words stay inside their difficulty length band", () => {
   const ranges = { easy: [2, 4], medium: [3, 5], hard: [4, 6] };
   for (const [difficulty, [min, max]] of Object.entries(ranges)) {
     for (const g of soundRacerLadder(difficulty)) {
@@ -111,7 +115,7 @@ test("every correct word stays inside its difficulty length band", () => {
           .map(gate => gate.word);
         assert.equal(correctWords.length, 10, `${g}/${difficulty}/${seed} must have ten targets`);
         assert.ok(
-          correctWords.every(word => word.length >= min && word.length <= max),
+          correctWords.every(word => difficulty === "easy" ? isBeginnerSoundGameWord(word) : word.length >= min && word.length <= max),
           `${g}/${difficulty}/${seed} left the ${min}-${max} letter band: ${correctWords.join(", ")}`
         );
       }

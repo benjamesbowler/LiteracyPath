@@ -6,20 +6,20 @@ import { getChildWordAsset } from '../../src/data/childAssets.js';
 import { CAMPAIGN_MISSIONS } from '../../src/features/soundSeekers/v3/content/campaign.js';
 import { buildCampaignMission,createCampaignBeatState,resolveCampaignAction } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
 import { buildSignpost,DOMAINS,MECHANICS,publicBeat } from '../../src/features/soundSeekers/v3/engine/challenges.js';
-import { targetInfo,wordImage } from '../../src/features/soundSeekers/v3/engine/lexicon.js';
+import { targetInfo,teachingAnchorImage } from '../../src/features/soundSeekers/v3/engine/lexicon.js';
 import { soundPictureCue } from '../../src/features/soundSeekers/v3/engine/campaignSoundPictures.js';
 
 const progress={targets:Object.fromEntries(QUEST_STOPS.flatMap(stop=>stop.teach.map(target=>[target.id,{taught:true}])))};
 const journeys=CAMPAIGN_MISSIONS.map(mission=>buildCampaignMission(mission,progress));
 const opening=journeys[0].beats;
 
-test('every campaign sound picture uses its exact canonical target and existing clean media',()=>{
+test('every campaign sound picture uses its exact canonical target and existing reviewed teaching media',()=>{
   for(const {beats}of journeys)for(const beat of beats){
     const before=structuredClone(beat),cue=soundPictureCue(beat);
     assert.deepEqual(beat,before);
     const eligible=beat.mechanic===MECHANICS.SIGNPOST||beat.mechanic===MECHANICS.ECHO_HUNT&&[DOMAINS.P2G,DOMAINS.G2P].includes(beat.domain);
     if(!eligible){assert.equal(cue,null,beat.id);continue;}
-    const targetId=beat.mechanic===MECHANICS.SIGNPOST?beat.targetIds[0]:beat.key.optionTargets[beat.key.optionId],info=targetInfo(targetId),image=wordImage(info.anchorWord);
+    const targetId=beat.mechanic===MECHANICS.SIGNPOST?beat.targetIds[0]:beat.key.optionTargets[beat.key.optionId],info=targetInfo(targetId),image=teachingAnchorImage(info.anchorWord);
     if(!image){assert.equal(cue,null,`${beat.id}: unsuitable anchor must be omitted`);continue;}
     assert.deepEqual(cue,{targetId,grapheme:info.grapheme,word:info.anchorWord,image,audio:getChildWordAsset(info.anchorWord).audio});
     for(const src of [cue.image,cue.audio])assert.ok(src&&existsSync(new URL(`../../public${src}`,import.meta.url)),`${beat.id}: ${src}`);

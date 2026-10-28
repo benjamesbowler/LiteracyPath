@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { loadLiteracyInteractionBank, listLiteracyInteractionAudioGaps } from '../../src/data/literacyInteractionBank.js';
+import { loadLiteracyReferenceBank } from '../../src/data/literacyReferenceBank.js';
 import { loadLiteracyPracticeBank, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
 import { placeMapTile, mapPracticeResponse, mapPracticeAnswerLabel } from '../../src/utils/mapPracticeResponse.js';
 import { collectAssessmentEvidenceImages } from '../../src/policy/assessmentMediaEvidence.js';
@@ -90,9 +91,19 @@ test('moving a tile preserves unique instances, swaps placed tiles and replaces 
 test('public loader includes interactions while the published mock source excludes them', async () => {
   const publicBank = await loadLiteracyPracticeBank();
   const canonical = await loadLiteracyPracticeBank({includeReference:false});
-  assert.equal(publicBank.length, 4134);
-  assert.equal(canonical.length,3916);
-  assert.ok(bank.filter(q=>!q.retiredFromNewPractice).every(q => publicBank.some(row=>row.id===q.id)));
+  assert.equal(publicBank.length,4130);
+  assert.equal(canonical.length,3912);
+  const activeInteractions = bank.filter(q => !q.retiredFromNewPractice);
+  const reference = loadLiteracyReferenceBank();
+  const expectedIds = [...canonical, ...reference, ...activeInteractions].map(q => q.id).sort();
+  const actualIds = publicBank.map(q => q.id).sort();
+  // Authoring may retire duplicate or unsuitable canonical items. The loader
+  // must still expose the complete canonical + reference + interaction union.
+  assert.equal(new Set(expectedIds).size, expectedIds.length);
+  assert.equal(new Set(actualIds).size, actualIds.length);
+  assert.deepEqual(actualIds, expectedIds);
+  assert.equal(reference.length,148);
+  assert.equal(activeInteractions.length,70);
   assert.ok(canonical.every(q=>!q.mapInteraction));
 });
 test('40-question routing samples new forms within each strand and preserves local error response', async () => {

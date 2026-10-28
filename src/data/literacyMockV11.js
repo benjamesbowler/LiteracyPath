@@ -1,4 +1,5 @@
 import {buildLiteracyMockActionCapacityV11} from './literacyMockActionCapacityV11.js';
+import {retainPublishedV11Audio} from './literacyMockV11AudioHistory.js';
 import {buildLiteracyMockWritingCapacityV11} from './literacyMockWritingCapacityV11.js';
 import {LITERACY_MOCK_V11_LADDERS} from '../policy/literacyMockDemandV11.js';
 import {buildLiteracyMockEverydayCapacityV11} from './literacyMockEverydayCapacityV11.js';
@@ -25,5 +26,5 @@ export function buildLiteracyMockV11(base,normalize){
   const snapshot={...item,contentVersion:'literacy-mock-v11',adaptiveAreaVersion:LITERACY_MOCK_V11_AREA_VERSION,adaptiveMixedEligible:true,adaptiveDemand:LITERACY_MOCK_V11_LADDERS[item.domainId][item.adaptiveAreaBand]};delete snapshot.itemSnapshot;return {...snapshot,itemSnapshot:{...snapshot}};
  }));
  if(new Set(result.map(item=>item.id)).size!==result.length)throw Error('Duplicate V11 question identity.');
- return result;
+ return retainPublishedV11Audio(result);
 }

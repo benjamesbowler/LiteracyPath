@@ -1,6 +1,6 @@
 import { gameRandom, replayWithinBands } from './gameReplay.js';
 import { buildRocketRunRound, rocketRunLadder, ROCKET_RUN_LEVELS, wordsStartingWithTargetSound,
-  wordStartsWithTargetSound } from './rocketRunRounds.js';
+  wordStartsWithTargetSound, isBeginnerSoundGameDifficulty, isBeginnerSoundGameWord } from './rocketRunRounds.js';
 import { onsetGrapheme, sharesSound } from '../components/elQuest/elQuestEngine.js';
 import { getLedaWordAudioPath } from '../data/ledaProductionAudio.js';
 import { rocketCourierOnsetCue } from './rocketRunTeachingCue.js';
@@ -38,7 +38,7 @@ export function repairRocketV2RecordedSlots(bank, difficulty) {
   const sequence = bank.sequence.map((row, ordinal) => {
     if (!UNRECORDED_INCOMING_WORDS.has(row.word)) return { ...row };
     const onset = row.correct ? bank.targetGrapheme : rocketCourierOnsetCue(row.word);
-    const pool = rocketV2RecordedOnsetPool(onset);
+    const pool = rocketV2RecordedOnsetPool(onset).filter(word => !isBeginnerSoundGameDifficulty(difficulty) || isBeginnerSoundGameWord(word));
     // Preserve the shared builder's explicit small-pool fallback (e.g. easy
     // th), where the original choice bank already contains longer words.
     const originalInBand = wordsStartingWithTargetSound(onset).filter(inRange);

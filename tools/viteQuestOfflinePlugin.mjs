@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { PRODUCT_NAME } from "../src/data/teacherBrand.js";
+import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from "../src/policy/literacyMockVersions.js";
 import { CAMPAIGN_OFFLINE_AUDIO_PREFIXES } from "../src/features/soundSeekers/rounded/campaignAudioCatalog.js";
 
 function collectChunkClosure(bundle, seeds, { includeDynamic = false } = {}) {
@@ -309,15 +310,19 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
         const styles=chunkStyles(closure);
         return [...closure,...styles,...assessmentFonts(bundle,styles)].map(fileName=>`/${fileName}`).sort();
       };
-      const mockAssets=mockPack(moduleRoots(/\/literacyMockRuntimeV11\.generated\.js$/));
-      const mockMixedByVersion={"literacy-mock-v10":mockPack(moduleRoots(/\/literacyMockRuntimeV10\.generated\.js$/)),"literacy-mock-v11":mockAssets};
+      const mockVersionNumber=version=>Number(version.replace('literacy-mock-v',''));
+      const mockRuntimeRoots=version=>moduleRoots(new RegExp(`/literacyMockRuntimeV${mockVersionNumber(version)}\\.generated\\.js$`));
+      const mockAssets=mockPack(mockRuntimeRoots(LITERACY_MOCK_VERSION));
+      const mockMixedByVersion=Object.fromEntries(LITERACY_MOCK_VERSIONS
+        .filter(version=>mockVersionNumber(version)>=10)
+        .map(version=>[version,mockPack(mockRuntimeRoots(version))]));
       // Current mixed sittings never download historical publications or the
       // full authoring graph. Older sessions and exact-task fresh checks keep
       // their own complete executable closure, including their frozen bank.
       const legacyRoots=moduleRoots(/\/literacyMockBank\.js$/);
-      const mockByVersion=Object.fromEntries(Array.from({length:11},(_,index)=>{
-        const version=index+1;
-        return [`literacy-mock-v${version}`,mockPack([...legacyRoots,...(version<=3
+      const mockByVersion=Object.fromEntries(LITERACY_MOCK_VERSIONS.map(contentVersion=>{
+        const version=mockVersionNumber(contentVersion);
+        return [contentVersion,mockPack([...legacyRoots,...(version<=3
           ? moduleRoots(new RegExp(`/literacyMockV${version}\\.generated\\.js$`)):[])])];
       }));
       const selected = new Set([...selectedChunks].map(fileName => `/${fileName}`));
@@ -365,7 +370,7 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
           questMediaPolicy: "cache-while-revalidate",
           updatePolicy: "activate-after-existing-clients-close",
           questExecutable,
-          mockExecutable:{contentVersion:"literacy-mock-v11",planKind:"mixed",assets:mockAssets,byVersion:mockByVersion,mixedByVersion:mockMixedByVersion}
+          mockExecutable:{contentVersion:LITERACY_MOCK_VERSION,planKind:"mixed",assets:mockAssets,byVersion:mockByVersion,mixedByVersion:mockMixedByVersion}
         }, null, 2)}\n`
       });
       this.emitFile({ type: "asset", fileName: "sw.js", source: serviceWorkerSource({ buildId, precache, questAssets, mockAssets }) });

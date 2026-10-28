@@ -118,7 +118,7 @@ immediately. Missing review metadata is not a publication queue.
 ## Product plans
 
 - [MAP preparation sources and historical evidence](product/MAP_PREPARATION.md) — retired standalone practice/rehearsal entry; preserves authored content provenance and historical exposure/reporting contracts. New MAP work uses the full teacher-launched Mock MAP below.
-- [Teacher-controlled Adaptive Literacy Test](product/LITERACY_MOCK_SESSIONS.md) — V11 class/individual sittings use gradual independent progression in all eight areas, four-choice questions and a two-second narration pause, with a 124-answer bound; V1–V10 history stays immutable.
+- [Teacher-controlled Adaptive Literacy Test](product/LITERACY_MOCK_SESSIONS.md) — V12 adds reviewed familiar beginner vocabulary and fresh simple questions; class/individual sittings retain gradual independent progression in all eight areas, four choices, a two-second narration pause and a 124-answer bound. V1–V11 history stays immutable.
 - [Actual task-demand ladder](product/LITERACY_MOCK_DEMAND_LADDER.md) — V11 operations, repeated-success thresholds, corrected material and admission rules in all eight areas; explicit boundaries and uncertainty describe the observed tasks without calibrated-score claims.
 - [Literacy mock illustration provenance](../source-art/assessment/literacy-mock/provenance.json) — exact original prompt, preserved source identity, WebP delivery hash and 23-object cell mapping.
 - [Adaptive progress checks](product/PROGRESS_CHECKS.md) — implemented separate literacy tracks, correctness-adaptive ordinal routing, scoped saved evidence and descriptive reports. The [design proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future calibration and pilot work.

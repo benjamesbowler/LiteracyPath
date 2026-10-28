@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { LITERACY_MOCK_RUNTIME_V11 as bank } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
+import { LITERACY_MOCK_RUNTIME_V12 as bank } from '../../src/data/generated/literacyMockRuntimeV12.generated.js';
 import { createWholeClassMockSession } from '../../src/components/teacher/wholeClassPracticeModel.js';
 import { literacyMockNarrationCues } from '../../src/utils/literacyMockNarration.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
@@ -41,7 +41,7 @@ for(const area of ['sound_awareness','phonics','print','vocabulary','listening',
   const item=await openPractice(page,area);
   await expect(page.getByRole('button',{name:'Listen to the question',exact:true})).toBeVisible();
   await expect(page.locator('.whole-class-teacher-script')).toHaveCount(0);
-  if(area==='sound_awareness')await expect(page.locator('[data-child-instruction]')).toHaveText('Which word has the same starting sound as web?');
+  if(area==='sound_awareness')await expect(page.locator('[data-child-instruction]')).toHaveText(`Which word has the same starting sound as ${item.targetWord}?`);
   await page.locator('.literacy-mock-choice').first().click();
   if(item.format==='match')await page.locator('.literacy-mock-slot').first().click();
   await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeDisabled();
