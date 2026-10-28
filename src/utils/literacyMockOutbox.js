@@ -73,7 +73,7 @@ export function projectMockMutation(run, request, { item, isCorrect, occurredAt 
   }
   if (request.expectedRevision !== next.revision) throw new Error('Invalid local revision');
   if (request.plan) {
-    const variable = ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(next.contentVersion);
+    const variable = ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(next.contentVersion);
     if (request.plan.seed !== next.plan.seed || !Array.isArray(request.plan.itemIds)
       || (variable ? request.plan.itemIds.length < next.responses.length || request.plan.itemIds.length > literacyMockBoundaryLimits(next.contentVersion).maximum
         || next.status === 'completed' && request.plan.itemIds.length !== next.plan.itemIds.length : request.plan.itemIds.length !== next.plan.itemIds.length)
@@ -120,7 +120,7 @@ export function appendMockOutbox(value, request, projectionOptions, storage) {
 
 export function prepareMockDelivery(value, { batchId, collectionId = null }, storage) {
   if (value.delivery) return value;
-  const requests=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
+  const requests=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
   const complete=requests.length===value.requests.length;
   // This is the receipt watermark for the sent prefix. The full local sitting
   // stays intact until every chunk has its own canonical acknowledgement.

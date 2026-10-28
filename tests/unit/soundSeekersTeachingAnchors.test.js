@@ -15,6 +15,7 @@ test('initial teaching examples start with the taught sound and have real pictur
   for(const path of [card.anchorImage,card.anchorAudio,card.phonemeAudio])assert.ok(path&&fs.existsSync(new URL(`../../public${path}`,import.meta.url)),`${id}: ${path}`);
   assert.match(beat.prompt.text,/starts with/);
  }
+ assert.equal(SOUND_SEEKERS_TEACH_TARGETS.y.word,'yawn');
  assert.equal(SOUND_SEEKERS_TEACH_TARGETS.m.word,'map');assert.equal(SOUND_SEEKERS_TEACH_TARGETS.x.word,'box');assert.ok(!INITIAL_SOUND_TARGET_IDS.includes('x'));
 });
 
@@ -25,7 +26,7 @@ test('old saved teaching scenes refresh ham to map without rebuilding any scored
 });
 
 test('teaching-only anchor additions cannot claim decodable-bank status',()=>{
- for(const word of ['map','top','sun','dog','insect','ox','umbrella','egg','web','queen','yak']){
+ for(const word of ['map','top','sun','dog','insect','ox','umbrella','egg','web','queen','yak','yawn']){
   const r=getPronunciation(word);assert.ok(r.tags.includes('oral-teaching-anchor'));assert.ok(!r.tags.includes('decodable'));
  }
 });

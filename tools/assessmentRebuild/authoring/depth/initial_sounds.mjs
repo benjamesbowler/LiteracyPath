@@ -2,7 +2,7 @@ import { author, key as K, wrong as W } from "./builders.mjs";
 // New spoken vocabulary for every onset at both levels. The second target is
 // longer or has stronger competing sounds; print never displays either word.
 const targets = [
- ["a","axe","alligator",["e","o","s"],["i","g","l"]],
+ ["a","at","alligator",["i","o","t"],["i","g","l"]],
  ["b","bat","basketball",["p","a","t"],["p","s","l"]],
  ["c","cup","cucumber",["g","u","p"],["g","m","b"]],
  ["d","dot","dragon",["b","o","t"],["t","r","g"]],

@@ -1,5 +1,6 @@
 import { literacyV9ReviewedRhymeIssue, LITERACY_V9_RHYME_QUARANTINE } from './literacyMockRhymeDemandReview.js';
 import { literacyV9ReviewedTransformationIssue, LITERACY_V9_TRANSFORMATION_QUARANTINE, LITERACY_V9_LOWER_SOUND_QUARANTINE } from './literacyMockTransformationDemandReview.js';
+import { literacyMockBeginnerVocabularyIssue } from './literacyMockBeginnerVocabulary.js';
 
 // Selection quarantine only. Published questions, saved answers and their keys
 // remain immutable; reporting applies this defect separately from child errors.
@@ -73,7 +74,7 @@ export function literacyItemQualityIssue(value = {}) {
   const source = value.itemSnapshot || value.questionSnapshot || value.question || value;
   const ids = [value.questionId, value.id, source.id, value.sourceItemId, source.sourceItemId];
   return ids.map(id => issues.get(id)).find(Boolean) || literacyV9ReviewedRhymeIssue(ids, source)
-    || literacyV9ReviewedTransformationIssue(ids, source);
+    || literacyV9ReviewedTransformationIssue(ids, source) || literacyMockBeginnerVocabularyIssue(source);
 }
 
 export const isLiteracyItemEligible = value => !literacyItemQualityIssue(value);

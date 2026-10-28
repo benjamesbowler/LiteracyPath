@@ -180,6 +180,7 @@ If any link is missing, the activity is decoration around a quiz or movement aro
 - Ordered spelling displays persistent slots at the top of the play area. The child sees completed parts and the next empty slot.
 - A wrong attempt names what was selected, explains the relevant contrast in child language, replays the cue when helpful, and permits another attempt without punishment.
 - Difficulty changes the literacy demand first. Faster hazards, smaller targets or tighter timing may never be the main distinction between Levels 1 and 2.
+- Easy word choices must use familiar beginner vocabulary in the prompt, correct answer and every distractor. Short spelling alone does not make words such as ebb, vat or zinc easy. Rocket Run, Sound Racer and Word Climb share the reviewed `BEGINNER_SOUND_GAME_WORDS` boundary; shortages and recorded-audio repairs stay within that boundary instead of falling back to unrestricted words. Keep legitimate later taught-code targets in their own difficulty bands. Rocket Run and Sound Racer use new content versions for regenerated plans; Word Climb retains the exact bank in its saved session.
 
 ### Forbidden
 

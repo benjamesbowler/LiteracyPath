@@ -221,8 +221,6 @@ const bank = {
     fresh(cw("wh", 1, 2, 5, "when", "__en", "when", ["ch", "sh", "th"], "initial")),
     fresh(cw("wh", 1, 2, 6, "whip", "__ip", "whip", ["ch", "sh", "th"], "initial")),
     fresh(cw("wh", 1, 2, 9, "white", "__ite", "white", ["ch", "sh", "th"], "initial")),
-    fresh(cw("ph", 1, 2, 5, "phrase", "__rase", "phrase", ["ch", "sh", "th"], "initial")),
-    fresh(cw("ph", 1, 2, 6, "phonics", "__onics", "phonics", ["ch", "sh", "th"], "initial")),
     fresh(ic("ph", 1, 2, 9, "photograph", ["feather", "van", "tooth", "cheese"], "feather",
       { van: "D-ONSET", tooth: "D-PATTERN-TRAP", cheese: "D-PATTERN-TRAP" }, "initial",
       "the photograph anchor is heard; a printed second ph cannot reveal the spelling choice")),

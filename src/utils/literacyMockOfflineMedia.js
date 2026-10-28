@@ -5,7 +5,7 @@ export const MOCK_OFFLINE_MEDIA_MAX_ASSETS = 768;
 export const MOCK_OFFLINE_MEDIA_V11_MAX_ASSETS = 1024;
 // The longer V11 route reserves more small recordings. Historical publications
 // retain their original admission limit; all versions share the same byte caps.
-export const mockOfflineMediaAssetLimit = contentVersion => contentVersion === 'literacy-mock-v11'
+export const mockOfflineMediaAssetLimit = contentVersion => ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion)
   ? MOCK_OFFLINE_MEDIA_V11_MAX_ASSETS : MOCK_OFFLINE_MEDIA_MAX_ASSETS;
 
 export function mockOfflineMediaPaths(items, extras = []) {

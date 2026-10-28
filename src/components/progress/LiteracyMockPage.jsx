@@ -81,7 +81,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const contentVersion = run?.contentVersion || mock?.content_version || focusSession?.content_version || 'literacy-mock-v1';
   const hasWithdrawnQuestions = Boolean(run?.plan?.itemIds?.slice(run.responses?.length || 0)
     .some(id => literacyItemQualityIssue({ id })));
-  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11'].includes(contentVersion) && mock?.plan_kind === 'mixed';
+  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) && mock?.plan_kind === 'mixed';
   const reloadBank = useCallback(async () => {
     setBankError('');
     const runtimeKey = `${contentVersion}:${mixedRuntime}`;

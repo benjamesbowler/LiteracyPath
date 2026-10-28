@@ -111,7 +111,7 @@ test('beginning sounds, endings, and rimes have exactly one defensible picture a
 test('sound pictures expand beyond the old small examples without confusing short vowels or x', () => {
   const coverage = cyclePictureCoverage();
   assert.ok(new Set(Object.values(coverage).flat()).size >= 200);
-  assert.ok(coverage.a.length > 4 && coverage.m.length > 4 && coverage.i.length > 4);
+  assert.ok(coverage.a.length > 4 && coverage.m.length > 4 && coverage.i.length >= 4);
   assert.ok(coverage.ung.includes('rung') && coverage.zz.includes('fizz'));
   for (const bad of ['ice', 'island', 'iguana']) assert.equal(CYCLE_SOUND_WORDS.i.includes(bad), false);
   for (const bad of ['eagle', 'ear', 'eraser']) assert.equal(CYCLE_SOUND_WORDS.e.includes(bad), false);
@@ -348,9 +348,8 @@ test('all 27 Cycle Check decks retain a stable contract after direct-activity an
   // Final-phoneme exceptions and /kw/, /ks/ overlaps remove false-negative
   // distractors. The assigned target scope and independent check stay fixed.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  // The prior magnet/sheep picture repairs are retained. The reviewed isolated
-  // chip now changes only the round image and its first object's image in cycle
-  // 22. A fresh-module before/after audit confirmed every other field, including
-  // targets, choices, audio and independent-response contracts, is unchanged.
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '243da91d53e8e27e1421fd880fba19d555d34607e3ff1ec97d25c8e2377e0376');
+  // The beginner vocabulary revision removes niche targets and distractors.
+  // Recovery tests keep pending saves and completed results unchanged.
+  // Earlier image repairs remain selected through the same media resolver.
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '7ea3e3a767b96be1c01030701c8e4c3f51abe437785d9c1279be982075e9b3e1');
 });

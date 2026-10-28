@@ -18,7 +18,7 @@ import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 import { createRng, hashSeed } from "./rng.js";
 import {
   decodableWordsThrough, heartWordsKnownThrough, isSoundDistinct, phonemeAudio, soundLabel,
-  targetAudio, targetInfo, targetsThrough, unitsFor, wordAudio, wordImage
+  targetAudio, targetInfo, targetsThrough, unitsFor, wordAudio, wordImage, teachingAnchorImage
 } from "./lexicon.js";
 
 export const MECHANICS = Object.freeze({
@@ -73,7 +73,7 @@ function signCard(targetId) {
     baseAudio: info.baseWord ? wordAudio(info.baseWord) : "",
     meaning: info.meaning || "",
     anchorWord: example,
-    anchorImage: example ? wordImage(example) : "",
+    anchorImage: example ? teachingAnchorImage(example) : "",
     anchorAudio: example ? wordAudio(example) : "",
     phonemeAudio: targetAudio(targetId),
     unitAudio: (info.kind === "morph" ? [] : info.units || []).map(u => ({ grapheme: u.grapheme, audio: phonemeAudio(u.soundKey, example) }))

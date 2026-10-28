@@ -157,10 +157,14 @@ test("the shipping lexicon covers every reachable word exactly once", () => {
   assert.equal(new Set(QUEST_STOPS.flatMap(stop => stop.words.map(word => word.toLowerCase()))).size, 431);
   assert.equal(new Set(QUEST_STOPS.flatMap(stop => stop.heartWords.map(word => word.toLowerCase()))).size, 60);
   assert.equal(reachableWords.size, 530);
-  assert.equal(SOUND_SEEKERS_WORDS.length, reachableWords.size + 12); // pop fixture plus eleven oral-only picture anchors
+  // Pop, eleven current oral-only anchors, and the former yak anchor retained
+  // so saved teaching records still resolve without reintroducing it to lessons.
+  assert.equal(SOUND_SEEKERS_WORDS.length, reachableWords.size + 13);
   const shippingIds = new Set(SOUND_SEEKERS_WORDS.map(record => record.id));
   for (const word of reachableWords) assert.ok(shippingIds.has(word), word);
   assert.ok(shippingIds.has("pop"), "the required repeated-grapheme workbench fixture must ship");
+  assert.ok(shippingIds.has("yak"), "historical teaching evidence must still resolve");
+  assert.ok(shippingIds.has("yawn"), "the familiar current y anchor must ship");
 });
 
 test("contextual values, suffix allomorphs, and exceptions are not collapsed", () => {

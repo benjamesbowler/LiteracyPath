@@ -427,11 +427,21 @@ export const initialSoundImageOverrides = {
   zigzag: "/media/initial-sounds/images/z/zigzag-road.webp"
 };
 
+// This retained media catalogue still feeds selector/review utilities. Its
+// Easy tier must not admit a word merely because the first phoneme matches.
+const unfamiliarEntryTargets = new Set([
+  'anchor', 'album', 'iguana', 'inchworm', 'jewel', 'kiwi', 'newt',
+  'quail', 'quill', 'quokka', 'umpire', 'vulture', 'valley', 'zucchini',
+]);
+
 function makeInitialSoundItem(letter, targetWord, level, index) {
   const wordKey = normalizeInitialSoundWord(targetWord);
   const difficulty = level === 1 ? "easy" : "challenge";
   const syllables = countSyllables(targetWord);
-  const blockedTarget = blockedInitialSoundTargets[wordKey];
+  const blockedTarget = blockedInitialSoundTargets[wordKey] || (level === 1 && unfamiliarEntryTargets.has(wordKey) ? {
+    status: "excluded_unsuitable_word",
+    reason: "Unfamiliar incidental vocabulary is not suitable for an Easy beginning-sound question. Use a familiar word for this sound."
+  } : null);
   const coreWord = initialSoundCoreWords[level]?.[letter];
   const isCoreWord = normalizeInitialSoundWord(coreWord) === wordKey;
   const roundPriority = isCoreWord

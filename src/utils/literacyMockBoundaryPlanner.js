@@ -7,7 +7,7 @@ import { sameLiteracyMockTask } from './literacyMockConditions.js';
 import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
 
 const capacityError = message => Object.assign(new Error(message), { code: 'mock_fresh_capacity' });
-const boundaryVersions = new Set(['literacy-mock-v9', 'literacy-mock-v10', 'literacy-mock-v11']);
+const boundaryVersions = new Set(['literacy-mock-v9', 'literacy-mock-v10', 'literacy-mock-v11','literacy-mock-v12']);
 const band = item => item?.adaptiveAreaBand ?? item?.itemSnapshot?.adaptiveAreaBand;
 const mediaPaths = item => [...(item.requiredAudioPaths || []), ...(item.requiredImagePaths || [])].map(path => path.split('#')[0]);
 const blocked = failures => {
@@ -38,7 +38,7 @@ function fresh(items, exposures) {
 function entryOwnership(items) {
   // Explicit V11 reservations protect genuinely new target stock across oral,
   // printed and CVC variants. The authored owner is stable across failures.
-  const authoredOwners = new Map(items.filter(item => item.contentVersion==='literacy-mock-v11' && item.routeReservationArea)
+  const authoredOwners = new Map(items.filter(item => ['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.routeReservationArea)
     .map(item => [item.targetWord,item.routeReservationArea]));
   const listening = new Set(items.filter(item => item.skillId === 'listen_words_phrases' && band(item) === 1
     && (!authoredOwners.has(item.targetWord)||authoredOwners.get(item.targetWord)==='listening')).map(item => item.targetWord));
@@ -51,15 +51,15 @@ function entryOwnership(items) {
   return items.filter(item => {
     const family = canonicalLiteracyIdentity(item).familyId;
     const word = family?.startsWith('mock-foundation-word:') ? family.slice('mock-foundation-word:'.length) : null;
-    if(item.contentVersion==='literacy-mock-v11' && item.domainId==='phonics' && owners.get(item.targetWord || canonicalLiteracyIdentity(item).passageKey)==='language')return false;
-    if(item.contentVersion==='literacy-mock-v11' && item.domainId==='phonics' && band(item)===1){
+    if(['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.domainId==='phonics' && owners.get(item.targetWord || canonicalLiteracyIdentity(item).passageKey)==='language')return false;
+    if(['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.domainId==='phonics' && band(item)===1){
       const target=item.targetWord || canonicalLiteracyIdentity(item).passageKey;
       if(owners.get(target)==='reading')return false;
     }
     // V11's additional CVC contrasts share real word exposure with the
     // oral/reading areas. Keep these alternatives available; actual plan
     // allocation and delivered history still enforce global freshness.
-    return item.contentVersion === 'literacy-mock-v11' && item.domainId === 'phonics'
+    return ['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.domainId === 'phonics'
       || !owners.has(word) || owners.get(word) === item.domainId;
   });
 }
@@ -73,7 +73,7 @@ function offlinePool(candidates, plan, byId) {
     // Include one extra candidate at this demand. Repair still requires an
     // exact task/access/source-level match and safely holds if none remains.
     const version = reserved[0]?.contentVersion;
-    const firstPossible = version === 'literacy-mock-v11' && stage > 0 ? 2 * stage + 1 : stage;
+    const firstPossible = ['literacy-mock-v11','literacy-mock-v12'].includes(version) && stage > 0 ? 2 * stage + 1 : stage;
     const total = literacyMockBoundaryLimits(version).budgets[domain] - firstPossible + 1;
     const needed = Math.max(0, total - reserved.filter(item => item.domainId === domain && band(item) === stage).length);
     if (!needed) continue;
@@ -82,7 +82,7 @@ function offlinePool(candidates, plan, byId) {
     // demands/areas; each actual plan and delivered prefix remain globally
     // independent. Requiring all hypothetical branches to be independent would
     // exhaust valid stock that no child can encounter in one sitting.
-    const branch = version==='literacy-mock-v11'
+    const branch = ['literacy-mock-v11','literacy-mock-v12'].includes(version)
       ? reserved.filter(item => item.domainId===domain && band(item)===stage)
       : reserved.filter(item => item.domainId!==domain || band(item)===stage);
     const pool = shuffleLiteracyMock(fresh(candidates, branch).filter(item => item.domainId === domain && band(item) === stage), `${plan.seed}:${domain}:${stage}:offline`);

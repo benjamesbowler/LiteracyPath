@@ -4,7 +4,6 @@ const targets=[
  ["sh",1,"sheep","__eep","initial",["s","ch","wh"]],
  ["th",1,"thread","__read","initial",["t","sh","ch"]],
  ["wh",1,"which","__ich","initial",["w","th","ph"]],
- ["ph",1,"pheasant","__easant","initial",["p","th","wh"]],
  ["ck",1,"luck","lu__","final",["c","ch","sh"]],
  ["ch",2,"catch","cat__","final",["c","sh","ck"]],
  ["sh",2,"rush","ru__","final",["s","ch","th"]],
@@ -13,7 +12,10 @@ const targets=[
  ["ph",2,"photograph","__otograph","initial",["p","th","wh"]],
  ["ck",2,"click","cli__","final",["c","ch","sh"]]
 ];
-export default author("digraphs", targets.map(([u,lvl,target,blank,pos,rivals])=>({
+export default author("digraphs", targets.map(([u,lvl,target,blank,pos,rivals], index)=>({
+ // Preserve published identities after withdrawing the former pheasant row.
+ v: 101 + index + (index >= 4 ? 1 : 0),
+ form: ["A", "B", "C"][(index + (index >= 4 ? 1 : 0)) % 3],
  u,lvl,fmt:"DIGRAPH_COMPLETE_WORD",prompt:`${u==="ch"?"Select":"Choose"} the missing letters for ${blank}.`,
  spoken:`${target}. Choose the missing letters.`,choices:[K(u),W(rivals[0],"D-ONSET"),...rivals.slice(1).map(t=>W(t,"D-PATTERN-TRAP"))],
  target,pos,media:"audio-required",evidenceModality:"audio+print",audioRole:"target_word",

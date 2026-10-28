@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { LITERACY_MOCK_RUNTIME_V10 } from '../../src/data/generated/literacyMockRuntimeV10.generated.js';
-import { LITERACY_MOCK_RUNTIME_V11 } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
+import { LITERACY_MOCK_RUNTIME_V12 } from '../../src/data/generated/literacyMockRuntimeV12.generated.js';
 import { LITERACY_MOCK_AREA_ORDER } from '../../src/policy/literacyMockAdaptivePolicy.js';
 import { isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
 import { wholeClassMockRounds, wholeClassMockPool, wholeClassMockAnswer, createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from '../../src/components/teacher/wholeClassPracticeModel.js';
@@ -57,11 +57,11 @@ const answerClass = (session,correct,extra={}) => recordWholeClassMockAttempt(se
 
 test('the default twelve-question mixed class round reaches harder real questions after correct answers',()=>{
  for(const seed of ['classroom-report','another-class','retake']) {
-  let session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,{seed});
+  let session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V12,{seed});
   const shown=[];
   for(let index=0;index<12;index++) {
    shown.push(session.rounds[index]);
-   session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,recordWholeClassMockAttempt(session,index,{correct:true}));
+   session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V12,recordWholeClassMockAttempt(session,index,{correct:true}));
   }
   assert.deepEqual(shown.map(item=>item.adaptiveAreaBand),[0,0,0,0,0,0,0,0,1,1,1,1]);
   assert.deepEqual(shown.slice(0,8).map(item=>item.domainId),LITERACY_MOCK_AREA_ORDER);
@@ -152,16 +152,16 @@ test('revealing an unanswered question holds its current step and later success 
 });
 
 test('all-incorrect real mixed rounds stay introductory and one successful area cannot promote another',()=>{
- let session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,{seed:'incorrect-mixed',count:24});
+ let session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V12,{seed:'incorrect-mixed',count:24});
  for(let index=0;index<24;index++) {
   assert.equal(session.rounds[index].adaptiveAreaBand,0);
-  session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,recordWholeClassMockAttempt(session,index,{correct:false}));
+  session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V12,recordWholeClassMockAttempt(session,index,{correct:false}));
  }
- session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,{seed:'uneven-class',count:24});
+ session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V12,{seed:'uneven-class',count:24});
  for(let index=0;index<24;index++) {
   const item=session.rounds[index],successful=item.domainId==='phonics';
   assert.equal(item.adaptiveAreaBand,successful ? Math.floor(index/8) : 0);
-  session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,recordWholeClassMockAttempt(session,index,{correct:successful}));
+  session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V12,recordWholeClassMockAttempt(session,index,{correct:successful}));
  }
 });
 

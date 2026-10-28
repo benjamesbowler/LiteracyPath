@@ -9,7 +9,7 @@ import { literacyMockManifestSql } from '../../tools/generateLiteracyMockManifes
 import theme from '../../tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs';
 
 test('v2 repairs published comprehension wording while v1 retains the complete historical contract', async () => {
-  assert.equal(LITERACY_MOCK_VERSION, 'literacy-mock-v11');
+  assert.equal(LITERACY_MOCK_VERSION, 'literacy-mock-v12');
   const [old, current] = await Promise.all([
     loadLiteracyMockBank({ contentVersion: 'literacy-mock-v1' }), loadLiteracyMockBank({ contentVersion: 'literacy-mock-v2' }),
   ]);
@@ -119,7 +119,12 @@ test('heard sound, printed mapping and spelling completion keep distinct constru
   assert.equal(heardPictures.length, 23);
   assert.ok(heardPictures.every(item => item.constructClaim === 'heard_sound_picture_discrimination' && item.hideWrittenLabels));
   const spelling = bank.filter(item => item.skillId === 'digraphs' && item.formatType === 'DIGRAPH_COMPLETE_WORD');
-  assert.equal(spelling.length, 69);
+  // The beginner vocabulary correction withdraws phrase, phonics and pheasant;
+  // the remaining spelling tasks must retain the same exact construct.
+  assert.equal(spelling.length, 66);
+  for (const id of ['lp3.digraphs.l1.B.ph.v5', 'lp3.digraphs.l1.C.ph.v6', 'lp3.digraphs.l1.B.ph.v105']) {
+    assert.equal(bank.some(item => item.id === id), false, `${id} is withdrawn from new practice`);
+  }
   assert.ok(spelling.every(item => item.constructClaim === 'map_spoken_word_to_digraph_spelling'));
 });
 

@@ -1,4 +1,5 @@
 import { expect,test } from '@playwright/test';
+import { writeFile } from 'node:fs/promises';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
 test.describe.configure({timeout:180000});
@@ -69,6 +70,75 @@ async function answerOne(page,n) {
  await expect(next).toBeEnabled();await next.click();
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(n);
 }
+
+test('V12 production code and media retain three answers and accept the fourth after an offline app reload',async({page,context},info)=>{
+ await simulatedAudio(page,5); // Audio lifecycle only; executable/media HTTP and CacheStorage are real.
+ await page.setViewportSize({width:1024,height:724});
+ const metadataResponse=await page.request.get('/offline-build.json');expect(metadataResponse.ok()).toBe(true);
+ const metadata=await metadataResponse.json();
+ expect(metadata.mockExecutable.contentVersion).toBe('literacy-mock-v12');
+ expect(metadata.mockExecutable.mixedByVersion['literacy-mock-v12']).toEqual(metadata.mockExecutable.assets);
+ expect(metadata.mockExecutable.assets.length).toBeGreaterThan(0);
+ for(const version of ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12']) {
+  expect(metadata.mockExecutable.byVersion[version].length).toBeGreaterThan(0);
+  expect(metadata.mockExecutable.mixedByVersion[version].length).toBeGreaterThan(0);
+ }
+ const metadataPath=info.outputPath('served-v12-offline-build.json');
+ await writeFile(metadataPath,JSON.stringify(metadata,null,2));
+ await info.attach('served-v12-offline-build',{path:metadataPath,contentType:'application/json'});
+ await page.goto(`${root}?case=${info.testId}&version=literacy-mock-v12&device=1&focusHook=1`);
+ await expect(page.getByRole('region',{name:'Question 1',exact:true})).toBeVisible({timeout:90000});
+ await expect.poll(()=>page.evaluate(()=>Boolean(navigator.serviceWorker.controller))).toBe(true);
+ await expect.poll(()=>page.evaluate(()=>Boolean(window.__literacyMock.device()?.serverRun.offlineLeaseId))).toBe(true);
+ const executableCache=await page.evaluate(async metadata=>{
+  const cache=await caches.open(`lp-shell-${metadata.buildId}`);
+  return {count:metadata.mockExecutable.assets.length,missing:(await Promise.all(metadata.mockExecutable.assets.map(async path=>(await cache.match(path))?.ok?null:path))).filter(Boolean)};
+ },metadata);
+ expect(executableCache.missing).toEqual([]);
+ await answerOne(page,1);await answerOne(page,2);await answerOne(page,3);
+ const before=await page.evaluate(()=>window.__literacyMock.device());
+ expect(before.run.contentVersion).toBe('literacy-mock-v12');
+ const bank=await loadLiteracyMockBank({contentVersion:'literacy-mock-v12'});
+ const reserveIds=new Set(before.mediaItemIds);
+ const paths=[...new Set(bank.filter(item=>reserveIds.has(item.id)).flatMap(item=>[...item.requiredAudioPaths,...item.requiredImagePaths]).map(path=>path.split('#')[0]))];
+ expect(paths.length).toBeGreaterThan(0);
+ await expect.poll(()=>page.evaluate(async paths=>{
+  const cache=await caches.open('lp-mock-public-media-v1');
+  return (await Promise.all(paths.map(path=>cache.match(path)))).filter(response=>response?.ok).length;
+ },paths),{timeout:90000}).toBe(paths.length);
+ await page.evaluate(()=>{
+  const box=window.__literacyMock.device();
+  localStorage.setItem('lp-student-session-v1',JSON.stringify({token:'local-browser-fixture',studentId:box.studentId,
+   studentName:'Alex',teacherId:box.focusSession.teacher_id,classId:box.focusSession.class_id,
+   expiresAt:Date.parse(box.focusSession.expires_at)}));
+  window.__literacyMock.setFault('offline');
+ });
+ await context.setOffline(true);
+ await page.goto('/');
+ await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
+ await page.reload();
+ await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
+ await page.screenshot({path:info.outputPath('actual-app-v12-offline-question4.png')});
+ const device=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('lp-mock-outbox:student-a:mock-session')));
+ const resumed=await device();expect(resumed.run.responses).toEqual(before.run.responses);
+ const fourth=bank.find(item=>item.id===resumed.run.plan.itemIds[3]);expect(fourth).toBeTruthy();
+ await chooseAnswer(page,fourth,mockChoices(fourth,resumed.run.plan.seed));
+ const next=page.getByRole('button',{name:'Next question',exact:true});await expect(next).toBeEnabled();await next.click();
+ await expect.poll(async()=>(await device()).run.responses.length).toBe(4);
+ const answered=await device();
+ expect(answered.run.responses.slice(0,3)).toEqual(before.run.responses);
+ expect(answered.run.responses[3].questionId).toBe(fourth.id);
+ expect(answered.requests.length).toBeGreaterThan(0);
+ await page.reload();
+ await expect(page.getByRole('region',{name:'Question 5',exact:true})).toBeVisible({timeout:60000});
+ expect((await device()).run.responses).toEqual(answered.run.responses);
+ await page.screenshot({path:info.outputPath('actual-app-v12-offline-question5.png')});
+ const evidencePath=info.outputPath('v12-offline-receipt.json');
+ await writeFile(evidencePath,JSON.stringify({buildId:metadata.buildId,contentVersion:answered.run.contentVersion,
+  executableCache,retainedMediaPaths:paths.length,offlineResponses:answered.run.responses,queuedRequests:answered.requests.length,
+  audioEvidence:'simulated playback lifecycle; real executable and media fetch/cache; no human listening claim'},null,2));
+ await info.attach('v12-offline-receipt',{path:evidencePath,contentType:'application/json'});
+});
 
 test('the installed production shell, assessment code, bank and media survive a real offline page reload',async({page,context},info)=>{
  await openDevice(page,info);

@@ -4591,16 +4591,16 @@ export const questions = [
   "question": "Which printed word matches this recording?",
   "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
-   "nimble",
+   "mother",
    "numbers",
    "number",
-   "lumber"
+   "under"
   ],
   "answerOptions": [
    {
-    "value": "nimble",
-    "label": "nimble",
-    "text": "nimble"
+    "value": "mother",
+    "label": "mother",
+    "text": "mother"
    },
    {
     "value": "numbers",
@@ -4613,16 +4613,16 @@ export const questions = [
     "text": "number"
    },
    {
-    "value": "lumber",
-    "label": "lumber",
-    "text": "lumber"
+    "value": "under",
+    "label": "under",
+    "text": "under"
    }
   ],
   "answer": "number",
   "correctAnswer": "number",
   "distractorRationales": {
-   "lumber": "D-VISUAL-NEIGHBOR",
-   "nimble": "D-VISUAL-NEIGHBOR",
+   "under": "D-VISUAL-NEIGHBOR",
+   "mother": "D-VISUAL-NEIGHBOR",
    "numbers": "D-DEVELOPMENTAL"
   },
   "mediaTier": "audio-required",
@@ -5688,7 +5688,7 @@ export const questions = [
   "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "set",
-   "silt",
+   "sip",
    "sit",
    "sat"
   ],
@@ -5699,9 +5699,9 @@ export const questions = [
     "text": "set"
    },
    {
-    "value": "silt",
-    "label": "silt",
-    "text": "silt"
+    "value": "sip",
+    "label": "sip",
+    "text": "sip"
    },
    {
     "value": "sit",
@@ -5719,7 +5719,7 @@ export const questions = [
   "distractorRationales": {
    "sat": "D-VISUAL-NEIGHBOR",
    "set": "D-VISUAL-NEIGHBOR",
-   "silt": "D-VISUAL-NEIGHBOR"
+   "sip": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,

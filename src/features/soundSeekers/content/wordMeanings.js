@@ -6420,6 +6420,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-yak"
     }
   },
+  "yawn-meaning": {
+    "id": "yawn-meaning",
+    "word": "yawn",
+    "sense": "Open your mouth wide and take a breath when you feel tired.",
+    "actionCue": "Act out “yawn” with a simple movement, then use it in a short sentence.",
+    "partOfSpeech": "verb",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-yawn"
+    }
+  },
   "year-meaning": {
     "id": "year-meaning",
     "word": "year",

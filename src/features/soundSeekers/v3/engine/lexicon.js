@@ -113,6 +113,12 @@ export function wordImage(word) {
   return candidates.find(src => CLEAN_PICTURE.test(src) && !src.startsWith("/images/child-mode/reviewed/")) || "";
 }
 
+// This inspected action scene supports the spoken teaching anchor. It is not
+// admitted to wordImage's clean-object answer cards or independent decoding.
+export function teachingAnchorImage(word) {
+  return word === 'yawn' ? '/media/vocabulary/images/yawn.webp' : wordImage(word);
+}
+
 // Authored units for a word: [{ grapheme, soundKey, role }]. Null when the
 // corpus has no record (the game then does not offer the word in build/blend).
 // Some corpus units carry no evidenceTargetId; infer it from the grapheme +

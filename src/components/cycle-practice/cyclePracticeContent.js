@@ -187,7 +187,10 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
   for (const grapheme of practiceGraphemes) {
     const soundAudio = getPreferredPhonemeAudioPath(grapheme), position = cycleSoundPosition(grapheme);
     if (!soundAudio) continue;
-    for (const word of (check ? coverage[grapheme] || [] : shuffled(coverage[grapheme] || [], `${seed}:word-examples:${grapheme}`))) {
+    // Build one stable authored inventory before the plan chooses/reorders
+    // examples. Sorting's duplicate resolution must not depend on this seed,
+    // or a valid replay can disappear from the readiness inventory.
+    for (const word of coverage[grapheme] || []) {
       const common = { targetGrapheme: grapheme, soundAudio, soundPosition: position };
       const endingPart = ENDING_PARTS.has(grapheme);
       const distractors = shuffled(picturePool.filter(w => !cycleSoundMatches(w, grapheme)), `${seed}:pictures:${word}`).slice(0, 2);

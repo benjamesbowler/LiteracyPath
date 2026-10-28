@@ -103,10 +103,10 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
   const roster = new Map(students.map(student => [String(student.id), student]));
   const session = payload?.session || null;
-  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(session?.content_version || session?.mock?.content_version);
+  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(session?.content_version || session?.mock?.content_version);
   const version=session?.content_version || session?.mock?.content_version;
-  const boundaryAdaptive=['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version);
-  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version);
+  const boundaryAdaptive=['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version);
+  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version);
   skills ??= areaAdaptive ? [...LITERACY_MOCK_REPORT_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS] : LITERACY_MOCK_REPORT_SKILLS;
   const reportAreas=areaAdaptive ? AREA_REPORTS : LITERACY_MOCK_REPORT_AREAS;
   const itemCount = Number.isInteger(session?.mock?.item_count) ? session.mock.item_count : null;

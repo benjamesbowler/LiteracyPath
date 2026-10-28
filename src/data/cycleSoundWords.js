@@ -3,7 +3,17 @@
 // These are curriculum examples, not an alternate image or audio catalogue.
 // Keep the programme's rejected basic picture labels out of both play areas.
 // Sound membership alone cannot make a relationship such as "uncle" visible.
-export const CYCLE_PICTURE_WORD_HOLDOUTS = Object.freeze(['olive', 'otter', 'quiz', 'uncle', 'vet', 'yak', 'yarn']);
+export const CYCLE_PICTURE_WORD_HOLDOUTS = Object.freeze([
+  'olive', 'otter', 'quiz', 'uncle', 'vet', 'yak', 'yarn',
+  // These names add vocabulary knowledge to a beginning-sound decision.
+  // A recording and a picture do not make a niche word familiar to an ESL
+  // beginner. Keep the sound mappings below for retained evidence, but never
+  // select these as targets OR distractors in basic Cycle/Adventure practice.
+  'anchor', 'beaver', 'fig', 'flamingo', 'hedgehog', 'inchworm', 'instrument',
+  'jaguar', 'kiwi', 'kayak', 'lobster', 'lantern', 'narwhal', 'quail',
+  'quicksand', 'quiver', 'raccoon', 'reindeer', 'umpire', 'urchin', 'vulture',
+  'yolk', 'yacht', 'zucchini', 'thimble', 'thorn', 'whisk',
+]);
 export const isCyclePictureWordEligible = word => !CYCLE_PICTURE_WORD_HOLDOUTS.includes(word);
 
 export const CYCLE_SOUND_WORDS = Object.freeze({

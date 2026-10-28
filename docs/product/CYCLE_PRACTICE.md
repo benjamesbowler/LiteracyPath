@@ -120,7 +120,7 @@ succeeds. Children see a brief completion celebration; teachers retain the
 existing detailed results and support/media distinctions.
 
 The reporting protocol remains `cycle-practice-v2`; the activity revision is
-`cycle-play-content-depth-2026-09-28`. Change this revision when a future deck replacement makes
+`cycle-play-familiar-words-2026-10-28`. Change this revision when a future deck replacement makes
 saved indexes or question identities incompatible. Old unfinished local sessions restart against the new deck
 and retain their previous evidence locally. Frozen pending saves and completed
 results remain unchanged. Sorting resumes from its recorded object responses.
@@ -201,7 +201,11 @@ same question; a new session or completed-deck replay selects and orders fresh
 examples. The full authored inventory remains the authority for completed
 coverage, so selecting a different replay cannot erase earlier work. Both
 practice and Cycle Check exclude the programme's rejected basic picture labels
-(olive, otter, quiz, uncle, vet, yak and yarn). Check selection is deterministic
+in `CYCLE_PICTURE_WORD_HOLDOUTS`, including vulture, narwhal, quiver and
+thimble. The shared filter applies to targets and every distractor. Sorting
+inventories are constructed in a stable order before seeded replay selection,
+so every replay remains represented in the readiness coverage inventory.
+Check selection is deterministic
 for its seed and retains focus coverage, independent HFW recognition and the
 existing evidence contract. Practice planning allowances are estimates, not
 measured child playtime.

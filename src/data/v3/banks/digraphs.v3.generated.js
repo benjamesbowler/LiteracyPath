@@ -6398,190 +6398,6 @@ export const questions = [
   "notes": "white: the blank hides the digraph, so nothing leaks in print"
  },
  {
-  "id": "lp3.digraphs.l1.B.ph.v5",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "digraphs",
-  "assessmentSkillId": "digraphs",
-  "skillName": "Digraphs",
-  "skill": "Digraphs",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "B",
-  "itemType": "phonics_pattern",
-  "itemKey": "ph",
-  "formatType": "DIGRAPH_COMPLETE_WORD",
-  "templateType": "DIGRAPH_COMPLETE_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Choose the missing letters for __rase.",
-  "question": "Choose the missing letters for __rase.",
-  "spokenPrompt": "Phrase. Choose the missing letters.",
-  "choices": [
-   "ph",
-   "ch",
-   "sh",
-   "th"
-  ],
-  "answerOptions": [
-   {
-    "value": "ph",
-    "label": "ph",
-    "text": "ph"
-   },
-   {
-    "value": "ch",
-    "label": "ch",
-    "text": "ch"
-   },
-   {
-    "value": "sh",
-    "label": "sh",
-    "text": "sh"
-   },
-   {
-    "value": "th",
-    "label": "th",
-    "text": "th"
-   }
-  ],
-  "answer": "ph",
-  "correctAnswer": "ph",
-  "distractorRationales": {
-   "sh": "D-PATTERN-TRAP",
-   "th": "D-PATTERN-TRAP",
-   "ch": "D-PATTERN-TRAP"
-  },
-  "mediaTier": "audio-required",
-  "phonicsPosition": "initial",
-  "hadPTD": true,
-  "nonGating": false,
-  "retentionOnly": false,
-  "evidenceModality": "audio+print",
-  "evidenceRole": "mastery",
-  "constructClaim": "map_spoken_word_to_digraph_spelling",
-  "hideWrittenLabels": false,
-  "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "phrase",
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "assessmentMediaDecision": {
-   "itemId": "lp3.digraphs.l1.B.ph.v5",
-   "role": "text-only",
-   "paths": [],
-   "constructReview": "approved",
-   "answerNeutral": "approved"
-  },
-  "active": true,
-  "qaStatus": "verified",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "generatedBy": "assessment-rebuild-gate",
-   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
-   "wave": "",
-   "standardVersion": "v3"
-  },
-  "notes": "phrase: the blank hides the digraph, so nothing leaks in print"
- },
- {
-  "id": "lp3.digraphs.l1.C.ph.v6",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "digraphs",
-  "assessmentSkillId": "digraphs",
-  "skillName": "Digraphs",
-  "skill": "Digraphs",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "C",
-  "itemType": "phonics_pattern",
-  "itemKey": "ph",
-  "formatType": "DIGRAPH_COMPLETE_WORD",
-  "templateType": "DIGRAPH_COMPLETE_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Choose the missing letters for __onics.",
-  "question": "Choose the missing letters for __onics.",
-  "spokenPrompt": "Phonics. Choose the missing letters.",
-  "choices": [
-   "sh",
-   "th",
-   "ph",
-   "ch"
-  ],
-  "answerOptions": [
-   {
-    "value": "sh",
-    "label": "sh",
-    "text": "sh"
-   },
-   {
-    "value": "th",
-    "label": "th",
-    "text": "th"
-   },
-   {
-    "value": "ph",
-    "label": "ph",
-    "text": "ph"
-   },
-   {
-    "value": "ch",
-    "label": "ch",
-    "text": "ch"
-   }
-  ],
-  "answer": "ph",
-  "correctAnswer": "ph",
-  "distractorRationales": {
-   "ch": "D-PATTERN-TRAP",
-   "sh": "D-PATTERN-TRAP",
-   "th": "D-PATTERN-TRAP"
-  },
-  "mediaTier": "audio-required",
-  "phonicsPosition": "initial",
-  "hadPTD": true,
-  "nonGating": false,
-  "retentionOnly": false,
-  "evidenceModality": "audio+print",
-  "evidenceRole": "mastery",
-  "constructClaim": "map_spoken_word_to_digraph_spelling",
-  "hideWrittenLabels": false,
-  "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "phonics",
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "assessmentMediaDecision": {
-   "itemId": "lp3.digraphs.l1.C.ph.v6",
-   "role": "text-only",
-   "paths": [],
-   "constructReview": "approved",
-   "answerNeutral": "approved"
-  },
-  "active": true,
-  "qaStatus": "verified",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "generatedBy": "assessment-rebuild-gate",
-   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
-   "wave": "",
-   "standardVersion": "v3"
-  },
-  "notes": "phonics: the blank hides the digraph, so nothing leaks in print"
- },
- {
   "id": "lp3.digraphs.l1.C.ph.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -6605,17 +6421,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Photograph. Which word has the same starting sound?",
   "choices": [
-   "van",
    "tooth",
    "cheese",
-   "feather"
+   "feather",
+   "van"
   ],
   "answerOptions": [
-   {
-    "value": "van",
-    "label": "van",
-    "text": "van"
-   },
    {
     "value": "tooth",
     "label": "tooth",
@@ -6630,6 +6441,11 @@ export const questions = [
     "value": "feather",
     "label": "feather",
     "text": "feather"
+   },
+   {
+    "value": "van",
+    "label": "van",
+    "text": "van"
    }
   ],
   "answer": "feather",
@@ -6659,10 +6475,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.C.ph.v9",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/van.webp",
     "/images/assessment/objective-words/tooth.webp",
     "/images/assessment/objective-words/cheese.webp",
-    "/images/assessment/generated/initial-sounds-l2/feather.webp"
+    "/images/assessment/generated/initial-sounds-l2/feather.webp",
+    "/images/assessment/objective-words/van.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
@@ -6679,15 +6495,6 @@ export const questions = [
   },
   "notes": "the photograph anchor is heard; a printed second ph cannot reveal the spelling choice",
   "imageCards": [
-   {
-    "id": "lp3.digraphs.l1.C.ph.v9_card_van",
-    "word": "van",
-    "value": "van",
-    "label": "van",
-    "image": "/images/assessment/objective-words/van.webp",
-    "imagePath": "/images/assessment/objective-words/van.webp",
-    "imageAlt": "van"
-   },
    {
     "id": "lp3.digraphs.l1.C.ph.v9_card_tooth",
     "word": "tooth",
@@ -6714,6 +6521,15 @@ export const questions = [
     "image": "/images/assessment/generated/initial-sounds-l2/feather.webp",
     "imagePath": "/images/assessment/generated/initial-sounds-l2/feather.webp",
     "imageAlt": "feather"
+   },
+   {
+    "id": "lp3.digraphs.l1.C.ph.v9_card_van",
+    "word": "van",
+    "value": "van",
+    "label": "van",
+    "image": "/images/assessment/objective-words/van.webp",
+    "imagePath": "/images/assessment/objective-words/van.webp",
+    "imageAlt": "van"
    }
   ]
  },
@@ -6741,17 +6557,12 @@ export const questions = [
   "question": "Choose the missing letters for lo__.",
   "spokenPrompt": "Lock. Choose the missing letters.",
   "choices": [
-   "th",
    "ck",
    "ch",
-   "sh"
+   "sh",
+   "th"
   ],
   "answerOptions": [
-   {
-    "value": "th",
-    "label": "th",
-    "text": "th"
-   },
    {
     "value": "ck",
     "label": "ck",
@@ -6766,6 +6577,11 @@ export const questions = [
     "value": "sh",
     "label": "sh",
     "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
    }
   ],
   "answer": "ck",
@@ -6833,17 +6649,12 @@ export const questions = [
   "question": "Choose the missing letters for pa__.",
   "spokenPrompt": "Pack. Choose the missing letters.",
   "choices": [
-   "ck",
    "ch",
    "sh",
-   "th"
+   "th",
+   "ck"
   ],
   "answerOptions": [
-   {
-    "value": "ck",
-    "label": "ck",
-    "text": "ck"
-   },
    {
     "value": "ch",
     "label": "ch",
@@ -6858,6 +6669,11 @@ export const questions = [
     "value": "th",
     "label": "th",
     "text": "th"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
    }
   ],
   "answer": "ck",
@@ -10050,17 +9866,12 @@ export const questions = [
   "question": "Choose the missing letters for __eep.",
   "spokenPrompt": "sheep. Choose the missing letters.",
   "choices": [
-   "ch",
    "wh",
    "sh",
-   "s"
+   "s",
+   "ch"
   ],
   "answerOptions": [
-   {
-    "value": "ch",
-    "label": "ch",
-    "text": "ch"
-   },
    {
     "value": "wh",
     "label": "wh",
@@ -10075,6 +9886,11 @@ export const questions = [
     "value": "s",
     "label": "s",
     "text": "s"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
    }
   ],
   "answer": "sh",
@@ -10143,17 +9959,12 @@ export const questions = [
   "question": "Choose the missing letters for __read.",
   "spokenPrompt": "thread. Choose the missing letters.",
   "choices": [
-   "ch",
    "th",
    "t",
-   "sh"
+   "sh",
+   "ch"
   ],
   "answerOptions": [
-   {
-    "value": "ch",
-    "label": "ch",
-    "text": "ch"
-   },
    {
     "value": "th",
     "label": "th",
@@ -10168,6 +9979,11 @@ export const questions = [
     "value": "sh",
     "label": "sh",
     "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
    }
   ],
   "answer": "th",
@@ -10306,99 +10122,6 @@ export const questions = [
   "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
  },
  {
-  "id": "lp3.digraphs.l1.B.ph.v105",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "digraphs",
-  "assessmentSkillId": "digraphs",
-  "skillName": "Digraphs",
-  "skill": "Digraphs",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "B",
-  "itemType": "phonics_pattern",
-  "itemKey": "ph",
-  "formatType": "DIGRAPH_COMPLETE_WORD",
-  "templateType": "DIGRAPH_COMPLETE_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Choose the missing letters for __easant.",
-  "question": "Choose the missing letters for __easant.",
-  "spokenPrompt": "pheasant. Choose the missing letters.",
-  "choices": [
-   "p",
-   "th",
-   "wh",
-   "ph"
-  ],
-  "answerOptions": [
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
-   {
-    "value": "th",
-    "label": "th",
-    "text": "th"
-   },
-   {
-    "value": "wh",
-    "label": "wh",
-    "text": "wh"
-   },
-   {
-    "value": "ph",
-    "label": "ph",
-    "text": "ph"
-   }
-  ],
-  "answer": "ph",
-  "correctAnswer": "ph",
-  "distractorRationales": {
-   "p": "D-ONSET",
-   "th": "D-PATTERN-TRAP",
-   "wh": "D-PATTERN-TRAP"
-  },
-  "mediaTier": "audio-required",
-  "phonicsPosition": "initial",
-  "hadPTD": true,
-  "nonGating": false,
-  "retentionOnly": false,
-  "evidenceModality": "audio+print",
-  "evidenceRole": "mastery",
-  "constructClaim": "map_spoken_word_to_digraph_spelling",
-  "hideWrittenLabels": false,
-  "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "audioRole": "target_word",
-  "targetWord": "pheasant",
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "assessmentMediaDecision": {
-   "itemId": "lp3.digraphs.l1.B.ph.v105",
-   "role": "text-only",
-   "paths": [],
-   "constructReview": "approved",
-   "answerNeutral": "approved"
-  },
-  "active": true,
-  "qaStatus": "verified",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "generatedBy": "assessment-rebuild-gate",
-   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
-   "wave": "",
-   "standardVersion": "v3"
-  },
-  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
- },
- {
   "id": "lp3.digraphs.l1.C.ck.v106",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -10422,17 +10145,12 @@ export const questions = [
   "question": "Choose the missing letters for lu__.",
   "spokenPrompt": "luck. Choose the missing letters.",
   "choices": [
-   "ch",
    "sh",
    "ck",
-   "c"
+   "c",
+   "ch"
   ],
   "answerOptions": [
-   {
-    "value": "ch",
-    "label": "ch",
-    "text": "ch"
-   },
    {
     "value": "sh",
     "label": "sh",
@@ -10447,6 +10165,11 @@ export const questions = [
     "value": "c",
     "label": "c",
     "text": "c"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
    }
   ],
   "answer": "ck",

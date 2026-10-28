@@ -25,13 +25,13 @@ const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','li
 const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
-const itemCount = contentVersion==='literacy-mock-v11' ? 124 : boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
+const itemCount = ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? 124 : boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
 // The simulated external V11 database has its own storage bucket. Keep its
 // test records from consuming the real learner outbox's localStorage quota.
-const fixtureServerStorage = contentVersion === 'literacy-mock-v11' ? sessionStorage : localStorage;
+const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? sessionStorage : localStorage;
 let releaseHistoryRead;
 const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { releaseHistoryRead = resolve; }) : null;
 const clone = value => structuredClone(value);
@@ -207,7 +207,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9' || name === 'teacher_prepare_literacy_mock_session_v10' || name === 'teacher_prepare_literacy_mock_session_v11') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9' || name === 'teacher_prepare_literacy_mock_session_v10' || name === 'teacher_prepare_literacy_mock_session_v11' || name === 'teacher_prepare_literacy_mock_session_v12') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };

@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import {RACER_GROUND_OCCLUSION_MARGIN_PX,insetOpaqueRacerRoad,racerGroundOcclusionRects,withRacerGroundOcclusion,releaseRacerComparisonPixels} from '../../src/components/learn/games/games/racerGroundOcclusion.js';
 import {clipSportsCanvasPolygon,paintRacerMaterialTriangle} from '../../src/components/learn/games/games/sportsCanvasRenderer.js';
 import {racerWorldTextureMatrix} from '../../src/components/learn/games/games/racerCanvasWorldArt.js';
-import {buildTrack} from '../../src/utils/soundRacerTracks.js';
+import recordedRoad from '../fixtures/racerGroundOcclusionRecordedPath.json' with { type: 'json' };
 import {offsetCircuitPoint,RACER_ROAD_WIDTH} from '../../src/utils/soundRacerPhysics.js';
 
 const rectangle=(x,y,width,height)=>[{x,y},{x:x+width,y},{x:x+width,y:y+height},{x,y:y+height}];
@@ -77,14 +77,19 @@ test('the AA inset stays two physical pixels at larger DPR; it is not a CSS or q
 
 test('actual retained chase-camera fan seams keep their original grass underlay at physical DPR scales and mirrored views',()=>{
   // These are the actual smoothed camera/projection and failed pixel positions
-  // retained by the v10 native comparison. Source geometry verifies conservative
-  // coverage only; the corrected backend pixels still need strict native proof.
+  // retained by the v10 native comparison. Pin the corresponding road geometry:
+  // word-pool edits consume a different number of seeded random draws and must
+  // not silently replace the historical road underneath these pixel positions.
+  // Source geometry verifies conservative coverage only; the corrected backend
+  // pixels still need strict native proof.
   const camera=new THREE.PerspectiveCamera();camera.matrixAutoUpdate=false;
   camera.matrixWorld.fromArray([.3899205244216972,1.3877787807814457e-17,.920848513402019,0,.13435023780475225,.9892995928573732,-.056888743825487774,0,-.9109950593919349,.14589830558383962,.3857482160571185,0,15.21299054106105,2.9962992711248955,-144.48970698611274,1]);
   camera.matrixWorldInverse.copy(camera.matrixWorld).invert();camera.projectionMatrix.fromArray([1.0825317547305484,0,0,0,0,1.7320508075688774,0,0,0,0,-1.0003077396522542,-1,0,0,-.20003077396522542,0]);
-  const track=buildTrack('b',{difficulty:'easy',seed:0}),faces=[];
-  for(let index=1;index<track.path.length;index++){
-    const a=track.path[index-1],b=track.path[index],points=clipSportsCanvasPolygon(camera,[offsetCircuitPoint(a,-RACER_ROAD_WIDTH/2),offsetCircuitPoint(a,RACER_ROAD_WIDTH/2),offsetCircuitPoint(b,RACER_ROAD_WIDTH/2),offsetCircuitPoint(b,-RACER_ROAD_WIDTH/2)],.121);
+  assert.equal(recordedRoad.sourceCommit,'279ace183231fec71be7c3c3cd6ca5c9b8a15ade');
+  assert.equal(recordedRoad.segments.length,64);
+  const faces=[];
+  for(const {a,b} of recordedRoad.segments){
+    const points=clipSportsCanvasPolygon(camera,[offsetCircuitPoint(a,-RACER_ROAD_WIDTH/2),offsetCircuitPoint(a,RACER_ROAD_WIDTH/2),offsetCircuitPoint(b,RACER_ROAD_WIDTH/2),offsetCircuitPoint(b,-RACER_ROAD_WIDTH/2)],.121);
     const pixels=points.map(point=>{const p=new THREE.Vector3(point.x,point.y||0,point.z).project(camera);return{x:(p.x+1)*720,y:(1-p.y)*450};});
     if(pixels.length<3||pixels.every(p=>p.x<0)||pixels.every(p=>p.x>1440)||pixels.every(p=>p.y<0)||pixels.every(p=>p.y>900))continue;
     faces.push(pixels);

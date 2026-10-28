@@ -20,7 +20,7 @@ const bank = {
           "k": true
         },
         {
-          "t": "hot — scorching",
+          "t": "hot — burning",
           "r": "D-SAME-DOMAIN"
         },
         {
@@ -28,7 +28,7 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "hot — heated",
+          "t": "hot — hotter",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -170,7 +170,7 @@ const bank = {
           "k": true
         },
         {
-          "t": "broad",
+          "t": "wide",
           "r": "D-SAME-DOMAIN"
         },
         {
@@ -208,7 +208,7 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "happy — hopeful",
+          "t": "happy — tired",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -380,20 +380,20 @@ const bank = {
           "k": true
         },
         {
-          "t": "awake — alert",
+          "t": "awake — ready",
           "r": "D-SAME-DOMAIN"
         },
         {
-          "t": "awake — lively",
+          "t": "awake — moving",
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "awake — watchful",
+          "t": "awake — up",
           "r": "D-SAME-DOMAIN"
         }
       ],
       "media": "text",
-      "note": "Asleep reverses awake; alert, lively and watchful do not."
+      "note": "Asleep reverses awake; ready, moving and up do not."
     },
     {
       "u": "antonym_picture",
@@ -504,7 +504,7 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "spotless",
+          "t": "cleaned",
           "r": "D-SAME-DOMAIN"
         },
         {
@@ -568,7 +568,7 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "glossy",
+          "t": "shiny",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -650,7 +650,7 @@ const bank = {
           "k": true
         },
         {
-          "t": "fearless",
+          "t": "brave",
           "r": "D-OPPOSITE"
         },
         {
@@ -684,7 +684,7 @@ const bank = {
           "r": "D-OPPOSITE"
         },
         {
-          "t": "steady",
+          "t": "still",
           "r": "D-TOPIC-ADJACENT"
         },
         {
@@ -710,11 +710,11 @@ const bank = {
           "k": true
         },
         {
-          "t": "alert",
+          "t": "awake",
           "r": "D-OPPOSITE"
         },
         {
-          "t": "cozy",
+          "t": "warm",
           "r": "D-TOPIC-ADJACENT"
         },
         {
@@ -1604,16 +1604,16 @@ const bank = {
           "r": "D-SAME-DOMAIN"
         },
         {
-          "t": "sit — kneel",
+          "t": "sit — bend",
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "sit — crouch",
+          "t": "sit — lean",
           "r": "D-SAME-DOMAIN"
         }
       ],
       "media": "text",
-      "note": "Stand is the conventional opposite posture to sit. Kneeling and crouching are other bent-body postures; rest does not specify posture.",
+      "note": "Stand is the conventional opposite posture to sit. Bending and leaning can happen while sitting or standing; rest does not specify posture.",
       "retention": true
     },
     {
@@ -1631,11 +1631,11 @@ const bank = {
           "k": true
         },
         {
-          "t": "glows — dims",
+          "t": "glows — fades",
           "r": "D-OPPOSITE"
         },
         {
-          "t": "glows — flickers",
+          "t": "glows — flashes",
           "r": "D-TOPIC-ADJACENT"
         },
         {
@@ -1858,7 +1858,7 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "push — nudge",
+          "t": "push — move",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -1888,7 +1888,7 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "rapid",
+          "t": "fast",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -1978,8 +1978,8 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "soft — spongy",
-          "r": "D-SAME-DOMAIN"
+          "t": "soft — thin",
+          "r": "D-TOPIC-ADJACENT"
         }
       ],
       "media": "text",
@@ -2000,15 +2000,15 @@ const bank = {
           "k": true
         },
         {
-          "t": "silky",
+          "t": "soft",
           "r": "D-SAME-DOMAIN"
         },
         {
-          "t": "slick",
+          "t": "flat",
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "even",
+          "t": "hard",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -2342,7 +2342,7 @@ const bank = {
           "r": "D-SAME-DOMAIN"
         },
         {
-          "t": "give — offer",
+          "t": "give — send",
           "r": "D-SAME-DOMAIN"
         }
       ],
@@ -2373,12 +2373,12 @@ const bank = {
           "r": "D-TOPIC-ADJACENT"
         },
         {
-          "t": "neat — fancy",
+          "t": "neat — pretty",
           "r": "D-SAME-DOMAIN"
         }
       ],
       "media": "text",
-      "note": "Tidy matches neat. Messy reverses order; bare and fancy describe decoration rather than tidiness.",
+      "note": "Tidy matches neat. Messy reverses order; bare and pretty describe appearance rather than tidiness.",
       "retention": true
     },
     {

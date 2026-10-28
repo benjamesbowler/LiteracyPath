@@ -23404,6 +23404,48 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "oral-teaching-anchor"
     ]
   },
+  "yawn": {
+    "id": "yawn",
+    "word": "yawn",
+    "pronunciation": "yawn",
+    "meaningId": "yawn-meaning",
+    "units": [
+      {
+        "grapheme": "y",
+        "soundKey": "y",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "aw",
+        "soundKey": "aw",
+        "letterIndices": [
+          1,
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "n",
+        "soundKey": "n",
+        "letterIndices": [
+          3
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s5"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "year": {
     "id": "year",
     "word": "year",

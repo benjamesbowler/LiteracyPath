@@ -1,36 +1,27 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-18
+updated: 2026-10-28
 authority: orientation-only
 ---
 
 # Current state
 
-## Adaptive Literacy Test routing — 15 October 2026
+## Beginner vocabulary and Adaptive Literacy Test — 28 October 2026
 
-New sittings use v7: simple Starter tasks in every area, a lower First steps
-route, paired visits and independently adaptive demand across all eight areas.
+New sessions and teacher MAP class practice use V12 with familiar vocabulary
+at First steps and Starter, alongside V11's gradual independent progression.
 The [session standard](../product/LITERACY_MOCK_SESSIONS.md) and
-[actual task-demand ladder](../product/LITERACY_MOCK_DEMAND_LADDER.md) own the
-route, immutable publication, picture withdrawals and bounded device delivery.
-Teacher reports show sampled demand and evidence, without inventing an overall
-level. Earlier sittings retain their own banks and routing. V6 and V7 forward
-migrations add a separate publication and preparation RPC while preserving the
-exact V1–V6 records. Source level no longer promotes the same simple operation.
-Top sounds requires phoneme manipulation; new phonics spelling coordinates a
-consonant blend and vowel team with spare tiles. All eight areas have explicit
-task admission rules. V7 also requires temporal-link reasoning and competing
-true partial accounts in the middle comprehension rungs. Current verification evidence belongs under
-`.artifacts/map-ladder-demand-2026-10-15/` in the owner checkout.
-Physical-iPad observation remains separate from automated browser evidence.
-The live-browser follow-up restricts new phonics routing to actual CVC entry
-and construction before harder spelling patterns; HFW list order is not a
-difficulty scale; First steps excludes sentence blanks and contextual grammar.
-Prepared sessions no longer appear ended, the assessment desk
-stays open after preparation, and untimed/complete-receipt labels are explicit.
-Production UI traces and report checks belong in
-`.artifacts/map-live-browser-2026-10-15/` in the same owner checkout.
+[demand ladder](../product/LITERACY_MOCK_DEMAND_LADDER.md) own selection,
+versioning, fresh capacity and bounded media. V1–V11 remain frozen for existing
+sessions and evidence. Current Skills, all 27 Cycle/Adventure pools and easy
+word-game selectors have their corresponding vocabulary corrections; the
+[Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md) owns the shared
+rule that a simple task or short spelling does not establish familiar vocabulary.
+The three V12 forward migrations must be applied before enabling its client.
+Exact local and hosted verification belongs in the owner checkout's ignored
+`.artifacts/beginner-vocabulary/`; automated media and browser checks do not
+establish human listening or physical-iPad observation.
 
 ## Teacher test access and Teach layout — 14 October 2026
 

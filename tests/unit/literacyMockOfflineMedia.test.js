@@ -86,6 +86,7 @@ test('every current V9 deliverable media path crosses the actual offline cache b
 
 
 test('offline asset admission is selected only by the exact assigned publication',()=>{
+ assert.equal(mockOfflineMediaAssetLimit('literacy-mock-v12'),1024);
  assert.equal(mockOfflineMediaAssetLimit('literacy-mock-v11'),1024);
  assert.equal(mockOfflineMediaAssetLimit('literacy-mock-v10'),768);
  assert.equal(mockOfflineMediaAssetLimit(),768);
@@ -93,7 +94,7 @@ test('offline asset admission is selected only by the exact assigned publication
 
 const assetPaths=count=>Array.from({length:count},(_,index)=>`/audio/bounded-${index}.mp3`);
 test('historical and unknown publications keep the 768-asset admission bound',async()=>{
- for(const contentVersion of [undefined,'literacy-mock-v1','literacy-mock-v9','literacy-mock-v10','literacy-mock-v12']){
+ for(const contentVersion of [undefined,'literacy-mock-v1','literacy-mock-v9','literacy-mock-v10','literacy-mock-v13']){
   const env=environment();
   const allowed=await createMockOfflineMedia(assetPaths(768),{...env.options,contentVersion});allowed.dispose();
   await assert.rejects(()=>createMockOfflineMedia(assetPaths(769),{...env.options,contentVersion}),/unavailable/);
@@ -101,19 +102,19 @@ test('historical and unknown publications keep the 768-asset admission bound',as
  }
 });
 
-test('the longer V11 route admits at most 1024 authorized small assets',async()=>{
+for(const contentVersion of ['literacy-mock-v11','literacy-mock-v12'])test(`${contentVersion} admits at most 1024 authorized small assets`,async()=>{
  const env=environment(),paths=assetPaths(1024);
- const media=await createMockOfflineMedia(paths,{...env.options,contentVersion:'literacy-mock-v11'});
+ const media=await createMockOfflineMedia(paths,{...env.options,contentVersion});
  await media.ensure([paths[0],paths.at(-1)]);
  assert.equal(media.assets,2);assert.equal(media.bytes,6);
  await media.ensure(paths);
  assert.equal(media.assets,1024);assert.equal(media.bytes,3072);
  await assert.rejects(()=>media.ensure(['/audio/not-authorized.mp3']),/authorized/);
  media.dispose();
- await assert.rejects(()=>createMockOfflineMedia(assetPaths(1025),{...env.options,contentVersion:'literacy-mock-v11'}),/unavailable/);
+ await assert.rejects(()=>createMockOfflineMedia(assetPaths(1025),{...env.options,contentVersion}),/unavailable/);
 });
 
-for(const contentVersion of ['literacy-mock-v10','literacy-mock-v11'])test(`${contentVersion} retains the exact 4-MiB file and 48-MiB total byte bounds`,async()=>{
+for(const contentVersion of ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'])test(`${contentVersion} retains the exact 4-MiB file and 48-MiB total byte bounds`,async()=>{
  const env=environment(),headers={'content-type':'audio/mpeg'};
  await assert.rejects(()=>prepareMockOfflineMedia(['/audio/oversized.mp3'],{...env.options,contentVersion,
   fetcher:async()=>new Response(new Uint8Array(4*1024*1024+1),{headers})}),/exceeds/);

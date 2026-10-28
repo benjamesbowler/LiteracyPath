@@ -5,6 +5,8 @@ import { runInNewContext } from "node:vm";
 import test from "node:test";
 
 import { questOfflinePlugin, serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
+import { mockExecutableAssets } from "../../src/utils/offlineShell.js";
+import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from "../../src/policy/literacyMockVersions.js";
 
 function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [], precache = [] }) {
   const listeners = new Map();
@@ -323,13 +325,28 @@ test('assessment offline packs retain current assessment code, bank and styles w
   'assets/main.js':{type:'chunk',isEntry:true,fileName:'assets/main.js',imports:[],modules:{},code:'shell'},
   'assets/mock.js':{type:'chunk',fileName:'assets/mock.js',imports:['assets/helper.js'],dynamicImports:['assets/old-bank.js'],modules:{'/src/components/progress/LiteracyMockPage.jsx':{}},viteMetadata:{importedCss:new Set(['assets/mock.css'])},code:'mock'},
   'assets/helper.js':{type:'chunk',fileName:'assets/helper.js',imports:[],modules:{},code:'helpers'},
-  'assets/current-bank.js':{type:'chunk',fileName:'assets/current-bank.js',imports:[],modules:{'/src/data/generated/literacyMockRuntimeV11.generated.js':{}},code:'current'},
+  'assets/current-bank.js':{type:'chunk',fileName:'assets/current-bank.js',imports:[],modules:{'/src/data/generated/literacyMockRuntimeV12.generated.js':{}},code:'current'},
+  'assets/v11-mixed.js':{type:'chunk',fileName:'assets/v11-mixed.js',imports:[],modules:{'/src/data/generated/literacyMockRuntimeV11.generated.js':{}},code:'retained v11'},
+  'assets/v10-mixed.js':{type:'chunk',fileName:'assets/v10-mixed.js',imports:[],modules:{'/src/data/generated/literacyMockRuntimeV10.generated.js':{}},code:'retained v10'},
+  'assets/full-bank.js':{type:'chunk',fileName:'assets/full-bank.js',imports:[],modules:{'/src/data/literacyMockBank.js':{}},code:'full publications'},
   'assets/v3-bank.js':{type:'chunk',fileName:'assets/v3-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV3.generated.js':{}},code:'v3'},
   'assets/old-bank.js':{type:'chunk',fileName:'assets/old-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV1.generated.js':{}},code:'old'},
   'assets/mock.css':{type:'asset',fileName:'assets/mock.css',source:'styles'}
  });
  const manifest=JSON.parse(emitted.find(row=>row.fileName==='offline-build.json').source);
+ assert.equal(manifest.mockExecutable.contentVersion,LITERACY_MOCK_VERSION);
+ assert.deepEqual(Object.keys(manifest.mockExecutable.byVersion),LITERACY_MOCK_VERSIONS);
  assert.deepEqual(manifest.mockExecutable.assets,['/assets/current-bank.js','/assets/helper.js','/assets/mock.css','/assets/mock.js']);
+ assert.deepEqual(mockExecutableAssets(manifest,{contentVersion:'literacy-mock-v12',mixed:true}),manifest.mockExecutable.assets);
+ assert.ok(mockExecutableAssets(manifest,{contentVersion:'literacy-mock-v12',mixed:false}).includes('/assets/full-bank.js'));
+ for(const version of [10,11]) {
+  const assets=mockExecutableAssets(manifest,{contentVersion:`literacy-mock-v${version}`,mixed:true});
+  assert.ok(assets.includes(`/assets/v${version}-mixed.js`));
+  assert.ok(!assets.includes('/assets/current-bank.js'));
+  assert.ok(!assets.includes('/assets/full-bank.js'));
+ }
+ const worker=emitted.find(row=>row.fileName==='sw.js').source;
+ assert.deepEqual(JSON.parse(/const MOCK_EXECUTABLE_ASSETS = (\[[^\n]+\]);/.exec(worker)[1]),manifest.mockExecutable.assets);
  assert.ok(manifest.mockExecutable.byVersion['literacy-mock-v3'].includes('/assets/v3-bank.js'));
  assert.ok(!manifest.mockExecutable.byVersion['literacy-mock-v3'].includes('/assets/old-bank.js'));
  assert.ok(manifest.mockExecutable.byVersion['literacy-mock-v1'].includes('/assets/old-bank.js'));

@@ -30,6 +30,7 @@ export const CMU_PRONUNCIATION_REFERENCE = Object.freeze({
   "web": {"sourceKey": "web", "arpabet": ["W", "EH", "B"]},
   "queen": {"sourceKey": "queen", "arpabet": ["K", "W", "IY", "N"]},
   "yak": {"sourceKey": "yak", "arpabet": ["Y", "AE", "K"]},
+  "yawn": {"sourceKey": "yawn", "arpabet": ["Y", "AO", "N"]},
 
   "a": {
     "sourceKey": "a",

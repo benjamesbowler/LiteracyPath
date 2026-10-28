@@ -1,3 +1,4 @@
+import {literacyMockDemandV12} from '../../src/policy/literacyMockDemandV12.js';
 import {literacyMockDemandV11,LITERACY_MOCK_V11_LADDERS} from '../../src/policy/literacyMockDemandV11.js';
 import {literacyMockBoundaryLimits} from '../../src/policy/literacyMockBoundaryPolicy.js';
 import {getLiteracyMockAudioV11Path} from '../../src/data/literacyMockAudioV11.js';
@@ -34,7 +35,7 @@ export function currentLiteracyMockAuditItems(bank,{contentVersion=LITERACY_MOCK
 
 function availableCuePaths(cue,version) {
   if(cue.role==='phoneme')return new Set([getPreferredPhonemeAudioPath(cue.text)].filter(Boolean));
-  return new Set([...(version==='literacy-mock-v11'?[getLiteracyMockAudioV11Path(cue.text)]:[]),getLedaInstructionAudioPath(cue.text),getLedaWordAudioPath(cue.text),
+  return new Set([...(['literacy-mock-v11','literacy-mock-v12'].includes(version)?[getLiteracyMockAudioV11Path(cue.text)]:[]),getLedaInstructionAudioPath(cue.text),getLedaWordAudioPath(cue.text),
     ...LEDA_LANGUAGE_AUDIO_ROLES.map(role=>getLedaProductionAudioPath(cue.text,[role])),
     CYCLE_PRACTICE_INSTRUCTION_AUDIO[normalizeLedaAudioText(cue.text)],ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(cue.text)],
     DRUM_TRAIL_WORDS.find(word=>word.word===cue.text)?.audio].filter(Boolean));
@@ -59,16 +60,16 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItem
   const choices=Array.isArray(q.choices)?q.choices:[],ids=choices.map(c=>c.id);
   const cues=Array.isArray(q.requiredAudioCues)?q.requiredAudioCues:[];
   const band=q.adaptiveAreaBand,operation=q.adaptiveDemand?.operation;
-  const classify=q.contentVersion==='literacy-mock-v11'?q=>literacyMockDemandV11(q,{sourceItems}):q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
-  const ladders=q.contentVersion==='literacy-mock-v11'?LITERACY_MOCK_V11_LADDERS:q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
+  const classify=q.contentVersion==='literacy-mock-v12'?q=>literacyMockDemandV12(q,{sourceItems}):q.contentVersion==='literacy-mock-v11'?q=>literacyMockDemandV11(q,{sourceItems}):q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
+  const ladders=['literacy-mock-v11','literacy-mock-v12'].includes(q.contentVersion)?LITERACY_MOCK_V11_LADDERS:q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
   if(!text(q.id)||!text(q.prompt)||!text(q.skillId)||!text(q.constructClaim)||![1,2].includes(q.level)
     || !LITERACY_MOCK_AREA_ORDER.includes(q.domainId)||!formats.has(q.format)
     ||choices.length<2||new Set(ids).size!==ids.length||choices.some(c=>!text(c.id)||!text(c.label)))add('Q-MOCK-SHAPE','A normalized item needs a stable ID, literal prompt/construct, domain, source level and distinct labelled response IDs.');
-  if(q.adaptiveAreaVersion!==(q.contentVersion==='literacy-mock-v11'?literacyMockBoundaryLimits(q.contentVersion).areaVersion:LITERACY_MOCK_V9_AREA_VERSION)||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
+  if(q.adaptiveAreaVersion!==(['literacy-mock-v11','literacy-mock-v12'].includes(q.contentVersion)?literacyMockBoundaryLimits(q.contentVersion).areaVersion:LITERACY_MOCK_V9_AREA_VERSION)||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
     ||JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band])
     ||classify(q)!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
 
-  if(q.contentVersion==='literacy-mock-v11'&&q.format==='choice'&&choices.length!==4)add('Q-MOCK-FOUR-CHOICES','Every current single-answer multiple-choice question needs one key and three distractors.');
+  if(['literacy-mock-v11','literacy-mock-v12'].includes(q.contentVersion)&&q.format==='choice'&&choices.length!==4)add('Q-MOCK-FOUR-CHOICES','Every current single-answer multiple-choice question needs one key and three distractors.');
   if(['choice','select_text'].includes(q.format)){
     if(q.answerMode!=='exact'||typeof q.answer!=='string'||ids.filter(id=>id===q.answer).length!==1)add('Q-MOCK-KEY','A selected response needs exactly one literal keyed choice ID.');
   }else if(q.format==='multi_select'){
