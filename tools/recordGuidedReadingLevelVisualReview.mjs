@@ -57,6 +57,7 @@ const audit = JSON.parse(fs.readFileSync(auditPath, "utf8"));
 const runtimeBooks = getRuntimeGuidedReadingBooks();
 const reviewedBooks = runtimeBooks.filter(book => bookId ? book.id === bookId : getPublicBookMetadata(book).appReadingLevel === level);
 const reviewedBookIds = new Set(reviewedBooks.map(book => book.id));
+const previousPages = new Map((audit.pages || []).map(record => [`${record.bookId}:${record.pageNumber}`, record]));
 
 if (!reviewedBooks.length) throw new Error(`No active books were found for ${bookId || `App level ${level}`}.`);
 
@@ -75,6 +76,7 @@ for (const book of reviewedBooks) {
     }
 
     audit.pages.push({
+      ...previousPages.get(`${book.id}:${pageNumber}`),
       bookId: book.id,
       title: book.title,
       level: getPublicBookMetadata(book).appReadingLevel,

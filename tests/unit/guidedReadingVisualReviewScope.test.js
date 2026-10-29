@@ -38,12 +38,15 @@ test("a book-only visual receipt updates that book and preserves every unrelated
     fs.symlinkSync(path.join(root, "public"), path.join(fixture, "public"), "dir");
     fs.copyFileSync(path.join(root, auditRelative), path.join(fixture, auditRelative));
     const before = JSON.parse(fs.readFileSync(path.join(fixture, auditRelative)));
+    before.pages.find(row => row.bookId === bookId).fixtureReviewProvenance = { receipt: "retain the earlier source evidence" };
+    fs.writeFileSync(path.join(fixture, auditRelative), JSON.stringify(before));
     const result = spawnSync(process.execPath, [path.join(fixture, "tools/recordGuidedReadingLevelVisualReview.mjs"), "--book", bookId, "--note", "Scoped fixture review"], { encoding: "utf8" });
     assert.equal(result.status, 0, result.stderr);
     const after = JSON.parse(fs.readFileSync(path.join(fixture, auditRelative)));
     assert.deepEqual(after.pages.filter(row => row.bookId !== bookId), before.pages.filter(row => row.bookId !== bookId));
     const selected = after.pages.filter(row => row.bookId === bookId);
     assert.equal(selected.length, 7);
+    assert.deepEqual(selected.find(row => row.fixtureReviewProvenance)?.fixtureReviewProvenance, { receipt: "retain the earlier source evidence" });
     assert.ok(selected.every(row => row.level === "A" && row.regenerationBrief === "Scoped fixture review"));
   } finally {
     fs.rmSync(fixture, { recursive: true, force: true });
