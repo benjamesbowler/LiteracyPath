@@ -1,3 +1,4 @@
+import { getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
 import { buildMetricDefinitionsText } from "./metricDefinitions.js";
 import {
   buildPresetExportProvenanceRows,
@@ -112,7 +113,7 @@ Guided Reading
 
 ${guidedReadingSummaries.length
     ? guidedReadingSummaries.map(item =>
-      `${item.title} (${item.type}, Level ${item.level}): ${item.correct} of ${item.attempted} words read correctly (${item.accuracy}%). Support words: ${item.supportWords.length ? item.supportWords.join(", ") : "none"}. Notes: ${[item.wholeBookNote, ...item.pageNotes.map(note => `Page ${note.page}: ${note.note}`)].filter(Boolean).join(" | ") || "none"}`
+      `${item.title} (${item.type}, ${getPublicBookMetadata(item.bookId || item.id).levelLabel}): ${item.correct} of ${item.attempted} words read correctly (${item.accuracy}%). Support words: ${item.supportWords.length ? item.supportWords.join(", ") : "none"}. Notes: ${[item.wholeBookNote, ...item.pageNotes.map(note => `Page ${note.page}: ${note.note}`)].filter(Boolean).join(" | ") || "none"}`
     ).join("\n")
     : "No guided reading records saved yet."}
 

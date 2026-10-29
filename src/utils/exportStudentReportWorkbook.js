@@ -1,3 +1,4 @@
+import { getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
 import {
   SHEET_NAMES,
   addCoverSheet,
@@ -540,7 +541,7 @@ export async function createStudentReportWorkbook({
 
   const bookRows = (guided.books || []).map(book => ({
     title: book.title || "Untitled book",
-    level: book.level ?? "Level not recorded",
+    level: getPublicBookMetadata(book.bookId || book.id).levelLabel,
     completed: book.completed ? "Completed" : "In progress",
     reads: book.readCount ?? book.reads ?? 1,
     lastRead: book.lastReadAt || book.observedAt || "",
@@ -553,7 +554,7 @@ export async function createStudentReportWorkbook({
     row,
     [
       { key: "title", header: "Book", width: 30, wrap: true },
-      { key: "level", header: "Level", width: 12 },
+      { key: "level", header: "Book App level", width: 24 },
       { key: "completed", header: "Status", width: 14 },
       { key: "reads", header: "Reads", type: "number", width: 12 },
       { key: "lastRead", header: "Last read", type: "date", width: 13 },
@@ -566,7 +567,9 @@ export async function createStudentReportWorkbook({
   );
   row = bookTable.nextRow;
 
-  const supportWords = (guided.wordRows || []).filter(word => canonicalStatusId(word.statusLabel) !== "secure");
+  const supportWords = (guided.wordRows || [])
+    .filter(word => canonicalStatusId(word.statusLabel) !== "secure")
+    .map(word => ({ ...word, level: getPublicBookMetadata(word.bookId).levelLabel }));
   row = addSectionHeading(reading, row, "Words that needed support", "In the books read so far.", { span: 6 });
   addTable(
     reading,
@@ -574,7 +577,7 @@ export async function createStudentReportWorkbook({
     [
       { key: "word", header: "Word", width: 16 },
       { key: "title", header: "Book", width: 30, wrap: true },
-      { key: "level", header: "Level", width: 12 },
+      { key: "level", header: "Book App level", width: 24 },
       { key: "observedAt", header: "When", type: "date", width: 13 }
     ],
     supportWords,

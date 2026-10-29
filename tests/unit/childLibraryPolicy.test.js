@@ -33,11 +33,20 @@ import {
   windowBooks
 } from "../../src/policy/childLibraryPolicy.js";
 import { splitLevelCBooks } from "../../src/policy/guidedReadingCatalogPolicy.js";
+import { APP_READING_LEVELS, getPublicBookMetadata } from "../../src/utils/guidedReading/bookLevelMetadata.js";
+import { recommendBooksForStudent } from "../../src/utils/guidedReading/recommendBooksForStudent.js";
 
 const booksPageSource = readFileSync("src/components/StudentBooksPage.jsx", "utf8");
 const questsPageSource = readFileSync("src/components/StudentStoryQuestsPage.jsx", "utf8");
 const libraryStyles = readFileSync("src/styles/kids-library.css", "utf8");
 const appSource = readFileSync("src/components/AppSurface.jsx", "utf8");
+const runtimeBooks = getRuntimeGuidedReadingBooks();
+
+function catalogueBook(id) {
+  const current = runtimeBooks.find(book => book.id === id);
+  assert.ok(current, `${id}: current catalogue fixture`);
+  return current;
+}
 
 function book(id, level, pages = 6, extra = {}) {
   return {
@@ -61,15 +70,50 @@ test("book progress does not project legacy quiz stars", () => {
   assert.equal("stars" in progress, false);
 });
 
-test("teacher editorial bands remain internal while the child shelf names the action", () => {
-  const bands = splitLevelCBooks([book("compact", "C", 6, { readingBandProfile: "standard" }), book("long", "C", 6, { readingBandProfile: "extended" })]);
+test("public App C browsing does not impose the internal C-standard restriction", () => {
+  // Compatibility placement/profile changes do not change the reviewed prose.
+  const compact = { ...catalogueBook("gr-a-26"), level: "C" };
+  const extended = { ...catalogueBook("gr-b-31"), level: "C", readingBandProfile: "extended" };
+  assert.equal(getPublicBookMetadata(extended).appReadingLevel, "C");
+  const bands = splitLevelCBooks([compact, extended]);
   assert.equal(bands.standard.length, 1);
   assert.equal(bands.extended.length, 1);
   const [shelf] = buildBookShelves({ books: [...bands.standard, ...bands.extended], level: "C" });
-  assert.deepEqual(shelf.books.map(row => row.book.id), ["compact"]);
+  assert.deepEqual(new Set(shelf.books.map(row => row.book.id)), new Set([compact.id, extended.id]));
   assert.equal(shelf.title, "Books for you");
   assert.doesNotMatch(shelf.note, /Level|C Standard/);
-  assert.deepEqual(buildBookShelves({ books: [...bands.standard, ...bands.extended], mode: "together" })[0].books.map(row => row.book.id), ["long"]);
+  assert.deepEqual(buildBookShelves({ books: [...bands.standard, ...bands.extended], mode: "together" })[0].books.map(row => row.book.id), [extended.id]);
+});
+
+for (const level of APP_READING_LEVELS) test(`App ${level} recommendations populate the matching public shelf and collections`, () => {
+  const current = runtimeBooks.find(book => getPublicBookMetadata(book).appReadingLevel === level);
+  assert.ok(current, `${level}: current reviewed fixture`);
+  const stale = { ...current, pages: current.pages.map((page, index) => index ? page : { ...page, text: `${page.text} Changed text.` }) };
+  const unreviewed = { ...current, id: `unreviewed-${level}`, level, appReadingLevel: level, levelLabel: `App level ${level}` };
+  const candidates = [...runtimeBooks, stale, unreviewed];
+  const recommendations = recommendBooksForStudent({ books: candidates, studentProgress: { appReadingLevel: level } });
+  assert.ok(recommendations.length > 0, `${level}: recommendations exist`);
+  assert.ok(recommendations.every(item => item.readingLevel === level && getPublicBookMetadata(item.book).levelStatus === "current"));
+  const [shelf] = buildBookShelves({
+    books: candidates, level: recommendations[0].readingLevel,
+    order: recommendations.map(item => item.book.id), slots: candidates.length
+  });
+  assert.deepEqual(shelf.books.map(row => row.book.id), recommendations.map(item => item.book.id));
+  assert.ok(shelf.books.every(row => getPublicBookMetadata(row.book).appReadingLevel === level));
+  assert.ok(shelf.books.every(row => row.book !== stale && row.book !== unreviewed));
+  assert.equal(buildBookShelves({ books: [stale, unreviewed], level })[0].total, 0);
+  assert.deepEqual(bookCollectionsForLevel([stale, unreviewed], level), []);
+  assert.deepEqual(
+    bookCollectionsForLevel(candidates, level).map(collection => collection.id).sort(),
+    [...new Set(recommendations.map(item => bookCollectionId(item.book)))].sort()
+  );
+});
+
+test("pending or unsupported band values cannot turn unreviewed claims into recommendations", () => {
+  const unreviewed = { ...catalogueBook("gr-a-27"), id: "unreviewed-claimed-band", appReadingLevel: "A", level: "A" };
+  for (const level of [null, "", "pending", "READ_ALOUD", "I"]) {
+    assert.equal(buildBookShelves({ books: [...runtimeBooks, unreviewed], level })[0].total, 0);
+  }
 });
 
 test("a saved bookmark takes precedence over the furthest page reached", () => {
@@ -97,35 +141,42 @@ test("the continuation is the most recently read unfinished book", () => {
 });
 
 test("one six-book shelf excludes the featured book and pages through every alternative", () => {
-  const books = Array.from({ length: 30 }, (_, index) => book(`a-${index}`, "A"));
+  const books = runtimeBooks.filter(book => getPublicBookMetadata(book).appReadingLevel === "B").slice(0, 30);
+  assert.equal(books.length, 30);
+  const excludedId = books[0].id;
   const seen = new Set();
   for (let page = 0; page < 30; page += BOOK_SHELF_SLOTS) {
-    const shelves = buildBookShelves({ books, excludeBookId: "a-0", justRightPage: page });
+    const shelves = buildBookShelves({ books, level: "B", excludeBookId: excludedId, justRightPage: page });
     assert.equal(shelves.length, 1);
     assert.equal(shelves[0].books.length, BOOK_SHELF_SLOTS);
     assert.equal(shelves[0].step, BOOK_SHELF_SLOTS);
     assert.equal(shelves[0].hasMore, true);
-    for (const row of shelves[0].books) { assert.notEqual(row.book.id, "a-0"); seen.add(row.book.id); }
+    for (const row of shelves[0].books) { assert.notEqual(row.book.id, excludedId); seen.add(row.book.id); }
   }
   assert.equal(seen.size, 29);
   assert.deepEqual(windowBooks([1, 2, 3, 4], 3, 3), [4, 1, 2]);
 });
 
 test("discovery preserves the eligible pool, read-together support, and own rereading history", () => {
-  const books = [book("a", "A"), book("b", "B"), book("shared", "READ_ALOUD", 6, { readingBandProfile: "read-aloud" })];
-  assert.deepEqual(buildBookShelves({ books, level: "A" })[0].books.map(row => row.book.id), ["a"]);
+  const a = catalogueBook("first-facts-level-a-02-farm-animals");
+  const b = catalogueBook("gr-a-28");
+  const shared = catalogueBook("meadow-pals-science-01-missing-sandwich");
+  const books = [a, b, shared];
+  assert.deepEqual(buildBookShelves({ books, level: "A" })[0].books.map(row => row.book.id), [a.id]);
   assert.equal(buildBookShelves({ books, mode: "all" })[0].books.length, 3);
-  assert.deepEqual(buildBookShelves({ books, mode: "together" })[0].books.map(row => row.book.id), ["shared"]);
-  const [again] = buildBookShelves({ books, mode: "read-again", records: { b: { completed: true } } });
-  assert.deepEqual(again.books.map(row => row.book.id), ["b"]);
+  assert.deepEqual(buildBookShelves({ books, mode: "together" })[0].books.map(row => row.book.id), [shared.id]);
+  const [again] = buildBookShelves({ books, mode: "read-again", records: { [b.id]: { completed: true } } });
+  assert.deepEqual(again.books.map(row => row.book.id), [b.id]);
   assert.equal(again.books[0].progress.completed, true);
   assert.equal(buildBookShelves({ books: [], mode: "all" })[0].total, 0);
 });
 
 test("collections cover all approved books independently of app text-level browsing", () => {
-  const books = [book("bob-and-nan-01", "A"), book("meadow-pals-01", "A"), book("dino-pals-01", "B")];
+  const books = [catalogueBook("bob-and-nan-01"), catalogueBook("meadow-pals-01-muddy-has-a-bath"), catalogueBook("dino-pals-01-chompys-big-lunch")];
   assert.deepEqual(bookCollectionsForLevel(books).map(row => row.label), ["Bob & Nan", "Meadow Pals", "Dino Pals"]);
-  assert.deepEqual(bookCollectionsForLevel(books, "A").map(row => row.label), ["Bob & Nan", "Meadow Pals"]);
+  assert.deepEqual(bookCollectionsForLevel(books, "A").map(row => row.label), ["Meadow Pals"]);
+  assert.deepEqual(bookCollectionsForLevel(books, "B").map(row => row.label), ["Bob & Nan"]);
+  assert.deepEqual(bookCollectionsForLevel(books, "C").map(row => row.label), ["Dino Pals"]);
   assert.equal(bookCollectionId(books[0]), "bob-and-nan");
 });
 

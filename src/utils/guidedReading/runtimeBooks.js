@@ -13,8 +13,9 @@
 //   2. Pages that are inactive, not yet approved, or whose art has been retired
 //      are dropped — and a book left with no pages disappears with them, since
 //      a book you cannot turn a page of is not a book.
-//   3. The teacher's own level overrides are applied, so the level on the shelf
-//      is the level the teacher set.
+//   3. Historical placement overrides remain internal to practice/progress.
+//      Public book levels use the reviewed A-H metadata and cannot be changed
+//      by those older A/B/C overrides.
 //
 // Kept free of React and of `import.meta.env` so it stays importable from
 // `node --test`, and imported only from lazy chunks so the 176-book dataset
@@ -23,6 +24,7 @@
 
 import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
+import { getPublicBookMetadata } from "./bookLevelMetadata.js";
 import {
   isGuidedReadingAssetDeleted,
   isGuidedReadingBookDeleted
@@ -56,5 +58,14 @@ export function getRuntimeGuidedReadingBooks() {
         })
       )
     }))
-    .filter(book => (book.pages || []).length > 0);
+    .filter(book => (book.pages || []).length > 0)
+    .map(book => {
+      const publicMetadata = getPublicBookMetadata(book);
+      return {
+        ...book,
+        appReadingLevel: publicMetadata.appReadingLevel,
+        appReadingLevelStatus: publicMetadata.levelStatus,
+        appReadingLevelSystem: publicMetadata.levelSystem
+      };
+    });
 }

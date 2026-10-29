@@ -45,7 +45,8 @@ test("phonics eligibility, supported-reading mode and teacher level overrides do
   assert.equal(book.readingMode, "supported-read-together");
   const shortBook = books.find(item => item.id === "bob-and-nan-01");
   const moved = { ...shortBook, level: "C", levelOverride: "C" };
-  assert.equal(getBookTextAnalysis(moved).appReadingLevel, "A");
+  assert.equal(getBookTextAnalysis(moved).appReadingLevel, GUIDED_READING_LEVEL_REVIEWS[shortBook.id].appReadingLevel);
+  assert.notEqual(getBookTextAnalysis(moved).appReadingLevel, moved.level);
   assert.equal(moved.level, "C");
 });
 
