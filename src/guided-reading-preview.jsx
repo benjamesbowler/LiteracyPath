@@ -98,7 +98,7 @@ export function GuidedReadingPreview() {
   }
 
   return (
-    <main className="app student-mode-app lp-skin-sage">
+    <main className={`app student-mode-app ${requestedMode === "class" ? "teacher-child-preview " : ""}lp-skin-sage`}>
       {reader}
     </main>
   );
