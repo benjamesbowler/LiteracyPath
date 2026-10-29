@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
+import { APP_READING_LEVELS, getPublicBookMetadata } from "../src/utils/guidedReading/bookLevelMetadata.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const auditPath = path.join(
@@ -15,12 +16,17 @@ const auditPath = path.join(
 
 const levelIndex = process.argv.indexOf("--level");
 const level = String(levelIndex === -1 ? "" : process.argv[levelIndex + 1] || "").toUpperCase();
+const bookIndex = process.argv.indexOf("--book");
+const bookId = bookIndex === -1 ? "" : String(process.argv[bookIndex + 1] || "");
 const noteIndex = process.argv.indexOf("--note");
 const reviewNote = String(noteIndex === -1 ? "" : process.argv[noteIndex + 1] || "").trim();
 
-if (!new Set(["A", "B", "C"]).has(level) || !reviewNote) {
+if ((levelIndex !== -1) === (bookIndex !== -1)
+  || (levelIndex !== -1 && !APP_READING_LEVELS.includes(level))
+  || (bookIndex !== -1 && (!bookId || bookId.startsWith("--")))
+  || !reviewNote) {
   throw new Error(
-    "Usage: node tools/recordGuidedReadingLevelVisualReview.mjs --level A|B|C --note \"review evidence\""
+    "Usage: node tools/recordGuidedReadingLevelVisualReview.mjs (--level A|B|C|D|E|F|G|H | --book BOOK_ID) --note \"review evidence\""
   );
 }
 
@@ -49,10 +55,10 @@ function publicFile(publicPath = "") {
 
 const audit = JSON.parse(fs.readFileSync(auditPath, "utf8"));
 const runtimeBooks = getRuntimeGuidedReadingBooks();
-const reviewedBooks = runtimeBooks.filter(book => book.level === level);
+const reviewedBooks = runtimeBooks.filter(book => bookId ? book.id === bookId : getPublicBookMetadata(book).appReadingLevel === level);
 const reviewedBookIds = new Set(reviewedBooks.map(book => book.id));
 
-if (!reviewedBooks.length) throw new Error(`No active Level ${level} books were found.`);
+if (!reviewedBooks.length) throw new Error(`No active books were found for ${bookId || `App level ${level}`}.`);
 
 audit.pages = (audit.pages || []).filter(record => !reviewedBookIds.has(record.bookId));
 
@@ -71,7 +77,7 @@ for (const book of reviewedBooks) {
     audit.pages.push({
       bookId: book.id,
       title: book.title,
-      level: book.level,
+      level: getPublicBookMetadata(book).appReadingLevel,
       pageNumber,
       displayedText: text,
       imagePath,
@@ -124,7 +130,7 @@ audit.scope = {
 audit.approvedBookIds = auditedBookIds.filter(bookId => !booksWithReplacements.has(bookId));
 audit.replacementQueue = replacementPages;
 
-const methodEntry = `On ${audit.auditDate}, Level ${level} was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.`;
+const methodEntry = `On ${audit.auditDate}, ${bookId || `App level ${level}`} was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.`;
 audit.method = Array.isArray(audit.method) ? audit.method : [];
 if (!audit.method.includes(methodEntry)) audit.method.push(methodEntry);
 
@@ -133,5 +139,5 @@ audit.gateSemantics.releaseFingerprintSha256 = releaseFingerprint(audit.pages);
 
 fs.writeFileSync(auditPath, `${JSON.stringify(audit, null, 2)}\n`);
 console.log(
-  `Recorded Level ${level}: ${reviewedBooks.length} books and ${reviewedBooks.reduce((sum, book) => sum + book.pages.length, 0)} reviewed pages.`
+  `Recorded ${bookId || `App level ${level}`}: ${reviewedBooks.length} books and ${reviewedBooks.reduce((sum, book) => sum + book.pages.length, 0)} reviewed pages.`
 );

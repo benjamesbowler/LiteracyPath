@@ -18,7 +18,7 @@
     "test:quest-soak-smoke": "playwright test --config playwright.quest.soak.config.js",
     "test:release-teacher": "playwright test tests/release/teacher-dashboard-contracts.spec.js --project=desktop",
     "test:unit": "node --test tests/unit/*.test.js",
-    "check:book-levels": "node tools/generateGuidedReadingTextAnalysis.mjs --check && node tools/generateBookIndex.js --books-only --check && node --test tests/unit/guidedReadingTextAnalysis.test.js tests/unit/guidedReadingPublicMetadata.test.js tests/unit/guidedReadingPublicSessionLevels.test.js tests/unit/guidedReadingPublicReportLevels.test.js tests/unit/dailyMissionBookLevels.test.js",
+    "check:book-levels": "node tools/generateGuidedReadingTextAnalysis.mjs --check && node tools/generateBookIndex.js --books-only --check && node --test tests/unit/guidedReadingTextAnalysis.test.js tests/unit/guidedReadingPublicMetadata.test.js tests/unit/guidedReadingPublicSessionLevels.test.js tests/unit/guidedReadingPublicReportLevels.test.js tests/unit/dailyMissionBookLevels.test.js tests/unit/guidedReadingVisualReviewScope.test.js",
     "test": "node --test tests/unit/*.test.js",
     "check:unit-coverage": "node --experimental-test-coverage --test-coverage-lines=96 --test-coverage-branches=74 --test-coverage-functions=84 --test-coverage-include='src/**/*.js' --test-coverage-exclude='src/**/*.test.js' --test-coverage-exclude='src/**/*.spec.js' --test-coverage-exclude='src/**/__tests__/**' --test-coverage-exclude='src/**/__snapshots__/**' --test-coverage-exclude='src/data/generated/**' --test-coverage-exclude='src/vendor/**' --test tests/unit/*.test.js",
     "lint": "eslint .",

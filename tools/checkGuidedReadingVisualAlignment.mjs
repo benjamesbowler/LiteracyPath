@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { loadScienceVisualReview } from "./meadowPalsScienceGateLib.mjs";
 import { MISSING_SANDWICH_BOOK_ID } from "../src/data/meadowPalsScienceBooks.js";
+import { APP_READING_LEVELS, getPublicBookMetadata } from "../src/utils/guidedReading/bookLevelMetadata.js";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = path.join(
@@ -19,7 +20,7 @@ const failures = [];
 
 const helpRequested = process.argv.includes("--help") || process.argv.includes("-h");
 if (helpRequested) {
-  console.log("Usage: node tools/checkGuidedReadingVisualAlignment.mjs [--level A|B|C | --book BOOK_ID]");
+  console.log("Usage: node tools/checkGuidedReadingVisualAlignment.mjs [--level A|B|C|D|E|F|G|H | --book BOOK_ID]");
   process.exit(0);
 }
 
@@ -27,8 +28,8 @@ const levelFlagIndex = process.argv.indexOf("--level");
 const requestedLevel = levelFlagIndex === -1
   ? null
   : String(process.argv[levelFlagIndex + 1] || "").toUpperCase();
-if (levelFlagIndex !== -1 && !new Set(["A", "B", "C"]).has(requestedLevel)) {
-  throw new Error(`--level must be A, B or C; received ${process.argv[levelFlagIndex + 1] || "missing"}`);
+if (levelFlagIndex !== -1 && !APP_READING_LEVELS.includes(requestedLevel)) {
+  throw new Error(`--level must be an App level A-H; received ${process.argv[levelFlagIndex + 1] || "missing"}`);
 }
 const bookFlagIndex = process.argv.indexOf("--book");
 const requestedBook = bookFlagIndex === -1 ? null : process.argv[bookFlagIndex + 1];
@@ -63,7 +64,8 @@ function publicFile(publicPath = "") {
 
 const records = new Map();
 const scienceReview = loadScienceVisualReview(repositoryRoot);
-if (!scopedRun || requestedBook === MISSING_SANDWICH_BOOK_ID) failures.push(...scienceReview.failures);
+if (!scopedRun || requestedBook === MISSING_SANDWICH_BOOK_ID
+  || requestedLevel === getPublicBookMetadata(MISSING_SANDWICH_BOOK_ID).appReadingLevel) failures.push(...scienceReview.failures);
 for (const record of [...(report.pages || []), ...scienceReview.pages]) {
   const key = `${record.bookId}:${record.pageNumber}`;
   if (records.has(key)) failures.push(`${key}: duplicate visual audit record`);
@@ -76,7 +78,7 @@ let approvedCount = 0;
 let replacementCount = 0;
 
 const allBooks = getRuntimeGuidedReadingBooks();
-const books = allBooks.filter(book => (!requestedLevel || book.level === requestedLevel)
+const books = allBooks.filter(book => (!requestedLevel || getPublicBookMetadata(book).appReadingLevel === requestedLevel)
   && (!requestedBook || book.id === requestedBook));
 if (requestedBook && books.length !== 1) failures.push(`Unknown active book ${requestedBook}`);
 
@@ -123,7 +125,7 @@ for (const [key, record] of records) {
   if (requestedBook) {
     if (record.bookId === requestedBook && !liveKeys.has(key)) failures.push(`${key}: stale visual audit record is not an active runtime page`);
   } else if (requestedLevel) {
-    if (record.level === requestedLevel && !liveKeys.has(key)) {
+    if (getPublicBookMetadata(record.bookId).appReadingLevel === requestedLevel && !liveKeys.has(key)) {
       failures.push(`${key}: stale Level ${requestedLevel} visual audit record is not an active runtime page`);
     }
   } else if (!liveKeys.has(key)) {

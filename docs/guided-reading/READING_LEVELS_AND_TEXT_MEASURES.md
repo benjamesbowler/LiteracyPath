@@ -40,6 +40,11 @@ supply a public book level. The compact generated discovery index exposes the
 same letter, system ID, fingerprint, review date, page/word counts and reading
 mode without loading the full manuscripts into the home/report bundle.
 
+The build refuses to generate a compact index from a different review, date,
+rationale or metric set than the detailed analysis. Image-review tools also
+interpret `--level` as the public A–H band. A replacement book can be recorded
+with `--book BOOK_ID`, so an individual repair cannot approve unrelated books.
+
 The old A/B/C fields remain internal compatibility inputs for existing practice
 layout, phonics eligibility and historical progress. They are not another
 public book-level scale. A book's App level is not the reader's achievement;

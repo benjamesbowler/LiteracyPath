@@ -11,6 +11,7 @@ const outFile = path.join(root, "src", "data", "generated", "guidedReadingBookIn
 const { getRuntimeGuidedReadingBooks } = await import(path.join(root, "src/utils/guidedReading/runtimeBooks.js"));
 const { getGuidedReadingBookMetadata } = await import(path.join(root, "src/data/guidedReadingBookMetadata.js"));
 const { GUIDED_READING_LEVEL_REVIEWS } = await import(path.join(root, "src/data/guidedReadingLevelReviews.js"));
+const { GUIDED_READING_TEXT_ANALYSIS } = await import(path.join(root, "src/data/generated/guidedReadingTextAnalysis.generated.js"));
 const { computeBookTextMetrics, fingerprintBookReadingText } = await import(path.join(root, "src/utils/guidedReading/textMetrics.js"));
 
 const index = getRuntimeGuidedReadingBooks().map(book => {
@@ -22,6 +23,16 @@ const index = getRuntimeGuidedReadingBooks().map(book => {
     throw new Error(`${book.id}: current full-manuscript A-H review is required for public metadata.`);
   }
   const metrics = computeBookTextMetrics(book);
+  const analysis = GUIDED_READING_TEXT_ANALYSIS[book.id];
+  if (!analysis || analysis.textFingerprint !== textFingerprint
+    || analysis.appReadingLevel !== review.appReadingLevel
+    || analysis.rationale !== review.rationale
+    || analysis.reviewedAt !== review.reviewedAt
+    || analysis.reviewMethod !== review.reviewMethod
+    || JSON.stringify(analysis.metrics) !== JSON.stringify(metrics)
+    || JSON.stringify(analysis.readingDemands || null) !== JSON.stringify(review.dimensionObservations || null)) {
+    throw new Error(`${book.id}: public metadata and detailed analysis must use the same current review. Run node tools/generateGuidedReadingTextAnalysis.mjs first.`);
+  }
   return {
     id: book.id,
     title: book.title,
