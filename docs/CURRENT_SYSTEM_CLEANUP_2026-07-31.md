@@ -1,5 +1,19 @@
 # Current system cleanup — 31 July 2026
 
+## Illustration direction — 29 October 2026
+
+The [illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) now owns
+the app-wide direction for new and replacement illustrations. Guided Reading,
+Hollow, assessment replacements, game backgrounds and 69 reusable JSON prompts
+now request bold clean cartoon outlines, flat colors and controlled cel shading.
+Older painterly, watercolor, gouache, material-grain and anti-cel directions are
+superseded. Source atlas records retain the original generation wording in
+`sourcePrompt`; sealed V2 prompt snapshots remain historical receipt evidence.
+No existing media, review hash, character identity or generation receipt was
+deleted or re-approved by this instruction correction. No images were generated.
+Task-only validation scratch is removed after checking; protected animation work
+is outside the scope of this change.
+
 ## Beginner vocabulary — 28 October 2026
 
 Beginner vocabulary is reviewed separately from task demand and word length.

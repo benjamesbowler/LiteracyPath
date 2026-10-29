@@ -40,6 +40,7 @@ A dated document must never override current code.
 - [Present teaching lessons](PRESENT_REDESIGN_2026-07-28.md) — 15–20 minute Monday–Thursday lessons and 30-minute Friday review across 27 cycles; useful ESL sentences, grammar/punctuation, visible feedback, current-week and rotating older review, Sentence Detective, What’s Missing?, 15-second Sentence Mix-Up, two weekly syllable activities, two rhyme activities (three rounds each with cumulative review) and two hidden sight-word games, spelling and separate letter-case tracing
 - [Learning policy](design/LEARNING_POLICY.md)
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
+- [App illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) — bold clean cartoons, crisp outlines, flat colors/cel shading; supersedes painterly, watercolor, daubed and embossed illustration briefs.
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Guided Reading](guided-reading/INDEX.md)
 - [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — editorial book bands, full-text review and verified Lexile provenance

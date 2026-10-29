@@ -1,0 +1,3 @@
+// Current illustration direction; see docs/design/ILLUSTRATION_STYLE_STANDARD.md.
+// Apply to the whole image, including backgrounds and material details.
+export const CLEAN_CARTOON_ILLUSTRATION_STYLE = "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering.";
