@@ -78,6 +78,25 @@ test("prepared report rows cannot promote arbitrary saved letters to current App
   assert.equal(model.wordRows.find(row => row.bookId === removedId).sourceLevel, "G");
 });
 
+test("ID-based reports and exports withhold stale levels after a local page retirement", () => {
+  const previousStorage = globalThis.localStorage;
+  globalThis.localStorage = { getItem: key => key === "lpDeletedMediaManifest"
+    ? JSON.stringify([{ assetType: "guided-reading-page", bookId: knownId, pageNumber: 1 }]) : null };
+  try {
+    const records = { [knownId]: savedRecord("A") };
+    const model = buildGuidedReadingReportModel({ guidedReadingRecords: records });
+    assert.equal(model.books[0].levelLabel, "App level pending");
+    assert.equal(model.books[0].sourceLevel, "A");
+    assert.equal(model.wordRows[0].levelLabel, "App level pending");
+    const rows = buildGuidedReadingReportRows(records, readingModule);
+    assert.equal(rows[0].levelLabel, "App level pending");
+    assert.equal(rows[0].sourceLevel, "A");
+  } finally {
+    if (previousStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previousStorage;
+  }
+});
+
 test("completion workbook cells identify book App levels and never rank a removed book's saved H", async () => {
   const options = {
     students: [{ id: "s1", name: "Reader" }], generatedAt: stamp,

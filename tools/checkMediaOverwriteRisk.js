@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,6 +8,10 @@ import sharp from "sharp";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const reportPath = path.join(repoRoot, ".artifacts", "audits", "media_overwrite_risk_audit.md");
+const coverManifestPath = "src/data/generated/guidedReadingCoverRenditions.generated.js";
+const cardCoverUrlPattern = /^\/guided-reading\/card-covers\/([a-f0-9]{24})\.webp$/;
+const sha256Pattern = /^[a-f0-9]{64}$/;
+const digest = bytes => createHash("sha256").update(bytes).digest("hex");
 
 const LIVE_ROOTS = [
   "public/images",
@@ -290,6 +295,90 @@ export async function isLosslessWebpReplacement(before, after, { referenced = fa
   } catch { return false; }
 }
 
+// A card rendition is disposable only after its complete provenance chain is
+// verified. Canonical artwork and other deleted media never enter this path.
+export async function isSupersededCardCoverVariant({
+  deletedPath,
+  previousManifest,
+  currentManifest,
+  previousBytes,
+  currentFiles = {},
+  referenced = false
+} = {}) {
+  if (referenced || typeof deletedPath !== "string" || !deletedPath.startsWith("public/")) return false;
+  const oldUrl = deletedPath.slice("public".length);
+  if (!cardCoverUrlPattern.test(oldUrl) || !Buffer.isBuffer(previousBytes)) return false;
+  if (!previousManifest || !currentManifest || Array.isArray(previousManifest) || Array.isArray(currentManifest)) return false;
+  try {
+    if (JSON.stringify(currentManifest).includes(oldUrl)) return false;
+    const priorMappings = Object.entries(previousManifest).filter(([, entry]) => entry?.src === oldUrl);
+    if (!priorMappings.length) return false;
+    for (const [source, prior] of priorMappings) {
+      if (!source.startsWith("/guided-reading/") || source.startsWith("/guided-reading/card-covers/") ||
+          source.includes("\\") || path.posix.normalize(source) !== source || !Object.hasOwn(currentManifest, source)) return false;
+      const replacement = currentManifest[source];
+      const match = cardCoverUrlPattern.exec(replacement?.src);
+      if (!sha256Pattern.test(prior.deliverySha256) || oldUrl !== `/guided-reading/card-covers/${prior.deliverySha256.slice(0, 24)}.webp` ||
+          digest(previousBytes) !== prior.deliverySha256 || !match || replacement.src === oldUrl ||
+          !sha256Pattern.test(replacement.deliverySha256) || match[1] !== replacement.deliverySha256.slice(0, 24) ||
+          !sha256Pattern.test(replacement.sourceSha256)) return false;
+      const delivery = currentFiles[replacement.src], canonical = currentFiles[source];
+      if (!Buffer.isBuffer(delivery) || !Buffer.isBuffer(canonical) ||
+          digest(delivery) !== replacement.deliverySha256 || digest(canonical) !== replacement.sourceSha256 ||
+          delivery.length !== replacement.bytes) return false;
+      const [metadata, sourceMetadata] = await Promise.all([sharp(delivery).metadata(), sharp(canonical).metadata()]);
+      if (metadata.format !== "webp" || !metadata.width || !metadata.height ||
+          metadata.width > 512 || metadata.height > 512 ||
+          metadata.width !== replacement.width || metadata.height !== replacement.height ||
+          sourceMetadata.width !== replacement.sourceWidth || sourceMetadata.height !== replacement.sourceHeight) return false;
+      await sharp(delivery).raw().toBuffer(); // Header metadata alone does not prove decoding.
+    }
+    return true;
+  } catch { return false; }
+}
+
+// Read the generator's JSON literals without executing a historical JS module.
+function parseCoverManifest(source) {
+  const match = /^export const GUIDED_READING_COVER_RENDITIONS = Object\.freeze\(\{\n([\s\S]*?)\n\}\);$/m.exec(source);
+  if (!match) throw new Error("Unrecognized card-cover manifest");
+  return JSON.parse(`{${match[1].replace(/Object\.freeze\((\{[^\n]*\})\)/g, "$1")}}`);
+}
+
+async function supersededCardCoverPaths(entries) {
+  const valid = new Set();
+  const deleted = entries.filter(row => row.status === "D" && cardCoverUrlPattern.test(row.path.replace(/^public/, "")));
+  if (!deleted.length) return valid;
+  let previousManifest, currentManifest;
+  try {
+    previousManifest = parseCoverManifest(runGit(["show", `HEAD:${coverManifestPath}`]));
+    currentManifest = parseCoverManifest(fs.readFileSync(path.join(repoRoot, coverManifestPath), "utf8"));
+  } catch { return valid; }
+  for (const entry of deleted) {
+    try {
+      const oldUrl = entry.path.slice("public".length);
+      const roots = ["src", "preview", "demos"].filter(root => fs.existsSync(path.join(repoRoot, root)));
+      if (!roots.length) continue;
+      let referenced;
+      try {
+        execFileSync("rg", ["-l", "--hidden", "--no-ignore", "-F", "-e", oldUrl, "-e", path.posix.basename(oldUrl), ...roots], { cwd: repoRoot, stdio: "pipe" });
+        referenced = true;
+      } catch (error) { if (error.status !== 1) throw error; referenced = false; }
+      const currentFiles = {};
+      for (const [source, prior] of Object.entries(previousManifest)) {
+        if (prior.src !== oldUrl) continue;
+        const replacement = currentManifest[source];
+        if (!replacement?.src || !cardCoverUrlPattern.test(replacement.src) ||
+            !source.startsWith("/guided-reading/") || source.startsWith("/guided-reading/card-covers/") ||
+            path.posix.normalize(source) !== source || source.includes("\\")) continue;
+        for (const url of [source, replacement.src]) currentFiles[url] = fs.readFileSync(path.join(repoRoot, "public", url));
+      }
+      const previousBytes = execFileSync("git", ["show", `HEAD:${entry.path}`], { cwd: repoRoot, maxBuffer: 50 * 1024 * 1024 });
+      if (await isSupersededCardCoverVariant({ deletedPath: entry.path, previousManifest, currentManifest, previousBytes, currentFiles, referenced })) valid.add(entry.path);
+    } catch { /* Missing files, references or provenance fail closed. */ }
+  }
+  return valid;
+}
+
 async function losslessReplacementPaths(entries) {
   const valid = new Set();
   for (const entry of entries.filter(row => row.status === "D" && isNonWebpImagePath(row.path))) {
@@ -310,14 +399,16 @@ async function losslessReplacementPaths(entries) {
 async function main() {
   const changedEntries = collectChangedPaths();
   const replacements = await losslessReplacementPaths(changedEntries);
+  const supersededCovers = await supersededCardCoverPaths(changedEntries);
   const mediaEntries = changedEntries.filter(entry => isMediaFile(entry.path));
-  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path));
+  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path) && !supersededCovers.has(entry.path));
   const tempSourceEntries = changedEntries.filter(entry => entry.status !== "D" && isTempOrSourcePath(entry.path));
   const nonWebpEntries = changedEntries.filter(entry => entry.status !== "D" && isNonWebpImagePath(entry.path));
 
   const warnings = [];
   const failures = [];
   for (const file of replacements) warnings.push(`Pixel-identical WebP replacement verified; old runtime reference absent: ${file}`);
+  for (const file of supersededCovers) warnings.push(`Superseded card-cover delivery verified against prior/current manifests, source bytes and decoded replacement; old runtime reference absent: ${file}`);
 
   if (changedEntries.length > 0) {
     warnings.push("Live media folder changes detected. Review before committing to avoid overwriting approved media.");
@@ -345,6 +436,7 @@ async function main() {
       changedPaths: changedEntries.length,
       mediaFiles: mediaEntries.length,
       deleted: deletedEntries.length,
+      supersededCardCovers: supersededCovers.size,
       tempSource: tempSourceEntries.length,
       nonWebpImages: nonWebpEntries.length,
       result: failures.length ? "FAIL" : "PASS"

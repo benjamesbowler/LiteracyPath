@@ -1,5 +1,6 @@
 import { GUIDED_READING_BOOK_INDEX } from "../../data/generated/guidedReadingBookIndex.generated.js";
 import { fingerprintBookReadingText } from "./textMetrics.js";
+import { isGuidedReadingAssetDeleted, readDeletedMediaManifest } from "../../data/deletedMediaManifest.js";
 
 export const APP_READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F", "G", "H"]);
 export const BOOK_LEVEL_SYSTEM = "literacy-guide-a-h-v1";
@@ -30,7 +31,10 @@ export function getPublicBookMetadata(bookOrId) {
     && entry?.levelSystem === BOOK_LEVEL_SYSTEM && Boolean(entry?.textFingerprint);
   const changedText = hasCurrentReview && Array.isArray(book?.pages)
     && fingerprintBookReadingText(book) !== entry.textFingerprint;
-  const levelStatus = !hasCurrentReview ? "unreviewed" : changedText ? "stale" : "current";
+  const retirements = hasCurrentReview ? readDeletedMediaManifest() : [];
+  const retiredPage = retirements.length > 0 && entry.reviewedPageMedia?.pages.some(([pageNumber, suffix]) =>
+    isGuidedReadingAssetDeleted({ bookId: id, pageNumber, path: entry.reviewedPageMedia.prefix + suffix }, retirements));
+  const levelStatus = !hasCurrentReview ? "unreviewed" : changedText || retiredPage ? "stale" : "current";
   const appReadingLevel = levelStatus === "current" ? entry.appReadingLevel : null;
   return {
     id: id || "",

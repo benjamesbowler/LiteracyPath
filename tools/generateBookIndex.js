@@ -14,6 +14,16 @@ const { GUIDED_READING_LEVEL_REVIEWS } = await import(path.join(root, "src/data/
 const { GUIDED_READING_TEXT_ANALYSIS } = await import(path.join(root, "src/data/generated/guidedReadingTextAnalysis.generated.js"));
 const { computeBookTextMetrics, fingerprintBookReadingText } = await import(path.join(root, "src/utils/guidedReading/textMetrics.js"));
 
+// Retain the reviewed active page subset without importing full manuscripts on
+// home/report screens. A retired illustration removes its page from the reader.
+function reviewedPageMedia(book) {
+  const paths = book.pages.map(page => page.image || "");
+  let prefix = paths[0] || "";
+  while (prefix && !paths.every(image => image.startsWith(prefix))) prefix = prefix.slice(0, -1);
+  prefix = prefix.slice(0, prefix.lastIndexOf("/") + 1);
+  return { prefix, pages: book.pages.map(page => [page.pageNumber, (page.image || "").slice(prefix.length)]) };
+}
+
 const index = getRuntimeGuidedReadingBooks().map(book => {
   const metadata = getGuidedReadingBookMetadata(book);
   const review = GUIDED_READING_LEVEL_REVIEWS[book.id];
@@ -43,6 +53,7 @@ const index = getRuntimeGuidedReadingBooks().map(book => {
     reviewedAt: review.reviewedAt,
     pageCount: metrics.pageCount,
     wordCount: metrics.wordCount,
+    reviewedPageMedia: reviewedPageMedia(book),
     readingBandProfile: book.readingBandProfile || metadata?.readingBandProfile,
     readingMode: book.readingMode || metadata?.readingMode,
     ...(book.collection ? { collection: book.collection } : {})

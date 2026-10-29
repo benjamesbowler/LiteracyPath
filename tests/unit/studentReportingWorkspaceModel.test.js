@@ -424,6 +424,37 @@ test("Guided Reading fills missing catalogue metadata without replacing raw mark
   assert.equal(model.books[0].provenance.preparedMetadata.title, "What Is a Map?");
 });
 
+for (const wordSource of ["prepared word rows", "prepared book word lists"]) {
+  test(`Guided Reading preserves explicit source levels from ${wordSource}`, () => {
+    const bookId = "gr-a-26"; // Pets: current public App level C.
+    const guidedReadingRows = [{
+      bookId,
+      title: "Pets",
+      level: "C",
+      sourceLevel: "A",
+      readCount: 1,
+      lastReadAt: "2026-10-29T08:00:00.000Z",
+      correctWords: ["dog"]
+    }];
+    const guidedReadingWordRows = wordSource === "prepared word rows"
+      ? [{ bookId, level: "C", sourceLevel: "A", word: "dog", mark: "correct", page: 1 }]
+      : [];
+    const before = JSON.stringify({ guidedReadingRows, guidedReadingWordRows });
+    const model = buildGuidedReadingReportModel({ student, guidedReadingRows, guidedReadingWordRows });
+
+    assert.equal(model.books[0].level, "C");
+    assert.equal(model.books[0].levelLabel, "App level C");
+    assert.equal(model.books[0].sourceLevel, "A", "the source observation letter survives an already projected public level");
+    assert.equal(model.books[0].provenance.preparedRow.sourceLevel, "A");
+    assert.equal(model.wordRows.length, 1);
+    assert.equal(model.wordRows[0].level, "C");
+    assert.equal(model.wordRows[0].sourceLevel, "A");
+    assert.equal(model.evidence[0].details.level, "C");
+    assert.equal(model.evidence[0].details.sourceLevel, "A", "normalized word evidence keeps the original source letter");
+    assert.equal(JSON.stringify({ guidedReadingRows, guidedReadingWordRows }), before, "report normalization must not mutate the prepared evidence");
+  });
+}
+
 test("Other Learning caps Sound Seekers at Developing and keeps Story Quest words as exposure", () => {
   const model = buildOtherLearningReportModel({
     student,

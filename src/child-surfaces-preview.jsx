@@ -143,8 +143,9 @@ function ReadingLibrarySurface() {
       quarantinedBookIds={[]}
       publicationStatus="ready"
       guidedReadingRecords={records}
-      studentProgress={PREVIEW_PARAMS.has("placementCycle") ? {
-        elPlacement: { anchorCycle: Number(PREVIEW_PARAMS.get("placementCycle")), sourceAttemptId: "synthetic-confirmed-placement" }
+      studentProgress={PREVIEW_PARAMS.has("placementCycle") || PREVIEW_PARAMS.has("appLevel") ? {
+        ...(PREVIEW_PARAMS.has("placementCycle") ? { elPlacement: { anchorCycle: Number(PREVIEW_PARAMS.get("placementCycle")), sourceAttemptId: "synthetic-confirmed-placement" } } : {}),
+        ...(PREVIEW_PARAMS.has("appLevel") ? { appReadingLevel: PREVIEW_PARAMS.get("appLevel") } : {})
       } : null}
       recommendationEvidenceReady={PREVIEW_PARAMS.get("evidenceReady") !== "0"}
       renderReader={({ bookId, initialPageIndex, onExit }) => (

@@ -5,6 +5,7 @@ import { GUIDED_READING_LEVEL_REVIEWS } from "../../src/data/guidedReadingLevelR
 import { applyGuidedReadingLevelOverride, GUIDED_READING_MOVE_LEVELS } from "../../src/utils/guidedReading/bookLevelOverrides.js";
 import { appReadingLevelLabel, getPublicBookMetadata } from "../../src/utils/guidedReading/bookLevelMetadata.js";
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
+import { getBookTextAnalysis } from "../../src/utils/guidedReading/bookTextAnalysis.js";
 import { fingerprintBookReadingText, tokenizeReadingText } from "../../src/utils/guidedReading/textMetrics.js";
 
 const books = getRuntimeGuidedReadingBooks();
@@ -59,6 +60,42 @@ test("The Sun exposes App level D even though its retained internal profile is B
   assert.equal(sun.level, "B");
   assert.equal(getPublicBookMetadata(sun).appReadingLevel, "D");
   assert.equal(getPublicBookMetadata(sun.id).levelLabel, "App level D");
+});
+
+test("ID and compact metadata become stale when a reviewed runtime page or book is retired", () => {
+  const sun = books.find(book => book.id === "gr-a-27");
+  const previousStorage = globalThis.localStorage;
+  let retired = [];
+  globalThis.localStorage = { getItem: key => key === "lpDeletedMediaManifest" ? JSON.stringify(retired) : null };
+  try {
+    for (const record of [
+      { assetType: "guided-reading-page", bookId: sun.id, pageNumber: sun.pages[0].pageNumber },
+      { assetType: "image", path: sun.pages[0].image },
+      { assetType: "guided-reading-book", bookId: sun.id }
+    ]) {
+      retired = [record];
+      assertPending(getPublicBookMetadata(sun.id), "stale");
+      assertPending(getPublicBookMetadata(GUIDED_READING_BOOK_INDEX.find(book => book.id === sun.id)), "stale");
+      assertPending(getPublicBookMetadata(sun), "stale");
+      assert.equal(getBookTextAnalysis(sun).status, "stale", "an already loaded full book must also withhold its retired review");
+      assert.equal(getBookTextAnalysis(sun).appReadingLevel, null);
+    }
+    for (const record of [
+      { assetType: "image", path: sun.coverImage },
+      { assetType: "guided-reading-page", bookId: sun.id, pageNumber: 999 },
+      { assetType: "guided-reading-page", bookId: "another-book", pageNumber: sun.pages[0].pageNumber },
+      { assetType: "image", path: "/superseded-page.webp" }
+    ]) {
+      retired = [record];
+      assert.equal(getPublicBookMetadata(sun.id).levelStatus, "current", JSON.stringify(record));
+      assert.equal(getBookTextAnalysis(sun).status, "current", JSON.stringify(record));
+    }
+    retired = [];
+    assert.equal(getPublicBookMetadata(sun.id).levelStatus, "current");
+  } finally {
+    if (previousStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previousStorage;
+  }
 });
 
 test("changed or partial manuscripts with saved level claims cannot expose old review metadata", () => {

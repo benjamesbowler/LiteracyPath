@@ -36,7 +36,9 @@ test("the approved science manuscript has twelve unchanged pages in the Meadow P
   assert.equal(createHash("sha256").update(JSON.stringify(book.pages.map(page => page.text))).digest("hex"), MISSING_SANDWICH_MANUSCRIPT_SHA256);
   assert.deepEqual(validateScienceReadAloudManuscript(book), []);
   assert.equal(bookCollectionId(book), "meadow-pals");
-  assert.ok(bookCollectionsForLevel([book], "READ_ALOUD").some(collection => collection.id === "meadow-pals"));
+  assert.equal(getBookTextAnalysis(book).appReadingLevel, "H");
+  assert.ok(bookCollectionsForLevel([book], "H").some(collection => collection.id === "meadow-pals"));
+  assert.deepEqual(bookCollectionsForLevel([book], "READ_ALOUD"), []);
   assert.equal(new Set(book.pages.map(page => page.image)).size, 12);
   assert.notEqual(book.coverImage, book.pages[0].image);
 });
@@ -47,7 +49,7 @@ test("shared science reading never claims independent placement or advances a gr
   assert.equal(classifyBookReadingPurpose(source, { anchorCycle: 27 }).label, "Read Together");
   assert.deepEqual(getGuidedReadingProgressionBooks({ book: source, books: [source] }), []);
   assert.equal(getGuidedReadingCompletionMilestone({ book: source, levelBooks: [source, { ...source, id: "other" }], records: { other: { completed: true } } }), null);
-  const shelves = buildBookShelves({ books: [source], level: source.level, mode: "together" });
+  const shelves = buildBookShelves({ books: [source], level: "H", mode: "together" });
   assert.equal(shelves[0].title, "Read together");
   assert.match(shelves[0].note, /grown-up/);
   const measure = getGuidedReadingMeasure(source.level, source.readingBandProfile);

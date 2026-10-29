@@ -38,7 +38,9 @@ Unknown or changed texts show **App level pending**. Saved observation letters,
 filename prefixes, source-pack names and local A/B/C placement overrides cannot
 supply a public book level. The compact generated discovery index exposes the
 same letter, system ID, fingerprint, review date, page/word counts and reading
-mode without loading the full manuscripts into the home/report bundle.
+mode without loading the full manuscripts into the home/report bundle. Its compact
+reviewed page/media subset also invalidates ID-only metadata after a local page
+or book retirement; retiring only a cover does not change the text level.
 
 The build refuses to generate a compact index from a different review, date,
 rationale or metric set than the detailed analysis. Image-review tools also

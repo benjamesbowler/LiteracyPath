@@ -1,5 +1,26 @@
 # Current system cleanup — 31 July 2026
 
+## A–B clean cartoon illustrations — 29 October 2026
+
+The full current App A–B working catalogue audit covered 82 books and 726
+cover/page images. It identified 335 replacements across 49 books, including
+the seven previously replaced Farm Animals pages; 391 clean images were kept.
+The 20 independently prepared Small Steps B books remain outside this release.
+The replacements preserve canonical paths and original dimensions, with exact
+image revisions and scoped visual receipts. Twenty-two existing clean repairs
+from the working catalogue were also reconciled separately; these are not new
+generations. No manuscript or narration was changed by this artwork batch.
+
+Thirty-one changed canonical covers have new, verified 512-pixel delivery
+renditions. Their 31 superseded content-addressed copies are removed only after
+checking exact previous hashes, current replacements and runtime/operational
+references; their bytes remain recoverable from Git. Active canonical art stays
+at its existing path. Generation prompts, native outputs, per-image provenance,
+visual sequences and actual reader/shelf evidence remain in ignored
+`.artifacts/level-ab-clean-cartoon/`. Task-created browser scratch and
+reproducible build output are disposable after verification. Protected animation
+roots and unrelated work are outside this cleanup scope.
+
 ## Single public book-level system — 29 October 2026
 
 The existing reading-level standard now owns one public App A–H scale across

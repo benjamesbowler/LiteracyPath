@@ -120,3 +120,18 @@ test("App metadata preserves the mission's read-aloud segregation and quarantine
     assert.equal(buildDailyMission("mission-boundaries", undefined).book.bookId, "");
   });
 });
+
+test("a locally retired page removes its stale public review from mission selection", () => {
+  const previousStorage = globalThis.localStorage;
+  globalThis.localStorage = { getItem: key => key === "lpDeletedMediaManifest"
+    ? JSON.stringify([{ assetType: "guided-reading-page", bookId: SUN, pageNumber: 1 }]) : null };
+  try {
+    withRecords("retired-page", {}, () => {
+      assert.equal(buildDailyMission("retired-page", quarantineExcept([SUN])).book.bookId, "");
+      assert.equal(buildDailyMission("retired-page", quarantineExcept([SUN, LUNCHBOX])).book.bookId, LUNCHBOX);
+    });
+  } finally {
+    if (previousStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previousStorage;
+  }
+});

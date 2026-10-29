@@ -1,5 +1,6 @@
 import { GUIDED_READING_TEXT_ANALYSIS } from "../../data/generated/guidedReadingTextAnalysis.generated.js";
 import { fingerprintBookReadingText } from "./textMetrics.js";
+import { getPublicBookMetadata } from "./bookLevelMetadata.js";
 export { APP_READING_LEVELS, appReadingLevelLabel } from "./bookLevelMetadata.js";
 
 export function getBookTextAnalysis(book) {
@@ -8,7 +9,8 @@ export function getBookTextAnalysis(book) {
     status: "unreviewed", appReadingLevel: null, rationale: "This text has not been assigned an app reading level.",
     metrics: null, lexile: { status: "pending", measure: null, label: "Lexile pending" }
   };
-  if (analysis.textFingerprint !== fingerprintBookReadingText(book)) return {
+  if (analysis.textFingerprint !== fingerprintBookReadingText(book)
+    || getPublicBookMetadata(book).levelStatus !== "current") return {
     status: "stale", appReadingLevel: null, rationale: "This text changed after its reading-level review.",
     metrics: null, lexile: { status: "pending", measure: null, label: "Lexile pending" }
   };

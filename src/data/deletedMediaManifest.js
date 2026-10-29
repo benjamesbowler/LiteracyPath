@@ -69,9 +69,9 @@ export function isGuidedReadingBookDeleted(bookId = "") {
   );
 }
 
-export function isGuidedReadingAssetDeleted({ bookId = "", path = "", pageNumber = null } = {}) {
+export function isGuidedReadingAssetDeleted({ bookId = "", path = "", pageNumber = null } = {}, manifest = readDeletedMediaManifest()) {
   const normalizedPath = normalizePath(path);
-  return readDeletedMediaManifest().some(record => {
+  return manifest.some(record => {
     if (record.assetType === "guided-reading-book" && record.bookId === bookId) return true;
     if (normalizedPath && normalizePath(record.path) === normalizedPath) return true;
     if (
