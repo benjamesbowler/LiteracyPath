@@ -1,3 +1,4 @@
+import { getPublicBookMetadata } from "../utils/guidedReading/bookLevelMetadata.js";
 import { buildLiteracyPracticeReport } from "../utils/literacyPracticeReport.js";
 import { LITERACY_PRACTICE_SKILLS } from "./literacyPracticeBank.js";
 import { LITERACY_PRACTICE_ID } from "../policy/literacyPracticePolicy.js";
@@ -1015,6 +1016,7 @@ function guidedWordEvidence({
   bookId,
   title,
   level,
+  sourceLevel,
   page,
   wordIndex,
   word,
@@ -1049,6 +1051,7 @@ function guidedWordEvidence({
       bookId,
       title,
       level,
+      sourceLevel,
       page,
       wordIndex,
       word: normalizedWord,
@@ -1145,6 +1148,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
     title: row.title || row.bookId || `Book ${index + 1}`,
     type: row.type || "",
     level: row.level || "",
+    sourceLevel: row.sourceLevel,
     completed: Boolean(row.completed),
     completedAt: row.completedAt || "",
     lastReadAt: row.lastReadAt || "",
@@ -1196,6 +1200,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
         bookId: row.bookId || "prepared_book",
         title: row.title || row.bookId || "Guided reading book",
         level: row.level || "",
+        sourceLevel: row.sourceLevel,
         page: Number(row.page || 0),
         wordIndex: row.wordIndex ?? index,
         word: row.word,
@@ -1215,6 +1220,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
           bookId: book.bookId,
           title: book.title,
           level: book.level,
+          sourceLevel: book.sourceLevel,
           page: 0,
           wordIndex: `${bookIndex}_${row.index}`,
           word: row.word,
@@ -1259,6 +1265,19 @@ function resolveCurrentGuidedWordEvidence(evidence = []) {
   ));
 }
 
+// Saved letters belong to the source record's older placement system. Public
+// reports resolve current book complexity by ID without changing that evidence.
+function publicGuidedBookLevel(bookId, sourceLevel = "") {
+  const metadata = getPublicBookMetadata(bookId);
+  return {
+    sourceLevel,
+    level: metadata.appReadingLevel || "",
+    appReadingLevel: metadata.appReadingLevel,
+    levelLabel: metadata.levelLabel,
+    levelStatus: metadata.levelStatus
+  };
+}
+
 export function buildGuidedReadingReportModel({
   student = {},
   studentId = "",
@@ -1273,7 +1292,8 @@ export function buildGuidedReadingReportModel({
     : guidedRowsFromPreparedRows({ guidedReadingRows, guidedReadingWordRows, studentId: resolvedStudentId });
   // Raw records remain authoritative for marks, notes and
   // timestamps. Prepared rows may safely fill catalogue metadata that older
-  // raw records did not persist (for example a title or level).
+  // raw records did not persist (for example a title or page count).
+  // Public book levels always come from the current catalogue, never these letters.
   const preparedMetadataByBook = new Map(asArray(guidedReadingRows).map(row => [row.bookId, row]));
   const books = prepared.books.map(book => {
     if (!hasRawRecords) return book;
@@ -1297,7 +1317,10 @@ export function buildGuidedReadingReportModel({
         }
       }
     };
-  }).sort((a, b) => (
+  }).map(book => ({
+    ...book,
+    ...publicGuidedBookLevel(book.bookId, book.sourceLevel ?? book.level)
+  })).sort((a, b) => (
     finiteTimestamp(b.lastReadAt) - finiteTimestamp(a.lastReadAt) || a.title.localeCompare(b.title)
   ));
   const evidenceWithMetadata = prepared.evidence.map(row => {
@@ -1318,7 +1341,13 @@ export function buildGuidedReadingReportModel({
       }
     };
   });
-  const rawEvidence = dedupeReportingEvidence(evidenceWithMetadata);
+  const rawEvidence = dedupeReportingEvidence(evidenceWithMetadata.map(row => ({
+    ...row,
+    details: {
+      ...row.details,
+      ...publicGuidedBookLevel(row.details?.bookId, row.details?.sourceLevel ?? row.details?.level)
+    }
+  })));
   const allWordEvidence = rawEvidence.filter(row => row.sourceRecordType === "teacher_word_mark");
   const wordEvidence = resolveCurrentGuidedWordEvidence(allWordEvidence);
   const wordKnowledge = aggregateDirectEvidence(wordEvidence, {
@@ -1355,6 +1384,10 @@ export function buildGuidedReadingReportModel({
       bookId: row.details.bookId,
       title: row.details.title,
       level: row.details.level,
+      appReadingLevel: row.details.appReadingLevel,
+      levelLabel: row.details.levelLabel,
+      levelStatus: row.details.levelStatus,
+      sourceLevel: row.details.sourceLevel,
       page: row.details.page,
       observedAt: row.observedAt,
       provenance: row.provenance
@@ -1373,7 +1406,11 @@ export function buildGuidedReadingReportModel({
       ...event,
       bookId: book.bookId,
       title: book.title,
-      level: book.level
+      level: book.level,
+      appReadingLevel: book.appReadingLevel,
+      levelLabel: book.levelLabel,
+      levelStatus: book.levelStatus,
+      sourceLevel: book.sourceLevel
     }))).sort((a, b) => (
       finiteTimestamp(b.occurredAt) - finiteTimestamp(a.occurredAt) ||
       a.title.localeCompare(b.title) ||

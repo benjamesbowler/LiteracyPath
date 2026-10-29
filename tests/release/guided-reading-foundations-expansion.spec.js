@@ -6,6 +6,7 @@ import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath 
 import { declaredNextStepsLessons } from '../../src/data/nextStepsPhonicsLessons.js';
 import { guidedReadingBookModeLabel } from '../../src/policy/guidedReadingCatalogPolicy.js';
 import { getBookTextAnalysis, appReadingLevelLabel } from '../../src/utils/guidedReading/bookTextAnalysis.js';
+import { expectPrintedWordsVisible } from './helpers/guidedReadingGeometry.js';
 
 const all = [...next, ...bright];
 const selectedIds = process.env.LP_FOUNDATIONS_BOOK_IDS?.split(',').filter(Boolean);
@@ -88,6 +89,7 @@ for (const size of sizes) for (const book of books) {
       await page.evaluate(()=>{window.__foundationsAudio=[];});
       await reader.getByRole('button',{name:`Get reading help for ${word}`,exact:true}).last().click();
       await expectAudioStarted(page,getGuidedReadingWordProductionAudioPath(word));
+      await expectPrintedWordsVisible(reader);
       await page.screenshot({path:info.outputPath(`page-${String(index+1).padStart(2,'0')}.png`)});
       if(index===0 && book.pages.length>1){
         await page.keyboard.press('ArrowRight');await expect(progress).toHaveText(`Page 2 of ${book.pages.length}`);

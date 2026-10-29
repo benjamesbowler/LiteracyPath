@@ -3,6 +3,7 @@ import "../../styles/teacher-book-library.css";
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
+import BookLevelGuide from "./BookLevelGuide.jsx";
 import { ImmersiveReader } from "./ImmersiveReader.jsx";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -2006,11 +2007,11 @@ export function GuidedReadingPage({
     >
       {!readerOpen && libraryBack}
       {levelUp && (
-        <div className="guided-levelup" role="dialog" aria-label={isStudentMode ? "Shelf complete" : "Level complete"}>
+        <div className="guided-levelup" role="dialog" aria-label="Shelf complete">
           <ConfettiCelebration show />
           <div className="guided-levelup-card">
             <img src="/images/learn-games/phinny-cheering.webp" alt="" />
-            <h2>{isStudentMode ? "Shelf complete!" : levelUp.level === "C" ? "C Standard complete!" : `Level ${levelUp.level} complete!`}</h2>
+            <h2>Shelf complete!</h2>
             <p>You read all {levelUp.count} books. A new shelf is waiting for you.</p>
             <button
               className="main-button"
@@ -2028,7 +2029,7 @@ export function GuidedReadingPage({
               type="button"
               onClick={() => printCertificate({
                 studentName: studentName || "Reader",
-                achievement: isStudentMode ? "Finished every book on the shelf" : `Finished every Level ${levelUp.level} book`,
+                achievement: "Finished every book on the practice shelf",
                 detail: `${levelUp.count} books read from start to finish`
               })}
             >
@@ -2116,6 +2117,7 @@ export function GuidedReadingPage({
               {guidedReadingLevels.filter(level => runtimeGuidedReadingBooks.some(book => displayBookLevel(book, bookAnalyses) === level)).map(level => <button key={level} type="button" aria-pressed={selectedLibraryLevel === level}
                 onClick={() => { setSelectedLibraryLevel(level); setSelectedLibraryType("all"); setSelectedLibrarySeries(""); }}>{appReadingLevelLabel(level === "pending" ? null : level)}</button>)}
             </nav>
+            <BookLevelGuide />
             <form
               className="guided-library-word-search"
               role="search"

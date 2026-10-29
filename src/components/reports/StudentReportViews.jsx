@@ -1,3 +1,4 @@
+import { getPublicBookMetadata } from "../../utils/guidedReading/bookLevelMetadata.js";
 import { LiteracyPracticeReport } from "../progress/LiteracyPracticeReport.jsx";
 import "../../styles/literacy-practice.css";
 import { learningModelLabel } from "../../utils/learningResponseAdapters.js";
@@ -140,7 +141,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
               <summary>
                 <span>
                   <strong>{book.title || "Untitled book"}</strong>
-                  <small>{book.level ? `Level ${book.level}` : "Level not recorded"}</small>
+                  <small>{getPublicBookMetadata(book.bookId || book.id).levelLabel}</small>
                 </span>
                 <span>
                   {book.completed ? "Completed" : "In progress"}

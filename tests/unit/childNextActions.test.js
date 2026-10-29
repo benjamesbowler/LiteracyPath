@@ -4,6 +4,7 @@ import { hollowNextAction } from "../../src/policy/hollowNextActionPolicy.js";
 import { familiarLetterPractice, recommendLetterPractice } from "../../src/policy/letterPracticeRecommendation.js";
 import { childBookReadingPurpose, classifyBookReadingPurpose } from "../../src/policy/literacyExperiencePolicy.js";
 import { buildBookShelves } from "../../src/policy/childLibraryPolicy.js";
+import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 
 const letters = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 const suggest = extra => recommendLetterPractice({ letters, availableLetters: letters, ...extra });
@@ -58,7 +59,9 @@ test("child reading copy retains supported versus independently decodable purpos
 });
 
 test("a level browsing shelf does not promise taught-code fit", () => {
-  const books = [{ id: "richer-story", title: "Richer story", level: "A", pages: [{ text: "ship" }] }];
+  const book = getRuntimeGuidedReadingBooks().find(book => book.id === "first-facts-level-a-02-farm-animals");
+  assert.ok(book);
+  const books = [book];
   assert.equal(classifyBookReadingPurpose(books[0], { elPlacement: { anchorCycle: 1 } }).id, "supported");
   const shelf = buildBookShelves({ books, level: "A" })[0];
   assert.equal(shelf.title, "Books for you");

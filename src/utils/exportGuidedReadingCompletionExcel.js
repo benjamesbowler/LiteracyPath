@@ -1,3 +1,4 @@
+import { APP_READING_LEVELS, appReadingLevelLabel, getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
 import {
   getGuidedReadingProgress,
   guidedReadingBooks
@@ -41,7 +42,7 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Class Name",
     "Book Title",
     "Series",
-    "Level",
+    "Book App level",
     "Completed",
     "Completion Date",
     "Read Count",
@@ -55,7 +56,7 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
   booksCompleted: [
     "Book Title",
     "Series",
-    "Level",
+    "Book App level",
     "Students Completed",
     "Total Completions",
     "Total Reads",
@@ -67,7 +68,7 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Class Name",
     "Books Completed",
     "Unique Books Completed",
-    "Highest Guided Reading Level Completed",
+    "Highest Book App level completed",
     "Total Reads",
     "Total Rereads",
     "Last Guided Reading Date",
@@ -170,6 +171,7 @@ export function collectGuidedReadingCompletionRecords({
         bookId,
         studentId: row.studentId
       });
+      const metadata = getPublicBookMetadata(bookId);
       const completed = Boolean(progress.completed);
       const readCount = Math.max(0, Number(progress.readCount || 0));
       // Rereads only make sense after a completion; partial reads of an
@@ -182,7 +184,11 @@ export function collectGuidedReadingCompletionRecords({
         bookId,
         bookTitle: book.title || record.title || bookId || "Unknown Book",
         series: getBookSeries(book, record),
-        level: book.level || record.level || progress.level || "",
+        level: metadata.appReadingLevel || "",
+        appReadingLevel: metadata.appReadingLevel,
+        levelLabel: metadata.levelLabel,
+        levelStatus: metadata.levelStatus,
+        sourceLevel: record.level || "",
         completed,
         // Completion evidence and first-read evidence are distinct. A book can
         // be complete while its historical completion timestamp is unknown.
@@ -240,6 +246,7 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
       bookTitle: row.bookTitle,
       series: row.series,
       level: row.level,
+      levelLabel: row.levelLabel,
       bookId: row.bookId,
       studentsCompleted: new Set(),
       totalCompletions: 0,
@@ -280,7 +287,8 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     if (row.completed) {
       existing.booksCompleted += 1;
       existing.completedBookIds.add(row.bookId);
-      existing.highestLevel = [existing.highestLevel, row.level].filter(Boolean).sort().at(-1) || "";
+      existing.highestLevel = [existing.highestLevel, row.appReadingLevel]
+        .filter(level => APP_READING_LEVELS.includes(level)).sort().at(-1) || "";
       existing.totalRereads += row.rereadCount;
     }
     const rowDate = row.lastReadDate || row.completionDate;
@@ -318,7 +326,8 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     classNames,
     studentCount: students.length || new Set(rows.map(row => row.studentId)).size,
     extraRows: [
-      { field: "Guided Reading Sessions", value: rows.reduce((sum, row) => sum + row.readCount, 0) }
+      { field: "Guided Reading Sessions", value: rows.reduce((sum, row) => sum + row.readCount, 0) },
+      { field: "Book App levels", value: "Current editorial book text estimates, separate from learner proficiency. Unknown books show App level pending." }
     ]
   });
   const provenanceRows = buildExportProvenanceRows({
@@ -417,7 +426,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Class Name": row.className,
     "Book Title": row.bookTitle,
     "Series": row.series,
-    "Level": row.level,
+    "Book App level": row.levelLabel,
     "Completed": row.completed ? "Yes" : "No",
     "Completion Date": row.completionDate,
     "Read Count": row.readCount,
@@ -432,7 +441,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Class Name": "",
     "Book Title": "",
     "Series": "",
-    "Level": "",
+    "Book App level": "",
     "Completed": "No",
     "Completion Date": "",
     "Read Count": 0,
@@ -449,7 +458,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   addRowsOrEmpty(booksSheet, data.booksCompletedRows, row => row ? {
     "Book Title": row.bookTitle,
     "Series": row.series,
-    "Level": row.level,
+    "Book App level": row.levelLabel,
     "Students Completed": row.studentsCompleted,
     "Total Completions": row.totalCompletions,
     "Total Reads": row.totalReads,
@@ -458,7 +467,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   } : {
     "Book Title": "No records yet",
     "Series": "",
-    "Level": "",
+    "Book App level": "",
     "Students Completed": 0,
     "Total Completions": 0,
     "Total Reads": 0,
@@ -473,7 +482,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Class Name": row.className,
     "Books Completed": row.booksCompleted,
     "Unique Books Completed": row.uniqueBooksCompleted,
-    "Highest Guided Reading Level Completed": row.highestLevel,
+    "Highest Book App level completed": row.booksCompleted ? appReadingLevelLabel(row.highestLevel) : "",
     "Total Reads": row.totalReads,
     "Total Rereads": row.totalRereads,
     "Last Guided Reading Date": row.lastGuidedReadingDate,
@@ -483,7 +492,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Class Name": "",
     "Books Completed": 0,
     "Unique Books Completed": 0,
-    "Highest Guided Reading Level Completed": "",
+    "Highest Book App level completed": "",
     "Total Reads": 0,
     "Total Rereads": 0,
     "Last Guided Reading Date": "",

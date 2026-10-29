@@ -15,23 +15,21 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The current local catalogue contains 297 books and 2,621 pages. The separately
-reviewed app bands contain 28 A, 85 B, 59 C, 57 D, 13 E, 16 F, 37 G and 2 H
-books. Instructional placement profiles and phonics prerequisites remain
-separate from these book-complexity bands. The retained C profile has two bands:
+The integrated catalogue contains 297 books and 2,621 pages: 23 A, 86 B,
+63 C, 56 D, 15 E, 36 F, 16 G and 2 H.
 
-- **C Standard** for compact independent or lightly supported reading, including
-  the 20-book Willow Street Readers collection;
-- **C Extended / Read Together** for denser supported reading. All Moonwood
-  guided-reading books belong here.
+Every book uses one public **App level A–H**, assigned by full-manuscript
+editorial review. The [reading-level authority](READING_LEVELS_AND_TEXT_MEASURES.md)
+owns the rubric, cross-collection calibration, exact-text reviews, public
+metadata and verified Lexile provenance. Public shelves, readers, shared and
+assigned reading, daily missions and reports all use this system. Unknown or
+changed manuscripts show App level pending, with no guessed fallback.
 
-Both teacher and child libraries now offer **App level A–H** browsing from
-full-text editorial reviews. These book-complexity bands are separate from the
-instructional A/B/C profiles above and do not change a learner’s placement.
-Official Lexile measures are pending; only a verified measurement receipt can
-add one. [Reading levels and text measures](READING_LEVELS_AND_TEXT_MEASURES.md)
-owns the rubric, per-book reviews, manuscript fingerprints and measurement
-provenance.
+Reading mode and phonics prerequisites remain explicit: decodable,
+predictable/levelled and supported read-together describe different reading
+tasks. Existing A/B/C fields remain internal compatibility inputs for practice
+layout and old progress; they must not appear as a competing public book scale.
+Public level calibration does not change learner placement or historical results.
 
 Child library cards use content-addressed 512px delivery copies of their approved
 canonical cover art. Build them with `node tools/buildGuidedReadingCoverRenditions.mjs`

@@ -4,6 +4,7 @@
 // internal to suitability. Separately reviewed app text levels may label books,
 // never the child or an achievement category.
 import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
+import { getPublicBookMetadata } from "../utils/guidedReading/bookLevelMetadata.js";
 
 export const BOOK_SHELF_SLOTS = 6;
 export const QUEST_GRID_SLOTS = 6;
@@ -60,10 +61,15 @@ export function bookCollectionId(book = {}) {
   return "other-stories";
 }
 
+function matchesPublicBookLevel(book, level) {
+  const metadata = getPublicBookMetadata(book);
+  return metadata.levelStatus === "current" && metadata.appReadingLevel === level;
+}
+
 export function bookCollectionsForLevel(books = [], level = null) {
   const present = new Set(
     books
-      .filter(book => !level || book?.level === level)
+      .filter(book => !level || matchesPublicBookLevel(book, level))
       .map(bookCollectionId)
   );
   return BOOK_COLLECTIONS.filter(collection => present.has(collection.id));
@@ -183,8 +189,7 @@ export function buildBookShelves({
     pool = pool.filter(book => bookReadingProgress(book, records[book.id] || {}).completed)
       .sort((a, b) => readTime(records[b.id]) - readTime(records[a.id]));
   } else {
-    if (mode === "for-you") pool = pool.filter(book => book.level === level
-      && (level !== "C" || book.readingBandProfile !== "extended"));
+    if (mode === "for-you") pool = pool.filter(book => matchesPublicBookLevel(book, level));
     if (mode === "together") pool = pool.filter(book => book.readingBandProfile === "extended"
       || book.readingBandProfile === "read-aloud" || book.readingMode === "supported-read-together");
     const orderedCollection = mode === "all" && pool.length > 0

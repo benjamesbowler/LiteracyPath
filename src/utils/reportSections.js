@@ -1,3 +1,4 @@
+import { getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
 // Pure helpers behind the teacher's individual student report
 // (src/components/FinishedReportPage.jsx). Plain data in, plain data out —
 // no React, no localStorage, no browser APIs — so tests/unit/reportSections.test.js
@@ -260,10 +261,15 @@ export function buildGuidedReadingReportRows(records = {}, module = {}) {
       const progress = module.getGuidedReadingProgress?.(book, { ...record, bookId }) || {};
       const summary = summariesByBook.get(bookId) || module.summarizeGuidedReadingRecord?.(record) || {};
       const readCount = Math.max(Number(progress.readCount || record.readCount || 0), progress.completed ? 1 : 0);
+      const metadata = getPublicBookMetadata(bookId);
       return {
         bookId,
         title: book.title || record.title || bookId,
-        level: book.level || record.level || progress.level || "",
+        level: metadata.appReadingLevel || "",
+        appReadingLevel: metadata.appReadingLevel,
+        levelLabel: metadata.levelLabel,
+        levelStatus: metadata.levelStatus,
+        sourceLevel: record.level || "",
         lastReadAt: progress.lastReadAt || record.lastReadAt || record.completedAt || record.updatedAt || "",
         readCount,
         completed: Boolean(progress.completed || record.completed || record.completedAt),
@@ -294,7 +300,7 @@ export function buildGuidedReadingSummary(rows = []) {
   const completedRows = allRows.filter(row => row.completed);
   const byLevelMap = new Map();
   completedRows.forEach(row => {
-    const level = row.level || "Unlevelled";
+    const level = getPublicBookMetadata(row.bookId).appReadingLevel || "pending";
     byLevelMap.set(level, (byLevelMap.get(level) || 0) + 1);
   });
   const byLevel = Array.from(byLevelMap.entries())
@@ -307,7 +313,7 @@ export function buildGuidedReadingSummary(rows = []) {
     totalCompleted: completedRows.length,
     byLevel,
     mostRecent: mostRecent
-      ? { bookId: mostRecent.bookId, title: mostRecent.title, level: mostRecent.level, lastReadAt: mostRecent.lastReadAt }
+      ? { bookId: mostRecent.bookId, title: mostRecent.title, level: getPublicBookMetadata(mostRecent.bookId).appReadingLevel || "", levelLabel: getPublicBookMetadata(mostRecent.bookId).levelLabel, lastReadAt: mostRecent.lastReadAt }
       : null
   };
 }

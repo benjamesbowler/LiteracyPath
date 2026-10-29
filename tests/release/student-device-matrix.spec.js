@@ -1709,12 +1709,13 @@ test("A3.6 Reading Library portrait discovery Tab order follows its visual order
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   const surface = page.locator('[data-child-surface="reading-library"]');
   await surface.getByRole("button", { name: "Find a book", exact: true }).press("Enter");
-  const controls = surface.locator(".kg-book-discovery").locator("button, select");
+  const controls = surface.locator(".kg-book-discovery").locator("button, select, summary");
   expect(await controls.count()).toBeGreaterThan(7);
   const sequence = [];
   await controls.first().focus();
   for (let index = 0; index < await controls.count(); index += 1) {
     const control = controls.nth(index); await expect(control).toBeFocused();
+    expect(await control.evaluate(element => element.getBoundingClientRect().height), "Every discovery control keeps its 56px touch target").toBeGreaterThanOrEqual(56);
     sequence.push(await control.evaluate(element => {
       const box = element.getBoundingClientRect();
       return { tag: element.tagName, name: element.getAttribute("aria-label") || element.textContent.trim(), tabIndex: element.tabIndex, left: box.left, top: box.top };
@@ -1722,7 +1723,7 @@ test("A3.6 Reading Library portrait discovery Tab order follows its visual order
     if (index < await controls.count() - 1) await page.keyboard.press("Tab");
   }
   expect(sequence.filter(control => control.tabIndex > 0)).toEqual([]);
-  expect(sequence.map(control => control.name)).toEqual(expect.arrayContaining(["Back to shelf", "All books", "Read again", "Friends or topic"]));
+  expect(sequence.map(control => control.name)).toEqual(expect.arrayContaining(["Back to shelf", "About App levels A–H", "All books", "Read again", "Friends or topic"]));
   const visualRegressions = sequence.slice(1).flatMap((control, index) => {
     const previous = sequence[index];
     return control.top < previous.top - 4 || (Math.abs(control.top - previous.top) <= 4 && control.left < previous.left - 1) ? [{ previous, control }] : [];

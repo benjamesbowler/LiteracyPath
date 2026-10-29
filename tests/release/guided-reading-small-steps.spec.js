@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
+import { expectPrintedWordsVisible } from "./helpers/guidedReadingGeometry.js";
 
 const books = getRuntimeGuidedReadingBooks().filter(book => book.id.startsWith("small-steps-"));
 const words = text => String(text).match(/[A-Za-z]+(?:['’][A-Za-z]+)*/g) || [];
@@ -58,7 +59,7 @@ for (const viewport of [{ width: 768, height: 1024 }, { width: 320, height: 568 
         await expect.poll(() => page.evaluate(path => window.__smallStepsAudio.some(audio =>
           new URL(audio.currentSrc || audio.src).pathname === path && audio.currentTime > 0 && !audio.error
         ), expectedPath)).toBe(true);
-        if (index === 0) {
+        {
           const word = words(readingPage.text).at(-1);
           await page.evaluate(() => { window.__smallStepsAudio = []; });
           await reader.getByRole("button", { name: `Get reading help for ${word}`, exact: true }).last().click();
@@ -67,7 +68,8 @@ for (const viewport of [{ width: 768, height: 1024 }, { width: 320, height: 568 
           await expect.poll(() => page.evaluate(path => window.__smallStepsAudio.some(audio =>
             new URL(audio.currentSrc || audio.src).pathname === path && audio.currentTime > 0 && !audio.error
           ), wordPath)).toBe(true);
-          await page.screenshot({ path: info.outputPath("first-page-word-help.png") });
+          await expectPrintedWordsVisible(reader);
+          await page.screenshot({ path: info.outputPath(`page-${String(index + 1).padStart(2, "0")}-word-help.png`) });
         }
         const next = reader.getByRole("button", { name: index + 1 === book.pages.length ? "Finish book" : "Next page", exact: true });
         await expect(next).toBeInViewport();

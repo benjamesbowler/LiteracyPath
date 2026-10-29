@@ -43,7 +43,10 @@ export default function GuidedReadingTransport({
   return (
     <header className="guided-transport" aria-label="Book controls">
       <div className="guided-transport-book">
-        <strong title={title}>{title}</strong>
+        <div className="guided-transport-heading">
+          <strong title={title}>{title}</strong>
+          {bookAnalysis && <span className="guided-transport-level" aria-label="Book reading level">{appReadingLevelLabel(bookAnalysis.appReadingLevel)}</span>}
+        </div>
         <p role="status" aria-live="polite" aria-label="Reading progress">
           Page {pageIndex + 1} of {pageCount}
         </p>
@@ -121,6 +124,7 @@ export default function GuidedReadingTransport({
               <strong>About this book</strong>
               <p>{appReadingLevelLabel(bookAnalysis.appReadingLevel)}. App levels describe the text, not a child’s reading ability.</p>
               <p>{bookAnalysis.rationale}</p>
+              {bookAnalysis.metrics && <p>{bookAnalysis.metrics.pageCount} reading pages · {bookAnalysis.metrics.wordCount} words</p>}
               <p><strong>{bookAnalysis.lexile.label}</strong>. {bookAnalysis.lexile.status === "measured"
                 ? [bookAnalysis.lexile.provider && `Measured by ${bookAnalysis.lexile.provider}.`,
                   bookAnalysis.lexile.measuredAt && `Measurement date: ${bookAnalysis.lexile.measuredAt}.`,

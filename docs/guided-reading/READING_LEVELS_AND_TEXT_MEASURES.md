@@ -11,33 +11,47 @@ or assessments of a child's ability. A teacher still selects a book for the
 reader's knowledge, decoding, language, interests and task. Narrated books remain
 available for listening irrespective of independent reading demands.
 
-The 2026-10-01 review read every page of every runtime book in sequence. It was
-performed by Codex, using the full manuscript and available editorial image
-descriptions; it is not a second human review, new visual inspection or classroom
-validation. Every book has its own rationale identifying actual sentence patterns,
-vocabulary and causal, informational or inference demands. Picture descriptions
-support interpretation of concrete actions, but pictures do not establish a word's
-decodability and the review does not certify image accuracy. Some descriptions are
-generated directly from the reading text and provide no independent visual
-evidence. Each generated row records whether separate descriptions cover all,
-some or none of the pages. The estimate assumes contextual picture support; it
-does not lower a level on an unverified image claim.
+The 29 October 2026 cross-collection audit read all 247 then-working books,
+compared neighboring levels and reconciled 37 assignments. The integrated
+catalogue adds the independently reviewed fifty-book Foundations expansion and
+now contains **297 books, 2,621 reading pages and 29,804 word tokens** under the
+conventions below. Its current distribution is **A23, B86, C63, D56, E15, F36,
+G16 and H2**. Current counts come from the runtime and generated analysis.
 
-The reviewed manuscripts contain **297 books, 2,621 reading pages and 29,804 word
-tokens** under the conventions below, including the independently reviewed
-2026-10-29 Foundations expansion. A full-text consistency review on 2026-10-06
-moved **Our Five Senses** (`gr-e-50`) from B to C: its sensory contrasts, lists,
-varied action verbs and final connection match the other senses books in C.
-The reviewed Tools, Five Senses, Baby Animals, Animals on the Farm and Day and
-Night manuscripts retained their existing bands. This follow-up uses the rubric
-below; analyzer estimates are supporting evidence, not a letter-conversion rule.
-The current app-level distribution is A: 28, B: 85, C: 59, D: 57, E: 13,
-F: 16, G: 37 and H: 2. The 35 extended Moonwood stories and two extended
-Bright Ideas stories need G; the digestion and water-system investigations need H.
-Keeping all of these under
-four letters would hide large differences in syntax, sustained reading and
-specialist vocabulary. One hundred and sixty-seven books have separate image descriptions for
-every page, 19 have partial coverage and 111 have only prose-derived descriptions.
+Integration retained the calibrated main-branch assignments. All ten small
+manuscript/title variants were reread in full (89 current pages), retaining those
+public bands while binding their reviews to the corrected text fingerprints.
+The independent Small Steps and Foundations reviews remain described below.
+One hundred and sixty-seven books have separate image descriptions for every
+page, 19 have partial coverage and 111 have only prose-derived descriptions.
+
+This was a Codex full-manuscript editorial review, using actual prose and
+available description metadata. It is not a human classroom validation or a new
+visual inspection. Some picture descriptions repeat the prose and supply no
+independent evidence. Picture support is contextual, not proof of decodability
+or image accuracy.
+
+**One public system:** A–H is the only book-complexity letter used in shelves,
+reader headings/details, shared reading, assignment/review pickers, daily book
+missions, reports and exports. `getPublicBookMetadata()` resolves the current
+review by book ID, or validates the full manuscript fingerprint when provided.
+Unknown or changed texts show **App level pending**. Saved observation letters,
+filename prefixes, source-pack names and local A/B/C placement overrides cannot
+supply a public book level. The compact generated discovery index exposes the
+same letter, system ID, fingerprint, review date, page/word counts and reading
+mode without loading the full manuscripts into the home/report bundle. Its compact
+reviewed page/media subset also invalidates ID-only metadata after a local page
+or book retirement; retiring only a cover does not change the text level.
+
+The build refuses to generate a compact index from a different review, date,
+rationale or metric set than the detailed analysis. Image-review tools also
+interpret `--level` as the public A–H band. A replacement book can be recorded
+with `--book BOOK_ID`, so an individual repair cannot approve unrelated books.
+
+The old A/B/C fields remain internal compatibility inputs for existing practice
+layout, phonics eligibility and historical progress. They are not another
+public book-level scale. A book's App level is not the reader's achievement;
+completing a book records completion, not comprehension or proficiency.
 
 The 2026-10-28 Small Steps addition received independent full-manuscript review
 for all 20 books. Each earned App level B for short concrete language, small
@@ -64,7 +78,9 @@ copy an old level or convert a word count into a letter.
 These local descriptors make the estimates usable; they are not publisher
 cutoffs. Length can raise sustained-reading demands, while difficult concepts or
 specialist words can raise a short text's level. Each assignment uses the combined
-evidence, so word-count ranges intentionally overlap.
+evidence, so word-count ranges intentionally overlap. An unfamiliar word, elapsed-time
+marker, longer page or series name cannot raise a level on its own. Repeated
+frames, explicit causal links and the amount of inference are considered together.
 
 | App level | Typical reading demands in this catalogue |
 | --- | --- |
@@ -77,8 +93,8 @@ evidence, so word-count ranges intentionally overlap.
 | G | Extended paragraphs with compound/subordinate sentences, several characters, clues or magical rules and sustained inference across a full story. |
 | H | The most sustained picture-book text in this catalogue, with a longer investigation and scientific/social explanations embedded in dialogue. |
 
-Existing instructional `book.level`, phonics eligibility, reading mode, completion
-milestones and local teacher placement overrides stay separate. In particular,
+Existing internal `book.level`, phonics eligibility, reading mode, completion
+pools and local placement overrides stay separate from the sole public A–H scale. In particular,
 `READ_ALOUD` remains a supported read-together book even when its text has an app
 level. The Story Bible's existing A/B/C language contracts still govern manuscripts;
 these additional shelf bands do not rewrite those contracts or change learner placement.
@@ -108,6 +124,7 @@ Changing the title, page order, wording or runtime page subset requires review.
 Generate/check with:
 
 ```sh
+npm run check:book-levels
 node tools/generateGuidedReadingTextAnalysis.mjs
 node tools/generateGuidedReadingTextAnalysis.mjs --check
 node tools/generateGuidedReadingTextAnalysis.mjs --report

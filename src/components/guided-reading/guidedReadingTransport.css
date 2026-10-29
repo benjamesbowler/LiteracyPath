@@ -55,6 +55,24 @@
   min-width: 0;
 }
 
+.guided-transport-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+
+.guided-transport-heading strong {
+  min-width: 0;
+}
+
+.guided-transport-level {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .guided-transport-book strong {
   display: block;
   max-width: 100%;
@@ -354,6 +372,14 @@
 }
 
 @media (max-width: 600px) {
+  .guided-transport-heading {
+    display: block;
+  }
+  .guided-transport-level {
+    display: block;
+    margin-top: 2px;
+    line-height: 1.2;
+  }
   .guided-transport {
     gap: 4px;
     padding: 4px;
@@ -398,6 +424,53 @@
     /* Optional reading tools create their own rows when present. Empty rows
        must not take two extra gaps from the printed story on a short phone. */
     grid-template-rows: minmax(0, 1fr);
+  }
+  /* Word help temporarily shares a row with the whole illustration. Stacking
+     both above the story can hide beginner word targets or longer prose. */
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) .guided-page-image-card {
+    grid-column: 1;
+    grid-row: 1;
+    contain: size;
+    min-height: 72px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) .guided-page-reading {
+    display: contents;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) .guided-page-text-frame {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: auto;
+    margin: 6px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 6px 6px 0 0;
+    padding: 6px;
+    gap: 4px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support > div:first-child {
+    gap: 2px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support p {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support small {
+    display: none;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-segments {
+    gap: 4px !important;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-segments span {
+    min-width: 20px;
+    padding: 2px 4px;
   }
 }
 

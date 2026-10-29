@@ -2,7 +2,7 @@
 // pass rules read from masterySystem with a default fallback, same-day retake
 // detection, per-question rollups, Story Quest star sums that never invent
 // stars, checks-based EL totals, engagement empty states, and guided-reading
-// summary rows (books by level, quiz scores, most recent book).
+// summary rows (books by current App level, completion and most recent book).
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
@@ -201,13 +201,16 @@ test("Guided Reading completion is not comprehension evidence", () => {
 
 test("guided reading summary counts completed books by level and finds the latest book", () => {
   const rows = buildGuidedReadingReportRows({
-    b1: { completed: true, completedAt: "2026-07-01T10:00:00Z", readCount: 1, completedPages: 3, quizScore: 4, quizTotal: 5, lastReadAt: "2026-07-02T10:00:00Z" },
+    b1: { level: "A", completed: true, completedAt: "2026-07-01T10:00:00Z", readCount: 1, completedPages: 3, quizScore: 4, quizTotal: 5, lastReadAt: "2026-07-02T10:00:00Z" },
     b2: { readCount: 1, completedPages: 1, lastReadAt: "2026-06-20T10:00:00Z" }
   }, STUB_GUIDED_READING_MODULE);
   const summary = buildGuidedReadingSummary(rows);
 
   assert.equal(summary.totalCompleted, 1);
-  assert.deepEqual(summary.byLevel, [{ level: "A", count: 1 }]);
+  assert.deepEqual(summary.byLevel, [{ level: "pending", count: 1 }]);
+  assert.equal(rows[0].sourceLevel, "A", "saved source letter remains available without becoming an App level");
+  assert.equal(rows[0].levelLabel, "App level pending");
+  assert.equal(summary.mostRecent.levelLabel, "App level pending");
   assert.equal(summary.mostRecent.title, "The Red Hen");
   assert.equal("quizRows" in summary, false);
 });

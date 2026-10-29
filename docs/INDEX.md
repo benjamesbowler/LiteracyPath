@@ -45,7 +45,7 @@ A dated document must never override current code.
 - [Guided Reading](guided-reading/INDEX.md)
 - [Small Steps decodable readers](guided-reading/SMALL_STEPS_CONTENT_BIBLE.md) — cumulative code, exact exception words, original character canon and production requirements
 - [Foundations expansion](guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md) — 30 cumulative decodable and 20 distinctly labeled leveled books, phonics prerequisites, teaching support and media requirements
-- [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — editorial book bands, full-text review and verified Lexile provenance
+- [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — single public A–H book system, calibrated full-text reviews, shared metadata and verified Lexile provenance
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)
 - [Little Literacy Guides SEL Books 1-10](content/sel-books/README.md)

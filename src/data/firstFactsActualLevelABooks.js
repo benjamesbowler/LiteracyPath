@@ -13,7 +13,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-01-colors",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Colors",
     type: "nonfiction",
     category: "nonfiction",
@@ -126,7 +126,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-02-farm-animals",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Farm Animals",
     type: "nonfiction",
     category: "nonfiction",
@@ -239,7 +239,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-03-big-and-little",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Big and Little",
     type: "nonfiction",
     category: "nonfiction",
@@ -352,7 +352,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-04-water",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Water",
     type: "nonfiction",
     category: "nonfiction",
@@ -465,7 +465,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-05-the-sky",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "The Sky",
     type: "nonfiction",
     category: "nonfiction",
@@ -578,7 +578,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-06-animals-can",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Animals Can!",
     type: "nonfiction",
     category: "nonfiction",
@@ -691,7 +691,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-07-bugs",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Bugs",
     type: "nonfiction",
     category: "nonfiction",
@@ -804,7 +804,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-08-my-pet",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "My Pet",
     type: "nonfiction",
     category: "nonfiction",
@@ -917,7 +917,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-09-hot-and-cold",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Hot and Cold",
     type: "nonfiction",
     category: "nonfiction",
@@ -1030,7 +1030,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-10-shapes",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Shapes",
     type: "nonfiction",
     category: "nonfiction",
@@ -1143,7 +1143,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-11-at-the-farm",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "At the Farm",
     type: "nonfiction",
     category: "nonfiction",
@@ -1256,7 +1256,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-12-in-the-sea",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "In the Sea",
     type: "nonfiction",
     category: "nonfiction",
@@ -1369,7 +1369,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-13-fruit",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Fruit",
     type: "nonfiction",
     category: "nonfiction",
@@ -1482,7 +1482,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-14-the-tree",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "The Tree",
     type: "nonfiction",
     category: "nonfiction",
@@ -1595,7 +1595,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-15-baby-animals",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Baby Animals",
     type: "nonfiction",
     category: "nonfiction",
@@ -1708,7 +1708,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-16-fast-and-slow",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Fast and Slow",
     type: "nonfiction",
     category: "nonfiction",
@@ -1821,7 +1821,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-17-a-seed-grows",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "A Seed Grows",
     type: "nonfiction",
     category: "nonfiction",
@@ -1934,7 +1934,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-18-my-body",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "My Body",
     type: "nonfiction",
     category: "nonfiction",
@@ -2047,7 +2047,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-19-day-and-night",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Day and Night",
     type: "nonfiction",
     category: "nonfiction",
@@ -2160,7 +2160,7 @@ export const firstFactsActualLevelABooks = [
   {
     id: "first-facts-level-a-20-space",
     seriesId: "first-facts-level-a",
-    seriesTitle: "First Facts Level A",
+    seriesTitle: "First Facts: First Steps",
     title: "Space",
     type: "nonfiction",
     category: "nonfiction",

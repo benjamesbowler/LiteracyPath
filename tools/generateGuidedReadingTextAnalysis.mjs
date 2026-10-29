@@ -34,6 +34,8 @@ const analysis = Object.fromEntries(books.map(book => {
   return [book.id, {
     title: book.title,
     appReadingLevel: review.appReadingLevel,
+    levelSystem: review.levelSystem || "literacy-guide-a-h-v1",
+    readingDemands: review.dimensionObservations || null,
     rationale: review.rationale,
     reviewMethod: review.reviewMethod,
     reviewedAt: review.reviewedAt,
