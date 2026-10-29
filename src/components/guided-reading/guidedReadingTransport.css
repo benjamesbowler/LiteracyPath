@@ -318,6 +318,13 @@
   font-size: inherit !important;
 }
 
+/* AutoFit measures the printed glyphs synchronously at each candidate size.
+   The global button transition must not animate inherited font metrics: that
+   measures the old smaller letters and leaves overflow once they grow. */
+.guided-reader-shell .guided-word {
+  transition-property: background-color, color, border-color, box-shadow;
+}
+
 @media (max-width: 1200px) {
   .guided-transport .guided-transport-label {
     display: none;

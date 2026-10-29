@@ -22,7 +22,7 @@ for (const viewport of [{ width: 768, height: 1024 }, { width: 320, height: 568 
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
       await page.setViewportSize(viewport);
-      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.emulateMedia({ reducedMotion: "no-preference" });
       await page.addInitScript(observeRealAudio);
       await page.goto(`/preview/guided-reading-preview.html?book=${book.id}`);
       const reader = page.getByRole("region", { name: `${book.title} full-screen reader` });
