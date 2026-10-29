@@ -9840,6 +9840,2006 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "reason": "No authorized MetaMetrics measurement receipt for this exact text."
     }
   },
+  "next-steps-01": {
+    "title": "In and On",
+    "appReadingLevel": "A",
+    "rationale": "Six single-line pages, each at most six words; concrete repeated position frames and visible comparisons. No dialogue. Final nested relation is discussed orally rather than adding print.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:a2aaba76d4865b93",
+    "textHash": "sha256:c38d26768fe643ed40fedb567a22c712ce27dd96c6ccc1fb3075a585fc341ace",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 34,
+      "uniqueWordCount": 10,
+      "uniqueWordRatio": 0.29,
+      "averageWordLength": 2.47,
+      "averageWordsPerPage": 5.67,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 6,
+      "averageWordsPerSentence": 5.67,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.67,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-02": {
+    "title": "In the Sun",
+    "appReadingLevel": "A",
+    "rationale": "Eight brief single-line pages use familiar first-person action and one concrete cause. A repeated feeling changes after a visible change of place; no dialogue or complex syntax.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:f0dceaf6e6c58c27",
+    "textHash": "sha256:8ce069769bdf62b9c9b5b3901a1537dad025a7351cc9f381b16b2249f6676938",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 36,
+      "uniqueWordCount": 16,
+      "uniqueWordRatio": 0.44,
+      "averageWordLength": 2.22,
+      "averageWordsPerPage": 4.5,
+      "minWordsPerPage": 3,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.5,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-03": {
+    "title": "The Cat Can Run",
+    "appReadingLevel": "A",
+    "rationale": "Six single-line pages with familiar actions, repeated cat/on frames and a concrete action payoff. The change from sitting to following is supported directly by the illustrations.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:d0b57b81b25b42e7",
+    "textHash": "sha256:8f1956b15ecbe96465157d5791ef5b0d281fde328b2195f23442a3439dba64f2",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 29,
+      "uniqueWordCount": 11,
+      "uniqueWordRatio": 0.38,
+      "averageWordLength": 2.45,
+      "averageWordsPerPage": 4.83,
+      "minWordsPerPage": 2,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 6,
+      "averageWordsPerSentence": 4.83,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.67,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-04": {
+    "title": "I Hug Dad",
+    "appReadingLevel": "A",
+    "rationale": "Seven very short single-line present-tense pages. Concrete familiar affection and a repeated feeling keep inference bounded; no dialogue or abstract moral.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:3330598b1df1a274",
+    "textHash": "sha256:68cbbf052f9763b52ff881308fcd3b15e44c1ed0a4d7fc142851171e18c533c4",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 7,
+      "wordCount": 23,
+      "uniqueWordCount": 10,
+      "uniqueWordRatio": 0.43,
+      "averageWordLength": 2.48,
+      "averageWordsPerPage": 3.29,
+      "minWordsPerPage": 2,
+      "maxWordsPerPage": 4,
+      "sentenceUnitCount": 7,
+      "averageWordsPerSentence": 3.29,
+      "maxWordsPerSentence": 4,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.43,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 7,
+      "independentlyDescribedPageCount": 7
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-05": {
+    "title": "Tag Dad",
+    "appReadingLevel": "B",
+    "rationale": "Eight brief pages with paired simple sentences, a negative contrast, a spatially clear plan and one dialogue page. The slight planning inference supports B rather than A.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:91daa9b9559c81c1",
+    "textHash": "sha256:f1764206326c3c566edfdd42dffbb202c5704802025876f31d7f4d0cbb5cf2c4",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 36,
+      "uniqueWordCount": 15,
+      "uniqueWordRatio": 0.42,
+      "averageWordLength": 2.47,
+      "averageWordsPerPage": 4.5,
+      "minWordsPerPage": 3,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 10,
+      "averageWordsPerSentence": 3.6,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 1,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-06": {
+    "title": "A Dot on My Cap",
+    "appReadingLevel": "A",
+    "rationale": "Six single-line pages in a concrete ordered process. Repetition changes the visible number of marks and ends with the completed object in use; no fictional failed-attempt requirement is imposed.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:5b5f3e7f9be0d49e",
+    "textHash": "sha256:a2e1fac6b2713929d192db5c0919a669e5dc27c147a06fbf79ee3d6e2451a224",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 33,
+      "uniqueWordCount": 15,
+      "uniqueWordRatio": 0.45,
+      "averageWordLength": 2.15,
+      "averageWordsPerPage": 5.5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 6,
+      "averageWordsPerSentence": 5.5,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.33,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-07": {
+    "title": "A Map",
+    "appReadingLevel": "A",
+    "rationale": "Six short single-line pages with a repeated I see frame followed by a concrete real-to-map comparison. Illustration carries spatial reference; the print stays within A syntax.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:9e1c97900f924fe8",
+    "textHash": "sha256:a7ef1df06f5b6b16a91425bc18b0717e73c4afb3155667e78c5cf47aee987e61",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 30,
+      "uniqueWordCount": 12,
+      "uniqueWordRatio": 0.4,
+      "averageWordLength": 2.33,
+      "averageWordsPerPage": 5,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 6,
+      "averageWordsPerSentence": 5,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.5,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-08": {
+    "title": "Is It a Cat?",
+    "appReadingLevel": "B",
+    "rationale": "Eight short pages with one question in dialogue, a controlled false first impression, a visible clue and a twelve-word paired-sentence ending. The identity inference and pattern break warrant B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:bc06f4fa2c6ade4f",
+    "textHash": "sha256:193b1f3e6670fd007e976e2499250ab4e986ec31fef835c3044172e6c80764c1",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 45,
+      "uniqueWordCount": 23,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 2.31,
+      "averageWordsPerPage": 5.63,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 11,
+      "sentenceUnitCount": 9,
+      "averageWordsPerSentence": 5,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 1,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-09": {
+    "title": "A Red Dot",
+    "appReadingLevel": "A",
+    "rationale": "Seven single-line pages use a repeated concrete action and a single visible contrast. The negative sentence is at most six words and no dialogue is introduced.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:19fb2a3c5bc27078",
+    "textHash": "sha256:4638c12b89428c1d7fcff67e8082909d88a4e86512feadafe4c5f9198496ada3",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 7,
+      "wordCount": 34,
+      "uniqueWordCount": 13,
+      "uniqueWordRatio": 0.38,
+      "averageWordLength": 2.15,
+      "averageWordsPerPage": 4.86,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 7,
+      "averageWordsPerSentence": 4.86,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.43,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 7,
+      "independentlyDescribedPageCount": 7
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-10": {
+    "title": "A Den for the Cat",
+    "appReadingLevel": "B",
+    "rationale": "Eight pages with paired simple sentences, two light surprise beats, a clear causal tool choice and at most fourteen words per page. Concrete pronoun referents stay visible; no dialogue.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:6078bccde682c512",
+    "textHash": "sha256:39733b67d6977f56cebe3b7ff60aeec7e1d31e6f585d2cbf71ec082cfd870bc8",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 73,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.3,
+      "averageWordLength": 2.49,
+      "averageWordsPerPage": 9.13,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 13,
+      "averageWordsPerSentence": 5.62,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-11": {
+    "title": "A Job for Me",
+    "appReadingLevel": "A",
+    "rationale": "Eight single-line pages with familiar first-person sentence frames, a visible omission and a direct repair. The final two very short lines complete participation rather than adding a moral.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:ea21491b5f204123",
+    "textHash": "sha256:e5792f71e0aa1e8eccd61506d905bbd6ec3c881fe72e2f88e134005ed50ec138",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 41,
+      "uniqueWordCount": 21,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 2.32,
+      "averageWordsPerPage": 5.13,
+      "minWordsPerPage": 2,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.13,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-12": {
+    "title": "A Wig for Dad",
+    "appReadingLevel": "B",
+    "rationale": "Eight pages with paired simple sentences and two short dialogue pages. A repeated invitation frames a visible failed attempt and repair; all lines stay within B limits.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:2b89ba9dd577ceee",
+    "textHash": "sha256:fe6852120c1ebd616e9b83754ebd9904b86da2ee0daec99b8c5beb580dead636",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 63,
+      "uniqueWordCount": 20,
+      "uniqueWordRatio": 0.32,
+      "averageWordLength": 2.6,
+      "averageWordsPerPage": 7.88,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.25,
+      "maxWordsPerSentence": 9,
+      "repeatedSentenceUnitCount": 3,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 2,
+      "questionPageCount": 2,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-13": {
+    "title": "Is This a Win?",
+    "appReadingLevel": "B",
+    "rationale": "Eight pages with simple sentences, a concrete rule and a small fairness inference. Four dialogue pages meet the B maximum of half the book; the longest page has thirteen words.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:3b8a6dcc85c41f64",
+    "textHash": "sha256:30046d2c1a4681fbbf7d424f9fb2093ccd1065b877abb8b463a5504b519c14fe",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 66,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.33,
+      "averageWordLength": 2.59,
+      "averageWordsPerPage": 8.25,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 13,
+      "sentenceUnitCount": 13,
+      "averageWordsPerSentence": 5.08,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 4,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-14": {
+    "title": "Fan the Ship",
+    "appReadingLevel": "B",
+    "rationale": "Eight pages with short paired sentences, one physical cause and two dialogue pages. The repeated failed action changes at the explicit placement sentence; the return trip completes shared play.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:b7c221cfdef1a59e",
+    "textHash": "sha256:77af220d287a559c84384b053cc2e3da8d5013a34c64773f7a2a42b5a076d3fa",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 51,
+      "uniqueWordCount": 17,
+      "uniqueWordRatio": 0.33,
+      "averageWordLength": 2.75,
+      "averageWordsPerPage": 6.38,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 11,
+      "averageWordsPerSentence": 4.64,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 2,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 2,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-15": {
+    "title": "Can I Chat?",
+    "appReadingLevel": "B",
+    "rationale": "Eight short pages include four dialogue pages, clear speaker changes and a concrete social consequence. A final shared conversation returns to the opening with both children participating, and the combined toys make the change concrete.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:b0d02981afcfb1d1",
+    "textHash": "sha256:80334eeec1f59e6cef5d2166b74ffafea54af42f78f03ff4750b6711b741abc2",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 48,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 2.77,
+      "averageWordsPerPage": 6,
+      "minWordsPerPage": 3,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 10,
+      "averageWordsPerSentence": 4.8,
+      "maxWordsPerSentence": 9,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 4,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-16": {
+    "title": "A Dash and a Hop",
+    "appReadingLevel": "C",
+    "rationale": "C: the child compares repeated trials, interprets contrasting outcomes, and reads an explicit if-clause before Sam applies his new rule.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:b7731abe98ad3000",
+    "textHash": "sha256:d1edac3bad62dd1eddb5420b9554b46620163a5cafa722fb304b7baa0528782a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 105,
+      "uniqueWordCount": 31,
+      "uniqueWordRatio": 0.3,
+      "averageWordLength": 2.66,
+      "averageWordsPerPage": 13.13,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 5.25,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 2,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 1,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-17": {
+    "title": "A Tall Wall",
+    "appReadingLevel": "B",
+    "rationale": "B: a single construction problem, one observed failure and one changed arrangement, carried by short present-tense sentences.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:1c1baa19d97122fe",
+    "textHash": "sha256:d0b9efade1eaa6a1d5c213ef172ca966a56d3ca1f84ecd8de65e6d032faa2c6b",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 49,
+      "uniqueWordCount": 18,
+      "uniqueWordRatio": 0.37,
+      "averageWordLength": 2.41,
+      "averageWordsPerPage": 8.17,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 9,
+      "averageWordsPerSentence": 5.44,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.67,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-18": {
+    "title": "The Quiz",
+    "appReadingLevel": "B",
+    "rationale": "B, revised from planned C: one partial-view clue and one corrected guess form a complete six-page story. More pages would pad this small arc.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:678d4b3ab0dddb92",
+    "textHash": "sha256:62d2eb5c5bf413ac73f161d82454850f92c785a664a4fb2e9962d75757f13aed",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 62,
+      "uniqueWordCount": 29,
+      "uniqueWordRatio": 0.47,
+      "averageWordLength": 2.6,
+      "averageWordsPerPage": 10.33,
+      "minWordsPerPage": 8,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 13,
+      "averageWordsPerSentence": 4.77,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.33,
+      "dialoguePageCount": 3,
+      "questionPageCount": 1,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-19": {
+    "title": "A Job for Each",
+    "appReadingLevel": "C",
+    "rationale": "C: past-tense narration, several speakers and a sequence of unequal effort, explicit negotiation, divided jobs and reciprocal adult help.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:0b77f2f0d514493e",
+    "textHash": "sha256:dd112293f7da88f9eda1a9319a2d8a2d69e6369eb87fbeea8c7b4552862c01a6",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 132,
+      "uniqueWordCount": 43,
+      "uniqueWordRatio": 0.33,
+      "averageWordLength": 2.83,
+      "averageWordsPerPage": 16.5,
+      "minWordsPerPage": 12,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 26,
+      "averageWordsPerSentence": 5.08,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 4,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-20": {
+    "title": "Cut and Fit",
+    "appReadingLevel": "B",
+    "rationale": "B: simple present-tense actions and a visible matching strategy, with one short invitation to play again.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:1cfeb952d92d7f97",
+    "textHash": "sha256:a3d73397f58a0a2160d7c0410790e998cf59eaac88674dcc50bde4533e83d161",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 68,
+      "uniqueWordCount": 29,
+      "uniqueWordRatio": 0.43,
+      "averageWordLength": 2.65,
+      "averageWordsPerPage": 8.5,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 11,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.67,
+      "maxWordsPerSentence": 9,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.5,
+      "dialoguePageCount": 1,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-21": {
+    "title": "A Big Tug",
+    "appReadingLevel": "B",
+    "rationale": "B, revised from planned C: one concrete cooperative problem and one direct solution make six purposeful present-tense pages.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:87362958898f0852",
+    "textHash": "sha256:52e2071fcf5a0c2e5339bb3dee0455371a623f0b7ab9a9d919546906893cee16",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 47,
+      "uniqueWordCount": 21,
+      "uniqueWordRatio": 0.45,
+      "averageWordLength": 2.83,
+      "averageWordsPerPage": 7.83,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 10,
+      "averageWordsPerSentence": 4.7,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.17,
+      "dialoguePageCount": 3,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-22": {
+    "title": "A Moth in the Shed",
+    "appReadingLevel": "C",
+    "rationale": "C: a failed plan leads to a new interpretation of an animal’s position, a gentle transport sequence and a return that resolves both animal and prop locations.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:c527aa7f9b9d3f35",
+    "textHash": "sha256:feeeabf84639b51324763955536ccd0ba2a1d688bc31212d14077763e51b3ebf",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 111,
+      "uniqueWordCount": 31,
+      "uniqueWordRatio": 0.28,
+      "averageWordLength": 2.58,
+      "averageWordsPerPage": 13.88,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 6.17,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 1,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-23": {
+    "title": "Spin, Top!",
+    "appReadingLevel": "B",
+    "rationale": "B: two attempts establish the problem; an explicit surface contrast leads to one visible change and repeatable outcome.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:6fe40a92a7b66188",
+    "textHash": "sha256:046a1238fcf751d6070bc6c28a7ae398cd18897b2ac45a371da20f6e9ec9293a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 7,
+      "wordCount": 66,
+      "uniqueWordCount": 24,
+      "uniqueWordRatio": 0.36,
+      "averageWordLength": 2.71,
+      "averageWordsPerPage": 9.43,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 4.71,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.43,
+      "dialoguePageCount": 1,
+      "questionPageCount": 0,
+      "illustratedPageCount": 7,
+      "independentlyDescribedPageCount": 7
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-24": {
+    "title": "The Cat Mask",
+    "appReadingLevel": "B",
+    "rationale": "B, revised from planned C: a single visible orientation mistake, a specific clue and one corrective action make a complete short arc.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:9924c2c23f1a026f",
+    "textHash": "sha256:8d75e65c97e87aad30f9bab95300781a62d78c307083ea7646b896613407a834",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 6,
+      "wordCount": 47,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 2.49,
+      "averageWordsPerPage": 7.83,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 11,
+      "averageWordsPerSentence": 4.27,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.17,
+      "dialoguePageCount": 2,
+      "questionPageCount": 0,
+      "illustratedPageCount": 6,
+      "independentlyDescribedPageCount": 6
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-25": {
+    "title": "What Am I?",
+    "appReadingLevel": "C",
+    "rationale": "C: three connected rounds require readers to compare misleading and useful clues, follow changing speakers and interpret a prepared imitation joke.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:63cebd65a32482b9",
+    "textHash": "sha256:9b6a0db82e8145d2870d17bbaec0c18f31327b6ec55c460c404ff9ff208b0f87",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 113,
+      "uniqueWordCount": 39,
+      "uniqueWordRatio": 0.35,
+      "averageWordLength": 2.63,
+      "averageWordsPerPage": 14.13,
+      "minWordsPerPage": 10,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 4.91,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 7,
+      "questionPageCount": 5,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-26": {
+    "title": "Honk, Honk!",
+    "appReadingLevel": "B",
+    "rationale": "B: one familiar spatial problem, one unhelpful attempt and one practical turn-taking solution in present tense.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:87b7732caf40543e",
+    "textHash": "sha256:f3b81dc275b09445cfb0e24bc14b263688baa8146644c870b487970831107f24",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 68,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.37,
+      "averageWordLength": 2.57,
+      "averageWordsPerPage": 8.5,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 4.86,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 1,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-27": {
+    "title": "The Prank",
+    "appReadingLevel": "C",
+    "rationale": "C: the reader follows a failed plan, a reversed surprise and a reinterpretation of the same prop; the ending turns the shared joke into a new use.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:784d71305b9f8b66",
+    "textHash": "sha256:db9ed1620316971398f4dc261d41a88e7c814748547b5c9f3f969685285aae1a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 111,
+      "uniqueWordCount": 41,
+      "uniqueWordRatio": 0.37,
+      "averageWordLength": 2.55,
+      "averageWordsPerPage": 13.88,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 5.84,
+      "maxWordsPerSentence": 9,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 3,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-28": {
+    "title": "The King",
+    "appReadingLevel": "C",
+    "rationale": "C: the child must track a social boundary and an action-based repair across dialogue and past-tense narration, then interpret the playful transfer of the hat.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:e197201836cc549e",
+    "textHash": "sha256:17ec5363ba75d8eed4b38f03e016c17b67ff0d878be244a595bf6095f4963d92",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 113,
+      "uniqueWordCount": 30,
+      "uniqueWordRatio": 0.27,
+      "averageWordLength": 2.83,
+      "averageWordsPerPage": 14.13,
+      "minWordsPerPage": 10,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 5.38,
+      "maxWordsPerSentence": 11,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 5,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-29": {
+    "title": "Sniff, Pup!",
+    "appReadingLevel": "B",
+    "rationale": "B: a concrete two-choice search changes from the first selection to smell, with one consistent concealed object and a clear reward.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:da4e3099871acf37",
+    "textHash": "sha256:18c011be59279f778d4f4504cfc5dc39e8969075e172f9e0d349b67f17db81cf",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 7,
+      "wordCount": 54,
+      "uniqueWordCount": 23,
+      "uniqueWordRatio": 0.43,
+      "averageWordLength": 2.8,
+      "averageWordsPerPage": 7.71,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 10,
+      "averageWordsPerSentence": 5.4,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.29,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 7,
+      "independentlyDescribedPageCount": 7
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "next-steps-30": {
+    "title": "The Bell Band",
+    "appReadingLevel": "C",
+    "rationale": "C: conditional when-clauses, a missed visual cue, coordinated correction and an intentionally playful double meaning for the final clap.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:e52cfc35b67aa662",
+    "textHash": "sha256:827576edd07e1babaae5b321fae1f2d39ceef7a948d47ba4496ddd6d08cf97be",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 111,
+      "uniqueWordCount": 28,
+      "uniqueWordRatio": 0.25,
+      "averageWordLength": 3.01,
+      "averageWordsPerPage": 13.88,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 26,
+      "averageWordsPerSentence": 4.27,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 7,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 3,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-01": {
+    "title": "A Leaf Rubbing",
+    "appReadingLevel": "A",
+    "rationale": "One concrete clause per page, recurring leaf/paper/lines, and a visible ordered process. Raised and rubbing merit oral meaning support without raising the simple printed syntax.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:fc4d5b48183da39d",
+    "textHash": "sha256:3888e3d183d19e0debabc25ee80e1617f04516dbaa4dbd642179cf56a1731787",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 39,
+      "uniqueWordCount": 19,
+      "uniqueWordRatio": 0.49,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 4.88,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.88,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-02": {
+    "title": "Sam’s Sock Puppet",
+    "appReadingLevel": "A",
+    "rationale": "Highly controlled present-tense clauses and repeated concrete nouns support one perspective change and an immediate physical payoff.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:22681ef55a0336e8",
+    "textHash": "sha256:d7ace53cd86a0e4a01bd2689cbaf785730876e1bfac82818ede6d4e04dc1e7af",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 37,
+      "uniqueWordCount": 19,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 3.86,
+      "averageWordsPerPage": 4.63,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 5,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.63,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-03": {
+    "title": "Watch a Pill Bug",
+    "appReadingLevel": "B",
+    "rationale": "Short present-tense sentences with changing subjects and simple cause/consequence. Soft/hard and curling require a modest contrast beyond A.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:e6dd5e918b608896",
+    "textHash": "sha256:4cbbcbec0dcb002737ac8e1039310c8b6a158cd3d22d316625d403489c81c0e3",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 52,
+      "uniqueWordCount": 32,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 3.77,
+      "averageWordsPerPage": 6.5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 8,
+      "sentenceUnitCount": 9,
+      "averageWordsPerSentence": 5.78,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-04": {
+    "title": "Dot’s Paper Chain",
+    "appReadingLevel": "B",
+    "rationale": "Two short lines per page, limited dialogue-free present narration, and a concrete failed attempt/repair. Connective meaning develops through pictured loop geometry.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:d214ec5ff0b0dac8",
+    "textHash": "sha256:67027aaeef88c5b2f4a12bebc1bdaa83a61115dc36d15d062bfd86ca484e2f36",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 60,
+      "uniqueWordCount": 39,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 3.8,
+      "averageWordsPerPage": 7.5,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 11,
+      "averageWordsPerSentence": 5.45,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-05": {
+    "title": "Hooks and Loops",
+    "appReadingLevel": "C",
+    "rationale": "Print fits instructional B, but changing scale, part-to-whole mechanism, catch used as a noun, and reversible cause support App C.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:51a21f1480d1453f",
+    "textHash": "sha256:538ded4cfca9b247587f1d1f4fd5459e649b5401e3a62764e060bbc6c616a01f",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 81,
+      "uniqueWordCount": 50,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.04,
+      "averageWordsPerPage": 8.1,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 15,
+      "averageWordsPerSentence": 5.4,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-06": {
+    "title": "Where Do the Drops Go?",
+    "appReadingLevel": "C",
+    "rationale": "B-sized print supports App C comparative inference: drops persist in two different states and the final generalization is limited to tested fabrics.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:cc8c063fe31e4736",
+    "textHash": "sha256:c1fe5d1886b0c5add9b6e81965c587c57b29910179cd6f1ac0d26bd1a1cca707",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 65,
+      "uniqueWordCount": 40,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 3.98,
+      "averageWordsPerPage": 6.5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 10,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.42,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-07": {
+    "title": "The Pebble Pattern",
+    "appReadingLevel": "C",
+    "rationale": "Brief B-contract lines carry a repeating unit, an error, a visual clue and a social repair. Tracking a rule rather than a single action earns App C.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:eb3a2980ac31c7fd",
+    "textHash": "sha256:5903abf54c35288cd512fc54089693f9596c30749f9657dd68e42829e9a5080c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 79,
+      "uniqueWordCount": 42,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 3.97,
+      "averageWordsPerPage": 7.9,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 11,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 4.65,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 2,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-08": {
+    "title": "How a Bicycle Stops",
+    "appReadingLevel": "D",
+    "rationale": "Compact C print carries a four-part mechanism, spatial reference and the new term friction. Repeated causal observation and release/retest make App D appropriate.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:4597c87925880bab",
+    "textHash": "sha256:a44d7408128b851b5d324b28cff74f18ed626d6b34c894b1ad85932a488cc4d2",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 138,
+      "uniqueWordCount": 76,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.2,
+      "averageWordsPerPage": 13.8,
+      "minWordsPerPage": 12,
+      "maxWordsPerPage": 16,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 6.57,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-09": {
+    "title": "How Much Rain?",
+    "appReadingLevel": "D",
+    "rationale": "An explicit two-event comparison requires measurement vocabulary, retained numbers and a counterfactual about mixed readings, within short C sentences.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:480af6bb285e2d8b",
+    "textHash": "sha256:fdfca42f384c586f607c1206dc25342a17ddbc34c9f5c724bbd84c0048a4158c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 149,
+      "uniqueWordCount": 82,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.16,
+      "averageWordsPerPage": 14.9,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 7.1,
+      "maxWordsPerSentence": 11,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-10": {
+    "title": "A Weaverbird Builds",
+    "appReadingLevel": "D",
+    "rationale": "Close construction steps, growth over time and specialized weaving/entrance vocabulary require linked spatial explanation beyond App C, while print remains compact.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:1efc4b3863027c47",
+    "textHash": "sha256:3b2ebb9c430d3e5c69a6587a79aad70049ce15021ffcd475bf65479ed82113e5",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 137,
+      "uniqueWordCount": 85,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.27,
+      "averageWordsPerPage": 13.7,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 6.85,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-11": {
+    "title": "The Game That Would Not End",
+    "appReadingLevel": "D",
+    "rationale": "Varied dialogue and a fair diagram clue sustain a ten-step causal investigation. Reader must reject a luck explanation and track a changed rule.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:d5c3f9d8b26a9a26",
+    "textHash": "sha256:51f9f95be54ba6afbfbfd0cfd5d75fcfe5b11fed1a4b3337edb1183d4c4954e5",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 158,
+      "uniqueWordCount": 84,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.16,
+      "averageWordsPerPage": 15.8,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 6.87,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 6,
+      "questionPageCount": 2,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-12": {
+    "title": "From Sand to a Bottle",
+    "appReadingLevel": "E",
+    "rationale": "Twelve linked transformations, unfamiliar process terms and distinctions between material, shape and controlled cooling create App E explanatory demands despite compact C pages.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:cd27114770f73a20",
+    "textHash": "sha256:48fe79d0a7aed910e76c32fa562861b37d36b1ef23b58752bbec45528496a51f",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 12,
+      "wordCount": 178,
+      "uniqueWordCount": 105,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.47,
+      "averageWordsPerPage": 14.83,
+      "minWordsPerPage": 12,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 24,
+      "averageWordsPerSentence": 7.42,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.08,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 12,
+      "independentlyDescribedPageCount": 12
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-13": {
+    "title": "The Octopus in the Rocks",
+    "appReadingLevel": "E",
+    "rationale": "An observation-to-microscopic-mechanism-to-whole progression requires sustained referents, scale shifts and inference. Technical ideas are explained with short clauses, supporting App E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:624d74cc46d0b54f",
+    "textHash": "sha256:28b0a78e80751aac1f89607f7e240cbdd0d518084f37c0f6815576aafaf34d28",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 12,
+      "wordCount": 172,
+      "uniqueWordCount": 103,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 4.32,
+      "averageWordsPerPage": 14.33,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 24,
+      "averageWordsPerSentence": 7.17,
+      "maxWordsPerSentence": 11,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.08,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 12,
+      "independentlyDescribedPageCount": 12
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-14": {
+    "title": "Dot’s Two Promises",
+    "appReadingLevel": "E",
+    "rationale": "Two simultaneous obligations, off-view information, a missed event and negotiated repair require motive and temporal inference over twelve pages. The language remains concrete and within C limits.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:40fdb45523d3e8df",
+    "textHash": "sha256:8e24a50eede6132ae375eb0cf81fe52ec2a80a10e979080be327f4dd233d268c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 12,
+      "wordCount": 228,
+      "uniqueWordCount": 127,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 3.96,
+      "averageWordsPerPage": 19,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 37,
+      "averageWordsPerSentence": 6.16,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.08,
+      "dialoguePageCount": 8,
+      "questionPageCount": 2,
+      "illustratedPageCount": 12,
+      "independentlyDescribedPageCount": 12
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-15": {
+    "title": "A Footprint Becomes a Fossil",
+    "appReadingLevel": "F",
+    "rationale": "Conditional preservation, geological time, trace/body distinction and limits of inference require specialist understanding across fourteen compact pages. These relationships earn App F without pretending the text is cumulatively decodable.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:2d9bb91e624a0069",
+    "textHash": "sha256:8498e96384c0ab2d6f2b6ea4d554d2fdd47298016009f8a69a606aba63c04a19",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 14,
+      "wordCount": 247,
+      "uniqueWordCount": 143,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.35,
+      "averageWordsPerPage": 17.64,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 8.52,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.07,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 14,
+      "independentlyDescribedPageCount": 14
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-16": {
+    "title": "How a Lock Lifts a Boat",
+    "appReadingLevel": "F",
+    "rationale": "Four spatial states, two kinds of openings, pressure-related level matching and reversed operation demand sustained mechanism tracking. Compact C print supports App F with adult vocabulary preparation.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:e0088847adf2bc3a",
+    "textHash": "sha256:65efac2dcd823373b8f0c9955abb1377d1da37a77ad28edbacc317f4bc7c0860",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 14,
+      "wordCount": 234,
+      "uniqueWordCount": 108,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 4.42,
+      "averageWordsPerPage": 16.71,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 28,
+      "averageWordsPerSentence": 8.36,
+      "maxWordsPerSentence": 16,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.14,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 14,
+      "independentlyDescribedPageCount": 14
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-17": {
+    "title": "Whose Sponge Wins?",
+    "appReadingLevel": "F",
+    "rationale": "Reader distinguishes a confounded observation from a controlled comparison, follows repeated trials and interprets a deliberately limited conclusion. This sustained evidence reasoning earns App F; it is not a universal sponge experiment result.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:860a462e8db646da",
+    "textHash": "sha256:b66aca64506c50c0eb93550113fd4d456206237ce4021d3761e2a8f324c4cdfc",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 14,
+      "wordCount": 271,
+      "uniqueWordCount": 139,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.26,
+      "averageWordsPerPage": 19.36,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 36,
+      "averageWordsPerSentence": 7.53,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.07,
+      "dialoguePageCount": 7,
+      "questionPageCount": 1,
+      "illustratedPageCount": 14,
+      "independentlyDescribedPageCount": 14
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-18": {
+    "title": "Wren and the Borrowed Ribbons",
+    "appReadingLevel": "G",
+    "rationale": "Fourteen connected paragraphs, three voices, permission versus assumption, lost information and evidence-based restoration sustain inference across an extended read-together story. Every clue is seeded before use.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:b1550ade377f2bc5",
+    "textHash": "sha256:80486ac58ce4b5ece00c975412de4050d67f7f5bc08f0cf780da55415b63e931",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 14,
+      "wordCount": 389,
+      "uniqueWordCount": 182,
+      "uniqueWordRatio": 0.47,
+      "averageWordLength": 4.49,
+      "averageWordsPerPage": 27.79,
+      "minWordsPerPage": 27,
+      "maxWordsPerPage": 30,
+      "sentenceUnitCount": 44,
+      "averageWordsPerSentence": 8.84,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.07,
+      "dialoguePageCount": 3,
+      "questionPageCount": 2,
+      "illustratedPageCount": 14,
+      "independentlyDescribedPageCount": 14
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-19": {
+    "title": "Stone’s Flower in Pieces",
+    "appReadingLevel": "G",
+    "rationale": "Extended paragraphs link two different scale failures, an affected companion, transport state and a perspective check. Sustained object tracking and three-character inference support G read-together placement.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:9a12d22bd00c2c93",
+    "textHash": "sha256:21104d56fecb926baa368328549b3c9c2607a807302e206c8016e5f9091ac911",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 14,
+      "wordCount": 401,
+      "uniqueWordCount": 185,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 4.46,
+      "averageWordsPerPage": 28.64,
+      "minWordsPerPage": 27,
+      "maxWordsPerPage": 31,
+      "sentenceUnitCount": 44,
+      "averageWordsPerSentence": 9.11,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.14,
+      "dialoguePageCount": 3,
+      "questionPageCount": 1,
+      "illustratedPageCount": 14,
+      "independentlyDescribedPageCount": 14
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "bright-ideas-20": {
+    "title": "Beneath Our Street",
+    "appReadingLevel": "H",
+    "rationale": "Twelve sustained paragraphs combine dialogue, four invisible systems, model-versus-reality caveats and cross-page synthesis. The sustained investigation warrants supported H shared reading, with no independent C placement or decodability claim.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-10-29",
+    "textFingerprint": "fnv1a64:ba5d6cb74aaf2747",
+    "textHash": "sha256:858d72190c9422d6a309be5479204f6f6f144571bc26dc64e297c8631a52c662",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 12,
+      "wordCount": 576,
+      "uniqueWordCount": 277,
+      "uniqueWordRatio": 0.48,
+      "averageWordLength": 4.49,
+      "averageWordsPerPage": 48,
+      "minWordsPerPage": 42,
+      "maxWordsPerPage": 53,
+      "sentenceUnitCount": 69,
+      "averageWordsPerSentence": 8.35,
+      "maxWordsPerSentence": 21,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.08,
+      "dialoguePageCount": 11,
+      "questionPageCount": 4,
+      "illustratedPageCount": 12,
+      "independentlyDescribedPageCount": 12
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
   "meadow-pals-science-01-missing-sandwich": {
     "title": "The Case of the Missing Sandwich",
     "appReadingLevel": "H",

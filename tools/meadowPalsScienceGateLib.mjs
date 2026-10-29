@@ -14,6 +14,7 @@ import {
 } from "../src/data/meadowPalsScienceNarration.js";
 import { MEADOW_PALS_SCIENCE_NARRATION, MEADOW_PALS_SCIENCE_WORD_AUDIO } from "../src/data/generated/meadowPalsScienceNarration.generated.js";
 import { getGuidedReadingWordProductionAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
+import { usesCharacterNarration } from "../src/data/sharedReadAloudContracts.js";
 
 const digest = value => createHash("sha256").update(value).digest("hex");
 
@@ -33,7 +34,7 @@ export function validateScienceReadAloudManuscript(book = {}) {
 export function auditScienceReadAloudNarration(books, repositoryRoot) {
   const pages = [];
   const failures = [];
-  for (const book of books.filter(item => item.readingBandProfile === "read-aloud")) {
+  for (const book of books.filter(usesCharacterNarration)) {
     for (const reason of validateScienceReadAloudManuscript(book)) failures.push({ bookId: book.id, reason });
     const title = getMeadowPalsScienceTitleNarration(book);
     const titleFile = title?.audioPath && path.join(repositoryRoot, "public", title.audioPath);

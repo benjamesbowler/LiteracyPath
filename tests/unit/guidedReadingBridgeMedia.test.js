@@ -15,6 +15,7 @@ const PHOTOREAL_MANIFEST_PATH = resolve(
   ROOT,
   "docs/guided-reading/willow-street-photoreal-media-manifest.json"
 );
+const CARTOON_MANIFEST_PATH = resolve(ROOT, "docs/guided-reading/willow-street-cartoon-media-manifest.json");
 const VISUAL_REVIEW_PATH = resolve(
   ROOT,
   "docs/guided-reading/willow-street-visual-review.json"
@@ -94,11 +95,15 @@ test("every illustrated bridge page resolves to a unique reviewed-sized asset", 
   }
 });
 
-test("the six nonfiction books use unique self-created photorealistic assets", async () => {
+for (const [treatment, bookCount, manifestPath] of [
+  ["self-created-photorealistic", 5, PHOTOREAL_MANIFEST_PATH],
+  ["self-created-cartoon", 1, CARTOON_MANIFEST_PATH]
+]) {
+test(`nonfiction ${treatment} books use unique self-created reviewed assets`, async () => {
   const nonfiction = GUIDED_READING_BRIDGE_BOOKS.filter(
-    book => book.visualTreatment === "self-created-photorealistic"
+    book => book.visualTreatment === treatment
   );
-  assert.equal(nonfiction.length, 6);
+  assert.equal(nonfiction.length, bookCount);
   assert.ok(nonfiction.every(book => book.mediaLicense === "self-created"));
 
   const expected = nonfiction.flatMap(book => [
@@ -118,13 +123,13 @@ test("the six nonfiction books use unique self-created photorealistic assets", a
     }))
   ]);
 
-  assert.equal(expected.length, 54);
+  assert.equal(expected.length, bookCount * 9);
   assert.equal(new Set(expected.map(item => item.path)).size, expected.length);
 
-  const manifest = JSON.parse(await readFile(PHOTOREAL_MANIFEST_PATH, "utf8"));
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   assert.equal(manifest.schemaVersion, 1);
   assert.equal(manifest.collection, "Willow Street Readers");
-  assert.equal(manifest.visualTreatment, "self-created-photorealistic");
+  assert.equal(manifest.visualTreatment, treatment);
   assert.equal(manifest.generator.provenance, "self-created");
   assert.equal(manifest.generator.mode, "built-in-image_gen-one-call-per-asset");
   assert.equal(manifest.assets.length, expected.length);
@@ -152,7 +157,7 @@ test("the six nonfiction books use unique self-created photorealistic assets", a
     assert.equal(record.height, metadata.height, item.path);
     assert.equal(record.textSha256, sha256(item.text), item.path);
     assert.equal(record.briefSha256, sha256(item.brief), item.path);
-    assert.equal(record.visualTreatment, "self-created-photorealistic", item.path);
+    assert.equal(record.visualTreatment, treatment, item.path);
     assert.equal(record.generatorProvenance, "self-created", item.path);
     assert.equal(record.directReview.state, "approved-original-detail", item.path);
     assert.equal(record.directReview.reviewedSha256, record.sha256, item.path);
@@ -162,9 +167,11 @@ test("the six nonfiction books use unique self-created photorealistic assets", a
   }
 });
 
+}
+
 test("the final Willow Street visual review covers every cover and reading page", async () => {
   const review = JSON.parse(await readFile(VISUAL_REVIEW_PATH, "utf8"));
-  const manifests = await Promise.all([MANIFEST_PATH, PHOTOREAL_MANIFEST_PATH]
+  const manifests = await Promise.all([MANIFEST_PATH, PHOTOREAL_MANIFEST_PATH, CARTOON_MANIFEST_PATH]
     .map(async filePath => JSON.parse(await readFile(filePath, "utf8"))));
   const manifestByPath = new Map(manifests.flatMap(manifest => manifest.assets)
     .map(asset => [asset.path, asset]));

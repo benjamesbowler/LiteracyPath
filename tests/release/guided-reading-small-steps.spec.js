@@ -41,15 +41,18 @@ for (const viewport of [{ width: 768, height: 1024 }, { width: 320, height: 568 
             overflowX: document.documentElement.scrollWidth > innerWidth,
             textOverflow: text.scrollHeight > text.clientHeight + 1,
             imageFit: getComputedStyle(image).objectFit,
-            font: parseFloat(getComputedStyle(text).fontSize)
+            font: parseFloat(getComputedStyle(text).fontSize),
+            wordFont: Math.min(...[...text.querySelectorAll(".guided-word")].map(word => parseFloat(getComputedStyle(word).fontSize)))
           };
         });
         expect(geometry.overflowX).toBe(false);
         expect(geometry.textOverflow).toBe(false);
         expect(geometry.imageFit).toBe("contain");
         expect(geometry.font).toBeGreaterThanOrEqual(18);
+        expect(geometry.wordFont).toBeGreaterThanOrEqual(18);
         const listen = reader.getByRole("button", { name: "Hear this page", exact: true });
         await expect(listen).toBeInViewport();
+        await page.evaluate(() => { window.__smallStepsAudio = []; });
         await listen.click();
         const expectedPath = getGuidedReadingPageAudioPath(readingPage).split("?")[0];
         await expect.poll(() => page.evaluate(path => window.__smallStepsAudio.some(audio =>
@@ -57,6 +60,7 @@ for (const viewport of [{ width: 768, height: 1024 }, { width: 320, height: 568 
         ), expectedPath)).toBe(true);
         if (index === 0) {
           const word = words(readingPage.text).at(-1);
+          await page.evaluate(() => { window.__smallStepsAudio = []; });
           await reader.getByRole("button", { name: `Get reading help for ${word}`, exact: true }).last().click();
           const wordPath = getGuidedReadingWordProductionAudioPath(word).split("?")[0];
           expect(wordPath).not.toBe("");

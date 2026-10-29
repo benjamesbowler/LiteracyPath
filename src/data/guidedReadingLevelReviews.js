@@ -1,6 +1,10 @@
+import { GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS } from "./guidedReadingNextStepsBooks.js";
+import { GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS } from "./guidedReadingBrightIdeasBooks.js";
 // Authored full-manuscript reviews; do not derive letters from metrics or old placement.
 // Update a fingerprint only after reviewing the entire changed manuscript.
 export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
+  ...GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS,
+  ...GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS,
   "gr-a-26": {
     "appReadingLevel": "C",
     "rationale": "Repeated pet-care lists anchor the topic, but exercise, quiet and room to fly broaden vocabulary; the ending compares different kinds of care.",

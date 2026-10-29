@@ -1,5 +1,6 @@
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { fingerprintBookReadingText } from "./textMetrics.js";
+import { nextStepsBookNumber, requiredNextStepsLessons } from "../../data/nextStepsPhonicsLessons.js";
 
 // Pronunciation-aware correspondences for this deliberately bounded first
 // sequence. The cycle gate below also checks these against the live curriculum.
@@ -56,7 +57,25 @@ const EXCEPTION_ALIGNMENTS = Object.freeze({
   look: { graphemes: ["l", "oo", "k"], sounds: [["l"], ["ʊ"], ["k"]] },
   to: { graphemes: ["t", "o"], sounds: [["t"], ["u", "uː", "ə"]] },
   out: { graphemes: ["ou", "t"], sounds: [["aʊ"], ["t"]] },
-  put: { graphemes: ["p", "u", "t"], sounds: [["p"], ["ʊ"], ["t"]] }
+  put: { graphemes: ["p", "u", "t"], sounds: [["p"], ["ʊ"], ["t"]] },
+  go: { graphemes: ["g", "o"], sounds: [["g", "ɡ"], ["oʊ"]] },
+  me: { graphemes: ["m", "e"], sounds: [["m"], ["i", "iː"]] },
+  you: { graphemes: ["y", "ou"], sounds: [["j"], ["u", "uː"]] },
+  his: { graphemes: ["h", "i", "s"], sounds: [["h"], ["ɪ"], ["z"]] },
+  this: { graphemes: ["th", "i", "s"], sounds: [["ð"], ["ɪ"], ["s"]] },
+  be: { graphemes: ["b", "e"], sounds: [["b"], ["i", "iː"]] },
+  does: { graphemes: ["d", "oe", "s"], sounds: [["d"], ["ʌ", "ə"], ["z"]] },
+  each: { graphemes: ["ea", "ch"], sounds: [["i", "iː"], ["tʃ"]] },
+  from: { graphemes: ["f", "r", "o", "m"], sounds: [["f"], ["ɹ", "r"], ["ʌ", "ə"], ["m"]] },
+  goes: { graphemes: ["g", "oe", "s"], sounds: [["g", "ɡ"], ["oʊ"], ["z"]] },
+  have: { graphemes: ["h", "a", "ve"], sounds: [["h"], ["æ"], ["v"]] },
+  like: { graphemes: ["l", "i", "ke"], sounds: [["l"], ["aɪ"], ["k"]] },
+  more: { graphemes: ["m", "ore"], sounds: [["m"], ["ɔɹ", "ɔr"]] },
+  said: { graphemes: ["s", "ai", "d"], sounds: [["s"], ["ɛ"], ["d"]] },
+  says: { graphemes: ["s", "ay", "s"], sounds: [["s"], ["ɛ"], ["z"]] },
+  they: { graphemes: ["th", "ey"], sounds: [["ð"], ["eɪ"]] },
+  was: { graphemes: ["w", "a", "s"], sounds: [["w"], ["ə", "ʌ", "ɑ"], ["z"]] },
+  what: { graphemes: ["wh", "a", "t"], sounds: [["w"], ["ʌ", "ɑ"], ["t"]] }
 });
 
 export function decodableTextTokens(text = "") {
@@ -71,16 +90,23 @@ export function decodableBookTokens(book = {}) {
   ];
 }
 
-function hasPermittedWordShape(graphemes) {
+function hasPermittedWordShape(graphemes, lessons = []) {
   const vowels = graphemes.map((g, index) => /^[aeiou]$/u.test(g) || g === "all" ? index : -1)
     .filter(index => index >= 0);
   if (vowels.length !== 1) return false;
   const vowel = vowels[0];
-  // VC/CVC; the explicitly taught all rime contains its own final consonant.
-  if (vowel > 1 || graphemes.length - vowel - 1 > 1) return false;
+  // Baseline VC/CVC; adjacent consonants require the exact extra lessons.
+  const onset = vowel;
+  const coda = graphemes.length - vowel - 1;
+  if (onset > (lessons.includes("next-steps-initial-blends") ? 2 : 1)
+    || coda > (lessons.includes("next-steps-final-blends") ? 2 : 1)) return false;
+  if (onset > 1 && coda > 1 && !lessons.includes("next-steps-both-blends")) return false;
+  // The explicitly taught all rime contains its own final consonant.
   if (graphemes[vowel] === "all" && vowel !== graphemes.length - 1) return false;
   if (graphemes.some((g, index) => ["nk", "ng", "ff", "ss", "zz", "ll", "x"].includes(g)
-    && index !== graphemes.length - 1)) return false;
+    && index !== graphemes.length - 1
+    && !(g === "ff" && index === graphemes.length - 2 && graphemes.at(-1) === "s"
+      && lessons.includes("next-steps-final-blends")))) return false;
   return !graphemes.some((g, index) => ["qu", "wh", "y"].includes(g) && index !== 0);
 }
 
@@ -88,9 +114,20 @@ export function auditDecodableBook(book = {}) {
   const scope = book.decodableScope || book;
   const failures = [];
   const afterCycle = scope.afterCycle;
-  if (!Number.isInteger(afterCycle) || afterCycle < 10 || afterCycle > 24) {
-    failures.push("A completed cycle from 10 through 24 must be declared.");
+  const sequenceNumber = nextStepsBookNumber(book);
+  const minimumCycle = sequenceNumber === 1 ? 6 : sequenceNumber === 2 ? 9 : 10;
+  if (!Number.isInteger(afterCycle) || afterCycle < minimumCycle || afterCycle > 24) {
+    failures.push(`A completed cycle from ${minimumCycle} through 24 must be declared.`);
   }
+  const requiredLessons = requiredNextStepsLessons(book);
+  const declaredLessons = scope.additionalPrerequisites || [];
+  const expectedIds = requiredLessons.map(lesson => lesson.id);
+  const validLessons = Array.isArray(declaredLessons)
+    && declaredLessons.length === expectedIds.length
+    && declaredLessons.every((id, index) => id === expectedIds[index])
+    && requiredLessons.every(lesson => afterCycle >= lesson.afterCycle);
+  if (!validLessons) failures.push("Supplemental blending prerequisites must match the book's cumulative sequence and teaching cycle.");
+  const permittedLessons = validLessons ? declaredLessons : [];
   const tokens = decodableBookTokens(book);
   const records = new Map();
   for (const record of scope.wordRecords || []) {
@@ -127,7 +164,7 @@ export function auditDecodableBook(book = {}) {
     }
     if (record.type !== "regular") failures.push(`${word}: unknown word classification.`);
     if (exceptions.has(word)) failures.push(`${word}: both regular and exception classifications declared.`);
-    if (!hasPermittedWordShape(graphemes)) failures.push(`${word}: word shape exceeds the declared VC/CVC/chunk scope.`);
+    if (!hasPermittedWordShape(graphemes, permittedLessons)) failures.push(`${word}: word shape exceeds the declared VC/CVC/chunk scope and supplemental lessons.`);
     let firstCycle = 0;
     graphemes.forEach((grapheme, index) => {
       const correspondence = DECODABLE_CORRESPONDENCES[grapheme];

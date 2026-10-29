@@ -294,6 +294,12 @@
   overscroll-behavior: contain;
 }
 
+/* Individual word buttons must use the fitted reading size too; the legacy
+   compact-library rule must not shrink their printed words to 16px. */
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-word {
+  font-size: inherit !important;
+}
+
 @media (max-width: 1200px) {
   .guided-transport .guided-transport-label {
     display: none;
@@ -376,6 +382,22 @@
 @media (max-width: 600px) and (orientation: landscape) {
   .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
     grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
+  }
+}
+
+/* Longer shared-reading pages need a larger text band on a short phone.
+   Retain the entire illustration while keeping every printed word visible. */
+@media (max-width: 600px) and (max-height: 700px) and (orientation: portrait) {
+  .guided-reading-reader-open .guided-reader-shell.picture-book[data-reading-flow="word-targets"] .guided-page-layout {
+    grid-template-rows: minmax(0, 40fr) minmax(0, 60fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout[data-text-layout="long"] {
+    grid-template-rows: minmax(0, min(37.5vw, 22dvh)) minmax(0, 1fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
+    /* Optional reading tools create their own rows when present. Empty rows
+       must not take two extra gaps from the printed story on a short phone. */
+    grid-template-rows: minmax(0, 1fr);
   }
 }
 

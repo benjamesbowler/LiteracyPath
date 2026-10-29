@@ -1,5 +1,19 @@
 # Current system cleanup — 31 July 2026
 
+## Illustration direction — 29 October 2026
+
+The [illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) now owns
+the app-wide direction for new and replacement illustrations. Guided Reading,
+Hollow, assessment replacements, game backgrounds and 69 reusable JSON prompts
+now request bold clean cartoon outlines, flat colors and controlled cel shading.
+Older painterly, watercolor, gouache, material-grain and anti-cel directions are
+superseded. Source atlas records retain the original generation wording in
+`sourcePrompt`; sealed V2 prompt snapshots remain historical receipt evidence.
+No existing media, review hash, character identity or generation receipt was
+deleted or re-approved by this instruction correction. No images were generated.
+Task-only validation scratch is removed after checking; protected animation work
+is outside the scope of this change.
+
 ## Beginner vocabulary — 28 October 2026
 
 Beginner vocabulary is reviewed separately from task demand and word length.
@@ -1584,3 +1598,22 @@ Leda recordings from build output, protecting references in frozen banks,
 publication SQL, public manifests and emitted bundles. Dynamically named audio
 and game sprites remain outside these rules. Source masters remain available
 for authoring; no question content or learner evidence is removed.
+
+## Guided Reading audit and seventy new readers — 29 October 2026
+
+The current catalogue adds 20 Small Steps and the 50-book Next Steps/Bright Ideas
+expansion. The checked-in collection Bibles and exact visual manifests own the
+current sources; detailed editorial, narration, native-image, ordered-sequence,
+browser and release evidence remains under ignored `.artifacts/` directories.
+Selected original image-generator PNGs, production references, frozen manuscripts,
+audio recovery sources and material failed-case evidence remain active inputs.
+
+Scoped cleanup removed 65 superseded, unreferenced delivery thumbnails after
+checking the current 297-cover manifest and source/test/tool/document references;
+they are reproducible from retained source covers. Exact hashes, 36 retired
+review records and recovery descriptions are retained in the expansion cleanup
+receipts. Redundant interrupted browser output and superseded trace archives,
+eight intermediate audio conversions and an incorrectly labeled duplicate
+recognition run were removed after retaining the accepted evidence. Correct
+recognition outputs and original media remain. Protected shelved animation roots,
+learner records and hosted data were outside this cleanup scope.

@@ -45,7 +45,7 @@ import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
 import { guidedReadingBookModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
-import { DecodableBookGuide } from "./DecodableBookGuide.jsx";
+import { BookReadingGuide } from "./BookReadingGuide.jsx";
 import { classifyBookReadingPurpose } from "../../policy/literacyExperiencePolicy.js";
 import { TeacherRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import { CHILD_COPY } from "../../copy/childCopy.js";
@@ -632,6 +632,14 @@ export function GuidedReadingPage({
   const isPictureBookReader = !activeGroupSession && (
     isReaderFullscreen || isClassMode || (isStudentMode && selectedBook?.readingBandProfile === "read-aloud")
   );
+  // Longer pages need connected sentence flow. Fixed square word targets are
+  // useful for short beginner texts, but would force a story to scroll or
+  // shrink on a phone. Choose once per book so its pages stay consistent.
+  const usesProseReadingFlow = (isClassMode && !activeGroupSession)
+    || selectedBook?.readingBandProfile === "read-aloud"
+    || (isPictureBookReader && selectedBook?.pages?.some(readingPage => (
+      String(readingPage.text || "").trim().split(/\s+/).filter(Boolean).length > 14
+    )));
   const readingMeasure = getGuidedReadingMeasure(
     selectedBook?.level, selectedBook?.readingBandProfile, isPictureBookReader ? "picture-book" : "standard"
   );
@@ -2289,7 +2297,7 @@ export function GuidedReadingPage({
                       <div className="guided-book-info">
                         <h3 className="guided-book-title">{book.title}</h3>
                         <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} · {appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} · {book.pages.length} pages</p>
-                        <DecodableBookGuide book={book} />
+                        <BookReadingGuide book={book} />
                         <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                         <button
                           className="guided-book-action"
@@ -2380,7 +2388,7 @@ export function GuidedReadingPage({
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingBookModeLabel(book)} · {book.pages.length} pages</p>
-                    <DecodableBookGuide book={book} />
+                    <BookReadingGuide book={book} />
                     <p className="guided-book-text-analysis">{appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)}</p>
                     <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                     <p className="guided-book-progress">
@@ -2460,7 +2468,7 @@ export function GuidedReadingPage({
           data-learning-lane="language_and_meaning"
           data-reading-purpose={selectedReadingPurpose?.id || "supported"}
           data-reading-band-profile={selectedBook.readingBandProfile}
-          data-reading-flow={(isClassMode && !activeGroupSession) || selectedBook.readingBandProfile === "read-aloud" ? "prose" : "word-targets"}
+          data-reading-flow={usesProseReadingFlow ? "prose" : "word-targets"}
         >
           {isClassMode && !activeGroupSession && !isReaderFullscreen && (onReadWithStudent || onReadTogether || onAssignStudentBook) && (
             <section className="guided-teacher-book-actions" aria-label="Use this book">
@@ -2472,7 +2480,7 @@ export function GuidedReadingPage({
               </div>
             </section>
           )}
-          {!isStudentMode && !isReaderFullscreen && <DecodableBookGuide book={selectedBook} />}
+          {!isStudentMode && !isReaderFullscreen && <BookReadingGuide book={selectedBook} />}
           <div className="guided-reader-card">
             {isPictureBookReader ? (
               <GuidedReadingTransport
@@ -2830,7 +2838,7 @@ export function GuidedReadingPage({
                     layoutVersion={readerLayoutVersion}
                     lineHeight={readingMeasure.lineHeight}
                     maxFontSize={readingMeasure.maxFontSizePx}
-                    minFontSize={readingMeasure.minFontSizePx}
+                    minFontSize={isPictureBookReader ? Math.max(18, readingMeasure.minFontSizePx) : readingMeasure.minFontSizePx}
                     text={`${selectedBook.id}-${pageIndex}-${page.text || ""}-${readerInteractionMode}-${readingMeasure.templateId}-${isReaderFullscreen ? "fullscreen" : "windowed"}`}
                   >
                     {sentenceParagraphGroups.map((paragraph, paragraphIndex) => (

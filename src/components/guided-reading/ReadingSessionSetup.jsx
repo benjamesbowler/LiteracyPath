@@ -8,7 +8,7 @@ import { filterPublishedGuidedReadingBooks } from "../../policy/guidedReadingApp
 import { TeacherSessionFrame } from "../teacher/sessions/TeacherSessionFrame.jsx";
 import { guidedReadingBandLabel, guidedReadingBookModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 
-import { DecodableBookGuide } from "./DecodableBookGuide.jsx";
+import { BookReadingGuide } from "./BookReadingGuide.jsx";
 
 const EMPTY_IDS = Object.freeze([]);
 
@@ -145,7 +145,7 @@ function ReadingSessionSetupBody({
               </button>
             ))}
           </div>
-          <DecodableBookGuide book={selectedBook} />
+          <BookReadingGuide book={selectedBook} />
           <button
             className="lp-button lp-button-primary"
             disabled={!selectedBook}

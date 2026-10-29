@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
 import { GUIDED_READING_BRIDGE_BOOKS } from "../../src/data/guidedReadingBridgeBooks.js";
+import { GUIDED_READING_BRIGHT_IDEAS_BOOKS } from "../../src/data/guidedReadingBrightIdeasBooks.js";
 import {
   GUIDED_READING_BAND_PROFILES,
   GUIDED_READING_BOOK_METADATA,
@@ -29,7 +30,7 @@ test("every runtime book has one valid editorial classification", () => {
   }
 });
 
-test("Moonwood is extended read-together and other current C books are standard", () => {
+test("Moonwood is extended read-together and predictable C books are standard", () => {
   for (const book of guidedReadingBooks.filter(book => book.id.startsWith("moonwood-tales-"))) {
     assert.deepEqual(getGuidedReadingBookMetadata(book.id), {
       readingBandProfile: "extended",
@@ -37,7 +38,7 @@ test("Moonwood is extended read-together and other current C books are standard"
     });
   }
 
-  for (const book of guidedReadingBooks.filter(book => book.level === "C" && !book.id.startsWith("moonwood-tales-"))) {
+  for (const book of guidedReadingBooks.filter(book => book.level === "C" && getGuidedReadingBookMetadata(book)?.readingMode === "predictable-levelled")) {
     assert.deepEqual(getGuidedReadingBookMetadata(book.id), {
       readingBandProfile: "standard",
       readingMode: "predictable-levelled"
@@ -47,12 +48,12 @@ test("Moonwood is extended read-together and other current C books are standard"
 
 test("the reviewed current catalogue has the exact honest mode split", () => {
   const rows = guidedReadingBooks.map(book => getGuidedReadingBookMetadata(book.id));
-  assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 211);
-  assert.equal(rows.filter(row => row.readingBandProfile === "extended").length, 35);
-  assert.equal(rows.filter(row => row.readingBandProfile === "read-aloud").length, 1);
-  assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 191);
-  assert.equal(rows.filter(row => row.readingMode === "supported-read-together").length, 36);
-  assert.equal(rows.filter(row => row.readingMode === "decodable").length, 20);
+  assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 258);
+  assert.equal(rows.filter(row => row.readingBandProfile === "extended").length, 37);
+  assert.equal(rows.filter(row => row.readingBandProfile === "read-aloud").length, 2);
+  assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 208);
+  assert.equal(rows.filter(row => row.readingMode === "supported-read-together").length, 39);
+  assert.equal(rows.filter(row => row.readingMode === "decodable").length, 50);
 });
 
 test("the current C Standard authority includes both reviewed sets and Willow Street", () => {
@@ -64,10 +65,11 @@ test("the current C Standard authority includes both reviewed sets and Willow St
         "spiders", "under-the-ocean", "butterflies", "caves", "frogs"
       ][index]}`
     )),
-    ...GUIDED_READING_BRIDGE_BOOKS.map(book => book.id)
+    ...GUIDED_READING_BRIDGE_BOOKS.map(book => book.id),
+    ...GUIDED_READING_BRIGHT_IDEAS_BOOKS.filter(book => book.number >= 8 && book.number <= 17).map(book => book.id)
   ];
   const actualIds = guidedReadingBooks
-    .filter(book => book.level === "C" && getGuidedReadingBookMetadata(book)?.readingBandProfile === "standard")
+    .filter(book => book.level === "C" && getGuidedReadingBookMetadata(book)?.readingMode === "predictable-levelled")
     .map(book => book.id)
     .sort();
   assert.deepEqual(actualIds, expectedIds.sort());

@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "collection": "Willow Street Readers",
+  "visualTreatment": "self-created-cartoon",
+  "generator": {
+    "provenance": "self-created",
+    "mode": "built-in-image_gen-one-call-per-asset"
+  },
+  "assets": [
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/cover.webp",
+      "sha256": "f129caf02771f29ceb10b47916b5804d061b77ddb7acece7627e47cf97b47acf",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "ad2a0f32ed764185f63f3a35ec253990f038482a3b5bed1c94e56bcdfff10ee3",
+      "briefSha256": "11ea3a894a60fe3273b4950b8c9c01463604556b1908e454893bd2d33bd58680",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "f129caf02771f29ceb10b47916b5804d061b77ddb7acece7627e47cf97b47acf",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-10e544c3-4b64-4575-80df-0647364b4dfa.png",
+      "productionPrompt": "Use case: style-transfer. Asset: nonfiction children's reader cover. Redraw reference into CLEAN BRIGHT FLAT 2D CARTOON: crisp continuous dark outlines, smooth flat colors, restrained simple celshadow. NO photorealism, paint daubs, embossing, mottledtexture, canvasgrain or 3D. Wide1536x864 image, quiet solid palecream LOWER30% EMPTY for app text. All people/essential action upper70%. Community firestation bay whitebrickwalls/redtrim; one red engine with WHITE CAB ROOF and broad whitebodystripe, silvertool compartments, blacktires, laddersecuredonroof. EXACT FOUR adult firefighters in NAVY plainshortsleevedshirts, tan turnouttrousers with yellowreflectivebands, blackboots: lightwarm-skinned shortbrownhaired man30; darkbrown-skinned shortblackhaired man30; mediumwarm-skinned blackponytail woman30; olderlight-skinned shortgrayhaired man50leader. No facialhair. Relaxed professional proportions, clear friendlyexpressions. Two inspect neatlysecuredenginecompartments, onecheckscoiledhose, leaderstandsby. Redgearrackleft with fourtanprotectivejackets/fouryellowhelmets, allnormalanatomy. Engine has conventional front crew cab, no seats in toolbay. No labels/letters/logos/brands, no children, no flames. Simplify equipment to clear plausible forms. This establishes stable fourpersoncrew,station,engine for sequential book.\nCorrection: Use case: precise object edit. Remove ONLY the leftmost firefighter standing directly in front of red gearrack, restore gearrack behind him. Keep FOUR remaining firefighters unchanged: grayhairedleaderleftcenter, ponytailwomancenter, brownhairedmanbackturnedatcompartment, darkbrownskinnedmanholdingnozzlefront right. Preserve red/whiteengine, tools, rack, fourhelmets, architecture, quietcream lower30percent, cleanbrightcartoonoutlines. No other edits, no textures or text.",
+      "cacheVersion": "f129caf02771"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-01.webp",
+      "sha256": "239d64f9e0cc771f47845b7f86bedadbfbb8b5e9d71fa909ce2fda54f9f4be29",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "cf76b65b741a5eaa24a7e567c023b5e1aebd2a14a5bf0b0fd934fc9fa6323135",
+      "briefSha256": "d2f97f18cc1a625b58c886a4716118e4dd049a2191827b956ff4199b5400cb26",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "239d64f9e0cc771f47845b7f86bedadbfbb8b5e9d71fa909ce2fda54f9f4be29",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-0fb62b78-71c3-4231-9d56-4404a583365a.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE1: Only brownhairedman and ponytailwoman kneel by openenginecompartments. Man checks metal coupling attached to neatlyrolled tanhose; woman checks ONE silver breathingaircylinder in black backpackharness. Plausible clear equipment, no disconnectedhands.\nCorrection: Use case: precise object edit. Remove all mottled/photographic texture from ONLY silver breathingaircylinder, hose, toolcompartmentmetal and floors. Silvercylinder becomes smooth flat lightgray with one broad flat whitesidelight and one darkgray side shadow, no speckles/checkers/etchedmarks. Other silvermetal simple clean flatfills, diamondplate limited regular outlinedpattern okay. Preserve exactanatomy/scene/crew/props/quietlower30percent. Clean outlinedcartoon throughout, no embossed/paint/grain.",
+      "cacheVersion": "239d64f9e0cc"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-02.webp",
+      "sha256": "470189e540da84c1ea36d1be3f8f38912d1748f376fbf156cdd6b5bf09fe8982",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "bcb6d6be191d29cae353522e8465585c3e15e4feb2fbf818a31f0d43c2613248",
+      "briefSha256": "9a2952b0b5b0d613ab4da0d696d106e83998b8ceff6a4ec9841106a75865cd17",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "470189e540da84c1ea36d1be3f8f38912d1748f376fbf156cdd6b5bf09fe8982",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-1550d628-be48-4c1f-aba4-191bb76cd6fc.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE2: Darkbrownskinnedman at communicationdesk speaks into blackphone and points toward simple wallstreetmap with lines but NO legiblewords/privateinformation. Grayhairedleaderstandsnearbylistening. Redwhiteenginevisiblethroughglassbehind. Navyshirt only, no jacket/helmetneeded.",
+      "cacheVersion": "470189e540da"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-03.webp",
+      "sha256": "0f0f60bca86102efc5ede4c087cf0aa2a3133d5b5246c24c7b3a90b3f96da1a3",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "b46d0e09a0be82dad3b532a46b068d25c986b9db972afc913f3ad51baf0fe2c8",
+      "briefSha256": "2a583f83eec62a457b6f0bdec0a1b59e1b5cda20f2f41e89681053e635668403",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0f0f60bca86102efc5ede4c087cf0aa2a3133d5b5246c24c7b3a90b3f96da1a3",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-fc99b19d-f7f8-46b4-8e36-361eb660b87d.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE3: All FOUR crew atredgearrack preparingprotectiveequipment. Brownhairedman fastens tanjacket; womanslidesonyellowhelmet; darkbrownmanchecks breathingapparatusblackstrapsovershoulders; grayleaderalreadyfullydressed. Alltantrousers/blackboots. No duplication; no awkwardlimbs.",
+      "cacheVersion": "0f0f60bca861"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-04.webp",
+      "sha256": "3fc70be14e219b20232aa5e0d7e041b79ea2a7f021787e993174f12d87cd8720",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "c99b1544640e1ae82c9fd2b755aeadb5773678228e7f556c6060bfc3b01bde01",
+      "briefSha256": "815e1b8c9ecb8f68c8f569ee4f3aa6556731006e80b53a4115bdd9132808d885",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3fc70be14e219b20232aa5e0d7e041b79ea2a7f021787e993174f12d87cd8720",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-43e03c78-1cc0-4f27-94e2-ef2ed2edb35a.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE4: Nopeople. Clear parked SAMEred/whiteengine sideview with conventionalFRONT CREW CAB with seats/window and rear organized equipment compartments. Visiblecoiledhose, pumpcouplings, securedhandtools, securedsilverladderonroof. Water carried concealedintank; do notdrawtransparenttankorcutawayorlabels. No seatsintoolcompartments.",
+      "cacheVersion": "3fc70be14e21"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-05.webp",
+      "sha256": "b1d607a769a005b2b3fea17bc280d8448254db58b0189b1e785573303762a14d",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "2a8173081a0d537e1621afd28f45ff3b0d44e351d1fdbd0a5d66b2e248adf613",
+      "briefSha256": "4803d3000a944a76e547e3815a203e5612fa2e207e71a6d2f8b38e9a46d92dd2",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b1d607a769a005b2b3fea17bc280d8448254db58b0189b1e785573303762a14d",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-45f43976-e192-448d-af51-cd7dfe6d13c3.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE5: In stationdrillyard fourcrew in fulltanprotectivejackets/trousers/yellowhelmets, blackglovesboots. Grayleaderleft raisesonehand to direct; otherTHREE support onecontinuous tanhoseline to simplewhitepracticetargetwithblackcircle. Allwear breathingpacks. No fire/smoke, no unsafejetatpeople. Engineparkeddistantleft.\nCorrection: Use case: precise object edit. Correct hose: replace rigid straight tan pole across threefirefighters with one visibly SOFT FLEXIBLE TAN FIREHOSE, roundrubber tube, slight natural sag between supportedhands, bending gently toward ground at far right and continuing beyondframe. Womanatfront grips black/silver hoseNOZZLE attachedatleftend pointing safelyatwhite target; no waterneeded. Allsixhands grip hose/nozzle naturally. Remove tinylogos/pseudotext from distantengine. Preserve fourcrew/poses/gear/setting/quietcream lower30percent and clean outlinedcartoon. Cylinder fills smoothgray/simpleflatlights nottextured.",
+      "cacheVersion": "b1d607a769a0"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-06.webp",
+      "sha256": "ac7dc7cef8fcc3fafbfe5051b6f2274c614ce2dd777710af93cd334f03b640c1",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "c1083151bd24c9ba090fc7a53379bf8ec4edf160edfbb2f0a331cc495dd380d3",
+      "briefSha256": "01ecf0bcb2a0ce6443dd75bdae22077094e648a63cd616b6b96e3e10175eafb2",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ac7dc7cef8fcc3fafbfe5051b6f2274c614ce2dd777710af93cd334f03b640c1",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-6e19856d-a1f4-409b-a009-18dd65f1f5b8.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE6: Calmfirstaidbesidestation. Brownhairedfirefighterkneelsleft cleanmedicalgloves gentlywrappingwhitebandage aroundforearm of seatedcivilianadultman bluepolojeansshortdarkcurlyhairbeard. Ponytailfirefighterkneelsright holdingopenredfirstaidkit. Bothfirefighters tanjackets/yellowbands, nohelmets. Exactlythreepeople; allarms/handsconnected, supportedforearmclear, no blood/visiblewound/distress. Redengineinbaybehind.\nCorrection: Use case: precise object edit. ONLY simplify civilian's blue jeans to perfectly smooth flat denimblue cartoonfills with ordinary darkfoldlines and minimal flatshadows. Remove photographicgrain/weave/stipple. Make redfirstaidkit also smoothflatcolors. Preserve threepeople, exactarms/hands/bandage/forearmaction, engine and station, no changes tocomposition. Crispcleancartoon, quietcream lower30percent.",
+      "cacheVersion": "ac7dc7cef8fc"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-07.webp",
+      "sha256": "dd2f16757ed087e40e65ac8e43ece85ed8d064e717dddf06eb22323ad0b3c75a",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "839f8b20886485ff4420f96b9c3f80a3bd988e4ed4590c99db639e1b164e7a52",
+      "briefSha256": "0117d06d07ef11eb41d682ac9d0a26aeea1cdbea21a4cbe1191ca092607cd8bd",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "dd2f16757ed087e40e65ac8e43ece85ed8d064e717dddf06eb22323ad0b3c75a",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-b50e9dc3-1bb8-4b8a-8d95-4676dac86d0a.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE7: BackinstationTHREEyoungcrew navyshirts/tantrousers cleanandcheckequipment. Darkbrownmanrinsesloosetanhosetowardfloordrainatleft; ponytailwomanchecksilveraircylinderblackharnessonbenchcenter; brownhairedmankneelsright returningONEclearlyshapednozzle into matchingopencompartment. Keepfloorcontrolled/dryawayfromdrain. Noextraarms.\nCorrection: Use case: precise object edit. Correct LEFT firefightermainaction: instead of spraying water from disconnected hose, show him kneeling beside neatlycoiled tanhose atfloordrain, scrubbing hose outer surface with one simple BLUE HAND BRUSH in hisright hand, lefthandsteadieshose. One small plain bluewaterbucketnexttohose, littleclearrinsingwateroverdrainonly. No flowingjet, no hoseendnozzle held. This visibly cleans equipment. Keep otherTWO firefighters EXACTLY unchanged: womancheckingbreathingaircylinderonbench and manreturningnozzleintorightshelf. Keepcount3, allarmsconnected, smoothflatcolors/outlines, nograin/paint/embossing, same quietcream lower30percent.",
+      "cacheVersion": "dd2f16757ed0"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-08.webp",
+      "sha256": "48e240a23df6c10c2bcfb1af5b75a02ed61554b0c9009cc01105680f291c3ab4",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "2b33346c49db2add8c957288fadffeb769ad374457efd7c19f2efe450481c26c",
+      "briefSha256": "12a8514ac9fa9d901c967a6384d7d250ecf159192e514f6aeef2072a2c520067",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "48e240a23df6c10c2bcfb1af5b75a02ed61554b0c9009cc01105680f291c3ab4",
+        "reviewedAt": "2026-10-29",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-80111524-bb0e-48ad-9515-18aed7c7be46.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE8: Trainingyardbyopenbay. Threeyoungcrew in fulltanprotectiveclothesyellowhelmetsblackgloves carryONEsilverladder HORIZONTALLY atwaistheight together, spacedalongit withcleargrips. Oldergrayleaderatright fullygeared gesturesclearinstructions. Redwhiteengineinbaybehind. Allfourintactanatomy, no extrapeople/limbs, calmreadiness.",
+      "cacheVersion": "48e240a23df6"
+    }
+  ]
+}

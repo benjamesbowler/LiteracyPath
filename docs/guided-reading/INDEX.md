@@ -8,13 +8,17 @@ The live book modules are the authority:
 - `src/data/firstFactsActualLevelABooks.js`
 - `src/data/guidedReadingBridgeBooks.js`
 - `src/data/guidedReadingSmallStepsBooks.js`
+- `src/data/guidedReadingNextStepsBooks.js`
+- `src/data/guidedReadingBrightIdeasBooks.js`
 - `src/data/guidedReadingBookMetadata.js`
 - `src/data/guidedReadingDiscussionPrompts.js`
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The current catalogue contains 247 books. Its retained instructional placement profiles contain 65 in A, 106 in B, 75
-in C, and one science picture book under **Read Together**. Level C is shown in two honest bands:
+The current local catalogue contains 297 books and 2,621 pages. The separately
+reviewed app bands contain 28 A, 85 B, 59 C, 57 D, 13 E, 16 F, 37 G and 2 H
+books. Instructional placement profiles and phonics prerequisites remain
+separate from these book-complexity bands. The retained C profile has two bands:
 
 - **C Standard** for compact independent or lightly supported reading, including
   the 20-book Willow Street Readers collection;
@@ -45,6 +49,13 @@ Small Steps adds 20 original decodable books (150 story pages), ordered after
 Cycles 10–24. Its [content Bible](SMALL_STEPS_CONTENT_BIBLE.md) governs the
 reviewed word code, explicit exception words, character canon and media quality.
 The teacher sees prerequisites; a cycle label is not a learner assessment.
+
+The next 50 books are governed by the [Foundations expansion Bible](FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md):
+30 cumulative decodable Next Steps books and 20 leveled Bright Ideas books.
+Their manuscript, phonics and media requirements remain distinct. Exact visual
+decisions are recorded in the [expansion review](foundations-expansion-visual-review.json).
+Release verification is recorded separately; an active local module alone is
+not a deployment claim.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as
@@ -96,6 +107,7 @@ The Willow Street release authorities are:
 - `docs/guided-reading/WILLOW_STREET_VISUAL_CONTINUITY.md`
 - `docs/guided-reading/willow-street-illustrated-media-manifest.json`
 - `docs/guided-reading/willow-street-photoreal-media-manifest.json`
+- `docs/guided-reading/willow-street-cartoon-media-manifest.json`
 - `docs/guided-reading/willow-street-visual-review.json`
 - `npm run check:guided-reading-discussion-prompts`
 - `npm run check:guided-reading-story-bible`

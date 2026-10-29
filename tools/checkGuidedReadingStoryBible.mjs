@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
-import { validateScienceReadAloudManuscript } from "./meadowPalsScienceGateLib.mjs";
+import { validateSharedReadAloudManuscript } from "./sharedReadAloudGateLib.mjs";
 import {
   classifyGuidedReadingMediaFinding,
   GUIDED_READING_RELEASE_READINESS
@@ -124,7 +124,7 @@ for (const book of books) {
   };
   const sharedReadAloud = book.readingBandProfile === "read-aloud";
   if (sharedReadAloud) {
-    for (const error of validateScienceReadAloudManuscript(book)) failures.push(`${label}: ${error}`);
+    for (const error of validateSharedReadAloudManuscript(book)) failures.push(`${label}: ${error}`);
   }
   const levelRule = sharedReadAloud
     ? { minimumScenes: 12, maximumScenes: 12, profileLabel: "shared read-aloud" }

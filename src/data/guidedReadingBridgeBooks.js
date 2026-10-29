@@ -10,8 +10,8 @@ const makePages = (slug, rows, isProcedure = false) => Object.freeze(rows.map((r
     image: "/guided-reading/willow-street/" + slug + "/page-" + String(pageNumber).padStart(2, "0") + ".webp",
     audio: "/guided-reading/audio/willow-street/" + slug + "/page-" + String(pageNumber).padStart(2, "0") + ".mp3",
     imageBrief: row[1],
-    imageAlt: row[1],
-    pageDescription: row[1],
+    imageAlt: row[2] || row[1],
+    pageDescription: row[2] || row[1],
     embeddedImageText: "",
     active: true,
     qaStatus: "approved",
@@ -488,26 +488,26 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     slug: "inside-a-fire-station",
     title: "Inside a Fire Station",
     type: "nonfiction",
-    bridgeGenre: "photorealistic-nonfiction",
-    visualTreatment: "self-created-photorealistic",
+    bridgeGenre: "illustrated-nonfiction",
+    visualTreatment: "self-created-cartoon",
     mediaLicense: "self-created",
     cast: [],
     repeatedLanguage: "Firefighters",
-    coverBrief: "Photorealistic wide interior of an unbranded community fire station apparatus bay, diverse firefighters beside a clean fire engine, protective clothing arranged on racks and tools secured; balanced daylight, realistic proportions, no emergency spectacle or text.",
+    coverBrief: "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. The four firefighters stand by their engine and organized protective gear in the station bay.",
     storyBibleReview: nonfictionReview(
       "What work happens inside a fire station before, during, and after a call?",
       "Readiness, dispatch, protective gear, travel, emergency work, return, equipment care, and training show the complete duty cycle.",
       "Firefighters prepare, respond as a trained team, maintain equipment, and practice for future emergencies."
     ),
     rows: [
-      ["Firefighters check their engine, tools, and safety gear.", "Photorealistic station bay at shift start: two firefighters inspect hose couplings, breathing apparatus, and engine compartments; all equipment secured, uniforms unbranded, calm professional daylight."],
-      ["A dispatcher sends details when someone needs help.", "Photorealistic communications desk inside the station: adult firefighter receives an alert on a screen shown without readable private details, then points to a wall map with no legible addresses."],
-      ["Firefighters pull on protective clothing before they leave.", "Photorealistic gear area: firefighters put on boots, trousers, jackets, helmets, gloves, and breathing equipment in correct sequence; no exposed flames, complete protective kit, realistic adult anatomy."],
-      ["The engine carries people, water, hoses, and tools.", "Photorealistic open-side equipment view of the parked fire engine: hose reels, water controls, ladders, hand tools, and crew seats clearly organized; no brands or misleading loose equipment."],
-      ["At emergencies, firefighters work together under one leader.", "Photorealistic safe training-ground response: a crew follows one officer's hand signal while positioning a hose line toward a controlled practice target; full gear, no identifiable casualty."],
-      ["They may stop fires, rescue people, or give first aid.", "Photorealistic calm first-aid scene beside the fire station: a gloved firefighter gently wraps a clean bandage around a seated adult's forearm, with another firefighter and a first-aid kit nearby. No blood or visible injury; relaxed expressions, accurate protective clothing and natural anatomy."],
-      ["Back at the station, every tool is cleaned and checked.", "Photorealistic return-to-station scene: firefighters wash hose, inspect breathing apparatus, and replace tools in labeled-by-shape compartments without readable words; wet floor managed safely."],
-      ["Firefighters train often, ready for the next call.", "Photorealistic station drill yard: crew practice carrying a ladder and communicating together under instructor supervision; engine waits in bay, bright daylight, calm readiness rather than alarm." ]
+      ["Firefighters check their engine, tools, and safety gear.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. Two firefighters check the engine equipment and breathing gear in the station bay.", "Two firefighters check the engine equipment and breathing gear in the station bay."],
+      ["A dispatcher sends details when someone needs help.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. A firefighter uses the desk radio and points to a wall map.", "A firefighter uses the desk radio and points to a wall map."],
+      ["Firefighters pull on protective clothing before they leave.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. The crew puts on tan protective jackets and yellow helmets beside the gear rack.", "The crew puts on tan protective jackets and yellow helmets beside the gear rack."],
+      ["The engine carries people, water, hoses, and tools.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. The parked engine has a crew cab and separate compartments for hoses and tools.", "The parked engine has a crew cab and separate compartments for hoses and tools."],
+      ["At emergencies, firefighters work together under one leader.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. The gray-haired leader directs two firefighters holding a flexible hose and nozzle.", "The gray-haired leader directs two firefighters holding a flexible hose and nozzle."],
+      ["They may stop fires, rescue people, or give first aid.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. A firefighter wraps a bandage around a seated adult\u2019s forearm beside a first-aid kit.", "A firefighter wraps a bandage around a seated adult\u2019s forearm beside a first-aid kit."],
+      ["Back at the station, every tool is cleaned and checked.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. A firefighter scrubs a coiled hose with a blue brush beside a bucket and floor drain.", "A firefighter scrubs a coiled hose with a blue brush beside a bucket and floor drain."],
+      ["Firefighters train often, ready for the next call.", "Clean bright cartoon, crisp outlines and smooth flat colors; no paint texture, grain, embossing or lettering. Keep the four established adult crew members, red engine with white roof and stripe, white-brick station with red trim, and quiet lower cream print area. The crew practices carrying a ladder together in the station yard.", "The crew practices carrying a ladder together in the station yard."]
     ]
   }),
   makeBook({

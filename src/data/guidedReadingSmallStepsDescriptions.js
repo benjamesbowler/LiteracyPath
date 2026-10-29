@@ -52,7 +52,7 @@ const PAGE_DESCRIPTIONS = {
     "Sam and Dad look at a clear pot of red jam with a blue lid. A bun rests on a plate beside it.",
     "Sam grips the blue lid with both hands and pulls while Dad watches.",
     "The blue lid remains on the jam pot. Sam looks up at Dad.",
-    "Dad reaches for the lid as Sam holds the jam pot.",
+    "Dad reaches for the lid as Sam keeps one hand on it.",
     "Sam and Dad pull at the blue lid together. Red jam splashes toward Dad’s green shirt.",
     "Dad holds the lid above the open jam pot. Sam raises his hands, and a red jam spot marks Dad’s shirt.",
     "Sam dips the edge of his bun into the open pot of red jam. Dad watches beside him.",
@@ -70,7 +70,7 @@ const PAGE_DESCRIPTIONS = {
   "small-steps-08": [
     "Sam and Dad look at a large red hat and a small red cap on a wooden bench.",
     "Sam runs across the blue rug in the large red hat. Dad claps beside him.",
-    "The large hat lies on the rug behind Sam. He looks back with his mouth open.",
+    "The large hat lies on the rug. Sam looks down at it with his mouth open.",
     "Sam bends down and picks up the red hat. Dad kneels beside him.",
     "Sam puts the large red hat on Dad's head while Dad kneels.",
     "Dad stands wearing the large hat. Sam points to the small red cap on the bench.",
@@ -81,10 +81,10 @@ const PAGE_DESCRIPTIONS = {
     "A ginger cat stands beside Sam and Dot's cardboard shop. An open box sits nearby.",
     "The cat sleeps on the shop's lower shelf while Sam and Dot stand at the counter.",
     "Sam and Dot chat at the counter. Below them, the cat opens its eyes and looks up.",
-    "The cat sits up on the lower shelf. Sam and Dot lean toward it.",
+    "The cat sits up on the lower shelf. Sam and Dot stand beside the shop posts and look at it.",
     "The cat steps into the open box beside the shop while Sam and Dot watch.",
     "Sam and Dot lower the shop's cardboard shutter. The cat curls up in the open box beside them.",
-    "The cat sleeps in the open box. Sam and Dot sit beside the closed shop with their chins in their hands."
+    "The cat sleeps in the open box. Sam and Dot sit beside the closed shop with their hands in their laps."
   ],
   "small-steps-10": [
     "Dad hands Sam a chip at the garden table. Dot sits beside a blue dish of chips.",
@@ -124,7 +124,7 @@ const PAGE_DESCRIPTIONS = {
   ],
   "small-steps-14": [
     "Dot looks around the garden with a hand above her eyes. Sam holds a map between a hut and a hollow log.",
-    "Dot holds a map showing a hut and a log. Sam stands beside her with his hands open.",
+    "Dot holds a map showing a hut and a log. Sam still holds one edge as he passes it to her.",
     "Dot runs toward the wooden hut with the map in her hand. Sam watches from the grass.",
     "Dot leans into the hut's empty doorway while holding the map. Sam stands nearby.",
     "Dot points to a red dot on the map's picture of a log. The hollow log stands behind her.",

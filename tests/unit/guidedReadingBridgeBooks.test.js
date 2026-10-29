@@ -45,7 +45,8 @@ test("Willow Street has the approved 20-title genre mix", () => {
     "everyday-fiction": 6,
     "culture-community": 4,
     procedure: 4,
-    "photorealistic-nonfiction": 6
+    "photorealistic-nonfiction": 5,
+    "illustrated-nonfiction": 1
   });
 });
 
@@ -67,12 +68,13 @@ test("each bridge manuscript keeps compact stable print and exact narration text
   }
 });
 
-test("legacy types and visual treatments follow the approved 10/10 and 14/6 split", () => {
+test("legacy types and visual treatments follow the approved 10/10 mix and current illustrated/cartoon/photo treatments", () => {
   const count = (field, value) => GUIDED_READING_BRIDGE_BOOKS.filter(book => book[field] === value).length;
   assert.equal(count("type", "fiction"), 10);
   assert.equal(count("type", "nonfiction"), 10);
   assert.equal(count("visualTreatment", "willow-street-illustrated"), 14);
-  assert.equal(count("visualTreatment", "self-created-photorealistic"), 6);
+  assert.equal(count("visualTreatment", "self-created-photorealistic"), 5);
+  assert.equal(count("visualTreatment", "self-created-cartoon"), 1);
 });
 
 test("all cover, page image, and page audio paths are final and unique", () => {

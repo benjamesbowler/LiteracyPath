@@ -23,18 +23,20 @@ evidence. Each generated row records whether separate descriptions cover all,
 some or none of the pages. The estimate assumes contextual picture support; it
 does not lower a level on an unverified image claim.
 
-The reviewed manuscripts contain **247 books, 2,181 reading pages and 24,214 word
-tokens** under the conventions below. A full-text consistency review on 2026-10-06
+The reviewed manuscripts contain **297 books, 2,621 reading pages and 29,804 word
+tokens** under the conventions below, including the independently reviewed
+2026-10-29 Foundations expansion. A full-text consistency review on 2026-10-06
 moved **Our Five Senses** (`gr-e-50`) from B to C: its sensory contrasts, lists,
 varied action verbs and final connection match the other senses books in C.
 The reviewed Tools, Five Senses, Baby Animals, Animals on the Farm and Day and
 Night manuscripts retained their existing bands. This follow-up uses the rubric
 below; analyzer estimates are supporting evidence, not a letter-conversion rule.
-The current app-level distribution is A: 18, B: 68, C: 49, D: 53, E: 10,
-F: 13, G: 35 and H: 1. The 35 extended Moonwood
-stories need G; the digestion investigation needs H. Keeping all of these under
+The current app-level distribution is A: 28, B: 85, C: 59, D: 57, E: 13,
+F: 16, G: 37 and H: 2. The 35 extended Moonwood stories and two extended
+Bright Ideas stories need G; the digestion and water-system investigations need H.
+Keeping all of these under
 four letters would hide large differences in syntax, sustained reading and
-specialist vocabulary. One hundred and seventeen books have separate image descriptions for
+specialist vocabulary. One hundred and sixty-seven books have separate image descriptions for
 every page, 19 have partial coverage and 111 have only prose-derived descriptions.
 
 The 2026-10-28 Small Steps addition received independent full-manuscript review
@@ -42,6 +44,14 @@ for all 20 books. Each earned App level B for short concrete language, small
 pattern changes and a visible problem/solution sequence. Its separately reviewed
 phonics prerequisites and exact exception words determine decoding scope; the
 app letter does not certify that an individual child can read it independently.
+
+The 2026-10-29 Foundations expansion received independent full-manuscript review
+for all 50 books. Next Steps adds 30 cumulative decodables (8 A, 15 B, 7 C), with
+separate cycle, high-frequency-word and supplemental blending prerequisites.
+Bright Ideas adds 20 broader leveled readers (2 A, 2 B, 3 C, 4 D, 3 E, 3 F,
+2 G, 1 H). Its wider vocabulary is not labeled cumulatively decodable; the H
+investigation remains supported shared reading. The exact title and ordered
+page-text fingerprints pin every decision to its reviewed manuscript.
 
 ## Leveling method
 

@@ -3,7 +3,11 @@ import { auditDecodableBook, auditDecodableCurriculum } from "../src/utils/guide
 
 const books = getRuntimeGuidedReadingBooks().filter(book => book.readingMode === "decodable");
 const failures = auditDecodableCurriculum();
-const expectedIds = Array.from({ length: 20 }, (_, index) => `small-steps-${String(index + 1).padStart(2, "0")}`);
+const expectedIds = [
+  ...Array.from({ length: 20 }, (_, index) => `small-steps-${String(index + 1).padStart(2, "0")}`),
+  ...Array.from({ length: 30 }, (_, index) => `next-steps-${String(index + 1).padStart(2, "0")}`)
+];
+if (books.length !== expectedIds.length) failures.push(`Expected ${expectedIds.length} active decodable books, found ${books.length}.`);
 for (const id of expectedIds) if (!books.some(book => book.id === id)) failures.push(`${id}: missing active decodable book.`);
 const results = books.map(book => {
   const audit = auditDecodableBook(book);

@@ -10,7 +10,7 @@ App text bands and the A/B/C language profile remain separate judgments.
 
 The locked visual reference is
 `public/guided-reading/small-steps/reference/cast-master.webp`. It was generated
-and directly reviewed on 28 October 2026. The lineup is a production reference,
+and directly reviewed in the clean cartoon style on 29 October 2026. The lineup is a production reference,
 not a story illustration or a substitute for page-specific artwork.
 
 | Canon ID | Stable design and behavior |
@@ -26,13 +26,20 @@ The names are ordinary words in the reading scope, not automatic exceptions.
 Secondary animals or props require a book-specific locked reference before art.
 Do not reuse a name from another story world as an identity shortcut.
 
-Use warm, clearly drawn gouache picture-book art with restrained paper texture,
-confident brown contours, simple color shapes and expressive silhouettes. Keep
-faces, clothing, scale and anatomy tied to the master. Scenes have concrete
-settings and a clear focal action. No glossy 3D finish, decorative visual noise,
-generated lettering, pseudo-labels or text embedded in the art. The reader lays
-out the actual print separately. Page art is landscape and safe to display in
-full; important objects remain inside the image edge.
+The user's 29 October 2026 instruction requires clean, clear, bright cartoon
+art with good outlines on every new image, using the built-in image generator.
+It supersedes the earlier painterly direction and applies to replacements of
+the newly produced Small Steps assets as well as subsequent books.
+
+Use crisp continuous outlines, flat clean colors and expressive silhouettes.
+If shading is needed, use a small number of smooth flat cel-shaded shapes.
+No gouache, watercolor, brush daubs, patchy paint, canvas or paper grain,
+embossed/impasto relief, fuzzy edges, glossy 3D finish or decorative visual noise.
+Keep faces, clothing, scale and anatomy tied to the clean-cartoon master.
+Scenes have concrete settings and a clear focal action. No generated lettering,
+pseudo-labels or text embedded in the art; the reader lays out print separately.
+Page art is landscape and safe to display in full, with important objects inside
+the image edge. Former painterly files do not satisfy this revised style gate.
 
 ## Reading and manuscript contract
 

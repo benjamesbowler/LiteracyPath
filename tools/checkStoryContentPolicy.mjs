@@ -12,7 +12,9 @@ import { storyQuests } from "../src/data/storyQuests.js";
 import { storyQuestReviewFingerprint } from "./storyQuestReviewFingerprint.mjs";
 import { getStoryQuestLedaAudioPath } from "../src/data/storyQuestLedaAudio.js";
 import { buildGuidedReadingAudioInventory } from "./guidedReadingAudioPipelineLib.mjs";
-import { auditScienceReadAloudNarration, validateScienceReadAloudManuscript } from "./meadowPalsScienceGateLib.mjs";
+import { auditScienceReadAloudNarration } from "./meadowPalsScienceGateLib.mjs";
+import { validateSharedReadAloudManuscript } from "./sharedReadAloudGateLib.mjs";
+import { usesCharacterNarration } from "../src/data/sharedReadAloudContracts.js";
 import {
   STORY_CONTENT_APPROVAL_RULE,
   STORY_CONTENT_FORMATS,
@@ -168,7 +170,7 @@ for (const book of activeBooks) {
     continue;
   }
   if (book.readingBandProfile === "read-aloud") {
-    for (const error of validateScienceReadAloudManuscript(book)) addError(`${label}: ${error}`);
+    for (const error of validateSharedReadAloudManuscript(book)) addError(`${label}: ${error}`);
   }
   if (book.readingBandProfile === "extended") {
     for (const page of book.pages || []) {
@@ -200,7 +202,7 @@ if (currentGuidedFingerprint !== guidedReadingPolicyBaseline.sourceFingerprint) 
 }
 
 const guidedAudioInventory = buildGuidedReadingAudioInventory(
-  activeBooks.filter(book => book.readingBandProfile !== "read-aloud"), repositoryRoot
+  activeBooks.filter(book => !usesCharacterNarration(book)), repositoryRoot
 );
 const scienceAudio = auditScienceReadAloudNarration(activeBooks, repositoryRoot);
 for (const failure of scienceAudio.failures) {

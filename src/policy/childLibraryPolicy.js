@@ -16,6 +16,8 @@ export const READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F"]);
 // internal; the library separately offers reviewed app text-level browsing.
 export const BOOK_COLLECTIONS = Object.freeze([
   Object.freeze({ id: "small-steps", label: "Small Steps" }),
+  Object.freeze({ id: "next-steps", label: "Next Steps" }),
+  Object.freeze({ id: "bright-ideas", label: "Bright Ideas" }),
   Object.freeze({ id: "bob-and-nan", label: "Bob & Nan" }),
   Object.freeze({ id: "meadow-pals", label: "Meadow Pals" }),
   Object.freeze({ id: "james-and-anna", label: "James & Anna" }),
@@ -31,6 +33,8 @@ export function bookCollectionId(book = {}) {
   const id = String(book?.id || "").toLowerCase();
   const title = String(book?.title || "").toLowerCase();
   if (id.startsWith("small-steps-")) return "small-steps";
+  if (id.startsWith("next-steps-")) return "next-steps";
+  if (id.startsWith("bright-ideas-")) return "bright-ideas";
   if (id.startsWith("bob-and-nan-") || /\b(?:bob and nan|nan and bob)\b/.test(title)) {
     return "bob-and-nan";
   }
@@ -183,9 +187,10 @@ export function buildBookShelves({
       && (level !== "C" || book.readingBandProfile !== "extended"));
     if (mode === "together") pool = pool.filter(book => book.readingBandProfile === "extended"
       || book.readingBandProfile === "read-aloud" || book.readingMode === "supported-read-together");
-    const smallStepsSequence = mode === "all" && pool.length > 0
-      && pool.every(book => book.seriesId === "small-steps" && Number.isInteger(book.seriesOrder));
-    pool.sort(smallStepsSequence ? (a, b) => a.seriesOrder - b.seriesOrder : byOrder);
+    const orderedCollection = mode === "all" && pool.length > 0
+      && ["small-steps", "next-steps", "bright-ideas"].includes(pool[0].seriesId)
+      && pool.every(book => book.seriesId === pool[0].seriesId && Number.isInteger(book.seriesOrder));
+    pool.sort(orderedCollection ? (a, b) => a.seriesOrder - b.seriesOrder : byOrder);
   }
   const title = { "for-you": "Books for you", "read-again": "Read again", together: "Read together", all: "Find a book" }[mode] || "Find a book";
   return [{

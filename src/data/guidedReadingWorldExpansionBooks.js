@@ -7,6 +7,8 @@
  * can treat these books exactly like the older packs.
  */
 
+import { CLEAN_CARTOON_ILLUSTRATION_STYLE } from "../content/illustrationStyle.js";
+
 const normalizeReadingText = text => String(text || "").replace(/\s+([.,!?;:])/g, "$1").replace(/\s{2,}/g, " ").trim();
 
 const wordAudio = word => `/guided-reading/audio/words/${String(word).toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
@@ -29,7 +31,7 @@ const SERIES = Object.freeze({
     author: "Nora Bell",
     illustrator: "Literacy Guide Studio",
     setting: "Sunny Meadow Farm in clear natural daylight: red barn, duck pond, mud wallow, big oak, hill, stone wall, hay, flower meadow and stream. No magic, text or human objects beyond simple farm materials.",
-    style: "bright uncluttered children's storybook art, rounded farm characters, warm natural daylight, simple depth, one large readable action",
+    style: `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Rounded farm characters, warm natural daylight, simple depth and one large readable action`,
     characterReference: Object.freeze({
       muddy: "MEADOW-MUDDY — round pink pig with fixed dark mud-patch map, pig snout and ears; sensory, eager and persistent.",
       splashy: "MEADOW-SPLASHY — small yellow duckling with orange beak and feet; observant, practical and water-confident.",
@@ -51,7 +53,7 @@ const SERIES = Object.freeze({
     author: "Nora Bell",
     illustrator: "Literacy Guide Studio",
     setting: "Sunny Hollow in warm daylight: Cozy Cave, Berry Bush Corner, Big Flat Rock, Muddy Puddle Pool, stream, Fernwood and long meadow. Colourful rounded prehistoric valley with no unexplained magic.",
-    style: "colourful textured children's storybook art, rounded young dinosaurs, large readable gestures, warm prehistoric valley, clear physical comedy",
+    style: `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy`,
     characterReference: Object.freeze({
       fancy: "DINO-FANCY — purple plated young dinosaur with fixed plate shape, palette and scale; expressive and exacting.",
       shy: "DINO-SHY — small mint-green long-necked young dinosaur with darker teal oval spots, short smooth head, four sturdy feet and slender tail; no back plates; quiet, observant and considered; visibly distinct from Fancy and every Meadow mouse.",
@@ -76,8 +78,8 @@ const SERIES = Object.freeze({
     ageRange: "7-9",
     author: "Lina Moss",
     illustrator: "Literacy Guide Studio",
-    setting: "Moonwood at night in the approved painterly style: Hollow Oak, Crystal Stream, Fog Marsh, Deep Dark, old roots, glow cave, Fern's garden and star rooms. Controlled glow and rule-bound magic only.",
-    style: "cohesive painterly moonlit woodland fantasy, rich readable backgrounds, controlled blue-gold glow, tactile bark and foliage, never flat cel art",
+    setting: "Moonwood at night in the approved clean cartoon style: Hollow Oak, Crystal Stream, Fog Marsh, Deep Dark, old roots, glow cave, Fern's garden and star rooms. Controlled glow and rule-bound magic only.",
+    style: `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage`,
     characterReference: Object.freeze({
       pip: "MOON-PIP — small brown-haired woodland boy in green with pointed ears; quick, curious and observant.",
       stone: "MOON-STONE — very large gray stone giant with rough gray stone skin, mossy shoulders, a bare rocky torso, a leaf waist wrap and broad hands, always two to three times Pip's height; slow, literal and gentle.",
