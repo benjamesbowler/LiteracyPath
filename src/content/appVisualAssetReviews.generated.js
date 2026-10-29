@@ -267,38 +267,45 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-001.webp",
-      "sha256": "1cd99dc7dfc48b43ccad84af4a3dc173862590756f7897163c1982ccdf431718",
-      "status": "approved"
+      "sha256": "cb061aa276b096b898542a082349184658dd5f16e0d4942ef663c712c84f3873",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-002.webp",
-      "sha256": "58136805b1719f9f84cc6c08b8ce44867366d1ede0e69485571f11ff119dc60c",
-      "status": "approved"
+      "sha256": "1b6db45d24cdc5076fd3ab576e53e490a1db362583544c56e5b77e2220f56cf0",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-003.webp",
-      "sha256": "73bbc49208103cb11b2250422b404d3011c9c5b1dfd4da0834ac39196279e20b",
-      "status": "approved"
+      "sha256": "b9a06747c758d17bb8c55afc16caa8c95a1eee06c01d71c1dd77c0e356615204",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-004.webp",
-      "sha256": "74acaf770f1f87d35b2ac1ee6c6c277c5d180b2e4c48da02eae9494ab3094821",
-      "status": "approved"
+      "sha256": "006d53a0fd4d917024ca2e8300f6587c072b37321f34257fcff032053e1370af",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-005.webp",
-      "sha256": "d54ec5c00c4da1dee418b9ebbf01c3af2c8a5ec57de726e97345401c154f58c0",
-      "status": "approved"
+      "sha256": "ff83ba6268e3e7c3081c8a0d7b5fdb7373b710c8926eea08706f882825474b33",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-006.webp",
-      "sha256": "2c017c2223700d7242c77d084b72b5e44f6e4fdbd3896a73527dc95888aca90d",
-      "status": "approved"
+      "sha256": "677b2e4df1049d341fd7c613c06d940183eabe0f74a6941872d1c2282c3d0753",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-007.webp",
-      "sha256": "37129914bd416ccc63c779c57aa789875e973c3c595f61d32e32e9363b0a6403",
-      "status": "approved"
+      "sha256": "80ab9927590964d691ed06638f0d090ae2569808ceed6b8f2d458aa63222d60a",
+      "status": "approved",
+      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-03/cover.webp",

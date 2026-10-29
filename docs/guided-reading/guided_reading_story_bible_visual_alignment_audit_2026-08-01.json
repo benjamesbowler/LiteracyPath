@@ -5,7 +5,7 @@
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "9dc524fcb12556f5acb8d881cb31e1b54d56bcf891bdf4b150a292cee1adb29f"
+    "releaseFingerprintSha256": "053f46d75e9d2c349045d02cb9182e6357d9b22b2b7d37cb06d817d8d3b2f547"
   },
   "scope": {
     "activeBooksAudited": 226,
@@ -51,7 +51,8 @@
     "On 2026-09-02, all 180 Willow Street covers and reading-page images were approved at original detail against exact text, visual briefs, full-book sequence, recurring-cast continuity, factual and procedural accuracy, anatomy, safety, embedded-text risk and runtime print placement; 160 reading pages were added to the fail-closed hash audit.",
     "On 2026-09-08, 27 covers/pages in willow-street-build-a-cardboard-ramp, willow-street-dumplings-for-new-year, willow-street-the-lunchbox-mix-up were directly rechecked as complete sequences after scoped repairs. Other asset reviews and dates were preserved. Browser review is separate from human listening and a physical toy-car experiment.",
     "On 2026-09-13, 126 legacy page records were reconciled to the PNG-to-WebP format migration already adopted in commit d078e2abb085e9938e17c1b52da4af4adf7c12be. Each retained PNG matched its original reviewed SHA-256, each current WebP was reproduced byte-for-byte from that exact source using Sharp 0.35.3, and displayed text was unchanged. Only image paths, image hashes and the aggregate fingerprint were updated; existing review decisions, dates and the 2026-09-08 Willow Street repairs were preserved. This records conversion provenance, not a new visual or human review. Per-page hashes and encoding parameters are retained in the task conversion-proof artifact.",
-    "On 2026-09-22, a scoped editorial repair refreshed 561 changed text/image records after ordered manuscript/image review, direct replacement inspection and independent checks. This includes 126 pre-existing PNG-to-WebP path/hash mismatches in 21 generic nonfiction books, all directly inspected. Two removed source pages were removed from the active audit. Final chick habitat, Bouncy hoof/repair state, Willow axle oiling and yogurt layering replacements were independently viewed in the installed WebPs; Moonwood 30 wall-location text was checked against its complete image sequence. Untouched approvals and historical reviews were retained; this pass adds no audio or human-listening approval."
+    "On 2026-09-22, a scoped editorial repair refreshed 561 changed text/image records after ordered manuscript/image review, direct replacement inspection and independent checks. This includes 126 pre-existing PNG-to-WebP path/hash mismatches in 21 generic nonfiction books, all directly inspected. Two removed source pages were removed from the active audit. Final chick habitat, Bouncy hoof/repair state, Willow axle oiling and yogurt layering replacements were independently viewed in the installed WebPs; Moonwood 30 wall-location text was checked against its complete image sequence. Untouched approvals and historical reviews were retained; this pass adds no audio or human-listening approval.",
+    "On 2026-10-29, only the seven Farm Animals Level A page illustrations were replaced and directly visually reviewed in the clean cartoon style against the retained cover and exact runtime text. All unrelated review records were preserved."
   ],
   "issueCodeCounts": {
     "animal_welfare": 2,
@@ -13202,11 +13203,11 @@
       "displayedText": "A pig says oink.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-001.webp",
       "textSha256": "c868ea10ff14e185d0cab8178e602ccff44e1743f70ed47dd1af4decdaad39f3",
-      "imageSha256": "1cd99dc7dfc48b43ccad84af4a3dc173862590756f7897163c1982ccdf431718",
+      "imageSha256": "cb061aa276b096b898542a082349184658dd5f16e0d4942ef663c712c84f3873",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-02-farm-animals",
@@ -13216,11 +13217,11 @@
       "displayedText": "A hen says cluck.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-002.webp",
       "textSha256": "3121d3350ccaa9b6393ba61df8eb9548e1a64ab2fbe202f47e61b653893351b9",
-      "imageSha256": "58136805b1719f9f84cc6c08b8ce44867366d1ede0e69485571f11ff119dc60c",
+      "imageSha256": "1b6db45d24cdc5076fd3ab576e53e490a1db362583544c56e5b77e2220f56cf0",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-02-farm-animals",
@@ -13230,11 +13231,11 @@
       "displayedText": "A cow says moo.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-003.webp",
       "textSha256": "1f6ecc831247e30e57430a91345d115a54e8fb585c61f1588487a8295e83b9cc",
-      "imageSha256": "73bbc49208103cb11b2250422b404d3011c9c5b1dfd4da0834ac39196279e20b",
+      "imageSha256": "b9a06747c758d17bb8c55afc16caa8c95a1eee06c01d71c1dd77c0e356615204",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-02-farm-animals",
@@ -13244,11 +13245,11 @@
       "displayedText": "A dog says woof.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-004.webp",
       "textSha256": "fc94134d34a46757505e74017a2aa63b618e844643b0f0b6d213055717dd9972",
-      "imageSha256": "74acaf770f1f87d35b2ac1ee6c6c277c5d180b2e4c48da02eae9494ab3094821",
+      "imageSha256": "006d53a0fd4d917024ca2e8300f6587c072b37321f34257fcff032053e1370af",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-02-farm-animals",
@@ -13258,11 +13259,11 @@
       "displayedText": "A duck says quack.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-005.webp",
       "textSha256": "0dd876ab4a37d44420e0f7629fb4da99c9e6d1e8f7fcd6a36bda7d35bff9cf2c",
-      "imageSha256": "d54ec5c00c4da1dee418b9ebbf01c3af2c8a5ec57de726e97345401c154f58c0",
+      "imageSha256": "ff83ba6268e3e7c3081c8a0d7b5fdb7373b710c8926eea08706f882825474b33",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-02-farm-animals",
@@ -13272,11 +13273,11 @@
       "displayedText": "A cat says meow.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-006.webp",
       "textSha256": "c87675b767be6fca63b361f76d3b819bbaf60bc52cc96da40cf9841b91f20e57",
-      "imageSha256": "2c017c2223700d7242c77d084b72b5e44f6e4fdbd3896a73527dc95888aca90d",
+      "imageSha256": "677b2e4df1049d341fd7c613c06d940183eabe0f74a6941872d1c2282c3d0753",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-02-farm-animals",
@@ -13286,11 +13287,11 @@
       "displayedText": "Farm animals make many sounds.",
       "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-02/page-007.webp",
       "textSha256": "3ace9621125351ac57f31f81a262d3e32c0246a749d80dbdb5cd61e822609e60",
-      "imageSha256": "37129914bd416ccc63c779c57aa789875e973c3c595f61d32e32e9363b0a6403",
+      "imageSha256": "80ab9927590964d691ed06638f0d090ae2569808ceed6b8f2d458aa63222d60a",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "On 2026-08-30, all 65 active Level A books and 523 page images were directly inspected in full-book sequence sheets; ambiguous originals were opened full-size; confirmed text/action, identity, anatomy, object-state and continuity defects were repaired and rechecked."
+      "regenerationBrief": "29 October 2026: clean cartoon replacement directly inspected at full size and sequence checked against exact runtime text and retained cover. Crisp outlines and clean colors throughout animals and backgrounds; consistent animal models, natural anatomy, safe framing; no painted, daubed or embossed finish."
     },
     {
       "bookId": "first-facts-level-a-03-big-and-little",
