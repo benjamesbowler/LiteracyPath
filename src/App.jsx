@@ -1,3 +1,4 @@
+import { APP_READING_LEVELS, getPublicBookMetadata } from "./utils/guidedReading/bookLevelMetadata.js";
 import { preparedClassCode } from "./policy/preparedClassEntry.js";
 import { assessmentBankWarmupAllowed } from "./policy/assessmentWarmup.js";
 import ProgressSyncNotice from "./components/ProgressSyncNotice.jsx";
@@ -2452,12 +2453,38 @@ export default function App() {
     try {
       const {
         formatGuidedReadingType,
+        getGuidedReadingProgress,
+        guidedReadingBooks,
         getGuidedReadingWordStatusRows,
         summarizeGuidedReadingProgress,
         summarizeGuidedReadingRecords
       } = await loadGuidedReadingBooksModule();
       const workbook = await createExcelWorkbook();
-      const progress = summarizeGuidedReadingProgress(guidedReadingRecords);
+      const savedProgress = summarizeGuidedReadingProgress(guidedReadingRecords);
+      const knownIds = new Set(savedProgress.rows.map(row => row.bookId));
+      const booksById = new Map(guidedReadingBooks.map(book => [book.id, book]));
+      // Removed books still have completion observations, but no inferred App level.
+      const rows = [
+        ...savedProgress.rows,
+        ...Object.entries(guidedReadingRecords)
+          .filter(([bookId]) => !knownIds.has(bookId))
+          .map(([bookId, record]) => getGuidedReadingProgress(booksById.get(bookId) || {}, { ...record, bookId }))
+      ];
+      const completedBooks = rows.filter(row => row.completed);
+      const progress = {
+        ...savedProgress,
+        rows,
+        completedBooks,
+        inProgressBooks: rows.filter(row => !row.completed && row.completedPages > 0),
+        totalBooksRead: completedBooks.length,
+        nonfictionCount: completedBooks.filter(row => row.type === "nonfiction").length,
+        totalRereads: completedBooks.reduce((sum, row) => sum + Math.max(0, row.readCount - 1), 0),
+        latestReadingDate: rows.map(row => row.lastReadAt).filter(Boolean).sort().at(-1) || ""
+      };
+      const byAppLevel = Object.fromEntries(APP_READING_LEVELS.map(level => [
+        level, completedBooks.filter(row => getPublicBookMetadata(row.bookId).appReadingLevel === level).length
+      ]));
+      const pendingBookLevels = completedBooks.filter(row => !getPublicBookMetadata(row.bookId).appReadingLevel).length;
       const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
       const observationRows = summarizeGuidedReadingRecords(guidedReadingRecords);
       const observationsByBook = new Map(observationRows.map(row => [row.bookId, row]));
@@ -2478,12 +2505,8 @@ export default function App() {
         ["Student Name", studentLabel],
         ["Total Books Read", progress.totalBooksRead],
         ["Total Non-Fiction", progress.nonfictionCount],
-        ["Level A count", progress.byLevel.A || 0],
-        ["Level B count", progress.byLevel.B || 0],
-        ["Level C count", progress.byLevel.C || 0],
-        ["Level D count", progress.byLevel.D || 0],
-        ["Level E count", progress.byLevel.E || 0],
-        ["Level F count", progress.byLevel.F || 0],
+        ...APP_READING_LEVELS.map(level => [`Book App level ${level} count`, byAppLevel[level]]),
+        ["Book App level pending count", pendingBookLevels],
         ["Total Rereads", progress.totalRereads],
         ["Latest Reading Date", formatReportDate(progress.latestReadingDate)]
       ].forEach(([metric, value]) => summarySheet.addRow({ metric, value }));
@@ -2493,7 +2516,7 @@ export default function App() {
         { header: "First Read Date", key: "firstReadAt", width: 24 },
         { header: "Last Read Date", key: "lastReadAt", width: 24 },
         { header: "Title", key: "title", width: 32 },
-        { header: "Level", key: "level", width: 10 },
+        { header: "Book App level", key: "level", width: 24 },
         { header: "Type", key: "type", width: 16 },
         { header: "Read Count", key: "readCount", width: 12 },
         { header: "Pages Completed", key: "completedPages", width: 18 },
@@ -2503,7 +2526,7 @@ export default function App() {
         firstReadAt: formatReportDate(row.firstReadAt),
         lastReadAt: formatReportDate(row.lastReadAt),
         title: row.title,
-        level: row.level,
+        level: getPublicBookMetadata(row.bookId).levelLabel,
         type: formatGuidedReadingType(row.type),
         readCount: row.readCount,
         completedPages: row.completedPages,
@@ -2514,7 +2537,7 @@ export default function App() {
       inProgressSheet.columns = [
         { header: "Last Opened Date", key: "lastReadAt", width: 24 },
         { header: "Title", key: "title", width: 32 },
-        { header: "Level", key: "level", width: 10 },
+        { header: "Book App level", key: "level", width: 24 },
         { header: "Type", key: "type", width: 16 },
         { header: "Pages Completed", key: "completedPages", width: 18 },
         { header: "Total Pages", key: "totalPages", width: 14 }
@@ -2522,7 +2545,7 @@ export default function App() {
       progress.inProgressBooks.forEach(row => inProgressSheet.addRow({
         lastReadAt: formatReportDate(row.lastReadAt),
         title: row.title,
-        level: row.level,
+        level: getPublicBookMetadata(row.bookId).levelLabel,
         type: formatGuidedReadingType(row.type),
         completedPages: row.completedPages,
         totalPages: row.totalPages
@@ -2532,7 +2555,7 @@ export default function App() {
       observationsSheet.columns = [
         { header: "Last Read Date", key: "lastReadAt", width: 20 },
         { header: "Title", key: "title", width: 32 },
-        { header: "Level", key: "level", width: 10 },
+        { header: "Book App level", key: "level", width: 24 },
         { header: "Type", key: "type", width: 16 },
         { header: "Status", key: "status", width: 16 },
         { header: "Read Count", key: "readCount", width: 12 },
@@ -2549,7 +2572,7 @@ export default function App() {
         observationsSheet.addRow({
           lastReadAt: formatReportDate(row.lastReadAt),
           title: row.title,
-          level: row.level,
+          level: getPublicBookMetadata(row.bookId).levelLabel,
           type: formatGuidedReadingType(row.type),
           status: row.completed ? "Completed" : "In progress",
           readCount: row.readCount,
@@ -2566,7 +2589,7 @@ export default function App() {
       notesSheet.columns = [
         { header: "Date", key: "date", width: 20 },
         { header: "Book Title", key: "title", width: 32 },
-        { header: "Level", key: "level", width: 10 },
+        { header: "Book App level", key: "level", width: 24 },
         { header: "Location", key: "location", width: 18 },
         { header: "Note", key: "note", width: 72 }
       ];
@@ -2576,7 +2599,7 @@ export default function App() {
           notesSheet.addRow({
             date: formatReportDate(record.lastReadAt || observation.completedAt),
             title: observation.title,
-            level: observation.level,
+            level: getPublicBookMetadata(observation.bookId).levelLabel,
             location: "Whole book",
             note: observation.wholeBookNote
           });
@@ -2584,7 +2607,7 @@ export default function App() {
         observation.pageNotes.forEach(pageNote => notesSheet.addRow({
           date: formatReportDate(record.pages?.[Math.max(0, Number(pageNote.page) - 1)]?.updatedAt || record.lastReadAt || observation.completedAt),
           title: observation.title,
-          level: observation.level,
+          level: getPublicBookMetadata(observation.bookId).levelLabel,
           location: `Page ${pageNote.page}`,
           note: pageNote.note
         }));
@@ -2596,7 +2619,7 @@ export default function App() {
       const wordSheetColumns = [
         { header: "Date", key: "date", width: 24 },
         { header: "Book Title", key: "title", width: 32 },
-        { header: "Level", key: "level", width: 10 },
+        { header: "Book App level", key: "level", width: 24 },
         { header: "Page", key: "page", width: 10 },
         { header: "Word", key: "word", width: 18 },
         { header: "Status", key: "status", width: 18 },
@@ -2610,7 +2633,7 @@ export default function App() {
         .forEach(row => greenWordsSheet.addRow({
           date: formatReportDate(row.date),
           title: row.title,
-          level: row.level,
+          level: getPublicBookMetadata(row.bookId).levelLabel,
           page: row.page,
           word: row.word,
           status: row.status,
@@ -2624,7 +2647,7 @@ export default function App() {
         .forEach(row => orangeWordsSheet.addRow({
           date: formatReportDate(row.date),
           title: row.title,
-          level: row.level,
+          level: getPublicBookMetadata(row.bookId).levelLabel,
           page: row.page,
           word: row.word,
           status: row.status,

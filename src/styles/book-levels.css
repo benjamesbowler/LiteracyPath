@@ -5,3 +5,18 @@
 .kg-book-levels button[aria-pressed="true"], .guided-app-levels button[aria-pressed="true"] { background: #E9EDF9; border-color: #3454C8; color: #2844A9; }
 .kg-book-levels button:focus-visible, .guided-app-levels button:focus-visible { outline: 3px solid #3454C8; outline-offset: 3px; }
 .kg-book-text-measure { display: block; font-size: 14px; line-height: 1.4; color: #5C677A; }
+.book-level-guide {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--lp-border, #dddcd2);
+  border-radius: 10px;
+  background: var(--lp-surface, #fffdf7);
+  color: var(--lp-ink, #18263e);
+  font-size: 14px;
+}
+.book-level-guide summary { cursor: pointer; font-weight: 600; }
+.book-level-guide p { margin: 10px 0; }
+.book-level-guide dl { margin: 0; }
+.book-level-guide dl > div { display: flex; gap: 12px; margin: 8px 0; }
+.book-level-guide dt { flex: 0 0 84px; font-weight: 600; }
+.book-level-guide dd { margin: 0; }

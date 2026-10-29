@@ -55,6 +55,24 @@
   min-width: 0;
 }
 
+.guided-transport-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+
+.guided-transport-heading strong {
+  min-width: 0;
+}
+
+.guided-transport-level {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .guided-transport-book strong {
   display: block;
   max-width: 100%;
@@ -348,6 +366,14 @@
 }
 
 @media (max-width: 600px) {
+  .guided-transport-heading {
+    display: block;
+  }
+  .guided-transport-level {
+    display: block;
+    margin-top: 2px;
+    line-height: 1.2;
+  }
   .guided-transport {
     gap: 4px;
     padding: 4px;

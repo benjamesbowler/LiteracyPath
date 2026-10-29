@@ -1,5 +1,19 @@
 # Current system cleanup — 31 July 2026
 
+## Single public book-level system — 29 October 2026
+
+The existing reading-level standard now owns one public App A–H scale across
+all book surfaces and exports. A full-manuscript cross-collection audit covered
+247 working books; the release branch updates its 227 published book reviews
+without publishing the other chat's 20-book Small Steps addition. The compact
+generated index and common public metadata accessor replace leaked A/B/C
+placement letters; missing or changed text remains pending. Reading modes,
+phonics prerequisites, internal practice layouts and raw historical observations
+are preserved. First Facts source-pack letters are removed from its public
+series name. Review receipts and browser evidence are kept in ignored
+`.artifacts/level-ah-system-audit/`; reproducible verification scratch is removed
+once checked. No manuscript, narration or hosted data is changed by this step.
+
 ## Illustration direction — 29 October 2026
 
 The [illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) now owns

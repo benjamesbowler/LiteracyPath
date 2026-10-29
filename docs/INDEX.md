@@ -43,7 +43,7 @@ A dated document must never override current code.
 - [App illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) — bold clean cartoons, crisp outlines, flat colors/cel shading; supersedes painterly, watercolor, daubed and embossed illustration briefs.
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Guided Reading](guided-reading/INDEX.md)
-- [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — editorial book bands, full-text review and verified Lexile provenance
+- [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — single public A–H book system, calibrated full-text reviews, shared metadata and verified Lexile provenance
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)
 - [Little Literacy Guides SEL Books 1-10](content/sel-books/README.md)

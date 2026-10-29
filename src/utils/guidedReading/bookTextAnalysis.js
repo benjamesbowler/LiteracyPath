@@ -1,11 +1,6 @@
 import { GUIDED_READING_TEXT_ANALYSIS } from "../../data/generated/guidedReadingTextAnalysis.generated.js";
 import { fingerprintBookReadingText } from "./textMetrics.js";
-
-export const APP_READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F", "G", "H"]);
-
-export function appReadingLevelLabel(level) {
-  return level ? `App level ${level}` : "App level pending";
-}
+export { APP_READING_LEVELS, appReadingLevelLabel } from "./bookLevelMetadata.js";
 
 export function getBookTextAnalysis(book) {
   const analysis = GUIDED_READING_TEXT_ANALYSIS[book?.id];

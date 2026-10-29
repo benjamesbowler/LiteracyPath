@@ -14,7 +14,8 @@ import {
   STUDENT_FOCUS_TARGET_OPTIONS,
   STUDENT_FOCUS_TARGETS
 } from "../../policy/studentFocusTargets.js";
-import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { getPublicBookMetadata } from "../../utils/guidedReading/bookLevelMetadata.js";
 import { cyclePickerTitle, cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import { createTeacherLaunchContext } from "../../utils/teacherLaunchContext.js";
@@ -724,7 +725,7 @@ export function StudentSessionSetup({
                   <option value="">Choose one available book</option>
                   {books.map(book => (
                     <option key={book.id} value={book.id}>
-                      {book.title} ({guidedReadingBandLabel(book.readingBandProfile, book.level)}, {guidedReadingModeLabel(book.readingMode)}, {book.pages.length} pages)
+                      {book.title} ({getPublicBookMetadata(book).levelLabel}, {guidedReadingModeLabel(book.readingMode)}, {book.pages.length} pages)
                     </option>
                   ))}
                 </select>

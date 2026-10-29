@@ -12,6 +12,11 @@ import { STUDENT_HOME_COPY } from "../copy/studentNavigationCopy.js";
 import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
 import { normalizeElQuestProgress } from "./adventureMapProgress.js";
 import {
+  APP_READING_LEVELS,
+  appReadingLevelLabel,
+  getPublicBookMetadata
+} from "./guidedReading/bookLevelMetadata.js";
+import {
   DAILY_MISSION_KINDS,
   firstUncelebratedMissionStep,
   normalizeMissionCelebratedSteps,
@@ -219,16 +224,20 @@ function nextBook(scope, quarantinedBookIds) {
   const ordered = filterPublishedGuidedReadingBooks(
     [...GUIDED_READING_BOOK_INDEX],
     quarantinedBookIds
-  ).filter(book => book.readingBandProfile !== "read-aloud").sort((a, b) =>
-    String(a.level).localeCompare(String(b.level)) || String(a.id).localeCompare(String(b.id))
-  );
+  ).filter(book => book.readingBandProfile !== "read-aloud")
+    .map(book => ({ ...book, appReadingLevel: getPublicBookMetadata(book).appReadingLevel }))
+    .filter(book => APP_READING_LEVELS.includes(book.appReadingLevel))
+    .sort((a, b) =>
+      APP_READING_LEVELS.indexOf(a.appReadingLevel) - APP_READING_LEVELS.indexOf(b.appReadingLevel)
+      || String(a.id).localeCompare(String(b.id))
+    );
   if (!ordered.length) return null;
   const unread = ordered.filter(book => !records[book.id]?.completed);
   const pool = unread.length ? unread : ordered;
-  // Stay at the child's working level: the lowest level that still has
-  // unread books. Never hand a Level A reader a Level C book.
-  const workingLevel = pool[0]?.level;
-  const levelPool = pool.filter(book => book.level === workingLevel);
+  // Use the lowest reviewed App band with unread books. This orders book
+  // complexity from reading history; it does not assess the child's level.
+  const workingLevel = pool[0]?.appReadingLevel;
+  const levelPool = pool.filter(book => book.appReadingLevel === workingLevel);
   const finalPool = levelPool.length ? levelPool : pool;
   return finalPool[hashString(todayKey() + scope) % finalPool.length];
 }
@@ -259,8 +268,8 @@ export function buildDailyMission(scope, quarantinedBookIds) {
     },
     book: {
       title: book?.title || STUDENT_HOME_COPY.fallbackBookTitle,
-      detail: book ? `Level ${book.level}` : "",
-      why: book ? `A Level ${book.level} book picked for you today.` : "Choose any book you like.",
+      detail: book ? appReadingLevelLabel(book.appReadingLevel) : "",
+      why: book ? `An ${appReadingLevelLabel(book.appReadingLevel)} book for today's reading.` : "Choose any book you like.",
       bookId: book?.id || ""
     },
     game: {

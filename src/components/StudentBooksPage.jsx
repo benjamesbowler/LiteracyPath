@@ -33,6 +33,7 @@ import { bookCoverDeliverySources } from "../utils/guidedReading/coverRenditions
 import { BookOpenText } from "@phosphor-icons/react";
 
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../utils/guidedReading/bookTextAnalysis.js";
+import BookLevelGuide from "./guided-reading/BookLevelGuide.jsx";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
@@ -259,9 +260,8 @@ export function StudentBooksPage({
     publicationStatus
   ]);
 
-  // The app's existing answer to "what level is this child on": a teacher-set
-  // level, else the level of the last book they actually read, else A. It is
-  // not invented here and it is not a second opinion.
+  // Suggestions use the reviewed text band of a selected/previous book.
+  // This is a browsing choice, not a measure of the child's reading ability.
   const recommended = useMemo(() => recommendBooksForStudent({
     books: library,
     studentProgress: recommendationEvidenceReady && studentProgress ? studentProgress : {},
@@ -290,8 +290,7 @@ export function StudentBooksPage({
   // Nothing started yet: offer the recommender's first book to START. The
   // eyebrow and the button both change with it, because "you stopped here" over
   // a book the child has never opened is a lie with a progress bar on it.
-  const firstBook = recommended.find(item => item.book.level === suggestedLevel
-    && (suggestedLevel !== "C" || item.book.readingBandProfile !== "extended"))?.book
+  const firstBook = recommended.find(item => item.readingLevel === suggestedLevel)?.book
     || recommended[0]?.book || library[0] || null;
   const panelBook = continueRow?.book || firstBook;
   const panelProgress = continueRow?.progress
@@ -451,6 +450,7 @@ export function StudentBooksPage({
                 <h2 className="kg-panel-title kg-continue-title" id="kg-continue-title">
                   {panelBook.title}
                 </h2>
+                <p className="kg-body kg-book-text-measure">{appReadingLevelLabel(bookAnalyses.get(panelBook.id)?.appReadingLevel)}</p>
                 {/* A BOOK THIS SCREEN CHOSE HAS TO SAY WHY IT CHOSE IT. The old
                     shelf page put that line on its primary card and the
                     recommendation policy requires it; the panel is that card
@@ -541,6 +541,7 @@ export function StudentBooksPage({
           }
         }}>
           <button ref={filterCloseRef} type="button" className="kg-button kg-glass" onClick={closeDiscovery}>Back to shelf</button>
+          <BookLevelGuide />
           <div className="kg-book-discovery-modes" role="group" aria-label="Choose books">
             {[['for-you', 'Books for you'], ['all', 'All books'], ['read-again', 'Read again'], ['together', 'Read together']].map(([id, label]) =>
               <button key={id} type="button" aria-pressed={shelfMode === id} onClick={() => changeDiscovery(() => setShelfMode(id))}>{label}</button>)}

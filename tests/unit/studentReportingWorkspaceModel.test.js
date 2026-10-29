@@ -410,7 +410,10 @@ test("Guided Reading fills missing catalogue metadata without replacing raw mark
   });
 
   assert.equal(model.books[0].title, "What Is a Map?");
-  assert.equal(model.books[0].level, "B");
+  assert.equal(model.books[0].level, "", "a removed book cannot inherit its prepared legacy level");
+  assert.equal(model.books[0].levelLabel, "App level pending");
+  assert.equal(model.books[0].sourceLevel, "B", "the prepared source letter remains provenance");
+  assert.equal(model.books[0].provenance.preparedMetadata.level, "B");
   assert.equal(model.books[0].type, "nonfiction");
   assert.equal(model.books[0].totalPages, 6);
   assert.deepEqual(model.books[0].correctWords, ["map"]);

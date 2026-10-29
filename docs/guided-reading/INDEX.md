@@ -12,21 +12,18 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The current catalogue contains 227 books. Its retained instructional placement profiles contain 65 in A, 86 in B, 75
-in C, and one science picture book under **Read Together**. Level C is shown in two honest bands:
+Every book uses one public **App level A–H**, assigned by full-manuscript
+editorial review. The [reading-level authority](READING_LEVELS_AND_TEXT_MEASURES.md)
+owns the rubric, cross-collection calibration, exact-text reviews, public
+metadata and verified Lexile provenance. Public shelves, readers, shared and
+assigned reading, daily missions and reports all use this system. Unknown or
+changed manuscripts show App level pending, with no guessed fallback.
 
-- **C Standard** for compact independent or lightly supported reading, including
-  the 20-book Willow Street Readers collection;
-- **C Extended / Read Together** for denser supported reading. All Moonwood
-  guided-reading books belong here.
-
-Both teacher and child libraries now offer **App level A–H** browsing from
-full-text editorial reviews. These book-complexity bands are separate from the
-instructional A/B/C profiles above and do not change a learner’s placement.
-Official Lexile measures are pending; only a verified measurement receipt can
-add one. [Reading levels and text measures](READING_LEVELS_AND_TEXT_MEASURES.md)
-owns the rubric, per-book reviews, manuscript fingerprints and measurement
-provenance.
+Reading mode and phonics prerequisites remain explicit: decodable,
+predictable/levelled and supported read-together describe different reading
+tasks. Existing A/B/C fields remain internal compatibility inputs for practice
+layout and old progress; they must not appear as a competing public book scale.
+The review did not change manuscripts, narration, learner placement or results.
 
 Child library cards use content-addressed 512px delivery copies of their approved
 canonical cover art. Build them with `node tools/buildGuidedReadingCoverRenditions.mjs`
