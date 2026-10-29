@@ -92,3 +92,20 @@ test("live reading controls show the reviewed band even when the internal profil
   assert.equal(labels.text(span, currentBook), "App level D · Predictable / Levelled");
   assert.equal(labels.text(span, staleBook), "App level pending · Predictable / Levelled");
 });
+
+test("shared-reading book choices retain actual phonics prerequisites beside the public band", async () => {
+  const book = getRuntimeGuidedReadingBooks().find(row => row.id === "next-steps-16");
+  const labels = await sourceLabels("guided-reading/ReadingSessionSetup.jsx");
+  const span = labels.elements.find(node => node.openingElement.name.name === "span" && hasPageCount(node));
+  assert.match(labels.text(span, book), /^App level C · Decodable · after Cycle 15 \+ 1 blending lesson · 8 pages$/);
+});
+
+test("live reading controls retain actual phonics prerequisites beside the public band", async () => {
+  const book = getRuntimeGuidedReadingBooks().find(row => row.id === "next-steps-16");
+  const labels = await sourceLabels("guided-reading/ReadingSessionBar.jsx");
+  const heading = labels.elements.find(node => node.openingElement.attributes.some(attribute => attribute.name?.name === "className"
+    && attribute.value?.value === "reading-session-bar-heading"));
+  const span = heading.children.find(child => child.type === "JSXElement").children
+    .find(child => child.type === "JSXElement" && child.openingElement.name.name === "span");
+  assert.equal(labels.text(span, book), "App level C · Decodable · after Cycle 15 + 1 blending lesson");
+});

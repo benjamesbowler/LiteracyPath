@@ -1393,20 +1393,22 @@
       "bookId": "willow-street-the-garden-gate",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/the-garden-gate/page-02.webp",
-      "sha256": "0c6133f15ee14bc0190cd370b77e01463f42bc5069c7cc7da3b5c2d2a0d45b05",
+      "sha256": "938e0f777543d0284f8f617cf6740c67a156abf5e88676ca1a26f7e9a4297832",
       "width": 1365,
       "height": 768,
       "textSha256": "9161db0453daa3affdb3ee0d73770de47ff010e2904068ea0a33c7effb7ebf43",
-      "briefSha256": "0bac7fb71d04682934c7f151d09e8935f45c8985946e75cfc9feb8ea5743470d",
+      "briefSha256": "96fcafdd2f6acfd9e6818a428d03b1ef55c265133c833b92b714ffd4998c466a",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "0c6133f15ee14bc0190cd370b77e01463f42bc5069c7cc7da3b5c2d2a0d45b05",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "938e0f777543d0284f8f617cf6740c67a156abf5e88676ca1a26f7e9a4297832",
+        "notes": "Clean outlined Maya pulls blocked green gate, braced feet, one hand on handle; Leo's restored freckled auburn identity and stone beneath lower rail retained. Plain cream lower area.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-d9c51622-c3cd-4a52-86d0-3ce8cfe36ffd.png"
+      "sourceImageGenOutput": "exec-5d94dc9a-f876-4981-99b9-2d7cea612354.png",
+      "cacheVersion": "938e0f777543"
     },
     {
       "bookId": "willow-street-the-garden-gate",
@@ -2742,20 +2744,22 @@
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 0,
       "path": "/guided-reading/willow-street/make-a-paper-kite/cover.webp",
-      "sha256": "cfc82d260170ca27e4b735541180df9003bd5f22327860d6486b0b41ede39eb4",
+      "sha256": "2137cb497b289839bcea1ba47b6260c453f1d4e7556f98736f6ae8ca65440136",
       "width": 1365,
       "height": 768,
       "textSha256": "8eddf839fa3a7d6df520bc2433bcf30c1a11e310ff57048988acb3f4c65806c3",
-      "briefSha256": "7d0c82dd7b2ca980965e6503dab11c43c1dc944dc2b11bfbc8ab42942a2dcc8c",
+      "briefSha256": "550755d528db9605b5024bb8e3fd4f3ee89d212db755eaa3c8a8facaf53ade81",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "cfc82d260170ca27e4b735541180df9003bd5f22327860d6486b0b41ede39eb4",
-        "notes": "Original-detail review approved for Make a Paper Kite cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "2137cb497b289839bcea1ba47b6260c453f1d4e7556f98736f6ae8ca65440136",
+        "notes": "Clean outlined distinct cover flight composition with centre-attached line, one tail, all tape patches and same cast. Replaced fuzzy clouds with clean smooth flat silhouettes.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-03066504-b124-4f00-bf6d-2a17d890c47e.png"
+      "sourceImageGenOutput": "exec-449297d0-2e68-41cc-97c0-9c37d7a11bdc.png",
+      "cacheVersion": "2137cb497b28"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
@@ -2765,14 +2769,15 @@
       "width": 1365,
       "height": 768,
       "textSha256": "410242a419f60757200c4f4b422ba3333d7f8fd528c471c959134bd17111a35f",
-      "briefSha256": "3c7a753207b2f95492ad3b6fea1ba2ec4bc75ee4c482c96c926a26197c866fd1",
+      "briefSha256": "7b04c25e3c097ce6b8b2ce584d35c758e5d7c7baf35737017be3ec394fb6ef5c",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "877693a544a2faa2a3b3b4bab4df1d95c203b420c8b37ab1876a9fa8acf0e372",
-        "notes": "Original-detail review approved for Make a Paper Kite page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make a Paper Kite page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-025903ac-9309-4ffd-8f14-1408b78d4d30.png"
     },
@@ -2780,77 +2785,84 @@
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-02.webp",
-      "sha256": "e8959761ba5f35bb75cfa641613c716c9fa094f8c8b9a50faf0b7d8b8c31c01c",
+      "sha256": "a19ed524e052b0a609e3793b7a5d5ed09d55de8f821e9ed36d42dd7715ba9099",
       "width": 1365,
       "height": 768,
       "textSha256": "a2ee8c2bb40678917e0621a90cb8b2444364338f1b5cc68552cd80ef7929bc54",
-      "briefSha256": "f34e796fa95080d73ca816e31f69fac0854d4e9f76ddb8096dc9f3a8f7d3fa2f",
+      "briefSha256": "4b73d857c1f3a227290e6b977bc2271db82dc76741d3f8123de5c9aed239a92b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "e8959761ba5f35bb75cfa641613c716c9fa094f8c8b9a50faf0b7d8b8c31c01c",
-        "notes": "Original-detail review approved for Make a Paper Kite page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "a19ed524e052b0a609e3793b7a5d5ed09d55de8f821e9ed36d42dd7715ba9099",
+        "notes": "Clean outlined same Samir/adult, two sticks laid across blue diamond before tape; ribbon and spool still loose. Natural hand count and cream quiet area.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-b59c789d-e469-466b-a850-6b45a7abc4a1.png"
+      "sourceImageGenOutput": "exec-6c99a056-fcc8-43af-9951-41ac92f9c967.png",
+      "cacheVersion": "a19ed524e052"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-03.webp",
-      "sha256": "eda87f9d94ca42f5d30cd82445c408eb369c2ac1a393469a06cb2ee5642286ee",
+      "sha256": "02cddd14cc3bbdf3112a608a0c5518f2291a3d993489d66a83f7fc41e37b537b",
       "width": 1365,
       "height": 768,
       "textSha256": "65f2e5e0a631a66abd1a09f7c305d85284dea7830f981f3f00e87886403f5861",
-      "briefSha256": "d053bb0bc46220a1f52558a1cc7997c795f8477a2d53a986863734148ee8bcae",
+      "briefSha256": "9f85aeb94456bb48112240d8c591815fd2b68ebeff42122950599f021cd9980f",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "eda87f9d94ca42f5d30cd82445c408eb369c2ac1a393469a06cb2ee5642286ee",
-        "notes": "Original-detail review approved for Make a Paper Kite page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "02cddd14cc3bbdf3112a608a0c5518f2291a3d993489d66a83f7fc41e37b537b",
+        "notes": "Clean outlined same adult/Samir, four endpoints and centre visibly taped; loose ribbon and spool preserve construction order. Cream quiet area.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-f52fefaa-127b-4fb7-bfba-5671d8700a19.png"
+      "sourceImageGenOutput": "exec-f981736f-878d-4632-aba9-824c25951814.png",
+      "cacheVersion": "02cddd14cc3b"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-04.webp",
-      "sha256": "39ed5466b347975727cc26b369f2bd0055590f55201a6c5b66468fe70b64044c",
+      "sha256": "743070b8a3c216006e28e2a6eebb39017fd366f2668a84dd1c4ad1eca3361b81",
       "width": 1365,
       "height": 768,
       "textSha256": "d86754f6d45cf4a1ffa81f4217a03121568a8e13d5ae20c33683657270b30b69",
-      "briefSha256": "86e653858d69f0944ff270dc7d39adbd332c01908a158bc8e3879f33c06c10e1",
+      "briefSha256": "1b4ac237a2655f4ece50c5707b9649d98d7193a09f216408724196e404f51046",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "39ed5466b347975727cc26b369f2bd0055590f55201a6c5b66468fe70b64044c",
-        "notes": "Original-detail review approved for Make a Paper Kite page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "743070b8a3c216006e28e2a6eebb39017fd366f2668a84dd1c4ad1eca3361b81",
+        "notes": "Clean outlined adult assists ribbon-tail knot at bottom tip; taped sticks remain fixed and spool is still separate. Same identities, one ribbon and cream quiet area.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-b1b05f5d-a202-4cf3-9dbf-bd896b2dd731.png"
+      "sourceImageGenOutput": "exec-a367fab8-5391-4c76-b9dc-68620e1e1b7d.png",
+      "cacheVersion": "743070b8a3c2"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 5,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-05.webp",
-      "sha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
+      "sha256": "1a7e2308d04ec26d08e5d7db83d55450abb78f2493ee4fc2624c6271187c722e",
       "width": 1365,
       "height": 768,
       "textSha256": "d4a10e1f1083c11e5681cc68495c164323c3e0866639b79ef999b1ea2eea5e78",
-      "briefSha256": "9857b7c983b1f8a72bb19deda861eebc5e0fe55bdbf1c4700874782854863246",
+      "briefSha256": "7ef042b949d40169f86b3e353d5f1b375e8fafb19140d58cb2f6113cb8976365",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
-        "notes": "Original-detail review approved for Make a Paper Kite page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "1a7e2308d04ec26d08e5d7db83d55450abb78f2493ee4fc2624c6271187c722e",
+        "notes": "Clean outlined adult ties white flying line at central stick crossing, Samir holds spool; one blue tail and endpoint/centre tape retained. Same identities and cream quiet area.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-d5b6c57c-1c5e-4f22-8b4a-a85f06c5e5d0.png",
+      "sourceImageGenOutput": "exec-234c1b17-6863-453f-a37b-45e9de87743b.png",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -2873,64 +2885,71 @@
             "notes": "Original-detail review approved for Make a Paper Kite page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
           }
         }
-      }
+      },
+      "cacheVersion": "1a7e2308d04e"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 6,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-06.webp",
-      "sha256": "2f36b699123107268d60d58992db1a15b8c39f3771067dc8483363c87e8adbf3",
+      "sha256": "de8b5ad7368d8ee3b06d4cc45b18c87137637e769f0a344832196a6743c2d9a1",
       "width": 1365,
       "height": 768,
       "textSha256": "9c7217c7db548fa3cdec738ba26a9b021c65dcbb1de91a716b8bd967ee1d4e62",
-      "briefSha256": "5059153825fdbb942cbda1a44e6e648d7637654b0ebd779274f2766c8969d6fb",
+      "briefSha256": "8f9af6bbf9a79e45614c1f7c484194c081d450ba70b3ab688b542a9dbf39fbf3",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "2f36b699123107268d60d58992db1a15b8c39f3771067dc8483363c87e8adbf3",
-        "notes": "Original-detail review approved for Make a Paper Kite page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "de8b5ad7368d8ee3b06d4cc45b18c87137637e769f0a344832196a6743c2d9a1",
+        "notes": "Clean outlined paired check of tape, one ribbon tail and centre-attached line/spool; stable identities and natural hands, cream lower area.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-c674e412-85b4-4506-995f-3c291f1cd56d.png"
+      "sourceImageGenOutput": "exec-fbccaf65-c842-414c-b1d7-579d124618e4.png",
+      "cacheVersion": "de8b5ad7368d"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-07.webp",
-      "sha256": "dec21d1036c18fb6f9fd08111dd39a4f286c8db6e87a012ddb0d395fcb2fd899",
+      "sha256": "e0f6a4def390074f0ea2d42ab10a815ff0dfe54db3ae45709ff69ad843b1ac19",
       "width": 1365,
       "height": 768,
       "textSha256": "b7d3fc7761904fc50a3cf5baa5065191bc04e9e03d04dc143a5e56a4fce17d9d",
-      "briefSha256": "996597df0829416337014638df9d2c1590cb13583406dae94908108bf3a2cc67",
+      "briefSha256": "b5eabbe64e39020dd33e0ca9a0d47e9bf2cfadc53398c6a6ba7e6371c418f7de",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "dec21d1036c18fb6f9fd08111dd39a4f286c8db6e87a012ddb0d395fcb2fd899",
-        "notes": "Original-detail review approved for Make a Paper Kite page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "e0f6a4def390074f0ea2d42ab10a815ff0dfe54db3ae45709ff69ad843b1ac19",
+        "notes": "Clean outlined safe open-field selection. Corrected line visibly connects carried spool to kite centre; all tape and single ribbon tail retained.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-143c3a0b-fb6d-424f-b2ca-843f9d8ddc9d.png"
+      "sourceImageGenOutput": "exec-3842e73e-ca8a-43a9-8fa4-73df4877de00.png",
+      "cacheVersion": "e0f6a4def390"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
       "pageNumber": 8,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-08.webp",
-      "sha256": "3a4f48c5b5ac05603a2d01870457421f755654023d766cad81169e7aec7684d1",
+      "sha256": "e62a51502df2a45c325dde279d91bda6669593525c0a460360f4c894fbc48365",
       "width": 1365,
       "height": 768,
-      "textSha256": "6a82a1b1cfc42f33d8c6ff3a5bb8ee320997d163a7af0fff24baf2ba230d1642",
-      "briefSha256": "2b8dd3f6697cc13435eeae4aa579b9dc0e97baad9da268557fb8879e87abac68",
+      "textSha256": "e4915728ab313ab33edd21758136c167a645406dfb8dbfeca6724a36ec3ae351",
+      "briefSha256": "ab6e1a284279496d83c6117e19b5d7429d6edd3ad4d94c7b7ec90f5e23b4bec3",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "3a4f48c5b5ac05603a2d01870457421f755654023d766cad81169e7aec7684d1",
-        "notes": "Original-detail review approved for Make a Paper Kite page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "e62a51502df2a45c325dde279d91bda6669593525c0a460360f4c894fbc48365",
+        "notes": "Clean outlined flying scene. Kite tilted to make white string visibly cross blue face to central knot rather than visually merge with corner/stick. One tail, five tape positions, adult supervision and safe open field retained.",
+        "reviewedAt": "2026-10-29"
       },
-      "sourceImageGenOutput": "exec-1e597030-52d2-445a-a913-7e4364a4ac0d.png"
+      "sourceImageGenOutput": "exec-f6a31f20-c042-4452-b77c-b56c66c3f2c8.png",
+      "cacheVersion": "e62a51502df2"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -3119,7 +3138,7 @@
       "sha256": "3983120fbf9745521b02a420ab56d4fee37169ff9fb06abfcc0420f0622cadd1",
       "width": 1365,
       "height": 768,
-      "textSha256": "b8acea82b9d05864a578027361b87c3011fa2ed9aad54f04506d7c44e9773b29",
+      "textSha256": "8b8529384000ec01290a953c37c92248e2f051dd556279d7fa9b887e3c2497e2",
       "briefSha256": "11b75a4dc8b4212fba68f52af2d4e360f6c3f1945c2c78c526c5e5540518e0a3",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -3127,7 +3146,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "3983120fbf9745521b02a420ab56d4fee37169ff9fb06abfcc0420f0622cadd1",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-63c2e71f-0f16-4c7c-b1e5-c12315ee1298.png"
     },
@@ -3146,7 +3166,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "33257e057e941563168318118162b237f651aaeb664d7ac661488dd45f9865c1",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-6d02f636-d0da-4591-9f54-0e1535e773a7.png"
     },
@@ -3165,7 +3186,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "77ee1d0cee7df7a5bfd3edd77d5eb4ee626852f3c7fa5c6ed1a7cfeabcbaff62",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-0af34d93-9359-4e64-9888-4706476d77f3.png"
     },
@@ -3184,7 +3206,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "d882d72717a0d3d203e74d9e3d904d1243de33ab3fbd5284c8ae167fffbbf629",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-79c11815-bb7e-4c59-b12b-48f9eeb3dee3.png"
     },
@@ -3203,7 +3226,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "7f13a56075d9510fa03bfb3c7eeaa348ac91bfae1cb4fabe5eac8fb6331d14b1",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-54b304ef-bdbf-4f1f-8d25-a2fd165bdd0f.png"
     },
@@ -3222,7 +3246,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "967dd66dcd8c6afed0a44c9642a305185398a88f8aa5e9a4bc1717b066fe50f7",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-4af6c07a-b830-4fef-bfa8-28432201857d.png"
     },
@@ -3241,7 +3266,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "1c83fb82e3ede9448bad7b7aef36b7de3000721ee9558d2bfbc322dfd1b67235",
-        "reviewedAt": "2026-09-22",
+        "reviewedAt": "2026-10-28",
         "notes": "Installed original opened and directly inspected: all four clear cups have white yogurt across the bottom, banana and berries in the middle, and yogurt on top; Zoe spoons the final top layer. This retains the sequence established on pages 4 and 5.",
         "evidencePaths": [
           ".artifacts/editorial-repair/human-art-handoff.json",
@@ -3293,7 +3318,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "b01bcc620f3957775226e84180bfadf769a6fddb8b8f112e781fec21cefc0d89",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-b349f81c-9943-4473-9d18-7119f3aed07c.png"
     },
@@ -3312,7 +3338,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "4c78756c636bdde2d8c40119ed70047ee89bdc1aebdde46b0edbf203d6c137c1",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+        "reviewedAt": "2026-10-28"
       },
       "sourceImageGenOutput": "exec-17a38dde-9bc2-4459-aa05-dada2c6ef4ae.png"
     }

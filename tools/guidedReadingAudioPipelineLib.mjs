@@ -16,6 +16,16 @@ export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
 }
 
+export function guidedReadingAudioFileId(record, voiceName) {
+  const spokenText = record.spokenText || record.lookupText;
+  // Keep the readable prefix below filesystem limits. The full text still
+  // participates in the digest, including words beyond the shortened prefix.
+  const prefix = record.lookupText.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "").slice(0, 220).replace(/-+$/g, "") || "spoken";
+  const digest = sha256(`${voiceName}|${record.role}|${record.lookupText}|${spokenText}|${record.auditoryReplacement ? "auditory-replacement-v1" : "standard"}`).slice(0, 10);
+  return `${prefix}-${digest}`;
+}
+
 export function readablePageText(page = {}) {
   return Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
 }

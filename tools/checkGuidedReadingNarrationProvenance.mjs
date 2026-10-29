@@ -18,6 +18,7 @@ import {
 } from "./guidedReadingAudioPipelineLib.mjs";
 import { buildGuidedReadingNarrationProvenanceModule } from "./guidedReadingNarrationProvenanceLib.mjs";
 import { auditScienceReadAloudNarration } from "./meadowPalsScienceGateLib.mjs";
+import { usesCharacterNarration } from "../src/data/sharedReadAloudContracts.js";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const generatedModulePath = path.join(
@@ -54,7 +55,7 @@ function corpusEvidence(pages) {
 
 function auditLedaNarrationProvenance({ verifySnapshot = true } = {}) {
   const inventory = buildGuidedReadingAudioInventory(
-    guidedReadingBooks.filter(book => book.readingBandProfile !== "read-aloud"), repositoryRoot
+    guidedReadingBooks.filter(book => !usesCharacterNarration(book)), repositoryRoot
   );
   const manifestEvidence = productionManifestEvidence();
   const corpus = corpusEvidence(inventory.pages);

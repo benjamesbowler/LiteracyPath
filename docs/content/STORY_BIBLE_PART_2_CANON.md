@@ -12,6 +12,22 @@ rules that prevent drift. A release that breaks a **MUST** rule does not ship.
 
 Part I contains the separate research-led children's-story writing standard.
 
+Additional original reader collections retain their own world-qualified canon.
+The **Small Steps** cumulative decodables use `SMALL-*` character IDs and the
+[Small Steps content bible](../guided-reading/SMALL_STEPS_CONTENT_BIBLE.md).
+Its locked five-character model sheet and page state ledgers govern that series;
+these characters are not variants of the farm, dinosaur or Moonwood cast.
+
+**Next Steps** reuses that same locked Small Steps cast. **Bright Ideas** uses
+the named Small Steps or Moonwood characters where its per-book cast calls for
+them, and factual subjects in its nonfiction. The
+[Foundations expansion Bible](../guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md)
+and each book's ordered state ledger govern these fifty additional readers.
+Pip and the original large, smooth pale-gray Stone retain their established
+Moonwood designs; a different guardian design from another book is not a
+replacement for Stone. The whole illustration, including its background,
+follows the [clean cartoon standard](../design/ILLUSTRATION_STYLE_STANDARD.md).
+
 ## 1. Canon hierarchy: never guess a character
 
 When sources disagree, use this order:

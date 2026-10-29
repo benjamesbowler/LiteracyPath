@@ -84,7 +84,7 @@ const NON_US_SPELLING_PATTERNS = Object.freeze([
 ]);
 
 const APPROVED_TITLE_SPELLING_EXCEPTIONS = Object.freeze({
-  "willow-street-make-fruit-and-yoghurt-cups": Object.freeze(["yogurt"])
+
 });
 
 function collectStrings(value, result = []) {

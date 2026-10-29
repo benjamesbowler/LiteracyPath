@@ -8,6 +8,18 @@ import { fileURLToPath } from "node:url";
 import { collectAppVisualReviewInventory } from "./appVisualReviewInventory.mjs";
 import { appVisualAssetReview } from "../src/content/appVisualAssetReviews.generated.js";
 
+const args = process.argv.slice(2);
+if (args.length === 1 && ["--help", "-h"].includes(args[0])) {
+  console.log("Usage: node tools/recordAppVisualReview.mjs [--receipts FILE [--retire PUBLIC_PATH]...]");
+  console.log("Receipts update only directly inspected paths. With no arguments, the complete inventory is recorded.");
+  process.exit(0);
+}
+for (let index = 0; index < args.length; index += 2) {
+  if (!["--receipts", "--retire"].includes(args[index]) || !args[index + 1] || args[index + 1].startsWith("--")) {
+    throw new Error("Unknown or incomplete visual-review argument: " + args[index]);
+  }
+}
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = path.join(root, "src/content/appVisualAssetReviews.generated.js");
 const reviewedAt = new Date().toISOString().slice(0, 10);

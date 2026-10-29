@@ -11,11 +11,16 @@ import { getPublicBookMetadata } from "../../src/utils/guidedReading/bookLevelMe
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const run = (file, args) => spawnSync(process.execPath, [path.join(root, file), ...args], { encoding: "utf8" });
 
-test("visual scope uses the reviewed A-H bands, including the read-together H book", () => {
+test("visual scope uses the reviewed A-H bands, including both read-together H books", () => {
   const result = run("tools/checkGuidedReadingVisualAlignment.mjs", ["--level", "H"]);
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /Pages: 12; approved: 12;/);
+  assert.match(result.stdout, /Pages: 24; approved: 24;/);
   const books = getRuntimeGuidedReadingBooks();
+  assert.deepEqual(books.filter(book => getPublicBookMetadata(book).appReadingLevel === "H")
+    .map(book => [book.id, book.pages.length]).sort(), [
+    ["bright-ideas-20", 12],
+    ["meadow-pals-science-01-missing-sandwich", 12]
+  ]);
   const expectedPages = books.filter(book => getPublicBookMetadata(book).appReadingLevel === "A")
     .reduce((count, book) => count + book.pages.length, 0);
   const a = run("tools/checkGuidedReadingVisualAlignment.mjs", ["--level", "A"]);

@@ -82,7 +82,7 @@ const SERIES = Object.freeze({
     style: `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage`,
     characterReference: Object.freeze({
       pip: "MOON-PIP — small brown-haired woodland boy in green with pointed ears; quick, curious and observant.",
-      stone: "MOON-STONE — very large gray stone giant with broad hands, always two to three times Pip's height; slow, literal and gentle.",
+      stone: "MOON-STONE — very large gray stone giant with rough gray stone skin, mossy shoulders, a bare rocky torso, a leaf waist wrap and broad hands, always two to three times Pip's height; slow, literal and gentle.",
       fern: "MOON-FERN — tall green fern sprite with fixed leaf-body silhouette; calm, musical and attentive to living things.",
       wren: "MOON-WREN — small dark-haired child witch in fixed blue-purple pointed hat and robe; inventive, eager and bookish.",
       luna: "MOON-LUNA — owl with cream facial disc, brown-gray feathers and real wing anatomy; observant, ethical and patient.",

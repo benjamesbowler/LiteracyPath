@@ -312,6 +312,12 @@
   overscroll-behavior: contain;
 }
 
+/* Individual word buttons must use the fitted reading size too; the legacy
+   compact-library rule must not shrink their printed words to 16px. */
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-word {
+  font-size: inherit !important;
+}
+
 @media (max-width: 1200px) {
   .guided-transport .guided-transport-label {
     display: none;
@@ -405,6 +411,69 @@
   }
 }
 
+/* Longer shared-reading pages need a larger text band on a short phone.
+   Retain the entire illustration while keeping every printed word visible. */
+@media (max-width: 600px) and (max-height: 700px) and (orientation: portrait) {
+  .guided-reading-reader-open .guided-reader-shell.picture-book[data-reading-flow="word-targets"] .guided-page-layout {
+    grid-template-rows: minmax(0, 40fr) minmax(0, 60fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout[data-text-layout="long"] {
+    grid-template-rows: minmax(0, min(37.5vw, 22dvh)) minmax(0, 1fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
+    /* Optional reading tools create their own rows when present. Empty rows
+       must not take two extra gaps from the printed story on a short phone. */
+    grid-template-rows: minmax(0, 1fr);
+  }
+  /* Word help temporarily shares a row with the whole illustration. Stacking
+     both above the story can hide beginner word targets or longer prose. */
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) .guided-page-image-card {
+    grid-column: 1;
+    grid-row: 1;
+    contain: size;
+    min-height: 72px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) .guided-page-reading {
+    display: contents;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout:has(.guided-decoding-support) .guided-page-text-frame {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: auto;
+    margin: 6px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 6px 6px 0 0;
+    padding: 6px;
+    gap: 4px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support > div:first-child {
+    gap: 2px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support p {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-support small {
+    display: none;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-segments {
+    gap: 4px !important;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-decoding-segments span {
+    min-width: 20px;
+    padding: 2px 4px;
+  }
+}
+
 @media (max-width: 480px) and (orientation: portrait) {
   .guided-transport {
     display: grid;
@@ -455,6 +524,11 @@
 .guided-record-options:not([open]) > div { display: none; }
 .guided-reader-shell .guided-mode-toggle button { min-height: 56px; }
 .guided-transport .guided-return-control .guided-transport-label { display: inline; }
+/* Keep the labelled return action on wider screens. On phones its accessible
+   name remains available while the icon fits beside Next and More. */
+@media (max-width: 600px) {
+  .guided-transport .guided-return-control .guided-transport-label { display: none; }
+}
 .guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio { color: var(--lp-ink) !important; background: var(--lp-cream) !important; border-color: var(--lp-line) !important; box-shadow: none !important; }
 .guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio.active { background: var(--lp-sky) !important; box-shadow: inset 4px 0 var(--lp-sage) !important; }
 @media (min-width: 820px) { .guided-transport .guided-read-page-audio .guided-transport-label { display: inline; } }

@@ -29,7 +29,8 @@ const canonicalPath = path.join(
 );
 const sourceManifestPaths = [
   "docs/guided-reading/willow-street-illustrated-media-manifest.json",
-  "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+  "docs/guided-reading/willow-street-photoreal-media-manifest.json",
+  "docs/guided-reading/willow-street-cartoon-media-manifest.json"
 ];
 
 function sha256(value) {

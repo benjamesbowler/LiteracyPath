@@ -7,10 +7,16 @@ The live book modules are the authority:
 - `src/data/guidedStoryBooks.js`
 - `src/data/firstFactsActualLevelABooks.js`
 - `src/data/guidedReadingBridgeBooks.js`
+- `src/data/guidedReadingSmallStepsBooks.js`
+- `src/data/guidedReadingNextStepsBooks.js`
+- `src/data/guidedReadingBrightIdeasBooks.js`
 - `src/data/guidedReadingBookMetadata.js`
 - `src/data/guidedReadingDiscussionPrompts.js`
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
+
+The integrated catalogue contains 297 books and 2,621 pages: 23 A, 86 B,
+63 C, 56 D, 15 E, 36 F, 16 G and 2 H.
 
 Every book uses one public **App level A–H**, assigned by full-manuscript
 editorial review. The [reading-level authority](READING_LEVELS_AND_TEXT_MEASURES.md)
@@ -23,7 +29,7 @@ Reading mode and phonics prerequisites remain explicit: decodable,
 predictable/levelled and supported read-together describe different reading
 tasks. Existing A/B/C fields remain internal compatibility inputs for practice
 layout and old progress; they must not appear as a competing public book scale.
-The review did not change manuscripts, narration, learner placement or results.
+Public level calibration does not change learner placement or historical results.
 
 Child library cards use content-addressed 512px delivery copies of their approved
 canonical cover art. Build them with `node tools/buildGuidedReadingCoverRenditions.mjs`
@@ -36,6 +42,18 @@ full resolution. The delivery manifest does not redefine book or artwork authori
 Each shelf card also names its reading mode: **Decodable**,
 **Predictable / Levelled**, or **Supported Read-Together**. The letter level is
 not a claim that one book is all three.
+
+Small Steps adds 20 original decodable books (150 story pages), ordered after
+Cycles 10–24. Its [content Bible](SMALL_STEPS_CONTENT_BIBLE.md) governs the
+reviewed word code, explicit exception words, character canon and media quality.
+The teacher sees prerequisites; a cycle label is not a learner assessment.
+
+The next 50 books are governed by the [Foundations expansion Bible](FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md):
+30 cumulative decodable Next Steps books and 20 leveled Bright Ideas books.
+Their manuscript, phonics and media requirements remain distinct. Exact visual
+decisions are recorded in the [expansion review](foundations-expansion-visual-review.json).
+Release verification is recorded separately; an active local module alone is
+not a deployment claim.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as
@@ -87,6 +105,7 @@ The Willow Street release authorities are:
 - `docs/guided-reading/WILLOW_STREET_VISUAL_CONTINUITY.md`
 - `docs/guided-reading/willow-street-illustrated-media-manifest.json`
 - `docs/guided-reading/willow-street-photoreal-media-manifest.json`
+- `docs/guided-reading/willow-street-cartoon-media-manifest.json`
 - `docs/guided-reading/willow-street-visual-review.json`
 - `npm run check:guided-reading-discussion-prompts`
 - `npm run check:guided-reading-story-bible`

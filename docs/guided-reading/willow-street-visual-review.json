@@ -2298,20 +2298,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/cover.webp",
       "displayedText": "Inside a Fire Station",
       "textSha256": "ad2a0f32ed764185f63f3a35ec253990f038482a3b5bed1c94e56bcdfff10ee3",
-      "visualBriefSha256": "e268732c339bd522edd11004414a5f76957574f3d4d0fd4c7e65fbcbeb580054",
-      "imageSha256": "161a0be3c28120d61776f7d7b47cb25e221c4128ba942022b88217d0e817c66f",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "11ea3a894a60fe3273b4950b8c9c01463604556b1908e454893bd2d33bd58680",
+      "imageSha256": "f129caf02771f29ceb10b47916b5804d061b77ddb7acece7627e47cf97b47acf",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station cover: unbranded station, secured equipment, and realistic crew; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2321,20 +2321,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-01.webp",
       "displayedText": "Firefighters check their engine, tools, and safety gear.",
       "textSha256": "cf76b65b741a5eaa24a7e567c023b5e1aebd2a14a5bf0b0fd934fc9fa6323135",
-      "visualBriefSha256": "ff0e4e03d9a4275f22d9b750e0a032d9dccf31a9d03755f69ca591699bcfd821",
-      "imageSha256": "13b9e23c1867ff1d640e018f6ed6035697fcbcbf620865dc196f0d9377ac9170",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "d2f97f18cc1a625b58c886a4716118e4dd049a2191827b956ff4199b5400cb26",
+      "imageSha256": "239d64f9e0cc771f47845b7f86bedadbfbb8b5e9d71fa909ce2fda54f9f4be29",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 1: hose, breathing gear, and compartments checked safely; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2344,20 +2344,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-02.webp",
       "displayedText": "A dispatcher sends details when someone needs help.",
       "textSha256": "bcb6d6be191d29cae353522e8465585c3e15e4feb2fbf818a31f0d43c2613248",
-      "visualBriefSha256": "e284111ae6c43bbece1d6f16fe9901cc5e187b18c54be1ecc2fcc7b6a9c8d748",
-      "imageSha256": "6b3ed5cdf7d78a4a4816efe27c534e8c725a038077a5201c8ea3ea5039c4f998",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "9a2952b0b5b0d613ab4da0d696d106e83998b8ceff6a4ec9841106a75865cd17",
+      "imageSha256": "470189e540da84c1ea36d1be3f8f38912d1748f376fbf156cdd6b5bf09fe8982",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 2: private dispatch details unreadable; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2367,20 +2367,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-03.webp",
       "displayedText": "Firefighters pull on protective clothing before they leave.",
       "textSha256": "b46d0e09a0be82dad3b532a46b068d25c986b9db972afc913f3ad51baf0fe2c8",
-      "visualBriefSha256": "a4ad4c3c1b5efbb2c985f11c68406313e931f1a0f72eae131d61c46484a95727",
-      "imageSha256": "1ef91889ce90be6457b133bc7f877bda81c40a4bc914ccb7f1456299e65f4784",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "2a583f83eec62a457b6f0bdec0a1b59e1b5cda20f2f41e89681053e635668403",
+      "imageSha256": "0f0f60bca86102efc5ede4c087cf0aa2a3133d5b5246c24c7b3a90b3f96da1a3",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 3: complete protective clothing sequence; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2390,20 +2390,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-04.webp",
       "displayedText": "The engine carries people, water, hoses, and tools.",
       "textSha256": "c99b1544640e1ae82c9fd2b755aeadb5773678228e7f556c6060bfc3b01bde01",
-      "visualBriefSha256": "a809b66c91e640250b9bf5972dd733a4b8fc591687700f55075660ee9ba07dcd",
-      "imageSha256": "1bcdae2dd41026acbfc501abd6e0dae898de66a0d68a1d751ba22100ff3e34ba",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "815e1b8c9ecb8f68c8f569ee4f3aa6556731006e80b53a4115bdd9132808d885",
+      "imageSha256": "3fc70be14e219b20232aa5e0d7e041b79ea2a7f021787e993174f12d87cd8720",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 4: organized engine water, hose, tools, and seats; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2413,20 +2413,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-05.webp",
       "displayedText": "At emergencies, firefighters work together under one leader.",
       "textSha256": "2a8173081a0d537e1621afd28f45ff3b0d44e351d1fdbd0a5d66b2e248adf613",
-      "visualBriefSha256": "7762a2f3521849c12a017a3517cc999e317e16f6f7e8923c00c3590400f1d032",
-      "imageSha256": "f0df532fd9ccd8f3fbc119efe04237ed509bdadd6f76ec1a571e718af541955c",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "4803d3000a944a76e547e3815a203e5612fa2e207e71a6d2f8b38e9a46d92dd2",
+      "imageSha256": "b1d607a769a005b2b3fea17bc280d8448254db58b0189b1e785573303762a14d",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 5: crew responding to one leader at a training target; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2436,20 +2436,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-06.webp",
       "displayedText": "They may stop fires, rescue people, or give first aid.",
       "textSha256": "c1083151bd24c9ba090fc7a53379bf8ec4edf160edfbb2f0a331cc495dd380d3",
-      "visualBriefSha256": "77e1f827fa130033038bde4bff747db99c9787af63cf6c2642f51aa615c5d0bb",
-      "imageSha256": "68a422bc323234d3eb088487be09f3dece5099316c1f75141c338032496cc55f",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "01ecf0bcb2a0ce6443dd75bdae22077094e648a63cd616b6b96e3e10175eafb2",
+      "imageSha256": "ac7dc7cef8fcc3fafbfe5051b6f2274c614ce2dd777710af93cd334f03b640c1",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 6: logo-free hose and cone practice without emergency spectacle; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2459,20 +2459,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-07.webp",
       "displayedText": "Back at the station, every tool is cleaned and checked.",
       "textSha256": "839f8b20886485ff4420f96b9c3f80a3bd988e4ed4590c99db639e1b164e7a52",
-      "visualBriefSha256": "704bd8669d13b5293763d203b23a68dbcf5e15b8a36e5f3676009340c742d0f2",
-      "imageSha256": "7ff781e9c78506fc90a571a79a20ae80be2ec2803dd4da5c46fde9ae097a40e9",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "0117d06d07ef11eb41d682ac9d0a26aeea1cdbea21a4cbe1191ca092607cd8bd",
+      "imageSha256": "dd2f16757ed087e40e65ac8e43ece85ed8d064e717dddf06eb22323ad0b3c75a",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 7: washed hose and safely managed wet work area; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-inside-a-fire-station",
@@ -2482,20 +2482,20 @@
       "path": "/guided-reading/willow-street/inside-a-fire-station/page-08.webp",
       "displayedText": "Firefighters train often, ready for the next call.",
       "textSha256": "2b33346c49db2add8c957288fadffeb769ad374457efd7c19f2efe450481c26c",
-      "visualBriefSha256": "574a861acdb7eb490a401c47b13d2c27cb92d287852ef6d1c0d9f9f97c793e98",
-      "imageSha256": "3eb58b8e2cf53f9c9abbba93eb819ddc08488cb8c19b03534b3a0edb13023c8b",
-      "visualTreatment": "self-created-photorealistic",
+      "visualBriefSha256": "12a8514ac9fa9d901c967a6384d7d250ecf159192e514f6aeef2072a2c520067",
+      "imageSha256": "48e240a23df6c10c2bcfb1af5b75a02ed61554b0c9009cc01105680f291c3ab4",
+      "visualTreatment": "self-created-cartoon",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Inside a Fire Station page 8: ladder drill under calm instructor supervision; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose.",
+      "sourceManifest": "docs/guided-reading/willow-street-cartoon-media-manifest.json"
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
@@ -2505,19 +2505,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/cover.webp",
       "displayedText": "Make a Paper Kite",
       "textSha256": "8eddf839fa3a7d6df520bc2433bcf30c1a11e310ff57048988acb3f4c65806c3",
-      "visualBriefSha256": "7d0c82dd7b2ca980965e6503dab11c43c1dc944dc2b11bfbc8ab42942a2dcc8c",
-      "imageSha256": "cfc82d260170ca27e4b735541180df9003bd5f22327860d6486b0b41ede39eb4",
+      "visualBriefSha256": "550755d528db9605b5024bb8e3fd4f3ee89d212db755eaa3c8a8facaf53ade81",
+      "imageSha256": "2137cb497b289839bcea1ba47b6260c453f1d4e7556f98736f6ae8ca65440136",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined distinct cover flight composition with centre-attached line, one tail, all tape patches and same cast. Replaced fuzzy clouds with clean smooth flat silhouettes.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -2528,12 +2528,12 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-01.webp",
       "displayedText": "Ask an adult to cut a paper diamond.",
       "textSha256": "410242a419f60757200c4f4b422ba3333d7f8fd528c471c959134bd17111a35f",
-      "visualBriefSha256": "3c7a753207b2f95492ad3b6fea1ba2ec4bc75ee4c482c96c926a26197c866fd1",
+      "visualBriefSha256": "7b04c25e3c097ce6b8b2ce584d35c758e5d7c7baf35737017be3ec394fb6ef5c",
       "imageSha256": "877693a544a2faa2a3b3b4bab4df1d95c203b420c8b37ab1876a9fa8acf0e372",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2551,19 +2551,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-02.webp",
       "displayedText": "Lay two light sticks across the diamond.",
       "textSha256": "a2ee8c2bb40678917e0621a90cb8b2444364338f1b5cc68552cd80ef7929bc54",
-      "visualBriefSha256": "f34e796fa95080d73ca816e31f69fac0854d4e9f76ddb8096dc9f3a8f7d3fa2f",
-      "imageSha256": "e8959761ba5f35bb75cfa641613c716c9fa094f8c8b9a50faf0b7d8b8c31c01c",
+      "visualBriefSha256": "4b73d857c1f3a227290e6b977bc2271db82dc76741d3f8123de5c9aed239a92b",
+      "imageSha256": "a19ed524e052b0a609e3793b7a5d5ed09d55de8f821e9ed36d42dd7715ba9099",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined same Samir/adult, two sticks laid across blue diamond before tape; ribbon and spool still loose. Natural hand count and cream quiet area.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -2574,19 +2574,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-03.webp",
       "displayedText": "Tape both sticks firmly to the paper.",
       "textSha256": "65f2e5e0a631a66abd1a09f7c305d85284dea7830f981f3f00e87886403f5861",
-      "visualBriefSha256": "d053bb0bc46220a1f52558a1cc7997c795f8477a2d53a986863734148ee8bcae",
-      "imageSha256": "eda87f9d94ca42f5d30cd82445c408eb369c2ac1a393469a06cb2ee5642286ee",
+      "visualBriefSha256": "9f85aeb94456bb48112240d8c591815fd2b68ebeff42122950599f021cd9980f",
+      "imageSha256": "02cddd14cc3bbdf3112a608a0c5518f2291a3d993489d66a83f7fc41e37b537b",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined same adult/Samir, four endpoints and centre visibly taped; loose ribbon and spool preserve construction order. Cream quiet area.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -2597,19 +2597,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-04.webp",
       "displayedText": "Tie a ribbon tail to the bottom.",
       "textSha256": "d86754f6d45cf4a1ffa81f4217a03121568a8e13d5ae20c33683657270b30b69",
-      "visualBriefSha256": "86e653858d69f0944ff270dc7d39adbd332c01908a158bc8e3879f33c06c10e1",
-      "imageSha256": "39ed5466b347975727cc26b369f2bd0055590f55201a6c5b66468fe70b64044c",
+      "visualBriefSha256": "1b4ac237a2655f4ece50c5707b9649d98d7193a09f216408724196e404f51046",
+      "imageSha256": "743070b8a3c216006e28e2a6eebb39017fd366f2668a84dd1c4ad1eca3361b81",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined adult assists ribbon-tail knot at bottom tip; taped sticks remain fixed and spool is still separate. Same identities, one ribbon and cream quiet area.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -2620,19 +2620,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-05.webp",
       "displayedText": "Ask an adult to tie the line where the sticks cross.",
       "textSha256": "d4a10e1f1083c11e5681cc68495c164323c3e0866639b79ef999b1ea2eea5e78",
-      "visualBriefSha256": "9857b7c983b1f8a72bb19deda861eebc5e0fe55bdbf1c4700874782854863246",
-      "imageSha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
+      "visualBriefSha256": "7ef042b949d40169f86b3e353d5f1b375e8fafb19140d58cb2f6113cb8976365",
+      "imageSha256": "1a7e2308d04ec26d08e5d7db83d55450abb78f2493ee4fc2624c6271187c722e",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined adult ties white flying line at central stick crossing, Samir holds spool; one blue tail and endpoint/centre tape retained. Same identities and cream quiet area.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
@@ -2664,19 +2664,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-06.webp",
       "displayedText": "Check the kite's tape, tail, and line together.",
       "textSha256": "9c7217c7db548fa3cdec738ba26a9b021c65dcbb1de91a716b8bd967ee1d4e62",
-      "visualBriefSha256": "5059153825fdbb942cbda1a44e6e648d7637654b0ebd779274f2766c8969d6fb",
-      "imageSha256": "2f36b699123107268d60d58992db1a15b8c39f3771067dc8483363c87e8adbf3",
+      "visualBriefSha256": "8f9af6bbf9a79e45614c1f7c484194c081d450ba70b3ab688b542a9dbf39fbf3",
+      "imageSha256": "de8b5ad7368d8ee3b06d4cc45b18c87137637e769f0a344832196a6743c2d9a1",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined paired check of tape, one ribbon tail and centre-attached line/spool; stable identities and natural hands, cream lower area.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -2687,19 +2687,19 @@
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-07.webp",
       "displayedText": "Choose open ground, far from roads and wires.",
       "textSha256": "b7d3fc7761904fc50a3cf5baa5065191bc04e9e03d04dc143a5e56a4fce17d9d",
-      "visualBriefSha256": "996597df0829416337014638df9d2c1590cb13583406dae94908108bf3a2cc67",
-      "imageSha256": "dec21d1036c18fb6f9fd08111dd39a4f286c8db6e87a012ddb0d395fcb2fd899",
+      "visualBriefSha256": "b5eabbe64e39020dd33e0ca9a0d47e9bf2cfadc53398c6a6ba7e6371c418f7de",
+      "imageSha256": "e0f6a4def390074f0ea2d42ab10a815ff0dfe54db3ae45709ff69ad843b1ac19",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined safe open-field selection. Corrected line visibly connects carried spool to kite centre; all tape and single ribbon tail retained.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -2708,37 +2708,37 @@
       "assetType": "reading-page",
       "pageNumber": 8,
       "path": "/guided-reading/willow-street/make-a-paper-kite/page-08.webp",
-      "displayedText": "Face the breeze and let the kite rise.",
-      "textSha256": "6a82a1b1cfc42f33d8c6ff3a5bb8ee320997d163a7af0fff24baf2ba230d1642",
-      "visualBriefSha256": "2b8dd3f6697cc13435eeae4aa579b9dc0e97baad9da268557fb8879e87abac68",
-      "imageSha256": "3a4f48c5b5ac05603a2d01870457421f755654023d766cad81169e7aec7684d1",
+      "displayedText": "Keep the wind behind you and let the kite rise.",
+      "textSha256": "e4915728ab313ab33edd21758136c167a645406dfb8dbfeca6724a36ec3ae351",
+      "visualBriefSha256": "ab6e1a284279496d83c6117e19b5d7429d6edd3ad4d94c7b7ec90f5e23b4bec3",
+      "imageSha256": "e62a51502df2a45c325dde279d91bda6669593525c0a460360f4c894fbc48365",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for Make a Paper Kite page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified.",
+      "notes": "Clean outlined flying scene. Kite tilted to make white string visibly cross blue face to central knot rather than visually merge with corner/stick. One tail, five tape positions, adult supervision and safe open field retained.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "cover",
       "pageNumber": 0,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/cover.webp",
-      "displayedText": "Make Fruit and Yoghurt Cups",
-      "textSha256": "b8acea82b9d05864a578027361b87c3011fa2ed9aad54f04506d7c44e9773b29",
+      "displayedText": "Make Fruit and Yogurt Cups",
+      "textSha256": "8b8529384000ec01290a953c37c92248e2f051dd556279d7fa9b887e3c2497e2",
       "visualBriefSha256": "11b75a4dc8b4212fba68f52af2d4e360f6c3f1945c2c78c526c5e5540518e0a3",
       "imageSha256": "3983120fbf9745521b02a420ab56d4fee37169ff9fb06abfcc0420f0622cadd1",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2750,7 +2750,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 1,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-01.webp",
@@ -2761,7 +2761,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2773,7 +2773,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-02.webp",
@@ -2784,7 +2784,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2796,7 +2796,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-03.webp",
@@ -2807,7 +2807,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2819,7 +2819,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-04.webp",
@@ -2830,7 +2830,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2842,7 +2842,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 5,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-05.webp",
@@ -2853,7 +2853,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2865,7 +2865,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 6,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp",
@@ -2876,7 +2876,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-22",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2910,7 +2910,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-07.webp",
@@ -2921,7 +2921,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -2933,7 +2933,7 @@
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
-      "title": "Make Fruit and Yoghurt Cups",
+      "title": "Make Fruit and Yogurt Cups",
       "assetType": "reading-page",
       "pageNumber": 8,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-08.webp",
@@ -2944,7 +2944,7 @@
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -3236,19 +3236,19 @@
       "path": "/guided-reading/willow-street/the-garden-gate/page-02.webp",
       "displayedText": "Maya pulls once, but the gate stays still.",
       "textSha256": "9161db0453daa3affdb3ee0d73770de47ff010e2904068ea0a33c7effb7ebf43",
-      "visualBriefSha256": "0bac7fb71d04682934c7f151d09e8935f45c8985946e75cfc9feb8ea5743470d",
-      "imageSha256": "0c6133f15ee14bc0190cd370b77e01463f42bc5069c7cc7da3b5c2d2a0d45b05",
+      "visualBriefSha256": "96fcafdd2f6acfd9e6818a428d03b1ef55c265133c833b92b714ffd4998c466a",
+      "imageSha256": "938e0f777543d0284f8f617cf6740c67a156abf5e88676ca1a26f7e9a4297832",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex direct native and ordered sequence review",
+      "reviewedAt": "2026-10-29",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone.",
+      "notes": "Clean outlined Maya pulls blocked green gate, braced feet, one hand on handle; Leo's restored freckled auburn identity and stone beneath lower rail retained. Plain cream lower area.",
       "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
     },
     {
@@ -4943,14 +4943,14 @@
       "assetType": "reading-page",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/where-rainwater-goes/page-04.webp",
-      "displayedText": "Roof gutters carry water into pipes or water butts.",
-      "textSha256": "a4d8e7868825c5edbf2b654107245b9473579aad72647ee62a7cc134e6f06663",
+      "displayedText": "Roof gutters carry water into pipes or rain barrels.",
+      "textSha256": "ba076cf0fe619f3262b154a6daa067ed6951044c1cbfb533c9022b1a8dd62aee",
       "visualBriefSha256": "8574d42de2fdad63cf3954fe8abfc8d734f43aeff43818833e306c338d3f79e7",
       "imageSha256": "38184f053da1250bc28658a6b4e956b0561acb8fb77624b1fa7775cd8c2f8ede",
       "visualTreatment": "self-created-photorealistic",
       "provenance": "self-created",
       "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewedAt": "2026-10-28",
       "viewport": {
         "width": 1365,
         "height": 768,
@@ -5058,5 +5058,10 @@
     "changedAssets": 40,
     "changedImages": 3,
     "evidence": ".artifacts/editorial-repair/visual-audit-refresh-handoff.json"
+  },
+  "cartoonRefresh20261029": {
+    "bookId": "willow-street-inside-a-fire-station",
+    "assets": 9,
+    "reason": "User requires clean cartoon style for all new images; entire book redrawn to preserve visual continuity."
   }
 }

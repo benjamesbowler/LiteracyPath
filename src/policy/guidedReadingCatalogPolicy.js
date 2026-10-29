@@ -1,4 +1,5 @@
 import { getGuidedReadingBookMetadata } from "../data/guidedReadingBookMetadata.js";
+import { declaredNextStepsLessons } from "../data/nextStepsPhonicsLessons.js";
 
 const BAND_LABELS = Object.freeze({
   standard: "C Standard",
@@ -41,6 +42,13 @@ export function guidedReadingBandLabel(profile, level = "") {
 
 export function guidedReadingModeLabel(mode) {
   return MODE_LABELS[mode] || "";
+}
+
+export function guidedReadingBookModeLabel(book = {}) {
+  const lessons = declaredNextStepsLessons(book).length;
+  return book.readingMode === "decodable" && Number.isInteger(book.decodableScope?.afterCycle)
+    ? `Decodable · after Cycle ${book.decodableScope.afterCycle}${lessons ? ` + ${lessons} blending lesson${lessons === 1 ? "" : "s"}` : ""}`
+    : guidedReadingModeLabel(book.readingMode);
 }
 
 export function childGuidedReadingModeLabel(bookOrMetadata = {}) {
