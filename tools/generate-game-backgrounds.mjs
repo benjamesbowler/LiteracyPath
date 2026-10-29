@@ -14,6 +14,7 @@
  *   node tools/generate-game-backgrounds.mjs
  *   git add public/images/games/bg-*.webp && git commit -m "Letter Leap world backgrounds"
  */
+import { CLEAN_CARTOON_ILLUSTRATION_STYLE } from "../src/content/illustrationStyle.js";
 import { mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import sharp from "sharp";
@@ -28,7 +29,7 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-const STYLE = "wide side-scrolling 2D platformer game background, layered parallax depth, seamless horizontal, soft atmospheric haze, premium hand-painted game art, rich colour, NO text, no words, no characters, no UI, no foreground platforms";
+const STYLE = `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Wide side-scrolling 2D platformer game background, layered parallax depth, seamless horizontal, controlled lighting, no text, no words, no characters, no UI, no foreground platforms.`;
 
 const BGS = [
   { file: "public/images/games/bg-meadow.webp", scene: "a lush sunny cartoon meadow, rolling green hills, scattered leafy trees, wildflowers, soft fluffy clouds in a bright blue sky, warm cheerful daylight" },

@@ -4,6 +4,12 @@
 
 Assessment imagery is part of the item, not cosmetic polish. A question is valid only while every image needed to understand its stimulus or answer choices is available and has an equivalent accessible name.
 
+New and replacement illustrations follow the
+[app illustration style standard](ILLUSTRATION_STYLE_STANDARD.md): bold, clean,
+clear cartoons with crisp outlines, flat colors and controlled cel shading.
+Older watercolor or painted-paper prompt wording is superseded. Keep each exact
+word, object, action and necessary teaching contrast clear.
+
 ## Required contract
 
 - Stimulus, prompt, and answer-choice images use `data-assessment-media-kind="evidence"` and a specific `data-assessment-media-role`.

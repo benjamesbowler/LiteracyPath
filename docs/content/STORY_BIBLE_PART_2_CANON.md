@@ -67,8 +67,8 @@ story unless a separately approved crossover explicitly explains it.
 dialogue
 **Locations:** Cozy Cave, Berry Bush Corner, Big Flat Rock, Muddy Puddle Pool, stream,
 fernwood and long meadow
-**Visual language:** colourful prehistoric valley, rounded forms, smooth painted shapes,
-cheerful colour, gentle 2D shading and large readable gestures; never embossed, grainy,
+**Visual language:** colourful prehistoric valley, rounded forms, crisp continuous outlines,
+flat clean colour, controlled cel shading and large readable gestures; never embossed, grainy,
 pebbled, relief-like, fake-canvas, hyper-textured or over-sharpened
 **Permitted magic:** established character anatomy such as Bouncy’s spring legs; otherwise
 events must follow the world’s physical rules
@@ -85,7 +85,7 @@ earned emotion
 **Locations:** Hollow Oak, Crystal Stream, Fog Marsh, Deep Dark, old roots, glow cave,
 Fern’s garden and star rooms
 **Visual language:** moonlit woodland fantasy in a bright, clean, classic children's-cartoon
-rendering style, with smooth painted shapes, coherent scale, controlled glow and rich but
+rendering style, with crisp continuous outlines, flat clean colours, coherent scale, controlled glow and rich but
 readable backgrounds; never embossed, grainy, pebbled, relief-like, fake-canvas,
 hyper-textured or over-sharpened
 **Permitted magic:** only established character abilities, artefacts and rules. A magical
@@ -266,11 +266,16 @@ Every multi-character image prompt MUST state relative height in words or ratios
 
 ## 5. Illustration bible
 
+The [app illustration style standard](../design/ILLUSTRATION_STYLE_STANDARD.md)
+governs every new and replacement illustration, including the background.
+It supersedes older painterly instructions in briefs, prompts and reference packs.
+
 ### 5.1 Every page image must
 
-- use bright, clean, classic children's-cartoon rendering with smooth color, crisp
-  silhouettes and controlled shading; reject embossed, grainy, pebbled, relief-like,
-  fake-canvas, hyper-textured or over-sharpened finishes;
+- use bold, clean, clear 2D cartoon rendering with crisp continuous outlines,
+  flat clean colors, clear silhouettes and controlled cel shading; reject painterly,
+  gouache, watercolor, brush-daubed, patchy-paint, paper-grain, embossed, pebbled,
+  relief-like, fake-canvas, hyper-textured or over-sharpened finishes;
 - depict the exact current story beat;
 - show the protagonist and the state object when the text depends on them;
 - preserve character model, colour, markings, clothing and scale;

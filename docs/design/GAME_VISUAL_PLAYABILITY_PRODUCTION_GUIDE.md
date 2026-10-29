@@ -12,6 +12,12 @@ an authored, visually coherent and genuinely playable game. It implements the
 Game Design Bible; it does not replace or weaken its learning, accessibility,
 privacy, safety or device requirements.
 
+New and replacement illustrated scenery, props, maps and reward art follow the
+[app illustration style standard](ILLUSTRATION_STYLE_STANDARD.md). Use bold,
+clean, clear cartoon outlines, flat colors and controlled cel shading across
+both subjects and backgrounds. Older painterly/gouache/material-texture briefs
+are superseded. Existing modeled 3D worlds retain their separate art contracts.
+
 The current Learn Games source catalogue contains 27 registered games: 18 carry
 the Arcade surface flag and nine retain their original practice classification.
 The eligible Hub groups sixteen under Arcade and eleven under Phonics games.

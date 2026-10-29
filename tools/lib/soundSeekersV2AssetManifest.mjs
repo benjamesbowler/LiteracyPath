@@ -1,3 +1,6 @@
+// Historical sealed V2 prompt contract: retained to verify existing generation receipts.
+// Do not use its painted-medium snapshots for new art. Current illustration direction:
+// docs/design/ILLUSTRATION_STYLE_STANDARD.md.
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";

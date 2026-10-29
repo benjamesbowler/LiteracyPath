@@ -8,6 +8,7 @@
  *       (ARK_MODEL=seedream-4-5-251128 to use 4.5 - sizes handled)
  * Re-run to retry failures; ONLY=<word> to redo one.
  */
+import { CLEAN_CARTOON_ILLUSTRATION_STYLE } from "../src/content/illustrationStyle.js";
 import { readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
@@ -63,7 +64,7 @@ async function generate(prompt) {
   return Buffer.from(await (await fetch(item.url)).arrayBuffer());
 }
 
-const STYLE = "Realistic-cartoon storybook illustration for a children's reading app, soft warm watercolor style, clean gentle outlines, plain very light warm cream background.";
+const STYLE = `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Plain very light warm cream background.`;
 const RULES = "STRICT: no face, eyes, or smile on any object; no rainbow colours; no sparkles; no glow or aura; not babyish. Exactly one clear subject. No text, no letters, no watermark, no border.";
 
 const TASKS = [
