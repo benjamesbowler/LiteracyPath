@@ -15,6 +15,94 @@ const books = selectedIds ? all.filter(book => selectedIds.includes(book.id)) : 
 const words = text => String(text).match(/[A-Za-z]+(?:['’][A-Za-z]+)*/g) || [];
 const sizes = [{width:768,height:1024},{width:320,height:568}];
 
+// Match the production Books-library mount: class mode, all three audience
+// actions, an optional teaching guide, and no selected learner or saved record.
+for (const viewport of [{width:1470,height:830},{width:1024,height:768},{width:768,height:1024},{width:320,height:568}]) {
+  for (const bookId of ['gr-a-26','small-steps-01','next-steps-04','bright-ideas-18','bright-ideas-20']) {
+    test(`teacher audience preview ${bookId} stays visible at ${viewport.width}x${viewport.height}`, async ({page},info) => {
+      await page.setViewportSize(viewport);
+      await page.emulateMedia({reducedMotion:'reduce'});
+      await page.goto(`/preview/guided-reading-preview.html?book=${bookId}&mode=class&audience-actions&assignment`);
+      const reader=page.locator('.guided-reader-shell');
+      const card=reader.locator(':scope > .guided-reader-card');
+      await expect(reader).toHaveClass(/picture-book/);
+      await expect(reader).not.toHaveClass(/fullscreen/);
+      const audience=reader.getByRole('region',{name:'Use this book'});
+      for(const label of ['Read with a student','Read together','Assign independently']) {
+        const button=audience.getByRole('button',{name:label,exact:true});
+        await expect(button).toBeInViewport();
+        expect((await button.boundingBox()).height).toBeGreaterThanOrEqual(44);
+      }
+      const guide=reader.locator(':scope > .guided-book-analysis-detail');
+      await expect(guide).toHaveCount(bookId==='gr-a-26'?0:1);
+      const image=reader.locator('.guided-page-image');
+      await expect.poll(()=>image.evaluate(node=>node.complete&&node.naturalWidth>0)).toBe(true);
+      // A collapsed preview must show a real part of the illustration before
+      // scrolling; teachers must not arrive at a blank book stage again.
+      await expect.poll(()=>image.evaluate(node=>{
+        const r=node.getBoundingClientRect();
+        return Math.min(innerHeight,r.bottom)-Math.max(0,r.top);
+      })).toBeGreaterThan(40);
+      await page.screenshot({path:info.outputPath('audience-preview-initial.png')});
+      const checkVisiblePage=async()=>{
+        // A small teacher screen scrolls its auxiliary controls above the
+        // intact reader. This never scrolls or hides individual printed words.
+        await card.scrollIntoViewIfNeeded();
+        await expect(reader.locator('.guided-page-text')).toHaveClass(/is-ready/);
+        await expect.poll(async()=> (await image.boundingBox()).height).toBeGreaterThanOrEqual(72);
+        await expectPrintedWordsVisible(reader);
+        const box=await image.boundingBox();
+        expect(box.y).toBeGreaterThanOrEqual(-1);
+        expect(box.y+box.height).toBeLessThanOrEqual(viewport.height+1);
+        for(const control of [reader.getByRole('button',{name:'Read page',exact:true}),reader.getByRole('button',{name:'Next page',exact:true})]) {
+          await expect(control).toBeInViewport({ratio:1});
+          const bounds=await control.boundingBox();
+          expect(bounds.width).toBeGreaterThanOrEqual(56);
+          expect(bounds.height).toBeGreaterThanOrEqual(56);
+        }
+      };
+      await checkVisiblePage();
+      await page.screenshot({path:info.outputPath('audience-preview-page-01.png')});
+      if(await guide.count()) {
+        await guide.locator('summary').click();
+        await expect(guide).toHaveAttribute('open','');
+        // Every routine paragraph is reachable inside its bounded scroll area.
+        await guide.locator('p').last().scrollIntoViewIfNeeded();
+        await expect(guide.locator('p').last()).toBeInViewport();
+        expect((await guide.boundingBox()).height).toBeLessThanOrEqual(Math.min(240,viewport.height*.28)+1);
+        await page.screenshot({path:info.outputPath('audience-preview-routine-expanded.png')});
+        await checkVisiblePage();
+        await page.screenshot({path:info.outputPath('audience-preview-guide-open.png')});
+      }
+      await reader.getByRole('button',{name:'Next page',exact:true}).click();
+      await expect(reader.getByRole('status',{name:'Reading progress'})).toHaveText(/Page 2 of/);
+      await checkVisiblePage();
+      // Loading changes a word's accessible label. Keep the same exact word
+      // instead of letting a broad last() locator select its neighbour.
+      const helpLabel=await reader.getByRole('button',{name:/^Get reading help for /}).last().getAttribute('aria-label');
+      const word=reader.getByRole('button',{name:helpLabel,exact:true}).last();
+      for(let stage=1;stage<=3;stage++) {
+        await word.click();
+        await expect(reader.locator('.guided-decoding-support')).toContainText(`Reading help ${stage} of 3`);
+        await checkVisiblePage();
+        if(stage===2) await page.screenshot({path:info.outputPath('audience-preview-page-02-spelling.png')});
+      }
+      await page.screenshot({path:info.outputPath('audience-preview-page-02-help.png')});
+      if(await guide.count()) {
+        await guide.locator('summary').click();
+        await expect(guide).not.toHaveAttribute('open','');
+        await checkVisiblePage();
+      }
+      expect(await page.evaluate(()=>window.__guidedReadingPreviewRecords)).toEqual({});
+      for(const [label,key] of [['Read with a student','__guidedReadingStudentBookId'],['Read together','__guidedReadingTogetherBookId'],['Assign independently','__guidedReadingAssignedBookId']]) {
+        await audience.getByRole('button',{name:label,exact:true}).click();
+        expect(await page.evaluate(name=>window[name],key)).toBe(bookId);
+      }
+      expect(await page.evaluate(()=>window.__guidedReadingPreviewRecords)).toEqual({});
+    });
+  }
+}
+
 function observeRealAudio() {
   window.__foundationsAudio = [];
   const original = HTMLMediaElement.prototype.play;

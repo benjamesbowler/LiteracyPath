@@ -185,10 +185,16 @@ phone widths, including narration, word help, navigation and completion. Check
 collection ordering, level filtering and all teacher prerequisites/routines.
 Run applicable content, narration, visual, level, scope and regression gates.
 
-`npm run check:guided-reading-reader` retains the 195 reader acceptance cases
+`npm run check:guided-reading-reader` retains the complete reader acceptance
 for all seventy added books: every page at tablet and narrow-phone widths,
 actual narration and word help, completion, collection ordering and teacher
-guidance. `LP_FOUNDATIONS_PORT` selects a free local port. The expansion spec
+guidance. Exercise the real teacher-library class-mode preview with its audience
+actions as well: both collapsed and expanded teaching guidance must keep the
+picture, print and controls usable without clipping, including long
+shared-reading pages. A constrained teacher preview may scroll auxiliary
+guidance and an intact book card. Preserve the child's fullscreen layout.
+Previewing must not save student reading records. `LP_FOUNDATIONS_PORT` selects
+a free local port. The expansion spec
 also accepts exact `LP_FOUNDATIONS_BOOK_IDS` for a bounded repair recheck;
 unknown IDs fail rather than falling back to another book.
 
