@@ -1,4 +1,35 @@
-.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) { grid-template-rows: auto minmax(0, 1fr); }
+/* Audience actions and the optional reading guide are auxiliary rows. Giving
+   the story the remaining height must not depend on how many are present. */
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) > .guided-teacher-book-actions,
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) > .guided-book-analysis-detail {
+  flex: 0 0 auto;
+}
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) > .guided-reader-card {
+  flex: 1 1 0;
+  height: auto;
+  /* On a short screen, scroll the teacher controls above an intact book
+     instead of shrinking its illustration and printed words to nothing. */
+  min-height: min(600px, 100dvh);
+}
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) > .guided-book-analysis-detail[open] {
+  max-height: min(240px, 28dvh);
+  overflow-y: auto;
+}
+/* An expanded routine or word help needs the reader's normal viewport-sized
+   space. The teacher can scroll the auxiliary material above that full card. */
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions):has(> .guided-book-analysis-detail[open]) > .guided-reader-card,
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions):has(.guided-decoding-support) > .guided-reader-card {
+  min-height: 100dvh;
+}
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) .guided-decoding-segments {
+  flex-wrap: wrap;
+}
 .guided-teacher-book-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px 18px; margin-bottom: 12px; border: 1px solid #dce4ee; border-radius: 12px; background: #f4f7fc; }
 .guided-teacher-book-actions p { display: grid; gap: 4px; margin: 0; }
 .guided-teacher-book-actions p span { font-size: .9rem; color: #50617b; }

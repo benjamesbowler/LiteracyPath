@@ -622,7 +622,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Pip and Stone were resting outside when a huge sound rolled from Fog Marsh. It rattled the leaves, and both friends turned toward the distant reeds.",
       "Pip wanted to discover what could make such a powerful noise. Stone would rather have stayed far away, because anything that loud had to be enormous.",
-      "Pip took his lantern and started down the marsh path alone. After one worried pause, Stone lifted a foot and slowly followed his smaller friend.",
+      "Pip started down the winding marsh path on his own. After one worried pause, Stone lifted a foot and slowly followed his smaller friend.",
       "At the edge of Fog Marsh, another crash sent ripples across the dark water. Pip's hair lifted with surprise, and Stone quickly caught up.",
       "The friends entered the marsh side by side instead of separating. Each booming echo bounced between the twisted trees, making its source hard to find.",
       "As Pip and Stone followed the sound, tall reeds shook beside the path. Stone stopped. Something rustled behind the reeds, and the next call was close.",

@@ -69,12 +69,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "How does Mr Baptiste show Leo that it is his turn?",
     "Mr Baptiste points toward Leo, who watches with his hands ready at the drum."
   ),
-  "willow-street-eid-morning-with-samir": record(
-    "How did helping at the welcome table lead Samir to Maya?",
-    "Connects carrying the shared food parcel with finding Maya beside the dates.",
+  "willow-street-a-morning-with-friends": record(
+    "Why did holding the cups fail to solve the table problem?",
+    "Explains that the short leg still had a gap, and the block supports it so the table stays steady.",
     7,
-    "What is Maya preparing when Samir finds her on page 7?",
-    "Identifies the bowl of dates and bright folded napkins on the welcome table."
+    "What evidence on page 7 shows that their table repair worked?",
+    "Finds the one block beneath the short leg and all four cups staying upright while Maya nudges the table."
   ),
   "willow-street-grow-a-bean-in-a-jar": record(
     "What changes show that the bean has begun growing?",

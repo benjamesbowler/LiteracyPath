@@ -64,6 +64,23 @@ candidate reviews and the temporary dependency link are removed after final
 verification; required audit/browser/audio/SQL evidence stays under ignored
 `.artifacts/beginner-vocabulary/`. Protected animation work is outside this scope.
 
+## Guided Reading audit and Small Steps — 28 October 2026
+
+The [Small Steps Bible](guided-reading/SMALL_STEPS_CONTENT_BIBLE.md) owns the
+20 new cumulative decodable books, with explicit sound/word prerequisites
+separate from app text bands. The runtime catalogue has 247 books and 2,181
+pages. Current art, exact narration, natural descriptions and teaching prompts
+remain in their canonical runtime sources; generated audit reports and direct
+review evidence remain in the task's ignored artifact folders.
+
+Removed the failed task-created Python 3.14 environment and 42 unused derived
+contact sheets for inactive assets. No public source asset was removed. Those
+outputs are reproducible; accepted media, repair evidence and source receipts
+remain. The working ASR runtime and downloaded models are retained as active
+inputs for the newly authorized additional 50 books. Protected shelved animation
+paths were checked and untouched. Exact cleanup receipt:
+`.artifacts/guided-reading-decodable-2026-10-28/cleanup-final.json`.
+
 ## Reading Comprehension — 27 October 2026
 
 A single original passage bank now drives whole-group, small-group and student
@@ -1616,3 +1633,22 @@ Leda recordings from build output, protecting references in frozen banks,
 publication SQL, public manifests and emitted bundles. Dynamically named audio
 and game sprites remain outside these rules. Source masters remain available
 for authoring; no question content or learner evidence is removed.
+
+## Guided Reading audit and seventy new readers — 29 October 2026
+
+The current catalogue adds 20 Small Steps and the 50-book Next Steps/Bright Ideas
+expansion. The checked-in collection Bibles and exact visual manifests own the
+current sources; detailed editorial, narration, native-image, ordered-sequence,
+browser and release evidence remains under ignored `.artifacts/` directories.
+Selected original image-generator PNGs, production references, frozen manuscripts,
+audio recovery sources and material failed-case evidence remain active inputs.
+
+Scoped cleanup removed 65 superseded, unreferenced delivery thumbnails after
+checking the current 297-cover manifest and source/test/tool/document references;
+they are reproducible from retained source covers. Exact hashes, 36 retired
+review records and recovery descriptions are retained in the expansion cleanup
+receipts. Redundant interrupted browser output and superseded trace archives,
+eight intermediate audio conversions and an incorrectly labeled duplicate
+recognition run were removed after retaining the accepted evidence. Correct
+recognition outputs and original media remain. Protected shelved animation roots,
+learner records and hosted data were outside this cleanup scope.

@@ -1,6 +1,10 @@
+import { GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS } from "./guidedReadingNextStepsBooks.js";
+import { GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS } from "./guidedReadingBrightIdeasBooks.js";
 // Authored full-manuscript reviews; never infer a public level from legacy placement or text length.
 // Update a fingerprint only after reviewing the entire changed manuscript.
 export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
+  ...GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS,
+  ...GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS,
   "gr-a-26": {
     "appReadingLevel": "C",
     "rationale": "The dog and cat care lists combine several needs, then hay and room to fly distinguish other pets; the final different-kinds-of-care statement gathers the examples into a comparison.",
@@ -291,7 +295,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Clothing-purpose clauses vary between shading, holding heat, staying dry and sleeping, then compare weather with activities. These changing functions and the abstract final category add language demands beyond a repeated B naming pattern.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:ec6ef58d30af4ac7",
+    "reviewedTextFingerprint": "fnv1a64:23540db0fd32f609",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Short varied purpose clauses and an abstract comparative close.",
@@ -1056,7 +1060,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Absorbing roots, leaves making food through photosynthesis, flower pollination and seed dispersal connect several processes in a seed-to-seed cycle.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:38804ba5a8e3c8ec",
+    "reviewedTextFingerprint": "fnv1a64:3a542bd749f2c81b",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Varied explanatory sentences, lists, paired statements and an imperative close.",
@@ -1176,7 +1180,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Bob wants Fluff to sit, then Fluff moves between two children before calm patting produces the result. Infinitive phrasing, calmly and changing spatial relations add small pattern and vocabulary demands appropriate to B.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:1c6c1b203798afbc",
+    "reviewedTextFingerprint": "fnv1a64:cc585ac4446b0f9b",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Short clauses vary their opening, subject and purpose across the book, with some negation or linked actions.",
@@ -1281,7 +1285,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "The sore-leg problem proceeds explicitly through vet, medicine and rest; weeks-pass introduces a time jump across short sentences.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:cdd982581e6fe41d",
+    "reviewedTextFingerprint": "fnv1a64:bbf9b533a36e7816",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Short clauses vary their opening, subject and purpose across the book, with some negation or linked actions.",
@@ -1476,7 +1480,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "A longer trip follows a route through weather changes and a lighthouse; descriptive compounds, distance/time shifts and a map payoff add complexity.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:bef05365760519b5",
+    "reviewedTextFingerprint": "fnv1a64:95307ed6c289cf6b",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
@@ -2241,7 +2245,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "The repeated does-not-know search leads Tiny along the path to Grumpy watering his plants. Familiar short actions and a directly stated garden reveal support B; shoots and a time marker add modest vocabulary without a second process or concealed mechanism.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:bc90871bee4f2dba",
+    "reviewedTextFingerprint": "fnv1a64:d0a196151339242b",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Repeated short negatives give way to varied actions and a weeks later temporal phrase.",
@@ -2431,7 +2435,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Pip and Stone’s assumption that a huge sound means a huge creature is overturned by a tiny lost toadling. Stone must then soften his own call to help it. The linked size/sound reversals and shifting reactions make this richer than a simple rescue, while the cause and solution are openly explained.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:b31e40161828677c",
+    "reviewedTextFingerprint": "fnv1a64:eff2c40da7d4394e",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Because, after and instead of constructions connect expectations, timing and choices.",
@@ -3233,47 +3237,47 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "willow-street-dumplings-for-new-year": {
     "appReadingLevel": "D",
-    "rationale": "An overfilled wrapper fails, then smaller filling and pinched edges work; quoted instruction and boiling-water cooking track a longer making sequence.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A failed overfilled wrapper and a smaller spoonful lead to folding, pinching, adult cooking and a successful bite. Concrete kitchen vocabulary and visible evidence preserve the existing reviewed band after neutral dinner framing.",
+    "reviewedAt": "2026-10-30",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:2c7f9c799ee61d32",
+    "reviewedTextFingerprint": "fnv1a64:331ab4caa083fb9b",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
       "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "An overfilled wrapper fails, then smaller filling and pinched edges work; quoted instruction and boiling-water cooking track a longer making sequence.",
+      "knowledge": "A failed overfilled wrapper and a smaller spoonful lead to folding, pinching, adult cooking and a successful bite. Concrete kitchen vocabulary and visible evidence preserve the existing reviewed band after neutral dinner framing.",
       "progression": "A visible problem or task is followed through several related steps to its result.",
       "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
     }
   },
   "willow-street-drums-for-carnival": {
     "appReadingLevel": "D",
-    "rationale": "A premature drum answer interrupts a call; group timing, waits-for-the-end and a final march require understanding an audible response pattern.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A premature drum answer interrupts a call; waiting for its end and matching the group pattern preserve the existing reviewed band after neutral neighborhood-band framing.",
+    "reviewedAt": "2026-10-30",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:5bd534dcb06f1c38",
+    "reviewedTextFingerprint": "fnv1a64:0ab74407a83260a0",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
       "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A premature drum answer interrupts a call; group timing, waits-for-the-end and a final march require understanding an audible response pattern.",
+      "knowledge": "A premature drum answer interrupts a call; waiting for its end and matching the group pattern preserve the existing reviewed band after neutral neighborhood-band framing.",
       "progression": "A visible problem or task is followed through several related steps to its result.",
       "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
     }
   },
-  "willow-street-eid-morning-with-samir": {
+  "willow-street-a-morning-with-friends": {
     "appReadingLevel": "C",
-    "rationale": "A family morning sequence includes a blocked view and finding a friend; prayers, parcel and dates broaden vocabulary while events remain explicit.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Eight short concrete present-tense pages make the table problem, unsuccessful cup-holding attempt, visible short-leg clue, adult-assisted block repair and steady-cup test explicit. Common objects and supplied visual evidence support one causal comparison without specialist background knowledge or hidden inference.",
+    "reviewedAt": "2026-10-30",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:22169235dd9c2fdf",
+    "reviewedTextFingerprint": "fnv1a64:99f2833c36bfec1c",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A family morning sequence includes a blocked view and finding a friend; prayers, parcel and dates broaden vocabulary while events remain explicit.",
-      "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "syntax": "Short complete present-tense clauses; when and without connect visible actions.",
+      "vocabulary": "Mostly familiar room and breakfast objects, with wobble, uneven and nudges supported by distinct pictured actions.",
+      "knowledge": "A visible gap beneath one table leg is filled by a block; an adult handles the furniture.",
+      "progression": "Preparation, wobble, immediate protection, diagnosis, finding a block, adult repair, test and shared breakfast.",
+      "inference": "Low to moderate causal comparison; the relevant gap, block and upright cups are explicitly supplied."
     }
   },
   "willow-street-grow-a-bean-in-a-jar": {
@@ -3296,7 +3300,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Sticks across a diamond, a line tied where they cross and wind behind the reader require ordered spatial construction; the road/wire rule constrains the flying site.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:4cdf95c89346b3f7",
+    "reviewedTextFingerprint": "fnv1a64:d210652b33f1199d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Imperatives, a where-clause and a final coordinated action.",
@@ -3326,7 +3330,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Allergy checking, rinsing and adult cutting frame the repeated cup/fruit layering; cover-and-chill until snack time adds a temporal safety constraint.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:96cd3670f8fe5ed1",
+    "reviewedTextFingerprint": "fnv1a64:f62316f97ed534c5",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Ordered imperatives with coordinated actions and an until phrase.",
@@ -3356,7 +3360,7 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "rationale": "Repeated some-rainwater branches show soil soaking, pavement runoff, gutters and drains before streams/sea and vapor/cloud return; each route and transition is stated directly.",
     "reviewedAt": "2026-10-29",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:4f42af8136b31cd0",
+    "reviewedTextFingerprint": "fnv1a64:3193295116ef53ba",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Short declaratives, repeated some frames, one and-clause and a final relative clause.",
@@ -3440,5 +3444,145 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
       "progression": "A question frames the mouth-to-exit journey, with liver/pancreas contributions, blood distribution, timing and a final explanation/callback.",
       "inference": "Trace what leaves the food tube for the blood versus what remains as waste, resolve the sandwich question and infer the noseprint joke."
     }
+  },
+  "small-steps-01": {
+    "appReadingLevel": "B",
+    "rationale": "Short first-person clauses repeat cat, mat and fit; the cat changes from the crowded mat to Sam’s lap, making one concrete cause and solution visible.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:6101ba6c8cd6502d"
+  },
+  "small-steps-02": {
+    "appReadingLevel": "B",
+    "rationale": "Repeated mud, rug and rag phrases support a failed wipe and rinsed-cloth solution; the hat callback adds gentle humor without difficult syntax.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:384d936b43a3c1fd"
+  },
+  "small-steps-03": {
+    "appReadingLevel": "B",
+    "rationale": "Brief commands and first-person actions compare two boxes; the puppy’s fit and the small-box hat have direct pictured outcomes.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:062d684321e7cc62"
+  },
+  "small-steps-04": {
+    "appReadingLevel": "B",
+    "rationale": "Very short hot-bun observations and repeated fanning support one change in method; the command to Dad and Yum close vary voice within familiar concrete language.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:ba3695acb62fdcdb"
+  },
+  "small-steps-05": {
+    "appReadingLevel": "B",
+    "rationale": "Brief present clauses track a hen leaving the lap and choosing to return after the people sit; vet is introduced in a simple naming clause and the change remains visible.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:1c8890532ededb32"
+  },
+  "small-steps-06": {
+    "appReadingLevel": "B",
+    "rationale": "Tug and lid repeat across a failed solo attempt and shared pull; a short two-person action and jam-on-Dad payoff add modest causal variation.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:c57415aa1acde29c"
+  },
+  "small-steps-07": {
+    "appReadingLevel": "B",
+    "rationale": "The repeated in-my-bag frame changes to a question, unsuccessful tug and removal; hat, mug, log and zip keep the packing problem concrete.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:dfcc78a95f0b34be"
+  },
+  "small-steps-08": {
+    "appReadingLevel": "B",
+    "rationale": "Short first-person actions contrast a large hat and small cap; a simple handoff to Dad and shared running resolve the visible size problem.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:c3d247f26c816cc6"
+  },
+  "small-steps-09": {
+    "appReadingLevel": "B",
+    "rationale": "Repeated cat-nap sentences alternate with Sam-and-Dot actions; chatting, waking and shutting the shop make the rest interruption and resolution explicit.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:82312a8e71832b7e"
+  },
+  "small-steps-10": {
+    "appReadingLevel": "B",
+    "rationale": "Short chip/chin/dish clauses follow a dropped snack, clean replacement and friendly question; the small pictured chin joke adds limited inference without complex grammar.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:191b9cd75d9ff20a"
+  },
+  "small-steps-11": {
+    "appReadingLevel": "B",
+    "rationale": "Repeated get/set actions compare two felt shapes; brief dialogue identifies the wrong part and the visibly completed fish resolves the sequence.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:bac73f1aeaac227e"
+  },
+  "small-steps-12": {
+    "appReadingLevel": "B",
+    "rationale": "On and in distinguish a ball balanced on a rim from a ball placed inside; repeated ball/tin language, one question and direct spatial cause support the short sequence.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:31235ecfeb728152"
+  },
+  "small-steps-13": {
+    "appReadingLevel": "B",
+    "rationale": "Simple first-person clauses explain a hot pig’s repeated digging; the failed fit, wider pit and comfortable rest form one concrete problem and resolution.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:996578e9c54dfe5c"
+  },
+  "small-steps-14": {
+    "appReadingLevel": "B",
+    "rationale": "Short repeated look/get/run clauses carry a two-place search; a visible picture-map dot corrects the first guess and the printed ending confirms finding the cap.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:57bb276a8ca1fc82"
+  },
+  "small-steps-15": {
+    "appReadingLevel": "B",
+    "rationale": "Repeated pup/tub/rag actions distinguish a dry cloth from a wet one; the removed mud and wet-Sam callback stay within short concrete present clauses.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:60eb2077db6d9cfd"
+  },
+  "small-steps-16": {
+    "appReadingLevel": "B",
+    "rationale": "Short get/dip/toss statements follow a failed cup attempt and successful net; the wet-ball handoff adds a pictured humorous consequence without additional syntax.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:9755a9d4179bd54c"
+  },
+  "small-steps-17": {
+    "appReadingLevel": "B",
+    "rationale": "Repeated toy-van and log language supports a failed tug and changed angle; whiz links the question to the rolling resolution while the objects remain concrete.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:554423702d953b4f"
+  },
+  "small-steps-18": {
+    "appReadingLevel": "B",
+    "rationale": "Brief ink, pink and sink clauses follow a spreading smear and wet-rag correction; the final colored rag/finger consequence requires only a simple comparison.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:5c4ea7485784ad47"
+  },
+  "small-steps-19": {
+    "appReadingLevel": "B",
+    "rationale": "Repeated sing/song clauses contrast pan noise with quieter singing; a brief command and the cat’s return make the effect on another character visible.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:e84e58297a29a70f"
+  },
+  "small-steps-20": {
+    "appReadingLevel": "B",
+    "rationale": "Short bell/fuzz/cup clauses follow a small sound clue and discovery; repeated ding and the explicit cleanup/ringing close resolve the search with familiar actions.",
+    "reviewedAt": "2026-10-28",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedTextFingerprint": "fnv1a64:b837bdf6ccfd4f61"
   }
 });

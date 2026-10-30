@@ -11,18 +11,19 @@ or assessments of a child's ability. A teacher still selects a book for the
 reader's knowledge, decoding, language, interests and task. Narrated books remain
 available for listening irrespective of independent reading demands.
 
-The 29 October 2026 audit read every ordered page of all 247 books in the
-current working catalogue, compared neighboring levels across collections, and
-reconciled 37 assignments. The release branch contains 227 of those books; the
-other 20 are an independently prepared Small Steps addition, reviewed at B and
-not published as a side effect of this audit. The ten small shipped/working
-manuscript variants were read separately; each version has the same reviewed
-letter, with its own exact-text fingerprint.
+The 29 October 2026 cross-collection audit read all 247 then-working books,
+compared neighboring levels and reconciled 37 assignments. The integrated
+catalogue adds the independently reviewed fifty-book Foundations expansion and
+now contains **297 books, 2,621 reading pages and 29,804 word tokens** under the
+conventions below. Its current distribution is **A23, B86, C63, D56, E15, F36,
+G16 and H2**. Current counts come from the runtime and generated analysis.
 
-The checked-in release catalogue has 227 books: **A13, B49, C53, D52, E12,
-F33, G14 and H1**. The working catalogue with Small Steps has **A13, B69, C53,
-D52, E12, F33, G14 and H1**. Current counts must be derived from the runtime
-catalogue and generated analysis; these figures describe this audit only.
+Integration retained the calibrated main-branch assignments. All ten small
+manuscript/title variants were reread in full (89 current pages), retaining those
+public bands while binding their reviews to the corrected text fingerprints.
+The independent Small Steps and Foundations reviews remain described below.
+One hundred and sixty-seven books have separate image descriptions for every
+page, 19 have partial coverage and 111 have only prose-derived descriptions.
 
 This was a Codex full-manuscript editorial review, using actual prose and
 available description metadata. It is not a human classroom validation or a new
@@ -51,6 +52,20 @@ The old A/B/C fields remain internal compatibility inputs for existing practice
 layout, phonics eligibility and historical progress. They are not another
 public book-level scale. A book's App level is not the reader's achievement;
 completing a book records completion, not comprehension or proficiency.
+
+The 2026-10-28 Small Steps addition received independent full-manuscript review
+for all 20 books. Each earned App level B for short concrete language, small
+pattern changes and a visible problem/solution sequence. Its separately reviewed
+phonics prerequisites and exact exception words determine decoding scope; the
+app letter does not certify that an individual child can read it independently.
+
+The 2026-10-29 Foundations expansion received independent full-manuscript review
+for all 50 books. Next Steps adds 30 cumulative decodables (8 A, 15 B, 7 C), with
+separate cycle, high-frequency-word and supplemental blending prerequisites.
+Bright Ideas adds 20 broader leveled readers (2 A, 2 B, 3 C, 4 D, 3 E, 3 F,
+2 G, 1 H). Its wider vocabulary is not labeled cumulatively decodable; the H
+investigation remains supported shared reading. The exact title and ordered
+page-text fingerprints pin every decision to its reviewed manuscript.
 
 ## Leveling method
 

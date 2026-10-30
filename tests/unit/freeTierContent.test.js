@@ -76,12 +76,12 @@ test("each graded level is sampled in proportion, so no level is a token single 
   }
 });
 
-test("the one shared-read-aloud science book remains available in the representative sample", () => {
+test("the growing shared-read-aloud group retains a representative sample", () => {
   const ids = sampleBookIds(GUIDED_READING_BOOK_INDEX);
   const sharedBooks = GUIDED_READING_BOOK_INDEX.filter(book => book.readingBandProfile === "read-aloud");
-  assert.equal(sharedBooks.length, 1);
-  assert.ok(ids.has(sharedBooks[0].id));
-  assert.equal(sharedBooks[0].level, "READ_ALOUD");
+  assert.equal(sharedBooks.length, 2);
+  assert.ok(sharedBooks.every(book => book.level === "READ_ALOUD"));
+  assert.equal(sharedBooks.filter(book => ids.has(book.id)).length, Math.max(1, Math.round(sharedBooks.length * SAMPLE_SHARE)));
 });
 
 test("the sample is roughly a fifth, not a third and not a token", () => {

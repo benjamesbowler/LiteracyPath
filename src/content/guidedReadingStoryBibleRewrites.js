@@ -77,7 +77,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Fluff runs to Nan.",
       "Nan pats Fluff calmly.",
       "Bob pats Fluff calmly.",
-      "Fluff stops running.",
+      "Fluff stays beside Bob.",
       "Fluff sits between them."
     ]
   }),
@@ -184,7 +184,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Fluff has a sore leg.",
       "Rest does not help.",
       "They take Fluff to the vet.",
-      "Fluff sits on the bed.",
+      "Fluff sits on the table.",
       "The vet checks his leg.",
       "Fluff gets his medicine.",
       "The vet says Fluff must rest.",
@@ -600,7 +600,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Tiny takes the path.",
       "Grumpy grows green plants.",
       "He gives the shoots a drink.",
-      "Grumpy shows his friends.",
+      "Grumpy shows his friends weeks later.",
       "Tiny beams in Grumpy's garden."
     ]
   }),
@@ -892,7 +892,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A sun hat shades my face.",
       "A warm coat holds heat close.",
       "Rain boots keep my feet dry.",
-      "Gloves help warm my hands.",
+      "Mittens keep my hands warm.",
       "Pajamas are clothes for sleeping.",
       "Different clothes fit different weather and activities."
     ]
@@ -1363,7 +1363,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A shoot reaches light and opens its first leaves.",
       "The leaves use sunlight, water, and air to make food. This is photosynthesis.",
       "Flowers attract visitors. Bees and butterflies can carry pollen between flowers.",
-      "After pollination, new seeds grow inside the plant's pods.",
+      "After pollination, new seeds grow inside this plant's pods.",
       "Wind, water, and animals carry some seeds to new places.",
       "Plant one seed, add water, and watch the whole story begin again."
     ]

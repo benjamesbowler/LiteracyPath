@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-28
+updated: 2026-10-29
 authority: orientation-only
 ---
 
@@ -57,6 +57,22 @@ recorded separately in task artifacts. Physical-device, classroom and direct
 human-listening observations remain unknown under the existing beta policy.
 
 ## Book shelves, Skills trail and admin usage
+
+The integrated Guided Reading catalogue contains 297 books and 2,621 pages:
+the original 227, 20 [Small Steps](../guided-reading/SMALL_STEPS_CONTENT_BIBLE.md),
+30 cumulative Next Steps decodables and 20 broader Bright Ideas leveled readers.
+The [Foundations Expansion Bible](../guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md)
+owns the latter collections, their explicit teaching routines and supported
+shared-reader boundary. Cycle prerequisites, supplemental blending lessons and
+exact taught exception words remain separate from app text bands and individual
+mastery. Clean outlined cartoon art is the current production standard.
+Original audit and Small Steps evidence are retained in ignored
+`.artifacts/guided-reading-audit-2026-10-28/` and
+`.artifacts/guided-reading-decodable-2026-10-28/`; the additional fifty-book
+editorial, media, browser and release receipts are in
+`.artifacts/guided-reading-expansion-50-2026-10-28/`. Those scoped reviews do not
+clear unrelated or historical app-wide visual-register failures, establish
+human listening, or certify equivalence with another publisher.
 
 The owner requests reviewed **App level A–H** shelves in both child and teacher
 libraries. These describe book text and remain separate from instructional

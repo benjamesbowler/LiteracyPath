@@ -135,7 +135,9 @@ test("all reviewed app bands remain selectable and small bands never fill with a
     assert.ok(recommendations.length > 0, level);
     assert.ok(recommendations.every(item => item.readingLevel === level && getBookTextAnalysis(item.book).appReadingLevel === level), level);
   }
-  assert.equal(recommendBooksForStudent({ books, studentProgress: { appReadingLevel: "H" } }).length, 1);
+  const sharedBand = recommendBooksForStudent({ books, studentProgress: { appReadingLevel: "H" } });
+  assert.equal(sharedBand.length, 2);
+  assert.ok(sharedBand.some(item => item.book.id === "bright-ideas-20"));
 });
 
 test("stale or unreviewed text cannot gain a recommendation from its old instructional letter", () => {

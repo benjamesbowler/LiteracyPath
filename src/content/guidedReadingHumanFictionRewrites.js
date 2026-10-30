@@ -291,7 +291,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Mom opened the cottage brochure. “One week by the sea.” Betty traced the coast. “Can we visit all these places?”",
       "Three hours later, Betty was still counting red cars. Aiden had finished two chapters—and one nap.",
       "They raced upstairs. Aiden chose the bigger room. Betty opened her window—and heard the sea.",
-      "Past the last dune, the green sea filled the sky. Aiden stopped. “Wow,” was all he said.",
+      "Past the last dune, they saw the wide green sea. Aiden stopped. “Wow,” was all he said.",
       "Aiden filled his field notebook with tide-pool creatures and careful labels.",
       "Betty learned to steer her boogie board through the foaming waves.",
       "Rain rattled the window. Aiden slumped over the board game. Betty drew their route: beach, harbor, then lighthouse.",

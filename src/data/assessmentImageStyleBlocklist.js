@@ -1,8 +1,10 @@
-// Human-reviewed assessment images that violate the app's visual style rules.
+// Reviewed assessment images that violate the app's visual content/style rules.
 // Keep this list separate from generated QA output so a regenerated workbook
 // cannot silently re-approve a known unsuitable asset.
 
 const rows = [
+  // Owner's neutral-content policy, 30 October 2026; native image inspected.
+  ["/media/vocabulary/images/churches.webp", "religious_building", "Agent visual review: church and cross conflict with the owner's neutral-content policy."],
   // Current Initial Sounds pack: faces on objects, food, vehicles, or scenery.
   ["/media/initial-sounds/images/a/album.webp", "face_on_inanimate_object"],
   ["/media/initial-sounds/images/a/ambulance.webp", "face_on_inanimate_object"],
@@ -94,11 +96,11 @@ const rows = [
   ["/images/child-mode/initial-sounds/zip.webp", "face_on_inanimate_object"]
 ];
 
-export const assessmentImageStyleBlocklist = Object.freeze(rows.map(([path, issueType]) => ({
+export const assessmentImageStyleBlocklist = Object.freeze(rows.map(([path, issueType, reviewerNotes]) => ({
   path,
   issueType,
   status: "rejected",
-  reviewerNotes: "Human visual review: unsuitable for live child assessment."
+  reviewerNotes: reviewerNotes || "Human visual review: unsuitable for live child assessment."
 })));
 
 export const assessmentImageStyleBlockedPaths = new Set(

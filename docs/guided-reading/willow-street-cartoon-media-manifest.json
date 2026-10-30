@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "collection": "Willow Street Readers",
+  "visualTreatment": "self-created-cartoon",
+  "generator": {
+    "provenance": "self-created",
+    "mode": "built-in-image_gen-one-call-per-asset"
+  },
+  "assets": [
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/cover.webp",
+      "sha256": "f129caf02771f29ceb10b47916b5804d061b77ddb7acece7627e47cf97b47acf",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "ad2a0f32ed764185f63f3a35ec253990f038482a3b5bed1c94e56bcdfff10ee3",
+      "briefSha256": "11ea3a894a60fe3273b4950b8c9c01463604556b1908e454893bd2d33bd58680",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "f129caf02771f29ceb10b47916b5804d061b77ddb7acece7627e47cf97b47acf",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-10e544c3-4b64-4575-80df-0647364b4dfa.png",
+      "productionPrompt": "Use case: style-transfer. Asset: nonfiction children's reader cover. Redraw reference into CLEAN BRIGHT FLAT 2D CARTOON: crisp continuous dark outlines, smooth flat colors, restrained simple celshadow. NO photorealism, paint daubs, embossing, mottledtexture, canvasgrain or 3D. Wide1536x864 image, quiet solid palecream LOWER30% EMPTY for app text. All people/essential action upper70%. Community firestation bay whitebrickwalls/redtrim; one red engine with WHITE CAB ROOF and broad whitebodystripe, silvertool compartments, blacktires, laddersecuredonroof. EXACT FOUR adult firefighters in NAVY plainshortsleevedshirts, tan turnouttrousers with yellowreflectivebands, blackboots: lightwarm-skinned shortbrownhaired man30; darkbrown-skinned shortblackhaired man30; mediumwarm-skinned blackponytail woman30; olderlight-skinned shortgrayhaired man50leader. No facialhair. Relaxed professional proportions, clear friendlyexpressions. Two inspect neatlysecuredenginecompartments, onecheckscoiledhose, leaderstandsby. Redgearrackleft with fourtanprotectivejackets/fouryellowhelmets, allnormalanatomy. Engine has conventional front crew cab, no seats in toolbay. No labels/letters/logos/brands, no children, no flames. Simplify equipment to clear plausible forms. This establishes stable fourpersoncrew,station,engine for sequential book.\nCorrection: Use case: precise object edit. Remove ONLY the leftmost firefighter standing directly in front of red gearrack, restore gearrack behind him. Keep FOUR remaining firefighters unchanged: grayhairedleaderleftcenter, ponytailwomancenter, brownhairedmanbackturnedatcompartment, darkbrownskinnedmanholdingnozzlefront right. Preserve red/whiteengine, tools, rack, fourhelmets, architecture, quietcream lower30percent, cleanbrightcartoonoutlines. No other edits, no textures or text.",
+      "cacheVersion": "f129caf02771"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-01.webp",
+      "sha256": "239d64f9e0cc771f47845b7f86bedadbfbb8b5e9d71fa909ce2fda54f9f4be29",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "cf76b65b741a5eaa24a7e567c023b5e1aebd2a14a5bf0b0fd934fc9fa6323135",
+      "briefSha256": "d2f97f18cc1a625b58c886a4716118e4dd049a2191827b956ff4199b5400cb26",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "239d64f9e0cc771f47845b7f86bedadbfbb8b5e9d71fa909ce2fda54f9f4be29",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-0fb62b78-71c3-4231-9d56-4404a583365a.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE1: Only brownhairedman and ponytailwoman kneel by openenginecompartments. Man checks metal coupling attached to neatlyrolled tanhose; woman checks ONE silver breathingaircylinder in black backpackharness. Plausible clear equipment, no disconnectedhands.\nCorrection: Use case: precise object edit. Remove all mottled/photographic texture from ONLY silver breathingaircylinder, hose, toolcompartmentmetal and floors. Silvercylinder becomes smooth flat lightgray with one broad flat whitesidelight and one darkgray side shadow, no speckles/checkers/etchedmarks. Other silvermetal simple clean flatfills, diamondplate limited regular outlinedpattern okay. Preserve exactanatomy/scene/crew/props/quietlower30percent. Clean outlinedcartoon throughout, no embossed/paint/grain.",
+      "cacheVersion": "239d64f9e0cc"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-02.webp",
+      "sha256": "470189e540da84c1ea36d1be3f8f38912d1748f376fbf156cdd6b5bf09fe8982",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "bcb6d6be191d29cae353522e8465585c3e15e4feb2fbf818a31f0d43c2613248",
+      "briefSha256": "9a2952b0b5b0d613ab4da0d696d106e83998b8ceff6a4ec9841106a75865cd17",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "470189e540da84c1ea36d1be3f8f38912d1748f376fbf156cdd6b5bf09fe8982",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-1550d628-be48-4c1f-aba4-191bb76cd6fc.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE2: Darkbrownskinnedman at communicationdesk speaks into blackphone and points toward simple wallstreetmap with lines but NO legiblewords/privateinformation. Grayhairedleaderstandsnearbylistening. Redwhiteenginevisiblethroughglassbehind. Navyshirt only, no jacket/helmetneeded.",
+      "cacheVersion": "470189e540da"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-03.webp",
+      "sha256": "0f0f60bca86102efc5ede4c087cf0aa2a3133d5b5246c24c7b3a90b3f96da1a3",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "b46d0e09a0be82dad3b532a46b068d25c986b9db972afc913f3ad51baf0fe2c8",
+      "briefSha256": "2a583f83eec62a457b6f0bdec0a1b59e1b5cda20f2f41e89681053e635668403",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0f0f60bca86102efc5ede4c087cf0aa2a3133d5b5246c24c7b3a90b3f96da1a3",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-fc99b19d-f7f8-46b4-8e36-361eb660b87d.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE3: All FOUR crew atredgearrack preparingprotectiveequipment. Brownhairedman fastens tanjacket; womanslidesonyellowhelmet; darkbrownmanchecks breathingapparatusblackstrapsovershoulders; grayleaderalreadyfullydressed. Alltantrousers/blackboots. No duplication; no awkwardlimbs.",
+      "cacheVersion": "0f0f60bca861"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-04.webp",
+      "sha256": "3fc70be14e219b20232aa5e0d7e041b79ea2a7f021787e993174f12d87cd8720",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "c99b1544640e1ae82c9fd2b755aeadb5773678228e7f556c6060bfc3b01bde01",
+      "briefSha256": "815e1b8c9ecb8f68c8f569ee4f3aa6556731006e80b53a4115bdd9132808d885",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3fc70be14e219b20232aa5e0d7e041b79ea2a7f021787e993174f12d87cd8720",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "Native detail inspected for clean cartoon style, coherent four-person crew, connected hands, plausible hose/air-cylinder/ladder equipment and page action. Corrected disconnected-hose cleaning action, phototexture and rigid hose."
+      },
+      "sourceImageGenOutput": "exec-43e03c78-1cc0-4f27-94e2-ef2ed2edb35a.png",
+      "productionPrompt": "Use case: sequential nonfiction book illustration. Reference1 is LOCKED clean cartoon crew, station, engine/style; reference2 only desired scene/layout, NEVER copy photo texture. Bright smooth flat2D cartoon, continuous dark outlines, simple celshadows; NO photorealism/embossing/patchy paint/daubs/grain/fibers. Wide1536x864, quiet solid cream LOWER30% empty for app print; all important action above. Exact stable crew as relevant: olderlight-skinnedgrayhairleader; younglightwarm-skinnedshortbrownhairedman; darkbrown-skinnedshortblackhairedman; mediumwarm-skinnedblackponytailwoman. No facialhair. Navyshirts, tanturnoutpants/yellowbands, blackboots; tanjackets/yellowbands and yellowhelmets when stated. Same redengine whitecabroof/whitebodystripe, redgearrack, whitebrick/redtrimstation. No words/logos/labels, no flames/injury/distress. Anatomicallyclear hands eachconnected tooneperson. PAGE4: Nopeople. Clear parked SAMEred/whiteengine sideview with conventionalFRONT CREW CAB with seats/window and rear organized equipment compartments. Visiblecoiledhose, pumpcouplings, securedhandtools, securedsilverladderonroof. Water carried concealedintank; do notdrawtransparenttankorcutawayorlabels. No seatsintoolcompartments.",
+      "cacheVersion": "3fc70be14e21"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-05.webp",
+      "sha256": "248f37d334a309e0e47bfef0656f4b3ec04b2088e9bdec3beaec06928c34734e",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "2a8173081a0d537e1621afd28f45ff3b0d44e351d1fdbd0a5d66b2e248adf613",
+      "briefSha256": "4803d3000a944a76e547e3815a203e5612fa2e207e71a6d2f8b38e9a46d92dd2",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "248f37d334a309e0e47bfef0656f4b3ec04b2088e9bdec3beaec06928c34734e",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "All four new native PNGs and all four saved WebPs were personally inspected full frame, followed by the COMPLETE ordered nine-frame390px sequence using immutable incoming-main cover/pages0–4 as retained context and replacements5–8. Whole background foliage now uses crisp outlined solid green clusters and flat shadows instead of fuzzy painted masses. Original four-person leader/hose training, three-person non-graphic forearm first aid, three-person hose/cylinder/nozzle cleaning, and four-person single-ladder drill retain source identities, body counts, equipment, red-white engines, daylight and compositions. Medical-plus supply mark is clinical first-aid context, no religious/national/political imagery introduced. Complete original foreground close framing is retained under the parent/user clarification; no framing-only redraw or new crop. Every foreground action and learning prop remains whole and legible at390px. Four exact incoming source hashes and original1672x941 delivery dimensions preserved."
+      },
+      "sourceImageGenOutput": "exec-f047d9ba-f2c4-40f5-aa19-77b87965ce77.png",
+      "productionPrompt": "Precise BACKGROUND-ONLY style correction. Input1 is clean flat OUTDOOR FOLIAGE rendering reference only; input2 is the exact target FireStation illustration. Full LANDSCAPE16:9 approximately1672x940, preserve ENTIRE original framing and neutral daylight. Change ONLY visible OUTDOOR TREE/SHRUB FOLIAGE beyond yard/fence/open garage/windows. Replace fuzzy mottled green/yellow painted masses with 4–8 large simple SOLID GREEN crown/bush silhouette clusters, crisp continuous dark outlines, at most ONE hard-edged flat shadow per cluster; simple solid brown trunk branches. NO stippling, watercolor, brush daubs, paper grain, soft blurry foliage or miniature noisy leaves. Keep same approximate tree positions/heights and background architecture/sky/weather. Do NOT add rain, flowers or any foreground thing from reference. Preserve ALL foreground adults/equipment/action EXACTLY, existing clean outlined cel style, original large cream foreground floor and image dimensions/composition. Near-edge but complete original foregrounds remain; do not zoom/recompose. No generated text, religious clothes/symbols, political/national flags. World is modern WillowStreet FireStation. Local humans WILLOW-LOCAL-FIRE-LEADER(grayhair), WILLOW-LOCAL-FIRE-WOMAN(darkponytail), WILLOW-LOCAL-FIRE-MAN1(brownshortHair), WILLOW-LOCAL-FIRE-MAN2(darkerSkinshortHair), and WILLOW-LOCAL-PATIENT(only6) keep source identities and fixed clothing; all adults approximately SAME standing height1:1, kneeling/seated poses only alter apparent height, no body scale changes. The source shows FOURadultfirefighters at a dry station training yard: gray-haired leader LEFT raises one hand, THREE helmeted crew RIGHT hold ONE continuous tan hose toward a white square target with black circle. Preserve same source gear/backpack cylinders, full protective tan/yellow suits, gloves, helmets, exact arms/hands/boots, red-white engine at far left, metal trainingtower and fence. No extra person/nozzle/water spray.\n",
+      "cacheVersion": "248f37d334a3",
+      "sourceNativeSha256": "5905fabbd9afea424608477b5eb2dcee7de2850bd43e626b5cc50ac1672cd703"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-06.webp",
+      "sha256": "4d081d08266d1849a057dc63ccdd35a311f2194fed6375004cbc0db23825cd6b",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "c1083151bd24c9ba090fc7a53379bf8ec4edf160edfbb2f0a331cc495dd380d3",
+      "briefSha256": "01ecf0bcb2a0ce6443dd75bdae22077094e648a63cd616b6b96e3e10175eafb2",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4d081d08266d1849a057dc63ccdd35a311f2194fed6375004cbc0db23825cd6b",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "All four new native PNGs and all four saved WebPs were personally inspected full frame, followed by the COMPLETE ordered nine-frame390px sequence using immutable incoming-main cover/pages0–4 as retained context and replacements5–8. Whole background foliage now uses crisp outlined solid green clusters and flat shadows instead of fuzzy painted masses. Original four-person leader/hose training, three-person non-graphic forearm first aid, three-person hose/cylinder/nozzle cleaning, and four-person single-ladder drill retain source identities, body counts, equipment, red-white engines, daylight and compositions. Medical-plus supply mark is clinical first-aid context, no religious/national/political imagery introduced. Complete original foreground close framing is retained under the parent/user clarification; no framing-only redraw or new crop. Every foreground action and learning prop remains whole and legible at390px. Four exact incoming source hashes and original1672x941 delivery dimensions preserved."
+      },
+      "sourceImageGenOutput": "exec-81883eed-6bb9-4d79-aef4-da14802023f8.png",
+      "productionPrompt": "Precise BACKGROUND-ONLY style correction. Input1 is clean flat OUTDOOR FOLIAGE rendering reference only; input2 is the exact target FireStation illustration. Full LANDSCAPE16:9 approximately1672x940, preserve ENTIRE original framing and neutral daylight. Change ONLY visible OUTDOOR TREE/SHRUB FOLIAGE beyond yard/fence/open garage/windows. Replace fuzzy mottled green/yellow painted masses with 4–8 large simple SOLID GREEN crown/bush silhouette clusters, crisp continuous dark outlines, at most ONE hard-edged flat shadow per cluster; simple solid brown trunk branches. NO stippling, watercolor, brush daubs, paper grain, soft blurry foliage or miniature noisy leaves. Keep same approximate tree positions/heights and background architecture/sky/weather. Do NOT add rain, flowers or any foreground thing from reference. Preserve ALL foreground adults/equipment/action EXACTLY, existing clean outlined cel style, original large cream foreground floor and image dimensions/composition. Near-edge but complete original foregrounds remain; do not zoom/recompose. No generated text, religious clothes/symbols, political/national flags. World is modern WillowStreet FireStation. Local humans WILLOW-LOCAL-FIRE-LEADER(grayhair), WILLOW-LOCAL-FIRE-WOMAN(darkponytail), WILLOW-LOCAL-FIRE-MAN1(brownshortHair), WILLOW-LOCAL-FIRE-MAN2(darkerSkinshortHair), and WILLOW-LOCAL-PATIENT(only6) keep source identities and fixed clothing; all adults approximately SAME standing height1:1, kneeling/seated poses only alter apparent height, no body scale changes. The source shows exactly THREE adults: brown-haired firefighter LEFT wraps a white bandage around seated blue-shirt bearded patient's forearm, dark-ponytailed female firefighter RIGHT beside ONE open red first-aid case. Preserve their exact faces/limbs/poses/clothes and all clinical supplies. The clinical white-plus marking on a supply packet remains medical, no religious addition. Same red-white engine and gear racks.\n",
+      "cacheVersion": "4d081d08266d",
+      "sourceNativeSha256": "cda60543cc61313660ec4c5cea212a9ba24f1f8f4d8c71d50b481a00b263f71f"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-07.webp",
+      "sha256": "c545ad41def819d8f702e9f1091a4fa0a74a00d1c40cd034ff5df4a9e16bd249",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "839f8b20886485ff4420f96b9c3f80a3bd988e4ed4590c99db639e1b164e7a52",
+      "briefSha256": "0117d06d07ef11eb41d682ac9d0a26aeea1cdbea21a4cbe1191ca092607cd8bd",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "c545ad41def819d8f702e9f1091a4fa0a74a00d1c40cd034ff5df4a9e16bd249",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "All four new native PNGs and all four saved WebPs were personally inspected full frame, followed by the COMPLETE ordered nine-frame390px sequence using immutable incoming-main cover/pages0–4 as retained context and replacements5–8. Whole background foliage now uses crisp outlined solid green clusters and flat shadows instead of fuzzy painted masses. Original four-person leader/hose training, three-person non-graphic forearm first aid, three-person hose/cylinder/nozzle cleaning, and four-person single-ladder drill retain source identities, body counts, equipment, red-white engines, daylight and compositions. Medical-plus supply mark is clinical first-aid context, no religious/national/political imagery introduced. Complete original foreground close framing is retained under the parent/user clarification; no framing-only redraw or new crop. Every foreground action and learning prop remains whole and legible at390px. Four exact incoming source hashes and original1672x941 delivery dimensions preserved."
+      },
+      "sourceImageGenOutput": "exec-daa74ff3-ff2d-4ca5-836d-e2d8f5f24670.png",
+      "productionPrompt": "Precise BACKGROUND-ONLY style correction. Input1 is clean flat OUTDOOR FOLIAGE rendering reference only; input2 is the exact target FireStation illustration. Full LANDSCAPE16:9 approximately1672x940, preserve ENTIRE original framing and neutral daylight. Change ONLY visible OUTDOOR TREE/SHRUB FOLIAGE beyond yard/fence/open garage/windows. Replace fuzzy mottled green/yellow painted masses with 4–8 large simple SOLID GREEN crown/bush silhouette clusters, crisp continuous dark outlines, at most ONE hard-edged flat shadow per cluster; simple solid brown trunk branches. NO stippling, watercolor, brush daubs, paper grain, soft blurry foliage or miniature noisy leaves. Keep same approximate tree positions/heights and background architecture/sky/weather. Do NOT add rain, flowers or any foreground thing from reference. Preserve ALL foreground adults/equipment/action EXACTLY, existing clean outlined cel style, original large cream foreground floor and image dimensions/composition. Near-edge but complete original foregrounds remain; do not zoom/recompose. No generated text, religious clothes/symbols, political/national flags. World is modern WillowStreet FireStation. Local humans WILLOW-LOCAL-FIRE-LEADER(grayhair), WILLOW-LOCAL-FIRE-WOMAN(darkponytail), WILLOW-LOCAL-FIRE-MAN1(brownshortHair), WILLOW-LOCAL-FIRE-MAN2(darkerSkinshortHair), and WILLOW-LOCAL-PATIENT(only6) keep source identities and fixed clothing; all adults approximately SAME standing height1:1, kneeling/seated poses only alter apparent height, no body scale changes. Exactly THREE crew: short-haired dark-skinned adult LEFT kneels scrubbing ONE coiled tan hose beside blue bucket/drain; dark ponytail woman CENTER stands checking ONE breathing cylinder; brown-haired adult RIGHT kneels checking nozzle by equipment racks. Same navy shirts/tan protective trousers/yellow reflective bands/black boots, exacttools/positions/hands/anatomy, same truck at far left.\n",
+      "cacheVersion": "c545ad41def8",
+      "sourceNativeSha256": "2396887ea0daa0dd391c5500b4e493f8515736bfc0a66452384badff8328fad8"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-08.webp",
+      "sha256": "d2badb610020de263664bbd65c8e1c835a6ae2cd67cc5f453ed247d57f14cfdc",
+      "width": 1672,
+      "height": 941,
+      "textSha256": "2b33346c49db2add8c957288fadffeb769ad374457efd7c19f2efe450481c26c",
+      "briefSha256": "12a8514ac9fa9d901c967a6384d7d250ecf159192e514f6aeef2072a2c520067",
+      "visualTreatment": "self-created-cartoon",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "d2badb610020de263664bbd65c8e1c835a6ae2cd67cc5f453ed247d57f14cfdc",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "notes": "All four new native PNGs and all four saved WebPs were personally inspected full frame, followed by the COMPLETE ordered nine-frame390px sequence using immutable incoming-main cover/pages0–4 as retained context and replacements5–8. Whole background foliage now uses crisp outlined solid green clusters and flat shadows instead of fuzzy painted masses. Original four-person leader/hose training, three-person non-graphic forearm first aid, three-person hose/cylinder/nozzle cleaning, and four-person single-ladder drill retain source identities, body counts, equipment, red-white engines, daylight and compositions. Medical-plus supply mark is clinical first-aid context, no religious/national/political imagery introduced. Complete original foreground close framing is retained under the parent/user clarification; no framing-only redraw or new crop. Every foreground action and learning prop remains whole and legible at390px. Four exact incoming source hashes and original1672x941 delivery dimensions preserved."
+      },
+      "sourceImageGenOutput": "exec-e2ce888b-39c1-47ec-a6d5-c70484338896.png",
+      "productionPrompt": "Precise BACKGROUND-ONLY style correction. Input1 is clean flat OUTDOOR FOLIAGE rendering reference only; input2 is the exact target FireStation illustration. Full LANDSCAPE16:9 approximately1672x940, preserve ENTIRE original framing and neutral daylight. Change ONLY visible OUTDOOR TREE/SHRUB FOLIAGE beyond yard/fence/open garage/windows. Replace fuzzy mottled green/yellow painted masses with 4–8 large simple SOLID GREEN crown/bush silhouette clusters, crisp continuous dark outlines, at most ONE hard-edged flat shadow per cluster; simple solid brown trunk branches. NO stippling, watercolor, brush daubs, paper grain, soft blurry foliage or miniature noisy leaves. Keep same approximate tree positions/heights and background architecture/sky/weather. Do NOT add rain, flowers or any foreground thing from reference. Preserve ALL foreground adults/equipment/action EXACTLY, existing clean outlined cel style, original large cream foreground floor and image dimensions/composition. Near-edge but complete original foregrounds remain; do not zoom/recompose. No generated text, religious clothes/symbols, political/national flags. World is modern WillowStreet FireStation. Local humans WILLOW-LOCAL-FIRE-LEADER(grayhair), WILLOW-LOCAL-FIRE-WOMAN(darkponytail), WILLOW-LOCAL-FIRE-MAN1(brownshortHair), WILLOW-LOCAL-FIRE-MAN2(darkerSkinshortHair), and WILLOW-LOCAL-PATIENT(only6) keep source identities and fixed clothing; all adults approximately SAME standing height1:1, kneeling/seated poses only alter apparent height, no body scale changes. Exactly FOUR adults: THREE helmeted firefighters LEFT carry ONE complete horizontal silver ladder together; gray-haired commander RIGHT gestures toward them. Preserve all exact helmets/faces/limbs/gloves/tan protective suits/yellow bands/boots, ladder geometry/count, and SAME front-facing red-white fire engine in open garage. No new flags, crests or religious/national symbols.\n",
+      "cacheVersion": "d2badb610020",
+      "sourceNativeSha256": "78d81188552845556d03520a7996dfb67931780cf10756d663c30a502b245803"
+    }
+  ]
+}

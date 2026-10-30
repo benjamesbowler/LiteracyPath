@@ -34,19 +34,26 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
-  itemCount: 226,
-  sourceFingerprint: "1c2043e8c1df038b31b16e42cfd738d111660e2bea934e8d82fea4cb5f9b074f",
+  itemCount: 295,
+  sourceFingerprint: "e8303cd48c8af3768f3ce483ac1027643d4d5ef7e01ef1ba73a38ce7c30d396e",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-09-22",
+  reviewedAt: "2026-10-29",
   reviewer: "Editorial and source review",
-  claim: "All 226 books and 2,019 pages have current manuscript, visual-file, exact-text narration, and provenance evidence. The 20 Willow Street books contain 160 compact pages and 180 directly reviewed self-created images. Direct human listening is not recorded for the 160 Willow Street page clips; acceptance follows continuous QA and does not claim those clips have been listened to. Reported defects, quarantine, and media-integrity failures remain blocking."
+  claim: "All 295 graded books and 2,597 pages received complete manuscript review. The original 226 graded books received nine page-line corrections and one title correction. Small Steps adds 20 cumulative decodables; Next Steps adds 30 more with exact cumulative pronunciation, word-shape and exception evidence. Bright Ideas adds 19 graded leveled books; its additional shared H book and the existing Missing Sandwich book retain separate exact manuscript contracts. The new collections explicitly distinguish phonics practice from broader leveled and supported reading, with sound-letter, decoding and connected-reading teaching routines. Current illustrations and ordered sequences are enforced by their separate hash-locked visual gate; this text baseline cannot clear a media defect. Exact narration provenance and automated recognition screening remain distinct from human listening. No classroom outcome, publisher-level equivalence or direct human-listening observation is claimed. Reported defects, quarantine and media-integrity failures remain blocking."
 });
 
 // Additive shared-story reviews do not refresh or approve changes to the
 // existing graded corpus. Audio truth remains enforced by its separate gate.
 export const guidedReadingSharedStoryReviews = Object.freeze([Object.freeze({
+  "bookId": "bright-ideas-20",
+  "contentStatus": "approved",
+  "manuscriptSha256": "33e71ec8d18e20aaad74f608e1c060407f87da3ed38ac3c390e6676930973cbc",
+  "expectedPages": 12,
+  "readingPlacement": "App H; shared reading for interest ages 5–9; no independent decoding level",
+  "reviewEvidence": "Complete twelve-page frozen manuscript, science claims and teaching routine independently reviewed. The shared reading contract preserves the exact text, supported placement and Leda narration. Media acceptance is recorded separately in the final expansion review."
+}), Object.freeze({
   bookId: MISSING_SANDWICH_BOOK_ID,
   contentStatus: "approved",
   manuscriptSha256: MISSING_SANDWICH_MANUSCRIPT_SHA256,

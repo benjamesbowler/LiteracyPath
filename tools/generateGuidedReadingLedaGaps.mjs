@@ -1,10 +1,12 @@
 import { execFileSync, spawnSync } from "node:child_process";
-import { createHash } from "node:crypto";
-import { mkdir, stat, unlink, writeFile } from "node:fs/promises";
+import { mkdir, readFile, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { usesCharacterNarration } from "../src/data/sharedReadAloudContracts.js";
+import { findUnpublishedAudioCollisions, parseUnpublishedAudioManuscript } from "./guidedReadingUnpublishedAudioLib.mjs";
+import { resolveReviewedGuidedReadingAudioRepair } from "./guidedReadingAudioRepairLib.mjs";
 import { storyQuests } from "../src/data/storyQuests.js";
 import { GUIDED_READING_LEDA_GAPS } from "../src/data/generated/guidedReadingLedaGaps.generated.js";
 import {
@@ -13,6 +15,8 @@ import {
 } from "../src/data/ledaProductionAudio.js";
 import {
   buildGuidedReadingAudioInventory,
+  collectGuidedReadingPageInventory,
+  guidedReadingAudioFileId,
   readablePageText,
   stableStringify
 } from "./guidedReadingAudioPipelineLib.mjs";
@@ -48,9 +52,28 @@ const requestedLevel = process.argv
 if (requestedLevel && !["A", "B", "C"].includes(requestedLevel)) {
   throw new Error(`Unsupported Guided Reading level: ${requestedLevel}`);
 }
-const selectedBooks = requestedLevel
-  ? guidedReadingBooks.filter(book => book.level === requestedLevel)
-  : guidedReadingBooks;
+const bookPrefixIndex = process.argv.indexOf("--book-prefix");
+const requestedBookPrefix = bookPrefixIndex < 0 ? null : process.argv[bookPrefixIndex + 1];
+if (bookPrefixIndex >= 0 && (!requestedBookPrefix?.trim() || requestedBookPrefix.startsWith("--"))) {
+  throw new Error("Expected --book-prefix with an existing Guided Reading book ID prefix.");
+}
+const manuscriptFileIndex = process.argv.indexOf("--manuscript-file");
+const manuscriptHashIndex = process.argv.indexOf("--manuscript-sha256");
+const manuscriptFile = manuscriptFileIndex < 0 ? null : process.argv[manuscriptFileIndex + 1];
+const manuscriptHash = manuscriptHashIndex < 0 ? null : process.argv[manuscriptHashIndex + 1];
+if ((manuscriptFileIndex >= 0 && (!manuscriptFile || manuscriptFile.startsWith("--")))
+  || (manuscriptHashIndex >= 0 && manuscriptFileIndex < 0)) {
+  throw new Error("Expected --manuscript-file with a reviewed JSON file and --manuscript-sha256.");
+}
+const sourceBooks = manuscriptFile ? parseUnpublishedAudioManuscript(
+  await readFile(path.resolve(repositoryRoot, manuscriptFile)),
+  { sha256: manuscriptHash, bookPrefix: requestedBookPrefix, publishedIds: guidedReadingBooks.map(book => book.id) }
+) : guidedReadingBooks;
+const selectedBooks = sourceBooks.filter(book =>
+  (!requestedLevel || book.level === requestedLevel)
+  && (!requestedBookPrefix || book.id.startsWith(requestedBookPrefix))
+);
+if (!selectedBooks.length) throw new Error("The requested Guided Reading selection contains no books.");
 
 const spokenWordOverrides = Object.freeze({
   "000": "thousand",
@@ -89,14 +112,6 @@ function readableWordText(value = "") {
   return String(value || "")
     .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9%]+$/g, "")
     .trim();
-}
-
-function slug(value) {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-}
-
-function hash(value) {
-  return createHash("sha256").update(value).digest("hex").slice(0, 10);
 }
 
 function run(command, args, label) {
@@ -172,11 +187,19 @@ async function synthesize(accessToken, record) {
   }
 }
 
-// Shared read-aloud books have their own character-dialogue manifests.
-// Their visible words still receive tap support below.
+// Only registered character performances use a separate dialogue manifest.
+// Other shared readers receive the same exact Leda narration as graded books.
 const inventory = buildGuidedReadingAudioInventory(
-  selectedBooks.filter(book => book.readingBandProfile !== "read-aloud"), repositoryRoot
+  selectedBooks.filter(book => !usesCharacterNarration(book)), repositoryRoot
 );
+if (manuscriptFile) {
+  const publishedPages = collectGuidedReadingPageInventory(
+    guidedReadingBooks.filter(book => !usesCharacterNarration(book)), repositoryRoot
+  );
+  inventory.collisions = findUnpublishedAudioCollisions(inventory.pages, publishedPages);
+  inventory.normalizedCollisionCount = inventory.collisions.length;
+  inventory.unresolvedNormalizedCollisionCount = inventory.collisions.filter(row => !row.resolved).length;
+}
 if (previousPageText && guidedReadingBooks.some(book => (book.pages || []).some(page =>
   page.active !== false && normalizeLedaAudioText(readablePageText(page)) === normalizeLedaAudioText(previousPageText)
 ))) {
@@ -257,7 +280,7 @@ for (const book of selectedBooks) {
 // Story Quest words use the same whole-word and letter-spelling support as
 // Guided Reading. Include their complete visible vocabulary in an all-level
 // generation run so a tappable story word can never end in a silent state.
-if (!requestedLevel) {
+if (!requestedLevel && !requestedBookPrefix && !requestedPageText) {
   for (const quest of storyQuests) {
     for (const page of quest.pages || []) {
       collectVisibleWordAudio(
@@ -284,18 +307,17 @@ const records = [
 )).map(record => {
   const spokenText = record.spokenText || record.lookupText;
   const normalizedLookupText = normalizeLedaAudioText(record.lookupText);
-  const id = `${slug(record.lookupText) || "spoken"}-${hash(
-    `${voiceName}|${record.role}|${record.lookupText}|${spokenText}|${record.auditoryReplacement ? "auditory-replacement-v1" : "standard"}`
-  )}`;
+  const id = guidedReadingAudioFileId(record, voiceName);
   const outputDirectory = path.join(
     repositoryRoot,
     "public/audio/production/en-US",
     record.role
   );
   const generatedPublicPath = `/audio/production/en-US/${record.role}/${id}.mp3`;
-  const publicPath = record.auditoryReplacement
+  const reviewedRepairPath = resolveReviewedGuidedReadingAudioRepair(record, voiceName, repositoryRoot);
+  const publicPath = reviewedRepairPath || (record.auditoryReplacement
     ? generatedPublicPath
-    : GUIDED_READING_LEDA_GAPS[record.role]?.[normalizedLookupText] || generatedPublicPath;
+    : GUIDED_READING_LEDA_GAPS[record.role]?.[normalizedLookupText] || generatedPublicPath);
   const mp3Path = path.join(repositoryRoot, "public", publicPath.replace(/^\/+/, ""));
   const wavPath = mp3Path.replace(/\.mp3$/i, ".wav");
   return {
@@ -360,7 +382,7 @@ const maps = Object.fromEntries(
   ["guided_page", "isolated_word"].map(role => [
     role,
     Object.fromEntries([
-      ...(requestedLevel || requestedPageText ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
+      ...(requestedLevel || requestedPageText || requestedBookPrefix ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
       ...records
         .filter(record => record.role === role)
         .sort((left, right) =>
@@ -381,6 +403,8 @@ if (!dryRun) {
 const result = {
   mode: dryRun ? "dry-run" : "generate",
   level: requestedLevel || "all",
+  ...(requestedBookPrefix ? { bookPrefix: requestedBookPrefix } : {}),
+  ...(manuscriptFile ? { manuscriptFile, manuscriptSha256: manuscriptHash, unpublishedManuscript: true } : {}),
   ...(requestedPageText ? { selectedPageText: requestedPageText } : {}),
   voice: voiceName,
   activeBooks: inventory.activeBookCount,

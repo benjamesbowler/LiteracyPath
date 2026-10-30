@@ -139,7 +139,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::5": {
-    "displayedText": "Past the last dune, the green sea filled the sky. Aiden stopped. \"Wow,\" was all he said.",
+    "displayedText": "Past the last dune, they saw the wide green sea. Aiden stopped. \"Wow,\" was all he said.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::6": {
@@ -603,7 +603,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::6": {
-    "displayedText": "Fluff stops running.",
+    "displayedText": "Fluff stays beside Bob.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::7": {
@@ -807,7 +807,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-10-vet::4": {
-    "displayedText": "Fluff sits on the bed.",
+    "displayedText": "Fluff sits on the table.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-10-vet::5": {
@@ -824,6 +824,886 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "bob-and-nan-10-vet::8": {
     "displayedText": "Weeks pass. Fluff runs again!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::1": {
+    "displayedText": "Dot has a leaf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::2": {
+    "displayedText": "The leaf has raised lines.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::3": {
+    "displayedText": "Dot puts the leaf down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::4": {
+    "displayedText": "The paper covers the leaf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::5": {
+    "displayedText": "Dot rubs with the crayon.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::6": {
+    "displayedText": "Blue lines show on the paper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::7": {
+    "displayedText": "Dot lifts the paper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-01::8": {
+    "displayedText": "The lines match the leaf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::1": {
+    "displayedText": "Sam has a sock puppet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::2": {
+    "displayedText": "Sam shows Dot the puppet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::3": {
+    "displayedText": "Dot sees the plain back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::4": {
+    "displayedText": "Sam waves the puppet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::5": {
+    "displayedText": "Dot points at the back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::6": {
+    "displayedText": "Sam turns the puppet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::7": {
+    "displayedText": "Dot sees the face.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-02::8": {
+    "displayedText": "The puppet taps Sam's nose.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::1": {
+    "displayedText": "A pill bug walks under a leaf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::2": {
+    "displayedText": "Its legs move under its body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::3": {
+    "displayedText": "A twig falls beside the pill bug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::4": {
+    "displayedText": "The pill bug curls up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::5": {
+    "displayedText": "Its hard back covers its soft legs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::6": {
+    "displayedText": "We wait. The pill bug starts to open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::7": {
+    "displayedText": "Its legs reach the ground again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-03::8": {
+    "displayedText": "The little ball can walk again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::1": {
+    "displayedText": "Dot makes rings for the window.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::2": {
+    "displayedText": "She puts the rings in a row.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::3": {
+    "displayedText": "Dot lifts one. The rest stay on the table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::4": {
+    "displayedText": "Sam puts a strip through a ring.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::5": {
+    "displayedText": "Dot joins the ends. Now two rings hang together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::6": {
+    "displayedText": "She opens each ring and links it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::7": {
+    "displayedText": "The chain hangs across the window.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-04::8": {
+    "displayedText": "Sam makes a yellow ring. It fits his wrist!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::1": {
+    "displayedText": "Sam shuts the flap on his bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::10": {
+    "displayedText": "Press the strap again. The book stays inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::2": {
+    "displayedText": "He presses the strap. The flap stays shut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::3": {
+    "displayedText": "He pulls the strap. It comes apart with a rip!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::4": {
+    "displayedText": "One side feels rough. Look at the tiny hooks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::5": {
+    "displayedText": "The other side has lots of loops.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::6": {
+    "displayedText": "Press the sides together. The hooks catch the loops.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::7": {
+    "displayedText": "Many little catches hold the strap shut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::8": {
+    "displayedText": "Pulling bends the hooks away from the loops.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-05::9": {
+    "displayedText": "Sam opens the bag and adds his book.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::1": {
+    "displayedText": "Dot has two fabrics to test.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::10": {
+    "displayedText": "Different fabrics do different jobs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::2": {
+    "displayedText": "She puts a drop on the umbrella.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::3": {
+    "displayedText": "The drop sits on top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::4": {
+    "displayedText": "Dad tips the umbrella. The drop rolls into the tray.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::5": {
+    "displayedText": "Dot puts a drop on the towel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::6": {
+    "displayedText": "The towel soaks it up. A wet patch spreads.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::7": {
+    "displayedText": "The cloth holds the water now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::8": {
+    "displayedText": "This umbrella keeps rain off.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-06::9": {
+    "displayedText": "This towel takes water in.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::1": {
+    "displayedText": "Dot makes a pattern around the flowers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::10": {
+    "displayedText": "Sam takes the ball to the grass. Pup follows the ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::2": {
+    "displayedText": "A pebble. A leaf. A pebble. A leaf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::3": {
+    "displayedText": "Sam rolls a ball for Pup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::4": {
+    "displayedText": "The ball hits the border. Three pieces scatter.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::5": {
+    "displayedText": "Dot stops. Sam brings the pieces back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::6": {
+    "displayedText": "He puts two pebbles side by side.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::7": {
+    "displayedText": "Dot points to the part still in place.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::8": {
+    "displayedText": "Sam follows the pattern. A pebble goes beside a leaf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-07::9": {
+    "displayedText": "The border matches all the way around.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::1": {
+    "displayedText": "Dad spins the raised wheel. Sam watches it turn. How can the handlebar help stop it?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::10": {
+    "displayedText": "A small squeeze starts a chain of actions. The brake connects the hand to the wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::2": {
+    "displayedText": "This bicycle has rim brakes. Their pads press against the metal rim around the wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::3": {
+    "displayedText": "Sam squeezes the brake lever on the handlebar. Watch the cable move.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::4": {
+    "displayedText": "The cable pulls the two brake arms inward. Each arm carries one pad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::5": {
+    "displayedText": "The pads meet the rim. They do not press on the tire.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::6": {
+    "displayedText": "The rubbing pads slow the turning wheel. This rubbing is called friction.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::7": {
+    "displayedText": "Sam lets go of the lever. The pads move away from the rim.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::8": {
+    "displayedText": "Dad spins the wheel again. With space beside the pads, it turns freely.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-08::9": {
+    "displayedText": "Dot squeezes the lever this time. The cable pulls, the pads press, and the wheel slows.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::1": {
+    "displayedText": "Two showers can sound alike on a roof. Do they leave the same amount of rain?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::10": {
+    "displayedText": "The roof gave us a sound. The gauge gave us amounts we could compare.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::2": {
+    "displayedText": "A rain gauge catches water. Marks on its side show how much rain has fallen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::3": {
+    "displayedText": "Dad fixes the gauge in an open place. Trees and roofs must not block the rain.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::4": {
+    "displayedText": "The rim sits level. A tilted gauge would not collect rain in the same way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::5": {
+    "displayedText": "Here is an example after one shower. The gauge holds five millimeters of rain.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::6": {
+    "displayedText": "Dot records five. Then she empties the gauge. The next shower needs an empty start.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::7": {
+    "displayedText": "After the next shower, the example gauge holds ten millimeters. Dot records ten.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::8": {
+    "displayedText": "Ten is more than five. The second shower left more rain in this gauge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-09::9": {
+    "displayedText": "Without emptying the gauge, the showers would mix. We could not read the second shower by itself.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::1": {
+    "displayedText": "A village weaver grips a branch. There is no nest here yet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::10": {
+    "displayedText": "A beak, two feet, and many grass strips make this hanging shelter. The weave holds the shape.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::2": {
+    "displayedText": "The male bird collects long strips of grass. He carries them in his beak.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::3": {
+    "displayedText": "He works the first strips around the branch. His beak and feet hold them in place.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::4": {
+    "displayedText": "More strips pass over and under one another. This is weaving.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::5": {
+    "displayedText": "The woven shape grows below the branch. Each new strip joins the nest already there.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::6": {
+    "displayedText": "The bird pulls loose ends through the weave. The strips hold one another.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::7": {
+    "displayedText": "A rounded wall now hangs from the branch. An opening remains underneath.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::8": {
+    "displayedText": "The entrance leads up into the nest. The bird can cling below it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-10::9": {
+    "displayedText": "A female comes to inspect the nest. She may accept it or choose another.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::1": {
+    "displayedText": "Sam has made a board game. \"First to the picnic wins,\" he says, setting down two counters.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::10": {
+    "displayedText": "Dot reaches the picnic first. Sam slides his counter back to the start. \"Again?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::2": {
+    "displayedText": "Dot rolls and follows the path. At the fork, an arrow sends her counter around a bend.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::3": {
+    "displayedText": "\"Back here?\" Dot asks. Her counter has returned to a space she passed before.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::4": {
+    "displayedText": "Sam reaches the same arrow. His counter goes around the bend and comes back too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::5": {
+    "displayedText": "\"I need a bigger roll,\" Sam says. He rolls again, but the path brings him back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::6": {
+    "displayedText": "Dot puts the die down. \"Let's follow the path with a finger instead.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::7": {
+    "displayedText": "Her finger reaches the arrow and turns back. The other branch leads straight to the picnic.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::8": {
+    "displayedText": "Sam turns the loose arrow. \"Try that.\" Dot's finger follows the new direction to the finish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-11::9": {
+    "displayedText": "They put both counters back at the start. This time, the same rules can lead either player to the picnic.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::1": {
+    "displayedText": "This smooth bottle began as sand and broken glass. How did those pieces become one clear container?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::10": {
+    "displayedText": "Heating and cooling in this careful way reduce stresses in the glass. The process is called annealing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::11": {
+    "displayedText": "Each bottle is checked for flaws. A flawed bottle can be melted and made again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::12": {
+    "displayedText": "The bottle has been mixed, melted, shaped, cooled, and checked. Now it can hold a drink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::2": {
+    "displayedText": "This bottle is made from soda-lime glass. Its recipe has sand, soda ash, and limestone.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::3": {
+    "displayedText": "Clean recycled glass can join the mix. These small glass pieces are called cullet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::4": {
+    "displayedText": "The ingredients are measured and mixed. The batch goes into a very hot furnace.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::5": {
+    "displayedText": "Heat changes the batch into molten glass. Molten means melted and able to flow.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::6": {
+    "displayedText": "A machine cuts the molten glass into portions. Each glowing portion is called a gob.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::7": {
+    "displayedText": "The gob enters a mold. The mold gives the bottle its shape.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::8": {
+    "displayedText": "Air helps push the glass against the mold. A hollow bottle forms inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-12::9": {
+    "displayedText": "The new bottle is still hot. It passes through an oven that controls how it cools.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::1": {
+    "displayedText": "Something is resting among these rocks. Look for an eye above a curling arm.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::10": {
+    "displayedText": "These changes are called camouflage. The octopus is still there even when we lose its outline.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::11": {
+    "displayedText": "Return to the first rocks. Can you trace an arm and find the eye now?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::12": {
+    "displayedText": "The rocks did not grow an eye. A living octopus changed the way its body looked.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::2": {
+    "displayedText": "It is a giant Pacific octopus. Its skin blends with the rocky background.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::3": {
+    "displayedText": "The octopus moves onto pale sand. Its color can change as it moves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::4": {
+    "displayedText": "Paler patches spread across its skin. The animal has not become a different octopus.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::5": {
+    "displayedText": "Tiny sacs of color lie in the skin. Muscles can stretch them wider.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::6": {
+    "displayedText": "A stretched sac shows more color. A smaller sac shows less.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::7": {
+    "displayedText": "Many tiny changes make a larger pattern. The octopus can produce patches across its body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::8": {
+    "displayedText": "Color is only part of the disguise. The skin can also look smoother or bumpier.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-13::9": {
+    "displayedText": "Bumps and patches help hide the body's outline. A hungry animal may find it harder to spot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::1": {
+    "displayedText": "Dad shows Dot Pup's empty water bowl. \"Please fill this before the next game.\" Dot brings the pitcher from the shelf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::10": {
+    "displayedText": "\"Now I can watch the whole game,\" Dot says. Sam stands up all six pins and returns the sand to one end.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::11": {
+    "displayedText": "They start again. Sam rolls, and Dot counts each fallen pin. This time she stays beside the game.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::12": {
+    "displayedText": "When the sand runs out, Dot gives the score. Sam rolls the ball to her. \"Your turn.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::2": {
+    "displayedText": "Sam has set up six bowling pins. \"Will you keep score?\" he asks. Dot nods and puts the pitcher down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::3": {
+    "displayedText": "Sam turns the sand timer. Dot watches his first roll. Three pins fall, and she holds up three fingers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::4": {
+    "displayedText": "Pup noses the empty bowl. Dot sees the pitcher and remembers Dad's request. \"One second,\" she tells Sam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::5": {
+    "displayedText": "Dot hurries to the tap. Behind her, Sam rolls again. She hears pins tumble but cannot see how many fell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::6": {
+    "displayedText": "\"What is my score?\" Sam asks. Dot looks at the pins. Sam has already stood them up again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::7": {
+    "displayedText": "Dot starts to guess, then stops. \"I missed your turn. And Pup still has no water.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::8": {
+    "displayedText": "Sam lays the ball down. \"Let's stop the timer.\" He turns it on its side while Dot carries the water over.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-14::9": {
+    "displayedText": "Dot fills the bowl. Pup drinks. She puts the pitcher away and wipes the drops beside the bowl.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::1": {
+    "displayedText": "A dinosaur steps onto soft ground. Its foot lifts, but a print remains. Could that mark outlast the animal?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::10": {
+    "displayedText": "Nearby prints form a trackway. Their spacing can give clues about how the animal moved.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::11": {
+    "displayedText": "A print does not tell us everything. Its shape alone may not identify the exact dinosaur species.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::12": {
+    "displayedText": "The track cannot show the animal's color. That fact needs other evidence, not a guess from the toes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::13": {
+    "displayedText": "We can still say that an animal pressed its foot here. The rock keeps evidence of that moment.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::14": {
+    "displayedText": "One step took a moment. The trace lets us study that action millions of years later.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::2": {
+    "displayedText": "This is one way a footprint can become a fossil. Most fresh prints do not last so long.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::3": {
+    "displayedText": "Ground that is too hard may take no clear print. Very soft mud may slump into the mark.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::4": {
+    "displayedText": "Our print holds its shape. Later, a gentle layer of sand or mud covers it without washing it away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::5": {
+    "displayedText": "More sediment builds above it. The old mark is protected from footsteps and running water at the surface.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::6": {
+    "displayedText": "Over a very long time, these sediments can become rock. The footprint's shape may remain within the layers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::7": {
+    "displayedText": "The dinosaur is long gone. Its preserved step is a trace fossil, rather than a fossil of its body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::8": {
+    "displayedText": "Much later, wind and water wear away rock above the track. Part of the old surface becomes bare.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-15::9": {
+    "displayedText": "A scientist finds the mark and records its shape. Photos and measurements help save the evidence.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::1": {
+    "displayedText": "A red boat reaches a higher stretch of canal. It cannot float uphill through the air. What can lift it?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::10": {
+    "displayedText": "The operator closes the small water passages. With levels matched, the upper gates can open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::11": {
+    "displayedText": "The boat moves out onto the higher water. The lower gates remain shut behind the chamber.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::12": {
+    "displayedText": "Going down uses the opposite change. A boat in a closed chamber descends as water drains to the lower side.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::13": {
+    "displayedText": "In either direction, the water must match the next canal section before the exit gates open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::14": {
+    "displayedText": "The red boat has climbed without leaving the water. The lock changed the water's height around it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::2": {
+    "displayedText": "A lock is a chamber between gates. Water inside can be raised or lowered to match either side.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::3": {
+    "displayedText": "First, the chamber water matches the lower canal. The upper gates stay shut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::4": {
+    "displayedText": "The lower gates open, and the boat enters. The boat still floats at the lower height.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::5": {
+    "displayedText": "The lower gates close behind the boat. Now both ends of the chamber are closed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::6": {
+    "displayedText": "The operator opens small passages from the upper side. These are water openings, not the wide gates for boats.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::7": {
+    "displayedText": "Water flows from the higher canal into the chamber. The water level around the boat begins to rise.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::8": {
+    "displayedText": "The boat rises with the water. It stays afloat as more water flows in.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-16::9": {
+    "displayedText": "The chamber fills until its water matches the upper canal. The boat has reached the new height.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::1": {
+    "displayedText": "Sam's blue sponge is huge. Dot's yellow sponge is small. \"Mine will soak up more,\" Sam says, reaching for water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::10": {
+    "displayedText": "\"Once might fool us,\" Sam says. They empty the cups and repeat with another dry pair of equal-sized samples.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::11": {
+    "displayedText": "The yellow sample gives more water again. Dot points to both results. \"This yellow material held more in our test.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::12": {
+    "displayedText": "Sam picks up the huge blue sponge. \"It still holds lots. But we did not test them fairly the first time.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::13": {
+    "displayedText": "A little water spills from the measuring cup. Sam reaches for the tested yellow sponge and wipes the tray.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::14": {
+    "displayedText": "\"Yellow wins this puddle,\" he says. Dot wipes the other end with blue. \"This one can help too.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::2": {
+    "displayedText": "Sam pours plenty into his dish. Dot pours a little into hers. They dip their sponges and lift them out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::3": {
+    "displayedText": "Sam squeezes his sponge into a cup. More water comes out. \"Blue wins!\" He holds his cup above Dot's.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::4": {
+    "displayedText": "Dot puts the sponges side by side. \"Yours had more sponge and more water. What did we really compare?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::5": {
+    "displayedText": "Sam lowers his cup. They cannot tell whether the material, size, or water amount made the difference.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::6": {
+    "displayedText": "Dad prepares two fresh pieces of the same size. One is blue and one is yellow; both start dry.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::7": {
+    "displayedText": "Dot measures the same amount of water into two matching dishes. Sam checks that neither sample has been dipped yet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::8": {
+    "displayedText": "They dip both samples for the same time. Then each sample drains above its dish for the same short wait.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-17::9": {
+    "displayedText": "They squeeze each sample into a matching cup until it stops dripping. This time, the yellow sample gives more water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::1": {
+    "displayedText": "Wren wanted a bright banner for Fern's garden. Three covered baskets stood on the table. Their red, blue, and yellow ribbons looked much grander than plain string.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::10": {
+    "displayedText": "Blue belonged in the middle, and yellow belonged on the right. Wren replaced both markers. Pip checked every ribbon against his drawing before Fern lifted a basket.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::11": {
+    "displayedText": "Fern took the correctly marked basket to the pond bed. Wren carried the other two behind her. This time she waited for Fern to show where each belonged.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::12": {
+    "displayedText": "Back at the table, Wren opened the tray she had missed. Plain cloth strips lay inside. She rubbed one between her fingers, then tied it to the empty banner cord.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::13": {
+    "displayedText": "Pip helped add more plain strips. The breeze lifted them above the table. Wren held up the banner, and Fern stepped underneath without moving a single basket marker.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::14": {
+    "displayedText": "One loose strip tickled the tip of Wren's hat. She ducked beneath it and laughed. The banner could flutter all it liked; Fern's colors stayed with the seeds.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::2": {
+    "displayedText": "Pip sat beside the table, drawing the baskets. He copied each ribbon's color. Fern needed those colors to remember which garden bed each basket of seeds belonged to.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::3": {
+    "displayedText": "\"May I borrow some ribbon?\" Wren asked, and Fern pointed toward a tray. \"Take the loose strips,\" Fern said. Wren glanced at the baskets before Fern returned to planting.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::4": {
+    "displayedText": "Wren untied the red ribbon, then the blue and yellow ones. She knotted them along her banner cord. The baskets stayed in place, but all three now looked alike.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::5": {
+    "displayedText": "Fern returned for the seeds and stopped at the bare baskets. \"Which one goes beside the pond?\" Wren lowered the banner. She had borrowed more than decoration.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::6": {
+    "displayedText": "\"I can put them back,\" Wren said. She tied yellow on the left basket and red in the middle. Fern kept her planting basket on the ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::7": {
+    "displayedText": "Fern asked how Wren knew the order was right. Wren could not answer, so she loosened the knots. All three ribbons went flat on the table again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::8": {
+    "displayedText": "Pip put down his pencil. His drawing still showed the colors, though the real baskets had lost them. Wren pulled her chair beside him and looked closely.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-18::9": {
+    "displayedText": "The drawing showed red on the left basket beside the crooked root. Wren checked that root, then tied the red ribbon back. She kept the drawing open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::1": {
+    "displayedText": "A bare patch waited inside the garden gate. Stone wanted to put a flower there that would stay bright after the blossoms fell. Pip brought him a little lump of clay.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::10": {
+    "displayedText": "Pip carried one small petal, and Stone carried the others in two trips. They set the stones beside the patch. The narrow gate stayed clear between every trip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::11": {
+    "displayedText": "Stone knelt outside the patch and placed the petals around the center. From his low view, two looked closer together than the rest. He paused before pressing them down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::12": {
+    "displayedText": "Luna flew to a low branch above the patch. She pointed one feathered wing toward the crowded pair. Stone moved a petal, then checked the spaces with his finger.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::13": {
+    "displayedText": "Now six pale petals surrounded the golden middle with even spaces. Pip poured water onto the soil nearby. The stone flower stayed firm, and the path remained open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::14": {
+    "displayedText": "Stone held his broad hands beside the finished flower. Nothing needed pinching, and nothing needed carrying. Pip set the squashed clay flower near it. \"A little one for company.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::2": {
+    "displayedText": "Stone pinched six tiny petals around a small clay middle. When he lifted the flower, two petals flattened under his broad thumb. He set the soft shape down again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::3": {
+    "displayedText": "\"Too small for these,\" Stone said, spreading his hands. Beyond the path lay smooth flat stones. He chose six pale ones and a round golden stone for the center.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::4": {
+    "displayedText": "Pip found a broad board, and Stone arranged the flower on top. Six pale petals circled the golden middle. Luna landed nearby and looked down at the shape.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::5": {
+    "displayedText": "Stone lifted the board with both hands. The flower stayed together, but the board nearly filled the path. Pip walked ahead to open the narrow garden gate.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::6": {
+    "displayedText": "At the gate, the board stopped against both posts. Stone tilted it, and one petal slid. Pip called for him to keep it flat, so Stone lowered the board.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::7": {
+    "displayedText": "The board now blocked the path. Pip could not bring his small watering can through. Stone moved the board back to the clearing before he tried anything else.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::8": {
+    "displayedText": "Luna watched Stone replace the slipped petal. \"Does the flower have to travel all at once?\" she asked. Stone rested one broad finger beside the golden middle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-19::9": {
+    "displayedText": "Stone lifted just the golden center. It fit easily through the gate, even in his large hand. He carried it to the bare patch and placed it in the middle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::1": {
+    "displayedText": "Sam parks a toy bus on a model street. Dot turns a tiny tap, but the model sink stays dry. \"Where would real water come from?\" she asks. Dad lifts a road panel. Beneath it lie several routes, each going somewhere different.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::10": {
+    "displayedText": "\"One big tunnel for everything?\" Sam asks. Dot shakes her head and follows the separate model routes. Drinking water comes in, used water goes away, and the cable carries electricity. Their jobs differ, so their connections matter. Dot puts her finger between the blue and brown pipes. There is a gap all along.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::11": {
+    "displayedText": "Before replacing the road, Dot traces each route once more. Sam checks the houses, lamp, and curb drain above them. They match each visible object to its hidden connection. Then they lower the panels without moving any pipes. The street looks ordinary again, but now they can explain what it covers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::12": {
+    "displayedText": "Sam drives the bus past the little houses. \"Water coming in. Used water going out. Power for the light.\" Dot taps the road gently. \"All underneath this quiet street.\" \"Beep, beep!\" Sam says. Dot laughs. The model street is quiet underneath, but the bus is not.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::2": {
+    "displayedText": "\"This is one example street,\" Dad says. \"Real streets do not all have the same pipes.\" Blue model pipes lead toward the houses. Brown pipes lead away. A gray drain and an orange cable follow other routes. The colors help us track this model; real pipes may look different.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::3": {
+    "displayedText": "Dot follows a blue pipe back to a small water tower. \"In some towns, pumps lift water into a high tank,\" Dad explains. \"Gravity helps it flow from there through pipes.\" Dot traces the route from the tower toward the houses. The tall tank now has a job.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::4": {
+    "displayedText": "The supply pipes branch beneath the street and enter the buildings. Water for drinking has to meet safety standards before people use it. In this example, it comes from a water-treatment plant. \"So the tap is near the end of a long route,\" Dot says, following the last branch.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::5": {
+    "displayedText": "Sam points to the sink's drain. \"Does used water go back that way?\" Dad shows him a different pipe. Water from sinks and toilets can enter a sewer. In this street model, the brown sewer carries that used water toward a wastewater-treatment plant, not back to the drinking-water tower.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::6": {
+    "displayedText": "At the wastewater plant, screens catch large bits of waste. Other steps let solids settle, and tiny living things help break down waste. Treatment also reduces harmful germs. Sam moves his finger from tank to tank. \"Used water has a longer journey than I thought.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::7": {
+    "displayedText": "Dot finds a grate beside the model curb. \"Rain goes here,\" she says. In this example, a separate storm pipe carries runoff toward a waterway. Some places combine rainwater and sewage in one system instead. \"Another journey,\" Dot says, moving her finger from the curb to the little river.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::8": {
+    "displayedText": "The orange route has no water in it. It represents an electrical cable. Cables can carry electricity beneath streets to buildings and lights. Elsewhere, wires may run above the ground on poles. \"The streetlamp needs a connection too,\" Sam says, tracing the cable to its base.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "bright-ideas-20::9": {
+    "displayedText": "Sam notices a model worker beside a loose road panel. \"How do workers find the right pipe?\" he asks. \"They use plans and special tools,\" Dad says. Trained crews locate buried equipment, check problems, and make repairs. A street can look still while people keep its hidden systems working.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-01-chompys-big-lunch::1": {
@@ -3715,7 +4595,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-49::4": {
-    "displayedText": "Gloves help warm my hands.",
+    "displayedText": "Mittens keep my hands warm.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-49::5": {
@@ -4399,7 +5279,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-05-how-seeds-grow::7": {
-    "displayedText": "After pollination, new seeds grow inside the plant's pods.",
+    "displayedText": "After pollination, new seeds grow inside this plant's pods.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-05-how-seeds-grow::8": {
@@ -5423,7 +6303,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::10": {
-    "displayedText": "Grumpy shows his friends.",
+    "displayedText": "Grumpy shows his friends weeks later.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::11": {
@@ -6339,7 +7219,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::3": {
-    "displayedText": "Pip took his lantern and started down the marsh path alone. After one worried pause, Stone lifted a foot and slowly followed his smaller friend.",
+    "displayedText": "Pip started down the winding marsh path on his own. After one worried pause, Stone lifted a foot and slowly followed his smaller friend.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::4": {
@@ -7438,6 +8318,1518 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "next-steps-01::1": {
+    "displayedText": "My hat is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-01::2": {
+    "displayedText": "My hat is on Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-01::3": {
+    "displayedText": "My hat is in a tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-01::4": {
+    "displayedText": "The tin is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-01::5": {
+    "displayedText": "My hat is in the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-01::6": {
+    "displayedText": "The tin is on Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::1": {
+    "displayedText": "I run in the sun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::2": {
+    "displayedText": "I am hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::3": {
+    "displayedText": "I sit on a mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::4": {
+    "displayedText": "I am hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::5": {
+    "displayedText": "My mat is in the sun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::6": {
+    "displayedText": "I run to a hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::7": {
+    "displayedText": "I sit in the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-02::8": {
+    "displayedText": "I am not hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-03::1": {
+    "displayedText": "The cat is on a rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-03::2": {
+    "displayedText": "I tug a rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-03::3": {
+    "displayedText": "The cat is on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-03::4": {
+    "displayedText": "I run.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-03::5": {
+    "displayedText": "The cat and I run.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-03::6": {
+    "displayedText": "The cat is on the rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::1": {
+    "displayedText": "Dad is sad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::2": {
+    "displayedText": "I hum.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::3": {
+    "displayedText": "Dad is sad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::4": {
+    "displayedText": "I sit on Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::5": {
+    "displayedText": "I hug Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::6": {
+    "displayedText": "Dad is not sad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-04::7": {
+    "displayedText": "Dad and I hum.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::1": {
+    "displayedText": "I can tag Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::2": {
+    "displayedText": "Dad can run. I run.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::3": {
+    "displayedText": "I do not tag Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::4": {
+    "displayedText": "I do not run. I sit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::5": {
+    "displayedText": "Dad is at the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::6": {
+    "displayedText": "I tag Dad!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::7": {
+    "displayedText": "\"You can tag me!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-05::8": {
+    "displayedText": "Dad and I run.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-06::1": {
+    "displayedText": "My rag is on a mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-06::2": {
+    "displayedText": "I dip it in a pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-06::3": {
+    "displayedText": "I dab on my cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-06::4": {
+    "displayedText": "A dot is on my cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-06::5": {
+    "displayedText": "I dab on my cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-06::6": {
+    "displayedText": "My cap is on me.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-07::1": {
+    "displayedText": "I see a hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-07::2": {
+    "displayedText": "I see a log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-07::3": {
+    "displayedText": "I see a map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-07::4": {
+    "displayedText": "The hut is on the map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-07::5": {
+    "displayedText": "The log is on the map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-07::6": {
+    "displayedText": "I can go to the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::1": {
+    "displayedText": "I see a cat in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::2": {
+    "displayedText": "\"Cat, can you hop?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::3": {
+    "displayedText": "I tap the box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::4": {
+    "displayedText": "I do not see it hop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::5": {
+    "displayedText": "I see a tag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::6": {
+    "displayedText": "I tug at the tag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::7": {
+    "displayedText": "It is my hat!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-08::8": {
+    "displayedText": "My hat is on me. The cat is on a rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::1": {
+    "displayedText": "I get a red pen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::2": {
+    "displayedText": "I get a red mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::3": {
+    "displayedText": "I dab a dot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::4": {
+    "displayedText": "I do not see a dot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::5": {
+    "displayedText": "I get a tan mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::6": {
+    "displayedText": "I dab a dot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-09::7": {
+    "displayedText": "I can see a dot!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::1": {
+    "displayedText": "I get a box. It is a den for the cat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::2": {
+    "displayedText": "Dot and I get a rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::3": {
+    "displayedText": "The rag is on the box. It is on the cat!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::4": {
+    "displayedText": "I tug at the rag. The rag is on Dot!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::5": {
+    "displayedText": "I get a peg for the rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::6": {
+    "displayedText": "I peg the rag to the box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::7": {
+    "displayedText": "The rag is up. The cat can get in.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-10::8": {
+    "displayedText": "The cat is in the den. Dot and I can pet it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::1": {
+    "displayedText": "I can do a job.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::2": {
+    "displayedText": "I get a mug for Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::3": {
+    "displayedText": "I get a cup for Dot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::4": {
+    "displayedText": "I see no cup for me.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::5": {
+    "displayedText": "I get a cup for me.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::6": {
+    "displayedText": "I set it on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::7": {
+    "displayedText": "Dad and Dot sip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-11::8": {
+    "displayedText": "I sip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::1": {
+    "displayedText": "I get a kit for Dad. A wig is in the kit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::2": {
+    "displayedText": "The wig is on Dad. \"Dad, can you hop?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::3": {
+    "displayedText": "Dad can hop. The wig is on the rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::4": {
+    "displayedText": "I get a cap for Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::5": {
+    "displayedText": "Dad and I pin the wig to his cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::6": {
+    "displayedText": "The wig is on Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::7": {
+    "displayedText": "\"Dad, can you hop?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-12::8": {
+    "displayedText": "Dad and I hop. The wig is on Dad!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::1": {
+    "displayedText": "I get a cap. Dot can get a cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::2": {
+    "displayedText": "\"Tap your cap to the cup!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::3": {
+    "displayedText": "I tap my cap. It is at the cup!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::4": {
+    "displayedText": "\"Your cap is not on the mat.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::5": {
+    "displayedText": "I set my cap on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::6": {
+    "displayedText": "I tap my cap. \"Dot, tap your cap!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::7": {
+    "displayedText": "The red cap is at the cup. My cap is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-13::8": {
+    "displayedText": "\"You win, Dot!\" I get my cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::1": {
+    "displayedText": "My ship is on the rim.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::2": {
+    "displayedText": "I fan the ship. It is on the rim.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::3": {
+    "displayedText": "I fan and fan. It is on the rim.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::4": {
+    "displayedText": "I set the ship in the tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::5": {
+    "displayedText": "I fan the ship. The ship can go!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::6": {
+    "displayedText": "\"Dad, get the ship!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::7": {
+    "displayedText": "\"Dad, fan the ship!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-14::8": {
+    "displayedText": "I get the ship!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::1": {
+    "displayedText": "Sam can chat and chat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::2": {
+    "displayedText": "\"My jet can go up!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::3": {
+    "displayedText": "I do not chat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::4": {
+    "displayedText": "\"Can I chat?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::5": {
+    "displayedText": "\"Yes, Dot. You can chat.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::6": {
+    "displayedText": "\"My ship can go in a tub!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::7": {
+    "displayedText": "Sam and I set the jet on the ship.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-15::8": {
+    "displayedText": "The jet is on the ship. Sam and I chat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::1": {
+    "displayedText": "Dot and I dash to the log. I am fast. Dot is last.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::2": {
+    "displayedText": "I dash to the hut. Dot is last at the hut. This is not much fun for Dot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::3": {
+    "displayedText": "I sit with Dot. I nod at the log. \"Dash to the log, Dot!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::4": {
+    "displayedText": "I hop to the log. Dot is at the log with me.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::5": {
+    "displayedText": "I dash to the hut. Dot is last at the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::6": {
+    "displayedText": "If I hop, Dot can dash with me. I nod at the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::7": {
+    "displayedText": "I hop to the hut. Dot is at the hut. I am last!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-16::8": {
+    "displayedText": "I rub my leg. Dot and I rest for a bit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-17::1": {
+    "displayedText": "I set a cup on a cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-17::2": {
+    "displayedText": "I set a cup on top. The wall is tall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-17::3": {
+    "displayedText": "I let go. The wall tips!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-17::4": {
+    "displayedText": "I set a cup and a cup on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-17::5": {
+    "displayedText": "I set a cup on top of the gap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-17::6": {
+    "displayedText": "I let go. The wall is up!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-18::1": {
+    "displayedText": "Dad and I do a quiz. I get a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-18::2": {
+    "displayedText": "I set a felt fish in the box. Dad can see red.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-18::3": {
+    "displayedText": "Dad says, \"Is it a cap?\" I tip the lid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-18::4": {
+    "displayedText": "\"No, Dad. Look at the fin.\" Dad can see the fin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-18::5": {
+    "displayedText": "Dad says, \"It is a fish!\" I nod.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-18::6": {
+    "displayedText": "I set the fish in my cap. Dad and I grin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::1": {
+    "displayedText": "Sam and Dot had a job. Dad was in the hut. The jug and the dish had to go to Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::2": {
+    "displayedText": "Dot got the jug to the hut. Sam sat on the rug with Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::3": {
+    "displayedText": "Dot got the dish to the hut. Then Dot sat. The cup was not in the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::4": {
+    "displayedText": "\"Is that all?\" said Sam. \"No,\" said Dot. \"A cup and a bun for each of us.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::5": {
+    "displayedText": "Sam got up. \"I can help! I can get a bun for each of us. You get the cups.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::6": {
+    "displayedText": "Dot got the cups. Sam got a bun for each of them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::7": {
+    "displayedText": "\"A job for me!\" said Dad. Dad got the jug. Sam and Dot sat on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-19::8": {
+    "displayedText": "\"A sip for each of us!\" said Dad. Dot had a sip. \"That is all!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::1": {
+    "displayedText": "Dad and I have a map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::2": {
+    "displayedText": "I cut the map. Dad and I mix up the bits.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::3": {
+    "displayedText": "Dad and I have a bit each.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::4": {
+    "displayedText": "They do not fit. I look at the red path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::5": {
+    "displayedText": "I get a red bit. Dad and I fit it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::6": {
+    "displayedText": "Dad and I fit more of the map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::7": {
+    "displayedText": "Dad and I see the hut on the map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-20::8": {
+    "displayedText": "Dad says, \"More?\" I mix it up!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-21::1": {
+    "displayedText": "Dad says, \"Get the rag, Dot!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-21::2": {
+    "displayedText": "I tug and tug. The rag is with Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-21::3": {
+    "displayedText": "Sam says, \"I can tug with you.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-21::4": {
+    "displayedText": "Sam and I tug. Dad is up!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-21::5": {
+    "displayedText": "I have the rag. Dad says, \"I like to sit!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-21::6": {
+    "displayedText": "I rest with Dad. Sam and I grin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::1": {
+    "displayedText": "\"Go out, moth!\" A moth is in the shed. It is on the lid of a tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::2": {
+    "displayedText": "I set a net on the tin, but the moth is not in the net.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::3": {
+    "displayedText": "The moth is on a jug. I sit with Dad. The net is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::4": {
+    "displayedText": "I lift the jug, but I do not dash. Dad is with me.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::5": {
+    "displayedText": "Dad and I go out of the shed. The moth is on the jug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::6": {
+    "displayedText": "I set the jug on a log. Dad and I sit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::7": {
+    "displayedText": "The moth is not on the jug. It is on a bud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-22::8": {
+    "displayedText": "I get the jug. Dad and I go in. The moth is out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::1": {
+    "displayedText": "I have a top. I spin it on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::2": {
+    "displayedText": "The top stops. I spin it fast.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::3": {
+    "displayedText": "The top stops. I look at the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::4": {
+    "displayedText": "The rug is not flat. I get a flat lid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::5": {
+    "displayedText": "I set the lid on the rug. I spin the top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::6": {
+    "displayedText": "The top is fast. Dad and I clap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-23::7": {
+    "displayedText": "Dad says, \"A top on a lid!\" I spin it for Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-24::1": {
+    "displayedText": "I have a cat mask. I put it on.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-24::2": {
+    "displayedText": "I hop to Dot. I bump a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-24::3": {
+    "displayedText": "\"I do not see you, Dot!\" I stop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-24::4": {
+    "displayedText": "Dot says, \"The chin is on top!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-24::5": {
+    "displayedText": "I flip the mask. I put it on.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-24::6": {
+    "displayedText": "I see Dot! Dot and I hop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::1": {
+    "displayedText": "Dad and I have a quiz. \"What am I?\" I flap a rag at Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::2": {
+    "displayedText": "Dad says, \"A ship?\" I put the rag on the mat. I do not nod.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::3": {
+    "displayedText": "I hop and flap. Dad says, \"A hen?\" I nod. Dad can see it!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::4": {
+    "displayedText": "Dad says, \"What am I?\" Dad is on the rug with a ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::5": {
+    "displayedText": "Dad and I bat the ball. \"A cat!\" I pat Dad on the chin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::6": {
+    "displayedText": "Sam says, \"What am I?\" Sam is on the mat. Sam is not a cat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::7": {
+    "displayedText": "I look at Sam. Sam is on the mat with a cup and felt on his chin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-25::8": {
+    "displayedText": "\"Dad!\" Dad says, \"I am up!\" Sam is not up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::1": {
+    "displayedText": "I am in a van. Dot is in a bus.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::2": {
+    "displayedText": "Dot and I go to the gap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::3": {
+    "displayedText": "The van and the bus do not fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::4": {
+    "displayedText": "Dot and I honk. It does not help.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::5": {
+    "displayedText": "\"Go on, Dot.\" I go to the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::6": {
+    "displayedText": "Dot goes in the gap. The bus can fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::7": {
+    "displayedText": "I go in the gap. My van can fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-26::8": {
+    "displayedText": "Dot and I go. I honk, and Dot does.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::1": {
+    "displayedText": "I have a plan for a prank. I cut a big bug from red felt.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::2": {
+    "displayedText": "I put the bug in a cup for Dad. I sit with my cap in my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::3": {
+    "displayedText": "Dad says, \"A felt bug for me? I like it!\" That is not my plan.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::4": {
+    "displayedText": "I go to get a bun. Dad is with my cap and my bug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::5": {
+    "displayedText": "I get my cap. \"A bug!\" I let the cap fall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::6": {
+    "displayedText": "I look at the bug. It is my felt bug! I grin at Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::7": {
+    "displayedText": "I clip the bug to my cap. It is a big red bug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-27::8": {
+    "displayedText": "I put on my cap. Dad says, \"A cap for a bug!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::1": {
+    "displayedText": "Sam was a king. Sam had a tall hat. Dot was not a king.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::2": {
+    "displayedText": "\"Get my rug,\" said Sam. Dot got the rug. Sam sat on it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::3": {
+    "displayedText": "\"Get my cup,\" said Sam. Dot got the cup. Sam sat on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::4": {
+    "displayedText": "\"Get my bun,\" said Sam. Dot sat. \"You get it.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::5": {
+    "displayedText": "Sam got up. Dot did not get up. Sam got a bun for Dot and a bun for Sam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::6": {
+    "displayedText": "\"A bun for you,\" said Sam. Dot set a cup on the rug for Sam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::7": {
+    "displayedText": "Sam put the tall hat on the rug. \"My bun can be the king!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-28::8": {
+    "displayedText": "Sam and Dot sat on the rug. The bun was in the tall hat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::1": {
+    "displayedText": "I have a red cup and a pink cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::2": {
+    "displayedText": "I put a bit of fish in the red cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::3": {
+    "displayedText": "I put a lid on each cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::4": {
+    "displayedText": "Pup taps the pink lid. I lift it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::5": {
+    "displayedText": "Pup sniffs the red lid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::6": {
+    "displayedText": "Pup taps the red lid. I lift it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-29::7": {
+    "displayedText": "Pup gets the fish. I pat Pup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::1": {
+    "displayedText": "Sam and I have a band. Sam taps a drum. I ring a bell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::2": {
+    "displayedText": "I ring the bell. Sam taps fast. I stop, but Sam taps the drum.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::3": {
+    "displayedText": "Dad claps. \"Stop and look,\" says Dad. Sam and I stop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::4": {
+    "displayedText": "Dad says, \"When I clap, tap. When my hand is up, stop.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::5": {
+    "displayedText": "Dad claps. I ring the bell. Sam taps the drum. I look at Dad. His hand is up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::6": {
+    "displayedText": "I stop, but Sam taps. \"Look at Dad, Sam!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::7": {
+    "displayedText": "Sam and I look at Dad. Dad claps. I ring the bell, and Sam taps.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "next-steps-30::8": {
+    "displayedText": "I look at Dad. His hand is up. Sam and I stop. Dad claps. Sam and I go!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::1": {
+    "displayedText": "I am a cat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::2": {
+    "displayedText": "Sam is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::3": {
+    "displayedText": "Can I fit on the mat?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::4": {
+    "displayedText": "I sit. I do not fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::5": {
+    "displayedText": "Sam is big. I sit on Sam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-01::6": {
+    "displayedText": "I fit!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::1": {
+    "displayedText": "Mud is on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::2": {
+    "displayedText": "I rub the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::3": {
+    "displayedText": "Mud is on my rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::4": {
+    "displayedText": "I rub. Mud is on my rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::5": {
+    "displayedText": "I rub my rag in a tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::6": {
+    "displayedText": "No mud on my rag. I rub the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::7": {
+    "displayedText": "No mud on the rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-02::8": {
+    "displayedText": "Mud is on my hat!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::1": {
+    "displayedText": "Can the pup fit in a box?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::2": {
+    "displayedText": "\"Pup, sit in the box.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::3": {
+    "displayedText": "No. The box is not big.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::4": {
+    "displayedText": "I tug a big box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::5": {
+    "displayedText": "\"Pup, sit in the big box.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::6": {
+    "displayedText": "The pup is in the big box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-03::7": {
+    "displayedText": "My hat is a box!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::1": {
+    "displayedText": "\"Yum! A bun!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::2": {
+    "displayedText": "The bun is hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::3": {
+    "displayedText": "I fan the bun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::4": {
+    "displayedText": "The bun is hot!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::5": {
+    "displayedText": "\"Dad, cut the bun.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::6": {
+    "displayedText": "I fan the bun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::7": {
+    "displayedText": "The bun is not hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-04::8": {
+    "displayedText": "\"Yum!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::1": {
+    "displayedText": "Dad is a vet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::2": {
+    "displayedText": "The hen is in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::3": {
+    "displayedText": "I get the hen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::4": {
+    "displayedText": "The hen is not on my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::5": {
+    "displayedText": "The vet and I sit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::6": {
+    "displayedText": "I tap my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::7": {
+    "displayedText": "The hen is on my lap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-05::8": {
+    "displayedText": "The vet and I pet the hen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::1": {
+    "displayedText": "The jam is in a pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::2": {
+    "displayedText": "I tug at the lid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::3": {
+    "displayedText": "The lid is on the pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::4": {
+    "displayedText": "\"Dad, tug at the lid.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::5": {
+    "displayedText": "Dad and I tug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::6": {
+    "displayedText": "The lid is not on the pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::7": {
+    "displayedText": "I dip my bun in the jam.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-06::8": {
+    "displayedText": "Jam is on Dad!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::1": {
+    "displayedText": "A hat is in my bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::2": {
+    "displayedText": "A mug is in my bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::3": {
+    "displayedText": "A log is in my bag!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::4": {
+    "displayedText": "Can I zip my bag?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::5": {
+    "displayedText": "I tug. No!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::6": {
+    "displayedText": "I set the log on a mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-07::7": {
+    "displayedText": "I zip my bag!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::1": {
+    "displayedText": "I get a red hat and a red cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::2": {
+    "displayedText": "I run in the big hat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::3": {
+    "displayedText": "The hat is on the rug!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::4": {
+    "displayedText": "I get the hat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::5": {
+    "displayedText": "I set the big hat on Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::6": {
+    "displayedText": "The big hat is for Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::7": {
+    "displayedText": "I run in the red cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-08::8": {
+    "displayedText": "Dad and I run.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::1": {
+    "displayedText": "I am a cat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::2": {
+    "displayedText": "I nap in the shop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::3": {
+    "displayedText": "Sam and Dot chat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::4": {
+    "displayedText": "I sit up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::5": {
+    "displayedText": "I get in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::6": {
+    "displayedText": "Sam and Dot shut the shop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-09::7": {
+    "displayedText": "I nap in the box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::1": {
+    "displayedText": "I get a big chip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::2": {
+    "displayedText": "The chip is in the mud!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::3": {
+    "displayedText": "I set the chip in the bin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::4": {
+    "displayedText": "I get a chip in a dish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::5": {
+    "displayedText": "\"This chip is good!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::6": {
+    "displayedText": "A bit of chip is on my chin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::7": {
+    "displayedText": "\"Is your chin a dish?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-10::8": {
+    "displayedText": "I get the bit of chip. \"It is not!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::1": {
+    "displayedText": "Dot and I get a fish kit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::2": {
+    "displayedText": "I get a thin fin and a fat leg.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::3": {
+    "displayedText": "I set the leg on the fish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::4": {
+    "displayedText": "\"That is not a fin!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::5": {
+    "displayedText": "I set the leg in the box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::6": {
+    "displayedText": "I set the thin fin on the fish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-11::7": {
+    "displayedText": "\"This is a fish!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::1": {
+    "displayedText": "I get a ball and a tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::2": {
+    "displayedText": "I set the ball on the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::3": {
+    "displayedText": "I see the ball fall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::4": {
+    "displayedText": "\"Can the ball fit in the tin?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::5": {
+    "displayedText": "I set the ball in the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-12::6": {
+    "displayedText": "I sit. The ball is in the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::1": {
+    "displayedText": "I am a pig. I am hot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::2": {
+    "displayedText": "I dig in the mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::3": {
+    "displayedText": "I do not fit in the pit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::4": {
+    "displayedText": "I dig and dig.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::5": {
+    "displayedText": "I sit in the big pit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::6": {
+    "displayedText": "Mud is on my chin!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-13::7": {
+    "displayedText": "I nap in the mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::1": {
+    "displayedText": "I look for a red cap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::2": {
+    "displayedText": "I get a map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::3": {
+    "displayedText": "I run to the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::4": {
+    "displayedText": "The cap is not in the hut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::5": {
+    "displayedText": "The dot is on a log!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::6": {
+    "displayedText": "I run to the log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-14::7": {
+    "displayedText": "I get the red cap!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::1": {
+    "displayedText": "The pup is in the mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::2": {
+    "displayedText": "I put the pup in a tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::3": {
+    "displayedText": "I rub the pup with a rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::4": {
+    "displayedText": "The rag is not wet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::5": {
+    "displayedText": "I dip the rag in the tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::6": {
+    "displayedText": "I rub the pup with the wet rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::7": {
+    "displayedText": "The mud is on the rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-15::8": {
+    "displayedText": "The pup is out. I am wet!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::1": {
+    "displayedText": "The ball is in a big tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::2": {
+    "displayedText": "I dip a cup in the tub.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::3": {
+    "displayedText": "The ball is not in the cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::4": {
+    "displayedText": "I get the red net.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::5": {
+    "displayedText": "The ball is in the net!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::6": {
+    "displayedText": "I put the net on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::7": {
+    "displayedText": "I lob the wet ball at Dad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-16::8": {
+    "displayedText": "Dad is wet!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::1": {
+    "displayedText": "The van is in a log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::2": {
+    "displayedText": "I tug on the van.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::3": {
+    "displayedText": "The van is in the log!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::4": {
+    "displayedText": "When can the van whiz?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::5": {
+    "displayedText": "I tip the log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::6": {
+    "displayedText": "The van is out!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::7": {
+    "displayedText": "I let the van whiz.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-17::8": {
+    "displayedText": "Whiz! The van is on Dad!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::1": {
+    "displayedText": "Pink ink is on the mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::2": {
+    "displayedText": "I rub the ink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::3": {
+    "displayedText": "The mat is pink!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::4": {
+    "displayedText": "I put a rag in the sink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::5": {
+    "displayedText": "The rag is wet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::6": {
+    "displayedText": "I dab the mat with the wet rag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::7": {
+    "displayedText": "The mat is not pink.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-18::8": {
+    "displayedText": "The rag is pink!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::1": {
+    "displayedText": "I sing a song.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::2": {
+    "displayedText": "I bang on a pan.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::3": {
+    "displayedText": "The cat is in a box.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::4": {
+    "displayedText": "\"Hush, Sam! Sing the song!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::5": {
+    "displayedText": "I put the pan on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::6": {
+    "displayedText": "I sing the song.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::7": {
+    "displayedText": "Dad and I sing the song.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-19::8": {
+    "displayedText": "The cat is on the pan!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::1": {
+    "displayedText": "The bell is in a mess.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::2": {
+    "displayedText": "I puff on the fuzz.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::3": {
+    "displayedText": "The fuzz is on the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::4": {
+    "displayedText": "The bell is not in the fuzz.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::5": {
+    "displayedText": "I tip the cup. Ding!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::6": {
+    "displayedText": "The bell is in the cup!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::7": {
+    "displayedText": "I put the fuzz in a bin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "small-steps-20::8": {
+    "displayedText": "I ring the bell. Ding!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::1": {
+    "displayedText": "Samir and Maya set breakfast on a long table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::2": {
+    "displayedText": "The cups wobble when the table starts to rock.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::3": {
+    "displayedText": "Samir holds the cups. Maya looks under the table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::4": {
+    "displayedText": "One short leg hangs above the uneven floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::5": {
+    "displayedText": "Maya finds a flat wooden block beside the shelf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::6": {
+    "displayedText": "Nani slides the block under the short leg.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::7": {
+    "displayedText": "Maya nudges the table. The cups do not move!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::8": {
+    "displayedText": "Friends join them, and breakfast begins without a spill.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "willow-street-a-snail-comes-out-at-night::1": {
     "displayedText": "By day, the snail rests in a cool shelter.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -7503,7 +9895,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::1": {
-    "displayedText": "Leo brings his small drum to Carnival practice.",
+    "displayedText": "Leo brings his small drum to band practice.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::2": {
@@ -7535,7 +9927,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::1": {
-    "displayedText": "Zoe's family makes dumplings for their New Year meal.",
+    "displayedText": "Zoe's family makes dumplings for dinner together.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::2": {
@@ -7564,38 +9956,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "willow-street-dumplings-for-new-year::8": {
     "displayedText": "Zoe takes a bite. Her filling stays tucked inside!",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::1": {
-    "displayedText": "Samir's family dresses early for Eid morning.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::2": {
-    "displayedText": "Samir's family walks together to morning prayers.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::3": {
-    "displayedText": "After prayers, neighbors greet one another warmly.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::4": {
-    "displayedText": "Samir hopes Maya will meet him by the doorway.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::5": {
-    "displayedText": "The busy doorway hides Maya from his view.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::6": {
-    "displayedText": "Samir carries his family's food parcel to share.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::7": {
-    "displayedText": "At the welcome table, he finds Maya with dates.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::8": {
-    "displayedText": "Together, they share dates at the joyful Eid breakfast.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-from-wheat-to-bread::1": {
@@ -7787,7 +10147,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-make-a-paper-kite::8": {
-    "displayedText": "Face the breeze and let the kite rise.",
+    "displayedText": "Keep the wind behind you and let the kite rise.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-make-fruit-and-yoghurt-cups::1": {
@@ -8059,7 +10419,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-where-rainwater-goes::4": {
-    "displayedText": "Roof gutters carry water into pipes or water butts.",
+    "displayedText": "Roof gutters carry water into pipes or rain barrels.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-where-rainwater-goes::5": {
