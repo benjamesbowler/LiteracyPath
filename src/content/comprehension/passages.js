@@ -1,9 +1,10 @@
 import { ADDITIONAL_COMPREHENSION_DRAFTS, ADDITIONAL_WORD_HELP } from './additionalPassages.js';
+import { EXPANSION_COMPREHENSION_DRAFTS, EXPANSION_WORD_HELP } from './expansionPassages.js';
 // Original authored short passages. Focus tags are teaching labels, not calibrated
 // reading levels. The exact foundation list below is reviewed spelling vocabulary;
 // everything outside it and the passage's authored targets is exposed for support.
 const FOUNDATION = new Set(`a an and as at back bad bag bat bed big bin bit box bug bus but can cap cat cup cut dad did dig dip dog dot dug fat fed fit fix fog for fun get got had ham has hat hen hid him his hit hop hot hug hut if in is it jam jet job jug kid kit lap leg let lid lip log lot mad man map mat men met mix mop mud mug mum nap net nod not nut off on pan pat peg pen pet pig pin pit pop pot pup ran rat red rid rip rod rot rub rug run sad sat set sip sit six sob sock socks sun tag tan tap ten tin tip top tub tug up van vet wag web wet win zip zig zag with the to of he she we me be go no so my you your are was have said they their there this that them then from into out one two what when who where why how will all some come little help look like see do does were put down good now too very`.split(/\s+/));
-const WORDS = text => text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || [];
+const WORDS = text => text.toLowerCase().match(/[a-z]+(?:['’][a-z]+)?/g) || [];
 
 export const COMPREHENSION_FAMILIES = [
   {id:'short',label:'Short vowels'}, {id:'digraph',label:'Digraphs and blends'},
@@ -362,14 +363,14 @@ const WORD_HELP = {
  ]
 };
 
-export const COMPREHENSION_PASSAGES = [...drafts,...ADDITIONAL_COMPREHENSION_DRAFTS].map(([id,title,family,focus,character,targetWords,text,questions,draw]) => {
+export const COMPREHENSION_PASSAGES = [...drafts,...ADDITIONAL_COMPREHENSION_DRAFTS,...EXPANSION_COMPREHENSION_DRAFTS].map(([id,title,family,focus,character,targetWords,text,questions,draw]) => {
  const sentences = text.match(/[^.!?]+[.!?]+/g).map(s=>s.trim());
  // Support includes proper names, inflections and unfamiliar vocabulary. It is
  // deliberately conservative: never guess that a substring proves decodability.
  const supportWords = [...new Set(WORDS(text).filter(w=>!FOUNDATION.has(w)&&!targetWords.includes(w)))];
  return Object.freeze({id,title,family,focus,character,targetWords,text,sentences,draw,
   band:'B', construct:'Text-supported reading comprehension', responseMode:'Select; discuss or write on print',
-  wordCount:WORDS(text).length, supportWords, wordHelp:WORD_HELP[id]||ADDITIONAL_WORD_HELP[id],
+  wordCount:WORDS(text).length, supportWords, wordHelp:WORD_HELP[id]||ADDITIONAL_WORD_HELP[id]||EXPANSION_WORD_HELP[id],
   prerequisites: family==='short' ? ['Short vowel sounds','CVC blending','Preview support words']
     : family==='digraph' ? ['Short vowels',focus,'Preview support words']
     : family==='silent' ? ['Short vowels','Consonant digraphs and blends',focus,'Preview support words']

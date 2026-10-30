@@ -27,18 +27,18 @@ test('every picture sheet preserves its exact passage and authoritative story il
   }
 });
 
-test('the complete picture pack embeds exactly its 72 story rasters and no portrait bytes', async () => {
+test('the complete picture pack embeds exactly its 172 story rasters and no portrait bytes', async () => {
   const ids = COMPREHENSION_PASSAGES.map(p => p.id);
   const document = build({ passageIds: [...ids, ids[0]], variant: 'picture' });
-  assert.equal(document.pages, 72);
-  assert.equal((document.html.match(/data-worksheet-page=/g) || []).length, 72);
+  assert.equal(document.pages, 172);
+  assert.equal((document.html.match(/data-worksheet-page=/g) || []).length, 172);
   const sources = [];
   const html = await embedComprehensionImages(document.html, { fetchImpl: async source => {
     sources.push(source);
     return { ok: true, blob: async () => new Blob(['fixture'], { type: 'image/webp' }) };
   } });
   assert.deepEqual(sources.sort(), COMPREHENSION_PASSAGES.map(p => passagePicture(p).src).sort());
-  assert.equal((html.match(/data:image\/webp;base64,/g) || []).length, 72);
+  assert.equal((html.match(/data:image\/webp;base64,/g) || []).length, 172);
   assert.doesNotMatch(html, /href="\/images\//);
   const tasks = [...html.matchAll(/data-task-id="([^"]+)"/g)].map(m => m[1]);
   assert.equal(new Set(tasks).size, tasks.length);

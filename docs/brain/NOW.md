@@ -1,11 +1,22 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-29
+updated: 2026-10-30
 authority: orientation-only
 ---
 
 # Current state
+
+## Comprehension collection and class checks — 30 October 2026
+
+The shared comprehension bank now contains 172 original passages, including a
+second collection of 100. Its [product standard](../product/READING_COMPREHENSION.md)
+owns the print, picture, narration and unscored-practice contracts. Teachers can
+tick **Whole group completed**, filter to unfinished/completed sheets and select
+**New 100** for printing. Checks persist per teacher and selected class on this
+browser, separate from learner practice; they do not synchronize between devices.
+Current render, media and browser evidence belongs in ignored
+`.artifacts/comprehension/`, separate from hosted or physical-classroom proof.
 
 ## Beginner vocabulary and Adaptive Literacy Test — 28 October 2026
 

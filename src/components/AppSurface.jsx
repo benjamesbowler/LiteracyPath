@@ -2378,9 +2378,10 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`comprehension-${teacherId}-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading reading passages…" />}>
             {withStudentRail("books", <ComprehensionPage
-              key={isStudentMode ? `${teacherId}:${childProgressScopeKey}` : `${teacherId}:teacher`}
+              key={isStudentMode ? `${teacherId}:${childProgressScopeKey}` : `${teacherId}:class:${selectedClassId}:teacher`}
               teacher={!isStudentMode}
-              scope={isStudentMode ? `${teacherId || studentSession?.teacherId || "local"}:${childProgressScopeKey}` : `${teacherId}:teacher`}
+              scope={isStudentMode ? `${teacherId || studentSession?.teacherId || "local"}:${childProgressScopeKey}` : `${teacherId}:class:${selectedClassId}:teacher`}
+              groupScope={!isStudentMode && teacherId && selectedClassId ? `${teacherId}:class:${selectedClassId}` : ""}
               onBack={() => isStudentMode ? setAppView(APP_VIEWS.GUIDED_READING) : goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             />)}
           </Suspense>

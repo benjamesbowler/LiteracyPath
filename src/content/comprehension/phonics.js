@@ -13,49 +13,49 @@
 const vocabulary = {
   'short a': `adds an and as at back bad bag bags bat can cannot cans cap cat
     flat grass had half ham hand hands hangs has hat jam lap last man map mat
-    nap pan past path ran sad sat scrap snack stand tag tan tap that van`,
+    nap pan past path ran sad sat scrap snack stand tag tan tap that van sand fan pancake`,
   'short e': `bed bench empty end fell fed get gets hen help helps left leg
     let men met net peg pen pens pet red set shelf step steps ten tent them
-    then wet yet`,
+    then wet yet egg eggs rests when legs rest`,
   'short i': `big bigger bin bins bit bits did dig dip dish fills fit fits him
     his hit if in ink into is it kick kicks kid lid lifts lip little mix picks
     chips pig pin pip pit raisins rip sits sit six sink spills still stick sticks swimming this
-    tin tip tips which will wind with zip`,
+    tin tip tips which will wind with zip print inside until picture pins brings pink`,
   'short o': `box cannot chompy dot dog got hop hot log logs mop not off on onto pond
-    pot rock shop sock socks spot stop stops top`,
+    pot rock shop sock socks spot stop stops top block spots fog fox`,
   'short u': `bucket bug bus but cup cut cuts duck ducks dug fluff fun hug hut jug
-    jump mud muddy mug mum nut nuts rub rug run shut shuts sun tub tug under until up`,
-  sh: `brush brushes dish fish pushes shelf shed shop shopping shuts splashes washes`,
-  ch: `bench check checks cheese chest chip chips chompy chops each kitchen latch lunch much sandwich`,
+    jump mud muddy mug mum nut nuts rub rug run shut shuts sun tub tug under until up dust button cups`,
+  sh: `brush brushes dish fish pushes shelf shed shop shopping shuts splashes washes shells shapes dishes show shopkeeper sheet short shows sunshine shadow shape shadows`,
+  ch: `bench check checks cheese chest chip chips chompy chops each kitchen latch lunch much sandwich watches chooses chalk chin`,
   th: `another bath both cloth other path that the them then there these thick
-    thin third this three through threads with without`,
+    thin third this three through threads with without thread they others`,
   st: `dust fast first gust just last list lost post resting stamp stand stands
-    starts stay stays step steps stick sticks still stops`,
+    starts stay stays step steps stick sticks still stops stone star mistake straps`,
   nt: `front into plant plants tent until wants`,
-  ng: `along hangs long ring string swings`,
+  ng: `along hangs long ring string swings hang longer rings reading`,
   nk: `drink drinks ink pink sink`,
   ck: `back block blocks check checks clock pack packs picks rock sick snack
-    stick sticks stuck tick`,
+    stick sticks stuck tick crackers track stacks`,
   'a-e': `brakes cake case cases game gate made make makes name page place
-    plate race safe same shake space stage take takes tape`,
+    plate race safe same shake space stage take takes tape grapes plane vase lake shade shape shapes flame plates`,
   'i-e': `beside bike five hike ice inside kite like line lines nine ride side size
-    slide slides time wide wipe wipes write writes`,
-  'o-e': `bone close closer closes cone home hose nose note rose rope stone stones`,
+    slide slides time wide wipe wipes write writes stripe white`,
+  'o-e': `bone close closer closes cone home hose nose note rose rope stone stones cones hole holes`,
   'u-e': `cube cute flute mule tube tune use uses`,
   'e-e': `these`,
-  ai: `pail rail rain raincoat trail train wait waited waiting waits`,
-  ay: `away day hay lay lays may pay pays play plays say stay stays tray way`,
+  ai: `pail rail rain raincoat trail train wait waited waiting waits snail paint sail`,
+  ay: `away day hay lay lays may pay pays play plays say stay stays tray way clay`,
   ee: `bee feel feels feet green keep keeps meet need needs see seed seeds sees
-    sheep sheet sleep sleeps squeeze squeezes sweep sweeps teeth three tree week`,
+    sheep sheet sleep sleeps squeeze squeezes sweep sweeps teeth three tree week trees`,
   ea: `beach clean cleans each eat eats leaf leaves peach reach read sea seat
-    steam tea team`,
+    steam tea team reader readers`,
   oa: `boat coat coats float foam road soak toast toaster`,
   ow: `arrow arrows below blow blows bowl follow follows grow grows grown low
     row show shows slow slowly snow snowball throw throws window yellow`,
   igh: `bright high light night right tight`,
   ue: `blue glue`,
   ie: `field piece`,
-  ew: `blew few new stew`,
+  ew: `blew few new stew threw`,
 };
 const wordsByPattern = new Map(Object.entries(vocabulary).map(([pattern, words]) => [
   pattern, new Set(words.trim().split(/\s+/)),

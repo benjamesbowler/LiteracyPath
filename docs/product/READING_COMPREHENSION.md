@@ -1,9 +1,10 @@
 # Reading Comprehension
 
 The approved comprehension area uses one original bank:
-`src/content/comprehension/passages.js`. It contains 72 distinct passages, authored in that module and
-`additionalPassages.js`: 16 short-vowel, 16 digraph/blend, 15 silent-e and
-25 vowel-team passages. These provide 216 questions and 144 student sheets
+`src/content/comprehension/passages.js`. It contains 172 distinct passages, authored in that module,
+`additionalPassages.js` and the two `expansionPassages` modules: 41 short-vowel,
+41 digraph/blend, 40 silent-e and 50 vowel-team passages. These provide 516
+questions and 344 student sheets
 in the complete multiple-choice and drawing pack.
 Each has three four-choice practice questions and exact source-sentence
 answer evidence, plus an open drawing/retelling task. Questions are unscored
@@ -35,6 +36,19 @@ write student responses. Reload validates saved
 shape/content; corrupt or unavailable storage starts safely or keeps the
 current work in memory. Start again clears that passage's current practice.
 No new hosted assignment protocol, synchronization or database write is added.
+
+Teachers can tick **Whole group completed** on each catalogue card, passage or
+full-screen lesson. This is a reversible teacher record, separate from individual
+practice, rereading ticks and print-pack selection. It persists in local storage
+per teacher account, selected class and passage, including across browser tabs.
+Checks are saved on this browser; they do not synchronize between devices.
+Select a class before recording completion. Unavailable or malformed storage is
+explained, and unsaved in-memory ticks are never described as saved. No previous
+whole-group completion can be inferred from learner practice or old session-only
+answer selections. Teachers can tick earlier work themselves and filter
+**All sheets**, **To do** or **Completed**. The **New 100** collection filter
+selects the second collection; **Select shown** adds precisely that selection
+to a print pack while preserving choices across filters.
 
 Phonics focus is a teaching label, not a calibrated reading level or a promise
 of full decodability. The exact authored targets and conservative support-word
@@ -142,7 +156,7 @@ They can be coloured without colour-coded directions. Portraits identify the
 character without revealing an answer; children supply the story scene in the
 drawing task. Artwork is the existing `public/images/worksheets/` line art. A script-free
 SVG resource pool embeds each approved raster once and reuses it across pages,
-so a 144-page pack avoids repeated multi-megabyte data URLs. Every character
+so a 344-page pack avoids repeated multi-megabyte data URLs. Every character
 portrait remains the same approved raster, not a newly constructed picture.
 
 Print windows open during the user gesture; assets are embedded before the
@@ -159,16 +173,16 @@ cycle generator in the Worksheet Design Bible. Neither replaces the other.
 - `node --test tests/unit/comprehension*.test.js`: bank/evidence/language,
   exhaustive focused-word audit, saved shuffles, immutable first try, scoped
   storage, large-pack portrait pooling, exact narration and cue ownership.
-- `npm run check:comprehension-pictures`: current generated metadata, all 72
+- `npm run check:comprehension-pictures`: current generated metadata, all 172
   decoded story illustrations, source/generation/visual-review provenance and
   black-and-white pixels. Generator changes never invent listening approval.
-- `node tools/checkComprehensionFullscreen.mjs`: all 72 stories at six device
+- `node tools/checkComprehensionFullscreen.mjs`: all 172 stories at six device
   sizes, complete paged content, choices/feedback, native and fallback entry,
   accessible exit/focus, saved retry, Leda and failed-picture recovery.
-- `node tools/checkComprehensionPrint.mjs`: all five formats for all 72 passages,
+- `node tools/checkComprehensionPrint.mjs`: all five formats for all 172 passages,
   batch documents, embedded assets/font, text size, clipping, footer overlap
   and exact physical PDF page counts.
-- `node tools/checkComprehensionBrowser.mjs`: six device sizes, all 216 question
+- `node tools/checkComprehensionBrowser.mjs`: six device sizes, all 516 question
   controls, retry/reload/completion, teacher privacy/reveal, catalogue filters,
   batch selection, group choices, exact preview, print popup/recovery, actual
   Leda starts/stops and teaching/Books links.
