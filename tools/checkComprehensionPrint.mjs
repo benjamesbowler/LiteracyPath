@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { COMPREHENSION_PASSAGES } from '../src/content/comprehension/passages.js';
+import { COMPREHENSION_EXPANSION_IDS } from '../src/content/comprehension/expansionPassages.js';
 import { passagePicture } from '../src/content/comprehension/pictures.js';
 import { buildComprehensionDocument, embedComprehensionImages } from '../src/content/comprehension/print.js';
 const output=path.resolve('.artifacts/comprehension');await fs.mkdir(output,{recursive:true});
@@ -72,6 +73,9 @@ try{
  await render({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'pair'},'reading-comprehension-student-pack.pdf');
  await render({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'teacher'},'reading-comprehension-teacher-guides.pdf');
  await render({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'worksheet'},'reading-comprehension-written-answers.pdf');
+ for (const [variant,filename] of [['choice','100-new-comprehension-sheets.pdf'],['teacher','100-new-comprehension-answer-keys.pdf'],['picture','100-new-comprehension-picture-stories.pdf'],['extension','100-new-comprehension-drawing-pages.pdf']]) {
+  await render({passageIds:COMPREHENSION_EXPANSION_IDS,variant},filename);
+ }
  await render({passageIds:['muddy-rain'],variant:'pair'},'long-a-colouring-worksheets.pdf');
  const result={documents:count,physicalPages:physical,passages:COMPREHENSION_PASSAGES.length,checkedAt:new Date().toISOString(),picturePages,failures};
  await fs.writeFile(path.join(output,'print-check.json'),JSON.stringify(result,null,2));

@@ -10,8 +10,8 @@ import { COMPREHENSION_PICTURES as AUTHORING } from '../../tools/authoring/compr
 
 const digest = value => createHash('sha256').update(value).digest('hex');
 
-test('all 72 exact passages have independently authored, stable picture records', () => {
-  assert.equal(COMPREHENSION_PASSAGES.length,72);
+test('all 172 exact passages have independently authored, stable picture records', () => {
+  assert.equal(COMPREHENSION_PASSAGES.length,172);
   assert.deepEqual(Object.keys(COMPREHENSION_PICTURES).sort(),COMPREHENSION_PASSAGES.map(p => p.id).sort());
   const scenes = new Set();
   for (const passage of COMPREHENSION_PASSAGES) {

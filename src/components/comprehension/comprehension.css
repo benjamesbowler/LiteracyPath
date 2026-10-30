@@ -68,3 +68,41 @@
  .rc-lesson-reading .rc-text-box{height:auto}
  .rc-lesson-reading .rc-text-pager{display:none}
 }
+
+/* Teacher class history is independent of the print-pack selection. */
+.rc-group-check{align-items:center;gap:9px;min-height:48px;font-size:15px;line-height:1.4}
+.rc-card>.rc-group-check{padding:8px 18px;border-top:1px solid #dfe8ee}
+.rc-card[data-group-completed=true]>.rc-group-check{background:#e5f0fa;color:#173b55;font-weight:600}
+.rc-group-status{font-size:15px;line-height:1.5;margin:12px 0}
+.rc-workspace-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px}
+.rc-lesson-footer{display:flex;align-items:center;gap:12px;justify-content:space-between;min-width:0}
+.rc-lesson-footer>.rc-group-check{flex:none;min-height:44px;font-size:14px}
+.rc-lesson-footer>.rc-lesson-status{min-width:0}
+@media(min-width:951px){.rc-filters:has(select option[value=todo]){grid-template-columns:1.4fr repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.rc-lesson-footer{gap:4px;align-items:flex-start;flex-direction:column}.rc-lesson-footer>.rc-group-check{font-size:13px}}
+@media(max-height:430px) and (min-width:500px){.rc-lesson-footer>.rc-group-check{font-size:12px}.rc-lesson-footer{gap:8px}}
+/* Compact lessons reserve exact 44px toolbar rows and let answer text set its
+   own row minimum; a long choice must never be squeezed below its content. */
+@media(max-width:540px){
+ .rc-lesson-tools>.rc-lesson-tabs,.rc-lesson-tools>.rc-lesson-audio{flex:0 0 auto;height:44px}
+ .rc-stage-host .rc-lesson-tools button{height:44px;min-height:44px}
+ .rc-lesson-question[data-question-state=choices]{grid-template-rows:auto minmax(min-content,1fr) auto}
+ .rc-lesson-options{grid-auto-rows:minmax(min-content,auto)}
+}
+@media(max-width:540px){
+ .rc-lesson-footer:has(>.rc-group-check){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:center}
+ .rc-lesson-footer>.rc-group-check{min-width:0}
+}
+@media(max-width:540px) and (min-height:431px){
+ .rc-lesson-question-nav button:first-child{font-size:0}
+ .rc-lesson-question-nav button:first-child:after{content:'←';font-size:20px}
+}
+@media(max-width:540px){
+ .rc-lesson-body>.rc-lesson-question{padding:8px;gap:6px}
+}
+
+@media(max-width:959px),(max-height:649px){
+ .rc-lesson-question[data-question-state=clue]{grid-template-rows:minmax(0,1fr) auto}
+ .rc-lesson-question[data-question-state=clue]>.rc-lesson-clue{grid-row:1;min-height:0}
+ .rc-lesson-question[data-question-state=clue]>.rc-lesson-question-nav{grid-column:1/-1;grid-row:2;margin:0}
+}

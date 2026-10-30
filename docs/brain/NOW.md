@@ -1,11 +1,22 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-29
+updated: 2026-10-30
 authority: orientation-only
 ---
 
 # Current state
+
+## Comprehension collection and class checks — 30 October 2026
+
+The shared comprehension bank now contains 172 original passages, including a
+second collection of 100. Its [product standard](../product/READING_COMPREHENSION.md)
+owns the print, picture, narration and unscored-practice contracts. Teachers can
+tick **Whole group completed**, filter to unfinished/completed sheets and select
+**New 100** for printing. Checks persist per teacher and selected class on this
+browser, separate from learner practice; they do not synchronize between devices.
+Current render, media and browser evidence belongs in ignored
+`.artifacts/comprehension/`, separate from hosted or physical-classroom proof.
 
 ## Beginner vocabulary and Adaptive Literacy Test — 28 October 2026
 
@@ -66,6 +77,12 @@ owns the latter collections, their explicit teaching routines and supported
 shared-reader boundary. Cycle prerequisites, supplemental blending lessons and
 exact taught exception words remain separate from app text bands and individual
 mastery. Clean outlined cartoon art is the current production standard.
+The [illustration standard](../design/ILLUSTRATION_STYLE_STANDARD.md) owns neutral
+content exclusions; the [Dino canon](../content/STORY_BIBLE_PART_2_CANON.md#32-dino-pals)
+distinguishes rounded-plate Dozy from leaf-plate Fancy and fixes body plans.
+*A Morning with Friends* has a separate book ID from the retired Eid book;
+[retirement bindings](../../tools/manifests/guided-reading-book-retirements.json)
+preserve exact artwork and narration lineage.
 Original audit and Small Steps evidence are retained in ignored
 `.artifacts/guided-reading-audit-2026-10-28/` and
 `.artifacts/guided-reading-decodable-2026-10-28/`; the additional fifty-book
