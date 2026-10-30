@@ -12,9 +12,9 @@ const APPROVED_TITLES = Object.freeze([
   "The Squeaky Wheel",
   "The Garden Gate",
   "Nani's Chapati Lunch",
-  "Dumplings for New Year",
-  "Drums for Carnival",
-  "Eid Morning with Samir",
+  "Dumplings for Dinner",
+  "Drums Together",
+  "A Morning with Friends",
   "Grow a Bean in a Jar",
   "Make a Paper Kite",
   "Build a Cardboard Ramp",
@@ -43,7 +43,7 @@ test("Willow Street has the approved 20-title genre mix", () => {
   }), {});
   assert.deepEqual(genreCounts, {
     "everyday-fiction": 6,
-    "culture-community": 4,
+    "family-community": 4,
     procedure: 4,
     "photorealistic-nonfiction": 5,
     "illustrated-nonfiction": 1
@@ -138,13 +138,13 @@ test("food and ramp procedures expose every safety and comparison step to reader
 });
 
 test("fiction review evidence matches reader-visible setbacks and resolutions", () => {
-  const eid = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Eid Morning with Samir");
-  assert.match(eid.pages[3].text, /hopes.*Maya/iu);
-  assert.match(eid.pages[4].text, /doorway.*hides Maya/iu);
-  assert.match(eid.pages[6].text, /finds Maya/iu);
-  assert.match(eid.storyBibleReview.storySpine, /hopes.*Maya/iu);
-  assert.match(eid.storyBibleReview.failedAttempt, /doorway.*hide/iu);
-  assert.match(eid.storyBibleReview.resolution, /finds Maya/iu);
+  const morning = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "A Morning with Friends");
+  assert.match(morning.pages[1].text, /cups wobble.*table.*rock/iu);
+  assert.match(morning.pages[3].text, /short leg.*above.*floor/iu);
+  assert.match(morning.pages[5].text, /Nani.*block.*under.*leg/iu);
+  assert.match(morning.pages[6].text, /nudges.*cups do not move/iu);
+  assert.match(morning.storyBibleReview.failedAttempt, /holding.*cups.*not.*steady/iu);
+  assert.match(morning.storyBibleReview.resolution, /block.*Nani.*test.*steady/iu);
 
   const puddle = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "The Puddle Plan");
   assert.match(puddle.pages[2].text, /Leo.*sinks.*mud/iu);

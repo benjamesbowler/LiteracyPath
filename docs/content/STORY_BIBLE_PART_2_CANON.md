@@ -154,16 +154,23 @@ visual source of truth wherever one exists.
 
 ### 3.2 Dino Pals
 
+Keep each character's body plan through every pose. A quadruped has four limbs
+total: a raised or prop-holding forefoot replaces a planted forefoot. Do not add
+arms to four standing legs. Bossy's two wings are his forelimbs; their wrist
+claws can grip a prop, without separate arms below the wings. Occlusion may hide
+a limb but must not conceal an extra one. Check these connections in the native
+image as well as the complete book sequence.
+
 | Canon ID | Fixed identity and appearance | Personality and story engine | Never do |
 |---|---|---|---|
 | `DINO-BOUNCY` | Small lime-green dome-headed dinosaur with exactly two arms and exactly two green three-toed feet, each foot attached above its own separate silver coil spring; **not the Meadow lamb** | Exuberant, physical and accident-prone; owns and repairs consequences | Use Meadow sheep art, merge or omit the two springs, omit either foot, add ordinary hind legs, or make every bounce harmless |
 | `DINO-CHOMPY` | Orange young tyrannosaur; pale muzzle/belly; established white neckerchief | Big appetite, confident optimism and generosity when others join | Reduce him to greed, change scarf without story cause, or let the lunch plot end without food |
 | `DINO-GRUMPY` | Low, heavy gray ankylosaur; tan armor plates; four short sturdy legs; brown club tail; no shell and never an upright human-like body | Dry, solitary and particular; communicates boundaries through action and short speech | Add a turtle shell, stand him upright, change his body scale or face between books, make him secretly smile on every page, or use “grumpy” as moral failure |
-| `DINO-SUNNY` | Yellow/orange triceratops; fixed horns and frill; leaf cape only where canon shows it | Playful and hopeful; can misread another character’s need, then repair the mistake | Make optimism magically solve everything or change cape continuity |
+| `DINO-SUNNY` | Yellow/orange triceratops; two forehead horns and one nose horn with the established rainbow bands from the published *Sunny's Rainy Day* cover; fixed yellow frill panel with pink/coral rounded rim knobs; leaf cape only where canon shows it | Playful and hopeful; can misread another character’s need, then repair the mistake | Make optimism magically solve everything, replace the banded horns with plain horns, change the frill palette, or change cape continuity |
 | `DINO-DOZY` | Lavender-purple young stegosaur with fixed rounded plates and sleepy half-closed eyes; small blue pillow appears only when the story state shows it moving or being carried | Slow, comfort-seeking and easily awakened | Use sleep as laziness, teleport the pillow, change plate shape, or turn the pillow into a saddle |
 | `DINO-WIGGLY` | Pale-blue young diplodocus with darker blue oval spots, four natural feet, long neck and one long wavy tail; no back plates | Movement-led, social and reactive; only use traits evidenced by an approved story | Invent a new species or body plan, add plates, duplicate the tail, or change palette and scale between books |
 | `DINO-FANCY` | Lavender-purple young stegosaur with darker purple oval spots, four sturdy feet and fixed leaf-shaped dorsal plates; no sail or wings | Expressive and exacting; wants visible things arranged, restored or made taller | Make “fancy” mean vain, give no concrete want, turn plates into a single sail, or alter plate shape and scale between pages |
-| `DINO-BOSSY` | Teal young pterodactyl; pink wing membranes; leaf clipboard and reed megaphone only when carried | Loves plans and clear roles; learns to invite ideas without losing organisational strength | Make leadership a flaw, teleport props, or change wing colours |
+| `DINO-BOSSY` | Teal young pterodactyl with exactly two pink wing forelimbs and two hind legs; leaf clipboard and reed megaphone only when carried | Loves plans and clear roles; learns to invite ideas without losing organisational strength | Make leadership a flaw, teleport props, change wing colours, or add separate arms beneath the wings |
 | `DINO-ZIPPY` | Red-and-yellow young velociraptor; fixed rainbow scarf | Fast, curious and easily carried past the plan by momentum | Remove the scarf without a beat, make speed flawless, or confuse with Meadow Speedy |
 | `DINO-HONKY` | Coral young parasaurolophus; large fixed rainbow crest | Has a powerful voice and learns when it helps or overwhelms | Treat loudness as shameful or change crest shape/palette |
 | `DINO-CHEEKY` | Purple young oviraptor; orange spots; expressive grin | Wants shared laughter; can notice when a prank is not shared and repair it | Reward humiliating jokes, skip apology/repair, or change spot pattern |
@@ -302,6 +309,10 @@ It supersedes older painterly instructions in briefs, prompts and reference pack
 - remain readable on a small laptop and tablet;
 - contain no malformed text, extra limbs, duplicate characters or fused bodies;
 - keep inanimate scenery faceless;
+- use neutral everyday settings and clothing, allowing ordinary skin and hair
+  variation; omit religious buildings, symbols and clothing, racial or ethnic
+  caricatures or identity-themed costumes, and national, religious or political
+  flags; plain game pennants and checkered racing flags are allowed;
 - use clean, large visual evidence rather than tiny clues.
 
 ### 5.2 Image and text division of labour

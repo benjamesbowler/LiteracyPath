@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "description": "Explicit whole-book retirements. Every row requires complete historical byte lineage and a decoded, approved runtime replacement; no generic deletion exception.",
+  "retirements": [
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "newBookId": "willow-street-a-morning-with-friends",
+      "reason": "Replace the retired religious holiday title with a distinct neutral everyday story and stable identity.",
+      "oldAssetPrefix": "/guided-reading/willow-street/eid-morning-with-samir/",
+      "newAssetPrefix": "/guided-reading/willow-street/a-morning-with-friends/",
+      "assetCount": 9,
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "assets": [
+        {
+          "page": 0,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/cover.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/cover.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "aa322d18b099697a779d1afed2c736f35db4859523e22bad698ceefb98bf7433",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "10dbc0f19e593937c37b752dafd3021cce9eea394168217bb29acd81cec65423"
+          },
+          "newSha256": "8dbb1ee9203374013f824d6b55ce2c71e4d181dd60a3644e04cbd9fbdabb9d67"
+        },
+        {
+          "page": 1,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-01.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-01.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "e43c78311814e5d111380877f6dfa0362af6aaf6270b26e98c00b56a8f9ff69a",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "0ac47e4e2e9da5908fcfc6dd7ade0d32d7f0851941d264dcafdcf5d47fd991eb"
+          },
+          "newSha256": "b7e527e589793300b669dfeb24f89eeed4bcf3f7f9c21de4c92cd059ede57452"
+        },
+        {
+          "page": 2,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-02.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-02.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "64b2c9b929c5ef408b6648b788e532d2146d732466fd3acfd372e5169bc47486",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "6ffcc755341329d59e824a6f93f55e91c8b727d8e3c0f1a87bb446a37e1ce3e1"
+          },
+          "newSha256": "8b1f606b9c85b04ed8564bedfb8b456fbda09febf36ea162c23e1a8cce8cc9b5"
+        },
+        {
+          "page": 3,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-03.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-03.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "86b1461d0a6279ac915e8663c77aabf170deb7878d1a86fb248c953d50eed11f",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "6d5f8874ff21b5810fe8b2999f2367d2108b2938155304f6b0abf42ce84b72e3"
+          },
+          "newSha256": "fbc4c03cf675ca59d7625196134b1bbcdc1cc937181d514484281d396165ef1b"
+        },
+        {
+          "page": 4,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-04.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-04.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "33e878d81a0bd7f258438bc951ed8dd1aff91d476610c92e22c57337115ea0ad",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "339b097cfa9e3f69989d78856962a57f3a0b05f9cfdc07cff02682985a39cc06"
+          },
+          "newSha256": "37f837f66b8c6a4990b7db9ec4742611490545ede772fb2d364f192575f2d8ac"
+        },
+        {
+          "page": 5,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-05.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-05.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "124f56d64a9fd17c026c7970dfe1bd62141f466d1eebebccd0b64a6d7100ba44",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "24631b06e5ee434063f8b8e01e70ca6463b47d3609578c51946e61500ce3027b"
+          },
+          "newSha256": "a845140890b76a9125be207b8e1d816b55393bfab73ff8e9ec2f7280839f3560"
+        },
+        {
+          "page": 6,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-06.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-06.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "f42f4cae12589ed3f58dfd69ce1461949ed90af94d7a31b5166757e505e006cb",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "4c96fcb09a65d380aa25aea991fadcd24098f050d89f04038b61f919a0a37b15"
+          },
+          "newSha256": "ac07a420235fcfae2c46fe4550b49a235bfcce11c41989c04a04d2a085d08b42"
+        },
+        {
+          "page": 7,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-07.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-07.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "921acd27807b03d56d5bb026666da073e7caa5bf5dbc59095da9e6d3f42802c6",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "8fb3fa3c70ff30af53e62fea789858f5155f95fad8082d8c648374c52253110b"
+          },
+          "newSha256": "998fe4f017204a366058eebdb95858813f3bdf5bee6a42874932ff1b92fe013e"
+        },
+        {
+          "page": 8,
+          "oldPath": "/guided-reading/willow-street/eid-morning-with-samir/page-08.webp",
+          "newPath": "/guided-reading/willow-street/a-morning-with-friends/page-08.webp",
+          "oldSha256": {
+            "a0e966efb79da993918b8cb14ddb365e0c963c7c": "32826bf2bf927d66a121d044684f7b5f93aa9eb168bcbe4b0fa7172670678ae8",
+            "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "96d4db29068704b08f5b73e92890b5a79aafd8d29aa947a9665cfd75ecf90be7"
+          },
+          "newSha256": "ec75e1f90fd38e26c9d9a28026aad4bad71d91b363e23506786f75093e067c35"
+        }
+      ]
+    }
+  ],
+  "narrationSupersessions": [
+    {
+      "oldBookId": "willow-street-dumplings-for-new-year",
+      "oldPageNumber": 1,
+      "oldText": "Zoe's family makes dumplings for their New Year meal.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/zoe-s-family-makes-dumplings-for-their-new-year-meal-8705bdf525.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "f1e6957b31fae8d37a27d58622430401fc16d013b56b2d85d081afb86995721d",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "f1e6957b31fae8d37a27d58622430401fc16d013b56b2d85d081afb86995721d"
+      },
+      "newBookId": "willow-street-dumplings-for-new-year",
+      "newPageNumber": 1,
+      "newText": "Zoe's family makes dumplings for dinner together.",
+      "newAudioPath": "/audio/production/en-US/guided_page/zoe-s-family-makes-dumplings-for-dinner-together-26fdc49fd6.mp3",
+      "newSha256": "7abadd5f57df38dfbc9ccdbeebcdd79e4e520d4bce714e56ca8e305601c501d4",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-drums-for-carnival",
+      "oldPageNumber": 1,
+      "oldText": "Leo brings his small drum to Carnival practice.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/leo-brings-his-small-drum-to-carnival-practice-f6ae2457e3.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "df5a699149ad4b861af87231cfb068e395909ae264a30b37c923d528deafc301",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "df5a699149ad4b861af87231cfb068e395909ae264a30b37c923d528deafc301"
+      },
+      "newBookId": "willow-street-drums-for-carnival",
+      "newPageNumber": 1,
+      "newText": "Leo brings his small drum to band practice.",
+      "newAudioPath": "/audio/production/en-US/guided_page/leo-brings-his-small-drum-to-band-practice-5dc8e8bea2.mp3",
+      "newSha256": "7bead1e7549c9b04fb567b54bbd7c2e901712c0ab9926357260c54c035a16364",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 1,
+      "oldText": "Samir's family dresses early for Eid morning.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/samir-s-family-dresses-early-for-eid-morning-800dec153e.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "5caee2f2044d613a78e40fd0be1e127b92e2323c970ed75a835ec795479c6649",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "5caee2f2044d613a78e40fd0be1e127b92e2323c970ed75a835ec795479c6649"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 1,
+      "newText": "Samir and Maya set breakfast on a long table.",
+      "newAudioPath": "/audio/production/en-US/guided_page/samir-and-maya-set-breakfast-on-a-long-table-d368acbe14.mp3",
+      "newSha256": "e8a8733fbf84ed8f328a8a1c3fa70252e29b159fc40bd84fc5ca37099bcbf798",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 2,
+      "oldText": "Samir's family walks together to morning prayers.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/samir-s-family-walks-together-to-morning-prayers-bcdc7259f3.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "7d5c0886b84bca5a895bd4c7282429fcf7ea4fac8e1ee914d2e18655a5195e11",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "7d5c0886b84bca5a895bd4c7282429fcf7ea4fac8e1ee914d2e18655a5195e11"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 2,
+      "newText": "The cups wobble when the table starts to rock.",
+      "newAudioPath": "/audio/production/en-US/guided_page/the-cups-wobble-when-the-table-starts-to-rock-7e207e2194.mp3",
+      "newSha256": "e7dbd01bc4579ee90c1053d7a65cae52f2e9a37328916582d6af9144cbfb11f2",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 3,
+      "oldText": "After prayers, neighbors greet one another warmly.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/after-prayers-neighbors-greet-one-another-warmly-f0b39fdce8.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "c9fc795449e15dc0abeeaf31885926face9703457c7f111ee50250c4a3272ae8",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "c9fc795449e15dc0abeeaf31885926face9703457c7f111ee50250c4a3272ae8"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 3,
+      "newText": "Samir holds the cups. Maya looks under the table.",
+      "newAudioPath": "/audio/production/en-US/guided_page/samir-holds-the-cups-maya-looks-under-the-table-11e3ff4834.mp3",
+      "newSha256": "2422662abd2d3708e88dfe4773bdbd68037fc32d1666357c18aca92d7408f5b5",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 4,
+      "oldText": "Samir hopes Maya will meet him by the doorway.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/samir-hopes-maya-will-meet-him-by-the-doorway-d787a7aa7b.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "537e04a1bc8e09337223cae9f2de19256f1c584cc6136256cb8bf6a51d6e072e",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "537e04a1bc8e09337223cae9f2de19256f1c584cc6136256cb8bf6a51d6e072e"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 4,
+      "newText": "One short leg hangs above the uneven floor.",
+      "newAudioPath": "/audio/production/en-US/guided_page/one-short-leg-hangs-above-the-uneven-floor-3aae1ac8cf.mp3",
+      "newSha256": "d93ce50de7f6b37133199a9a476e685643ad17f5eab7727ff7f225fd825f05ea",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 5,
+      "oldText": "The busy doorway hides Maya from his view.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/the-busy-doorway-hides-maya-from-his-view-b6710355b3.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "5ad1c29b55de2b847e7c0d10d6508af92557ece06e0b5a3afba8eab8f589df88",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "5ad1c29b55de2b847e7c0d10d6508af92557ece06e0b5a3afba8eab8f589df88"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 5,
+      "newText": "Maya finds a flat wooden block beside the shelf.",
+      "newAudioPath": "/audio/production/en-US/guided_page/maya-finds-a-flat-wooden-block-beside-the-shelf-2d1acb519a.mp3",
+      "newSha256": "03b521a2b4ec206c94e0ea792de9c482975939e3dbcd822669445010c0e08fc4",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 6,
+      "oldText": "Samir carries his family's food parcel to share.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/samir-carries-his-family-s-food-parcel-to-share-1b77657409.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "01fee859b0e28b95843803b50e69c7a4aa9af69ad64b5876d70e9679b84ca4bc",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "01fee859b0e28b95843803b50e69c7a4aa9af69ad64b5876d70e9679b84ca4bc"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 6,
+      "newText": "Nani slides the block under the short leg.",
+      "newAudioPath": "/audio/production/en-US/guided_page/nani-slides-the-block-under-the-short-leg-ac49dd0d16.mp3",
+      "newSha256": "1e11363b9be697ab725a7fb5635a9eb8ee70426fef8c4b9c784b3fe44958e62f",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 7,
+      "oldText": "At the welcome table, he finds Maya with dates.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/at-the-welcome-table-he-finds-maya-with-dates-4187408f3a.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "add5cc258e85c5a10bedd6ae99c9bf5d70ef45626acce1362d04dee5e073ed41",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "add5cc258e85c5a10bedd6ae99c9bf5d70ef45626acce1362d04dee5e073ed41"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 7,
+      "newText": "Maya nudges the table. The cups do not move!",
+      "newAudioPath": "/audio/production/en-US/guided_page/maya-nudges-the-table-the-cups-do-not-move-02de5aae07.mp3",
+      "newSha256": "f3d3bdde76cc35966b9c6e57d6303ce10a089ca1aaf00ccce59f6cf266dcecaf",
+      "voice": "en-US-Chirp3-HD-Leda"
+    },
+    {
+      "oldBookId": "willow-street-eid-morning-with-samir",
+      "oldPageNumber": 8,
+      "oldText": "Together, they share dates at the joyful Eid breakfast.",
+      "oldAudioPath": "/audio/production/en-US/guided_page/together-they-share-dates-at-the-joyful-eid-breakfast-c7c221c662.mp3",
+      "sourceRevisions": [
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7"
+      ],
+      "oldSha256": {
+        "a0e966efb79da993918b8cb14ddb365e0c963c7c": "236072fe230df2ce47d2ad806faca795fe8c5e8adec295727489386b8905ecbc",
+        "af8ea21f1bd98d8ab6b704a8e29e35f92e046cd7": "236072fe230df2ce47d2ad806faca795fe8c5e8adec295727489386b8905ecbc"
+      },
+      "newBookId": "willow-street-a-morning-with-friends",
+      "newPageNumber": 8,
+      "newText": "Friends join them, and breakfast begins without a spill.",
+      "newAudioPath": "/audio/production/en-US/guided_page/friends-join-them-and-breakfast-begins-without-a-spill-7fd883bb8f.mp3",
+      "newSha256": "799bf358858e871998d41265fa46166fe544462cb52f317ef064d2d21078be1a",
+      "voice": "en-US-Chirp3-HD-Leda"
+    }
+  ]
+}

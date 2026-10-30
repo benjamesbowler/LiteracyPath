@@ -6,12 +6,22 @@ import { getInitialSoundRoundPlan } from "../../src/content/initialSounds/initia
 import { prepareRuntimeQuestionBank } from "../../src/appState/assessmentRuntime.js";
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 import { getMediaQaId, isMediaQaRuntimeAllowed } from "../../src/data/mediaQaManifest.js";
+import { getChildWordAsset } from "../../src/data/childAssets.js";
 import {
   getMediaQaReviewId,
   isMediaPairingApproved,
   isMediaPairingRuntimeAllowed
 } from "../../src/data/mediaQaReviewStatus.js";
 import { isRuntimeEligibleEarlySkillQuestion } from "../../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
+
+test("neutral-content quarantine blocks the church image and its child fallback", () => {
+  const churches = getChildWordAsset("churches");
+  assert.equal(isMediaQaRuntimeAllowed("/media/vocabulary/images/churches.webp", "image"), false);
+  assert.equal(churches.image, "");
+  assert.equal(churches.fallbackImage, "");
+  assert.ok(churches.audio);
+  assert.ok(getChildWordAsset("cross").image);
+});
 
 test("legacy device-local QA drafts cannot block released assessment media", () => {
   const apple = initialSoundWordBank.find(item => item.id === "fs_a_apple_l1");

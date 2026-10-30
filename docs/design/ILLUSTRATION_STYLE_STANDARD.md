@@ -24,6 +24,16 @@ cartoon style does not authorize simplified-away teaching evidence or generic
 replacement scenes. Photographic evidence and existing modeled 3D game assets
 retain their separate contracts; this instruction corrects illustration style.
 
+The owner's 30 October 2026 direction requires neutral subject matter and
+settings. Ordinary variation in skin tone, hair and family appearance is
+welcome. Do not use racial or ethnic caricatures, identity-themed costumes,
+religious clothing, religious symbols or buildings (including mosques and
+churches), or national, religious or political flags. Plain game-course
+pennants and checkered racing flags are permitted. Use everyday clothing,
+ordinary homes, schools, community spaces and unbranded objects. Different
+foods and names do not require cultural or religious ceremony. This direction
+supersedes earlier collection-specific religious or festival instructions.
+
 This standard supersedes older requests for painterly art, tactile material
 detail, soft outlines, paper/gouache texture, "not flat vector" or "never flat
 cel art" in illustration briefs. Historical prompts and generation receipts

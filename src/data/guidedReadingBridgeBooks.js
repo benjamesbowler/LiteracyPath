@@ -228,7 +228,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     slug: "nanis-chapati-lunch",
     title: "Nani's Chapati Lunch",
     type: "fiction",
-    bridgeGenre: "culture-community",
+    bridgeGenre: "family-community",
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-MAYA", "WILLOW-NANI"],
     repeatedLanguage: "Nani folds",
@@ -240,7 +240,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["WILLOW-MAYA", "WILLOW-NANI"]
     ),
     rows: [
-      ["Nani makes warm chapatis for Maya's family lunch.", "Illustrated family kitchen: Nani, wearing plum kurta and cream apron, cooks one round chapati on a flat tawa at the adult stove while Maya watches from the table; safe distance is clear."],
+      ["Nani makes warm chapatis for Maya's family lunch.", "Illustrated family kitchen: Nani, wearing a plain plum long-sleeved top and cream apron, cooks one round chapati on a flat tawa at the adult stove while Maya watches from the table; safe distance is clear."],
       ["Maya stacks them inside the round steel tin.", "At the kitchen table away from heat, Maya places a stack of cooked chapatis into the lower round steel tiffin; Nani sets a covered bowl nearby and steam is gentle."],
       ["The flat chapatis leave no room for lentils.", "Overhead view of the open tiffin: flat chapatis fill the lower tier while a small sealed lentil container cannot fit; Maya compares the spaces with a puzzled expression."],
       ["Nani folds one chapati into a neat triangle.", "Close view of Nani's hands folding a cooled round chapati once and then again into a triangle on a clean plate; Maya watches closely, with the hot stove distant."],
@@ -252,80 +252,80 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
   }),
   makeBook({
     slug: "dumplings-for-new-year",
-    title: "Dumplings for New Year",
+    title: "Dumplings for Dinner",
     type: "fiction",
-    bridgeGenre: "culture-community",
+    bridgeGenre: "family-community",
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-ZOE", "WILLOW-AUNT-MEI"],
     repeatedLanguage: "wrapper",
-    coverBrief: "Illustrated New Year family kitchen, Zoe and Aunt Mei shaping crescent dumplings at a flour-dusted table with red paper decorations high on the wall; adult tends the steaming pot, warm lantern light, no readable characters.",
+    coverBrief: "Neutral everyday family kitchen, Zoe and Aunt Mei shaping crescent dumplings at a clean pale wood table with green cabinets and ordinary plants and utensils; adult tends the steaming pot. Casual clothing, no festival decorations, symbols or lettering.",
     storyBibleReview: fictionReview(
-      "Zoe learns to seal dumplings for her family's New Year meal.",
+      "Zoe learns to seal dumplings for her family's dinner.",
       "Her first wrapper holds too much filling for its edges to meet.",
       "She uses less filling and pinches the edges together; her cooked dumpling keeps its filling inside.",
       ["WILLOW-ZOE", "WILLOW-AUNT-MEI"]
     ),
     rows: [
-      ["Zoe's family makes dumplings for their New Year meal.", "Illustrated family kitchen: Zoe in coral jacket with sleeves rolled safely joins Aunt Mei at a clean table set with round wrappers and vegetable filling; red decorations hang high without readable writing."],
-      ["Aunt Mei spoons filling onto the middle of a wrapper.", "Close overhead view of Aunt Mei placing a modest spoonful of vegetable filling in the center of one round wrapper; Zoe watches, and ingredients remain separated in tidy bowls."],
-      ["Zoe adds a heap. Her wrapper will not close.", "Zoe's first wrapper lies open on the tray because a large mound of filling prevents the edges meeting; her expression shows surprise, while Aunt Mei responds calmly."],
-      ["“Just a little,” says Aunt Mei, showing a smaller spoonful.", "Aunt Mei removes extra filling and demonstrates the smaller amount beside Zoe; show both wrappers for a clear comparison and keep the cooking pot distant with another adult."],
-      ["Zoe folds her wrapper and pinches the edges together.", "Close view of Zoe folding the wrapper into a crescent and pinching its curved edge carefully from left to right; filling stays enclosed and Aunt Mei's guiding hand remains nearby."],
-      ["She holds it up. No gaps this time!", "Zoe holds a second fully sealed crescent dumpling up for Aunt Mei to inspect; the smooth unbroken edge is clearly visible, with several family-made dumplings on the tray."],
-      ["Aunt Mei lowers the dumplings into a pot of boiling water.", "Aunt Mei uses a long slotted spoon at the adult stove, fingers outside the steam zone and pot handles inward. Zoe watches with both hands on a separate cool preparation table beside raw crescent dumplings; a clear aisle separates her from the hot station. Keep green cabinets, red decorations and established clothing."],
-      ["Zoe takes a bite. Her filling stays tucked inside!", "Celebratory but everyday family meal: Zoe and relatives share cooked dumplings at one bright table with red decorations and oranges; warm connection, culturally grounded details, and no readable symbols." ]
+      ["Zoe's family makes dumplings for dinner together.", "Neutral family kitchen: Zoe in her plain coral jacket with sleeves rolled safely joins Aunt Mei at a clean table set with round wrappers and vegetable filling; green cabinets, ordinary plants and utensils, no festival decorations or symbols.", "Zoe and Aunt Mei prepare dumplings at a kitchen table."],
+      ["Aunt Mei spoons filling onto the middle of a wrapper.", "Close overhead view of Aunt Mei placing a modest spoonful of vegetable filling in the center of one round wrapper; Zoe watches, and ingredients remain separated in tidy bowls.", "Aunt Mei spoons a small amount of filling onto a round wrapper."],
+      ["Zoe adds a heap. Her wrapper will not close.", "Zoe's first wrapper lies open on the tray because a large mound of filling prevents the edges meeting; her expression shows surprise, while Aunt Mei responds calmly.", "Zoe tries to close a wrapper holding too much filling."],
+      ["“Just a little,” says Aunt Mei, showing a smaller spoonful.", "Aunt Mei removes extra filling and demonstrates the smaller amount beside Zoe; show both wrappers for a clear comparison and keep the cooking pot distant with another adult.", "Aunt Mei shows Zoe a smaller spoonful of filling."],
+      ["Zoe folds her wrapper and pinches the edges together.", "Close view of Zoe folding the wrapper into a crescent and pinching its curved edge carefully from left to right; filling stays enclosed and Aunt Mei's guiding hand remains nearby.", "Zoe folds a dumpling and pinches its edge closed."],
+      ["She holds it up. No gaps this time!", "Zoe holds a second fully sealed crescent dumpling up for Aunt Mei to inspect; the smooth unbroken edge is clearly visible, with several family-made dumplings on the tray.", "Zoe holds up a sealed dumpling for Aunt Mei to see."],
+      ["Aunt Mei lowers the dumplings into a pot of boiling water.", "Aunt Mei uses a long slotted spoon at the adult stove, fingers outside the steam zone and pot handles inward. Zoe watches with both hands on a separate cool preparation table beside raw crescent dumplings; a clear aisle separates her from the hot station. Keep green cabinets, ordinary plants and established casual clothing, with no festival decorations.", "Aunt Mei cooks dumplings while Zoe watches from a separate table."],
+      ["Zoe takes a bite. Her filling stays tucked inside!", "Everyday family dinner: Zoe and relatives share cooked dumplings at one bright table in casual clothes; ordinary plants and kitchen utensils, no ceremonial or festival decoration, symbols or lettering.", "Zoe bites a cooked dumpling while Aunt Mei holds a plate of dumplings."]
     ]
   }),
   makeBook({
     slug: "drums-for-carnival",
-    title: "Drums for Carnival",
+    title: "Drums Together",
     type: "fiction",
-    bridgeGenre: "culture-community",
+    bridgeGenre: "family-community",
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-LEO", "WILLOW-MR-BAPTISTE"],
     repeatedLanguage: "call",
-    coverBrief: "Illustrated Willow Street community hall rehearsal, Leo with a small hand drum beside bandleader Mr Baptiste and a mixed-age percussion group; colorful fabric banners, instruments correctly held, lively but controlled motion, no logos or text.",
+    coverBrief: "Neutral Willow Street community hall music practice, Leo with a small hand drum beside bandleader Mr Baptiste in a plain teal shirt and cream trousers and a mixed-age percussion group in everyday clothes; plain walls, instruments correctly held, lively but controlled motion, no identity-themed costumes, flags, symbols, logos or text.",
     storyBibleReview: fictionReview(
-      "Leo wants to join a community Carnival rehearsal and must learn where his drum part fits.",
+      "Leo wants to join a neighborhood drum practice and must learn where his part fits.",
       "Starting too soon covers the leader's call and interrupts the group's pattern.",
       "Leo listens for the call, plays the answering beat, and marches with the group.",
       ["WILLOW-LEO", "WILLOW-MR-BAPTISTE"]
     ),
     rows: [
-      ["Leo brings his small drum to Carnival practice.", "Illustrated community hall: Leo, in yellow rain vest over striped shirt, enters carrying a child-size hand drum; Mr Baptiste and a mixed-age neighborhood percussion group prepare beneath colorful fabric banners."],
-      ["Mr. Baptiste plays first. Everyone waits to answer.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing."],
-      ["Leo starts too soon. His drum covers the call.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him."],
-      ["Mr. Baptiste raises his hand. The group stops.", "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely."],
-      ["This time, Leo waits for the call to end.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion."],
-      ["Then Leo answers with the group. Softly, then loudly.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively."],
-      ["In the hall, their drums answer Mr. Baptiste together.", "Wide hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm; families watch beside bright banners, with joyful expressions and mechanically plausible instruments."],
-      ["Outside, Leo marches beside Mr. Baptiste. Call, wait, answer!", "Resolved daylight procession outside the community hall: Leo marches safely within the supervised group, keeping his small drum beat steady beneath colorful fabric streamers, with neighbors lining the pedestrian square." ]
+      ["Leo brings his small drum to band practice.", "Neutral community hall: Leo in his striped shirt and navy trousers enters carrying a child-size hand drum; Mr Baptiste in a plain teal shirt and cream trousers and a mixed-age neighborhood percussion group in everyday clothes prepare against plain walls. No sashes, ceremonial costume, festival decorations or identity flags.", "Leo brings his drum into the community hall for practice."],
+      ["Mr. Baptiste plays first. Everyone waits to answer.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing.", "Mr. Baptiste plays a drum while the group waits."],
+      ["Leo starts too soon. His drum covers the call.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him.", "Leo drums while Mr. Baptiste is still playing the call."],
+      ["Mr. Baptiste raises his hand. The group stops.", "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely.", "Mr. Baptiste raises his hand and the group stops playing."],
+      ["This time, Leo waits for the call to end.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion.", "Leo listens for Mr. Baptiste to finish his call."],
+      ["Then Leo answers with the group. Softly, then loudly.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively.", "Leo plays an answering rhythm with the percussion group."],
+      ["In the hall, their drums answer Mr. Baptiste together.", "Wide neutral hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm in ordinary casual clothes; families watch beside plain walls, with joyful expressions and mechanically plausible instruments. No identity-themed costume or symbols.", "Leo and the group play together inside the hall."],
+      ["Outside, Leo marches beside Mr. Baptiste. Call, wait, answer!", "Resolved daylight music practice outside an ordinary flat-roofed community hall: Leo walks safely with the supervised band in casual clothes, keeping his small drum beat steady; plain pedestrian square, no ceremonial costume, festival decoration, symbols or identity flags.", "Leo marches beside Mr. Baptiste with the supervised band."]
     ]
   }),
   makeBook({
-    slug: "eid-morning-with-samir",
-    title: "Eid Morning with Samir",
+    slug: "a-morning-with-friends",
+    title: "A Morning with Friends",
     type: "fiction",
-    bridgeGenre: "culture-community",
+    bridgeGenre: "family-community",
     visualTreatment: "willow-street-illustrated",
-    cast: ["WILLOW-SAMIR", "WILLOW-MAYA"],
-    repeatedLanguage: "Samir's family",
-    coverBrief: "Illustrated Eid morning outside Willow Street community hall, Samir in a cream kurta beside his family and Maya, carrying a covered food parcel and greeting neighbors; crescent bunting, fresh morning light, respectful everyday detail, no text.",
+    cast: ["WILLOW-SAMIR", "WILLOW-MAYA", "WILLOW-NANI", "WILLOW-ZOE", "WILLOW-LEO"],
+    repeatedLanguage: "the table",
+    coverBrief: "Neutral everyday community room with plain cream walls, rectangular blue doors, timber floor, one shelf and a long light-oak breakfast table. Samir in his cobalt hoodie and Maya in her mustard cardigan arrange four blue cups, four white plates and one fruit bowl; Nani in a plain plum top and cream apron helps nearby. A table problem is the premise, not its solution: no wooden block is in place. Bold clean outlined cartoon throughout, full essential faces/hands/props within the safe frame, lower22 percent quiet cream. No religious buildings, symbols, clothing, ceremonial decoration or identity flags; no lettering.",
     storyBibleReview: fictionReview(
-      "After prayers and greetings, Samir hopes to find Maya for the shared Eid breakfast.",
-      "The busy doorway hides Maya, so looking there does not work.",
-      "Samir carries the family food parcel to the welcome table, finds Maya there, and they share breakfast.",
-      ["WILLOW-SAMIR", "WILLOW-MAYA"]
+      "Samir and Maya want breakfast ready for their friends, but a short table leg makes the cups wobble.",
+      "Holding the cups stops an immediate spill but does not make the table steady; Maya looks below and finds the short leg.",
+      "They find a flat block, Nani safely puts it beneath the short leg, and the children test the now-steady table before friends join breakfast.",
+      ["WILLOW-SAMIR", "WILLOW-MAYA", "WILLOW-NANI", "WILLOW-ZOE", "WILLOW-LEO"]
     ),
     rows: [
-      ["Samir's family dresses early for Eid morning.", "Illustrated home hallway in early light: Samir wears a cream kurta and blue waistcoat while family members finish shoes and scarves; a small crescent garland is visible, with natural varied clothing."],
-      ["Samir's family walks together to morning prayers.", "Willow Street morning scene: Samir and family walk along the pavement toward the community hall prayer gathering, carrying folded prayer mats; respectful distance, safe crossing, and no readable signs."],
-      ["After prayers, neighbors greet one another warmly.", "Outside the hall after prayers, Samir's family exchanges smiles, handshakes, and friendly greetings with neighbors of different ages; prayer mats are rolled and morning light remains consistent."],
-      ["Samir hopes Maya will meet him by the doorway.", "Samir pauses near the busy but orderly hall entrance, watching for Maya while his family stays close; neighbors pass with food containers and the welcome table is visible farther inside."],
-      ["The busy doorway hides Maya from his view.", "A respectful crowd crosses the doorway, briefly blocking Samir's sightline; he looks carefully without pushing through, and Maya is not visible from this position."],
-      ["Samir carries his family's food parcel to share.", "Samir helps an adult family member carry one sealed food parcel away from the doorway toward the community welcome table; use safe two-handed carrying and show other shared parcels."],
-      ["At the welcome table, he finds Maya with dates.", "At the welcome table, Maya in mustard cardigan arranges a bowl of dates and bright folded napkins with an adult volunteer; Samir arrives with the parcel and smiles in relief."],
-      ["Together, they share dates at the joyful Eid breakfast.", "Wide resolved community breakfast: Samir and Maya share dates beside their families and neighbors at long tables beneath crescent bunting; the delivered food parcel is open among the shared dishes." ]
+      ["Samir and Maya set breakfast on a long table.", "Same neutral community room. Samir and Maya arrange exactly four blue cups, four white plates and one bowl of apples and bananas on the light-oak table; Nani is nearby. One near-right leg is slightly short but not yet examined; no block has been placed.", "Samir and Maya put cups, plates and fruit on a table."],
+      ["The cups wobble when the table starts to rock.", "One moment as the same table rocks slightly on its short near-right leg; the same four cups tilt a little on the tabletop with simple motion marks, without spilling. Samir reaches to steady them and Maya notices the movement. No floating cups or extra table legs.", "The table rocks, and the cups wobble."],
+      ["Samir holds the cups. Maya looks under the table.", "Samir steadies the four cups on the tabletop with two natural hands. Maya crouches beside the near-right table leg and looks below. All four table legs are coherent; the short near-right foot leaves a small visible gap above the timber floor.", "Samir steadies the cups while Maya checks a table leg."],
+      ["One short leg hangs above the uneven floor.", "Clear low-angle evidence view of the same short near-right table leg with a small air gap above the floor; the other three feet support the table. Maya points beside the gap without placing fingers beneath the table. No block is present yet.", "Maya points to a gap beneath one short table leg."],
+      ["Maya finds a flat wooden block beside the shelf.", "Maya picks up one small flat rectangular wooden block from beside the room's shelf. Samir stays beside the same breakfast table and its four cups, four plates and fruit bowl. The short near-right leg still has its gap; no duplicate block.", "Maya picks up a flat wooden block beside a shelf."],
+      ["Nani slides the block under the short leg.", "Nani alone manages the pinch point: one adult hand safely steadies the table while her other hand slides the single flat block beneath the short near-right leg. Samir and Maya watch from clear of her hands. No child's fingers under furniture; the four cups, four plates and fruit bowl stay on top.", "Nani places the block beneath the short table leg."],
+      ["Maya nudges the table. The cups do not move!", "The single block supports the same near-right leg. Maya gently nudges the table edge with an open hand; all four blue cups are upright and still. Samir looks relieved and Nani watches nearby. No second support, moving cups or spills.", "Maya tests the table while the cups remain upright."],
+      ["Friends join them, and breakfast begins without a spill.", "Resolved neutral community breakfast: Samir, Maya, Zoe and Leo sit at the same stable table using exactly four blue cups and four white plates, with one fruit bowl. Nani stands nearby in plain everyday clothes. The single block is still visible beneath the near-right leg. No religious or national symbols, festival decorations, costumes, flags or lettering.", "Four friends share breakfast at the steady table." ]
     ]
   }),
   makeBook({

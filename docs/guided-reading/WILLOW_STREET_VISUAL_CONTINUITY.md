@@ -6,19 +6,21 @@
 
 ## Illustrated-world lock
 
-The first fourteen titles use a smooth, hand-painted 2D children's-book finish with clean silhouettes, gentle paper-like colour variation but no fake canvas grain, controlled depth, and believable hands and objects. Keep a warm neighbourhood palette: brick `#B7664D`, leaf `#5C8A58`, sky `#A9D6E5`, cream `#F4E7CC`, teal `#277C7A`, mustard `#D6A32B`, coral `#D96B62`, and cobalt `#3768A6`. Skin is rendered naturally without grey cast or over-saturation. Art contains no readable words, brand marks, watermarks, pseudo-lettering, or baked-in page text.
+The first fourteen titles use bold, clean, clear 2D cartoon art with crisp continuous outlines, flat clean colours, restrained cel shading, and believable hands and objects. The whole image follows the app illustration style standard; no painted surfaces, paper grain, mottling or fuzzy foliage. Keep a warm neighbourhood palette: brick `#B7664D`, leaf `#5C8A58`, sky `#A9D6E5`, cream `#F4E7CC`, teal `#277C7A`, mustard `#D6A32B`, coral `#D96B62`, and cobalt `#3768A6`. Skin is rendered naturally without grey cast or over-saturation. Art contains no readable words, brand marks, watermarks, pseudo-lettering, or baked-in page text.
+
+Use neutral everyday clothing, homes and community spaces. Ordinary skin and hair variation is allowed. No religious buildings, symbols or clothing, national/religious/political flags, or racial/ethnic caricatures or identity-themed costumes. Plain activity pennants remain allowed. There are no book-specific religious exceptions. The retired Eid story is replaced by the separate neutral title *A Morning with Friends*.
 
 Children are six to seven years old, approximately five-and-a-half heads tall, with child-sized hands, feet, shoulders, and facial proportions. Relative height is fixed: Leo is tallest; Samir is one palm shorter; Maya and Zoe are equal and one palm shorter than Samir. Adults are visibly adult in height and proportion. Never alter skin tone, hair texture, body build, or wardrobe to create page-to-page novelty.
 
 | Canon ID | Fixed appearance | Fixed wardrobe and props |
 | --- | --- | --- |
 | `WILLOW-MAYA` | Deep brown skin; dark brown coiled hair in one high puff; oval brown eyes; small gap between upper front teeth. | Mustard cardigan, cream shirt, teal trousers, plum trainers; yellow lunchbox; no jewellery. |
-| `WILLOW-SAMIR` | Medium-brown skin; thick black wavy hair, short at sides; dark brown eyes. | Cobalt hoodie, charcoal trousers, white-and-blue trainers; blue lidded cup. Eid book only: cream kurta and cobalt waistcoat. |
+| `WILLOW-SAMIR` | Medium-brown skin; thick black wavy hair, short at sides; dark brown eyes. | Cobalt hoodie, charcoal trousers, white-and-blue trainers; blue lidded cup. No religious or ceremonial wardrobe. |
 | `WILLOW-LEO` | Light olive skin with faint cheek freckles; straight dark auburn hair swept left; hazel eyes. | Rust-and-cream striped shirt, navy trousers, red trainers; yellow rain vest outdoors in wet or windy scenes. |
 | `WILLOW-ZOE` | Dark brown skin; black hair in two round puff buns with coral bands; deep brown eyes. | Coral jacket, pale mint shirt, denim-blue trousers, cream trainers; blue library bag. |
-| `WILLOW-NANI` | Deep brown skin; silver-streaked dark hair in low bun; Maya's grandmother; warm lined face. | Plum kurta, cream apron in kitchen, small gold stud earrings; adult handles tawa and heat. |
+| `WILLOW-NANI` | Deep brown skin; silver-streaked dark hair in low bun; Maya's grandmother; warm lined face. | Plain plum long-sleeved top, cream apron in kitchen, small gold stud earrings; adult handles tawa and heat. |
 | `WILLOW-AUNT-MEI` | Light warm-beige skin; straight black chin-length hair; Zoe's aunt; adult proportions. | Forest-green knit top and dark apron; adult handles boiling pot. |
-| `WILLOW-MR-BAPTISTE` | Dark brown skin; close-cropped salt-and-pepper hair; adult bandleader; broad calm gestures. | Teal shirt, cream trousers, woven red-yellow sash; barrel drum and two plain sticks. |
+| `WILLOW-MR-BAPTISTE` | Dark brown skin; close-cropped salt-and-pepper hair; adult bandleader; broad calm gestures. | Plain teal shirt and cream trousers; barrel drum and two plain sticks. |
 
 ## Location locks
 
@@ -27,9 +29,9 @@ Children are six to seven years old, approximately five-and-a-half heads tall, w
 - **Willow Street Park:** oval open grass, tall clipped hedge on the north edge, pale paved path, two mature plane trees, no visible play equipment in picnic/kite frames. Kite flying stays far from roads and wires.
 - **School lunch area:** light oak tables, sage chairs, tall windows, yellow lunchbox for Maya, green lunchbox and blue cup for Samir, orange napkin, silver spoon, green apple.
 - **Maya/Nani kitchen:** terracotta floor, cream cabinets, teal splashback, safe adult-height stove, round steel tiffin, flat tawa. Hot equipment never moves to the child table.
-- **Zoe/Aunt Mei kitchen:** pale wood table, green cabinets, red paper decorations without readable writing, dumpling tray, broad cooking pot at adult station.
+- **Zoe/Aunt Mei kitchen:** pale wood table, green cabinets, ordinary plants and kitchen utensils, dumpling tray, broad cooking pot at adult station; no festival decorations.
 - **Ramp playroom:** sage wall, low wooden cubby with blue and yellow bins at left, window above a cream-and-blue plant pot at right, continuous hardwood floor throughout both rolls. The same unnamed adult from the opening materials scene supervises every page: medium warm-brown complexion, oval face, short side-parted black hair, thick eyebrows, clean-shaven; teal crewneck, navy trousers, grey trainers. The book's page 4 is the fixed assembled-ramp reference.
-- **Community hall:** pale brick, blue double doors, timber floor, fabric banners and crescent bunting changed by event; no religious or cultural props appear outside the book that establishes them.
+- **Community hall:** ordinary flat-roofed pale-brick building, rectangular blue double doors, timber floor, plain walls and tables. No domes, towers, spires, religious symbols, crescent bunting, ceremonial decorations or national/religious/political flags.
 
 ## Prop and action continuity
 

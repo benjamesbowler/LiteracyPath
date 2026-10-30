@@ -3237,47 +3237,47 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "willow-street-dumplings-for-new-year": {
     "appReadingLevel": "D",
-    "rationale": "An overfilled wrapper fails, then smaller filling and pinched edges work; quoted instruction and boiling-water cooking track a longer making sequence.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A failed overfilled wrapper and a smaller spoonful lead to folding, pinching, adult cooking and a successful bite. Concrete kitchen vocabulary and visible evidence preserve the existing reviewed band after neutral dinner framing.",
+    "reviewedAt": "2026-10-30",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:2c7f9c799ee61d32",
+    "reviewedTextFingerprint": "fnv1a64:331ab4caa083fb9b",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
       "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "An overfilled wrapper fails, then smaller filling and pinched edges work; quoted instruction and boiling-water cooking track a longer making sequence.",
+      "knowledge": "A failed overfilled wrapper and a smaller spoonful lead to folding, pinching, adult cooking and a successful bite. Concrete kitchen vocabulary and visible evidence preserve the existing reviewed band after neutral dinner framing.",
       "progression": "A visible problem or task is followed through several related steps to its result.",
       "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
     }
   },
   "willow-street-drums-for-carnival": {
     "appReadingLevel": "D",
-    "rationale": "A premature drum answer interrupts a call; group timing, waits-for-the-end and a final march require understanding an audible response pattern.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A premature drum answer interrupts a call; waiting for its end and matching the group pattern preserve the existing reviewed band after neutral neighborhood-band framing.",
+    "reviewedAt": "2026-10-30",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:5bd534dcb06f1c38",
+    "reviewedTextFingerprint": "fnv1a64:0ab74407a83260a0",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
       "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A premature drum answer interrupts a call; group timing, waits-for-the-end and a final march require understanding an audible response pattern.",
+      "knowledge": "A premature drum answer interrupts a call; waiting for its end and matching the group pattern preserve the existing reviewed band after neutral neighborhood-band framing.",
       "progression": "A visible problem or task is followed through several related steps to its result.",
       "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
     }
   },
-  "willow-street-eid-morning-with-samir": {
+  "willow-street-a-morning-with-friends": {
     "appReadingLevel": "C",
-    "rationale": "A family morning sequence includes a blocked view and finding a friend; prayers, parcel and dates broaden vocabulary while events remain explicit.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Eight short concrete present-tense pages make the table problem, unsuccessful cup-holding attempt, visible short-leg clue, adult-assisted block repair and steady-cup test explicit. Common objects and supplied visual evidence support one causal comparison without specialist background knowledge or hidden inference.",
+    "reviewedAt": "2026-10-30",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:22169235dd9c2fdf",
+    "reviewedTextFingerprint": "fnv1a64:99f2833c36bfec1c",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A family morning sequence includes a blocked view and finding a friend; prayers, parcel and dates broaden vocabulary while events remain explicit.",
-      "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "syntax": "Short complete present-tense clauses; when and without connect visible actions.",
+      "vocabulary": "Mostly familiar room and breakfast objects, with wobble, uneven and nudges supported by distinct pictured actions.",
+      "knowledge": "A visible gap beneath one table leg is filled by a block; an adult handles the furniture.",
+      "progression": "Preparation, wobble, immediate protection, diagnosis, finding a block, adult repair, test and shared breakfast.",
+      "inference": "Low to moderate causal comparison; the relevant gap, block and upright cups are explicitly supplied."
     }
   },
   "willow-street-grow-a-bean-in-a-jar": {

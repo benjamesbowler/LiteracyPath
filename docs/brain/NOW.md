@@ -77,6 +77,12 @@ owns the latter collections, their explicit teaching routines and supported
 shared-reader boundary. Cycle prerequisites, supplemental blending lessons and
 exact taught exception words remain separate from app text bands and individual
 mastery. Clean outlined cartoon art is the current production standard.
+The [illustration standard](../design/ILLUSTRATION_STYLE_STANDARD.md) owns neutral
+content exclusions; the [Dino canon](../content/STORY_BIBLE_PART_2_CANON.md#32-dino-pals)
+distinguishes rounded-plate Dozy from leaf-plate Fancy and fixes body plans.
+*A Morning with Friends* has a separate book ID from the retired Eid book;
+[retirement bindings](../../tools/manifests/guided-reading-book-retirements.json)
+preserve exact artwork and narration lineage.
 Original audit and Small Steps evidence are retained in ignored
 `.artifacts/guided-reading-audit-2026-10-28/` and
 `.artifacts/guided-reading-decodable-2026-10-28/`; the additional fifty-book

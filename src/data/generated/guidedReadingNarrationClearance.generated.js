@@ -9798,6 +9798,38 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "I ring the bell. Ding!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "willow-street-a-morning-with-friends::1": {
+    "displayedText": "Samir and Maya set breakfast on a long table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::2": {
+    "displayedText": "The cups wobble when the table starts to rock.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::3": {
+    "displayedText": "Samir holds the cups. Maya looks under the table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::4": {
+    "displayedText": "One short leg hangs above the uneven floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::5": {
+    "displayedText": "Maya finds a flat wooden block beside the shelf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::6": {
+    "displayedText": "Nani slides the block under the short leg.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::7": {
+    "displayedText": "Maya nudges the table. The cups do not move!",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-morning-with-friends::8": {
+    "displayedText": "Friends join them, and breakfast begins without a spill.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "willow-street-a-snail-comes-out-at-night::1": {
     "displayedText": "By day, the snail rests in a cool shelter.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -9863,7 +9895,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::1": {
-    "displayedText": "Leo brings his small drum to Carnival practice.",
+    "displayedText": "Leo brings his small drum to band practice.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::2": {
@@ -9895,7 +9927,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::1": {
-    "displayedText": "Zoe's family makes dumplings for their New Year meal.",
+    "displayedText": "Zoe's family makes dumplings for dinner together.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::2": {
@@ -9924,38 +9956,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "willow-street-dumplings-for-new-year::8": {
     "displayedText": "Zoe takes a bite. Her filling stays tucked inside!",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::1": {
-    "displayedText": "Samir's family dresses early for Eid morning.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::2": {
-    "displayedText": "Samir's family walks together to morning prayers.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::3": {
-    "displayedText": "After prayers, neighbors greet one another warmly.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::4": {
-    "displayedText": "Samir hopes Maya will meet him by the doorway.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::5": {
-    "displayedText": "The busy doorway hides Maya from his view.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::6": {
-    "displayedText": "Samir carries his family's food parcel to share.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::7": {
-    "displayedText": "At the welcome table, he finds Maya with dates.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "willow-street-eid-morning-with-samir::8": {
-    "displayedText": "Together, they share dates at the joyful Eid breakfast.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-from-wheat-to-bread::1": {

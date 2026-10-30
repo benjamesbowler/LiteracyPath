@@ -8,24 +8,24 @@
 
 ## Editorial promise
 
-Willow Street is a recognisable, present-day neighbourhood where children solve ordinary problems, participate in family and community traditions, follow useful procedures, and discover how real things work. The language stays compact without becoming eight disconnected captions. Fiction has a child-sized goal, a genuine attempt that changes the situation, and an earned resolution. Procedures show every necessary action in safe order. Factual books use observable claims that can be pictured directly.
+Willow Street is a recognisable, present-day neighbourhood where children solve ordinary problems, share everyday family and community activities, follow useful procedures, and discover how real things work. The language stays compact without becoming eight disconnected captions. Fiction has a child-sized goal, a genuine attempt that changes the situation, and an earned resolution. Procedures show every necessary action in safe order. Factual books use observable claims that can be pictured directly.
 
-The product records contain no comparisons with outside reading systems. Content stays with childhood, family, community, practical routines, food, nature, and science. It contains no romance, sexuality, gender-identity themes, identity labels, or political messaging. Cultural details must do story work; they are never costume or decoration added to an unrelated plot.
+The product records contain no comparisons with outside reading systems. Content stays with childhood, family, community, practical routines, food, nature, and science. It contains no romance, sexuality, gender-identity themes, identity labels, or political messaging. The owner's 30 October 2026 direction requires neutral everyday settings and clothing, with ordinary skin and hair variation. No religious buildings, symbols or clothing, racial/ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game and racing pennants are allowed. Foods and names remain ordinary family details without festival or religious framing. This supersedes the former collection-specific religious story and wardrobe exceptions.
 
 ## Recurring people and relationships
 
 - Maya, Samir, Leo, and Zoe are friends and neighbors, ages six to seven. They attend the same school and use Willow Street Library, Park, and Community Garden.
 - Maya's grandmother is Nani. Their chapati lunch is an ordinary family meal, not an explanation of a whole culture.
-- Zoe makes New Year dumplings with Aunt Mei and her wider family. The book presents one family's practice, not a universal rule.
-- Leo learns the Carnival rehearsal pattern from neighbourhood bandleader Mr Baptiste. The group, call, response, and march matter more than spectacle.
-- Samir celebrates Eid with his family and hopes to meet Maya after prayer and greetings. The busy doorway hides her, so he carries the family food parcel to the welcome table, finds Maya beside the dates, and shares breakfast with her.
+- Zoe makes dumplings for an ordinary family dinner with Aunt Mei. Filling, folding and sealing solve the practical problem; no festival decorations or ceremonial clothing.
+- Leo learns a neighborhood band's call-and-answer pattern from Mr Baptiste. The group wears plain everyday clothes and practices together without cultural costume or identity flags.
+- The former Eid title is removed from the active catalogue. Its separate replacement, **A Morning with Friends**, has a new stable ID and a new story: Samir and Maya prepare breakfast, discover that a short table leg makes the cups wobble, find a block, ask Nani to place it safely, test the repair and welcome their friends. The room and clothes are neutral; no religious story state or artwork is reused.
 
 ## Story and process locks
 
 | Title group | Required arc |
 | --- | --- |
 | Everyday fiction | A concrete problem appears by page 1; the first approach is tested; visible evidence changes the plan; the final action resolves the original problem. |
-| Culture/community | A named child takes part in one specific family or community practice; the practice changes the story action; family variation is respected. |
+| Family/community | A named child solves a concrete problem in an ordinary meal, music practice or shared activity. Neutral settings and clothing preserve the action without religious, national or identity-themed framing. |
 | Procedure | Pages 1–8 are steps 1–8. Adult-only actions, food hygiene, heat, glass, scissors, roads, wires, and moving parts are shown explicitly where relevant. |
 | Factual nonfiction | Each page advances one connected explanation. “Some” is retained where pathways vary. Machines and animal anatomy must be plausible, guarded, and unbranded. |
 
@@ -34,9 +34,9 @@ The product records contain no comparisons with outside reading systems. Content
 | Title | Locked assumption or safety decision | Source used for authoring review |
 | --- | --- | --- |
 | Nani's Chapati Lunch | A tawa and hot chapati stay with the adult; the child handles cooled bread and pre-cut cucumber. Folding is this family's packing solution, not a cultural rule. | Food Standards Agency hygiene principles: <https://www.gov.uk/government/publications/why-avoiding-cross-contamination-is-important/why-avoiding-cross-contamination-is-important> |
-| Dumplings for New Year | The story names one family and uses the observable fill-fold-pinch-cook sequence. An adult manages boiling water. | Smithsonian family-food account and sealing method: <https://festival.si.edu/blog/tim-ma-chinese-new-year-dumplings> and <https://apa.si.edu/picklesandtea/sweet-potato-chinese-dumplings/> |
-| Drums for Carnival | The neighbourhood rehearsal uses a leader's call, a group response, dynamics, and a supervised street march. It does not claim one rhythm represents every Carnival. | Smithsonian sources on Caribbean call-and-response and Trinidad Carnival movement: <https://repository.si.edu/bitstream/handle/10088/8504/1989festivalofam00fest.pdf?isAllowed=y&sequence=1> and <https://folkways.si.edu/catch-calypso-beat-put-on-your-feet/music/tools-for-teaching/smithsonian> |
-| Eid Morning with Samir | The sequence is dress, walk to prayers, greet neighbors, hope to meet Maya, lose sight of her in the busy doorway, carry the parcel, find her beside the dates, and share breakfast. It presents this family's Eid morning and avoids claiming every family celebrates identically. | BBC School Radio story background on family Eid prayer and celebration: <https://downloads.bbc.co.uk/schoolradio/pdfs/assemblies/best_eid_present_ever.pdf> |
+| Dumplings for Dinner | The observable fill-fold-pinch-cook sequence resolves an overfilled wrapper. An adult manages boiling water; dinner has no festival or religious framing. | Existing food-process sources retain their factual provenance; current neutral manuscript and visual briefs govern production. |
+| Drums Together | A leader's call, group response and dynamics teach waiting and coordinated playing in an ordinary neighborhood band. Everyday clothes, plain hall and supervised walking practice. | Existing music-process sources retain their factual provenance; current neutral manuscript and visual briefs govern production. |
+| A Morning with Friends | Exactly four blue cups, four white plates, one fruit bowl and one light-oak table. Its near-right leg is short. One flat block is found on page 5, placed only by Nani on page 6 and remains under that leg through the test and breakfast. Children keep fingers clear while the adult handles the furniture. | Original neutral fiction and adult-supervision safety lock; no religious or cultural ceremony. |
 | Grow a Bean in a Jar | Damp paper, warmth, daily moisture, root first, shoot next, then adult-assisted planting. The jar stays stable and adult-managed. | University of Illinois Extension 4-H germination activity: <https://extension.illinois.edu/sites/default/files/bdo_-_gardening_april_2021.pdf> |
 | Make a Paper Kite | An adult cuts and ties the centre line; flying happens on open ground away from roads, trees, and wires. | General child craft safety lock; no aerodynamic claim beyond the observable balanced frame, tail, line, breeze, and lift. |
 | Build a Cardboard Ramp | The structure stays low on the floor, uses broad books, is taped against sliding, and is only for toy cars. The child releases and marks the first stopping point, raises the ramp, releases again, then compares both marks. | Authoring safety lock and elementary observation of gravity-driven rolling; no numerical speed claim. |
