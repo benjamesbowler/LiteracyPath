@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import { COMPREHENSION_PASSAGES, passageById } from '../../src/content/comprehension/passages.js';
 import { initialPractice, reducePractice, readPractice, savePractice, practiceQuestion } from '../../src/content/comprehension/practice.js';
 
-test('72 original complete passages have exact supported questions and phonics targets', () => {
-  assert.equal(COMPREHENSION_PASSAGES.length, 72);
-  assert.equal(new Set(COMPREHENSION_PASSAGES.map(p => p.text)).size, 72);
+test('172 original complete passages have exact supported questions and phonics targets', () => {
+  assert.equal(COMPREHENSION_PASSAGES.length, 172);
+  assert.equal(new Set(COMPREHENSION_PASSAGES.map(p => p.text)).size, 172);
   const counts = Object.groupBy(COMPREHENSION_PASSAGES, p => p.family);
-  assert.deepEqual(Object.fromEntries(Object.entries(counts).map(([k,v]) => [k,v.length])), { short: 16, digraph: 16, silent: 15, teams: 25 });
+  assert.deepEqual(Object.fromEntries(Object.entries(counts).map(([k,v]) => [k,v.length])), { short: 41, digraph: 41, silent: 40, teams: 50 });
   for (const p of COMPREHENSION_PASSAGES) {
     assert.ok(p.wordCount >= 30 && p.wordCount <= 90, p.id);
     assert.equal(p.questions.length, 3);
@@ -43,6 +43,7 @@ test('early-reader language stays brief and word help reaches both child sheets'
  const {buildComprehensionDocument:build}=await import('../../src/content/comprehension/print.js');
  const words=text=>text.match(/[a-z]+(?:'[a-z]+)?/gi)||[];
  for(const p of COMPREHENSION_PASSAGES){
+  assert.ok(!p.supportWords.includes('s'),`${p.id}: a possessive ending is not a separate support word`);
   for(const sentence of p.sentences)assert.ok(words(sentence).length<=12,`${p.id}: long sentence`);
   for(const q of p.questions)assert.ok(words(q.prompt).length<=16,`${q.id}: long question`);
   assert.ok(p.wordHelp.length>=1&&p.wordHelp.length<=2,p.id);
@@ -118,18 +119,18 @@ test('choice order is shuffled per saved run and remains stable through replay, 
  assert.deepEqual(practiceQuestion(p,readPractice(store,'learner',p),0).options,before);
  const positions=new Set(Array.from({length:100},(_,i)=>{const q=practiceQuestion(p,initialPractice(p,`run-${i}`),0);assert.deepEqual([...q.options].sort(),[...p.questions[0].options].sort());return q.options.indexOf(q.answer);}));
  assert.equal(positions.size,4,'fresh runs can use every answer position');
- assert.equal(new Set(COMPREHENSION_PASSAGES.map(p=>p.id)).size,72);
+ assert.equal(new Set(COMPREHENSION_PASSAGES.map(p=>p.id)).size,172);
 });
 
-test('the full 144-page student pack embeds only six shared portraits',async()=>{
+test('the full 344-page student pack embeds only six shared portraits',async()=>{
  const {buildComprehensionDocument,embedComprehensionImages}=await import('../../src/content/comprehension/print.js');
  const pack=buildComprehensionDocument({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'pair'});
- assert.equal(pack.pages,144);
- assert.equal((pack.html.match(/<use href=/g)||[]).length,144);
+ assert.equal(pack.pages,344);
+ assert.equal((pack.html.match(/<use href=/g)||[]).length,344);
  let requests=0;
  const html=await embedComprehensionImages(pack.html,{fetchImpl:async()=>{requests++;return {ok:true,blob:async()=>new Blob(['fixture'],{type:'image/webp'})};}});
  assert.equal(requests,6,'fetch each approved character once');
  assert.equal((html.match(/data:image\/webp;base64,/g)||[]).length,6,'large packs must not duplicate raster bytes on every page');
  assert.ok(!html.includes('href="/images/'));
- assert.equal((html.match(/class="printed-option"/g)||[]).length,72*3*4);
+ assert.equal((html.match(/class="printed-option"/g)||[]).length,172*3*4);
 });

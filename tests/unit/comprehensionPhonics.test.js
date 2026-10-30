@@ -3,9 +3,12 @@ import assert from 'node:assert/strict';
 import { COMPREHENSION_PASSAGES } from '../../src/content/comprehension/passages.js';
 import { getPassagePhonicsWords } from '../../src/content/comprehension/phonics.js';
 
+import { EXPANSION_PHONICS_AUDIT } from '../fixtures/comprehensionExpansionPhonics.js';
+
 // A reading of every story supplies this independent expected-word audit.
 // Keep this explicit: comparing with targetWords would repeat the original bug.
 const expectedByPassage = {
+  ...EXPANSION_PHONICS_AUDIT,
   'muddy-mat': 'muddy sat mud sun up and ran mat hut had nap',
   'pip-bag': 'had red bag pen then map fell and peg',
   'fluff-log': 'hop onto big log off in pit is cannot sit on',
@@ -80,8 +83,8 @@ const expectedByPassage = {
   'chompy-road': 'coat road',
 };
 
-test('every focused word in all 72 stories matches the reviewed word audit', () => {
-  assert.equal(COMPREHENSION_PASSAGES.length, 72);
+test('every focused word in all 172 stories matches the reviewed word audit', () => {
+  assert.equal(COMPREHENSION_PASSAGES.length, 172);
   assert.deepEqual(new Set(COMPREHENSION_PASSAGES.map(p => p.id)), new Set(Object.keys(expectedByPassage)));
   for (const passage of COMPREHENSION_PASSAGES) {
     const words = getPassagePhonicsWords(passage);
