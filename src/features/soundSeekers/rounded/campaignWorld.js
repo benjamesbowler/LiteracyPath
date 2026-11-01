@@ -8,6 +8,8 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { createRenderer, disposeRenderer } from '../../../components/learn/games/shared/threeShell.js';
 import { arcadePixelRatio } from '../../../components/learn/games/shared/arcadeRenderBudget.js';
 import { stepCampaignResident } from './campaignResidentBehavior.js';
+import { createCampaignRenderMotion } from './campaignRenderMotion.js';
+import { warmArcadeScene } from '../../../components/learn/games/shared/arcadeSceneWarmup.js';
 import { campaignGroundColour, campaignRoadGeometry, sampleCampaignRoads } from './campaignWorldSurface.js';
 import { getCampaignStage, getCampaignMission } from '../v3/content/campaign.js';
 import { getCampaignWorldLayout, CAMPAIGN_WORLD_THEMES, campaignTerrainHeight, campaignCanWalk, campaignRoute, segmentDistance } from './campaignWorldLayouts.js';
@@ -325,6 +327,7 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
   const breadcrumbGeometry=new THREE.CircleGeometry(.12,8);breadcrumbGeometry.rotateX(-Math.PI/2);resources.geometries.add(breadcrumbGeometry);
   const breadcrumbs=new THREE.InstancedMesh(breadcrumbGeometry,navigationMaterial,32),breadcrumbPose=new THREE.Object3D();breadcrumbs.count=0;breadcrumbs.visible=false;breadcrumbs.frustumCulled=false;scene.add(breadcrumbs);
   const player={...layout.spawn,vx:0,vz:0},input={x:0,z:0,run:false},look=new V(),cameraTarget=new V(),lookTarget=new V(),projected=new V(),forward=new V(),right=new V(),destinationHit=new V(),pointer=new THREE.Vector2(),ray=new THREE.Raycaster();
+  const renderMotion=createCampaignRenderMotion();
   look.set(0,1,-3);
   let discoveryState={discoveredIds:[],carrying:null,operated:false};
   let discoveryGroup=null,carriedObject=null,encounterGroup=null;
@@ -334,7 +337,7 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
   function clearInstances(group){group?.traverse(o=>{if(o.isInstancedMesh)o.dispose();});}
   function cleanup(){if(disposed)return;disposed=true;loadingController.abort();cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('pointerdown',onGround);canvas.removeEventListener('webglcontextlost',lost);settings.signal?.removeEventListener('abort',cleanup);mixer?.stopAllAction();residents.forEach(r=>r.mixer.stopAllAction());clearInstances(treesGroup);clearInstances(decorGroup);contactShadows?.dispose();breadcrumbs.dispose();resources.dispose();scene.clear();disposeRenderer(renderer,{forceContextLoss:true});}
   function clearNavigation(){navigation=null;clickRing.visible=false;breadcrumbs.count=0;breadcrumbs.visible=false;}
-  function stopped(){input.x=input.z=0;player.vx=player.vz=0;destination=null;routeQueue=[];acc=0;clearNavigation();}
+  function stopped(){input.x=input.z=0;player.vx=player.vz=0;destination=null;routeQueue=[];acc=0;renderMotion.reset();clearNavigation();}
   function followRoute(route,target){stopped();routeQueue=route;destination=routeQueue.shift();navigation=target;clickRing.position.set(target.point.x,campaignWalkHeight(collisionLayout,target.point.x,target.point.z)+.14,target.point.z);clickRing.visible=true;dirty=true;canvas.focus({preventScroll:true});}
   function navigationSnapshot(){return navigation ? {...navigation,arrived:!destination&&Math.hypot(player.x-navigation.point.x,player.z-navigation.point.z)<2.6} : null;}
   function fail(error){if(failed||disposed)return;failed=true;stopped();canvas.tabIndex=-1;callbacks.failure?.(error);}
@@ -429,7 +432,11 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       for(const p of campaignEncounterProps(layout,completed)){const object=furniture.prop(p,assets);object.position.y+=campaignTerrainHeight(layout,p.x,p.z);encounters.add(object);}
       for(const point of layout.missions){if(completed.includes(point.missionId))continue;const job=CAMPAIGN_ROUNDED_RESTORATIONS[layout.stageId].jobs.find(j=>j.missionId===point.missionId);if(job?.before.length)continue;const side=point.missionId.includes('-side-'),object=furniture.prop({kind:side?'lantern':'book',x:point.x+1,z:point.z-.85,lift:0,size:side?.65:.85,installed:false},assets);object.position.y+=campaignTerrainHeight(layout,point.x,point.z);encounters.add(object);}
       encounterGroup=batchFurniture(encounters,resources);scene.add(encounterGroup);collisionLayout=campaignCollisionLayout(layout,completed,low);}
-    assets.plant=plant;assets.dress=dress;assets.repair=repair;assets.discoveries=discoveries;plant();dress();repair();discoveries();callbacks.ready?.();
+    assets.plant=plant;assets.dress=dress;assets.repair=repair;assets.discoveries=discoveries;plant();dress();repair();discoveries();
+    hero.position.set(player.x,campaignWalkHeight(collisionLayout,player.x,player.z)+.04,player.z);
+    const warmup=await warmArcadeScene({renderer,scene,camera,isCurrent:()=>!disposed&&!failed,renderFrame:()=>renderer.render(scene,camera)});
+    if(['partial','failed','timeout'].includes(warmup.status))throw new Error('The landscape graphics could not finish preparing.');
+    if(!disposed&&!failed){canvas.dataset.graphicsWarmup=warmup.status;callbacks.ready?.();}
   } catch(error){if(!disposed){fail(error);cleanup();}}
   function snapshot(){const width=host.clientWidth,height=host.clientHeight;callbacks.snapshot?.({stageId:layout.stageId,x:player.x,z:player.z,nearMissionId:campaignNearMission(layout,player,available,completed),worldInteraction:campaignNearbyWorldInteraction(layout,player,discoveryState),navigation:navigationSnapshot(),discoveryTargets:campaignDiscoveryTargets(layout,discoveryState).map(target=>{projected.set(target.point.x,campaignTerrainHeight(layout,target.point.x,target.point.z)+1.25,target.point.z).project(camera);return {...target,x:(projected.x+1)/2*width,y:(1-projected.y)/2*height,visible:phase==='explore'&&!paused&&projected.z>-1&&projected.z<1&&Math.abs(projected.x)<.94&&Math.abs(projected.y)<.9&&Math.hypot(player.x-target.point.x,player.z-target.point.z)>2.6};}),carrying:discoveryState.carrying?{id:discoveryState.carrying,kind:layout.discoveries[0].itemKind,title:layout.discoveries[0].itemTitle}:null,markers:layout.missions.map(p=>{projected.set(p.x,campaignTerrainHeight(layout,p.x,p.z)+1.5,p.z).project(camera);const job=CAMPAIGN_ROUNDED_RESTORATIONS[layout.stageId].jobs.find(j=>j.missionId===p.missionId);return {missionId:p.missionId,objectKind:job?.before[0]?.kind||job?.after[0]?.kind||'lantern',x:(projected.x+1)/2*width,y:(1-projected.y)/2*height,visible:phase==='explore'&&available.includes(p.missionId)&&!completed.includes(p.missionId)&&projected.z>-1&&projected.z<1&&Math.abs(projected.x)<.94&&Math.abs(projected.y)<.9&&Math.hypot(player.x-p.x,player.z-p.z)>2.6};}),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,renderedFrames,frameMs:frameAverage});}
   function update(now){
@@ -446,6 +453,7 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       if(!following){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const x=right.x*dx-forward.x*dz,z=right.z*dx-forward.z*dz;dx=x;dz=z;}
       const clock=campaignFrameSteps(actual,acc);acc=clock.remainder;
       for(let step=0;step<clock.steps;step++){
+        renderMotion.capture(player);
         // Re-evaluate every waypoint per collision step so a slow rendered
         // frame cannot overshoot a corner and oscillate around its endpoint.
         if(following){
@@ -455,10 +463,11 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
         }
         campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);
       }
-    }else acc=0;
-    const routePoints=destination?campaignRouteBreadcrumbs(player,[destination,...routeQueue]):[];breadcrumbs.count=routePoints.length;breadcrumbs.visible=routePoints.length>0;routePoints.forEach((point,index)=>{breadcrumbPose.position.set(point.x,campaignWalkHeight(collisionLayout,point.x,point.z)+.15,point.z);breadcrumbPose.updateMatrix();breadcrumbs.setMatrixAt(index,breadcrumbPose.matrix);});if(routePoints.length)breadcrumbs.instanceMatrix.needsUpdate=true;
-    const groundHeight=campaignWalkHeight(collisionLayout,player.x,player.z),speed=Math.hypot(player.vx,player.vz);
-    if(hero){hero.position.set(player.x,groundHeight+.04,player.z);if(speed>.15&&!paused&&phase==='explore'){const angle=Math.atan2(player.vx,player.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*Math.min(1,dt*14);}action(speed>.15&&!paused&&phase==='explore'?'Walk':'Idle');if(!reduced&&!paused){mixer.timeScale=actionName==='Walk'?Math.max(.8,speed/4.6):1;mixer.update(dt);}}
+    }else {acc=0;renderMotion.reset();}
+    const visiblePlayer=renderMotion.sample(player,acc,paused||phase!=='explore');
+    const routePoints=destination?campaignRouteBreadcrumbs(visiblePlayer,[destination,...routeQueue]):[];breadcrumbs.count=routePoints.length;breadcrumbs.visible=routePoints.length>0;routePoints.forEach((point,index)=>{breadcrumbPose.position.set(point.x,campaignWalkHeight(collisionLayout,point.x,point.z)+.15,point.z);breadcrumbPose.updateMatrix();breadcrumbs.setMatrixAt(index,breadcrumbPose.matrix);});if(routePoints.length)breadcrumbs.instanceMatrix.needsUpdate=true;
+    const groundHeight=campaignWalkHeight(collisionLayout,visiblePlayer.x,visiblePlayer.z),speed=Math.hypot(visiblePlayer.vx,visiblePlayer.vz);
+    if(hero){hero.position.set(visiblePlayer.x,groundHeight+.04,visiblePlayer.z);if(speed>.15&&!paused&&phase==='explore'){const angle=Math.atan2(visiblePlayer.vx,visiblePlayer.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*(1-Math.exp(-dt*14));}action(speed>.15&&!paused&&phase==='explore'?'Walk':'Idle');if(!reduced&&!paused){mixer.timeScale=actionName==='Walk'?Math.max(.8,speed/4.6):1;mixer.update(dt);}}
     const completedCount=stage.missionIds.filter(id=>completed.includes(id)).length;
     for(const resident of residents){
       resident.behavior=stepCampaignResident(resident.behavior,{home:resident.home,work:layout.landmark,player,completedCount,dt,active:phase==='explore'&&!paused,reduced});
@@ -471,16 +480,17 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       if(!reduced&&!paused&&phase==='explore')resident.mixer.update(dt);
     }
     if(contactShadows){
-      const positions=[{x:player.x,z:player.z},...residents.map(resident=>resident.home)];
+      const positions=[visiblePlayer,...residents.map(resident=>resident.home)];
       positions.forEach((position,index)=>{contactPose.position.set(position.x,campaignWalkHeight(collisionLayout,position.x,position.z)+.055,position.z);contactPose.scale.set(index?.64:.72,1,index?.48:.54);contactPose.updateMatrix();contactShadows.setMatrixAt(index,contactPose.matrix);});
       contactShadows.instanceMatrix.needsUpdate=true;
     }
     for(const p of layout.missions){const marker=markerMeshes.get(p.missionId);marker.visible=phase==='explore'&&available.includes(p.missionId)&&!completed.includes(p.missionId);marker.scale.setScalar(p.missionId===focusMissionId?1.14:1);}
-    if(phase==='title'){cameraTarget.set(27,35,38);lookTarget.set(0,1,-3);}else{const extra=camera.aspect<.85?1.32:1;cameraTarget.set(player.x+5.8*extra,groundHeight+9.2*extra,player.z+10.8*extra);lookTarget.set(player.x,groundHeight+1.15,player.z-1.5);}
-    const damp=reduced?1:1-Math.exp(-Math.max(dt,.016)*5);camera.position.lerp(cameraTarget,damp);look.lerp(lookTarget,damp);camera.lookAt(look);
+    if(phase==='title'){cameraTarget.set(27,35,38);lookTarget.set(0,1,-3);}else{const extra=camera.aspect<.85?1.32:1;cameraTarget.set(visiblePlayer.x+5.8*extra,groundHeight+9.2*extra,visiblePlayer.z+10.8*extra);lookTarget.set(visiblePlayer.x,groundHeight+1.15,visiblePlayer.z-1.5);}
+    const damp=paused?0:reduced?1:1-Math.exp(-dt*5);camera.position.lerp(cameraTarget,damp);look.lerp(lookTarget,damp);camera.lookAt(look);
     renderer.render(scene,camera);renderedFrames++;if(moving)frameAverage+=(Math.min(actual*1000,250)-frameAverage)*.08;canvas.dataset.phase=phase;canvas.dataset.paused=String(paused);canvas.dataset.available=available.join(',');canvas.dataset.navigation=navigation?.kind||'';canvas.dataset.navigationTarget=navigation?.id||'';canvas.dataset.navigationArrived=String(navigationSnapshot()?.arrived||false);canvas.dataset.routeBreadcrumbs=String(breadcrumbs.count);canvas.dataset.destination=destination?`${destination.x},${destination.z}`:'';canvas.dataset.stageId=layout.stageId;canvas.dataset.playerX=player.x.toFixed(3);canvas.dataset.playerZ=player.z.toFixed(3);canvas.dataset.renderedFrames=String(renderedFrames);canvas.dataset.drawCalls=String(renderer.info.render.calls);canvas.dataset.triangles=String(renderer.info.render.triangles);canvas.dataset.frameMs=frameAverage.toFixed(2);if(now-snapshotTime>90||reduced){snapshotTime=now;snapshot();}
+    canvas.dataset.renderPlayerX=visiblePlayer.x.toFixed(4);canvas.dataset.renderPlayerZ=visiblePlayer.z.toFixed(4);canvas.dataset.motionAlpha=(acc*60).toFixed(4);
     canvas.dataset.pixelRatio=String(renderer.getPixelRatio());canvas.dataset.residentStates=residents.map(resident=>`${resident.id}:${resident.behavior.mode}:${resident.model.rotation.y.toFixed(3)}:${resident.actionName}`).join(',');canvas.dataset.contactShadows=String(contactShadows?.count||0);
-    if(!reduced&&camera.position.distanceTo(cameraTarget)>.03)dirty=true;
+    if(!paused&&!reduced&&camera.position.distanceTo(cameraTarget)>.03)dirty=true;
   }
   if(!disposed)frame=requestAnimationFrame(update);
   return {
@@ -506,7 +516,7 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
     move(x,z,{tapStep=false,tapOnly=false}={}){if(disposed||failed||paused||phase!=='explore')return;input.x=Number.isFinite(x)?clamp(x,-1,1):0;input.z=Number.isFinite(z)?clamp(z,-1,1):0;if(input.x||input.z){destination=null;routeQueue=[];clearNavigation();}
       // A short native tap uses the same bounded collision steps as a held
       // direction, so a press released before the next frame still moves.
-      if(tapStep&&(input.x||input.z)){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const dx=right.x*input.x-forward.x*input.z,dz=right.z*input.x-forward.z*input.z;for(let step=0;step<6;step++)campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);}
+      if(tapStep&&(input.x||input.z)){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const dx=right.x*input.x-forward.x*input.z,dz=right.z*input.x-forward.z*input.z;for(let step=0;step<6;step++){renderMotion.capture(player);campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);}}
       if(tapOnly)input.x=input.z=0;dirty=true;},
     run(value){input.run=!!value;},
     walkToMission(id){

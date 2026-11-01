@@ -1,3 +1,4 @@
+import { createSoundSafariRenderMotion } from './soundSafariRenderMotion.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { isAppleTouchDevice } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
@@ -1127,6 +1128,7 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
 
 function startSoundSafariArcadeGame(mount, options) {
   const renderGate=createArcadeRenderGate();
+  let renderMotion;
   const blenderWorld = createBlenderWorldSprite("sound-safari", mount, { landscape: true });
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
@@ -1330,6 +1332,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.net.y = clamp(hasNetPosition ? state.net.y * h / Math.max(1, prevH) : h * 0.76, h * 0.18, h * 0.79);
     state.net.targetX = state.net.x;
     state.net.targetY = state.net.y;
+    renderMotion?.reset();
     repositionCritters(prevW, prevH);
   }
 
@@ -1629,11 +1632,13 @@ function startSoundSafariArcadeGame(mount, options) {
     state.net.targetY = clamp(state.net.targetY, h * 0.18, h * 0.79);
   }
 
+  renderMotion = createSoundSafariRenderMotion(state);
   const simulation = createSoundSafariStepper(state,
-    dt => { captureMotion.advance(dt); return advanceSoundSafariWorld(state, dt, { height: h, reducedMotion: reduceMotion }); },
+    dt => { renderMotion.beforeStep(); captureMotion.advance(dt); return advanceSoundSafariWorld(state, dt, { height: h, reducedMotion: reduceMotion }); },
     () => { if (!resultDwell?.active) nextTask(); });
 
   function tickFrame(now, dt) {
+    if (state.paused || state.ended || state.onboarding || document.hidden) renderMotion.reset();
     const revision=`${authoredView.deliveryRevision()}:${mount.dataset.blenderWorldState}:${mount.dataset.landscapeState}:${images.guide?.complete}:${images.net?.complete}:${Object.values(images.backgrounds).map(image=>image.complete).join()}:${Object.values(images.pals).map(image=>image.complete).join()}`;
     if(!renderGate.shouldRender(state.paused||document.hidden,revision))return;
     simulation.advance(dt);
@@ -1641,7 +1646,8 @@ function startSoundSafariArcadeGame(mount, options) {
       sincePracticeSave += dt;
       if (sincePracticeSave >= 2) persistPractice();
     }
-    draw();
+    const timing = simulation.inspect();
+    renderMotion.draw(timing.remainder / timing.step, draw);
   }
 
   const loop = createFrameLoop(tickFrame);

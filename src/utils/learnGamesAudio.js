@@ -102,14 +102,18 @@ async function playFirstAvailable(paths, options = {}) {
   return null;
 }
 
-export function preloadWordAudio(word) {
+export function preloadWordAudio(word, { enabled = true } = {}) {
+  if (!enabled) return;
   const path = existingAudioPaths(wordAudioCandidates(slugify(word)))[0];
   if (path) getHowl(path);
 }
 
 export function wordAudioDuration(word) {
   const path = existingAudioPaths(wordAudioCandidates(slugify(word)))[0];
-  const duration = path ? getHowl(path)?.duration() : 0;
+  // Reading a pacing value must not create an AudioContext from a render loop.
+  // Enabled preloading/playback owns allocation; unheard words retain the
+  // established fallback until their recording has loaded.
+  const duration = path ? howlCache.get(path)?.duration() : 0;
   return Number.isFinite(duration) && duration > 0 ? duration : 0.8;
 }
 

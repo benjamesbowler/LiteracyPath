@@ -86,6 +86,17 @@ export function climbSurfaceDepth(journey,y,x,viewWidth) {
 }
 
 export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journey=null,unitsPerPixel=1,world="moonwood") {
+  const readyTextures=[];
+  function loadTexture(url,onLoad=()=>{}){
+    let settle;
+    readyTextures.push(new Promise(resolve=>{settle=resolve;}));
+    let settled=false;
+    const finish=value=>{if(settled)return;settled=true;clearTimeout(timer);settle(value);};
+    const timer=setTimeout(()=>finish(false),10000);
+    const texture=new THREE.TextureLoader().load(url,()=>{onLoad();finish(true);},undefined,()=>finish(false));
+    texture.addEventListener('dispose',()=>finish(false));
+    return texture;
+  }
   const root=new THREE.Group();root.name=`${world}-PhysicalRootCanopySummit`;
   const family=journey?journey.stageIndex%3:0;
   const detailScale=Math.max(1,unitsPerPixel);
@@ -93,7 +104,7 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
     :world==="dino"?{bark:[0x99694c,0x624534,0xb58a5d],moss:[0x6f974c,0x9eb765,0x416b3f],stone:[0xb8946b,0xd0b185,0x896b4f],leaf:[0x2b6148,0x4c8451,0x82a860]}:palette;
   const colours={...theme,bark:world==="moonwood"&&(family===1||family===2)?(family===1?[0x66684b,0x414c3c,0x929166]:[0x867255,0x564b3c,0xb09a6c]):theme.bark};
   const mats=Object.fromEntries(Object.entries(colours).map(([name,colors])=>[name,colors.map(c=>material(c,{side:THREE.DoubleSide}))]));
-  const barkTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/textures/bark.webp');
+  const barkTexture=loadTexture('/game-assets/arcade-worlds/textures/bark.webp');
   barkTexture.colorSpace=THREE.SRGBColorSpace;barkTexture.wrapS=barkTexture.wrapT=THREE.RepeatWrapping;barkTexture.anisotropy=4;
   const barkTint=world==="meadow"?[0xe6c7a2,0xbba37c,0xffdfb8]:world==="dino"?[0xd0ad85,0xa3ac84,0xe5c695]:[0xc5b9a3,0x9eab93,0xe5d4b1];
   mats.bark.forEach((mat,index)=>{mat.map=barkTexture;mat.color.set(barkTint[index]);mat.roughness=.93;});
@@ -107,7 +118,7 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
   const crowns=[];
   for(let y=-180;y<top+600;y+=480)for(const side of [-1,1])crowns.push({x:side*viewWidth*(.42+(Math.floor(y/480)%2)*.08),y,height:650+(Math.floor(y/480)%3)*70});
   let released=false,canopies;
-  const canopyTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/sprites/broadleaf-tree.webp',()=>{if(!released)canopies.visible=!root.userData.authoredSceneryDelivered;else canopyTexture.dispose();});
+  const canopyTexture=loadTexture('/game-assets/arcade-worlds/sprites/broadleaf-tree.webp',()=>{if(!released)canopies.visible=!root.userData.authoredSceneryDelivered;else canopyTexture.dispose();});
   canopyTexture.colorSpace=THREE.SRGBColorSpace;canopyTexture.addEventListener('dispose',()=>{released=true;});
   const canopyMaterial=new THREE.MeshBasicMaterial({map:canopyTexture,alphaTest:.35,color:family===2?0x8eabb8:0xadc8b3,side:THREE.DoubleSide});
   canopies=new THREE.InstancedMesh(new THREE.PlaneGeometry(1,1),canopyMaterial,crowns.length);canopies.name='Blender distant woodland canopy';canopies.visible=false;
@@ -241,6 +252,7 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
   for(const x of [-12,12])lantern.add(tube([[x,-20,0],[x,17,0]],[1.4,1.4],mats.bark[1],"lantern-frame",6));
   lantern.add(mesh(new THREE.LatheGeometry([new THREE.Vector2(0,-12),new THREE.Vector2(9,-8),new THREE.Vector2(9,11),new THREE.Vector2(0,15)],12),glow,"warm-lantern-glass"));
   lantern.add(tube([[-16,17,0],[0,29,0],[16,17,0]],[2,2,2],mats.bark[0],"lantern-roof",7));crown.add(lantern);batchSurfaces(crown);root.add(crown);
+  root.userData.ready=Promise.all(readyTextures);
   return root;
 }
 

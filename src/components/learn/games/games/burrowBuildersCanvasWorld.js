@@ -199,8 +199,9 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     if (lastKey !== key) { rebuild(current, world); lastKey = key; }
     ctx.clearRect(0, 0, width, height); ctx.drawImage(background.canvas, background.x, background.y);
     if (!api.current?.isPaused?.()) heldVisualTime = time / 1000;
-    const at = reducedMotion ? 0 : heldVisualTime, moving = !api.current?.isPaused?.() && api.current?.moving?.(), heightY = walkingHeight(world, Math.round(world.player.x), Math.round(world.player.z)) ?? 0;
-    const actor = p.project(world.player.x - 5, heightY + .12, world.player.z - 5), actorDepth = p.depth(world.player.x - 5, world.player.z - 5), palScale = width < 500 && height >= 460 ? 1.5 : 1.12, size = 2.2 * p.scale * palScale;
+    const renderPlayer=api.current?.presentation?.()||{...world.player,height:walkingHeight(world,Math.round(world.player.x),Math.round(world.player.z))??0};
+    const at = reducedMotion ? 0 : heldVisualTime, moving = !api.current?.isPaused?.() && api.current?.moving?.(), heightY = renderPlayer.height;
+    const actor = p.project(renderPlayer.x - 5, heightY + .12, renderPlayer.z - 5), actorDepth = p.depth(renderPlayer.x - 5, renderPlayer.z - 5), palScale = width < 500 && height >= 460 ? 1.5 : 1.12, size = 2.2 * p.scale * palScale;
     const relative = (api.current?.facing?.() || 0) - p.angle, direction = Math.abs(Math.sin(relative)) > Math.abs(Math.cos(relative)) ? Math.sin(relative) > 0 ? 'right' : 'left' : Math.cos(relative) > 0 ? 'front' : 'back', action = current.phase === 'celebrating' ? 'celebrate' : 'carry';
     let delivered = false;
     const drawGuide = () => {

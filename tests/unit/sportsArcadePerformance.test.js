@@ -60,3 +60,24 @@ test('frame receipts retain at most600 original rows and monotonic indices acros
   const after=telemetry.snapshotFrameRows();assert.equal(after.lastSampleIndex,701);assert.equal(after.oldestSampleIndex,102);assert.equal(after.rows.length,600);assert.equal(after.rows.at(-1).frameMs,17);
   assert.deepEqual(telemetry.snapshot().qualityChanges,[]);
 });
+
+test('sports quality recovery keeps the established elapsed windows at54ms cadence through all three tiers',()=>{
+  let now=0,tier='high',tierStarted=0;
+  const telemetry=createSportsFrameTelemetry({now:()=>now}),changes=[];
+  while(tier!=='canvas'&&now<12000){
+    now+=54;
+    const change=telemetry.rendered(54,{tier});
+    if(change){
+      const elapsed=now-tierStarted;
+      // Existing 750ms warmup +2500ms decision (3000ms at low),
+      // rounded up by at most two real frames. No accelerated simulation.
+      const minimum=tier==='low'?3750:3250;
+      assert.ok(elapsed>=minimum,`${tier} must observe its full sustained window`);
+      assert.ok(elapsed<=minimum+108,`${tier} must not wait150/180 slow frames`);
+      changes.push([tier,change.to]);tier=change.to;tierStarted=now;
+    }
+  }
+  assert.deepEqual(changes,[['high','medium'],['medium','low'],['low','canvas']]);
+  assert.ok(now<11000,'three tiers recover within elapsed observation windows rather than33seconds');
+  assert.ok(telemetry.snapshotFrameRows().rows.every(row=>row.frameMs===54));
+});

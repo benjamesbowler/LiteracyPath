@@ -10,6 +10,13 @@ async function ready(page, game, difficulty) {
   const continueButton=player.getByRole('button',{name:'Continue',exact:true});
   if(await continueButton.isVisible())await continueButton.tap();
   await expect(player.locator('.lg-game-player-main button:visible').first()).toBeVisible({timeout:40_000});
+  // A mounted controller can intentionally remain paused while its first GPU
+  // work settles. Test actual play readiness before sending touch input.
+  await page.waitForFunction(()=>{
+    const state=window.__arcadePreviewSnapshot?.();
+    return !state?.assetsLoading&&!state?.graphicsLoading&&state?.renderer!=='loading';
+  },null,{timeout:40_000});
+  await expect(player.locator('.rocket-run-status')).toHaveCount(0,{timeout:40_000});
   return player;
 }
 

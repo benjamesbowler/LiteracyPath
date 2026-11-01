@@ -1,3 +1,5 @@
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
+import { createSpellSkateRenderMotion } from './spellSkateRenderMotion.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { getChildWordAsset } from "../../../../data/childAssets.js";
@@ -1755,11 +1757,10 @@ function startGame(mount, opts) {
     }
   }
 
-  function updateSkater(dt) {
+  function updateSkater() {
     skater.position.set(player.pos.x, .005 + player.air, player.pos.z);
     skater.rotation.order = "YXZ";
     skater.rotation.set(player.surfacePitch, player.yaw, player.surfaceRoll);
-    skaterAsset.update(dt, player, { ...keys, push: keys.push || assistRoute.length > 0 });
     const contactHeight = sampleSkateSurface(player.pos.x,player.pos.z,rampZones,platformZones).height;
     contactShadow.position.set(player.pos.x,contactHeight+.03,player.pos.z);
     contactShadow.rotation.z = -player.yaw;
@@ -1829,24 +1830,26 @@ function startGame(mount, opts) {
 
   premiumRender.resize(mount.clientWidth || 960, mount.clientHeight || 560);
 
+  const renderMotion = createSpellSkateRenderMotion([skater, contactShadow, camera], player);
   let lastDiagnosticTime=0,activeSimulationSeconds=0,lastSavedSeconds=0;
   function render(now) {
     const frozen=paused||document.hidden;
     const revision=`${assetsLoading}:${graphicsLoading}:${presentationHost.mode}:${gardenWorld.root.userData.assetState}:${skater.userData.assetState}`;
-    if(!renderGate.shouldRender(frozen,revision)){lastTime=now;physicsClock.reset();return;}
+    if(!renderGate.shouldRender(frozen,revision)){lastTime=now;physicsClock.reset();renderMotion.reset();return;}
     const cpuStart=performance.now();
-    const rawDelta = Math.max(.001,(now-lastTime || 16)/1000);
+    const rawDelta = Math.max(0,now-lastTime)/1000;
     const dt = Math.min(.12,rawDelta);
-    lastTime = now;
+    lastTime = Math.max(lastTime,now);
     if(!paused && !completed && !assetsLoading&&!graphicsLoading){
       gardenWorld.update(dt,{camera:camera.position,player:player.pos,reducedMotion:motionQuery?.matches});
     }
     if (!paused && !completed && !assetsLoading&&!graphicsLoading && !document.hidden) {
       const steps = physicsClock.advance(rawDelta);
-      for (const step of steps) { activeSimulationSeconds += step; update(step, activeSimulationSeconds); }
-      if (!steps.length) updateSkater(0);
+      for (const step of steps) { renderMotion.beforeStep(); activeSimulationSeconds += step; update(step, activeSimulationSeconds); renderMotion.afterStep(); }
       if(activeSimulationSeconds-lastSavedSeconds>=5)saveCurrentSession();
-    } else physicsClock.reset();
+    } else { physicsClock.reset(); renderMotion.reset(); }
+    const renderedPlayer = renderMotion.sample(physicsClock.alpha());
+    skaterAsset.update(frozen || completed || assetsLoading || graphicsLoading ? 0 : dt, renderedPlayer, { ...keys, push: keys.push || assistRoute.length > 0 });
     mount.dataset.gardenWorldState = gardenWorld.root.userData.assetState;
     mount.dataset.authoredWorldState = gardenWorld.root.userData.assetState;
     mount.dataset.authoredWorldTime = String(gardenWorld.root.userData.animationTime || 0);
@@ -1874,8 +1877,8 @@ function startGame(mount, opts) {
       mount.dataset.skaterQuality=qualityTier;
     }
     updateWorldChoices();
-    const renderedTier = presentationHost.mode==='canvas'?'canvas':premiumRender.render(dt);
-    if(canvasPresentation){const pose=skaterAsset.presentationPose();canvasPresentation.draw({player,state:pose.state,phase:pose.phase,dt,groundHeight:sampleSkateSurface(player.pos.x,player.pos.z,rampZones,platformZones).height,choices:lineNodes.map(node=>({x:node.group.position.x,y:node.group.position.y,z:node.group.position.z})),pickups:pickups.filter(item=>!item.collected).map(item=>({x:item.group.position.x,y:item.group.position.y,z:item.group.position.z}))});}
+    const renderedTier = presentationHost.mode==='canvas'?'canvas':assetsLoading?qualityTier:premiumRender.render(dt);
+    if(canvasPresentation){const pose=skaterAsset.presentationPose();canvasPresentation.draw({player:renderedPlayer,state:pose.state,phase:pose.phase,dt,groundHeight:sampleSkateSurface(renderedPlayer.pos.x,renderedPlayer.pos.z,rampZones,platformZones).height,choices:lineNodes.map(node=>({x:node.group.position.x,y:node.group.position.y,z:node.group.position.z})),pickups:pickups.filter(item=>!item.collected).map(item=>({x:item.group.position.x,y:item.group.position.y,z:item.group.position.z}))});}
     if (renderedTier !== 'canvas' && renderedTier !== qualityTier) {
       qualityTier = renderedTier;
       gardenWorld?.setQuality(qualityTier);
@@ -1968,12 +1971,18 @@ function startGame(mount, opts) {
   restoreSession();
   if(presentationHost.mode==='canvas')switchToCanvas(presentationHost.reason);
   loop.start();
-  primaryAssetsReady.then(()=>{
+  primaryAssetsReady.then(async()=>{
     if(!running)return;
     if(!primaryOwnersReleased)staticParkBatch=batchSportsStaticWorld(park);
     if(skater.userData.assetState==='error')switchToCanvas('primary-and-model-recovery-unavailable');
-    assetsLoading=false;physicsClock.reset();lastTime=0;
-    if(presentationHost.mode!=='canvas')premiumRender.prepareObject(skater);
+    if(presentationHost.mode!=='canvas'){
+      premiumRender.prepareObject(skater);
+      const warmup=await warmArcadeScene({renderer,scene,camera,isCurrent:()=>running&&presentationHost.mode!=='canvas'&&!primaryOwnersReleased,renderFrame:()=>premiumRender.render(0)});
+      if(!running)return;
+      mount.dataset.sceneWarmup=JSON.stringify(warmup);
+      if(['failed','timeout','partial'].includes(warmup.status))switchToCanvas('scene-warmup-unavailable');
+    }
+    assetsLoading=false;physicsClock.reset();renderMotion.reset();lastTime=performance.now();
     opts.onSessionStart?.();
     saveCurrentSession();
     if(lineReady){

@@ -132,6 +132,14 @@ test('rocket loading and failure cannot remove the playable fallback or revive a
     const late = await parse(bytesFor('/game-assets/arcade-blender/rocket-courier.glb'));
     let released=false; late.scene.traverse(n=>{ if(n.isMesh)n.geometry.addEventListener('dispose',()=>{released=true;}); });
     deliver(late); assert.equal(await pending.ready,false); assert.equal(released,true); assert.equal(parent.children.length,1);
+    let loading = true, attached = false;
+    const expired = attachRocketCourier(parent, { isCurrent: () => loading, onReady: () => { attached = true; } });
+    loading = false;
+    const afterDeadline = await parse(bytesFor('/game-assets/arcade-blender/rocket-courier.glb'));
+    deliver(afterDeadline);
+    assert.equal(await expired.ready, false);
+    assert.equal(attached, false);
+    assert.equal(parent.children.length, 1);
   } finally { GLTFLoader.prototype.loadAsync=original; }
 });
 

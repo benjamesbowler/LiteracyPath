@@ -732,7 +732,7 @@ function startPs1ArcadeGame(mount, options) {
       state.noteStart = nextPhraseBeat(now, state.roundStartAt, 60 / state.roundBpm, Math.max(1.05, restored.remainingDelay)) - state.beatIndex * 60 / state.roundBpm;
       if (restored.phase === 'blend') state.wordCompleteAt = now + LEARNING_PACE.word / 1000;
     } else state.noteStart = nextPhraseBeat(now, state.roundStartAt, 60 / state.roundBpm, Math.max(1.05, voiceUntil - now + 0.8));
-    preloadWordAudio(state.currentTask.item.word);
+    preloadWordAudio(state.currentTask.item.word, { enabled: soundAllowed() });
     // Mid-round the next word starts right away, so sound out its first note;
     // after a countdown the tick's countdown-end branch does it instead.
     if (state.countdown <= 0) speakActiveNote({ manual: Boolean(restored) });

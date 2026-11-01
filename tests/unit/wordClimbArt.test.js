@@ -96,7 +96,7 @@ test('each cast switches its owned movement/climbing textures while retaining on
     for(const hero of ['bouncy','chompy','pip']){
       const actor=createWordClimbRegisteredActor(THREE,WORD_CLIMB_ATLASES[hero],{movementAtlas:WORD_CLIMB_MOVEMENT_ATLASES[hero]});
       try{
-        assert.equal(await actor.ready,true);const mesh=actor.root.children[0],geometry=mesh.geometry;
+        assert.equal(await actor.ready,true);assert.equal(actor.warmupTextures().length,2,'both current and later movement atlases are available before first GPU draw');const mesh=actor.root.children[0],geometry=mesh.geometry;
         actor.update({state:'climbing',elapsed:.4});const climbingMap=mesh.material.map;assert(actor.contactWorld('grip',new THREE.Vector3()));
         actor.update({state:'airborne',vy:100,elapsed:1});assert.equal(actor.action,'jump-rise');assert.notEqual(mesh.material.map,climbingMap);assert.equal(actor.contactWorld('grip',new THREE.Vector3()),null);
         const movementMap=mesh.material.map;actor.update({state:'airborne',vy:-100,elapsed:2});assert.equal(actor.action,'jump-fall');assert.equal(mesh.material.map,movementMap);

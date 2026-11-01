@@ -1,3 +1,7 @@
+import { createRallyPalsFrameWindow, sampleRallyPalsFrameWindow } from './rallyPalsFrameBudget.js';
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
+import { waitPhysicalGameAssets, physicalGameActionTextures } from './physicalGameWarmup.js';
+import { createRallyPalsRenderMotion } from './rallyPalsRenderMotion.js';
 import { createArcadeRenderGate, arcadeHeldAxes } from '../shared/arcadeFramePolicy.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { SpeakerHigh, ArrowClockwise, HandPalm, TennisBall, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } from '@phosphor-icons/react';
@@ -58,7 +62,7 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
   const tier=detectQualityTier(),quality=QUALITY_TIERS[tier],theme=physicalThemeForDifficulty(difficulty);
   const world=theme.id,art=RALLY_PALS_WORLD_ART[world];
   let disposed=false,renderCeiling=Math.min(tier==='low'?760:tier==='medium'?1120:1600,budget?.ceiling??1600),runtimeTier=budget?.tier||tier;
-  let qualityReason=budget?.reason||'device-signals',qualityChanges=budget?.changes||0,qualityFrames=[];
+  let qualityReason=budget?.reason||'device-signals',qualityChanges=budget?.changes||0,qualityFrames=createRallyPalsFrameWindow();
   const renderer=createRenderer(THREE,{pixelRatioCap:quality.pixelRatioCap,toneMappingExposure:1.02,shadowMap:tier==='low'?null:'pcf'});
   renderer.domElement.setAttribute('aria-hidden','true');renderer.domElement.className='rally-pals-canvas';mount.appendChild(renderer.domElement);
   if(runtimeTier==='low'){renderer.setPixelRatio(1);renderer.shadowMap.enabled=false;}
@@ -67,8 +71,9 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
   scene.background=new THREE.Color(evening?theme.id==='moonwood'?'#20375a':'#536c8a':theme.sky);
   scene.add(new THREE.HemisphereLight(evening?'#d1e0ff':theme.light,evening?'#3f596a':'#70936f',evening?1.35:1.8));
   const sun=new THREE.DirectionalLight(evening?'#bed2ee':theme.light,evening?1.55:2.15);sun.position.set(-8,16,10);sun.castShadow=runtimeTier!=='low';sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-15,right:15,top:15,bottom:-15});scene.add(sun);
+  const artLoads=[];let warmup=null;
   const loader=new THREE.TextureLoader(),artDelivery={grass:'pending',plank:'pending',stone:'pending',scenery:'pending',horizon:'pending'};
-  const loadArt=(url,key)=>loader.load(url,texture=>{if(disposed){texture.dispose();return;}artDelivery[key]='delivered';},undefined,()=>{if(!disposed)artDelivery[key]='failed';});
+  const loadArt=(url,key)=>{let settled;artLoads.push(new Promise(resolve=>{settled=resolve;}));return loader.load(url,texture=>{settled();if(disposed){texture.dispose();return;}artDelivery[key]='delivered';},undefined,()=>{settled();if(!disposed)artDelivery[key]='failed';});};
   const albedo=(name,repeatX=1,repeatY=1)=>{const map=loadArt(`/game-assets/physical-arcade/burrow-builders/materials/${name}-albedo-v1.webp`,name);map.colorSpace=THREE.SRGBColorSpace;map.wrapS=map.wrapT=THREE.RepeatWrapping;map.repeat.set(repeatX,repeatY);map.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());return map;};
   const grass=albedo('grass',14,20),borderGrass=albedo('grass',28,32),woodMap=albedo('plank',1,2),stoneMap=albedo('stone',2,1);
   const lawnMaterial=map=>{const material=new THREE.MeshStandardMaterial({map,color:'#ffffff',roughness:1});material.onBeforeCompile=shader=>{
@@ -154,7 +159,7 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
     const point=new THREE.Vector3(.77,0,0).applyEuler(rotation).add(new THREE.Vector3(...grip)).applyQuaternion(camera.quaternion).multiplyScalar(near?RALLY_PALS_NEAR_SCALE:RALLY_PALS_FAR_SCALE);
     point.add(new THREE.Vector3(actor.x,0,actor.z));return{x:point.x,y:point.y,z:point.z};
   };
-  return {updateChoices:choices=>lanes.forEach((mesh,index)=>{mesh.material.map?.dispose();mesh.material.map=makeCourtZoneTexture(THREE,choices[index]);mesh.material.needsUpdate=true;}),
+  return {warm:async()=>{const ready=await waitPhysicalGameAssets([...artLoads,preloadPhysicalPalArt(theme.id,{actions:['tennis','tools']})],()=>!disposed);if(!ready)return warmup={status:disposed?'cancelled':'timeout'};return warmup=await warmArcadeScene({renderer,scene,camera,extraTextures:physicalGameActionTextures(scene),isCurrent:()=>!disposed,renderFrame:()=>renderer.render(scene,camera)});},updateChoices:choices=>lanes.forEach((mesh,index)=>{mesh.material.map?.dispose();mesh.material.map=makeCourtZoneTexture(THREE,choices[index]);mesh.material.needsUpdate=true;}),
     contactPoint,
     draw:(engine,at)=>{player.position.set(engine.player.x,0,engine.player.z);opponent.position.set(engine.opponent.x,0,engine.opponent.z);
       const playerPose=rallyActorPose({near:true,ball:engine.ball,swing:engine.swing,style:engine.swingStyle,moving:engine.moving,phase:engine.mode==='targets'?engine.targetPhase:engine.phase});
@@ -174,8 +179,8 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
       const contactAge=at-(engine.lastContact?.elapsedSeconds??-10);contact.visible=Boolean(engine.ball&&contactAge>=0&&contactAge<.18);if(contact.visible){contact.position.set(engine.lastContact.x,engine.lastContact.y,engine.lastContact.z);contact.quaternion.copy(camera.quaternion);contact.scale.setScalar(reduced?1:1+contactAge*2);contact.material.opacity=1-contactAge/.18;}
       target.visible=engine.mode==='targets';target.position.x=engine.targetX??0;if(!reduced)bunting.rotation.x=Math.sin(at*.55)*.006;renderer.render(scene,camera);},
     screenAim:(x,y)=>{const ray=new THREE.Raycaster(),hit=new THREE.Vector3();ray.setFromCamera(new THREE.Vector2(x*2-1,1-y*2),camera);return ray.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),0),hit)?{x:Math.max(-4.6,Math.min(4.6,hit.x)),z:Math.max(-8.5,Math.min(-3.8,hit.z))}:null;},
-    sampleFrame:milliseconds=>{if(milliseconds<=0||milliseconds>1000||disposed)return;qualityFrames.push(milliseconds);if(qualityFrames.length<36)return;const average=qualityFrames.reduce((a,b)=>a+b,0)/qualityFrames.length;qualityFrames=[];if(average<=35||renderCeiling<=560)return;renderCeiling=renderCeiling>1120?1120:renderCeiling>760?760:560;runtimeTier=renderCeiling<=760?'low':'medium';qualityReason='sustained-frame-budget';qualityChanges++;renderer.setPixelRatio(1);if(runtimeTier==='low'){renderer.shadowMap.enabled=false;sun.castShadow=false;}resizeBudget();onQualityDrop?.({ceiling:renderCeiling,tier:runtimeTier,reason:qualityReason,changes:qualityChanges});},
-    qualityStatus:()=>({initialTier:tier,tier:runtimeTier,ceiling:renderCeiling,reason:qualityReason,changes:qualityChanges,renderWidth:renderer.domElement.width,renderHeight:renderer.domElement.height,shadows:renderer.shadowMap.enabled,drawCalls:renderer.info.render.calls,artPipeline:'painted-depth-layers',authoredArtRetained:true,artDelivery:{...artDelivery},palDelivery:player.userData.authoredPal?.delivery,palActionDelivery:{...player.userData.authoredPal?.actionDelivery},palAction:player.userData.authoredPal?.action,palFrame:player.userData.authoredPal?.frame}),
+    sampleFrame:milliseconds=>{if(milliseconds<=0||milliseconds>1000||disposed)return;const average=sampleRallyPalsFrameWindow(qualityFrames,milliseconds);if(average===null)return;if(average<=35||renderCeiling<=560)return;renderCeiling=renderCeiling>1120?1120:renderCeiling>760?760:560;runtimeTier=renderCeiling<=760?'low':'medium';qualityReason='sustained-frame-budget';qualityChanges++;renderer.setPixelRatio(1);if(runtimeTier==='low'){renderer.shadowMap.enabled=false;sun.castShadow=false;}resizeBudget();onQualityDrop?.({ceiling:renderCeiling,tier:runtimeTier,reason:qualityReason,changes:qualityChanges});},
+    qualityStatus:()=>({warmup,initialTier:tier,tier:runtimeTier,ceiling:renderCeiling,reason:qualityReason,changes:qualityChanges,renderWidth:renderer.domElement.width,renderHeight:renderer.domElement.height,shadows:renderer.shadowMap.enabled,drawCalls:renderer.info.render.calls,artPipeline:'painted-depth-layers',authoredArtRetained:true,artDelivery:{...artDelivery},palDelivery:player.userData.authoredPal?.delivery,palActionDelivery:{...player.userData.authoredPal?.actionDelivery},palAction:player.userData.authoredPal?.action,palFrame:player.userData.authoredPal?.frame}),
     dispose:()=>{disposed=true;resize();loss();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});}};
 }
 
@@ -254,7 +259,7 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
 
   useEffect(()=>{
     let disposed=false, state=initialGame(rounds,difficulty,sessionSeed,startLevel,progressScopeKey,resumedCheckpoint,journey?.index||0);
-    let enginePaused=false,hidden=document.hidden,userPaused=false,reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;
+    let graphicsLoading=false,enginePaused=false,hidden=document.hidden,userPaused=false,reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;
     let renderBudget=null,resumeFeed=state.mode!=='targets'&&state.phase==='rally';
     let sound=isSoundEnabled,teachingBusy=false,scene=null,rendererMode='loading',loop=null,last=performance.now(),drawAt=0,saveAt=0,serveGeneration=0,completed=false,gameTime=0,simulationRemainder=0;
     preloadPhysicalPalArt(theme.id,{actions:['tennis','tools']});
@@ -283,7 +288,7 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       return true;
     };
     const markSupported=(reason='mission-help')=>{publish({...state,supportReasons:[...new Set([...state.supportReasons,reason])]});persist();};
-    const refreshPause=()=>{simulationRemainder=0;const next=userPaused||hidden;if(next===enginePaused)return;enginePaused=next;held.clear();last=performance.now();if(next){voice.pause();cancelGameSfx();persist();}else voice.resume();if(!disposed)setView(v=>({...v,paused:next}));};
+    const refreshPause=()=>{renderMotion.reset();simulationRemainder=0;const next=userPaused||hidden||graphicsLoading;if(next===enginePaused)return;enginePaused=next;held.clear();last=performance.now();if(next){voice.pause();cancelGameSfx();persist();}else voice.resume();if(!disposed)setView(v=>({...v,paused:next}));};
     const visualModel=()=>{publish({...state,visualModel:true,delivery:'unavailable',supportReasons:[...new Set([...state.supportReasons,'visual-matching-model'])],message:'Match the sound shown. You can try Hear again.'});persist();};
     const prompt=async()=>{
       const ticket=++serveGeneration;
@@ -385,27 +390,33 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
     };
     const selectPlay=value=>{const [mode,id]=value.includes(':')?value.split(':'):['match',value];changeMode(mode);if(id!==state.court)changeCourt(id);};
     const changeCourt=id=>{
-      if(!RALLY_PALS_COURTS.some(court=>court.id===id)||enginePaused)return;
+      if(!RALLY_PALS_COURTS.some(court=>court.id===id)||userPaused||hidden)return;
       publish({...state,court:id});persist();buildScene();
     };
     const buildScene=async()=>{
-      const ticket=++drawAt;scene?.dispose();scene=null;
+      const ticket=++drawAt;graphicsLoading=true;rendererMode='loading';refreshPause();setView(v=>({...v,renderer:rendererMode}));scene?.dispose();scene=null;
       try{const THREE=await loadThree();if(disposed||ticket!==drawAt)return;
         scene=makeCourt(THREE,stageRef.current,state.court,reduce,()=>{
-          if(disposed)return;markSupported('webgl-context-lost');scene?.dispose();scene=makeCanvasCourt(stageRef.current,difficulty,state.court,reduce);scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);rendererMode='canvas';setView(v=>({...v,renderer:rendererMode}));
-        },difficulty,renderBudget,value=>{renderBudget=value;});rendererMode='webgl';
+          if(disposed)return;markSupported('webgl-context-lost');scene?.dispose();scene=makeCanvasCourt(stageRef.current,difficulty,state.court,reduce);scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);rendererMode='canvas';graphicsLoading=false;refreshPause();setView(v=>({...v,renderer:rendererMode}));
+        },difficulty,renderBudget,value=>{renderBudget=value;});
+        scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);
+        const candidate=scene,warmup=await candidate.warm();
+        if(disposed||ticket!==drawAt||scene!==candidate)return;
+        if(['failed','timeout','partial'].includes(warmup.status)){candidate.dispose();scene=makeCanvasCourt(stageRef.current,difficulty,state.court,reduce);rendererMode='canvas';}else rendererMode='webgl';
       }catch{if(disposed||ticket!==drawAt)return;scene=makeCanvasCourt(stageRef.current,difficulty,state.court,reduce);rendererMode='canvas';}
-      if(disposed)return;scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);setView(v=>({...v,renderer:rendererMode}));
+      if(disposed||ticket!==drawAt)return;graphicsLoading=false;refreshPause();last=performance.now();scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);setView(v=>({...v,renderer:rendererMode}));
       if(resumeFeed&&state.phase==='rally'&&!physics.ball){resumeFeed=false;physics.rivalStyle='lob';physics.rivalSwing=10/3;physics.ball=strike(false,chooseOpponentReturn(sessionSeed,state.index,0),{lob:true});}
     };
     const renderGate=createArcadeRenderGate();
+    const renderMotion=createRallyPalsRenderMotion();
     const tick=now=>{
-      const frameMs=now-last;const elapsed=Math.min(.35,Math.max(0,frameMs/1000));last=now;
+      const frameMs=Math.max(0,now-last);const elapsed=Math.min(.35,frameMs/1000);last=Math.max(last,now);
+      if(enginePaused||state.saveError)renderMotion.reset();
       if(!enginePaused)scene?.sampleFrame?.(frameMs);
       const frame=consumeRallyPalsFrame(simulationRemainder,elapsed,{active:!enginePaused&&!state.saveError});simulationRemainder=frame.remainder;
       pacing.frames++;pacing.intervals.push(frameMs);if(pacing.intervals.length>120)pacing.intervals.shift();
       if(pacing.inputAt!==null){pacing.lastInputLatencyMs=Math.max(0,performance.now()-pacing.inputAt);pacing.maxInputLatencyMs=Math.max(pacing.maxInputLatencyMs,pacing.lastInputLatencyMs);pacing.inputAt=null;}
-      for(let step=0;step<frame.steps&&!enginePaused&&!state.saveError;step++){const dt=RALLY_PALS_SIMULATION_STEP;gameTime+=dt;
+      for(let step=0;step<frame.steps&&!enginePaused&&!state.saveError;step++){const dt=RALLY_PALS_SIMULATION_STEP;renderMotion.capture(physics,state,gameTime);gameTime+=dt;
       if(!enginePaused&&!state.saveError&&state.phase!=='complete'){
         const {x:dx,y:dz}=arcadeHeldAxes(held);
         physics.player.x=Math.max(-4.8,Math.min(4.8,physics.player.x+dx*dt*5.5));
@@ -448,7 +459,7 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       physics.phase=state.phase;
       const art=scene?.qualityStatus?.();
       const renderRevision=`${stageRef.current?.clientWidth}:${stageRef.current?.clientHeight}:${drawAt}:${JSON.stringify(art?.artDelivery)}:${art?.palDelivery}:${JSON.stringify(art?.palActionDelivery)}`;
-      if(scene&&renderGate.shouldRender(enginePaused,renderRevision)){const began=performance.now();scene.draw(physics,gameTime);pacing.renderMs=performance.now()-began;}
+      if(scene&&!graphicsLoading&&renderGate.shouldRender(enginePaused,renderRevision)){const began=performance.now();const presented=renderMotion.sample(physics,state,gameTime,simulationRemainder/RALLY_PALS_SIMULATION_STEP,enginePaused||state.saveError);scene.draw(presented.physics,presented.time);pacing.renderMs=performance.now()-began;}
       if(now-saveAt>100){saveAt=now;if(!disposed)setView({paused:enginePaused,renderer:rendererMode,rally:physics.rally,targetPhase:physics.targetPhase,contact:Boolean(physics.ball&&rallyContactWindow(physics.ball,physics.player,state.assisted))});}
     };
     const onKeyDown=event=>{

@@ -10,9 +10,13 @@ for (const game of games) test(`${game.id}: focused pad, arrows, brief taps and 
   await page.goto(`/preview/game-overlay.html?game=${game.id}&sound=0&music=0`);
   const world=page.locator(game.selector);
   await expect(world).toBeVisible({timeout:20000});
+  if(game.id==='grammar-grind')await page.waitForFunction(()=>{const state=window.__arcadePreviewSnapshot?.();return state&&!state.assetsLoading&&!state.graphicsLoading&&state.phase==='playing';},null,{timeout:45000});
+  const waitForControls=async()=>{if(game.id==='grammar-grind')await page.waitForFunction(()=>{const state=window.__arcadePreviewSnapshot?.();return state&&!state.assetsLoading&&!state.graphicsLoading&&state.phase==='playing';},null,{timeout:45000});};
   const read=()=>world.evaluate(game.read);
   const left=page.locator(game.control);
   await left.focus();
+  // Focus tracing can overlap adaptive renderer recovery; input is intentionally released while loading.
+  await waitForControls();
   let before=await read();
   await page.keyboard.down('ArrowLeft');
   await expect.poll(read).not.toBe(before);
@@ -27,6 +31,7 @@ for (const game of games) test(`${game.id}: focused pad, arrows, brief taps and 
   const right=page.locator(game.opposite);
   await right.click();
   await expect.poll(read).not.toBe(before);
+  await page.getByRole('button',{name:'Open game controls',exact:true}).click();
   const help=page.getByRole('button',{name:/Open .* mission guide/});
   await help.click();
   before=await read();

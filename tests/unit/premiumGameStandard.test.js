@@ -126,10 +126,12 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(climbImplementation, /startLevel = 0/);
   assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(world.step, world.summit - 1\), world.summit\)/);
   assert.ok(climbImplementation.includes("callbacks.current.onEngineReady?.({pause,resume,markSupported,inspect,debugSnapshot:inspect})"));
-  assert.ok(climbImplementation.includes("createWordClimbStepper(world,advanceClimbJourney,handleEvent,handleStep)"));
+  // Preserve the real journey/event pipeline while sampling the presentation
+  // before each physics step and consuming short taps only on a real step.
+  assert.ok(climbImplementation.includes("createWordClimbStepper(world,(state,dt,held)=>advanceClimbJourney(state,dt,inputLatch.consume(held)),handleEvent,handleStep,presentation.capture)"));
   assert.ok(climbImplementation.includes("stepper.advance(dt,movement)"));
   const climbStepper = readFileSync("src/components/learn/games/games/wordClimbStepper.js", "utf8");
-  assert.ok(climbStepper.includes("advance(world,WORD_CLIMB_STEP,input)"));
+  assert.match(climbStepper, /beforeStep\(\);\s*advance\(world,WORD_CLIMB_STEP,input\);\s*if\(world.event\)onEvent\(world.event\);/);
   const climbJourney = readFileSync("src/components/learn/games/games/wordClimbJourney.js", "utf8");
   assert.match(climbJourney, /advanceClimbWorld\(world,\s*seconds,/);
   assert.ok(climbImplementation.includes("if (audio) void cue.playFeedback(event.platform.word)"));

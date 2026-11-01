@@ -1,5 +1,74 @@
 # Word Climb production upgrade
 
+## Motion continuity repair — 27 October 2026
+
+One separate sampled presentation world now supplies the DOM ledges and both
+Three and Canvas renderers. Its actor/camera phase comes from the fixed-step
+accumulator, captured before each physics step, including catch-up frames.
+Physical world, route contacts, cues, learning and saves retain their original
+state. Pause, resume and recovery teleports reset/snap presentation history.
+Short native direction taps are latched for one real step; held input and
+cancellation continue to own release. The authored climb speed is unchanged.
+
+Cadence/input regressions are in `arcadePlatformMotion.test.js`; local native
+input and contact receipts are under `.artifacts/game-motion-20261027/leap/`.
+The first two new motion-test failures used the existing saved-checkpoint reader
+for live movement; the corrected test uses the read-only live observer. The
+existing airborne-exit test's two failures were traced to locator action waits:
+the close click arrived 1.25 seconds after the jump, after landing. Native Enter
+then Escape now exercises the actual airborne pause and passes. Original
+failures remain retained. Four affected native contact cases and the new
+motion/input case pass; the scoped unit lane passes 220 cases across Leap,
+Bridge and Climb.
+
+The Three loading path now waits for settled kit/actor/scenery images, prepares
+both action atlases and shaders, and discards superseded warmup work after
+resize/disposal. Identical initial ResizeObserver delivery no longer rebuilds
+the entire authored kit. A dedicated browser check confirms one initial build,
+five warmed textures, eight programs, zero skipped textures, and one new build
+for a real portrait resize. A separate fresh browser verifies context-loss
+recovery to Canvas and continued native climbing; its mechanism is recorded by
+the current regression rather than assuming the optional GPU extension exists.
+Partial, failed or timed-out GPU preparation now uses the existing Canvas
+recovery instead of marking an unprepared scene ready. Four executable
+preparation-path regressions verify this and prevent a disposed scene from
+reviving.
+The first combined resize/loss test retained an absent-extension failure; this
+is not evidence that the recovery handler failed or that another browser
+caused it.
+
+A trace-free headless Chromium 1024×768 observation before the loading repair
+measured 39.32ms mean / 51ms p95 over 64 frames. A later CPU-profiled observation
+measured 54.26ms / 68.6ms over 47 frames, with 50 draw calls / 39,264 triangles.
+These variable host observations are not a smoothness pass or an FPS target.
+About 95% of the latter steady CPU samples were attributed to native
+`(program)`, not an identified JavaScript hot loop. The repair proves duplicate
+construction removal and completed warmup; it does not prove physical display
+latency. No physical 120 Hz display, iPad or classroom claim follows.
+
+
+The Arcade-only frame-budget constructor now bounds observation windows by
+elapsed rendered time as well as frame counts. At a sustained 54ms cadence,
+the legacy 45-frame warmup plus 150/150/180-frame decisions took 33.21 seconds
+to reach Canvas. The opt-in keeps the same thresholds and nominal 60Hz window
+durations (750ms warmup, 2500/2500/3000ms decisions), requires at least eight
+real decision samples, and reaches the same outcome in 10.368 seconds. Legacy
+Quest consumers remain unchanged; healthy 60Hz reports match exactly. Four
+new deterministic cases cover those contracts, isolated stalls, pause/loading
+gaps and the actual Climb adapter; 57 combined timing/Quest/Climb checks pass.
+
+The bounded 20-second trace-free local observation is retained in
+`climb-timed-window-cadence.json` under the same receipt folder. Following a
+one-second ready settle, the real scene changed high → medium at 1.60 seconds,
+low at 4.92 seconds and Canvas at 8.80 seconds. Its three decision windows
+contained 65/56/63 real frames averaging 38.72/45.53/48.15ms. The authored
+climber, scenery and visible movement controls survived; held native Up moved
+from y=18 to the route's y=572 branch cap. The mixed-renderer 20-second sample
+was 22.98ms mean / 50ms p95 over 871 frames. The final five seconds separately
+contain 301 Canvas frames at 16.67ms mean / 16.80ms p95, with
+`registered-original-climbing-art` confirmed. This confirms timely adaptation
+on this measured slow renderer, not physical-device frame pacing or a new FPS gate.
+
 Status, 5 October 2026: published in `88d76ce58c640f056b448ed781de2044260068bb`, automatic production deployment READY on `literacy.guide`. All98 linked programs,9 new artworks and3 decoded canonical recovery GLBs match. The three full paced routes, affected legacy/save/art recovery, separate ordinary-clock samples and five parent native integration bodies pass. All4,764 application tests, full lint, exact committed build and138 device/child/media checks pass. Earlier short-route evidence and original failed checks retain their original identities. Human listening, physical-device and classroom observations remain unknown.
 
 The child climbs a real tree, steers around branches, then jumps onto the printed word whose initial phoneme matches the current sound. Six, eight or ten correct solid landings reach the summit. Branch recovery, missed jumps and optional lights are motor or exploration events; they do not award or remove reading credit.

@@ -568,7 +568,8 @@ export function createSkateFixedStepper() {
       if (count === 9) remainder = Math.min(remainder, step);
       return Array.from({length:count}, () => step);
     },
-    reset() { remainder = 0; }
+    reset() { remainder = 0; },
+    alpha() { return remainder / step; }
   };
 }
 export function nextSkateQuality(tier, averageFrameSeconds) {

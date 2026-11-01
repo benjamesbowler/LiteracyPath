@@ -1,4 +1,4 @@
-import {createQuestFrameBudgetState,sampleQuestFrameBudget} from './questPerformance.js';
+import {createArcadeFrameBudgetState,sampleQuestFrameBudget} from './questPerformance.js';
 
 const policyTier=tier=>({high:'rich',medium:'balanced',low:'low',canvas:'2d'}[tier]||'low');
 const gameTier=tier=>({rich:'high',balanced:'medium',low:'low','2d':'canvas'}[tier]);
@@ -18,7 +18,7 @@ export function createSportsFrameTelemetry({now=()=>performance.now()}={}) {
   function markInput(){if(pendingInput===null)pendingInput=now();}
   function rendered(frameMs,{tier,active=true,cpuStart}={}) {
     if(!active){reset();return null;}
-    if(activeTier!==tier||!budget){activeTier=tier;budget=createQuestFrameBudgetState(policyTier(tier));}
+    if(activeTier!==tier||!budget){activeTier=tier;budget=createArcadeFrameBudgetState(policyTier(tier));}
     const end=now(),before=budget.reportFrames;
     const result=sampleQuestFrameBudget(budget,frameMs);
     // The final shared 2D tier deliberately has no further quality decision.
