@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 1,
+  "complete": true,
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "gearAuthority": "src/utils/hollowEconomy.js",
+  "scope": 14,
+  "review": {
+    "status": "accepted-native-saved-and-actual-local-current-revision",
+    "nativeOriginalsViewed": true,
+    "saved390Viewed": true,
+    "saved128Viewed": true,
+    "actualThreeViewports": [
+      "desktop1440x1000",
+      "phone390x844",
+      "short844x390"
+    ],
+    "actual224PathsExactCurrentRevision": true,
+    "evidence": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/actual-figure-transport-current.json",
+        "sha256": "0fc4fd42a92e4475191edb93fd54c57359acc5691679ff26846044ad9393451b"
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/actual-surfaces-proof.json",
+        "sha256": "7c5496b1a6bc49411e71f759f78b8a0c03dac0474641903f8d6085334cb74773"
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/actual-figure-proof.json",
+        "sha256": "08157bbd398f013d231ece406f9b5626cd822b9a5ece23f7e4c9d508c0f8815e"
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/companions/final-combos-proof.json",
+        "sha256": "dd2a802b1ab7a52d68523252bd335ef84215bcdb90054cf46320de0d6f6f2645"
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "sha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c"
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/rooms7-current-proof.json",
+        "sha256": "9c12ac5d6f6fb7d9ba5b5be9368502397dc43fa449ae1741f70fd361ea0750ab"
+      }
+    ],
+    "boundary": "Local normal production components with scoped fixture histories; no authenticated/cloud-save, deployment, physical-device or human-listening claim."
+  },
+  "assets": [
+    {
+      "id": "gear-acorn-shield",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-acorn-shield.webp",
+      "source": "source-art/hollow/gear-clean-cartoon/standalone-three-native.png",
+      "sourceSha256": "0b84ac320b4702f267c53fe1a03dab5a8c1dcb3dcbc7c6520fe0190b132eb837",
+      "crop": {
+        "left": 67,
+        "top": 59,
+        "width": 505,
+        "height": 522
+      },
+      "resize": {
+        "width": 793,
+        "height": 820
+      },
+      "placement": {
+        "left": 116,
+        "top": 102
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/hollow/gear-clean-cartoon/standalone-three.prompt.txt",
+      "promptSha256": "8c72479d74f4efeaa581f4725b5880f7d2d0a9909d99c3f4e99161546cb231e0",
+      "receiptFile": "source-art/hollow/gear-clean-cartoon/standalone-three.receipt.json",
+      "receiptSha256": "8d03b795cd70f2483f89cb3ef668378360e66fdce609053d41af8f464ed7c2a4",
+      "outputSha256": "f5aaab3ece8e50c3f0a9b6ab1ca1611ba334178b9a16bfa3ac8b9d82c963490d",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-bone-charm",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-bone-charm.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/neck-native.png",
+      "sourceSha256": "5f495712a4ba06a28e4e1be3f3d17f3e86ee19d3f7282c6a708a24f964da9452",
+      "crop": {
+        "left": 871,
+        "top": 239,
+        "width": 146,
+        "height": 117
+      },
+      "resize": {
+        "width": 820,
+        "height": 657
+      },
+      "placement": {
+        "left": 102,
+        "top": 184
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/neck.prompt.txt",
+      "promptSha256": "70642d098ccd3324e3dc2c713599588fa8f31b1fe7615c87c94a26c1f54c4dfa",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/neck.receipt.json",
+      "receiptSha256": "f7539fcd7873f1249e7cae64551671fe55ed904b7244665cee265862e1b5a1c0",
+      "outputSha256": "f43867b40e84bf3c0342640f3d68bcac294e52a04ea267945c3d5cca5958e736",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-dino-helm",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-dino-helm.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/head-native.png",
+      "sourceSha256": "d0bff326b1196de062e0ccc5fae9ea07a0165d656d6fb50f0a9ab4bad91f9059",
+      "crop": {
+        "left": 180,
+        "top": 636,
+        "width": 309,
+        "height": 202
+      },
+      "resize": {
+        "width": 820,
+        "height": 536
+      },
+      "placement": {
+        "left": 102,
+        "top": 244
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.prompt.txt",
+      "promptSha256": "aa704ba255146a4960765c70ede0cd07e9a5c78e44480204d7391fd88f186369",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.receipt.json",
+      "receiptSha256": "7b5f370f6fdd90f89e54e2d09edbcc0b4c885612d30d96a5df6fccf399b0f737",
+      "outputSha256": "b2b5813c3aef07c9e9df244bb87704f0ab7cf125e9b0f60e4eab71bcc6efb3be",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-explorer-pack",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-explorer-pack.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/back-native.png",
+      "sourceSha256": "766fc9e59fc67a1b70c2499e945bd44c8cc9d2f7a1a7f4cd82c4ab4a3c85cbfd",
+      "crop": {
+        "left": 171,
+        "top": 228,
+        "width": 284,
+        "height": 182
+      },
+      "resize": {
+        "width": 820,
+        "height": 525
+      },
+      "placement": {
+        "left": 102,
+        "top": 250
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.prompt.txt",
+      "promptSha256": "7c3a7796f523aaa8a2803c36ba0cbcd628c93bbd4a7b8a307e4b864a9fc04704",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.receipt.json",
+      "receiptSha256": "cf296564788c211bf247fd400673df381d892e36edb2d3c84112530fe7ec4547",
+      "outputSha256": "9b37218789e77d4209fa27773918d536144bf4f3d003499ecc4ef91c6fb7e2a9",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-falcon-wings",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-falcon-wings.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/back-native.png",
+      "sourceSha256": "766fc9e59fc67a1b70c2499e945bd44c8cc9d2f7a1a7f4cd82c4ab4a3c85cbfd",
+      "crop": {
+        "left": 629,
+        "top": 842,
+        "width": 617,
+        "height": 289
+      },
+      "resize": {
+        "width": 820,
+        "height": 384
+      },
+      "placement": {
+        "left": 102,
+        "top": 320
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.prompt.txt",
+      "promptSha256": "7c3a7796f523aaa8a2803c36ba0cbcd628c93bbd4a7b8a307e4b864a9fc04704",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.receipt.json",
+      "receiptSha256": "cf296564788c211bf247fd400673df381d892e36edb2d3c84112530fe7ec4547",
+      "outputSha256": "5cc427eea24daca855c9033ff6913d2560861e551dd202a10434e7ce6bf40773",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-leaf-cloak",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-leaf-cloak.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/neck-native.png",
+      "sourceSha256": "5f495712a4ba06a28e4e1be3f3d17f3e86ee19d3f7282c6a708a24f964da9452",
+      "crop": {
+        "left": 163,
+        "top": 870,
+        "width": 301,
+        "height": 214
+      },
+      "resize": {
+        "width": 820,
+        "height": 583
+      },
+      "placement": {
+        "left": 102,
+        "top": 221
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/neck.prompt.txt",
+      "promptSha256": "70642d098ccd3324e3dc2c713599588fa8f31b1fe7615c87c94a26c1f54c4dfa",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/neck.receipt.json",
+      "receiptSha256": "f7539fcd7873f1249e7cae64551671fe55ed904b7244665cee265862e1b5a1c0",
+      "outputSha256": "be6b778fea1ca5e06b369bf4a64dc7593a845171d68d8d1dc15cbe84a31c7909",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-meadow-crown",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-meadow-crown.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/head-native.png",
+      "sourceSha256": "d0bff326b1196de062e0ccc5fae9ea07a0165d656d6fb50f0a9ab4bad91f9059",
+      "crop": {
+        "left": 214,
+        "top": 28,
+        "width": 251,
+        "height": 133
+      },
+      "resize": {
+        "width": 820,
+        "height": 435
+      },
+      "placement": {
+        "left": 102,
+        "top": 295
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.prompt.txt",
+      "promptSha256": "aa704ba255146a4960765c70ede0cd07e9a5c78e44480204d7391fd88f186369",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.receipt.json",
+      "receiptSha256": "7b5f370f6fdd90f89e54e2d09edbcc0b4c885612d30d96a5df6fccf399b0f737",
+      "outputSha256": "b7b383e1317a0888c23688887aa43f89b0361f6ca22b967a976f9e9a5ecf303f",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-moth-wings",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-moth-wings.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/back-native.png",
+      "sourceSha256": "766fc9e59fc67a1b70c2499e945bd44c8cc9d2f7a1a7f4cd82c4ab4a3c85cbfd",
+      "crop": {
+        "left": 636,
+        "top": 219,
+        "width": 605,
+        "height": 304
+      },
+      "resize": {
+        "width": 820,
+        "height": 412
+      },
+      "placement": {
+        "left": 102,
+        "top": 306
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.prompt.txt",
+      "promptSha256": "7c3a7796f523aaa8a2803c36ba0cbcd628c93bbd4a7b8a307e4b864a9fc04704",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.receipt.json",
+      "receiptSha256": "cf296564788c211bf247fd400673df381d892e36edb2d3c84112530fe7ec4547",
+      "outputSha256": "cacf0710d704238ed64377ef2e3c94bc15f3ae48201ffb69ceb43bb021902db4",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-petal-hood",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-petal-hood.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/head-native.png",
+      "sourceSha256": "d0bff326b1196de062e0ccc5fae9ea07a0165d656d6fb50f0a9ab4bad91f9059",
+      "crop": {
+        "left": 711,
+        "top": 639,
+        "width": 375,
+        "height": 359
+      },
+      "resize": {
+        "width": 820,
+        "height": 785
+      },
+      "placement": {
+        "left": 102,
+        "top": 120
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.prompt.txt",
+      "promptSha256": "aa704ba255146a4960765c70ede0cd07e9a5c78e44480204d7391fd88f186369",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.receipt.json",
+      "receiptSha256": "7b5f370f6fdd90f89e54e2d09edbcc0b4c885612d30d96a5df6fccf399b0f737",
+      "outputSha256": "7750bf46a9cbbbbb1f640037db8021f76b10696869c4d01ad94fcbcb4e42a641",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-raptor-wings",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-raptor-wings.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/back-native.png",
+      "sourceSha256": "766fc9e59fc67a1b70c2499e945bd44c8cc9d2f7a1a7f4cd82c4ab4a3c85cbfd",
+      "crop": {
+        "left": 94,
+        "top": 851,
+        "width": 432,
+        "height": 300
+      },
+      "resize": {
+        "width": 820,
+        "height": 569
+      },
+      "placement": {
+        "left": 102,
+        "top": 228
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.prompt.txt",
+      "promptSha256": "7c3a7796f523aaa8a2803c36ba0cbcd628c93bbd4a7b8a307e4b864a9fc04704",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/back.receipt.json",
+      "receiptSha256": "cf296564788c211bf247fd400673df381d892e36edb2d3c84112530fe7ec4547",
+      "outputSha256": "2a1edba4698e9e5b709f80aa3e1b8f59bfeb7fbaf3965a350c2e759727af09c5",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-starweave-scarf",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-starweave-scarf.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/neck-native.png",
+      "sourceSha256": "5f495712a4ba06a28e4e1be3f3d17f3e86ee19d3f7282c6a708a24f964da9452",
+      "crop": {
+        "left": 212,
+        "top": 229,
+        "width": 194,
+        "height": 216
+      },
+      "resize": {
+        "width": 736,
+        "height": 820
+      },
+      "placement": {
+        "left": 144,
+        "top": 102
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/neck.prompt.txt",
+      "promptSha256": "70642d098ccd3324e3dc2c713599588fa8f31b1fe7615c87c94a26c1f54c4dfa",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/neck.receipt.json",
+      "receiptSha256": "f7539fcd7873f1249e7cae64551671fe55ed904b7244665cee265862e1b5a1c0",
+      "outputSha256": "f6169e49bb57bbffbb7226ca86019d12c1617f5032ab67bc9b5563301afe0105",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-trail-boots",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-trail-boots.webp",
+      "source": "source-art/hollow/gear-clean-cartoon/standalone-three-native.png",
+      "sourceSha256": "0b84ac320b4702f267c53fe1a03dab5a8c1dcb3dcbc7c6520fe0190b132eb837",
+      "crop": {
+        "left": 10,
+        "top": 720,
+        "width": 610,
+        "height": 456
+      },
+      "resize": {
+        "width": 820,
+        "height": 613
+      },
+      "placement": {
+        "left": 102,
+        "top": 206
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/hollow/gear-clean-cartoon/standalone-three.prompt.txt",
+      "promptSha256": "8c72479d74f4efeaa581f4725b5880f7d2d0a9909d99c3f4e99161546cb231e0",
+      "receiptFile": "source-art/hollow/gear-clean-cartoon/standalone-three.receipt.json",
+      "receiptSha256": "8d03b795cd70f2483f89cb3ef668378360e66fdce609053d41af8f464ed7c2a4",
+      "outputSha256": "ffe0091539f7c5bb4c34aeb0689215f78a005e1f3917c4a3f4c93990cb474314",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-willow-wand",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-willow-wand.webp",
+      "source": "source-art/hollow/gear-clean-cartoon/standalone-three-native.png",
+      "sourceSha256": "0b84ac320b4702f267c53fe1a03dab5a8c1dcb3dcbc7c6520fe0190b132eb837",
+      "crop": {
+        "left": 820,
+        "top": 29,
+        "width": 311,
+        "height": 581
+      },
+      "resize": {
+        "width": 439,
+        "height": 820
+      },
+      "placement": {
+        "left": 293,
+        "top": 102
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/hollow/gear-clean-cartoon/standalone-three.prompt.txt",
+      "promptSha256": "8c72479d74f4efeaa581f4725b5880f7d2d0a9909d99c3f4e99161546cb231e0",
+      "receiptFile": "source-art/hollow/gear-clean-cartoon/standalone-three.receipt.json",
+      "receiptSha256": "8d03b795cd70f2483f89cb3ef668378360e66fdce609053d41af8f464ed7c2a4",
+      "outputSha256": "1f3b29334482048888d0568b02ce92bf786eeefa1bbb5c003da7de151bb341dd",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    },
+    {
+      "id": "gear-wizard-hat",
+      "kind": "standalone-shop-gear-icon",
+      "path": "/images/hollow/gear-wizard-hat.webp",
+      "source": "source-art/companions/clean-cartoon/fluff/gear-only/head-native.png",
+      "sourceSha256": "d0bff326b1196de062e0ccc5fae9ea07a0165d656d6fb50f0a9ab4bad91f9059",
+      "crop": {
+        "left": 742,
+        "top": 1,
+        "width": 338,
+        "height": 216
+      },
+      "resize": {
+        "width": 820,
+        "height": 524
+      },
+      "placement": {
+        "left": 102,
+        "top": 250
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "effort": 6
+      },
+      "preserveAlpha": true,
+      "promptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.prompt.txt",
+      "promptSha256": "aa704ba255146a4960765c70ede0cd07e9a5c78e44480204d7391fd88f186369",
+      "receiptFile": "source-art/companions/clean-cartoon/fluff/gear-only/head.receipt.json",
+      "receiptSha256": "7b5f370f6fdd90f89e54e2d09edbcc0b4c885612d30d96a5df6fccf399b0f737",
+      "outputSha256": "9362f7fada2b4ea0a0f432460e59e96ddbe89c0215d394237c91848ebaa381e0",
+      "review": {
+        "nativeViewed": true,
+        "wholeItemNoAnatomy": true,
+        "status": "accepted-local-current-revision",
+        "actualCurrentBytes": true
+      }
+    }
+  ]
+}

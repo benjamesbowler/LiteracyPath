@@ -1,0 +1,688 @@
+{
+  "schemaVersion": 1,
+  "note": "Current clean-cartoon driver registration: exact visible seat/belt and two hands, no invented hidden anatomy. Original registry/manifests/sources/prompts retained immutable.",
+  "drivers": [
+    {
+      "id": "bouncy-driver",
+      "file": "bouncy-driver-rear-v1",
+      "hero": "bouncy",
+      "world": "meadow",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "seat": [
+            254,
+            362
+          ],
+          "hands": [
+            [
+              152,
+              228
+            ],
+            [
+              356,
+              228
+            ]
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "action": "steer-left",
+          "seat": [
+            780,
+            368
+          ],
+          "hands": [
+            [
+              636,
+              197
+            ],
+            [
+              876,
+              274
+            ]
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "action": "steer-right",
+          "seat": [
+            252,
+            882
+          ],
+          "hands": [
+            [
+              157,
+              777
+            ],
+            [
+              380,
+              720
+            ]
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "action": "lever-anticipation",
+          "seat": [
+            760,
+            880
+          ],
+          "hands": [
+            [
+              648,
+              750
+            ],
+            [
+              910,
+              636
+            ]
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "action": "lever-contact",
+          "seat": [
+            249,
+            1402
+          ],
+          "hands": [
+            [
+              138,
+              1271
+            ],
+            [
+              402,
+              1373
+            ]
+          ],
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ]
+        },
+        {
+          "action": "recover",
+          "seat": [
+            774,
+            1405
+          ],
+          "hands": [
+            [
+              658,
+              1268
+            ],
+            [
+              915,
+              1210
+            ]
+          ],
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ]
+        }
+      ],
+      "productionRevision": "clean-cartoon-2026-10-31"
+    },
+    {
+      "id": "chompy-driver",
+      "file": "chompy-driver-rear-v1",
+      "hero": "chompy",
+      "world": "dino",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "seat": [
+            253,
+            363
+          ],
+          "hands": [
+            [
+              143,
+              255
+            ],
+            [
+              367,
+              257
+            ]
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "action": "steer-left",
+          "seat": [
+            768,
+            367
+          ],
+          "hands": [
+            [
+              668,
+              240
+            ],
+            [
+              875,
+              310
+            ]
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "action": "steer-right",
+          "seat": [
+            243,
+            882
+          ],
+          "hands": [
+            [
+              164,
+              804
+            ],
+            [
+              374,
+              733
+            ]
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "action": "lever-anticipation",
+          "seat": [
+            755,
+            876
+          ],
+          "hands": [
+            [
+              650,
+              779
+            ],
+            [
+              911,
+              722
+            ]
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "action": "lever-contact",
+          "seat": [
+            248,
+            1391
+          ],
+          "hands": [
+            [
+              157,
+              1273
+            ],
+            [
+              418,
+              1379
+            ]
+          ],
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ]
+        },
+        {
+          "action": "recover",
+          "seat": [
+            755,
+            1394
+          ],
+          "hands": [
+            [
+              646,
+              1272
+            ],
+            [
+              911,
+              1246
+            ]
+          ],
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ]
+        }
+      ],
+      "productionRevision": "clean-cartoon-2026-10-31"
+    },
+    {
+      "id": "pip-driver",
+      "file": "pip-driver-upper-rear-v1",
+      "hero": "pip",
+      "world": "moonwood",
+      "nominalHeight": 1.55,
+      "frames": [
+        {
+          "action": "ready",
+          "seat": [
+            259,
+            441
+          ],
+          "hands": [
+            [
+              121,
+              336
+            ],
+            [
+              386,
+              337
+            ]
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "action": "steer-left",
+          "seat": [
+            745,
+            440
+          ],
+          "hands": [
+            [
+              623,
+              310
+            ],
+            [
+              900,
+              358
+            ]
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "action": "steer-right",
+          "seat": [
+            282,
+            948
+          ],
+          "hands": [
+            [
+              128,
+              860
+            ],
+            [
+              394,
+              800
+            ]
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "action": "lever-anticipation",
+          "seat": [
+            748,
+            951
+          ],
+          "hands": [
+            [
+              609,
+              852
+            ],
+            [
+              930,
+              771
+            ]
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "action": "lever-contact",
+          "seat": [
+            256,
+            1453
+          ],
+          "hands": [
+            [
+              123,
+              1336
+            ],
+            [
+              389,
+              1448
+            ]
+          ],
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ]
+        },
+        {
+          "action": "recover",
+          "seat": [
+            748,
+            1465
+          ],
+          "hands": [
+            [
+              603,
+              1339
+            ],
+            [
+              926,
+              1307
+            ]
+          ],
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ]
+        }
+      ],
+      "productionRevision": "clean-cartoon-2026-10-31"
+    }
+  ],
+  "kits": [
+    {
+      "id": "meadow-grove-kit",
+      "file": "meadow-grove-kit-v1",
+      "world": "meadow",
+      "objects": [
+        {
+          "action": "tree",
+          "region": [
+            0,
+            0,
+            800,
+            603
+          ],
+          "axis": 402,
+          "cell": [
+            0,
+            0,
+            800,
+            603
+          ],
+          "cut": [
+            405,
+            437
+          ]
+        },
+        {
+          "action": "stump",
+          "region": [
+            800,
+            0,
+            736,
+            630
+          ],
+          "axis": 1155,
+          "cell": [
+            800,
+            0,
+            1536,
+            630
+          ]
+        },
+        {
+          "action": "sapling",
+          "region": [
+            0,
+            603,
+            800,
+            421
+          ],
+          "axis": 405,
+          "cell": [
+            0,
+            603,
+            800,
+            1024
+          ]
+        },
+        {
+          "action": "flower-bed",
+          "region": [
+            800,
+            630,
+            736,
+            394
+          ],
+          "axis": 1172,
+          "cell": [
+            800,
+            630,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "pixelsPerUnit": 103.40425531914893,
+      "productionRevision": "clean-cartoon-2026-10-31"
+    },
+    {
+      "id": "dino-grove-kit",
+      "file": "dino-grove-kit-v1",
+      "world": "dino",
+      "objects": [
+        {
+          "action": "tree",
+          "region": [
+            0,
+            0,
+            800,
+            637
+          ],
+          "axis": 390,
+          "cell": [
+            0,
+            0,
+            800,
+            637
+          ],
+          "cut": [
+            397,
+            457
+          ]
+        },
+        {
+          "action": "stump",
+          "region": [
+            800,
+            0,
+            736,
+            637
+          ],
+          "axis": 1155,
+          "cell": [
+            800,
+            0,
+            1536,
+            637
+          ]
+        },
+        {
+          "action": "sapling",
+          "region": [
+            0,
+            637,
+            800,
+            387
+          ],
+          "axis": 406,
+          "cell": [
+            0,
+            637,
+            800,
+            1024
+          ]
+        },
+        {
+          "action": "flower-bed",
+          "region": [
+            800,
+            637,
+            736,
+            387
+          ],
+          "axis": 1170,
+          "cell": [
+            800,
+            637,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "pixelsPerUnit": 101.91489361702128,
+      "productionRevision": "clean-cartoon-2026-10-31"
+    },
+    {
+      "id": "moonwood-grove-kit",
+      "file": "moonwood-grove-kit-v1",
+      "world": "moonwood",
+      "objects": [
+        {
+          "action": "tree",
+          "region": [
+            0,
+            0,
+            800,
+            630
+          ],
+          "axis": 434,
+          "cell": [
+            0,
+            0,
+            800,
+            630
+          ],
+          "cut": [
+            431,
+            494
+          ]
+        },
+        {
+          "action": "stump",
+          "region": [
+            800,
+            0,
+            736,
+            630
+          ],
+          "axis": 1180,
+          "cell": [
+            800,
+            0,
+            1536,
+            630
+          ]
+        },
+        {
+          "action": "sapling",
+          "region": [
+            0,
+            630,
+            740,
+            394
+          ],
+          "axis": 371,
+          "cell": [
+            0,
+            630,
+            740,
+            1024
+          ]
+        },
+        {
+          "action": "flower-bed",
+          "region": [
+            740,
+            630,
+            796,
+            394
+          ],
+          "axis": 1165,
+          "cell": [
+            740,
+            630,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "pixelsPerUnit": 95.95744680851064,
+      "productionRevision": "clean-cartoon-2026-10-31"
+    }
+  ],
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/star-gallery/registration.json",
+    "sha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+    "immutable": true
+  }
+}

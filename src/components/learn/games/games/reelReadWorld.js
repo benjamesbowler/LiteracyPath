@@ -3,6 +3,7 @@ import { createRegisteredPalArtBank, drawRegisteredPalFrame } from '../shared/re
 import { REEL_READ_ART } from './reelReadArtData.js';
 import { reelReadStageLayout, reelReadOperatorFrame } from '../../../../utils/reelReadMotion.js';
 import { reelReadSceneGeometry } from '../../../../utils/reelReadSceneGeometry.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const worlds = { easy: 'meadow', medium: 'dino', hard: 'moonwood' };
 const characters = { meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' };
@@ -30,7 +31,7 @@ export function createReelReadWorld(canvas, { difficulty, onDelivery = () => {} 
       if (image.naturalWidth !== asset.width || image.naturalHeight !== asset.height) { finish(false); return; }
       try { await image.decode(); finish(true); } catch { finish(false); }
     };
-    image.onerror = () => finish(false); image.src = asset.runtime;
+    image.onerror = () => finish(false); image.src = withRepairedImageVersion(asset.runtime);
   }
   load(`${world}-fishing-venue-v1`); load(`${world}-fishing-kit-v1`); load(fallbackId);
   void art.preload([actionId]).then(report);
@@ -56,7 +57,8 @@ export function createReelReadWorld(canvas, { difficulty, onDelivery = () => {} 
       referenceFrames:REEL_READ_ART[actionId].frames,parts,actorReady,frame});
   }
   function drawFish(kit, fish, layout, index, opacity = 1) {
-    const scale = layout.fishScale;
+    // Reduced kit cells keep the same world size as their complete source.
+    const scale = layout.fishScale * (kit ? REEL_READ_ART[`${world}-fishing-kit-v1`].width / kit.asset.width : 1);
     ctx.save(); ctx.globalAlpha = opacity;
     if(kit) {
       const rect = kit.asset.parts.fish[index%kit.asset.parts.fish.length], centre = kit.asset.parts.labelCentres[index%kit.asset.parts.labelCentres.length];

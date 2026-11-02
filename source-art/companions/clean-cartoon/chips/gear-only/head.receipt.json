@@ -1,0 +1,24 @@
+{
+  "input": {
+    "jobId": "companion-family-chips-outfits-head-gear-only-repair-002",
+    "character": "chips",
+    "group": "head",
+    "prompt": "Precise alpha EDIT. The TOP LEFT crown still incorrectly includes TWO TAN GOAT HORNS. Remove BOTH HORNS completely and leave only flowers/leaves/woven crown; keep every flower petal/leaf intact. The other three headgear items remain unchanged. Preserve EXACT1254square canvas, current 2×2 grid registration, all genuine gear shapes/positions/sizes/colors/outlines and true alpha. Do not add any character anatomy, face, hair, clothing, collar/bell/vest, props, symbols, text or background. Keep original clean bold flat cartoon style. Only remove the explicitly specified unwanted anatomy/default clothing; preserve all specified genuine accessory pixels.",
+    "refs": [
+      "/Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-3da71c06-39db-412a-b66d-2475a6f60464.png"
+    ],
+    "transparent": true
+  },
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb as /Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-a6fb54d1-c0e7-4d35-8b18-312a7acb4593.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "generatedAt": "2026-11-02T11:40:37.885Z",
+  "referenceImages": [
+    {
+      "path": "source-art/companions/clean-cartoon/chips/gear-only/head-reference-1-18dee7229765.png",
+      "sha256": "18dee7229765e7b6064260524d14eae8f7777c8c27ba51762d33e796b8e223ba",
+      "providerInputPath": "/Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-3da71c06-39db-412a-b66d-2475a6f60464.png"
+    }
+  ],
+  "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-a6fb54d1-c0e7-4d35-8b18-312a7acb4593.png",
+  "nativeViewed": true,
+  "acceptedAttempt": 2
+}

@@ -20,7 +20,10 @@ test("neutral-content quarantine blocks the church image and its child fallback"
   assert.equal(churches.image, "");
   assert.equal(churches.fallbackImage, "");
   assert.ok(churches.audio);
-  assert.ok(getChildWordAsset("cross").image);
+  // The ordinary word is not quarantined. Availability of its unused legacy
+  // picture is separate from the neutral-content policy.
+  assert.equal(isMediaQaRuntimeAllowed("/media/vocabulary/images/cross.webp", "image"), true);
+  assert.ok(getChildWordAsset("cross").audio);
 });
 
 test("legacy device-local QA drafts cannot block released assessment media", () => {

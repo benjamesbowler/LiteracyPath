@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {registeredPalCanvasPose} from '../../src/components/learn/games/shared/registeredPalArt.js';
 import {safariAttachedNetGeometry,safariNetPoint} from '../../src/components/learn/games/games/soundSafariToolGeometry.js';
-const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/sound-safari/manifest.json','utf8'));
+const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/sound-safari/clean-cartoon-manifest.json','utf8'));
 const atlas=asset=>({width:asset.sourceSize[0],height:asset.sourceSize[1],pixelsPerUnit:asset.pixelsPerUnit,nominalHeight:asset.nominalHeight,frames:asset.frames});
 
 test('all original Safari nets keep the native centre/radius while the actual shaft connects to measured palms at near and far reaches',()=>{

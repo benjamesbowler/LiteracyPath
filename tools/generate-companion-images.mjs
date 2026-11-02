@@ -41,7 +41,7 @@ if (!API_KEY) { console.error("Missing ARK_API_KEY — add  ARK_API_KEY=your-key
 // (the picker tile and the tiny top-bar face). Same realistic-cartoon look
 // as the guided reading art. Soft round-vignette background so it sits well
 // in a circular frame.
-const STYLE = "Friendly realistic-cartoon character portrait for a children's reading app avatar, head and upper body centered, facing slightly toward the viewer with a warm happy expression, soft plain circular-vignette background in a single gentle pastel color, clean gentle outlines, storybook illustration style, high readability at very small sizes.";
+const STYLE = "Bold clean clear 2D cartoon character portrait for a children's reading app avatar. Head and upper body centered with a warm happy expression, crisp continuous dark outlines, solid clean color fields and at most two broad smooth cel shadows. Plain solid gentle pastel background. Simplify fur and wool into outlined shapes. No painterly rendering, paper/canvas grain, brush daubs, embossing, fuzzy or plush material, photorealism or 3D-like shading. High readability at very small sizes. Follow docs/design/ILLUSTRATION_STYLE_STANDARD.md.";
 const RULES = "No text, no letters, no numbers, no watermark, no logo, no border, no frame. Exactly ONE character, nothing else in the scene.";
 
 const portrait = desc => `${STYLE} ${desc} ${RULES}`;
@@ -52,7 +52,7 @@ const DIR = "public/images/companions";
 const tasks = [
   { file: "fluff", prompt: portrait("Fluff from the Bob and Nan books: a small, very fluffy brown puppy with bright eyes and a happy open-mouth smile, soft green pastel background.") },
   { file: "chips", prompt: portrait("Chips from the James and Anna books: a small white goat with big brown patches, yellow eyes, short horns, floppy ears, and a blue collar with a little blue bell, soft blue pastel background.") },
-  { file: "socks", prompt: portrait("Socks from the Aiden and Betty books: a small cheeky monkey with cream-white fur on the face and chest, darker brown fur on the back, black hands, wearing a tiny red waistcoat, soft yellow pastel background.") },
+  { file: "socks", prompt: portrait("GUIDE-SOCKS, the comprehension Guide retained by the owner on27October2026: a small cheeky brown monkey with round ears, a cream heart-shaped face patch and chest, black hands, curled tail and buttoned red waistcoat. This is distinct from HUMAN-SOCKS, the dog in the Aiden and Betty books. Plain yellow pastel background.") },
   { file: "chompy", prompt: portrait("Chompy from the Dino Pals books: an orange baby T-Rex with tiny arms, a big round tummy, a white bib around his neck, and a sweet hungry smile, soft orange pastel background.") },
   { file: "muddy", prompt: portrait("Muddy from the Meadow Pals books: a cheerful pink piglet with a few playful splashes of brown mud on his cheeks and tummy, soft pink pastel background.") },
   { file: "pip", prompt: portrait("Pip from the Moonwood Tales books: a young elf child with pointed ears, brown hair, green eyes, wearing a dark green tunic with a brown belt, soft violet pastel background with a hint of starlight.") }

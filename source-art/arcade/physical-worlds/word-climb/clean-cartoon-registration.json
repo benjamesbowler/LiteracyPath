@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "game": "word-climb",
+  "method": "Actual current complete-body alpha, native-inspected palms and independent boot regions; historical registration immutable",
+  "assets": [
+    {
+      "hero": "bouncy",
+      "world": "meadow",
+      "family": "climbing",
+      "file": "bouncy-climb-v2",
+      "columns": 2,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+      "inputs": [
+        "bouncy-climb-v1-input"
+      ],
+      "frames": [
+        {
+          "action": "rest",
+          "axis": 337.3338129496403,
+          "boots": [
+            [
+              209,
+              322,
+              487,
+              564
+            ],
+            [
+              324,
+              439,
+              487,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "climb-a",
+          "axis": 931.746762589928,
+          "boots": [
+            [
+              781,
+              909,
+              460,
+              564
+            ],
+            [
+              1008,
+              1136,
+              392,
+              496
+            ]
+          ],
+          "grip": [
+            1072,
+            137
+          ],
+          "lowerHand": [
+            900,
+            341
+          ]
+        },
+        {
+          "action": "climb-b",
+          "axis": 345.71366906474816,
+          "boots": [
+            [
+              138,
+              283,
+              1013,
+              1126
+            ],
+            [
+              364,
+              481,
+              1117,
+              1191
+            ]
+          ],
+          "grip": [
+            178,
+            754
+          ],
+          "lowerHand": [
+            449,
+            947
+          ]
+        },
+        {
+          "action": "recover-grip",
+          "axis": 961.5726618705036,
+          "boots": [
+            [
+              840,
+              963,
+              1109,
+              1191
+            ],
+            [
+              966,
+              1079,
+              1109,
+              1191
+            ]
+          ],
+          "grip": [
+            1074,
+            737
+          ],
+          "lowerHand": [
+            970,
+            944
+          ]
+        }
+      ],
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/bouncy-climb-v2.png",
+      "prompt": "characters/clean-cartoon/bouncy-climb-v2.prompt.txt"
+    },
+    {
+      "hero": "chompy",
+      "world": "dino",
+      "family": "climbing",
+      "file": "chompy-climb-v1",
+      "columns": 2,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+      "frames": [
+        {
+          "action": "rest",
+          "axis": 355.53391304347826,
+          "boots": [
+            [
+              203,
+              342,
+              499,
+              564
+            ],
+            [
+              351,
+              491,
+              499,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "climb-a",
+          "axis": 964.9808695652174,
+          "boots": [
+            [
+              808,
+              934,
+              496,
+              564
+            ],
+            [
+              1035,
+              1157,
+              431,
+              514
+            ]
+          ],
+          "grip": [
+            1124,
+            213
+          ],
+          "lowerHand": [
+            935,
+            381
+          ]
+        },
+        {
+          "action": "climb-b",
+          "axis": 349.6615652173913,
+          "boots": [
+            [
+              302,
+              371,
+              1070,
+              1140
+            ],
+            [
+              406,
+              512,
+              1122,
+              1191
+            ]
+          ],
+          "grip": [
+            176,
+            804
+          ],
+          "lowerHand": [
+            446,
+            1005
+          ]
+        },
+        {
+          "action": "recover-grip",
+          "axis": 982.1085217391304,
+          "boots": [
+            [
+              838,
+              960,
+              1100,
+              1187
+            ],
+            [
+              965,
+              1087,
+              1126,
+              1191
+            ]
+          ],
+          "grip": [
+            1117,
+            777
+          ],
+          "lowerHand": [
+            959,
+            963
+          ]
+        }
+      ],
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/chompy-climb-v1.png",
+      "prompt": "characters/clean-cartoon/chompy-climb-v1.prompt.txt"
+    },
+    {
+      "hero": "pip",
+      "world": "moonwood",
+      "family": "climbing",
+      "file": "pip-climb-v2",
+      "columns": 2,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+      "inputs": [
+        "pip-climb-v1-input"
+      ],
+      "frames": [
+        {
+          "action": "rest",
+          "axis": 310.4836363636364,
+          "boots": [
+            [
+              207,
+              302,
+              493,
+              564
+            ],
+            [
+              306,
+              443,
+              493,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "climb-a",
+          "axis": 968.1272727272727,
+          "boots": [
+            [
+              811,
+              943,
+              473,
+              564
+            ],
+            [
+              993,
+              1116,
+              407,
+              490
+            ]
+          ],
+          "grip": [
+            1038,
+            123
+          ],
+          "lowerHand": [
+            810,
+            386
+          ]
+        },
+        {
+          "action": "climb-b",
+          "axis": 317.7236363636364,
+          "boots": [
+            [
+              166,
+              305,
+              1009,
+              1108
+            ],
+            [
+              355,
+              461,
+              1108,
+              1191
+            ]
+          ],
+          "grip": [
+            234,
+            751
+          ],
+          "lowerHand": [
+            395,
+            946
+          ]
+        },
+        {
+          "action": "recover-grip",
+          "axis": 1020.829090909091,
+          "boots": [
+            [
+              917,
+              1025,
+              1094,
+              1191
+            ],
+            [
+              1025,
+              1088,
+              1094,
+              1191
+            ]
+          ],
+          "grip": [
+            1041,
+            743
+          ],
+          "lowerHand": [
+            1016,
+            954
+          ]
+        }
+      ],
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/pip-climb-v2.png",
+      "prompt": "characters/clean-cartoon/pip-climb-v2.prompt.txt"
+    },
+    {
+      "hero": "bouncy",
+      "world": "meadow",
+      "family": "movement",
+      "file": "bouncy-movement-v1",
+      "columns": 3,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+      "frames": [
+        {
+          "action": "rest",
+          "axis": 229.58486486486487,
+          "boots": [
+            [
+              112,
+              221,
+              503,
+              564
+            ],
+            [
+              223,
+              334,
+              503,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "jump-rise",
+          "axis": 651.6605405405405,
+          "boots": [
+            [
+              525,
+              629,
+              490,
+              564
+            ],
+            [
+              634,
+              738,
+              490,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "jump-fall",
+          "axis": 1065.468108108108,
+          "boots": [
+            [
+              943,
+              1052,
+              498,
+              564
+            ],
+            [
+              1056,
+              1178,
+              493,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "land",
+          "axis": 205.96972972972975,
+          "boots": [
+            [
+              84,
+              192,
+              1126,
+              1191
+            ],
+            [
+              197,
+              323,
+              1126,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "summit-a",
+          "axis": 651.6021621621621,
+          "boots": [
+            [
+              507,
+              624,
+              1123,
+              1191
+            ],
+            [
+              634,
+              756,
+              1123,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "summit-b",
+          "axis": 1054.103783783784,
+          "boots": [
+            [
+              937,
+              1045,
+              1124,
+              1191
+            ],
+            [
+              1050,
+              1172,
+              1124,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        }
+      ],
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/bouncy-movement-v1.png",
+      "prompt": "characters/clean-cartoon/bouncy-movement-v1.prompt.txt"
+    },
+    {
+      "hero": "chompy",
+      "world": "dino",
+      "family": "movement",
+      "file": "chompy-movement-v1",
+      "columns": 3,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+      "frames": [
+        {
+          "action": "rest",
+          "axis": 228.34503816793895,
+          "boots": [
+            [
+              130,
+              220,
+              509,
+              564
+            ],
+            [
+              224,
+              343,
+              509,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "jump-rise",
+          "axis": 658.4503816793894,
+          "boots": [
+            [
+              586,
+              671,
+              485,
+              564
+            ],
+            [
+              675,
+              752,
+              485,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "jump-fall",
+          "axis": 1090.2137404580153,
+          "boots": [
+            [
+              1014,
+              1107,
+              478,
+              554
+            ],
+            [
+              1111,
+              1205,
+              478,
+              554
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "land",
+          "axis": 226.6432569974555,
+          "boots": [
+            [
+              99,
+              205,
+              1143,
+              1191
+            ],
+            [
+              222,
+              350,
+              1143,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "summit-a",
+          "axis": 660.1959287531806,
+          "boots": [
+            [
+              516,
+              639,
+              1147,
+              1191
+            ],
+            [
+              647,
+              767,
+              1147,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "summit-b",
+          "axis": 1088.511959287532,
+          "boots": [
+            [
+              957,
+              1063,
+              1147,
+              1191
+            ],
+            [
+              1071,
+              1203,
+              1147,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        }
+      ],
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/chompy-movement-v1.png",
+      "prompt": "characters/clean-cartoon/chompy-movement-v1.prompt.txt"
+    },
+    {
+      "hero": "pip",
+      "world": "moonwood",
+      "family": "movement",
+      "file": "pip-movement-v2",
+      "columns": 3,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+      "inputs": [
+        "pip-movement-v1-input"
+      ],
+      "frames": [
+        {
+          "action": "rest",
+          "axis": 244.9777777777778,
+          "boots": [
+            [
+              127,
+              215,
+              486,
+              564
+            ],
+            [
+              220,
+              334,
+              486,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "jump-rise",
+          "axis": 651.6888888888889,
+          "boots": [
+            [
+              563,
+              622,
+              478,
+              541
+            ],
+            [
+              647,
+              723,
+              470,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "jump-fall",
+          "axis": 1100.088888888889,
+          "boots": [
+            [
+              1033,
+              1121,
+              467,
+              564
+            ],
+            [
+              1121,
+              1212,
+              467,
+              564
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "land",
+          "axis": 222.71111111111114,
+          "boots": [
+            [
+              88,
+              193,
+              1122,
+              1191
+            ],
+            [
+              197,
+              316,
+              1122,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "summit-a",
+          "axis": 656.8,
+          "boots": [
+            [
+              517,
+              636,
+              1111,
+              1191
+            ],
+            [
+              644,
+              762,
+              1111,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        },
+        {
+          "action": "summit-b",
+          "axis": 1078.9777777777779,
+          "boots": [
+            [
+              948,
+              1058,
+              1107,
+              1191
+            ],
+            [
+              1062,
+              1193,
+              1107,
+              1191
+            ]
+          ],
+          "grip": null,
+          "lowerHand": null
+        }
+      ],
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/pip-movement-v2.png",
+      "prompt": "characters/clean-cartoon/pip-movement-v2.prompt.txt"
+    }
+  ]
+}

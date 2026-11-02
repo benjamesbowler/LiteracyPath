@@ -1,0 +1,3639 @@
+{
+  "schemaVersion": 1,
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "scope": "All47 actual selected nongear Hollow illustrations (14decorations,3eggs,30speciesgrowth), plus4clean retained currently unselected expansion icons.",
+  "banks": [
+    {
+      "jobId": "hollow-props-01",
+      "kind": "props",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-01.png",
+      "sourceSha256": "e6dd0cf9baa365c813a1ec56cf579ceb0cb3fb589fbb1ec69900486006174a92",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-586ae5ac-78ba-4185-b1b4-6ac628f2e04e.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-props-01.prompt.txt",
+      "promptSha256": "b2c6c4964a1aeffb2c94fb9d8ce1b141e69cdded3d5c098b05af33bd78807d27",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          631,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            583,
+            1254
+          ],
+          [
+            0,
+            560,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-props-02",
+      "kind": "props",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-02.png",
+      "sourceSha256": "562862dd1a3777c9c9cbc313fb183ca7bd9037803b749f7a22b5f2650950bf28",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ecfe864b-d033-438e-b905-f43e7bb0e618.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-props-02.prompt.txt",
+      "promptSha256": "d1402aa0970d2cba72d371a88a5d4da8818d7e573af72892c0518ea67a837046",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          613,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            599,
+            1254
+          ],
+          [
+            0,
+            602,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-three-selected-crops",
+        "rejectedUnusedCell": "hollow-star-banner",
+        "note": "Only root-table/owl-perch/story-shelf use this source. Red/gold star pennant was replaced before delivery."
+      }
+    },
+    {
+      "jobId": "hollow-props-03",
+      "kind": "props",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-03.png",
+      "sourceSha256": "c4bc11a8de6167a99aeb0d3c21249f85867bba7659fcd66e8fdddc816b1ef575",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-aa8dd1e1-25bf-411f-b7c9-62cad5591961.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-props-03.prompt.txt",
+      "promptSha256": "329846a8beea7a399c013b0ecc6dde563d693799a5c37d5b07a1cf3c09a19c56",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          638,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            636,
+            1254
+          ],
+          [
+            0,
+            593,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-props-04",
+      "kind": "props",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-04.png",
+      "sourceSha256": "e17db8192ddad900a5093623328d365f301b768cdad09305c0669da7e765774d",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-37deb667-dbd8-4575-a00d-df837ec20d3a.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-props-04.prompt.txt",
+      "promptSha256": "e5b4c926f0d0aabb01ce350a0c9658a51915ccf8fe0a4c5ab1bc6375406941b5",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          628,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            589,
+            1254
+          ],
+          [
+            0,
+            633,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-props-05",
+      "kind": "props",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-05.png",
+      "sourceSha256": "2a966dbf15aeb5b60dd7258fa0f6ddc0738e71dfb860204e8d73289606febcdd",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-37314190-2321-4166-bad9-f2d30a4e1f8a.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-props-05.prompt.txt",
+      "promptSha256": "2173134ef4a0049f5a5646d675c9c52548d3485efd087f2a948e9c92d521012c",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          664,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            618,
+            1254
+          ],
+          [
+            0,
+            621,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-props-06",
+      "kind": "props",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-06.png",
+      "sourceSha256": "f670ce4884bd8c353b5113a12e9cd4f53bc81e47966949fdb92df3a27e5a9e0b",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-808baa55-8a0b-4654-9377-fcb6c81ec957.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-props-06.prompt.txt",
+      "promptSha256": "b48c9103b0eeef9d65b8cd9e1c2c087d08e09ea21eb2967981897071c6adc072",
+      "columns": 1,
+      "rows": 1,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-moss-sprite",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moss-sprite.png",
+      "sourceSha256": "651fbb1dc4838e233ec6dddeb026e0b1705fbfe98595f20a22e9fb390d56b73a",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-78b69578-c512-4c6d-8b61-30026cef92a2.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-moss-sprite.prompt.txt",
+      "promptSha256": "2571d1a9979c203ec2c11aa01cbf3ac190d0a80cec3703c7b7c2d3a0114430f7",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            692,
+            1367,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-ember-fox",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-ember-fox.png",
+      "sourceSha256": "9275d64a9cfb312938a56c2d60a3813b5fe54e9cd0eaefe810aed0ce572fa55a",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-e28a5f14-bf1d-490e-90bd-1ba3f66908dd.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-ember-fox.prompt.txt",
+      "promptSha256": "5458e437c8cfaade4b2aee4a3af2254644003b48d5b797e0f9f1e9ce312e9983",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            597,
+            1326,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-pebble-toad",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-pebble-toad.png",
+      "sourceSha256": "59d4345643c03939942a74d70a5b7cc3f6bcd0ca3bfa0d35495e06d144d7d9f4",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-007975ac-c7e0-422c-b4d4-370d5f9e352f.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-pebble-toad.prompt.txt",
+      "promptSha256": "f60703f73bdbfdf6623848023156d8b799ab5eeb0b94f5cd102abc91b9e2b062",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            568,
+            1312,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-sun-moth",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-sun-moth.png",
+      "sourceSha256": "f8977746d93f2e6eb148b8f02b619c68f950a1a9228848396252b69a33166def",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-157b354c-da7c-4e07-bfd0-ab20d95f6793.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-sun-moth.prompt.txt",
+      "promptSha256": "15fade83f5f79d7a7d7fef27942206712981257018fe95e56fe10a452ac9c1db",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            544,
+            1287,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-two-selected-crops",
+        "rejectedUnusedCell": "beastie-sun-moth-s1",
+        "note": "Only Young and Grand use this source; Baby has both upper-wing sun motifs in a corrected separate source."
+      }
+    },
+    {
+      "jobId": "hollow-beastie-star-owl",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-star-owl.png",
+      "sourceSha256": "9ae3f0d9d10cd4bc40c10fd3ec813ceba914c1c6f0ebb91ae0be18f16f832459",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ce458c39-c6f8-47ec-bbde-4bce7b017ec0.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-star-owl.prompt.txt",
+      "promptSha256": "f0c3139817e9765b06a91e50ecb8e49b6bd4c2a017d7855e9ff91b0cffe4de43",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            707,
+            1398,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-thorn-stag",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-thorn-stag.png",
+      "sourceSha256": "dfd30d97f80b74d86ea1b056c8c122896690ea31df23cbd6aa99e1b1f29159ac",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ebc3a404-5c1f-4cb7-af70-6ab2968cc0c5.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-thorn-stag.prompt.txt",
+      "promptSha256": "cbd7b7b6eeaacd268ac6a955fdc84fde4236aebec0937ebf02842d69c659a2a1",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            637,
+            1342,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-glow-lynx",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-glow-lynx.png",
+      "sourceSha256": "da7ee8d30883681efd7c1682d7250c6b56bc0e6b7b9225141a461f4367e5180a",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-490fbf75-ebd2-4694-abb7-87dc331e3647.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-glow-lynx.prompt.txt",
+      "promptSha256": "d0eb103da8ec4a50b9aaf3074d7f58b9d4db78a4c3f1644c0f222f758754bdd2",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            662,
+            1381,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-river-dragon",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-river-dragon.png",
+      "sourceSha256": "b29ad9afa185ded2284f2dfe579a8de81c70a51ed5bd7f7d806717e41f0749e9",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-83d734ce-22bd-41aa-87e9-201590e41f45.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-river-dragon.prompt.txt",
+      "promptSha256": "7403ee0dadea5a23ab817ff5bf5410c53702a3a7b4ce2978d68187ee6cf19259",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            655,
+            1363,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-moon-wyrm",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moon-wyrm.png",
+      "sourceSha256": "058d53c147ee218f25c6196e96691de7fa449617c38af611905a04bed9f15365",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-b3eb79c8-be2b-405b-89c4-ca74b44e0810.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-moon-wyrm.prompt.txt",
+      "promptSha256": "3535b22d560ef08e7f1c4f9ed9a804b50a0b7429c2dd55ca4be67b63d98f5164",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            514,
+            1272,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-beastie-fern-snail",
+      "kind": "growth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-fern-snail.png",
+      "sourceSha256": "093e78454362ae001458cc338c2dee9ea2664c469b3592f927383a5dc4a0aa13",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-851c8a9e-cdc2-44eb-b007-cf263d44e8eb.png",
+      "generationRole": "targeted-two-eye-anatomy-correction",
+      "referenceBindings": [
+        {
+          "path": "source-art/hollow/items-clean-cartoon/references/fern-snail-anatomy-before.png",
+          "sha256": "7168c80b668b4006f67e845d6a6f03c6fd92bc19349f96415caf03743ffec8ba"
+        }
+      ],
+      "history": [
+        {
+          "jobId": "hollow-beastie-fern-snail",
+          "kind": "growth",
+          "columns": 3,
+          "rows": 1,
+          "prompt": "Use case: illustration-story. Clean bold clear 2D cartoon sprite production sheet, true transparent background. Crisp continuous dark outlines, solid flat clean colors and at most ONE broad smooth cel shadow per surface. Every material follows same finish including leaves, fur, feathers, wood and stone. No painted/engraved/embossed/pebbled/daubed material, grain, gradients, crosshatching, dots as texture, furry edges or photoreal detail. No text, letters, numbers, labels, watermark, logos, religion, religious clothes/buildings, national/religious/political flags. Preserve all important silhouettes completely with generous alpha margins and gutters; no ground shadow or backdrop. WIDE3:1 canvas with exactly ONE ROW of THREE distinct separate COMPLETE whole-body growth stages of ONE SPECIES. LEFT Baby, CENTER Young, RIGHT Grand, growing progressively in maturity and size within equal cells. A friendly mint/lime-green snail with two eyestalks, peach underside and a round orange-brown SPIRAL shell, three broad green fern leaves sprouting above shell. Baby small round shell; Young longer larger shell; Grand largest with fuller broad fern leaves. Same smooth spiral shell/face in all three. All three stages must preserve face, species body plan, colors and signature markings as the same growing friend. All face slightly right, kind appealing expressions. Keep complete ears/antennae/horns/wings/legs/tails inside own third, generous12percent margins, no overlap or bodyparts crossing into other cells. No external props except the described parts; alpha background. No labels or dividers.",
+          "assets": [
+            {
+              "id": "beastie-fern-snail-s1",
+              "stage": 1,
+              "path": "/images/hollow/beastie-fern-snail-s1.webp",
+              "originalSha256": "4135316de74baf0892f14d4ffcefca383013d478d14899b9e98f452314eacba9",
+              "width": 1024,
+              "height": 1024,
+              "hasAlpha": true
+            },
+            {
+              "id": "beastie-fern-snail-s2",
+              "stage": 2,
+              "path": "/images/hollow/beastie-fern-snail-s2.webp",
+              "originalSha256": "17abb51a397f4e05a78f28732dcc7b3dc7fd8fe75e82fd49924c54f957ab6e2a",
+              "width": 1024,
+              "height": 1024,
+              "hasAlpha": true
+            },
+            {
+              "id": "beastie-fern-snail-s3",
+              "stage": 3,
+              "path": "/images/hollow/beastie-fern-snail-s3.webp",
+              "originalSha256": "5792b2d73d54533f8b180499582dd0d7e400cbcadf727903541582228a6c92c5",
+              "width": 1024,
+              "height": 1024,
+              "hasAlpha": true
+            }
+          ],
+          "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67 as /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-1874781b-f496-4749-bd7c-b1abcc41ae9f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "generatedAt": "2026-11-02T12:09:27.588Z",
+          "review": "pending-native-review",
+          "referenceSaved": "source-art/hollow/items-clean-cartoon/references/fern-snail-anatomy-before.png",
+          "referenceSha256": "7168c80b668b4006f67e845d6a6f03c6fd92bc19349f96415caf03743ffec8ba",
+          "reason": "Four eyes per snail rejected; exact two-eyestalk-eye anatomy required."
+        }
+      ],
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-beastie-fern-snail.prompt.txt",
+      "promptSha256": "1fe9c2af2b75173e3fc239375000e3a78392882676141e6073a0b17179d57d5f",
+      "columns": 3,
+      "rows": 1,
+      "width": 2172,
+      "height": 724,
+      "measuredGutters": {
+        "ys": [
+          0,
+          724
+        ],
+        "xs": [
+          [
+            0,
+            559,
+            1319,
+            2172
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native"
+      }
+    },
+    {
+      "jobId": "hollow-star-banner-neutral",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-star-banner-neutral.png",
+      "sourceSha256": "d9c2474d14ff8fea73298146af5387e44b727b25dcc4b036f0a1ed4e8ce1b4dc",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-afbf03d8-146a-4f8c-a764-ba445df7cde0.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-star-banner-neutral.prompt.txt",
+      "promptSha256": "b4f10a95f4408a85778091969f51fd22bc25a57515385dbd9548e62beef76637",
+      "columns": 1,
+      "rows": 1,
+      "width": 1254,
+      "height": 1254,
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native",
+        "notes": "Use a neutral cream pennant with three differently colored stars to avoid red-and-gold five-star national associations."
+      }
+    },
+    {
+      "jobId": "hollow-sun-moth-baby-corrected",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-sun-moth-baby-corrected.png",
+      "sourceSha256": "7a6817ada5ab92323f52f36cebb96d2b3a47ae52f85d5c8a1d3f6243dad0b33f",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-935e3831-7007-49b9-87e6-27d4e475df9d.png",
+      "promptFile": "source-art/hollow/items-clean-cartoon/hollow-sun-moth-baby-corrected.prompt.txt",
+      "promptSha256": "249e28fa6cf935da8be3fc192e67777de057d07d3ed1a527cdd89a3fc2787ae2",
+      "columns": 1,
+      "rows": 1,
+      "width": 1254,
+      "height": 1254,
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native",
+        "notes": "Keep two upper-wing sun motifs at all three growth stages."
+      }
+    }
+  ],
+  "assets": [
+    {
+      "id": "hollow-glow-jar",
+      "path": "/images/hollow/hollow-glow-jar.webp",
+      "originalSha256": "41b2a9ce6d88f83e4cd231de2b5f8583b9824b0dd269c53419655e5e147f0e22",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-01",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-01.png",
+      "sourceSha256": "e6dd0cf9baa365c813a1ec56cf579ceb0cb3fb589fbb1ec69900486006174a92",
+      "crop": {
+        "left": 113,
+        "top": 28,
+        "width": 407,
+        "height": 589
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 583,
+        "bottom": 631
+      },
+      "alphaBounds": {
+        "x0": 121,
+        "y0": 36,
+        "x1": 511,
+        "y1": 608,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "f0dc1c0425088a3f68be99794709036326b1b927a24e3b49edd908c5d14cb3f2",
+      "bytes": 87894,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-mushroom-stool",
+      "path": "/images/hollow/hollow-mushroom-stool.webp",
+      "originalSha256": "f632a1c860563c6df318bac2318f90f05719442333df033a2b2b133e5360ea01",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-01",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-01.png",
+      "sourceSha256": "e6dd0cf9baa365c813a1ec56cf579ceb0cb3fb589fbb1ec69900486006174a92",
+      "crop": {
+        "left": 647,
+        "top": 74,
+        "width": 559,
+        "height": 530
+      },
+      "cell": {
+        "left": 583,
+        "top": 0,
+        "right": 1254,
+        "bottom": 631
+      },
+      "alphaBounds": {
+        "x0": 655,
+        "y0": 82,
+        "x1": 1197,
+        "y1": 595,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "97f0cbd49d2dc0a8533bc0d38d23ec75401809073d3904c6cea1ebea7ce0ec2a",
+      "bytes": 91350,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-moon-lantern",
+      "path": "/images/hollow/hollow-moon-lantern.webp",
+      "originalSha256": "2a70ccb55d893139ff2f24e02ee06456364c08706558a6e647fcc885b2e41c31",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-01",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-01.png",
+      "sourceSha256": "e6dd0cf9baa365c813a1ec56cf579ceb0cb3fb589fbb1ec69900486006174a92",
+      "crop": {
+        "left": 59,
+        "top": 645,
+        "width": 451,
+        "height": 591
+      },
+      "cell": {
+        "left": 0,
+        "top": 631,
+        "right": 560,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 67,
+        "y0": 653,
+        "x1": 501,
+        "y1": 1227,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "2ba141747edeba0280bc0da98c2d9734332473e4a1408fc724bf07e334cb7a8e",
+      "bytes": 130178,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-moss-rug",
+      "path": "/images/hollow/hollow-moss-rug.webp",
+      "originalSha256": "2fa600e13ebbad30c3917af68d808ab01b778dd3daeb26dc4d47d73f039d3795",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-01",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-01.png",
+      "sourceSha256": "e6dd0cf9baa365c813a1ec56cf579ceb0cb3fb589fbb1ec69900486006174a92",
+      "crop": {
+        "left": 610,
+        "top": 769,
+        "width": 620,
+        "height": 378
+      },
+      "cell": {
+        "left": 560,
+        "top": 631,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 618,
+        "y0": 777,
+        "x1": 1221,
+        "y1": 1138,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "4584f16e06945867dc9987dd86ff7f9ecf6eac1e3a5762a921369ca6f366a289",
+      "bytes": 71888,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-star-banner",
+      "path": "/images/hollow/hollow-star-banner.webp",
+      "originalSha256": "a94f5b2b63d012f0de9ec5f134ff3380c13423cac8b072dffac52d1464f91e1c",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-star-banner-neutral",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-star-banner-neutral.png",
+      "sourceSha256": "d9c2474d14ff8fea73298146af5387e44b727b25dcc4b036f0a1ed4e8ce1b4dc",
+      "crop": {
+        "left": 213,
+        "top": 19,
+        "width": 828,
+        "height": 1226
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 221,
+        "y0": 27,
+        "x1": 1032,
+        "y1": 1236,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "e85480e2c6d654801441e60f3bb91dfb34cee54cacf6681b3e0b4bf1bc0a8d48",
+      "bytes": 76950,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "history": [
+        {
+          "jobId": "hollow-props-02",
+          "source": "source-art/hollow/items-clean-cartoon/hollow-props-02.png",
+          "sourceSha256": "562862dd1a3777c9c9cbc313fb183ca7bd9037803b749f7a22b5f2650950bf28",
+          "sha256": "3f636d8d53c5d66fe47378b71e1a8ab6609bd102dc2aeaf9adbf7da61f194846",
+          "reason": "Red/gold five-star decorative fabric rejected to avoid any national association; never installed."
+        }
+      ],
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-root-table",
+      "path": "/images/hollow/hollow-root-table.webp",
+      "originalSha256": "b1e82e2026b13ee4d01d6f54727fd2246825d933c1834af632b0ab6f0b916edb",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-02",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-02.png",
+      "sourceSha256": "562862dd1a3777c9c9cbc313fb183ca7bd9037803b749f7a22b5f2650950bf28",
+      "crop": {
+        "left": 649,
+        "top": 97,
+        "width": 567,
+        "height": 474
+      },
+      "cell": {
+        "left": 599,
+        "top": 0,
+        "right": 1254,
+        "bottom": 613
+      },
+      "alphaBounds": {
+        "x0": 657,
+        "y0": 105,
+        "x1": 1207,
+        "y1": 562,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "329c3b6c367101770f7556f6be887ed2b5fdcab1375686ef2c1af2507614e9ab",
+      "bytes": 105140,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-owl-perch",
+      "path": "/images/hollow/hollow-owl-perch.webp",
+      "originalSha256": "31393fa34007999dbd50cc79aeb7df96407860d0513f3c5408520cf0be4c9c36",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-02",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-02.png",
+      "sourceSha256": "562862dd1a3777c9c9cbc313fb183ca7bd9037803b749f7a22b5f2650950bf28",
+      "crop": {
+        "left": 121,
+        "top": 638,
+        "width": 433,
+        "height": 612
+      },
+      "cell": {
+        "left": 0,
+        "top": 613,
+        "right": 602,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 129,
+        "y0": 646,
+        "x1": 545,
+        "y1": 1241,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "0b346775c1d8ccfa8a9667d613ad869f3212ce6599b4495ca149fe706c13b268",
+      "bytes": 104904,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-story-shelf",
+      "path": "/images/hollow/hollow-story-shelf.webp",
+      "originalSha256": "44a607c6ebf571202f0541327f83d74383b88d2faa0fd06c1e0c26dcb3b43a03",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-02",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-02.png",
+      "sourceSha256": "562862dd1a3777c9c9cbc313fb183ca7bd9037803b749f7a22b5f2650950bf28",
+      "crop": {
+        "left": 651,
+        "top": 634,
+        "width": 551,
+        "height": 612
+      },
+      "cell": {
+        "left": 602,
+        "top": 613,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 659,
+        "y0": 642,
+        "x1": 1193,
+        "y1": 1237,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "cb46b25e5ac12cbfed887f61f9817c8e297ad86a4cabcacd8250d3eacc4cc2a6",
+      "bytes": 99348,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-ember-pit",
+      "path": "/images/hollow/hollow-ember-pit.webp",
+      "originalSha256": "2f93d6bc05f476b836e2ecb511309631332f03bda106b34d30474376c110d8df",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-03",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-03.png",
+      "sourceSha256": "c4bc11a8de6167a99aeb0d3c21249f85867bba7659fcd66e8fdddc816b1ef575",
+      "crop": {
+        "left": 47,
+        "top": 69,
+        "width": 539,
+        "height": 513
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 636,
+        "bottom": 638
+      },
+      "alphaBounds": {
+        "x0": 55,
+        "y0": 77,
+        "x1": 577,
+        "y1": 573,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "5476b3a0488ad0f6bd89edcbdcf9312af55949200302930f2347be0b6bdde493",
+      "bytes": 105684,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-crystal-cluster",
+      "path": "/images/hollow/hollow-crystal-cluster.webp",
+      "originalSha256": "401ab6ab28a30c617a7406135c036432031d8c6f7f2830e7cb97bba8cf1094d1",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-03",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-03.png",
+      "sourceSha256": "c4bc11a8de6167a99aeb0d3c21249f85867bba7659fcd66e8fdddc816b1ef575",
+      "crop": {
+        "left": 686,
+        "top": 49,
+        "width": 485,
+        "height": 548
+      },
+      "cell": {
+        "left": 636,
+        "top": 0,
+        "right": 1254,
+        "bottom": 638
+      },
+      "alphaBounds": {
+        "x0": 694,
+        "y0": 57,
+        "x1": 1162,
+        "y1": 588,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "80c92d5114edcba9292bcf6b7bd76a6fba673e6ded71f913819b5f77edeeb6e2",
+      "bytes": 110284,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-dino-skull",
+      "path": "/images/hollow/hollow-dino-skull.webp",
+      "originalSha256": "7a3967b8a6a6c9274c0b3a6b5e1bf39c2fd0116d9ed08df8445a9f48a1e81ad2",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-03",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-03.png",
+      "sourceSha256": "c4bc11a8de6167a99aeb0d3c21249f85867bba7659fcd66e8fdddc816b1ef575",
+      "crop": {
+        "left": 46,
+        "top": 704,
+        "width": 537,
+        "height": 489
+      },
+      "cell": {
+        "left": 0,
+        "top": 638,
+        "right": 593,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 54,
+        "y0": 712,
+        "x1": 574,
+        "y1": 1184,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "856bcfb3f9e5d133d2c3f0c51bfafe466d79d438285d4cd380749df6fa618c26",
+      "bytes": 145370,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-fern-fountain",
+      "path": "/images/hollow/hollow-fern-fountain.webp",
+      "originalSha256": "1aa10d190cdf7acae88a1dc662626354757c95fe64ac4f120672e1540f07fd6c",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-03",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-03.png",
+      "sourceSha256": "c4bc11a8de6167a99aeb0d3c21249f85867bba7659fcd66e8fdddc816b1ef575",
+      "crop": {
+        "left": 603,
+        "top": 680,
+        "width": 641,
+        "height": 516
+      },
+      "cell": {
+        "left": 593,
+        "top": 638,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 611,
+        "y0": 688,
+        "x1": 1235,
+        "y1": 1187,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "53f49b1b99ae0f52c0313b45bc4e8827bb485e44c4bd29ae491d5b66389ea30a",
+      "bytes": 132552,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-moonwell",
+      "path": "/images/hollow/hollow-moonwell.webp",
+      "originalSha256": "196f168fe8a80540d5523c66694f284835098802c692af9750ddc1a609051679",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-04",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-04.png",
+      "sourceSha256": "e17db8192ddad900a5093623328d365f301b768cdad09305c0669da7e765774d",
+      "crop": {
+        "left": 42,
+        "top": 72,
+        "width": 538,
+        "height": 532
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 589,
+        "bottom": 628
+      },
+      "alphaBounds": {
+        "x0": 50,
+        "y0": 80,
+        "x1": 571,
+        "y1": 595,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "8cd5609bdfb46dbf564243147c64cb01c2d1435e110eebb0228b2ac768acde55",
+      "bytes": 169394,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "hollow-waterfall",
+      "path": "/images/hollow/hollow-waterfall.webp",
+      "originalSha256": "2a7cb5fceec4ba93ee0cea1cdae33eceb4043ff960cb6f49df24e7c01cbf0580",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-04",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-04.png",
+      "sourceSha256": "e17db8192ddad900a5093623328d365f301b768cdad09305c0669da7e765774d",
+      "crop": {
+        "left": 598,
+        "top": 72,
+        "width": 641,
+        "height": 527
+      },
+      "cell": {
+        "left": 589,
+        "top": 0,
+        "right": 1254,
+        "bottom": 628
+      },
+      "alphaBounds": {
+        "x0": 606,
+        "y0": 80,
+        "x1": 1230,
+        "y1": 590,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "4b92a5bd9d5a5e4d8392ba60ec29aea9090755192c965ad4d895587dc04169fc",
+      "bytes": 126878,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "exp-garden",
+      "path": "/images/hollow/exp-garden.webp",
+      "originalSha256": "bbc8c459c7dc65c8feafb1f7dfbbef63a6b5942611c78497c57e40b618064241",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-04",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-04.png",
+      "sourceSha256": "e17db8192ddad900a5093623328d365f301b768cdad09305c0669da7e765774d",
+      "crop": {
+        "left": 0,
+        "top": 653,
+        "width": 633,
+        "height": 548
+      },
+      "cell": {
+        "left": 0,
+        "top": 628,
+        "right": 633,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 5,
+        "y0": 661,
+        "x1": 628,
+        "y1": 1192,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "5f0f44bb2f0b463d83e89eea8b2a67d1a0cdec3eb7dc53c3ab72f4439a6cd602",
+      "bytes": 159754,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-retained-unselected",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": false,
+        "runtimeEvidence": null,
+        "runtimeEvidenceSha256": null,
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": true
+    },
+    {
+      "id": "exp-pond",
+      "path": "/images/hollow/exp-pond.webp",
+      "originalSha256": "7b14edbcc7415c975ccf1c4d1d678e12b12fd510a04b56c97a27c867e9ae197d",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-04",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-04.png",
+      "sourceSha256": "e17db8192ddad900a5093623328d365f301b768cdad09305c0669da7e765774d",
+      "crop": {
+        "left": 633,
+        "top": 708,
+        "width": 600,
+        "height": 482
+      },
+      "cell": {
+        "left": 633,
+        "top": 628,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 637,
+        "y0": 716,
+        "x1": 1224,
+        "y1": 1181,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "f59b4598a912f395e45da1f5dbfc05e4809188a3d6322cd04ffd1766d48d0710",
+      "bytes": 179972,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-retained-unselected",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": false,
+        "runtimeEvidence": null,
+        "runtimeEvidenceSha256": null,
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": true
+    },
+    {
+      "id": "exp-cave",
+      "path": "/images/hollow/exp-cave.webp",
+      "originalSha256": "2bde0fffa76199bd6f4b044c1346b835661a4dcb7f986ca9cd9f4a5853a6cf9a",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-05",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-05.png",
+      "sourceSha256": "2a966dbf15aeb5b60dd7258fa0f6ddc0738e71dfb860204e8d73289606febcdd",
+      "crop": {
+        "left": 15,
+        "top": 90,
+        "width": 601,
+        "height": 528
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 618,
+        "bottom": 664
+      },
+      "alphaBounds": {
+        "x0": 23,
+        "y0": 98,
+        "x1": 607,
+        "y1": 609,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "e589d874833ae28944a85304fafb2868ace3b347fb1b2b81883df10ef4e4a177",
+      "bytes": 99058,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-retained-unselected",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": false,
+        "runtimeEvidence": null,
+        "runtimeEvidenceSha256": null,
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": true
+    },
+    {
+      "id": "exp-treetop",
+      "path": "/images/hollow/exp-treetop.webp",
+      "originalSha256": "2aecce910b2caf67b3efb359a7aa9c6c93c6c4cb2e1da9ed3a40dabd0535aa8e",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-05",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-05.png",
+      "sourceSha256": "2a966dbf15aeb5b60dd7258fa0f6ddc0738e71dfb860204e8d73289606febcdd",
+      "crop": {
+        "left": 621,
+        "top": 18,
+        "width": 618,
+        "height": 622
+      },
+      "cell": {
+        "left": 618,
+        "top": 0,
+        "right": 1254,
+        "bottom": 664
+      },
+      "alphaBounds": {
+        "x0": 629,
+        "y0": 26,
+        "x1": 1230,
+        "y1": 631,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "2a75e6528894cff85bb64f87e8c978e09d42aef33cd73f3545d0b1a2dc8c15e9",
+      "bytes": 135500,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-retained-unselected",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": false,
+        "runtimeEvidence": null,
+        "runtimeEvidenceSha256": null,
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": true
+    },
+    {
+      "id": "egg-bronze",
+      "path": "/images/hollow/egg-bronze.webp",
+      "originalSha256": "298494234dbba7dde56a98f4dc24a9b28df5157527a954fad36ee181e7a31bf8",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-05",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-05.png",
+      "sourceSha256": "2a966dbf15aeb5b60dd7258fa0f6ddc0738e71dfb860204e8d73289606febcdd",
+      "crop": {
+        "left": 29,
+        "top": 689,
+        "width": 566,
+        "height": 549
+      },
+      "cell": {
+        "left": 0,
+        "top": 664,
+        "right": 621,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 37,
+        "y0": 697,
+        "x1": 586,
+        "y1": 1229,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "608d0452569a3a0a31a0c31fc04159cde57388784ff79cd4b2d7e170536effe7",
+      "bytes": 108664,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "egg-silver",
+      "path": "/images/hollow/egg-silver.webp",
+      "originalSha256": "2979c6d0c8488e87e716428ef641540412cf604d9d1f0ecd9a741a1d159f3bfa",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-05",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-05.png",
+      "sourceSha256": "2a966dbf15aeb5b60dd7258fa0f6ddc0738e71dfb860204e8d73289606febcdd",
+      "crop": {
+        "left": 647,
+        "top": 689,
+        "width": 574,
+        "height": 550
+      },
+      "cell": {
+        "left": 621,
+        "top": 664,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 655,
+        "y0": 697,
+        "x1": 1212,
+        "y1": 1230,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "a2b78b55331d05b209bac8172760a8c9a34870934b11083cb5ac5f72b0fb2de8",
+      "bytes": 113468,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "egg-gold",
+      "path": "/images/hollow/egg-gold.webp",
+      "originalSha256": "cc1f63479cdbdb7748b554e2a18b112c2092f98741e4659837dd69a9179eedae",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-props-06",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-props-06.png",
+      "sourceSha256": "f670ce4884bd8c353b5113a12e9cd4f53bc81e47966949fdb92df3a27e5a9e0b",
+      "crop": {
+        "left": 44,
+        "top": 55,
+        "width": 554,
+        "height": 559
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 52,
+        "y0": 63,
+        "x1": 589,
+        "y1": 605,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "b7ac1ec432fd0f7a60a642cddf924d33cc37ddce1bc8ef0d3c8e06dc95d80c60",
+      "bytes": 130502,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-moss-sprite-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-moss-sprite-s1.webp",
+      "originalSha256": "bf606a066dfe0c31b50b940467921ee5bd65680ea1648f3aeb22c8a25f7a87be",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-moss-sprite",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moss-sprite.png",
+      "sourceSha256": "651fbb1dc4838e233ec6dddeb026e0b1705fbfe98595f20a22e9fb390d56b73a",
+      "crop": {
+        "left": 190,
+        "top": 247,
+        "width": 357,
+        "height": 463
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 692,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 198,
+        "y0": 255,
+        "x1": 538,
+        "y1": 701,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "0cd62931215023ac972ae2e6c86a5b3e83764b61c7e4a1b359d50b64d0b36e6b",
+      "bytes": 121260,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-moss-sprite-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-moss-sprite-s2.webp",
+      "originalSha256": "894623625d2bd620e398d7cf34c776f99574259a3bcdde1324e53a9ea08d6d6b",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-moss-sprite",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moss-sprite.png",
+      "sourceSha256": "651fbb1dc4838e233ec6dddeb026e0b1705fbfe98595f20a22e9fb390d56b73a",
+      "crop": {
+        "left": 838,
+        "top": 106,
+        "width": 398,
+        "height": 606
+      },
+      "cell": {
+        "left": 692,
+        "top": 0,
+        "right": 1367,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 846,
+        "y0": 114,
+        "x1": 1227,
+        "y1": 703,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "0305578bcfc2bf16e3589105c4cb8e3f861a9fabb41b4ad909b6288ae3326e02",
+      "bytes": 116178,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-moss-sprite-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-moss-sprite-s3.webp",
+      "originalSha256": "9404727ba1100ab7ecde28cde52c0760278a45ab3e13a41d25c476c2b32bd76f",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-moss-sprite",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moss-sprite.png",
+      "sourceSha256": "651fbb1dc4838e233ec6dddeb026e0b1705fbfe98595f20a22e9fb390d56b73a",
+      "crop": {
+        "left": 1498,
+        "top": 3,
+        "width": 464,
+        "height": 717
+      },
+      "cell": {
+        "left": 1367,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1506,
+        "y0": 11,
+        "x1": 1953,
+        "y1": 711,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "dca9d0bb9a282bed7546893a8e05cc13007b737100fb386a4f84c1451e3e5ebc",
+      "bytes": 117470,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-ember-fox-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-ember-fox-s1.webp",
+      "originalSha256": "d92dec61f9f3f56322eaae147a54d72c221a8641f2bc4a5f98e4ade3edfcc38b",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-ember-fox",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-ember-fox.png",
+      "sourceSha256": "9275d64a9cfb312938a56c2d60a3813b5fe54e9cd0eaefe810aed0ce572fa55a",
+      "crop": {
+        "left": 78,
+        "top": 285,
+        "width": 426,
+        "height": 424
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 597,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 86,
+        "y0": 293,
+        "x1": 495,
+        "y1": 700,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "feb2e6f0b4c2bbd46b5c322d56baeda93932e30ee9d339fb292374ec7d23810a",
+      "bytes": 145828,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-ember-fox-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-ember-fox-s2.webp",
+      "originalSha256": "6c695430a965caf04d61a4bd3755858d9c51f02547f37ae14e02227fbd9e2fac",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-ember-fox",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-ember-fox.png",
+      "sourceSha256": "9275d64a9cfb312938a56c2d60a3813b5fe54e9cd0eaefe810aed0ce572fa55a",
+      "crop": {
+        "left": 690,
+        "top": 128,
+        "width": 568,
+        "height": 583
+      },
+      "cell": {
+        "left": 597,
+        "top": 0,
+        "right": 1326,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 698,
+        "y0": 136,
+        "x1": 1249,
+        "y1": 702,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "bf8b6eee1058ab62f068b0d827948a3d18b27bac57b27f2aa341b405941fe740",
+      "bytes": 154620,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-ember-fox-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-ember-fox-s3.webp",
+      "originalSha256": "db5dfe9d93ec49540bbcd82727a8942b855ae165b0e44b16421126feffdfe70e",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-ember-fox",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-ember-fox.png",
+      "sourceSha256": "9275d64a9cfb312938a56c2d60a3813b5fe54e9cd0eaefe810aed0ce572fa55a",
+      "crop": {
+        "left": 1395,
+        "top": 0,
+        "width": 717,
+        "height": 712
+      },
+      "cell": {
+        "left": 1326,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1403,
+        "y0": 7,
+        "x1": 2103,
+        "y1": 703,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "567360a6183553bed6927ca7475e3e3de48e2d70f3572488513390dbde69fbd8",
+      "bytes": 159762,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-pebble-toad-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-pebble-toad-s1.webp",
+      "originalSha256": "1a902861367647b2bbbdc1a450064495972364555477fbe52a268a0dd815214c",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-pebble-toad",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-pebble-toad.png",
+      "sourceSha256": "59d4345643c03939942a74d70a5b7cc3f6bcd0ca3bfa0d35495e06d144d7d9f4",
+      "crop": {
+        "left": 40,
+        "top": 290,
+        "width": 466,
+        "height": 394
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 568,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 48,
+        "y0": 298,
+        "x1": 497,
+        "y1": 675,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "c73802a2e178fb3b35e2f79e31f4596f1cdfe02d8e3ce5d5784fee701a0149fd",
+      "bytes": 108668,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-pebble-toad-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-pebble-toad-s2.webp",
+      "originalSha256": "432546c35e6a2bbf02e29eb39e8c2c1c3c076032cb1274acfef0fe1e71f00ffe",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-pebble-toad",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-pebble-toad.png",
+      "sourceSha256": "59d4345643c03939942a74d70a5b7cc3f6bcd0ca3bfa0d35495e06d144d7d9f4",
+      "crop": {
+        "left": 630,
+        "top": 154,
+        "width": 637,
+        "height": 540
+      },
+      "cell": {
+        "left": 568,
+        "top": 0,
+        "right": 1312,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 638,
+        "y0": 162,
+        "x1": 1258,
+        "y1": 685,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "8fa6e3dbe600f19fbd92e70a79e64b8116d0f328799aad227c8fc030aac39745",
+      "bytes": 111056,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-pebble-toad-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-pebble-toad-s3.webp",
+      "originalSha256": "6e4e555436a404889d8fae08258ad9940b88f0dc9cf9311420af48778344880f",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-pebble-toad",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-pebble-toad.png",
+      "sourceSha256": "59d4345643c03939942a74d70a5b7cc3f6bcd0ca3bfa0d35495e06d144d7d9f4",
+      "crop": {
+        "left": 1358,
+        "top": 51,
+        "width": 783,
+        "height": 644
+      },
+      "cell": {
+        "left": 1312,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1366,
+        "y0": 59,
+        "x1": 2132,
+        "y1": 686,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "eafacfe13b4458f76b0d75391f83dd6b9902da97a275870126363e90c85c6bcf",
+      "bytes": 111580,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-sun-moth-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-sun-moth-s1.webp",
+      "originalSha256": "1fa54414b52769ff37f988ea28a1e0f73630a364984144c90a5463a8c34c62dd",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-sun-moth-baby-corrected",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-sun-moth-baby-corrected.png",
+      "sourceSha256": "7a6817ada5ab92323f52f36cebb96d2b3a47ae52f85d5c8a1d3f6243dad0b33f",
+      "crop": {
+        "left": 127,
+        "top": 174,
+        "width": 996,
+        "height": 854
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 135,
+        "y0": 182,
+        "x1": 1114,
+        "y1": 1019,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "3f038298509d557997956e94fcce75f6c45cfaf30976c7b7ef5940ea02bda1db",
+      "bytes": 134204,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "history": [
+        {
+          "jobId": "hollow-beastie-sun-moth",
+          "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-sun-moth.png",
+          "sourceSha256": "f8977746d93f2e6eb148b8f02b619c68f950a1a9228848396252b69a33166def",
+          "sha256": "c6efa3656db9098aaba098a121f09fa221956e1a1c4dcf965588316fda70ddfc",
+          "reason": "Baby must retain both upper-wing sun motifs; single-motif candidate was not installed."
+        }
+      ],
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-sun-moth-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-sun-moth-s2.webp",
+      "originalSha256": "2a5b8184ec8b2524a222978c4e82c1b7d63a33f9b309fdf1980e0d675ff4ee76",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-sun-moth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-sun-moth.png",
+      "sourceSha256": "f8977746d93f2e6eb148b8f02b619c68f950a1a9228848396252b69a33166def",
+      "crop": {
+        "left": 603,
+        "top": 126,
+        "width": 654,
+        "height": 521
+      },
+      "cell": {
+        "left": 544,
+        "top": 0,
+        "right": 1287,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 611,
+        "y0": 134,
+        "x1": 1248,
+        "y1": 638,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "94b38d09128fad62f3d1450649b5919ea133f74a1547e16d067d8a5f66da89cd",
+      "bytes": 158034,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-sun-moth-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-sun-moth-s3.webp",
+      "originalSha256": "809f8fc7dce840bad2cc83d6127154eeda30b0e51ddbc7c72752b8b5b6cf9d21",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-sun-moth",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-sun-moth.png",
+      "sourceSha256": "f8977746d93f2e6eb148b8f02b619c68f950a1a9228848396252b69a33166def",
+      "crop": {
+        "left": 1317,
+        "top": 31,
+        "width": 842,
+        "height": 642
+      },
+      "cell": {
+        "left": 1287,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1325,
+        "y0": 39,
+        "x1": 2150,
+        "y1": 664,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "fa881b427b583675103bf10525c8e306eeeef0bfea9b6692bd6c1c7d1ca06397",
+      "bytes": 162318,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-star-owl-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-star-owl-s1.webp",
+      "originalSha256": "723d0db64531b92bd6cd04503e1d017aeafe76c6b4ebc0cae67605c1bbfeb2e6",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-star-owl",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-star-owl.png",
+      "sourceSha256": "9ae3f0d9d10cd4bc40c10fd3ec813ceba914c1c6f0ebb91ae0be18f16f832459",
+      "crop": {
+        "left": 132,
+        "top": 245,
+        "width": 458,
+        "height": 471
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 707,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 140,
+        "y0": 253,
+        "x1": 581,
+        "y1": 707,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "c87fcb9cfd855c99f02fdc9efed9c52b15583c5265cd666820607500ad7ae812",
+      "bytes": 126958,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-star-owl-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-star-owl-s2.webp",
+      "originalSha256": "5564169a6d47ebd9ccea615c22fd19a1d7e1e30aa126ab37c7b8b402c3b8fbce",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-star-owl",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-star-owl.png",
+      "sourceSha256": "9ae3f0d9d10cd4bc40c10fd3ec813ceba914c1c6f0ebb91ae0be18f16f832459",
+      "crop": {
+        "left": 824,
+        "top": 84,
+        "width": 459,
+        "height": 640
+      },
+      "cell": {
+        "left": 707,
+        "top": 0,
+        "right": 1398,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 832,
+        "y0": 92,
+        "x1": 1274,
+        "y1": 715,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "e8b30b3c4a44098a9730c13550407aec007f57ebb4051d606b5068bd64075d40",
+      "bytes": 121828,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-star-owl-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-star-owl-s3.webp",
+      "originalSha256": "a90a9be41ef34a9b5bdb5beee3372b1ddd7fa94a4e322f29a3825327bb58a24c",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-star-owl",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-star-owl.png",
+      "sourceSha256": "9ae3f0d9d10cd4bc40c10fd3ec813ceba914c1c6f0ebb91ae0be18f16f832459",
+      "crop": {
+        "left": 1514,
+        "top": 0,
+        "width": 527,
+        "height": 724
+      },
+      "cell": {
+        "left": 1398,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1522,
+        "y0": 6,
+        "x1": 2032,
+        "y1": 716,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "ce91fc8d793bffbe377a7416a777e2714ec70553572352144dfad79700ab60ba",
+      "bytes": 123672,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-thorn-stag-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-thorn-stag-s1.webp",
+      "originalSha256": "f396273fc896c48714796636ade80aea65679f0df8e8ef78b0cefed36abd0e06",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-thorn-stag",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-thorn-stag.png",
+      "sourceSha256": "dfd30d97f80b74d86ea1b056c8c122896690ea31df23cbd6aa99e1b1f29159ac",
+      "crop": {
+        "left": 184,
+        "top": 231,
+        "width": 299,
+        "height": 484
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 637,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 192,
+        "y0": 239,
+        "x1": 474,
+        "y1": 706,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "2ffb17399916f7872ec013b6821c71e423cc604fe59d490b5e20d3bc9e8c3c5a",
+      "bytes": 139564,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-thorn-stag-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-thorn-stag-s2.webp",
+      "originalSha256": "2d025aa599cee9dd0a2eaadab10d859e6b07c291d3919d40f92b76243747ec22",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-thorn-stag",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-thorn-stag.png",
+      "sourceSha256": "dfd30d97f80b74d86ea1b056c8c122896690ea31df23cbd6aa99e1b1f29159ac",
+      "crop": {
+        "left": 792,
+        "top": 78,
+        "width": 418,
+        "height": 639
+      },
+      "cell": {
+        "left": 637,
+        "top": 0,
+        "right": 1342,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 800,
+        "y0": 86,
+        "x1": 1201,
+        "y1": 708,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "c3fad13afd2b1e15b8a44bbe2f5ea4b302ef0e121d8915b11f86e08764797cb3",
+      "bytes": 145200,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-thorn-stag-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-thorn-stag-s3.webp",
+      "originalSha256": "89b863c30ebda8deb5d175e8b03ca3699c78e88db9f5dec168b2b981ee424a89",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-thorn-stag",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-thorn-stag.png",
+      "sourceSha256": "dfd30d97f80b74d86ea1b056c8c122896690ea31df23cbd6aa99e1b1f29159ac",
+      "crop": {
+        "left": 1474,
+        "top": 2,
+        "width": 587,
+        "height": 720
+      },
+      "cell": {
+        "left": 1342,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1482,
+        "y0": 10,
+        "x1": 2052,
+        "y1": 713,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "017ada1348a594249a65b98dbc8dff4641b70d017a05be12baf6ddbdccd446e9",
+      "bytes": 173814,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-glow-lynx-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-glow-lynx-s1.webp",
+      "originalSha256": "3222d88ecf75720120049becd5cccdafdc8b0c50f444be367d7a72824776f957",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-glow-lynx",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-glow-lynx.png",
+      "sourceSha256": "da7ee8d30883681efd7c1682d7250c6b56bc0e6b7b9225141a461f4367e5180a",
+      "crop": {
+        "left": 176,
+        "top": 241,
+        "width": 351,
+        "height": 463
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 662,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 184,
+        "y0": 249,
+        "x1": 518,
+        "y1": 695,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "2e3ab77f598ff8b3bc11c9d70baf34c0bcf43c2017616a7230545112f439d6c0",
+      "bytes": 113156,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-glow-lynx-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-glow-lynx-s2.webp",
+      "originalSha256": "50cdff955bbc6a1502ae19d6e3331a37e8089dfb03e042011f94b23a1bd0ad53",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-glow-lynx",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-glow-lynx.png",
+      "sourceSha256": "da7ee8d30883681efd7c1682d7250c6b56bc0e6b7b9225141a461f4367e5180a",
+      "crop": {
+        "left": 798,
+        "top": 102,
+        "width": 481,
+        "height": 600
+      },
+      "cell": {
+        "left": 662,
+        "top": 0,
+        "right": 1381,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 806,
+        "y0": 110,
+        "x1": 1270,
+        "y1": 693,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "3b886949d72a4fd4d630281c1bf1a112a88e470de97ff034c20866b142bb13a2",
+      "bytes": 136950,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-glow-lynx-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-glow-lynx-s3.webp",
+      "originalSha256": "a9adad6600d9a301e2a48388b8916a7c6bf7ba6742b9a1c71cc290c90f164683",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-glow-lynx",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-glow-lynx.png",
+      "sourceSha256": "da7ee8d30883681efd7c1682d7250c6b56bc0e6b7b9225141a461f4367e5180a",
+      "crop": {
+        "left": 1484,
+        "top": 2,
+        "width": 504,
+        "height": 706
+      },
+      "cell": {
+        "left": 1381,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1492,
+        "y0": 10,
+        "x1": 1979,
+        "y1": 699,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "f9d6d4afe20cd8d8e30f5a6fcd8688bf4ed0e35352531a27544d1898b6ca2261",
+      "bytes": 113994,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-river-dragon-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-river-dragon-s1.webp",
+      "originalSha256": "fa4edb5f3577b9de99a22ac4bca6634d84f71e3b5bd7b04747d06e6fa1cd8f7e",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-river-dragon",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-river-dragon.png",
+      "sourceSha256": "b29ad9afa185ded2284f2dfe579a8de81c70a51ed5bd7f7d806717e41f0749e9",
+      "crop": {
+        "left": 127,
+        "top": 318,
+        "width": 408,
+        "height": 395
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 655,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 135,
+        "y0": 326,
+        "x1": 526,
+        "y1": 704,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "36284b20be1a7dbda322b8e9ea923c6a4446c76372e8751201550e1aefb12668",
+      "bytes": 147388,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-river-dragon-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-river-dragon-s2.webp",
+      "originalSha256": "969bcd5e630cb2faeeac4861a3163a708d48f05757f5b4b791b1a68da467c6ee",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-river-dragon",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-river-dragon.png",
+      "sourceSha256": "b29ad9afa185ded2284f2dfe579a8de81c70a51ed5bd7f7d806717e41f0749e9",
+      "crop": {
+        "left": 776,
+        "top": 146,
+        "width": 492,
+        "height": 567
+      },
+      "cell": {
+        "left": 655,
+        "top": 0,
+        "right": 1363,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 784,
+        "y0": 154,
+        "x1": 1259,
+        "y1": 704,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "46e172fc27765856b63afb9b0166114468cc9a4475d12cc8fae9d0beb7d8bd26",
+      "bytes": 160736,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-river-dragon-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-river-dragon-s3.webp",
+      "originalSha256": "a4b7696b4c4bdc8e0b194f0165b9a39539fa110d4d6575b59cd5854ef695ef11",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-river-dragon",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-river-dragon.png",
+      "sourceSha256": "b29ad9afa185ded2284f2dfe579a8de81c70a51ed5bd7f7d806717e41f0749e9",
+      "crop": {
+        "left": 1458,
+        "top": 3,
+        "width": 628,
+        "height": 717
+      },
+      "cell": {
+        "left": 1363,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1466,
+        "y0": 11,
+        "x1": 2077,
+        "y1": 711,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "244435aa29c9c8f592537368f0fbbf9628e2cc9fc2751b134c43640450d63789",
+      "bytes": 163634,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-moon-wyrm-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-moon-wyrm-s1.webp",
+      "originalSha256": "816ae2ae448f5f35690b57f6cafc28d498aa5a81a8416c91c0242af7c52861f5",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-moon-wyrm",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moon-wyrm.png",
+      "sourceSha256": "058d53c147ee218f25c6196e96691de7fa449617c38af611905a04bed9f15365",
+      "crop": {
+        "left": 38,
+        "top": 267,
+        "width": 429,
+        "height": 440
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 514,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 46,
+        "y0": 275,
+        "x1": 458,
+        "y1": 698,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "c4d475c47f56ffef29a8b64e907beaac7611d1b27a64ad5babaad89117693b22",
+      "bytes": 178348,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-moon-wyrm-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-moon-wyrm-s2.webp",
+      "originalSha256": "ba7ffb6fe00e60484cc35fd9ee2100fb34c53ffab5bf405b0db1d528c68e0a65",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-moon-wyrm",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moon-wyrm.png",
+      "sourceSha256": "058d53c147ee218f25c6196e96691de7fa449617c38af611905a04bed9f15365",
+      "crop": {
+        "left": 562,
+        "top": 121,
+        "width": 682,
+        "height": 585
+      },
+      "cell": {
+        "left": 514,
+        "top": 0,
+        "right": 1272,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 570,
+        "y0": 129,
+        "x1": 1235,
+        "y1": 697,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "18d9393f804c3628ddcbe4869cc8f99cb563b864443c981aa321877e8061f426",
+      "bytes": 188166,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-moon-wyrm-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-moon-wyrm-s3.webp",
+      "originalSha256": "ef0cdc213f79530029bc05a276a2b84e3cbd709a427e66ee740bf5f6968fe292",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-moon-wyrm",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-moon-wyrm.png",
+      "sourceSha256": "058d53c147ee218f25c6196e96691de7fa449617c38af611905a04bed9f15365",
+      "crop": {
+        "left": 1300,
+        "top": 7,
+        "width": 870,
+        "height": 709
+      },
+      "cell": {
+        "left": 1272,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1308,
+        "y0": 15,
+        "x1": 2161,
+        "y1": 707,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "388d11c6cceadc2e2318630718463b8703e88ac5d6d2570f7dbe30edd71dfd1d",
+      "bytes": 180188,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-fern-snail-s1",
+      "stage": 1,
+      "path": "/images/hollow/beastie-fern-snail-s1.webp",
+      "originalSha256": "4135316de74baf0892f14d4ffcefca383013d478d14899b9e98f452314eacba9",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-fern-snail",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-fern-snail.png",
+      "sourceSha256": "093e78454362ae001458cc338c2dee9ea2664c469b3592f927383a5dc4a0aa13",
+      "crop": {
+        "left": 85,
+        "top": 301,
+        "width": 385,
+        "height": 406
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 559,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 93,
+        "y0": 309,
+        "x1": 461,
+        "y1": 698,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "c69536840d902b60595402b2772aa1171226dd117bb566bb39662d485b39e896",
+      "bytes": 157556,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-fern-snail-s2",
+      "stage": 2,
+      "path": "/images/hollow/beastie-fern-snail-s2.webp",
+      "originalSha256": "17abb51a397f4e05a78f28732dcc7b3dc7fd8fe75e82fd49924c54f957ab6e2a",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-fern-snail",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-fern-snail.png",
+      "sourceSha256": "093e78454362ae001458cc338c2dee9ea2664c469b3592f927383a5dc4a0aa13",
+      "crop": {
+        "left": 648,
+        "top": 134,
+        "width": 591,
+        "height": 580
+      },
+      "cell": {
+        "left": 559,
+        "top": 0,
+        "right": 1319,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 656,
+        "y0": 142,
+        "x1": 1230,
+        "y1": 705,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "6cd50c6ef32697a6dcdbcb6825d96aacdd4c68c8d026fbea79a25df4e7e0f2bc",
+      "bytes": 160214,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    },
+    {
+      "id": "beastie-fern-snail-s3",
+      "stage": 3,
+      "path": "/images/hollow/beastie-fern-snail-s3.webp",
+      "originalSha256": "5792b2d73d54533f8b180499582dd0d7e400cbcadf727903541582228a6c92c5",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "jobId": "hollow-beastie-fern-snail",
+      "source": "source-art/hollow/items-clean-cartoon/hollow-beastie-fern-snail.png",
+      "sourceSha256": "093e78454362ae001458cc338c2dee9ea2664c469b3592f927383a5dc4a0aa13",
+      "crop": {
+        "left": 1400,
+        "top": 0,
+        "width": 738,
+        "height": 721
+      },
+      "cell": {
+        "left": 1319,
+        "top": 0,
+        "right": 2172,
+        "bottom": 724
+      },
+      "alphaBounds": {
+        "x0": 1408,
+        "y0": 8,
+        "x1": 2129,
+        "y1": 712,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "0d58be12806aa0a7bd073393b213d18abe305b747b6fac5ead08f3751c3aba6b",
+      "bytes": 165880,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "status": "accepted-local",
+        "note": "Complete silhouettes extracted at measured real alpha gutters, no equal-cell clipping. Exact two-eye fern-snail anatomy, two-sun BabyMoth motifs, neutral cream three-color-star pennant. Canonical IDs/species/growth/economy preserved.",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/companions-clean-cartoon/hollow47-current-proof.json",
+        "runtimeEvidenceSha256": "e59180536ed6a3a0a85623782df7e8fe92ecb3972ffca91ec23c4ca5b00f4f0c",
+        "notes": "All47 actual selected icons/growth frames exercise current SHA/version transport across3viewports, gift/feed/growth/buy/place/equip/reload. Four expansion icons are currently unselected; no invented display claim."
+      },
+      "runtimeNotApplicable": false
+    }
+  ]
+}

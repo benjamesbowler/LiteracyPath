@@ -11,6 +11,7 @@ import { PROGRESS_CHECK_INSTRUCTIONS } from '../../src/data/progressCheckInstruc
 import { progressCheckAudioPath } from '../../src/utils/progressCheckAudio.js';
 import { mockConstructionLength } from '../../src/utils/literacyMockResponse.js';
 import { mockOfflineMediaPaths, prepareMockOfflineMedia } from '../../src/utils/literacyMockOfflineMedia.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 
 const publication = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v10', includeUnavailable: true });
 const bank = publication.filter(item => item.mediaReady);
@@ -36,6 +37,7 @@ test('V10 authors forty distinct transformations and admits sufficient reviewed 
 
 test('every V10 deliverable media path retains real local bytes through the actual offline cache API', async t => {
   const paths = mockOfflineMediaPaths(bank.filter(item => item.tutorialOnly || item.adaptiveMixedEligible && isLiteracyItemEligible(item)));
+  assert.ok(paths.every(path => !/[?#]/.test(path)), 'Offline reserve and caller identities remain canonical.');
   let totalBytes = 0;
   // This exercises URL authorization and write/readback with real public files.
   // It is local cache evidence, not a browser/network or physical-device claim.
@@ -54,7 +56,7 @@ test('every V10 deliverable media path retains real local bytes through the actu
       createObjectURL: () => `blob:v10-local-${++created}`, revokeObjectURL: url => { revoked.push(url); },
     };
     const online = await prepareMockOfflineMedia(batch, options);
-    assert.equal(online.assets, batch.length); assert.deepEqual(new Set(fetched), new Set(batch));
+    assert.equal(online.assets, batch.length); assert.deepEqual(new Set(fetched), new Set(batch.map(withRepairedImageVersion)));
     assert.equal(created,0,'Preparation retains bytes without allocating a live URL for every future question.');
     for(const path of batch)assert.match(online.resolve(path),/^blob:v10-local-/);
     totalBytes += online.bytes; online.dispose(); assert.equal(revoked.length, batch.length);

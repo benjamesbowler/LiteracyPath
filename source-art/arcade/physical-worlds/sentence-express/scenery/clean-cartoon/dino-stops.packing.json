@@ -1,0 +1,105 @@
+{
+  "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/dino-stops-002.png",
+  "nativeSha256": "a505c2436eae2698c469bdc384cc307e1b741c352fe02cece3cf5baa3ac34e2b",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "outputSize": [
+    1536,
+    1024
+  ],
+  "sharp": "0.35.5",
+  "kernel": "lanczos3",
+  "encoder": "PNG default",
+  "generatedRasterOnly": true,
+  "method": "global-alpha160-connected-components-area3000; whole raster crops+3px; shared uniform scale; equal2x2containpack",
+  "sharedScale": 0.6894763092269327,
+  "maximumCellFraction": 0.72,
+  "cells": [
+    {
+      "index": 0,
+      "nativeRect": {
+        "left": 8,
+        "top": 25,
+        "width": 707,
+        "height": 464
+      },
+      "destRect": {
+        "left": 140,
+        "top": 96,
+        "width": 487,
+        "height": 320
+      },
+      "wholeCell": {
+        "left": 0,
+        "top": 0,
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "index": 1,
+      "nativeRect": {
+        "left": 728,
+        "top": 155,
+        "width": 802,
+        "height": 320
+      },
+      "destRect": {
+        "left": 875,
+        "top": 145,
+        "width": 553,
+        "height": 221
+      },
+      "wholeCell": {
+        "left": 768,
+        "top": 0,
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "index": 2,
+      "nativeRect": {
+        "left": 10,
+        "top": 532,
+        "width": 716,
+        "height": 451
+      },
+      "destRect": {
+        "left": 137,
+        "top": 612,
+        "width": 494,
+        "height": 311
+      },
+      "wholeCell": {
+        "left": 0,
+        "top": 512,
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "index": 3,
+      "nativeRect": {
+        "left": 735,
+        "top": 542,
+        "width": 795,
+        "height": 443
+      },
+      "destRect": {
+        "left": 878,
+        "top": 615,
+        "width": 548,
+        "height": 305
+      },
+      "wholeCell": {
+        "left": 768,
+        "top": 512,
+        "width": 768,
+        "height": 512
+      }
+    }
+  ]
+}

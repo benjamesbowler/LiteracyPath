@@ -5,13 +5,14 @@ import vm from 'node:vm';
 import {buildCyclePresentation, buildPresentationCoverageDashboard, shufflePresentationChoices} from '../../src/utils/present/presentationBuilder.js';
 import {dailyPresentReading, presentGameSchedule} from '../../src/data/presentDailyReading.js';
 const days=['monday','tuesday','wednesday','thursday','friday'];
+const publicFile = src => `public${new URL(src, 'https://literacyguide.test').pathname}`;
 
 test('all 135 daily lessons resolve every required recording and picture',()=>{
  for(let n=1;n<=27;n++)for(const day of days){
   const deck=buildCyclePresentation(`cycle-${n}`,{day});
   for(const slide of deck.manifest.slides){
-   for(const media of slide.media.filter(item=>item.required))assert.ok(media.src&&fs.existsSync(`public${media.src}`),`${n} ${day}: ${media.transcript}`);
-   for(const image of slide.media.filter(item=>item.type==='image'))assert.ok(fs.existsSync(`public${image.src}`),image.src);
+   for(const media of slide.media.filter(item=>item.required))assert.ok(media.src&&fs.existsSync(publicFile(media.src)),`${n} ${day}: ${media.transcript}`);
+   for(const image of slide.media.filter(item=>item.type==='image'))assert.ok(fs.existsSync(publicFile(image.src)),image.src);
   }
   const reading=deck.manifest.slides.filter(item=>item.construct==='supported-shared-reading');
   assert.equal(reading.length,day==='friday'?6:2);
@@ -53,7 +54,7 @@ test('each presentation opens with a rotating taught recap and meaningful record
   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-letter-review').length,1);
   for(const card of recap.reviewItems){
    if(card.target.length===1||card.target==='qu')assert.ok(card.imagePath&&card.anchorAudio,`${n} ${day}: ${card.target}`);
-   if(card.imagePath){assert.ok(recap.media.some(item=>item.src===card.imagePath&&item.required&&item.meaning===card.anchorWord));assert.ok(fs.existsSync(`public${card.imagePath}`));}
+   if(card.imagePath){assert.ok(recap.media.some(item=>item.src===card.imagePath&&item.required&&item.meaning===card.anchorWord));assert.ok(fs.existsSync(publicFile(card.imagePath)));}
    if(card.anchorAudio)assert.ok(recap.audioRoles.some(item=>item.src===card.anchorAudio&&item.transcript===card.anchorWord));
   }
  }

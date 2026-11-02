@@ -4,40 +4,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 1254,
     "height": 1254,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 167.72727272727272,
+    "pixelsPerUnit": 143.63636363636363,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/bouncy-platforming-v1.webp",
-    "sourceSha256": "25696dfbe3efb9ba38917635c0220279acc159822774424a6b2056fb1d3d26a1",
+    "sourceSha256": "df40863faa713aba2f78923b7212f9ef3b4dc97a3ac7dbdf03eeda65f4286141",
     "frames": [
       {
         "id": "idle",
         "action": "idle",
         "direction": "right",
         "cell": [
-          86,
-          23,
-          341,
-          404
+          0,
+          0,
+          418,
+          418
         ],
         "anchor": [
-          113,
-          374
+          181,
+          372
         ],
         "sockets": {
           "feet": [
-            145.272,
-            397
+            181,
+            372
           ],
           "crown": [
-            251,
-            29
+            246,
+            43
           ],
           "headLeft": [
-            134,
-            132
+            107,
+            135
           ],
           "headRight": [
-            334,
-            129
+            320,
+            135
           ]
         }
       },
@@ -46,30 +46,30 @@ export const LETTER_LEAP_ATLASES = {
         "action": "run-extended-a",
         "direction": "right",
         "cell": [
-          442,
-          30,
-          776,
-          403
+          418,
+          0,
+          836,
+          418
         ],
         "anchor": [
-          167,
-          366
+          296,
+          374
         ],
         "sockets": {
           "feet": [
-            704.579,
-            396
+            714,
+            374
           ],
           "crown": [
-            683,
-            36
+            694,
+            45
           ],
           "headLeft": [
-            520,
-            135
+            545,
+            137
           ],
           "headRight": [
-            762,
+            771,
             137
           ]
         }
@@ -79,31 +79,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "run-extended-b",
         "direction": "right",
         "cell": [
-          886,
-          27,
-          1195,
-          398
+          836,
+          0,
+          1254,
+          418
         ],
         "anchor": [
-          154,
-          364
+          294,
+          374
         ],
         "sockets": {
           "feet": [
-            1125.511,
-            391
+            1130,
+            374
           ],
           "crown": [
-            1103,
-            33
+            1099,
+            44
           ],
           "headLeft": [
-            948,
-            131
+            966,
+            136
           ],
           "headRight": [
-            1186,
-            131
+            1183,
+            136
           ]
         }
       },
@@ -112,31 +112,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "brake",
         "direction": "right",
         "cell": [
-          84,
-          476,
-          395,
-          796
+          0,
+          418,
+          418,
+          836
         ],
         "anchor": [
-          155,
-          313
+          165,
+          372
         ],
         "sockets": {
           "feet": [
-            135.295,
-            789
+            165,
+            790
           ],
           "crown": [
-            297,
-            482
+            204,
+            477
           ],
           "headLeft": [
-            149,
-            563
+            65,
+            565
           ],
           "headRight": [
-            378,
-            529
+            291,
+            563
           ]
         }
       },
@@ -145,31 +145,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "crouch",
         "direction": "right",
         "cell": [
-          492,
-          498,
-          792,
-          796
+          418,
+          418,
+          836,
+          836
         ],
         "anchor": [
-          120,
-          291
+          158,
+          374
         ],
         "sockets": {
           "feet": [
-            576.617,
-            789
+            576,
+            792
           ],
           "crown": [
-            701,
-            504
+            696,
+            535
           ],
           "headLeft": [
-            505,
-            584
+            544,
+            597
           ],
           "headRight": [
-            772,
-            546
+            762,
+            574
           ]
         }
       },
@@ -178,337 +178,30 @@ export const LETTER_LEAP_ATLASES = {
         "action": "takeoff",
         "direction": "right",
         "cell": [
-          882,
-          409,
-          1170,
-          793
+          836,
+          418,
+          1254,
+          836
         ],
         "anchor": [
-          88.5,
-          377
-        ],
-        "sockets": {
-          "feet": [
-            929.78,
-            786
-          ],
-          "crown": [
-            1066,
-            415
-          ],
-          "headLeft": [
-            936,
-            519
-          ],
-          "headRight": [
-            1163,
-            491
-          ]
-        }
-      },
-      {
-        "id": "rise",
-        "action": "rise",
-        "direction": "right",
-        "cell": [
-          104,
-          816,
-          381,
-          1146
-        ],
-        "anchor": [
-          86.5,
-          323
-        ],
-        "sockets": {
-          "feet": [
-            199.5,
-            1139
-          ],
-          "crown": [
-            281,
-            822
-          ],
-          "headLeft": [
-            138,
-            911
-          ],
-          "headRight": [
-            374,
-            911
-          ]
-        }
-      },
-      {
-        "id": "fall",
-        "action": "fall",
-        "direction": "right",
-        "cell": [
-          498,
-          846,
-          782,
-          1209
-        ],
-        "anchor": [
-          179.5,
-          356
-        ],
-        "sockets": {
-          "feet": [
-            616.3,
-            1202
-          ],
-          "crown": [
-            684,
-            852
-          ],
-          "headLeft": [
-            536,
-            905
-          ],
-          "headRight": [
-            764,
-            909
-          ]
-        }
-      },
-      {
-        "id": "land",
-        "action": "land",
-        "direction": "right",
-        "cell": [
-          905,
-          915,
-          1200,
-          1223
-        ],
-        "anchor": [
-          143.5,
-          301
-        ],
-        "sockets": {
-          "feet": [
-            958.597,
-            1216
-          ],
-          "crown": [
-            1106,
-            921
-          ],
-          "headLeft": [
-            955,
-            1003
-          ],
-          "headRight": [
-            1176,
-            1002
-          ]
-        }
-      }
-    ]
-  },
-  "chompy-chompy-platforming": {
-    "width": 1254,
-    "height": 1254,
-    "nominalHeight": 2.2,
-    "pixelsPerUnit": 166.36363636363635,
-    "runtime": "/game-assets/physical-arcade/letter-leap/characters/chompy-platforming-v1.webp",
-    "sourceSha256": "cdc9193277eec5f25c93d9f0438d6c1449c5f3aaf3ee0a668848fe415687f922",
-    "frames": [
-      {
-        "id": "idle",
-        "action": "idle",
-        "direction": "right",
-        "cell": [
-          52,
-          43,
-          369,
-          421
-        ],
-        "anchor": [
-          148.5,
+          123,
           371
         ],
         "sockets": {
           "feet": [
-            170.641,
-            414
+            959,
+            789
           ],
           "crown": [
-            243,
-            49
+            1087,
+            463
           ],
           "headLeft": [
-            142,
-            134
+            954,
+            555
           ],
           "headRight": [
-            359,
-            151
-          ]
-        }
-      },
-      {
-        "id": "run-extended-a",
-        "action": "run-extended-a",
-        "direction": "right",
-        "cell": [
-          451,
-          44,
-          800,
-          424
-        ],
-        "anchor": [
-          187,
-          373
-        ],
-        "sockets": {
-          "feet": [
-            556.526,
-            417
-          ],
-          "crown": [
-            681,
-            50
-          ],
-          "headLeft": [
-            570,
-            127
-          ],
-          "headRight": [
-            783,
-            153
-          ]
-        }
-      },
-      {
-        "id": "run-extended-b",
-        "action": "run-extended-b",
-        "direction": "right",
-        "cell": [
-          900,
-          43,
-          1223,
-          423
-        ],
-        "anchor": [
-          174.5,
-          373
-        ],
-        "sockets": {
-          "feet": [
-            984.825,
-            416
-          ],
-          "crown": [
-            1084,
-            49
-          ],
-          "headLeft": [
-            991,
-            141
-          ],
-          "headRight": [
-            1212,
-            152
-          ]
-        }
-      },
-      {
-        "id": "brake",
-        "action": "brake",
-        "direction": "right",
-        "cell": [
-          45,
-          490,
-          410,
-          811
-        ],
-        "anchor": [
-          155.5,
-          314
-        ],
-        "sockets": {
-          "feet": [
-            160.352,
-            804
-          ],
-          "crown": [
-            272,
-            496
-          ],
-          "headLeft": [
-            179,
-            566
-          ],
-          "headRight": [
-            367,
-            580
-          ]
-        }
-      },
-      {
-        "id": "crouch",
-        "action": "crouch",
-        "direction": "right",
-        "cell": [
-          493,
-          518,
-          824,
-          811
-        ],
-        "anchor": [
-          147,
-          286
-        ],
-        "sockets": {
-          "feet": [
-            612.966,
-            804
-          ],
-          "crown": [
-            698,
-            524
-          ],
-          "headLeft": [
-            596,
-            591
-          ],
-          "headRight": [
-            783,
-            590
-          ]
-        }
-      },
-      {
-        "id": "takeoff",
-        "action": "takeoff",
-        "direction": "right",
-        "cell": [
-          902,
-          431,
-          1241,
-          821
-        ],
-        "anchor": [
-          124.5,
-          383
-        ],
-        "sockets": {
-          "feet": [
-            991.964,
-            814
-          ],
-          "crown": [
-            1104,
-            437
-          ],
-          "headLeft": [
-            1012,
-            519
-          ],
-          "headRight": [
-            1232,
+            1177,
             540
           ]
         }
@@ -518,31 +211,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "rise",
         "direction": "right",
         "cell": [
-          74,
-          831,
-          390,
-          1155
+          0,
+          836,
+          418,
+          1254
         ],
         "anchor": [
-          131.5,
-          317
+          180,
+          374
         ],
         "sockets": {
           "feet": [
-            235.979,
-            1148
+            180,
+            1210
           ],
           "crown": [
-            259,
-            837
+            244,
+            908
           ],
           "headLeft": [
-            163,
-            916
+            91,
+            991
           ],
           "headRight": [
-            355,
-            924
+            326,
+            992
           ]
         }
       },
@@ -551,31 +244,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "fall",
         "direction": "right",
         "cell": [
-          490,
-          833,
-          800,
-          1182
+          418,
+          836,
+          836,
+          1254
         ],
         "anchor": [
-          173.5,
-          342
+          197,
+          374
         ],
         "sockets": {
           "feet": [
-            643.038,
-            1175
+            615,
+            1210
           ],
           "crown": [
-            678,
-            839
+            673,
+            897
           ],
           "headLeft": [
-            582,
-            909
+            529,
+            958
           ],
           "headRight": [
-            762,
-            931
+            750,
+            949
           ]
         }
       },
@@ -584,31 +277,338 @@ export const LETTER_LEAP_ATLASES = {
         "action": "land",
         "direction": "right",
         "cell": [
-          907,
-          904,
-          1232,
-          1210
+          836,
+          836,
+          1254,
+          1254
         ],
         "anchor": [
-          146,
-          299
+          138,
+          374
         ],
         "sockets": {
           "feet": [
-            1031.206,
-            1203
+            974,
+            1210
           ],
           "crown": [
-            1108,
-            910
+            1086,
+            941
           ],
           "headLeft": [
-            1008,
+            948,
+            1016
+          ],
+          "headRight": [
+            1164,
+            985
+          ]
+        }
+      }
+    ]
+  },
+  "chompy-chompy-platforming": {
+    "width": 1254,
+    "height": 1254,
+    "nominalHeight": 2.2,
+    "pixelsPerUnit": 137.72727272727272,
+    "runtime": "/game-assets/physical-arcade/letter-leap/characters/chompy-platforming-v1.webp",
+    "sourceSha256": "6815c34b42712acb1dfe4dd37b5920dcfd183448315ae6be74e3a4d54c5ea6b5",
+    "frames": [
+      {
+        "id": "idle",
+        "action": "idle",
+        "direction": "right",
+        "cell": [
+          0,
+          0,
+          418,
+          418
+        ],
+        "anchor": [
+          192,
+          372
+        ],
+        "sockets": {
+          "feet": [
+            192,
+            372
+          ],
+          "crown": [
+            246,
+            45
+          ],
+          "headLeft": [
+            158,
+            121
+          ],
+          "headRight": [
+            354,
+            137
+          ]
+        }
+      },
+      {
+        "id": "run-extended-a",
+        "action": "run-extended-a",
+        "direction": "right",
+        "cell": [
+          418,
+          0,
+          836,
+          418
+        ],
+        "anchor": [
+          146,
+          372
+        ],
+        "sockets": {
+          "feet": [
+            564,
+            372
+          ],
+          "crown": [
+            668,
+            44
+          ],
+          "headLeft": [
+            577,
+            121
+          ],
+          "headRight": [
+            778,
+            136
+          ]
+        }
+      },
+      {
+        "id": "run-extended-b",
+        "action": "run-extended-b",
+        "direction": "right",
+        "cell": [
+          836,
+          0,
+          1254,
+          418
+        ],
+        "anchor": [
+          149,
+          372
+        ],
+        "sockets": {
+          "feet": [
+            985,
+            372
+          ],
+          "crown": [
+            1076,
+            44
+          ],
+          "headLeft": [
+            991,
+            119
+          ],
+          "headRight": [
+            1188,
+            135
+          ]
+        }
+      },
+      {
+        "id": "brake",
+        "action": "brake",
+        "direction": "right",
+        "cell": [
+          0,
+          418,
+          418,
+          836
+        ],
+        "anchor": [
+          172,
+          373
+        ],
+        "sockets": {
+          "feet": [
+            172,
+            791
+          ],
+          "crown": [
+            195,
+            493
+          ],
+          "headLeft": [
+            128,
+            576
+          ],
+          "headRight": [
+            333,
+            571
+          ]
+        }
+      },
+      {
+        "id": "crouch",
+        "action": "crouch",
+        "direction": "right",
+        "cell": [
+          418,
+          418,
+          836,
+          836
+        ],
+        "anchor": [
+          163,
+          373
+        ],
+        "sockets": {
+          "feet": [
+            581,
+            791
+          ],
+          "crown": [
+            657,
+            538
+          ],
+          "headLeft": [
+            567,
+            600
+          ],
+          "headRight": [
+            741,
+            605
+          ]
+        }
+      },
+      {
+        "id": "takeoff",
+        "action": "takeoff",
+        "direction": "right",
+        "cell": [
+          836,
+          418,
+          1254,
+          836
+        ],
+        "anchor": [
+          109,
+          374
+        ],
+        "sockets": {
+          "feet": [
+            945,
+            792
+          ],
+          "crown": [
+            1097,
+            473
+          ],
+          "headLeft": [
+            1011,
+            535
+          ],
+          "headRight": [
+            1198,
+            562
+          ]
+        }
+      },
+      {
+        "id": "rise",
+        "action": "rise",
+        "direction": "right",
+        "cell": [
+          0,
+          836,
+          418,
+          1254
+        ],
+        "anchor": [
+          209,
+          374
+        ],
+        "sockets": {
+          "feet": [
+            209,
+            1210
+          ],
+          "crown": [
+            232,
+            921
+          ],
+          "headLeft": [
+            142,
+            994
+          ],
+          "headRight": [
+            332,
+            1002
+          ]
+        }
+      },
+      {
+        "id": "fall",
+        "action": "fall",
+        "direction": "right",
+        "cell": [
+          418,
+          836,
+          836,
+          1254
+        ],
+        "anchor": [
+          230,
+          372
+        ],
+        "sockets": {
+          "feet": [
+            648,
+            1208
+          ],
+          "crown": [
+            654,
+            908
+          ],
+          "headLeft": [
+            563,
             976
           ],
           "headRight": [
-            1192,
-            975
+            741,
+            992
+          ]
+        }
+      },
+      {
+        "id": "land",
+        "action": "land",
+        "direction": "right",
+        "cell": [
+          836,
+          836,
+          1254,
+          1254
+        ],
+        "anchor": [
+          181,
+          374
+        ],
+        "sockets": {
+          "feet": [
+            1017,
+            1210
+          ],
+          "crown": [
+            1080,
+            949
+          ],
+          "headLeft": [
+            997,
+            1013
+          ],
+          "headRight": [
+            1160,
+            1016
           ]
         }
       }
@@ -618,40 +618,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 1254,
     "height": 1254,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 191.8181818181818,
+    "pixelsPerUnit": 138.18181818181816,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/pip-platforming-v1.webp",
-    "sourceSha256": "74f74a159e273a6ad2fb6aa450fd4ce58820f3a1d9d0ea032ece9c31b7207371",
+    "sourceSha256": "4de3c190a94e11b39e0c7cca8248f6a7401ffed0970ed2c5778e4d329675a80d",
     "frames": [
       {
         "id": "idle",
         "action": "idle",
         "direction": "right",
         "cell": [
-          97,
-          6,
-          295,
-          440
+          0,
+          0,
+          418,
+          418
         ],
         "anchor": [
-          113,
-          427
+          171,
+          374
         ],
         "sockets": {
           "feet": [
-            164.121,
-            433
+            171,
+            374
           ],
           "crown": [
-            204,
-            12
+            240,
+            43
           ],
           "headLeft": [
-            103,
-            109
+            123,
+            135
           ],
           "headRight": [
-            288,
-            70
+            296,
+            89
           ]
         }
       },
@@ -660,31 +660,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "run-extended-a",
         "direction": "right",
         "cell": [
-          465,
-          13,
-          762,
-          434
+          418,
+          0,
+          836,
+          418
         ],
         "anchor": [
-          148,
-          414
+          276,
+          374
         ],
         "sockets": {
           "feet": [
-            692.839,
-            427
+            694,
+            374
           ],
           "crown": [
-            644,
-            19
+            679,
+            43
           ],
           "headLeft": [
-            543,
-            116
+            557,
+            121
           ],
           "headRight": [
-            729,
-            76
+            739,
+            96
           ]
         }
       },
@@ -693,31 +693,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "run-extended-b",
         "direction": "right",
         "cell": [
-          944,
-          8,
-          1165,
-          436
+          836,
+          0,
+          1254,
+          418
         ],
         "anchor": [
-          95,
-          421
+          246,
+          374
         ],
         "sockets": {
           "feet": [
-            1055.402,
-            429
+            1082,
+            374
           ],
           "crown": [
-            1061,
-            14
+            1076,
+            43
           ],
           "headLeft": [
-            962,
-            99
+            963,
+            119
           ],
           "headRight": [
-            1141,
-            67
+            1135,
+            91
           ]
         }
       },
@@ -726,31 +726,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "brake",
         "direction": "right",
         "cell": [
-          97,
-          449,
-          396,
-          845
+          0,
+          418,
+          418,
+          836
         ],
         "anchor": [
-          195.5,
-          389
+          239,
+          374
         ],
         "sockets": {
           "feet": [
-            271.737,
-            838
+            239,
+            792
           ],
           "crown": [
-            217,
-            455
+            188,
+            489
           ],
           "headLeft": [
-            103,
-            555
+            79,
+            574
           ],
           "headRight": [
-            290,
-            508
+            247,
+            523
           ]
         }
       },
@@ -759,31 +759,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "crouch",
         "direction": "right",
         "cell": [
-          508,
-          503,
-          794,
-          831
+          418,
+          418,
+          836,
+          836
         ],
         "anchor": [
-          115.5,
-          321
+          168,
+          374
         ],
         "sockets": {
           "feet": [
-            608.109,
-            824
+            586,
+            792
           ],
           "crown": [
-            702,
-            509
+            690,
+            544
           ],
           "headLeft": [
-            597,
-            586
+            579,
+            613
           ],
           "headRight": [
-            787,
-            566
+            751,
+            590
           ]
         }
       },
@@ -792,31 +792,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "takeoff",
         "direction": "right",
         "cell": [
-          935,
-          427,
-          1180,
-          835
+          836,
+          418,
+          1254,
+          836
         ],
         "anchor": [
-          63,
-          401
+          112,
+          374
         ],
         "sockets": {
           "feet": [
-            965.907,
-            828
+            948,
+            792
           ],
           "crown": [
-            1104,
-            433
+            1096,
+            481
           ],
           "headLeft": [
-            994,
-            530
+            996,
+            560
           ],
           "headRight": [
-            1173,
-            488
+            1157,
+            516
           ]
         }
       },
@@ -825,31 +825,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "rise",
         "direction": "right",
         "cell": [
-          86,
-          844,
-          331,
-          1173
+          0,
+          836,
+          418,
+          1254
         ],
         "anchor": [
-          105,
-          322
+          181,
+          374
         ],
         "sockets": {
           "feet": [
-            173,
-            1166
+            181,
+            1210
           ],
           "crown": [
             238,
-            850
+            972
           ],
           "headLeft": [
-            132,
-            923
+            143,
+            1028
           ],
           "headRight": [
-            324,
-            913
+            315,
+            1019
           ]
         }
       },
@@ -858,31 +858,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "fall",
         "direction": "right",
         "cell": [
-          481,
-          838,
-          753,
-          1229
+          418,
+          836,
+          836,
+          1254
         ],
         "anchor": [
-          192.5,
-          384
+          261,
+          374
         ],
         "sockets": {
           "feet": [
-            637.167,
-            1222
+            679,
+            1210
           ],
           "crown": [
-            652,
-            844
+            664,
+            953
           ],
           "headLeft": [
-            548,
-            930
+            549,
+            1020
           ],
           "headRight": [
-            738,
-            910
+            725,
+            1000
           ]
         }
       },
@@ -891,31 +891,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "land",
         "direction": "right",
         "cell": [
-          935,
-          896,
-          1185,
-          1238
+          836,
+          836,
+          1254,
+          1254
         ],
         "anchor": [
-          113.5,
-          335
+          188,
+          374
         ],
         "sockets": {
           "feet": [
-            1032.496,
-            1231
+            1024,
+            1210
           ],
           "crown": [
-            1093,
-            902
+            1078,
+            962
           ],
           "headLeft": [
-            991,
-            984
+            968,
+            1031
           ],
           "headRight": [
-            1178,
-            962
+            1136,
+            1007
           ]
         }
       }
@@ -925,40 +925,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 1254,
     "height": 1254,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 480.45454545454544,
+    "pixelsPerUnit": 454.5454545454545,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/bouncy-passing-v1.webp",
-    "sourceSha256": "3b67016c52d470c6dd0f4ba7a9501c6b9022379f055a12af58d2a4cd1cf99718",
+    "sourceSha256": "f33207bcf79587cb49ecbbbc506eaa12102c68188f5afe9669e233a85e33c852",
     "frames": [
       {
         "id": "run-passing",
         "action": "run-passing",
         "direction": "right",
         "cell": [
-          287,
-          103,
-          1015,
-          1172
+          0,
+          0,
+          1254,
+          1254
         ],
         "anchor": [
-          393.5,
-          1062
+          522,
+          1127
         ],
         "sockets": {
           "feet": [
-            546.682,
-            1165
+            522,
+            1127
           ],
           "crown": [
-            754,
-            109
+            677,
+            128
           ],
           "headLeft": [
-            332,
-            404
+            330,
+            407
           ],
           "headRight": [
-            1007,
-            401
+            948,
+            407
           ]
         }
       }
@@ -968,40 +968,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 2172,
     "height": 724,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 274.09090909090907,
+    "pixelsPerUnit": 262.27272727272725,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-passing-v1.webp",
-    "sourceSha256": "c21981cb5f6ef4d8982f7ffc9bb32f5f43190842b9505c4271b61eb3b4ad78cc",
+    "sourceSha256": "9c44f2aea98b3fa932b17a018fd226c901fff291b9937decc60bfd12c84e64da",
     "frames": [
       {
         "id": "run-passing",
         "action": "run-passing",
         "direction": "right",
         "cell": [
-          862,
-          73,
-          1290,
-          688
+          0,
+          0,
+          1086,
+          724
         ],
         "anchor": [
-          238,
-          608
+          537,
+          650
         ],
         "sockets": {
           "feet": [
-            1067.463,
-            681
+            537,
+            650
           ],
           "crown": [
-            1088,
-            79
+            575,
+            74
           ],
           "headLeft": [
-            957,
-            235
+            428,
+            234
           ],
           "headRight": [
-            1282,
-            243
+            766,
+            231
           ]
         }
       }
@@ -1011,40 +1011,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 2172,
     "height": 724,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 302.27272727272725,
+    "pixelsPerUnit": 262.27272727272725,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-passing-v1.webp",
-    "sourceSha256": "c21981cb5f6ef4d8982f7ffc9bb32f5f43190842b9505c4271b61eb3b4ad78cc",
+    "sourceSha256": "9c44f2aea98b3fa932b17a018fd226c901fff291b9937decc60bfd12c84e64da",
     "frames": [
       {
         "id": "run-passing",
         "action": "run-passing",
         "direction": "right",
         "cell": [
-          1511,
-          17,
-          1879,
-          694
+          1086,
+          0,
+          2172,
+          724
         ],
         "anchor": [
-          189.5,
-          670
+          504,
+          650
         ],
         "sockets": {
           "feet": [
-            1665.789,
-            687
+            1590,
+            650
           ],
           "crown": [
-            1743,
-            23
+            1708,
+            74
           ],
           "headLeft": [
-            1539,
-            143
+            1475,
+            231
           ],
           "headRight": [
-            1861,
-            129
+            1811,
+            170
           ]
         }
       }
@@ -1054,39 +1054,39 @@ export const LETTER_LEAP_ATLASES = {
     "width": 1448,
     "height": 1086,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 141.36363636363635,
+    "pixelsPerUnit": 130.68181818181816,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-platform-feedback-v1.webp",
-    "sourceSha256": "76546cf155efda4e2172226fa13bec923904804332e526e0fa362426cd648d63",
+    "sourceSha256": "244ad87e11df150a27861df837aed844bb94074a860743a52afdee688459caab",
     "frames": [
       {
         "id": "bouncy-bump",
         "action": "bump",
         "direction": "right",
         "cell": [
-          60,
-          26,
-          343,
-          353
+          0,
+          0,
+          362,
+          362
         ],
         "anchor": [
-          141.5,
-          319
+          158,
+          324
         ],
         "sockets": {
           "feet": [
-            195.76363636363635,
-            345
+            158,
+            324
           ],
           "crown": [
-            197,
-            33
+            188,
+            37
           ],
           "headLeft": [
-            102,
-            106
+            101,
+            117
           ],
           "headRight": [
-            262,
+            250,
             117
           ]
         }
@@ -1096,31 +1096,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          436,
-          81,
-          719,
-          353
+          362,
+          0,
+          724,
+          362
         ],
         "anchor": [
-          141.5,
-          264
+          122,
+          322
         ],
         "sockets": {
           "feet": [
-            483.5108695652174,
-            345
+            484,
+            322
           ],
           "crown": [
-            639,
-            88
+            588,
+            84
           ],
           "headLeft": [
-            488,
-            158
+            456,
+            149
           ],
           "headRight": [
-            711,
-            142
+            659,
+            139
           ]
         }
       },
@@ -1129,31 +1129,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "correct",
         "direction": "right",
         "cell": [
-          788,
-          28,
-          1038,
-          353
+          724,
+          0,
+          1086,
+          362
         ],
         "anchor": [
-          125,
-          317
+          155,
+          322
         ],
         "sockets": {
           "feet": [
-            854.1818181818181,
-            345
+            879,
+            322
           ],
           "crown": [
-            925,
-            35
+            930,
+            37
           ],
           "headLeft": [
-            818,
-            122
+            834,
+            117
           ],
           "headRight": [
-            1004,
-            122
+            994,
+            116
           ]
         }
       },
@@ -1162,31 +1162,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "summit",
         "direction": "right",
         "cell": [
-          1117,
-          3,
-          1380,
-          343
+          1086,
+          0,
+          1448,
+          362
         ],
         "anchor": [
-          131.5,
-          332
+          228,
+          324
         ],
         "sockets": {
           "feet": [
-            1273.15625,
-            335
+            1314,
+            324
           ],
           "crown": [
-            1266,
-            10
+            1286,
+            38
           ],
           "headLeft": [
-            1124,
-            93
+            1153,
+            118
           ],
           "headRight": [
-            1372,
-            60
+            1379,
+            102
           ]
         }
       }
@@ -1196,40 +1196,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 1448,
     "height": 1086,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 144.54545454545453,
+    "pixelsPerUnit": 128.18181818181816,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-platform-feedback-v1.webp",
-    "sourceSha256": "76546cf155efda4e2172226fa13bec923904804332e526e0fa362426cd648d63",
+    "sourceSha256": "244ad87e11df150a27861df837aed844bb94074a860743a52afdee688459caab",
     "frames": [
       {
         "id": "chompy-bump",
         "action": "bump",
         "direction": "right",
         "cell": [
-          62,
-          355,
-          352,
-          689
+          0,
+          362,
+          362,
+          724
         ],
         "anchor": [
-          145,
-          326
+          180,
+          322
         ],
         "sockets": {
           "feet": [
-            190.63846153846154,
-            681
+            180,
+            684
           ],
           "crown": [
-            195,
-            362
+            170,
+            406
           ],
           "headLeft": [
-            110,
-            450
+            101,
+            475
           ],
           "headRight": [
-            311,
-            450
+            275,
+            483
           ]
         }
       },
@@ -1238,31 +1238,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          432,
-          417,
-          754,
-          689
+          362,
+          362,
+          724,
+          724
         ],
         "anchor": [
-          161,
-          264
+          131,
+          322
         ],
         "sockets": {
           "feet": [
-            509.2448979591837,
-            681
+            493,
+            684
           ],
           "crown": [
-            652,
-            424
+            591,
+            456
           ],
           "headLeft": [
-            560,
-            482
+            510,
+            503
           ],
           "headRight": [
-            724,
-            490
+            663,
+            519
           ]
         }
       },
@@ -1271,31 +1271,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "correct",
         "direction": "right",
         "cell": [
-          786,
-          357,
-          1051,
-          689
+          724,
+          362,
+          1086,
+          724
         ],
         "anchor": [
-          132.5,
-          324
+          155,
+          323
         ],
         "sockets": {
           "feet": [
-            888.8012820512821,
-            681
+            879,
+            685
           ],
           "crown": [
-            917,
-            364
+            907,
+            404
           ],
           "headLeft": [
-            837,
-            445
+            834,
+            474
           ],
           "headRight": [
-            1030,
-            451
+            1016,
+            483
           ]
         }
       },
@@ -1304,31 +1304,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "summit",
         "direction": "right",
         "cell": [
-          1129,
-          344,
-          1412,
-          679
+          1086,
+          362,
+          1448,
+          724
         ],
         "anchor": [
-          141.5,
-          327
+          241,
+          324
         ],
         "sockets": {
           "feet": [
-            1340.5714285714287,
-            671
+            1327,
+            686
           ],
           "crown": [
-            1261,
-            351
+            1258,
+            399
           ],
           "headLeft": [
-            1181,
-            439
+            1193,
+            479
           ],
           "headRight": [
-            1374,
-            438
+            1369,
+            474
           ]
         }
       }
@@ -1338,40 +1338,40 @@ export const LETTER_LEAP_ATLASES = {
     "width": 1448,
     "height": 1086,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 167.27272727272725,
+    "pixelsPerUnit": 126.81818181818181,
     "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-platform-feedback-v1.webp",
-    "sourceSha256": "76546cf155efda4e2172226fa13bec923904804332e526e0fa362426cd648d63",
+    "sourceSha256": "244ad87e11df150a27861df837aed844bb94074a860743a52afdee688459caab",
     "frames": [
       {
         "id": "pip-bump",
         "action": "bump",
         "direction": "right",
         "cell": [
-          77,
-          687,
-          370,
-          1063
+          0,
+          724,
+          362,
+          1086
         ],
         "anchor": [
-          146.5,
-          368
+          179,
+          324
         ],
         "sockets": {
           "feet": [
-            262.56542056074767,
-            1055
+            179,
+            1048
           ],
           "crown": [
-            185,
-            694
+            157,
+            766
           ],
           "headLeft": [
-            87,
-            774
+            67,
+            845
           ],
           "headRight": [
-            268,
-            737
+            223,
+            820
           ]
         }
       },
@@ -1380,31 +1380,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          454,
-          735,
-          725,
-          1057
+          362,
+          724,
+          724,
+          1086
         ],
         "anchor": [
-          135.5,
-          314
+          138,
+          322
         ],
         "sockets": {
           "feet": [
-            521.7777777777778,
-            1049
+            500,
+            1046
           ],
           "crown": [
-            638,
-            742
+            573,
+            794
           ],
           "headLeft": [
-            516,
-            823
+            482,
+            857
           ],
           "headRight": [
-            712,
-            812
+            653,
+            855
           ]
         }
       },
@@ -1413,31 +1413,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "correct",
         "direction": "right",
         "cell": [
-          798,
-          685,
-          1029,
-          1067
+          724,
+          724,
+          1086,
+          1086
         ],
         "anchor": [
-          115.5,
-          374
+          207,
+          322
         ],
         "sockets": {
           "feet": [
-            868.5511811023622,
-            1059
+            931,
+            1046
           ],
           "crown": [
             910,
-            692
+            761
           ],
           "headLeft": [
-            806,
-            788
+            813,
+            841
           ],
           "headRight": [
-            1005,
-            795
+            975,
+            805
           ]
         }
       },
@@ -1446,31 +1446,31 @@ export const LETTER_LEAP_ATLASES = {
         "action": "summit",
         "direction": "right",
         "cell": [
-          1154,
-          680,
-          1388,
-          1036
+          1086,
+          724,
+          1448,
+          1086
         ],
         "anchor": [
-          117,
-          348
+          178,
+          324
         ],
         "sockets": {
           "feet": [
-            1277,
-            1028
+            1264,
+            1048
           ],
           "crown": [
-            1270,
-            687
+            1277,
+            774
           ],
           "headLeft": [
-            1167,
-            773
+            1179,
+            834
           ],
           "headRight": [
-            1367,
-            782
+            1349,
+            851
           ]
         }
       }
@@ -1482,26 +1482,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1349,
     "height": 1166,
     "nominalHeight": 1,
-    "pixelsPerUnit": 252,
+    "pixelsPerUnit": 229.8446043165468,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
     "frames": [
       {
         "id": "walker-idle",
         "action": "idle",
         "cell": [
-          89,
-          33,
-          302,
-          297
+          0,
+          0,
+          337,
+          292
         ],
         "anchor": [
-          106.5,
-          257
+          152,
+          260
         ],
         "sockets": {
           "feet": [
-            176.8443113772455,
-            290
+            152,
+            260
           ]
         }
       },
@@ -1509,19 +1509,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-travel-a",
         "action": "travel-a",
         "cell": [
-          410,
-          22,
-          625,
-          297
+          337,
+          0,
+          674,
+          292
         ],
         "anchor": [
-          107.5,
-          268
+          155,
+          258
         ],
         "sockets": {
           "feet": [
-            525.2038834951456,
-            290
+            492,
+            258
           ]
         }
       },
@@ -1529,19 +1529,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-travel-b",
         "action": "travel-b",
         "cell": [
-          752,
-          21,
-          970,
-          297
+          674,
+          0,
+          1012,
+          292
         ],
         "anchor": [
-          109,
-          269
+          158,
+          260
         ],
         "sockets": {
           "feet": [
-            844.7894736842105,
-            290
+            832,
+            260
           ]
         }
       },
@@ -1549,19 +1549,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-impact",
         "action": "impact",
         "cell": [
-          1078,
-          74,
-          1310,
-          296
+          1012,
+          0,
+          1349,
+          292
         ],
         "anchor": [
-          116,
-          215
+          162,
+          258
         ],
         "sockets": {
           "feet": [
-            1192.1931464174454,
-            289
+            1174,
+            258
           ]
         }
       }
@@ -1571,26 +1571,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1349,
     "height": 1166,
     "nominalHeight": 1,
-    "pixelsPerUnit": 213,
+    "pixelsPerUnit": 199.18120805369128,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
     "frames": [
       {
         "id": "hopper-idle",
         "action": "idle",
         "cell": [
-          56,
-          345,
-          300,
-          570
+          0,
+          292,
+          337,
+          583
         ],
         "anchor": [
-          122,
-          218
+          137,
+          259
         ],
         "sockets": {
           "feet": [
-            150.3771186440678,
-            563
+            137,
+            551
           ]
         }
       },
@@ -1598,19 +1598,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-travel-a",
         "action": "travel-a",
         "cell": [
-          395,
-          376,
-          655,
-          569
+          337,
+          292,
+          674,
+          583
         ],
         "anchor": [
-          130,
-          186
+          140,
+          259
         ],
         "sockets": {
           "feet": [
-            494.4430894308943,
-            562
+            477,
+            551
           ]
         }
       },
@@ -1618,19 +1618,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-travel-b",
         "action": "travel-b",
         "cell": [
-          722,
-          302,
-          998,
-          514
+          674,
+          292,
+          1012,
+          583
         ],
         "anchor": [
-          138,
-          205
+          56,
+          260
         ],
         "sockets": {
           "feet": [
-            748.3939393939394,
-            507
+            730,
+            552
           ]
         }
       },
@@ -1638,19 +1638,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-impact",
         "action": "impact",
         "cell": [
-          1073,
-          405,
-          1310,
-          569
+          1012,
+          292,
+          1349,
+          583
         ],
         "anchor": [
-          118.5,
-          157
+          195,
+          258
         ],
         "sockets": {
           "feet": [
-            1182.0923076923077,
-            562
+            1207,
+            550
           ]
         }
       }
@@ -1660,26 +1660,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1349,
     "height": 1166,
     "nominalHeight": 1,
-    "pixelsPerUnit": 240,
+    "pixelsPerUnit": 227.8112582781457,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
     "frames": [
       {
         "id": "spike-idle",
         "action": "idle",
         "cell": [
-          71,
-          592,
-          305,
-          844
+          0,
+          583,
+          337,
+          874
         ],
         "anchor": [
-          117,
-          245
+          155,
+          259
         ],
         "sockets": {
           "feet": [
-            179.435,
-            837
+            155,
+            842
           ]
         }
       },
@@ -1687,19 +1687,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-travel-a",
         "action": "travel-a",
         "cell": [
-          388,
-          591,
-          622,
-          844
+          337,
+          583,
+          674,
+          874
         ],
         "anchor": [
-          117,
-          246
+          218,
+          260
         ],
         "sockets": {
           "feet": [
-            519.3471074380166,
-            837
+            555,
+            843
           ]
         }
       },
@@ -1707,19 +1707,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-travel-b",
         "action": "travel-b",
         "cell": [
-          738,
-          586,
-          975,
-          844
+          674,
+          583,
+          1012,
+          874
         ],
         "anchor": [
-          118.5,
-          251
+          156,
+          259
         ],
         "sockets": {
           "feet": [
-            846.483870967742,
-            837
+            830,
+            842
           ]
         }
       },
@@ -1727,19 +1727,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-impact",
         "action": "impact",
         "cell": [
-          1064,
-          606,
-          1296,
-          843
+          1012,
+          583,
+          1349,
+          874
         ],
         "anchor": [
-          116,
-          230
+          158,
+          258
         ],
         "sockets": {
           "feet": [
-            1178.3658536585365,
-            836
+            1170,
+            841
           ]
         }
       }
@@ -1749,26 +1749,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1349,
     "height": 1166,
     "nominalHeight": 1,
-    "pixelsPerUnit": 246,
+    "pixelsPerUnit": 211.9226277372263,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
     "frames": [
       {
         "id": "flyer-idle",
         "action": "idle",
         "cell": [
-          42,
-          870,
-          336,
-          1128
+          0,
+          874,
+          337,
+          1166
         ],
         "anchor": [
-          147,
-          251
+          148,
+          259
         ],
         "sockets": {
           "feet": [
-            169.44,
-            1121
+            148,
+            1133
           ]
         }
       },
@@ -1776,19 +1776,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-travel-a",
         "action": "travel-a",
         "cell": [
-          390,
-          849,
-          660,
-          1134
+          337,
+          874,
+          674,
+          1166
         ],
         "anchor": [
-          135,
-          278
+          139,
+          259
         ],
         "sockets": {
           "feet": [
-            503.64102564102564,
-            1127
+            476,
+            1133
           ]
         }
       },
@@ -1796,19 +1796,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-travel-b",
         "action": "travel-b",
         "cell": [
-          705,
-          898,
-          998,
-          1136
+          674,
+          874,
+          1012,
+          1166
         ],
         "anchor": [
-          146.5,
-          231
+          165,
+          259
         ],
         "sockets": {
           "feet": [
-            844.1666666666666,
-            1129
+            839,
+            1133
           ]
         }
       },
@@ -1816,19 +1816,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-impact",
         "action": "impact",
         "cell": [
-          1068,
-          898,
-          1316,
-          1130
+          1012,
+          874,
+          1349,
+          1166
         ],
         "anchor": [
-          124,
-          225
+          169,
+          261
         ],
         "sockets": {
           "feet": [
-            1183.4705882352941,
-            1123
+            1181,
+            1135
           ]
         }
       }
@@ -1838,26 +1838,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 1,
-    "pixelsPerUnit": 230,
+    "pixelsPerUnit": 203.9466666666667,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
     "frames": [
       {
         "id": "walker-idle",
         "action": "idle",
         "cell": [
-          52,
-          5,
-          337,
-          247
+          0,
+          0,
+          384,
+          256
         ],
         "anchor": [
-          142.5,
-          235
+          210,
+          226
         ],
         "sockets": {
           "feet": [
-            181.43065693430657,
-            240
+            210,
+            226
           ]
         }
       },
@@ -1865,19 +1865,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-travel-a",
         "action": "travel-a",
         "cell": [
-          417,
-          10,
-          705,
-          246
+          384,
+          0,
+          768,
+          256
         ],
         "anchor": [
-          144,
-          229
+          173,
+          228
         ],
         "sockets": {
           "feet": [
-            556.7122302158274,
-            239
+            557,
+            228
           ]
         }
       },
@@ -1885,19 +1885,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-travel-b",
         "action": "travel-b",
         "cell": [
-          810,
-          9,
-          1088,
-          246
+          768,
+          0,
+          1152,
+          256
         ],
         "anchor": [
-          139,
-          230
+          185,
+          228
         ],
         "sockets": {
           "feet": [
-            938.6542056074767,
-            239
+            953,
+            228
           ]
         }
       },
@@ -1905,19 +1905,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-impact",
         "action": "impact",
         "cell": [
-          1185,
-          64,
-          1484,
-          246
+          1152,
+          0,
+          1536,
+          256
         ],
         "anchor": [
-          149.5,
-          175
+          193,
+          226
         ],
         "sockets": {
           "feet": [
-            1338.9538461538461,
-            239
+            1345,
+            226
           ]
         }
       }
@@ -1927,26 +1927,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 1,
-    "pixelsPerUnit": 220,
+    "pixelsPerUnit": 204.8,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
     "frames": [
       {
         "id": "hopper-idle",
         "action": "idle",
         "cell": [
-          65,
-          270,
-          321,
-          502
+          0,
+          256,
+          384,
+          512
         ],
         "anchor": [
-          128,
-          225
+          125,
+          228
         ],
         "sockets": {
           "feet": [
-            145.21238938053096,
-            495
+            125,
+            484
           ]
         }
       },
@@ -1954,19 +1954,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-travel-a",
         "action": "travel-a",
         "cell": [
-          447,
-          305,
-          723,
-          500
+          384,
+          256,
+          768,
+          512
         ],
         "anchor": [
-          138,
-          188
+          137,
+          226
         ],
         "sockets": {
           "feet": [
-            545.0909090909091,
-            493
+            521,
+            482
           ]
         }
       },
@@ -1974,19 +1974,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-travel-b",
         "action": "travel-b",
         "cell": [
-          811,
-          254,
-          1084,
-          458
+          768,
+          256,
+          1152,
+          512
         ],
         "anchor": [
-          136.5,
-          197
+          121,
+          227
         ],
         "sockets": {
           "feet": [
-            875.560975609756,
-            451
+            889,
+            483
           ]
         }
       },
@@ -1994,19 +1994,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-impact",
         "action": "impact",
         "cell": [
-          1223,
-          333,
-          1483,
-          499
+          1152,
+          256,
+          1536,
+          512
         ],
         "anchor": [
-          130,
-          159
+          143,
+          227
         ],
         "sockets": {
           "feet": [
-            1314.2977099236641,
-            492
+            1295,
+            483
           ]
         }
       }
@@ -2016,26 +2016,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 1,
-    "pixelsPerUnit": 230,
+    "pixelsPerUnit": 199.17803921568628,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
     "frames": [
       {
         "id": "spike-idle",
         "action": "idle",
         "cell": [
-          81,
+          0,
           512,
-          316,
-          754
+          384,
+          768
         ],
         "anchor": [
-          117.5,
-          235
+          165,
+          228
         ],
         "sockets": {
           "feet": [
-            169.61739130434782,
-            747
+            165,
+            740
           ]
         }
       },
@@ -2043,19 +2043,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-travel-a",
         "action": "travel-a",
         "cell": [
-          456,
-          511,
-          708,
-          754
+          384,
+          512,
+          768,
+          768
         ],
         "anchor": [
-          126,
-          236
+          173,
+          228
         ],
         "sockets": {
           "feet": [
-            557.0461538461539,
-            747
+            557,
+            740
           ]
         }
       },
@@ -2063,19 +2063,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-travel-b",
         "action": "travel-b",
         "cell": [
-          861,
-          516,
-          1092,
-          751
+          768,
+          512,
+          1152,
+          768
         ],
         "anchor": [
-          115.5,
+          163,
           228
         ],
         "sockets": {
           "feet": [
-            957.9130434782609,
-            744
+            931,
+            740
           ]
         }
       },
@@ -2083,19 +2083,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-impact",
         "action": "impact",
         "cell": [
-          1250,
-          511,
-          1459,
-          754
+          1152,
+          512,
+          1536,
+          768
         ],
         "anchor": [
-          104.5,
-          236
+          155,
+          228
         ],
         "sockets": {
           "feet": [
-            1322.39375,
-            747
+            1307,
+            740
           ]
         }
       }
@@ -2105,26 +2105,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 1,
-    "pixelsPerUnit": 199,
+    "pixelsPerUnit": 169.85396825396828,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
     "frames": [
       {
         "id": "flyer-idle",
         "action": "idle",
         "cell": [
-          29,
-          781,
-          398,
-          992
+          0,
+          768,
+          384,
+          1024
         ],
         "anchor": [
-          184.5,
-          204
+          147,
+          226
         ],
         "sockets": {
           "feet": [
-            164.1,
-            985
+            147,
+            994
           ]
         }
       },
@@ -2132,19 +2132,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-travel-a",
         "action": "travel-a",
         "cell": [
-          398,
-          748,
-          729,
-          997
+          384,
+          768,
+          768,
+          1024
         ],
         "anchor": [
-          165.5,
-          242
+          163,
+          226
         ],
         "sockets": {
           "feet": [
-            544.4871794871794,
-            990
+            547,
+            994
           ]
         }
       },
@@ -2152,19 +2152,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-travel-b",
         "action": "travel-b",
         "cell": [
-          767,
-          796,
-          1124,
-          993
+          768,
+          768,
+          1152,
+          1024
         ],
         "anchor": [
-          178.5,
-          190
+          168,
+          226
         ],
         "sockets": {
           "feet": [
-            924.4,
-            986
+            936,
+            994
           ]
         }
       },
@@ -2172,19 +2172,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-impact",
         "action": "impact",
         "cell": [
-          1230,
-          819,
-          1500,
-          996
+          1152,
+          768,
+          1536,
+          1024
         ],
         "anchor": [
-          135,
-          170
+          149,
+          228
         ],
         "sockets": {
           "feet": [
-            1323.3851851851853,
-            989
+            1301,
+            996
           ]
         }
       }
@@ -2194,26 +2194,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1367,
     "height": 1150,
     "nominalHeight": 1,
-    "pixelsPerUnit": 279,
+    "pixelsPerUnit": 230,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
     "frames": [
       {
         "id": "walker-idle",
         "action": "idle",
         "cell": [
-          40,
-          13,
-          292,
-          304
+          0,
+          0,
+          342,
+          288
         ],
         "anchor": [
-          126,
-          284
+          161,
+          256
         ],
         "sockets": {
           "feet": [
-            164.83703703703705,
-            297
+            161,
+            256
           ]
         }
       },
@@ -2221,19 +2221,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-travel-a",
         "action": "travel-a",
         "cell": [
-          384,
-          8,
-          632,
-          304
+          342,
+          0,
+          684,
+          288
         ],
         "anchor": [
-          124,
-          289
+          151,
+          255
         ],
         "sockets": {
           "feet": [
-            487.72340425531917,
-            297
+            493,
+            255
           ]
         }
       },
@@ -2241,19 +2241,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-travel-b",
         "action": "travel-b",
         "cell": [
-          729,
-          16,
-          976,
-          309
+          684,
+          0,
+          1025,
+          288
         ],
         "anchor": [
-          123.5,
-          286
+          183,
+          257
         ],
         "sockets": {
           "feet": [
-            870.0722891566265,
-            302
+            867,
+            257
           ]
         }
       },
@@ -2261,19 +2261,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "walker-impact",
         "action": "impact",
         "cell": [
-          1078,
-          70,
-          1334,
-          305
+          1025,
+          0,
+          1367,
+          288
         ],
         "anchor": [
-          128,
-          228
+          170,
+          255
         ],
         "sockets": {
           "feet": [
-            1189.875,
-            298
+            1195,
+            255
           ]
         }
       }
@@ -2283,26 +2283,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1367,
     "height": 1150,
     "nominalHeight": 1,
-    "pixelsPerUnit": 211,
+    "pixelsPerUnit": 180.81086261980832,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
     "frames": [
       {
         "id": "hopper-idle",
         "action": "idle",
         "cell": [
-          44,
-          358,
-          290,
-          581
+          0,
+          288,
+          342,
+          575
         ],
         "anchor": [
-          123,
-          216
+          120,
+          255
         ],
         "sockets": {
           "feet": [
-            122.55,
-            574
+            120,
+            543
           ]
         }
       },
@@ -2310,19 +2310,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-travel-a",
         "action": "travel-a",
         "cell": [
-          387,
-          373,
-          667,
-          580
+          342,
+          288,
+          684,
+          575
         ],
         "anchor": [
-          140,
-          200
+          92,
+          255
         ],
         "sockets": {
           "feet": [
-            450.2142857142857,
-            573
+            434,
+            543
           ]
         }
       },
@@ -2330,19 +2330,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-travel-b",
         "action": "travel-b",
         "cell": [
-          726,
-          312,
-          1008,
-          540
+          684,
+          288,
+          1025,
+          575
         ],
         "anchor": [
-          141,
-          221
+          121,
+          256
         ],
         "sockets": {
           "feet": [
-            831.1315789473684,
-            533
+            805,
+            544
           ]
         }
       },
@@ -2350,19 +2350,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "hopper-impact",
         "action": "impact",
         "cell": [
-          1070,
-          383,
-          1334,
-          582
+          1025,
+          288,
+          1367,
+          575
         ],
         "anchor": [
-          132,
-          192
+          125,
+          254
         ],
         "sockets": {
           "feet": [
-            1162.5,
-            575
+            1150,
+            542
           ]
         }
       }
@@ -2372,26 +2372,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1367,
     "height": 1150,
     "nominalHeight": 1,
-    "pixelsPerUnit": 260,
+    "pixelsPerUnit": 221.88235294117646,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
     "frames": [
       {
         "id": "spike-idle",
         "action": "idle",
         "cell": [
-          61,
-          585,
-          283,
-          857
+          0,
+          575,
+          342,
+          862
         ],
         "anchor": [
-          111,
-          265
+          155,
+          255
         ],
         "sockets": {
           "feet": [
-            138.81578947368422,
-            850
+            155,
+            830
           ]
         }
       },
@@ -2399,19 +2399,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-travel-a",
         "action": "travel-a",
         "cell": [
-          402,
-          584,
-          622,
-          853
+          342,
+          575,
+          684,
+          862
         ],
         "anchor": [
-          110,
-          262
+          203,
+          257
         ],
         "sockets": {
           "feet": [
-            538.0125,
-            846
+            545,
+            832
           ]
         }
       },
@@ -2419,19 +2419,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-travel-b",
         "action": "travel-b",
         "cell": [
-          748,
-          585,
-          967,
-          856
+          684,
+          575,
+          1025,
+          862
         ],
         "anchor": [
-          109.5,
-          264
+          198,
+          257
         ],
         "sockets": {
           "feet": [
-            874.3164556962025,
-            849
+            882,
+            832
           ]
         }
       },
@@ -2439,19 +2439,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "spike-impact",
         "action": "impact",
         "cell": [
-          1083,
-          597,
-          1312,
-          856
+          1025,
+          575,
+          1367,
+          862
         ],
         "anchor": [
-          114.5,
-          252
+          211,
+          255
         ],
         "sockets": {
           "feet": [
-            1202.9913043478261,
-            849
+            1236,
+            830
           ]
         }
       }
@@ -2461,26 +2461,26 @@ export const LETTER_LEAP_FOE_ATLASES = {
     "width": 1367,
     "height": 1150,
     "nominalHeight": 1,
-    "pixelsPerUnit": 218,
+    "pixelsPerUnit": 166.3810397553517,
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
     "frames": [
       {
         "id": "flyer-idle",
         "action": "idle",
         "cell": [
-          23,
-          879,
-          321,
-          1109
+          0,
+          862,
+          342,
+          1150
         ],
         "anchor": [
-          149,
-          223
+          206,
+          257
         ],
         "sockets": {
           "feet": [
-            210.82608695652175,
-            1102
+            206,
+            1119
           ]
         }
       },
@@ -2488,19 +2488,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-travel-a",
         "action": "travel-a",
         "cell": [
-          379,
-          844,
-          664,
-          1114
+          342,
+          862,
+          684,
+          1150
         ],
         "anchor": [
-          142.5,
-          263
+          199,
+          257
         ],
         "sockets": {
           "feet": [
-            530.7142857142857,
-            1107
+            541,
+            1119
           ]
         }
       },
@@ -2508,19 +2508,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-travel-b",
         "action": "travel-b",
         "cell": [
-          718,
-          905,
-          1000,
-          1116
+          684,
+          862,
+          1025,
+          1150
         ],
         "anchor": [
-          141,
-          204
+          210,
+          257
         ],
         "sockets": {
           "feet": [
-            884.7142857142857,
-            1109
+            894,
+            1119
           ]
         }
       },
@@ -2528,19 +2528,19 @@ export const LETTER_LEAP_FOE_ATLASES = {
         "id": "flyer-impact",
         "action": "impact",
         "cell": [
-          1111,
-          930,
-          1353,
-          1117
+          1025,
+          862,
+          1367,
+          1150
         ],
         "anchor": [
-          121,
-          180
+          179,
+          257
         ],
         "sockets": {
           "feet": [
-            1235.6666666666667,
-            1110
+            1204,
+            1119
           ]
         }
       }
@@ -2551,7 +2551,7 @@ export const LETTER_LEAP_SCENE_ART = {
   "meadow-horizon": {
     "id": "meadow-horizon",
     "kind": "horizon",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/meadow-horizon-v1.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-horizon-v1.webp",
     "sourceSize": [
       1672,
@@ -2561,26 +2561,27 @@ export const LETTER_LEAP_SCENE_ART = {
       1672,
       941
     ],
-    "prompt": "scenery/meadow-horizon-v1.prompt.txt",
+    "prompt": "scenery/clean-cartoon/meadow-horizon-v1.prompt.txt",
     "world": "meadow",
     "creator": "OpenAI builtin imagegen under Literacy Guide direction",
     "licence": "Original project-authored output; retained source and prompt",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
-    "sourceSha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
-    "runtimeSha256": "54c2033b9d2ce060ce2f72850060873ad50ac28afa47f3961413cd116ce75bb5",
-    "generationCallId": "call_VB5kHMPfuIJxMlom0CooPBvQ",
-    "referenceSources": [
-      "docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
-    ],
-    "promptSha256": "f603f86bf03cb85a1051d228505fe3a147f0b715a519543ee32996980a50db2b",
-    "authoringReviewStatus": "source-inspected-native-pending",
+    "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
+    "sourceSha256": "7fad5f79ec2fd92574203cbb5a137fb6c88c5f62a939d2dd411137208f26fa9a",
+    "runtimeSha256": "b887a09ab0c3b4c199e542be5d2100fffba782014ab87b2af13b5f0856c2c25b",
+    "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+    "productionRevision": "clean-cartoon-horizon-2026-11-02",
+    "encoding": {
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6
+    },
     "width": 1672,
     "height": 941
   },
   "terrain": {
     "id": "terrain",
     "kind": "terrain",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/terrain-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/terrain-v1.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/terrain-v1.webp",
     "sourceSize": [
       2008,
@@ -2590,60 +2591,61 @@ export const LETTER_LEAP_SCENE_ART = {
       2008,
       783
     ],
-    "prompt": "scenery/terrain-v1.prompt.txt",
-    "creator": "OpenAI builtin imagegen under Literacy Guide direction",
+    "prompt": "scenery/clean-cartoon/terrain-v1.prompt.txt",
+    "creator": "OpenAI built-in image generation under Literacy Guide direction",
     "licence": "Original project-authored output; retained source and prompt",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
+    "reviewStatus": "source-native-encoded-app-size-and-normal-fallback-renderer-verified",
     "frames": [
       {
         "world": "meadow",
+        "cap": 248,
         "rect": [
-          28,
-          45,
-          1953,
+          52,
+          26,
+          1905,
           209
         ],
-        "walkLine": 107,
-        "cap": 250
+        "walkLine": 88
       },
       {
         "world": "dino",
+        "cap": 241,
         "rect": [
-          18,
-          291,
-          1972,
-          207
+          78,
+          287,
+          1852,
+          209
         ],
-        "walkLine": 347,
-        "cap": 260
+        "walkLine": 349
       },
       {
         "world": "moonwood",
+        "cap": 230,
         "rect": [
-          27,
-          533,
-          1956,
-          223
+          118,
+          548,
+          1773,
+          209
         ],
-        "walkLine": 608,
-        "cap": 260
+        "walkLine": 616
       }
     ],
-    "sourceSha256": "136e9fabbf4504129945cb57462bcc05095ec5e79074e327228e70cd07d65285",
-    "runtimeSha256": "83c89bc854ba03f657205c77f91d8925de4e7fc906af8c9ceb8b13f422cc27d5",
+    "sourceSha256": "5b061847c312e7387511c23417ed4048aafe365dfa6d8b1d08875805456187f3",
+    "runtimeSha256": "1032325f3b478fa6b5a5fb39538c312116f07c28271f93f9dbdafb70cffa8d0f",
     "generationCallId": "call_T5InUqCLUamOTYXIcPlILyu3",
     "referenceSources": [
-      "docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
+      "source-art/arcade/physical-worlds/letter-leap/scenery/terrain-v1.png"
     ],
-    "promptSha256": "4f2e05fba842fad9d0a88baf985194e2340e93ce92182586136cb84dbc62228e",
+    "promptSha256": "9af057b3176bdc97b4d9c8ee54397e5e256055f31c608207e4b039de5fddc781",
     "authoringReviewStatus": "source-inspected-native-contact-pending",
+    "productionRevision": "clean-cartoon-2026-10-31",
     "width": 2008,
     "height": 783
   },
   "action-props": {
     "id": "action-props",
     "kind": "props",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/action-props-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/action-props-v1.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/action-props-v1.webp",
     "sourceSize": [
       1671,
@@ -2653,124 +2655,125 @@ export const LETTER_LEAP_SCENE_ART = {
       1671,
       941
     ],
-    "prompt": "scenery/action-props-v1.prompt.txt",
-    "creator": "OpenAI builtin imagegen under Literacy Guide direction",
+    "prompt": "scenery/clean-cartoon/action-props-v1.prompt.txt",
+    "creator": "OpenAI built-in image generation under Literacy Guide direction",
     "licence": "Original project-authored output; retained source and prompt",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
+    "reviewStatus": "source-native-encoded-app-size-and-normal-fallback-renderer-verified",
     "frames": [
       {
         "id": "wood-brick",
         "rect": [
-          44,
-          118,
-          363,
-          315
+          42,
+          125,
+          334,
+          298
         ]
       },
       {
         "id": "reward-closed",
         "rect": [
-          458,
-          117,
-          356,
-          316
+          460,
+          109,
+          334,
+          314
         ]
       },
       {
         "id": "reward-open",
         "rect": [
-          858,
-          36,
-          353,
-          406
+          880,
+          47,
+          329,
+          376
         ],
         "solidBase": [
-          870,
-          226,
-          330,
-          207
+          893,
+          239,
+          303,
+          177
         ]
       },
       {
         "id": "stone-brick",
         "rect": [
-          1275,
-          100,
-          348,
-          332
+          1295,
+          110,
+          334,
+          313
         ]
       },
       {
         "id": "spring-rest",
         "rect": [
-          52,
-          610,
-          347,
-          284
+          42,
+          586,
+          334,
+          308
         ],
+        "capY": 587,
         "anchor": [
-          172,
-          276
-        ],
-        "capY": 622
+          167,
+          306
+        ]
       },
       {
         "id": "spring-compressed",
         "rect": [
-          465,
-          665,
-          343,
-          229
+          460,
+          648,
+          334,
+          246
         ],
+        "capY": 649,
         "anchor": [
-          169,
-          221
-        ],
-        "capY": 679
+          167,
+          244
+        ]
       },
       {
         "id": "spring-extended",
         "rect": [
-          873,
-          558,
-          341,
-          336
+          877,
+          532,
+          334,
+          362
         ],
+        "capY": 533,
         "anchor": [
-          169,
-          328
-        ],
-        "capY": 569
+          167,
+          360
+        ]
       },
       {
         "id": "finish-post",
         "rect": [
-          1335,
-          434,
-          316,
-          466
+          1332,
+          518,
+          260,
+          376
         ],
         "anchor": [
-          96,
-          458
+          78,
+          374
         ]
       }
     ],
-    "sourceSha256": "25580720e4f9c51ccf5bf7d312ceab63ff8b916a3c11d42faa3c418e77f389a7",
-    "runtimeSha256": "7161f3a3266dac5905c4a1bbf435cf58cf738116d2300b42fbabcd289d9ce9e6",
+    "sourceSha256": "e9475d932b9dc8a5990c9f852be6c21cd7d50353cc6c4fb2cc0e1b361176ec85",
+    "runtimeSha256": "4e013329ba2a0beb190f63ce51a9822e1a2663d0be93fbc036ff44e7b42df66d",
     "generationCallId": "call_VYuk4zAytUHI7a4LcVMMxoIA",
     "referenceSources": [
-      "docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
+      "source-art/arcade/physical-worlds/letter-leap/scenery/action-props-v1.png"
     ],
-    "promptSha256": "57a49f8976c9cdd2320b8f38ab2fc4fab60048371b34d568402b3b8758add363",
+    "promptSha256": "f183327d919d353d5d3c73ccdff11c97e48b4318b6924de8d42330b3036f94ea",
     "authoringReviewStatus": "source-inspected-native-contact-pending",
+    "productionRevision": "clean-cartoon-2026-10-31",
     "width": 1671,
     "height": 941
   },
   "dino-horizon": {
     "id": "dino-horizon",
     "kind": "horizon",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/dino-horizon-v1.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-horizon-v1.webp",
     "sourceSize": [
       1672,
@@ -2783,19 +2786,24 @@ export const LETTER_LEAP_SCENE_ART = {
     "creator": "OpenAI builtin imagegen under Literacy Guide direction",
     "licence": "Original project-authored output; retained source and prompt",
     "origin": "builtin imagegen 2026-10-04",
-    "prompt": "scenery/dino-horizon-v1.prompt.txt",
-    "referenceRoles": "Canonical original plush miniature landscape material direction",
-    "sourceSha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
-    "runtimeSha256": "fe96965d8860500757cffd3ee07f2a9f39c746a40da4ca99d9c0a4ac91b400c9",
-    "promptSha256": "4fbe34e51e9c85460b15f95779f1f362eacf5b5e5ce72eed9a27969aecf1b98c",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
+    "prompt": "scenery/clean-cartoon/dino-horizon-v1.prompt.txt",
+    "sourceSha256": "3bb09d168e0f3bfca137bf6a94cd29600c136c7598ef8d3c4e72cfaa0cb064d9",
+    "runtimeSha256": "138778e8f519d64499dec0c6b4394c4cb26d338eb9007486414c1071c6b7b2fb",
+    "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+    "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
+    "productionRevision": "clean-cartoon-horizon-2026-11-02",
+    "encoding": {
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6
+    },
     "width": 1672,
     "height": 941
   },
   "moonwood-horizon": {
     "id": "moonwood-horizon",
     "kind": "horizon",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/moonwood-horizon-v1.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-horizon-v1.webp",
     "sourceSize": [
       1672,
@@ -2808,12 +2816,17 @@ export const LETTER_LEAP_SCENE_ART = {
     "creator": "OpenAI builtin imagegen under Literacy Guide direction",
     "licence": "Original project-authored output; retained source and prompt",
     "origin": "builtin imagegen 2026-10-04",
-    "prompt": "scenery/moonwood-horizon-v1.prompt.txt",
-    "referenceRoles": "Canonical original plush miniature landscape material direction",
-    "sourceSha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
-    "runtimeSha256": "5ac4b7e7388bdc1f64c7774f4a9c21d32e3cb174901a7eb4e1269570a0db2ac6",
-    "promptSha256": "384f1d09991854d2879c3053a02d41ebd696b551184ede2724e7f42cdb7fa937",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
+    "prompt": "scenery/clean-cartoon/moonwood-horizon-v1.prompt.txt",
+    "sourceSha256": "acd3bc3eb695c423c6228bae4a98a47c797bcbd2ee75d76874c19ac6564abda6",
+    "runtimeSha256": "95b0eefad633bf0a9c1e57fd29790e6d2bc25e31d38af7771ece3c334c32e42e",
+    "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+    "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
+    "productionRevision": "clean-cartoon-horizon-2026-11-02",
+    "encoding": {
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6
+    },
     "width": 1672,
     "height": 941
   },
@@ -2821,7 +2834,7 @@ export const LETTER_LEAP_SCENE_ART = {
     "id": "meadow-foes",
     "kind": "foe",
     "world": "meadow",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-foes-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/meadow-foes.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
     "sourceSize": [
       1349,
@@ -2831,16 +2844,16 @@ export const LETTER_LEAP_SCENE_ART = {
       1349,
       1166
     ],
-    "prompt": "scenery/meadow-foes-v1.prompt.txt",
+    "prompt": "scenery/clean-cartoon/meadow-foes.prompt.txt",
     "creator": "OpenAI builtin imagegen under Literacy Guide direction",
     "licence": "Original project-authored output; retained exact source and prompt",
-    "origin": "builtin imagegen2026-10-04",
+    "origin": "builtin imagegen 2026-10-31; wholepose mechanical registration",
     "nominalHeight": 1,
     "pixelsPerUnitByType": {
-      "walker": 252,
-      "hopper": 213,
-      "spike": 240,
-      "flyer": 246
+      "walker": 229.8446043165468,
+      "hopper": 199.18120805369128,
+      "spike": 227.8112582781457,
+      "flyer": 211.9226277372263
     },
     "frames": [
       {
@@ -2849,33 +2862,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          89,
-          33,
-          213,
-          264
+          0,
+          0,
+          337,
+          292
         ],
         "anchor": [
-          106.5,
-          257
+          152,
+          260
         ],
         "contacts": {
           "feet": [
-            87.8443113772455,
-            257
+            152,
+            260
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            95,
-            39,
-            296,
-            291
+            71,
+            32,
+            267,
+            262
           ],
           "soleContactSource": [
-            176.8443113772455,
-            290
-          ]
+            152,
+            260
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 0
         }
       },
       {
@@ -2884,33 +2899,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          410,
-          22,
-          215,
-          275
+          337,
+          0,
+          337,
+          292
         ],
         "anchor": [
-          107.5,
-          268
+          155,
+          258
         ],
         "contacts": {
           "feet": [
-            115.20388349514565,
-            268
+            155,
+            258
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            416,
-            28,
-            619,
-            291
+            409,
+            29,
+            602,
+            262
           ],
           "soleContactSource": [
-            525.2038834951456,
-            290
-          ]
+            492,
+            258
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 1
         }
       },
       {
@@ -2919,33 +2936,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          752,
-          21,
-          218,
-          276
+          674,
+          0,
+          338,
+          292
         ],
         "anchor": [
-          109,
-          269
+          158,
+          260
         ],
         "contacts": {
           "feet": [
-            92.78947368421052,
-            269
+            158,
+            260
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            758,
-            27,
-            964,
-            291
+            746,
+            31,
+            941,
+            262
           ],
           "soleContactSource": [
-            844.7894736842105,
-            290
-          ]
+            832,
+            260
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 2
         }
       },
       {
@@ -2954,33 +2973,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1078,
-          74,
-          232,
-          222
+          1012,
+          0,
+          337,
+          292
         ],
         "anchor": [
-          116,
-          215
+          162,
+          258
         ],
         "contacts": {
           "feet": [
-            114.1931464174454,
-            215
+            162,
+            258
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1084,
-            80,
-            1304,
-            290
+            1080,
+            82,
+            1281,
+            262
           ],
           "soleContactSource": [
-            1192.1931464174454,
-            289
-          ]
+            1174,
+            258
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 3
         }
       },
       {
@@ -2989,33 +3010,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          56,
-          345,
-          244,
-          225
+          0,
+          292,
+          337,
+          291
         ],
         "anchor": [
-          122,
-          218
+          137,
+          259
         ],
         "contacts": {
           "feet": [
-            94.37711864406779,
-            218
+            137,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            62,
-            351,
-            294,
-            564
+            52,
+            355,
+            286,
+            554
           ],
           "soleContactSource": [
-            150.3771186440678,
-            563
-          ]
+            137,
+            551
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 0
         }
       },
       {
@@ -3024,33 +3047,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          395,
-          376,
-          260,
-          193
+          337,
+          292,
+          337,
+          291
         ],
         "anchor": [
-          130,
-          186
+          140,
+          259
         ],
         "contacts": {
           "feet": [
-            99.4430894308943,
-            186
+            140,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            401,
-            382,
-            649,
-            563
+            383,
+            383,
+            629,
+            554
           ],
           "soleContactSource": [
-            494.4430894308943,
-            562
-          ]
+            477,
+            551
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 1
         }
       },
       {
@@ -3059,33 +3084,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          722,
-          302,
-          276,
-          212
+          674,
+          292,
+          338,
+          291
         ],
         "anchor": [
-          138,
-          205
+          56,
+          260
         ],
         "contacts": {
           "feet": [
-            26.393939393939377,
-            205
+            56,
+            260
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            728,
-            308,
-            992,
-            508
+            708,
+            353,
+            978,
+            554
           ],
           "soleContactSource": [
-            748.3939393939394,
-            507
-          ]
+            730,
+            552
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 2
         }
       },
       {
@@ -3094,33 +3121,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1073,
-          405,
-          237,
-          164
+          1012,
+          292,
+          337,
+          291
         ],
         "anchor": [
-          118.5,
-          157
+          195,
+          258
         ],
         "contacts": {
           "feet": [
-            109.09230769230771,
-            157
+            195,
+            258
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1079,
-            411,
-            1304,
-            563
+            1068,
+            404,
+            1293,
+            553
           ],
           "soleContactSource": [
-            1182.0923076923077,
-            562
-          ]
+            1207,
+            550
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 3
         }
       },
       {
@@ -3129,33 +3158,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          71,
-          592,
-          234,
-          252
+          0,
+          583,
+          337,
+          291
         ],
         "anchor": [
-          117,
-          245
+          155,
+          259
         ],
         "contacts": {
           "feet": [
-            108.435,
-            245
+            155,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            77,
-            598,
-            299,
-            838
+            57,
+            617,
+            280,
+            845
           ],
           "soleContactSource": [
-            179.435,
-            837
-          ]
+            155,
+            842
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 0
         }
       },
       {
@@ -3164,33 +3195,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          388,
-          591,
-          234,
-          253
+          337,
+          583,
+          337,
+          291
         ],
         "anchor": [
-          117,
-          246
+          218,
+          260
         ],
         "contacts": {
           "feet": [
-            131.34710743801656,
-            246
+            218,
+            260
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            394,
-            597,
-            616,
-            838
+            395,
+            615,
+            617,
+            845
           ],
           "soleContactSource": [
-            519.3471074380166,
-            837
-          ]
+            555,
+            843
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 1
         }
       },
       {
@@ -3199,33 +3232,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          738,
-          586,
-          237,
-          258
+          674,
+          583,
+          338,
+          291
         ],
         "anchor": [
-          118.5,
-          251
+          156,
+          259
         ],
         "contacts": {
           "feet": [
-            108.48387096774195,
-            251
+            156,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            744,
-            592,
-            969,
-            838
+            730,
+            615,
+            957,
+            845
           ],
           "soleContactSource": [
-            846.483870967742,
-            837
-          ]
+            830,
+            842
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 2
         }
       },
       {
@@ -3234,33 +3269,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1064,
-          606,
-          232,
-          237
+          1012,
+          583,
+          337,
+          291
         ],
         "anchor": [
-          116,
-          230
+          158,
+          258
         ],
         "contacts": {
           "feet": [
-            114.36585365853648,
-            230
+            158,
+            258
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1070,
-            612,
-            1290,
-            837
+            1045,
+            627,
+            1315,
+            845
           ],
           "soleContactSource": [
-            1178.3658536585365,
-            836
-          ]
+            1170,
+            841
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 3
         }
       },
       {
@@ -3269,33 +3306,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          42,
-          870,
-          294,
-          258
+          0,
+          874,
+          337,
+          292
         ],
         "anchor": [
-          147,
-          251
+          148,
+          259
         ],
         "contacts": {
           "feet": [
-            127.44,
-            251
+            148,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            48,
-            876,
-            330,
-            1122
+            38,
+            925,
+            300,
+            1137
           ],
           "soleContactSource": [
-            169.44,
-            1121
-          ]
+            148,
+            1133
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 0
         }
       },
       {
@@ -3304,33 +3343,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          390,
-          849,
-          270,
-          285
+          337,
+          874,
+          337,
+          292
         ],
         "anchor": [
-          135,
-          278
+          139,
+          259
         ],
         "contacts": {
           "feet": [
-            113.64102564102564,
-            278
+            139,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            396,
-            855,
-            654,
-            1128
+            386,
+            904,
+            626,
+            1137
           ],
           "soleContactSource": [
-            503.64102564102564,
-            1127
-          ]
+            476,
+            1133
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 1
         }
       },
       {
@@ -3339,33 +3380,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          705,
-          898,
-          293,
-          238
+          674,
+          874,
+          338,
+          292
         ],
         "anchor": [
-          146.5,
-          231
+          165,
+          259
         ],
         "contacts": {
           "feet": [
-            139.16666666666663,
-            231
+            165,
+            259
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            711,
-            904,
-            992,
-            1130
+            710,
+            937,
+            977,
+            1137
           ],
           "soleContactSource": [
-            844.1666666666666,
-            1129
-          ]
+            839,
+            1133
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 2
         }
       },
       {
@@ -3374,41 +3417,44 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1068,
-          898,
-          248,
-          232
+          1012,
+          874,
+          337,
+          292
         ],
         "anchor": [
-          124,
-          225
+          169,
+          261
         ],
         "contacts": {
           "feet": [
-            115.47058823529414,
-            225
+            169,
+            261
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1074,
-            904,
-            1310,
-            1124
+            1066,
+            937,
+            1294,
+            1137
           ],
           "soleContactSource": [
-            1183.4705882352941,
-            1123
-          ]
+            1181,
+            1135
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 3
         }
       }
     ],
     "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
-    "sourceSha256": "140d1565b42ea988982a635aa62cc1bcc7c74c364e8bef08a0815c761267b3bb",
-    "promptSha256": "fae62df34876c83adb25ac29ac0d342923675f2282bc96d91ece9e65a8c6407b",
-    "runtimeSha256": "0909135f8a1413ad3b2eabb5ce5c29036402afd447b83491e24b39a44c7f1c6b",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
+    "sourceSha256": "44c533249be89935969c62c8d9c5f6bb26a666e9d9397693122c5998e493d426",
+    "promptSha256": "bc7b6c8ddcda77c92d2807afd86343802b1b3cdac5ebbcbc8b99ad5e5541d513",
+    "runtimeSha256": "9b50888d858487b4954346391529959e06fa7d5df310968a41f4ce6bd3b2684c",
+    "reviewStatus": "PASS_NATIVE_SAVED390_128_ACTUAL_SCENEKIT40_46_BOTHDIRECTIONS",
+    "productionRevision": "clean-cartoon-2026-10-31",
     "width": 1349,
     "height": 1166
   },
@@ -3416,7 +3462,7 @@ export const LETTER_LEAP_SCENE_ART = {
     "id": "dino-foes",
     "kind": "foe",
     "world": "dino",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-foes-v1.png",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/dino-foes.png",
     "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
     "sourceSize": [
       1536,
@@ -3426,16 +3472,16 @@ export const LETTER_LEAP_SCENE_ART = {
       1536,
       1024
     ],
-    "prompt": "scenery/dino-foes-v1.prompt.txt",
+    "prompt": "scenery/clean-cartoon/dino-foes.prompt.txt",
     "creator": "OpenAI builtin imagegen under Literacy Guide direction",
     "licence": "Original project-authored output; retained exact source and prompt",
-    "origin": "builtin imagegen2026-10-04",
+    "origin": "builtin imagegen 2026-10-31; wholepose mechanical registration",
     "nominalHeight": 1,
     "pixelsPerUnitByType": {
-      "walker": 230,
-      "hopper": 220,
-      "spike": 230,
-      "flyer": 199
+      "walker": 203.9466666666667,
+      "hopper": 204.8,
+      "spike": 199.17803921568628,
+      "flyer": 169.85396825396828
     },
     "frames": [
       {
@@ -3444,628 +3490,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          52,
-          5,
-          285,
-          242
+          0,
+          0,
+          384,
+          256
         ],
         "anchor": [
-          142.5,
-          235
+          210,
+          226
         ],
         "contacts": {
           "feet": [
-            129.43065693430657,
-            235
+            210,
+            226
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
             58,
-            11,
-            331,
-            241
-          ],
-          "soleContactSource": [
-            181.43065693430657,
-            240
-          ]
-        }
-      },
-      {
-        "id": "walker-travel-a",
-        "type": "walker",
-        "action": "travel-a",
-        "direction": "right",
-        "rect": [
-          417,
-          10,
-          288,
-          236
-        ],
-        "anchor": [
-          144,
-          229
-        ],
-        "contacts": {
-          "feet": [
-            139.7122302158274,
-            229
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            423,
-            16,
-            699,
-            240
-          ],
-          "soleContactSource": [
-            556.7122302158274,
-            239
-          ]
-        }
-      },
-      {
-        "id": "walker-travel-b",
-        "type": "walker",
-        "action": "travel-b",
-        "direction": "right",
-        "rect": [
-          810,
-          9,
-          278,
-          237
-        ],
-        "anchor": [
-          139,
-          230
-        ],
-        "contacts": {
-          "feet": [
-            128.65420560747668,
+            26,
+            326,
             230
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            816,
-            15,
-            1082,
-            240
           ],
           "soleContactSource": [
-            938.6542056074767,
-            239
-          ]
-        }
-      },
-      {
-        "id": "walker-impact",
-        "type": "walker",
-        "action": "impact",
-        "direction": "right",
-        "rect": [
-          1185,
-          64,
-          299,
-          182
-        ],
-        "anchor": [
-          149.5,
-          175
-        ],
-        "contacts": {
-          "feet": [
-            153.95384615384614,
-            175
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            1191,
-            70,
-            1478,
-            240
+            210,
+            226
           ],
-          "soleContactSource": [
-            1338.9538461538461,
-            239
-          ]
-        }
-      },
-      {
-        "id": "hopper-idle",
-        "type": "hopper",
-        "action": "idle",
-        "direction": "right",
-        "rect": [
-          65,
-          270,
-          256,
-          232
-        ],
-        "anchor": [
-          128,
-          225
-        ],
-        "contacts": {
-          "feet": [
-            80.21238938053096,
-            225
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            71,
-            276,
-            315,
-            496
-          ],
-          "soleContactSource": [
-            145.21238938053096,
-            495
-          ]
-        }
-      },
-      {
-        "id": "hopper-travel-a",
-        "type": "hopper",
-        "action": "travel-a",
-        "direction": "right",
-        "rect": [
-          447,
-          305,
-          276,
-          195
-        ],
-        "anchor": [
-          138,
-          188
-        ],
-        "contacts": {
-          "feet": [
-            98.09090909090912,
-            188
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            453,
-            311,
-            717,
-            494
-          ],
-          "soleContactSource": [
-            545.0909090909091,
-            493
-          ]
-        }
-      },
-      {
-        "id": "hopper-travel-b",
-        "type": "hopper",
-        "action": "travel-b",
-        "direction": "right",
-        "rect": [
-          811,
-          254,
-          273,
-          204
-        ],
-        "anchor": [
-          136.5,
-          197
-        ],
-        "contacts": {
-          "feet": [
-            64.56097560975604,
-            197
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            817,
-            260,
-            1078,
-            452
-          ],
-          "soleContactSource": [
-            875.560975609756,
-            451
-          ]
-        }
-      },
-      {
-        "id": "hopper-impact",
-        "type": "hopper",
-        "action": "impact",
-        "direction": "right",
-        "rect": [
-          1223,
-          333,
-          260,
-          166
-        ],
-        "anchor": [
-          130,
-          159
-        ],
-        "contacts": {
-          "feet": [
-            91.29770992366412,
-            159
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            1229,
-            339,
-            1477,
-            493
-          ],
-          "soleContactSource": [
-            1314.2977099236641,
-            492
-          ]
-        }
-      },
-      {
-        "id": "spike-idle",
-        "type": "spike",
-        "action": "idle",
-        "direction": "right",
-        "rect": [
-          81,
-          512,
-          235,
-          242
-        ],
-        "anchor": [
-          117.5,
-          235
-        ],
-        "contacts": {
-          "feet": [
-            88.61739130434782,
-            235
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            87,
-            518,
-            310,
-            748
-          ],
-          "soleContactSource": [
-            169.61739130434782,
-            747
-          ]
-        }
-      },
-      {
-        "id": "spike-travel-a",
-        "type": "spike",
-        "action": "travel-a",
-        "direction": "right",
-        "rect": [
-          456,
-          511,
-          252,
-          243
-        ],
-        "anchor": [
-          126,
-          236
-        ],
-        "contacts": {
-          "feet": [
-            101.04615384615386,
-            236
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            462,
-            517,
-            702,
-            748
-          ],
-          "soleContactSource": [
-            557.0461538461539,
-            747
-          ]
-        }
-      },
-      {
-        "id": "spike-travel-b",
-        "type": "spike",
-        "action": "travel-b",
-        "direction": "right",
-        "rect": [
-          861,
-          516,
-          231,
-          235
-        ],
-        "anchor": [
-          115.5,
-          228
-        ],
-        "contacts": {
-          "feet": [
-            96.91304347826087,
-            228
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            867,
-            522,
-            1086,
-            745
-          ],
-          "soleContactSource": [
-            957.9130434782609,
-            744
-          ]
-        }
-      },
-      {
-        "id": "spike-impact",
-        "type": "spike",
-        "action": "impact",
-        "direction": "right",
-        "rect": [
-          1250,
-          511,
-          209,
-          243
-        ],
-        "anchor": [
-          104.5,
-          236
-        ],
-        "contacts": {
-          "feet": [
-            72.39374999999995,
-            236
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            1256,
-            517,
-            1453,
-            748
-          ],
-          "soleContactSource": [
-            1322.39375,
-            747
-          ]
-        }
-      },
-      {
-        "id": "flyer-idle",
-        "type": "flyer",
-        "action": "idle",
-        "direction": "right",
-        "rect": [
-          29,
-          781,
-          369,
-          211
-        ],
-        "anchor": [
-          184.5,
-          204
-        ],
-        "contacts": {
-          "feet": [
-            135.1,
-            204
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            35,
-            787,
-            392,
-            986
-          ],
-          "soleContactSource": [
-            164.1,
-            985
-          ]
-        }
-      },
-      {
-        "id": "flyer-travel-a",
-        "type": "flyer",
-        "action": "travel-a",
-        "direction": "right",
-        "rect": [
-          398,
-          748,
-          331,
-          249
-        ],
-        "anchor": [
-          165.5,
-          242
-        ],
-        "contacts": {
-          "feet": [
-            146.48717948717945,
-            242
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            404,
-            754,
-            723,
-            991
-          ],
-          "soleContactSource": [
-            544.4871794871794,
-            990
-          ]
-        }
-      },
-      {
-        "id": "flyer-travel-b",
-        "type": "flyer",
-        "action": "travel-b",
-        "direction": "right",
-        "rect": [
-          767,
-          796,
-          357,
-          197
-        ],
-        "anchor": [
-          178.5,
-          190
-        ],
-        "contacts": {
-          "feet": [
-            157.39999999999998,
-            190
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            773,
-            802,
-            1118,
-            987
-          ],
-          "soleContactSource": [
-            924.4,
-            986
-          ]
-        }
-      },
-      {
-        "id": "flyer-impact",
-        "type": "flyer",
-        "action": "impact",
-        "direction": "right",
-        "rect": [
-          1230,
-          819,
-          270,
-          177
-        ],
-        "anchor": [
-          135,
-          170
-        ],
-        "contacts": {
-          "feet": [
-            93.38518518518526,
-            170
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            1236,
-            825,
-            1494,
-            990
-          ],
-          "soleContactSource": [
-            1323.3851851851853,
-            989
-          ]
-        }
-      }
-    ],
-    "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
-    "sourceSha256": "98f6487061bb316942d9862c98292c22cf4275b769932cb4ab4b2573403ee075",
-    "promptSha256": "0b2c14ac2cca6306b051a651150780ef3747b4d39c0daaec2b46c64ba271771d",
-    "runtimeSha256": "1e4fc8407781a66fd214c72d4464e98cb188d5eb996723803cf5a0df4b7a35bc",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
-    "width": 1536,
-    "height": 1024
-  },
-  "moonwood-foes": {
-    "id": "moonwood-foes",
-    "kind": "foe",
-    "world": "moonwood",
-    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-foes-v1.png",
-    "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
-    "sourceSize": [
-      1367,
-      1150
-    ],
-    "runtimeSize": [
-      1367,
-      1150
-    ],
-    "prompt": "scenery/moonwood-foes-v1.prompt.txt",
-    "creator": "OpenAI builtin imagegen under Literacy Guide direction",
-    "licence": "Original project-authored output; retained exact source and prompt",
-    "origin": "builtin imagegen2026-10-04",
-    "nominalHeight": 1,
-    "pixelsPerUnitByType": {
-      "walker": 279,
-      "hopper": 211,
-      "spike": 260,
-      "flyer": 218
-    },
-    "frames": [
-      {
-        "id": "walker-idle",
-        "type": "walker",
-        "action": "idle",
-        "direction": "right",
-        "rect": [
-          40,
-          13,
-          252,
-          291
-        ],
-        "anchor": [
-          126,
-          284
-        ],
-        "contacts": {
-          "feet": [
-            124.83703703703705,
-            284
-          ]
-        },
-        "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
-          "bodyBounds": [
-            46,
-            19,
-            286,
-            298
-          ],
-          "soleContactSource": [
-            164.83703703703705,
-            297
-          ]
+          "semanticRow": 0,
+          "semanticColumn": 0
         }
       },
       {
@@ -4075,32 +3528,34 @@ export const LETTER_LEAP_SCENE_ART = {
         "direction": "right",
         "rect": [
           384,
-          8,
-          248,
-          296
+          0,
+          384,
+          256
         ],
         "anchor": [
-          124,
-          289
+          173,
+          228
         ],
         "contacts": {
           "feet": [
-            103.72340425531917,
-            289
+            173,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            390,
-            14,
-            626,
-            298
+            450,
+            26,
+            702,
+            230
           ],
           "soleContactSource": [
-            487.72340425531917,
-            297
-          ]
+            557,
+            228
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 1
         }
       },
       {
@@ -4109,33 +3564,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          729,
-          16,
-          247,
-          293
+          768,
+          0,
+          384,
+          256
         ],
         "anchor": [
-          123.5,
-          286
+          185,
+          228
         ],
         "contacts": {
           "feet": [
-            141.07228915662654,
-            286
+            185,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            735,
-            22,
-            970,
-            303
+            837,
+            25,
+            1083,
+            230
           ],
           "soleContactSource": [
-            870.0722891566265,
-            302
-          ]
+            953,
+            228
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 2
         }
       },
       {
@@ -4144,33 +3601,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1078,
-          70,
-          256,
-          235
+          1152,
+          0,
+          384,
+          256
         ],
         "anchor": [
-          128,
-          228
+          193,
+          226
         ],
         "contacts": {
           "feet": [
-            111.875,
-            228
+            193,
+            226
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1084,
-            76,
-            1328,
-            299
+            1205,
+            56,
+            1483,
+            230
           ],
           "soleContactSource": [
-            1189.875,
-            298
-          ]
+            1345,
+            226
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 3
         }
       },
       {
@@ -4179,33 +3638,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          44,
-          358,
-          246,
-          223
+          0,
+          256,
+          384,
+          256
         ],
         "anchor": [
-          123,
-          216
+          125,
+          228
         ],
         "contacts": {
           "feet": [
-            78.55,
-            216
+            125,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            50,
-            364,
-            284,
-            575
+            68,
+            281,
+            315,
+            486
           ],
           "soleContactSource": [
-            122.55,
-            574
-          ]
+            125,
+            484
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 0
         }
       },
       {
@@ -4214,33 +3675,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          387,
-          373,
-          280,
-          207
+          384,
+          256,
+          384,
+          256
         ],
         "anchor": [
-          140,
-          200
+          137,
+          226
         ],
         "contacts": {
           "feet": [
-            63.21428571428572,
-            200
+            137,
+            226
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            393,
-            379,
-            661,
-            574
+            441,
+            315,
+            711,
+            486
           ],
           "soleContactSource": [
-            450.2142857142857,
-            573
-          ]
+            521,
+            482
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 1
         }
       },
       {
@@ -4249,33 +3712,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          726,
-          312,
-          282,
-          228
+          768,
+          256,
+          384,
+          256
         ],
         "anchor": [
-          141,
-          221
+          121,
+          227
         ],
         "contacts": {
           "feet": [
-            105.13157894736844,
-            221
+            121,
+            227
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            732,
-            318,
-            1002,
-            534
+            816,
+            297,
+            1105,
+            485
           ],
           "soleContactSource": [
-            831.1315789473684,
-            533
-          ]
+            889,
+            483
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 2
         }
       },
       {
@@ -4284,33 +3749,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1070,
-          383,
-          264,
-          199
+          1152,
+          256,
+          384,
+          256
         ],
         "anchor": [
-          132,
-          192
+          143,
+          227
         ],
         "contacts": {
           "feet": [
-            92.5,
-            192
+            143,
+            227
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1076,
-            389,
-            1328,
-            576
+            1215,
+            336,
+            1473,
+            486
           ],
           "soleContactSource": [
-            1162.5,
-            575
-          ]
+            1295,
+            483
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 3
         }
       },
       {
@@ -4319,33 +3786,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          61,
-          585,
-          222,
-          272
+          0,
+          512,
+          384,
+          256
         ],
         "anchor": [
-          111,
-          265
+          165,
+          228
         ],
         "contacts": {
           "feet": [
-            77.81578947368422,
-            265
+            165,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            67,
-            591,
-            277,
-            851
+            92,
+            543,
+            293,
+            742
           ],
           "soleContactSource": [
-            138.81578947368422,
-            850
-          ]
+            165,
+            740
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 0
         }
       },
       {
@@ -4354,33 +3823,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          402,
-          584,
-          220,
-          269
+          384,
+          512,
+          384,
+          256
         ],
         "anchor": [
-          110,
-          262
+          173,
+          228
         ],
         "contacts": {
           "feet": [
-            136.01250000000005,
-            262
+            173,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            408,
-            590,
-            616,
-            847
+            469,
+            544,
+            683,
+            742
           ],
           "soleContactSource": [
-            538.0125,
-            846
-          ]
+            557,
+            740
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 1
         }
       },
       {
@@ -4389,33 +3860,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          748,
-          585,
-          219,
-          271
+          768,
+          512,
+          384,
+          256
         ],
         "anchor": [
-          109.5,
-          264
+          163,
+          228
         ],
         "contacts": {
           "feet": [
-            126.31645569620252,
-            264
+            163,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            754,
-            591,
-            961,
-            850
+            856,
+            537,
+            1063,
+            742
           ],
           "soleContactSource": [
-            874.3164556962025,
-            849
-          ]
+            931,
+            740
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 2
         }
       },
       {
@@ -4424,33 +3897,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1083,
-          597,
-          229,
-          259
+          1152,
+          512,
+          384,
+          256
         ],
         "anchor": [
-          114.5,
-          252
+          155,
+          228
         ],
         "contacts": {
           "feet": [
-            119.99130434782614,
-            252
+            155,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1089,
-            603,
-            1306,
-            850
+            1219,
+            541,
+            1469,
+            742
           ],
           "soleContactSource": [
-            1202.9913043478261,
-            849
-          ]
+            1307,
+            740
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 3
         }
       },
       {
@@ -4459,33 +3934,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "idle",
         "direction": "right",
         "rect": [
-          23,
-          879,
-          298,
-          230
+          0,
+          768,
+          384,
+          256
         ],
         "anchor": [
-          149,
-          223
+          147,
+          226
         ],
         "contacts": {
           "feet": [
-            187.82608695652175,
-            223
+            147,
+            226
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            29,
-            885,
-            315,
-            1103
+            38,
+            828,
+            345,
+            998
           ],
           "soleContactSource": [
-            210.82608695652175,
-            1102
-          ]
+            147,
+            994
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 0
         }
       },
       {
@@ -4494,33 +3971,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-a",
         "direction": "right",
         "rect": [
-          379,
-          844,
-          285,
-          270
+          384,
+          768,
+          384,
+          256
         ],
         "anchor": [
-          142.5,
-          263
+          163,
+          226
         ],
         "contacts": {
           "feet": [
-            151.71428571428567,
-            263
+            163,
+            226
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            385,
-            850,
-            658,
-            1108
+            444,
+            805,
+            707,
+            998
           ],
           "soleContactSource": [
-            530.7142857142857,
-            1107
-          ]
+            547,
+            994
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 1
         }
       },
       {
@@ -4529,33 +4008,35 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "travel-b",
         "direction": "right",
         "rect": [
-          718,
-          905,
-          282,
-          211
+          768,
+          768,
+          384,
+          256
         ],
         "anchor": [
-          141,
-          204
+          168,
+          226
         ],
         "contacts": {
           "feet": [
-            166.71428571428567,
-            204
+            168,
+            226
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            724,
-            911,
-            994,
-            1110
+            815,
+            836,
+            1105,
+            998
           ],
           "soleContactSource": [
-            884.7142857142857,
-            1109
-          ]
+            936,
+            994
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 2
         }
       },
       {
@@ -4564,41 +4045,672 @@ export const LETTER_LEAP_SCENE_ART = {
         "action": "impact",
         "direction": "right",
         "rect": [
-          1111,
-          930,
-          242,
-          187
+          1152,
+          768,
+          384,
+          256
         ],
         "anchor": [
-          121,
-          180
+          149,
+          228
         ],
         "contacts": {
           "feet": [
-            124.66666666666674,
-            180
+            149,
+            228
           ]
         },
         "measurement": {
-          "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
           "bodyBounds": [
-            1117,
-            936,
-            1347,
-            1111
+            1228,
+            848,
+            1461,
+            998
           ],
           "soleContactSource": [
-            1235.6666666666667,
-            1110
-          ]
+            1301,
+            996
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 3
         }
       }
     ],
     "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
-    "sourceSha256": "6c8b5d5cd1655b1a2e6127f04e20e822600ed6ba5009f78f64e888072f8829be",
-    "promptSha256": "b7ead41c2fea0bf5a188fc685e0922bbfd7b3345d7cf6c758d5615689e9b87b7",
-    "runtimeSha256": "edc1c0815064048c580c0b264c73f887de377ea9a6f5c56b3305d8d3d60dd3ac",
-    "reviewStatus": "source-inspected-native-world-loop-verified",
+    "sourceSha256": "07fe924cc578640360487d1fafc5cbe447a9c5551661ee94b4c94517fb14d1dd",
+    "promptSha256": "ebbc30c7eee41be28f0ed328461674a1a0566d9c51245b050d8c85358a6e09d8",
+    "runtimeSha256": "18d77d3c4db8a9e3528db02e7d3ca132700641223826ab287be5bacda506c505",
+    "reviewStatus": "PASS_NATIVE_SAVED390_128_ACTUAL_SCENEKIT40_46_BOTHDIRECTIONS",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "width": 1536,
+    "height": 1024
+  },
+  "moonwood-foes": {
+    "id": "moonwood-foes",
+    "kind": "foe",
+    "world": "moonwood",
+    "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/moonwood-foes.png",
+    "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
+    "sourceSize": [
+      1367,
+      1150
+    ],
+    "runtimeSize": [
+      1367,
+      1150
+    ],
+    "prompt": "scenery/clean-cartoon/moonwood-foes.prompt.txt",
+    "creator": "OpenAI builtin imagegen under Literacy Guide direction",
+    "licence": "Original project-authored output; retained exact source and prompt",
+    "origin": "builtin imagegen 2026-10-31; wholepose mechanical registration",
+    "nominalHeight": 1,
+    "pixelsPerUnitByType": {
+      "walker": 230,
+      "hopper": 180.81086261980832,
+      "spike": 221.88235294117646,
+      "flyer": 166.3810397553517
+    },
+    "frames": [
+      {
+        "id": "walker-idle",
+        "type": "walker",
+        "action": "idle",
+        "direction": "right",
+        "rect": [
+          0,
+          0,
+          342,
+          288
+        ],
+        "anchor": [
+          161,
+          256
+        ],
+        "contacts": {
+          "feet": [
+            161,
+            256
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            69,
+            29,
+            273,
+            259
+          ],
+          "soleContactSource": [
+            161,
+            256
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 0
+        }
+      },
+      {
+        "id": "walker-travel-a",
+        "type": "walker",
+        "action": "travel-a",
+        "direction": "right",
+        "rect": [
+          342,
+          0,
+          342,
+          288
+        ],
+        "anchor": [
+          151,
+          255
+        ],
+        "contacts": {
+          "feet": [
+            151,
+            255
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            409,
+            31,
+            617,
+            259
+          ],
+          "soleContactSource": [
+            493,
+            255
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 1
+        }
+      },
+      {
+        "id": "walker-travel-b",
+        "type": "walker",
+        "action": "travel-b",
+        "direction": "right",
+        "rect": [
+          684,
+          0,
+          341,
+          288
+        ],
+        "anchor": [
+          183,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            183,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            752,
+            29,
+            957,
+            259
+          ],
+          "soleContactSource": [
+            867,
+            257
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 2
+        }
+      },
+      {
+        "id": "walker-impact",
+        "type": "walker",
+        "action": "impact",
+        "direction": "right",
+        "rect": [
+          1025,
+          0,
+          342,
+          288
+        ],
+        "anchor": [
+          170,
+          255
+        ],
+        "contacts": {
+          "feet": [
+            170,
+            255
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            1094,
+            80,
+            1299,
+            259
+          ],
+          "soleContactSource": [
+            1195,
+            255
+          ],
+          "semanticRow": 0,
+          "semanticColumn": 3
+        }
+      },
+      {
+        "id": "hopper-idle",
+        "type": "hopper",
+        "action": "idle",
+        "direction": "right",
+        "rect": [
+          0,
+          288,
+          342,
+          287
+        ],
+        "anchor": [
+          120,
+          255
+        ],
+        "contacts": {
+          "feet": [
+            120,
+            255
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            54,
+            365,
+            287,
+            546
+          ],
+          "soleContactSource": [
+            120,
+            543
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 0
+        }
+      },
+      {
+        "id": "hopper-travel-a",
+        "type": "hopper",
+        "action": "travel-a",
+        "direction": "right",
+        "rect": [
+          342,
+          288,
+          342,
+          287
+        ],
+        "anchor": [
+          92,
+          255
+        ],
+        "contacts": {
+          "feet": [
+            92,
+            255
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            382,
+            384,
+            644,
+            546
+          ],
+          "soleContactSource": [
+            434,
+            543
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 1
+        }
+      },
+      {
+        "id": "hopper-travel-b",
+        "type": "hopper",
+        "action": "travel-b",
+        "direction": "right",
+        "rect": [
+          684,
+          288,
+          341,
+          287
+        ],
+        "anchor": [
+          121,
+          256
+        ],
+        "contacts": {
+          "feet": [
+            121,
+            256
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            718,
+            354,
+            991,
+            546
+          ],
+          "soleContactSource": [
+            805,
+            544
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 2
+        }
+      },
+      {
+        "id": "hopper-impact",
+        "type": "hopper",
+        "action": "impact",
+        "direction": "right",
+        "rect": [
+          1025,
+          288,
+          342,
+          287
+        ],
+        "anchor": [
+          125,
+          254
+        ],
+        "contacts": {
+          "feet": [
+            125,
+            254
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            1074,
+            387,
+            1319,
+            546
+          ],
+          "soleContactSource": [
+            1150,
+            542
+          ],
+          "semanticRow": 1,
+          "semanticColumn": 3
+        }
+      },
+      {
+        "id": "spike-idle",
+        "type": "spike",
+        "action": "idle",
+        "direction": "right",
+        "rect": [
+          0,
+          575,
+          342,
+          287
+        ],
+        "anchor": [
+          155,
+          255
+        ],
+        "contacts": {
+          "feet": [
+            155,
+            255
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            63,
+            612,
+            278,
+            834
+          ],
+          "soleContactSource": [
+            155,
+            830
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 0
+        }
+      },
+      {
+        "id": "spike-travel-a",
+        "type": "spike",
+        "action": "travel-a",
+        "direction": "right",
+        "rect": [
+          342,
+          575,
+          342,
+          287
+        ],
+        "anchor": [
+          203,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            203,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            406,
+            609,
+            620,
+            834
+          ],
+          "soleContactSource": [
+            545,
+            832
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 1
+        }
+      },
+      {
+        "id": "spike-travel-b",
+        "type": "spike",
+        "action": "travel-b",
+        "direction": "right",
+        "rect": [
+          684,
+          575,
+          341,
+          287
+        ],
+        "anchor": [
+          198,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            198,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            746,
+            604,
+            962,
+            834
+          ],
+          "soleContactSource": [
+            882,
+            832
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 2
+        }
+      },
+      {
+        "id": "spike-impact",
+        "type": "spike",
+        "action": "impact",
+        "direction": "right",
+        "rect": [
+          1025,
+          575,
+          342,
+          287
+        ],
+        "anchor": [
+          211,
+          255
+        ],
+        "contacts": {
+          "feet": [
+            211,
+            255
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            1073,
+            622,
+            1320,
+            834
+          ],
+          "soleContactSource": [
+            1236,
+            830
+          ],
+          "semanticRow": 2,
+          "semanticColumn": 3
+        }
+      },
+      {
+        "id": "flyer-idle",
+        "type": "flyer",
+        "action": "idle",
+        "direction": "right",
+        "rect": [
+          0,
+          862,
+          342,
+          288
+        ],
+        "anchor": [
+          206,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            206,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            38,
+            955,
+            304,
+            1121
+          ],
+          "soleContactSource": [
+            206,
+            1119
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 0
+        }
+      },
+      {
+        "id": "flyer-travel-a",
+        "type": "flyer",
+        "action": "travel-a",
+        "direction": "right",
+        "rect": [
+          342,
+          862,
+          342,
+          288
+        ],
+        "anchor": [
+          199,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            199,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            376,
+            929,
+            649,
+            1121
+          ],
+          "soleContactSource": [
+            541,
+            1119
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 1
+        }
+      },
+      {
+        "id": "flyer-travel-b",
+        "type": "flyer",
+        "action": "travel-b",
+        "direction": "right",
+        "rect": [
+          684,
+          862,
+          341,
+          288
+        ],
+        "anchor": [
+          210,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            210,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            718,
+            968,
+            991,
+            1121
+          ],
+          "soleContactSource": [
+            894,
+            1119
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 2
+        }
+      },
+      {
+        "id": "flyer-impact",
+        "type": "flyer",
+        "action": "impact",
+        "direction": "right",
+        "rect": [
+          1025,
+          862,
+          342,
+          288
+        ],
+        "anchor": [
+          179,
+          257
+        ],
+        "contacts": {
+          "feet": [
+            179,
+            257
+          ]
+        },
+        "measurement": {
+          "method": "whole generated body+owned expression marks; uniform pertype proportional resize;10percent cellpadding; actual alpha>=160 lowest3rows contact",
+          "bodyBounds": [
+            1080,
+            974,
+            1313,
+            1121
+          ],
+          "soleContactSource": [
+            1204,
+            1119
+          ],
+          "semanticRow": 3,
+          "semanticColumn": 3
+        }
+      }
+    ],
+    "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
+    "sourceSha256": "69d94cefde5b90c2e9e1557807dc36b3ebc3b7676cf999f2583ca93c0c623522",
+    "promptSha256": "d56934c6308a1bca8e481b030d0509e75e27ee728616cfc11492aaaa19866339",
+    "runtimeSha256": "203cb8452e4c89c357089823f4eda4a6e632c52f3cea68a3256b076a87d7b4a1",
+    "reviewStatus": "PASS_NATIVE_SAVED390_128_ACTUAL_SCENEKIT40_46_BOTHDIRECTIONS",
+    "productionRevision": "clean-cartoon-2026-10-31",
     "width": 1367,
     "height": 1150
   }

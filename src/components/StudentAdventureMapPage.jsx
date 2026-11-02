@@ -1,9 +1,11 @@
 import { adventureStationContinuation } from "../policy/adventureContinuation.js";
+import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
 // One authored atlas fills the child viewport. Place details are available by
 // mouse, keyboard and touch; only the continuation action opens practice.
 // Artwork and coordinates share a versioned authority in adventureMapAtlas.js.
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { adventureMapGuidePlacement } from '../utils/adventureMapGuidePlacement.js';
 
 import { ADVENTURE_ATLAS_VIEW, mapAreaDetails } from "../data/adventureMapAtlas.js";
 import "../styles/adventure-map-atlas.css";
@@ -97,6 +99,7 @@ export function StudentAdventureMapPage({
   const [areaId, setAreaId] = useState("");
   const [planeSize, setPlaneSize] = useState({ width: 760, height: 425 });
   const mapScrollRef = useRef(null);
+  const guidePalRef = useRef(null);
   const areaRef = useRef(null);
   const dismissedAreaRef = useRef("");
   const [, setHydrationRevision] = useState(0);
@@ -158,8 +161,8 @@ export function StudentAdventureMapPage({
       ))
     : [];
   const landmarks = WORLD_LANDMARKS_WIDE[part.id] || [];
-  const mapArt = WIDE_WORLDS.find(world => world.id === part.id)?.image || "";
-  const emblem = PAL_WORLDS[part.id]?.emblem || "";
+  const mapArt = withRepairedImageVersion(WIDE_WORLDS.find(world => world.id === part.id)?.image || "");
+  const emblem = withRepairedImageVersion(PAL_WORLDS[part.id]?.emblem || "");
   // Both map surfaces use percentages of the complete, uncropped atlas.
   const mapPoints = wideMapPointsFor(part.id, wideOverride);
 
@@ -178,9 +181,9 @@ export function StudentAdventureMapPage({
     ? [{ id: 'more-word-match', name: 'More Word Match', number: '✓', state: 'next' }]
     : scene.cards.filter(stop => stop.state === "next");
 
-  // The pal stands on a MARKER, not on a fact: scene.next is the child's next
-  // stop whether or not the admin has placed a coordinate for it, and a stop
-  // with no coordinate has no marker to stand on.
+  // The pal accompanies a placed marker. Progress can identify a next stop
+  // without an authored coordinate; only a placed stop supplies its anchor.
+  // Measured layout keeps the decorative pose beside the numbered controls.
   const placedNext = scene.next
     ? scene.stops.find(stop => stop.id === scene.next.id)
     : null;
@@ -188,7 +191,7 @@ export function StudentAdventureMapPage({
   // The world's own pose art, not the child's companion tile: companion images
   // have no alpha channel (measured — 1024x1024, opaque), so one standing on the
   // map is a white square with a pal in it. The pose art is cut out.
-  const palArt = `/images/pals/poses/${part.id}-wave.webp`;
+  const palArt = withRepairedImageVersion(`/images/pals/poses/${part.id}-wave.webp`);
 
   // TWO CLAUSES, ONE OF THEM THE INSTRUCTION. The land is context — the badge
   // on the plate says it too — and "your pal is waiting at X" is the thing to
@@ -261,6 +264,36 @@ export function StudentAdventureMapPage({
   const nextAreaId = placedNext?.id;
   const nextAreaX = placedNext?.x;
   const nextAreaY = placedNext?.y;
+  useLayoutEffect(() => {
+    const scroller = mapScrollRef.current, pal = guidePalRef.current;
+    if (!scroller || !pal || !nextAreaId) return undefined;
+    const surface = scroller.closest('.kg-map--atlas');
+    let frame = 0, active = true;
+    const place = () => {
+      frame = 0;
+      const marker = [...surface.querySelectorAll('[data-stop]')].find(node => node.dataset.stop === nextAreaId);
+      if (!marker) return;
+      const anchor = marker.getBoundingClientRect(), viewport = scroller.getBoundingClientRect();
+      const plane = scroller.firstElementChild.getBoundingClientRect();
+      const obstacles = [...surface.querySelectorAll('.kg-atlas-stop, .kg-atlas-stop-name, .kg-atlas-heading, .kg-atlas-world, .kg-atlas-continue, .kg-atlas-browse, .kg-atlas-details')]
+        .map(node => node.getBoundingClientRect()).filter(rect => rect.width > 0 && rect.height > 0);
+      const onScreen = anchor.right > viewport.left && anchor.left < viewport.right && anchor.bottom > viewport.top && anchor.top < viewport.bottom;
+      const position = adventureMapGuidePlacement({ anchor: { x: anchor.x + anchor.width / 2, y: anchor.y + anchor.height / 2 },
+        size: { width: pal.clientWidth, height: pal.clientHeight },
+        bounds: onScreen ? { left: Math.max(viewport.left, plane.left), right: Math.min(viewport.right, plane.right),
+          top: Math.max(viewport.top, plane.top), bottom: Math.min(viewport.bottom, plane.bottom) } : plane, obstacles });
+      pal.style.setProperty('--map-guide-x', `${position.x - (anchor.x + anchor.width / 2)}px`);
+      pal.style.setProperty('--map-guide-y', `${position.y - (anchor.y + anchor.height / 2)}px`);
+      pal.dataset.placement = position.clear ? 'clear' : 'constrained';
+    };
+    const schedule = () => { if (active && !frame) frame = requestAnimationFrame(place); };
+    const observer = new ResizeObserver(schedule);
+    for (const node of [scroller, pal, surface.querySelector('.kg-atlas-heading'), surface.querySelector('.kg-atlas-continue')]) if (node) observer.observe(node);
+    scroller.addEventListener('scroll', schedule, { passive: true });
+    document.fonts?.ready.then(schedule);
+    place();
+    return () => { active = false; observer.disconnect(); scroller.removeEventListener('scroll', schedule); cancelAnimationFrame(frame); };
+  }, [nextAreaId, nextAreaX, nextAreaY, planeSize.width, planeSize.height, areaId]);
   useEffect(() => {
     if (!areaId) return undefined;
     const dismiss = event => {
@@ -448,7 +481,7 @@ export function StudentAdventureMapPage({
                     {stop.state === "next" && <span className="kg-atlas-stop-name" data-low={stop.y > 70 ? "true" : undefined} aria-hidden="true">{stop.name}</span>}
                   </button>
                 ))}
-                {placedNext && <img className="kg-atlas-pal" style={{ left: `${placedNext.x}%`, top: `${placedNext.y}%` }} src={palArt} alt="" onError={hideOnError} />}
+                {placedNext && <img ref={guidePalRef} className="kg-atlas-pal" style={{ left: `${placedNext.x}%`, top: `${placedNext.y}%` }} src={palArt} alt="" onError={hideOnError} />}
               </div>
             </div>
           </div>

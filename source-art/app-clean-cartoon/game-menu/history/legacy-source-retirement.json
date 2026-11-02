@@ -1,0 +1,37 @@
+{
+  "at": "2026-11-02T14:26:02.834Z",
+  "currentAuthority": "source-art/app-clean-cartoon/game-menu/manifest.json",
+  "original27ReferenceAndNativeTransferVerified": true,
+  "sourcePathsRemoved": 4,
+  "bytesRemoved": 4294155,
+  "rows": [
+    {
+      "path": "source-art/arcade/physical-game-menu/burrow-builders.png",
+      "sha256": "78a76d0676aaca63d122ab36e0dcf7db085890c69741cb6d4668b80805706d9c",
+      "bytes": 1540445,
+      "recoverableFromGit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+      "reason": "Superseded standalone menu source; all27 accepted current natives, original384 references, prompts and delivered images verified. Only historical before-manifest records name these old inputs."
+    },
+    {
+      "path": "source-art/arcade/physical-game-menu/rally-pals.png",
+      "sha256": "235b668eb0f8c445de49cc9d1cd3c1fb43d448b3863c42182b94f4fb88307a35",
+      "bytes": 1320848,
+      "recoverableFromGit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+      "reason": "Superseded standalone menu source; all27 accepted current natives, original384 references, prompts and delivered images verified. Only historical before-manifest records name these old inputs."
+    },
+    {
+      "path": "source-art/arcade/physical-game-menu/tower-tumble.png",
+      "sha256": "c7a859cd1b66c2051ba0c9c6e1dc0689ef63e3ab725a6859bb9e745b36ffeaa6",
+      "bytes": 1429837,
+      "recoverableFromGit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+      "reason": "Superseded standalone menu source; all27 accepted current natives, original384 references, prompts and delivered images verified. Only historical before-manifest records name these old inputs."
+    },
+    {
+      "path": "source-art/arcade/physical-game-menu/prompts.json",
+      "sha256": "e084eb7e4d6c601197c905612e9616d934b9955f5b0ff4e95d9caa2b1a8a1c78",
+      "bytes": 3025,
+      "recoverableFromGit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+      "reason": "Superseded standalone menu source; all27 accepted current natives, original384 references, prompts and delivered images verified. Only historical before-manifest records name these old inputs."
+    }
+  ]
+}

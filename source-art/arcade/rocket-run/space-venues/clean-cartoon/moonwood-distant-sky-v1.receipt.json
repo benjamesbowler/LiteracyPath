@@ -1,0 +1,28 @@
+{
+  "jobId": "rocket-sky-clean-moonwood-2026-11-02",
+  "world": "moonwood",
+  "actualBuiltinCalls": 1,
+  "tool": "image_gen.imagegen",
+  "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a4-8c7f-7230-a0ec-094dc7ee8e4e/exec-69a0a1f6-e14a-4f9e-8e40-d9e3ba6cb54d.png",
+  "providerNativeSHA": "23a812453d6ebd3e0e3e59800345b0713ac51fcbf5a92c4399f9457ef8d3dee9",
+  "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.png",
+  "sourceSHA": "23a812453d6ebd3e0e3e59800345b0713ac51fcbf5a92c4399f9457ef8d3dee9",
+  "sourceSize": [
+    1672,
+    941
+  ],
+  "prompt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.prompt.txt",
+  "promptSHA": "beaba4b2eabd6974dd8d5354bde9b30a797c70d2780ab334b5b734bd2d17c10e",
+  "references": [],
+  "review": {
+    "providerNativeViewed": true,
+    "wholeNativeSavedViewed": true,
+    "style": "Boldcleanoutlined2Dthroughout; simplecelplanes, nolocalpaint/grain/emboss",
+    "neutrality": "No faith,national,politicalsymbolsorflags; ordinaryscienceobservatories",
+    "meaning": "Retainedworldqualifieddistantspace, no bakedcraft/character/carrier/route/UI",
+    "saved390Viewed": false,
+    "saved128Viewed": false,
+    "actualRetainedPreview": false,
+    "liveProductUse": false
+  }
+}

@@ -43,7 +43,12 @@ def frames(image, sockets, windows=None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--metadata-only', action='store_true')
+    parser.add_argument('--asset-ids', help='Comma-separated current registered deliveries to encode')
     args = parser.parse_args()
+    if (SOURCE / 'scene-kit-clean-cartoon.json').exists():
+        from soundkeysCleanCartoon import build_current
+        build_current(args.metadata_only, set(args.asset_ids.split(',')) if args.asset_ids else None)
+        return
     registration = json.loads((SOURCE / 'key-registration-v1.json').read_text())
     previous = json.loads((SOURCE / 'scene-kit-v1.json').read_text()) if (SOURCE / 'scene-kit-v1.json').exists() else {}
     assets = {}

@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
@@ -26,6 +27,7 @@ import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameSt
 import { WORD_BRIDGE_ATLASES } from './wordBridgeArt.generated.js';
 import { WORD_BRIDGE_SCENERY, WORD_BRIDGE_HORIZONS } from './wordBridgeScenery.generated.js';
 import { createWordBridgeAuthoredView } from './wordBridgeAuthoredView.js';
+import { wordBridgeHeldGlyphLayout } from './wordBridgePose.js';
 import { wordBridgeSingleHandSurface, wordBridgeRecoveryRepresentation } from './wordBridgeRecoveryArt.js';
 import { createWordBridgeCue } from './wordBridgeCue.js';
 import { drawPhysicalPalFallback, physicalPalFallbackPose } from '../shared/physicalPalFallback.js';
@@ -494,7 +496,7 @@ function startGame(mount, opts) {
     asset.image.onerror = () => {
       asset.failed = true;
     };
-    asset.image.src = src;
+    asset.image.src = withRepairedImageVersion(src);
     return asset;
   }
 
@@ -1985,7 +1987,8 @@ function startGame(mount, opts) {
     }
     ctx.fillStyle = "#21180d";
     const glyph = String(t.glyph);
-    const glyphSize = t.w > 74
+    const label = t.registeredLabel;
+    const glyphSize = label ? clamp(label.maxWidth / Math.max(glyph.length, 1) * 1.4, 14, 21) : t.w > 74
       ? clamp((t.w - 12) / Math.max(glyph.length, 4) * 1.55, 14, 21)
       : 25;
     ctx.font = `950 ${glyphSize}px Fredoka, Arial, sans-serif`;
@@ -1993,9 +1996,11 @@ function startGame(mount, opts) {
     ctx.textBaseline = "middle";
     ctx.lineWidth = 3;
     ctx.strokeStyle = "rgba(255,247,196,.68)";
-    const glyphY=y+t.h/2+1+(t.registeredGrip?t.h*.14:0);
-    ctx.strokeText(glyph, x + t.w / 2, glyphY, t.w - 8);
-    ctx.fillText(glyph, x + t.w / 2, glyphY, t.w - 8);
+    const glyphX = x + t.w / 2 + (label?.offsetX || 0);
+    const glyphY=y+t.h/2+1+(label?.offsetY??(t.registeredGrip?t.h*.14:0));
+    const glyphWidth = label?.maxWidth ?? t.w - 8;
+    ctx.strokeText(glyph, glyphX, glyphY, glyphWidth);
+    ctx.fillText(glyph, glyphX, glyphY, glyphWidth);
     if (!carried && t.returnT > 0) {
       const pulse = reduceMotion ? 1 : 0.78 + Math.sin(now * 12) * 0.16;
       ctx.globalAlpha = pulse;
@@ -2059,8 +2064,10 @@ function startGame(mount, opts) {
     const drawHeld = (surface, carried) => {
       const sample=constructionMotion?.physicalId===carried.physicalId?wordBridgeConstructionSample(constructionMotion,surface,{reducedMotion:reduceMotion}):null;
       const shown=sample?.surface||surface;
+      const registeredLabel = !sample || sample.attachedToMeasuredPalms
+        ? wordBridgeHeldGlyphLayout(shown, builder.facing) : null;
       ctx.save(); ctx.translate(shown.centre.x, shown.centre.y); ctx.rotate(shown.angle);
-      drawTile({ ...carried, x: -shown.width / 2, y: -shown.height / 2, w: shown.width, h: shown.height, registeredGrip: true }, now, true);
+      drawTile({ ...carried, x: -shown.width / 2, y: -shown.height / 2, w: shown.width, h: shown.height, registeredGrip: true, registeredLabel }, now, true);
       ctx.restore();
       return{surface:shown,attachedToMeasuredPalms:sample?sample.attachedToMeasuredPalms:true,physicalId:carried.physicalId};
     };

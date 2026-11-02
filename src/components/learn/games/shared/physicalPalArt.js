@@ -1,4 +1,5 @@
 import { PHYSICAL_PAL_ART } from './physicalPalArtData.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const worlds = { meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' };
 const images = new Map(), decoded = new Map(), delivery = new Map();
@@ -23,7 +24,7 @@ function loadAtlas(name, kind) {
     const timer = setTimeout(() => settle(null), 10000);
     picture.onload = () => settle(picture.naturalWidth ? picture : null);
     picture.onerror = () => settle(null);
-    picture.src = atlas.runtime;
+    picture.src = withRepairedImageVersion(atlas.runtime);
   }));
   return images.get(key);
 }
@@ -103,7 +104,7 @@ export function physicalPalFrame(world = 'meadow', time = 0, moving = false, opt
   mirror = mirror || frame.mirror;
   let rightHand = [direction === 'back' ? -.4 : .48, 1.12, .08], leftHand = [-rightHand[0], 1.12, .08];
   if (frame.rightHand) rightHand = frame.rightHand;
-  if (kind === 'tools') rightHand = [[.64, 1.92, .08], [.64, 1.13, .08], [-.34, 1.80, .08], [.77, 1.22, .08], [.5, 1.90, .08], [.52, 1.26, .08], [.56, 1.12, .08], [-.56, 1.12, .08]][index];
+  if (kind === 'tools' && !frame.rightHand) rightHand = [[.64, 1.92, .08], [.64, 1.13, .08], [-.34, 1.80, .08], [.77, 1.22, .08], [.5, 1.90, .08], [.52, 1.26, .08], [.56, 1.12, .08], [-.56, 1.12, .08]][index];
   if (mirror) rightHand = [-rightHand[0], rightHand[1], rightHand[2]];
   return { kind, index, atlas, frame, mirror, direction, action, rightHand, leftHand };
 }

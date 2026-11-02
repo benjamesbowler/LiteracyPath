@@ -14,13 +14,18 @@ const arcadeManifests = ["source-art/arcade/cue-images/action/manifest.json", "s
 const manifestNames = ["source-art/arcade/cue-images/manifest.json",
   ...(process.argv.includes("--letter-leap") ? ["source-art/arcade/cue-images/letter-leap/manifest.json"] : []),
   ...(action ? arcadeManifests : [])];
+const retirementArg = process.argv.find(arg => arg.startsWith('--exclude-registry='));
+const retirementRegistryPath = path.resolve(root, retirementArg?.slice(19) || 'tools/manifests/inactive-image-retirements.json');
+const retirementRegistry = JSON.parse(await fs.readFile(retirementRegistryPath, 'utf8'));
+if (retirementRegistry.schemaVersion !== 1 || !Array.isArray(retirementRegistry.retirements)) throw new Error('Invalid inactive image registry');
+const retiredImages = new Map(retirementRegistry.retirements.filter(row => row.kind === 'current-runtime-inactive-image').flatMap(row => row.assets.map(asset => [asset.oldPath, asset])));
 let encoded = 0;
 const arcadeEntries = [];
 for (const manifestName of manifestNames) {
   const manifestPath = path.join(root, manifestName);
   const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
   for (const entry of manifest.generated) {
-    if (lookupOnly) continue;
+    if (lookupOnly || retiredImages.has(entry.delivery)) continue;
     const source = path.join(root, entry.source), output = path.join(root, "public", entry.delivery);
     const maxDimension = entry.maxDimension || 1024;
     await fs.mkdir(path.dirname(output), { recursive: true });
@@ -33,14 +38,15 @@ for (const manifestName of manifestNames) {
     encoded++;
   }
   for (const entry of manifest.curated || []) {
+    if (retiredImages.has(entry.delivery)) continue;
     const file = path.join(root, "public", entry.delivery);
     entry.sha256 = await digest(file);
     entry.bytes = (await fs.stat(file)).size;
   }
-  await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  if (!lookupOnly) await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
   if (arcadeManifests.includes(manifestName)) {
     arcadeEntries.push(...[...manifest.generated, ...manifest.curated].map(entry => [entry.word, {
-      image: entry.delivery, kind: entry.kind
+      image: retiredImages.has(entry.delivery) ? "" : entry.delivery, kind: entry.kind
     }]));
   }
 }

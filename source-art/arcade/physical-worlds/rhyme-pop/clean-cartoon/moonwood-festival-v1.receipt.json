@@ -1,0 +1,79 @@
+{
+  "jobId": "art-0652",
+  "path": "/game-assets/physical-arcade/rhyme-pop/moonwood-festival-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/rhyme-pop/moonwood-festival-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0652.webp",
+  "sourceSha256": "878bdccfaf62fddb2ca03a55347fe169e5550511560b4125ba33e11220e13fb9",
+  "originalSha256": "878bdccfaf62fddb2ca03a55347fe169e5550511560b4125ba33e11220e13fb9",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0652.webp",
+  "finalSha256": "10efa33fed6c8809130ce06054ab6a87fdcb54ba992d02dd3f25d6ba28d3cb9a",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-3e88f032-29a7-4c1c-9d8d-04fd216f6c4f.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0652/native-002.png",
+  "nativeSha256": "025a24dc40cc39ef564e1c52c724e5847393dc167dcf808e37a73b4eb0682e34",
+  "nativeDimensions": {
+    "width": 1671,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/moonwood-festival-v1.prompt.txt",
+  "promptSha256": "1800237cd7017bcac1455acf65dda2b828b8f30767fe76dcc8d5611441bbbdb7",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/references/moonwood-festival-v1-input-1.png",
+      "sha256": "04adf6a2f01d99ae164f3cd25c57994b11aa303a1d4cc6c3e59e9552885adebf"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Clean outlined night lake fair with plain round lanterns, faceless moon, round star dots, wheel and low stone footbridge, open stage. Plain nature setting, no religious architecture/symbols. NativePNG, exact savedfullWebP, fullfallback,390/128 deliverytiles and18actualrenderer desktop/phone/shortlandscape normal/forcedfallback frames directly reviewed. No physical-device, audio, gameplay or learner-save claim.",
+    "reviewedAt": "2026-11-02T03:56:10.367Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme/browser-proof.json",
+    "fullContextSha256": "89ee6853bb0832bfe2901fd5bfd2a1ae91e2c9144a7246d21d2f7379d21b8fa0",
+    "notABook": true
+  },
+  "installedAt": "2026-11-02T03:56:10.375Z",
+  "source": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/moonwood-festival-v1.png",
+  "provider": {
+    "jobId": "art-0652",
+    "attempt": 2,
+    "prompt": "Use case: style-transfer. Edit this OWN CLEAN CANDIDATE game backdrop, preserving its exact full16:9 composition, landmark positions, empty stage, quiet central sky, theme, framing and all silhouettes. The entire illustration must be stricter FLAT2D vector-style cel art. Main correction: remove ALL smooth gradients and airbrush shading. Make sky ONE uniform solid blue/cobalt field, no horizon lightening. Every stage plank must be ONE uniform solid brown/orange field with a clean black divider, no lengthwise gradient, no streaks or grain. Remove smoothly blended lighting from distant hills, tree canopies, cliffs and water; replace with simple large uniform color shapes and at most ONE clearly HARD-EDGED cel shadow. Simplify tiny repeated marks. Preserve crisp continuous dark outlines throughout, clear friendly saturated colors. Keep the existing empty stage and open central sky and all distant game-festival landmarks exactly. For night scene lanterns are plain round/cylindrical shapes with flat yellow fields, stars are plain dots; preserve neutral nature setting. NO painterly, daubed, pebbled, embossed, fuzzy, material-textured or 3D forms. NO characters, live balloon sprites, launcher, text, labels, UI, letters, numbers, watermark, religious symbols/buildings or national/political/religious flags. Ordinary decorative triangular game pennants may stay. Fullframe crisp smooth SOLID color fields.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0652/native-001.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-3e88f032-29a7-4c1c-9d8d-04fd216f6c4f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-3e88f032-29a7-4c1c-9d8d-04fd216f6c4f.png"
+  },
+  "priorGeneration": {
+    "prompt": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/provenance/moonwood-festival-v1-initial.prompt.txt",
+    "promptSha256": "c8630bfc80083113d65212e3f041def9fdd016155f79b5f29262ad11f055f1b5",
+    "nativeSha256": "04adf6a2f01d99ae164f3cd25c57994b11aa303a1d4cc6c3e59e9552885adebf",
+    "provider": {
+      "jobId": "art-0652",
+      "attempt": 1,
+      "prompt": "Use case: illustration-story. Asset type: COMPLETE EMPTY 16:9 wide child-friendly Rhyme Pop festival game backdrop. Create a distinct original in BOLD CLEAN FLAT 2D CARTOON with crisp continuous dark outlines, large smooth SOLID color fields, simple readable silhouettes, ONLY one restrained HARD-EDGED cel shadow per form. Full frame including distance follows this style. No material simulation, gradients, painterly daubs, gouache, watercolor, brushwork, pebbled/embossed relief, patchwork fields, canvas/paper grain, fuzz, glow, blur, woodgrain, barkgrain or photoreal reflections. COMPOSITION: eye-level view from an empty wooden stage toward a deep distant festival landscape. Bottom25% is an uninterrupted simple warm brown stage floor, sparse straight perspective plank dividers only, no grain. Its backedge runs nearly horizontal at75%height. Middle distant landscape occupies50%to75%height; upper central65%width is spacious simple open sky, no large central objects, providing quiet visual space for independent live reading balloons. Large framing trees/cliffs restricted to outer15%edges, canopy only at outeruppercorners. Ferriswheel on farLEFT around30%fromleft; small festival tents on farRIGHT. Runtime draws actor, launcher, balloons, rails and all reading labels separately, so bake none into image. MOONWOOD LANTERN FESTIVAL: cobalt evening sky with a simple faceless crescentmoon highatcenter and a few small round whitedots forstars; deepindigo tree silhouettes. Large ordinary leafy trees frameouteredges, simple browntrunks and roots, NO buildings, castle, cathedral, windowfacade or religious architecture. Small simple ferriswheel onfarLEFTwith round yellowlightdots; small purple festival awnings farRIGHT. A calmblue lake throughmiddlelowerdistance, verylow arched stonefootbridge atcenterhorizon, plain round and cylindrical gardenlanterns hanging onlyfromouterbranches. Lanterns have simple round bulbshapes, NO pointed stars, geometricstar symbols or emblems. Flat teal/purple rolling hills. Nightart remains clear and saturated, flat yellow lanternfields without bloom or glow. Preserve full16:9 framing. Neutral everyday/fantasy nature setting, no people, characters, animals, balloon shapes, launcher/cannon, tools, UI, text, letters, numbers, labels, logos, watermark, religious buildings/clothes/symbols or national/political/religious flags. Ordinary gamepennants are plain decorative triangles only. Crisp welcoming gameart, not photo or 3Drender.",
+      "referenceImages": [],
+      "transparent_background": false,
+      "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-614b08d7-64bb-47a3-86dd-417f5ff4d071.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-614b08d7-64bb-47a3-86dd-417f5ff4d071.png"
+    }
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/physical-worlds/rhyme-pop/moonwood-lantern-festival-v1.png",
+    "historicalSourceSha256": "4a44c76b492fde7ca89008fc92937feef1991ac259a5236bfb4e6149a1f4ddef"
+  }
+}

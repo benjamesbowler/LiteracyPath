@@ -47,7 +47,8 @@ test('exact six-miss Hard state forecasts the animated release/current, while th
   const geometry=geometryFor('moonwood','pip'),state=pinnedHard();
   const observed=forecastReelReadCast(state,3,geometry);
   assert.equal(observed.firstHit.fishId,3);
-  assert.ok(observed.releaseColumn<125&&observed.releaseColumn>122);
+  // Current complete Pip bodies and measured rod grips move the release to127.706px.
+  assert.ok(Math.abs(observed.releaseColumn-127.70585716285152)<1e-6);
   assert.equal(actualFirstHit(structuredClone(state),geometry).fishId,3);
   // Old auto-aim fired as the fish reached within10px of ready x198.79.
   const late=pinnedHard();late.elapsed=(198.7893127209393-10+85)/82;

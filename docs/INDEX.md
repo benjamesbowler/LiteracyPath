@@ -41,6 +41,7 @@ A dated document must never override current code.
 - [Learning policy](design/LEARNING_POLICY.md)
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
 - [App illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) — bold clean cartoons, crisp outlines, flat colors/cel shading; supersedes painterly, watercolor, daubed and embossed illustration briefs.
+- [Clean cartoon artwork completion](design/CLEAN_CARTOON_REFRESH_CHECKPOINT.md) — completed images, current source authorities, exact review/retention scope and release boundaries.
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Cycle Shorts](guided-reading/CYCLE_SHORTS.md) — 27 Meadow Farm read-together passages and 81 questions, shared by Present endings and the Guided Reading collection.
 - [Guided Reading](guided-reading/INDEX.md)
@@ -68,7 +69,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Learn Letters](product/LEARN_LETTERS.md) — five saved rounds per letter, uppercase and lowercase tracing, varied picture/sound practice and cumulative review
 - [Cycle Practice](product/CYCLE_PRACTICE.md) — cumulative word recognition and phonics, shared reviewed CVC pictures, varied replay, automatic feedback and teacher-assigned sessions
 - [Adventure Map games](product/ADVENTURE_MAP.md) — ten simple spoken letter, word and picture games; focused mixed quests, optional rhyme and current audio/learning contracts
-- [Adventure atlas art manifest](design/ADVENTURE_MAP_ATLAS_MANIFEST.json) — the three overhead map paintings, owned source inputs, runtime hashes and versioned wide-map coordinates
+- [Adventure map art sources](../source-art/maps/clean-cartoon/manifest.json) — six clean cartoon maps; shared27place names and version3 geometry in `src/data/adventureMapAtlas.js`; the earlier design manifest is historical provenance.
 - [Nine phonics practice games](design/PHONICS_PRACTICE_OVERHAUL.md) — current direct-play worlds, declared constructs, saved outings and response evidence
 
 - [Teacher-controlled Student Sessions](product/STUDENT_SESSIONS.md) — whole-class or selected-student iPad focus sessions for targeted Skills checks, exact books and games, plus Reading Library, Letters Practice, and existing synchronized Guided Reading
@@ -79,7 +80,10 @@ immediately. Missing review metadata is not a publication queue.
 - [Simple task flows](design/SIMPLE_UI_AND_TASK_FLOWS.md) — five teacher task entries, explicit audiences, shared session stages with separate protocols, saved-history and exact family-preview flows, current-cycle precedence and complete child exploration
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Original 22-game upgrade programme](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — gameplay, graphics, learning, reported defects and per-game acceptance for the original catalogue plus Sound Seekers; subsequent additions use the current game briefs and Bible
-- [Game menu art and generation prompts](../public/images/learn-games/menu/manifest.json) — matching text-free images for all 27 Arcade and Phonics menu cards
+- [Rhyme Pop cue follow-up](../source-art/app-clean-cartoon/rhyme-v2-cues/manifest.json) — eleven clean replacements after exhaustive 70-target audit; exact sources and reproducible deliveries.
+- [Game menu delivery manifest](../public/images/learn-games/menu/manifest.json) and [current menu sources](../source-art/app-clean-cartoon/game-menu/manifest.json) — all27 text-free clean cartoon icons; `tools/buildGameMenuArt.mjs --check` reproduces the reviewed bytes.
+- [Registered Guide and equipment sources](../source-art/companions/README.md) — canonical bodies, portraits and true-alpha equipment composition; rebuild with `tools/buildCompanionArtwork.mjs`.
+- [Hollow item sources](../source-art/hollow/items-clean-cartoon/manifest.json) —47 selected decoration/egg/growth images plus4 retained expansion icons; reproduce with `tools/buildHollowItemArt.mjs --check` and regenerate decoration bounds after pixel changes.
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — current split-thumb iPad control placement and motor forgiveness — preserves original Arcade gameplay, including Sound Beat rhythm; Sentence Express uses engine, sentence and labelled departure stages; instruction playback never blocks activity input
 - [Word Climb production upgrade](design/WORD_CLIMB_IMPLEMENTATION.md) — three authored climbing worlds, paced physical routes, recorded beginning sounds and scoped legacy/recovery evidence
 - [Sentence Express production upgrade](design/SENTENCE_EXPRESS_IMPLEMENTATION.md) — authored railway worlds, explicit Send, supported printed-sentence practice, recorded readback and scoped recovery evidence
@@ -112,7 +116,8 @@ immediately. Missing review metadata is not a publication queue.
 ## Current product bibles
 
 - [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — current rounded 3D campaign: 30 places, 150 main and 60 optional missions covering 40 curriculum anchors; approved character assets, scoped saves, formative evidence and verification boundaries
-- [Sound Seekers question-art sources](../tools/soundSeekersQuestionArt/sources.json) — painted source atlas registration and generation prompts; rebuild with `node tools/soundSeekersQuestionArt/build.mjs`
+- [Current Sound Seekers V2 background deliveries](../source-art/sound-seekers/v2-current-delivery.json) — current clean replacements joined to immutable historical source/generation receipts.
+- [Sound Seekers question-art sources](../tools/soundSeekersQuestionArt/sources.json) — clean cartoon source atlas registration and generation prompts; rebuild with `node tools/soundSeekersQuestionArt/build.mjs`.
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
 - [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — separately selectable Woodland Homecoming preserving the approved storybook direction; five projects, five interaction families and 120 contextual rounds with separate local/cloud checkpoints. Its 30–40-minute target awaits child-paced observation.
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)

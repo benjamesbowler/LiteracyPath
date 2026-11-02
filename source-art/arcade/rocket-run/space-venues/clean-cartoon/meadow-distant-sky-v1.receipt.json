@@ -1,0 +1,28 @@
+{
+  "jobId": "rocket-sky-clean-meadow-2026-11-02",
+  "world": "meadow",
+  "actualBuiltinCalls": 1,
+  "tool": "image_gen.imagegen",
+  "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a4-8c7f-7230-a0ec-094dc7ee8e4e/exec-ad24d347-0a27-461b-8031-e31add522f6e.png",
+  "providerNativeSHA": "3110a364e1409701995f159d1502edb200fae3e48dc65c90948c8efa5de80db7",
+  "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.png",
+  "sourceSHA": "3110a364e1409701995f159d1502edb200fae3e48dc65c90948c8efa5de80db7",
+  "sourceSize": [
+    1672,
+    941
+  ],
+  "prompt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.prompt.txt",
+  "promptSHA": "48678ab583da77e34901410e659dca3b5999d5dd678e68683c141d55c9c287c4",
+  "references": [],
+  "review": {
+    "providerNativeViewed": true,
+    "wholeNativeSavedViewed": true,
+    "style": "Boldcleanoutlined2Dthroughout; simplecelplanes, nolocalpaint/grain/emboss",
+    "neutrality": "No faith,national,politicalsymbolsorflags; ordinaryscienceobservatories",
+    "meaning": "Retainedworldqualifieddistantspace, no bakedcraft/character/carrier/route/UI",
+    "saved390Viewed": false,
+    "saved128Viewed": false,
+    "actualRetainedPreview": false,
+    "liveProductUse": false
+  }
+}

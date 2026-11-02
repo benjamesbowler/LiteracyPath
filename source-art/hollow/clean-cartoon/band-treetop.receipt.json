@@ -1,0 +1,111 @@
+{
+  "jobId": "art-0631",
+  "path": "/images/hollow/band-treetop.webp",
+  "sameArtworkPaths": [
+    "/images/hollow/band-treetop.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0631.webp",
+  "sourceSha256": "0d7305e1a250b7ffb8d64f4cb70e92f4ee5c663fd722e702aab66c75bc590ca6",
+  "originalSha256": "0d7305e1a250b7ffb8d64f4cb70e92f4ee5c663fd722e702aab66c75bc590ca6",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0631.webp",
+  "finalSha256": "c64f5bbfa3026039a008775588d9e951d610ec3a5ec7f50fc87cd076c7aecedc",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-876b6954-d18b-418b-9411-749ca5e71461.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0631/native-002.png",
+  "nativeSha256": "fa717b14d5e6f36dcefc778c9e21fb127ea6fbde281c302bdfef6558c6131c33",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "promptFile": "source-art/hollow/clean-cartoon/band-treetop.prompt.txt",
+  "promptSha256": "c261948d97500263587b1c610540bba758bf20763ab2653e5ff72c3f66fc921c",
+  "referenceImages": [
+    {
+      "path": "source-art/hollow/clean-cartoon/references/band-treetop-input-1.png",
+      "sha256": "760c5f802d2328a92645c5a8b2108a91a388581f5bb74e6c34075bf18614113e"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Clean outlined sunsettreetop, ropebridge/rounddeck/stumptable,ordinaryroundgardenlights,2x2uppercubbiesandlowercabinetwithsixpads. Slot1/2/3 use first/third/fifthlowerpads; slot4 uses stumptable, preservingfour savedIDs andavoidingfloatingnexttocubbies. NativePNG, exactfullsavedWebP and390/128 deliverytiles directlyviewed.54actualfull/emptydesktop/phoneHome+Decorateframes and12finalHomeframes reviewed withactualcontact/hit/ownership/cachechecks. No physical-device/human-classroom/hostedacceptance claim.",
+    "reviewedAt": "2026-11-02T03:15:50.690Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/registered-v2/browser-proof.json",
+        "sha256": "2613addf9b6240cbefb364e25c5729743e763029b6299fd8cf8da73ceccbd0e4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/home-final-v2/browser-proof.json",
+        "sha256": "777b5082af798db3e7381e9631fca592e0cfed1eb0be4293207b52ba0bcbcdf5"
+      }
+    ],
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven390.png",
+    "display390Sha256": "91d15f8c13c3535445fa3249f9113dc1c1a74ea55278df6e005907a0fa105213",
+    "display128File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven128.png",
+    "display128Sha256": "57dead09ff9a93ce067894937a710f8a3d5d59c065c8e480f9b47081a321ba42",
+    "releaseRegression": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/release-regression-v2.json",
+      "sha256": "69c38988de24cf856415db7de0f8f321a97cd71b205aa10110f8dcdbdb1e1978",
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "placementRevision": "clean-cartoon-room-contacts-2026-11-02",
+  "slotContacts": [
+    [
+      20.992822966507177,
+      82.99681190223167
+    ],
+    [
+      44.07894736842105,
+      82.99681190223167
+    ],
+    [
+      67.22488038277513,
+      82.99681190223167
+    ],
+    [
+      78.82775119617224,
+      38.89479277364506
+    ]
+  ],
+  "source": "source-art/hollow/clean-cartoon/band-treetop.png",
+  "provider": {
+    "jobId": "art-0631",
+    "attempt": 2,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-876b6954-d18b-418b-9411-749ca5e71461.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-876b6954-d18b-418b-9411-749ca5e71461.png"
+  },
+  "lineage": {
+    "originalRuntime": "/images/hollow/band-treetop.webp",
+    "originalRuntimeSha256": "0d7305e1a250b7ffb8d64f4cb70e92f4ee5c663fd722e702aab66c75bc590ca6"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "nativeSha256": "78ffc8849b62e8e387441d4ab5140804d0d9461aaa1b055b59727233b49df908",
+      "promptSha256": "6f2cd9226666cb8612d3b3fd4602338f7ee8a5288ee15450ee3f60ca6abde8e3",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 2,
+      "nativeSha256": "fa717b14d5e6f36dcefc778c9e21fb127ea6fbde281c302bdfef6558c6131c33",
+      "promptSha256": "c261948d97500263587b1c610540bba758bf20763ab2653e5ff72c3f66fc921c",
+      "disposition": "accepted"
+    }
+  ],
+  "installedAt": "2026-11-02T03:50:15.974Z"
+}

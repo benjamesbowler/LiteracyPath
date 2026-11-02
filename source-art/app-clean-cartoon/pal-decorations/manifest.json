@@ -1,0 +1,1209 @@
+{
+  "schemaVersion": 1,
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "sourceRole": "Current clean decorative Pal world emblems/gestures and generic landing/login poses; distinct from named book heroes. Existing clean dino-think remains unchanged.",
+  "banks": [
+    {
+      "jobId": "pal-meadow-gesture-pair",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-gesture-pair.png",
+      "nativeSha256": "dead82e170717e94304f57a222c1b0108ccd8f643a6b532b3d7d68784330de55",
+      "nativeWidth": 1774,
+      "nativeHeight": 887,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-36c850d2-9569-4717-950f-4995ca87c048.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-gesture-pair.prompt.txt",
+      "promptSha256": "bb203fc56ebb4abba4113c4088719eb5596acd93fa3740c0c9b5791ab90353bc",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "2x1",
+      "gutters": {
+        "xs": [
+          0,
+          887,
+          1774
+        ],
+        "ys": [
+          0,
+          887
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "32829e6b6ccb22fc4945705d7e8fecae2fe12f65b34ffbfcdc3c676aff74d3d4",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-dino-gesture-pair",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-gesture-pair.png",
+      "nativeSha256": "9a0e0584586b7b5667731fec0e2df8b509fccfd3384d32a214e26a8545cca79b",
+      "nativeWidth": 1774,
+      "nativeHeight": 887,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-f429fdfd-6b58-4aab-8519-5a77186e5b65.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-dino-gesture-pair.prompt.txt",
+      "promptSha256": "c626c68722e48858e94235ebf75f94eaa7b0f0e1d20406ee0930270f4cfc9c8b",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "2x1",
+      "gutters": {
+        "xs": [
+          0,
+          887,
+          1774
+        ],
+        "ys": [
+          0,
+          887
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "6a9deae4b6fa4b9667752469c844f6a5d5655574c3c5c36a2877b2f9c8c2b4e2",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-moonwood-gesture-pair",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-gesture-pair.png",
+      "nativeSha256": "6055145c67d349f0a43e8a6704d77e6f6d997680f40fa6f56180f3f8f014cd04",
+      "nativeWidth": 1774,
+      "nativeHeight": 887,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-88753d7a-fb6b-4b42-bf32-1bdf6a4e0652.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-gesture-pair.prompt.txt",
+      "promptSha256": "cc1b251a5a451524be8b450b31d233dbc5eaee097f3fdf841d0493caf7c6eee7",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "2x1",
+      "gutters": {
+        "xs": [
+          0,
+          887,
+          1774
+        ],
+        "ys": [
+          0,
+          887
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "1758cabed8d72e956878abc0f267ab100b8d57d73850dc3d94b0c2505ee14e87",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-meadow-four-poses",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-four-poses.png",
+      "nativeSha256": "ead25d6cdd2afb193c4888078726ebfe8ed22142bf4cc1bb13a8d0aea5683ed3",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-1e060a70-e84a-4d16-9447-da463618dd6e.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-four-poses.prompt.txt",
+      "promptSha256": "48e8f8eecb256df554ea760c43e4710ca3ce14c361d41047ef4bd2ba214e2769",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "2x2",
+      "gutters": {
+        "xs": [
+          0,
+          627,
+          1254
+        ],
+        "ys": [
+          0,
+          608,
+          1254
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "7f4d28d03ed2a9101a1a5b80d0e43ccc6a86de5fd7934c07f62d169b04d87287",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-moonwood-four-poses",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-four-poses.png",
+      "nativeSha256": "36034bc02c1393b557a99b46171f0d8f6debf95fc0b2e917dc86ec7b302bf5af",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-d248a24c-f36e-44bb-a7b2-7877e8da625a.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-four-poses.prompt.txt",
+      "promptSha256": "5751fdc774491ffa93443a6521838fa392bda877d4e5b8f1c302f0f0e9fcb8ac",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "2x2",
+      "gutters": {
+        "xs": [
+          0,
+          627,
+          1254
+        ],
+        "ys": [
+          0,
+          588,
+          1254
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "cdc14c22297b510a049f3486acc46fb589fe863712467dfbc77427db82c1c316",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-dino-three-poses",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-three-poses.png",
+      "nativeSha256": "89be1dee720e5f5660252f9af7aa63a1eb5582796af5e027194af537afbab795",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-13b8f72d-0b5d-4b37-b33a-be61dbf6e5c2.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-dino-three-poses.prompt.txt",
+      "promptSha256": "4ee05138ad4897e724529d5aeadc5df4eccbae2491849111d995c563dbc67944",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/poses/dino-think.webp",
+          "sha256": "48962e1ed0d5e1867595beb4aec554ae046e94e6f8e802969f6d23cd7613439f"
+        }
+      ],
+      "layout": "3x1",
+      "gutters": {
+        "xs": [
+          0,
+          724,
+          1448,
+          2172
+        ],
+        "ys": [
+          0,
+          724
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "2bd13c23273a4b73eaa5060631f6dd83841428bdadd7c9bab16f7a27ab00467f",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-meadow-emblem",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-emblem.png",
+      "nativeSha256": "b39de5625c0455e1b743b78a4c5ec5797e6b494a2dc2aaf5222c89828d0371a3",
+      "nativeWidth": 1261,
+      "nativeHeight": 1247,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-c24faa86-0f29-4983-a3fc-ad5d0ecd5fa1.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-emblem.prompt.txt",
+      "promptSha256": "d845fa6e758027a2fe727e538c852846cbf48e3d67b227a0f00a586340124e13",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "single",
+      "gutters": {
+        "xs": [
+          0,
+          1261
+        ],
+        "ys": [
+          0,
+          1247
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "4cd1233c60e49e425ba91577bc270cecff958782788f40e37d2206901c4f645b",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-dino-emblem",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-emblem.png",
+      "nativeSha256": "9b3d7e8cbe38e5ae33024927ceb7ad8b4624f7c7b746d3decc40e57f61b39911",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-9e26ffda-645d-470c-9420-92052f314517.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-dino-emblem.prompt.txt",
+      "promptSha256": "56f8b2324c7724bb8089a38aa715bc7c0339a08ee895c0de20c851a1bf376e78",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "single",
+      "gutters": {
+        "xs": [
+          0,
+          1254
+        ],
+        "ys": [
+          0,
+          1254
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "ae6126957ce52958f33a779329161d7789d1344b55c3a3831fc3b739d9cfd944",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    },
+    {
+      "jobId": "pal-moonwood-emblem",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-emblem.png",
+      "nativeSha256": "3d08379435d3e1e773601d3b8e7cad33de75b9b8009069f98ddaf9dfad236cee",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-98989d3d-a56e-470a-b131-14c7a36a5db6.png",
+      "promptFile": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-emblem.prompt.txt",
+      "promptSha256": "837da0163672852c3f516a0f7c876ad418f245ac769a84ff504ec2ab82d0698f",
+      "referenceBindings": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "layout": "single",
+      "gutters": {
+        "xs": [
+          0,
+          1254
+        ],
+        "ys": [
+          0,
+          1254
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Clean complete generic decorative world mascots/emblems; not named series heroes. Correct two forelimbs/two feet, complete tails/ears/wings, consistent body across poses. No painted texture, text or watermark."
+      },
+      "promptFileNormalization": {
+        "reason": "Trailing whitespace removed; original generation request is exactly reconstructable by restoring the listed line endings.",
+        "originalSha256": "1402ff2f3299c978414b3e96f0939d3b04d6c0fe00ea11f16b05e1f3fcc15cdf",
+        "removedLineEndings": [
+          {
+            "line": 1,
+            "trailing": " "
+          }
+        ]
+      }
+    }
+  ],
+  "assets": [
+    {
+      "jobId": "pal-meadow-gesture-pair",
+      "path": "/images/pals/meadow-cheer.webp",
+      "originalSha256": "0952a281afdf052f11a2c4c7cec1441bdaaa61eef417ca8bdef485b15f4629f7",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-gesture-pair.png",
+      "nativeSha256": "dead82e170717e94304f57a222c1b0108ccd8f643a6b532b3d7d68784330de55",
+      "crop": {
+        "left": 150,
+        "top": 6,
+        "width": 588,
+        "height": 869
+      },
+      "resize": {
+        "width": 426,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "43f29ea3c52a474ab6b8950d984dc7dc30a0dfcea5548767aa12469eb35cb0d3",
+      "bytes": 69588,
+      "width": 426,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/elquest-runtime/proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-meadow-gesture-pair",
+      "path": "/images/pals/meadow-point.webp",
+      "originalSha256": "2f05d5e44e92d699abd7f9e06ce8a8c335b2cac4f0263cc4f6b274e697dd320d",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-gesture-pair.png",
+      "nativeSha256": "dead82e170717e94304f57a222c1b0108ccd8f643a6b532b3d7d68784330de55",
+      "crop": {
+        "left": 1058,
+        "top": 0,
+        "width": 572,
+        "height": 882
+      },
+      "resize": {
+        "width": 426,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "3b30764b97660e4f4d670fcc244a8d8c58d97a054478f2df4dbd9cb058351db9",
+      "bytes": 66218,
+      "width": 426,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/elquest-runtime/proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-dino-gesture-pair",
+      "path": "/images/pals/dino-cheer.webp",
+      "originalSha256": "546f1fe382a6b2923636951f3e40e82164b19c3a1f58d0f7bcbe508b84a8ef0b",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-gesture-pair.png",
+      "nativeSha256": "9a0e0584586b7b5667731fec0e2df8b509fccfd3384d32a214e26a8545cca79b",
+      "crop": {
+        "left": 123,
+        "top": 2,
+        "width": 654,
+        "height": 880
+      },
+      "resize": {
+        "width": 426,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "c311bfb1c65eb770421c867ef063f5279e5045808a4aa02ce5becb131ccdd825",
+      "bytes": 64924,
+      "width": 426,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/elquest-runtime/proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-dino-gesture-pair",
+      "path": "/images/pals/dino-point.webp",
+      "originalSha256": "ba25fdab1880ce71ae07b1e897c89c8275031194e31dbc1f4905afe009672c80",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-gesture-pair.png",
+      "nativeSha256": "9a0e0584586b7b5667731fec0e2df8b509fccfd3384d32a214e26a8545cca79b",
+      "crop": {
+        "left": 1007,
+        "top": 1,
+        "width": 683,
+        "height": 881
+      },
+      "resize": {
+        "width": 426,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "7f8e6c7290b0ca36359e75b3cdf8f02576286d3f6ae77ae5418e9cd86f7e3250",
+      "bytes": 57466,
+      "width": 426,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/elquest-runtime/proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-gesture-pair",
+      "path": "/images/pals/moonwood-cheer.webp",
+      "originalSha256": "506e1a0259d1facf61337133e200ee23db316ce4793c3eadb9228388e99acf34",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-gesture-pair.png",
+      "nativeSha256": "6055145c67d349f0a43e8a6704d77e6f6d997680f40fa6f56180f3f8f014cd04",
+      "crop": {
+        "left": 37,
+        "top": 9,
+        "width": 781,
+        "height": 876
+      },
+      "resize": {
+        "width": 426,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "72fa6429f22e551c07c09f8214238c4675021c70c1052bd8fa64812d73593b7a",
+      "bytes": 51134,
+      "width": 426,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/elquest-runtime/proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-gesture-pair",
+      "path": "/images/pals/moonwood-point.webp",
+      "originalSha256": "dadaf1570e769ad05ad4c0625d9d255f814bff05de47d5c09456ab1fed8f305e",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-gesture-pair.png",
+      "nativeSha256": "6055145c67d349f0a43e8a6704d77e6f6d997680f40fa6f56180f3f8f014cd04",
+      "crop": {
+        "left": 936,
+        "top": 2,
+        "width": 827,
+        "height": 884
+      },
+      "resize": {
+        "width": 426,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "ca34938676f74c89648d5706db5ccece82f46eba3a99978fd320ab579bea5c82",
+      "bytes": 46936,
+      "width": 426,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/elquest-runtime/proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-meadow-four-poses",
+      "path": "/images/pals/poses/meadow-wave.webp",
+      "originalSha256": "d19e2a60d66cd03580183cb8f457874437c5219bfe87608fd7f9d4b3e9b74a42",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-four-poses.png",
+      "nativeSha256": "ead25d6cdd2afb193c4888078726ebfe8ed22142bf4cc1bb13a8d0aea5683ed3",
+      "crop": {
+        "left": 187,
+        "top": 6,
+        "width": 320,
+        "height": 580
+      },
+      "resize": {
+        "width": 373,
+        "height": 560,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "233c547a7cf7e3d33c15356d5a0d95ce1e2ddac7ed3d039ab35ae154266089c8",
+      "bytes": 55234,
+      "width": 373,
+      "height": 560,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-meadow-four-poses",
+      "path": "/images/pals/poses/meadow-read.webp",
+      "originalSha256": "c3a6bcfb5243a996ca65c249439ef8517fd648ba1bc47cc74028734b884339fe",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-four-poses.png",
+      "nativeSha256": "ead25d6cdd2afb193c4888078726ebfe8ed22142bf4cc1bb13a8d0aea5683ed3",
+      "crop": {
+        "left": 738,
+        "top": 16,
+        "width": 335,
+        "height": 570
+      },
+      "resize": {
+        "width": 373,
+        "height": 560,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "a6670fb8d7badf43f2a17fc4e3e8d7aa4eff1b22722b87a0a0c5d6dc12a52166",
+      "bytes": 61734,
+      "width": 373,
+      "height": 560,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-meadow-four-poses",
+      "path": "/images/pals/poses/meadow-think.webp",
+      "originalSha256": "4a84e3f0f8274492b6b84074963f43715d5e5a6553f38a9a5b3d88591cd0c451",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-four-poses.png",
+      "nativeSha256": "ead25d6cdd2afb193c4888078726ebfe8ed22142bf4cc1bb13a8d0aea5683ed3",
+      "crop": {
+        "left": 185,
+        "top": 614,
+        "width": 311,
+        "height": 617
+      },
+      "resize": {
+        "width": 299,
+        "height": 443,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "948012be17db83319f98bc460718e57718f76fcaaaf9bddf4d00712f63559cdd",
+      "bytes": 35650,
+      "width": 299,
+      "height": 443,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-meadow-four-poses",
+      "path": "/images/pals/poses/meadow-celebrate.webp",
+      "originalSha256": "8ef73667243cc85307662918dce0159943eb647b39abae91aa8756d9eaaf732c",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-four-poses.png",
+      "nativeSha256": "ead25d6cdd2afb193c4888078726ebfe8ed22142bf4cc1bb13a8d0aea5683ed3",
+      "crop": {
+        "left": 677,
+        "top": 608,
+        "width": 396,
+        "height": 623
+      },
+      "resize": {
+        "width": 303,
+        "height": 394,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "8f130e312ee4ddb6540da3e9f3f3b56449e0d04496af8d587900dd88b1097813",
+      "bytes": 39538,
+      "width": 303,
+      "height": 394,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-four-poses",
+      "path": "/images/pals/poses/moonwood-wave.webp",
+      "originalSha256": "5c8327b7342aa1ab822f3372cf3d6c9353d6aa8be93fe2c2899af1e17f2aa053",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-four-poses.png",
+      "nativeSha256": "36034bc02c1393b557a99b46171f0d8f6debf95fc0b2e917dc86ec7b302bf5af",
+      "crop": {
+        "left": 105,
+        "top": 16,
+        "width": 470,
+        "height": 572
+      },
+      "resize": {
+        "width": 316,
+        "height": 396,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "2911372d1a62e3358ffac2edf7c0a2516672a9cd0acb0405199f110216b3f9c3",
+      "bytes": 36960,
+      "width": 316,
+      "height": 396,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-four-poses",
+      "path": "/images/pals/poses/moonwood-read.webp",
+      "originalSha256": "6ac7bd32cd63c9be4a09823bd585f4194be5e2e3697a952076013083b255f98c",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-four-poses.png",
+      "nativeSha256": "36034bc02c1393b557a99b46171f0d8f6debf95fc0b2e917dc86ec7b302bf5af",
+      "crop": {
+        "left": 717,
+        "top": 27,
+        "width": 417,
+        "height": 547
+      },
+      "resize": {
+        "width": 313,
+        "height": 345,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "d6699e51622f7253d90f02413e34cca5e0435fc0116af390acdddb1cfa8772e1",
+      "bytes": 33228,
+      "width": 313,
+      "height": 345,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-four-poses",
+      "path": "/images/pals/poses/moonwood-think.webp",
+      "originalSha256": "42c062eebdb03344691bb63b2090d609451e47d5072cd21d85aa668563d261e4",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-four-poses.png",
+      "nativeSha256": "36034bc02c1393b557a99b46171f0d8f6debf95fc0b2e917dc86ec7b302bf5af",
+      "crop": {
+        "left": 120,
+        "top": 624,
+        "width": 378,
+        "height": 610
+      },
+      "resize": {
+        "width": 313,
+        "height": 345,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "b161d7824b3bf194cea1092d1d8655232fb7ebbee8be903bf2575fe4d1f909b9",
+      "bytes": 28380,
+      "width": 313,
+      "height": 345,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-four-poses",
+      "path": "/images/pals/poses/moonwood-celebrate.webp",
+      "originalSha256": "7044a619dbd3a5e0d1ef712a663ef08d57a87e3e622a3e572b66824702adb878",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-four-poses.png",
+      "nativeSha256": "36034bc02c1393b557a99b46171f0d8f6debf95fc0b2e917dc86ec7b302bf5af",
+      "crop": {
+        "left": 630,
+        "top": 588,
+        "width": 558,
+        "height": 649
+      },
+      "resize": {
+        "width": 373,
+        "height": 560,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "bdbb231ecfa31ad5954261cd6a1dcd97025eaa2aa43c1e8ea17f6840e4eef289",
+      "bytes": 44950,
+      "width": 373,
+      "height": 560,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-dino-three-poses",
+      "path": "/images/pals/poses/dino-wave.webp",
+      "originalSha256": "e493cdee88efdfdea122e1156f218b7ab5ae7b0acc6a94574c4564cced84e89a",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-three-poses.png",
+      "nativeSha256": "89be1dee720e5f5660252f9af7aa63a1eb5582796af5e027194af537afbab795",
+      "crop": {
+        "left": 120,
+        "top": 29,
+        "width": 543,
+        "height": 664
+      },
+      "resize": {
+        "width": 312,
+        "height": 434,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "c3a7419275537a0523b95bf28d8b850ba26bdce246ca082e1a24d1fbaeccf808",
+      "bytes": 34242,
+      "width": 312,
+      "height": 434,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-dino-three-poses",
+      "path": "/images/pals/poses/dino-read.webp",
+      "originalSha256": "bdb58f5bd9a8d8564cb05f53f9c5782d5f76d8fcc6bbfd3d9b68973b82cf93de",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-three-poses.png",
+      "nativeSha256": "89be1dee720e5f5660252f9af7aa63a1eb5582796af5e027194af537afbab795",
+      "crop": {
+        "left": 830,
+        "top": 41,
+        "width": 507,
+        "height": 650
+      },
+      "resize": {
+        "width": 333,
+        "height": 391,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "1ba3b888e00c3eea8a2befc20756f826aa98e345e6f379a80fca273388e78f5f",
+      "bytes": 36876,
+      "width": 333,
+      "height": 391,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-dino-three-poses",
+      "path": "/images/pals/poses/dino-celebrate.webp",
+      "originalSha256": "8007a3c70c40864efada83e09545d075e523caab70ad13e453dcc946bbb0e61e",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-three-poses.png",
+      "nativeSha256": "89be1dee720e5f5660252f9af7aa63a1eb5582796af5e027194af537afbab795",
+      "crop": {
+        "left": 1571,
+        "top": 0,
+        "width": 497,
+        "height": 695
+      },
+      "resize": {
+        "width": 373,
+        "height": 560,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "4c1ab7398ed3b63de56cc761c9b33e51309b5699e08ccb9612a4326b1f6ad7e2",
+      "bytes": 56790,
+      "width": 373,
+      "height": 560,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": false,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": null,
+        "runtimeNotApplicable": true,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-meadow-emblem",
+      "path": "/images/pals/meadow-emblem.webp",
+      "originalSha256": "df6e25331076687eb1aaaa93753ff51a5d4bb4c4c2af2e0aac62c90219e56414",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-meadow-emblem.png",
+      "nativeSha256": "b39de5625c0455e1b743b78a4c5ec5797e6b494a2dc2aaf5222c89828d0371a3",
+      "crop": {
+        "left": 35,
+        "top": 26,
+        "width": 1182,
+        "height": 1176
+      },
+      "resize": {
+        "width": 512,
+        "height": 512,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "adff0bd4d1079043926bfe9de247007e0bf2b9b9b1550cf20e651c920df21413",
+      "bytes": 81370,
+      "width": 512,
+      "height": 512,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-dino-emblem",
+      "path": "/images/pals/dino-emblem.webp",
+      "originalSha256": "06a83e22f357651b83151f378c4eb2fa044e4bd3951bc93d77bd0c49844a9322",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-dino-emblem.png",
+      "nativeSha256": "9b3d7e8cbe38e5ae33024927ceb7ad8b4624f7c7b746d3decc40e57f61b39911",
+      "crop": {
+        "left": 13,
+        "top": 3,
+        "width": 1225,
+        "height": 1249
+      },
+      "resize": {
+        "width": 512,
+        "height": 512,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "c8472073e0445108b8eb45c8dfd2a419bbc083b16c46350b0bee57b8ff1bc5b5",
+      "bytes": 65144,
+      "width": 512,
+      "height": 512,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    },
+    {
+      "jobId": "pal-moonwood-emblem",
+      "path": "/images/pals/moonwood-emblem.webp",
+      "originalSha256": "d209bc33368b13c815a0e6d150746236d087310eca048836de09aec35ceee60c",
+      "nativeSaved": "source-art/app-clean-cartoon/pal-decorations/pal-moonwood-emblem.png",
+      "nativeSha256": "3d08379435d3e1e773601d3b8e7cad33de75b9b8009069f98ddaf9dfad236cee",
+      "crop": {
+        "left": 42,
+        "top": 61,
+        "width": 1156,
+        "height": 1151
+      },
+      "resize": {
+        "width": 512,
+        "height": 512,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "87610aec67a399bb8f8a658f2ebfd236725c6bc5d97a1b85c3c6110c5ab2262a",
+      "bytes": 42610,
+      "width": 512,
+      "height": 512,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/pal-decorations/browser-proof.json",
+        "runtimeNotApplicable": false,
+        "notes": "Full9native sources and20 saved390/128 outputs directly reviewed. Home/login33 actual current frames, plus27 real ElSkillsQuest cases for gesture counterparts; exact cache versions and HTTP pixel hashes checked. Seven extra clean pose variants retained without runtime display claims."
+      }
+    }
+  ]
+}

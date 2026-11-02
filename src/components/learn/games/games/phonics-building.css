@@ -72,7 +72,7 @@
 .pb-family-object > span { position: absolute; right: -5px; top: -8px; border-radius: 50%; padding: 3px 5px; background: #3454c8; color: #fff; }
 .pb-family .pb-workbench { left: 12%; right: 20%; }
 .pb-family .pb-host { bottom: 10% !important; right: 3% !important; width: 14% !important; }
-.pb-garden { background-image: url('/images/games/bg-meadow.webp'); }
+.pb-garden { background-image: url('/images/games/bg-meadow.webp?v=a2028321fc94'); }
 .pb-word-bed {
   position: absolute; left: 23%; right: 7%; bottom: 7%; display: flex; flex-direction: column; align-items: center; gap: 18px;
   padding: 20px 28px; border: 5px solid #929daf; border-radius: 32px 32px 18px 18px; background: linear-gradient(#fff, #f7f8fa); box-shadow: 0 12px 0 #5c677a, 0 20px 18px #18263e38;

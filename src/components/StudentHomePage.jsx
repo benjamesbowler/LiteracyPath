@@ -26,6 +26,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/skills-practice.css";
 import { worldForScope } from "../utils/palWorlds.js";
+import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
 import { ConfettiCelebration } from "./learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
 import {
@@ -805,7 +806,7 @@ export function StudentHomePage({
           </div>
         </section>
           {onOpenRewards && !reducedChoiceMode && <section className="kg-home-hollow" aria-label="My Hollow">
-            <img src={STUDENT_NAVIGATION_ART.hollow} alt="" />
+            <img src={withRepairedImageVersion(STUDENT_NAVIGATION_ART.hollow)} alt="" />
             <div><h2>My Hollow</h2><p>Your Guide, your friends, your place.</p></div>
             <button type="button" className="kg-home-guide-choice" onClick={onOpenRewards}>Open my Hollow</button>
           </section>}
@@ -830,7 +831,7 @@ export function StudentHomePage({
                 data-progress-marker={door.cardState?.progressText || undefined}>
                 <span className="kg-home-door-art" aria-hidden="true">
                   <span className={`kg-home-menu-object${door.id === "words" ? " kg-home-word-object" : door.id === "phonics" ? " kg-home-letter-object" : ""}`}>
-                    <img src={STUDENT_NAVIGATION_ART[door.id]} alt="" loading="eager" />
+                    <img src={withRepairedImageVersion(STUDENT_NAVIGATION_ART[door.id])} alt="" loading="eager" />
                     {door.id === "words" && <span className="kg-home-word-glyphs"><span>c</span><span>a</span><span>t</span></span>}
                     {door.id === "phonics" && <span className="kg-home-letter-glyphs"><span>a</span><span>b</span><span>c</span></span>}
                   </span>

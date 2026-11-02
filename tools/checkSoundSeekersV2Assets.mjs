@@ -29,6 +29,7 @@ import {
   assertSoundSeekersV2CropReviewManifest,
   renderSoundSeekersV2CropReview
 } from "./buildSoundSeekersV2CropReview.mjs";
+import { readCurrentSoundSeekersV2Delivery } from './lib/soundSeekersV2CurrentDelivery.mjs';
 
 function same(left, right) {
   return canonicalStringify(left) === canonicalStringify(right);
@@ -163,7 +164,8 @@ function compareCropEvidence(manifest, regenerated, kits) {
 
 export async function assertSoundSeekersV2AssetTree({
   assetRoot,
-  kits = SOUND_SEEKERS_BIOME_KITS
+  kits = SOUND_SEEKERS_BIOME_KITS,
+  currentDeliveryRoot
 } = {}) {
   validateSoundSeekersBiomeKits(kits);
   const resolvedAssetRoot = resolveAssetRoot(assetRoot);
@@ -174,7 +176,9 @@ export async function assertSoundSeekersV2AssetTree({
   assertDirectory(biomesRoot, resolvedAssetRoot, "Sound Seekers v2 biomes root");
   assertExactNames(biomesRoot, SOUND_SEEKERS_V2_BACKGROUND_ORDER,
     "Sound Seekers v2 biomes root");
-  const manifest = readManifestAtAssetRoot(resolvedAssetRoot, kits);
+  const historicalManifest = readManifestAtAssetRoot(resolvedAssetRoot, kits);
+  const deliveryRoot = currentDeliveryRoot ?? path.resolve(resolvedAssetRoot, '../../../..');
+  const manifest = readCurrentSoundSeekersV2Delivery({ root: deliveryRoot, historicalManifest });
   for (const [index, kit] of kits.entries()) {
     if (kit.id !== SOUND_SEEKERS_V2_BACKGROUND_ORDER[index]) {
       throw new TypeError("Sound Seekers v2 kits are out of canonical order");
@@ -184,6 +188,13 @@ export async function assertSoundSeekersV2AssetTree({
     assertExactNames(biomeRoot, ["background.webp"], `${kit.id} biome directory`);
     const filePath = assertManifestFileJoin(resolvedAssetRoot, manifest.assets[index], kit);
     await assertFinalRaster(filePath, manifest.assets[index], resolvedAssetRoot);
+    const replacement = manifest.assets[index].currentReplacement;
+    if (replacement) {
+      const source = readFileSync(path.join(deliveryRoot, replacement.nativeSaved));
+      const encode = () => sharp(source).resize(replacement.resize).webp(replacement.encoding).toBuffer();
+      const first = await encode(), second = await encode();
+      if (!first.equals(second) || sha256Bytes(first) !== replacement.outputSha256) throw new TypeError(`${kit.id}: current replacement recipe is not exact and deterministic`);
+    }
   }
 
   const temporaryRoot = mkdtempSync(path.join(tmpdir(), "sound-seekers-v2-check-"));
@@ -214,7 +225,8 @@ export async function assertSoundSeekersV2Assets({
   }
   return assertSoundSeekersV2AssetTree({
     assetRoot: path.join(root, SOUND_SEEKERS_V2_PUBLIC_ROOT),
-    kits
+    kits,
+    currentDeliveryRoot: root
   });
 }
 

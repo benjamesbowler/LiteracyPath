@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "game": "sound-safari",
+  "purpose": "Current recovery-only shared carry bindings; historical visual status is not inherited.",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/sound-safari/manifest.json",
+    "sha256": "e23abe7792893e937291e27457c23bff50ecca91677f59baf01e26a2ad136fd9",
+    "immutable": true
+  },
+  "sharedAuthority": "source-art/arcade/physical-worlds/pals/clean-cartoon-manifest.json",
+  "sharedAuthoritySha256": "a0b44d300ef97123cf6e8d096523308c0f7c372491895f8b1f2bd6d05b342fb3",
+  "registrationAuthority": "src/components/learn/games/games/soundSafariRecoveryArt.js",
+  "registrationAuthoritySha256": "ff0895e2b820e44fe34784c9f6a8a02316bd889efd2cb5e6674fa326569fb6ca",
+  "assets": [
+    {
+      "hero": "bouncy",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+      "sourceSha256": "71d5a0cae3f37005cb24ab6e5c634bebde35a24ad716d7c4b3579ae6decec228",
+      "runtime": "/game-assets/physical-arcade/pals/bouncy-tools-v1.webp",
+      "runtimeSha256": "211fc945d3e2867fcf3f6b08dadb0c6d29c62fba95a527c6b0591e80594c68a4",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "frames": [
+        {
+          "sharedIndex": 6,
+          "cell": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "sharedAnchor": [
+            155,
+            403
+          ],
+          "contacts": {
+            "nearHand": [
+              1196,
+              684
+            ],
+            "feet": [
+              1042,
+              847
+            ]
+          }
+        },
+        {
+          "sharedIndex": 7,
+          "cell": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "sharedAnchor": [
+            287,
+            403
+          ],
+          "contacts": {
+            "nearHand": [
+              1475,
+              684
+            ],
+            "feet": [
+              1617,
+              847
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hero": "chompy",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+      "sourceSha256": "d72038f7c1dc36a785a116afcb0c08bee109e840f8823e8b059e93937398cd57",
+      "runtime": "/game-assets/physical-arcade/pals/chompy-tools-v1.webp",
+      "runtimeSha256": "5e77958c05136479a3b953cd915f54ca95317e32a02c8779beb970fab45a20e6",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "frames": [
+        {
+          "sharedIndex": 6,
+          "cell": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "sharedAnchor": [
+            189,
+            403
+          ],
+          "contacts": {
+            "nearHand": [
+              1204,
+              700
+            ],
+            "feet": [
+              1076,
+              847
+            ]
+          }
+        },
+        {
+          "sharedIndex": 7,
+          "cell": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "sharedAnchor": [
+            255,
+            403
+          ],
+          "contacts": {
+            "nearHand": [
+              1457,
+              703
+            ],
+            "feet": [
+              1585,
+              847
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hero": "pip",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+      "sourceSha256": "2b7184df4f75173df3287e80c560b717377125f4e0a1bfa0aa4ee4982cdf7b6a",
+      "runtime": "/game-assets/physical-arcade/pals/pip-tools-v1.webp",
+      "runtimeSha256": "395a3caf956f7a3c0a7378546b1ad82cd846fc05f5638e90639acb2629f231a7",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": [
+        {
+          "sharedIndex": 6,
+          "cell": [
+            768,
+            512,
+            1152,
+            1024
+          ],
+          "sharedAnchor": [
+            109,
+            466
+          ],
+          "contacts": {
+            "nearHand": [
+              1054,
+              790
+            ],
+            "feet": [
+              877,
+              978
+            ]
+          }
+        },
+        {
+          "sharedIndex": 7,
+          "cell": [
+            1152,
+            512,
+            1536,
+            1024
+          ],
+          "sharedAnchor": [
+            275,
+            466
+          ],
+          "contacts": {
+            "nearHand": [
+              1237,
+              780
+            ],
+            "feet": [
+              1427,
+              978
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

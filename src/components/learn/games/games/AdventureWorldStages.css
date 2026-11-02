@@ -8,8 +8,8 @@
 .aw-objective strong img { width:56px; height:56px; object-fit:contain; background:#fff; border-radius:10px; }
 .aw-objective>button { flex:0 0 56px; width:56px; height:56px; border:2px solid #3454C8; border-radius:18px; background:#E9EDF9; font-size:27px; }
 .aw-objective>button:disabled { opacity:.5; }
-.aw-landscape { position:relative; min-height:0; overflow:clip; background:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-farm.webp') center center / cover no-repeat; }
-.aw-rescue .aw-landscape { background-image:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-pond.webp'); }
+.aw-landscape { position:relative; min-height:0; overflow:clip; background:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-farm.webp?v=30c51b1d4d94') center center / cover no-repeat; }
+.aw-rescue .aw-landscape { background-image:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-pond.webp?v=89fff49bcbea'); }
 .aw-terrain { position:absolute; left:0; right:0; height:25%; bottom:0; background:linear-gradient(#85a15c 0 12%,#728d54 12% 17%,#917649 17%,#b39a61); border-top:5px solid #c7d78f; box-shadow:0 -7px 20px #294b331c; }
 .aw-character { position:absolute; width:clamp(62px,8vw,108px); height:clamp(74px,10vw,134px); transform:translateX(-50%); pointer-events:none; z-index:7; }
 .aw-character>img { width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 7px 3px #19362e55); transform:scaleX(var(--aw-facing,1)); }
@@ -46,7 +46,7 @@
 .aw-grown-picture { position:absolute; right:-48px; bottom:22px; width:64px; height:64px; object-fit:contain; border:2px solid #ebe4c4; border-radius:50%; background:#fff9e6; }
 .aw-plant-name { position:absolute; left:50%; transform:translateX(-50%); bottom:-23px; font-size:13px; white-space:nowrap; color:#F7F8FA; text-shadow:1px 1px #18263E; }
 .aw-local-discoveries { min-width:56px; min-height:56px; background:transparent; border:0; transform:translateX(-50%); position:absolute; bottom:35%; color:#ffed91; font-size:26px; text-shadow:0 0 10px #d9a54f; }
-.aw-machine { position:relative; min-height:0; overflow:clip; background:linear-gradient(#284d51dd,#92a7a2aa),url('/game-assets/sound-seekers/v3/backdrops/bg-dino-forge.webp') center / cover; }
+.aw-machine { position:relative; min-height:0; overflow:clip; background:linear-gradient(#284d51dd,#92a7a2aa),url('/game-assets/sound-seekers/v3/backdrops/bg-dino-forge.webp?v=8c9f2f530f2f') center / cover; }
 .aw-factory-window { position:absolute; left:5%; top:5%; width:36%; height:20%; border:8px solid #596b66; border-radius:15px; background:linear-gradient(#e6b78a,#cfddc6); box-shadow:inset 0 0 20px #667555; }
 .aw-machine-gears { position:absolute; top:4%; right:8%; font-size:clamp(70px,14vw,140px); color:#b7b080; text-shadow:4px 5px #4a6059; opacity:.55; }
 .aw-conveyor { position:absolute; top:35%; left:7%; width:53%; height:15%; border:5px solid #657368; border-radius:15px; background:#344d48; box-shadow:0 13px 0 #263c3b; }

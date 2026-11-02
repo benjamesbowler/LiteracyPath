@@ -1665,3 +1665,21 @@ Active manuscripts, narration provenance, browser screenshots and compact QA
 receipts remain. No irreplaceable source or protected animation work was touched.
 The removed cache and temporary copies are reproducible from the checked-in
 manuscripts and current generator; all active recordings remain available.
+
+## Clean cartoon resumed cover deliveries — 2 November 2026
+
+Removed seven superseded cover-card WebPs after their exact replacements were
+rebuilt and directly reviewed. The current 297-cover manifest no longer selects
+the retired files; scoped visual review records were retired with them. The
+exact paths and recovery receipt are in
+`.artifacts/all-clean-cartoon-2026-10-31/resume-2026-11-02/guided-cover-cleanup.json`.
+The old deliveries are recoverable from checkpoint `28d8b1f04`; current renditions
+are reproducible from retained canonical covers. Selected native sources,
+necessary correction provenance and QC evidence remain active inputs. Protected
+animation roots were checked and unaffected.
+
+## Clean cartoon app-wide closure — 3 November 2026
+
+Removed exactly 1,292 unused public image files (233,620,380 bytes) after strict per-cohort source, Git, current-caller, retention and historical-resume checks. All 95,066 image bindings and all 15 historical assessment branches remain unchanged. The original bytes are recoverable from `fa9bd4b00eb5ae128c85ab652f4ca9e4baeb6263`; the exact paths, hashes and deletion receipts are under `.artifacts/all-clean-cartoon-2026-10-31/resume-2026-11-02/inactive-retirement/`. Historical admin QA evidence and review rows remain available.
+
+Four superseded physical-menu source files were removed after the complete 27-image authority and original reference transfer were verified; recovery remains in checkpoint `28d8b1f04`. Fourteen temporary encodings/superseded QC boards were removed after current canonical deliveries and final reviews were verified. Five temporary Playwright ZIP containers were removed only after every content file was extracted and hash-verified into its adjacent `trace-contents` directory; the indexed transfer receipt preserves their provenance. Necessary source natives, prompts, correction and regression evidence remain. Protected shelved animation roots were checked and unaffected.

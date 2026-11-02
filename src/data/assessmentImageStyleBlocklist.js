@@ -41,7 +41,6 @@ const rows = [
   ["/media/initial-sounds/images/q/quicksand.webp", "face_on_inanimate_object"],
   ["/media/initial-sounds/images/s/scooter.webp", "face_on_inanimate_object"],
   ["/media/initial-sounds/images/s/star.webp", "face_on_inanimate_object"],
-  ["/media/initial-sounds/images/t/table.webp", "baby_kawaii_style"],
   ["/media/initial-sounds/images/t/thermometer.webp", "face_on_inanimate_object"],
   ["/media/initial-sounds/images/u/utensils.webp", "face_on_inanimate_object"],
   ["/media/initial-sounds/images/v/vegetable-soup.webp", "face_on_inanimate_object"],

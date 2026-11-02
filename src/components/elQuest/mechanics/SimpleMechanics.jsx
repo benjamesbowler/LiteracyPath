@@ -9,7 +9,7 @@ import "../../../styles/adventure-simple-games.css";
 
 function Picture({ word, image, className = "" }) {
   const source = image || resolveScenePicture(word);
-  return source ? <img className={className} src={source} alt="" draggable="false" /> : <span className="am-simple-picture-label">{word}</span>;
+  return source ? <img className={className} src={withRepairedImageVersion(source)} alt="" draggable="false" /> : <span className="am-simple-picture-label">{word}</span>;
 }
 
 function HearWord({ word, disabled, onRequestObjectAudio }) {
@@ -160,3 +160,4 @@ export function PictureWordChoiceMechanic({ round, disabled, supportLevel, onCom
     {pair && <p className="am-simple-count" role="status">{selected.length === 1 ? "Choose one more." : "Find two that rhyme."}{selected.length === 1 && <ActivityButton type="button" aria-label="Choose the pair again" className="am-simple-reset" disabled={disabled} onClick={() => { current.current = []; setSelected([]); }}><ArrowCounterClockwise size={22} aria-hidden="true" /></ActivityButton>}</p>}
   </section>;
 }
+import { withRepairedImageVersion } from "../../../utils/repairedImageVersion.js";

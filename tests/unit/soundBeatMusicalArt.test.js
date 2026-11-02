@@ -24,7 +24,7 @@ test('native pad input enters genuine measured contact immediately without waiti
 });
 
 test('all selected preparation/recovery/finale/contacts are separate registered original musical drawings', () => {
-  const manifest = JSON.parse(readFileSync(new URL('../../source-art/arcade/physical-worlds/sound-beat/scene-kit-v1.json', import.meta.url)));
+  const manifest = JSON.parse(readFileSync(new URL('../../source-art/arcade/physical-worlds/sound-beat/scene-kit-clean-cartoon.json', import.meta.url)));
   for (const [character, poses] of Object.entries(SOUND_BEAT_POSES)) {
     const atlas = SOUND_BEAT_ART[`${character}-music-performance-v1`];
     assert.equal(manifest.assets[`${character}-music-performance-v1`].sourceSha256, atlas.sourceSha256);

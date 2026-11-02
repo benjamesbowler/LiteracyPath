@@ -1,0 +1,5834 @@
+{
+  "schemaVersion": 1,
+  "game": "sound-safari",
+  "scope": "Original three discovery glades, three canonical six-pose operators, measured transparent net rims and three wildlife idle/travel families. Existing free net steering, physical capture and ordered sound mechanics remain authoritative. Local native full90-word/contact/recovery/lifecycle verification passed; release/live verification is separate.",
+  "assets": [
+    {
+      "id": "meadow-horizon",
+      "world": "meadow",
+      "kind": "authored-background-layer",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/meadow-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "7326f5fbc9bae67649fc5f41f210fd2f75d03a5062ed3222629a7159eca63a96",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/meadow-horizon-v1.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/meadow-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeBytes": 164492,
+      "runtimeSha256": "65e35c292bf3d59d0814ab7aad7bdebd5e4aa7bbf884e1e78f1d18009cc31fab",
+      "productionRevision": "clean-cartoon-horizon-2026-11-02",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "supersedes": {
+        "id": "meadow-horizon",
+        "world": "meadow",
+        "kind": "authored-background-layer",
+        "source": "source-art/arcade/physical-worlds/sound-safari/scenery/meadow-horizon-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "56094fbd3d5d8eb91517108ad43d212f00c004d4f7d2e2d0b0df7196abe1758f",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/meadow-horizon-v1.txt",
+        "promptSha256": "9e799759add40c251ab1da38c4daf129ad821f3ca5099a156fd1f6f607b77478",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+            "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+            "role": "Canonical world material/lighting direction only; fresh Safari discovery-glade composition"
+          }
+        ],
+        "reviewStatus": "original source directly inspected; runtime/crop/action acceptance pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/scenery/meadow-horizon-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 497838,
+        "runtimeSha256": "c1c99e8f0726c9c73cbda133bc0c0b94af21c2beb399048b682f0ead979acef6"
+      },
+      "generation": {
+        "actualBuiltinCalls": 2,
+        "selectedAttempt": 2,
+        "nativeSource": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/meadow-horizon-v1.png",
+        "nativeSha256": "7326f5fbc9bae67649fc5f41f210fd2f75d03a5062ed3222629a7159eca63a96",
+        "receipt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/meadow-horizon-v1.receipt.json",
+        "receiptSha256": "f089300916ed93d26d815171507ea08e39788693a63d121504f6686d5b590d89",
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/meadow-horizon-v1.png",
+        "acceptedNativeSHA": "7326f5fbc9bae67649fc5f41f210fd2f75d03a5062ed3222629a7159eca63a96",
+        "packingRecipes": [],
+        "acceptedAttempt": 2
+      }
+    },
+    {
+      "id": "dino-horizon",
+      "world": "dino",
+      "kind": "authored-background-layer",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "20bc1308fe7e735ea87f29fad503aa9bf01fc58f6df3e407adfacb7e51d2bafb",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.prompt.txt",
+      "promptSha256": "3a505e52bed7d35aa953f56955ee3d66ef7fc7e96ac8de21fc56bb8c7a8f0819",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/dino-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeBytes": 216582,
+      "runtimeSha256": "f5675cf9ade1f301c51b6cb9f1235af9d990bd3d0e8c7b711fa7c1ad388e653b",
+      "productionRevision": "clean-cartoon-horizon-2026-11-02",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "supersedes": {
+        "id": "dino-horizon",
+        "world": "dino",
+        "kind": "authored-background-layer",
+        "source": "source-art/arcade/physical-worlds/sound-safari/scenery/dino-horizon-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "4c4f87012a2c82ee44cf72ee38359d0467be3eb43afc1da05737d598f51a6f9b",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/dino-horizon-v1.txt",
+        "promptSha256": "54815b49569599b05a7776443896b5b8129392bb6dca018638c7677b33b859a8",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+            "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+            "role": "Canonical world material/lighting direction only; fresh Safari discovery-glade composition"
+          }
+        ],
+        "reviewStatus": "original source directly inspected; runtime/crop/action acceptance pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/scenery/dino-horizon-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 470086,
+        "runtimeSha256": "9e14a6e58e23927fe8dd2c4e763fd9fe48d1e76dd8b5dce360e1c4a41944bb31"
+      },
+      "generation": {
+        "actualBuiltinCalls": 3,
+        "selectedAttempt": 3,
+        "nativeSource": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.png",
+        "nativeSha256": "20bc1308fe7e735ea87f29fad503aa9bf01fc58f6df3e407adfacb7e51d2bafb",
+        "receipt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.receipt.json",
+        "receiptSha256": "5a7da68ded8004fb7e01635f051866b88cf801b80c27b11e842dbea71c6cba31",
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.png",
+        "acceptedNativeSHA": "20bc1308fe7e735ea87f29fad503aa9bf01fc58f6df3e407adfacb7e51d2bafb",
+        "packingRecipes": [],
+        "acceptedAttempt": 3
+      }
+    },
+    {
+      "id": "moonwood-horizon",
+      "world": "moonwood",
+      "kind": "authored-background-layer",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/moonwood-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "7cd7ec7f428483cf3ee4665fec11b6bd2e403f3093263b790466ed3bf7f42bdb",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/moonwood-horizon-v1.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/moonwood-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeBytes": 160724,
+      "runtimeSha256": "e927328375263e2bfa2a3ca3c3932f297b6a573b8b9adae29a2c31373e13c5de",
+      "productionRevision": "clean-cartoon-horizon-2026-11-02",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "supersedes": {
+        "id": "moonwood-horizon",
+        "world": "moonwood",
+        "kind": "authored-background-layer",
+        "source": "source-art/arcade/physical-worlds/sound-safari/scenery/moonwood-horizon-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "1b3e8526f9d54a38cf7ec7afe8d2b4ddd0f4752a6ef3c9e702caed3a8a3101cd",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/moonwood-horizon-v1.txt",
+        "promptSha256": "800471ac3bbb2a203e4666b2d609c839b8c1c5250c7b1cb4d2d6406829eb0352",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+            "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+            "role": "Canonical world material/lighting direction only; fresh Safari discovery-glade composition"
+          }
+        ],
+        "reviewStatus": "original source directly inspected; runtime/crop/action acceptance pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/scenery/moonwood-horizon-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 499592,
+        "runtimeSha256": "0c209cb871d3ae16c9437264e1f22f3e80f14011270e549541c1a7bada3c2493"
+      },
+      "generation": {
+        "actualBuiltinCalls": 2,
+        "selectedAttempt": 2,
+        "nativeSource": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/moonwood-horizon-v1.png",
+        "nativeSha256": "7cd7ec7f428483cf3ee4665fec11b6bd2e403f3093263b790466ed3bf7f42bdb",
+        "receipt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/moonwood-horizon-v1.receipt.json",
+        "receiptSha256": "fe9ec865dae41498da7cbd1c0158889a3faea4a81ad28deb6b53a3073013ef64",
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/moonwood-horizon-v1.png",
+        "acceptedNativeSHA": "7cd7ec7f428483cf3ee4665fec11b6bd2e403f3093263b790466ed3bf7f42bdb",
+        "packingRecipes": [],
+        "acceptedAttempt": 2
+      }
+    },
+    {
+      "id": "bouncy-operator-v1",
+      "kind": "original-operator-actions",
+      "world": "meadow",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/bouncy-operator-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "6e1e3162b3cc52c4991c6db4494f15d81bb8fe967c01be27102aec886a63bcf4",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/bouncy-operator-v1.prompt.txt",
+      "promptSha256": "f68437d7854585e8e2ba66d6c9642924f619924303d4b0f2549b7e1f3f7130f3",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v2-input.png",
+          "sha256": "312518db1efbe00117403f51fdbadb0c0e2ae49a4a615a950b0cc63183839c58",
+          "role": "Canonical character material/identity only; fresh game-specific operator actions"
+        }
+      ],
+      "reviewStatus": "source directly inspected; measured registration and native contact/phone acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/bouncy-operator-v1.webp",
+      "frames": [
+        {
+          "id": "bouncy-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            236.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              173,
+              459
+            ],
+            "bootLeft": [
+              173,
+              459
+            ],
+            "bootRight": [
+              300,
+              454
+            ],
+            "nearHand": [
+              317,
+              303
+            ],
+            "farHand": [
+              367,
+              291
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              113,
+              82,
+              400,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            223.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              822,
+              459
+            ],
+            "bootLeft": [
+              649,
+              456
+            ],
+            "bootRight": [
+              822,
+              459
+            ],
+            "nearHand": [
+              828,
+              295
+            ],
+            "farHand": [
+              921,
+              239
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              587,
+              76,
+              950,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            250,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              174,
+              971
+            ],
+            "bootLeft": [
+              174,
+              971
+            ],
+            "bootRight": [
+              326,
+              966
+            ],
+            "nearHand": [
+              314,
+              798
+            ],
+            "farHand": [
+              392,
+              775
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              97,
+              575,
+              416,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            283,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              726,
+              971
+            ],
+            "bootLeft": [
+              726,
+              971
+            ],
+            "bootRight": [
+              864,
+              962
+            ],
+            "nearHand": [
+              838,
+              798
+            ],
+            "farHand": [
+              909,
+              787
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              599,
+              580,
+              937,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            238,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              350,
+              1483
+            ],
+            "bootLeft": [
+              126,
+              1462
+            ],
+            "bootRight": [
+              350,
+              1483
+            ],
+            "nearHand": [
+              148,
+              1285
+            ],
+            "farHand": [
+              404,
+              1275
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              78,
+              1083,
+              434,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            256,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              702,
+              1483
+            ],
+            "bootLeft": [
+              702,
+              1483
+            ],
+            "bootRight": [
+              834,
+              1477
+            ],
+            "nearHand": [
+              704,
+              1192
+            ],
+            "farHand": [
+              909,
+              1181
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              599,
+              1076,
+              936,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 179.3181818181818,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "34bcdb47506583fb9ff9fbb4adf7af2d8b32e4d2d26b4bae79fcfcc190d6dd36",
+      "runtimeBytes": 229118,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "bouncy-operator-v1",
+        "kind": "original-operator-actions",
+        "world": "meadow",
+        "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/bouncy-operator-v1.txt",
+        "promptSha256": "13410d76d141ca04cdb955ee370d1e7cba4499a6daec9e0ed5ca641755466a55",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact sources/prompts retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v2-input.png",
+            "sha256": "312518db1efbe00117403f51fdbadb0c0e2ae49a4a615a950b0cc63183839c58",
+            "role": "Canonical character material/identity only; fresh game-specific operator actions"
+          }
+        ],
+        "reviewStatus": "source directly inspected; measured registration and native contact/phone acceptance pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/characters/bouncy-operator-v1.webp",
+        "frames": [
+          {
+            "id": "bouncy-anticipate",
+            "action": "anticipate",
+            "direction": "right",
+            "cell": [
+              111,
+              35,
+              409,
+              479
+            ],
+            "anchor": [
+              142,
+              436
+            ],
+            "sockets": {
+              "feet": [
+                187,
+                471
+              ],
+              "bootLeft": [
+                187,
+                471
+              ],
+              "bootRight": [
+                319,
+                465
+              ],
+              "nearHand": [
+                333,
+                280
+              ],
+              "farHand": [
+                376,
+                277
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                118,
+                42,
+                402,
+                472
+              ],
+              "bootRegions": [
+                [
+                  112,
+                  240,
+                  404,
+                  477
+                ],
+                [
+                  251,
+                  389,
+                  403,
+                  477
+                ]
+              ],
+              "torsoAxisSourceX": 253,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "bouncy-swing",
+            "action": "swing",
+            "direction": "right",
+            "cell": [
+              597,
+              30,
+              964,
+              481
+            ],
+            "anchor": [
+              153,
+              443
+            ],
+            "sockets": {
+              "feet": [
+                674,
+                473
+              ],
+              "bootLeft": [
+                674,
+                473
+              ],
+              "bootRight": [
+                846,
+                463
+              ],
+              "nearHand": [
+                867,
+                289
+              ],
+              "farHand": [
+                935,
+                233
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                604,
+                37,
+                957,
+                474
+              ],
+              "bootRegions": [
+                [
+                  596,
+                  725,
+                  412,
+                  478
+                ],
+                [
+                  743,
+                  888,
+                  405,
+                  477
+                ]
+              ],
+              "torsoAxisSourceX": 750,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "bouncy-catch",
+            "action": "catch",
+            "direction": "right",
+            "cell": [
+              85,
+              508,
+              400,
+              972
+            ],
+            "anchor": [
+              162,
+              456
+            ],
+            "sockets": {
+              "feet": [
+                192,
+                964
+              ],
+              "bootLeft": [
+                192,
+                964
+              ],
+              "bootRight": [
+                327,
+                959
+              ],
+              "nearHand": [
+                326,
+                740
+              ],
+              "farHand": [
+                370,
+                744
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                92,
+                515,
+                393,
+                965
+              ],
+              "bootRegions": [
+                [
+                  117,
+                  250,
+                  900,
+                  969
+                ],
+                [
+                  257,
+                  398,
+                  896,
+                  969
+                ]
+              ],
+              "torsoAxisSourceX": 247,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "bouncy-recover",
+            "action": "recover",
+            "direction": "right",
+            "cell": [
+              611,
+              511,
+              934,
+              972
+            ],
+            "anchor": [
+              138,
+              453
+            ],
+            "sockets": {
+              "feet": [
+                694,
+                964
+              ],
+              "bootLeft": [
+                694,
+                964
+              ],
+              "bootRight": [
+                842,
+                960
+              ],
+              "nearHand": [
+                848,
+                770
+              ],
+              "farHand": [
+                904,
+                764
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                618,
+                518,
+                927,
+                965
+              ],
+              "bootRegions": [
+                [
+                  585,
+                  713,
+                  901,
+                  970
+                ],
+                [
+                  740,
+                  887,
+                  896,
+                  970
+                ]
+              ],
+              "torsoAxisSourceX": 749,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "bouncy-follow-through",
+            "action": "follow-through",
+            "direction": "right",
+            "cell": [
+              108,
+              998,
+              457,
+              1472
+            ],
+            "anchor": [
+              149,
+              466
+            ],
+            "sockets": {
+              "feet": [
+                186,
+                1464
+              ],
+              "bootLeft": [
+                186,
+                1464
+              ],
+              "bootRight": [
+                333,
+                1455
+              ],
+              "nearHand": [
+                374,
+                1249
+              ],
+              "farHand": [
+                427,
+                1230
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                115,
+                1005,
+                450,
+                1465
+              ],
+              "bootRegions": [
+                [
+                  103,
+                  249,
+                  1384,
+                  1468
+                ],
+                [
+                  298,
+                  440,
+                  1353,
+                  1464
+                ]
+              ],
+              "torsoAxisSourceX": 257,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "bouncy-celebrate",
+            "action": "celebrate",
+            "direction": "right",
+            "cell": [
+              591,
+              976,
+              969,
+              1475
+            ],
+            "anchor": [
+              175,
+              491
+            ],
+            "sockets": {
+              "feet": [
+                720,
+                1467
+              ],
+              "bootLeft": [
+                720,
+                1467
+              ],
+              "bootRight": [
+                837,
+                1459
+              ],
+              "nearHand": [
+                707,
+                1174
+              ],
+              "farHand": [
+                940,
+                1120
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                598,
+                983,
+                962,
+                1468
+              ],
+              "bootRegions": [
+                [
+                  649,
+                  790,
+                  1407,
+                  1476
+                ],
+                [
+                  808,
+                  956,
+                  1397,
+                  1476
+                ]
+              ],
+              "torsoAxisSourceX": 766,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 195.45454545454544,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 6,
+          "foreignOpaqueCropPixels": 0
+        },
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "70358608047679f7f0b0273ec72c65e5226e61ae448fbaaf712c8cb5f37af7a0",
+        "runtimeBytes": 247960,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 1,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/bouncy-operator-v1.png",
+        "acceptedNativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-bouncy-operator-v1.attempt1.native.png",
+            "nativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+            "wholeObjectCrop": [
+              106,
+              40,
+              428,
+              463
+            ],
+            "componentBounds": [
+              [
+                107,
+                41,
+                427,
+                462
+              ]
+            ],
+            "placement": [
+              112,
+              81,
+              289,
+              380
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                334,
+                287
+              ],
+              "farHand": [
+                390,
+                274
+              ],
+              "bootLeft": [
+                174,
+                461
+              ],
+              "bootRight": [
+                316,
+                456
+              ]
+            }
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-bouncy-operator-v1.attempt1.native.png",
+            "nativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+            "wholeObjectCrop": [
+              579,
+              41,
+              985,
+              471
+            ],
+            "componentBounds": [
+              [
+                580,
+                42,
+                984,
+                470
+              ]
+            ],
+            "placement": [
+              586,
+              75,
+              365,
+              386
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                848,
+                286
+              ],
+              "farHand": [
+                952,
+                224
+              ],
+              "bootLeft": [
+                649,
+                465
+              ],
+              "bootRight": [
+                841,
+                469
+              ]
+            }
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-bouncy-operator-v1.attempt1.native.png",
+            "nativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+            "wholeObjectCrop": [
+              82,
+              518,
+              439,
+              962
+            ],
+            "componentBounds": [
+              [
+                83,
+                519,
+                438,
+                961
+              ]
+            ],
+            "placement": [
+              96,
+              574,
+              321,
+              399
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                325,
+                767
+              ],
+              "farHand": [
+                411,
+                742
+              ],
+              "bootLeft": [
+                169,
+                960
+              ],
+              "bootRight": [
+                338,
+                954
+              ]
+            }
+          },
+          {
+            "id": 3,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-bouncy-operator-v1.attempt1.native.png",
+            "nativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+            "wholeObjectCrop": [
+              574,
+              527,
+              953,
+              966
+            ],
+            "componentBounds": [
+              [
+                575,
+                528,
+                952,
+                965
+              ]
+            ],
+            "placement": [
+              598,
+              579,
+              340,
+              394
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                842,
+                771
+              ],
+              "farHand": [
+                921,
+                759
+              ],
+              "bootLeft": [
+                717,
+                964
+              ],
+              "bootRight": [
+                871,
+                954
+              ]
+            }
+          },
+          {
+            "id": 4,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-bouncy-operator-v1.attempt1.native.png",
+            "nativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+            "wholeObjectCrop": [
+              78,
+              1010,
+              476,
+              1459
+            ],
+            "componentBounds": [
+              [
+                79,
+                1011,
+                475,
+                1458
+              ]
+            ],
+            "placement": [
+              77,
+              1082,
+              358,
+              403
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                157,
+                1236
+              ],
+              "farHand": [
+                441,
+                1225
+              ],
+              "bootLeft": [
+                132,
+                1433
+              ],
+              "bootRight": [
+                382,
+                1457
+              ]
+            }
+          },
+          {
+            "id": 5,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-bouncy-operator-v1.attempt1.native.png",
+            "nativeSHA": "6e9b45869ff8d76a97088472b7a27bea9d084fa41739135c43e45eaf604b32e6",
+            "wholeObjectCrop": [
+              591,
+              998,
+              968,
+              1454
+            ],
+            "componentBounds": [
+              [
+                592,
+                999,
+                967,
+                1453
+              ]
+            ],
+            "placement": [
+              598,
+              1075,
+              339,
+              410
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                709,
+                1128
+              ],
+              "farHand": [
+                937,
+                1116
+              ],
+              "bootLeft": [
+                707,
+                1452
+              ],
+              "bootRight": [
+                854,
+                1446
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "nets-v2",
+      "kind": "original-live-tool-parts",
+      "world": "all",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/nets-v2.png",
+      "sourceSize": [
+        1882,
+        836
+      ],
+      "sourceSha256": "7cd8414048d0d13da71a0ea96b2ab6dc474a35569d75cf8e0988bceb9b57a1cf",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/nets-v2.prompt.txt",
+      "promptSha256": "67adfce53033e6008c8a9008a235cbd8decdf0f25e785bfc73bc0017a8e8bf78",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v1-input.png",
+          "sha256": "c196eba5f79da85b26866af15e257554f6175f30d52dd88edab7ad2e2a154f47",
+          "role": "Required exact original edit input; source repaired complete outer rim and removed letter-like engraving"
+        }
+      ],
+      "reviewStatus": "source directly inspected; measured registration and native contact/phone acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/nets-v2.webp",
+      "frames": [
+        {
+          "id": "meadow-net",
+          "world": "meadow",
+          "action": "rim",
+          "cell": [
+            0,
+            0,
+            627,
+            836
+          ],
+          "anchor": [
+            314,
+            411
+          ],
+          "sockets": {
+            "captureCenter": [
+              314,
+              411
+            ],
+            "connector": [
+              314,
+              715
+            ]
+          },
+          "captureRadius": 250.1633,
+          "measurement": {
+            "method": "actual complete circular rim; genuine central alpha mesh hole and opaque short connector",
+            "nativeLandmarks": {
+              "world": "meadow",
+              "captureCenter": [
+                318,
+                374
+              ],
+              "connector": [
+                318,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        },
+        {
+          "id": "dino-net",
+          "world": "dino",
+          "action": "rim",
+          "cell": [
+            627,
+            0,
+            1255,
+            836
+          ],
+          "anchor": [
+            314,
+            411
+          ],
+          "sockets": {
+            "captureCenter": [
+              941,
+              411
+            ],
+            "connector": [
+              941,
+              715
+            ]
+          },
+          "captureRadius": 250,
+          "measurement": {
+            "method": "actual complete circular rim; genuine central alpha mesh hole and opaque short connector",
+            "nativeLandmarks": {
+              "world": "dino",
+              "captureCenter": [
+                942,
+                374
+              ],
+              "connector": [
+                942,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        },
+        {
+          "id": "moonwood-net",
+          "world": "moonwood",
+          "action": "rim",
+          "cell": [
+            1255,
+            0,
+            1882,
+            836
+          ],
+          "anchor": [
+            313,
+            411
+          ],
+          "sockets": {
+            "captureCenter": [
+              1568,
+              411
+            ],
+            "connector": [
+              1568,
+              715
+            ]
+          },
+          "captureRadius": 250.1633,
+          "measurement": {
+            "method": "actual complete circular rim; genuine central alpha mesh hole and opaque short connector",
+            "nativeLandmarks": {
+              "world": "moonwood",
+              "captureCenter": [
+                1565,
+                374
+              ],
+              "connector": [
+                1565,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 227.4211818181818,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 3,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1882,
+        836
+      ],
+      "runtimeSha256": "99c278443eed77ad9a96fc806df85f5c5b2cf0781e3f579d7463ae2ed878222d",
+      "runtimeBytes": 238526,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "nets-v2",
+        "kind": "original-live-tool-parts",
+        "world": "all",
+        "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v2.png",
+        "sourceSize": [
+          1882,
+          836
+        ],
+        "sourceSha256": "f088d091723ce3f3a53fc2d4dd372e8908122a9c45dfd0db49ca6cb5bbc85283",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/nets-v2.txt",
+        "promptSha256": "61eeea1c093de8e86c0b891c13e4de68514d10796decc4938f233a9e72180856",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact sources/prompts retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v1-input.png",
+            "sha256": "c196eba5f79da85b26866af15e257554f6175f30d52dd88edab7ad2e2a154f47",
+            "role": "Required exact original edit input; source repaired complete outer rim and removed letter-like engraving"
+          }
+        ],
+        "reviewStatus": "source directly inspected; measured registration and native contact/phone acceptance pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/scenery/nets-v2.webp",
+        "frames": [
+          {
+            "id": "meadow-net",
+            "world": "meadow",
+            "action": "rim",
+            "cell": [
+              0,
+              0,
+              627,
+              836
+            ],
+            "anchor": [
+              320,
+              374
+            ],
+            "sockets": {
+              "captureCenter": [
+                320,
+                374
+              ],
+              "connector": [
+                319,
+                720
+              ]
+            },
+            "captureRadius": 292,
+            "measurement": {
+              "method": "Source-inspected circular outer rim, transparent capture interior and opaque lower connector; connector is separate from centre"
+            }
+          },
+          {
+            "id": "dino-net",
+            "world": "dino",
+            "action": "rim",
+            "cell": [
+              627,
+              0,
+              1254,
+              836
+            ],
+            "anchor": [
+              316,
+              374
+            ],
+            "sockets": {
+              "captureCenter": [
+                943,
+                374
+              ],
+              "connector": [
+                943,
+                719
+              ]
+            },
+            "captureRadius": 293,
+            "measurement": {
+              "method": "Source-inspected circular outer rim, transparent capture interior and opaque lower connector; connector is separate from centre"
+            }
+          },
+          {
+            "id": "moonwood-net",
+            "world": "moonwood",
+            "action": "rim",
+            "cell": [
+              1254,
+              0,
+              1882,
+              836
+            ],
+            "anchor": [
+              309,
+              374
+            ],
+            "sockets": {
+              "captureCenter": [
+                1563,
+                374
+              ],
+              "connector": [
+                1563,
+                721
+              ]
+            },
+            "captureRadius": 295,
+            "measurement": {
+              "method": "Source-inspected circular outer rim, transparent capture interior and opaque lower connector; connector is separate from centre"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 265.45454545454544,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 3,
+          "foreignOpaqueCropPixels": 0
+        },
+        "runtimeSize": [
+          1882,
+          836
+        ],
+        "runtimeSha256": "2c2d873de7ffd63977e9ada31a327569a946f3ee32952bcd8acd066312231a7f",
+        "runtimeBytes": 539274,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 2,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/nets-v2.png",
+        "acceptedNativeSHA": "a9de186642255cb69621aa521e7c41ef96104e7e65ed52cca779851429489063",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-nets-v2.attempt2.native.png",
+            "nativeSHA": "a9de186642255cb69621aa521e7c41ef96104e7e65ed52cca779851429489063",
+            "wholeObjectCrop": [
+              18,
+              63,
+              618,
+              781
+            ],
+            "componentBounds": [
+              [
+                19,
+                64,
+                617,
+                780
+              ]
+            ],
+            "placement": [
+              63,
+              151,
+              502,
+              601
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeLandmarks": {
+              "world": "meadow",
+              "captureCenter": [
+                318,
+                374
+              ],
+              "connector": [
+                318,
+                737
+              ],
+              "outerRadius": 299
+            }
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-nets-v2.attempt2.native.png",
+            "nativeSHA": "a9de186642255cb69621aa521e7c41ef96104e7e65ed52cca779851429489063",
+            "wholeObjectCrop": [
+              643,
+              63,
+              1241,
+              781
+            ],
+            "componentBounds": [
+              [
+                644,
+                64,
+                1240,
+                780
+              ]
+            ],
+            "placement": [
+              691,
+              151,
+              500,
+              601
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeLandmarks": {
+              "world": "dino",
+              "captureCenter": [
+                942,
+                374
+              ],
+              "connector": [
+                942,
+                737
+              ],
+              "outerRadius": 299
+            }
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-nets-v2.attempt2.native.png",
+            "nativeSHA": "a9de186642255cb69621aa521e7c41ef96104e7e65ed52cca779851429489063",
+            "wholeObjectCrop": [
+              1265,
+              63,
+              1865,
+              781
+            ],
+            "componentBounds": [
+              [
+                1266,
+                64,
+                1864,
+                780
+              ]
+            ],
+            "placement": [
+              1317,
+              151,
+              502,
+              601
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeLandmarks": {
+              "world": "moonwood",
+              "captureCenter": [
+                1565,
+                374
+              ],
+              "connector": [
+                1565,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chompy-operator",
+      "world": "dino",
+      "kind": "authored-genre-action-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/chompy-operator-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "8e703925fbfee53cc4311db67a7b22ccd64e1770b761d2e2d3fb832c7cc1de1a",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/chompy-operator-v1.prompt.txt",
+      "promptSha256": "1e62014cc9e4f7c06fb0fb24032713ce575d7d121f14c7ceee9ec3162b30a852",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png",
+          "sha256": "cdc9193277eec5f25c93d9f0438d6c1449c5f3aaf3ee0a668848fe415687f922",
+          "role": "Canonical identity"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+          "sha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+          "role": "Genre-specific operator action/composition continuity"
+        }
+      ],
+      "actions": [
+        "anticipate",
+        "swing",
+        "catch",
+        "recover",
+        "follow-through",
+        "celebrate"
+      ],
+      "reviewStatus": "Original source directly inspected; measured wrist/sole registration, runtime delivery, contact/reachability and phone acceptance remain pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/chompy-operator-v1.webp",
+      "frames": [
+        {
+          "id": "chompy-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            259.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              181,
+              459
+            ],
+            "bootLeft": [
+              181,
+              459
+            ],
+            "bootRight": [
+              338,
+              454
+            ],
+            "nearHand": [
+              304,
+              335
+            ],
+            "farHand": [
+              385,
+              321
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              69,
+              83,
+              442,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            237.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              836,
+              459
+            ],
+            "bootLeft": [
+              663,
+              455
+            ],
+            "bootRight": [
+              836,
+              459
+            ],
+            "nearHand": [
+              851,
+              307
+            ],
+            "farHand": [
+              945,
+              268
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              575,
+              62,
+              962,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            278.5,
+            458
+          ],
+          "sockets": {
+            "feet": [
+              187,
+              970
+            ],
+            "bootLeft": [
+              187,
+              970
+            ],
+            "bootRight": [
+              370,
+              965
+            ],
+            "nearHand": [
+              328,
+              809
+            ],
+            "farHand": [
+              418,
+              801
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              79,
+              564,
+              434,
+              971
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            286.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              715,
+              971
+            ],
+            "bootLeft": [
+              715,
+              971
+            ],
+            "bootRight": [
+              882,
+              963
+            ],
+            "nearHand": [
+              812,
+              826
+            ],
+            "farHand": [
+              884,
+              803
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              595,
+              574,
+              940,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            232,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              176,
+              1483
+            ],
+            "bootLeft": [
+              176,
+              1483
+            ],
+            "bootRight": [
+              288,
+              1473
+            ],
+            "nearHand": [
+              145,
+              1258
+            ],
+            "farHand": [
+              412,
+              1317
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              61,
+              1080,
+              450,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            272,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              704,
+              1483
+            ],
+            "bootLeft": [
+              704,
+              1483
+            ],
+            "bootRight": [
+              864,
+              1479
+            ],
+            "nearHand": [
+              668,
+              1232
+            ],
+            "farHand": [
+              936,
+              1243
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              578,
+              1082,
+              958,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 181.8181818181818,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "80d5f961a26fbcd61413e4ab6b1b2ae9e2faedca0a5e8d617934dbcd2c013805",
+      "runtimeBytes": 233510,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "chompy-operator",
+        "world": "dino",
+        "kind": "authored-genre-action-source",
+        "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/chompy-operator-v1.txt",
+        "promptSha256": "0af1daeb51ee4d0525a7d31e37e3e76d2a1e60c15b10d6ffdc38d71f91d4f7a6",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png",
+            "sha256": "cdc9193277eec5f25c93d9f0438d6c1449c5f3aaf3ee0a668848fe415687f922",
+            "role": "Canonical identity"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+            "sha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+            "role": "Genre-specific operator action/composition continuity"
+          }
+        ],
+        "actions": [
+          "anticipate",
+          "swing",
+          "catch",
+          "recover",
+          "follow-through",
+          "celebrate"
+        ],
+        "reviewStatus": "Original source directly inspected; measured wrist/sole registration, runtime delivery, contact/reachability and phone acceptance remain pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/characters/chompy-operator-v1.webp",
+        "frames": [
+          {
+            "id": "chompy-anticipate",
+            "action": "anticipate",
+            "direction": "right",
+            "cell": [
+              49,
+              68,
+              441,
+              480
+            ],
+            "anchor": [
+              198,
+              404
+            ],
+            "sockets": {
+              "feet": [
+                184,
+                472
+              ],
+              "bootLeft": [
+                184,
+                472
+              ],
+              "bootRight": [
+                311,
+                465
+              ],
+              "nearHand": [
+                304,
+                344
+              ],
+              "farHand": [
+                348,
+                340
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                56,
+                75,
+                434,
+                473
+              ],
+              "bootRegions": [
+                [
+                  113,
+                  241,
+                  425,
+                  483
+                ],
+                [
+                  242,
+                  372,
+                  419,
+                  480
+                ]
+              ],
+              "torsoAxisSourceX": 247,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "chompy-swing",
+            "action": "swing",
+            "direction": "right",
+            "cell": [
+              561,
+              55,
+              984,
+              492
+            ],
+            "anchor": [
+              204,
+              429
+            ],
+            "sockets": {
+              "feet": [
+                659,
+                484
+              ],
+              "bootLeft": [
+                659,
+                484
+              ],
+              "bootRight": [
+                843,
+                474
+              ],
+              "nearHand": [
+                865,
+                324
+              ],
+              "farHand": [
+                925,
+                305
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                568,
+                62,
+                977,
+                485
+              ],
+              "bootRegions": [
+                [
+                  594,
+                  720,
+                  433,
+                  490
+                ],
+                [
+                  805,
+                  937,
+                  419,
+                  489
+                ]
+              ],
+              "torsoAxisSourceX": 765,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "chompy-catch",
+            "action": "catch",
+            "direction": "right",
+            "cell": [
+              55,
+              530,
+              437,
+              981
+            ],
+            "anchor": [
+              209,
+              443
+            ],
+            "sockets": {
+              "feet": [
+                193,
+                973
+              ],
+              "bootLeft": [
+                193,
+                973
+              ],
+              "bootRight": [
+                347,
+                964
+              ],
+              "nearHand": [
+                337,
+                803
+              ],
+              "farHand": [
+                384,
+                799
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                62,
+                537,
+                430,
+                974
+              ],
+              "bootRegions": [
+                [
+                  130,
+                  258,
+                  921,
+                  979
+                ],
+                [
+                  283,
+                  412,
+                  919,
+                  980
+                ]
+              ],
+              "torsoAxisSourceX": 264,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "chompy-recover",
+            "action": "recover",
+            "direction": "right",
+            "cell": [
+              580,
+              536,
+              961,
+              980
+            ],
+            "anchor": [
+              192,
+              436
+            ],
+            "sockets": {
+              "feet": [
+                738,
+                972
+              ],
+              "bootLeft": [
+                738,
+                972
+              ],
+              "bootRight": [
+                899,
+                963
+              ],
+              "nearHand": [
+                840,
+                807
+              ],
+              "farHand": [
+                889,
+                772
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                587,
+                543,
+                954,
+                973
+              ],
+              "bootRegions": [
+                [
+                  668,
+                  801,
+                  922,
+                  981
+                ],
+                [
+                  825,
+                  966,
+                  923,
+                  983
+                ]
+              ],
+              "torsoAxisSourceX": 772,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "chompy-follow-through",
+            "action": "follow-through",
+            "direction": "right",
+            "cell": [
+              51,
+              1021,
+              501,
+              1469
+            ],
+            "anchor": [
+              214,
+              440
+            ],
+            "sockets": {
+              "feet": [
+                175,
+                1461
+              ],
+              "bootLeft": [
+                175,
+                1461
+              ],
+              "bootRight": [
+                353,
+                1458
+              ],
+              "nearHand": [
+                389,
+                1293
+              ],
+              "farHand": [
+                424,
+                1280
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                58,
+                1028,
+                494,
+                1462
+              ],
+              "bootRegions": [
+                [
+                  110,
+                  235,
+                  1398,
+                  1471
+                ],
+                [
+                  326,
+                  456,
+                  1375,
+                  1469
+                ]
+              ],
+              "torsoAxisSourceX": 265,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "chompy-celebrate",
+            "action": "celebrate",
+            "direction": "right",
+            "cell": [
+              577,
+              1018,
+              987,
+              1474
+            ],
+            "anchor": [
+              200,
+              448
+            ],
+            "sockets": {
+              "feet": [
+                716,
+                1466
+              ],
+              "bootLeft": [
+                716,
+                1466
+              ],
+              "bootRight": [
+                880,
+                1457
+              ],
+              "nearHand": [
+                685,
+                1225
+              ],
+              "farHand": [
+                952,
+                1227
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                584,
+                1025,
+                980,
+                1467
+              ],
+              "bootRegions": [
+                [
+                  647,
+                  783,
+                  1412,
+                  1484
+                ],
+                [
+                  800,
+                  943,
+                  1403,
+                  1479
+                ]
+              ],
+              "torsoAxisSourceX": 777,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 180.9090909090909,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 6,
+          "foreignOpaqueCropPixels": 0
+        },
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "f1e5456bb9b168badcb8af56afb49a114f83d6571e4b541b777727fe9f5c9dff",
+        "runtimeBytes": 195518,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 1,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/chompy-operator-v1.png",
+        "acceptedNativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-chompy-operator-v1.attempt1.native.png",
+            "nativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+            "wholeObjectCrop": [
+              53,
+              58,
+              467,
+              476
+            ],
+            "componentBounds": [
+              [
+                54,
+                59,
+                466,
+                475
+              ]
+            ],
+            "placement": [
+              68,
+              82,
+              375,
+              379
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                314,
+                337
+              ],
+              "farHand": [
+                403,
+                322
+              ],
+              "bootLeft": [
+                178,
+                474
+              ],
+              "bootRight": [
+                351,
+                469
+              ]
+            }
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-chompy-operator-v1.attempt1.native.png",
+            "nativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+            "wholeObjectCrop": [
+              563,
+              49,
+              992,
+              490
+            ],
+            "componentBounds": [
+              [
+                564,
+                50,
+                991,
+                489
+              ]
+            ],
+            "placement": [
+              574,
+              61,
+              389,
+              400
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                868,
+                320
+              ],
+              "farHand": [
+                972,
+                277
+              ],
+              "bootLeft": [
+                661,
+                484
+              ],
+              "bootRight": [
+                852,
+                488
+              ]
+            }
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-chompy-operator-v1.attempt1.native.png",
+            "nativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+            "wholeObjectCrop": [
+              63,
+              531,
+              457,
+              983
+            ],
+            "componentBounds": [
+              [
+                64,
+                532,
+                456,
+                982
+              ]
+            ],
+            "placement": [
+              78,
+              563,
+              357,
+              410
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                339,
+                802
+              ],
+              "farHand": [
+                438,
+                793
+              ],
+              "bootLeft": [
+                183,
+                980
+              ],
+              "bootRight": [
+                385,
+                974
+              ]
+            }
+          },
+          {
+            "id": 3,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-chompy-operator-v1.attempt1.native.png",
+            "nativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+            "wholeObjectCrop": [
+              596,
+              541,
+              979,
+              982
+            ],
+            "componentBounds": [
+              [
+                597,
+                542,
+                978,
+                981
+              ]
+            ],
+            "placement": [
+              594,
+              573,
+              347,
+              400
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                837,
+                820
+              ],
+              "farHand": [
+                916,
+                795
+              ],
+              "bootLeft": [
+                730,
+                980
+              ],
+              "bootRight": [
+                914,
+                971
+              ]
+            }
+          },
+          {
+            "id": 4,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-chompy-operator-v1.attempt1.native.png",
+            "nativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+            "wholeObjectCrop": [
+              58,
+              1023,
+              489,
+              1471
+            ],
+            "componentBounds": [
+              [
+                59,
+                1024,
+                488,
+                1470
+              ]
+            ],
+            "placement": [
+              60,
+              1079,
+              391,
+              406
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                152,
+                1221
+              ],
+              "farHand": [
+                446,
+                1286
+              ],
+              "bootLeft": [
+                186,
+                1469
+              ],
+              "bootRight": [
+                309,
+                1458
+              ]
+            }
+          },
+          {
+            "id": 5,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-chompy-operator-v1.attempt1.native.png",
+            "nativeSHA": "5acb0eb8eb041efc60d428486b22b7be194951af7d8d60303314813564d4f0ef",
+            "wholeObjectCrop": [
+              574,
+              1029,
+              995,
+              1475
+            ],
+            "componentBounds": [
+              [
+                575,
+                1030,
+                994,
+                1474
+              ]
+            ],
+            "placement": [
+              577,
+              1081,
+              382,
+              404
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                674,
+                1196
+              ],
+              "farHand": [
+                970,
+                1208
+              ],
+              "bootLeft": [
+                714,
+                1473
+              ],
+              "bootRight": [
+                890,
+                1468
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "pip-operator",
+      "world": "moonwood",
+      "kind": "authored-genre-action-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/pip-operator-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "76c16730bc89ac4eeaa59cfcdfdcd3d10987ffff4b48e7785a73bcbb14c89c34",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/pip-operator-v1.prompt.txt",
+      "promptSha256": "1a7c2807059cac1a733019f5c50d29984bf02e25a3aa529afece544e81938b26",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png",
+          "sha256": "74f74a159e273a6ad2fb6aa450fd4ce58820f3a1d9d0ea032ece9c31b7207371",
+          "role": "Canonical identity"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+          "sha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+          "role": "Genre-specific operator action/composition continuity"
+        }
+      ],
+      "actions": [
+        "anticipate",
+        "swing",
+        "catch",
+        "recover",
+        "follow-through",
+        "celebrate"
+      ],
+      "reviewStatus": "Original source directly inspected; measured wrist/sole registration, runtime delivery, contact/reachability and phone acceptance remain pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/pip-operator-v1.webp",
+      "frames": [
+        {
+          "id": "pip-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            248.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              184,
+              459
+            ],
+            "bootLeft": [
+              184,
+              459
+            ],
+            "bootRight": [
+              313,
+              452
+            ],
+            "nearHand": [
+              259,
+              299
+            ],
+            "farHand": [
+              335,
+              301
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              135,
+              66,
+              378,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            234.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              828,
+              459
+            ],
+            "bootLeft": [
+              665,
+              447
+            ],
+            "bootRight": [
+              828,
+              459
+            ],
+            "nearHand": [
+              903,
+              223
+            ],
+            "farHand": [
+              841,
+              289
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              615,
+              54,
+              921,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            262.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              195,
+              971
+            ],
+            "bootLeft": [
+              195,
+              971
+            ],
+            "bootRight": [
+              330,
+              965
+            ],
+            "nearHand": [
+              296,
+              796
+            ],
+            "farHand": [
+              337,
+              783
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              135,
+              564,
+              376,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            306,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              760,
+              971
+            ],
+            "bootLeft": [
+              760,
+              971
+            ],
+            "bootRight": [
+              876,
+              968
+            ],
+            "nearHand": [
+              833,
+              806
+            ],
+            "farHand": [
+              868,
+              786
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              621,
+              568,
+              914,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            246,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              327,
+              1483
+            ],
+            "bootLeft": [
+              165,
+              1469
+            ],
+            "bootRight": [
+              327,
+              1483
+            ],
+            "nearHand": [
+              125,
+              1259
+            ],
+            "farHand": [
+              382,
+              1299
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              99,
+              1081,
+              413,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            261.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              702,
+              1483
+            ],
+            "bootLeft": [
+              702,
+              1483
+            ],
+            "bootRight": [
+              845,
+              1477
+            ],
+            "nearHand": [
+              646,
+              1228
+            ],
+            "farHand": [
+              890,
+              1216
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              616,
+              1079,
+              920,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 183.86363636363635,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "67c88e19070bddff63dacfdfbc97b8300f25b45720d1b7ddc1a93e8d79c565c5",
+      "runtimeBytes": 199008,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "pip-operator",
+        "world": "moonwood",
+        "kind": "authored-genre-action-source",
+        "source": "source-art/arcade/physical-worlds/sound-safari/characters/pip-operator-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "8c67cbd2a196773703321a84eb8f63578e54f5f63e64663fa68783ac433c53ee",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/pip-operator-v1.txt",
+        "promptSha256": "e877c716d657838c4dfac14594dd1e765610cce4dfaf0a61c2f20b5548d03d4d",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png",
+            "sha256": "74f74a159e273a6ad2fb6aa450fd4ce58820f3a1d9d0ea032ece9c31b7207371",
+            "role": "Canonical identity"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+            "sha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+            "role": "Genre-specific operator action/composition continuity"
+          }
+        ],
+        "actions": [
+          "anticipate",
+          "swing",
+          "catch",
+          "recover",
+          "follow-through",
+          "celebrate"
+        ],
+        "reviewStatus": "Original source directly inspected; measured wrist/sole registration, runtime delivery, contact/reachability and phone acceptance remain pending",
+        "runtime": "/game-assets/physical-arcade/sound-safari/characters/pip-operator-v1.webp",
+        "frames": [
+          {
+            "id": "pip-anticipate",
+            "action": "anticipate",
+            "direction": "right",
+            "cell": [
+              117,
+              25,
+              387,
+              523
+            ],
+            "anchor": [
+              135,
+              490
+            ],
+            "sockets": {
+              "feet": [
+                178,
+                515
+              ],
+              "bootLeft": [
+                178,
+                515
+              ],
+              "bootRight": [
+                334,
+                510
+              ],
+              "nearHand": [
+                268,
+                323
+              ],
+              "farHand": [
+                337,
+                322
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                124,
+                32,
+                380,
+                516
+              ],
+              "bootRegions": [
+                [
+                  113,
+                  222,
+                  451,
+                  522
+                ],
+                [
+                  269,
+                  390,
+                  443,
+                  522
+                ]
+              ],
+              "torsoAxisSourceX": 252,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "pip-swing",
+            "action": "swing",
+            "direction": "right",
+            "cell": [
+              563,
+              26,
+              928,
+              540
+            ],
+            "anchor": [
+              194,
+              506
+            ],
+            "sockets": {
+              "feet": [
+                822,
+                532
+              ],
+              "bootLeft": [
+                630,
+                520
+              ],
+              "bootRight": [
+                822,
+                532
+              ],
+              "nearHand": [
+                897,
+                260
+              ],
+              "farHand": [
+                832,
+                335
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                570,
+                33,
+                921,
+                533
+              ],
+              "bootRegions": [
+                [
+                  559,
+                  665,
+                  428,
+                  533
+                ],
+                [
+                  786,
+                  924,
+                  449,
+                  544
+                ]
+              ],
+              "torsoAxisSourceX": 757,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "pip-catch",
+            "action": "catch",
+            "direction": "right",
+            "cell": [
+              104,
+              523,
+              418,
+              1037
+            ],
+            "anchor": [
+              180,
+              506
+            ],
+            "sockets": {
+              "feet": [
+                212,
+                1029
+              ],
+              "bootLeft": [
+                212,
+                1029
+              ],
+              "bootRight": [
+                367,
+                1023
+              ],
+              "nearHand": [
+                339,
+                812
+              ],
+              "farHand": [
+                383,
+                801
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                111,
+                530,
+                411,
+                1030
+              ],
+              "bootRegions": [
+                [
+                  157,
+                  260,
+                  947,
+                  1036
+                ],
+                [
+                  298,
+                  420,
+                  945,
+                  1037
+                ]
+              ],
+              "torsoAxisSourceX": 284,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "pip-recover",
+            "action": "recover",
+            "direction": "right",
+            "cell": [
+              580,
+              544,
+              936,
+              1038
+            ],
+            "anchor": [
+              176,
+              486
+            ],
+            "sockets": {
+              "feet": [
+                768,
+                1030
+              ],
+              "bootLeft": [
+                768,
+                1030
+              ],
+              "bootRight": [
+                891,
+                1023
+              ],
+              "nearHand": [
+                842,
+                835
+              ],
+              "farHand": [
+                882,
+                817
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                587,
+                551,
+                929,
+                1031
+              ],
+              "bootRegions": [
+                [
+                  702,
+                  809,
+                  947,
+                  1038
+                ],
+                [
+                  819,
+                  929,
+                  942,
+                  1038
+                ]
+              ],
+              "torsoAxisSourceX": 756,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "pip-follow-through",
+            "action": "follow-through",
+            "direction": "right",
+            "cell": [
+              127,
+              1038,
+              447,
+              1527
+            ],
+            "anchor": [
+              142,
+              481
+            ],
+            "sockets": {
+              "feet": [
+                350,
+                1519
+              ],
+              "bootLeft": [
+                200,
+                1511
+              ],
+              "bootRight": [
+                350,
+                1519
+              ],
+              "nearHand": [
+                344,
+                1313
+              ],
+              "farHand": [
+                384,
+                1307
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                134,
+                1045,
+                440,
+                1520
+              ],
+              "bootRegions": [
+                [
+                  128,
+                  247,
+                  1413,
+                  1527
+                ],
+                [
+                  313,
+                  449,
+                  1434,
+                  1527
+                ]
+              ],
+              "torsoAxisSourceX": 269,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          },
+          {
+            "id": "pip-celebrate",
+            "action": "celebrate",
+            "direction": "right",
+            "cell": [
+              595,
+              1035,
+              944,
+              1525
+            ],
+            "anchor": [
+              173,
+              482
+            ],
+            "sockets": {
+              "feet": [
+                709,
+                1517
+              ],
+              "bootLeft": [
+                709,
+                1517
+              ],
+              "bootRight": [
+                869,
+                1512
+              ],
+              "nearHand": [
+                636,
+                1224
+              ],
+              "farHand": [
+                903,
+                1200
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                602,
+                1042,
+                937,
+                1518
+              ],
+              "bootRegions": [
+                [
+                  652,
+                  771,
+                  1436,
+                  1534
+                ],
+                [
+                  788,
+                  902,
+                  1434,
+                  1534
+                ]
+              ],
+              "torsoAxisSourceX": 768,
+              "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 219.99999999999997,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 6,
+          "foreignOpaqueCropPixels": 0
+        },
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "a896b0a5152bad79f79447f885483ac75972e95354ccc61d481f96fe3d0903b5",
+        "runtimeBytes": 205574,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 1,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/pip-operator-v1.png",
+        "acceptedNativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-pip-operator-v1.attempt1.native.png",
+            "nativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+            "wholeObjectCrop": [
+              139,
+              20,
+              434,
+              497
+            ],
+            "componentBounds": [
+              [
+                140,
+                21,
+                433,
+                496
+              ]
+            ],
+            "placement": [
+              134,
+              65,
+              245,
+              396
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                289,
+                302
+              ],
+              "farHand": [
+                381,
+                304
+              ],
+              "bootLeft": [
+                199,
+                495
+              ],
+              "bootRight": [
+                355,
+                486
+              ]
+            }
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-pip-operator-v1.attempt1.native.png",
+            "nativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+            "wholeObjectCrop": [
+              602,
+              20,
+              973,
+              511
+            ],
+            "componentBounds": [
+              [
+                603,
+                21,
+                972,
+                510
+              ]
+            ],
+            "placement": [
+              614,
+              53,
+              308,
+              408
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                950,
+                225
+              ],
+              "farHand": [
+                876,
+                304
+              ],
+              "bootLeft": [
+                663,
+                494
+              ],
+              "bootRight": [
+                860,
+                508
+              ]
+            }
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-pip-operator-v1.attempt1.native.png",
+            "nativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+            "wholeObjectCrop": [
+              138,
+              520,
+              431,
+              1013
+            ],
+            "componentBounds": [
+              [
+                139,
+                521,
+                430,
+                1012
+              ]
+            ],
+            "placement": [
+              134,
+              563,
+              243,
+              410
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                333,
+                800
+              ],
+              "farHand": [
+                383,
+                785
+              ],
+              "bootLeft": [
+                212,
+                1010
+              ],
+              "bootRight": [
+                374,
+                1004
+              ]
+            }
+          },
+          {
+            "id": 3,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-pip-operator-v1.attempt1.native.png",
+            "nativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+            "wholeObjectCrop": [
+              610,
+              522,
+              965,
+              1011
+            ],
+            "componentBounds": [
+              [
+                611,
+                523,
+                964,
+                1010
+              ],
+              [
+                680,
+                559,
+                681,
+                560
+              ]
+            ],
+            "placement": [
+              620,
+              567,
+              295,
+              406
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                866,
+                810
+              ],
+              "farHand": [
+                909,
+                786
+              ],
+              "bootLeft": [
+                779,
+                1009
+              ],
+              "bootRight": [
+                918,
+                1006
+              ]
+            }
+          },
+          {
+            "id": 4,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-pip-operator-v1.attempt1.native.png",
+            "nativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+            "wholeObjectCrop": [
+              96,
+              1029,
+              476,
+              1517
+            ],
+            "componentBounds": [
+              [
+                97,
+                1030,
+                475,
+                1516
+              ]
+            ],
+            "placement": [
+              98,
+              1080,
+              316,
+              405
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                128,
+                1245
+              ],
+              "farHand": [
+                437,
+                1293
+              ],
+              "bootLeft": [
+                176,
+                1498
+              ],
+              "bootRight": [
+                371,
+                1515
+              ]
+            }
+          },
+          {
+            "id": 5,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-pip-operator-v1.attempt1.native.png",
+            "nativeSHA": "4e1ef6919f66c2b92994ff6138a2e34b72865b552224be6a483e601ae1c6a091",
+            "wholeObjectCrop": [
+              596,
+              1023,
+              964,
+              1513
+            ],
+            "componentBounds": [
+              [
+                597,
+                1024,
+                963,
+                1512
+              ]
+            ],
+            "placement": [
+              615,
+              1078,
+              306,
+              407
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels",
+            "nativeAnatomicalContacts": {
+              "nearHand": [
+                633,
+                1203
+              ],
+              "farHand": [
+                927,
+                1189
+              ],
+              "bootLeft": [
+                701,
+                1510
+              ],
+              "bootRight": [
+                872,
+                1504
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "meadow-critters",
+      "world": "meadow",
+      "kind": "authored-catch-target-idle-travel-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/meadow-critters-v2.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "3bdebc714ff59ce7fe8d983b6c6ce285a1c97842c4edd328a050f9b09f2fd4ea",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/meadow-critters-v2.prompt.txt",
+      "promptSha256": "b5d7e8a31186d96459c4fcba3d903dd3bf22150893cfff291ab284c4f11ae86d",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/meadow-horizon-v1.png",
+          "sha256": "56094fbd3d5d8eb91517108ad43d212f00c004d4f7d2e2d0b0df7196abe1758f",
+          "role": "Canonical discovery-glade material and light only; original six target poses"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v1.png",
+          "sha256": "2748f9a8b041b178d849e88c485982bc32a58c527a5a65e1e8c55936617bddcd",
+          "role": "Required original edit input; exact source spacing correction preserves semantic creature poses"
+        }
+      ],
+      "species": [
+        "ladybird",
+        "butterfly",
+        "frog"
+      ],
+      "actions": [
+        "idle",
+        "travel"
+      ],
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/meadow-critters-v2.webp",
+      "reviewStatus": "Original spacing correction directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "frames": [
+        {
+          "id": "ladybird-idle",
+          "species": "ladybird",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            256.5,
+            321
+          ],
+          "sockets": {
+            "captureCenter": [
+              256.5,
+              321
+            ]
+          },
+          "captureRadius": 193.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              63,
+              182,
+              450,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "ladybird-travel",
+          "species": "ladybird",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            256,
+            268
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              268
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              76,
+              972,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "butterfly-idle",
+          "species": "butterfly",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            256,
+            286
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              798
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              52,
+              624,
+              460,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "butterfly-travel",
+          "species": "butterfly",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            256,
+            265
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              777
+            ]
+          },
+          "captureRadius": 195,
+          "measurement": {
+            "opaqueBodyBounds": [
+              619,
+              582,
+              917,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "frog-idle",
+          "species": "frog",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            256,
+            333
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              1357
+            ]
+          },
+          "captureRadius": 152,
+          "measurement": {
+            "opaqueBodyBounds": [
+              104,
+              1230,
+              408,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "frog-travel",
+          "species": "frog",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            256,
+            317
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              1341
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              1198,
+              972,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 200,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "7abe1e5aa5aa4715766edd773546382883db97eccbbd80012cb5475e76d919cd",
+      "runtimeBytes": 217964,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "meadow-critters",
+        "world": "meadow",
+        "kind": "authored-catch-target-idle-travel-source",
+        "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v2.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "6a336fb050ea17824742d59cf0ac1180e1c74f572c4a1f654ca274a3b67523ef",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/meadow-critters-v2.txt",
+        "promptSha256": "66010564638a83af1a38072544ee2ff833ee32a518618eedaa199de5d809e9d8",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/scenery/meadow-horizon-v1.png",
+            "sha256": "56094fbd3d5d8eb91517108ad43d212f00c004d4f7d2e2d0b0df7196abe1758f",
+            "role": "Canonical discovery-glade material and light only; original six target poses"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v1.png",
+            "sha256": "2748f9a8b041b178d849e88c485982bc32a58c527a5a65e1e8c55936617bddcd",
+            "role": "Required original edit input; exact source spacing correction preserves semantic creature poses"
+          }
+        ],
+        "species": [
+          "ladybird",
+          "butterfly",
+          "frog"
+        ],
+        "actions": [
+          "idle",
+          "travel"
+        ],
+        "runtime": "/game-assets/physical-arcade/sound-safari/characters/meadow-critters-v2.webp",
+        "reviewStatus": "Original spacing correction directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 6,
+          "foreignOpaqueCropPixels": 0
+        },
+        "frames": [
+          {
+            "id": "ladybird-idle",
+            "species": "ladybird",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              86,
+              198,
+              452,
+              470
+            ],
+            "anchor": [
+              183,
+              136
+            ],
+            "sockets": {
+              "captureCenter": [
+                269,
+                334
+              ]
+            },
+            "captureRadius": 176,
+            "measurement": {
+              "opaqueBodyBounds": [
+                93,
+                205,
+                445,
+                463
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "ladybird-travel",
+            "species": "ladybird",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              551,
+              120,
+              992,
+              468
+            ],
+            "anchor": [
+              220.5,
+              174
+            ],
+            "sockets": {
+              "captureCenter": [
+                771.5,
+                294
+              ]
+            },
+            "captureRadius": 213.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                558,
+                127,
+                985,
+                461
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "butterfly-idle",
+            "species": "butterfly",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              32,
+              589,
+              502,
+              973
+            ],
+            "anchor": [
+              235,
+              192
+            ],
+            "sockets": {
+              "captureCenter": [
+                267,
+                781
+              ]
+            },
+            "captureRadius": 228,
+            "measurement": {
+              "opaqueBodyBounds": [
+                39,
+                596,
+                495,
+                966
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "butterfly-travel",
+            "species": "butterfly",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              620,
+              553,
+              967,
+              984
+            ],
+            "anchor": [
+              173.5,
+              215.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                793.5,
+                768.5
+              ]
+            },
+            "captureRadius": 208.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                627,
+                560,
+                960,
+                977
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "frog-idle",
+            "species": "frog",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              98,
+              1121,
+              422,
+              1401
+            ],
+            "anchor": [
+              162,
+              140
+            ],
+            "sockets": {
+              "captureCenter": [
+                260,
+                1261
+              ]
+            },
+            "captureRadius": 155,
+            "measurement": {
+              "opaqueBodyBounds": [
+                105,
+                1128,
+                415,
+                1394
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "frog-travel",
+            "species": "frog",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              548,
+              1086,
+              985,
+              1413
+            ],
+            "anchor": [
+              218.5,
+              163.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                766.5,
+                1249.5
+              ]
+            },
+            "captureRadius": 211.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                555,
+                1093,
+                978,
+                1406
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 200,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "2e6634210d488adf0374dd14c74d272b82e68acf1823e8cae24093b6d0eb0c15",
+        "runtimeBytes": 263950,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 1,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/meadow-critters-v2.png",
+        "acceptedNativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-meadow-critters-v2.attempt1.native.png",
+            "nativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+            "wholeObjectCrop": [
+              59,
+              172,
+              481,
+              475
+            ],
+            "componentBounds": [
+              [
+                60,
+                173,
+                480,
+                474
+              ]
+            ],
+            "placement": [
+              62,
+              181,
+              389,
+              280
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-meadow-critters-v2.attempt1.native.png",
+            "nativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+            "wholeObjectCrop": [
+              553,
+              55,
+              997,
+              473
+            ],
+            "componentBounds": [
+              [
+                554,
+                56,
+                996,
+                472
+              ]
+            ],
+            "placement": [
+              563,
+              75,
+              410,
+              386
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-meadow-critters-v2.attempt1.native.png",
+            "nativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+            "wholeObjectCrop": [
+              48,
+              573,
+              548,
+              1000
+            ],
+            "componentBounds": [
+              [
+                49,
+                574,
+                547,
+                999
+              ]
+            ],
+            "placement": [
+              51,
+              623,
+              410,
+              350
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 3,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-meadow-critters-v2.attempt1.native.png",
+            "nativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+            "wholeObjectCrop": [
+              632,
+              526,
+              998,
+              1004
+            ],
+            "componentBounds": [
+              [
+                633,
+                527,
+                997,
+                1003
+              ]
+            ],
+            "placement": [
+              618,
+              581,
+              300,
+              392
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 4,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-meadow-critters-v2.attempt1.native.png",
+            "nativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+            "wholeObjectCrop": [
+              81,
+              1128,
+              445,
+              1432
+            ],
+            "componentBounds": [
+              [
+                82,
+                1129,
+                444,
+                1431
+              ]
+            ],
+            "placement": [
+              103,
+              1229,
+              306,
+              256
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 5,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-meadow-critters-v2.attempt1.native.png",
+            "nativeSHA": "9d7201f62114afc1ab968794726058049b731d96cd3763c848d1198eb9b7037f",
+            "wholeObjectCrop": [
+              508,
+              1084,
+              995,
+              1427
+            ],
+            "componentBounds": [
+              [
+                509,
+                1085,
+                994,
+                1426
+              ]
+            ],
+            "placement": [
+              563,
+              1197,
+              410,
+              288
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dino-critters",
+      "world": "dino",
+      "kind": "authored-catch-target-idle-travel-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/dino-critters-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "a819c584adbab6ddfd2c5a67b8a632ba5a4eb740fc276593463ac3ca3dbf7054",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/dino-critters-v1.prompt.txt",
+      "promptSha256": "7ec0c741c316c7ec2188ada066c5fd72d57da6ba7bbf3b124f2f90013356daa4",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/dino-horizon-v1.png",
+          "sha256": "4c4f87012a2c82ee44cf72ee38359d0467be3eb43afc1da05737d598f51a6f9b",
+          "role": "Canonical discovery-glade material/light only; original species-specific moving targets"
+        }
+      ],
+      "species": [
+        "triceratops",
+        "pterosaur",
+        "ankylosaur"
+      ],
+      "actions": [
+        "idle",
+        "travel"
+      ],
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/dino-critters-v1.webp",
+      "reviewStatus": "Original source directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+      "frames": [
+        {
+          "id": "triceratops-idle",
+          "species": "triceratops",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            768,
+            341
+          ],
+          "anchor": [
+            384,
+            171
+          ],
+          "sockets": {
+            "captureCenter": [
+              384,
+              171
+            ]
+          },
+          "captureRadius": 200,
+          "measurement": {
+            "opaqueBodyBounds": [
+              184,
+              36,
+              584,
+              306
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "triceratops-travel",
+          "species": "triceratops",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            768,
+            0,
+            1536,
+            341
+          ],
+          "anchor": [
+            384,
+            170.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1152,
+              170.5
+            ]
+          },
+          "captureRadius": 203,
+          "measurement": {
+            "opaqueBodyBounds": [
+              949,
+              35,
+              1355,
+              306
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "pterosaur-idle",
+          "species": "pterosaur",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            341,
+            768,
+            683
+          ],
+          "anchor": [
+            384,
+            195.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              384,
+              536.5
+            ]
+          },
+          "captureRadius": 306,
+          "measurement": {
+            "opaqueBodyBounds": [
+              78,
+              425,
+              690,
+              648
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "pterosaur-travel",
+          "species": "pterosaur",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            768,
+            341,
+            1536,
+            683
+          ],
+          "anchor": [
+            384.5,
+            184.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1152.5,
+              525.5
+            ]
+          },
+          "captureRadius": 177.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              975,
+              403,
+              1330,
+              648
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "ankylosaur-idle",
+          "species": "ankylosaur",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            683,
+            768,
+            1024
+          ],
+          "anchor": [
+            384,
+            170.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              384,
+              853.5
+            ]
+          },
+          "captureRadius": 268,
+          "measurement": {
+            "opaqueBodyBounds": [
+              116,
+              718,
+              652,
+              989
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "ankylosaur-travel",
+          "species": "ankylosaur",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            768,
+            683,
+            1536,
+            1024
+          ],
+          "anchor": [
+            384,
+            171.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1152,
+              854.5
+            ]
+          },
+          "captureRadius": 277,
+          "measurement": {
+            "opaqueBodyBounds": [
+              875,
+              720,
+              1429,
+              989
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 200,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "02db6abd7c71d623b5c636e43b3ab198a95be683cde94dc717d8dda8825334e7",
+      "runtimeBytes": 215630,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "dino-critters",
+        "world": "dino",
+        "kind": "authored-catch-target-idle-travel-source",
+        "source": "source-art/arcade/physical-worlds/sound-safari/characters/dino-critters-v1.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "720b212c06849fa4c089591eb5bedc316fb4f5d53dfcbec56f9346f024e29f65",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/dino-critters-v1.txt",
+        "promptSha256": "31a8cdf157f5b0f7dc8a01923cb05e16459ade4482c03c1bf6a4ec9299c3a725",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/scenery/dino-horizon-v1.png",
+            "sha256": "4c4f87012a2c82ee44cf72ee38359d0467be3eb43afc1da05737d598f51a6f9b",
+            "role": "Canonical discovery-glade material/light only; original species-specific moving targets"
+          }
+        ],
+        "species": [
+          "triceratops",
+          "pterosaur",
+          "ankylosaur"
+        ],
+        "actions": [
+          "idle",
+          "travel"
+        ],
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 6,
+          "foreignOpaqueCropPixels": 0
+        },
+        "runtime": "/game-assets/physical-arcade/sound-safari/characters/dino-critters-v1.webp",
+        "reviewStatus": "Original source directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+        "frames": [
+          {
+            "id": "triceratops-idle",
+            "species": "triceratops",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              200,
+              11,
+              642,
+              338
+            ],
+            "anchor": [
+              221,
+              163.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                421,
+                174.5
+              ]
+            },
+            "captureRadius": 214,
+            "measurement": {
+              "opaqueBodyBounds": [
+                207,
+                18,
+                635,
+                331
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "triceratops-travel",
+            "species": "triceratops",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              885,
+              11,
+              1328,
+              339
+            ],
+            "anchor": [
+              221.5,
+              164
+            ],
+            "sockets": {
+              "captureCenter": [
+                1106.5,
+                175
+              ]
+            },
+            "captureRadius": 214.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                892,
+                18,
+                1321,
+                332
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "pterosaur-idle",
+            "species": "pterosaur",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              75,
+              367,
+              784,
+              662
+            ],
+            "anchor": [
+              354.5,
+              147.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                429.5,
+                514.5
+              ]
+            },
+            "captureRadius": 347.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                82,
+                374,
+                777,
+                655
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "pterosaur-travel",
+            "species": "pterosaur",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              916,
+              360,
+              1299,
+              679
+            ],
+            "anchor": [
+              191.5,
+              159.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                1107.5,
+                519.5
+              ]
+            },
+            "captureRadius": 184.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                923,
+                367,
+                1292,
+                672
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "ankylosaur-idle",
+            "species": "ankylosaur",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              124,
+              681,
+              684,
+              987
+            ],
+            "anchor": [
+              280,
+              153
+            ],
+            "sockets": {
+              "captureCenter": [
+                404,
+                834
+              ]
+            },
+            "captureRadius": 273,
+            "measurement": {
+              "opaqueBodyBounds": [
+                131,
+                688,
+                677,
+                980
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "ankylosaur-travel",
+            "species": "ankylosaur",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              857,
+              688,
+              1372,
+              983
+            ],
+            "anchor": [
+              257.5,
+              147.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                1114.5,
+                835.5
+              ]
+            },
+            "captureRadius": 250.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                864,
+                695,
+                1365,
+                976
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 200,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "bf5e536cd620b66f082d8e8119139a17f39e11929a365f8a3e263103bcbc064b",
+        "runtimeBytes": 250722,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 1,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/dino-critters-v1.png",
+        "acceptedNativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-dino-critters-v1.attempt1.native.png",
+            "nativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+            "wholeObjectCrop": [
+              156,
+              10,
+              676,
+              362
+            ],
+            "componentBounds": [
+              [
+                157,
+                11,
+                675,
+                361
+              ]
+            ],
+            "placement": [
+              183,
+              35,
+              402,
+              272
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-dino-critters-v1.attempt1.native.png",
+            "nativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+            "wholeObjectCrop": [
+              876,
+              12,
+              1404,
+              365
+            ],
+            "componentBounds": [
+              [
+                877,
+                13,
+                1403,
+                364
+              ]
+            ],
+            "placement": [
+              948,
+              34,
+              408,
+              273
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-dino-critters-v1.attempt1.native.png",
+            "nativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+            "wholeObjectCrop": [
+              62,
+              379,
+              879,
+              678
+            ],
+            "componentBounds": [
+              [
+                63,
+                380,
+                878,
+                677
+              ]
+            ],
+            "placement": [
+              77,
+              424,
+              614,
+              225
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 3,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-dino-critters-v1.attempt1.native.png",
+            "nativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+            "wholeObjectCrop": [
+              924,
+              379,
+              1399,
+              707
+            ],
+            "componentBounds": [
+              [
+                925,
+                380,
+                1398,
+                706
+              ]
+            ],
+            "placement": [
+              974,
+              402,
+              357,
+              247
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 4,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-dino-critters-v1.attempt1.native.png",
+            "nativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+            "wholeObjectCrop": [
+              116,
+              690,
+              729,
+              1001
+            ],
+            "componentBounds": [
+              [
+                117,
+                691,
+                728,
+                1000
+              ]
+            ],
+            "placement": [
+              115,
+              717,
+              538,
+              273
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 5,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-dino-critters-v1.attempt1.native.png",
+            "nativeSHA": "f272e048e453d40bde44ef8654dc5bc88579941c8e81bb92aa74a349a82de696",
+            "wholeObjectCrop": [
+              814,
+              691,
+              1447,
+              1000
+            ],
+            "componentBounds": [
+              [
+                815,
+                692,
+                1446,
+                999
+              ]
+            ],
+            "placement": [
+              874,
+              719,
+              556,
+              271
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moonwood-critters",
+      "world": "moonwood",
+      "kind": "authored-catch-target-idle-travel-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/moonwood-critters-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "38843c279d9b319617c96e5fc8f03f557ac007c3a3b2968309c30c4dfb910fcd",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/moonwood-critters-v1.prompt.txt",
+      "promptSha256": "031fd708dc780b68c26e8b0163d0d725d1238a1018c1cc457df06b26d1c22fa3",
+      "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/moonwood-horizon-v1.png",
+          "sha256": "1b3e8526f9d54a38cf7ec7afe8d2b4ddd0f4752a6ef3c9e702caed3a8a3101cd",
+          "role": "Canonical discovery-glade material/light only; original species-specific moving targets"
+        }
+      ],
+      "species": [
+        "firefly",
+        "owlet",
+        "mouse"
+      ],
+      "actions": [
+        "idle",
+        "travel"
+      ],
+      "sourceRegistration": {
+        "method": "whole current generated body/rim and owned marks, proportional registration, actual visible palms/separate sole components/transparent rimcentre",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/moonwood-critters-v1.webp",
+      "reviewStatus": "Original source directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+      "frames": [
+        {
+          "id": "firefly-idle",
+          "species": "firefly",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            256,
+            278.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              278.5
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              52,
+              97,
+              460,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "firefly-travel",
+          "species": "firefly",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            256.5,
+            286.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              768.5,
+              286.5
+            ]
+          },
+          "captureRadius": 173.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              595,
+              113,
+              942,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "owlet-idle",
+          "species": "owlet",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            256,
+            292.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              804.5
+            ]
+          },
+          "captureRadius": 167.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              102,
+              637,
+              410,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "owlet-travel",
+          "species": "owlet",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            256,
+            273.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              785.5
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              599,
+              972,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "mouse-idle",
+          "species": "mouse",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            255.5,
+            316.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              255.5,
+              1340.5
+            ]
+          },
+          "captureRadius": 174.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              81,
+              1197,
+              430,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "mouse-travel",
+          "species": "mouse",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            255.5,
+            333
+          ],
+          "sockets": {
+            "captureCenter": [
+              767.5,
+              1357
+            ]
+          },
+          "captureRadius": 203.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              1230,
+              971,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 200,
+      "registration": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+      "registrationSha256": "3ee5070db415609dfde7bdaf66773119e638bba17ec7cfc0df658f279c2689c3",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "c17d9f7022b8e0f45e174615206efc26b993472ba4a0452f5a135183116d3145",
+      "runtimeBytes": 216220,
+      "derivative": "Current registered same-size PNG, Sharp WebP quality90/alpha100/effort6, every delivered alpha byte exact",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "moonwood-critters",
+        "world": "moonwood",
+        "kind": "authored-catch-target-idle-travel-source",
+        "source": "source-art/arcade/physical-worlds/sound-safari/characters/moonwood-critters-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "27e4f7ed29d83be6e3e6d975ee65b54b23a13f6a81372b922b859fb7ab3a794f",
+        "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/moonwood-critters-v1.txt",
+        "promptSha256": "a009876aafcc849e7b67653a8b5e669fba3b482dcbb8fa0421087015d139d008",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/scenery/moonwood-horizon-v1.png",
+            "sha256": "1b3e8526f9d54a38cf7ec7afe8d2b4ddd0f4752a6ef3c9e702caed3a8a3101cd",
+            "role": "Canonical discovery-glade material/light only; original species-specific moving targets"
+          }
+        ],
+        "species": [
+          "firefly",
+          "owlet",
+          "mouse"
+        ],
+        "actions": [
+          "idle",
+          "travel"
+        ],
+        "sourceRegistration": {
+          "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+          "frames": 6,
+          "foreignOpaqueCropPixels": 0
+        },
+        "runtime": "/game-assets/physical-arcade/sound-safari/characters/moonwood-critters-v1.webp",
+        "reviewStatus": "Original source directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+        "frames": [
+          {
+            "id": "firefly-idle",
+            "species": "firefly",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              51,
+              72,
+              512,
+              455
+            ],
+            "anchor": [
+              230.5,
+              191.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                281.5,
+                263.5
+              ]
+            },
+            "captureRadius": 223.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                58,
+                79,
+                505,
+                448
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "firefly-travel",
+            "species": "firefly",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              647,
+              68,
+              1011,
+              456
+            ],
+            "anchor": [
+              182,
+              194
+            ],
+            "sockets": {
+              "captureCenter": [
+                829,
+                262
+              ]
+            },
+            "captureRadius": 187,
+            "measurement": {
+              "opaqueBodyBounds": [
+                654,
+                75,
+                1004,
+                449
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "owlet-idle",
+            "species": "owlet",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              60,
+              608,
+              427,
+              1013
+            ],
+            "anchor": [
+              183.5,
+              202.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                243.5,
+                810.5
+              ]
+            },
+            "captureRadius": 195.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                67,
+                615,
+                420,
+                1006
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "owlet-travel",
+            "species": "owlet",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              477,
+              509,
+              1017,
+              984
+            ],
+            "anchor": [
+              270,
+              237.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                747,
+                746.5
+              ]
+            },
+            "captureRadius": 263,
+            "measurement": {
+              "opaqueBodyBounds": [
+                484,
+                516,
+                1010,
+                977
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "mouse-idle",
+            "species": "mouse",
+            "action": "idle",
+            "direction": "right",
+            "cell": [
+              34,
+              1092,
+              436,
+              1453
+            ],
+            "anchor": [
+              201,
+              180.5
+            ],
+            "sockets": {
+              "captureCenter": [
+                235,
+                1272.5
+              ]
+            },
+            "captureRadius": 194,
+            "measurement": {
+              "opaqueBodyBounds": [
+                41,
+                1099,
+                429,
+                1446
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          },
+          {
+            "id": "mouse-travel",
+            "species": "mouse",
+            "action": "travel",
+            "direction": "right",
+            "cell": [
+              513,
+              1134,
+              970,
+              1442
+            ],
+            "anchor": [
+              228.5,
+              154
+            ],
+            "sockets": {
+              "captureCenter": [
+                741.5,
+                1288
+              ]
+            },
+            "captureRadius": 221.5,
+            "measurement": {
+              "opaqueBodyBounds": [
+                520,
+                1141,
+                963,
+                1435
+              ],
+              "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 200,
+        "registration": "registration.json",
+        "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "8976706155d8a72b5551e35725b63afb374d7492385d88ab96793f197bcf50fa",
+        "runtimeBytes": 325136,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+      },
+      "encoding": {
+        "quality": 90,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      },
+      "generation": {
+        "actualBuiltinCalls": 1,
+        "acceptedNativeSource": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/provider-native/moonwood-critters-v1.png",
+        "acceptedNativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+        "nativeReview": "PASS directfullnative completeclean2D anatomy/tool review;6independent complete bodies or3complete neutral squaremesh rims; no edgeclipping",
+        "packingRecipes": [
+          {
+            "id": 0,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-moonwood-critters-v1.attempt1.native.png",
+            "nativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+            "wholeObjectCrop": [
+              45,
+              56,
+              527,
+              486
+            ],
+            "componentBounds": [
+              [
+                46,
+                57,
+                526,
+                485
+              ]
+            ],
+            "placement": [
+              51,
+              96,
+              410,
+              365
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 1,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-moonwood-critters-v1.attempt1.native.png",
+            "nativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+            "wholeObjectCrop": [
+              599,
+              75,
+              1010,
+              486
+            ],
+            "componentBounds": [
+              [
+                600,
+                76,
+                1009,
+                485
+              ]
+            ],
+            "placement": [
+              594,
+              112,
+              349,
+              349
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 2,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-moonwood-critters-v1.attempt1.native.png",
+            "nativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+            "wholeObjectCrop": [
+              37,
+              608,
+              441,
+              1047
+            ],
+            "componentBounds": [
+              [
+                38,
+                609,
+                440,
+                1046
+              ]
+            ],
+            "placement": [
+              101,
+              636,
+              310,
+              337
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 3,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-moonwood-critters-v1.attempt1.native.png",
+            "nativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+            "wholeObjectCrop": [
+              484,
+              523,
+              1018,
+              1012
+            ],
+            "componentBounds": [
+              [
+                485,
+                524,
+                1017,
+                1011
+              ]
+            ],
+            "placement": [
+              563,
+              598,
+              410,
+              375
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 4,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-moonwood-critters-v1.attempt1.native.png",
+            "nativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+            "wholeObjectCrop": [
+              38,
+              1111,
+              478,
+              1472
+            ],
+            "componentBounds": [
+              [
+                39,
+                1112,
+                477,
+                1471
+              ],
+              [
+                466,
+                1269,
+                471,
+                1272
+              ],
+              [
+                471,
+                1272,
+                474,
+                1274
+              ],
+              [
+                474,
+                1274,
+                475,
+                1275
+              ]
+            ],
+            "placement": [
+              80,
+              1196,
+              352,
+              289
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          },
+          {
+            "id": 5,
+            "nativeSource": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/resume-sound-safari-moonwood-critters-v1.attempt1.native.png",
+            "nativeSHA": "09f343b37e28201f3fbe425b716c59a21039d099af14ea0bfacd93e877f1ac3a",
+            "wholeObjectCrop": [
+              504,
+              1144,
+              1016,
+              1464
+            ],
+            "componentBounds": [
+              [
+                505,
+                1145,
+                1015,
+                1463
+              ],
+              [
+                1010,
+                1270,
+                1012,
+                1271
+              ],
+              [
+                1012,
+                1312,
+                1013,
+                1313
+              ]
+            ],
+            "placement": [
+              563,
+              1229,
+              410,
+              256
+            ],
+            "method": "complete connected generated body/rim plus owned marks; proportional resize only;10percent alpha margins;no paintedpixels"
+          }
+        ]
+      }
+    }
+  ],
+  "retainedInputs": [
+    {
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v1-input.png",
+      "sha256": "c196eba5f79da85b26866af15e257554f6175f30d52dd88edab7ad2e2a154f47",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/nets-v1.txt",
+      "promptSha256": "7ebcedf566cf4d83faf9820d88f1330e3f69162ad2ef3a4a3cf8c3075cf9c56d",
+      "role": "Required original edit input; initial clipped right rim was not admitted to runtime"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v1.png",
+      "sha256": "2748f9a8b041b178d849e88c485982bc32a58c527a5a65e1e8c55936617bddcd",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/meadow-critters-v1.txt",
+      "role": "Required original edit-input provenance; first source had reciprocal butterfly crop intrusion (190/244 opaque pixels), repaired in v2 and never admitted to runtime"
+    }
+  ],
+  "registration": {
+    "path": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon-registration.json",
+    "sha256": "c740b82d919823cb31c5f1bbac5bd7472a3072b6e0998d9a6f4e70f9c5bffb0d"
+  },
+  "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+  "historicalReview": {
+    "runtimeAcceptance": "LOCAL_NATIVE_PASS",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "evidence": "docs/design/SOUND_SAFARI_IMPLEMENTATION.md"
+  },
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/sound-safari/manifest.json",
+    "sha256": "e23abe7792893e937291e27457c23bff50ecca91677f59baf01e26a2ad136fd9"
+  },
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/sound-safari/registration.json",
+    "sha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430"
+  },
+  "review": {
+    "runtimeAcceptance": "LOCAL_NATIVE_CURRENT_CLEAN_CARTOON_PASS",
+    "humanApproval": "UNKNOWN",
+    "humanListening": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "units": {
+      "passed": 52,
+      "failed": 0
+    },
+    "nativeCases": {
+      "passed": 8,
+      "failed": 0
+    },
+    "rendererFrames": 216,
+    "rendererProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sound-safari-resumed-renderer-proof.json",
+    "horizonScope": {
+      "status": "PASS",
+      "originals": 3,
+      "actualRuntimeProofs": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen/browser-proof.json",
+          "sha256": "87c6276de4a1c9930a84b79bfb765b05a7041d0c61fae74d13d0784571717dde",
+          "frames": 27
+        },
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored/browser-proof.json",
+          "sha256": "a55c00b38a3b5b6ea884404ba3e0bdadad4816f1a8f37b6dcf06e1b9fb58bb90",
+          "frames": 3
+        }
+      ],
+      "units": {
+        "passed": 18,
+        "failed": 0
+      },
+      "preservedOtherSourceAndRuntimeRows": true,
+      "physicalDevice": "UNKNOWN",
+      "humanListening": "UNKNOWN"
+    }
+  }
+}

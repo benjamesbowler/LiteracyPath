@@ -13,7 +13,7 @@
     {
       "id": "dino-horizon-v1",
       "runtime": "/game-assets/physical-arcade/burrow-builders/horizons/dino-horizon-v1.webp",
-      "source": "source-art/arcade/physical-worlds/burrow-builders/horizons/dino-horizon-v1.png",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/dino-horizon-v1.png",
       "runtimeSize": [
         2048,
         768
@@ -22,18 +22,18 @@
         2048,
         768
       ],
-      "sourceSha256": "9ba10364d710a118d96d09700c1a17f045165ed8cce9ec3cd606e953b5295cfb",
-      "runtimeSha256": "3ec0d821d603092ef3269388f137441cbdd251a4e6f1403fea000dd528c718b4",
-      "runtimeBytes": 566092,
-      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
-      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "sourceSha256": "3a33f611342d3c38fb1c10a22b818c2dd7320adab5d7774d9e4d0dc0a481f986",
+      "runtimeSha256": "19c48ec30c49cc3b01c6ef4c3212a7701c1ee698ccdcc6c9659e306176bdf930",
+      "runtimeBytes": 337200,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon-manifest.json",
+      "sourceManifestSha256": "0d7baedaba392b06aa27ac12859d1df78283698c64f206a926f5850f956ee882",
       "use": "boundary-only authored alpha landscape",
       "nativeGroveAcceptance": "PENDING"
     },
     {
       "id": "meadow-horizon-v1",
       "runtime": "/game-assets/physical-arcade/burrow-builders/horizons/meadow-horizon-v1.webp",
-      "source": "source-art/arcade/physical-worlds/burrow-builders/horizons/meadow-horizon-v1.png",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/meadow-horizon-v1.png",
       "runtimeSize": [
         1774,
         887
@@ -42,18 +42,18 @@
         1774,
         887
       ],
-      "sourceSha256": "8ae426cc5a4097363369b8b87f72f7fc3b87913612a1dc7c770b4374fc8dcdd7",
-      "runtimeSha256": "c8f3b607c3e6251367031ac0444241b11660824f11a2ba7210f1dcb269fcb248",
-      "runtimeBytes": 414944,
-      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
-      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "sourceSha256": "c6869ee95de0fbb3a74b5be3e9f2c0d5e7340e39329bf7a4020686e85748459d",
+      "runtimeSha256": "916d2359a780f0849f3a57d1c3d85343c3db137a09ca46f0bf50b8f15ee60d95",
+      "runtimeBytes": 262126,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon-manifest.json",
+      "sourceManifestSha256": "0d7baedaba392b06aa27ac12859d1df78283698c64f206a926f5850f956ee882",
       "use": "boundary-only authored alpha landscape",
       "nativeGroveAcceptance": "PENDING"
     },
     {
       "id": "moonwood-horizon-v1",
       "runtime": "/game-assets/physical-arcade/burrow-builders/horizons/moonwood-horizon-v1.webp",
-      "source": "source-art/arcade/physical-worlds/burrow-builders/horizons/moonwood-horizon-v1.png",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/moonwood-horizon-v1.png",
       "runtimeSize": [
         1672,
         941
@@ -62,11 +62,11 @@
         1672,
         941
       ],
-      "sourceSha256": "b847cd72e629090b2bef80d545734e21bbbc046b3b1f7086e16e77551a866c44",
-      "runtimeSha256": "47417a880aa65e8269cca458a96bc5a1f2534783128fde0a9bc34845815358fd",
-      "runtimeBytes": 400750,
-      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
-      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "sourceSha256": "c023897307fc7c1dc1f7acc641cd1a78ea6a6d96b9d6d329e7dc29e8068e632b",
+      "runtimeSha256": "f7e66af30089136d645783d5eab095a363f8b028552ca5d57ccd44e978e76911",
+      "runtimeBytes": 216922,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon-manifest.json",
+      "sourceManifestSha256": "0d7baedaba392b06aa27ac12859d1df78283698c64f206a926f5850f956ee882",
       "use": "boundary-only authored alpha landscape",
       "nativeGroveAcceptance": "PENDING"
     },

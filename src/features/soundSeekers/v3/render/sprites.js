@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 // Sound Seekers v3 — image loading and "paper puppet" character animation.
 //
 // Every character is one cut-out drawing (a real book character), animated in
@@ -19,7 +20,7 @@ export function loadImage(src) {
     img.decoding = "async";
     img.onload = () => { entry.img = img; entry.ready = true; resolve(img); };
     img.onerror = () => { entry.failed = true; resolve(null); };
-    img.src = src;
+    img.src = withRepairedImageVersion(src);
   });
   cache.set(src, entry);
   return entry.promise;

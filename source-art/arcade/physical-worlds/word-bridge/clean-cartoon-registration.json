@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "note": "Direct original source inspection. SourceIndex identifies irregular row-major whole bodies. The duplicated fourth Bouncy/Pip main-sheet pose is deliberately not admitted; a retained original opposite-stride singleton supplies carry-b. Visible palm pixels and actual boot regions are measured; the compiler resolves opaque soles and crops. Native full-action/contact acceptance pending.",
+  "assets": [
+    {
+      "hero": "bouncy",
+      "world": "meadow",
+      "file": "bouncy-builder-v2-input",
+      "columns": 2,
+      "bodyCount": 6,
+      "inputs": [
+        "bouncy-builder-v1-input"
+      ],
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "rest",
+          "axis": 256.03076923076924,
+          "boots": [
+            [
+              130,
+              256,
+              283,
+              461
+            ],
+            [
+              256,
+              383,
+              283,
+              461
+            ]
+          ],
+          "hands": null
+        },
+        {
+          "sourceIndex": 1,
+          "action": "carry-ready",
+          "axis": 744.3724696356276,
+          "boots": [
+            [
+              620,
+              744,
+              283,
+              461
+            ],
+            [
+              744,
+              917,
+              283,
+              461
+            ]
+          ],
+          "hands": [
+            [
+              821,
+              275
+            ],
+            [
+              892,
+              257
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 2,
+          "action": "carry-a",
+          "axis": 240.468016194332,
+          "boots": [
+            [
+              102,
+              240,
+              798,
+              973
+            ],
+            [
+              240,
+              410,
+              798,
+              973
+            ]
+          ],
+          "hands": [
+            [
+              322,
+              800
+            ],
+            [
+              385,
+              779
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 4,
+          "action": "reach-low",
+          "axis": 237.85991902834007,
+          "boots": [
+            [
+              111,
+              238,
+              1324,
+              1485
+            ],
+            [
+              238,
+              401,
+              1324,
+              1485
+            ]
+          ],
+          "hands": [
+            [
+              316,
+              1374
+            ],
+            [
+              372,
+              1358
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 5,
+          "action": "celebrate",
+          "axis": 749.9554655870445,
+          "boots": [
+            [
+              609,
+              750,
+              1300,
+              1485
+            ],
+            [
+              750,
+              927,
+              1300,
+              1485
+            ]
+          ],
+          "hands": [
+            [
+              700,
+              1211
+            ],
+            [
+              897,
+              1199
+            ]
+          ]
+        }
+      ],
+      "id": "bouncy-builder",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/clean-cartoon/bouncy-builder.png",
+      "prompt": "characters/clean-cartoon/bouncy-builder.prompt.txt",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/bouncy-builder-v2-input.webp"
+    },
+    {
+      "hero": "bouncy",
+      "world": "meadow",
+      "file": "bouncy-carry-opposite-v1",
+      "columns": 1,
+      "bodyCount": 1,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "carry-b",
+          "axis": 614.9158469945356,
+          "boots": [
+            [
+              136,
+              615,
+              708,
+              1181
+            ],
+            [
+              615,
+              1064,
+              708,
+              1181
+            ]
+          ],
+          "hands": [
+            [
+              845,
+              685
+            ],
+            [
+              1001,
+              650
+            ]
+          ]
+        }
+      ],
+      "id": "bouncy-carry-opposite",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/clean-cartoon/bouncy-carry-opposite.png",
+      "prompt": "characters/clean-cartoon/bouncy-carry-opposite.prompt.txt",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/bouncy-carry-opposite-v1.webp"
+    },
+    {
+      "hero": "chompy",
+      "world": "dino",
+      "file": "chompy-builder-v2",
+      "columns": 2,
+      "bodyCount": 6,
+      "inputs": [
+        "chompy-builder-v1-input"
+      ],
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "rest",
+          "axis": 252.47540983606558,
+          "boots": [
+            [
+              93,
+              252,
+              279,
+              461
+            ],
+            [
+              252,
+              419,
+              279,
+              461
+            ]
+          ],
+          "hands": null
+        },
+        {
+          "sourceIndex": 1,
+          "action": "carry-ready",
+          "axis": 781.7803278688525,
+          "boots": [
+            [
+              603,
+              782,
+              280,
+              461
+            ],
+            [
+              782,
+              933,
+              280,
+              461
+            ]
+          ],
+          "hands": [
+            [
+              849,
+              296
+            ],
+            [
+              927,
+              295
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 2,
+          "action": "carry-a",
+          "axis": 236.5639344262295,
+          "boots": [
+            [
+              88,
+              237,
+              793,
+              973
+            ],
+            [
+              237,
+              424,
+              793,
+              973
+            ]
+          ],
+          "hands": [
+            [
+              340,
+              817
+            ],
+            [
+              415,
+              809
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 3,
+          "action": "carry-b",
+          "axis": 767.4754098360656,
+          "boots": [
+            [
+              608,
+              767,
+              796,
+              973
+            ],
+            [
+              767,
+              928,
+              796,
+              973
+            ]
+          ],
+          "hands": [
+            [
+              843,
+              817
+            ],
+            [
+              918,
+              815
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 4,
+          "action": "reach-low",
+          "axis": 248.19016393442624,
+          "boots": [
+            [
+              82,
+              248,
+              1323,
+              1485
+            ],
+            [
+              248,
+              430,
+              1323,
+              1485
+            ]
+          ],
+          "hands": [
+            [
+              329,
+              1400
+            ],
+            [
+              398,
+              1390
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 5,
+          "action": "celebrate",
+          "axis": 773.2262295081968,
+          "boots": [
+            [
+              602,
+              773,
+              1300,
+              1485
+            ],
+            [
+              773,
+              933,
+              1300,
+              1485
+            ]
+          ],
+          "hands": [
+            [
+              664,
+              1222
+            ],
+            [
+              920,
+              1224
+            ]
+          ]
+        }
+      ],
+      "id": "chompy-builder",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/clean-cartoon/chompy-builder.png",
+      "prompt": "characters/clean-cartoon/chompy-builder.prompt.txt",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/chompy-builder-v2.webp"
+    },
+    {
+      "hero": "pip",
+      "world": "moonwood",
+      "file": "pip-builder-v1-input",
+      "columns": 2,
+      "bodyCount": 6,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "rest",
+          "axis": 261.85143953934744,
+          "boots": [
+            [
+              151,
+              262,
+              276,
+              461
+            ],
+            [
+              262,
+              361,
+              276,
+              461
+            ]
+          ],
+          "hands": null
+        },
+        {
+          "sourceIndex": 1,
+          "action": "carry-ready",
+          "axis": 760.6506717850289,
+          "boots": [
+            [
+              627,
+              761,
+              276,
+              461
+            ],
+            [
+              761,
+              909,
+              276,
+              461
+            ]
+          ],
+          "hands": [
+            [
+              800,
+              291
+            ],
+            [
+              886,
+              282
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 2,
+          "action": "carry-a",
+          "axis": 240.8644913627639,
+          "boots": [
+            [
+              108,
+              241,
+              790,
+              973
+            ],
+            [
+              241,
+              404,
+              790,
+              973
+            ]
+          ],
+          "hands": [
+            [
+              308,
+              788
+            ],
+            [
+              386,
+              778
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 4,
+          "action": "reach-low",
+          "axis": 246.71324376199618,
+          "boots": [
+            [
+              128,
+              247,
+              1324,
+              1485
+            ],
+            [
+              247,
+              385,
+              1324,
+              1485
+            ]
+          ],
+          "hands": [
+            [
+              300,
+              1408
+            ],
+            [
+              362,
+              1396
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 5,
+          "action": "celebrate",
+          "axis": 775.0222648752399,
+          "boots": [
+            [
+              617,
+              775,
+              1313,
+              1485
+            ],
+            [
+              775,
+              919,
+              1313,
+              1485
+            ]
+          ],
+          "hands": [
+            [
+              656,
+              1236
+            ],
+            [
+              886,
+              1236
+            ]
+          ]
+        }
+      ],
+      "id": "pip-builder",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/clean-cartoon/pip-builder.png",
+      "prompt": "characters/clean-cartoon/pip-builder.prompt.txt",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/pip-builder-v1-input.webp"
+    },
+    {
+      "hero": "pip",
+      "world": "moonwood",
+      "file": "pip-carry-opposite-v1",
+      "columns": 1,
+      "bodyCount": 1,
+      "reference": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "carry-b",
+          "axis": 508.97435897435895,
+          "boots": [
+            [
+              102,
+              509,
+              840,
+              1382
+            ],
+            [
+              509,
+              921,
+              840,
+              1382
+            ]
+          ],
+          "hands": [
+            [
+              685,
+              839
+            ],
+            [
+              859,
+              809
+            ]
+          ]
+        }
+      ],
+      "id": "pip-carry-opposite",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/clean-cartoon/pip-carry-opposite.png",
+      "prompt": "characters/clean-cartoon/pip-carry-opposite.prompt.txt",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/pip-carry-opposite-v1.webp"
+    }
+  ]
+}

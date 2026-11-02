@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createSoundKeysWorld, SOUNDKEYS_CAST } from '../../src/components/learn/games/games/soundKeysWorld.js';
 import { SOUNDKEYS_ART } from '../../src/components/learn/games/games/soundKeysArtData.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 
 test('band transitions release old residency, ignore late decode and repaint paused resize without advancing play', async t => {
   const previous = Object.fromEntries(['Image', 'document', 'window', 'ResizeObserver', 'requestAnimationFrame', 'cancelAnimationFrame'].map(key => [key, globalThis[key]]));
@@ -10,7 +11,8 @@ test('band transitions release old residency, ignore late decode and repaint pau
   let bounds = { width: 1366, height: 768 };
   globalThis.Image = class {
     set src(value) {
-      this.url = value; const asset = Object.values(SOUNDKEYS_ART).find(row => row.runtime === value);
+      this.url = value; const asset = Object.values(SOUNDKEYS_ART).find(row => withRepairedImageVersion(row.runtime) === value);
+      assert.ok(asset, 'loader must request the exact versioned registered delivery: ' + value);
       this.naturalWidth = this.width = asset.width; this.naturalHeight = this.height = asset.height; requests.push(this);
     }
     decode() { return Promise.resolve(); }
@@ -26,7 +28,7 @@ test('band transitions release old residency, ignore late decode and repaint pau
   const mount = { querySelector: () => null, prepend() {}, getBoundingClientRect: () => bounds, closest: () => null, style: { removeProperty() {} } };
   const world = createSoundKeysWorld(mount, { getState: () => state, getKeys: () => Array.from({ length: 8 }, (_, index) => ({ x: 258 + index * 106, y: 598, width: 98, height: 72 })) });
   const step = at => { const [id, fn] = queued.entries().next().value; queued.delete(id); fn(at); };
-  const expected = band => new Set([['meadow', 'dino', 'moonwood'][band] + '-keyboard-venue-v1', band ? ['','dino','moonwood'][band] + '-instrument-kit-v1' : 'instrument-kit-v1', ...SOUNDKEYS_CAST[band].flatMap(name => [name + '-keyboard-actions-v1', name + '-keyboard-fallback-v1'])].map(id => SOUNDKEYS_ART[id].runtime));
+  const expected = band => new Set([['meadow', 'dino', 'moonwood'][band] + '-keyboard-venue-v1', band ? ['','dino','moonwood'][band] + '-instrument-kit-v1' : 'instrument-kit-v1', ...SOUNDKEYS_CAST[band].flatMap(name => [name + '-keyboard-actions-v1', name + '-keyboard-fallback-v1'])].map(id => withRepairedImageVersion(SOUNDKEYS_ART[id].runtime)));
   assert.deepEqual(new Set(requests.map(image => image.url)), expected(0));
   const oldVenueEnd = requests[0].onload;
   state.band = 1; state.round = 8; step(16);

@@ -1,4 +1,4 @@
-// Generated from source-art/arcade/physical-worlds/pals/manifest.json by tools/buildPhysicalPalArtData.mjs.
+// Generated from source-art/arcade/physical-worlds/pals/clean-cartoon-manifest.json by tools/buildPhysicalPalArtData.mjs.
 export const PHYSICAL_PAL_ART = Object.freeze({
   "bouncy": {
     "character": "bouncy",
@@ -7,110 +7,110 @@ export const PHYSICAL_PAL_ART = Object.freeze({
     "columns": 4,
     "rows": 3,
     "runtime": "/game-assets/physical-arcade/pals/bouncy-locomotion-v1.webp",
-    "pixelsPerUnit": 148.63636363636363,
+    "pixelsPerUnit": 151.36363636363635,
     "frames": [
       {
         "row": 0,
         "column": 0,
         "cell": [
-          31,
-          47,
-          286,
-          378
+          0,
+          0,
+          314,
+          418
         ],
         "bounds": [
-          2,
-          2,
-          253,
-          329
-        ],
-        "anchor": [
-          128.083,
-          329
-        ],
-        "mirror": false
-      },
-      {
-        "row": 0,
-        "column": 1,
-        "cell": [
-          341,
-          50,
-          600,
-          377
-        ],
-        "bounds": [
-          2,
-          2,
-          257,
-          325
-        ],
-        "anchor": [
-          128.692,
-          325
-        ],
-        "mirror": false
-      },
-      {
-        "row": 0,
-        "column": 2,
-        "cell": [
-          677,
-          52,
-          898,
-          379
-        ],
-        "bounds": [
-          2,
-          2,
-          219,
-          325
-        ],
-        "anchor": [
-          90.549,
-          325
-        ],
-        "mirror": true
-      },
-      {
-        "row": 0,
-        "column": 3,
-        "cell": [
-          1008,
-          51,
-          1188,
-          377
-        ],
-        "bounds": [
-          2,
-          2,
-          178,
-          324
-        ],
-        "anchor": [
-          97.136,
-          324
-        ],
-        "mirror": false
-      },
-      {
-        "row": 1,
-        "column": 0,
-        "cell": [
-          31,
-          460,
+          32,
+          49,
           281,
-          783
-        ],
-        "bounds": [
-          2,
-          2,
-          248,
-          321
+          382
         ],
         "anchor": [
-          134.252,
-          321
+          148.343,
+          382
+        ],
+        "mirror": false
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "cell": [
+          314,
+          0,
+          627,
+          418
+        ],
+        "bounds": [
+          30,
+          44,
+          283,
+          381
+        ],
+        "anchor": [
+          161.158,
+          381
+        ],
+        "mirror": false
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "cell": [
+          627,
+          0,
+          940,
+          418
+        ],
+        "bounds": [
+          49,
+          49,
+          263,
+          382
+        ],
+        "anchor": [
+          122.068,
+          382
+        ],
+        "mirror": true
+      },
+      {
+        "row": 0,
+        "column": 3,
+        "cell": [
+          940,
+          0,
+          1254,
+          418
+        ],
+        "bounds": [
+          64,
+          49,
+          250,
+          381
+        ],
+        "anchor": [
+          166.945,
+          381
+        ],
+        "mirror": false
+      },
+      {
+        "row": 1,
+        "column": 0,
+        "cell": [
+          0,
+          418,
+          314,
+          836
+        ],
+        "bounds": [
+          32,
+          53,
+          281,
+          382
+        ],
+        "anchor": [
+          182.692,
+          382
         ],
         "mirror": false
       },
@@ -118,20 +118,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 1,
         "cell": [
-          346,
-          454,
-          591,
-          779
+          314,
+          418,
+          627,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          243,
-          323
+          36,
+          53,
+          278,
+          382
         ],
         "anchor": [
-          127.814,
-          323
+          125.911,
+          382
         ],
         "mirror": false
       },
@@ -139,20 +139,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 2,
         "cell": [
-          660,
-          461,
-          887,
-          783
+          627,
+          418,
+          940,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          225,
-          320
+          41,
+          58,
+          270,
+          382
         ],
         "anchor": [
-          109.26,
-          320
+          122.652,
+          382
         ],
         "mirror": true
       },
@@ -160,20 +160,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 3,
         "cell": [
-          979,
-          462,
-          1217,
-          781
+          940,
+          418,
+          1254,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          236,
-          317
+          47,
+          56,
+          267,
+          381
         ],
         "anchor": [
-          111.256,
-          317
+          140.103,
+          381
         ],
         "mirror": false
       },
@@ -181,20 +181,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 0,
         "cell": [
-          31,
-          858,
-          291,
-          1190
+          0,
+          836,
+          314,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          258,
-          330
+          28,
+          45,
+          286,
+          382
         ],
         "anchor": [
-          107.875,
-          330
+          123.468,
+          382
         ],
         "mirror": false
       },
@@ -202,20 +202,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 1,
         "cell": [
-          348,
-          859,
-          597,
-          1183
+          314,
+          836,
+          627,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          247,
-          322
+          30,
+          50,
+          282,
+          381
         ],
         "anchor": [
-          111.58,
-          322
+          115.667,
+          381
         ],
         "mirror": false
       },
@@ -223,20 +223,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 2,
         "cell": [
-          666,
-          865,
-          893,
-          1187
+          627,
+          836,
+          940,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          225,
-          320
+          43,
+          52,
+          269,
+          382
         ],
         "anchor": [
-          114.685,
-          320
+          212.833,
+          382
         ],
         "mirror": true
       },
@@ -244,20 +244,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 3,
         "cell": [
-          986,
-          861,
-          1221,
-          1187
+          940,
+          836,
+          1254,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          233,
-          324
+          46,
+          55,
+          269,
+          382
         ],
         "anchor": [
-          112.399,
-          324
+          207.662,
+          382
         ],
         "mirror": false
       }
@@ -270,35 +270,35 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "columns": 4,
         "rows": 2,
         "runtime": "/game-assets/physical-arcade/pals/bouncy-tennis-v1.webp",
-        "pixelsPerUnit": 172.72727272727272,
+        "pixelsPerUnit": 137.72727272727272,
         "frames": [
           {
             "row": 0,
             "column": 0,
             "cell": [
-              37,
-              188,
-              294,
-              572
+              0,
+              0,
+              314,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              255,
-              382
+              51,
+              268,
+              263,
+              571
             ],
             "anchor": [
-              131.129,
-              382
+              101,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              66,
-              362
+              80,
+              411
             ],
             "rightHand": [
-              -0.5912731578947368,
-              1.2042105263157896,
+              -0.15247524752475247,
+              1.1617161716171618,
               0.08
             ]
           },
@@ -306,29 +306,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 1,
             "cell": [
-              343,
-              192,
-              657,
-              572
+              314,
+              0,
+              627,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              312,
-              378
+              30,
+              267,
+              281,
+              571
             ],
             "anchor": [
-              140.184,
-              378
+              179,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              636,
-              355
+              577,
+              401
             ],
             "rightHand": [
-              0.8847242105263159,
-              1.2447368421052631,
+              0.6099009900990099,
+              1.2343234323432344,
               0.08
             ]
           },
@@ -336,29 +336,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 2,
             "cell": [
-              681,
-              187,
-              942,
-              572
+              627,
+              0,
+              940,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              259,
-              383
+              51,
+              265,
+              261,
+              571
             ],
             "anchor": [
-              118.352,
-              383
+              186,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              900,
-              359
+              854,
+              405
             ],
             "rightHand": [
-              0.5826989473684211,
-              1.221578947368421,
+              0.2976897689768977,
+              1.2052805280528054,
               0.08
             ]
           },
@@ -366,29 +366,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 3,
             "cell": [
-              981,
-              129,
-              1221,
-              574
+              940,
+              0,
+              1254,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              238,
-              443
+              57,
+              222,
+              256,
+              571
             ],
             "anchor": [
-              140.415,
-              443
+              217,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              1182,
-              156
+              1166,
+              245
             ],
             "rightHand": [
-              0.3507552631578948,
-              2.4084210526315792,
+              0.06534653465346535,
+              2.366996699669967,
               0.08
             ]
           },
@@ -396,29 +396,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 0,
             "cell": [
-              32,
-              733,
-              305,
-              1118
+              0,
+              627,
+              314,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              271,
-              383
+              48,
+              274,
+              265,
+              571
             ],
             "anchor": [
-              132.37,
-              383
+              205,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              67,
-              899
+              74,
+              1035
             ],
             "rightHand": [
-              -0.563721052631579,
-              1.2563157894736843,
+              -0.9511551155115512,
+              1.1834983498349836,
               0.08
             ]
           },
@@ -426,29 +426,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 1,
             "cell": [
-              352,
-              737,
-              668,
-              1116
+              314,
+              627,
+              627,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              314,
-              377
+              30,
+              274,
+              282,
+              571
             ],
             "anchor": [
-              144.852,
-              377
+              199,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              638,
-              899
+              577,
+              1031
             ],
             "rightHand": [
-              0.8171726315789474,
-              1.2447368421052631,
+              0.4646864686468647,
+              1.2125412541254126,
               0.08
             ]
           },
@@ -456,29 +456,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 2,
             "cell": [
-              673,
-              735,
-              935,
-              1120
+              627,
+              627,
+              940,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              260,
-              383
+              54,
+              268,
+              259,
+              571
             ],
             "anchor": [
-              152.631,
-              383
+              218,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              900,
-              910
+              856,
+              1036
             ],
             "rightHand": [
-              0.43055736842105263,
-              1.2042105263157896,
+              0.07986798679867987,
+              1.1762376237623764,
               0.08
             ]
           },
@@ -486,29 +486,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 3,
             "cell": [
-              969,
-              674,
-              1222,
-              1117
+              940,
+              627,
+              1254,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              251,
-              441
+              53,
+              224,
+              261,
+              571
             ],
             "anchor": [
-              196.98,
-              441
+              223,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              1193,
-              701
+              1168,
+              875
             ],
             "rightHand": [
-              0.15643157894736848,
-              2.396842105263158,
+              0.036303630363036306,
+              2.3452145214521454,
               0.08
             ]
           }
@@ -521,175 +521,247 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "columns": 4,
         "rows": 2,
         "runtime": "/game-assets/physical-arcade/pals/bouncy-tools-v1.webp",
-        "pixelsPerUnit": 157.27272727272725,
+        "pixelsPerUnit": 161.8181818181818,
         "frames": [
           {
             "row": 0,
             "column": 0,
             "cell": [
-              140,
-              49,
-              414,
-              420
+              0,
+              0,
+              444,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              272,
-              369
+              74,
+              48,
+              369,
+              404
             ],
             "anchor": [
-              133.908,
-              369
+              176,
+              404
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              333,
+              145
+            ],
+            "rightHand": [
+              0.9702247191011236,
+              1.600561797752809,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 1,
             "cell": [
-              569,
-              51,
-              823,
-              389
+              444,
+              0,
+              887,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              252,
-              336
+              96,
+              77,
+              346,
+              403
             ],
             "anchor": [
-              54.911,
-              336
+              131,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              763,
+              270
+            ],
+            "rightHand": [
+              1.161797752808989,
+              0.8219101123595506,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 2,
             "cell": [
-              985,
-              69,
-              1217,
-              418
+              887,
+              0,
+              1330,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              230,
-              347
+              98,
+              49,
+              344,
+              404
             ],
             "anchor": [
-              104.063,
-              347
+              150,
+              404
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1082,
+              140
+            ],
+            "rightHand": [
+              0.27808988764044945,
+              1.6314606741573034,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 3,
             "cell": [
-              1377,
-              70,
-              1642,
-              419
+              1330,
+              0,
+              1774,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              263,
-              347
+              91,
+              48,
+              353,
+              404
             ],
             "anchor": [
-              124.913,
-              347
+              147,
+              404
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1660,
+              230
+            ],
+            "rightHand": [
+              1.1308988764044945,
+              1.0752808988764044,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 0,
             "cell": [
-              142,
-              476,
-              388,
-              831
+              0,
+              444,
+              444,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              244,
-              353
+              94,
+              47,
+              349,
+              403
             ],
             "anchor": [
-              86.13,
-              353
+              194,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              323,
+              533
+            ],
+            "rightHand": [
+              0.797191011235955,
+              1.9404494382022472,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 1,
             "cell": [
-              557,
-              478,
-              802,
-              831
+              444,
+              444,
+              887,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              243,
-              351
+              93,
+              48,
+              349,
+              402
             ],
             "anchor": [
-              167.554,
-              351
+              262,
+              402
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              768,
+              532
+            ],
+            "rightHand": [
+              0.3831460674157304,
+              1.9404494382022472,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 2,
             "cell": [
-              980,
-              479,
-              1232,
-              829
+              887,
+              444,
+              1330,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              250,
-              348
+              94,
+              51,
+              347,
+              403
             ],
             "anchor": [
-              115.639,
-              348
+              155,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1196,
+              684
+            ],
+            "rightHand": [
+              0.951685393258427,
+              1.0073033707865169,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 3,
             "cell": [
-              1391,
-              479,
-              1643,
-              829
+              1330,
+              444,
+              1774,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              250,
-              348
+              99,
+              52,
+              345,
+              403
             ],
             "anchor": [
-              134.024,
-              348
+              287,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1475,
+              684
+            ],
+            "rightHand": [
+              -0.8775280898876405,
+              1.0073033707865169,
+              0.08
+            ]
           }
         ]
       }
@@ -702,26 +774,26 @@ export const PHYSICAL_PAL_ART = Object.freeze({
     "columns": 4,
     "rows": 3,
     "runtime": "/game-assets/physical-arcade/pals/chompy-locomotion-v1.webp",
-    "pixelsPerUnit": 168.18181818181816,
+    "pixelsPerUnit": 152.72727272727272,
     "frames": [
       {
         "row": 0,
         "column": 0,
         "cell": [
-          22,
+          0,
+          0,
+          314,
+          418
+        ],
+        "bounds": [
           36,
-          291,
-          410
-        ],
-        "bounds": [
-          2,
-          2,
-          267,
-          372
+          46,
+          277,
+          382
         ],
         "anchor": [
-          146.845,
-          372
+          173.01,
+          382
         ],
         "mirror": false
       },
@@ -729,41 +801,41 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 0,
         "column": 1,
         "cell": [
-          353,
+          314,
+          0,
+          627,
+          418
+        ],
+        "bounds": [
+          57,
+          49,
+          255,
+          382
+        ],
+        "anchor": [
+          161.354,
+          382
+        ],
+        "mirror": false
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "cell": [
+          627,
+          0,
+          940,
+          418
+        ],
+        "bounds": [
           32,
-          581,
-          406
-        ],
-        "bounds": [
-          2,
-          2,
-          226,
-          372
+          44,
+          280,
+          382
         ],
         "anchor": [
-          116.568,
-          372
-        ],
-        "mirror": false
-      },
-      {
-        "row": 0,
-        "column": 2,
-        "cell": [
-          649,
-          35,
-          924,
-          411
-        ],
-        "bounds": [
-          2,
-          2,
-          273,
-          374
-        ],
-        "anchor": [
-          119.144,
-          374
+          149.329,
+          382
         ],
         "mirror": false
       },
@@ -771,20 +843,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 0,
         "column": 3,
         "cell": [
-          951,
-          34,
-          1231,
-          411
+          940,
+          0,
+          1254,
+          418
         ],
         "bounds": [
-          2,
-          2,
-          278,
-          375
+          32,
+          44,
+          282,
+          381
         ],
         "anchor": [
-          155.549,
-          375
+          158.777,
+          381
         ],
         "mirror": false
       },
@@ -792,62 +864,62 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 0,
         "cell": [
-          67,
-          437,
+          0,
+          418,
+          314,
+          836
+        ],
+        "bounds": [
+          55,
+          50,
+          258,
+          382
+        ],
+        "anchor": [
+          174.853,
+          382
+        ],
+        "mirror": false
+      },
+      {
+        "row": 1,
+        "column": 1,
+        "cell": [
+          314,
+          418,
+          627,
+          836
+        ],
+        "bounds": [
+          54,
+          51,
+          258,
+          382
+        ],
+        "anchor": [
+          103.252,
+          382
+        ],
+        "mirror": false
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "cell": [
+          627,
+          418,
+          940,
+          836
+        ],
+        "bounds": [
+          29,
+          54,
           284,
-          806
-        ],
-        "bounds": [
-          2,
-          2,
-          215,
-          367
+          382
         ],
         "anchor": [
-          110.059,
-          367
-        ],
-        "mirror": false
-      },
-      {
-        "row": 1,
-        "column": 1,
-        "cell": [
-          365,
-          436,
-          590,
-          805
-        ],
-        "bounds": [
-          2,
-          2,
-          223,
-          367
-        ],
-        "anchor": [
-          98.772,
-          367
-        ],
-        "mirror": false
-      },
-      {
-        "row": 1,
-        "column": 2,
-        "cell": [
-          646,
-          441,
-          927,
-          806
-        ],
-        "bounds": [
-          2,
-          2,
-          279,
-          363
-        ],
-        "anchor": [
-          122.273,
-          363
+          130.158,
+          382
         ],
         "mirror": false
       },
@@ -855,20 +927,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 3,
         "cell": [
-          948,
-          441,
-          1231,
-          810
+          940,
+          418,
+          1254,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          281,
-          367
+          29,
+          48,
+          284,
+          381
         ],
         "anchor": [
-          151.602,
-          367
+          132.138,
+          381
         ],
         "mirror": false
       },
@@ -876,62 +948,62 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 0,
         "cell": [
-          45,
-          829,
-          263,
-          1190
-        ],
-        "bounds": [
-          2,
-          2,
-          216,
-          359
-        ],
-        "anchor": [
-          108.51,
-          359
-        ],
-        "mirror": false
-      },
-      {
-        "row": 2,
-        "column": 1,
-        "cell": [
-          370,
-          829,
-          579,
-          1197
-        ],
-        "bounds": [
-          2,
-          2,
-          207,
-          366
-        ],
-        "anchor": [
-          90.013,
-          366
-        ],
-        "mirror": false
-      },
-      {
-        "row": 2,
-        "column": 2,
-        "cell": [
-          646,
+          0,
           836,
-          931,
-          1196
+          314,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          283,
-          358
+          55,
+          56,
+          259,
+          382
         ],
         "anchor": [
-          117.632,
-          358
+          163.565,
+          382
+        ],
+        "mirror": false
+      },
+      {
+        "row": 2,
+        "column": 1,
+        "cell": [
+          314,
+          836,
+          627,
+          1254
+        ],
+        "bounds": [
+          58,
+          49,
+          254,
+          381
+        ],
+        "anchor": [
+          200.991,
+          381
+        ],
+        "mirror": false
+      },
+      {
+        "row": 2,
+        "column": 2,
+        "cell": [
+          627,
+          836,
+          940,
+          1254
+        ],
+        "bounds": [
+          28,
+          55,
+          285,
+          382
+        ],
+        "anchor": [
+          106.885,
+          382
         ],
         "mirror": false
       },
@@ -939,20 +1011,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 3,
         "cell": [
-          945,
-          833,
-          1231,
-          1198
+          940,
+          836,
+          1254,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          284,
-          363
+          28,
+          53,
+          286,
+          382
         ],
         "anchor": [
-          163.777,
-          363
+          205.29,
+          382
         ],
         "mirror": false
       }
@@ -965,35 +1037,35 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "columns": 4,
         "rows": 2,
         "runtime": "/game-assets/physical-arcade/pals/chompy-tennis-v1.webp",
-        "pixelsPerUnit": 172.72727272727272,
+        "pixelsPerUnit": 140.9090909090909,
         "frames": [
           {
             "row": 0,
             "column": 0,
             "cell": [
-              29,
-              179,
-              294,
-              563
+              0,
+              0,
+              314,
+              627
             ],
             "bounds": [
-              2,
-              2,
+              50,
+              261,
               263,
-              382
+              571
             ],
             "anchor": [
-              134.188,
-              382
+              221,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              74,
-              379
+              90,
+              423
             ],
             "rightHand": [
-              -0.5163515789473684,
-              1.0536842105263158,
+              -0.9296774193548387,
+              1.0503225806451613,
               0.08
             ]
           },
@@ -1001,29 +1073,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 1,
             "cell": [
-              348,
-              165,
-              643,
-              562
+              314,
+              0,
+              627,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              293,
-              395
+              40,
+              257,
+              273,
+              571
             ],
             "anchor": [
-              127.026,
-              395
+              196,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              625,
-              365
+              572,
+              414
             ],
             "rightHand": [
-              0.8682705263157895,
-              1.1289473684210527,
+              0.44,
+              1.1141935483870968,
               0.08
             ]
           },
@@ -1031,29 +1103,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 2,
             "cell": [
-              663,
-              174,
-              925,
-              560
+              627,
+              0,
+              940,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              260,
-              384
+              57,
+              257,
+              255,
+              571
             ],
             "anchor": [
-              132.477,
-              384
+              223,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              900,
-              372
+              868,
+              419
             ],
             "rightHand": [
-              0.6051331578947369,
-              1.076842105263158,
+              0.12774193548387097,
+              1.0787096774193548,
               0.08
             ]
           },
@@ -1061,29 +1133,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 3,
             "cell": [
-              978,
-              160,
-              1250,
-              566
+              940,
+              0,
+              1254,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              270,
-              404
+              52,
+              248,
+              262,
+              571
             ],
             "anchor": [
-              134.124,
-              404
+              199,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              1225,
-              247
+              1177,
+              318
             ],
             "rightHand": [
-              0.6534926315789474,
-              1.835263157894737,
+              0.2696774193548387,
+              1.7954838709677419,
               0.08
             ]
           },
@@ -1091,29 +1163,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 0,
             "cell": [
-              21,
-              722,
-              310,
-              1093
+              0,
+              627,
+              314,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              287,
-              369
+              43,
+              274,
+              271,
+              571
             ],
             "anchor": [
-              144.034,
-              369
+              94,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              51,
-              889
+              65,
+              1034
             ],
             "rightHand": [
-              -0.6601968421052632,
-              1.1694736842105264,
+              -0.20580645161290323,
+              1.1638709677419354,
               0.08
             ]
           },
@@ -1121,29 +1193,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 1,
             "cell": [
-              344,
-              723,
-              653,
-              1097
+              314,
+              627,
+              627,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              307,
-              372
+              30,
+              271,
+              281,
+              571
             ],
             "anchor": [
-              127.374,
-              372
+              69,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              637,
-              916
+              580,
+              1051
             ],
             "rightHand": [
-              0.9588873684210527,
-              1.0363157894736843,
+              1.3980645161290324,
+              1.043225806451613,
               0.08
             ]
           },
@@ -1151,29 +1223,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 2,
             "cell": [
-              666,
-              730,
-              949,
-              1104
+              627,
+              627,
+              940,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              281,
-              372
+              42,
+              269,
+              270,
+              571
             ],
             "anchor": [
-              145.711,
-              372
+              115,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              906,
-              931
+              870,
+              1058
             ],
             "rightHand": [
-              0.5458836842105262,
-              0.99,
+              0.9083870967741936,
+              0.9935483870967742,
               0.08
             ]
           },
@@ -1181,29 +1253,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 3,
             "cell": [
-              974,
-              716,
-              1246,
-              1097
+              940,
+              627,
+              1254,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              270,
-              379
+              51,
+              268,
+              262,
+              571
             ],
             "anchor": [
-              141.462,
-              379
+              198,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              1220,
-              790
+              1179,
+              957
             ],
             "rightHand": [
-              0.6052200000000001,
-              1.7657894736842106,
+              0.29096774193548386,
+              1.7103225806451614,
               0.08
             ]
           }
@@ -1216,175 +1288,247 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "columns": 4,
         "rows": 2,
         "runtime": "/game-assets/physical-arcade/pals/chompy-tools-v1.webp",
-        "pixelsPerUnit": 158.63636363636363,
+        "pixelsPerUnit": 153.18181818181816,
         "frames": [
           {
             "row": 0,
             "column": 0,
             "cell": [
-              125,
-              52,
-              412,
-              429
+              0,
+              0,
+              444,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              285,
-              375
+              85,
+              66,
+              358,
+              403
             ],
             "anchor": [
-              142.152,
-              375
+              255,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              328,
+              198
+            ],
+            "rightHand": [
+              0.47655786350148377,
+              1.338278931750742,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 1,
             "cell": [
-              522,
-              52,
-              809,
-              424
+              444,
+              0,
+              887,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              285,
-              370
+              84,
+              62,
+              358,
+              404
             ],
             "anchor": [
-              143.058,
-              370
+              203,
+              404
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              759,
+              261
+            ],
+            "rightHand": [
+              0.7311572700296737,
+              0.9335311572700298,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 2,
             "cell": [
-              934,
-              66,
-              1210,
-              435
+              887,
+              0,
+              1330,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              274,
-              367
+              84,
+              61,
+              359,
+              403
             ],
             "anchor": [
-              157.349,
-              367
+              186,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1041,
+              186
+            ],
+            "rightHand": [
+              -0.20890207715133535,
+              1.4166172106824928,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 3,
             "cell": [
-              1361,
-              64,
-              1652,
-              435
+              1330,
+              0,
+              1774,
+              444
             ],
             "bounds": [
-              2,
-              2,
-              289,
-              369
+              75,
+              48,
+              369,
+              404
             ],
             "anchor": [
-              150.099,
-              369
+              163,
+              404
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1676,
+              241
+            ],
+            "rightHand": [
+              1.194658753709199,
+              1.0640949554896144,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 0,
             "cell": [
-              155,
-              463,
-              389,
-              838
+              0,
+              444,
+              444,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              232,
-              373
+              107,
+              52,
+              337,
+              403
             ],
             "anchor": [
-              61.492,
-              373
+              173,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              308,
+              570
+            ],
+            "rightHand": [
+              0.881305637982196,
+              1.8083086053412465,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 1,
             "cell": [
-              568,
-              463,
-              806,
-              839
+              444,
+              444,
+              887,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              236,
-              374
+              112,
+              52,
+              331,
+              403
             ],
             "anchor": [
-              60.178,
-              374
+              172,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              748,
+              571
+            ],
+            "rightHand": [
+              0.8617210682492583,
+              1.8017804154302672,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 2,
             "cell": [
-              939,
-              488,
-              1197,
-              841
+              887,
+              444,
+              1330,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              256,
-              351
+              92,
+              60,
+              350,
+              403
             ],
             "anchor": [
-              154.425,
-              351
+              189,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1204,
+              700
+            ],
+            "rightHand": [
+              0.8356083086053414,
+              0.9596439169139467,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 3,
             "cell": [
-              1392,
-              485,
-              1650,
-              842
+              1330,
+              444,
+              1774,
+              887
             ],
             "bounds": [
-              2,
-              2,
-              256,
-              355
+              87,
+              58,
+              356,
+              403
             ],
             "anchor": [
-              104.38,
-              355
+              255,
+              403
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1457,
+              703
+            ],
+            "rightHand": [
+              -0.8356083086053414,
+              0.940059347181009,
+              0.08
+            ]
           }
         ]
       }
@@ -1397,26 +1541,26 @@ export const PHYSICAL_PAL_ART = Object.freeze({
     "columns": 4,
     "rows": 3,
     "runtime": "/game-assets/physical-arcade/pals/pip-locomotion-v1.webp",
-    "pixelsPerUnit": 181.8181818181818,
+    "pixelsPerUnit": 156.8181818181818,
     "frames": [
       {
         "row": 0,
         "column": 0,
         "cell": [
-          89,
-          11,
-          296,
-          415
+          0,
+          0,
+          314,
+          418
         ],
         "bounds": [
-          2,
-          2,
-          205,
-          402
+          64,
+          36,
+          250,
+          381
         ],
         "anchor": [
-          100.626,
-          402
+          153.992,
+          381
         ],
         "mirror": false
       },
@@ -1424,20 +1568,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 0,
         "column": 1,
         "cell": [
-          361,
-          13,
-          562,
-          416
+          314,
+          0,
+          627,
+          418
         ],
         "bounds": [
-          2,
-          2,
-          199,
-          401
+          64,
+          39,
+          249,
+          382
         ],
         "anchor": [
-          102.233,
-          401
+          156.311,
+          382
         ],
         "mirror": false
       },
@@ -1445,20 +1589,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 0,
         "column": 2,
         "cell": [
-          692,
-          9,
-          873,
-          419
+          627,
+          0,
+          940,
+          418
         ],
         "bounds": [
-          2,
-          2,
-          179,
-          408
+          76,
+          35,
+          237,
+          382
         ],
         "anchor": [
-          85.037,
-          408
+          160.784,
+          382
         ],
         "mirror": false
       },
@@ -1466,20 +1610,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 0,
         "column": 3,
         "cell": [
-          971,
-          9,
-          1143,
-          419
+          940,
+          0,
+          1254,
+          418
         ],
         "bounds": [
-          2,
-          2,
-          170,
-          408
+          76,
+          35,
+          238,
+          382
         ],
         "anchor": [
-          95.94,
-          408
+          160.815,
+          382
         ],
         "mirror": false
       },
@@ -1487,20 +1631,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 0,
         "cell": [
-          74,
-          424,
-          283,
-          828
+          0,
+          418,
+          314,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          207,
-          402
+          63,
+          47,
+          251,
+          382
         ],
         "anchor": [
-          106.629,
-          402
+          165.722,
+          382
         ],
         "mirror": false
       },
@@ -1508,20 +1652,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 1,
         "cell": [
-          367,
-          424,
-          572,
-          828
+          314,
+          418,
+          627,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          203,
-          402
+          64,
+          47,
+          248,
+          382
         ],
         "anchor": [
-          111.888,
-          402
+          173.298,
+          382
         ],
         "mirror": false
       },
@@ -1529,20 +1673,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 2,
         "cell": [
-          678,
-          424,
-          880,
-          824
+          627,
+          418,
+          940,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          200,
-          398
+          64,
+          44,
+          248,
+          382
         ],
         "anchor": [
-          88.97,
-          398
+          135.702,
+          382
         ],
         "mirror": false
       },
@@ -1550,20 +1694,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 1,
         "column": 3,
         "cell": [
-          988,
-          425,
-          1191,
-          824
+          940,
+          418,
+          1254,
+          836
         ],
         "bounds": [
-          2,
-          2,
-          201,
-          397
+          65,
+          43,
+          250,
+          382
         ],
         "anchor": [
-          111.934,
-          397
+          181.351,
+          382
         ],
         "mirror": false
       },
@@ -1571,20 +1715,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 0,
         "cell": [
-          72,
-          830,
-          278,
-          1236
+          0,
+          836,
+          314,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          204,
-          404
+          66,
+          53,
+          248,
+          383
         ],
         "anchor": [
-          114.866,
-          404
+          139,
+          383
         ],
         "mirror": false
       },
@@ -1592,20 +1736,20 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 1,
         "cell": [
-          365,
-          830,
-          569,
-          1235
+          314,
+          836,
+          627,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          202,
-          403
+          63,
+          60,
+          250,
+          382
         ],
         "anchor": [
-          113.58,
-          403
+          144.119,
+          382
         ],
         "mirror": false
       },
@@ -1613,41 +1757,41 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "row": 2,
         "column": 2,
         "cell": [
-          675,
-          830,
-          877,
-          1235
+          627,
+          836,
+          940,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          200,
-          403
+          64,
+          55,
+          250,
+          382
         ],
         "anchor": [
-          90.082,
-          403
+          143.931,
+          382
         ],
-        "mirror": false
+        "mirror": true
       },
       {
         "row": 2,
         "column": 3,
         "cell": [
-          991,
-          830,
-          1197,
-          1236
+          940,
+          836,
+          1254,
+          1254
         ],
         "bounds": [
-          2,
-          2,
-          204,
-          404
+          64,
+          55,
+          250,
+          382
         ],
         "anchor": [
-          114.193,
-          404
+          143.931,
+          382
         ],
         "mirror": false
       }
@@ -1660,35 +1804,35 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "columns": 4,
         "rows": 2,
         "runtime": "/game-assets/physical-arcade/pals/pip-tennis-v1.webp",
-        "pixelsPerUnit": 208.18181818181816,
+        "pixelsPerUnit": 151.8181818181818,
         "frames": [
           {
             "row": 0,
             "column": 0,
             "cell": [
-              39,
-              139,
-              293,
-              601
+              0,
+              0,
+              314,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              252,
-              460
+              62,
+              237,
+              251,
+              571
             ],
             "anchor": [
-              94.655,
-              460
+              97,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              73,
-              323
+              86,
+              380
             ],
             "rightHand": [
-              -0.29135589519650656,
-              1.325764192139738,
+              -0.07245508982035928,
+              1.2580838323353294,
               0.08
             ]
           },
@@ -1696,29 +1840,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 1,
             "cell": [
-              326,
-              142,
-              667,
-              604
+              314,
+              0,
+              627,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              339,
-              460
+              30,
+              243,
+              282,
+              571
             ],
             "anchor": [
-              121.08,
-              460
+              83,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              646,
-              353
+              576,
+              396
             ],
             "rightHand": [
-              0.9555109170305679,
-              1.1960698689956333,
+              1.1790419161676646,
+              1.1526946107784433,
               0.08
             ]
           },
@@ -1726,29 +1870,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 2,
             "cell": [
-              689,
-              144,
-              953,
-              605
+              627,
+              0,
+              940,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              262,
-              459
+              57,
+              237,
+              255,
+              571
             ],
             "anchor": [
-              100.869,
-              459
+              89,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              934,
-              323
+              865,
+              378
             ],
             "rightHand": [
-              0.6923323144104804,
-              1.3449781659388649,
+              0.9814371257485031,
+              1.27125748502994,
               0.08
             ]
           },
@@ -1756,29 +1900,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 0,
             "column": 3,
             "cell": [
-              1000,
-              94,
-              1225,
-              612
+              940,
+              0,
+              1254,
+              627
             ],
             "bounds": [
-              2,
-              2,
-              223,
-              516
+              67,
+              205,
+              246,
+              571
             ],
             "anchor": [
-              136.12,
-              516
+              170,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              1204,
-              115
+              1160,
+              227
             ],
             "rightHand": [
-              0.32606113537117903,
-              2.3777292576419216,
+              0.32934131736526945,
+              2.265868263473054,
               0.08
             ]
           },
@@ -1786,29 +1930,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 0,
             "cell": [
-              19,
-              698,
-              292,
-              1159
+              0,
+              627,
+              314,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              271,
-              459
+              58,
+              246,
+              255,
+              571
             ],
             "anchor": [
-              136.74,
-              459
+              88,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              44,
-              875
+              76,
+              1011
             ],
             "rightHand": [
-              -0.5367423580786027,
-              1.354585152838428,
+              -0.07904191616766468,
+              1.2317365269461078,
               0.08
             ]
           },
@@ -1816,29 +1960,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 1,
             "cell": [
-              342,
-              697,
-              668,
-              1169
+              314,
+              627,
+              627,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              324,
-              470
+              38,
+              238,
+              274,
+              571
             ],
             "anchor": [
-              135.584,
-              470
+              76,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              646,
-              892
+              570,
+              1014
             ],
             "rightHand": [
-              0.808985152838428,
-              1.3209606986899565,
+              1.18562874251497,
+              1.2119760479041917,
               0.08
             ]
           },
@@ -1846,29 +1990,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 2,
             "cell": [
-              689,
-              709,
-              937,
-              1176
+              627,
+              627,
+              940,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              246,
-              465
+              62,
+              240,
+              250,
+              571
             ],
             "anchor": [
-              122.109,
-              465
+              198,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              904,
-              940
+              855,
+              1046
             ],
             "rightHand": [
-              0.4462013100436682,
-              1.1240174672489085,
+              0.19760479041916168,
+              1.0011976047904192,
               0.08
             ]
           },
@@ -1876,29 +2020,29 @@ export const PHYSICAL_PAL_ART = Object.freeze({
             "row": 1,
             "column": 3,
             "cell": [
-              1012,
-              669,
-              1247,
-              1176
+              940,
+              627,
+              1254,
+              1254
             ],
             "bounds": [
-              2,
-              2,
-              233,
-              505
+              71,
+              215,
+              242,
+              571
             ],
             "anchor": [
-              84.162,
-              505
+              116,
+              571
             ],
             "mirror": false,
             "rightHandPixel": [
-              1038,
-              699
+              1029,
+              863
             ],
             "rightHand": [
-              -0.2793807860262009,
-              2.2816593886462884,
+              -0.17784431137724552,
+              2.2065868263473054,
               0.08
             ]
           }
@@ -1911,175 +2055,247 @@ export const PHYSICAL_PAL_ART = Object.freeze({
         "columns": 4,
         "rows": 2,
         "runtime": "/game-assets/physical-arcade/pals/pip-tools-v1.webp",
-        "pixelsPerUnit": 201.36363636363635,
+        "pixelsPerUnit": 170.9090909090909,
         "frames": [
           {
             "row": 0,
             "column": 0,
             "cell": [
-              65,
-              27,
-              390,
-              507
+              0,
+              0,
+              384,
+              512
             ],
             "bounds": [
-              2,
-              2,
-              323,
-              478
+              46,
+              89,
+              338,
+              465
             ],
             "anchor": [
-              149.066,
-              478
+              132,
+              465
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              310,
+              209
+            ],
+            "rightHand": [
+              1.0414893617021277,
+              1.4978723404255319,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 1,
             "cell": [
-              451,
-              10,
-              681,
-              463
+              384,
+              0,
+              768,
+              512
             ],
             "bounds": [
-              2,
-              2,
-              228,
-              451
+              81,
+              104,
+              303,
+              466
             ],
             "anchor": [
-              100.842,
-              451
+              220,
+              466
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              660,
+              298
+            ],
+            "rightHand": [
+              0.32765957446808514,
+              0.9829787234042553,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 2,
             "cell": [
-              821,
-              41,
-              1150,
-              510
+              768,
+              0,
+              1152,
+              512
             ],
             "bounds": [
-              2,
-              2,
-              327,
-              467
+              37,
+              86,
+              346,
+              466
             ],
             "anchor": [
-              128.369,
-              467
+              104,
+              466
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1090,
+              149
+            ],
+            "rightHand": [
+              1.275531914893617,
+              1.8547872340425533,
+              0.08
+            ]
           },
           {
             "row": 0,
             "column": 3,
             "cell": [
-              1171,
-              67,
-              1509,
-              514
+              1152,
+              0,
+              1536,
+              512
             ],
             "bounds": [
-              2,
-              2,
-              336,
-              445
+              46,
+              81,
+              337,
+              466
             ],
             "anchor": [
-              124.338,
-              445
+              93,
+              466
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1457,
+              249
+            ],
+            "rightHand": [
+              1.2404255319148936,
+              1.2696808510638298,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 0,
             "cell": [
-              77,
-              529,
-              340,
-              988
+              0,
+              512,
+              384,
+              1024
             ],
             "bounds": [
-              2,
-              2,
-              261,
-              457
+              73,
+              100,
+              311,
+              465
             ],
             "anchor": [
-              114.643,
-              457
+              169,
+              465
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              288,
+              649
+            ],
+            "rightHand": [
+              0.6962765957446808,
+              1.9191489361702128,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 1,
             "cell": [
-              448,
-              537,
-              715,
-              992
+              384,
+              512,
+              768,
+              1024
             ],
             "bounds": [
-              2,
-              2,
-              265,
-              453
+              64,
+              95,
+              319,
+              466
             ],
             "anchor": [
-              117.624,
-              453
+              177,
+              466
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              681,
+              643
+            ],
+            "rightHand": [
+              0.7021276595744681,
+              1.9601063829787235,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 2,
             "cell": [
-              805,
-              535,
-              1107,
-              982
+              768,
+              512,
+              1152,
+              1024
             ],
             "bounds": [
-              2,
-              2,
-              300,
-              445
+              63,
+              97,
+              322,
+              466
             ],
             "anchor": [
-              127.196,
-              445
+              109,
+              466
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1054,
+              790
+            ],
+            "rightHand": [
+              1.0356382978723404,
+              1.1,
+              0.08
+            ]
           },
           {
             "row": 1,
             "column": 3,
             "cell": [
-              1176,
-              534,
-              1497,
-              993
+              1152,
+              512,
+              1536,
+              1024
             ],
             "bounds": [
-              2,
-              2,
-              319,
-              457
+              57,
+              96,
+              327,
+              466
             ],
             "anchor": [
-              198.498,
-              457
+              275,
+              466
             ],
-            "mirror": false
+            "mirror": false,
+            "rightHandPixel": [
+              1237,
+              780
+            ],
+            "rightHand": [
+              -1.1117021276595744,
+              1.1585106382978723,
+              0.08
+            ]
           }
         ]
       }

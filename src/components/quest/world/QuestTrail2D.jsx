@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../utils/repairedImageVersion.js';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CreatureFigure from "../CreatureFigure.jsx";
 import BookCharacterAvatar from "../BookCharacterAvatar.jsx";
@@ -640,7 +641,7 @@ export default function QuestTrail2D({
         className="q2d-world"
         aria-label={`${section.chapter?.title || "Sound Seekers"} two-dimensional trail`}
         style={{
-          "--q2d-world-backdrop": `url(${worldArt.backdrop})`,
+          "--q2d-world-backdrop": `url(${withRepairedImageVersion(worldArt.backdrop)})`,
           "--q2d-world-tile": `url(${worldArt.tile})`
         }}
       >

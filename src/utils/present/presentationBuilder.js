@@ -8,6 +8,7 @@ import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCy
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { childWordAssets, getChildWordAsset } from "../../data/childAssets.js";
 import { bookCharacterAsset } from "../../components/quest/bookCharacterAvatar.js";
+import { withRepairedImageVersion } from "../repairedImageVersion.js";
 import { initialSoundWordBank } from "../../content/initialSounds/initialSoundWordBank.js";
 
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
@@ -50,7 +51,7 @@ function siteOrigin() {
 }
 
 function assetUrl(path) {
-  const raw = String(path || "").trim();
+  const raw = withRepairedImageVersion(String(path || "").trim());
   if (!raw) return "";
   if (/^[a-z][a-z0-9+.-]*:/i.test(raw) || raw.startsWith("//")) return raw;
   const origin = siteOrigin();
@@ -115,7 +116,7 @@ function palImg(world, pose, cls = "") {
   const file = bookCharacterAsset({ body: CHARACTER_BODY_BY_WORLD[world.id] }, {
     pose: pose === "celebrate" ? "cheer" : pose === "think" ? "think" : "idle"
   });
-  return `<img class="p-pal ${cls}" src="${esc(assetUrl(file))}" alt="" data-hide-on-error="self"/>`;
+  return `<img class="p-pal ${cls}" src="${esc(assetUrl(withRepairedImageVersion(file)))}" alt="" data-hide-on-error="self"/>`;
 }
 function isCharacterMedia(src) {
   return src.includes('/pals/') || src.includes('/game-assets/sound-seekers/characters/');

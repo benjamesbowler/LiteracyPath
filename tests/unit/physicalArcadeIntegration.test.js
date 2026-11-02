@@ -87,19 +87,22 @@ test('three physical games extend the open catalogue while regrouping preserves 
   assert.ok(validateArcadeRendererRegistry([{ id: 'bad', surfaces: ['arcade'], renderer: 'three-physical-world' }], []).some(issue => issue.includes('source manifest')));
 });
 
-test('all three menu pictures decode, match source hashes and share the complete menu dimensions', async () => {
+test('all 27 menu pictures decode, match current native hashes and share the complete menu dimensions', async () => {
   const manifest = JSON.parse(readFileSync('public/images/learn-games/menu/manifest.json', 'utf8'));
   assert.equal(manifest.assets.length, 27);
-  for (const id of IDS) {
-    const item = manifest.assets.find(asset => asset.id === id); assert.ok(item);
+  assert.equal(createHash('sha256').update(readFileSync(manifest.sourceManifest)).digest('hex'), manifest.sourceManifestSha256);
+  assert.deepEqual(new Set(manifest.assets.map(asset => asset.id)), new Set(GAME_LIST.map(game => game.id)));
+  for (const item of manifest.assets) {
     const bytes = readFileSync(`public/images/learn-games/menu/${item.file}`);
     assert.equal(bytes.length, item.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), item.sha256);
-    assert.equal(createHash('sha256').update(readFileSync(item.source)).digest('hex'), item.sourceSha256);
+    assert.equal(createHash('sha256').update(readFileSync(item.sourceFile)).digest('hex'), item.sourceSha256);
     const metadata = await sharp(bytes).metadata();
     assert.equal(metadata.width, manifest.width); assert.equal(metadata.height, manifest.height); assert.equal(metadata.format, 'webp');
     await sharp(bytes).raw().toBuffer();
-    const music = getGameMusicTrack(id); assert.ok(music.volume <= .22); assert.ok(music.sources.length >= 2);
-    for (const audio of music.sources) assert.ok(existsSync(`public${audio}`));
+    if (IDS.includes(item.id)) {
+      const music = getGameMusicTrack(item.id); assert.ok(music.volume <= .22); assert.ok(music.sources.length >= 2);
+      for (const audio of music.sources) assert.ok(existsSync(`public${audio}`));
+    }
   }
 });
 

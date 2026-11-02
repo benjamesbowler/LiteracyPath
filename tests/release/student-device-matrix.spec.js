@@ -8,7 +8,7 @@ import {
   STUDENT_MINIMUM_TARGET_PX,
   STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS
 } from "../../src/policy/studentDeviceMatrix.js";
-import { expectVisibleImagesReady } from "./support/visualReadiness.js";
+import { expectRequiredImageReady, expectVisibleImagesReady } from "./support/visualReadiness.js";
 import { CYCLE_ACTIVITY_REVISION, CYCLE_PRACTICE_VERSION } from "../../src/policy/cyclePracticePolicy.js";
 import { cycleStorageKey } from "../../src/components/cycle-practice/cyclePracticeState.js";
 
@@ -1053,6 +1053,15 @@ test.describe("student route and device combinations", () => {
       await expectKeyboardState(page, surface, state);
       if (route.id === "student-home") await expectHomeDoorLabels(surface, state);
       if (route.id === "adventure-map") {
+        await expect(surface.locator('.kg-atlas-pal')).toHaveAttribute('data-placement', 'clear');
+        const guideOverlaps = await surface.evaluate(element => {
+          const guide = element.querySelector('.kg-atlas-pal').getBoundingClientRect();
+          return [...element.querySelectorAll('.kg-atlas-stop, .kg-atlas-stop-name, .kg-atlas-heading, .kg-atlas-world, .kg-atlas-continue, .kg-atlas-browse')]
+            .filter(node => { const rect = node.getBoundingClientRect(); return rect.width > 0 && rect.height > 0
+              && guide.left < rect.right && guide.right > rect.left && guide.top < rect.bottom && guide.bottom > rect.top; })
+            .map(node => node.dataset.stop || node.className);
+        });
+        expect(guideOverlaps, `${state} Guide leaves every numbered stop, label and fixed control clear`).toEqual([]);
         await expectPrimaryMapDestinationLabel(surface, state);
         const overflow = await surface.locator(".kg-map-card-text :is(strong, small)").evaluateAll(labels => labels.flatMap(label => {
           const card = label.closest(".kg-map-card").getBoundingClientRect();
@@ -1188,6 +1197,7 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     await page.getByRole("button", { name: "Moonwood", exact: true }).click();
     await page.getByRole("button", { name: "Open Dewdrop and Flint: The Hidden Glow", exact: true }).click();
     const reader = page.locator(".story-quest-reader");
+    await expectRequiredImageReady(page, reader.locator('.story-quest-image'), `${profile.id} Story Quest reader`);
     await expectVisibleImagesReady(page, `${profile.id} Story Quest reader`);
     await expectMinimumTargets(reader, `${profile.id} Story Quest reader`);
     await expectNoHorizontalOverflow(page, `${profile.id} Story Quest reader`);
@@ -1212,6 +1222,41 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} Story Quest reader`);
   });
 }
+
+test("A3.6 required Story Quest image readiness waits for a delayed image and rejects a failed image", async ({ page }) => {
+  test.setTimeout(45_000);
+  const profile = STUDENT_DEVICE_PROFILES.find(candidate => candidate.id === 'small-phone-portrait');
+  const route = CHILD_SURFACE_ROUTES.find(candidate => candidate.id === 'story-quests');
+  let releaseImage, requestedImage;
+  const held = new Promise(resolve => { releaseImage = resolve; });
+  const requested = new Promise(resolve => { requestedImage = resolve; });
+  const pattern = '**/images/story-quests/moonwood/dewdrop-flint-lost-glow/p01_start.webp*';
+  await page.route(pattern, async request => { requestedImage(); await held; await request.continue(); });
+  await openChildSurface(page, route, profile);
+  await page.getByRole('button', { name: 'Moonwood', exact: true }).click();
+  await page.getByRole('button', { name: 'Open Dewdrop and Flint: The Hidden Glow', exact: true }).click();
+  await requested;
+  const reader = page.locator('.story-quest-reader');
+  const image = reader.locator('.story-quest-image');
+  let ready = false;
+  const readiness = expectRequiredImageReady(page, image, 'delayed Story Quest image').then(() => { ready = true; });
+  await page.waitForTimeout(150);
+  expect(ready, 'The picture gate cannot pass while the actual request is held').toBe(false);
+  expect(await image.evaluate(element => element.naturalWidth)).toBe(0);
+  releaseImage();
+  await readiness;
+  const next = reader.getByRole('button', { name: 'Next', exact: true });
+  await next.scrollIntoViewIfNeeded();
+  await expect(next).toBeInViewport();
+
+  await page.unroute(pattern);
+  await page.route(pattern, request => request.abort('failed'));
+  await page.reload();
+  await page.getByRole('button', { name: 'Moonwood', exact: true }).click();
+  await page.getByRole('button', { name: 'Open Dewdrop and Flint: The Hidden Glow', exact: true }).click();
+  await expect(reader.locator('.story-quest-image-placeholder')).toBeVisible();
+  await expect(expectRequiredImageReady(page, image, 'failed Story Quest image')).rejects.toThrow();
+});
 
 test("A3.6 heading containment rejects near-boundary glyph clipping", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

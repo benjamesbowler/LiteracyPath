@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "currentConsumer": "src/components/learn/games/games/rhymePopEngine.js",
+  "scope": "Eleven clean replacements after exhaustive actual Rhyme Pop V2 cue audit: ten previously omitted current target cues plus the painted ton meaning context.",
+  "assets": [
+    {
+      "id": "rhyme-v2-flock",
+      "word": "flock",
+      "path": "/images/child-mode/reviewed/arcade/flock.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/flock.png",
+      "sourceSha256": "f76425968e15fe7f2f286461e7ce5d47fa7e41f2a632d9e52b7f918b52ee2bd5",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/flock.txt",
+      "promptSha256": "631bf2e0a5cfdee9a5d715f158869bfda13f89d97c6db5aa8bf1f28cc30f4e29",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/flock.json",
+      "receiptSha256": "a6971ac0fe87281d976e16c19391204dc1f4004b2f48e6adb44fa1197b65f224",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/flock.webp",
+      "originalSha256": "a3c053119e6a384a68a02fe257b8fcb989e095f35dbb1f30af9d0d651a9916b9",
+      "resize": {
+        "width": 512,
+        "height": 512,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 4
+      },
+      "sha256": "1f03f80282e3a2c7f731108f06d58a4bfb951a05ab255dcfe825d8c643c921f2",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-spun",
+      "word": "spun",
+      "path": "/images/child-mode/reviewed/arcade/spun.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/spun.png",
+      "sourceSha256": "fe03e0d11e317442971584b7e45b11fc417dae603c3edb5ed9f6adc6257e1f12",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/spun.txt",
+      "promptSha256": "0fc8ee8ac6f4c41b4345a1e03a5a94c3533a90d384d8f76fe204de360db5c4ef",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/spun.json",
+      "receiptSha256": "4363a3cdffc98bfb2ca3aee8da795f5a71dbea1a8adc50b208cfc7d310f9b991",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/spun.webp",
+      "originalSha256": "06477a2a5329f223a17fce4c0c402431986c9521f6285743f363ac975ea2720c",
+      "resize": {
+        "width": 512,
+        "height": 512,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 4
+      },
+      "sha256": "d13d246c11832f85fcf3d3bd8a805fa88b5f073830aaf029d9c289100efdb2df",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-grow",
+      "word": "grow",
+      "path": "/media/vocabulary/images/grow.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/grow.png",
+      "sourceSha256": "9be6da7ccb1b236c75d28f8f6d2029d720032d8a8652bc3c63d785a6a9fe42de",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/grow.txt",
+      "promptSha256": "dd19bc8b28120a079b7dbc0fd889749348188f100b8934171bc9279e3d75fe9e",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/grow.json",
+      "receiptSha256": "ce13803054194f8393a3a02ab2f48d272dd08f35849c7c83abff6ae6f6f396bc",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/grow.webp",
+      "originalSha256": "fbec3b22193c5a191134a75f4ec0027869d70dde2b6d27bd20886dcb3b3b009d",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "d6faaf2dc0148b1057ab89b4bb0e973532fe7489a8929767c144a3c0951228d9",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-might",
+      "word": "might",
+      "path": "/media/vocabulary/images/might.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/might.png",
+      "sourceSha256": "a2d7f331e30ada86d7cca34c5cca9794b9af3ddc0352dc3f590d715b44f15584",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/might.txt",
+      "promptSha256": "91a9f82c9d3f039c7436c70aa8fc80fe443f5fa01605787e1a61241039d23827",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/might.json",
+      "receiptSha256": "f70c25797c91697ecd9ed068b52a12b85192ec5b59496eeddec67465e82e7865",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/might.webp",
+      "originalSha256": "f459bfb8d231705d1456a0c2db3df966f8564c629d01b78554e32b5cc9e9422c",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "f5989ff2cb00c839bfa86b135a1f190053889c745ffd212cd3ffc0882f237e51",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-shake",
+      "word": "shake",
+      "path": "/media/vocabulary/images/shake.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/shake.png",
+      "sourceSha256": "0caeab1310840f5c7ca1575c1e1a42f41c4dfef56cfc4b3d9d5e953035f763e0",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/shake.txt",
+      "promptSha256": "1adc0d2f588fc66534512c55e7242a39f05f0b8b1b48948c155e9e3c1ac5aa3b",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/shake.json",
+      "receiptSha256": "9001e08bdf7e1d6a0bd392a9fc0a2431ea6df4871b336bb67e69f27d583929a1",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/shake.webp",
+      "originalSha256": "5b364278bd5d3fdefd7a6ffe420b00cec4d6388ca54d90f601c13d2e9636c69e",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "2b53e414fef41e61e7e7aa4988c0b651e7de1f389e69fe8e2def67a134eaa8f6",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-show",
+      "word": "show",
+      "path": "/media/vocabulary/images/show.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/show.png",
+      "sourceSha256": "2c996acf576eaa2514015c4f23613a2011da4b0e7ea6e70d8ce81505612b0801",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/show.txt",
+      "promptSha256": "4eb036219651aaf3d34cea66e32110332f356dbf36e8b88884dc9b00d28f84b2",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/show.json",
+      "receiptSha256": "f7d5eba5fdfd1bd3ca4b7552b49120c65ed02df98b112bb2bf8a463795ff8f09",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/show.webp",
+      "originalSha256": "bd5ebbc1e16ab69f7670c94acf3186a39793191fa5c94cfd4caa4befa2708b39",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "6d155d4c97329fae3f311bf1356ecf972941c2d8ce53dedaa85ccf8026501700",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-share",
+      "word": "share",
+      "path": "/media/vocabulary/images/share.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/share.png",
+      "sourceSha256": "d5f323a477eef27986e50adbf496a65c080df1756a61188ca8f1a1a027bb28d0",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/share.txt",
+      "promptSha256": "fc4fd0a8d53fc354adc71e8b4f2ee69d5fefe4c3c508b562eb87c66f83db089c",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/share.json",
+      "receiptSha256": "9118c1e9acd26d89d580841189d455f9155a2ba13130b2a91cc913ee49ba9ef4",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/share.webp",
+      "originalSha256": "9db799769d74dcc7240bc45d8120bf34591b4f86956c3c233d51f72249ddbb34",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "5c9137e5ed399ae554747eb902fc52e3ef5ab013860df6f5eb56de734625d4cd",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-stair",
+      "word": "stair",
+      "path": "/media/vocabulary/images/stair.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/stair.png",
+      "sourceSha256": "0bcc6a2d73f8419a352db1bea0a73afbe826a6c3a4704ac7b95a910717613666",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/stair.txt",
+      "promptSha256": "624292cca649638d99ad086587fab7d6f815d60d46b8c4fa00aa2bab6a03a31f",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/stair.json",
+      "receiptSha256": "b41b0ad28e3b97ad8841bb0439b240d4480e08e8bac211cef8ea4d7cda0fe9fb",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/stair.webp",
+      "originalSha256": "1e5198f241a36bbae7bae6aa532b4ac652a959cf09e4e6c7415d651f0e8c363f",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "6858de953ad465cda268b65177193e9f6c209c26e5f5a5395f86cb8727cfe2a5",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-tell",
+      "word": "tell",
+      "path": "/media/vocabulary/images/tell.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/tell.png",
+      "sourceSha256": "0120dd19fdebf76c54b1c56587f973dbb55f52b6308b3b1499116eceba2c9dcd",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/tell.txt",
+      "promptSha256": "51db8a79b925b112d8780f67b37a1a3c005b7765cca8ec49c169509fb40cb713",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/tell.json",
+      "receiptSha256": "8acb134eace9a0d3e54e2b4b006e67068f4092efb60d0c08ce20f2eb1f95a361",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/tell.webp",
+      "originalSha256": "abf3e47f678e99c4d741e2b3a10c1642c1cf8ae29d4543ce2eb82c59d5dbb15d",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "00922a28ffcde4dabdbf35eea361c3a4b1ff7701a3421808e8de1bf4543895cb",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-well",
+      "word": "well",
+      "path": "/media/vocabulary/images/well.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/well.png",
+      "sourceSha256": "4ffd989091678150a0252f304d0e8bde68f5e10da40ea849ab3e1707086a0fec",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/well.txt",
+      "promptSha256": "c629153aeeb0d9ac2d9e789742b3065c7d08ee4c5518f800f96ba0a1ec480177",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/well.json",
+      "receiptSha256": "35e346d0bc63219d7ea36dd79857e9b59e04946e6b4d6ff6e31d080e60bc54e7",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/well.webp",
+      "originalSha256": "9b805820fd724e63293c598ba2157532ce78dbbed25f01fa58a873a89db6ca1d",
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 6
+      },
+      "sha256": "1533324ec0cef26cd20c37b5e532ecfe0929db4dfcd888d935385fa49a4a5ab8",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Exact meaning context retained; whole source rendered in bold outlined clean cartoon. No prohibited texture, religious or national symbolism. Shake retains the original five participating children; it is not a counting task. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    },
+    {
+      "id": "rhyme-v2-ton",
+      "word": "ton",
+      "path": "/images/child-mode/reviewed/arcade/ton.webp",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/ton.png",
+      "sourceSha256": "a85db7e0e4eb71a91d7bdd6864efcf1b15c20d092fe4e402244d4982542d4e52",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/ton.txt",
+      "promptSha256": "db5260c600484d00b57e3a31e1d7c0440171be538302d02fd72abd1e45fd3ab1",
+      "receipt": "source-art/app-clean-cartoon/rhyme-v2-cues/receipts/ton.json",
+      "receiptSha256": "dae02545af99b190ae31c096c4d409fba647dc24cefadf6cf7ff0d1cf70acb62",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/ton.webp",
+      "originalSha256": "705026c0038cef857bf118298e08dc0f15088e55b6980f410c52a933c32c5f24",
+      "resize": {
+        "width": 512,
+        "height": 512,
+        "fit": "fill"
+      },
+      "encoding": {
+        "quality": 92,
+        "effort": 4
+      },
+      "sha256": "fbf169b6b90c2407252a182480b155b2114f3b18fe163f1eef043197641a167f",
+      "review": {
+        "status": "accepted-local",
+        "nativeViewed": true,
+        "notes": "Large flat shaded boulder and tiny car preserve audio-led weight meaning context, no literal calibrated measurement or texture. Actual GamePlayer at three viewports requests exact current version/hash; supplemental image failure hides cleanly while the auditory task remains unchanged.",
+        "saved390Viewed": true,
+        "saved128Viewed": true,
+        "saved64Viewed": true,
+        "savedSizeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/rhyme-v2-cues/qc",
+        "runtimeViewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme-v2-cues/source-handoff.json",
+        "runtimeEvidenceSha256": "136b4f18cc1550f47aca10923a8e4f814ab405872d5709574eebd9473e6cbad2",
+        "runtimeFrames": 3
+      }
+    }
+  ],
+  "retainedAssets": [
+    {
+      "word": "knight",
+      "path": "/images/child-mode/reviewed/arcade/knight.webp",
+      "source": "source-art/arcade/cue-images/action/knight-v1.png",
+      "sourceSha256": "40c1546186fc70a4cda17004286785aeb1009581532485529eddb891d93b4075",
+      "sha256": "df74ef185ee1a31f6856a20dced620e50ce152a3503778c6bc98cb123d33bcae",
+      "nativeViewed": true,
+      "display128Viewed": true,
+      "status": "accepted-existing-clean-cartoon",
+      "notes": "Direct full saved-native review confirms current pixels are clean outlined cartoons. Historical style wording corrected without changing existing source/rendered bytes."
+    },
+    {
+      "word": "glow",
+      "path": "/images/child-mode/reviewed/arcade/glow.webp",
+      "source": "source-art/arcade/cue-images/action/glow-v1.png",
+      "sourceSha256": "91823cd066d670b7f2fb015591f332964ffc469722fceeeb90c2a4584aa13633",
+      "sha256": "4fe76dfb18743fd3bf34d7e2b229e55de95038054dc8c482bbb48228bf28b5cf",
+      "nativeViewed": true,
+      "display128Viewed": true,
+      "status": "accepted-existing-clean-cartoon",
+      "notes": "Direct full saved-native review confirms current pixels are clean outlined cartoons. Historical style wording corrected without changing existing source/rendered bytes."
+    },
+    {
+      "word": "noisy",
+      "path": "/images/child-mode/reviewed/arcade/noisy.webp",
+      "source": "source-art/arcade/cue-images/action/noisy-v1.png",
+      "sourceSha256": "cb14a19a8b08a4427ffe5a8caee193892b494e73ae1081b6c7fa6db991c3578d",
+      "sha256": "32c6015939f76928f80a592bff9a99f9877f8b9c6e6f596529d94052930ae916",
+      "nativeViewed": true,
+      "display128Viewed": true,
+      "status": "accepted-existing-clean-cartoon",
+      "notes": "Direct full saved-native review confirms current pixels are clean outlined cartoons. Historical style wording corrected without changing existing source/rendered bytes."
+    },
+    {
+      "word": "ancient",
+      "path": "/images/child-mode/reviewed/arcade/ancient.webp",
+      "source": "source-art/arcade/cue-images/action/ancient-v1.png",
+      "sourceSha256": "e3e8742dee6f6e719a92791322fbf897b8f73fa3e8fd538bebc201699821cb7f",
+      "sha256": "3ea26184f6eafed3eb2e95ab900a327cfbfa5bf2f29386dd9f6d7a6317d3bac4",
+      "nativeViewed": true,
+      "display128Viewed": true,
+      "status": "accepted-existing-clean-cartoon",
+      "notes": "Direct full saved-native review confirms current pixels are clean outlined cartoons. Historical style wording corrected without changing existing source/rendered bytes."
+    },
+    {
+      "word": "fragile",
+      "path": "/images/child-mode/reviewed/arcade/fragile.webp",
+      "source": "source-art/arcade/cue-images/action/fragile-v1.png",
+      "sourceSha256": "28813571e800bd8baa7730d9506dc42753491369b9051f42fae3a29146a5e728",
+      "sha256": "c470bc605210c14dfe048e4e964d0e3d35e5d6582d229a8585e3f9eccde99830",
+      "nativeViewed": true,
+      "display128Viewed": true,
+      "status": "accepted-existing-clean-cartoon",
+      "notes": "Direct full saved-native review confirms current pixels are clean outlined cartoons. Historical style wording corrected without changing existing source/rendered bytes."
+    }
+  ]
+}

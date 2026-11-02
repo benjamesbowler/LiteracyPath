@@ -1,4 +1,5 @@
 import path from "node:path";
+import fs from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
 import sharp from "sharp";
@@ -20,13 +21,13 @@ async function buildCharacterCrop({ source, output, crop, width, height }) {
     .toFile(path.join(characterDir, output));
 }
 
-async function buildMoonwoodCastSheet() {
+export async function renderMoonwoodCastSheet(publicRoot = publicDir) {
   const panelWidth = 512;
   const panelHeight = 288;
   const columns = 2;
   const covers = Array.from({ length: 10 }, (_, index) => {
     const bookNumber = String(index + 1).padStart(2, "0");
-    return publicPath(`/guided-reading/series/moonwood-tales/book-${bookNumber}/cover.webp`);
+    return path.join(publicRoot, `guided-reading/series/moonwood-tales/book-${bookNumber}/cover.webp`);
   });
 
   const panels = await Promise.all(
@@ -38,7 +39,7 @@ async function buildMoonwoodCastSheet() {
     )
   );
 
-  await sharp({
+  return sharp({
     create: {
       width: panelWidth * columns,
       height: panelHeight * Math.ceil(panels.length / columns),
@@ -54,10 +55,18 @@ async function buildMoonwoodCastSheet() {
       }))
     )
     .webp({ quality: 88 })
-    .toFile(path.join(characterDir, "moonwood-cast-master.webp"));
+    .toBuffer();
 }
 
-await Promise.all([
+export async function buildMoonwoodCastSheet() {
+  await fs.writeFile(path.join(characterDir, "moonwood-cast-master.webp"), await renderMoonwoodCastSheet());
+}
+
+async function main() {
+const castOnly = process.argv.includes("--moonwood-cast-only");
+if (castOnly) {
+  await buildMoonwoodCastSheet();
+} else await Promise.all([
   buildCharacterCrop({
     source: "/guided-reading/series/moonwood-tales/book-11/page-007.webp",
     output: "toadling-master.webp",
@@ -75,4 +84,7 @@ await Promise.all([
   buildMoonwoodCastSheet()
 ]);
 
-console.log("Built guided-reading character reference assets.");
+console.log(castOnly ? "Built the Moonwood cast reference montage only." : "Built guided-reading character reference assets.");
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

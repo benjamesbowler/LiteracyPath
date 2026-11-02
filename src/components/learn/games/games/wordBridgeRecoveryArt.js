@@ -1,29 +1,23 @@
 import { PHYSICAL_PAL_ART } from '../shared/physicalPalArtData.js';
 import { registeredPalCanvasPose } from '../shared/registeredPalArt.js';
 
-// Recovery-only contacts directly inspected on the retained tools derivatives.
-// Only the visible forehand exists here: a hidden second hand is never guessed.
-// Common crops/nominal sole anchors remain the shared art authority.
-export const WORD_BRIDGE_RECOVERY_CONTACTS = Object.freeze({
-  bouncy: Object.freeze([
-    Object.freeze({ forehand: [1190,674], feet: [1036,825] }),
-    Object.freeze({ forehand: [1429,675], feet: [1585,825] })
-  ]),
-  chompy: Object.freeze([
-    Object.freeze({ forehand: [1177,685], feet: [1046,838] }),
-    Object.freeze({ forehand: [1417,689], feet: [1545,838] })
-  ]),
-  pip: Object.freeze([
-    Object.freeze({ forehand: [1055,764], feet: [876,979] }),
-    Object.freeze({ forehand: [1236,764], feet: [1433,990] })
-  ])
-});
+// Recovery contacts come from the current shared atlas's measured visible
+// palm and opaque sole. A hidden far hand is never invented.
+export const WORD_BRIDGE_RECOVERY_CONTACTS = Object.freeze(Object.fromEntries(
+  Object.entries(PHYSICAL_PAL_ART).map(([hero, source]) => [hero, Object.freeze(
+    [6, 7].map(index => {
+      const frame = source.actionAtlases.tools.frames[index];
+      return Object.freeze({ forehand: Object.freeze([...frame.rightHandPixel]),
+        feet: Object.freeze([frame.cell[0] + frame.anchor[0], frame.cell[1] + frame.anchor[1]]) });
+    })
+  )])
+));
 
 export function wordBridgeRecoveryAtlas(hero) {
   const source=PHYSICAL_PAL_ART[hero]?.actionAtlases?.tools;
   if(!source)throw new Error('Unknown canonical Bridge recovery identity: '+hero);
   return { ...source,nominalHeight:2.2,frames:[6,7].map((index,side)=>{
-    const frame=source.frames[index],contacts=WORD_BRIDGE_RECOVERY_CONTACTS[hero][side];
+    const frame = { ...source.frames[index] }; delete frame.rightHandPixel; delete frame.leftHandPixel; const contacts=WORD_BRIDGE_RECOVERY_CONTACTS[hero][side];
     return{ ...frame,id:`${hero}-retained-carry-${side?'left':'right'}`,action:'retained-static-carry',
       sockets:{forehand:[...contacts.forehand],feet:[...contacts.feet]} };
   }) };

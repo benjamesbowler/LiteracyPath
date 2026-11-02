@@ -1,0 +1,571 @@
+{
+  "method": "extract-complete-components-then-contain-pack",
+  "nativeSha256": "952c8b25fd99af8f0cabc1245a121b3c4bb578c764b39cf06f2aa086aa2960af",
+  "nativeDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "outputDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "generatedRasterOnly": true,
+  "alphaThreshold": 40,
+  "componentAreaRule": "area >= max(48,largest component in assigned cell * .02)",
+  "assignment": "global alpha component bounding-box center to nearest nominal grid cell",
+  "cropPadding": 2,
+  "objectMaximumCellFraction": 0.76,
+  "cells": [
+    {
+      "index": 0,
+      "key": "stone:shape=flat,surface=rough",
+      "rect": {
+        "left": 0,
+        "top": 0,
+        "width": 313,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 30,
+        "top": 78,
+        "width": 259,
+        "height": 166
+      },
+      "destRect": {
+        "left": 37,
+        "top": 80,
+        "width": 238,
+        "height": 152
+      },
+      "scale": 0.9184555984555984,
+      "retainedComponents": [
+        {
+          "area": 31167,
+          "left": 32,
+          "right": 286,
+          "top": 80,
+          "bottom": 241
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-00.png",
+      "display128Sha256": "09c5bf2c7c5c6d611d5dde571122013c99296ed63951786358adef9f0f074bcc"
+    },
+    {
+      "index": 1,
+      "key": "stone:shape=round,surface=smooth",
+      "rect": {
+        "left": 313,
+        "top": 0,
+        "width": 314,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 346,
+        "top": 49,
+        "width": 248,
+        "height": 232
+      },
+      "destRect": {
+        "left": 350,
+        "top": 45,
+        "width": 239,
+        "height": 223
+      },
+      "scale": 0.962258064516129,
+      "retainedComponents": [
+        {
+          "area": 43458,
+          "left": 348,
+          "right": 591,
+          "top": 51,
+          "bottom": 278
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-01.png",
+      "display128Sha256": "a8b21108a35ff3ab697a3feb12bca24a7e66b0fff73c1c62d494f446e9e6d5a3"
+    },
+    {
+      "index": 2,
+      "key": "stone:shape=flat,surface=smooth",
+      "rect": {
+        "left": 627,
+        "top": 0,
+        "width": 313,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 650,
+        "top": 93,
+        "width": 260,
+        "height": 135
+      },
+      "destRect": {
+        "left": 664,
+        "top": 94,
+        "width": 238,
+        "height": 124
+      },
+      "scale": 0.914923076923077,
+      "retainedComponents": [
+        {
+          "area": 26556,
+          "left": 652,
+          "right": 907,
+          "top": 95,
+          "bottom": 225
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-02.png",
+      "display128Sha256": "e6bf4ef6350a1c34bf173dc95579b020c4b15332b0670ad26260ed6997c7c40d"
+    },
+    {
+      "index": 3,
+      "key": "stone:shape=round,surface=rough",
+      "rect": {
+        "left": 940,
+        "top": 0,
+        "width": 314,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 968,
+        "top": 35,
+        "width": 258,
+        "height": 248
+      },
+      "destRect": {
+        "left": 977,
+        "top": 42,
+        "width": 239,
+        "height": 229
+      },
+      "scale": 0.9249612403100775,
+      "retainedComponents": [
+        {
+          "area": 46997,
+          "left": 970,
+          "right": 1223,
+          "top": 37,
+          "bottom": 280
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-03.png",
+      "display128Sha256": "9d7b97ca98f0f0743ba1df97be0fb3f3c7873181fecac102dc416d1e8f963127"
+    },
+    {
+      "index": 4,
+      "key": "shell:shape=round,stripeColour=#334155",
+      "rect": {
+        "left": 0,
+        "top": 313,
+        "width": 313,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 26,
+        "top": 352,
+        "width": 264,
+        "height": 240
+      },
+      "destRect": {
+        "left": 37,
+        "top": 362,
+        "width": 238,
+        "height": 216
+      },
+      "scale": 0.901060606060606,
+      "retainedComponents": [
+        {
+          "area": 44328,
+          "left": 28,
+          "right": 287,
+          "top": 354,
+          "bottom": 589
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-04.png",
+      "display128Sha256": "9916dadc1aa3b7d638b75327fa91fdff915c1a10763984f2fd3398638bdd90fe"
+    },
+    {
+      "index": 5,
+      "key": "shell:shape=pointed,stripeColour=#334155",
+      "rect": {
+        "left": 313,
+        "top": 313,
+        "width": 314,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 381,
+        "top": 338,
+        "width": 181,
+        "height": 268
+      },
+      "destRect": {
+        "left": 389,
+        "top": 350,
+        "width": 161,
+        "height": 239
+      },
+      "scale": 0.8904477611940299,
+      "retainedComponents": [
+        {
+          "area": 28362,
+          "left": 383,
+          "right": 559,
+          "top": 340,
+          "bottom": 603
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-05.png",
+      "display128Sha256": "6b13c84ec7516dbd03ff56ea217e3ff0c23a291e33b3229d407033f1c8107351"
+    },
+    {
+      "index": 6,
+      "key": "shell:shape=pointed,stripeColour=#fef3c7",
+      "rect": {
+        "left": 627,
+        "top": 313,
+        "width": 313,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 695,
+        "top": 339,
+        "width": 178,
+        "height": 268
+      },
+      "destRect": {
+        "left": 704,
+        "top": 350,
+        "width": 158,
+        "height": 239
+      },
+      "scale": 0.8904477611940299,
+      "retainedComponents": [
+        {
+          "area": 27483,
+          "left": 697,
+          "right": 870,
+          "top": 341,
+          "bottom": 604
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-06.png",
+      "display128Sha256": "3e0e774796d12cee01afc5c6f2aae0a444583b51b05d2a61678075f4197c512e"
+    },
+    {
+      "index": 7,
+      "key": "shell:shape=round,stripeColour=#fef3c7",
+      "rect": {
+        "left": 940,
+        "top": 313,
+        "width": 314,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 960,
+        "top": 351,
+        "width": 269,
+        "height": 243
+      },
+      "destRect": {
+        "left": 977,
+        "top": 362,
+        "width": 239,
+        "height": 216
+      },
+      "scale": 0.8871375464684016,
+      "retainedComponents": [
+        {
+          "area": 46137,
+          "left": 962,
+          "right": 1226,
+          "top": 353,
+          "bottom": 591
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-07.png",
+      "display128Sha256": "0c20b5f58475e4bf485592a95f210d0932741af845b7b596b01582a803c6f28c"
+    },
+    {
+      "index": 8,
+      "key": "stone:shape=flat,stripeColour=#334155",
+      "rect": {
+        "left": 0,
+        "top": 627,
+        "width": 313,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 27,
+        "top": 701,
+        "width": 267,
+        "height": 171
+      },
+      "destRect": {
+        "left": 37,
+        "top": 707,
+        "width": 238,
+        "height": 152
+      },
+      "scale": 0.8909363295880149,
+      "retainedComponents": [
+        {
+          "area": 34393,
+          "left": 29,
+          "right": 291,
+          "top": 703,
+          "bottom": 869
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-08.png",
+      "display128Sha256": "3b546007a2c6e0b893273d04a9a95599b66e9ed7637ded8ff367cd874a2b46ed"
+    },
+    {
+      "index": 9,
+      "key": "stone:shape=round,stripeColour=#fef3c7",
+      "rect": {
+        "left": 313,
+        "top": 627,
+        "width": 314,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 341,
+        "top": 670,
+        "width": 255,
+        "height": 237
+      },
+      "destRect": {
+        "left": 350,
+        "top": 672,
+        "width": 239,
+        "height": 222
+      },
+      "scale": 0.935843137254902,
+      "retainedComponents": [
+        {
+          "area": 45875,
+          "left": 343,
+          "right": 593,
+          "top": 672,
+          "bottom": 904
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-09.png",
+      "display128Sha256": "e9a357297145b7f2ad84bdb2f0d0b98954dd28716b32f518693391332ba0bb61"
+    },
+    {
+      "index": 10,
+      "key": "towel-on-rail",
+      "rect": {
+        "left": 627,
+        "top": 627,
+        "width": 313,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 651,
+        "top": 663,
+        "width": 265,
+        "height": 246
+      },
+      "destRect": {
+        "left": 664,
+        "top": 673,
+        "width": 238,
+        "height": 221
+      },
+      "scale": 0.8976603773584906,
+      "retainedComponents": [
+        {
+          "area": 46894,
+          "left": 653,
+          "right": 913,
+          "top": 665,
+          "bottom": 906
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-10.png",
+      "display128Sha256": "60003ea58704d41bbf8fba1c23cb9594125707ff99d5ec45ddadb2b33bb16eaf"
+    },
+    {
+      "index": 11,
+      "key": "cloth-on-rail",
+      "rect": {
+        "left": 940,
+        "top": 627,
+        "width": 314,
+        "height": 313
+      },
+      "nativeRect": {
+        "left": 966,
+        "top": 663,
+        "width": 265,
+        "height": 243
+      },
+      "destRect": {
+        "left": 977,
+        "top": 674,
+        "width": 239,
+        "height": 219
+      },
+      "scale": 0.9005283018867926,
+      "retainedComponents": [
+        {
+          "area": 46619,
+          "left": 968,
+          "right": 1228,
+          "top": 665,
+          "bottom": 903
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-11.png",
+      "display128Sha256": "2ebecf04b19a7020066a264398ea1833290f2d87984c6786af39ebbcd6f37e90"
+    },
+    {
+      "index": 12,
+      "key": "pot:lighting=sunny",
+      "rect": {
+        "left": 0,
+        "top": 940,
+        "width": 313,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 38,
+        "top": 945,
+        "width": 227,
+        "height": 290
+      },
+      "destRect": {
+        "left": 63,
+        "top": 977,
+        "width": 187,
+        "height": 239
+      },
+      "scale": 0.822896551724138,
+      "retainedComponents": [
+        {
+          "area": 9085,
+          "left": 40,
+          "right": 161,
+          "top": 947,
+          "bottom": 1066
+        },
+        {
+          "area": 25568,
+          "left": 72,
+          "right": 262,
+          "top": 1064,
+          "bottom": 1232
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-12.png",
+      "display128Sha256": "e3b41db578c2c5ad340b7f10043df3f8217e1ee3ab06201b28b8ab9d8438d72d"
+    },
+    {
+      "index": 13,
+      "key": "pot:lighting=shady",
+      "rect": {
+        "left": 313,
+        "top": 940,
+        "width": 314,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 339,
+        "top": 961,
+        "width": 251,
+        "height": 274
+      },
+      "destRect": {
+        "left": 360,
+        "top": 977,
+        "width": 219,
+        "height": 239
+      },
+      "scale": 0.8709489051094891,
+      "retainedComponents": [
+        {
+          "area": 44907,
+          "left": 341,
+          "right": 587,
+          "top": 963,
+          "bottom": 1232
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-13.png",
+      "display128Sha256": "103c27074a9356004221ec6e71a12eb8b16302c8c3d146ef068137eff9841111"
+    },
+    {
+      "index": 14,
+      "key": "dock:direction=north",
+      "rect": {
+        "left": 627,
+        "top": 940,
+        "width": 313,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 644,
+        "top": 974,
+        "width": 276,
+        "height": 254
+      },
+      "destRect": {
+        "left": 664,
+        "top": 987,
+        "width": 238,
+        "height": 219
+      },
+      "scale": 0.8618840579710145,
+      "retainedComponents": [
+        {
+          "area": 58064,
+          "left": 646,
+          "right": 917,
+          "top": 976,
+          "bottom": 1225
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-14.png",
+      "display128Sha256": "55ea214317a65bc37e24737637edb4effe2c540a365dcc51482c6cce822733ec"
+    },
+    {
+      "index": 15,
+      "key": "dock:direction=south",
+      "rect": {
+        "left": 940,
+        "top": 940,
+        "width": 314,
+        "height": 314
+      },
+      "nativeRect": {
+        "left": 960,
+        "top": 974,
+        "width": 273,
+        "height": 254
+      },
+      "destRect": {
+        "left": 977,
+        "top": 986,
+        "width": 239,
+        "height": 222
+      },
+      "scale": 0.8741391941391942,
+      "retainedComponents": [
+        {
+          "area": 57488,
+          "left": 962,
+          "right": 1230,
+          "top": 976,
+          "bottom": 1225
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/qc/art-0619-cell-15.png",
+      "display128Sha256": "1e514e76e5b532bc036080cc3344982f72be527c0519130bae98677f600dcd89"
+    }
+  ]
+}

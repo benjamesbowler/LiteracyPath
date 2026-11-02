@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "path": "/guided-reading/reference/characters/moonwood-cast-master.webp",
+  "sha256": "a62dcaee1f41a8bcf47fca31235100ced4a197e5a8aa1f6b0c96876fbb86c1ad",
+  "builder": "node tools/buildGuidedReadingReferenceAssets.mjs --moonwood-cast-only",
+  "sourceCovers": [
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-01/cover.webp",
+      "sha256": "1b370c38d9bacade2af5fce383b3a39c47c59a443887816819008327631f9b6a"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-02/cover.webp",
+      "sha256": "32a72dd8367241cd05e3b1a309372175562591dbff89b2fc3eea090e119455eb"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-03/cover.webp",
+      "sha256": "2ef53517d14de296b53891baa5f78651aa902b79209516ef3b79c7ed34cee5c4"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-04/cover.webp",
+      "sha256": "117cac256380c04fee550f00c4e1d82204abddb9ef525faff1c5e86683e621ab"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-05/cover.webp",
+      "sha256": "6a6ac3f2c619ca88d20bb73b483b553275112255ac9024c2bcdae2079da3c44c"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-06/cover.webp",
+      "sha256": "8a53a9169e4ccfe13bdfcc1bad5c6cd946e61dbe1e299c8838d1a09da55d271f"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-07/cover.webp",
+      "sha256": "00a05eca2433c5e778f1aa2339aa4fae0208ba18bfa60845b7d9873846511705"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-08/cover.webp",
+      "sha256": "3334a15132aa2d74dfc53dcf8f1aa1e6783a6f9870b2f4dedc0b222f25e2c371"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-09/cover.webp",
+      "sha256": "3e31ed3644dc67def8d4ad6a532b4ac8af9fb04b15aa77b0a7d05dde4f3666e2"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-10/cover.webp",
+      "sha256": "45812936633e1ab60e7b2511f22fd34b2599eb10d2361472678a064e4325b0c5"
+    }
+  ],
+  "recipe": "Current10covers numeric order,512x288 attention crop/intermediateWebP86;2columns5rows onRGB28,43,38,finalWebP88.",
+  "review": {
+    "fullSavedMontageViewed": true,
+    "all10panelsReviewed": true,
+    "decision": "accept",
+    "runtimeNotApplicable": true,
+    "sourceRole": "Authoring identity reference only; campaign renderers select actual atlas src, not this reference URI."
+  }
+}

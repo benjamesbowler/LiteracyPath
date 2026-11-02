@@ -1,0 +1,1162 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-02T04:42:14.532Z",
+  "authority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "purpose": "Current clean cartoon sources for21active app backgrounds/banners; historical painted sources remain provenance only.",
+  "tool": "image_gen.imagegen",
+  "assets": [
+    {
+      "jobId": "art-0676",
+      "path": "/game-assets/sound-seekers/v2/biomes/fossil-canyon/background.webp",
+      "originalSha256": "69a3c30e49a981bcfb0a7d507d6b8157f31e96dc800a5262226a94c10acd0fe8",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ed9783a4-5889-49d4-8813-924cd11fa51f.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0676.png",
+      "nativeSha256": "cfbb21c289a2d644c58f6eca5552dc4c133c73692be53fe0320dd1591710ef5d",
+      "nativeWidth": 1672,
+      "nativeHeight": 941,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0676.prompt.txt",
+      "promptSha256": "7c976704e9fdbdc5b7a87c91ac0434b6696cbe9ed6da61e12d52033f72f2123c",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-0f5fca19-f9ed-4cd0-a62b-f6c41c3217c4.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/badc21a492429a271e3b5fe1870615f56715b7b01e0af9f6fcf02333ff905198.png",
+          "sha256": "badc21a492429a271e3b5fe1870615f56715b7b01e0af9f6fcf02333ff905198"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0676.json",
+      "sourceReceiptSha256": "e37dd24ebe4792231f6a64154058414ad00785cc54dfccb9ba862a6be1e8c949",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1536,
+        "height": 864,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "37693bf9cc6e126bce265cb6754c0c952487cceb0bd7e8aa6b3e345a7e5c09e3",
+      "width": 1536,
+      "height": 864,
+      "bytes": 152858,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.100Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0677",
+      "path": "/game-assets/sound-seekers/v2/biomes/lantern-forest/background.webp",
+      "originalSha256": "dfc10e214e55ddf7267d9e72df5f44bed1b82cba1b4aec005036829eed660b21",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-979b5a66-b472-46f1-9420-fca9c7c77c68.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0677.png",
+      "nativeSha256": "565f5e45a24bbe53c7666834c8b69ad25671e344851c388dc670ca40cd47c092",
+      "nativeWidth": 1672,
+      "nativeHeight": 941,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0677.prompt.txt",
+      "promptSha256": "e2a6eb59addfaf965b27b0961674dc599c9325ee5dc38f85d7465ce40453c657",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-209e3461-8e5e-46b1-8fb3-c8b1ac5a8200.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/6aa11182566fa2991a912b17ff6492e0f1f8c635ddc621fca96e24ca3568bb95.png",
+          "sha256": "6aa11182566fa2991a912b17ff6492e0f1f8c635ddc621fca96e24ca3568bb95"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0677.json",
+      "sourceReceiptSha256": "f479dbb5c066d867e8f730e762a88de7ff3e7a4ffa264db407fa6d7986f9460f",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1536,
+        "height": 864,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "df13dfeac59726f02bcab21e871fd8c3987baa2bf66ea8942b2878dc8853fae3",
+      "width": 1536,
+      "height": 864,
+      "bytes": 236220,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.104Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0678",
+      "path": "/game-assets/sound-seekers/v3/backdrops/bg-dino-forge.webp",
+      "originalSha256": "ce598f3bbfe650fac97ba1f3c8200f12b1410092afbbfbaf344e7998252c2d2c",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-9adaf481-1d51-43ff-8b39-3d96092fe83e.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0678.png",
+      "nativeSha256": "352ca81dfab033dd57b7d7e86e6bc74548728f71015bec87ead605a2df338b7f",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0678.prompt.txt",
+      "promptSha256": "86e1965ccc0d7656f3153974bdf191f760292a83e3190efa25f4d638e9fcf57b",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-61d5d45e-a4fa-46ee-a1e4-140b83fc32f7.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/6f8dbd4a17271b6d17a224e76ca7e5122a5d5ff68b8b6971a9f0ec6767328acc.png",
+          "sha256": "6f8dbd4a17271b6d17a224e76ca7e5122a5d5ff68b8b6971a9f0ec6767328acc"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0678.json",
+      "sourceReceiptSha256": "ff951439b928ea086283ff0000cd41d74c243448417cc2a116bc3c8fbb2336fc",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1168,
+        "height": 784,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "8c9f2f530f2fb17b16ac077839add3fcd559ae90d0fe0346acdb5b099fbbf80b",
+      "width": 1168,
+      "height": 784,
+      "bytes": 117046,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.106Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0679",
+      "path": "/game-assets/sound-seekers/v3/backdrops/bg-dino-valley.webp",
+      "originalSha256": "64bf1f19ba8604731058fd85082e08ac28a38a1d98ff47e7384db7abb4eb2dd5",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-b76a5ac5-bf9b-4ff5-a939-f8027332879a.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0679.png",
+      "nativeSha256": "99bf805a988c731038a29aad957792ff81f0706f6c450744f9d3a63d971c178b",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0679.prompt.txt",
+      "promptSha256": "f6bdc337449b030f2de8a415b71f1e3b84dafa94a0d959fed44de3b67b42e83f",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0679.json",
+      "sourceReceiptSha256": "84fce26623b0eb814b98a37d6830a56132e5f1cff054c207c7be9aff17efda40",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1168,
+        "height": 784,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "e30ae81976bf4a5f41cfa4a1d1a81bca01a397eb020371495cb9a632d3b3e462",
+      "width": 1168,
+      "height": 784,
+      "bytes": 118970,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.109Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0680",
+      "path": "/game-assets/sound-seekers/v3/backdrops/bg-meadow-farm.webp",
+      "originalSha256": "acb14cbbe3d4b89f22746621161852d31d5d5b58299bc7f9c0723513c85c653e",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-c12bce13-e30f-40e9-b62f-41371059af7f.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0680.png",
+      "nativeSha256": "12623ca925d876b6754f00c5aa84f09eabd73a35b22a719361b12e14768dc2e2",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0680.prompt.txt",
+      "promptSha256": "2edd826e1cdd5e75713c040ff0e8a2d95be779da3a34b23876b905a7187f3c96",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0680.json",
+      "sourceReceiptSha256": "0f0e1d7a36ff5b173bcf0fbc06897eae9b139717dbb9a94b0f73f5a46030bc8a",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1168,
+        "height": 784,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "30c51b1d4d942bff1f6a77e2901c8081d1b416a0e55b23497fc028d2eb2f0b80",
+      "width": 1168,
+      "height": 784,
+      "bytes": 87864,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.111Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0681",
+      "path": "/game-assets/sound-seekers/v3/backdrops/bg-meadow-pond.webp",
+      "originalSha256": "8de1c40a0919d95c7ae7e48c922f84a48a6bbd328ed7f93ff63f9bf9fbe83bf1",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-30d6689c-4dfa-40a8-aa6b-c46b51ca8f73.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0681.png",
+      "nativeSha256": "48a2d3d641ade1c72c4c5703c53f7ddd3b3e6f47320f20469c553ebebf455c05",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0681.prompt.txt",
+      "promptSha256": "8e3b2c9e32226e6042f208fb229a443f94ab5e361f46aeb32513aa5caaa3c372",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0681.json",
+      "sourceReceiptSha256": "fbeb226b773707ba05d8b03490b5723d7ed64f73cca451aad033108bd007fabc",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1168,
+        "height": 784,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "89fff49bcbeaafaee341165ad2edf8b6639f748e06b3b09f17d45d5da0654186",
+      "width": 1168,
+      "height": 784,
+      "bytes": 149574,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.114Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0682",
+      "path": "/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp",
+      "originalSha256": "58123d39a8b80bf4a287324717fda66a6a85cee76177606c2f35e8059b7dfdba",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-0bdd2b19-71f1-414a-a020-3a0cc5f56acb.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0682.png",
+      "nativeSha256": "ef589436b778923aa240161aa7ebfd0907def980b2f17a8be03d494542c8b358",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0682.prompt.txt",
+      "promptSha256": "543e418fa4b93b7180b2113ab8b7a2d20ecf143f905fd3849ee66da7f324b615",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0682.json",
+      "sourceReceiptSha256": "28e55bbc175c8bd76cfc4b895d40abdebe491b4020f67fc6066fabdd27111271",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1168,
+        "height": 784,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "be596ceb4c078cbbfc5c5e50d47f0683b70eed81ea946964b1cdd8d5d4a4660a",
+      "width": 1168,
+      "height": 784,
+      "bytes": 111910,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.118Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0683",
+      "path": "/images/arcade/lantern-lagoon/horizon.webp",
+      "originalSha256": "39f07730ec860e5beee3556a06e23220208512192c9bcd65952b4eb209769590",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-caf633c3-3f23-409e-a041-cf6dd5665f6e.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0683.png",
+      "nativeSha256": "f48fd360bc7b784a9781c28178a2a75d3164b1e62ccda3d599878ad86e19ca77",
+      "nativeWidth": 2021,
+      "nativeHeight": 778,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0683.prompt.txt",
+      "promptSha256": "570b212c4eb9019a2710ef242a6ed1a1a39cd09adb12439a87cb206ccfb9cbe9",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0683.json",
+      "sourceReceiptSha256": "6e95a70eae53cfdfde38507cf95f062961a0f78afbba376ddbbb664ddf2b4377",
+      "crop": {
+        "left": 0,
+        "top": 115,
+        "width": 2021,
+        "height": 467
+      },
+      "cropReason": "Remove white letterbox bands and nonessential foreground water; preserve full horizontal skyline, stars, hills and every ordinary cottage. No stretch of subject geometry.",
+      "resize": {
+        "width": 1536,
+        "height": 355,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "5d823509818b718735ce9b01f297827155d6798ea6e073b25765e76505421307",
+      "width": 1536,
+      "height": 355,
+      "bytes": 72484,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.120Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0684",
+      "path": "/images/games/bg-meadow.webp",
+      "originalSha256": "f174aafff2622175adea6714ce9a22db50de45eeb519e57cb7e8dffe0bea49e6",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-777f9a85-ef9d-4ced-91f8-80d170d862e2.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0684.png",
+      "nativeSha256": "b7afcee3d7d54cc1b4ca1d400a140704a46b1639469922812d0adf742429cfbb",
+      "nativeWidth": 1672,
+      "nativeHeight": 940,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0684.prompt.txt",
+      "promptSha256": "bab1a96abae86a9b96a00d3a11b018a6cb5d6929bf7e3bf83413f82484c07c5b",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0684.json",
+      "sourceReceiptSha256": "410b85d3660e4c602d1600c3e9b146e84f69c6f11a70dc36be686a240948bb1b",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1600,
+        "height": 900,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "a2028321fc94ac08017de329f571a1e2d091ce40853cdfed2549c9d81c563128",
+      "width": 1600,
+      "height": 900,
+      "bytes": 143354,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.124Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0685",
+      "path": "/images/home-sage/my-hollow.webp",
+      "originalSha256": "cb3b90937ea6dce3b0a8fdccd4e5c6335654da43a295596226b12eac298e0c05",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-d0564735-01e7-446e-8296-821b69855e6e.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0685.png",
+      "nativeSha256": "5e05b4f035f735a16f7d973a3e13a4b8c2227580f2f4ac270aca4c5902fea6a4",
+      "nativeWidth": 1672,
+      "nativeHeight": 941,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0685.prompt.txt",
+      "promptSha256": "118f56603b8a503492cf6ee580171ae371a0655696fbabdb9941e4ce022881fb",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0685.json",
+      "sourceReceiptSha256": "691f8d131f60761467cc33e34d3952aaf06ee238a2dc43b3c5c1c8ba76b723e9",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 900,
+        "height": 507,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "bbe2e3ba45c218d9cb43fd5198db0de921a0d5d439f31aae5d474938e51cdec4",
+      "width": 900,
+      "height": 507,
+      "bytes": 74860,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": false,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.129Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": true,
+        "status": "accepted-clean-retained-inactive",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Existing StudentHomePage activities[].art reference is unused; active MyHollow card retains navigationicon. Clean replacement preserved without changing product layout."
+      }
+    },
+    {
+      "jobId": "art-0686",
+      "path": "/images/learn-games/arcade-scenes/safari-clearing.webp",
+      "originalSha256": "57ec1a56abf83ef5ed5afb86da40c098ca1cd018d75640c94ad199078d6c3ec9",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-6b343a5a-17e6-4511-96e5-71de46721e38.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0686.png",
+      "nativeSha256": "38db40a36ad73cc3a9f31f4ce052255acaf4d7618ab9bc882822f52adef4eeb9",
+      "nativeWidth": 1672,
+      "nativeHeight": 941,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0686.prompt.txt",
+      "promptSha256": "e0fca93afdaeda7403b89d8efed0efd84f4c3003f74291aa2289fe9f42d7d4f7",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0686.json",
+      "sourceReceiptSha256": "3b680a4f116d9fe9b7fec343b5eb8fbfd8eff389515323e576ed5ad330cf5670",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "7ea9c28016a5edbfb5460d7fc0bf34ed77ce3ff716475b1f25057aaa67e6e316",
+      "width": 1672,
+      "height": 941,
+      "bytes": 193808,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.132Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0687",
+      "path": "/images/learn-games/sentence-express/dino-panorama.webp",
+      "originalSha256": "e447efa809a304a44cf0d819db22361f43592f19dadf201ae4e62f287d0243e0",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-4d636e0b-3546-4224-b0ff-b10207b8cb13.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0687.png",
+      "nativeSha256": "72b8892cf1ec135b39e82553f1015633a99057466695f65f5056fbea3cd7fb7c",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0687.prompt.txt",
+      "promptSha256": "4b15572f627c706c39870a8b458dbfbc7726c8a7439092fa39db038d80c50108",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-822fd145-42e0-4544-9d66-8c759cd3cbdd.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/dd78f81ee72de4edc3e4bd34b695902830d2601690e0ac01d694a692b75eb971.png",
+          "sha256": "dd78f81ee72de4edc3e4bd34b695902830d2601690e0ac01d694a692b75eb971"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0687.json",
+      "sourceReceiptSha256": "056e4d1cdf3f455b2fd087f8aa665fdb7741e1b3b946157848f6325294607238",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2172,
+        "height": 724,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "0c7653c9df7e420f08ac160cbcad9ead4b213ea308fe1d496eaff96c933fc714",
+      "width": 2172,
+      "height": 724,
+      "bytes": 259034,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.136Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0688",
+      "path": "/images/learn-games/sentence-express/meadow-panorama.webp",
+      "originalSha256": "969fac08fe35ac3090774ed3dc2d83d37ec20eba2ab327466f75a37b65373999",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-009a2042-1b26-4035-a2ad-6d8955fdd852.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0688.png",
+      "nativeSha256": "669345faccae03042ba3681028d3c976ae6767305c70822c5f6a27be6dbf7884",
+      "nativeWidth": 2171,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0688.prompt.txt",
+      "promptSha256": "27330a1923b45e71aa5613ed97f388b3801579ae9b05d0d659f40abda3ed106f",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0688.json",
+      "sourceReceiptSha256": "7ec7dd993c27d9e5098077188d5b3e6932fa0bf554fdf6f6e22a40b13e2f90ab",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2172,
+        "height": 724,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "7e818f544a27db9b5c81d35816295c664a6a3fd588e6fe6cdb72bcb6248d75ab",
+      "width": 2172,
+      "height": 724,
+      "bytes": 282810,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.140Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0689",
+      "path": "/images/learn-games/sentence-express/moonwood-panorama.webp",
+      "originalSha256": "258b2d31064ae33a697ce5fe614e901f12f0fb65535d0fe73f64b1fe5ba3a04e",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-2dc6eda8-2c7b-4152-ad17-428d1e41ff67.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0689.png",
+      "nativeSha256": "34695ab5f6a2d00fedcfa16f4753388131f2cf707b96472407ac64971f27baee",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0689.prompt.txt",
+      "promptSha256": "501f11dc60f8dc51f4aa32ee394c8d6b27775b8ee8b8673b8e27c599043845f8",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0689.json",
+      "sourceReceiptSha256": "e66d66e4762716ca51f0247d1fc48911a8b02d1d70acfaf8408776a9117555a1",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2172,
+        "height": 724,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "ed0954230b4e479111aeab023bec00a9d08d79975b8467c00589f0921eaec766",
+      "width": 2172,
+      "height": 724,
+      "bytes": 235658,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.142Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0690",
+      "path": "/images/learn-games/sound-beat/woodland-stage.webp",
+      "originalSha256": "0a01de53f0330c988b741184af10466ff2da52d3f12cf065d34aa72748fb04cd",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-f17f186b-5b35-4078-be47-58f0684fc55b.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0690.png",
+      "nativeSha256": "f4ac3988eba218e02e9cb8c5a0ed76b51e2f29db75f4562a05d0e05bc3bcbd1f",
+      "nativeWidth": 1672,
+      "nativeHeight": 941,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0690.prompt.txt",
+      "promptSha256": "b12d34989388349d8740e0d9c848f55f267775863147f0607383c9a81c94f2e8",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0690.json",
+      "sourceReceiptSha256": "e1525f437c38d08341378a4429db06fe63211638ece211aa307b371e506e515a",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "e056cecbb04d8ae7d6d2576abdc7933ef131ca8dbce2bb0b2f58db1d41a25ac2",
+      "width": 1672,
+      "height": 941,
+      "bytes": 192632,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.145Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0691",
+      "path": "/images/learn-games/word-bridge/dino-background-clean-v2.webp",
+      "originalSha256": "3ac095f873bac3d1ff21535e17850fb2214d662d24d1f01f903035ab28844718",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-c5f557c5-5267-4253-9a90-04d6d8b3d6a2.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0691.png",
+      "nativeSha256": "aa94e2b78aacaa83f276649f2e1cd105260da2b2e9d6bdbc2578ddbabe7a9174",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0691.prompt.txt",
+      "promptSha256": "f8d1a4bbe649e4e50651c15ccc8b02a86ef0e63ab8b178b8dc63caf237a2af7e",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0691.json",
+      "sourceReceiptSha256": "540e3ed444d2734f7e527d0e1ac790f1719e57ec39d7b90daeab9fab2c35b68f",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2400,
+        "height": 800,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "dc5b1ca12198d48d5fb3c9b239bf25fe3096a30c6b7fc05bf3de4c7888d95cae",
+      "width": 2400,
+      "height": 800,
+      "bytes": 178568,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.148Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0692",
+      "path": "/images/learn-games/word-bridge/meadow-background-clean-v2.webp",
+      "originalSha256": "177f0b2e1b70a87768b9dda8a2fd3e9b1370f60c6bc1316dbd80a17f1b39e94e",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-a4f4a461-bbef-463f-a41b-3ff2044b6411.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0692.png",
+      "nativeSha256": "0bf84ae99dc12736569e7093597414bcddf232e6eb3899d170b186c775f8c23e",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0692.prompt.txt",
+      "promptSha256": "b0937767b4f6cafd6b65d5ba818000439f291311da2ea9acc210c94a9819de59",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0692.json",
+      "sourceReceiptSha256": "755c297909750faf46d550c3aa6f086ecb57942560379e1a4078577bd628d6a1",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2400,
+        "height": 800,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "08af852ba17f23b9414f02beef1bd5438af12c8791814be05e7d583b7dc05434",
+      "width": 2400,
+      "height": 800,
+      "bytes": 217416,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.151Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0693",
+      "path": "/images/learn-games/word-bridge/moonwood-background-clean-v2.webp",
+      "originalSha256": "6e8cb10ca69f428549605eaa869bae307e3b19fc38ee6cc289ea4c12a077bffb",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-320efe19-9360-4f1a-a6b9-5e165cc9f73d.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0693.png",
+      "nativeSha256": "1c26c08a4d1b947899b48e2e4495afe407aa796ed3020ea9819ab889b3abe35d",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0693.prompt.txt",
+      "promptSha256": "19e386cd79e39b2527072933bba54a66d429c8f8384666ca531c918601e3bc5a",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0693.json",
+      "sourceReceiptSha256": "7c31c4ac1e399cedd958d59d3fd76e0400411a01c9dd4cb49a5911387d15e7cf",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2400,
+        "height": 800,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "f23032a88dd008154c28fbeef6a8c1e15ae0e3b275a30b241551cc8096d850f3",
+      "width": 2400,
+      "height": 800,
+      "bytes": 207774,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.154Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0694",
+      "path": "/images/pals/dino-panorama.webp",
+      "originalSha256": "f93f1cd0ea84cd1c792f6e0ac3f7e891661d84228c4cf2c2dcbfb14be035fd7c",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-bb42b862-b67c-4832-9417-99c518bee597.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0694.png",
+      "nativeSha256": "104c14ca56fcc751754fa45ab80979e97cdb88e83dc3167b9e084a64f7766492",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0694.prompt.txt",
+      "promptSha256": "5c351d23dbde46db91bea90e68ea9ae1be050bea02becfa407ad37df75a162ff",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/../cd_family/references/sunny-pink-yellow-clean.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/1ffa5cd5e1df3ce575917869756aca7a53154f44f4c95a519b605aeefd681e1e.png",
+          "sha256": "1ffa5cd5e1df3ce575917869756aca7a53154f44f4c95a519b605aeefd681e1e"
+        },
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/../cd_family/references/chompy-clean-model.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/54964cf5b2e096fc9da2395420f611d94e1d5042ba1380235ef11bd849016fc8.png",
+          "sha256": "54964cf5b2e096fc9da2395420f611d94e1d5042ba1380235ef11bd849016fc8"
+        },
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0694.json",
+      "sourceReceiptSha256": "8d8bf13ac311ce53be84dabe0c01d0b5fde46091f1379d8555ca23e4b774ee55",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2400,
+        "height": 800,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "6e7ab81b84dfd4559b78566d8ba1991cd903de1b6960c85980705559445a16cd",
+      "width": 2400,
+      "height": 800,
+      "bytes": 271880,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.158Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0698",
+      "path": "/images/pals/meadow-panorama.webp",
+      "originalSha256": "c38adb4dac48766c90cb7a93cf2ce4983b2e97dc63df1feb74bcc65bf27f117c",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-07c24ddb-b6ed-4044-90fd-062c99b651df.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0698.png",
+      "nativeSha256": "78aca5891ee7b51d8396b27d3f2f781dd0000e164a4ba36391c8565ebd31db05",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0698.prompt.txt",
+      "promptSha256": "6fce7522b5ffdcefa3e7132c56616d7a674530d395e466a65fc79cfdad13b732",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/../cd_family/references/meadow-muddy-clean-v2.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/c2e0532cf8064ba41a66a3d109043449b54e3e143e1651196adc77939fb1d6e2.png",
+          "sha256": "c2e0532cf8064ba41a66a3d109043449b54e3e143e1651196adc77939fb1d6e2"
+        },
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/../cd_family/references/meadow-splashy-clean.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/bfdb8a8d503f48d005a418b477b7592c2221e2ce00999621808631b2ebfd563f.png",
+          "sha256": "bfdb8a8d503f48d005a418b477b7592c2221e2ce00999621808631b2ebfd563f"
+        },
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0698.json",
+      "sourceReceiptSha256": "ce048d38a007a3f89d841213ce5cbc7f1e8532e7a274b08476fb84029ffcbe50",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2400,
+        "height": 800,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "53ccd70a2ac724fb5be5d097a952ee47c7ac35e461899e59a0b2679a9c944746",
+      "width": 2400,
+      "height": 800,
+      "bytes": 204474,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.161Z",
+        "notes": "Every selected full native, final saved fullsize WebP, 390px and128px delivery directly viewed. World-specific landmarks, quiet play zones, canonical full-body banner duos, neutral ordinary buildings and smooth whole-scene cartoon materials checked. Full3:1panoramas preserved. Horizon crop preserves full skyline/cottages without religious steeple.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/background-runtime-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance."
+      }
+    },
+    {
+      "jobId": "art-0699",
+      "path": "/images/pals/moonwood-panorama.webp",
+      "originalSha256": "b7458bf1c1dd7224d2e0bc48ce126e37fe75629808ec52bcacecb618158d73e2",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-117aa331-a84b-4da0-b1d3-9581377110b6.png",
+      "nativeSaved": "source-art/app-clean-cartoon/resumed-backgrounds/art-0699.png",
+      "nativeSha256": "a520124d1a9beacd0d11d989067a8181e1628a9ae09d157690af6531617f81c3",
+      "nativeWidth": 2172,
+      "nativeHeight": 724,
+      "promptFile": "source-art/app-clean-cartoon/resumed-backgrounds/art-0699.prompt.txt",
+      "promptSha256": "740ad134ef6afd70a4070472c811e4918e197f4767b5489977a55e8e470efbd6",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-1637b3c1-ecf5-4ccb-a51a-dee1fbde0e00.png",
+          "sha256": "8a3c7ecbe6c375ac7ccad8b11baf323e1a38a59931c15003b1c256dc07881fd1"
+        },
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/model-sheets/moon-pip-bagless.png",
+          "sha256": "ff58f50b9011d7a32fc5c9306ca1c52b8f797aec7cb2a8d5c4837be469d52277"
+        }
+      ],
+      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0699.json",
+      "sourceReceiptSha256": "d43eb93c0561edb9df4e835a1a6db394d864670614613a38356ba529b633fb57",
+      "crop": null,
+      "cropReason": null,
+      "resize": {
+        "width": 2400,
+        "height": 800,
+        "fit": "fill",
+        "note": "Full panorama retained; native aspect ratio is within1%of required final ratio."
+      },
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "effort": 6
+      },
+      "outputSha256": "4a4148311a87465d163df8726f0576147abb7d5c95820e41310288752489937d",
+      "width": 2400,
+      "height": 800,
+      "bytes": 285006,
+      "hasAlpha": false,
+      "review": {
+        "nativeViewed": true,
+        "savedEncodedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "decision": "accept",
+        "reviewedAt": "2026-11-02T05:00:49.164Z",
+        "notes": "Official brown cuffed boots and olive trousers; full clean panorama and Luna gold spectacles. Corrected actual CSS v and current bytes proved at all3viewports.",
+        "runtimeNotApplicable": false,
+        "status": "accepted-local",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/resumed-background-runtime/pip-brown-boots-current-receipt.json",
+        "runtimeNote": "Exact current app/component selection verified at desktop,phone andshortlandscape; eight backgrounds exercised as genuine fallbacks with authoredbackground failure. RetainedQuestRoot preview findings are separate and not live-product acceptance.",
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "savedViewed": true
+      },
+      "history": [
+        {
+          "nativeSaved": ".artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/pip-boots-correction/superseded-green-boots.png",
+          "nativeSha256": "8a3c7ecbe6c375ac7ccad8b11baf323e1a38a59931c15003b1c256dc07881fd1",
+          "outputSha256": "6a71046b5c54c672396e8806ff0efec2a60b0af3b8268de945a0d98b536f8d16",
+          "reason": "Superseded green boots corrected to official brown cuffed boots; original same-scene receipt retained."
+        }
+      ],
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-117aa331-a84b-4da0-b1d3-9581377110b6.png"
+    }
+  ]
+}

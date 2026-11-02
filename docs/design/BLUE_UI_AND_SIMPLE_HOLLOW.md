@@ -51,6 +51,17 @@ Guide-change cost, world unlocks, rooms and gear composition are unchanged.
 Room editing, theme choices, additional rooms and shop categories are disclosed
 inside their relevant task. Preserve saved slot identifiers across upgrades.
 
+The 2 November clean-cartoon room revision registers each slot on its actual
+tabletop surface in `src/data/hollowArtworkRegistration.js`. Both Home and
+Decorate place the delivered decoration's visible alpha-body bottom on that
+surface. The known previous defaults and saved live room coordinates translate
+locally for this art revision; hosted configuration, cached coordinates,
+purchases and slot IDs remain intact. Later custom admin coordinates still win.
+Decorate keeps its shop and room navigation outside the artwork and uses native
+horizontal panning on narrow screens so display targets remain usable. Regenerate
+`hollowDecorationBounds.generated.js` with `tools/buildHollowDecorationBounds.mjs`
+after changing a decoration's delivered pixels.
+
 Verification includes Hollow gift, purchase, placement, feeding, equip and reload
 flows; painted control/card containment and complete collection reachability
 including 320×568 and 568×320; shared child contracts;

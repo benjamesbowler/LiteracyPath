@@ -5,14 +5,21 @@ import sharp from 'sharp';
 
 const root = path.resolve(import.meta.dirname, '../..');
 const directory = 'source-art/arcade/physical-worlds/star-gallery';
-const configurationPath = path.join(root, directory, 'registration.json');
+const configurationFile = 'clean-cartoon-registration.json';
+const configurationPath = path.join(root, directory, configurationFile);
 const configurationBytes = await fs.readFile(configurationPath);
 const configuration = JSON.parse(configurationBytes);
-const manifestPath = path.join(root, directory, 'manifest.json');
+const manifestPath = path.join(root, directory, 'clean-cartoon-manifest.json');
 const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
 const registerOnly = process.argv.includes('--register-only');
 const metadataOnly = process.argv.includes('--metadata-only');
+const driversOnly = process.argv.includes('--drivers-only');
+const kitsOnly = process.argv.includes('--kits-only');
+if (driversOnly && kitsOnly) throw Error('Choose one scoped Grove source family');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+for (const lineage of [manifest.historicalManifest, manifest.historicalRegistration]) {
+  if (hash(await fs.readFile(path.join(root, lineage.path))) !== lineage.sha256) throw Error(`Historical Grove input changed: ${lineage.path}`);
+}
 const atlases = {};
 const compilationStart = performance.now();
 const timed = (asset, stage, start) => console.log(JSON.stringify({ event: 'asset-stage', asset, stage,
@@ -38,7 +45,7 @@ async function writeMetadata() {
 if (metadataOnly) {
   if (registerOnly) throw Error('Choose metadata-only or register-only, not both');
   const registrationSha256 = hash(configurationBytes);
-  if (manifest.registration !== 'registration.json' || manifest.registrationSha256 !== registrationSha256) {
+  if (manifest.registration !== configurationFile || manifest.registrationSha256 !== registrationSha256) {
     throw Error('Retained Grove registration does not match its source manifest');
   }
   const specifications = [
@@ -47,7 +54,8 @@ if (metadataOnly) {
   ];
   for (const spec of specifications) {
     const asset = manifest.assets.find(row => row.id === spec.id);
-    if (!asset || asset.registrationSha256 !== registrationSha256 || asset.frames?.length !== spec.frameCount
+    const expectedRegistration = asset?.productionRevision ? registrationSha256 : manifest.historicalRegistration.sha256;
+    if (!asset || asset.registrationSha256 !== expectedRegistration || asset.frames?.length !== spec.frameCount
       || !Number.isFinite(asset.pixelsPerUnit) || asset.pixelsPerUnit <= 0 || asset.nominalHeight !== (spec.nominalHeight || 4.7)) {
       throw Error(`${spec.id}: retained registered metadata is missing or inconsistent`);
     }
@@ -56,7 +64,7 @@ if (metadataOnly) {
         throw Error(`${spec.id}: retained source or prompt identity changed`);
       }
     }
-    const runtime = `/game-assets/physical-arcade/star-gallery/${spec.kind}/${spec.file}.webp`;
+    const runtime = asset.runtime || `/game-assets/physical-arcade/star-gallery/${spec.kind}/${spec.file}.webp`;
     atlases[spec.id] = metadata(asset, asset.frames, runtime);
   }
   await writeMetadata();
@@ -65,9 +73,10 @@ if (metadataOnly) {
   process.exit(0);
 }
 
-async function original(file, kind) {
+async function original(file, kind, id) {
   let stage = performance.now();
-  const source = `${directory}/${kind}/${file}.png`, bytes = await fs.readFile(path.join(root, source));
+  const source = manifest.assets.find(asset => asset.id === id)?.source || `${directory}/${kind}/${file}.png`;
+  const bytes = await fs.readFile(path.join(root, source));
   timed(file, 'source-read', stage); stage = performance.now();
   const { data, info } = await sharp(bytes).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   timed(file, 'PNG-decode', stage);
@@ -110,10 +119,10 @@ async function admit(spec, input, frames, nominalHeight, pixelsPerUnit, kind) {
     throw Error(`${spec.id}: retained source dimensions differ from decoded original`);
   }
   asset.frames = frames; asset.nominalHeight = nominalHeight; asset.pixelsPerUnit = pixelsPerUnit;
-  asset.registration = 'registration.json'; asset.registrationSha256 = hash(configurationBytes);
+  asset.registration = configurationFile; asset.registrationSha256 = hash(configurationBytes);
   asset.attachment = kind === 'characters' ? 'Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts' : 'Actual ground attachment and tree-bark cut contact; live text and cutter remain separate';
   if (registerOnly) return;
-  const runtime = `/game-assets/physical-arcade/star-gallery/${kind}/${spec.file}.webp`;
+  const runtime = asset.runtime || `/game-assets/physical-arcade/star-gallery/${kind}/${spec.file}.webp`;
   let stage = performance.now();
   const output = await sharp(input.bytes).webp({ quality: 90, alphaQuality: 100, effort: 6 }).toBuffer();
   timed(spec.id, 'WebP-encode-q90-alpha100-effort6', stage); stage = performance.now();
@@ -135,12 +144,23 @@ async function admit(spec, input, frames, nominalHeight, pixelsPerUnit, kind) {
 }
 
 for (const spec of configuration.drivers) {
+  if (kitsOnly) {
+    const asset = manifest.assets.find(row => row.id === spec.id);
+    if (hash(await fs.readFile(path.join(root, asset.source))) !== asset.sourceSha256
+      || hash(await fs.readFile(path.join(root, 'public', asset.runtime))) !== asset.runtimeSha256) throw Error(`Accepted Grove driver changed: ${spec.id}`);
+    // The cumulative registration has new scenery rows; its measured driver
+    // rows and rendered source/delivery bytes remain exactly accepted.
+    asset.registration = configurationFile; asset.registrationSha256 = hash(configurationBytes);
+    atlases[spec.id] = metadata(asset, asset.frames, asset.runtime);
+    continue;
+  }
   const assetStart = performance.now();
-  const input = await original(spec.file, 'characters');
+  const input = await original(spec.file, 'characters', spec.id);
   const registrationStart = performance.now();
   const bodies = connectedBodies(input.data, input.info);
   const frames = spec.frames.map((measurement, index) => {
-    const body = bodies[index], cell = [Math.max(0, body.left - 7), Math.max(0, body.top - 7), Math.min(input.info.width, body.right + 7), Math.min(input.info.height, body.bottom + 7)];
+    const body = bodies[index], cell = measurement.cell || [Math.max(0, body.left - 7), Math.max(0, body.top - 7), Math.min(input.info.width, body.right + 7), Math.min(input.info.height, body.bottom + 7)];
+    if (measurement.cell && Math.min(body.left-cell[0],body.top-cell[1],cell[2]-body.right,cell[3]-body.bottom)<Math.ceil(Math.min(cell[2]-cell[0],cell[3]-cell[1])*.08)) throw Error(`${spec.id}: current driver needs8% clear cell margin`);
     for (const other of bodies.filter(row => row !== body)) {
       if (other.pixels.some(point => { const x = point % input.info.width, y = Math.floor(point / input.info.width); return x >= cell[0] && x < cell[2] && y >= cell[1] && y < cell[3]; })) {
         throw Error(`${spec.file}/${measurement.action}: crop includes foreign driver anatomy`);
@@ -159,8 +179,15 @@ for (const spec of configuration.drivers) {
 }
 
 for (const spec of configuration.kits) {
+  if (driversOnly) {
+    const asset = manifest.assets.find(row => row.id === spec.id);
+    if (hash(await fs.readFile(path.join(root, asset.source))) !== asset.sourceSha256
+      || hash(await fs.readFile(path.join(root, 'public', asset.runtime))) !== asset.runtimeSha256) throw Error(`Unrelated Grove kit changed: ${spec.id}`);
+    atlases[spec.id] = metadata(asset, asset.frames, asset.runtime);
+    continue;
+  }
   const assetStart = performance.now();
-  const input = await original(spec.file, 'scenery');
+  const input = await original(spec.file, 'scenery', spec.id);
   const registrationStart = performance.now();
   const frames = spec.objects.map(measurement => {
     const [regionX, regionY, regionWidth, regionHeight] = measurement.region;
@@ -177,7 +204,9 @@ for (const spec of configuration.kits) {
         throw Error(`${spec.file}/${measurement.action}: semantic region cuts actual opaque object anatomy`);
       }
     }
-    const cell = [Math.max(regionX, left - 7), Math.max(regionY, top - 7), Math.min(regionX + regionWidth, right + 7), Math.min(regionY + regionHeight, bottom + 7)];
+    const cell = measurement.cell || [Math.max(regionX, left - 7), Math.max(regionY, top - 7), Math.min(regionX + regionWidth, right + 7), Math.min(regionY + regionHeight, bottom + 7)];
+    if (measurement.cell && (left-cell[0]<Math.ceil(regionWidth*.08)||cell[2]-right<Math.ceil(regionWidth*.08)
+      ||top-cell[1]<Math.ceil(regionHeight*.08)||cell[3]-bottom<Math.ceil(regionHeight*.08))) throw Error(`${spec.id}/${measurement.action}: current nature object needs8% complete semantic-cell padding`);
     let ground = null;
     for (let y = bottom - 1; y >= top && !ground; y--) {
       const points = [];
@@ -192,11 +221,11 @@ for (const spec of configuration.kits) {
     return frame;
   });
   timed(spec.id, 'semantic-alpha-crop-root-bark-registration', registrationStart);
-  await admit(spec, input, frames, 4.7, (frames[0].cell[3] - frames[0].cell[1]) / 4.7, 'scenery');
+  await admit(spec, input, frames, 4.7, spec.pixelsPerUnit || (frames[0].cell[3] - frames[0].cell[1]) / 4.7, 'scenery');
   timed(spec.id, 'asset-total', assetStart);
 }
 
 if (!registerOnly) await writeMetadata();
-manifest.registration = 'registration.json'; manifest.registrationSha256 = hash(configurationBytes);
+manifest.registration = configurationFile; manifest.registrationSha256 = hash(configurationBytes);
 await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
 console.log(JSON.stringify({ compiled: !registerOnly, registeredFrames: manifest.assets.reduce((sum, asset) => sum + (asset.frames?.length || 0), 0), runtimeAcceptance: manifest.review.runtimeAcceptance }));

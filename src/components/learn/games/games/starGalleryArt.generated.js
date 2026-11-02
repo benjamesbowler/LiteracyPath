@@ -5,7 +5,7 @@ export const STAR_GALLERY_ATLASES = {
     "width": 1024,
     "height": 1536,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 198.18181818181816,
+    "pixelsPerUnit": 187.27272727272725,
     "runtime": "/game-assets/physical-arcade/star-gallery/characters/bouncy-driver-rear-v1.webp",
     "frames": [
       {
@@ -13,27 +13,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "ready",
         "direction": "rear",
         "cell": [
-          54,
-          18,
-          467,
-          468
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          201,
-          351
+          254,
+          362
         ],
         "sockets": {
           "seat": [
-            255,
-            369
+            254,
+            362
           ],
           "leftHand": [
-            142,
-            233
+            152,
+            228
           ],
           "rightHand": [
-            372,
-            235
+            356,
+            228
           ]
         }
       },
@@ -42,27 +42,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "steer-left",
         "direction": "rear",
         "cell": [
-          588,
-          19,
-          959,
-          468
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          183,
-          350
+          268,
+          368
         ],
         "sockets": {
           "seat": [
-            771,
-            369
+            780,
+            368
           ],
           "leftHand": [
-            635,
-            210
+            636,
+            197
           ],
           "rightHand": [
-            861,
-            238
+            876,
+            274
           ]
         }
       },
@@ -71,27 +71,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "steer-right",
         "direction": "rear",
         "cell": [
-          76,
-          513,
-          466,
-          947
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          178,
-          338
+          252,
+          370
         ],
         "sockets": {
           "seat": [
-            254,
-            851
+            252,
+            882
           ],
           "leftHand": [
-            179,
-            699
+            157,
+            777
           ],
           "rightHand": [
-            413,
-            723
+            380,
+            720
           ]
         }
       },
@@ -100,27 +100,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "lever-anticipation",
         "direction": "rear",
         "cell": [
-          584,
-          511,
-          973,
-          947
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          178,
-          342
+          248,
+          368
         ],
         "sockets": {
           "seat": [
-            762,
-            853
+            760,
+            880
           ],
           "leftHand": [
-            650,
-            723
+            648,
+            750
           ],
           "rightHand": [
-            937,
-            620
+            910,
+            636
           ]
         }
       },
@@ -129,27 +129,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "lever-contact",
         "direction": "rear",
         "cell": [
-          75,
-          988,
-          454,
-          1430
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          181,
-          340
+          249,
+          378
         ],
         "sockets": {
           "seat": [
-            256,
-            1328
+            249,
+            1402
           ],
           "leftHand": [
-            158,
-            1157
+            138,
+            1271
           ],
           "rightHand": [
-            421,
-            1323
+            402,
+            1373
           ]
         }
       },
@@ -158,27 +158,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "recover",
         "direction": "rear",
         "cell": [
-          571,
-          979,
-          974,
-          1429
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          202,
-          341
+          262,
+          381
         ],
         "sockets": {
           "seat": [
-            773,
-            1320
+            774,
+            1405
           ],
           "leftHand": [
-            635,
-            1180
+            658,
+            1268
           ],
           "rightHand": [
-            938,
-            1178
+            915,
+            1210
           ]
         }
       }
@@ -188,7 +188,7 @@ export const STAR_GALLERY_ATLASES = {
     "width": 1024,
     "height": 1536,
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 197.27272727272725,
+    "pixelsPerUnit": 185.9090909090909,
     "runtime": "/game-assets/physical-arcade/star-gallery/characters/chompy-driver-rear-v1.webp",
     "frames": [
       {
@@ -196,27 +196,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "ready",
         "direction": "rear",
         "cell": [
-          96,
-          28,
-          447,
-          476
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          172,
-          342
+          253,
+          363
         ],
         "sockets": {
           "seat": [
-            268,
-            370
+            253,
+            363
           ],
           "leftHand": [
-            164,
-            265
+            143,
+            255
           ],
           "rightHand": [
-            382,
-            262
+            367,
+            257
           ]
         }
       },
@@ -225,27 +225,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "steer-left",
         "direction": "rear",
         "cell": [
-          590,
-          45,
-          948,
-          476
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          185,
-          324
+          256,
+          367
         ],
         "sockets": {
           "seat": [
-            775,
-            369
+            768,
+            367
           ],
           "leftHand": [
-            686,
-            248
+            668,
+            240
           ],
           "rightHand": [
-            895,
-            318
+            875,
+            310
           ]
         }
       },
@@ -254,27 +254,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "steer-right",
         "direction": "rear",
         "cell": [
-          105,
-          538,
-          476,
-          967
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          185,
-          314
+          243,
+          370
         ],
         "sockets": {
           "seat": [
-            290,
-            852
+            243,
+            882
           ],
           "leftHand": [
-            201,
-            793
+            164,
+            804
           ],
           "rightHand": [
-            412,
-            727
+            374,
+            733
           ]
         }
       },
@@ -283,27 +283,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "lever-anticipation",
         "direction": "rear",
         "cell": [
-          598,
-          530,
-          954,
-          974
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          169,
-          322
+          243,
+          364
         ],
         "sockets": {
           "seat": [
-            767,
-            852
+            755,
+            876
           ],
           "leftHand": [
-            649,
-            803
+            650,
+            779
           ],
           "rightHand": [
-            920,
-            719
+            911,
+            722
           ]
         }
       },
@@ -312,27 +312,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "lever-contact",
         "direction": "rear",
         "cell": [
-          111,
-          1022,
-          482,
-          1446
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          174,
-          307
+          248,
+          367
         ],
         "sockets": {
           "seat": [
-            285,
-            1329
+            248,
+            1391
           ],
           "leftHand": [
-            195,
-            1252
+            157,
+            1273
           ],
           "rightHand": [
-            453,
-            1346
+            418,
+            1379
           ]
         }
       },
@@ -341,27 +341,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "recover",
         "direction": "rear",
         "cell": [
-          592,
-          1013,
-          952,
-          1457
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          177,
-          321
+          243,
+          370
         ],
         "sockets": {
           "seat": [
-            769,
-            1334
+            755,
+            1394
           ],
           "leftHand": [
             646,
-            1250
+            1272
           ],
           "rightHand": [
-            918,
-            1195
+            911,
+            1246
           ]
         }
       }
@@ -371,7 +371,7 @@ export const STAR_GALLERY_ATLASES = {
     "width": 1024,
     "height": 1536,
     "nominalHeight": 1.55,
-    "pixelsPerUnit": 291.61290322580646,
+    "pixelsPerUnit": 263.22580645161287,
     "runtime": "/game-assets/physical-arcade/star-gallery/characters/pip-driver-upper-rear-v1.webp",
     "frames": [
       {
@@ -379,27 +379,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "ready",
         "direction": "rear",
         "cell": [
-          76,
-          8,
-          440,
-          474
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          185,
-          439
+          259,
+          441
         ],
         "sockets": {
           "seat": [
-            261,
-            447
+            259,
+            441
           ],
           "leftHand": [
-            130,
-            305
+            121,
+            336
           ],
           "rightHand": [
-            390,
-            307
+            386,
+            337
           ]
         }
       },
@@ -408,27 +408,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "steer-left",
         "direction": "rear",
         "cell": [
-          598,
-          14,
-          940,
-          474
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          162,
-          433
+          233,
+          440
         ],
         "sockets": {
           "seat": [
-            760,
-            447
+            745,
+            440
           ],
           "leftHand": [
-            627,
-            271
+            623,
+            310
           ],
           "rightHand": [
-            883,
-            343
+            900,
+            358
           ]
         }
       },
@@ -437,27 +437,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "steer-right",
         "direction": "rear",
         "cell": [
-          65,
-          502,
-          421,
-          956
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          225,
-          421
+          282,
+          436
         ],
         "sockets": {
           "seat": [
-            290,
-            923
+            282,
+            948
           ],
           "leftHand": [
-            122,
-            849
+            128,
+            860
           ],
           "rightHand": [
-            396,
-            761
+            394,
+            800
           ]
         }
       },
@@ -466,27 +466,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "lever-anticipation",
         "direction": "rear",
         "cell": [
-          560,
-          494,
-          1009,
-          960
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          184,
-          440
+          236,
+          439
         ],
         "sockets": {
           "seat": [
-            744,
-            934
+            748,
+            951
           ],
           "leftHand": [
-            615,
-            832
+            609,
+            852
           ],
           "rightHand": [
-            949,
-            751
+            930,
+            771
           ]
         }
       },
@@ -495,27 +495,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "lever-contact",
         "direction": "rear",
         "cell": [
-          76,
-          971,
-          457,
-          1459
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          185,
-          444
+          256,
+          429
         ],
         "sockets": {
           "seat": [
-            261,
-            1415
+            256,
+            1453
           ],
           "leftHand": [
-            130,
-            1286
+            123,
+            1336
           ],
           "rightHand": [
-            397,
-            1401
+            389,
+            1448
           ]
         }
       },
@@ -524,27 +524,27 @@ export const STAR_GALLERY_ATLASES = {
         "action": "recover",
         "direction": "rear",
         "cell": [
-          565,
-          974,
-          1015,
-          1444
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          197,
-          443
+          236,
+          441
         ],
         "sockets": {
           "seat": [
-            762,
-            1417
+            748,
+            1465
           ],
           "leftHand": [
-            623,
-            1292
+            603,
+            1339
           ],
           "rightHand": [
-            950,
-            1227
+            926,
+            1307
           ]
         }
       }
@@ -554,7 +554,7 @@ export const STAR_GALLERY_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 4.7,
-    "pixelsPerUnit": 127.23404255319149,
+    "pixelsPerUnit": 103.40425531914893,
     "runtime": "/game-assets/physical-arcade/star-gallery/scenery/meadow-grove-kit-v1.webp",
     "frames": [
       {
@@ -562,23 +562,23 @@ export const STAR_GALLERY_ATLASES = {
         "action": "tree",
         "direction": "front",
         "cell": [
-          68,
-          1,
-          757,
-          599
+          0,
+          0,
+          800,
+          603
         ],
         "anchor": [
-          335,
-          589
+          437,
+          549
         ],
         "sockets": {
           "ground": [
-            403,
-            590
+            437,
+            549
           ],
           "cut": [
-            407,
-            472
+            405,
+            437
           ]
         }
       },
@@ -587,19 +587,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "stump",
         "direction": "front",
         "cell": [
-          870,
-          304,
-          1407,
-          599
+          800,
+          0,
+          1536,
+          630
         ],
         "anchor": [
-          280,
-          286
+          355,
+          574
         ],
         "sockets": {
           "ground": [
-            1150,
-            590
+            1155,
+            574
           ]
         }
       },
@@ -608,19 +608,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "sapling",
         "direction": "front",
         "cell": [
-          206,
+          0,
           603,
-          619,
-          1019
+          800,
+          1024
         ],
         "anchor": [
-          198,
-          407
+          395,
+          383
         ],
         "sockets": {
           "ground": [
-            404,
-            1010
+            395,
+            986
           ]
         }
       },
@@ -629,19 +629,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "flower-bed",
         "direction": "front",
         "cell": [
-          814,
-          654,
-          1441,
-          1007
+          800,
+          630,
+          1536,
+          1024
         ],
         "anchor": [
-          272,
-          344
+          334,
+          358
         ],
         "sockets": {
           "ground": [
-            1086,
-            998
+            1134,
+            988
           ]
         }
       }
@@ -651,7 +651,7 @@ export const STAR_GALLERY_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 4.7,
-    "pixelsPerUnit": 134.68085106382978,
+    "pixelsPerUnit": 101.91489361702128,
     "runtime": "/game-assets/physical-arcade/star-gallery/scenery/dino-grove-kit-v1.webp",
     "frames": [
       {
@@ -659,23 +659,23 @@ export const STAR_GALLERY_ATLASES = {
         "action": "tree",
         "direction": "front",
         "cell": [
-          40,
-          4,
-          796,
+          0,
+          0,
+          800,
           637
         ],
         "anchor": [
-          330,
-          630
+          390,
+          580
         ],
         "sockets": {
           "ground": [
-            370,
-            634
+            390,
+            580
           ],
           "cut": [
-            407,
-            502
+            397,
+            457
           ]
         }
       },
@@ -684,19 +684,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "stump",
         "direction": "front",
         "cell": [
-          806,
-          288,
-          1432,
+          800,
+          0,
+          1536,
           637
         ],
         "anchor": [
-          346,
-          343
+          383,
+          580
         ],
         "sockets": {
           "ground": [
-            1152,
-            631
+            1183,
+            580
           ]
         }
       },
@@ -705,19 +705,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "sapling",
         "direction": "front",
         "cell": [
-          201,
+          0,
           637,
-          625,
-          1019
+          800,
+          1024
         ],
         "anchor": [
-          251,
-          373
+          390,
+          352
         ],
         "sockets": {
           "ground": [
-            452,
-            1010
+            390,
+            989
           ]
         }
       },
@@ -727,18 +727,18 @@ export const STAR_GALLERY_ATLASES = {
         "direction": "front",
         "cell": [
           800,
-          643,
-          1457,
-          1020
+          637,
+          1536,
+          1024
         ],
         "anchor": [
-          371,
-          367
+          353,
+          352
         ],
         "sockets": {
           "ground": [
-            1171,
-            1010
+            1153,
+            989
           ]
         }
       }
@@ -748,7 +748,7 @@ export const STAR_GALLERY_ATLASES = {
     "width": 1536,
     "height": 1024,
     "nominalHeight": 4.7,
-    "pixelsPerUnit": 134.04255319148936,
+    "pixelsPerUnit": 95.95744680851064,
     "runtime": "/game-assets/physical-arcade/star-gallery/scenery/moonwood-grove-kit-v1.webp",
     "frames": [
       {
@@ -756,23 +756,23 @@ export const STAR_GALLERY_ATLASES = {
         "action": "tree",
         "direction": "front",
         "cell": [
-          107,
           0,
-          779,
+          0,
+          800,
           630
         ],
         "anchor": [
-          320,
-          622
+          462,
+          574
         ],
         "sockets": {
           "ground": [
-            427,
-            622
+            462,
+            574
           ],
           "cut": [
-            425,
-            503
+            431,
+            494
           ]
         }
       },
@@ -781,19 +781,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "stump",
         "direction": "front",
         "cell": [
-          840,
-          290,
-          1403,
-          625
+          800,
+          0,
+          1536,
+          630
         ],
         "anchor": [
-          258,
-          326
+          428,
+          572
         ],
         "sockets": {
           "ground": [
-            1098,
-            616
+            1228,
+            572
           ]
         }
       },
@@ -802,19 +802,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "sapling",
         "direction": "front",
         "cell": [
-          225,
+          0,
           630,
-          643,
+          740,
           1024
         ],
         "anchor": [
-          208,
-          387
+          352,
+          358
         ],
         "sockets": {
           "ground": [
-            433,
-            1017
+            352,
+            988
           ]
         }
       },
@@ -823,19 +823,19 @@ export const STAR_GALLERY_ATLASES = {
         "action": "flower-bed",
         "direction": "front",
         "cell": [
-          765,
+          740,
           630,
-          1468,
-          1012
+          1536,
+          1024
         ],
         "anchor": [
-          418,
-          370
+          388,
+          358
         ],
         "sockets": {
           "ground": [
-            1183,
-            1000
+            1128,
+            988
           ]
         }
       }

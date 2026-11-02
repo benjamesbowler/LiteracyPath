@@ -2,8 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { sentenceExpressConductorAction, sentenceExpressCouplingPose } from '../../src/components/learn/games/games/sentenceExpressConductorPose.js';
+import { sentenceExpressStockGeometry } from '../../src/components/learn/games/games/sentenceExpressRailGeometry.js';
 
-const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/sentence-express/manifest.json', 'utf8'));
+const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/sentence-express/clean-cartoon-manifest.json', 'utf8'));
 const atlases = Object.fromEntries(manifest.assets.filter(asset => asset.id.endsWith('conductor')).map(asset => [asset.id, {
   width: asset.sourceSize[0], height: asset.sourceSize[1], nominalHeight: asset.nominalHeight,
   pixelsPerUnit: asset.pixelsPerUnit, frames: asset.frames
@@ -29,4 +30,17 @@ test('Express conductor actions follow actual coupling, Send/departure and recov
   assert.equal(sentenceExpressConductorAction({ canSend: true }), 'send-ready');
   assert.equal(sentenceExpressConductorAction({ departing: true }), 'wave');
   assert.equal(sentenceExpressConductorAction({ departing: true, recovering: true }), 'recover');
+});
+
+test('current conductors reach the retained stock coupler at both compact and full train heights without stretching', () => {
+  for (const height of [68, 110]) for (const world of ['meadow', 'dino', 'moonwood']) for (const mirror of [false, true]) {
+    const stock = sentenceExpressStockGeometry({ left: 90, top: 30, width: 150, height }, 'wagon',
+      { left: 0, top: 0, width: 640, height: 320 });
+    const result = sentenceExpressCouplingPose(atlases, world, { coupler: stock.rightCoupler, railY: stock.sole.y, mirror });
+    assert(result, `${world}/${height}px stock requires a complete readable coupling pose`);
+    assert(result.height >= 72 && result.height <= 164);
+    assert(Math.abs(result.pose.sockets.nearHand.x - stock.rightCoupler.x) < 1e-8);
+    assert(Math.abs(result.pose.sockets.nearHand.y - stock.rightCoupler.y) < 1e-8);
+    assert.equal(result.pose.sockets.feet.y, stock.sole.y);
+  }
 });

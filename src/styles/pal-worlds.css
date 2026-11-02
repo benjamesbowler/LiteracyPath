@@ -5,7 +5,7 @@
   --pal-accent: #3454C8;
   --pal-accent-soft: #F7F8FA;
   --pal-deep: #18263E;
-  --pal-banner: url("/images/pals/meadow-panorama.webp");
+  --pal-banner: url("/images/pals/meadow-panorama.webp?v=53ccd70a2ac7");
   --pal-activity-bg: url("/images/backdrops/activity-bg-meadow.webp");
   --pal-emblem: url("/images/pals/meadow-emblem.webp");
   --pal-mesh:
@@ -18,7 +18,7 @@
   --pal-accent: #C2702A;
   --pal-accent-soft: #FBEFE2;
   --pal-deep: #92511B;
-  --pal-banner: url("/images/pals/dino-panorama.webp");
+  --pal-banner: url("/images/pals/dino-panorama.webp?v=6e7ab81b84df");
   --pal-activity-bg: url("/images/backdrops/activity-bg-dino.webp");
   --pal-emblem: url("/images/pals/dino-emblem.webp");
   --pal-mesh:
@@ -31,7 +31,7 @@
   --pal-accent: #5E4D9C;
   --pal-accent-soft: #EFEBFA;
   --pal-deep: #443678;
-  --pal-banner: url("/images/pals/moonwood-panorama.webp");
+  --pal-banner: url("/images/pals/moonwood-panorama.webp?v=4a4148311a87");
   --pal-activity-bg: url("/images/backdrops/activity-bg-moonwood.webp");
   --pal-emblem: url("/images/pals/moonwood-emblem.webp");
   --pal-mesh:

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { withRepairedImageVersion } from "../../../../utils/repairedImageVersion.js";
 
 export function WordImage({ src, word, className = "", priority = false }) {
   const [failedSrc, setFailedSrc] = useState("");
@@ -18,7 +19,7 @@ export function WordImage({ src, word, className = "", priority = false }) {
   return (
     <span className={`phonics-img-frame ${className}`}>
       <img
-        src={src}
+        src={withRepairedImageVersion(src)}
         alt={word}
         className={loaded ? "is-loaded" : ""}
         onLoad={() => setLoadedSrc(src)}

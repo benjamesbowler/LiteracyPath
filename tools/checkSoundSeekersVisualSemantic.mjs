@@ -12,7 +12,7 @@ import {
   validateSoundSeekersVisualCatalogs
 } from "../src/features/soundSeekers/visual/sceneVisualCatalog.js";
 import { buildSoundSeekersV2AuthoritySnapshot } from "./checkSoundSeekersV2Content.mjs";
-import { readSoundSeekersV2AssetManifest } from "./lib/soundSeekersV2AssetManifest.mjs";
+import { readCurrentSoundSeekersV2Delivery } from './lib/soundSeekersV2CurrentDelivery.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -38,7 +38,7 @@ export function validateSoundSeekersVisualAuthorities(authorities) {
 export function assertSoundSeekersVisualSemantics() {
   validateSoundSeekersBiomeKits(SOUND_SEEKERS_BIOME_KITS);
   validateSoundSeekersVisualCatalogs();
-  const manifest = readSoundSeekersV2AssetManifest();
+  const manifest = readCurrentSoundSeekersV2Delivery();
   if (manifest.assets.length !== 8 || manifest.assets.flatMap(asset => asset.cropReview.profiles).length !== 24) {
     throw new Error("Sound Seekers v2 raster inventory must contain eight assets and 24 crops");
   }

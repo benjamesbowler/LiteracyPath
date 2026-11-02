@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { getChildWordAsset } from "./data/childAssets.js";
+import { withRepairedImageVersion } from "./utils/repairedImageVersion.js";
 import { createRoot } from "react-dom/client";
 
 // Media/layout proof uses the same bundled teaching/UI fonts as main.jsx.
@@ -16,6 +18,12 @@ import { normalizeV3Question } from "./data/loadAssessmentSkillBank.js";
 import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
 import { buildAssessmentAttemptRecord } from "./data/assessmentHistoryStore.js";
 
+function previewWordImage(word) {
+  const image = getChildWordAsset(word)?.image;
+  if (!image) throw new Error(`Missing current preview picture for ${word}`);
+  return withRepairedImageVersion(image);
+}
+
 const BROKEN_SOURCE = "/images/assessment/does-not-exist-a3-10.webp";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const IS_COMPACT_VISUAL_GRID = PREVIEW_PARAMS.get("scenario") === "compact-visual-grid";
@@ -23,6 +31,7 @@ const IS_LOCKED_ASSESSMENT = PREVIEW_PARAMS.get("locked") === "1";
 const IS_RESPONSE_LATENCY = PREVIEW_PARAMS.get("scenario") === "response-latency";
 const REQUESTED_SKILL = PREVIEW_PARAMS.get("skill") || "";
 const REQUESTED_ITEM_ID = PREVIEW_PARAMS.get("item") || "";
+const IS_CLASSROOM_REFERENCE = PREVIEW_PARAMS.get("bank") === "classroom";
 
 const COMPACT_VISUAL_GRID_QUESTION = {
   id: "preview.initial_sounds.rat.v1",
@@ -96,7 +105,7 @@ const FAILED_QUESTION = {
       alt: "A cat"
     },
     dog: {
-      image: "/images/child-mode/initial-sounds/dog.webp",
+      image: previewWordImage("dog"),
       alt: "A dog"
     }
   }
@@ -115,7 +124,7 @@ const SHARED_FAILURE_QUESTION = {
       alt: "A cat"
     },
     map: {
-      image: "/images/child-mode/initial-sounds/map.webp",
+      image: previewWordImage("map"),
       alt: "A map"
     }
   }
@@ -130,10 +139,10 @@ const SAFE_QUESTION = {
   choices: ["sun", "map"],
   choiceImages: {
     sun: {
-      image: "/images/child-mode/initial-sounds/sun.webp"
+      image: previewWordImage("sun")
     },
     map: {
-      image: "/images/child-mode/initial-sounds/map.webp",
+      image: previewWordImage("map"),
       alt: "A folded map"
     }
   }
@@ -148,10 +157,10 @@ const SAFE_REFILL = {
   choices: ["dog", "cat"],
   choiceImages: {
     dog: {
-      image: "/images/child-mode/initial-sounds/dog.webp"
+      image: previewWordImage("dog")
     },
     cat: {
-      image: "/images/child-mode/initial-sounds/cat.webp"
+      image: previewWordImage("cat")
     }
   }
 };
@@ -270,7 +279,7 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
           ? [{ id: currentQuestion?.skillId || "initial_sounds", label: currentQuestion?.skillName || "Initial Sounds" }]
           : []}
         onChangeSkillLevel={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? () => {} : null}
-        onEvidenceImageError={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? null : handleEvidenceImageError}
+        onEvidenceImageError={IS_CLASSROOM_REFERENCE ? handleEvidenceImageError : IS_COMPACT_VISUAL_GRID || inspectedQuestion ? null : handleEvidenceImageError}
         independentAssessment={IS_LOCKED_ASSESSMENT || IS_RESPONSE_LATENCY}
         isAssessmentTransitioning={savingAnswer}
         sessionNotice={IS_LOCKED_ASSESSMENT ? (
@@ -357,6 +366,12 @@ if (PREVIEW_PARAMS.get("scenario") === "completion-recovery") {
   const authoredQuestion = questions.find(question => question.id === REQUESTED_ITEM_ID) || questions[0] || null;
   const inspectedQuestion = authoredQuestion ? normalizeV3Question(authoredQuestion, REQUESTED_SKILL) : null;
   root.render(<AssessmentMediaEvidencePreview inspectedQuestion={inspectedQuestion} />);
+} else if (IS_CLASSROOM_REFERENCE) {
+  const { loadLiteracyReferenceBank } = await import("./data/literacyReferenceBank.js");
+  const { presentLiteracyPracticeQuestion } = await import("./data/literacyPracticeBank.js");
+  const question = loadLiteracyReferenceBank().find(item => item.id === REQUESTED_ITEM_ID);
+  if (!question) throw new Error("Unknown classroom reference item: " + REQUESTED_ITEM_ID);
+  root.render(<AssessmentMediaEvidencePreview inspectedQuestion={presentLiteracyPracticeQuestion(question)} />);
 } else {
   root.render(<AssessmentMediaEvidencePreview />);
 }

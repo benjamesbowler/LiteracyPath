@@ -1,0 +1,125 @@
+{
+  "jobId": "art-0632",
+  "path": "/images/hollow/scene-dino.webp",
+  "sameArtworkPaths": [
+    "/images/hollow/scene-dino.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0632.webp",
+  "sourceSha256": "7978b295a58daa5adaa482403e2253463ee3e1d7ee9660a31bcd5c9e087150a0",
+  "originalSha256": "7978b295a58daa5adaa482403e2253463ee3e1d7ee9660a31bcd5c9e087150a0",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0632.webp",
+  "finalSha256": "e52d6b014d9531c47d70a0dc1f2e504a5bf3cab150ab1ec2bc9176b347154461",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-bdafc195-ac24-4770-ae00-3e078ec967df.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0632/native-003.png",
+  "nativeSha256": "089b7a3a8498b1a52facb2bc0a3ff973e351eaa6ef009a0838f369f5b8b0e80b",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "promptFile": "source-art/hollow/clean-cartoon/scene-dino.prompt.txt",
+  "promptSha256": "c00e1c25eb584bcaf8a54d9d1e06621d5b11801d42936421462c94aced35b27e",
+  "referenceImages": [
+    {
+      "path": "source-art/hollow/clean-cartoon/references/scene-dino-input-1.png",
+      "sha256": "1a42a8835d6dd78a1dd1b5cb0cc5004def33d0b7b2f6078d6c59c06ef1c4754f"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 3,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Golden flatoutlined cave withsixarches/fourlowercrystalalcoves,lefthearth/rightvolcano,ammonite/fourfern/ordinaryspiralmotifs. Allsixvisiblebodies align with horizontalcreamtabletops; plainochrewall andclearhardedge shadows replacemottledpaint. NativePNG, exactfullsavedWebP and390/128 deliverytiles directlyviewed.54actualfull/emptydesktop/phoneHome+Decorateframes and12finalHomeframes reviewed withactualcontact/hit/ownership/cachechecks. No physical-device/human-classroom/hostedacceptance claim.",
+    "reviewedAt": "2026-11-02T03:15:50.748Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/registered-v2/browser-proof.json",
+        "sha256": "2613addf9b6240cbefb364e25c5729743e763029b6299fd8cf8da73ceccbd0e4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/home-final-v2/browser-proof.json",
+        "sha256": "777b5082af798db3e7381e9631fca592e0cfed1eb0be4293207b52ba0bcbcdf5"
+      }
+    ],
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven390.png",
+    "display390Sha256": "91d15f8c13c3535445fa3249f9113dc1c1a74ea55278df6e005907a0fa105213",
+    "display128File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven128.png",
+    "display128Sha256": "57dead09ff9a93ce067894937a710f8a3d5d59c065c8e480f9b47081a321ba42",
+    "releaseRegression": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/release-regression-v2.json",
+      "sha256": "69c38988de24cf856415db7de0f8f321a97cd71b205aa10110f8dcdbdb1e1978",
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "placementRevision": "clean-cartoon-room-contacts-2026-11-02",
+  "slotContacts": [
+    [
+      22.84688995215311,
+      59.93623804463337
+    ],
+    [
+      33.3133971291866,
+      59.93623804463337
+    ],
+    [
+      44.13875598086124,
+      59.93623804463337
+    ],
+    [
+      55.02392344497608,
+      59.93623804463337
+    ],
+    [
+      65.9688995215311,
+      59.93623804463337
+    ],
+    [
+      76.43540669856459,
+      59.93623804463337
+    ]
+  ],
+  "source": "source-art/hollow/clean-cartoon/scene-dino.png",
+  "provider": {
+    "jobId": "art-0632",
+    "attempt": 3,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-bdafc195-ac24-4770-ae00-3e078ec967df.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-bdafc195-ac24-4770-ae00-3e078ec967df.png"
+  },
+  "lineage": {
+    "originalRuntime": "/images/hollow/scene-dino.webp",
+    "originalRuntimeSha256": "7978b295a58daa5adaa482403e2253463ee3e1d7ee9660a31bcd5c9e087150a0"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "nativeSha256": "0b97e2e7113bd4e03be2aa7908105d2377e6f1881fe00c38247abdf954dcf92e",
+      "promptSha256": "8fb2373bf88726c49487a147bd664529639cd186bb74418c52918bf880b42402",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 2,
+      "nativeSha256": "9615a458d9d4cfff7b48686e9bded7ab8ba60ea52487e1933400b02e14fdfce8",
+      "promptSha256": "1ab9b4bc1447ef74616ac255af859f0991f459620984db45e0c160702eb39e65",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 3,
+      "nativeSha256": "089b7a3a8498b1a52facb2bc0a3ff973e351eaa6ef009a0838f369f5b8b0e80b",
+      "promptSha256": "c00e1c25eb584bcaf8a54d9d1e06621d5b11801d42936421462c94aced35b27e",
+      "disposition": "accepted"
+    }
+  ],
+  "installedAt": "2026-11-02T03:50:15.974Z"
+}

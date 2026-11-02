@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../utils/repairedImageVersion.js';
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { PRODUCT_CATALOG_FACTS } from "../data/productCatalogFacts.js";
 import { TEACHER_BRAND } from "../data/teacherBrand.js";
@@ -40,7 +41,7 @@ const FEATURE_TILES = [
 const WORLD_CARDS = [
   {
     id: "meadow",
-    band: "Level A · cycles 1–9",
+    band: "Cycles 1–9",
     name: "Meadow Pals",
     text: "First sounds, first words, first whole books — sunny stories for brand-new readers.",
     panorama: "/images/pals/meadow-panorama.webp",
@@ -48,7 +49,7 @@ const WORLD_CARDS = [
   },
   {
     id: "dino",
-    band: "Level B · cycles 10–18",
+    band: "Cycles 10–18",
     name: "Dino Pals",
     text: "Longer words, digraphs and blends, in warm prehistoric adventures.",
     panorama: "/images/pals/dino-panorama.webp",
@@ -56,7 +57,7 @@ const WORLD_CARDS = [
   },
   {
     id: "moonwood",
-    band: "Level C · cycles 19–27",
+    band: "Cycles 19–27",
     name: "Moonwood Tales",
     text: "Fluency, comprehension and real chapter-style reading under the moon.",
     panorama: "/images/pals/moonwood-panorama.webp",
@@ -203,14 +204,14 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           </p>
         </div>
         <img
-          src="/images/pals/poses/meadow-wave.webp"
+          src={withRepairedImageVersion("/images/pals/poses/meadow-wave.webp")}
           alt=""
           className="lp-landing-pal lp-landing-pal-wave"
         />
         <ul className="lp-landing-tiles">
           {FEATURE_TILES.map(tile => (
             <li key={tile.id} className="lp-landing-tile">
-              <img src={tile.image} alt="" className="lp-landing-tile-art" loading="lazy" decoding="async" />
+              <img src={withRepairedImageVersion(tile.image)} alt="" className="lp-landing-tile-art" loading="lazy" decoding="async" />
               <h3>{tile.title}</h3>
               <p>{tile.text}</p>
             </li>
@@ -230,9 +231,9 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         </div>
         <ul className="lp-landing-world-grid">
           {WORLD_CARDS.map(world => (
-            <li key={world.id} className="lp-landing-world" style={{ backgroundImage: `url(${world.panorama})` }}>
+            <li key={world.id} className="lp-landing-world" style={{ backgroundImage: `url(${withRepairedImageVersion(world.panorama)})` }}>
               <span className="lp-landing-world-band">
-                <img src={world.emblem} alt="" loading="lazy" decoding="async" />
+                <img src={withRepairedImageVersion(world.emblem)} alt="" loading="lazy" decoding="async" />
                 {world.band}
               </span>
               <h3>{world.name}</h3>
@@ -295,8 +296,8 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           </ul>
         </div>
         <div className="lp-landing-safe-art" aria-hidden="true">
-          <img src="/images/pals/poses/dino-read.webp" alt="" />
-          <img src="/images/pals/poses/moonwood-celebrate.webp" alt="" />
+          <img src={withRepairedImageVersion("/images/pals/poses/dino-read.webp")} alt="" />
+          <img src={withRepairedImageVersion("/images/pals/poses/moonwood-celebrate.webp")} alt="" />
         </div>
       </section>
 

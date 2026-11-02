@@ -275,9 +275,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/blends/flag.webp": {
     "path": "/images/assessment/blends/flag.webp",
-    "sha256": "8c5a7615ca14f0e46e64047c42fdf19a973fc78225794f67b3c844a8452cb94f",
+    "sha256": "0882325bf7d187ff0b443ff466bd1ab19a1e52da5524dee916e552e192f91847",
     "visualReview": "approved",
-    "reviewedAt": "2026-08-14",
+    "reviewedAt": "2026-11-02",
     "brightness": "bright",
     "saturation": "bold",
     "medium": "classic-flat-2d-cartoon",
@@ -292,7 +292,12 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "painterly": false,
     "sourceSheet": "batch5-00.png",
     "sourceCell": 14,
-    "repairedFrom": null
+    "repairedFrom": null,
+    "replacementReview": {
+      "previousSha256": "8c5a7615ca14f0e46e64047c42fdf19a973fc78225794f67b3c844a8452cb94f",
+      "method": "Direct clean cartoon native, saved and displayed-size review; exact completed-cohort bytes.",
+      "cohort": "2026-10-31"
+    }
   },
   "/images/assessment/blends/flower.webp": {
     "path": "/images/assessment/blends/flower.webp",

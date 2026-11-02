@@ -1,5 +1,6 @@
 import { SOUND_BEAT_ART } from './soundBeatArtData.js';
 import { SOUND_BEAT_POSES, createSoundBeatPerformanceArt, soundBeatMusicalPose } from './soundBeatPerformanceArt.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const WORLD_ROW = { meadow: 0, dino: 1, moonwood: 2 };
 
@@ -23,7 +24,7 @@ function ownedImage(asset) {
         finish(!disposed && current === ticket && picture.naturalWidth === asset.width && picture.naturalHeight === asset.height);
       };
       picture.onerror = () => finish(false);
-      picture.src = ''; picture.src = asset.runtime;
+      picture.src = ''; picture.src = withRepairedImageVersion(asset.runtime);
     });
   }
   void load();
@@ -58,10 +59,16 @@ export function createSoundBeatWorld(world) {
 
   function drum(ctx, target, width, pressure, row) {
     const frame = kitAsset?.frames[row * 4];
-    // Measured membrane centre is17% below the full drum's source top.
     const drumHeight = frame ? (frame.cell[3] - frame.cell[1]) / (frame.cell[2] - frame.cell[0]) * width : width;
-    const baseline = target.y + drumHeight * 0.83;
-    if (prop(ctx, row * 4, target.x, baseline, width, pressure)) return;
+    const compression = 1 - Math.min(0.045, pressure * 0.045);
+    const [left, top, right, bottom] = frame?.cell || [0, 0, width, drumHeight];
+    // The current source records its actual cream membrane centre. Keep that
+    // painted point under the physical tip while the drum compresses.
+    const membrane = frame?.membraneCentre || [(left + right) / 2, top + (bottom - top) * 0.17];
+    const scale = width / (right - left);
+    const centreX = target.x + width / 2 - (membrane[0] - left) * scale;
+    const baseline = target.y + (bottom - membrane[1]) * scale * compression;
+    if (prop(ctx, row * 4, centreX, baseline, width, pressure)) return;
     ctx.fillStyle = '#bd8750'; ctx.strokeStyle = '#614326'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.roundRect(target.x - width / 2, target.y, width, drumHeight * 0.83, 10); ctx.fill(); ctx.stroke();
     ctx.fillStyle = '#f3e8c7'; ctx.beginPath(); ctx.ellipse(target.x, target.y, width / 2, width * 0.16, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();

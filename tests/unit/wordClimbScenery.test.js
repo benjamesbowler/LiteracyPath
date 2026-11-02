@@ -11,7 +11,10 @@ const root=new URL('../../',import.meta.url);
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 test('three original Climb scenery atlases retain whole silhouettes, exact derivatives and truthful local-native/manual boundaries',async()=>{
   const directory='source-art/arcade/physical-worlds/word-climb/';
-  const manifest=JSON.parse(await fs.readFile(new URL(directory+'scenery-manifest.json',root),'utf8'));
+  const manifest=JSON.parse(await fs.readFile(new URL(directory+'scenery-clean-cartoon-manifest.json',root),'utf8'));
+  assert.equal(manifest.currentRegistration,'scenery-clean-cartoon-registration.json');
+  assert.equal(hash(await fs.readFile(new URL(directory+manifest.currentRegistration,root))),manifest.registrationSha256);
+  assert.equal(hash(await fs.readFile(new URL(manifest.historicalManifest.path,root))),manifest.historicalManifest.sha256,'Sealed historical scenery remains provenance only');
   assert.equal(manifest.runtimeAcceptance,'LOCAL_NATIVE_PASS');assert.equal(manifest.assets.length,3);
   assert.equal(manifest.humanApproval,'UNKNOWN');assert.equal(manifest.physicalDeviceObservation,'UNKNOWN');
   assert.equal(manifest.reviewedEvidence,'docs/design/WORD_CLIMB_IMPLEMENTATION.md');
@@ -21,6 +24,7 @@ test('three original Climb scenery atlases retain whole silhouettes, exact deriv
     const {data,info}=await sharp(source).ensureAlpha().raw().toBuffer({resolveWithObject:true});
     const derived=await sharp(runtime).metadata();assert.deepEqual([info.width,info.height],asset.sourceSize);assert.deepEqual([derived.width,derived.height],asset.runtimeSize);
     assert.equal(hash(await fs.readFile(new URL(directory+asset.prompt,root))),asset.promptSha256);
+    assert.equal(hash(await fs.readFile(new URL(asset.receipt,root))),asset.receiptSha256);
     assert(asset.maxEdgeAlpha<=1,'Recorded only invisible generator edge residue; no clipped actual artwork');
     assert.equal(asset.frames.length,4);assert.deepEqual(WORD_CLIMB_SCENERY[asset.world].frames,asset.frames);
     for(const frame of asset.frames){const[l,t,r,b]=frame.opaqueBounds;assert(Math.min(l,t,info.width-r,info.height-b)>=15);assert(frame.opaqueArea>10000);

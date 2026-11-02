@@ -1,0 +1,121 @@
+{
+  "jobId": "art-0630",
+  "path": "/images/hollow/band-pond.webp",
+  "sameArtworkPaths": [
+    "/images/hollow/band-pond.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0630.webp",
+  "sourceSha256": "d7b486676170e82de7a8a62f95833cb0e8797258844f1c914128c64740630862",
+  "originalSha256": "d7b486676170e82de7a8a62f95833cb0e8797258844f1c914128c64740630862",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0630.webp",
+  "finalSha256": "a2fc0c15a4f73cd9195d1ae7a117655e325537f40d8de8db6504d7b26e38dc19",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-9b9e5795-bb46-4077-bc9d-4f0fc7870752.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0630/native-004.png",
+  "nativeSha256": "e30ec92fdeda5b463488c5ffb9e108fbc5935a2e0ee7b33d3c9e1b815c277f55",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "promptFile": "source-art/hollow/clean-cartoon/band-pond.prompt.txt",
+  "promptSha256": "56ceb2a442699c1bd0f9e54e1c12b3ce39b54c7379a20b6bc72610aef870d672",
+  "referenceImages": [
+    {
+      "path": "source-art/hollow/clean-cartoon/references/band-pond-input-1.png",
+      "sha256": "13cc117657a77e313ebd44dfb648eafd13ee97d709f769f3353e96a0609a2ad6"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 4,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Clean outlined pond room with exactlyfourcreamcubbies plusfourlowerstonepads, naturaltimberframe,leftarched/rightsimplewindows, plainwall, reeds/lilies/moonreflection. Savedfour slots use actualuppercubbybases; allmechanicaloverlay stays independent. NativePNG, exactfullsavedWebP and390/128 deliverytiles directlyviewed.54actualfull/emptydesktop/phoneHome+Decorateframes and12finalHomeframes reviewed withactualcontact/hit/ownership/cachechecks. No physical-device/human-classroom/hostedacceptance claim.",
+    "reviewedAt": "2026-11-02T03:15:50.628Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/registered-v2/browser-proof.json",
+        "sha256": "2613addf9b6240cbefb364e25c5729743e763029b6299fd8cf8da73ceccbd0e4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/home-final-v2/browser-proof.json",
+        "sha256": "777b5082af798db3e7381e9631fca592e0cfed1eb0be4293207b52ba0bcbcdf5"
+      }
+    ],
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven390.png",
+    "display390Sha256": "91d15f8c13c3535445fa3249f9113dc1c1a74ea55278df6e005907a0fa105213",
+    "display128File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven128.png",
+    "display128Sha256": "57dead09ff9a93ce067894937a710f8a3d5d59c065c8e480f9b47081a321ba42",
+    "releaseRegression": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/release-regression-v2.json",
+      "sha256": "69c38988de24cf856415db7de0f8f321a97cd71b205aa10110f8dcdbdb1e1978",
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "placementRevision": "clean-cartoon-room-contacts-2026-11-02",
+  "slotContacts": [
+    [
+      28.289473684210524,
+      52.81615302869288
+    ],
+    [
+      42.70334928229665,
+      52.81615302869288
+    ],
+    [
+      57.35645933014354,
+      52.81615302869288
+    ],
+    [
+      71.83014354066985,
+      52.81615302869288
+    ]
+  ],
+  "source": "source-art/hollow/clean-cartoon/band-pond.png",
+  "provider": {
+    "jobId": "art-0630",
+    "attempt": 4,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-9b9e5795-bb46-4077-bc9d-4f0fc7870752.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-9b9e5795-bb46-4077-bc9d-4f0fc7870752.png"
+  },
+  "lineage": {
+    "originalRuntime": "/images/hollow/band-pond.webp",
+    "originalRuntimeSha256": "d7b486676170e82de7a8a62f95833cb0e8797258844f1c914128c64740630862"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "nativeSha256": "6882bc19e2c5f964fabeb91afc84fef33186832246dabbb69fd0e4c4b418b457",
+      "promptSha256": "2ea1e1d77d95dff6c816c682e1a67bcd63391492487047bb2a683a5f41ff53ed",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 2,
+      "disposition": "interrupted provider attempt; no saved output found, completion unknown"
+    },
+    {
+      "attempt": 3,
+      "nativeSha256": "e6efd5a822d06bace8df73771b54ec0b9a16e8651945f1c921ba5b4e7561f942",
+      "promptSha256": "5d56e4f66186d1d76d605ef63dc2ed730714db5e82b2fccd348e8b17bb73b005",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 4,
+      "nativeSha256": "e30ec92fdeda5b463488c5ffb9e108fbc5935a2e0ee7b33d3c9e1b815c277f55",
+      "promptSha256": "56ceb2a442699c1bd0f9e54e1c12b3ce39b54c7379a20b6bc72610aef870d672",
+      "disposition": "accepted"
+    }
+  ],
+  "installedAt": "2026-11-02T03:50:15.973Z"
+}

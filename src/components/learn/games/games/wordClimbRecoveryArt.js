@@ -1,13 +1,12 @@
 import { PHYSICAL_PAL_ART } from '../shared/physicalPalArtData.js';
 
-// These are measured centres of the visible raised palms in the retained
-// runtime-sized tools sheets. They are not offsets inferred from a sprite box.
-// The common sole anchors and all source crops remain the shared authority.
-export const WORD_CLIMB_RECOVERY_PALMS = Object.freeze({
-  bouncy: Object.freeze([[359, 520], [769, 521]]),
-  chompy: Object.freeze([[364, 538], [782, 537]]),
-  pip: Object.freeze([[307, 578], [687, 563]])
-});
+// Recovery uses the same directly measured visible palms as the current shared
+// tools atlas. Source coordinates stay bound to its registered cells/soles.
+export const WORD_CLIMB_RECOVERY_PALMS = Object.freeze(Object.fromEntries(
+  Object.entries(PHYSICAL_PAL_ART).map(([hero, source]) => [hero, Object.freeze(
+    [4, 5].map(index => Object.freeze([...source.actionAtlases.tools.frames[index].rightHandPixel]))
+  )])
+));
 
 // This older one-pose image is a Moonwood-only last retained-art recovery.
 // Its visible forehand and two boots were measured on the exact 360×512 image.
@@ -21,7 +20,9 @@ export const WORD_CLIMB_LEGACY_PIP = Object.freeze({
 });
 
 function frame(atlas, index, hero, action, grip) {
-  const source = atlas.frames[index];
+  // Recovery exposes the named grip only, rather than also aliasing the same
+  // measured palm as a second independently usable hand.
+  const source = { ...atlas.frames[index] }; delete source.rightHandPixel; delete source.leftHandPixel;
   return { ...source, id: `${hero}-retained-climb-recovery-${action}`, action,
     sockets: { feet: [source.cell[0] + source.anchor[0], source.cell[1] + source.anchor[1]],
       ...(grip ? { grip: [...grip] } : {}) } };

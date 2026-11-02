@@ -51,7 +51,7 @@ function withBrowser(testBody) {
   }
 }
 
-test("Little Literacy Guides are book characters and the first choice is free", () => withBrowser(() => {
+test("Little Literacy Guides keep six qualified choices and the first choice is free", () => withBrowser(() => {
   assert.equal(COMPANIONS.length, 6);
   for (const guide of COMPANIONS) {
     assert.ok(guide.name);

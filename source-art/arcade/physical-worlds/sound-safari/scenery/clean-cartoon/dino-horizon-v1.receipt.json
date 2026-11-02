@@ -1,0 +1,107 @@
+{
+  "jobId": "art-0662",
+  "path": "/game-assets/physical-arcade/sound-safari/scenery/dino-horizon-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/sound-safari/scenery/dino-horizon-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0662.webp",
+  "sourceSha256": "9e14a6e58e23927fe8dd2c4e763fd9fe48d1e76dd8b5dce360e1c4a41944bb31",
+  "originalSha256": "9e14a6e58e23927fe8dd2c4e763fd9fe48d1e76dd8b5dce360e1c4a41944bb31",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0662.webp",
+  "finalSha256": "f5675cf9ade1f301c51b6cb9f1235af9d990bd3d0e8c7b711fa7c1ad388e653b",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-07fe3a35-2ade-4db7-9c7a-e58597e74698.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0662/native-003.png",
+  "nativeSha256": "20bc1308fe7e735ea87f29fad503aa9bf01fc58f6df3e407adfacb7e51d2bafb",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.prompt.txt",
+  "promptSha256": "3a505e52bed7d35aa953f56955ee3d66ef7fc7e96ac8de21fc56bb8c7a8f0819",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/references/dino-horizon-v1-input-1.png",
+      "sha256": "34c6139ca000ff3fa83dfb9da16ba72c18c63d555b76aa46336b787e1920943d"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 3,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Distinct original sound-safari dino backdrop, bold continuous outlines and broad smooth flat fields throughout, neutral ordinary nature/structures. Exact native, full encoded WebP,390/128 and27actualfullscreenframes directlyviewed; LetterLeap also3actualmirroredjoinframes. Dino sand/fossil semantics restored where required. No gameplay/audio/learner-save/physical-device or hosted-release claim.",
+    "reviewedAt": "2026-11-02T05:48:48.075Z",
+    "display128Viewed": true,
+    "notABook": true,
+    "fullContextViewed": true,
+    "contextFiles": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen/browser-proof.json",
+        "sha256": "87c6276de4a1c9930a84b79bfb765b05a7041d0c61fae74d13d0784571717dde",
+        "frames": 27
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored/browser-proof.json",
+        "sha256": "a55c00b38a3b5b6ea884404ba3e0bdadad4816f1a8f37b6dcf06e1b9fb58bb90",
+        "frames": 3
+      }
+    ]
+  },
+  "installedAt": "2026-11-02T05:48:48.079Z",
+  "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.png",
+  "provider": {
+    "jobId": "art-0662",
+    "attempt": 3,
+    "prompt": "Use case: precise-object-edit. Correct only TWO details in this OWN CLEAN CARTOON Dino discoveryglade candidate. (1) The large EMPTY foregroundclearing mustbe SANDY warm paleochre/tan, notgreen grass. Recolor its entireflatcentralclearing tooneUNIFORMsolidpalesandfield, withatmostonesimplehardedgedshadow fromedgeplants; keepborderfernsgrassgreen. NO speckles,brushmarks,groundpatches,grain,gradientorbumps. (2) Restore one clear simple darkgray outlined AMMONITE SPIRAL FOSSIL on the largegrayrock atLEFTforeground. Drawthefossilasoneflatdarkspirallineandfewradiatingsegmentlines; noengraving,roughnessorembossed3Drelief. KeepEVERYTHINGELSEexact: full16:9framing, thickblackoutlines, simple2Dsolidfields, lagoon/waterfallLEFT, quietvolcanoRIGHT, logRIGHT, palms/ferns, openemptyclearingsize/position andsky. Nocharacters/animals/text/UI/logos/flags/religioussymbols.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0662/native-002.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-07fe3a35-2ade-4db7-9c7a-e58597e74698.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-07fe3a35-2ade-4db7-9c7a-e58597e74698.png"
+  },
+  "encoding": {
+    "quality": 92,
+    "alphaQuality": 100,
+    "effort": 6
+  },
+  "deliveryRecipe": {
+    "kind": "complete-current-source",
+    "resize": [
+      1672,
+      941
+    ],
+    "fit": "fill"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/provenance/dino-horizon-attempt-1.prompt.txt",
+      "promptSha256": "6e01bdc6dbc2dc7a10574f59684c2335a7ac22062febd8665f8e8d1e2bf3624e",
+      "nativeSha256": "87b5589dd581f28ecbaf54af69c895d7770ebd8e571c09d44a91564479a9c9e6",
+      "disposition": "retained as exact generation/input/QC lineage"
+    },
+    {
+      "attempt": 2,
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/provenance/dino-horizon-attempt-2.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+      "nativeSha256": "34c6139ca000ff3fa83dfb9da16ba72c18c63d555b76aa46336b787e1920943d",
+      "disposition": "retained as exact generation/input/QC lineage"
+    },
+    {
+      "attempt": 3,
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/provenance/dino-horizon-attempt-3.prompt.txt",
+      "promptSha256": "3a505e52bed7d35aa953f56955ee3d66ef7fc7e96ac8de21fc56bb8c7a8f0819",
+      "nativeSha256": "20bc1308fe7e735ea87f29fad503aa9bf01fc58f6df3e407adfacb7e51d2bafb",
+      "disposition": "accepted"
+    }
+  ]
+}

@@ -6,6 +6,13 @@ import sharp from 'sharp';
 const root=path.resolve(import.meta.dirname,'../..');
 const sourceDirectory='source-art/arcade/physical-worlds/word-climb';
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+const args=process.argv.slice(2);
+if(args.length>1 || (args[0] && !['--check','--write'].includes(args[0])))throw Error('Usage: node scripts/art/build-word-climb-scenery.mjs [--check|--write]');
+const check=args[0]==='--check';
+const currentPath=path.join(root,sourceDirectory,'scenery-clean-cartoon-registration.json');
+const current=await fs.readFile(currentPath,'utf8').then(JSON.parse).catch(error=>{if(error.code==='ENOENT')return null;throw error;});
+const manifestName=current?'scenery-clean-cartoon-manifest.json':'scenery-manifest.json';
+const prior=await fs.readFile(path.join(root,sourceDirectory,manifestName),'utf8').then(JSON.parse).catch(error=>{if(error.code==='ENOENT')return null;throw error;});
 const roles=['root-landscape','canopy-bough','summit-landscape','foreground-plants'];
 function cutouts(data,info){
   const visited=new Uint8Array(info.width*info.height),components=[];
@@ -27,8 +34,11 @@ function cutouts(data,info){
 }
 const assets=[],atlases={};
 for(const [world,revision]of[['meadow',2],['dino',2],['moonwood',3]]){
-  const file=`${world}-scenery-v${revision}`,source=`${sourceDirectory}/scenery/${file}.png`;
+  const file=`${world}-scenery-v${revision}`,recipe=current?.assets.find(a=>a.world===world);
+  if(current&&!recipe)throw Error('Missing current scenery source '+world);
+  const source=recipe?.source||`${sourceDirectory}/scenery/${file}.png`;
   const bytes=await fs.readFile(path.join(root,source));
+  if(recipe&&hash(bytes)!==recipe.sourceSha256)throw Error('Changed registered scenery source '+world);
   const{data,info}=await sharp(bytes).ensureAlpha().raw().toBuffer({resolveWithObject:true});
   const components=cutouts(data,info);
   for(const body of components)if(Math.min(body.left,body.top,info.width-body.right,info.height-body.bottom)<15)throw Error(`${world}: complete silhouettes need a genuine outside gutter`);
@@ -46,11 +56,14 @@ for(const [world,revision]of[['meadow',2],['dino',2],['moonwood',3]]){
   // it is below the runtime alphaTest and outside every admitted UV crop.
   if(maxEdgeAlpha>1)throw Error(`${world}: opaque art touches the source edge`);
   const runtime=`/game-assets/physical-arcade/word-climb/scenery/${file}.webp`;
-  const output=await sharp(bytes).webp({quality:90,alphaQuality:100,effort:6}).toBuffer();
-  await fs.mkdir(path.dirname(path.join(root,'public',runtime)),{recursive:true});await fs.writeFile(path.join(root,'public',runtime),output);
-  const prompt=`prompts/${file}.txt`,promptBytes=await fs.readFile(path.join(root,sourceDirectory,prompt));
+  const output=await sharp(bytes).webp(current?.encoding||{quality:90,alphaQuality:100,effort:6}).toBuffer();
+  const runtimeFile=path.join(root,'public',runtime);
+  if(check){if(hash(await fs.readFile(runtimeFile))!==hash(output))throw Error('Non-reproducible scenery delivery '+world);}
+  else{await fs.mkdir(path.dirname(runtimeFile),{recursive:true});await fs.writeFile(runtimeFile,output);}
+  const prompt=recipe?.prompt||`prompts/${file}.txt`,promptBytes=await fs.readFile(path.join(root,sourceDirectory,prompt));
+  if(recipe&&hash(promptBytes)!==recipe.promptSha256)throw Error('Changed registered scenery prompt '+world);
   const inputs=[];
-  for(const input of[`${world}-scenery-v1-input`,...(revision===3?[`${world}-scenery-v2`]:[])]){
+  for(const input of(current?[]:[`${world}-scenery-v1-input`,...(revision===3?[`${world}-scenery-v2`]:[])])){
     const inputSource=`${sourceDirectory}/scenery/${input}.png`,inputBytes=await fs.readFile(path.join(root,inputSource));
     const inputPrompt=`prompts/${input.replace(/-input$/,'')}.txt`;
     inputs.push({source:inputSource,sha256:hash(inputBytes),prompt:inputPrompt,promptSha256:hash(await fs.readFile(path.join(root,sourceDirectory,inputPrompt))),role:'Exact retained input to uncropped-isolation edit; not an admitted runtime atlas'});
@@ -59,9 +72,15 @@ for(const [world,revision]of[['meadow',2],['dino',2],['moonwood',3]]){
     sourceSha256:hash(bytes),runtimeSha256:hash(output),runtimeBytes:output.length,prompt,promptSha256:hash(promptBytes),editInputs:inputs,
     creator:'OpenAI builtin imagegen under LiteracyPath direction',origin:'Original game-owned art 2026-10-04',licence:'Original project-authored output; exact sources/prompts retained',
     registration:'alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells',maxEdgeAlpha,
-    derivative:'Same dimensions; WebP quality90/alphaQuality100',reviewStatus:'Direct source silhouettes/alpha/crops inspected; actual live-world acceptance PENDING'};
+    derivative:'Same dimensions; WebP quality90/alphaQuality100',reviewStatus:prior?.assets.find(a=>a.world===world&&a.sourceSha256===hash(bytes))?.reviewStatus||'Direct source silhouettes/alpha/crops inspected; actual live-world acceptance PENDING',
+    ...(recipe?{jobId:recipe.jobId,receipt:recipe.receipt,receiptSha256:recipe.receiptSha256}:{} )};
   assets.push(asset);atlases[world]={runtime,width:info.width,height:info.height,frames};
 }
-await fs.writeFile(path.join(root,sourceDirectory,'scenery-manifest.json'),JSON.stringify({schemaVersion:1,game:'word-climb',runtimeAcceptance:'PENDING',physicalDeviceObservation:'UNKNOWN',assets},null,2)+'\n');
-await fs.writeFile(path.join(root,'src/components/learn/games/games/wordClimbScenery.generated.js'),'// Generated from exact original PNGs by build-word-climb-scenery.mjs.\nexport const WORD_CLIMB_SCENERY = '+JSON.stringify(atlases,null,2)+';\n');
-console.log(JSON.stringify({assets:assets.map(({id,runtimeBytes})=>({id,runtimeBytes})),nativeAcceptance:'PENDING'}));
+const manifest={...prior,schemaVersion:1,game:'word-climb',runtimeAcceptance:prior?.runtimeAcceptance||'PENDING',physicalDeviceObservation:'UNKNOWN',
+  ...(current?{currentRegistration:'scenery-clean-cartoon-registration.json',registrationSha256:hash(await fs.readFile(currentPath)),historicalManifest:current.historicalManifest,styleAuthority:current.styleAuthority}:{}),assets};
+const manifestFile=path.join(root,sourceDirectory,manifestName),generated='// Generated from exact original PNGs by build-word-climb-scenery.mjs.\nexport const WORD_CLIMB_SCENERY = '+JSON.stringify(atlases,null,2)+';\n',generatedPath=path.join(root,'src/components/learn/games/games/wordClimbScenery.generated.js');
+if(check){
+  if(await fs.readFile(manifestFile,'utf8')!==JSON.stringify(manifest,null,2)+'\n')throw Error('Stale scenery manifest');
+  if(await fs.readFile(generatedPath,'utf8')!==generated)throw Error('Stale scenery registration');
+}else{await fs.writeFile(manifestFile,JSON.stringify(manifest,null,2)+'\n');await fs.writeFile(generatedPath,generated);}
+console.log(JSON.stringify({assets:assets.map(({id,runtimeBytes})=>({id,runtimeBytes})),nativeAcceptance:manifest.runtimeAcceptance}));

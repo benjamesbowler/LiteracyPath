@@ -1,0 +1,10 @@
+{
+  "id": "rhyme-v2-share",
+  "word": "share",
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67 as /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-1e2f0f52-cc8c-4324-939a-9c8b723ed9c2.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Edit target: the attached existing share vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. Two children sit facing each other on a plain classroom rug. One child in a green shirt offers one orange segment to the other child in a yellow shirt, who reaches to accept it. A simple open basket of oranges between them makes sharing obvious. Both children have two arms and correctly formed hands. Simple background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration.",
+  "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/share.webp",
+  "originalSha256": "9db799769d74dcc7240bc45d8120bf34591b4f86956c3c233d51f72249ddbb34",
+  "at": "2026-11-02T15:09:08.777Z",
+  "tool": "built-in image_gen"
+}

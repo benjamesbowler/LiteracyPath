@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "scope": "Nine actual offered Present character images. Three appropriate current clean ready-source reuses plus three original two-pose banks; other historical helper variants are not inferred active.",
+  "banks": [
+    {
+      "jobId": "present-muddy-gesture-pair",
+      "character": "muddy",
+      "source": "source-art/app-clean-cartoon/present-character-poses/muddy-gesture-pair.png",
+      "sourceSha256": "cdf50fe0aed53cb4070e98ff2fd727b61460f8f87ce27c2149fab8a6090e908b",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-76ae76b8-87bd-4e98-ae24-b5c2e680f569.png",
+      "promptFile": "source-art/app-clean-cartoon/present-character-poses/muddy-gesture-pair.prompt.txt",
+      "promptSha256": "c26a1d7830d825f3a8b094969a34576dc6cca92c6f879ec745be697cca656a3e",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/companions/clean-cartoon/muddy/base-reference.png",
+          "sha256": "2694d59d2577125551ff4f591ed3c4e46742f9d1625f097c4ef58cb12cef1c12"
+        }
+      ],
+      "readySource": "source-art/app-clean-cartoon/present-character-poses/muddy-ready-source.png",
+      "readySourceSha256": "2694d59d2577125551ff4f591ed3c4e46742f9d1625f097c4ef58cb12cef1c12",
+      "split": 887,
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Exact current qualified character, whole four limbs/tail/ears, fixed clothes and mud/spot maps; clean flat style throughout. Ready pose reuses accepted true-alpha model source, other two are distinct fresh poses."
+      }
+    },
+    {
+      "jobId": "present-chompy-gesture-pair",
+      "character": "chompy",
+      "source": "source-art/app-clean-cartoon/present-character-poses/chompy-gesture-pair.png",
+      "sourceSha256": "014f36d362f08ee9762f9783580009b7fb115278773c1a915ae969efa7a469b5",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-742fb4a6-358b-43a6-a570-aefcc3c9e551.png",
+      "promptFile": "source-art/app-clean-cartoon/present-character-poses/chompy-gesture-pair.prompt.txt",
+      "promptSha256": "4eea81bec49612c88378754806a278759564c3e1673a717f5acc2bad51de9f27",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/companions/clean-cartoon/chompy/base-reference.png",
+          "sha256": "393d1b8c31879b1a560762a08b151829a216016b51093c215dda953d382429b0"
+        }
+      ],
+      "readySource": "source-art/app-clean-cartoon/present-character-poses/chompy-ready-source.png",
+      "readySourceSha256": "393d1b8c31879b1a560762a08b151829a216016b51093c215dda953d382429b0",
+      "split": 887,
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Exact current qualified character, whole four limbs/tail/ears, fixed clothes and mud/spot maps; clean flat style throughout. Ready pose reuses accepted true-alpha model source, other two are distinct fresh poses."
+      }
+    },
+    {
+      "jobId": "present-pip-gesture-pair",
+      "character": "pip",
+      "source": "source-art/app-clean-cartoon/present-character-poses/pip-gesture-pair.png",
+      "sourceSha256": "849f9e9a3cfb5a28186b52abd294a58d10a40c53ffa1565212446f65c240e565",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-832d3e47-384a-47e7-a287-9c5e32122339.png",
+      "promptFile": "source-art/app-clean-cartoon/present-character-poses/pip-gesture-pair.prompt.txt",
+      "promptSha256": "b362ef34eae81c1c167982111aacba378668f87c8a1a539b64937ac3ee039ed8",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/companions/clean-cartoon/pip/base-reference.png",
+          "sha256": "be7bab8918ca8bec63dc410b2c2c18aadc65151ec715b11f4f14c9842ff63204"
+        }
+      ],
+      "readySource": "source-art/app-clean-cartoon/present-character-poses/pip-ready-source.png",
+      "readySourceSha256": "be7bab8918ca8bec63dc410b2c2c18aadc65151ec715b11f4f14c9842ff63204",
+      "split": 887,
+      "review": {
+        "fullNativeViewed": true,
+        "decision": "accept",
+        "notes": "Exact current qualified character, whole four limbs/tail/ears, fixed clothes and mud/spot maps; clean flat style throughout. Ready pose reuses accepted true-alpha model source, other two are distinct fresh poses."
+      }
+    }
+  ],
+  "assets": [
+    {
+      "character": "muddy",
+      "pose": "ready",
+      "path": "/game-assets/sound-seekers/characters/muddy/pose-ready.webp",
+      "originalSha256": "3f27c00f5c78f802b34e53b84a98ae1627019e25026260e0097eb2ea5b528f9a",
+      "source": "source-art/app-clean-cartoon/present-character-poses/muddy-ready-source.png",
+      "sourceSha256": "2694d59d2577125551ff4f591ed3c4e46742f9d1625f097c4ef58cb12cef1c12",
+      "crop": {
+        "left": 248,
+        "top": 218,
+        "width": 527,
+        "height": 710
+      },
+      "resize": {
+        "width": 444,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "6793eefb8536e31e512c86072ce9c137121768865924ac2d74cffb8a188edea2",
+      "bytes": 39294,
+      "width": 444,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "exact-appropriate-clean-source-reuse",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "muddy",
+      "pose": "cheering",
+      "path": "/game-assets/sound-seekers/characters/muddy/pose-cheering.webp",
+      "originalSha256": "b2e226f1e3923c6eb422911d500c736ad9a86ff1b08697dcd89c825274ef3cbb",
+      "source": "source-art/app-clean-cartoon/present-character-poses/muddy-gesture-pair.png",
+      "sourceSha256": "cdf50fe0aed53cb4070e98ff2fd727b61460f8f87ce27c2149fab8a6090e908b",
+      "crop": {
+        "left": 136,
+        "top": 7,
+        "width": 665,
+        "height": 862
+      },
+      "resize": {
+        "width": 444,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "f4b3fac7e166f0ceae92f03e3d45f41089f0c515e2e94669419a55a2108669f9",
+      "bytes": 43452,
+      "width": 444,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "new-original-pose-pair-crop",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "muddy",
+      "pose": "thinking",
+      "path": "/game-assets/sound-seekers/characters/muddy/pose-thinking.webp",
+      "originalSha256": "aa74f0b43ed529a270ffa201e9773b8ab19e63ee530dd670b92335894bd6f4ba",
+      "source": "source-art/app-clean-cartoon/present-character-poses/muddy-gesture-pair.png",
+      "sourceSha256": "cdf50fe0aed53cb4070e98ff2fd727b61460f8f87ce27c2149fab8a6090e908b",
+      "crop": {
+        "left": 1000,
+        "top": 7,
+        "width": 564,
+        "height": 862
+      },
+      "resize": {
+        "width": 443,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "423daacbd041650e8b55d211f01cec756f765abb9ecdc51049a12ccdbc8c2a94",
+      "bytes": 39670,
+      "width": 443,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "new-original-pose-pair-crop",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "chompy",
+      "pose": "ready",
+      "path": "/game-assets/sound-seekers/characters/chompy/pose-ready.webp",
+      "originalSha256": "130a2b6fca4118dc829a315abf5551782a27b1469e9ad20963acd94f4f23037f",
+      "source": "source-art/app-clean-cartoon/present-character-poses/chompy-ready-source.png",
+      "sourceSha256": "393d1b8c31879b1a560762a08b151829a216016b51093c215dda953d382429b0",
+      "crop": {
+        "left": 274,
+        "top": 217,
+        "width": 475,
+        "height": 711
+      },
+      "resize": {
+        "width": 444,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "052d78fae875b1583b668ad9941b84903640dc17a23b50236a5477cf3dcfd55d",
+      "bytes": 42156,
+      "width": 444,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "exact-appropriate-clean-source-reuse",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "chompy",
+      "pose": "cheering",
+      "path": "/game-assets/sound-seekers/characters/chompy/pose-cheering.webp",
+      "originalSha256": "c610aec779eefabfc4d212be0f312d09abca9a125895ba5064334d75ed44b1a0",
+      "source": "source-art/app-clean-cartoon/present-character-poses/chompy-gesture-pair.png",
+      "sourceSha256": "014f36d362f08ee9762f9783580009b7fb115278773c1a915ae969efa7a469b5",
+      "crop": {
+        "left": 133,
+        "top": 4,
+        "width": 608,
+        "height": 861
+      },
+      "resize": {
+        "width": 444,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "d32a3d15bdd8e42913c0e589663226367c91a46a1e74e92e8a8012eee14a2171",
+      "bytes": 46980,
+      "width": 444,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "new-original-pose-pair-crop",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "chompy",
+      "pose": "thinking",
+      "path": "/game-assets/sound-seekers/characters/chompy/pose-thinking.webp",
+      "originalSha256": "da76bc1849a87b3e1f0b9710feeb7d1b805a30274bf4a8b76a73143af92306f3",
+      "source": "source-art/app-clean-cartoon/present-character-poses/chompy-gesture-pair.png",
+      "sourceSha256": "014f36d362f08ee9762f9783580009b7fb115278773c1a915ae969efa7a469b5",
+      "crop": {
+        "left": 984,
+        "top": 6,
+        "width": 544,
+        "height": 861
+      },
+      "resize": {
+        "width": 443,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "84718edd7817de2ad3468220e09e91ec3a9890bb1656280ce3733b2b1f2fc889",
+      "bytes": 41840,
+      "width": 443,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "new-original-pose-pair-crop",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "pip",
+      "pose": "ready",
+      "path": "/game-assets/sound-seekers/characters/pip/pose-ready.webp",
+      "originalSha256": "8216a1f6be72642b14faaf894b3b72952f552f3a876217eebef0cef9a4b50a8d",
+      "source": "source-art/app-clean-cartoon/present-character-poses/pip-ready-source.png",
+      "sourceSha256": "be7bab8918ca8bec63dc410b2c2c18aadc65151ec715b11f4f14c9842ff63204",
+      "crop": {
+        "left": 335,
+        "top": 218,
+        "width": 354,
+        "height": 710
+      },
+      "resize": {
+        "width": 444,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "8aac446e8d18ba0eeed7d3d3a9bc57aed85dc5f24c96508ca7e116d49235cf40",
+      "bytes": 37972,
+      "width": 444,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "exact-appropriate-clean-source-reuse",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "pip",
+      "pose": "cheering",
+      "path": "/game-assets/sound-seekers/characters/pip/pose-cheering.webp",
+      "originalSha256": "848223af8caa1f1d48c07f632bed80273e8e31b90539d0d19d2222a198895c6a",
+      "source": "source-art/app-clean-cartoon/present-character-poses/pip-gesture-pair.png",
+      "sourceSha256": "849f9e9a3cfb5a28186b52abd294a58d10a40c53ffa1565212446f65c240e565",
+      "crop": {
+        "left": 235,
+        "top": 11,
+        "width": 526,
+        "height": 831
+      },
+      "resize": {
+        "width": 444,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "cf8cd59e0922f6fa04483310cff4531228cc674ad09bf3adbc289957bbc26a02",
+      "bytes": 40020,
+      "width": 444,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "new-original-pose-pair-crop",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    },
+    {
+      "character": "pip",
+      "pose": "thinking",
+      "path": "/game-assets/sound-seekers/characters/pip/pose-thinking.webp",
+      "originalSha256": "aa7219f6b0769b6a11a5ad3e2398659aa8bb84060a41a2a8b7b6655a8540471f",
+      "source": "source-art/app-clean-cartoon/present-character-poses/pip-gesture-pair.png",
+      "sourceSha256": "849f9e9a3cfb5a28186b52abd294a58d10a40c53ffa1565212446f65c240e565",
+      "crop": {
+        "left": 1089,
+        "top": 11,
+        "width": 354,
+        "height": 831
+      },
+      "resize": {
+        "width": 443,
+        "height": 444,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "e376b0432760235714814691d889dcc5c2a1619fa8bad8d99ffd217e042b49bf",
+      "bytes": 34840,
+      "width": 443,
+      "height": 444,
+      "hasAlpha": true,
+      "generationRole": "new-original-pose-pair-crop",
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/present-character-runtime/proof.json",
+        "runtimeEvidenceSha256": "cc8f57aca99d41a1f0b3faa633e2be21da087ef28b71f370c91b0613376519f1",
+        "notes": "Three accepted clean model reuses and three new pose banks reviewed at full source, nine saved390/128, actual production Present27frames across3viewports and45 exact current HTTP v/SHA matches. Corrected .value day enumeration verifies180 actual offered day/aggregate docs."
+      }
+    }
+  ]
+}

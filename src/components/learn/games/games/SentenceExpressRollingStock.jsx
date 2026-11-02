@@ -1,4 +1,5 @@
 import { useId, useState } from 'react';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 // Authored three-quarter rolling stock. Side panels remain clear for live words;
 // roof, end wall, rim, undercarriage and independently rotating wheels give depth.
@@ -82,7 +83,7 @@ export default function SentenceExpressRollingStock({kind='wagon',tone=0,rusty=f
   return <>
     {!ready && <DrawnRollingStock kind={kind} tone={tone} rusty={rusty} />}
     {!failed && <span className={`sx-carsvg sx-stock${ready?" is-ready":""}`} aria-hidden="true" style={{visibility:ready?'visible':'hidden',filter:rusty?'sepia(.7)':asset==='wagon'?`hue-rotate(${[0,170,315,75][tone%4]}deg)`:undefined}}>
-      <img src={`/game-assets/arcade-worlds/trains/${asset}.webp`} alt="" onLoad={()=>setReady(true)} onError={()=>{setFailed(true);setReady(false);}} />
+      <img src={withRepairedImageVersion(`/game-assets/arcade-worlds/trains/${asset}.webp`)} alt="" onLoad={()=>setReady(true)} onError={()=>{setFailed(true);setReady(false);}} />
     </span>}
   </>;
 }

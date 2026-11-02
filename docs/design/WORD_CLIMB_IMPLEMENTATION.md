@@ -52,9 +52,19 @@ After these native groups closed, the compiler's explicit metadata-only review r
 
 Each active actor owns two decoded atlases, one mesh geometry and material, and two retained textures. Measured palm coordinates transform through the same crop, anchor, scale, lean and scene translation as the visible art. Actual opaque sole pixels register both boots; curved-sole centroids are never invented contacts. The recovery vine retains one vertex buffer. All three worlds select their own canonical action family. If required owned art fails, the canonical retained shared action bank is tried first. Original Moonwood Pip GLB/compressed GLB/image dependencies remain active only in their declared later recovery paths; Easy and Dino never substitute Pip.
 
-`scripts/art/build-word-climb-scenery.mjs` compiles three original game-owned root/canopy/summit atlases with four complete isolated cutouts each. Actual opaque bounds supply non-overlapping UV rectangles; exact source PNGs, edit prompts and hashes are in `scenery-manifest.json`. Invisible alpha=1 generator residue at the outer sheet edge is recorded explicitly and lies outside admitted UV crops and below runtime alphaTest. Meadow uses sunny cottage/windmill hills, Dino uses fern/fossil/volcano cliffs, Moonwood uses lantern woods and a telescope summit. `wordClimbScenery.js` retains one texture and four geometries per active world across resize. Original scene-kit bark, route bends and shelves remain real language-blind geometry. Old canopy and landmark dependencies are preserved for asset recovery until full normal/recovery verification permits retirement.
+`scripts/art/build-word-climb-scenery.mjs` compiles three current clean cartoon root/canopy/summit atlases with four complete isolated cutouts each. `scenery-clean-cartoon-registration.json` selects the exact native PNGs, prompts and receipts; `scenery-clean-cartoon-manifest.json` records the measured non-overlapping opaque bounds and runtime hashes. The older `scenery-manifest.json` remains sealed provenance. The compiler's `--check` verifies exact deliveries and generated registration without writing. Invisible alpha=1 generator residue at the outer sheet edge is recorded explicitly and lies outside admitted UV crops and below runtime alphaTest. Meadow uses ordinary cottages and a windmill, Dino uses fern/fossil/volcano cliffs, and Moonwood uses lantern woods and an unmistakable telescope observatory. Whole scenes follow the current illustration standard. `wordClimbScenery.js` retains one texture and four geometries per active world across resize. The six corrected actor sheets, their contacts, scene-kit bark, route bends and shelves remain unchanged. Old canopy and landmark dependencies are preserved for asset recovery until full normal/recovery verification permits retirement.
 
 The preview-only scene observer exposes a cloned read-only pose/contact summary. It does not answer a task, move the controller or change time.
+
+The 2 November clean cartoon scenery refresh preserves all six accepted actor
+sheets and their registrations. Its three distinct native atlases contain
+twelve complete root, canopy, summit and foreground cutouts. All native PNGs,
+saved WebPs and whole-prop crops at 390/128 pixels were reviewed. Eighteen local
+actual-game frames cover the three worlds at desktop, phone and short landscape
+sizes with both Three and genuine context-loss Canvas delivery; fetched bytes
+and revision URLs match the current source manifest. This is art and local
+renderer evidence, separate from a full summit outing, listening, hosted and
+physical-device acceptance.
 
 The leaf now uses a fixed1/60 accumulator with bounded catch-up, one cue owner
 across sound toggles, actual matching Howler-end receipts and immutable deliberate

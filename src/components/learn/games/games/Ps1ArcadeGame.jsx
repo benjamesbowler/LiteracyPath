@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
@@ -487,9 +488,9 @@ function startPs1ArcadeGame(mount, options) {
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = totalUnits(options.kind, ladder);
   const image = new Image();
-  image.src = config.bg;
+  image.src = withRepairedImageVersion(config.bg);
   const performerBank = Object.fromEntries(Object.entries({ meadow: ["bouncy", "woolly"], dino: ["chompy", "sunny"], moonwood: ["pip", "wren"] }).map(([world, names]) => [world, names.map(name => {
-    const image = new Image(); image.src = `/game-assets/sound-seekers/v3/cast/${world}/${name}.webp`; return image;
+    const image = new Image(); image.src = withRepairedImageVersion(`/game-assets/sound-seekers/v3/cast/${world}/${name}.webp`); return image;
   })]));
 
   const { canvas, ctx } = createGameCanvas(mount);

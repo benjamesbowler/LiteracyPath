@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import sharp from 'sharp';
 
 const directory = 'source-art/arcade/physical-worlds/sound-safari';
-const manifest = JSON.parse(await fs.readFile(`${directory}/manifest.json`, 'utf8'));
+const manifest = JSON.parse(await fs.readFile(`${directory}/clean-cartoon-manifest.json`, 'utf8'));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const alpha = (data, info, [x, y]) => data[(Math.round(y) * info.width + Math.round(x)) * 4 + 3];
 
@@ -25,6 +25,7 @@ test('all three Safari action families use real opaque palms and two actual sole
         assert.ok(point[0] >= left && point[0] < right && point[1] >= top && point[1] < bottom, `${frame.id}/${name} is not clipped`);
         assert.ok(alpha(data, info, point) >= 160, `${frame.id}/${name} is visible original anatomy`);
       }
+      assert.ok(frame.sockets.bootRight[0] - frame.sockets.bootLeft[0] > (frame.measurement.opaqueBodyBounds[2] - frame.measurement.opaqueBodyBounds[0]) * .18, 'The two soles belong to genuinely separate feet');
       assert.equal(frame.anchor[1] + top, Math.max(frame.sockets.bootLeft[1], frame.sockets.bootRight[1]), 'The physical baseline follows the actual lower sole');
     }
   }
@@ -110,5 +111,19 @@ test('the Safari runtime table uses every real encoded source crop without conve
     assert.deepEqual(atlas.frames, asset.frames.map(({ id, action, species, direction, cell, anchor, sockets, captureRadius }) =>
       ({ id, action, ...(species ? { species } : {}), ...(direction ? { direction } : {}), cell, anchor, sockets, ...(captureRadius ? { captureRadius } : {}) })));
     assert.equal('delivery' in atlas, false, 'Only the engine decode bank may report rendered asset availability');
+  }
+});
+
+
+test('current Safari authority seals history and exact measured sources without authoring provenance in runtime', async () => {
+  for (const lineage of [manifest.historicalManifest, manifest.historicalRegistration, manifest.registration]) assert.equal(hash(await fs.readFile(lineage.path)), lineage.sha256);
+  const registration = JSON.parse(await fs.readFile(manifest.registration.path));
+  for (const [id, spec] of Object.entries(registration.currentSources)) for (const [key, value] of Object.entries(spec)) assert.deepEqual(manifest.assets.find(a => a.id === id)[key], value);
+  const runtime = await fs.readFile('src/components/learn/games/games/soundSafariArt.generated.js', 'utf8');
+  assert.ok(!runtime.includes('/Users/') && !runtime.includes('generation') && !runtime.includes('supersedes'));
+  for (const asset of manifest.assets.filter(a => a.generation)) {
+    assert.equal(hash(await fs.readFile(asset.generation.acceptedNativeSource)), asset.generation.acceptedNativeSHA);
+    const { data, info } = await sharp(asset.generation.acceptedNativeSource).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    for (const recipe of asset.generation.packingRecipes) for (const point of Object.values(recipe.nativeAnatomicalContacts || {})) assert.ok(alpha(data, info, point) >= 160);
   }
 });

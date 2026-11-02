@@ -1,0 +1,75 @@
+{
+  "method": "measure-horizontal-row-jumps-then-center-cover",
+  "nativeSha256": "95fcf30bd17c02a766eac85fd58b7fef0c34ab76300304c46021b34d9b1ddab2",
+  "nativeDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "outputDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "generatedRasterOnly": true,
+  "measuredBoundaries": [
+    0,
+    417,
+    836,
+    1254
+  ],
+  "rows": [
+    {
+      "index": 0,
+      "key": "day",
+      "nativeRect": {
+        "left": 1,
+        "top": 0,
+        "width": 1251,
+        "height": 417
+      },
+      "destRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1254,
+        "height": 418
+      },
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/qc/art-0622-cell-00.png",
+      "display128Sha256": "17dfbd8c2bdd9bc6d2e5f3f5bd51276f1ae2f8670c44f7522217e181edf7aa12"
+    },
+    {
+      "index": 1,
+      "key": "river",
+      "nativeRect": {
+        "left": 0,
+        "top": 417,
+        "width": 1254,
+        "height": 418
+      },
+      "destRect": {
+        "left": 0,
+        "top": 418,
+        "width": 1254,
+        "height": 418
+      },
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/qc/art-0622-cell-01.png",
+      "display128Sha256": "b4380939ef3cb9ec936cc7408a0b640120708559246c8915083d361a189ffea9"
+    },
+    {
+      "index": 2,
+      "key": "night",
+      "nativeRect": {
+        "left": 0,
+        "top": 836,
+        "width": 1254,
+        "height": 418
+      },
+      "destRect": {
+        "left": 0,
+        "top": 836,
+        "width": 1254,
+        "height": 418
+      },
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/qc/art-0622-cell-02.png",
+      "display128Sha256": "6a2395aafc7ed4762923d5798c4524f13de428945b880ee087f9d0f0cc5086b3"
+    }
+  ]
+}

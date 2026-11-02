@@ -457,8 +457,6 @@ export function StudentBooksPage({
 
         </div>
 
-        {hopAndStopAvailable && <HopAndStopLibraryCard onOpen={() => setHopAndStopOpen(true)} />}
-
         {(panelBook
           ? (
             <section
@@ -539,6 +537,8 @@ export function StudentBooksPage({
               <p className="kg-body">New reading books are on the way. Check back soon.</p>
             </section>
           ))}
+
+        {hopAndStopAvailable && <HopAndStopLibraryCard onOpen={() => setHopAndStopOpen(true)} />}
 
         {!focusLocked && <nav className="kg-book-picture-topics" aria-label="Book pictures">
           {!exactBookLock && <button type="button" className="kg-book-picture-topic" onClick={()=>setCycleShortsOpen(true)}><span className="kg-book-topic-cover"><img src="/images/worksheets/muddy-colouring.webp" width="40" height="40" style={{objectFit:"contain"}} alt=""/></span><strong>Cycle Shorts</strong></button>}

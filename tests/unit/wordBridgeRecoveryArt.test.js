@@ -12,6 +12,8 @@ test('canonical recovery exposes only its actual visible palm and opaque sole wi
     assert.equal(atlas.runtime,shared.runtime);
     for(let index=0;index<2;index++){
       const frame=atlas.frames[index];assert.deepEqual(frame.cell,shared.frames[index+6].cell);assert.deepEqual(frame.anchor,shared.frames[index+6].anchor);
+      assert.deepEqual(frame.sockets.forehand,shared.frames[index+6].rightHandPixel);
+      assert.equal(frame.rightHandPixel,undefined,'one measured palm has one named recovery socket');
       assert.deepEqual(Object.keys(frame.sockets),['forehand','feet']);
       for(const point of Object.values(frame.sockets)){
         assert.ok(point[0]>=frame.cell[0]&&point[0]<frame.cell[2]&&point[1]>=frame.cell[1]&&point[1]<frame.cell[3]);

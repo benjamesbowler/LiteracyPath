@@ -2,8 +2,18 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   HOP_AND_STOP_ACTIONS, HOP_AND_STOP_PAGES, HOP_AND_STOP_ROUNDS,
-  HOP_AND_STOP_REQUIRED_MEDIA, canOpenHopAndStop, isHopAndStopPublished, nextHopAndStopRound
+  HOP_AND_STOP_REQUIRED_MEDIA, canOpenHopAndStop, isHopAndStopPublished, nextHopAndStopRound, hopAndStopActionImage
 } from "../../src/data/hopAndStop.js";
+
+test("the whole-app visual inventory includes every dynamically named reader and action picture", async () => {
+  const {collectAppVisualReviewInventory} = await import("../../tools/appVisualReviewInventory.mjs");
+  const inventory = collectAppVisualReviewInventory(new URL("../../", import.meta.url).pathname);
+  const pictures = [...HOP_AND_STOP_PAGES.map(page => page.image), ...Object.keys(HOP_AND_STOP_ACTIONS).map(hopAndStopActionImage)];
+  assert.equal(pictures.length, 12);
+  for (const picture of pictures) {
+    assert.ok(inventory.find(row => row.path === picture)?.sources.includes("runtime-hop-and-stop"), picture);
+  }
+});
 
 test("the supported reader keeps the exact commissioned eight-page manuscript", () => {
   assert.deepEqual(HOP_AND_STOP_PAGES.map(page => page.text), [

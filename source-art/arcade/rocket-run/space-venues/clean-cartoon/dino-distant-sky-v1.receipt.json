@@ -1,0 +1,28 @@
+{
+  "jobId": "rocket-sky-clean-dino-2026-11-02",
+  "world": "dino",
+  "actualBuiltinCalls": 1,
+  "tool": "image_gen.imagegen",
+  "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a4-8c7f-7230-a0ec-094dc7ee8e4e/exec-ebd7e979-7aac-4de9-8734-ea228cbbe683.png",
+  "providerNativeSHA": "e606f6e0c7a49582602966db6fdcf8cc630757612162126f1efa69001918c764",
+  "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.png",
+  "sourceSHA": "e606f6e0c7a49582602966db6fdcf8cc630757612162126f1efa69001918c764",
+  "sourceSize": [
+    1672,
+    941
+  ],
+  "prompt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.prompt.txt",
+  "promptSHA": "6033073a92a31119c4b92c5ad19535364ffd729e6228f8427000a55676d937f6",
+  "references": [],
+  "review": {
+    "providerNativeViewed": true,
+    "wholeNativeSavedViewed": true,
+    "style": "Boldcleanoutlined2Dthroughout; simplecelplanes, nolocalpaint/grain/emboss",
+    "neutrality": "No faith,national,politicalsymbolsorflags; ordinaryscienceobservatories",
+    "meaning": "Retainedworldqualifieddistantspace, no bakedcraft/character/carrier/route/UI",
+    "saved390Viewed": false,
+    "saved128Viewed": false,
+    "actualRetainedPreview": false,
+    "liveProductUse": false
+  }
+}

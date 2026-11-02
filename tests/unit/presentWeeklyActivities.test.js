@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
 
 const days=['monday','tuesday','wednesday','thursday','friday'];
+const publicFile = src => `public${new URL(src, 'https://literacyguide.test').pathname}`;
 test('each oral activity has three distinct rounds, with genuine last-week and older retrieval',()=>{
  for(const construct of ['syllable-counting','rhyme-recognition']){
   const history=new Map();
@@ -46,7 +47,7 @@ test('every cycle delivers the six requested activities at least twice on separa
    assert.equal(item.choices.filter(choice=>choice.correct).length,1);
    assert.ok(item.media.filter(media=>media.required&&media.type==='audio').length>=1);
    assert.ok(item.media.filter(media=>media.required&&media.type==='image').length>=1);
-   for(const media of item.media)assert.ok(fs.existsSync(`public${media.src}`),media.src);
+   for(const media of item.media)assert.ok(fs.existsSync(publicFile(media.src)),media.src);
   }
  }
 });

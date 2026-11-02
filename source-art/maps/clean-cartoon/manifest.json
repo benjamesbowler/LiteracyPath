@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "productionRevision": "clean-cartoon-2026-11-02",
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "assets": [
+    {
+      "jobId": "art-0635",
+      "id": "dino-map",
+      "source": "source-art/maps/clean-cartoon/art-0635.png",
+      "sourceSha256": "f3c2a9eee9dcfe52a046a5471adb8dc3598f4b02a90ee44944aa5879f7036cb6",
+      "prompt": "source-art/maps/clean-cartoon/art-0635.prompt.txt",
+      "promptSha256": "57cace411259d1f50a009fc73b977c089468f4daf4f28b162dff32b034a01c11",
+      "runtime": "/images/pals/maps/dino-map.webp",
+      "runtimeSHA256": "236786e0a074d3f56953545f58b7d2cc50d2ff261ac9cbf8ee4b6ac11e4b9d39",
+      "width": 1195,
+      "height": 1600,
+      "bytes": 474504,
+      "alpha": false,
+      "originalSha256": "d51fdfb0046eccd812ba9c212b6ebce87a7aa2e4df022ba6ef1b7e4840a9ff85",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0635.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1195,
+          "height": 1600,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 3,
+      "referenceImages": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/d1eff524fca256fe54ddf92db377faed962d96bd609562e65762d460dedd7747.webp",
+          "sha256": "d1eff524fca256fe54ddf92db377faed962d96bd609562e65762d460dedd7747",
+          "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/dino-map.webp"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/dce42c71d8e85ac1b82967cd9548ce26aeaa292063d36707a1e7ef8d6ea1e71d.webp",
+          "sha256": "dce42c71d8e85ac1b82967cd9548ce26aeaa292063d36707a1e7ef8d6ea1e71d",
+          "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/dino-atlas-v2.webp"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/maps/browser-proof.json",
+        "runtimeProofSha256": "b5fdb0a769dd19d9f0a427f0f43bb33909cbba784877f4caa658baaaaa3b6435"
+      }
+    },
+    {
+      "jobId": "art-0636",
+      "id": "meadow-map",
+      "source": "source-art/maps/clean-cartoon/art-0636.png",
+      "sourceSha256": "2b06146d4b086261154c0786f88311635bf6fd54ad5e0cdce014c98d5b65423b",
+      "prompt": "source-art/maps/clean-cartoon/art-0636.prompt.txt",
+      "promptSha256": "782a20369e7fc23d7b6a2b5139ae85b86479af1e83ecb84343b644d2ad159bb7",
+      "runtime": "/images/pals/maps/meadow-map.webp",
+      "runtimeSHA256": "e412a5ecbb1064aab0993f5a8ee49cd2b1c9b57be8bc8e89740b854415487661",
+      "width": 1195,
+      "height": 1600,
+      "bytes": 417504,
+      "alpha": false,
+      "originalSha256": "c8ddf58fc6e950bc9f212352d673c24846ffce53bd4adf9b6b7b6ac5d0c878d7",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0636.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1195,
+          "height": 1600,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 3,
+      "referenceImages": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/14f79fa16179f291680adf278ad7a0d1bafeec25b5dde1c1ed7e9c1b518efc92.webp",
+          "sha256": "14f79fa16179f291680adf278ad7a0d1bafeec25b5dde1c1ed7e9c1b518efc92",
+          "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/meadow-map.webp"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/59c0bc55fed6f3eafcb39e8164150de4dbb7c155c82aee7d4f36dd0850357991.webp",
+          "sha256": "59c0bc55fed6f3eafcb39e8164150de4dbb7c155c82aee7d4f36dd0850357991",
+          "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/meadow-atlas-v2.webp"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/maps/browser-proof.json",
+        "runtimeProofSha256": "b5fdb0a769dd19d9f0a427f0f43bb33909cbba784877f4caa658baaaaa3b6435"
+      }
+    },
+    {
+      "jobId": "art-0637",
+      "id": "moonwood-map",
+      "source": "source-art/maps/clean-cartoon/art-0637.png",
+      "sourceSha256": "9a82cf705349ad2024bdb72cc7f071a5cfe2d7aac59b2b1cc5d203447839acd5",
+      "prompt": "source-art/maps/clean-cartoon/art-0637.prompt.txt",
+      "promptSha256": "ff7026ef67842682539ba5c782702002afc3c7f48e484f70e08f1af816f5e889",
+      "runtime": "/images/pals/maps/moonwood-map.webp",
+      "runtimeSHA256": "b037e3a98d767595227303f3a326411d5e30d6f9615475474c0557d0f903fc27",
+      "width": 1195,
+      "height": 1600,
+      "bytes": 423966,
+      "alpha": false,
+      "originalSha256": "058a216e566eabfc1a60907de042ae1ff80bc01fdb2a37a379adb0bdad58b518",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0637.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1195,
+          "height": 1600,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 3,
+      "referenceImages": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/443e278a8862dff1d49ac1b6fb0c665fa33102dd1cab3819ab1242dfd5271cb2.webp",
+          "sha256": "443e278a8862dff1d49ac1b6fb0c665fa33102dd1cab3819ab1242dfd5271cb2",
+          "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-map.webp"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/be5f93542a9ed90da24f4c78bf30d81561dafb89dde3a5e1044de30aa43ed238.webp",
+          "sha256": "be5f93542a9ed90da24f4c78bf30d81561dafb89dde3a5e1044de30aa43ed238",
+          "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-atlas-v2.webp"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/maps/browser-proof.json",
+        "runtimeProofSha256": "b5fdb0a769dd19d9f0a427f0f43bb33909cbba784877f4caa658baaaaa3b6435"
+      }
+    },
+    {
+      "jobId": "art-0695",
+      "id": "dino-atlas-v2",
+      "source": "source-art/maps/clean-cartoon/art-0695.png",
+      "sourceSha256": "d0caae81bdd6b4f8b067c57d762078273cb4eeb1b7e295b94f4b88b7290324bb",
+      "prompt": "source-art/maps/clean-cartoon/art-0695.prompt.txt",
+      "promptSha256": "751faf5a294cd7e11ad2d3f338bf388d8584dd0699edcf51c136da0c59a24a25",
+      "runtime": "/images/pals/maps/dino-atlas-v2.webp",
+      "runtimeSHA256": "dce42c71d8e85ac1b82967cd9548ce26aeaa292063d36707a1e7ef8d6ea1e71d",
+      "width": 1672,
+      "height": 941,
+      "bytes": 392238,
+      "alpha": false,
+      "originalSha256": "9f6d334522355eb4f3ed73d12f0122ef08cdc9abd4d37b256cb585628f5873a8",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0695.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 1,
+      "referenceImages": [],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/maps/browser-proof.json",
+        "runtimeProofSha256": "b5fdb0a769dd19d9f0a427f0f43bb33909cbba784877f4caa658baaaaa3b6435"
+      }
+    },
+    {
+      "jobId": "art-0696",
+      "id": "meadow-atlas-v2",
+      "source": "source-art/maps/clean-cartoon/art-0696.png",
+      "sourceSha256": "7da6044d6f4b155132a8da4ce8285e2318bb618f0aacf4e577fd7efe78bcdd35",
+      "prompt": "source-art/maps/clean-cartoon/art-0696.prompt.txt",
+      "promptSha256": "1a2faea1cd8e24333d0b39ee0bffb55578cdc396cebc67defd99f5d828b03142",
+      "runtime": "/images/pals/maps/meadow-atlas-v2.webp",
+      "runtimeSHA256": "59c0bc55fed6f3eafcb39e8164150de4dbb7c155c82aee7d4f36dd0850357991",
+      "width": 1678,
+      "height": 937,
+      "bytes": 333330,
+      "alpha": false,
+      "originalSha256": "f219a01d0a9d1943adbdefd326e486a4100a86c955ab84752dbe98b7191b8d40",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0696.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1678,
+          "height": 937,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 1,
+      "referenceImages": [],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/maps/browser-proof.json",
+        "runtimeProofSha256": "b5fdb0a769dd19d9f0a427f0f43bb33909cbba784877f4caa658baaaaa3b6435"
+      }
+    },
+    {
+      "jobId": "art-0697",
+      "id": "moonwood-atlas-v2",
+      "source": "source-art/maps/clean-cartoon/art-0697.png",
+      "sourceSha256": "11bb16eb6c209ebbd4a18ffc4f43d0b6502edb4f57b88ffe2b97922a8c0f8b04",
+      "prompt": "source-art/maps/clean-cartoon/art-0697.prompt.txt",
+      "promptSha256": "b3b8b38506358268b9aa20a81e9b5d86e63cf9691a1d67264d2debbd6a56968b",
+      "runtime": "/images/pals/maps/moonwood-atlas-v2.webp",
+      "runtimeSHA256": "be5f93542a9ed90da24f4c78bf30d81561dafb89dde3a5e1044de30aa43ed238",
+      "width": 1672,
+      "height": 941,
+      "bytes": 374750,
+      "alpha": false,
+      "originalSha256": "f01f6418d88ad05fd92ec5fbac7c0bcaf8db2bce2198223f2959bf7c0b7fd2e1",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0697.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 1,
+      "referenceImages": [],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/maps/browser-proof.json",
+        "runtimeProofSha256": "b5fdb0a769dd19d9f0a427f0f43bb33909cbba784877f4caa658baaaaa3b6435"
+      }
+    }
+  ],
+  "geometryAuthority": {
+    "path": "src/data/adventureMapAtlas.js",
+    "sha256": "7fae2366ec9445f60c79cedbcc39143653337c3921e4b3ba2c5ca2427dcee815",
+    "version": 3
+  },
+  "publicNamesAuthority": {
+    "path": "src/data/mapStops.js",
+    "sha256": "c3af54518b27cd4494dfa006d8d22f1bdf0a81fcb40f03681f9e55b0e97a3b02",
+    "export": "WORLD_LANDMARKS_WIDE",
+    "allAspects": true
+  },
+  "liveOverrideReadOnlyEvidence": {
+    "path": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/map-layout-current-v3-config.json",
+    "sha256": "435527f594885194b3ab6bf306ae85077dd0df4be681228c1c627482bba00665"
+  }
+}

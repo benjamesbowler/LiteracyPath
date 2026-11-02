@@ -40,7 +40,11 @@ const expectedApprovedFields = Object.freeze({
   styleReview: "approved-clear-professional-2d-raster",
   textReview: "approved-no-text-or-symbol-cue"
 });
-const acceptedReviewDates = new Set(["2026-08-31", "2026-09-01", "2026-09-22"]);
+const acceptedReviewDates = new Set(["2026-08-31", "2026-09-01", "2026-09-22", "2026-10-31"]);
+const acceptedReviewModes = new Set([
+  "direct-contact-sheet-and-individual-pixel-review",
+  "direct-native-and-saved-size-pixel-review"
+]);
 
 const fail = message => {
   throw new Error(`Objective assessment image review: ${message}`);
@@ -73,8 +77,13 @@ for (const assetPath of reviewPaths) {
   if (!acceptedReviewDates.has(review.reviewedAt)) {
     fail(`${assetPath} has no current direct-review date`);
   }
-  if (review.reviewMode !== "direct-contact-sheet-and-individual-pixel-review") {
+  if (!acceptedReviewModes.has(review.reviewMode)) {
     fail(`${assetPath} has no direct-pixel review mode`);
+  }
+  if (review.reviewMode === "direct-native-and-saved-size-pixel-review"
+    && (review.reviewedAt !== "2026-10-31"
+      || !/^all-clean-cartoon-2026-10-31\/cd_dino\/style-hold-production\/accepted-receipts\.json#fresh-style-\d{4}$/.test(review.sourceReceipt || ""))) {
+    fail(`${assetPath} has no exact frozen-cohort review receipt`);
   }
 
   const absolutePath = path.join(ROOT, "public", assetPath.replace(/^\//, ""));
@@ -145,6 +154,7 @@ for (const assetPath of reviewPaths) {
     photoreal: false,
     painterly: false,
     sourceSheet: review.sourceSheet,
+    ...(review.sourceReceipt ? { sourceReceipt: review.sourceReceipt } : {}),
     sourceCell: null,
     repairedFrom: null
   };

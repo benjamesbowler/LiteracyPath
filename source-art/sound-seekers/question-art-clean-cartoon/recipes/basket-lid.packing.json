@@ -1,0 +1,54 @@
+{
+  "method": "extract-complete-components-then-contain-pack",
+  "nativeSha256": "c67d49d5a05aa99f8c4706175cb390c5ed80f6f0740832002e39f12e655e9501",
+  "nativeDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "outputDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "generatedRasterOnly": true,
+  "alphaThreshold": 40,
+  "componentAreaRule": "area >= max(48,largest component in assigned cell * .02)",
+  "assignment": "global alpha component bounding-box center to nearest nominal grid cell",
+  "cropPadding": 2,
+  "objectMaximumCellFraction": 0.76,
+  "cells": [
+    {
+      "index": 0,
+      "key": "basket-with-lid",
+      "rect": {
+        "left": 0,
+        "top": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "nativeRect": {
+        "left": 133,
+        "top": 159,
+        "width": 983,
+        "height": 946
+      },
+      "destRect": {
+        "left": 150,
+        "top": 168,
+        "width": 953,
+        "height": 917
+      },
+      "scale": 0.9695218718209562,
+      "retainedComponents": [
+        {
+          "area": 656515,
+          "left": 135,
+          "right": 1113,
+          "top": 161,
+          "bottom": 1102
+        }
+      ],
+      "display128": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/basket-attempt-002/qc/art-0616-cell-00.png",
+      "display128Sha256": "716b461d9c885e2d5666c11412e4f92ef3deb8cefbf05db368291d94909f9f54"
+    }
+  ]
+}

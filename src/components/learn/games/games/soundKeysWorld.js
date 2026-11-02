@@ -1,6 +1,7 @@
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRegisteredPalArtBank } from '../shared/registeredPalArt.js';
 import { SOUNDKEYS_ART } from './soundKeysArtData.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const performers = Object.fromEntries(Object.entries(SOUNDKEYS_ART).filter(([, asset]) => asset.frames));
 export const SOUNDKEYS_CAST = [['speedy', 'clucky'], ['chompy', 'sunny', 'dozy'], ['pip', 'wren', 'fern']];
@@ -77,7 +78,7 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
         finish(image.naturalWidth === asset.width && image.naturalHeight === asset.height);
       } catch { finish(false); }
     };
-    image.onerror = () => finish(false); image.src = asset.runtime;
+    image.onerror = () => finish(false); image.src = withRepairedImageVersion(asset.runtime);
   }
   function selectBand(band) {
     if (band === currentBand) return;

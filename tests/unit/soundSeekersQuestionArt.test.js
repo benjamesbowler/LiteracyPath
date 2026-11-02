@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
+import sharp from 'sharp';
 import { CAMPAIGN_MISSIONS } from '../../src/features/soundSeekers/v3/content/campaign.js';
 import { buildCampaignMission } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
 import { campaignDisplayChoices, campaignSceneDescriptor } from '../../src/features/soundSeekers/rounded/campaignPresentation.js';
@@ -10,6 +11,26 @@ import sceneArt from '../../src/features/soundSeekers/rounded/campaignSceneArt.g
 import { collectCampaignQuestionArt } from '../../src/features/soundSeekers/rounded/campaignQuestionArtOffline.js';
 
 const fingerprints = new Map();
+
+test('long feathers keep pointed ends instead of a vertical cover-crop edge', async () => {
+  for (const colour of ['red', 'white']) {
+    const source = campaignQuestionImage({kind:'feather',appearance:{sizeVariant:'long',colour}});
+    const {data,info} = await sharp(fs.readFileSync(new URL(`../../public${source}`,import.meta.url))).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+    let left=info.width,right=-1,top=info.height,bottom=-1;
+    for(let y=0;y<info.height;y++)for(let x=0;x<info.width;x++)if(data[(y*info.width+x)*4+3]>64){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+    assert.ok(right>left && bottom>top,source);
+    // A pointed diagonal feather touches each outside column briefly. The
+    // previous cover resize cut broad straight edges through both sides.
+    for(const x of [left,right]){
+      let run=0,longest=0;
+      for(let y=top;y<=bottom;y++){
+        run=data[(y*info.width+x)*4+3]>64?run+1:0;
+        longest=Math.max(longest,run);
+      }
+      assert.ok(longest<(bottom-top+1)*.2,`${source}: flat-cut outside edge at x=${x}`);
+    }
+  }
+});
 function fingerprint(descriptor) {
   const source = campaignQuestionImage(descriptor);
   if (!fingerprints.has(source)) {

@@ -22,6 +22,7 @@ import { retainCueAudioSources } from "../utils/audio/cuePlayer.js";
 import { buildLiteracyExposureIndex, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from "../utils/literacyEvidence.js";
 import { clearAssessmentDrafts } from "./assessment/useAssessmentDraft.js";
 import { LearningTeachingCard } from "./learning/LearningTeachingCard.jsx";
+import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
 
 const GROUPS = [
   { id: "early_phonics", title: "Listen to sounds", image: "/images/navigation/ui/sounds-icon.webp" },
@@ -715,7 +716,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
         <p className="skills-practice-progress" data-child-progress="">{report.answered} {report.answered === 1 ? "question" : "questions"} tried · {report.skills.length} {report.skills.length === 1 ? "skill" : "skills"} explored</p>
       </div><button type="button" onClick={onExit}>Home</button></header>
       <section className="skills-practice-start" aria-label="Your selected skill">
-        <img className="skills-practice-launch-picture" src={GROUPS.find(item => item.id === group)?.image} alt="" />
+        <img className="skills-practice-launch-picture" src={withRepairedImageVersion(GROUPS.find(item => item.id === group)?.image)} alt="" />
         <div className="skills-practice-selected"><span>{resume ? "Your saved trail" : "Ready to play"}</span>
           <h2>{currentStage.label}</h2><p>{resume ? `Question ${Math.min(resume.index + 1, resume.questionIds.length)} of ${resume.questionIds.length}` : "6 questions · Look, listen, and choose"}</p>
         </div>
@@ -729,12 +730,12 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       {(status === "error" || message) && <p className="skills-practice-notice" role="alert">{message}</p>}
       <h2 className="skills-practice-section-title">Choose an area</h2>
       <div className="skills-practice-groups" role="group" aria-label="Skill areas" data-child-choices="">
-        {allGroups.map(item => <button type="button" key={item.id} aria-pressed={item.id === group} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setGroup(item.id); setChosenSkill(skillTree.find(skill => getAssessmentSkillGroup(skill.id) === item.id).id); setResume(null); }}><img src={item.image} alt="" /><span>{item.title}</span></button>)}
+        {allGroups.map(item => <button type="button" key={item.id} aria-pressed={item.id === group} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setGroup(item.id); setChosenSkill(skillTree.find(skill => getAssessmentSkillGroup(skill.id) === item.id).id); setResume(null); }}><img src={withRepairedImageVersion(item.image)} alt="" /><span>{item.title}</span></button>)}
       </div>
       <h2 className="skills-practice-section-title">Choose a skill</h2>
       <section className="skills-practice-stops" aria-label="Choose a skill">
         {groupSkills.map(skill => <button type="button" key={skill.id} aria-pressed={skill.id === chosenSkill} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setChosenSkill(skill.id); setResume(null); }}>
-          <img className="skills-practice-stop-picture" src={GROUPS.find(item => item.id === group).image} alt="" /><strong>{skill.label}</strong><small>{report.skills.find(row => row.skillId === skill.id)?.responses.filter(response => response.responseStatus === "answered").length || 0} questions tried</small>{skill.id === chosenSkill && <Check className="skills-practice-selected-check" aria-hidden="true" size={22} />}
+          <img className="skills-practice-stop-picture" src={withRepairedImageVersion(GROUPS.find(item => item.id === group).image)} alt="" /><strong>{skill.label}</strong><small>{report.skills.find(row => row.skillId === skill.id)?.responses.filter(response => response.responseStatus === "answered").length || 0} questions tried</small>{skill.id === chosenSkill && <Check className="skills-practice-selected-check" aria-hidden="true" size={22} />}
         </button>)}
       </section>
     </main>

@@ -13,8 +13,12 @@ import { arcadeGuideForGame } from '../../src/components/learn/games/shared/arca
 
 test('authored character sources and delivery atlases decode with actual alpha and registered complete body frames', async () => {
   execFileSync(process.execPath, ['tools/buildPhysicalPalArtData.mjs', '--check']);
-  const manifest = JSON.parse(readFileSync('source-art/arcade/physical-worlds/pals/manifest.json', 'utf8'));
+  const manifest = JSON.parse(readFileSync('source-art/arcade/physical-worlds/pals/clean-cartoon-manifest.json', 'utf8'));
+  const historicalBytes = readFileSync(manifest.historicalManifest.path);
+  assert.equal(createHash('sha256').update(historicalBytes).digest('hex'), manifest.historicalManifest.sha256);
+  const historical = JSON.parse(historicalBytes);
   for (const [name, data] of Object.entries(manifest.characters)) {
+    assert.deepEqual(data.supersedes, historical.characters[name]);
     assert.equal(PHYSICAL_PAL_ART[name].character, name);
     for (const atlas of [data, ...Object.values(data.actionAtlases)]) {
       const source = readFileSync(atlas.source), runtime = readFileSync(`public${atlas.runtime}`);
@@ -30,6 +34,13 @@ test('authored character sources and delivery atlases decode with actual alpha a
       }
       assert.ok(transparent > atlas.width * atlas.height * .3, 'atlas has genuinely empty surroundings');
       assert.ok(opaque > atlas.width * atlas.height * .1, 'figures retain opaque bodies');
+      if (atlas.productionRevision === 'clean-cartoon-2026-10-31') {
+        const alpha = Buffer.from(Array.from({ length: atlas.width * atlas.height }, (_, pixel) => pixels[pixel * info.channels + 3]));
+        assert.equal(createHash('sha256').update(alpha).digest('hex'), atlas.delivery.alphaSha256);
+        const originalPixels = await sharp(source).ensureAlpha().raw().toBuffer();
+        const originalAlpha = Buffer.from(Array.from({ length: atlas.width * atlas.height }, (_, pixel) => originalPixels[pixel * 4 + 3]));
+        assert.ok(alpha.equals(originalAlpha), 'delivery preserves every packed source alpha value');
+      }
       assert.equal(atlas.frames.length, atlas.rows * atlas.columns);
       for (const frame of atlas.frames) {
         const [x, y, right, bottom] = frame.cell, [leftBody, topBody, rightBody, bottomBody] = frame.bounds;
@@ -37,6 +48,10 @@ test('authored character sources and delivery atlases decode with actual alpha a
         assert.ok(leftBody >= 1 && topBody >= 1 && rightBody < right - x && bottomBody <= bottom - y);
         assert.equal(frame.anchor[1], bottomBody, 'runtime feet are registered to the observed source feet');
         assert.ok(frame.anchor[0] >= leftBody && frame.anchor[0] <= rightBody);
+        if (atlas.productionRevision === 'clean-cartoon-2026-10-31') {
+          assert.ok(leftBody >= Math.ceil((right-x)*.08) && rightBody <= right-x-Math.ceil((right-x)*.08), 'complete body has at least8% horizontal cell margin');
+          assert.ok(topBody >= Math.ceil((bottom-y)*.08) && bottomBody <= bottom-y-Math.ceil((bottom-y)*.08), 'complete body has at least8% vertical cell margin');
+        }
         if (frame.rightHandPixel) {
           const [handX, handY] = frame.rightHandPixel;
           assert.ok(handX >= x && handX < right && handY >= y && handY < bottom);
@@ -67,6 +82,41 @@ test('real action progress selects distinct complete poses and preserves directi
     assert.equal(physicalPalFrame(world, 0, false, { action: 'smash', direction: 'left' }).mirror, true);
     assert.notEqual(physicalPalFrame(world, 0, true, { action: 'climb' }).index, physicalPalFrame(world, .2, true, { action: 'climb' }).index);
     assert.notDeepEqual(physicalPalFrame(world, .1, true, { direction: 'left' }).frame.cell, physicalPalFrame(world, .2, true, { direction: 'left' }).frame.cell);
+  }
+});
+
+test('tool controllers attach to the selected measured palm, including mirrored strikes and both carry directions', () => {
+  const states = [
+    { action: 'celebrate' }, { action: 'jump' },
+    { action: 'smash', phase: .1 }, { action: 'smash', phase: .9 },
+    { action: 'climb', time: 0 }, { action: 'climb', time: .2 },
+    { action: 'carry', direction: 'right' }, { action: 'carry', direction: 'left' },
+    { action: 'smash', direction: 'left', phase: .9 }
+  ];
+  for (const world of ['meadow', 'dino', 'moonwood']) for (const state of states) {
+    const selected = physicalPalFrame(world, state.time || 0, false, state);
+    assert.equal(selected.kind, 'tools');
+    const { frame, atlas, mirror } = selected, [x, y] = frame.rightHandPixel;
+    const horizontal = (x - frame.cell[0] - frame.anchor[0]) / atlas.pixelsPerUnit;
+    assert.deepEqual(selected.rightHand, [mirror ? -horizontal : horizontal,
+      (frame.cell[1] + frame.anchor[1] - y) / atlas.pixelsPerUnit, .08]);
+  }
+});
+
+test('recovery bindings pin current source, registration and delivery bytes while preserving historical lineage', () => {
+  const hash = bytes => createHash('sha256').update(bytes).digest('hex');
+  for (const game of ['word-bridge', 'sound-safari']) {
+    const manifest = JSON.parse(readFileSync(`source-art/arcade/physical-worlds/${game}/recovery-clean-cartoon-manifest.json`));
+    const historicalBytes = readFileSync(manifest.historicalManifest.path), historical = JSON.parse(historicalBytes);
+    assert.equal(hash(historicalBytes), manifest.historicalManifest.sha256);
+    assert.equal(hash(readFileSync(manifest.sharedAuthority)), manifest.sharedAuthoritySha256);
+    assert.equal(hash(readFileSync(manifest.registrationAuthority)), manifest.registrationAuthoritySha256);
+    for (const asset of manifest.assets) {
+      assert.equal(hash(readFileSync(asset.source)), asset.sourceSha256);
+      assert.equal(hash(readFileSync('public' + asset.runtime)), asset.runtimeSha256);
+      if (game === 'word-bridge') assert.deepEqual(asset.supersedes, historical.assets.find(row => row.hero === asset.hero));
+      assert.deepEqual(asset.frames.map(frame => frame.sharedIndex), [6, 7]);
+    }
   }
 });
 

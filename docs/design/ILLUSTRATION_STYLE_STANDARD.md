@@ -24,6 +24,12 @@ cartoon style does not authorize simplified-away teaching evidence or generic
 replacement scenes. Photographic evidence and existing modeled 3D game assets
 retain their separate contracts; this instruction corrects illustration style.
 
+The modeled 3D exception requires model or rendering provenance. An illustrated
+sprite sheet or backdrop remains an illustration when displayed on a billboard
+inside a 3D renderer. Descriptions such as "physical", "felt" or "toy-console"
+do not establish a modeled source or exempt simulated paint and embossed detail.
+A sprite atlas rendered from an actual model keeps that model's contract.
+
 The owner's 30 October 2026 direction requires neutral subject matter and
 settings. Ordinary variation in skin tone, hair and family appearance is
 welcome. Do not use racial or ethnic caricatures, identity-themed costumes,

@@ -125,7 +125,7 @@ test("every destination is visible on ordinary Home without a disclosure", () =>
 test("Home uses canonical short destination labels and selected simple art", () => {
   assert.deepEqual(Object.values(STUDENT_HOME_ACTIVITY_TITLES), ["Sound Seekers", "Letters", "Words", "Adventure Map", "Arcade", "Story Quests", "Books", "My Hollow", "Skills trail"]);
   assert.match(code, /STUDENT_HOME_ACTIVITY_TITLES\[door\.activityId\]/);
-  assert.match(code, /src=\{STUDENT_NAVIGATION_ART\[door\.id\]\}/);
+  assert.match(code, /src=\{withRepairedImageVersion\(STUDENT_NAVIGATION_ART\[door\.id\]\)\}/);
   assert.deepEqual(Object.keys(STUDENT_NAVIGATION_ART), ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "skills", "hollow"]);
   assert.doesNotMatch(code, /menu-simple-atlas|door\.atlas/, "each destination uses its own square object asset");
   assert.match(code, /!iconsOnly &&/);

@@ -3,11 +3,11 @@ import * as THREE from 'three';
 // Materials use metres, independent of viewport size or camera travel. The
 // same tile sizes are used by the real road/terrain UVs and Canvas recovery.
 export const RACER_SURFACE_METRES = Object.freeze({grass: 3.5, paving: 2.5});
-// Measured last alpha-covered rows in the retained1774x887 horizon images.
+// Measured last alpha-covered rows (>16) in the current1774x887 horizon images.
 // Fading against the actual edge avoids an opaque lawn band where the source
 // has transparent padding (the three authored worlds have different bounds).
 export const RACER_HORIZON_BLEND = Object.freeze(Object.fromEntries(
-  Object.entries({meadow:729/887,dino:1,moonwood:821/887}).map(([world,end])=>[world,Object.freeze({start:end-.16,end})])
+  Object.entries({meadow:779/887,dino:844/887,moonwood:786/887}).map(([world,end])=>[world,Object.freeze({start:end-.16,end})])
 ));
 
 // Recovery lighting is baked into an owned working surface, preserving the

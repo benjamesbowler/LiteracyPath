@@ -1,66 +1,231 @@
 {
-  "tool": "built-in image_gen.imagegen",
-  "reference": "docs/design/arcade-concepts-2026-10-03/tower-tumble.png",
-  "purpose": "illustrated 2.5D physical scene kit; no baked responses or game UI",
-  "assetOwnership": "original generated project art",
-  "modifications": "unaltered PNG source retained; WebP encoding only; atlas crops performed by renderer from retained bounds",
+  "schemaVersion": 1,
+  "productionRevision": "clean-cartoon-2026-11-02",
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
   "assets": [
     {
       "id": "materials-atlas-v1",
-      "source": "source-art/arcade/physical-worlds/tower-tumble/materials-atlas-v1.png",
+      "jobId": "resumed-extra-tower-flat-materials",
+      "extraScope": true,
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/materials-flat.png",
+      "sourceSha256": "2fefe04b020fb498ee26ed86f60ced468b81bf84898bb50987856fb86dea8192",
+      "sourceSHA256": "2fefe04b020fb498ee26ed86f60ced468b81bf84898bb50987856fb86dea8192",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/materials-flat.prompt.txt",
+      "promptSha256": "a42d556377b9a441aeba49c78758878deecbb180bcce41eacf33ee84641ea74d",
+      "provider": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/materials-flat.provider.json",
+      "providerSha256": "f037fb0a32673a6a26057f69564176cad70fdfc6e5b207e245915ffb94e9c5f3",
       "runtime": "/game-assets/physical-arcade/tower-tumble/materials-atlas-v1.webp",
+      "runtimeSHA256": "191a3802da9a62037563ec88a93423b88f6de8a2761c295898cf0dceb607665d",
       "width": 1254,
       "height": 1254,
       "alpha": false,
-      "sourceSHA256": "f15a06dc702f4c064987b3d537e9fa05a4977bd29303f0b1dfc1a1d88bf25e52",
-      "runtimeSHA256": "7938008ee15b6f2f20e7b00f7d1e1feb818ddc7db8672c692a5c576a15a0fdf4",
-      "bytes": 726012
+      "bytes": 43528,
+      "originalSha256": "7938008ee15b6f2f20e7b00f7d1e1feb818ddc7db8672c692a5c576a15a0fdf4",
+      "historicalSource": "source-art/arcade/physical-worlds/tower-tumble/materials-atlas-v1.png",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1254,
+          "height": 1254,
+          "fit": "fill"
+        }
+      },
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:35:59.851Z"
+      }
     },
     {
-      "id": "props-atlas-v1",
-      "source": "source-art/arcade/physical-worlds/tower-tumble/props-atlas-v1.png",
-      "runtime": "/game-assets/physical-arcade/tower-tumble/props-atlas-v1.webp",
-      "width": 1254,
-      "height": 1254,
-      "alpha": true,
-      "sourceSHA256": "0695ac70ca7cc5233fa314908b8e43d6ba97b0f6345b4db097c4b88dc364a197",
-      "runtimeSHA256": "2b6a77f2b8440fdcb3d111163399131fd43016d9b9e95baf1304cc7b6d3b72cc",
-      "bytes": 615476
-    },
-    {
-      "id": "meadow-landscape-v1",
-      "source": "source-art/arcade/physical-worlds/tower-tumble/meadow-landscape-v1.png",
-      "runtime": "/game-assets/physical-arcade/tower-tumble/meadow-landscape-v1.webp",
-      "width": 1672,
-      "height": 941,
-      "alpha": false,
-      "sourceSHA256": "08c531e783da91aa60c9ff9b3d590dc14d88d23fdbcaafec9a85c642b58fe063",
-      "runtimeSHA256": "e336bd5fe8e8f92a872f9a7f0d2c42b19eff3103216ad159f179f25a44d7698c",
-      "bytes": 548084
-    },
-    {
+      "jobId": "art-0899",
       "id": "dino-landscape-v1",
-      "source": "source-art/arcade/physical-worlds/tower-tumble/dino-landscape-v1.png",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0899.png",
+      "sourceSha256": "005209560e42b61c1ffdc3958a1b0e2b452c45ccd50181171ad76e64fbde2a65",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0899.prompt.txt",
+      "promptSha256": "a09cdefa54208d9bfd8f04e14c2e696367006054a0ab90811d6a73f37ecadb2c",
       "runtime": "/game-assets/physical-arcade/tower-tumble/dino-landscape-v1.webp",
+      "runtimeSHA256": "92c30c5cf3789443590dbda83e73ac064ce7b6e60b567b7806d3369b0d844f01",
       "width": 1672,
       "height": 941,
+      "bytes": 329748,
       "alpha": false,
-      "sourceSHA256": "74660022bd65f64e30cf0439efe1aa8548d7238b5f7f6cc857ecf1960fce0eb5",
-      "runtimeSHA256": "300beb7d1659e312ab363e038e3c56456480c7c7408ec3355003661783983029",
-      "bytes": 620658
+      "originalSha256": "300beb7d1659e312ab363e038e3c56456480c7c7408ec3355003661783983029",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0899.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0899/native-001.png",
+          "sha256": "a56d3500491885fd73576f5982557a9bae7bd9a280c3bd01802437e2bfe35154"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:35:59.852Z"
+      },
+      "sourceSHA256": "005209560e42b61c1ffdc3958a1b0e2b452c45ccd50181171ad76e64fbde2a65"
     },
     {
-      "id": "moonwood-landscape-v1",
-      "source": "source-art/arcade/physical-worlds/tower-tumble/moonwood-landscape-v1.png",
-      "runtime": "/game-assets/physical-arcade/tower-tumble/moonwood-landscape-v1.webp",
+      "jobId": "art-0900",
+      "id": "meadow-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0900.png",
+      "sourceSha256": "0ab12a802176e9ddb7ea1941910621bf314b0dcbf12c27d1709fce9ef27b9f0b",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0900.prompt.txt",
+      "promptSha256": "a09cdefa54208d9bfd8f04e14c2e696367006054a0ab90811d6a73f37ecadb2c",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/meadow-landscape-v1.webp",
+      "runtimeSHA256": "e16e0500475c48073de35dd8a60bfd5ddd5fa10112aed936819ea8c14e3b36db",
       "width": 1672,
       "height": 941,
+      "bytes": 310314,
       "alpha": false,
-      "sourceSHA256": "404e42e290cece62b9667610da1d704691d803c2f2be17d035ac56c40417d3f7",
-      "runtimeSHA256": "090294355618209e48779c1411b6e7c076fc0cf3f6fa2c057f33152748e45ec2",
-      "bytes": 517700
+      "originalSha256": "e336bd5fe8e8f92a872f9a7f0d2c42b19eff3103216ad159f179f25a44d7698c",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0900.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0900/native-001.png",
+          "sha256": "3078a437f7dbaa9e495dd2db70da5cdace4b7de5c62269f50748ca3dae7c3868"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:35:59.978Z"
+      },
+      "sourceSHA256": "0ab12a802176e9ddb7ea1941910621bf314b0dcbf12c27d1709fce9ef27b9f0b"
+    },
+    {
+      "jobId": "art-0901",
+      "id": "moonwood-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0901.png",
+      "sourceSha256": "fbc36070b7b1a00b8e01f5d9701c8ea82d28e1b0acfc0ade432cd10b5612c745",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0901.prompt.txt",
+      "promptSha256": "a09cdefa54208d9bfd8f04e14c2e696367006054a0ab90811d6a73f37ecadb2c",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/moonwood-landscape-v1.webp",
+      "runtimeSHA256": "ae1cc623e119d0b431b9f2f3062ff076118d00ebf91c53323c50361dc4ea2421",
+      "width": 1672,
+      "height": 941,
+      "bytes": 277992,
+      "alpha": false,
+      "originalSha256": "090294355618209e48779c1411b6e7c076fc0cf3f6fa2c057f33152748e45ec2",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0901.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0901/native-001.png",
+          "sha256": "990b2c5705790a5f29fdaebcbd204da8ee9e220571ff1a982161b1400de2bb14"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:36:00.064Z"
+      },
+      "sourceSHA256": "fbc36070b7b1a00b8e01f5d9701c8ea82d28e1b0acfc0ade432cd10b5612c745"
+    },
+    {
+      "jobId": "art-0902",
+      "id": "props-atlas-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0902.png",
+      "sourceSha256": "46b0daa7a606e9c97c7c05c6d89b1fbd972359fe18fcf66194d6ca97950acc59",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0902.prompt.txt",
+      "promptSha256": "00fd49cb64f023df75fa914ae78f1b68a2260c60df13056e3e5a3a47a49d4d09",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/props-atlas-v1.webp",
+      "runtimeSHA256": "56c1635b67c47b307630e379d516a841eb159a19d8e66989768c6e0d474e3b7e",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 360294,
+      "alpha": true,
+      "originalSha256": "2b6a77f2b8440fdcb3d111163399131fd43016d9b9e95baf1304cc7b6d3b72cc",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0902.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1254,
+          "height": 1254,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0902/native-001.png",
+          "sha256": "20151ff9a3378ea7e96202afe4cf61d944d2c6ff9d34cda97e15228c357b86d0"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:36:00.149Z"
+      },
+      "sourceSHA256": "46b0daa7a606e9c97c7c05c6d89b1fbd972359fe18fcf66194d6ca97950acc59"
     }
   ],
+  "historicalSourceAuthority": "source-art/arcade/physical-worlds/tower-tumble/scene-kit-v1.json",
   "materials": {
     "stone": [
       0,
@@ -95,424 +260,91 @@
   },
   "props": {
     "beam": [
-      0,
-      140,
-      395,
-      373
+      21,
+      210,
+      434,
+      417
     ],
     "ladder": [
-      398,
-      10,
-      563,
-      450
+      433,
+      41,
+      589,
+      471
     ],
     "barrel": [
-      584,
-      77,
-      937,
-      418
+      613,
+      177,
+      891,
+      457
     ],
     "cage": [
-      939,
-      72,
-      1254,
-      426
+      890,
+      123,
+      1249,
+      487
     ],
     "pulley": [
       38,
-      423,
-      259,
-      865
+      487,
+      199,
+      883
     ],
     "bunting": [
-      275,
-      516,
-      644,
-      733
+      218,
+      592,
+      678,
+      775
     ],
     "ivy": [
-      670,
-      420,
-      901,
-      928
+      675,
+      478,
+      879,
+      917
     ],
     "flowers": [
-      920,
-      482,
-      1254,
-      828
+      897,
+      622,
+      1234,
+      864
     ],
     "rubble": [
-      6,
-      951,
-      336,
-      1254
+      19,
+      962,
+      337,
+      1200
     ],
     "mushrooms": [
-      335,
-      880,
-      609,
-      1254
+      356,
+      910,
+      615,
+      1194
     ],
     "fern": [
-      612,
-      902,
+      626,
+      916,
       1008,
-      1254
+      1205
     ],
     "lantern": [
-      1019,
-      838,
-      1225,
-      1225
+      1041,
+      866,
+      1193,
+      1212
     ],
     "leftBeamAnchor": [
-      8,
-      153,
-      143,
-      365
+      21,
+      235,
+      170,
+      417
     ],
     "rightBeamAnchor": [
-      246,
-      153,
-      391,
-      365
+      285,
+      235,
+      434,
+      417
     ]
   },
-  "boundsConvention": "x,y,right,bottom in immutable source atlas pixels; alpha-tested authored cutouts; reviewed bounds retain independent objects",
-  "reviewStatus": {
-    "sourceArt": "original PNGs and true-alpha props inspected; source/runtime hashes and bounds verified",
-    "representativeRuntime": "parent inspected all three v3 Three openings and actual native mallet-contact/debris frames",
-    "runtimeArt": "live independent physical geometry, shared canonical Pal poses, distinct authored theme landscapes, original material and prop atlases",
-    "performance": [
-      {
-        "world": "meadow",
-        "wholeMeanMs": 36.81,
-        "steadyState": [
-          {
-            "renderer": "3d",
-            "frames": 2978,
-            "meanMs": 36.56,
-            "p95Ms": 50.1
-          }
-        ],
-        "qualityChanges": [],
-        "inputMeanMs": 3.41,
-        "inputMaxMs": 26.1,
-        "peakDrawCalls": 146,
-        "environment": "Playwright Chromium browser emulation; not physical-device proof"
-      },
-      {
-        "world": "moonwood",
-        "wholeMeanMs": 33.29,
-        "steadyState": [
-          {
-            "renderer": "3d",
-            "frames": 3239,
-            "meanMs": 38.41,
-            "p95Ms": 51.8
-          },
-          {
-            "renderer": "drawing",
-            "frames": 1027,
-            "meanMs": 16.66,
-            "p95Ms": 18.6
-          }
-        ],
-        "qualityChanges": [
-          {
-            "type": "quality-change",
-            "tierId": "low",
-            "sampledFrames": 240,
-            "frameMsTotal": 9833.3,
-            "longFrames": 131,
-            "averageFrameMs": 40.97,
-            "fromTier": "low",
-            "toTier": "2d",
-            "elapsed": 124.6999999999942
-          }
-        ],
-        "inputMeanMs": 3.04,
-        "inputMaxMs": 5.2,
-        "peakDrawCalls": 166,
-        "environment": "Playwright Chromium browser emulation; not physical-device proof"
-      },
-      {
-        "world": "dino",
-        "wholeMeanMs": 36.55,
-        "steadyState": [
-          {
-            "renderer": "3d",
-            "frames": 3239,
-            "meanMs": 37.88,
-            "p95Ms": 50.8
-          },
-          {
-            "renderer": "drawing",
-            "frames": 222,
-            "meanMs": 16.66,
-            "p95Ms": 18.1
-          }
-        ],
-        "qualityChanges": [
-          {
-            "type": "quality-change",
-            "tierId": "low",
-            "sampledFrames": 240,
-            "frameMsTotal": 9766.6,
-            "longFrames": 117,
-            "averageFrameMs": 40.69,
-            "fromTier": "low",
-            "toTier": "2d",
-            "elapsed": 123.03333333332763
-          }
-        ],
-        "inputMeanMs": 2.68,
-        "inputMaxMs": 3.1,
-        "peakDrawCalls": 183,
-        "environment": "Playwright Chromium browser emulation; not physical-device proof"
-      }
-    ],
-    "physicalDevice": "not exercised",
-    "humanListening": "not performed",
-    "ownerAcceptance": "not inferred from automated or parent review",
-    "currentRuntimeReview": "parent directly inspected all nine Easy/Medium/Hard tower 0/1/2 playable frames; canonical actors, textured physical scaffold, distinct structures, live glyphs and readable cues accepted as rebuilt art direction; native contact and climb frames also reviewed",
-    "upperRouteReview": "native walking, jumping, two destructible shortcuts, all four ledges and exact y=9 assertion pass; 568x320 actual upper-route frame has visible actor below cue and no backdrop edge gap",
-    "coverageRepair": "distant landscape horizontal span now accounts for camera yaw and background depth; accepted 1280x900 opening and tablet/portrait spans remain identical; short and 16:9 frusta get complete painted coverage; no new asset/draw-call/palette/physics changes",
-    "resolvedFailureEvidence": {
-      "compactDiagnosis": ".artifacts/tower-tumble/authored-final-browser/native-route-failure-review.json",
-      "actualPositionSamples": 105,
-      "nativeInputEvents": 185,
-      "finalPassingReport": ".artifacts/tower-tumble/authored-native-route-final/report.json",
-      "rawArchive": "removed as disposable; original ZIP hash/removal recorded in diagnosis and cleanup ledger",
-      "cleanupLedger": ".artifacts/tower-tumble/cleanup-2026-10-04.json"
-    },
-    "baselineBrowser": {
-      "passedDistinctCases": 26,
-      "totalDistinctCases": 26,
-      "initialFullRun": {
-        "passed": 25,
-        "total": 26,
-        "durationMinutes": 10.2,
-        "report": ".artifacts/tower-tumble/authored-final-browser/report.json"
-      },
-      "nativeDriverRetry": {
-        "passed": 1,
-        "total": 1,
-        "durationSeconds": 39.4,
-        "report": ".artifacts/tower-tumble/authored-native-route-retry/report.json"
-      },
-      "finalCoverageRetry": {
-        "passed": 1,
-        "total": 1,
-        "durationSeconds": 39.1,
-        "report": ".artifacts/tower-tumble/authored-native-route-final/report.json"
-      },
-      "pending": null,
-      "completeOutings": [
-        "meadow",
-        "dino",
-        "moonwood"
-      ],
-      "structureFrames": 9,
-      "soundOnFirstResponsesDelivered": 27
-    },
-    "currentFollowUp": {
-      "scope": "three visible motor lives; fair barrel contact/recovery; nine physical word routes per themed outing",
-      "status": "verified:28 distinct current cases pass across initial26-pass run and two affected retries",
-      "focusedUnitPassed": 16,
-      "focusedUnitTotal": 16,
-      "ownedESLint": "pass",
-      "browserTotal": 28,
-      "report": ".artifacts/tower-tumble/lives-word-routes-browser/report.json",
-      "baselineResults": "preceding 26-case art/gameplay baseline; not current life/map proof",
-      "browserPassedDistinct": 28,
-      "initialFullRun": {
-        "passed": 26,
-        "total": 28,
-        "durationMinutes": 11.1,
-        "report": ".artifacts/tower-tumble/lives-word-routes-browser/report.json"
-      },
-      "affectedRetry": {
-        "passed": 2,
-        "total": 2,
-        "durationMinutes": 3.3,
-        "report": ".artifacts/tower-tumble/lives-word-routes-retry/report.json"
-      },
-      "interruptedMediumReview": ".artifacts/tower-tumble/lives-word-routes-browser/medium-hmr-interruption-review.json",
-      "profiles": [
-        {
-          "difficulty": "easy",
-          "report": ".artifacts/tower-tumble/lives-word-routes-browser/release-tower-tumble-gamep-73ac5-ctice-without-motor-mastery-desktop/easy-sustained-performance.json",
-          "rescues": 9,
-          "uniquePhysicalLayouts": 9,
-          "lives": 2,
-          "motorEvents": {
-            "falls": 0,
-            "emptySwings": 0,
-            "shortcuts": 13,
-            "collectibles": 0,
-            "barrelHits": 1,
-            "routeRetries": 0
-          },
-          "wholeMeanMs": 20.59,
-          "nativeInputMeanMs": 3.39,
-          "nativeInputMaxMs": 9.3,
-          "peakDrawCalls": 157,
-          "qualityChanges": [
-            {
-              "type": "quality-change",
-              "tierId": "low",
-              "sampledFrames": 180,
-              "frameMsTotal": 11133.2,
-              "longFrames": 172,
-              "averageFrameMs": 61.85,
-              "fromTier": "low",
-              "toTier": "2d",
-              "elapsed": 13.43333333333358
-            }
-          ],
-          "steadyRendererSegments": [
-            {
-              "quality": "low",
-              "renderer": "3d",
-              "startElapsed": 0,
-              "frames": 179,
-              "maxMs": 1866.7999999999993,
-              "meanMs": 71.22793296089384,
-              "p95Ms": 99,
-              "percentileSamples": 179,
-              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
-            },
-            {
-              "quality": "2d",
-              "renderer": "drawing",
-              "startElapsed": 13.43333333333358,
-              "frames": 5280,
-              "maxMs": 50.09999999999127,
-              "meanMs": 18.219223484848484,
-              "p95Ms": 18.69999999999709,
-              "percentileSamples": 600,
-              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
-            }
-          ]
-        },
-        {
-          "difficulty": "medium",
-          "report": ".artifacts/tower-tumble/lives-word-routes-retry/release-tower-tumble-gamep-f2b47-ctice-without-motor-mastery-desktop/medium-sustained-performance.json",
-          "rescues": 9,
-          "uniquePhysicalLayouts": 9,
-          "lives": 2,
-          "motorEvents": {
-            "falls": 0,
-            "emptySwings": 0,
-            "shortcuts": 12,
-            "collectibles": 0,
-            "barrelHits": 1,
-            "routeRetries": 0
-          },
-          "wholeMeanMs": 28.04,
-          "nativeInputMeanMs": 3.89,
-          "nativeInputMaxMs": 19.1,
-          "peakDrawCalls": 192,
-          "qualityChanges": [
-            {
-              "type": "quality-change",
-              "tierId": "low",
-              "sampledFrames": 420,
-              "frameMsTotal": 16498.2,
-              "longFrames": 184,
-              "averageFrameMs": 39.28,
-              "fromTier": "low",
-              "toTier": "2d",
-              "elapsed": 58.9666666666646
-            }
-          ],
-          "steadyRendererSegments": [
-            {
-              "quality": "low",
-              "renderer": "3d",
-              "startElapsed": 0,
-              "frames": 1619,
-              "maxMs": 1166.699999999997,
-              "meanMs": 37.88319950586782,
-              "p95Ms": 51,
-              "percentileSamples": 600,
-              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
-            },
-            {
-              "quality": "2d",
-              "renderer": "drawing",
-              "startElapsed": 58.9666666666646,
-              "frames": 2572,
-              "maxMs": 52,
-              "meanMs": 21.034059097978222,
-              "p95Ms": 35,
-              "percentileSamples": 600,
-              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
-            }
-          ]
-        },
-        {
-          "difficulty": "hard",
-          "report": ".artifacts/tower-tumble/lives-word-routes-browser/release-tower-tumble-gamep-8fa48-ctice-without-motor-mastery-desktop/hard-sustained-performance.json",
-          "rescues": 9,
-          "uniquePhysicalLayouts": 9,
-          "lives": 3,
-          "motorEvents": {
-            "falls": 0,
-            "emptySwings": 0,
-            "shortcuts": 17,
-            "collectibles": 0,
-            "barrelHits": 0,
-            "routeRetries": 0
-          },
-          "wholeMeanMs": 20.77,
-          "nativeInputMeanMs": 3.29,
-          "nativeInputMaxMs": 7.7,
-          "peakDrawCalls": 93,
-          "qualityChanges": [
-            {
-              "type": "quality-change",
-              "tierId": "low",
-              "sampledFrames": 180,
-              "frameMsTotal": 11151.7,
-              "longFrames": 179,
-              "averageFrameMs": 61.95,
-              "fromTier": "low",
-              "toTier": "2d",
-              "elapsed": 13.683333333333593
-            }
-          ],
-          "steadyRendererSegments": [
-            {
-              "quality": "low",
-              "renderer": "3d",
-              "startElapsed": 0,
-              "frames": 179,
-              "maxMs": 181.39999999999964,
-              "meanMs": 62.02067039106146,
-              "p95Ms": 83.80000000000018,
-              "percentileSamples": 179,
-              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
-            },
-            {
-              "quality": "2d",
-              "renderer": "drawing",
-              "startElapsed": 13.683333333333593,
-              "frames": 5846,
-              "maxMs": 66.59999999999127,
-              "meanMs": 18.844680123161137,
-              "p95Ms": 33.39999999999418,
-              "percentileSamples": 600,
-              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
-            }
-          ]
-        }
-      ],
-      "nativeLifeProof": ".artifacts/tower-tumble/lives-word-routes-retry/release-tower-tumble-gamep-1e5e5-try-and-work-in-live-Canvas-desktop",
-      "physicalWordRouteFrames": "All nine word-route play frames per world retained in the current complete-outing result folders.",
-      "performanceBoundary": "Early Three and adapted Canvas are separately measured; the shared frame-budget policy owns fallback. Emulated browser measurements are not physical-device or compositor proof."
-    }
-  }
+  "boundsConvention": "x,y,right,bottom in current encoded atlas; exact12 independent alpha component bounds plus2px; anchor crops select actual left/right beam supports.",
+  "tool": "built-in image_gen.imagegen",
+  "sourceAuthority": "Current clean cartoon sources, measured complete prop bounds and one unchanged geometry material source. Historical scene-kit-v1.json remains immutable provenance."
 }

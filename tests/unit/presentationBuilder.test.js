@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 import { worldForCycle } from '../../src/utils/palWorlds.js';
 import { bookCharacterAsset } from '../../src/components/quest/bookCharacterAvatar.js';
@@ -135,7 +136,12 @@ test('every generated character uses its own world source and an existing canoni
     const world=worldForCycle(cycle.cycleNumber||preceding?.cycleNumber||1);
     const poses=[...html.matchAll(/class="p-pal [^"]*" src="([^"]+)"/g)].map(m=>m[1]);
     assert.ok(poses.length>0,cycle.id);
-    for(const src of poses){assert.ok(src.startsWith(path.posix.dirname(bookCharacterAsset({body:bodies[world.id]}))+'/'));assert.ok(fs.existsSync(path.join('public',src)));}
+    for(const src of poses){
+      const url=new URL(src,'http://local'),file=path.join('public',url.pathname);
+      assert.ok(url.pathname.startsWith(path.posix.dirname(bookCharacterAsset({body:bodies[world.id]}))+'/'));
+      assert.ok(fs.existsSync(file));
+      assert.equal(url.searchParams.get('v'),createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,12));
+    }
     assert.doesNotMatch(html,/\/images\/pals\/poses\//);
     for(const token of ['--bg: #F7F8FA','--ink: #18263E','--surface: #FFFFFF','--accent: #3454C8','--ink-muted: #5C677A'])assert.ok(html.includes(token));
     assert.doesNotMatch(html,/#f5ead8|#fff8ef|#713b18|#5d3013/i);

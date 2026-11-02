@@ -1,0 +1,17 @@
+{
+  "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/moonwood-yard-002.png",
+  "nativeSha256": "95a9906f01bd183c5afe5fed8ba569871000504688b187c1c19112a23c86f53f",
+  "nativeSize": [
+    1672,
+    941
+  ],
+  "outputSize": [
+    1672,
+    941
+  ],
+  "sharp": "0.35.5",
+  "kernel": "lanczos3",
+  "encoder": "PNG default",
+  "generatedRasterOnly": true,
+  "method": "whole native PNG re-encoded without resizing; opaque RGB"
+}

@@ -1,0 +1,91 @@
+{
+  "jobId": "art-0659",
+  "path": "/game-assets/physical-arcade/sound-beat/dino-concert-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/sound-beat/dino-concert-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0659.webp",
+  "sourceSha256": "b1f3c24e417e60f7854f5d088d396c8857f1fb0d38012c06a34a15ac264d9f0c",
+  "originalSha256": "b1f3c24e417e60f7854f5d088d396c8857f1fb0d38012c06a34a15ac264d9f0c",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0659.webp",
+  "finalSha256": "6dd668e6dc0f9db61f3ab0a29f32d031a5582c4aa7a7f501961c65cc9ecccfc1",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-7c97e784-ee4f-4c46-a0ff-82c1a6dc913d.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0659/native-002.png",
+  "nativeSha256": "0977a429216301ffa4d2d1645073d7b53aa6279cd9ef0681647742e5a1a49cbc",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.prompt.txt",
+  "promptSha256": "a35b5fc59ee760ab85c540d2eec062d003f9c22c51ab18ee875f31474eee6109",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/references/dino-concert-venue-v1-input-1.png",
+      "sha256": "72c3a4c6d720b49bf87e2c5cab818ea087efc92a88aca61f3feb7e3cdf98b175"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Bold clean fossil concert grotto, large simple smooth ammonite, natural stone tusk shapes, flat ferns/volcano/waterfalls. Blue empty floor with sparse plank divisions; no mottled rock or painted grain. OriginalnativePNG, exactsavedfullWebP,390/128tiles and18actualrendererframes directlyviewed with unchangedcurrent7actor/kitgroups. Venue-onlyvisualproof, nolearner/audio/physicaldeviceclaim.",
+    "reviewedAt": "2026-11-02T04:16:32.882Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/beat/browser-proof.json",
+    "fullContextSha256": "192883fd323b843e0a2e6ba31a54cfd76712c6528d66e78425339e8a2d7a2694",
+    "notABook": true,
+    "installedRuntimeProofs": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/beat/current-renderer/browser-proof.json",
+        "sha256": "885d2ef3b8220a88ca1d819401329792a805337b1024ccb0ee8073ae526dfd6e",
+        "frames": 18
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/beat/fullscreen/browser-proof.json",
+        "sha256": "8e765e18b0fd62a05fc743f9f9de7f7fdcef0e70c7663f6cda02efe88156dc0e",
+        "frames": 9
+      }
+    ]
+  },
+  "installedAt": "2026-11-02T04:16:32.886Z",
+  "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.png",
+  "provider": {
+    "jobId": "art-0659",
+    "attempt": 2,
+    "prompt": "Use case: style-transfer. Edit this OWN GENERATED game venue candidate. Keep exact fullframe16:9 composition, stage geometry, broad empty lowerhalf, side flushfloorinlays, backsteps, theme andlandmarkpositions. Completely CLEAN UP the rendering to strict BOLD FLAT2D VECTOR-LIKE CARTOON with THICKER CRISP BLACK OUTLINES and a sharply LIMITED FLAT PALETTE. Replace every mottled rock/wood/leaf patch with one uniformsolidcolorfield andatmostONElargeclearlyHARD-EDGEDcelshadow. REMOVE all tiny cracks, scuffs, highlightstreaks, brushmarks, pebbling and textural speckles fromstone andwood. A fossilammonite maykeeponeclearoutlinearoundeachsimple smoothsegment, but nochips, etching, cracks, shadedroughness or raisedmaterialeffect. Stagefloor mustbeONEuniformflatbluefield withonlytenwidelyspacedstraightdarkplankdividerlines; nofloorgradient, lightfalloff, airbrush, grain or mottling. Allbackgroundfoliage forms arelargeoutlinedflatgreensilhouettes, atmosttwogreens, NOT tiny dappledleafclusters. SkyONEsolidcolor, waterfallTWOflatcyanfields, nophotorealreflections. Clean simple trees/roots/beamfields withonehardshadow, nobarkorwoodtexture. Keep plain round/cylindricalgardenlanterns flatyellow withoutglow. Preserveordinary/nature-onlysetting, nocharacters, instruments, UI, letters/numbers, logos, watermark, religious buildings/clothes/symbols or national/political/religiousflags. Image shouldlook like polished crisp children's vector game art throughout, notanillustrated painting or3Drender.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0659/native-001.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-7c97e784-ee4f-4c46-a0ff-82c1a6dc913d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-7c97e784-ee4f-4c46-a0ff-82c1a6dc913d.png"
+  },
+  "priorGeneration": {
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/provenance/dino-concert-venue-v1-initial.prompt.txt",
+    "promptSha256": "23b5ca737f3bc69cde731c8088bd095ef0311d9ec9cc0c02958c7b59d15af747",
+    "nativeSha256": "72c3a4c6d720b49bf87e2c5cab818ea087efc92a88aca61f3feb7e3cdf98b175",
+    "provider": {
+      "jobId": "art-0659",
+      "attempt": 1,
+      "prompt": "Use case: illustration-story. Asset type: COMPLETE EMPTY wide16:9 Sound Beat music game venue. New original bold CLEAN FLAT2D CARTOON, like clean vector cel art: crisp continuous dark outlines, broad smooth SOLID color fields, simple clear silhouettes, at most ONE HARD-EDGED cel shadow shape per form. Whole background is equally flat and clean. No gradients, blended shading, daubs, paper/canvas grain, pebbled/embossed relief, brushwork, woodgrain, barktexture, fur, blurry glow, photoreal material or 3D rendering. COMPOSITION: front eye-level view of a welcoming EMPTY outdoor concert stage. Big EMPTY blue/slate-blue stage deck fills lower50% of frame from horizontalbackedgeat50%height tobottom. Only sparse straight dark plankdividerlines, eachplankONEuniformflatcolor, no grain/streaks/shadinggradient. A shallow three-step distant riser is atbackcenter, and simple low curved edge rails frameouterbottomcorners. At LEFT12% and RIGHT88% ofwidtharound60%height, two simple outlined semicircular brown floor-inlay shapes are flush with continuousstagefloor, NOT raised platforms; live musicians muststand naturally at63%height. Keep central70% oflowerhalf totallyempty for runtime notes andcontrols. Background scene fillsupperhalf, symmetric stageframing, clear center landmark at50%width around28%height. NO musician, people, animal, instrument, drum, mallet, sheetmusic, musicalnote symbol, UI or text is baked in; runtime ownsall. DINO FOSSIL GROOVE GROTTO: broad natural ochre sandstone shelter with softlyroundedcaveceiling atverytop andsimple large fossilammonite spiral in flat ochre backcliff atcenter. Two largecurved natural tusk-shaped stoneedges and fern silhouettes frameammonite, no temple, shrine, altar or symbolicritual. Smallsimple ammonitespirals onouterrocks. Bamboo,cycadsandtreeferns atouteredges. Throughwideopenings LEFT andRIGHT see turquoise waterfall, broadprehistoric forest andquietvolcano inblue sky. Plain rectangular recessedstage lights areflatwarmyellow; noglows. Warmochre, green, teal andslateblue palette. Fullframe16:9, no border, no crop, no labels, writing, numbers, logos, watermark, religious buildings/clothes/symbols or national/political/religiousflags. Neutral friendly nature/ordinaryoutdoorstage only. Precise clear childfriendly illustrated gamebackground.",
+      "referencePaths": [],
+      "transparent_background": false,
+      "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-6df45ee4-65a7-4f9d-828e-f35f749554a5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-6df45ee4-65a7-4f9d-828e-f35f749554a5.png"
+    }
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/physical-worlds/sound-beat/dino-concert-venue-v1.png",
+    "historicalSourceSha256": "789c39994cb86738b5e8d123dee213bc2601fb1bb4ce7581627ba39dc000ad85"
+  }
+}

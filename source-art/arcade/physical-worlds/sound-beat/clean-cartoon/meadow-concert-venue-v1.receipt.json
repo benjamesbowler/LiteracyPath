@@ -1,0 +1,91 @@
+{
+  "jobId": "art-0660",
+  "path": "/game-assets/physical-arcade/sound-beat/meadow-concert-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/sound-beat/meadow-concert-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0660.webp",
+  "sourceSha256": "9710e4189103b8a68ebc1305b64527ddc6d494403c5c2874d40fc898a0346209",
+  "originalSha256": "9710e4189103b8a68ebc1305b64527ddc6d494403c5c2874d40fc898a0346209",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0660.webp",
+  "finalSha256": "fb9bfe8b5bd2294180c7f1f1c2268e48ec5f0770b9e40c74fe0629682452bd98",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-a3ab5e17-769c-49cb-ac65-ac65d5ef044a.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0660/native-002.png",
+  "nativeSha256": "3f7042c9e53fa77abe49c22995e703b830b64b13d7b7018a0c3d82025428c784",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.prompt.txt",
+  "promptSha256": "a35b5fc59ee760ab85c540d2eec062d003f9c22c51ab18ee875f31474eee6109",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/references/meadow-concert-venue-v1-input-1.png",
+      "sha256": "d77871bd62d73d01cb6cb347597655f4dfc6057f8cf99e385238f4648b991639"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Bold clean ordinary timber music-mill pergola, plain botanical tree screen, vines/daisies, watermill and fence. Smooth outlined fields, spare empty blue stage, no painted material. OriginalnativePNG, exactsavedfullWebP,390/128tiles and18actualrendererframes directlyviewed with unchangedcurrent7actor/kitgroups. Venue-onlyvisualproof, nolearner/audio/physicaldeviceclaim.",
+    "reviewedAt": "2026-11-02T04:16:32.947Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/beat/browser-proof.json",
+    "fullContextSha256": "192883fd323b843e0a2e6ba31a54cfd76712c6528d66e78425339e8a2d7a2694",
+    "notABook": true,
+    "installedRuntimeProofs": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/beat/current-renderer/browser-proof.json",
+        "sha256": "885d2ef3b8220a88ca1d819401329792a805337b1024ccb0ee8073ae526dfd6e",
+        "frames": 18
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/beat/fullscreen/browser-proof.json",
+        "sha256": "8e765e18b0fd62a05fc743f9f9de7f7fdcef0e70c7663f6cda02efe88156dc0e",
+        "frames": 9
+      }
+    ]
+  },
+  "installedAt": "2026-11-02T04:16:32.951Z",
+  "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.png",
+  "provider": {
+    "jobId": "art-0660",
+    "attempt": 2,
+    "prompt": "Use case: style-transfer. Edit this OWN GENERATED game venue candidate. Keep exact fullframe16:9 composition, stage geometry, broad empty lowerhalf, side flushfloorinlays, backsteps, theme andlandmarkpositions. Completely CLEAN UP the rendering to strict BOLD FLAT2D VECTOR-LIKE CARTOON with THICKER CRISP BLACK OUTLINES and a sharply LIMITED FLAT PALETTE. Replace every mottled rock/wood/leaf patch with one uniformsolidcolorfield andatmostONElargeclearlyHARD-EDGEDcelshadow. REMOVE all tiny cracks, scuffs, highlightstreaks, brushmarks, pebbling and textural speckles fromstone andwood. A fossilammonite maykeeponeclearoutlinearoundeachsimple smoothsegment, but nochips, etching, cracks, shadedroughness or raisedmaterialeffect. Stagefloor mustbeONEuniformflatbluefield withonlytenwidelyspacedstraightdarkplankdividerlines; nofloorgradient, lightfalloff, airbrush, grain or mottling. Allbackgroundfoliage forms arelargeoutlinedflatgreensilhouettes, atmosttwogreens, NOT tiny dappledleafclusters. SkyONEsolidcolor, waterfallTWOflatcyanfields, nophotorealreflections. Clean simple trees/roots/beamfields withonehardshadow, nobarkorwoodtexture. Keep plain round/cylindricalgardenlanterns flatyellow withoutglow. Preserveordinary/nature-onlysetting, nocharacters, instruments, UI, letters/numbers, logos, watermark, religious buildings/clothes/symbols or national/political/religiousflags. Image shouldlook like polished crisp children's vector game art throughout, notanillustrated painting or3Drender.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0660/native-001.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-a3ab5e17-769c-49cb-ac65-ac65d5ef044a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-a3ab5e17-769c-49cb-ac65-ac65d5ef044a.png"
+  },
+  "priorGeneration": {
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/provenance/meadow-concert-venue-v1-initial.prompt.txt",
+    "promptSha256": "b2756fd23e3ce8797e91686b20ea39d630ee4c2abb7fa07d4f960a229240da32",
+    "nativeSha256": "d77871bd62d73d01cb6cb347597655f4dfc6057f8cf99e385238f4648b991639",
+    "provider": {
+      "jobId": "art-0660",
+      "attempt": 1,
+      "prompt": "Use case: illustration-story. Asset type: COMPLETE EMPTY wide16:9 Sound Beat music game venue. New original bold CLEAN FLAT2D CARTOON, like clean vector cel art: crisp continuous dark outlines, broad smooth SOLID color fields, simple clear silhouettes, at most ONE HARD-EDGED cel shadow shape per form. Whole background is equally flat and clean. No gradients, blended shading, daubs, paper/canvas grain, pebbled/embossed relief, brushwork, woodgrain, barktexture, fur, blurry glow, photoreal material or 3D rendering. COMPOSITION: front eye-level view of a welcoming EMPTY outdoor concert stage. Big EMPTY blue/slate-blue stage deck fills lower50% of frame from horizontalbackedgeat50%height tobottom. Only sparse straight dark plankdividerlines, eachplankONEuniformflatcolor, no grain/streaks/shadinggradient. A shallow three-step distant riser is atbackcenter, and simple low curved edge rails frameouterbottomcorners. At LEFT12% and RIGHT88% ofwidtharound60%height, two simple outlined semicircular brown floor-inlay shapes are flush with continuousstagefloor, NOT raised platforms; live musicians muststand naturally at63%height. Keep central70% oflowerhalf totallyempty for runtime notes andcontrols. Background scene fillsupperhalf, symmetric stageframing, clear center landmark at50%width around28%height. NO musician, people, animal, instrument, drum, mallet, sheetmusic, musicalnote symbol, UI or text is baked in; runtime ownsall. MEADOW MUSIC MILL: ordinary open timber pergola with broadround wooden beams andsimple rounded plankbackscreen centered atback. Backscreen carries one ordinary botanicaltree silhouette madeofsolidtantrunkandgreenleaves, no emblem. Vineleaves andwhite daisies sparingly frame beams atouteredges, plain cylindricalgardenlanterns hangfromouterbeamcorners. FarLEFT opening shows ordinary smallwatermill wheel andlowwaterfall, farRIGHT shows plain fence, stream, grass andgreenhills. Daylightblue sky visible throughleafygreen trees. Smallflat rectangular warmyellowstage lamps. Freshgreen, cream, warmbrown andslateblue palette. Fullframe16:9, no border, no crop, no labels, writing, numbers, logos, watermark, religious buildings/clothes/symbols or national/political/religiousflags. Neutral friendly nature/ordinaryoutdoorstage only. Precise clear childfriendly illustrated gamebackground.",
+      "referencePaths": [],
+      "transparent_background": false,
+      "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-d0952bc9-c448-4d3b-8178-01a111b8a034.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-d0952bc9-c448-4d3b-8178-01a111b8a034.png"
+    }
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/physical-worlds/sound-beat/meadow-concert-venue-v1.png",
+    "historicalSourceSha256": "c6cf71159a8afe2b90b20fd331e92b3a1b3c6aef0154b67fda50274810df9384"
+  }
+}

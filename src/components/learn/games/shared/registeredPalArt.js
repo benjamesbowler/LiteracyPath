@@ -1,3 +1,5 @@
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
+
 // Game-owned action sheets share registration and decoded-image ownership.
 // Pose choice and action timing stay with the real game controller.
 const decodedAtlases = new Map();
@@ -88,7 +90,7 @@ function acquireAtlas(atlas) {
         } catch { finish(null); }
       };
       picture.onerror = () => finish(null);
-      picture.src = atlas.runtime;
+      picture.src = withRepairedImageVersion(atlas.runtime);
     });
   } else entry.owners += 1;
   return { key, entry };

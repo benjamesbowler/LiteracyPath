@@ -1,0 +1,155 @@
+{
+  "jobId": "art-0649",
+  "path": "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0649.webp",
+  "sourceSha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+  "originalSha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0649.webp",
+  "finalSha256": "94e077964bdd795b3f01e6c3f56220204628214414339b3e05d436f2a4b908a7",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-10f3a9e0-cc1b-4f84-82cd-4194819e5241.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0649/native-001.png",
+  "nativeSha256": "5e819f6833cf82658ea4aa4a3f57017605400fe08db9b672e5e4adfb432ec8b7",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/reel-read/clean-cartoon/moonwood-fishing-venue-v1.prompt.txt",
+  "promptSha256": "78da1d6b582293eb077d4e685bad41aa7b3ae5483b05f1f66554dd8fdb793bfc",
+  "referenceImages": [],
+  "generationMode": "built-in",
+  "attempt": 1,
+  "status": "accepted-staged",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Clean outlined night lake, ordinary root cottage and lanterns left, willow canopy, natural root bridge and waterfall right, faceless moon and stars. Broad sapphire-teal swimming plane is readable and clear; restrained flat outlined nature only. Original native, fullsaved WebP, fullfallback WebP,390/128 tiles and twelve exact actualrenderer primary/fallback desktop/phone frames directly viewed. Venue scope only; no learner/session/audio/device claim.",
+    "reviewedAt": "2026-11-02T01:55:11.645Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/reel/browser-proof.json",
+    "fullContextSha256": "9327b1671ad2399c799491f6d96710f7e099aadfbc7bb159579c2b9cbf5e3c41",
+    "notABook": true
+  },
+  "historicalNative": {
+    "jobId": "art-0649",
+    "world": "moonwood",
+    "source": "moonwood-lake-venue-v1.png",
+    "scene": "Upper landscape has a cozy ordinary root cottage atupperLEFT with small round warm yellow windows and simple brown doorway, huge willow/root trees framing top/sides, a few ordinary glass gardenlanterns hanging onbank, smallcurved root landing dock atfarLEFT, a low arching naturalroot bridge atupperRIGHT and gentle distant pale waterfall. A simple faceless crescentmoon and few stars in cobalt evening sky throughcanopy, dark indigo forest layers. Underwater farcorners include a few outlined gray stones and sparse teal curling waterplants. Tinyplain lightdots only; no ghostly faces or fire.",
+    "job": {
+      "path": "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp",
+      "sha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+      "category": "Arcade, maps, Hollow and other artwork",
+      "group": "game-assets/physical-arcade",
+      "decision": "redo",
+      "reason": "Painted/washed/textured illustration; replace with bold clean cartoon artwork.",
+      "decisionEvidence": {
+        "file": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/image-style-audit-2026-10-29/redo-images.json",
+        "sha256": "0234a35d1e663eb7fdf89646a2160593fa8f1a763ca2e4b7bc086d01552d4318",
+        "rowId": 5398
+      },
+      "runtimeBinding": {
+        "literalReferences": [
+          "src/components/learn/games/games/reelReadArtData.js"
+        ],
+        "dynamic": null,
+        "bound": true,
+        "graphEvidence": {
+          "file": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/remaining-image-audit-2026-10-30/current-reachable-modules.json",
+          "sha256": "20e23e20d6343f6ceaa1d6f6ba5f3752d20d4cc72fddb12ba232e7ccd2cd186d",
+          "moduleCount": 1499
+        }
+      },
+      "priorBaseline": true,
+      "status": "pending",
+      "sameArtworkPaths": [
+        "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp"
+      ],
+      "jobId": "art-0649",
+      "owner": "cd_family",
+      "originalSha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+      "sourceAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0649.webp",
+      "sourceSha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    "runtimeRow": {
+      "source": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+      "sourceSha256": "85ec9734329f4c47130e8dcf8b00ca6645ce0bf418f16f677e90cafc7f4e7e15",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "runtimeBytes": 528506,
+      "runtimeSha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+      "assemblySignature": "72671894286b728958c990248003d3f92e79f45d175198a7bd538d9573474098",
+      "role": "empty-deep-fishing-venue",
+      "sourceWaterlineRatio": 0.51,
+      "liveWaterOwnsFishLineHook": true
+    },
+    "fallbackRow": {
+      "source": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+      "sourceSha256": "85ec9734329f4c47130e8dcf8b00ca6645ce0bf418f16f677e90cafc7f4e7e15",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-fallback-v1.webp",
+      "width": 768,
+      "height": 432,
+      "runtimeBytes": 93416,
+      "runtimeSha256": "020ab4dd34242054274a79b9efb40f8a6dcab7e807434bf90a8fb5ba60bd5769",
+      "assemblySignature": "48a82b3e8f500fa5b71c02faa72f3af94f5bb17828a325b1829ac5bb9441af21",
+      "role": "independent-original-venue-fallback",
+      "sourceWaterlineRatio": 0.51
+    },
+    "canonicalSource": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+    "canonicalSourceSha": "85ec9734329f4c47130e8dcf8b00ca6645ce0bf418f16f677e90cafc7f4e7e15",
+    "originalNativeActuallyViewed": true,
+    "renderContract": "reelReadWorld draws venue uniformly scaled using sourceWaterlineRatio .51; no parts extracted; actor/boat/rod/fish stay live",
+    "authorities": [
+      {
+        "path": "src/components/learn/games/games/reelReadWorld.js",
+        "sha256": "dc1e2f54e424b2d0bda44b2154511533a54396dac3209e1abb2bcbf069bd55ed"
+      },
+      {
+        "path": "scripts/generate-reel-read-art.py",
+        "sha256": "9a07c1c07e021df06a33df34eb1fd633933975a2dbf533380385fb2956716861"
+      },
+      {
+        "path": "source-art/arcade/physical-worlds/reel-read/scene-kit-v1.json",
+        "sha256": "a77e2da13bdf1e1dbd84e82c0bf705442a4310600f5d55548688eba185d6a0d6"
+      },
+      {
+        "path": "docs/design/REEL_READ_IMPLEMENTATION.md",
+        "sha256": "e65b7627ece0078e932dde831dd23574d3220d44ea27055694d5a0a02556ce6a"
+      }
+    ]
+  },
+  "source": "source-art/arcade/physical-worlds/reel-read/clean-cartoon/moonwood-fishing-venue-v1.png",
+  "provider": {
+    "jobId": "art-0649",
+    "attempt": 1,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-10f3a9e0-cc1b-4f84-82cd-4194819e5241.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-10f3a9e0-cc1b-4f84-82cd-4194819e5241.png"
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+    "historicalNativeSha256": "85ec9734329f4c47130e8dcf8b00ca6645ce0bf418f16f677e90cafc7f4e7e15",
+    "localReceiptSha256": "3c70b5454275db1c40e46c296aa8e621b597d0ae0fac29fae3d08f459130ad1e"
+  }
+}

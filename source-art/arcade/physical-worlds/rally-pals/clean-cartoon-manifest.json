@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-02T08:03:28.394Z",
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "generation": "Built-in imagegen original production; exact prompts, clean reference bindings and immutable native paths retained.",
+  "scope": "Four active classroom replacements, four active public home tiles, three active Rally horizons, three original pending Rally scenery atlases.",
+  "assets": [
+    {
+      "jobId": "resumed-extra-rally-horizon-dino",
+      "path": "/game-assets/physical-arcade/rally-pals/dino-horizon-v1.webp",
+      "originalSha256": "a2b4e3c0b167d5000dd80cd1c6d0bb6772b4484b2b6c1523e49d4b7fea483710",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-4fd1eec9-93fc-4d3d-bbab-bf8a35e37399.png",
+      "nativeSaved": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/resumed-extra-rally-horizon-dino.png",
+      "nativeSha256": "bc82924c41a66da641b241c7d1c1f4a482773b06ce6452f83f732aba58538443",
+      "nativeDimensions": [
+        1774,
+        887
+      ],
+      "promptFile": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/resumed-extra-rally-horizon-dino.prompt.txt",
+      "promptSha256": "a38474295cf19f13e20259e730510798c8059f767e5e48f8b7e453d0d340ad46",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 1774,
+        "height": 887,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "6d335a71cf4d63cf1e6e738c6fc172f4a006e002bc11682999f4455fdaa23a61",
+      "bytes": 350246,
+      "width": 1774,
+      "height": 887,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      },
+      "horizonFoot": 840
+    },
+    {
+      "jobId": "resumed-extra-rally-horizon-meadow",
+      "path": "/game-assets/physical-arcade/rally-pals/meadow-horizon-v1.webp",
+      "originalSha256": "c13b28f060e4d7d0d91433992d2d35eed42b528cc7827d63799f0efe6a83bfde",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-18258b68-fe95-41c0-ac38-8e1b182cbc7e.png",
+      "nativeSaved": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/resumed-extra-rally-horizon-meadow.png",
+      "nativeSha256": "26f37100189a27276d0186e978be216b1ecf48c8395d7b0ecbad371d252fa399",
+      "nativeDimensions": [
+        1774,
+        887
+      ],
+      "promptFile": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/resumed-extra-rally-horizon-meadow.prompt.txt",
+      "promptSha256": "b108be69835c1c1cc13fcad5e885fa665043237637042cc555af84f64317d943",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 1774,
+        "height": 887,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "dba85e8dc4cdbba37669d64c3e001739ca78954aa19809d7577dfb83a22466e7",
+      "bytes": 250458,
+      "width": 1774,
+      "height": 887,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      },
+      "horizonFoot": 770
+    },
+    {
+      "jobId": "resumed-extra-rally-horizon-moonwood",
+      "path": "/game-assets/physical-arcade/rally-pals/moonwood-horizon-v1.webp",
+      "originalSha256": "818b0229b27bc696f08d7a491315415a402d82d823438aa3184029f3ff73ccbf",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-181ebe3b-241e-41c8-8ef5-8718686b5536.png",
+      "nativeSaved": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/resumed-extra-rally-horizon-moonwood.png",
+      "nativeSha256": "c5d3856c92c087ea08b7e7bfd31b9ccb1f197848a572dffee08a4bc5c811f948",
+      "nativeDimensions": [
+        1774,
+        887
+      ],
+      "promptFile": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/resumed-extra-rally-horizon-moonwood.prompt.txt",
+      "promptSha256": "cd4b14a5da742263c008a4bd4e77d8a4550556154f2808f0ed712ab36ad77308",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 1774,
+        "height": 887,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "24c9eed48fbc1cfb8231a165d7edf6ab02e140b37fa38779038230ddfc196c8c",
+      "bytes": 264192,
+      "width": 1774,
+      "height": 887,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      },
+      "horizonFoot": 759
+    },
+    {
+      "jobId": "art-0644",
+      "path": "/game-assets/physical-arcade/rally-pals/dino-scenery-v1.webp",
+      "originalSha256": "4c69d545438e3d3ffc771305cdb077e941543b1f51332417f3ce70523a3d113c",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-35439169-fa78-48fc-b357-a69388aebafe.png",
+      "nativeSaved": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/art-0644.png",
+      "nativeSha256": "c4deb370c0f86e749330b8b96ada79dfba39f6fbcffb98ed1f923054fe0972fa",
+      "nativeDimensions": [
+        1536,
+        1024
+      ],
+      "promptFile": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/art-0644.prompt.txt",
+      "promptSha256": "93f269d8f05380fef76b656e03c4c67dd448da9457009277f7627cfc766478eb",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 1536,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "a86465371dedca24cdd768849b841496b413bbf3855f681e6d52ec82f3bae489",
+      "bytes": 397506,
+      "width": 1536,
+      "height": 1024,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      },
+      "frames": {
+        "tree": [
+          73,
+          32,
+          588,
+          447
+        ],
+        "club": [
+          724,
+          48,
+          779,
+          421
+        ],
+        "flowers": [
+          41,
+          567,
+          633,
+          415
+        ],
+        "crowd": [
+          733,
+          524,
+          737,
+          468
+        ]
+      },
+      "frameMeasurement": {
+        "alphaThreshold": 64,
+        "padding": 3,
+        "method": "Four independent complete alpha components measured on actual delivery; assigned by upper/lower row and left/right position. No source pixels altered or invented."
+      }
+    },
+    {
+      "jobId": "art-0645",
+      "path": "/game-assets/physical-arcade/rally-pals/meadow-scenery-v1.webp",
+      "originalSha256": "fca868d737d46b9e82b9e5265fa52a51e7d044dcb7da69251107401cb3b21e95",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-f930a679-d1b2-4fe5-9c94-0747af598842.png",
+      "nativeSaved": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/art-0645.png",
+      "nativeSha256": "10203b36da4c39080358d5b750ea529d57b60e0320d60306178f9c0f529b27c2",
+      "nativeDimensions": [
+        1536,
+        1024
+      ],
+      "promptFile": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/art-0645.prompt.txt",
+      "promptSha256": "affddcb3e9d88d2514e0306c87bacd8622fffeb22a75ebab66554b94f5854668",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "dbe259ce32289eed5b21da59295f6b23bef7f71caa689198dbcaa9a906ae83c1",
+      "bytes": 268780,
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      },
+      "frames": {
+        "tree": [
+          265,
+          14,
+          433,
+          467
+        ],
+        "club": [
+          831,
+          16,
+          658,
+          460
+        ],
+        "flowers": [
+          172,
+          602,
+          600,
+          302
+        ],
+        "crowd": [
+          827,
+          513,
+          658,
+          407
+        ]
+      },
+      "frameMeasurement": {
+        "alphaThreshold": 64,
+        "padding": 3,
+        "method": "Four independent complete alpha components measured on actual delivery; assigned by upper/lower row and left/right position. No source pixels altered or invented."
+      }
+    },
+    {
+      "jobId": "art-0646",
+      "path": "/game-assets/physical-arcade/rally-pals/moonwood-scenery-v1.webp",
+      "originalSha256": "dcc7a0dea509781e5600cfa394ae4851769b92e7d62755d22e66f16626511f1f",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-b29dc539-9e41-4cfe-87d6-3b835e31d0ce.png",
+      "nativeSaved": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/art-0646.png",
+      "nativeSha256": "9f7312427947c6b6c4d4cc1114c1db09eb9848271588e1462b28b9acbbb5dd09",
+      "nativeDimensions": [
+        1536,
+        1024
+      ],
+      "promptFile": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon/art-0646.prompt.txt",
+      "promptSha256": "eea6b1cff321d048c6cecc19188916a97f0f5ffcf4976aa8f5ac12986d1911fa",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 1536,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "29c63eadcdb72e5b25a3dd5f5988440293d3957142aba94ecec7808b4506429d",
+      "bytes": 399920,
+      "width": 1536,
+      "height": 1024,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      },
+      "frames": {
+        "tree": [
+          99,
+          3,
+          565,
+          502
+        ],
+        "club": [
+          791,
+          22,
+          660,
+          476
+        ],
+        "flowers": [
+          29,
+          588,
+          677,
+          373
+        ],
+        "crowd": [
+          716,
+          528,
+          806,
+          490
+        ]
+      },
+      "frameMeasurement": {
+        "alphaThreshold": 64,
+        "padding": 3,
+        "method": "Four independent complete alpha components measured on actual delivery; assigned by upper/lower row and left/right position. No source pixels altered or invented."
+      }
+    }
+  ]
+}

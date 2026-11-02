@@ -5,6 +5,7 @@ import { loadThree, createRenderer, createFrameLoop, attachResize, attachContext
 import { createPalFigure, animatePalFigure } from '../shared/physicalArcadeWorld.js';
 import { preloadPhysicalPalArt, drawPhysicalPalArt, physicalPalFrame, physicalPalArtDelivery } from '../shared/physicalPalArt.js';
 import { buildRallyPalsRounds, consumeRallyPalsFrame, RALLY_PALS_SIMULATION_STEP, commitRallyPalsAim, newRallyPalsEvidence, RALLY_PALS_CONTENT_VERSION, RALLY_PALS_COURTS, RALLY_PALS_WORLD_ART, rallyLaneX, rallyShot, stepRallyShot, rallyContactWindow, chooseOpponentReturn } from '../../../../utils/rallyPalsRules.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { loadRallyPalsSession, saveRallyPalsSession } from '../../../../utils/rallyPalsSession.js';
 import { RALLY_PALS_NEAR_SCALE, RALLY_PALS_FAR_SCALE, rallyOpponentPlan, newRallyOpponentState, stepRallyOpponent, rallyActorPose, rallyRacketRotation } from '../../../../utils/rallyPalsMotor.js';
 import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
@@ -68,7 +69,7 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
   scene.add(new THREE.HemisphereLight(evening?'#d1e0ff':theme.light,evening?'#3f596a':'#70936f',evening?1.35:1.8));
   const sun=new THREE.DirectionalLight(evening?'#bed2ee':theme.light,evening?1.55:2.15);sun.position.set(-8,16,10);sun.castShadow=runtimeTier!=='low';sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-15,right:15,top:15,bottom:-15});scene.add(sun);
   const loader=new THREE.TextureLoader(),artDelivery={grass:'pending',plank:'pending',stone:'pending',scenery:'pending',horizon:'pending'};
-  const loadArt=(url,key)=>loader.load(url,texture=>{if(disposed){texture.dispose();return;}artDelivery[key]='delivered';},undefined,()=>{if(!disposed)artDelivery[key]='failed';});
+  const loadArt=(url,key)=>loader.load(withRepairedImageVersion(url),texture=>{if(disposed){texture.dispose();return;}artDelivery[key]='delivered';},undefined,()=>{if(!disposed)artDelivery[key]='failed';});
   const albedo=(name,repeatX=1,repeatY=1)=>{const map=loadArt(`/game-assets/physical-arcade/burrow-builders/materials/${name}-albedo-v1.webp`,name);map.colorSpace=THREE.SRGBColorSpace;map.wrapS=map.wrapT=THREE.RepeatWrapping;map.repeat.set(repeatX,repeatY);map.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());return map;};
   const grass=albedo('grass',14,20),borderGrass=albedo('grass',28,32),woodMap=albedo('plank',1,2),stoneMap=albedo('stone',2,1);
   const lawnMaterial=map=>{const material=new THREE.MeshStandardMaterial({map,color:'#ffffff',roughness:1});material.onBeforeCompile=shader=>{
@@ -84,15 +85,15 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
   const chalk=new THREE.MeshBasicMaterial({color:'#fff7da'});
   const line=(x,z,w,d)=>{const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,d),chalk);mesh.rotation.x=-Math.PI/2;mesh.position.set(x,-.055,z);scene.add(mesh);};
   line(-5,0,.075,18);line(5,0,.075,18);line(0,-9,10,.075);line(0,9,10,.075);line(0,-3.7,10,.065);line(0,3.7,10,.065);line(0,0,.055,7.4);
-  // Alpha-tested, unlit authored scenery retains its painted material depth on
-  // every graphics tier. Each independent object occupies an actual world depth.
-  const atlas=loadArt(`/game-assets/physical-arcade/rally-pals/${world}-scenery-v1.webp`,'scenery');atlas.colorSpace=THREE.SRGBColorSpace;
+  // Clean alpha scenery shares measured whole-prop bounds on every graphics tier.
+  // Each independent object occupies an actual world depth.
+  const atlas=loadArt(art.scenery,'scenery');atlas.colorSpace=THREE.SRGBColorSpace;
   const cardMaterial=new THREE.MeshBasicMaterial({map:atlas,color:evening&&world!=='moonwood'?'#95abc6':'#ffffff',alphaTest:.04,side:THREE.DoubleSide,toneMapped:false});
   const cardGeometry=(key,height)=>{const[x,y,w,h]=art.frames[key],g=new THREE.PlaneGeometry(height*w/h,height),uv=g.attributes.uv;
     for(let i=0;i<uv.count;i++){uv.setXY(i,(x+uv.getX(i)*w)/art.width,1-(y+(1-uv.getY(i))*h)/art.height);}return g;};
   const card=(key,x,z,height,rotation=0)=>{const mesh=new THREE.Mesh(cardGeometry(key,height),cardMaterial);mesh.position.set(x,height/2-.08-(courtId==='rooftop'&&Math.abs(z)>13?2.4:0),z);mesh.rotation.y=rotation;mesh.castShadow=runtimeTier!=='low';scene.add(mesh);return mesh;};
-  const horizonMap=loadArt(`/game-assets/physical-arcade/rally-pals/${world}-horizon-v1.webp`,'horizon');horizonMap.colorSpace=THREE.SRGBColorSpace;
-  const horizon=new THREE.Mesh(new THREE.PlaneGeometry(76,25),new THREE.MeshBasicMaterial({map:horizonMap,color:evening&&world!=='moonwood'?'#8b9eb9':'#ffffff',alphaTest:.025,side:THREE.DoubleSide,toneMapped:false,depthTest:false,depthWrite:false}));horizon.position.set(0,(art.horizonFoot/887-.5)*25-7.8,-34);horizon.renderOrder=-2;scene.add(horizon);
+  const horizonMap=loadArt(art.horizon,'horizon');horizonMap.colorSpace=THREE.SRGBColorSpace;
+  const horizon=new THREE.Mesh(new THREE.PlaneGeometry(76,25),new THREE.MeshBasicMaterial({map:horizonMap,color:evening&&world!=='moonwood'?'#8b9eb9':'#ffffff',alphaTest:.025,side:THREE.DoubleSide,toneMapped:false,depthTest:false,depthWrite:false}));horizon.position.set(0,(art.horizonFoot/art.horizonHeight-.5)*25-7.8,-34);horizon.renderOrder=-2;scene.add(horizon);
   card('club',10.6,-14,5.9,-.22);
   for(const side of [-1,1]){
     card('crowd',side*10.5,-4.2,2.55,side*-.31);card('crowd',side*11.3,-9.8,2.3,side*-.27);
@@ -175,7 +176,7 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
       target.visible=engine.mode==='targets';target.position.x=engine.targetX??0;if(!reduced)bunting.rotation.x=Math.sin(at*.55)*.006;renderer.render(scene,camera);},
     screenAim:(x,y)=>{const ray=new THREE.Raycaster(),hit=new THREE.Vector3();ray.setFromCamera(new THREE.Vector2(x*2-1,1-y*2),camera);return ray.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),0),hit)?{x:Math.max(-4.6,Math.min(4.6,hit.x)),z:Math.max(-8.5,Math.min(-3.8,hit.z))}:null;},
     sampleFrame:milliseconds=>{if(milliseconds<=0||milliseconds>1000||disposed)return;qualityFrames.push(milliseconds);if(qualityFrames.length<36)return;const average=qualityFrames.reduce((a,b)=>a+b,0)/qualityFrames.length;qualityFrames=[];if(average<=35||renderCeiling<=560)return;renderCeiling=renderCeiling>1120?1120:renderCeiling>760?760:560;runtimeTier=renderCeiling<=760?'low':'medium';qualityReason='sustained-frame-budget';qualityChanges++;renderer.setPixelRatio(1);if(runtimeTier==='low'){renderer.shadowMap.enabled=false;sun.castShadow=false;}resizeBudget();onQualityDrop?.({ceiling:renderCeiling,tier:runtimeTier,reason:qualityReason,changes:qualityChanges});},
-    qualityStatus:()=>({initialTier:tier,tier:runtimeTier,ceiling:renderCeiling,reason:qualityReason,changes:qualityChanges,renderWidth:renderer.domElement.width,renderHeight:renderer.domElement.height,shadows:renderer.shadowMap.enabled,drawCalls:renderer.info.render.calls,artPipeline:'painted-depth-layers',authoredArtRetained:true,artDelivery:{...artDelivery},palDelivery:player.userData.authoredPal?.delivery,palActionDelivery:{...player.userData.authoredPal?.actionDelivery},palAction:player.userData.authoredPal?.action,palFrame:player.userData.authoredPal?.frame}),
+    qualityStatus:()=>({initialTier:tier,tier:runtimeTier,ceiling:renderCeiling,reason:qualityReason,changes:qualityChanges,renderWidth:renderer.domElement.width,renderHeight:renderer.domElement.height,shadows:renderer.shadowMap.enabled,drawCalls:renderer.info.render.calls,artPipeline:'clean-cartoon-depth-layers',authoredArtRetained:true,artDelivery:{...artDelivery},palDelivery:player.userData.authoredPal?.delivery,palActionDelivery:{...player.userData.authoredPal?.actionDelivery},palAction:player.userData.authoredPal?.action,palFrame:player.userData.authoredPal?.frame}),
     dispose:()=>{disposed=true;resize();loss();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});}};
 }
 
@@ -185,8 +186,8 @@ function makeCanvasCourt(mount,difficulty,courtId='meadow',reduced=false) {
   const theme=physicalThemeForDifficulty(difficulty),art=RALLY_PALS_WORLD_ART[theme.id],night=theme.id==='moonwood'||courtId==='moonwood';
   const canvas=document.createElement('canvas');canvas.setAttribute('aria-hidden','true');canvas.className='rally-pals-canvas';mount.appendChild(canvas);
   const ctx=canvas.getContext('2d');let choices=[],disposed=false,palDelivered=false,palAction='pending',palFrame='pending',trailHistory=[],trailShot=null;const delivery={scenery:'pending',horizon:'pending',grass:'pending'},pictures={};
-  for(const[key,url]of Object.entries({scenery:`/game-assets/physical-arcade/rally-pals/${theme.id}-scenery-v1.webp`,horizon:`/game-assets/physical-arcade/rally-pals/${theme.id}-horizon-v1.webp`,grass:'/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp'})){
-    const image=new Image();image.onload=()=>{if(!disposed)delivery[key]=image.naturalWidth?'delivered':'failed';};image.onerror=()=>{if(!disposed)delivery[key]='failed';};image.src=url;pictures[key]=image;
+  for(const[key,url]of Object.entries({scenery:art.scenery,horizon:art.horizon,grass:'/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp'})){
+    const image=new Image();image.onload=()=>{if(!disposed)delivery[key]=image.naturalWidth?'delivered':'failed';};image.onerror=()=>{if(!disposed)delivery[key]='failed';};image.src=withRepairedImageVersion(url);pictures[key]=image;
   }
   const presentation=()=>{
     const w=mount.clientWidth,h=mount.clientHeight;
@@ -238,7 +239,7 @@ function makeCanvasCourt(mount,difficulty,courtId='meadow',reduced=false) {
     const contactAge=at-(engine.lastContact?.elapsedSeconds??-10);if(engine.ball&&contactAge>=0&&contactAge<.18){const p=ballPoint(engine.lastContact);ctx.strokeStyle='#fff6ce';ctx.lineWidth=2;ctx.globalAlpha=1-contactAge/.18;ctx.beginPath();ctx.arc(p.x,p.y,Math.max(7,h*.012)*(reduced?1:1+contactAge*2),0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;}
     if(engine.mode==='targets'){const p=project(engine.targetX??0,-7.1);ctx.strokeStyle='#eabb61';ctx.lineWidth=6;ctx.beginPath();ctx.ellipse(p.x,p.y+6,23,9,0,0,Math.PI*2);ctx.stroke();}
   };
-  return {draw,contactPoint,screenAim:(x,y)=>{const layout=presentation(),t=Math.sqrt(Math.max(0,(y*mount.clientHeight-layout.top)/layout.span));return{x:Math.max(-4.6,Math.min(4.6,(x-.5)/(.025+t*.05))),z:Math.max(-8.5,Math.min(-3.8,t*20-10))};},updateChoices:value=>{choices=value;},qualityStatus:()=>({tier:'canvas',reason:'webgl-unavailable',artPipeline:'painted-depth-layers',authoredArtRetained:true,artDelivery:{...delivery},palDelivery:palDelivered?'delivered':'unavailable',palActionDelivery:physicalPalArtDelivery(theme.id),palAction,palFrame}),dispose:()=>{disposed=true;for(const image of Object.values(pictures)){image.onload=null;image.onerror=null;}canvas.remove();}};
+  return {draw,contactPoint,screenAim:(x,y)=>{const layout=presentation(),t=Math.sqrt(Math.max(0,(y*mount.clientHeight-layout.top)/layout.span));return{x:Math.max(-4.6,Math.min(4.6,(x-.5)/(.025+t*.05))),z:Math.max(-8.5,Math.min(-3.8,t*20-10))};},updateChoices:value=>{choices=value;},qualityStatus:()=>({tier:'canvas',reason:'webgl-unavailable',artPipeline:'clean-cartoon-depth-layers',authoredArtRetained:true,artDelivery:{...delivery},palDelivery:palDelivered?'delivered':'unavailable',palActionDelivery:physicalPalArtDelivery(theme.id),palAction,palFrame}),dispose:()=>{disposed=true;for(const image of Object.values(pictures)){image.onload=null;image.onerror=null;}canvas.remove();}};
 }
 
 export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,startLevel=0,resumedCheckpoint=false,

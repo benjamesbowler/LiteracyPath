@@ -518,6 +518,31 @@
   margin-top: 6px;
 }
 
+/* The child shell reserves its own header and navigation. Keep this result
+   scrollable within the remaining space so the whole Pal and every action
+   remain reachable on short landscape screens. */
+@media (max-height: 430px) {
+  .kg-stage .kg-main > .skills-block-quest[data-quest-view="celebration"] {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .skills-block-quest[data-quest-view="celebration"] .sbq-celebrate {
+    flex-shrink: 0;
+    width: min(100%, 760px);
+    margin: 0 auto;
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .skills-block-quest[data-quest-view="celebration"] .sbq-celebrate img {
+    width: 96px;
+    animation: none;
+  }
+}
+
 /* ── Motion ────────────────────────────────────────────────────────────── */
 @keyframes sbq-pop {
   0% { transform: scale(0.6); }
@@ -932,6 +957,9 @@
   color: #07344a;
   box-shadow: 0 0 14px rgba(125, 233, 255, 0.6), 0 4px 10px rgba(15, 23, 42, 0.45);
 }
+
+/* Keep the current place label above neighbouring, unavailable markers. */
+.sbq-mapboard .sbq-stop.next { z-index: 4; }
 
 /* Current stop: a STATIC glow ring (no animation - the avatar shows movement). */
 .sbq-mapboard .sbq-stop.next .sbq-stop-marker {

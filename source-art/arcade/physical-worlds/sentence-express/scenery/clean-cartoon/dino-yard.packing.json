@@ -1,0 +1,17 @@
+{
+  "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/dino-yard-002.png",
+  "nativeSha256": "e82aaec540c22c6d54f08d920ebfe1762efc39b8c2a57edaa0839ab6fc01608d",
+  "nativeSize": [
+    1672,
+    941
+  ],
+  "outputSize": [
+    1672,
+    941
+  ],
+  "sharp": "0.35.5",
+  "kernel": "lanczos3",
+  "encoder": "PNG default",
+  "generatedRasterOnly": true,
+  "method": "whole native PNG re-encoded without resizing; opaque RGB"
+}

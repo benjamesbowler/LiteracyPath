@@ -16,6 +16,7 @@ import {
   selectActiveStudentTab
 } from "../policy/studentRailPolicy.js";
 import { STUDENT_NAVIGATION_ART } from "../policy/studentTabBar.js";
+import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
 import { applyKidsStageMetrics, readKidsVisibleViewport } from "../utils/kidsStage.js";
 import {
   getAvailableGuideStars,
@@ -96,7 +97,7 @@ function TabIcon({ tab }) {
   const [artFailed, setArtFailed] = useState(false);
   const art = STUDENT_NAVIGATION_ART[tab.id === "games" ? "arcade" : tab.id];
   return art && !artFailed
-    ? <img className="kg-tab-art" src={art} alt="" aria-hidden="true" data-kg-icon={tab.icon} onError={() => setArtFailed(true)} />
+    ? <img className="kg-tab-art" src={withRepairedImageVersion(art)} alt="" aria-hidden="true" data-kg-icon={tab.icon} onError={() => setArtFailed(true)} />
     : <GlassIcon name={tab.icon} />;
 }
 

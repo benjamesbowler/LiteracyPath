@@ -1,0 +1,688 @@
+{
+  "schemaVersion": 1,
+  "note": "Current exact clean-cartoon conductor source registration; historical source records preserved unchanged. Other scenery registrations remain historical current contracts.",
+  "conductors": [
+    {
+      "id": "bouncy-conductor",
+      "file": "bouncy-conductor-v2",
+      "hero": "bouncy",
+      "world": "meadow",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "axis": 253,
+          "hands": [
+            [
+              323,
+              307
+            ],
+            [
+              355,
+              302
+            ]
+          ],
+          "boots": [
+            [
+              129,
+              253,
+              374,
+              466
+            ],
+            [
+              253,
+              383,
+              374,
+              466
+            ]
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "action": "point",
+          "axis": 736,
+          "hands": [
+            [
+              790,
+              312
+            ],
+            [
+              900,
+              237
+            ]
+          ],
+          "boots": [
+            [
+              606,
+              736,
+              374,
+              466
+            ],
+            [
+              736,
+              929,
+              374,
+              466
+            ]
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "action": "couple-low",
+          "axis": 209,
+          "hands": [
+            [
+              339,
+              897
+            ],
+            [
+              395,
+              875
+            ]
+          ],
+          "boots": [
+            [
+              92,
+              209,
+              899,
+              978
+            ],
+            [
+              209,
+              420,
+              899,
+              978
+            ]
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "action": "send-ready",
+          "axis": 743,
+          "hands": [
+            [
+              844,
+              793
+            ],
+            [
+              900,
+              774
+            ]
+          ],
+          "boots": [
+            [
+              616,
+              743,
+              887,
+              978
+            ],
+            [
+              743,
+              920,
+              887,
+              978
+            ]
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "action": "wave",
+          "axis": 240,
+          "hands": [
+            [
+              276,
+              1302
+            ],
+            [
+              391,
+              1154
+            ]
+          ],
+          "boots": [
+            [
+              96,
+              240,
+              1391,
+              1490
+            ],
+            [
+              240,
+              416,
+              1391,
+              1490
+            ]
+          ],
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ]
+        },
+        {
+          "action": "recover",
+          "axis": 745,
+          "hands": [
+            [
+              640,
+              1290
+            ],
+            [
+              904,
+              1276
+            ]
+          ],
+          "boots": [
+            [
+              606,
+              745,
+              1392,
+              1490
+            ],
+            [
+              745,
+              930,
+              1392,
+              1490
+            ]
+          ],
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ]
+        }
+      ],
+      "productionRevision": "clean-cartoon-2026-10-31"
+    },
+    {
+      "id": "chompy-conductor",
+      "file": "chompy-conductor-v1",
+      "hero": "chompy",
+      "world": "dino",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "axis": 267,
+          "hands": [
+            [
+              302,
+              333
+            ],
+            [
+              332,
+              332
+            ]
+          ],
+          "boots": [
+            [
+              94,
+              267,
+              371,
+              466
+            ],
+            [
+              267,
+              418,
+              371,
+              466
+            ]
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "action": "point",
+          "axis": 764,
+          "hands": [
+            [
+              779,
+              337
+            ],
+            [
+              914,
+              279
+            ]
+          ],
+          "boots": [
+            [
+              589,
+              764,
+              371,
+              466
+            ],
+            [
+              764,
+              946,
+              371,
+              466
+            ]
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "action": "couple-low",
+          "axis": 241,
+          "hands": [
+            [
+              322,
+              897
+            ],
+            [
+              392,
+              896
+            ]
+          ],
+          "boots": [
+            [
+              64,
+              241,
+              893,
+              978
+            ],
+            [
+              241,
+              447,
+              893,
+              978
+            ]
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "action": "send-ready",
+          "axis": 764,
+          "hands": [
+            [
+              831,
+              830
+            ],
+            [
+              908,
+              804
+            ]
+          ],
+          "boots": [
+            [
+              590,
+              764,
+              888,
+              978
+            ],
+            [
+              764,
+              945,
+              888,
+              978
+            ]
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "action": "wave",
+          "axis": 273,
+          "hands": [
+            [
+              198,
+              1218
+            ],
+            [
+              355,
+              1326
+            ]
+          ],
+          "boots": [
+            [
+              88,
+              273,
+              1391,
+              1490
+            ],
+            [
+              273,
+              423,
+              1391,
+              1490
+            ]
+          ],
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ]
+        },
+        {
+          "action": "recover",
+          "axis": 765,
+          "hands": [
+            [
+              668,
+              1300
+            ],
+            [
+              918,
+              1304
+            ]
+          ],
+          "boots": [
+            [
+              585,
+              765,
+              1393,
+              1490
+            ],
+            [
+              765,
+              951,
+              1393,
+              1490
+            ]
+          ],
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ]
+        }
+      ],
+      "productionRevision": "clean-cartoon-2026-10-31"
+    },
+    {
+      "id": "pip-conductor",
+      "file": "pip-conductor-v1",
+      "hero": "pip",
+      "world": "moonwood",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "axis": 252,
+          "hands": [
+            [
+              271,
+              302
+            ],
+            [
+              336,
+              302
+            ]
+          ],
+          "boots": [
+            [
+              146,
+              252,
+              372,
+              466
+            ],
+            [
+              252,
+              366,
+              372,
+              466
+            ]
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "action": "point",
+          "axis": 736,
+          "hands": [
+            [
+              741,
+              310
+            ],
+            [
+              876,
+              241
+            ]
+          ],
+          "boots": [
+            [
+              626,
+              736,
+              371,
+              466
+            ],
+            [
+              736,
+              910,
+              371,
+              466
+            ]
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "action": "couple-low",
+          "axis": 227,
+          "hands": [
+            [
+              303,
+              894
+            ],
+            [
+              358,
+              887
+            ]
+          ],
+          "boots": [
+            [
+              111,
+              227,
+              894,
+              978
+            ],
+            [
+              227,
+              401,
+              894,
+              978
+            ]
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "action": "send-ready",
+          "axis": 753,
+          "hands": [
+            [
+              840,
+              799
+            ],
+            [
+              898,
+              779
+            ]
+          ],
+          "boots": [
+            [
+              602,
+              753,
+              889,
+              978
+            ],
+            [
+              753,
+              933,
+              889,
+              978
+            ]
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "action": "wave",
+          "axis": 243,
+          "hands": [
+            [
+              234,
+              1318
+            ],
+            [
+              359,
+              1178
+            ]
+          ],
+          "boots": [
+            [
+              114,
+              243,
+              1390,
+              1489
+            ],
+            [
+              243,
+              398,
+              1390,
+              1489
+            ]
+          ],
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ]
+        },
+        {
+          "action": "recover",
+          "axis": 754,
+          "hands": [
+            [
+              732,
+              1338
+            ],
+            [
+              877,
+              1313
+            ]
+          ],
+          "boots": [
+            [
+              617,
+              754,
+              1392,
+              1490
+            ],
+            [
+              754,
+              919,
+              1392,
+              1490
+            ]
+          ],
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ]
+        }
+      ],
+      "productionRevision": "clean-cartoon-2026-10-31"
+    }
+  ],
+  "stops": [
+    {
+      "id": "meadow-stops",
+      "file": "meadow-stops-v2",
+      "world": "meadow",
+      "names": [
+        "willow-halt",
+        "river-bridge",
+        "orchard-yard",
+        "hilltop-station"
+      ]
+    },
+    {
+      "id": "dino-stops",
+      "file": "dino-stops-v1",
+      "world": "dino",
+      "names": [
+        "canyon-halt",
+        "fossil-bridge",
+        "fern-valley",
+        "red-rock-yard"
+      ]
+    },
+    {
+      "id": "moonwood-stops",
+      "file": "moonwood-stops-v2",
+      "world": "moonwood",
+      "names": [
+        "lantern-halt",
+        "moon-bridge",
+        "moss-hollow",
+        "star-station"
+      ]
+    }
+  ],
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/sentence-express/registration.json",
+    "sha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+    "immutable": true
+  }
+}

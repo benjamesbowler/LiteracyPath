@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 
 import {
   createAssessmentSessionMediaUsage,
@@ -115,9 +116,20 @@ test("rhyming picture options resolve to approved exact-word assessment images",
   });
 
   assert.equal(resolved.imageCards.length, 4);
-  assert.match(resolved.imageCards[0].image, /^\/images\/assessment\/rhyming\/variants\/fun\/fun-/);
+  assert.equal(resolved.imageCards[0].image, "/media/vocabulary/images/fun.webp");
   assert.match(resolved.imageCards[1].image, /^\/images\/assessment\/rhyming\/variants\/op\/top-/);
-  assert.match(resolved.imageCards[2].image, /^\/images\/assessment\/rhyming\/variants\/ip\/lip-/);
+  assert.equal(resolved.imageCards[2].image, "/media/vocabulary/images/lip.webp");
+  // Unused variant files can be retired without weakening exact-word media
+  // admission. The surviving canonical pictures must still be available,
+  // approved and explicitly paired with each option's own word.
+  for (const card of resolved.imageCards) {
+    const media = getAssessmentMediaByPath(card.image);
+    assert.ok(media?.targetWords.includes(card.word), card.word);
+    assert.equal(media.qaStatus, "approved", card.word);
+    assert.equal(media.available, true, card.word);
+    assert.equal(media.blocked || media.rejected || media.deprecated, false, card.word);
+    assert.ok(fs.existsSync(new URL("../../public" + card.image, import.meta.url)), card.word);
+  }
   assert.equal(
     resolved.answerOptions.every(option =>
       option.image === resolved.imageCards.find(card => card.word === option.word)?.image

@@ -9,23 +9,46 @@
     "cards": [
       {
         "path": "/images/assessment/literacy-interactions/seed-1.webp",
-        "sha256": "d54cfd4d154321845fa207c6a84fddb1bde007561c0663da167647b225fe6df6",
-        "bytes": 30194
+        "sha256": "638154cbbbc48611da213be0cd5b24c124cb872b2cfad07219157121f77332c3",
+        "bytes": 42256,
+        "replacement": {
+          "jobId": "dino-extra-092",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "3456101d26438b2a0639d29147f13835a2ee70df5c045615fae557663d7a8e8c",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-092",
+          "reviewNote": "Native/full saved/390/128: Mia identity locked (medium-brown skin, two dark braids/yellow ties/yellow shirt), exactly two arms. One cream seed pinched over hole in one terracotta pot, other hand steadies pot; no water or shoot yet. White tabletop/background, complete evidence, clean outlined flat soil and pot."
+        }
       },
       {
         "path": "/images/assessment/literacy-interactions/seed-2.webp",
-        "sha256": "c2d44f1bce7b5202007b3c684abb22af4fd1c323ef90d8755d36a2b4e2983dcc",
-        "bytes": 34414
+        "sha256": "885c52aaf3c251ec0ed4ae765707649f388ef8bb1fb73a0d383814268836de90",
+        "bytes": 49168,
+        "replacement": {
+          "jobId": "dino-extra-093",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "f9b9d57e0d62b2886fe049da51f95357889fff024706a2be448344f532d2867e",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-093",
+          "reviewNote": "Native/full saved/390/128: same accepted Mia/braids/yellow ties/shirt/terracotta pot; two arms, one can-handle hand/one resting hand. Clear connected water streams from blue rose into bare soil, no shoot or loose seed. White setting, flat outlined style."
+        }
       },
       {
         "path": "/images/assessment/literacy-interactions/seed-3.webp",
-        "sha256": "6ee8f71b385aada672a0ff86a6007ed0703557faefb02556b927135c6b590ab6",
-        "bytes": 29760
+        "sha256": "898d29778ae06198b76a11f679a1fdd2661142a54bb806f11d17b697ee6de85d",
+        "bytes": 40652,
+        "replacement": {
+          "jobId": "dino-extra-094",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "23016afafa9b65fa9fddf2523db63266512ffcd0e1541cca9cb59ac424da9ef0",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-094",
+          "reviewNote": "Native/full saved/390/128: same Mia/pot palette/model; exactly two cheek-cupping hands/two forearms, one green shoot with two leaves emerges from soil. No can/loose seed. Sequence causal states seed then water then shoot coherent, all flat outlined."
+        }
       }
     ],
-    "deliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
-    "review": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing.",
-    "sourcePath": "source-art/assessment/literacy-interactions/seed.png"
+    "deliveryTransform": "Individual clean-cartoon replacements uniformly contained at 512px and encoded as WebP; source panel files above retain original-generation provenance.",
+    "review": "2026-10-30: accepted exact replacement receipts record native, saved full-size, 390px and 128px inspection; all three sequence states, character continuity, complete framing, neutral setting and whole-image clean-cartoon style pass.",
+    "sourcePath": "source-art/assessment/literacy-interactions/seed.png",
+    "originalDeliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
+    "originalReview": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing."
   },
   {
     "id": "kite",
@@ -37,23 +60,46 @@
     "cards": [
       {
         "path": "/images/assessment/literacy-interactions/kite-1.webp",
-        "sha256": "85810029c1004e1110c148ece7c7a558acdcbd61d8662dab73c2ef186a069be6",
-        "bytes": 43190
+        "sha256": "be6e6d6d50ce412094acb909efef1a26119767a1930c1de68fd413e1ed87c1a4",
+        "bytes": 60932,
+        "replacement": {
+          "jobId": "dino-extra-095",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "419c774a6dda42cda05151a60d4d784741a7be201fa729ba1b79c6757009c89b",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-095",
+          "reviewNote": "Native/full saved/390/128: Ben two arms, red-pencil grip and paper-steadying hand coherent. Four-panel diamond has two opposite red/two white triangles mid-colouring, no string yet. Literal deliberate pencil marks only in coloured panels; room/table/plant clean outlined flat."
+        }
       },
       {
         "path": "/images/assessment/literacy-interactions/kite-2.webp",
-        "sha256": "03af6276f2c98138053fd5e7181dbc174b89380046ea834e1d123a0fdd0ef01c",
-        "bytes": 45372
+        "sha256": "04bdf77c98f0d12535b8263731e0aed0728aa5694439dcdd00bc195bb12d429b",
+        "bytes": 62384,
+        "replacement": {
+          "jobId": "dino-extra-096",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "747dbe415529c1a9b98550a478b224813eb486258f9818af138847384ca0cd5c",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-096",
+          "reviewNote": "Native/full saved/390/128: Ben identity/blue shirt/room match accepted colouring panel, exactly two tying hands/two arms. Fully red diamond kite has structural spars and connected white string/spool; knot/bridle visible, no extra limbs. Entire room/table clean outlined."
+        }
       },
       {
         "path": "/images/assessment/literacy-interactions/kite-3.webp",
-        "sha256": "a5daf6c1ddf6aaf928bb8985a4fca6088a759b775d25d249dbf2361cabc11971",
-        "bytes": 35492
+        "sha256": "fb3fcb52518ada1c89695ae0056b701e702d76d44c2baa17dd5ae599c0703720",
+        "bytes": 48888,
+        "replacement": {
+          "jobId": "dino-extra-097",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "9c0c6b21c92dfbd626c816d5610672e6f01258ea877e3269571c78635e3fb787",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-097",
+          "reviewNote": "Native/full saved/390/128 after background refinement: same Ben with two arms/two string/spool hands, same red diamond airborne kite with tail; continuous string attached. Background now few large outlined two-tone canopy shapes/plain lawn and crisp clouds, no leaf dabs or grass mottling."
+        }
       }
     ],
-    "deliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
-    "review": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing.",
-    "sourcePath": "source-art/assessment/literacy-interactions/kite.png"
+    "deliveryTransform": "Individual clean-cartoon replacements uniformly contained at 512px and encoded as WebP; source panel files above retain original-generation provenance.",
+    "review": "2026-10-30: accepted exact replacement receipts record native, saved full-size, 390px and 128px inspection; all three sequence states, character continuity, complete framing, neutral setting and whole-image clean-cartoon style pass.",
+    "sourcePath": "source-art/assessment/literacy-interactions/kite.png",
+    "originalDeliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
+    "originalReview": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing."
   },
   {
     "id": "snack",
@@ -65,22 +111,45 @@
     "cards": [
       {
         "path": "/images/assessment/literacy-interactions/snack-1.webp",
-        "sha256": "16f19cc73d93e05eca0cf89a57ac983f8a85e0d5c0aebbe691e3ea87151f10a0",
-        "bytes": 49950
+        "sha256": "413fd6744bcec1069a7e9a2d052bcedf8b40c839c3b9da3a5c220a68c7a615a2",
+        "bytes": 68264,
+        "replacement": {
+          "jobId": "dino-extra-098",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "ce1950a66f0511d11c0231f739c6045fbf066ec2a98ba13d60e5b7dc8f33c60e",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-098",
+          "reviewNote": "Native/full saved/390/128: Ada curly bob/green shirt/skin model locked, exactly two arms/two apple-holding hands. Whole unbitten red apple under connected tap stream, drainage into sink clear. Ordinary kitchen, metal shown hard outlined grey planes; no photorealistic textures."
+        }
       },
       {
         "path": "/images/assessment/literacy-interactions/snack-2.webp",
-        "sha256": "63b14b28370d1c2ab191291c91b7e09f1c8e87753c191c8acd865fba74813d64",
-        "bytes": 44840
+        "sha256": "cfee1c5e5327c3a8153886d7be3857d001681107d3480cce3cac5080f74d713c",
+        "bytes": 56332,
+        "replacement": {
+          "jobId": "dino-extra-099",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "534915a8bccd6ef728efad9f4c257e4abdcf26796122d8c030f7d51a0863fe07",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-099",
+          "reviewNote": "Native/full saved/390/128: same Ada curly bob/green shirt/skin model, exactly two arms (one apple placement/one box steadying hand). Whole unbitten red apple lowered into open blue lunch box with one centred latch, table/chair plain outlined. Packing state distinct from wash/eat."
+        }
       },
       {
         "path": "/images/assessment/literacy-interactions/snack-3.webp",
-        "sha256": "ed46856140b5eccc77cb28f4bfa5dce3bf58909333cffa9de6d61e5ede401475",
-        "bytes": 52740
+        "sha256": "cafa2bc798b02675161f53fa2b02d4a7fb0841889d89a8c956139972429c87e2",
+        "bytes": 68214,
+        "replacement": {
+          "jobId": "dino-extra-100",
+          "reviewedAt": "2026-10-30",
+          "sourceSha256": "c28a58d649c9fb62a928206062b298e4f34abf1aac6a9f33646b2fe8a39b3ef7",
+          "receipt": "all-clean-cartoon-2026-10-31/cd_dino/completed-assets.json#dino-extra-100",
+          "reviewNote": "Native/full saved/390/128 after focused latch repair: same Ada curly bob/green shirt/skin model, exactly two arms/hands (apple/resting table). Bitten red apple near mouth, closed blue lunch box now ONE centred front latch matching packing panel. Full three-panel snack sequence directly reviewed; wash then pack whole apple then eat outdoors causally clear. Whole park/table/bench clean outlined flat colour."
+        }
       }
     ],
-    "deliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
-    "review": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing.",
-    "sourcePath": "source-art/assessment/literacy-interactions/snack.png"
+    "deliveryTransform": "Individual clean-cartoon replacements uniformly contained at 512px and encoded as WebP; source panel files above retain original-generation provenance.",
+    "review": "2026-10-30: accepted exact replacement receipts record native, saved full-size, 390px and 128px inspection; all three sequence states, character continuity, complete framing, neutral setting and whole-image clean-cartoon style pass.",
+    "sourcePath": "source-art/assessment/literacy-interactions/snack.png",
+    "originalDeliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
+    "originalReview": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing."
   }
 ]

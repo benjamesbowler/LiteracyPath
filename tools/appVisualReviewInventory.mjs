@@ -4,6 +4,11 @@ import path from "node:path";
 import { mediaQaReviewItems } from "../src/data/generated/mediaQaReviewItems.generated.js";
 import { storyQuests } from "../src/data/storyQuests.js";
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
+import {buildCyclePresentation,presentationCycleOptions,PRESENTATION_DAYS} from '../src/utils/present/presentationBuilder.js';
+import {GAME_LIST} from '../src/data/learnGamesData.js';
+import {LEARN_GAMES} from '../src/components/learn/games/games/index.js';
+import {BUILD_PARTS} from '../src/utils/burrowBuildersRules.js';
+import {HOP_AND_STOP_PAGES,HOP_AND_STOP_ACTIONS,hopAndStopActionImage} from '../src/data/hopAndStop.js';
 
 export const IMAGE_PATTERN = /\.(?:png|jpe?g|webp|gif|svg)$/i;
 const SOURCE_PATTERN = /\.(?:js|jsx|mjs|css|json|html)$/i;
@@ -34,6 +39,9 @@ function collectRegistryRows(root) {
       sources: new Set(),
       areas: new Set()
     };
+    // Historical tag retained for compatibility. Membership in the QA registry
+    // is not proof of display: a held-source disposition must separately prove
+    // its exact current selector and consumer boundary.
     existing.sources.add("runtime-media-registry");
     existing.areas.add(item.area || "unknown");
     byPath.set(publicPath, existing);
@@ -110,6 +118,21 @@ function addRuntimeObjectImages(root, byPath, value, source) {
   }
 }
 
+// Present combines character roots and pose names, which source-literal
+// scanning cannot discover. Inventory only actual offered document outputs,
+// rather than assuming every export of an imported helper is displayed.
+export function collectPresentRuntimeImageBindings(){
+  const bindings=[];
+  for(const cycle of presentationCycleOptions())for(const day of ['',...PRESENTATION_DAYS.map(row=>row.value)]){
+    const document=buildCyclePresentation(cycle.id,{day,format:'core'});
+    for(const match of (document.html||'').matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/g)){
+      const image=match[1].replace(/^https?:\/\/[^/]+/,'');
+      if(image.startsWith('/'))bindings.push({cycleId:cycle.id,day,path:cleanAssetPath(image)});
+    }
+  }
+  return bindings;
+}
+
 export function collectAppVisualReviewInventory(
   root,
   { includeSourceLiterals = true, includeRuntimeObjects = true } = {}
@@ -119,6 +142,11 @@ export function collectAppVisualReviewInventory(
   if (includeRuntimeObjects) {
     addRuntimeObjectImages(root, byPath, getRuntimeGuidedReadingBooks(), "runtime-guided-reading");
     addRuntimeObjectImages(root, byPath, storyQuests, "runtime-story-quests");
+    addRuntimeObjectImages(root, byPath, [HOP_AND_STOP_PAGES.map(page=>page.image),Object.keys(HOP_AND_STOP_ACTIONS).map(hopAndStopActionImage)], "runtime-hop-and-stop");
+    addRuntimeObjectImages(root, byPath, collectPresentRuntimeImageBindings().map(row=>row.path), "runtime-present-document");
+    addRuntimeObjectImages(root, byPath, GAME_LIST.filter(game=>!game.hidden&&LEARN_GAMES[game.id]).map(game=>game.menuArt), 'runtime-game-menu');
+    addRuntimeObjectImages(root, byPath, ['meadow','dino','moonwood'].flatMap(world=>BUILD_PARTS.map(part=>`/game-assets/physical-arcade/burrow-builders/thumbnails/${world}-${part}-v1.png`)), 'runtime-burrow-model-thumbnails');
+    addRuntimeObjectImages(root, byPath, ['engine','wagon','caboose'].map(kind=>`/game-assets/arcade-worlds/trains/${kind}.webp`), 'runtime-sentence-express-model-frames');
   }
   addImportedSourceAssets(root, byPath);
 

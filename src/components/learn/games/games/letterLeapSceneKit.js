@@ -1,6 +1,7 @@
 import { createRegisteredPalArtBank, registeredPalCanvasPose, drawRegisteredPalFrame } from '../shared/registeredPalArt.js';
 import { drawPhysicalPalArt, preloadPhysicalPalArt, physicalPalArtDelivery } from '../shared/physicalPalArt.js';
 import { LETTER_LEAP_ATLASES, LETTER_LEAP_FOE_ATLASES, LETTER_LEAP_SCENE_ART } from './letterLeapArt.generated.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 export const LETTER_LEAP_CAST = Object.freeze({ meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' });
 const NAMES = Object.freeze({ bouncy: 'Bouncy', chompy: 'Chompy', pip: 'Pip' });
@@ -71,7 +72,7 @@ export function createLetterLeapSceneKit(world) {
       } catch { finish(null); }
     };
     image.onerror = () => finish(null);
-    image.src = asset.runtime;
+    image.src = withRepairedImageVersion(asset.runtime);
   }
   load('terrain'); load('action-props'); load(world + '-horizon'); load(world + '-foes');
   const getPose = (player, options) => {

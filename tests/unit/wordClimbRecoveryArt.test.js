@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -13,7 +14,7 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 
 test('the last retained Moonwood picture registers its real visible forehand and sole without inventing an action family',async()=>{
   const atlas=WORD_CLIMB_LEGACY_PIP,frame=atlas.frames[0];
-  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/recovery-manifest.json','utf8'));
+  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/recovery-clean-cartoon-manifest.json','utf8'));
   const bytes=await fs.readFile(`public${atlas.runtime}`);assert.equal(hash(bytes),manifest.legacyPip.runtimeSha256);
   const image=await sharp(bytes).ensureAlpha().raw().toBuffer({resolveWithObject:true});assert.deepEqual([image.info.width,image.info.height],[atlas.width,atlas.height]);
   for(const name of ['grip','bootLeft','bootRight']){const [x,y]=frame.sockets[name];assert(image.data[(y*atlas.width+x)*4+3]>=200,`${name} is measured within the visible retained hand/boot`);}
@@ -23,9 +24,14 @@ test('the last retained Moonwood picture registers its real visible forehand and
 });
 
 test('canonical Climb recovery uses retained exact shared sources and measured opaque raised palms, without replacing normal art', async () => {
-  const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/recovery-manifest.json', 'utf8'));
+  const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/recovery-clean-cartoon-manifest.json', 'utf8'));
+  const historicalBytes = await fs.readFile(manifest.historicalManifest.path), historical = JSON.parse(historicalBytes);
+  assert.equal(hash(historicalBytes), manifest.historicalManifest.sha256);
+  assert.equal(hash(await fs.readFile(manifest.sourceManifest)), manifest.sourceManifestSha256);
+  assert.deepEqual(manifest.legacyPip, historical.legacyPip);
   assert.equal(manifest.assets.length, 6);
   for (const asset of manifest.assets) {
+    assert.deepEqual(asset.supersedes, historical.assets.find(row => row.hero === asset.hero && row.family === asset.family));
     const source = await fs.readFile(asset.source), runtime = await fs.readFile(`public${asset.runtime}`);
     assert.equal(hash(source), asset.sourceSha256); assert.equal(hash(runtime), asset.runtimeSha256);
     const original = await sharp(source).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -57,6 +63,7 @@ test('recovery preserves each shared crop/common sole and exposes only actually 
       assert.deepEqual(pose.sockets.feet, { x: 313, y: 420 });
       const gripping = ['climb-a', 'climb-b', 'recover-grip'].includes(action);
       assert.equal(Boolean(pose.sockets.grip), gripping);
+      if (gripping) assert.deepEqual(frame.sockets.grip, original.rightHandPixel);
       assert(!pose.sockets.leftHand && !pose.sockets.rightHand, 'No unmeasured lower hand is invented');
       if (gripping) assert(pose.sockets.grip.y < pose.sockets.feet.y - 70);
     }
@@ -69,7 +76,7 @@ test('Three recovery changes measured hands with real climb phases and preserves
   class Image {
     set src(value) {
       if (!value) return;
-      const source = Object.values(PHYSICAL_PAL_ART).flatMap(item => [item, item.actionAtlases.tools]).find(item => item.runtime === value);
+      const source = Object.values(PHYSICAL_PAL_ART).flatMap(item => [item, item.actionAtlases.tools]).find(item => withRepairedImageVersion(item.runtime) === value);
       this.naturalWidth = source.width; this.naturalHeight = source.height;
       queueMicrotask(() => this.onload?.());
     }

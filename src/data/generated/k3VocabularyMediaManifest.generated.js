@@ -3,7 +3,7 @@
 
 export const k3VocabularyMedia = {
   "about": {
-    image: "/media/vocabulary/images/about.webp",
+    image: "",
     textSpoken: "about",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -13,7 +13,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "add": {
-    image: "/media/vocabulary/images/add.webp",
+    image: "",
     textSpoken: "add",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -35,7 +35,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "air": {
-    image: "/media/vocabulary/images/air.webp",
+    image: "",
     textSpoken: "air",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -50,12 +50,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "also": {
-    image: "/media/vocabulary/images/also.webp",
+    image: "",
     textSpoken: "also",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "always": {
-    image: "/media/vocabulary/images/always.webp",
+    image: "",
     textSpoken: "always",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -77,12 +77,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "another": {
-    image: "/media/vocabulary/images/another.webp",
+    image: "",
     textSpoken: "another",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "ape": {
-    image: "/media/vocabulary/images/ape.webp",
+    image: "",
     textSpoken: "ape",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -93,19 +93,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "ark": {
-    image: "/media/vocabulary/images/ark.webp",
+    image: "",
     audio: "/media/vocabulary/audio/ark.mp3",
     textSpoken: "ark",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "art": {
-    image: "/media/vocabulary/images/art.webp",
+    image: "",
     audio: "/media/vocabulary/audio/art.mp3",
     textSpoken: "art",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "at": {
-    image: "/media/vocabulary/images/at.webp",
+    image: "",
     textSpoken: "at",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -120,7 +120,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "author": {
-    image: "/media/vocabulary/images/author.webp",
+    image: "",
     audio: "/media/vocabulary/audio/author.mp3",
     textSpoken: "author",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -136,7 +136,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "bait": {
-    image: "/media/vocabulary/images/bait.webp",
+    image: "",
     audio: "/media/vocabulary/audio/bait.mp3",
     textSpoken: "bait",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -148,19 +148,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "baked": {
-    image: "/media/vocabulary/images/baked.webp",
+    image: "",
     audio: "/media/vocabulary/audio/baked.mp3",
     textSpoken: "baked",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "baker": {
-    image: "/media/vocabulary/images/baker.webp",
+    image: "",
     audio: "/media/vocabulary/audio/baker.mp3",
     textSpoken: "baker",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "baking": {
-    image: "/media/vocabulary/images/baking.webp",
+    image: "",
     audio: "/media/vocabulary/audio/baking.mp3",
     textSpoken: "baking",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -200,19 +200,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "beam": {
-    image: "/media/vocabulary/images/beam.webp",
+    image: "",
     audio: "/media/vocabulary/audio/beam.mp3",
     textSpoken: "beam",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "beard": {
-    image: "/media/vocabulary/images/beard.webp",
+    image: "",
     audio: "/media/vocabulary/audio/beard.mp3",
     textSpoken: "beard",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "beat": {
-    image: "/media/vocabulary/images/beat.webp",
+    image: "",
     audio: "/media/vocabulary/audio/beat.mp3",
     textSpoken: "beat",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -229,7 +229,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "been": {
-    image: "/media/vocabulary/images/been.webp",
+    image: "",
     textSpoken: "been",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -261,12 +261,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "better": {
-    image: "/media/vocabulary/images/better.webp",
+    image: "",
     textSpoken: "better",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "bigger": {
-    image: "/media/vocabulary/images/bigger.webp",
+    image: "",
     textSpoken: "bigger",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -311,7 +311,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "bob": {
-    image: "/media/vocabulary/images/bob.webp",
+    image: "",
     textSpoken: "bob",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -327,13 +327,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "boil": {
-    image: "/media/vocabulary/images/boil.webp",
+    image: "",
     audio: "/media/vocabulary/audio/boil.mp3",
     textSpoken: "boil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "bony": {
-    image: "/media/vocabulary/images/bony.webp",
+    image: "",
     audio: "/media/vocabulary/audio/bony.mp3",
     textSpoken: "bony",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -344,7 +344,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "both": {
-    image: "/media/vocabulary/images/both.webp",
+    image: "",
     textSpoken: "both",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -388,7 +388,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "breeze": {
-    image: "/media/vocabulary/images/breeze.webp",
+    image: "",
     audio: "/media/vocabulary/audio/breeze.mp3",
     textSpoken: "breeze",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -406,7 +406,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "bring": {
-    image: "/media/vocabulary/images/bring.webp",
+    image: "",
     textSpoken: "bring",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -462,7 +462,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "bush": {
-    image: "/media/vocabulary/images/bush.webp",
+    image: "",
     textSpoken: "bush",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -473,7 +473,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cabin": {
-    image: "/media/vocabulary/images/cabin.webp",
+    image: "",
     audio: "/media/vocabulary/audio/cabin.mp3",
     textSpoken: "cabin",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -524,12 +524,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "caught": {
-    image: "/media/vocabulary/images/caught.webp",
+    image: "",
     textSpoken: "caught",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "change": {
-    image: "/media/vocabulary/images/change.webp",
+    image: "",
     textSpoken: "change",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -572,7 +572,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "chess": {
-    image: "/media/vocabulary/images/chess.webp",
+    image: "",
     audio: "/media/vocabulary/audio/chess.mp3",
     textSpoken: "chess",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -590,12 +590,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "children": {
-    image: "/media/vocabulary/images/children.webp",
+    image: "",
     textSpoken: "children",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "choice": {
-    image: "/media/vocabulary/images/choice.webp",
+    image: "",
     textSpoken: "choice",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -616,7 +616,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "chum": {
-    image: "/media/vocabulary/images/chum.webp",
+    image: "",
     audio: "/media/vocabulary/audio/chum.mp3",
     textSpoken: "chum",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -673,7 +673,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "clue": {
-    image: "/media/vocabulary/images/clue.webp",
+    image: "",
     audio: "/media/vocabulary/audio/clue.mp3",
     textSpoken: "clue",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -685,25 +685,25 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cod": {
-    image: "/media/vocabulary/images/cod.webp",
+    image: "",
     audio: "/media/vocabulary/audio/cod.mp3",
     textSpoken: "cod",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cog": {
-    image: "/media/vocabulary/images/cog.webp",
+    image: "",
     audio: "/media/vocabulary/audio/cog.mp3",
     textSpoken: "cog",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "coil": {
-    image: "/media/vocabulary/images/coil.webp",
+    image: "",
     audio: "/media/vocabulary/audio/coil.mp3",
     textSpoken: "coil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "colder": {
-    image: "/media/vocabulary/images/colder.webp",
+    image: "",
     audio: "/media/vocabulary/audio/colder.mp3",
     textSpoken: "colder",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -721,13 +721,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cooked": {
-    image: "/media/vocabulary/images/cooked.webp",
+    image: "",
     audio: "/media/vocabulary/audio/cooked.mp3",
     textSpoken: "cooked",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cooking": {
-    image: "/media/vocabulary/images/cooking.webp",
+    image: "",
     textSpoken: "cooking",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -743,7 +743,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "core": {
-    image: "/media/vocabulary/images/core.webp",
+    image: "",
     audio: "/media/vocabulary/audio/core.mp3",
     textSpoken: "core",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -754,12 +754,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "course": {
-    image: "/media/vocabulary/images/course.webp",
+    image: "",
     textSpoken: "course",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cozy": {
-    image: "/media/vocabulary/images/cozy.webp",
+    image: "",
     textSpoken: "cozy",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -774,7 +774,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "cram": {
-    image: "/media/vocabulary/images/cram.webp",
+    image: "",
     audio: "/media/vocabulary/audio/cram.mp3",
     textSpoken: "cram",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -837,18 +837,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "dare": {
-    image: "/media/vocabulary/images/dare.webp",
+    image: "",
     audio: "/media/vocabulary/audio/dare.mp3",
     textSpoken: "dare",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "date": {
-    image: "/media/vocabulary/images/date.webp",
+    image: "",
     textSpoken: "date",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "daughter": {
-    image: "/media/vocabulary/images/daughter.webp",
+    image: "",
     audio: "/media/vocabulary/audio/daughter.mp3",
     textSpoken: "daughter",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -892,7 +892,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "digging": {
-    image: "/media/vocabulary/images/digging.webp",
+    image: "",
     audio: "/media/vocabulary/audio/digging.mp3",
     textSpoken: "digging",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -904,28 +904,28 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "dinner": {
-    image: "/media/vocabulary/images/dinner.webp",
+    image: "",
     textSpoken: "dinner",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "dirt": {
-    image: "/media/vocabulary/images/dirt.webp",
+    image: "",
     audio: "/media/vocabulary/audio/dirt.mp3",
     textSpoken: "dirt",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "do": {
-    image: "/media/vocabulary/images/do.webp",
+    image: "",
     textSpoken: "do",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "does": {
-    image: "/media/vocabulary/images/does.webp",
+    image: "",
     textSpoken: "does",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "doing": {
-    image: "/media/vocabulary/images/doing.webp",
+    image: "",
     textSpoken: "doing",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -936,12 +936,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "don-t": {
-    image: "/media/vocabulary/images/don-t.webp",
+    image: "",
     textSpoken: "don t",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "done": {
-    image: "/media/vocabulary/images/done.webp",
+    image: "",
     textSpoken: "done",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -989,7 +989,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "due": {
-    image: "/media/vocabulary/images/due.webp",
+    image: "",
     audio: "/media/vocabulary/audio/due.mp3",
     textSpoken: "due",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1000,13 +1000,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "during": {
-    image: "/media/vocabulary/images/during.webp",
+    image: "",
     audio: "/media/vocabulary/audio/during.mp3",
     textSpoken: "during",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "each": {
-    image: "/media/vocabulary/images/each.webp",
+    image: "",
     textSpoken: "each",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1016,12 +1016,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "eating": {
-    image: "/media/vocabulary/images/eating.webp",
+    image: "",
     textSpoken: "eating",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "either": {
-    image: "/media/vocabulary/images/either.webp",
+    image: "",
     textSpoken: "either",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1032,34 +1032,34 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "eve": {
-    image: "/media/vocabulary/images/eve.webp",
+    image: "",
     audio: "/media/vocabulary/audio/eve.mp3",
     textSpoken: "eve",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "even": {
-    image: "/media/vocabulary/images/even.webp",
+    image: "",
     textSpoken: "even",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "evil": {
-    image: "/media/vocabulary/images/evil.webp",
+    image: "",
     audio: "/media/vocabulary/audio/evil.mp3",
     textSpoken: "evil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "face": {
-    image: "/media/vocabulary/images/face.webp",
+    image: "",
     textSpoken: "face",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fact": {
-    image: "/media/vocabulary/images/fact.webp",
+    image: "",
     textSpoken: "fact",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fail": {
-    image: "/media/vocabulary/images/fail.webp",
+    image: "",
     audio: "/media/vocabulary/audio/fail.mp3",
     textSpoken: "fail",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1075,7 +1075,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fame": {
-    image: "/media/vocabulary/images/fame.webp",
+    image: "",
     audio: "/media/vocabulary/audio/fame.mp3",
     textSpoken: "fame",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1087,18 +1087,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "farmer": {
-    image: "/media/vocabulary/images/farmer.webp",
+    image: "",
     audio: "/media/vocabulary/audio/farmer.mp3",
     textSpoken: "farmer",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "faster": {
-    image: "/media/vocabulary/images/faster.webp",
+    image: "",
     textSpoken: "faster",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fastest": {
-    image: "/media/vocabulary/images/fastest.webp",
+    image: "",
     audio: "/media/vocabulary/audio/fastest.mp3",
     textSpoken: "fastest",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1109,13 +1109,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "father": {
-    image: "/media/vocabulary/images/father.webp",
+    image: "",
     audio: "/media/vocabulary/audio/father.mp3",
     textSpoken: "father",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fault": {
-    image: "/media/vocabulary/images/fault.webp",
+    image: "",
     audio: "/media/vocabulary/audio/fault.mp3",
     textSpoken: "fault",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1127,7 +1127,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "feast": {
-    image: "/media/vocabulary/images/feast.webp",
+    image: "",
     audio: "/media/vocabulary/audio/feast.mp3",
     textSpoken: "feast",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1144,7 +1144,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "feel": {
-    image: "/media/vocabulary/images/feel.webp",
+    image: "",
     textSpoken: "feel",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1154,7 +1154,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "felt": {
-    image: "/media/vocabulary/images/felt.webp",
+    image: "",
     textSpoken: "felt",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1225,7 +1225,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "foil": {
-    image: "/media/vocabulary/images/foil.webp",
+    image: "",
     textSpoken: "foil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1262,7 +1262,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "four": {
-    image: "/media/vocabulary/images/four.webp",
+    image: "",
     textSpoken: "four",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1284,7 +1284,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "friend": {
-    image: "/media/vocabulary/images/friend.webp",
+    image: "",
     textSpoken: "friend",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1301,13 +1301,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fuel": {
-    image: "/media/vocabulary/images/fuel.webp",
+    image: "",
     audio: "/media/vocabulary/audio/fuel.mp3",
     textSpoken: "fuel",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "fume": {
-    image: "/media/vocabulary/images/fume.webp",
+    image: "",
     audio: "/media/vocabulary/audio/fume.mp3",
     textSpoken: "fume",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1335,13 +1335,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "gas": {
-    image: "/media/vocabulary/images/gas.webp",
+    image: "",
     audio: "/media/vocabulary/audio/gas.mp3",
     textSpoken: "gas",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "gave": {
-    image: "/media/vocabulary/images/gave.webp",
+    image: "",
     textSpoken: "gave",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1368,13 +1368,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "goal": {
-    image: "/media/vocabulary/images/goal.webp",
+    image: "",
     audio: "/media/vocabulary/audio/goal.mp3",
     textSpoken: "goal",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "goes": {
-    image: "/media/vocabulary/images/goes.webp",
+    image: "",
     textSpoken: "goes",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1384,7 +1384,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "got": {
-    image: "/media/vocabulary/images/got.webp",
+    image: "",
     textSpoken: "got",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1412,35 +1412,35 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "grandma": {
-    image: "/media/vocabulary/images/grandma.webp",
+    image: "",
     textSpoken: "grandma",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "grandpa": {
-    image: "/media/vocabulary/images/grandpa.webp",
+    image: "",
     audio: "/media/vocabulary/audio/grandpa.mp3",
     textSpoken: "grandpa",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "gray": {
-    image: "/media/vocabulary/images/gray.webp",
+    image: "",
     audio: "/media/vocabulary/audio/gray.mp3",
     textSpoken: "gray",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "grew": {
-    image: "/media/vocabulary/images/grew.webp",
+    image: "",
     textSpoken: "grew",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "groan": {
-    image: "/media/vocabulary/images/groan.webp",
+    image: "",
     audio: "/media/vocabulary/audio/groan.mp3",
     textSpoken: "groan",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "ground": {
-    image: "/media/vocabulary/images/ground.webp",
+    image: "",
     textSpoken: "ground",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1450,13 +1450,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "growl": {
-    image: "/media/vocabulary/images/growl.webp",
+    image: "",
     audio: "/media/vocabulary/audio/growl.mp3",
     textSpoken: "growl",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "grunt": {
-    image: "/media/vocabulary/images/grunt.webp",
+    image: "",
     audio: "/media/vocabulary/audio/grunt.mp3",
     textSpoken: "grunt",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1468,7 +1468,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "gun": {
-    image: "/media/vocabulary/images/gun.webp",
+    image: "",
     audio: "/media/vocabulary/audio/gun.mp3",
     textSpoken: "gun",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1495,24 +1495,24 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "happen": {
-    image: "/media/vocabulary/images/happen.webp",
+    image: "",
     textSpoken: "happen",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hare": {
-    image: "/media/vocabulary/images/hare.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hare.mp3",
     textSpoken: "hare",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "harm": {
-    image: "/media/vocabulary/images/harm.webp",
+    image: "",
     audio: "/media/vocabulary/audio/harm.mp3",
     textSpoken: "harm",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "haul": {
-    image: "/media/vocabulary/images/haul.webp",
+    image: "",
     audio: "/media/vocabulary/audio/haul.mp3",
     textSpoken: "haul",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1524,12 +1524,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "held": {
-    image: "/media/vocabulary/images/held.webp",
+    image: "",
     textSpoken: "held",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "helped": {
-    image: "/media/vocabulary/images/helped.webp",
+    image: "",
     textSpoken: "helped",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1540,7 +1540,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "helping": {
-    image: "/media/vocabulary/images/helping.webp",
+    image: "",
     audio: "/media/vocabulary/audio/helping.mp3",
     textSpoken: "helping",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1551,12 +1551,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hers": {
-    image: "/media/vocabulary/images/hers.webp",
+    image: "",
     textSpoken: "hers",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hid": {
-    image: "/media/vocabulary/images/hid.webp",
+    image: "",
     textSpoken: "hid",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1566,7 +1566,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hiding": {
-    image: "/media/vocabulary/images/hiding.webp",
+    image: "",
     textSpoken: "hiding",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1582,13 +1582,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hint": {
-    image: "/media/vocabulary/images/hint.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hint.mp3",
     textSpoken: "hint",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hoe": {
-    image: "/media/vocabulary/images/hoe.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hoe.mp3",
     textSpoken: "hoe",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1604,7 +1604,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hood": {
-    image: "/media/vocabulary/images/hood.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hood.mp3",
     textSpoken: "hood",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1616,30 +1616,30 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hoped": {
-    image: "/media/vocabulary/images/hoped.webp",
+    image: "",
     textSpoken: "hoped",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hoping": {
-    image: "/media/vocabulary/images/hoping.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hoping.mp3",
     textSpoken: "hoping",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hopping": {
-    image: "/media/vocabulary/images/hopping.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hopping.mp3",
     textSpoken: "hopping",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hotel": {
-    image: "/media/vocabulary/images/hotel.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hotel.mp3",
     textSpoken: "hotel",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hottest": {
-    image: "/media/vocabulary/images/hottest.webp",
+    image: "",
     textSpoken: "hottest",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1649,13 +1649,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hum": {
-    image: "/media/vocabulary/images/hum.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hum.mp3",
     textSpoken: "hum",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "hump": {
-    image: "/media/vocabulary/images/hump.webp",
+    image: "",
     audio: "/media/vocabulary/audio/hump.mp3",
     textSpoken: "hump",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1666,7 +1666,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "if": {
-    image: "/media/vocabulary/images/if.webp",
+    image: "",
     textSpoken: "if",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1676,13 +1676,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "jay": {
-    image: "/media/vocabulary/images/jay.webp",
+    image: "",
     audio: "/media/vocabulary/audio/jay.mp3",
     textSpoken: "jay",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "job": {
-    image: "/media/vocabulary/images/job.webp",
+    image: "",
     audio: "/media/vocabulary/audio/job.mp3",
     textSpoken: "job",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1700,36 +1700,36 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "joint": {
-    image: "/media/vocabulary/images/joint.webp",
+    image: "",
     audio: "/media/vocabulary/audio/joint.mp3",
     textSpoken: "joint",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "joke": {
-    image: "/media/vocabulary/images/joke.webp",
+    image: "",
     audio: "/media/vocabulary/audio/joke.mp3",
     textSpoken: "joke",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "joking": {
-    image: "/media/vocabulary/images/joking.webp",
+    image: "",
     audio: "/media/vocabulary/audio/joking.mp3",
     textSpoken: "joking",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "joy": {
-    image: "/media/vocabulary/images/joy.webp",
+    image: "",
     audio: "/media/vocabulary/audio/joy.mp3",
     textSpoken: "joy",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "jumped": {
-    image: "/media/vocabulary/images/jumped.webp",
+    image: "",
     textSpoken: "jumped",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "jumping": {
-    image: "/media/vocabulary/images/jumping.webp",
+    image: "",
     textSpoken: "jumping",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1750,7 +1750,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "kinder": {
-    image: "/media/vocabulary/images/kinder.webp",
+    image: "",
     audio: "/media/vocabulary/audio/kinder.mp3",
     textSpoken: "kinder",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1762,7 +1762,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "knew": {
-    image: "/media/vocabulary/images/knew.webp",
+    image: "",
     textSpoken: "knew",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1779,12 +1779,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lamb": {
-    image: "/media/vocabulary/images/lamb.webp",
+    image: "",
     textSpoken: "lamb",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "land": {
-    image: "/media/vocabulary/images/land.webp",
+    image: "",
     textSpoken: "land",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1804,29 +1804,29 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "law": {
-    image: "/media/vocabulary/images/law.webp",
+    image: "",
     audio: "/media/vocabulary/audio/law.mp3",
     textSpoken: "law",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lay": {
-    image: "/media/vocabulary/images/lay.webp",
+    image: "",
     textSpoken: "lay",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lazy": {
-    image: "/media/vocabulary/images/lazy.webp",
+    image: "",
     audio: "/media/vocabulary/audio/lazy.mp3",
     textSpoken: "lazy",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "learn": {
-    image: "/media/vocabulary/images/learn.webp",
+    image: "",
     textSpoken: "learn",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "leave": {
-    image: "/media/vocabulary/images/leave.webp",
+    image: "",
     textSpoken: "leave",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1836,12 +1836,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "less": {
-    image: "/media/vocabulary/images/less.webp",
+    image: "",
     textSpoken: "less",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lesson": {
-    image: "/media/vocabulary/images/lesson.webp",
+    image: "",
     textSpoken: "lesson",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1851,7 +1851,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lie": {
-    image: "/media/vocabulary/images/lie.webp",
+    image: "",
     audio: "/media/vocabulary/audio/lie.mp3",
     textSpoken: "lie",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1862,59 +1862,59 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "liked": {
-    image: "/media/vocabulary/images/liked.webp",
+    image: "",
     textSpoken: "liked",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "limp": {
-    image: "/media/vocabulary/images/limp.webp",
+    image: "",
     audio: "/media/vocabulary/audio/limp.mp3",
     textSpoken: "limp",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "line": {
-    image: "/media/vocabulary/images/line.webp",
+    image: "",
     textSpoken: "line",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "list": {
-    image: "/media/vocabulary/images/list.webp",
+    image: "",
     textSpoken: "list",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "listen": {
-    image: "/media/vocabulary/images/listen.webp",
+    image: "",
     textSpoken: "listen",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lit": {
-    image: "/media/vocabulary/images/lit.webp",
+    image: "",
     textSpoken: "lit",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "longest": {
-    image: "/media/vocabulary/images/longest.webp",
+    image: "",
     audio: "/media/vocabulary/audio/longest.mp3",
     textSpoken: "longest",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "looked": {
-    image: "/media/vocabulary/images/looked.webp",
+    image: "",
     textSpoken: "looked",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "looking": {
-    image: "/media/vocabulary/images/looking.webp",
+    image: "",
     textSpoken: "looking",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lost": {
-    image: "/media/vocabulary/images/lost.webp",
+    image: "",
     textSpoken: "lost",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "lot": {
-    image: "/media/vocabulary/images/lot.webp",
+    image: "",
     textSpoken: "lot",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1930,7 +1930,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "low": {
-    image: "/media/vocabulary/images/low.webp",
+    image: "",
     textSpoken: "low",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -1958,12 +1958,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "making": {
-    image: "/media/vocabulary/images/making.webp",
+    image: "",
     textSpoken: "making",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "male": {
-    image: "/media/vocabulary/images/male.webp",
+    image: "",
     audio: "/media/vocabulary/audio/male.mp3",
     textSpoken: "male",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -1986,24 +1986,24 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "market": {
-    image: "/media/vocabulary/images/market.webp",
+    image: "",
     audio: "/media/vocabulary/audio/market.mp3",
     textSpoken: "market",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mash": {
-    image: "/media/vocabulary/images/mash.webp",
+    image: "",
     audio: "/media/vocabulary/audio/mash.mp3",
     textSpoken: "mash",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "maybe": {
-    image: "/media/vocabulary/images/maybe.webp",
+    image: "",
     textSpoken: "maybe",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mean": {
-    image: "/media/vocabulary/images/mean.webp",
+    image: "",
     audio: "/media/vocabulary/audio/mean.mp3",
     textSpoken: "mean",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2027,13 +2027,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mend": {
-    image: "/media/vocabulary/images/mend.webp",
+    image: "",
     audio: "/media/vocabulary/audio/mend.mp3",
     textSpoken: "mend",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "met": {
-    image: "/media/vocabulary/images/met.webp",
+    image: "",
     textSpoken: "met",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2043,7 +2043,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mine": {
-    image: "/media/vocabulary/images/mine.webp",
+    image: "",
     textSpoken: "mine",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2054,18 +2054,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mom": {
-    image: "/media/vocabulary/images/mom.webp",
+    image: "",
     audio: "/media/vocabulary/audio/mom.mp3",
     textSpoken: "mom",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "money": {
-    image: "/media/vocabulary/images/money.webp",
+    image: "",
     textSpoken: "money",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "more": {
-    image: "/media/vocabulary/images/more.webp",
+    image: "",
     textSpoken: "more",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2075,28 +2075,28 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "most": {
-    image: "/media/vocabulary/images/most.webp",
+    image: "",
     textSpoken: "most",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mother": {
-    image: "/media/vocabulary/images/mother.webp",
+    image: "",
     audio: "/media/vocabulary/audio/mother.mp3",
     textSpoken: "mother",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mouth": {
-    image: "/media/vocabulary/images/mouth.webp",
+    image: "",
     textSpoken: "mouth",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "move": {
-    image: "/media/vocabulary/images/move.webp",
+    image: "",
     textSpoken: "move",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "mow": {
-    image: "/media/vocabulary/images/mow.webp",
+    image: "",
     audio: "/media/vocabulary/audio/mow.mp3",
     textSpoken: "mow",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2112,13 +2112,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "music": {
-    image: "/media/vocabulary/images/music.webp",
+    image: "",
     audio: "/media/vocabulary/audio/music.mp3",
     textSpoken: "music",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "myself": {
-    image: "/media/vocabulary/images/myself.webp",
+    image: "",
     textSpoken: "myself",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2129,7 +2129,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "named": {
-    image: "/media/vocabulary/images/named.webp",
+    image: "",
     audio: "/media/vocabulary/audio/named.mp3",
     textSpoken: "named",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2145,7 +2145,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "needed": {
-    image: "/media/vocabulary/images/needed.webp",
+    image: "",
     textSpoken: "needed",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2156,17 +2156,17 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "never": {
-    image: "/media/vocabulary/images/never.webp",
+    image: "",
     textSpoken: "never",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "nice": {
-    image: "/media/vocabulary/images/nice.webp",
+    image: "",
     textSpoken: "nice",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "nine": {
-    image: "/media/vocabulary/images/nine.webp",
+    image: "",
     textSpoken: "nine",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2182,23 +2182,23 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "noise": {
-    image: "/media/vocabulary/images/noise.webp",
+    image: "",
     textSpoken: "noise",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "north": {
-    image: "/media/vocabulary/images/north.webp",
+    image: "",
     textSpoken: "north",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "oar": {
-    image: "/media/vocabulary/images/oar.webp",
+    image: "",
     audio: "/media/vocabulary/audio/oar.mp3",
     textSpoken: "oar",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "odd": {
-    image: "/media/vocabulary/images/odd.webp",
+    image: "",
     audio: "/media/vocabulary/audio/odd.mp3",
     textSpoken: "odd",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2209,7 +2209,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "oil": {
-    image: "/media/vocabulary/images/oil.webp",
+    image: "",
     audio: "/media/vocabulary/audio/oil.mp3",
     textSpoken: "oil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2220,7 +2220,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "ours": {
-    image: "/media/vocabulary/images/ours.webp",
+    image: "",
     audio: "/media/vocabulary/audio/ours.mp3",
     textSpoken: "ours",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2231,7 +2231,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "page": {
-    image: "/media/vocabulary/images/page.webp",
+    image: "",
     textSpoken: "page",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2242,12 +2242,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "painted": {
-    image: "/media/vocabulary/images/painted.webp",
+    image: "",
     textSpoken: "painted",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "painting": {
-    image: "/media/vocabulary/images/painting.webp",
+    image: "",
     audio: "/media/vocabulary/audio/painting.mp3",
     textSpoken: "painting",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2263,18 +2263,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pant": {
-    image: "/media/vocabulary/images/pant.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pant.mp3",
     textSpoken: "pant",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "part": {
-    image: "/media/vocabulary/images/part.webp",
+    image: "",
     textSpoken: "part",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pass": {
-    image: "/media/vocabulary/images/pass.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pass.mp3",
     textSpoken: "pass",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2290,12 +2290,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "paw": {
-    image: "/media/vocabulary/images/paw.webp",
+    image: "",
     textSpoken: "paw",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pay": {
-    image: "/media/vocabulary/images/pay.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pay.mp3",
     textSpoken: "pay",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2307,7 +2307,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "peer": {
-    image: "/media/vocabulary/images/peer.webp",
+    image: "",
     audio: "/media/vocabulary/audio/peer.mp3",
     textSpoken: "peer",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2319,7 +2319,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "people": {
-    image: "/media/vocabulary/images/people.webp",
+    image: "",
     textSpoken: "people",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2334,7 +2334,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "picture": {
-    image: "/media/vocabulary/images/picture.webp",
+    image: "",
     audio: "/media/vocabulary/audio/picture.mp3",
     textSpoken: "picture",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2351,7 +2351,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pinch": {
-    image: "/media/vocabulary/images/pinch.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pinch.mp3",
     textSpoken: "pinch",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2378,19 +2378,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "planet": {
-    image: "/media/vocabulary/images/planet.webp",
+    image: "",
     audio: "/media/vocabulary/audio/planet.mp3",
     textSpoken: "planet",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "planning": {
-    image: "/media/vocabulary/images/planning.webp",
+    image: "",
     audio: "/media/vocabulary/audio/planning.mp3",
     textSpoken: "planning",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "played": {
-    image: "/media/vocabulary/images/played.webp",
+    image: "",
     textSpoken: "played",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2400,7 +2400,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "plus": {
-    image: "/media/vocabulary/images/plus.webp",
+    image: "",
     audio: "/media/vocabulary/audio/plus.mp3",
     textSpoken: "plus",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2417,19 +2417,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "polish": {
-    image: "/media/vocabulary/images/polish.webp",
+    image: "",
     audio: "/media/vocabulary/audio/polish.mp3",
     textSpoken: "polish",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pony": {
-    image: "/media/vocabulary/images/pony.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pony.mp3",
     textSpoken: "pony",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pool": {
-    image: "/media/vocabulary/images/pool.webp",
+    image: "",
     textSpoken: "pool",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2462,13 +2462,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pour": {
-    image: "/media/vocabulary/images/pour.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pour.mp3",
     textSpoken: "pour",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "power": {
-    image: "/media/vocabulary/images/power.webp",
+    image: "",
     audio: "/media/vocabulary/audio/power.mp3",
     textSpoken: "power",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2480,7 +2480,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pray": {
-    image: "/media/vocabulary/images/pray.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pray.mp3",
     textSpoken: "pray",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2496,7 +2496,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "prop": {
-    image: "/media/vocabulary/images/prop.webp",
+    image: "",
     audio: "/media/vocabulary/audio/prop.mp3",
     textSpoken: "prop",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2508,13 +2508,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pump": {
-    image: "/media/vocabulary/images/pump.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pump.mp3",
     textSpoken: "pump",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "pupil": {
-    image: "/media/vocabulary/images/pupil.webp",
+    image: "",
     audio: "/media/vocabulary/audio/pupil.mp3",
     textSpoken: "pupil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2531,17 +2531,17 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "quite": {
-    image: "/media/vocabulary/images/quite.webp",
+    image: "",
     textSpoken: "quite",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rained": {
-    image: "/media/vocabulary/images/rained.webp",
+    image: "",
     textSpoken: "rained",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "raining": {
-    image: "/media/vocabulary/images/raining.webp",
+    image: "",
     audio: "/media/vocabulary/audio/raining.mp3",
     textSpoken: "raining",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2552,19 +2552,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "ranch": {
-    image: "/media/vocabulary/images/ranch.webp",
+    image: "",
     audio: "/media/vocabulary/audio/ranch.mp3",
     textSpoken: "ranch",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rare": {
-    image: "/media/vocabulary/images/rare.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rare.mp3",
     textSpoken: "rare",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "raw": {
-    image: "/media/vocabulary/images/raw.webp",
+    image: "",
     audio: "/media/vocabulary/audio/raw.mp3",
     textSpoken: "raw",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2581,18 +2581,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "reading": {
-    image: "/media/vocabulary/images/reading.webp",
+    image: "",
     textSpoken: "reading",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "repair": {
-    image: "/media/vocabulary/images/repair.webp",
+    image: "",
     audio: "/media/vocabulary/audio/repair.mp3",
     textSpoken: "repair",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rescue": {
-    image: "/media/vocabulary/images/rescue.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rescue.mp3",
     textSpoken: "rescue",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2615,18 +2615,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rid": {
-    image: "/media/vocabulary/images/rid.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rid.mp3",
     textSpoken: "rid",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "riding": {
-    image: "/media/vocabulary/images/riding.webp",
+    image: "",
     textSpoken: "riding",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rig": {
-    image: "/media/vocabulary/images/rig.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rig.mp3",
     textSpoken: "rig",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2649,23 +2649,23 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "ripe": {
-    image: "/media/vocabulary/images/ripe.webp",
+    image: "",
     textSpoken: "ripe",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "roam": {
-    image: "/media/vocabulary/images/roam.webp",
+    image: "",
     audio: "/media/vocabulary/audio/roam.mp3",
     textSpoken: "roam",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "roar": {
-    image: "/media/vocabulary/images/roar.webp",
+    image: "",
     textSpoken: "roar",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rob": {
-    image: "/media/vocabulary/images/rob.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rob.mp3",
     textSpoken: "rob",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2681,7 +2681,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rot": {
-    image: "/media/vocabulary/images/rot.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rot.mp3",
     textSpoken: "rot",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2692,19 +2692,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "royal": {
-    image: "/media/vocabulary/images/royal.webp",
+    image: "",
     audio: "/media/vocabulary/audio/royal.mp3",
     textSpoken: "royal",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "rule": {
-    image: "/media/vocabulary/images/rule.webp",
+    image: "",
     audio: "/media/vocabulary/audio/rule.mp3",
     textSpoken: "rule",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "running": {
-    image: "/media/vocabulary/images/running.webp",
+    image: "",
     textSpoken: "running",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2725,13 +2725,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sauce": {
-    image: "/media/vocabulary/images/sauce.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sauce.mp3",
     textSpoken: "sauce",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "save": {
-    image: "/media/vocabulary/images/save.webp",
+    image: "",
     audio: "/media/vocabulary/audio/save.mp3",
     textSpoken: "save",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2752,12 +2752,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "score": {
-    image: "/media/vocabulary/images/score.webp",
+    image: "",
     textSpoken: "score",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "scrape": {
-    image: "/media/vocabulary/images/scrape.webp",
+    image: "",
     audio: "/media/vocabulary/audio/scrape.mp3",
     textSpoken: "scrape",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2768,19 +2768,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "seeing": {
-    image: "/media/vocabulary/images/seeing.webp",
+    image: "",
     audio: "/media/vocabulary/audio/seeing.mp3",
     textSpoken: "seeing",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "seem": {
-    image: "/media/vocabulary/images/seem.webp",
+    image: "",
     audio: "/media/vocabulary/audio/seem.mp3",
     textSpoken: "seem",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "seen": {
-    image: "/media/vocabulary/images/seen.webp",
+    image: "",
     textSpoken: "seen",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2790,7 +2790,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "send": {
-    image: "/media/vocabulary/images/send.webp",
+    image: "",
     audio: "/media/vocabulary/audio/send.mp3",
     textSpoken: "send",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2806,13 +2806,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "seven": {
-    image: "/media/vocabulary/images/seven.webp",
+    image: "",
     audio: "/media/vocabulary/audio/seven.mp3",
     textSpoken: "seven",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shack": {
-    image: "/media/vocabulary/images/shack.webp",
+    image: "",
     audio: "/media/vocabulary/audio/shack.mp3",
     textSpoken: "shack",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2830,12 +2830,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shall": {
-    image: "/media/vocabulary/images/shall.webp",
+    image: "",
     textSpoken: "shall",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sham": {
-    image: "/media/vocabulary/images/sham.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sham.mp3",
     textSpoken: "sham",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2862,7 +2862,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sheet": {
-    image: "/media/vocabulary/images/sheet.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sheet.mp3",
     textSpoken: "sheet",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2873,33 +2873,33 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shook": {
-    image: "/media/vocabulary/images/shook.webp",
+    image: "",
     textSpoken: "shook",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shopping": {
-    image: "/media/vocabulary/images/shopping.webp",
+    image: "",
     textSpoken: "shopping",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shore": {
-    image: "/media/vocabulary/images/shore.webp",
+    image: "",
     textSpoken: "shore",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shorter": {
-    image: "/media/vocabulary/images/shorter.webp",
+    image: "",
     audio: "/media/vocabulary/audio/shorter.mp3",
     textSpoken: "shorter",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shot": {
-    image: "/media/vocabulary/images/shot.webp",
+    image: "",
     textSpoken: "shot",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "should": {
-    image: "/media/vocabulary/images/should.webp",
+    image: "",
     textSpoken: "should",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2909,7 +2909,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shouted": {
-    image: "/media/vocabulary/images/shouted.webp",
+    image: "",
     textSpoken: "shouted",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2920,7 +2920,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "shower": {
-    image: "/media/vocabulary/images/shower.webp",
+    image: "",
     audio: "/media/vocabulary/audio/shower.mp3",
     textSpoken: "shower",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2936,7 +2936,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "side": {
-    image: "/media/vocabulary/images/side.webp",
+    image: "",
     textSpoken: "side",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2946,12 +2946,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "since": {
-    image: "/media/vocabulary/images/since.webp",
+    image: "",
     textSpoken: "since",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "singing": {
-    image: "/media/vocabulary/images/singing.webp",
+    image: "",
     audio: "/media/vocabulary/audio/singing.mp3",
     textSpoken: "singing",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -2968,23 +2968,23 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sister": {
-    image: "/media/vocabulary/images/sister.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sister.mp3",
     textSpoken: "sister",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sitting": {
-    image: "/media/vocabulary/images/sitting.webp",
+    image: "",
     textSpoken: "sitting",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "six": {
-    image: "/media/vocabulary/images/six.webp",
+    image: "",
     textSpoken: "six",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "size": {
-    image: "/media/vocabulary/images/size.webp",
+    image: "",
     textSpoken: "size",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -2994,7 +2994,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "skit": {
-    image: "/media/vocabulary/images/skit.webp",
+    image: "",
     audio: "/media/vocabulary/audio/skit.mp3",
     textSpoken: "skit",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3017,7 +3017,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "slim": {
-    image: "/media/vocabulary/images/slim.webp",
+    image: "",
     audio: "/media/vocabulary/audio/slim.mp3",
     textSpoken: "slim",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3029,18 +3029,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "slot": {
-    image: "/media/vocabulary/images/slot.webp",
+    image: "",
     textSpoken: "slot",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "slower": {
-    image: "/media/vocabulary/images/slower.webp",
+    image: "",
     audio: "/media/vocabulary/audio/slower.mp3",
     textSpoken: "slower",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "slug": {
-    image: "/media/vocabulary/images/slug.webp",
+    image: "",
     audio: "/media/vocabulary/audio/slug.mp3",
     textSpoken: "slug",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3057,29 +3057,29 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "smiled": {
-    image: "/media/vocabulary/images/smiled.webp",
+    image: "",
     textSpoken: "smiled",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "smiling": {
-    image: "/media/vocabulary/images/smiling.webp",
+    image: "",
     textSpoken: "smiling",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "smog": {
-    image: "/media/vocabulary/images/smog.webp",
+    image: "",
     audio: "/media/vocabulary/audio/smog.mp3",
     textSpoken: "smog",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "smoke": {
-    image: "/media/vocabulary/images/smoke.webp",
+    image: "",
     audio: "/media/vocabulary/audio/smoke.mp3",
     textSpoken: "smoke",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "smooth": {
-    image: "/media/vocabulary/images/smooth.webp",
+    image: "",
     textSpoken: "smooth",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3090,13 +3090,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "snore": {
-    image: "/media/vocabulary/images/snore.webp",
+    image: "",
     audio: "/media/vocabulary/audio/snore.mp3",
     textSpoken: "snore",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "snug": {
-    image: "/media/vocabulary/images/snug.webp",
+    image: "",
     audio: "/media/vocabulary/audio/snug.mp3",
     textSpoken: "snug",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3107,19 +3107,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "soar": {
-    image: "/media/vocabulary/images/soar.webp",
+    image: "",
     audio: "/media/vocabulary/audio/soar.mp3",
     textSpoken: "soar",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sob": {
-    image: "/media/vocabulary/images/sob.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sob.mp3",
     textSpoken: "sob",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sole": {
-    image: "/media/vocabulary/images/sole.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sole.mp3",
     textSpoken: "sole",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3130,12 +3130,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "soon": {
-    image: "/media/vocabulary/images/soon.webp",
+    image: "",
     textSpoken: "soon",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sort": {
-    image: "/media/vocabulary/images/sort.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sort.mp3",
     textSpoken: "sort",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3146,18 +3146,18 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "soup": {
-    image: "/media/vocabulary/images/soup.webp",
+    image: "",
     textSpoken: "soup",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sour": {
-    image: "/media/vocabulary/images/sour.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sour.mp3",
     textSpoken: "sour",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "south": {
-    image: "/media/vocabulary/images/south.webp",
+    image: "",
     textSpoken: "south",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3167,7 +3167,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "span": {
-    image: "/media/vocabulary/images/span.webp",
+    image: "",
     audio: "/media/vocabulary/audio/span.mp3",
     textSpoken: "span",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3179,25 +3179,25 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "spell": {
-    image: "/media/vocabulary/images/spell.webp",
+    image: "",
     audio: "/media/vocabulary/audio/spell.mp3",
     textSpoken: "spell",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "spit": {
-    image: "/media/vocabulary/images/spit.webp",
+    image: "",
     audio: "/media/vocabulary/audio/spit.mp3",
     textSpoken: "spit",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "spoil": {
-    image: "/media/vocabulary/images/spoil.webp",
+    image: "",
     audio: "/media/vocabulary/audio/spoil.mp3",
     textSpoken: "spoil",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "spoke": {
-    image: "/media/vocabulary/images/spoke.webp",
+    image: "",
     audio: "/media/vocabulary/audio/spoke.mp3",
     textSpoken: "spoke",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3209,7 +3209,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "spot": {
-    image: "/media/vocabulary/images/spot.webp",
+    image: "",
     textSpoken: "spot",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3220,7 +3220,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "stare": {
-    image: "/media/vocabulary/images/stare.webp",
+    image: "",
     audio: "/media/vocabulary/audio/stare.mp3",
     textSpoken: "stare",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3237,12 +3237,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "stayed": {
-    image: "/media/vocabulary/images/stayed.webp",
+    image: "",
     textSpoken: "stayed",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "staying": {
-    image: "/media/vocabulary/images/staying.webp",
+    image: "",
     audio: "/media/vocabulary/audio/staying.mp3",
     textSpoken: "staying",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3254,13 +3254,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "steer": {
-    image: "/media/vocabulary/images/steer.webp",
+    image: "",
     audio: "/media/vocabulary/audio/steer.mp3",
     textSpoken: "steer",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "stew": {
-    image: "/media/vocabulary/images/stew.webp",
+    image: "",
     audio: "/media/vocabulary/audio/stew.mp3",
     textSpoken: "stew",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3272,17 +3272,17 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "stood": {
-    image: "/media/vocabulary/images/stood.webp",
+    image: "",
     textSpoken: "stood",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "stopping": {
-    image: "/media/vocabulary/images/stopping.webp",
+    image: "",
     textSpoken: "stopping",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "store": {
-    image: "/media/vocabulary/images/store.webp",
+    image: "",
     audio: "/media/vocabulary/audio/store.mp3",
     textSpoken: "store",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3293,7 +3293,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "straw": {
-    image: "/media/vocabulary/images/straw.webp",
+    image: "",
     audio: "/media/vocabulary/audio/straw.mp3",
     textSpoken: "straw",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3304,7 +3304,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "street": {
-    image: "/media/vocabulary/images/street.webp",
+    image: "",
     textSpoken: "street",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3320,25 +3320,25 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "strongest": {
-    image: "/media/vocabulary/images/strongest.webp",
+    image: "",
     audio: "/media/vocabulary/audio/strongest.mp3",
     textSpoken: "strongest",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "such": {
-    image: "/media/vocabulary/images/such.webp",
+    image: "",
     audio: "/media/vocabulary/audio/such.mp3",
     textSpoken: "such",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "sudden": {
-    image: "/media/vocabulary/images/sudden.webp",
+    image: "",
     audio: "/media/vocabulary/audio/sudden.mp3",
     textSpoken: "sudden",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "summer": {
-    image: "/media/vocabulary/images/summer.webp",
+    image: "",
     textSpoken: "summer",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3348,7 +3348,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "supper": {
-    image: "/media/vocabulary/images/supper.webp",
+    image: "",
     textSpoken: "supper",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3358,29 +3358,29 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "swimming": {
-    image: "/media/vocabulary/images/swimming.webp",
+    image: "",
     audio: "/media/vocabulary/audio/swimming.mp3",
     textSpoken: "swimming",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tablet": {
-    image: "/media/vocabulary/images/tablet.webp",
+    image: "",
     textSpoken: "tablet",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "taking": {
-    image: "/media/vocabulary/images/taking.webp",
+    image: "",
     audio: "/media/vocabulary/audio/taking.mp3",
     textSpoken: "taking",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "talk": {
-    image: "/media/vocabulary/images/talk.webp",
+    image: "",
     textSpoken: "talk",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "taller": {
-    image: "/media/vocabulary/images/taller.webp",
+    image: "",
     audio: "/media/vocabulary/audio/taller.mp3",
     textSpoken: "taller",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3392,24 +3392,24 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "target": {
-    image: "/media/vocabulary/images/target.webp",
+    image: "",
     audio: "/media/vocabulary/audio/target.mp3",
     textSpoken: "target",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "taught": {
-    image: "/media/vocabulary/images/taught.webp",
+    image: "",
     audio: "/media/vocabulary/audio/taught.mp3",
     textSpoken: "taught",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tea": {
-    image: "/media/vocabulary/images/tea.webp",
+    image: "",
     textSpoken: "tea",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "teach": {
-    image: "/media/vocabulary/images/teach.webp",
+    image: "",
     audio: "/media/vocabulary/audio/teach.mp3",
     textSpoken: "teach",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3421,7 +3421,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tear": {
-    image: "/media/vocabulary/images/tear.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tear.mp3",
     textSpoken: "tear",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3432,7 +3432,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tend": {
-    image: "/media/vocabulary/images/tend.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tend.mp3",
     textSpoken: "tend",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3443,12 +3443,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "test": {
-    image: "/media/vocabulary/images/test.webp",
+    image: "",
     textSpoken: "test",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "than": {
-    image: "/media/vocabulary/images/than.webp",
+    image: "",
     textSpoken: "than",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3458,13 +3458,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "theirs": {
-    image: "/media/vocabulary/images/theirs.webp",
+    image: "",
     audio: "/media/vocabulary/audio/theirs.mp3",
     textSpoken: "theirs",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "them": {
-    image: "/media/vocabulary/images/them.webp",
+    image: "",
     textSpoken: "them",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3479,13 +3479,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "thief": {
-    image: "/media/vocabulary/images/thief.webp",
+    image: "",
     audio: "/media/vocabulary/audio/thief.mp3",
     textSpoken: "thief",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "thing": {
-    image: "/media/vocabulary/images/thing.webp",
+    image: "",
     textSpoken: "thing",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3505,12 +3505,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "thursday": {
-    image: "/media/vocabulary/images/thursday.webp",
+    image: "",
     textSpoken: "thursday",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tight": {
-    image: "/media/vocabulary/images/tight.webp",
+    image: "",
     textSpoken: "tight",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3525,7 +3525,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tiny": {
-    image: "/media/vocabulary/images/tiny.webp",
+    image: "",
     textSpoken: "tiny",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3536,7 +3536,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tire": {
-    image: "/media/vocabulary/images/tire.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tire.mp3",
     textSpoken: "tire",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3548,7 +3548,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "today": {
-    image: "/media/vocabulary/images/today.webp",
+    image: "",
     textSpoken: "today",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3563,40 +3563,40 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "took": {
-    image: "/media/vocabulary/images/took.webp",
+    image: "",
     textSpoken: "took",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tool": {
-    image: "/media/vocabulary/images/tool.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tool.mp3",
     textSpoken: "tool",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "torch": {
-    image: "/media/vocabulary/images/torch.webp",
+    image: "",
     textSpoken: "torch",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tore": {
-    image: "/media/vocabulary/images/tore.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tore.mp3",
     textSpoken: "tore",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tot": {
-    image: "/media/vocabulary/images/tot.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tot.mp3",
     textSpoken: "tot",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "touch": {
-    image: "/media/vocabulary/images/touch.webp",
+    image: "",
     textSpoken: "touch",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "town": {
-    image: "/media/vocabulary/images/town.webp",
+    image: "",
     textSpoken: "town",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3624,7 +3624,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tried": {
-    image: "/media/vocabulary/images/tried.webp",
+    image: "",
     textSpoken: "tried",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3635,7 +3635,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "trip": {
-    image: "/media/vocabulary/images/trip.webp",
+    image: "",
     textSpoken: "trip",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3662,7 +3662,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "tusk": {
-    image: "/media/vocabulary/images/tusk.webp",
+    image: "",
     audio: "/media/vocabulary/audio/tusk.mp3",
     textSpoken: "tusk",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3679,23 +3679,23 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "two": {
-    image: "/media/vocabulary/images/two.webp",
+    image: "",
     textSpoken: "two",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "until": {
-    image: "/media/vocabulary/images/until.webp",
+    image: "",
     textSpoken: "until",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "upon": {
-    image: "/media/vocabulary/images/upon.webp",
+    image: "",
     audio: "/media/vocabulary/audio/upon.mp3",
     textSpoken: "upon",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "us": {
-    image: "/media/vocabulary/images/us.webp",
+    image: "",
     textSpoken: "us",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3705,13 +3705,13 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "value": {
-    image: "/media/vocabulary/images/value.webp",
+    image: "",
     audio: "/media/vocabulary/audio/value.mp3",
     textSpoken: "value",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "vanish": {
-    image: "/media/vocabulary/images/vanish.webp",
+    image: "",
     audio: "/media/vocabulary/audio/vanish.mp3",
     textSpoken: "vanish",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3723,23 +3723,23 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "very": {
-    image: "/media/vocabulary/images/very.webp",
+    image: "",
     textSpoken: "very",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "visit": {
-    image: "/media/vocabulary/images/visit.webp",
+    image: "",
     audio: "/media/vocabulary/audio/visit.mp3",
     textSpoken: "visit",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "voice": {
-    image: "/media/vocabulary/images/voice.webp",
+    image: "",
     textSpoken: "voice",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "vote": {
-    image: "/media/vocabulary/images/vote.webp",
+    image: "",
     audio: "/media/vocabulary/audio/vote.mp3",
     textSpoken: "vote",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3760,7 +3760,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wanted": {
-    image: "/media/vocabulary/images/wanted.webp",
+    image: "",
     textSpoken: "wanted",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3770,7 +3770,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "warmer": {
-    image: "/media/vocabulary/images/warmer.webp",
+    image: "",
     audio: "/media/vocabulary/audio/warmer.mp3",
     textSpoken: "warmer",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3792,7 +3792,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wed": {
-    image: "/media/vocabulary/images/wed.webp",
+    image: "",
     audio: "/media/vocabulary/audio/wed.mp3",
     textSpoken: "wed",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3829,12 +3829,12 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "while": {
-    image: "/media/vocabulary/images/while.webp",
+    image: "",
     textSpoken: "while",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "who": {
-    image: "/media/vocabulary/images/who.webp",
+    image: "",
     textSpoken: "who",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3849,7 +3849,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wife": {
-    image: "/media/vocabulary/images/wife.webp",
+    image: "",
     audio: "/media/vocabulary/audio/wife.mp3",
     textSpoken: "wife",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3861,19 +3861,19 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wine": {
-    image: "/media/vocabulary/images/wine.webp",
+    image: "",
     audio: "/media/vocabulary/audio/wine.mp3",
     textSpoken: "wine",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "winning": {
-    image: "/media/vocabulary/images/winning.webp",
+    image: "",
     audio: "/media/vocabulary/audio/winning.mp3",
     textSpoken: "winning",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wise": {
-    image: "/media/vocabulary/images/wise.webp",
+    image: "",
     audio: "/media/vocabulary/audio/wise.mp3",
     textSpoken: "wise",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3885,7 +3885,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "woke": {
-    image: "/media/vocabulary/images/woke.webp",
+    image: "",
     textSpoken: "woke",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3900,7 +3900,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "women": {
-    image: "/media/vocabulary/images/women.webp",
+    image: "",
     audio: "/media/vocabulary/audio/women.mp3",
     textSpoken: "women",
     source: "kimi_k3_vocab_media_import_2026_06_04"
@@ -3911,32 +3911,32 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wool": {
-    image: "/media/vocabulary/images/wool.webp",
+    image: "",
     textSpoken: "wool",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "word": {
-    image: "/media/vocabulary/images/word.webp",
+    image: "",
     textSpoken: "word",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "wore": {
-    image: "/media/vocabulary/images/wore.webp",
+    image: "",
     textSpoken: "wore",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "work": {
-    image: "/media/vocabulary/images/work.webp",
+    image: "",
     textSpoken: "work",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "world": {
-    image: "/media/vocabulary/images/world.webp",
+    image: "",
     textSpoken: "world",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "would": {
-    image: "/media/vocabulary/images/would.webp",
+    image: "",
     textSpoken: "would",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3957,7 +3957,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "year": {
-    image: "/media/vocabulary/images/year.webp",
+    image: "",
     textSpoken: "year",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3968,7 +3968,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "yet": {
-    image: "/media/vocabulary/images/yet.webp",
+    image: "",
     textSpoken: "yet",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
@@ -3984,7 +3984,7 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
   "yours": {
-    image: "/media/vocabulary/images/yours.webp",
+    image: "",
     textSpoken: "yours",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },

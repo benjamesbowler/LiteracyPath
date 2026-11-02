@@ -1,0 +1,11 @@
+{
+  "jobId": "sound-seekers-v3-meadow-production-cast-bank",
+  "attempt": 1,
+  "input": {
+    "jobId": "sound-seekers-v3-meadow-production-cast-bank",
+    "attempt": 1,
+    "referencePaths": [],
+    "prompt": "Use case: scientific-educational. Asset type: original genuine-alpha static character sprite source for Sound Seekers. Character is MEADOW-HUNGRY, one friendly young COW, following the authoritative canon exactly: cream-and-chestnut coat, broad WHITE face blaze, small tanhorns, darkhooves, warm BROWN eyes, plain GREEN collar. Make one complete wholebody calf standing naturally on exactly FOUR legs, one tail, two cowears and two small horns, slightlythreequarter front view so allhooves arevisible or naturallyoccluded, friendly curious closedmouth smile. Body proportions young andsoft withoutextra arms/hands. Large readable cream/chestnut patch shapes, no randommicrospots. NO food, no accessoriesotherthantheplain green collar, no text, no numbers, no logos, no clothing, no bell, no flags. SQUARE large PNG with TRUE TRANSPARENT BACKGROUND and generous clear alpha margin aroundallhorns/ears/tail/hooves, no ground, castshadow, white matte, checkerboard or backdrop. BOLD CLEAN FLAT2D CARTOON: strong continuous crisp dark outlines, broad smooth UNIFORM SOLID color fields, atmostONE hard-edged celshadow perbodypart. Flat cream, chestnutbrown, darkgrayhooves, tangoldhorns, green collar. No gradients, furtexture, brushwork, grain, pebbled/embossed relief, modeled3D lighting, glossyhighlights, fuzzyedges, painterlysurface, airbrush or realisticmaterials. Neutral ordinaryanimal character, no religious/national/politicalsymbols."
+  },
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-aa628fe6-7475-4ec7-9680-4d9779177538.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+}

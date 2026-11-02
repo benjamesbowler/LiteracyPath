@@ -1,53 +1,46 @@
-// Generated from original alpha/hand registrations by scripts/generate-sound-beat-art.py.
+// Generated current musical art; authoring receipts and sealed history stay in the source manifest.
 export const SOUND_BEAT_ART = {
   "bouncy-music-performance-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/bouncy-music-performance-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/bouncy-music-performance-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/bouncy-music-performance-v1.webp",
-    "width": 1263,
-    "height": 1246,
-    "sourceBytes": 1495687,
-    "runtimeBytes": 442618,
-    "sourceSha256": "3672102bcfa6a4d20fedda83729cc1914dec0668146af97774391a620bce1b8f",
-    "runtimeSha256": "9d3af3f14ca5a82785e0f0652d49cd4d2177067ff14df6aad2ce06fe688e6fc6",
-    "alphaPixels": 1571532,
+    "width": 1536,
+    "height": 1536,
+    "sourceBytes": 1664744,
+    "runtimeBytes": 424038,
+    "sourceSha256": "292fccea883b7598792e64e88eb501865af48fe5c1c7b4537fd1f6c5c7edd946",
+    "runtimeSha256": "e356381fb41e97ac0b9de16da4836ffccc17cdf6f89c8021829fdd564bb4140c",
+    "alphaPixels": 2353448,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-1fbee810-ed4a-490e-92fa-b70a3fe90679.png",
-    "references": [
-      {
-        "path": "source-art/arcade/physical-worlds/sound-beat/bouncy-music-actions-v1.png",
-        "sha256": "d31c1fe77a0992ebb9cd6b8de6c6fd1f14948298a8a5754158b72fde4539ee44"
-      }
-    ],
     "frames": [
       {
         "id": 0,
         "row": 0,
         "column": 0,
         "cell": [
-          70,
-          10,
-          275,
-          302
+          0,
+          0,
+          384,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          202,
-          289
+          67,
+          43,
+          317,
+          345
         ],
         "anchor": [
-          81.874,
-          289
+          131,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          165,
-          187
+          183,
+          227
         ],
         "leftHandPixel": [
-          253,
-          123
+          294,
+          158
         ]
       },
       {
@@ -55,29 +48,29 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 1,
         "cell": [
-          381,
-          9,
-          592,
-          302
+          384,
+          0,
+          768,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          208,
-          290
+          75,
+          41,
+          310,
+          345
         ],
         "anchor": [
-          106.513,
-          290
+          148,
+          344
         ],
         "mirror": false,
         "rightHandPixel": [
-          432,
-          125
+          514,
+          160
         ],
         "leftHandPixel": [
-          565,
-          185
+          667,
+          225
         ]
       },
       {
@@ -85,29 +78,29 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 2,
         "cell": [
-          695,
-          10,
-          909,
-          303
+          768,
+          0,
+          1152,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          211,
-          290
+          77,
+          41,
+          306,
+          344
         ],
         "anchor": [
-          114.234,
-          290
+          118,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          720,
-          177
+          884,
+          215
         ],
         "leftHandPixel": [
-          882,
-          194
+          1048,
+          232
         ]
       },
       {
@@ -115,29 +108,29 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 3,
         "cell": [
-          1015,
-          15,
-          1213,
-          302
+          1152,
+          0,
+          1536,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          195,
-          284
+          77,
+          43,
+          308,
+          345
         ],
         "anchor": [
-          97.591,
-          284
+          149,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          1095,
-          191
+          1321,
+          229
         ],
         "leftHandPixel": [
-          1186,
-          189
+          1431,
+          227
         ]
       },
       {
@@ -145,29 +138,29 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 0,
         "cell": [
-          69,
-          319,
-          272,
-          600
+          0,
+          384,
+          384,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          200,
-          278
+          76,
+          48,
+          308,
+          344
         ],
         "anchor": [
-          89.081,
-          278
+          157,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          96,
-          365
+          103,
+          479
         ],
         "leftHandPixel": [
-          245,
-          493
+          281,
+          617
         ]
       },
       {
@@ -175,29 +168,29 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 1,
         "cell": [
-          389,
-          318,
-          591,
-          600
+          384,
+          384,
+          768,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          199,
-          279
+          76,
+          50,
+          308,
+          344
         ],
         "anchor": [
-          90.393,
-          279
+          157,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          428,
-          398
+          502,
+          516
         ],
         "leftHandPixel": [
-          564,
-          483
+          664,
+          607
         ]
       },
       {
@@ -205,52 +198,52 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 2,
         "cell": [
-          711,
-          319,
-          911,
-          600
+          768,
+          384,
+          1152,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          197,
-          278
+          76,
+          50,
+          308,
+          344
         ],
         "anchor": [
-          89.068,
-          278
+          146,
+          342
         ],
         "mirror": false,
-        "excluded": "Not a reviewed musical contact pose; never selected at runtime."
+        "excluded": "Occluded/fused fargrip retained whole and never selected; no invented contact"
       },
       {
         "id": 7,
         "row": 1,
         "column": 3,
         "cell": [
-          1019,
-          331,
-          1215,
-          600
+          1152,
+          384,
+          1536,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          193,
-          266
+          74,
+          51,
+          310,
+          344
         ],
         "anchor": [
-          89.424,
-          266
+          155,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          1113,
-          493
+          1339,
+          613
         ],
         "leftHandPixel": [
-          1188,
-          493
+          1432,
+          613
         ]
       },
       {
@@ -258,29 +251,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 0,
         "cell": [
-          47,
-          623,
-          299,
-          909
+          0,
+          768,
+          384,
+          1152
         ],
         "bounds": [
-          3,
-          2,
-          249,
-          283
+          55,
+          49,
+          329,
+          345
         ],
         "anchor": [
-          114.118,
-          283
+          145,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          74,
-          758
+          82,
+          957
         ],
         "leftHandPixel": [
-          273,
-          743
+          303,
+          942
         ]
       },
       {
@@ -288,29 +281,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 1,
         "cell": [
-          383,
-          623,
-          578,
-          909
+          384,
+          768,
+          768,
+          1152
         ],
         "bounds": [
-          3,
-          0,
-          192,
-          283
+          76,
+          56,
+          308,
+          345
         ],
         "anchor": [
-          99.856,
-          283
+          156,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          440,
-          805
+          535,
+          1009
         ],
         "leftHandPixel": [
-          551,
-          805
+          663,
+          1009
         ]
       },
       {
@@ -318,29 +311,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 2,
         "cell": [
-          699,
-          623,
-          916,
-          909
+          768,
+          768,
+          1152,
+          1152
         ],
         "bounds": [
-          3,
-          0,
-          214,
-          283
+          71,
+          49,
+          314,
+          344
         ],
         "anchor": [
-          96.383,
-          283
+          158,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          792,
-          784
+          943,
+          985
         ],
         "leftHandPixel": [
-          889,
-          784
+          1054,
+          985
         ]
       },
       {
@@ -348,29 +341,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 3,
         "cell": [
-          1011,
-          623,
-          1214,
-          909
+          1152,
+          768,
+          1536,
+          1152
         ],
         "bounds": [
-          3,
-          0,
-          200,
-          283
+          72,
+          53,
+          311,
+          345
         ],
         "anchor": [
-          96.794,
-          283
+          156,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          1090,
-          783
+          1319,
+          987
         ],
         "leftHandPixel": [
-          1187,
-          783
+          1435,
+          985
         ]
       },
       {
@@ -378,29 +371,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 0,
         "cell": [
-          58,
-          934,
-          275,
-          1209
+          0,
+          1152,
+          384,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          214,
-          272
+          76,
+          54,
+          307,
+          344
         ],
         "anchor": [
-          105.235,
-          272
+          160,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          84,
-          994
+          100,
+          1269
         ],
         "leftHandPixel": [
-          247,
-          1091
+          280,
+          1373
         ]
       },
       {
@@ -408,29 +401,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 1,
         "cell": [
-          378,
-          934,
-          609,
-          1209
+          384,
+          1152,
+          768,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          228,
-          272
+          64,
+          54,
+          321,
+          344
         ],
         "anchor": [
-          107.566,
-          272
+          150,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          404,
-          988
+          473,
+          1263
         ],
         "leftHandPixel": [
-          582,
-          988
+          677,
+          1263
         ]
       },
       {
@@ -438,29 +431,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 2,
         "cell": [
-          698,
-          934,
-          921,
-          1209
+          768,
+          1152,
+          1152,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          220,
-          272
+          65,
+          52,
+          319,
+          345
         ],
         "anchor": [
-          101.494,
-          272
+          140,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          763,
-          1090
+          912,
+          1374
         ],
         "leftHandPixel": [
-          894,
-          995
+          1059,
+          1269
         ]
       },
       {
@@ -468,87 +461,91 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 3,
         "cell": [
-          1011,
-          934,
-          1208,
-          1209
+          1152,
+          1152,
+          1536,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          194,
-          272
+          75,
+          55,
+          308,
+          345
         ],
         "anchor": [
-          97.907,
-          272
+          149,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          1096,
-          1089
+          1330,
+          1375
         ],
         "leftHandPixel": [
-          1181,
-          1092
+          1431,
+          1375
         ]
       }
     ],
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 126.59090909090908
+    "pixelsPerUnit": 133.63636363636363,
+    "sourceSize": [
+      1536,
+      1536
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/bouncy-music-performance-v1.prompt.txt",
+    "promptSha256": "cb0a9d8835f7caa1f48345b476f605d605c57be5738b464b2190a233dfddd5cb",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
   },
   "chompy-music-performance-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/chompy-music-performance-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/chompy-music-performance-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/chompy-music-performance-v1.webp",
-    "width": 1246,
-    "height": 1263,
-    "sourceBytes": 1653145,
-    "runtimeBytes": 445910,
-    "sourceSha256": "8344c5822faa2c37c6407186b773b58e8c122a1c7d2e5e4a11da9ac954e77369",
-    "runtimeSha256": "3327d4799b539dd8bd45f7fe65873f246dc4377be3c5c581ed783b8bb6eda4d2",
-    "alphaPixels": 1570035,
+    "width": 1536,
+    "height": 1536,
+    "sourceBytes": 1602917,
+    "runtimeBytes": 407606,
+    "sourceSha256": "c316b18638a539aef66aac06ed16789997e41a10893243ba92d60c8e7a0bc6f1",
+    "runtimeSha256": "63a657087552043b1ab9e97247640603c33917015c321d6831d064ef9ea9f862",
+    "alphaPixels": 2352037,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-744637e2-e8e6-4baf-96c5-f5bcfb453521.png",
-    "references": [
-      {
-        "path": "source-art/arcade/physical-worlds/pals/chompy-tools-v1.png",
-        "sha256": "ffcd33ffa90928e4e162bb89ed45f2848b839820c50cf76abbad4a3ad858c3c5"
-      },
-      {
-        "path": "source-art/arcade/physical-worlds/sound-beat/bouncy-music-performance-v1.png",
-        "sha256": "3672102bcfa6a4d20fedda83729cc1914dec0668146af97774391a620bce1b8f"
-      }
-    ],
     "frames": [
       {
         "id": 0,
         "row": 0,
         "column": 0,
         "cell": [
-          49,
-          10,
-          307,
-          316
+          0,
+          0,
+          384,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          255,
-          306
+          68,
+          45,
+          316,
+          344
         ],
         "anchor": [
-          130.234,
-          306
+          142,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          181,
-          203
+          203,
+          242
         ],
         "leftHandPixel": [
-          282,
-          88
+          299,
+          239
         ]
       },
       {
@@ -556,29 +553,29 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 1,
         "cell": [
-          340,
-          12,
-          599,
-          316
+          384,
+          0,
+          768,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          256,
-          304
+          70,
+          45,
+          314,
+          345
         ],
         "anchor": [
-          138.79,
-          304
+          139,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          405,
-          88
+          507,
+          102
         ],
         "leftHandPixel": [
-          578,
-          201
+          679,
+          233
         ]
       },
       {
@@ -586,29 +583,29 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 2,
         "cell": [
-          657,
-          9,
-          908,
-          316
+          768,
+          0,
+          1152,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          248,
-          307
+          69,
+          44,
+          316,
+          345
         ],
         "anchor": [
-          134.069,
-          307
+          140,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          729,
-          178
+          912,
+          206
         ],
         "leftHandPixel": [
-          881,
-          200
+          1060,
+          234
         ]
       },
       {
@@ -616,29 +613,29 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 3,
         "cell": [
-          959,
-          17,
-          1215,
-          316
+          1152,
+          0,
+          1536,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          253,
-          299
+          69,
+          46,
+          316,
+          344
         ],
         "anchor": [
-          134.658,
-          299
+          134,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          1090,
-          211
+          1351,
+          241
         ],
         "leftHandPixel": [
-          1190,
-          201
+          1446,
+          231
         ]
       },
       {
@@ -646,149 +643,135 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 0,
         "cell": [
-          40,
-          322,
-          284,
-          632
+          0,
+          384,
+          384,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          241,
-          310
+          72,
+          40,
+          312,
+          345
         ],
         "anchor": [
-          72.523,
-          310
+          148,
+          343
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          129,
+          459
+        ],
+        "leftHandPixel": [
+          283,
+          627
+        ]
+      },
+      {
+        "id": 5,
+        "row": 1,
+        "column": 1,
+        "cell": [
+          384,
+          384,
+          768,
+          768
+        ],
+        "bounds": [
+          69,
+          53,
+          314,
+          345
+        ],
+        "anchor": [
+          145,
+          343
+        ],
+        "mirror": false,
+        "excluded": "Occluded/fused fargrip retained whole and never selected; no invented contact"
+      },
+      {
+        "id": 6,
+        "row": 1,
+        "column": 2,
+        "cell": [
+          768,
+          384,
+          1152,
+          768
+        ],
+        "bounds": [
+          77,
+          50,
+          308,
+          344
+        ],
+        "anchor": [
+          145,
+          343
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          904,
+          481
+        ],
+        "leftHandPixel": [
+          1045,
+          630
+        ]
+      },
+      {
+        "id": 7,
+        "row": 1,
+        "column": 3,
+        "cell": [
+          1152,
+          384,
+          1536,
+          768
+        ],
+        "bounds": [
+          70,
+          53,
+          314,
+          345
+        ],
+        "anchor": [
+          143,
+          343
+        ],
+        "mirror": false,
+        "excluded": "Occluded/fused fargrip retained whole and never selected; no invented contact"
+      },
+      {
+        "id": 8,
+        "row": 2,
+        "column": 0,
+        "cell": [
+          0,
+          768,
+          384,
+          1152
+        ],
+        "bounds": [
+          66,
+          51,
+          317,
+          345
+        ],
+        "anchor": [
+          136,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
           90,
-          366
+          964
         ],
         "leftHandPixel": [
-          245,
-          522
-        ]
-      },
-      {
-        "id": 5,
-        "row": 1,
-        "column": 1,
-        "cell": [
-          333,
-          327,
-          603,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          267,
-          305
-        ],
-        "anchor": [
-          96.831,
-          305
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          491,
-          537
-        ],
-        "leftHandPixel": [
-          577,
-          404
-        ]
-      },
-      {
-        "id": 6,
-        "row": 1,
-        "column": 2,
-        "cell": [
-          651,
-          328,
-          896,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          242,
-          304
-        ],
-        "anchor": [
-          94.025,
-          304
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          713,
-          394
-        ],
-        "leftHandPixel": [
-          870,
-          528
-        ]
-      },
-      {
-        "id": 7,
-        "row": 1,
-        "column": 3,
-        "cell": [
-          951,
-          333,
-          1208,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          254,
-          299
-        ],
-        "anchor": [
-          93.801,
-          299
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1054,
-          518
-        ],
-        "leftHandPixel": [
-          1190,
-          401
-        ]
-      },
-      {
-        "id": 8,
-        "row": 2,
-        "column": 0,
-        "cell": [
-          40,
-          632,
-          306,
-          938
-        ],
-        "bounds": [
-          3,
-          3,
-          263,
-          303
-        ],
-        "anchor": [
-          83.187,
-          303
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          75,
-          779
-        ],
-        "leftHandPixel": [
-          271,
-          779
+          293,
+          964
         ]
       },
       {
@@ -796,29 +779,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 1,
         "cell": [
-          359,
-          638,
-          581,
-          938
+          384,
+          768,
+          768,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          219,
-          297
+          82,
+          62,
+          303,
+          345
         ],
         "anchor": [
-          78.139,
-          297
+          141,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          452,
-          843
+          563,
+          1037
         ],
         "leftHandPixel": [
-          549,
-          833
+          644,
+          1038
         ]
       },
       {
@@ -826,29 +809,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 2,
         "cell": [
-          659,
-          637,
-          904,
-          941
+          768,
+          768,
+          1152,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          242,
-          301
+          73,
+          54,
+          311,
+          345
         ],
         "anchor": [
-          87.978,
-          301
+          141,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          801,
-          807
+          991,
+          1006
         ],
         "leftHandPixel": [
-          875,
-          811
+          1053,
+          999
         ]
       },
       {
@@ -856,29 +839,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 3,
         "cell": [
-          969,
-          637,
-          1211,
-          941
+          1152,
+          768,
+          1536,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          239,
-          301
+          73,
+          55,
+          311,
+          344
         ],
         "anchor": [
-          79.56,
-          301
+          141,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          1098,
-          808
+          1367,
+          1007
         ],
         "leftHandPixel": [
-          1199,
-          814
+          1443,
+          998
         ]
       },
       {
@@ -886,29 +869,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 0,
         "cell": [
-          41,
-          947,
-          291,
-          1243
+          0,
+          1152,
+          384,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          247,
-          293
+          73,
+          49,
+          312,
+          345
         ],
         "anchor": [
-          69.853,
-          293
+          140,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          89,
-          987
+          125,
+          1246
         ],
         "leftHandPixel": [
-          247,
-          1110
+          283,
+          1378
         ]
       },
       {
@@ -916,29 +899,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 1,
         "cell": [
-          352,
-          947,
-          607,
-          1241
+          384,
+          1152,
+          768,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          252,
-          291
+          67,
+          51,
+          315,
+          345
         ],
         "anchor": [
-          66.597,
-          291
+          134,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          392,
-          1018
+          492,
+          1259
         ],
         "leftHandPixel": [
-          583,
-          1016
+          676,
+          1267
         ]
       },
       {
@@ -946,29 +929,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 2,
         "cell": [
-          659,
-          947,
-          914,
-          1243
+          768,
+          1152,
+          1152,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          252,
-          293
+          65,
+          52,
+          318,
+          345
         ],
         "anchor": [
-          71.311,
-          293
+          133,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          797,
-          1126
+          972,
+          1383
         ],
         "leftHandPixel": [
-          882,
-          1020
+          1068,
+          1268
         ]
       },
       {
@@ -976,73 +959,96 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 3,
         "cell": [
-          962,
-          947,
-          1199,
-          1243
+          1152,
+          1152,
+          1536,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          234,
-          293
+          73,
+          53,
+          310,
+          345
         ],
         "anchor": [
-          65.671,
-          293
+          141,
+          343
         ],
         "mirror": false,
         "rightHandPixel": [
-          1090,
-          1130
+          1369,
+          1389
         ],
         "leftHandPixel": [
-          1187,
-          1123
+          1444,
+          1383
         ]
       }
     ],
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 135.45454545454544
+    "pixelsPerUnit": 133.63636363636363,
+    "sourceSize": [
+      1536,
+      1536
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/chompy-music-performance-v1.prompt.txt",
+    "promptSha256": "2a55f177c13d918e18f3e3b4781a8c40d223a9651a38f55cb5bffce79fa8c2bd",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
   },
   "dino-concert-venue-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/dino-concert-venue-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/dino-concert-venue-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceBytes": 2765563,
-    "runtimeBytes": 454338,
-    "sourceSha256": "789c39994cb86738b5e8d123dee213bc2601fb1bb4ce7581627ba39dc000ad85",
-    "runtimeSha256": "b1f3c24e417e60f7854f5d088d396c8857f1fb0d38012c06a34a15ac264d9f0c",
+    "sourceBytes": 1689286,
+    "runtimeBytes": 194400,
+    "sourceSha256": "0977a429216301ffa4d2d1645073d7b53aa6279cd9ef0681647742e5a1a49cbc",
+    "runtimeSha256": "6dd668e6dc0f9db61f3ab0a29f32d031a5582c4aa7a7f501961c65cc9ecccfc1",
     "alphaPixels": 0,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-b0075cb7-e4bc-4a06-97e6-cea726e7cfd4.png",
-    "references": [
-      {
-        "path": "source-art/arcade/physical-worlds/sound-beat/meadow-concert-venue-v1.png",
-        "sha256": "c6cf71159a8afe2b90b20fd331e92b3a1b3c6aef0154b67fda50274810df9384"
-      },
-      {
-        "path": "source-art/arcade/physical-worlds/tower-tumble/dino-landscape-v1.png",
-        "sha256": "74660022bd65f64e30cf0439efe1aa8548d7238b5f7f6cc857ecf1960fce0eb5"
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.prompt.txt",
+    "promptSha256": "a35b5fc59ee760ab85c540d2eec062d003f9c22c51ab18ee875f31474eee6109",
+    "productionRevision": "clean-cartoon-2026-11-02",
+    "encoding": {
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill"
       }
-    ]
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source",
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.png"
+    }
   },
   "instrument-kit-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/instrument-kit-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/instrument-kit-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/instrument-kit-v1.webp",
     "width": 1448,
     "height": 1086,
-    "sourceBytes": 1814471,
-    "runtimeBytes": 512432,
-    "sourceSha256": "08a4f5815c6c80c36470744d1762c0acb723e69fe313808f606b345f9c5847f9",
-    "runtimeSha256": "9fd000dae09e0cb28a0f2027098c8e15890cb5da6df3ac06b6bb68daa2eadc74",
-    "alphaPixels": 1570466,
+    "sourceBytes": 1204003,
+    "runtimeBytes": 301392,
+    "sourceSha256": "12ec0140a5f3a045512e7145109430373e27bc32e547fef263067e86f265c312",
+    "runtimeSha256": "65a76f340b3bc70ee969029ef279a59f3892f6368dcf7c475e0535ef3a86c60e",
+    "alphaPixels": 1566641,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-d038353b-c7b8-4136-ae66-c214b50f68c4.png",
-    "references": [],
     "frames": [
       {
         "id": 0,
@@ -1050,41 +1056,45 @@ export const SOUND_BEAT_ART = {
         "column": 0,
         "cell": [
           36,
-          28,
-          348,
-          342
+          55,
+          326,
+          326
         ],
         "bounds": [
-          3,
-          3,
-          309,
-          311
+          1,
+          1,
+          289,
+          270
         ],
         "anchor": [
-          155.336,
-          311
+          236,
+          267
         ],
-        "mirror": false
+        "mirror": false,
+        "membraneCentre": [
+          176.6544,
+          96.1742
+        ]
       },
       {
         "id": 1,
         "row": 0,
         "column": 1,
         "cell": [
-          472,
-          21,
-          597,
-          343
+          500,
+          36,
+          586,
+          326
         ],
         "bounds": [
-          3,
-          3,
-          122,
-          319
+          2,
+          1,
+          85,
+          289
         ],
         "anchor": [
-          16.936,
-          319
+          19,
+          288
         ],
         "mirror": false
       },
@@ -1093,20 +1103,20 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 2,
         "cell": [
-          724,
-          33,
-          1086,
-          340
+          760,
+          89,
+          1050,
+          326
         ],
         "bounds": [
-          0,
-          3,
-          362,
-          304
+          1,
+          1,
+          289,
+          236
         ],
         "anchor": [
-          253.003,
-          304
+          264,
+          235
         ],
         "mirror": false
       },
@@ -1115,20 +1125,20 @@ export const SOUND_BEAT_ART = {
         "row": 0,
         "column": 3,
         "cell": [
-          1127,
-          5,
-          1424,
-          362
+          1149,
+          36,
+          1385,
+          326
         ],
         "bounds": [
-          3,
-          3,
-          294,
-          357
+          1,
+          1,
+          235,
+          289
         ],
         "anchor": [
-          201.49,
-          357
+          122,
+          287
         ],
         "mirror": false
       },
@@ -1137,42 +1147,46 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 0,
         "cell": [
-          34,
-          370,
-          352,
-          689
+          36,
+          423,
+          326,
+          688
         ],
         "bounds": [
-          3,
-          3,
-          315,
-          316
+          1,
+          1,
+          289,
+          264
         ],
         "anchor": [
-          168.012,
-          316
+          56,
+          261
         ],
-        "mirror": false
+        "mirror": false,
+        "membraneCentre": [
+          174.4598,
+          461.3234
+        ]
       },
       {
         "id": 5,
         "row": 1,
         "column": 1,
         "cell": [
-          471,
-          372,
-          599,
-          698
+          498,
+          398,
+          588,
+          688
         ],
         "bounds": [
-          3,
-          3,
-          125,
-          323
+          1,
+          1,
+          89,
+          289
         ],
         "anchor": [
-          17.237,
-          323
+          20,
+          288
         ],
         "mirror": false
       },
@@ -1181,20 +1195,20 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 2,
         "cell": [
-          724,
-          399,
-          1086,
-          677
+          760,
+          515,
+          1050,
+          688
         ],
         "bounds": [
-          0,
-          3,
-          362,
-          275
+          1,
+          1,
+          289,
+          172
         ],
         "anchor": [
-          339.972,
-          275
+          263,
+          171
         ],
         "mirror": false
       },
@@ -1203,20 +1217,20 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 3,
         "cell": [
-          1138,
-          390,
-          1420,
-          686
+          1128,
+          398,
+          1405,
+          688
         ],
         "bounds": [
-          3,
-          3,
-          279,
-          293
+          1,
+          1,
+          276,
+          289
         ],
         "anchor": [
-          123.814,
-          293
+          106,
+          286
         ],
         "mirror": false
       },
@@ -1225,42 +1239,46 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 0,
         "cell": [
-          34,
-          724,
-          356,
-          1047
-        ],
-        "bounds": [
-          3,
-          0,
-          319,
-          320
-        ],
-        "anchor": [
-          138.744,
-          320
-        ],
-        "mirror": false
-      },
-      {
-        "id": 9,
-        "row": 2,
-        "column": 1,
-        "cell": [
-          471,
-          726,
-          593,
+          36,
+          791,
+          326,
           1050
         ],
         "bounds": [
-          3,
-          3,
-          119,
-          321
+          1,
+          1,
+          289,
+          258
         ],
         "anchor": [
-          17.5,
-          321
+          67,
+          255
+        ],
+        "mirror": false,
+        "membraneCentre": [
+          178.1667,
+          826.5346
+        ]
+      },
+      {
+        "id": 9,
+        "row": 2,
+        "column": 1,
+        "cell": [
+          496,
+          760,
+          589,
+          1050
+        ],
+        "bounds": [
+          1,
+          1,
+          92,
+          289
+        ],
+        "anchor": [
+          21,
+          288
         ],
         "mirror": false
       },
@@ -1269,20 +1287,20 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 2,
         "cell": [
-          724,
-          724,
-          1086,
-          1049
+          760,
+          824,
+          1050,
+          1050
         ],
         "bounds": [
-          0,
-          0,
-          362,
-          322
+          1,
+          1,
+          289,
+          225
         ],
         "anchor": [
-          193.388,
-          322
+          238,
+          222
         ],
         "mirror": false
       },
@@ -1291,1754 +1309,238 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 3,
         "cell": [
-          1183,
-          724,
-          1402,
-          1068
+          1160,
+          760,
+          1373,
+          1050
         ],
         "bounds": [
-          3,
-          0,
-          216,
-          341
+          1,
+          1,
+          212,
+          289
         ],
         "anchor": [
-          134.039,
-          341
+          139,
+          288
         ],
         "mirror": false
       }
-    ]
+    ],
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/instrument-kit-v1.prompt.txt",
+    "promptSha256": "f898b81b0d78e5299ad364ce57c5eeb84ca0674c077cfdd5c0e94024607a636d",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
   },
   "meadow-concert-venue-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/meadow-concert-venue-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/meadow-concert-venue-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceBytes": 2341982,
-    "runtimeBytes": 326184,
-    "sourceSha256": "c6cf71159a8afe2b90b20fd331e92b3a1b3c6aef0154b67fda50274810df9384",
-    "runtimeSha256": "9710e4189103b8a68ebc1305b64527ddc6d494403c5c2874d40fc898a0346209",
+    "sourceBytes": 1772547,
+    "runtimeBytes": 231240,
+    "sourceSha256": "3f7042c9e53fa77abe49c22995e703b830b64b13d7b7018a0c3d82025428c784",
+    "runtimeSha256": "fb9bfe8b5bd2294180c7f1f1c2268e48ec5f0770b9e40c74fe0629682452bd98",
     "alphaPixels": 0,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-dba93a93-2222-4b31-ba53-64ed23a6a626.png",
-    "references": [
-      {
-        "path": "source-art/arcade/physical-worlds/sound-beat/targets/meadow-concert-target-v1.png",
-        "sha256": "a21d91e146b9f284501ad819c150f23f169f8509673665bb17ae3c94a8f847cd"
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.prompt.txt",
+    "promptSha256": "a35b5fc59ee760ab85c540d2eec062d003f9c22c51ab18ee875f31474eee6109",
+    "productionRevision": "clean-cartoon-2026-11-02",
+    "encoding": {
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill"
       }
-    ]
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source",
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.png"
+    }
   },
   "moonwood-concert-venue-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/moonwood-concert-venue-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/moonwood-concert-venue-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/moonwood-concert-venue-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceBytes": 2549940,
-    "runtimeBytes": 378266,
-    "sourceSha256": "01cd3cd381a4f2b585ae8462aad566c61f26cb4c121ce47175309556bb26d600",
-    "runtimeSha256": "cc8610cb83908fb2c7c4b4eaddc90283579170d375841059596d7ee672065659",
+    "sourceBytes": 1586720,
+    "runtimeBytes": 158552,
+    "sourceSha256": "12893a115cb8a63b262a6903942e4e00bd9335af657bc6d12d7d79cd5531834d",
+    "runtimeSha256": "9272dc3373ee891035d5c67a4b8f32e631fcba652a7ab378688d22d4642f688f",
     "alphaPixels": 0,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-35c9f8a7-c311-4313-9e4a-abe26781f6e5.png",
-    "references": [
-      {
-        "path": "source-art/arcade/physical-worlds/sound-beat/meadow-concert-venue-v1.png",
-        "sha256": "c6cf71159a8afe2b90b20fd331e92b3a1b3c6aef0154b67fda50274810df9384"
-      },
-      {
-        "path": "source-art/arcade/physical-worlds/tower-tumble/moonwood-landscape-v1.png",
-        "sha256": "404e42e290cece62b9667610da1d704691d803c2f2be17d035ac56c40417d3f7"
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/moonwood-concert-venue-v1.prompt.txt",
+    "promptSha256": "a35b5fc59ee760ab85c540d2eec062d003f9c22c51ab18ee875f31474eee6109",
+    "productionRevision": "clean-cartoon-2026-11-02",
+    "encoding": {
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill"
       }
-    ]
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source",
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/moonwood-concert-venue-v1.png"
+    }
   },
   "pip-music-performance-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/pip-music-performance-v1.png",
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/pip-music-performance-v1.png",
     "runtime": "/game-assets/physical-arcade/sound-beat/pip-music-performance-v1.webp",
-    "width": 1244,
-    "height": 1264,
-    "sourceBytes": 1644398,
-    "runtimeBytes": 492788,
-    "sourceSha256": "3c80c3790a9c5508774c622e124db329502d27831e89540215fd4a20eef08cf5",
-    "runtimeSha256": "7efc97279879ec6428c978c7fe47f23423cdc9fbab30e8033dd0decb98b7875d",
-    "alphaPixels": 1571267,
+    "width": 1536,
+    "height": 1536,
+    "sourceBytes": 1581669,
+    "runtimeBytes": 396892,
+    "sourceSha256": "cf16085693e8fe3ad77294e2e58c88d30d313945ebff9f1bc642836716f34ec7",
+    "runtimeSha256": "7d694a9a25156598d5bcaee635bedb4cfe495f4762c12241f5b3d884713734e2",
+    "alphaPixels": 2351787,
     "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-5c63602c-6828-4b61-bd23-533a69161e17.png",
-    "references": [
-      {
-        "path": "source-art/arcade/physical-worlds/pals/pip-tools-v1.png",
-        "sha256": "d0338db399a2cfcb99650ed273ac425ba813252a465ecc3d0f34c2a99410f3ae"
-      }
-    ],
     "frames": [
       {
         "id": 0,
         "row": 0,
         "column": 0,
         "cell": [
-          48,
-          3,
-          260,
-          316
+          0,
+          0,
+          384,
+          384
         ],
         "bounds": [
-          3,
-          3,
-          209,
-          313
+          80,
+          41,
+          304,
+          345
         ],
         "anchor": [
-          115.388,
-          313
+          238,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          81,
+          113,
+          249
+        ],
+        "leftHandPixel": [
+          282,
+          105
+        ]
+      },
+      {
+        "id": 1,
+        "row": 0,
+        "column": 1,
+        "cell": [
+          384,
+          0,
+          768,
+          384
+        ],
+        "bounds": [
+          87,
+          41,
+          297,
+          345
+        ],
+        "anchor": [
+          233,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          485,
+          129
+        ],
+        "leftHandPixel": [
+          663,
+          247
+        ]
+      },
+      {
+        "id": 2,
+        "row": 0,
+        "column": 2,
+        "cell": [
+          768,
+          0,
+          1152,
+          384
+        ],
+        "bounds": [
+          79,
+          41,
+          305,
+          345
+        ],
+        "anchor": [
+          232,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          907,
+          233
+        ],
+        "leftHandPixel": [
+          1057,
+          139
+        ]
+      },
+      {
+        "id": 3,
+        "row": 0,
+        "column": 3,
+        "cell": [
+          1152,
+          0,
+          1536,
+          384
+        ],
+        "bounds": [
+          87,
+          40,
+          295,
+          344
+        ],
+        "anchor": [
+          232,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1279,
           218
         ],
         "leftHandPixel": [
-          237,
-          72
-        ]
-      },
-      {
-        "id": 1,
-        "row": 0,
-        "column": 1,
-        "cell": [
-          376,
-          4,
-          579,
-          316
-        ],
-        "bounds": [
-          3,
-          3,
-          200,
-          312
-        ],
-        "anchor": [
-          112.006,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          393,
-          97
-        ],
-        "leftHandPixel": [
-          559,
-          216
-        ]
-      },
-      {
-        "id": 2,
-        "row": 0,
-        "column": 2,
-        "cell": [
-          670,
-          3,
-          896,
-          316
-        ],
-        "bounds": [
-          3,
-          3,
-          223,
-          313
-        ],
-        "anchor": [
-          104.772,
-          313
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          731,
-          202
-        ],
-        "leftHandPixel": [
-          876,
-          106
-        ]
-      },
-      {
-        "id": 3,
-        "row": 0,
-        "column": 3,
-        "cell": [
-          990,
-          3,
-          1187,
-          316
-        ],
-        "bounds": [
-          3,
-          3,
-          194,
-          313
-        ],
-        "anchor": [
-          103.527,
-          313
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1030,
-          187
-        ],
-        "leftHandPixel": [
-          1154,
-          163
-        ]
-      },
-      {
-        "id": 4,
-        "row": 1,
-        "column": 0,
-        "cell": [
-          48,
-          320,
-          269,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          218,
-          312
-        ],
-        "anchor": [
-          117.834,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          79,
-          532
-        ],
-        "leftHandPixel": [
-          237,
-          364
-        ]
-      },
-      {
-        "id": 5,
-        "row": 1,
-        "column": 1,
-        "cell": [
-          366,
-          323,
-          602,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          233,
-          309
-        ],
-        "anchor": [
-          105.072,
-          309
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          406,
-          496
-        ],
-        "leftHandPixel": [
-          583,
-          520
-        ]
-      },
-      {
-        "id": 6,
-        "row": 1,
-        "column": 2,
-        "cell": [
-          675,
-          320,
-          891,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          213,
-          312
-        ],
-        "anchor": [
-          108.671,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          711,
-          532
-        ],
-        "leftHandPixel": [
-          872,
-          375
-        ]
-      },
-      {
-        "id": 7,
-        "row": 1,
-        "column": 3,
-        "cell": [
-          982,
-          325,
-          1211,
-          632
-        ],
-        "bounds": [
-          3,
-          3,
-          226,
-          307
-        ],
-        "anchor": [
-          111.45,
-          307
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1033,
-          516
-        ],
-        "leftHandPixel": [
-          1191,
-          535
-        ]
-      },
-      {
-        "id": 8,
-        "row": 2,
-        "column": 0,
-        "cell": [
-          50,
-          638,
-          271,
-          948
-        ],
-        "bounds": [
-          3,
-          3,
-          218,
-          309
-        ],
-        "anchor": [
-          106.592,
-          309
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          69,
-          820
-        ],
-        "leftHandPixel": [
-          253,
-          805
-        ]
-      },
-      {
-        "id": 9,
-        "row": 2,
-        "column": 1,
-        "cell": [
-          380,
-          636,
-          574,
-          948
-        ],
-        "bounds": [
-          3,
-          3,
-          191,
-          312
-        ],
-        "anchor": [
-          91.863,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          410,
-          852
-        ],
-        "leftHandPixel": [
-          554,
-          849
-        ]
-      },
-      {
-        "id": 10,
-        "row": 2,
-        "column": 2,
-        "cell": [
-          675,
-          636,
-          874,
-          948
-        ],
-        "bounds": [
-          3,
-          3,
-          196,
-          312
-        ],
-        "anchor": [
-          98.588,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          748,
-          807
-        ],
-        "leftHandPixel": [
-          837,
-          789
-        ]
-      },
-      {
-        "id": 11,
-        "row": 2,
-        "column": 3,
-        "cell": [
-          988,
-          636,
-          1199,
-          948
-        ],
-        "bounds": [
-          3,
-          3,
-          208,
-          312
-        ],
-        "anchor": [
-          101.395,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1057,
-          803
-        ],
-        "leftHandPixel": [
-          1181,
-          787
-        ]
-      },
-      {
-        "id": 12,
-        "row": 3,
-        "column": 0,
-        "cell": [
-          62,
-          948,
-          271,
-          1262
-        ],
-        "bounds": [
-          3,
-          0,
-          206,
-          311
-        ],
-        "anchor": [
-          104.571,
-          311
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          102,
-          1158
-        ],
-        "leftHandPixel": [
-          254,
-          985
-        ]
-      },
-      {
-        "id": 13,
-        "row": 3,
-        "column": 1,
-        "cell": [
-          375,
-          948,
-          589,
-          1261
-        ],
-        "bounds": [
-          3,
-          0,
-          211,
-          310
-        ],
-        "anchor": [
-          108.22,
-          310
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          393,
-          1046
-        ],
-        "leftHandPixel": [
-          569,
-          1024
-        ]
-      },
-      {
-        "id": 14,
-        "row": 3,
-        "column": 2,
-        "cell": [
-          675,
-          948,
-          893,
-          1263
-        ],
-        "bounds": [
-          3,
-          0,
-          215,
-          312
-        ],
-        "anchor": [
-          111.434,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          729,
-          1150
-        ],
-        "leftHandPixel": [
-          876,
-          1026
-        ]
-      },
-      {
-        "id": 15,
-        "row": 3,
-        "column": 3,
-        "cell": [
-          993,
-          948,
-          1187,
-          1263
-        ],
-        "bounds": [
-          3,
-          0,
-          191,
-          312
-        ],
-        "anchor": [
-          92.759,
-          312
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1035,
-          1165
-        ],
-        "leftHandPixel": [
-          1162,
-          1161
-        ]
-      }
-    ],
-    "nominalHeight": 2.2,
-    "pixelsPerUnit": 140.45454545454544
-  },
-  "sunny-music-performance-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/sunny-music-performance-v1.png",
-    "runtime": "/game-assets/physical-arcade/sound-beat/sunny-music-performance-v1.webp",
-    "width": 1224,
-    "height": 1285,
-    "sourceBytes": 1807615,
-    "runtimeBytes": 467672,
-    "sourceSha256": "4cdee48924ee4ed6bbe8250ef68cfd929634e47fd7bc52dd54a8ea94992ec7ec",
-    "runtimeSha256": "ff4c7f02fb37155de90b61c0f510d088543262c763a9ede7060d7872bb5e4abc",
-    "alphaPixels": 1569490,
-    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
-    "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-d16ee272-0dd2-439d-a773-9e2246ca24ca.png",
-    "references": [
-      {
-        "path": "public/game-assets/sound-seekers/v3/cast/dino/sunny.webp",
-        "sha256": "fd431c79a847b7cd6a50518dbf827fa8c53d5fcbda860ba9cb2451e32b753886"
-      }
-    ],
-    "frames": [
-      {
-        "id": 0,
-        "row": 0,
-        "column": 0,
-        "cell": [
-          30,
-          12,
-          266,
-          310
-        ],
-        "bounds": [
-          3,
-          3,
-          233,
-          295
-        ],
-        "anchor": [
-          102.72,
-          295
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            132,
-            297
-          ],
-          "leftForefoot": [
-            220,
-            256
-          ]
-        }
-      },
-      {
-        "id": 1,
-        "row": 0,
-        "column": 1,
-        "cell": [
-          327,
-          10,
-          551,
-          309
-        ],
-        "bounds": [
-          3,
-          3,
-          221,
-          296
-        ],
-        "anchor": [
-          121.36,
-          296
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            437,
-            296
-          ],
-          "leftForefoot": [
-            517,
-            255
-          ]
-        }
-      },
-      {
-        "id": 2,
-        "row": 0,
-        "column": 2,
-        "cell": [
-          628,
-          14,
-          866,
-          310
-        ],
-        "bounds": [
-          3,
-          3,
-          235,
-          293
-        ],
-        "anchor": [
-          118.118,
-          293
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            741,
-            301
-          ],
-          "leftForefoot": [
-            821,
-            265
-          ]
-        }
-      },
-      {
-        "id": 3,
-        "row": 0,
-        "column": 3,
-        "cell": [
-          920,
-          12,
-          1153,
-          309
-        ],
-        "bounds": [
-          3,
-          3,
-          230,
-          294
-        ],
-        "anchor": [
-          133.923,
-          294
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            1038,
-            295
-          ],
-          "leftForefoot": [
-            1132,
-            294
-          ]
-        }
-      },
-      {
-        "id": 4,
-        "row": 1,
-        "column": 0,
-        "cell": [
-          30,
-          321,
-          264,
-          612
-        ],
-        "bounds": [
-          3,
-          3,
-          231,
-          288
-        ],
-        "anchor": [
-          140.386,
-          288
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            151,
-            556
-          ],
-          "leftForefoot": [
-            225,
-            595
-          ]
-        }
-      },
-      {
-        "id": 5,
-        "row": 1,
-        "column": 1,
-        "cell": [
-          318,
-          321,
-          556,
-          617
-        ],
-        "bounds": [
-          3,
-          3,
-          235,
-          293
-        ],
-        "anchor": [
-          144.56,
-          293
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            442,
-            597
-          ],
-          "leftForefoot": [
-            527,
-            597
-          ]
-        }
-      },
-      {
-        "id": 6,
-        "row": 1,
-        "column": 2,
-        "cell": [
-          623,
-          321,
-          856,
-          617
-        ],
-        "bounds": [
-          3,
-          2,
-          230,
-          293
-        ],
-        "anchor": [
-          125.68,
-          293
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            746,
-            599
-          ],
-          "leftForefoot": [
-            824,
-            556
-          ]
-        }
-      },
-      {
-        "id": 7,
-        "row": 1,
-        "column": 3,
-        "cell": [
-          922,
-          321,
-          1165,
-          617
-        ],
-        "bounds": [
-          3,
-          3,
-          240,
-          293
-        ],
-        "anchor": [
-          125.186,
-          293
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            1044,
-            602
-          ],
-          "leftForefoot": [
-            1137,
-            582
-          ]
-        }
-      },
-      {
-        "id": 8,
-        "row": 2,
-        "column": 0,
-        "cell": [
-          29,
-          642,
-          259,
-          926
-        ],
-        "bounds": [
-          3,
-          0,
-          227,
-          281
-        ],
-        "anchor": [
-          127.295,
-          281
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            134,
-            914
-          ],
-          "leftForefoot": [
-            230,
-            910
-          ]
-        }
-      },
-      {
-        "id": 9,
-        "row": 2,
-        "column": 1,
-        "cell": [
-          324,
-          647,
-          593,
-          927
-        ],
-        "bounds": [
-          3,
-          3,
-          266,
-          277
-        ],
-        "anchor": [
-          126.817,
-          277
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            441,
-            912
-          ],
-          "leftForefoot": [
-            545,
-            910
-          ]
-        }
-      },
-      {
-        "id": 10,
-        "row": 2,
-        "column": 2,
-        "cell": [
-          636,
-          642,
-          878,
-          926
-        ],
-        "bounds": [
-          3,
-          0,
-          239,
-          281
-        ],
-        "anchor": [
-          129.509,
-          281
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            742,
-            915
-          ],
-          "leftForefoot": [
-            836,
-            915
-          ]
-        }
-      },
-      {
-        "id": 11,
-        "row": 2,
-        "column": 3,
-        "cell": [
-          930,
-          642,
-          1173,
-          926
-        ],
-        "bounds": [
-          3,
-          0,
-          240,
-          281
-        ],
-        "anchor": [
-          137.078,
-          281
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            1047,
-            911
-          ],
-          "leftForefoot": [
-            1145,
-            914
-          ]
-        }
-      },
-      {
-        "id": 12,
-        "row": 3,
-        "column": 0,
-        "cell": [
-          32,
-          964,
-          274,
-          1237
-        ],
-        "bounds": [
-          3,
-          0,
-          239,
-          270
-        ],
-        "anchor": [
-          178.576,
-          270
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            151,
-            1191
-          ],
-          "leftForefoot": [
-            225,
-            1222
-          ]
-        }
-      },
-      {
-        "id": 13,
-        "row": 3,
-        "column": 1,
-        "cell": [
-          352,
-          964,
-          603,
-          1240
-        ],
-        "bounds": [
-          3,
-          0,
-          248,
-          273
-        ],
-        "anchor": [
-          118.084,
-          273
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            455,
-            1221
-          ],
-          "leftForefoot": [
-            562,
-            1221
-          ]
-        }
-      },
-      {
-        "id": 14,
-        "row": 3,
-        "column": 2,
-        "cell": [
-          630,
-          964,
-          892,
-          1242
-        ],
-        "bounds": [
-          3,
-          0,
-          259,
-          275
-        ],
-        "anchor": [
-          135.602,
-          275
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            742,
-            1221
-          ],
-          "leftForefoot": [
-            860,
-            1166
-          ]
-        }
-      },
-      {
-        "id": 15,
-        "row": 3,
-        "column": 3,
-        "cell": [
-          933,
-          964,
-          1185,
-          1242
-        ],
-        "bounds": [
-          3,
-          0,
-          249,
-          275
-        ],
-        "anchor": [
-          142.966,
-          275
-        ],
-        "mirror": false,
-        "sockets": {
-          "rightForefoot": [
-            1055,
-            1219
-          ],
-          "leftForefoot": [
-            1153,
-            1218
-          ]
-        }
-      }
-    ],
-    "nominalHeight": 2.2,
-    "pixelsPerUnit": 128.63636363636363
-  },
-  "woolly-music-performance-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/woolly-music-performance-v1.png",
-    "runtime": "/game-assets/physical-arcade/sound-beat/woolly-music-performance-v1.webp",
-    "width": 1269,
-    "height": 1240,
-    "sourceBytes": 1438118,
-    "runtimeBytes": 476490,
-    "sourceSha256": "94c8f273fafd8ef3b3f0914bfd80928431b7085aaa4a2202435fc50b966c8fc1",
-    "runtimeSha256": "c87d5f8de6be40445861d159be27dde754c7be1dff3b4ffa28983f9277f14f0e",
-    "alphaPixels": 1572119,
-    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
-    "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-28bc57c2-cc4e-4409-b209-8c421a3b6ef0.png",
-    "references": [
-      {
-        "path": "public/game-assets/sound-seekers/v3/cast/meadow/woolly.webp",
-        "sha256": "2e58539cd555273583dbf6d675f2a6e8185fd60493bdaf29693b53e71daea1b3"
-      },
-      {
-        "path": "source-art/arcade/physical-worlds/sound-beat/woolly-music-actions-v1.png",
-        "sha256": "4da776dfaec87a0bf020cf6393738d97865efdb0245ba5b24f4c8190c4066bb2"
-      }
-    ],
-    "frames": [
-      {
-        "id": 0,
-        "row": 0,
-        "column": 0,
-        "cell": [
-          62,
-          7,
-          286,
-          297
-        ],
-        "bounds": [
-          3,
-          3,
-          221,
-          287
-        ],
-        "anchor": [
-          101.207,
-          287
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          93,
-          70
-        ],
-        "leftHandPixel": [
-          210,
-          180
-        ]
-      },
-      {
-        "id": 1,
-        "row": 0,
-        "column": 1,
-        "cell": [
-          376,
-          14,
-          607,
-          297
-        ],
-        "bounds": [
-          3,
-          3,
-          228,
-          280
-        ],
-        "anchor": [
-          103.067,
-          280
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          453,
-          182
-        ],
-        "leftHandPixel": [
-          580,
-          71
-        ]
-      },
-      {
-        "id": 2,
-        "row": 0,
-        "column": 2,
-        "cell": [
-          675,
-          11,
-          914,
-          297
-        ],
-        "bounds": [
-          3,
-          3,
-          236,
-          283
-        ],
-        "anchor": [
-          100.548,
-          283
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          735,
-          165
-        ],
-        "leftHandPixel": [
-          888,
-          153
-        ]
-      },
-      {
-        "id": 3,
-        "row": 0,
-        "column": 3,
-        "cell": [
-          994,
-          11,
-          1213,
-          297
-        ],
-        "bounds": [
-          3,
-          3,
-          216,
-          283
-        ],
-        "anchor": [
-          101.394,
-          283
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1082,
-          180
-        ],
-        "leftHandPixel": [
-          1153,
-          178
-        ]
-      },
-      {
-        "id": 4,
-        "row": 1,
-        "column": 0,
-        "cell": [
-          62,
-          313,
-          289,
-          601
-        ],
-        "bounds": [
-          3,
-          3,
-          224,
-          285
-        ],
-        "anchor": [
-          99.857,
-          285
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          102,
-          344
-        ],
-        "leftHandPixel": [
-          205,
-          483
-        ]
-      },
-      {
-        "id": 5,
-        "row": 1,
-        "column": 1,
-        "cell": [
-          372,
-          313,
-          612,
-          601
-        ],
-        "bounds": [
-          3,
-          3,
-          237,
-          285
-        ],
-        "anchor": [
-          102.731,
-          285
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          462,
-          493
-        ],
-        "leftHandPixel": [
-          585,
-          447
-        ]
-      },
-      {
-        "id": 6,
-        "row": 1,
-        "column": 2,
-        "cell": [
-          686,
-          318,
-          913,
-          601
-        ],
-        "bounds": [
-          3,
-          3,
-          224,
-          280
-        ],
-        "anchor": [
-          102.89,
-          280
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          779,
-          493
-        ],
-        "leftHandPixel": [
-          886,
-          355
-        ]
-      },
-      {
-        "id": 7,
-        "row": 1,
-        "column": 3,
-        "cell": [
-          1010,
-          317,
-          1235,
-          601
-        ],
-        "bounds": [
-          3,
-          3,
-          222,
-          281
-        ],
-        "anchor": [
-          107.692,
-          281
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1035,
-          444
-        ],
-        "leftHandPixel": [
-          1150,
-          492
-        ]
-      },
-      {
-        "id": 8,
-        "row": 2,
-        "column": 0,
-        "cell": [
-          41,
-          620,
-          304,
-          902
-        ],
-        "bounds": [
-          3,
-          0,
-          260,
-          279
-        ],
-        "anchor": [
-          115.408,
-          279
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          66,
-          764
-        ],
-        "leftHandPixel": [
-          279,
-          763
-        ]
-      },
-      {
-        "id": 9,
-        "row": 2,
-        "column": 1,
-        "cell": [
-          369,
-          620,
-          592,
-          900
-        ],
-        "bounds": [
-          3,
-          0,
-          220,
-          277
-        ],
-        "anchor": [
-          108.523,
-          277
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          437,
-          799
-        ],
-        "leftHandPixel": [
-          554,
-          791
-        ]
-      },
-      {
-        "id": 10,
-        "row": 2,
-        "column": 2,
-        "cell": [
-          678,
-          620,
-          901,
-          900
-        ],
-        "bounds": [
-          3,
-          0,
-          220,
-          277
-        ],
-        "anchor": [
-          101.302,
-          277
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          773,
-          781
-        ],
-        "leftHandPixel": [
-          853,
-          775
-        ]
-      },
-      {
-        "id": 11,
-        "row": 2,
-        "column": 3,
-        "cell": [
-          996,
-          620,
-          1222,
-          902
-        ],
-        "bounds": [
-          3,
-          0,
-          223,
-          279
-        ],
-        "anchor": [
-          117.755,
-          279
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1061,
-          780
-        ],
-        "leftHandPixel": [
-          1177,
-          773
-        ]
-      },
-      {
-        "id": 12,
-        "row": 3,
-        "column": 0,
-        "cell": [
-          62,
-          930,
-          294,
-          1206
-        ],
-        "bounds": [
-          3,
-          0,
-          229,
-          273
-        ],
-        "anchor": [
-          100.475,
-          273
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          93,
-          962
-        ],
-        "leftHandPixel": [
-          231,
-          1086
-        ]
-      },
-      {
-        "id": 13,
-        "row": 3,
-        "column": 1,
-        "cell": [
-          372,
-          930,
-          618,
-          1206
-        ],
-        "bounds": [
-          3,
-          0,
-          243,
-          273
-        ],
-        "anchor": [
-          96.989,
-          273
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          400,
-          967
-        ],
-        "leftHandPixel": [
-          589,
-          966
-        ]
-      },
-      {
-        "id": 14,
-        "row": 3,
-        "column": 2,
-        "cell": [
-          680,
-          930,
-          925,
-          1207
-        ],
-        "bounds": [
-          3,
-          0,
-          242,
-          274
-        ],
-        "anchor": [
-          104.744,
-          274
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          784,
-          1089
-        ],
-        "leftHandPixel": [
-          898,
-          962
-        ]
-      },
-      {
-        "id": 15,
-        "row": 3,
-        "column": 3,
-        "cell": [
-          998,
-          930,
-          1223,
-          1205
-        ],
-        "bounds": [
-          3,
-          0,
-          222,
-          272
-        ],
-        "anchor": [
-          107.675,
-          272
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1074,
-          1102
-        ],
-        "leftHandPixel": [
-          1174,
-          1097
-        ]
-      }
-    ],
-    "nominalHeight": 2.2,
-    "pixelsPerUnit": 126.13636363636363
-  },
-  "wren-music-performance-v1": {
-    "source": "source-art/arcade/physical-worlds/sound-beat/wren-music-performance-v1.png",
-    "runtime": "/game-assets/physical-arcade/sound-beat/wren-music-performance-v1.webp",
-    "width": 1230,
-    "height": 1278,
-    "sourceBytes": 1628719,
-    "runtimeBytes": 410768,
-    "sourceSha256": "a5433c86825cae10ab8ffbb884e21d705dbe5fd43e50553c6a66590ecc102cc7",
-    "runtimeSha256": "353d120e9286ee62f7462450f0f0c63b933aa48c12f381f8ce97c1529dcbfc43",
-    "alphaPixels": 1569379,
-    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
-    "rights": "Original generated project art; no downloaded third-party asset",
-    "originalOutput": "exec-48a168a5-591e-48a2-acd1-074dbeaa0eb8.png",
-    "references": [
-      {
-        "path": "public/game-assets/sound-seekers/v3/cast/moonwood/wren.webp",
-        "sha256": "0f492ed53e68ec253f243fe4359939a5263b6213392f3a784e5c4ed5e390e5f2"
-      }
-    ],
-    "frames": [
-      {
-        "id": 0,
-        "row": 0,
-        "column": 0,
-        "cell": [
-          79,
-          7,
-          270,
-          320
-        ],
-        "bounds": [
-          3,
-          3,
-          188,
-          310
-        ],
-        "anchor": [
-          81.073,
-          310
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          180,
-          205
-        ],
-        "leftHandPixel": [
-          251,
-          108
-        ]
-      },
-      {
-        "id": 1,
-        "row": 0,
-        "column": 1,
-        "cell": [
-          358,
-          7,
-          537,
-          320
-        ],
-        "bounds": [
-          3,
-          3,
-          176,
-          310
-        ],
-        "anchor": [
-          86.378,
-          310
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          428,
-          214
-        ],
-        "leftHandPixel": [
-          510,
-          91
-        ]
-      },
-      {
-        "id": 2,
-        "row": 0,
-        "column": 2,
-        "cell": [
-          672,
-          6,
-          874,
-          319
-        ],
-        "bounds": [
-          3,
-          3,
-          199,
-          310
-        ],
-        "anchor": [
-          105.336,
-          310
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          686,
-          152
-        ],
-        "leftHandPixel": [
-          856,
-          207
-        ]
-      },
-      {
-        "id": 3,
-        "row": 0,
-        "column": 3,
-        "cell": [
-          982,
-          8,
-          1149,
-          319
-        ],
-        "bounds": [
-          3,
-          3,
-          164,
-          308
-        ],
-        "anchor": [
-          80.9,
-          308
-        ],
-        "mirror": false,
-        "rightHandPixel": [
-          1033,
-          201
-        ],
-        "leftHandPixel": [
-          1123,
+          1415,
           195
         ]
       },
@@ -3047,29 +1549,29 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 0,
         "cell": [
-          62,
-          327,
-          274,
-          638
+          0,
+          384,
+          384,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          209,
-          308
+          81,
+          49,
+          301,
+          345
         ],
         "anchor": [
-          98.434,
-          308
+          244,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          82,
-          399
+          110,
+          634
         ],
         "leftHandPixel": [
-          258,
-          529
+          272,
+          473
         ]
       },
       {
@@ -3077,29 +1579,29 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 1,
         "cell": [
-          365,
-          325,
-          566,
-          638
+          384,
+          384,
+          768,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          198,
-          310
+          69,
+          65,
+          316,
+          345
         ],
         "anchor": [
-          95.404,
-          310
+          215,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          428,
-          524
+          492,
+          604
         ],
         "leftHandPixel": [
-          536,
-          401
+          683,
+          626
         ]
       },
       {
@@ -3107,29 +1609,29 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 2,
         "cell": [
-          672,
-          323,
-          877,
-          638
+          768,
+          384,
+          1152,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          202,
-          312
+          81,
+          57,
+          303,
+          345
         ],
         "anchor": [
-          92.221,
-          312
+          242,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          701,
-          388
+          884,
+          636
         ],
         "leftHandPixel": [
-          831,
-          535
+          1055,
+          488
         ]
       },
       {
@@ -3137,29 +1639,29 @@ export const SOUND_BEAT_ART = {
         "row": 1,
         "column": 3,
         "cell": [
-          977,
-          322,
-          1170,
-          638
+          1152,
+          384,
+          1536,
+          768
         ],
         "bounds": [
-          3,
-          3,
-          190,
-          313
+          76,
+          59,
+          307,
+          345
         ],
         "anchor": [
-          87.415,
-          313
+          224,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          1078,
-          515
+          1278,
+          620
         ],
         "leftHandPixel": [
-          1156,
-          419
+          1443,
+          638
         ]
       },
       {
@@ -3167,29 +1669,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 0,
         "cell": [
-          47,
-          643,
-          295,
-          955
+          0,
+          768,
+          384,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          245,
-          309
+          74,
+          55,
+          310,
+          345
         ],
         "anchor": [
-          115.836,
-          309
+          142,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          64,
-          794
+          91,
+          993
         ],
         "leftHandPixel": [
-          280,
-          800
+          294,
+          978
         ]
       },
       {
@@ -3197,29 +1699,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 1,
         "cell": [
-          389,
-          642,
-          570,
-          954
+          384,
+          768,
+          768,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          178,
-          309
+          86,
+          62,
+          297,
+          344
         ],
         "anchor": [
-          78.832,
-          309
+          152,
+          341
         ],
         "mirror": false,
         "rightHandPixel": [
-          442,
-          860
+          501,
+          1025
         ],
         "leftHandPixel": [
-          516,
-          860
+          663,
+          1023
         ]
       },
       {
@@ -3227,29 +1729,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 2,
         "cell": [
-          680,
-          640,
-          865,
-          955
+          768,
+          768,
+          1152,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          182,
-          312
+          85,
+          56,
+          299,
+          345
         ],
         "anchor": [
-          88.028,
-          312
+          141,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          765,
-          827
+          930,
+          983
         ],
         "leftHandPixel": [
-          850,
-          827
+          1029,
+          968
         ]
       },
       {
@@ -3257,29 +1759,29 @@ export const SOUND_BEAT_ART = {
         "row": 2,
         "column": 3,
         "cell": [
-          987,
-          644,
-          1182,
-          955
+          1152,
+          768,
+          1536,
+          1152
         ],
         "bounds": [
-          3,
-          3,
-          192,
-          308
+          88,
+          55,
+          295,
+          345
         ],
         "anchor": [
-          96.661,
-          308
+          137,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          1006,
-          789
+          1307,
+          977
         ],
         "leftHandPixel": [
-          1166,
-          814
+          1433,
+          964
         ]
       },
       {
@@ -3287,29 +1789,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 0,
         "cell": [
-          85,
-          958,
-          276,
-          1269
+          0,
+          1152,
+          384,
+          1536
         ],
         "bounds": [
-          3,
-          0,
-          188,
-          308
+          79,
+          50,
+          304,
+          345
         ],
         "anchor": [
-          68.552,
-          308
+          250,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          123,
-          1107
+          120,
+          1401
         ],
         "leftHandPixel": [
-          256,
-          986
+          289,
+          1237
         ]
       },
       {
@@ -3317,29 +1819,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 1,
         "cell": [
-          357,
-          958,
-          585,
-          1269
+          384,
+          1152,
+          768,
+          1536
         ],
         "bounds": [
-          3,
-          2,
-          225,
-          308
+          82,
+          50,
+          304,
+          345
         ],
         "anchor": [
-          101.253,
-          308
+          248,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          373,
-          1016
+          481,
+          1295
         ],
         "leftHandPixel": [
-          569,
-          1016
+          671,
+          1273
         ]
       },
       {
@@ -3347,29 +1849,29 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 2,
         "cell": [
-          671,
-          961,
-          867,
-          1269
+          768,
+          1152,
+          1152,
+          1536
         ],
         "bounds": [
-          3,
-          3,
-          193,
-          305
+          76,
+          50,
+          307,
+          345
         ],
         "anchor": [
-          102.942,
-          305
+          243,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          690,
-          1028
+          900,
+          1393
         ],
         "leftHandPixel": [
-          851,
-          1141
+          1061,
+          1275
         ]
       },
       {
@@ -3377,33 +1879,1616 @@ export const SOUND_BEAT_ART = {
         "row": 3,
         "column": 3,
         "cell": [
-          992,
-          961,
-          1157,
-          1269
+          1152,
+          1152,
+          1536,
+          1536
         ],
         "bounds": [
-          3,
-          3,
-          162,
-          305
+          91,
+          53,
+          292,
+          345
         ],
         "anchor": [
-          82.348,
-          305
+          235,
+          342
         ],
         "mirror": false,
         "rightHandPixel": [
-          1066,
-          1148
+          1284,
+          1408
         ],
         "leftHandPixel": [
-          1138,
-          1144
+          1421,
+          1404
         ]
       }
     ],
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 139.3181818181818
+    "pixelsPerUnit": 133.4090909090909,
+    "sourceSize": [
+      1536,
+      1536
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/pip-music-performance-v1.prompt.txt",
+    "promptSha256": "3f347bdb8b328d03479fd055d99af6b198d6e376c64290b31831699283dc6cd6",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
+  },
+  "sunny-music-performance-v1": {
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/sunny-music-performance-v1.png",
+    "runtime": "/game-assets/physical-arcade/sound-beat/sunny-music-performance-v1.webp",
+    "width": 1536,
+    "height": 1536,
+    "sourceBytes": 1794081,
+    "runtimeBytes": 415758,
+    "sourceSha256": "a0a0edbcfea5948525b9b512c101c9604e9f62c58c47fdd196789a4cbcb60362",
+    "runtimeSha256": "09982e6939bd4471e14a4a90319b5179f75eede30eed736676f363cb34662a78",
+    "alphaPixels": 2354324,
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+    "rights": "Original generated project art; no downloaded third-party asset",
+    "frames": [
+      {
+        "id": 0,
+        "row": 0,
+        "column": 0,
+        "cell": [
+          0,
+          0,
+          384,
+          384
+        ],
+        "bounds": [
+          65,
+          52,
+          319,
+          345
+        ],
+        "anchor": [
+          191,
+          343
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            174,
+            335
+          ],
+          "leftForefoot": [
+            272,
+            294
+          ]
+        }
+      },
+      {
+        "id": 1,
+        "row": 0,
+        "column": 1,
+        "cell": [
+          384,
+          0,
+          768,
+          384
+        ],
+        "bounds": [
+          69,
+          54,
+          314,
+          345
+        ],
+        "anchor": [
+          202,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            573,
+            335
+          ],
+          "leftForefoot": [
+            663,
+            294
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "row": 0,
+        "column": 2,
+        "cell": [
+          768,
+          0,
+          1152,
+          384
+        ],
+        "bounds": [
+          69,
+          57,
+          316,
+          345
+        ],
+        "anchor": [
+          184,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            953,
+            338
+          ],
+          "leftForefoot": [
+            1039,
+            319
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "row": 0,
+        "column": 3,
+        "cell": [
+          1152,
+          0,
+          1536,
+          384
+        ],
+        "bounds": [
+          69,
+          52,
+          315,
+          345
+        ],
+        "anchor": [
+          192,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            1346,
+            334
+          ],
+          "leftForefoot": [
+            1444,
+            293
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "row": 1,
+        "column": 0,
+        "cell": [
+          0,
+          384,
+          384,
+          768
+        ],
+        "bounds": [
+          69,
+          55,
+          315,
+          345
+        ],
+        "anchor": [
+          195,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            203,
+            704
+          ],
+          "leftForefoot": [
+            256,
+            712
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "row": 1,
+        "column": 1,
+        "cell": [
+          384,
+          384,
+          768,
+          768
+        ],
+        "bounds": [
+          73,
+          52,
+          311,
+          344
+        ],
+        "anchor": [
+          200,
+          343
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            580,
+            712
+          ],
+          "leftForefoot": [
+            666,
+            712
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "row": 1,
+        "column": 2,
+        "cell": [
+          768,
+          384,
+          1152,
+          768
+        ],
+        "bounds": [
+          68,
+          47,
+          316,
+          344
+        ],
+        "anchor": [
+          201,
+          343
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            968,
+            714
+          ],
+          "leftForefoot": [
+            1052,
+            670
+          ]
+        }
+      },
+      {
+        "id": 7,
+        "row": 1,
+        "column": 3,
+        "cell": [
+          1152,
+          384,
+          1536,
+          768
+        ],
+        "bounds": [
+          66,
+          55,
+          319,
+          345
+        ],
+        "anchor": [
+          197,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            1346,
+            716
+          ],
+          "leftForefoot": [
+            1444,
+            680
+          ]
+        }
+      },
+      {
+        "id": 8,
+        "row": 2,
+        "column": 0,
+        "cell": [
+          0,
+          768,
+          384,
+          1152
+        ],
+        "bounds": [
+          70,
+          55,
+          314,
+          345
+        ],
+        "anchor": [
+          195,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            181,
+            1104
+          ],
+          "leftForefoot": [
+            286,
+            1098
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "row": 2,
+        "column": 1,
+        "cell": [
+          384,
+          768,
+          768,
+          1152
+        ],
+        "bounds": [
+          57,
+          61,
+          327,
+          345
+        ],
+        "anchor": [
+          175,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            557,
+            1101
+          ],
+          "leftForefoot": [
+            666,
+            1098
+          ]
+        }
+      },
+      {
+        "id": 10,
+        "row": 2,
+        "column": 2,
+        "cell": [
+          768,
+          768,
+          1152,
+          1152
+        ],
+        "bounds": [
+          65,
+          52,
+          317,
+          344
+        ],
+        "anchor": [
+          195,
+          343
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            943,
+            1105
+          ],
+          "leftForefoot": [
+            1045,
+            1101
+          ]
+        }
+      },
+      {
+        "id": 11,
+        "row": 2,
+        "column": 3,
+        "cell": [
+          1152,
+          768,
+          1536,
+          1152
+        ],
+        "bounds": [
+          63,
+          53,
+          319,
+          345
+        ],
+        "anchor": [
+          197,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            1338,
+            1101
+          ],
+          "leftForefoot": [
+            1447,
+            1099
+          ]
+        }
+      },
+      {
+        "id": 12,
+        "row": 3,
+        "column": 0,
+        "cell": [
+          0,
+          1152,
+          384,
+          1536
+        ],
+        "bounds": [
+          68,
+          48,
+          317,
+          345
+        ],
+        "anchor": [
+          267,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            191,
+            1448
+          ],
+          "leftForefoot": [
+            271,
+            1484
+          ]
+        }
+      },
+      {
+        "id": 13,
+        "row": 3,
+        "column": 1,
+        "cell": [
+          384,
+          1152,
+          768,
+          1536
+        ],
+        "bounds": [
+          63,
+          41,
+          321,
+          345
+        ],
+        "anchor": [
+          198,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            558,
+            1480
+          ],
+          "leftForefoot": [
+            665,
+            1479
+          ]
+        }
+      },
+      {
+        "id": 14,
+        "row": 3,
+        "column": 2,
+        "cell": [
+          768,
+          1152,
+          1152,
+          1536
+        ],
+        "bounds": [
+          67,
+          45,
+          317,
+          344
+        ],
+        "anchor": [
+          198,
+          343
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            944,
+            1480
+          ],
+          "leftForefoot": [
+            1058,
+            1417
+          ]
+        }
+      },
+      {
+        "id": 15,
+        "row": 3,
+        "column": 3,
+        "cell": [
+          1152,
+          1152,
+          1536,
+          1536
+        ],
+        "bounds": [
+          68,
+          49,
+          318,
+          345
+        ],
+        "anchor": [
+          200,
+          344
+        ],
+        "mirror": false,
+        "sockets": {
+          "rightForefoot": [
+            1339,
+            1476
+          ],
+          "leftForefoot": [
+            1441,
+            1474
+          ]
+        }
+      }
+    ],
+    "nominalHeight": 2.2,
+    "pixelsPerUnit": 132.72727272727272,
+    "sourceSize": [
+      1536,
+      1536
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/sunny-music-performance-v1.prompt.txt",
+    "promptSha256": "2dbfc400e5896f6c7302f984f0b63556cb23aea820782e5a0e426596a7511041",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
+  },
+  "woolly-music-performance-v1": {
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/woolly-music-performance-v1.png",
+    "runtime": "/game-assets/physical-arcade/sound-beat/woolly-music-performance-v1.webp",
+    "width": 1536,
+    "height": 1536,
+    "sourceBytes": 1670479,
+    "runtimeBytes": 392584,
+    "sourceSha256": "19eb718fa459c9f99195c4268dc145ef992dcd33c30132898a6f30740b656a0e",
+    "runtimeSha256": "5e6ed3719e264cfa9f926af73260fef5972722d2ab2e3b11d69fabbb696fec1a",
+    "alphaPixels": 2352529,
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+    "rights": "Original generated project art; no downloaded third-party asset",
+    "frames": [
+      {
+        "id": 0,
+        "row": 0,
+        "column": 0,
+        "cell": [
+          0,
+          0,
+          384,
+          384
+        ],
+        "bounds": [
+          68,
+          41,
+          316,
+          345
+        ],
+        "anchor": [
+          212,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          99,
+          104
+        ],
+        "leftHandPixel": [
+          232,
+          223
+        ]
+      },
+      {
+        "id": 1,
+        "row": 0,
+        "column": 1,
+        "cell": [
+          384,
+          0,
+          768,
+          384
+        ],
+        "bounds": [
+          67,
+          46,
+          316,
+          344
+        ],
+        "anchor": [
+          226,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          533,
+          224
+        ],
+        "leftHandPixel": [
+          636,
+          208
+        ]
+      },
+      {
+        "id": 2,
+        "row": 0,
+        "column": 2,
+        "cell": [
+          768,
+          0,
+          1152,
+          384
+        ],
+        "bounds": [
+          64,
+          45,
+          321,
+          345
+        ],
+        "anchor": [
+          134,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          895,
+          206
+        ],
+        "leftHandPixel": [
+          1064,
+          193
+        ]
+      },
+      {
+        "id": 3,
+        "row": 0,
+        "column": 3,
+        "cell": [
+          1152,
+          0,
+          1536,
+          384
+        ],
+        "bounds": [
+          67,
+          46,
+          318,
+          344
+        ],
+        "anchor": [
+          153,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1319,
+          223
+        ],
+        "leftHandPixel": [
+          1403,
+          221
+        ]
+      },
+      {
+        "id": 4,
+        "row": 1,
+        "column": 0,
+        "cell": [
+          0,
+          384,
+          384,
+          768
+        ],
+        "bounds": [
+          62,
+          44,
+          322,
+          345
+        ],
+        "anchor": [
+          111,
+          344
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          105,
+          458
+        ],
+        "leftHandPixel": [
+          226,
+          607
+        ]
+      },
+      {
+        "id": 5,
+        "row": 1,
+        "column": 1,
+        "cell": [
+          384,
+          384,
+          768,
+          768
+        ],
+        "bounds": [
+          51,
+          45,
+          333,
+          345
+        ],
+        "anchor": [
+          224,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          539,
+          618
+        ],
+        "leftHandPixel": [
+          688,
+          569
+        ]
+      },
+      {
+        "id": 6,
+        "row": 1,
+        "column": 2,
+        "cell": [
+          768,
+          384,
+          1152,
+          768
+        ],
+        "bounds": [
+          57,
+          54,
+          325,
+          345
+        ],
+        "anchor": [
+          122,
+          344
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          935,
+          619
+        ],
+        "leftHandPixel": [
+          1064,
+          473
+        ]
+      },
+      {
+        "id": 7,
+        "row": 1,
+        "column": 3,
+        "cell": [
+          1152,
+          384,
+          1536,
+          768
+        ],
+        "bounds": [
+          73,
+          54,
+          311,
+          345
+        ],
+        "anchor": [
+          141,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1249,
+          568
+        ],
+        "leftHandPixel": [
+          1374,
+          618
+        ]
+      },
+      {
+        "id": 8,
+        "row": 2,
+        "column": 0,
+        "cell": [
+          0,
+          768,
+          384,
+          1152
+        ],
+        "bounds": [
+          52,
+          49,
+          334,
+          344
+        ],
+        "anchor": [
+          226,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          76,
+          970
+        ],
+        "leftHandPixel": [
+          309,
+          969
+        ]
+      },
+      {
+        "id": 9,
+        "row": 2,
+        "column": 1,
+        "cell": [
+          384,
+          768,
+          768,
+          1152
+        ],
+        "bounds": [
+          61,
+          71,
+          322,
+          344
+        ],
+        "anchor": [
+          120,
+          343
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          538,
+          1018
+        ],
+        "leftHandPixel": [
+          660,
+          1011
+        ]
+      },
+      {
+        "id": 10,
+        "row": 2,
+        "column": 2,
+        "cell": [
+          768,
+          768,
+          1152,
+          1152
+        ],
+        "bounds": [
+          68,
+          51,
+          317,
+          344
+        ],
+        "anchor": [
+          162,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          941,
+          989
+        ],
+        "leftHandPixel": [
+          1033,
+          983
+        ]
+      },
+      {
+        "id": 11,
+        "row": 2,
+        "column": 3,
+        "cell": [
+          1152,
+          768,
+          1536,
+          1152
+        ],
+        "bounds": [
+          67,
+          51,
+          316,
+          345
+        ],
+        "anchor": [
+          161,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1302,
+          994
+        ],
+        "leftHandPixel": [
+          1420,
+          980
+        ]
+      },
+      {
+        "id": 12,
+        "row": 3,
+        "column": 0,
+        "cell": [
+          0,
+          1152,
+          384,
+          1536
+        ],
+        "bounds": [
+          65,
+          52,
+          319,
+          345
+        ],
+        "anchor": [
+          232,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          97,
+          1239
+        ],
+        "leftHandPixel": [
+          253,
+          1371
+        ]
+      },
+      {
+        "id": 13,
+        "row": 3,
+        "column": 1,
+        "cell": [
+          384,
+          1152,
+          768,
+          1536
+        ],
+        "bounds": [
+          65,
+          47,
+          317,
+          345
+        ],
+        "anchor": [
+          150,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          476,
+          1240
+        ],
+        "leftHandPixel": [
+          674,
+          1239
+        ]
+      },
+      {
+        "id": 14,
+        "row": 3,
+        "column": 2,
+        "cell": [
+          768,
+          1152,
+          1152,
+          1536
+        ],
+        "bounds": [
+          60,
+          52,
+          324,
+          344
+        ],
+        "anchor": [
+          154,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          939,
+          1374
+        ],
+        "leftHandPixel": [
+          1065,
+          1239
+        ]
+      },
+      {
+        "id": 15,
+        "row": 3,
+        "column": 3,
+        "cell": [
+          1152,
+          1152,
+          1536,
+          1536
+        ],
+        "bounds": [
+          71,
+          53,
+          314,
+          345
+        ],
+        "anchor": [
+          158,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1307,
+          1390
+        ],
+        "leftHandPixel": [
+          1415,
+          1385
+        ]
+      }
+    ],
+    "nominalHeight": 2.2,
+    "pixelsPerUnit": 133.86363636363635,
+    "sourceSize": [
+      1536,
+      1536
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/woolly-music-performance-v1.prompt.txt",
+    "promptSha256": "ab64a75367d9e04bf8459ad8a6ceabb59b2320998a191e13e27f2975be10918b",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
+  },
+  "wren-music-performance-v1": {
+    "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/wren-music-performance-v1.png",
+    "runtime": "/game-assets/physical-arcade/sound-beat/wren-music-performance-v1.webp",
+    "width": 1536,
+    "height": 1536,
+    "sourceBytes": 1571438,
+    "runtimeBytes": 353334,
+    "sourceSha256": "683e1a327f7b1e86dd1781f95882440880064bfc7cc6368379652e004bf97e6b",
+    "runtimeSha256": "3f34f15ad915a3bc9fa6125508aa63913a88fa961880a80c7c743472e232f878",
+    "alphaPixels": 2352299,
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
+    "rights": "Original generated project art; no downloaded third-party asset",
+    "frames": [
+      {
+        "id": 0,
+        "row": 0,
+        "column": 0,
+        "cell": [
+          0,
+          0,
+          384,
+          384
+        ],
+        "bounds": [
+          92,
+          42,
+          294,
+          345
+        ],
+        "anchor": [
+          236,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          198,
+          235
+        ],
+        "leftHandPixel": [
+          276,
+          139
+        ]
+      },
+      {
+        "id": 1,
+        "row": 0,
+        "column": 1,
+        "cell": [
+          384,
+          0,
+          768,
+          384
+        ],
+        "bounds": [
+          95,
+          41,
+          287,
+          344
+        ],
+        "anchor": [
+          140,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          554,
+          242
+        ],
+        "leftHandPixel": [
+          645,
+          121
+        ]
+      },
+      {
+        "id": 2,
+        "row": 0,
+        "column": 2,
+        "cell": [
+          768,
+          0,
+          1152,
+          384
+        ],
+        "bounds": [
+          85,
+          40,
+          299,
+          345
+        ],
+        "anchor": [
+          250,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          866,
+          183
+        ],
+        "leftHandPixel": [
+          1051,
+          237
+        ]
+      },
+      {
+        "id": 3,
+        "row": 0,
+        "column": 3,
+        "cell": [
+          1152,
+          0,
+          1536,
+          384
+        ],
+        "bounds": [
+          101,
+          44,
+          282,
+          345
+        ],
+        "anchor": [
+          238,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1307,
+          232
+        ],
+        "leftHandPixel": [
+          1409,
+          225
+        ]
+      },
+      {
+        "id": 4,
+        "row": 1,
+        "column": 0,
+        "cell": [
+          0,
+          384,
+          384,
+          768
+        ],
+        "bounds": [
+          89,
+          54,
+          296,
+          345
+        ],
+        "anchor": [
+          135,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          106,
+          504
+        ],
+        "leftHandPixel": [
+          283,
+          628
+        ]
+      },
+      {
+        "id": 5,
+        "row": 1,
+        "column": 1,
+        "cell": [
+          384,
+          384,
+          768,
+          768
+        ],
+        "bounds": [
+          91,
+          57,
+          292,
+          344
+        ],
+        "anchor": [
+          146,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          537,
+          624
+        ],
+        "leftHandPixel": [
+          648,
+          509
+        ]
+      },
+      {
+        "id": 6,
+        "row": 1,
+        "column": 2,
+        "cell": [
+          768,
+          384,
+          1152,
+          768
+        ],
+        "bounds": [
+          88,
+          62,
+          295,
+          345
+        ],
+        "anchor": [
+          237,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          883,
+          502
+        ],
+        "leftHandPixel": [
+          1019,
+          638
+        ]
+      },
+      {
+        "id": 7,
+        "row": 1,
+        "column": 3,
+        "cell": [
+          1152,
+          384,
+          1536,
+          768
+        ],
+        "bounds": [
+          91,
+          61,
+          292,
+          345
+        ],
+        "anchor": [
+          232,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1349,
+          619
+        ],
+        "leftHandPixel": [
+          1433,
+          531
+        ]
+      },
+      {
+        "id": 8,
+        "row": 2,
+        "column": 0,
+        "cell": [
+          0,
+          768,
+          384,
+          1152
+        ],
+        "bounds": [
+          65,
+          56,
+          318,
+          344
+        ],
+        "anchor": [
+          144,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          81,
+          965
+        ],
+        "leftHandPixel": [
+          305,
+          974
+        ]
+      },
+      {
+        "id": 9,
+        "row": 2,
+        "column": 1,
+        "cell": [
+          384,
+          768,
+          768,
+          1152
+        ],
+        "bounds": [
+          99,
+          56,
+          286,
+          345
+        ],
+        "anchor": [
+          141,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          536,
+          1026
+        ],
+        "leftHandPixel": [
+          615,
+          1026
+        ]
+      },
+      {
+        "id": 10,
+        "row": 2,
+        "column": 2,
+        "cell": [
+          768,
+          768,
+          1152,
+          1152
+        ],
+        "bounds": [
+          101,
+          58,
+          284,
+          344
+        ],
+        "anchor": [
+          146,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          952,
+          997
+        ],
+        "leftHandPixel": [
+          1040,
+          997
+        ]
+      },
+      {
+        "id": 11,
+        "row": 2,
+        "column": 3,
+        "cell": [
+          1152,
+          768,
+          1536,
+          1152
+        ],
+        "bounds": [
+          89,
+          56,
+          294,
+          345
+        ],
+        "anchor": [
+          146,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1258,
+          959
+        ],
+        "leftHandPixel": [
+          1433,
+          982
+        ]
+      },
+      {
+        "id": 12,
+        "row": 3,
+        "column": 0,
+        "cell": [
+          0,
+          1152,
+          384,
+          1536
+        ],
+        "bounds": [
+          92,
+          66,
+          293,
+          345
+        ],
+        "anchor": [
+          234,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          141,
+          1365
+        ],
+        "leftHandPixel": [
+          275,
+          1243
+        ]
+      },
+      {
+        "id": 13,
+        "row": 3,
+        "column": 1,
+        "cell": [
+          384,
+          1152,
+          768,
+          1536
+        ],
+        "bounds": [
+          83,
+          66,
+          301,
+          345
+        ],
+        "anchor": [
+          144,
+          342
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          479,
+          1269
+        ],
+        "leftHandPixel": [
+          673,
+          1269
+        ]
+      },
+      {
+        "id": 14,
+        "row": 3,
+        "column": 2,
+        "cell": [
+          768,
+          1152,
+          1152,
+          1536
+        ],
+        "bounds": [
+          89,
+          65,
+          294,
+          344
+        ],
+        "anchor": [
+          243,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          874,
+          1276
+        ],
+        "leftHandPixel": [
+          1048,
+          1381
+        ]
+      },
+      {
+        "id": 15,
+        "row": 3,
+        "column": 3,
+        "cell": [
+          1152,
+          1152,
+          1536,
+          1536
+        ],
+        "bounds": [
+          103,
+          67,
+          281,
+          344
+        ],
+        "anchor": [
+          156,
+          341
+        ],
+        "mirror": false,
+        "rightHandPixel": [
+          1335,
+          1388
+        ],
+        "leftHandPixel": [
+          1413,
+          1387
+        ]
+      }
+    ],
+    "nominalHeight": 2.2,
+    "pixelsPerUnit": 130.68181818181816,
+    "sourceSize": [
+      1536,
+      1536
+    ],
+    "prompt": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/wren-music-performance-v1.prompt.txt",
+    "promptSha256": "fac0870c5832aa5d9105c00d21449361d413700b74ccb76aca6654840b34b6e9",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 6,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
   }
 };

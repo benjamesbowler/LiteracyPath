@@ -2,9 +2,9 @@
   "game": "rocket-run",
   "version": "rocket-run-v2",
   "creator": "LiteracyGuide original spacecraft and flight performance",
-  "status": "DELIVERED complete source bank; owner native verified; Root integration and release pending",
+  "status": "DELIVERED source records only; native complete game and visual review remain pending",
   "generatedRuntime": "src/components/learn/games/games/rocketRunCraftData.js",
-  "generatedRuntimeSha256": "919fd110d3ec4eec6a583eaaffe9c2c881ec8df3ca0be577171369b6319e71e5",
+  "generatedRuntimeSha256": "bce4441473faab364a14d8fab46f8613078497a90f8aa76f81d5e131b6132c70",
   "worlds": {
     "meadow": {
       "model": {
@@ -67357,11 +67357,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/meadow-distant-sky-primary-v1.webp",
           "width": 1280,
           "height": 720,
-          "runtimeSha256": "1b0a14cb5b7eacd7e9cfda5ef13233e479a09c87caabbe96f7427614c6aaa343",
-          "runtimeBytes": 126228,
+          "runtimeSha256": "49e0ef6e22bd2da41c7af15deedc71cd8ae5f4bad1087ce01d1d907390d397ff",
+          "runtimeBytes": 39584,
           "decodedBaseBytes": 3686400,
-          "source": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1.png",
-          "sourceSha256": "d828a23c1ed02f48f757e0f8e5b1f851493bb2b2e33c236f38e14ede13cd451a",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.png",
+          "sourceSha256": "3110a364e1409701995f159d1502edb200fae3e48dc65c90948c8efa5de80db7",
           "sourceSize": [
             1672,
             941
@@ -67374,11 +67374,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/meadow-distant-sky-independent-v1.webp",
           "width": 720,
           "height": 405,
-          "runtimeSha256": "c8db86ee38bb8b9ee1f024da473b3864a0cbb2d228a55ee1c109e0f979b5b0f2",
-          "runtimeBytes": 44696,
+          "runtimeSha256": "04ce9d5cb239ebbbbd471f109305528663335953cbca6bbd953c873512566425",
+          "runtimeBytes": 18054,
           "decodedBaseBytes": 1166400,
-          "source": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1.png",
-          "sourceSha256": "d828a23c1ed02f48f757e0f8e5b1f851493bb2b2e33c236f38e14ede13cd451a",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.png",
+          "sourceSha256": "3110a364e1409701995f159d1502edb200fae3e48dc65c90948c8efa5de80db7",
           "sourceSize": [
             1672,
             941
@@ -67391,11 +67391,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/meadow-distant-sky-embedded-v1.webp",
           "width": 320,
           "height": 180,
-          "runtimeSha256": "790d69c0929107ed02c9b7b0891ed3f9475d32ceb6690c61dd1f5e3d432741c6",
-          "runtimeBytes": 10156,
+          "runtimeSha256": "6e14c11b7dee5bfdae7c5ca02898f6a0d394c93405c517e92a2a2f39963562a2",
+          "runtimeBytes": 5720,
           "decodedBaseBytes": 230400,
-          "source": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1.png",
-          "sourceSha256": "d828a23c1ed02f48f757e0f8e5b1f851493bb2b2e33c236f38e14ede13cd451a",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.png",
+          "sourceSha256": "3110a364e1409701995f159d1502edb200fae3e48dc65c90948c8efa5de80db7",
           "sourceSize": [
             1672,
             941
@@ -67404,7 +67404,7 @@
           "resize": "Whole empty background retained; Lanczos; no crop or gameplay content",
           "encoding": "WebP lossy original background only; source PNG retained",
           "fileRuntime": "/game-assets/rocket-run/space-venues/meadow-distant-sky-embedded-v1.webp",
-          "inlineBytes": 13567,
+          "inlineBytes": 7651,
           "deliveryPolicy": "Network-independent actual retained sky derivative"
         }
       },
@@ -67439,32 +67439,21 @@
         },
         {
           "path": "source-art/arcade/rocket-run/space-venues/meadow-delivery-v1.json",
-          "sha256": "5cc840e34a371b33ef9dd8b5c03ca09075f42655c2b85b58f9bea8ce9719908d"
+          "sha256": "1b055fde0eb43e0d93732c51a7c4622080c470188a27eba3779951369742b851"
         }
       ],
-      "runtimeDeliveryBytes": 3814644,
+      "runtimeDeliveryBytes": 3696922,
       "decodedAtlasFileBankBytes": 16777216,
       "maximumSelectedActionImageBytes": 11010048,
       "maximumSelectedSkyImageBytes": 3686400,
-      "inlineBytes": 1412393,
-      "nativeDecodedOwners": {
-        "allWorldsObserved": true,
-        "selectedActionImages": 1,
-        "selectedSkyImages": 1,
-        "selectedSkyTextures": 1,
-        "selectedRouteTextures": 1,
-        "modelLeases": 1,
-        "selectedActionBaseBytes": 11010048,
-        "selectedSkyBaseBytes": 3686400,
-        "selectedRouteBaseBytes": 8388608,
-        "scope": "Selected complete world at actual delivered snapshots; not a total process-memory claim"
-      },
+      "inlineBytes": 1406477,
+      "nativeDecodedOwners": "UNKNOWN; file budgets are not measured live ownership",
       "generatedRuntime": "src/components/learn/games/games/rocketRunCraftData-meadow.js",
-      "generatedRuntimeSha256": "b667aa63e26bbc11c62a50c2f8428f24e3a262a290536876347b9f5623f5cc2f",
+      "generatedRuntimeSha256": "c19f826227a99c319b7cce1e27df84208cf19706c224a9a03a8b79d051f87f07",
       "metadataRecovery": {
         "runtime": "/game-assets/rocket-run/world-records/meadow-v2.json",
-        "bytes": 1567295,
-        "sha256": "be8b1f0d03720c05b27bc124c86c6cbe99f4d60f7424eebeea55c76a8754d8fd",
+        "bytes": 1561418,
+        "sha256": "4de7f95074ac1f5ee2d7d79f79f2e19177afb30cea683c19ae69e0c0b54597d7",
         "policy": "Only after a genuine selected-world import failure and explicit Reload"
       }
     },
@@ -134969,11 +134958,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/dino-distant-sky-primary-v1.webp",
           "width": 1280,
           "height": 720,
-          "runtimeSha256": "c385218b92d7c63fc4692ac7fe3e9e23d27a836777746a0cdbde8f9274999137",
-          "runtimeBytes": 137578,
+          "runtimeSha256": "1d220ea72591f7cb85d0afe021a23ea4e7093225bd5984f1b381e8e594d368bc",
+          "runtimeBytes": 30674,
           "decodedBaseBytes": 3686400,
-          "source": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1.png",
-          "sourceSha256": "e9fd75570b73bad269ac47e3a602f3731a45d64a2f1adbcc64699b600320ce97",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.png",
+          "sourceSha256": "e606f6e0c7a49582602966db6fdcf8cc630757612162126f1efa69001918c764",
           "sourceSize": [
             1672,
             941
@@ -134986,11 +134975,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/dino-distant-sky-independent-v1.webp",
           "width": 720,
           "height": 405,
-          "runtimeSha256": "1ae97836db80e6098b3504c1cdd97a2324a9f325dcad1750b48f7c39b3fdaad5",
-          "runtimeBytes": 53272,
+          "runtimeSha256": "f4a37dd64588327790f4f680a9340751e09e16f71b71383c5ed539d301e71e03",
+          "runtimeBytes": 14414,
           "decodedBaseBytes": 1166400,
-          "source": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1.png",
-          "sourceSha256": "e9fd75570b73bad269ac47e3a602f3731a45d64a2f1adbcc64699b600320ce97",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.png",
+          "sourceSha256": "e606f6e0c7a49582602966db6fdcf8cc630757612162126f1efa69001918c764",
           "sourceSize": [
             1672,
             941
@@ -135003,11 +134992,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/dino-distant-sky-embedded-v1.webp",
           "width": 320,
           "height": 180,
-          "runtimeSha256": "8212f8d36402b1cabc24f808ecfc190ecec2a9a3f5bb0d88e9900cbce1fdd64d",
-          "runtimeBytes": 12232,
+          "runtimeSha256": "ae7889a77abda8b1985c9baabdf1bc2654a4e6992053fc6de6b06966d967bc9c",
+          "runtimeBytes": 4986,
           "decodedBaseBytes": 230400,
-          "source": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1.png",
-          "sourceSha256": "e9fd75570b73bad269ac47e3a602f3731a45d64a2f1adbcc64699b600320ce97",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.png",
+          "sourceSha256": "e606f6e0c7a49582602966db6fdcf8cc630757612162126f1efa69001918c764",
           "sourceSize": [
             1672,
             941
@@ -135016,7 +135005,7 @@
           "resize": "Whole empty background retained; Lanczos; no crop or gameplay content",
           "encoding": "WebP lossy original background only; source PNG retained",
           "fileRuntime": "/game-assets/rocket-run/space-venues/dino-distant-sky-embedded-v1.webp",
-          "inlineBytes": 16335,
+          "inlineBytes": 6671,
           "deliveryPolicy": "Network-independent actual retained sky derivative"
         }
       },
@@ -135051,32 +135040,21 @@
         },
         {
           "path": "source-art/arcade/rocket-run/space-venues/dino-delivery-v1.json",
-          "sha256": "dc74ce06494eb225a8cb4c28755977f14e34635920537b2373aa61e76bd8fc39"
+          "sha256": "44fab008a7ea0fd8a217caa523ca3d3469ba526ce2d51477476ff91a1c0ce01d"
         }
       ],
-      "runtimeDeliveryBytes": 3808122,
+      "runtimeDeliveryBytes": 3655114,
       "decodedAtlasFileBankBytes": 16777216,
       "maximumSelectedActionImageBytes": 11010048,
       "maximumSelectedSkyImageBytes": 3686400,
-      "inlineBytes": 1315581,
-      "nativeDecodedOwners": {
-        "allWorldsObserved": true,
-        "selectedActionImages": 1,
-        "selectedSkyImages": 1,
-        "selectedSkyTextures": 1,
-        "selectedRouteTextures": 1,
-        "modelLeases": 1,
-        "selectedActionBaseBytes": 11010048,
-        "selectedSkyBaseBytes": 3686400,
-        "selectedRouteBaseBytes": 8388608,
-        "scope": "Selected complete world at actual delivered snapshots; not a total process-memory claim"
-      },
+      "inlineBytes": 1305917,
+      "nativeDecodedOwners": "UNKNOWN; file budgets are not measured live ownership",
       "generatedRuntime": "src/components/learn/games/games/rocketRunCraftData-dino.js",
-      "generatedRuntimeSha256": "c05e7020f096d602c47d4128f498a205650951e03f826fefed5431cf2e821a9d",
+      "generatedRuntimeSha256": "e0fbaae02c234f39b2dc596883a8b7f06cdf2dc418edcb20dbcf9a01db2f29c1",
       "metadataRecovery": {
         "runtime": "/game-assets/rocket-run/world-records/dino-v2.json",
-        "bytes": 1466133,
-        "sha256": "cebaf4d7329dbc1732355635870f274a1fd1f12216d76ce96c32de796a17d8d3",
+        "bytes": 1456508,
+        "sha256": "d41570f3d2f508aba299f98bf3230b56d991c8b8a6f4a73633bfd6f2e639d79d",
         "policy": "Only after a genuine selected-world import failure and explicit Reload"
       }
     },
@@ -202695,11 +202673,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/moonwood-distant-sky-primary-v1.webp",
           "width": 1280,
           "height": 720,
-          "runtimeSha256": "4665e9ba7289ad19f6b82e44af171f7f071a07eb43ea2f7d7e34041ceb32e61f",
-          "runtimeBytes": 138188,
+          "runtimeSha256": "8d66c56dad6d1cd9f7aa54c7508160985633928d97f0746aa9d466cdf6f474e5",
+          "runtimeBytes": 18638,
           "decodedBaseBytes": 3686400,
-          "source": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1.png",
-          "sourceSha256": "ef0092c63f00c7786c493ca4c43f948d5fe0cab5e2018e9b2fddba2cafeb14d3",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.png",
+          "sourceSha256": "23a812453d6ebd3e0e3e59800345b0713ac51fcbf5a92c4399f9457ef8d3dee9",
           "sourceSize": [
             1672,
             941
@@ -202712,11 +202690,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/moonwood-distant-sky-independent-v1.webp",
           "width": 720,
           "height": 405,
-          "runtimeSha256": "7e04aaa734d79b0cff7e734c51b9ce8972e3ff4b73f434835ffc03ba7cb29d7c",
-          "runtimeBytes": 49654,
+          "runtimeSha256": "6f6bf00fd446b44a161b588c83bf421866d88060459d72d909f8a61c20d0f91b",
+          "runtimeBytes": 8750,
           "decodedBaseBytes": 1166400,
-          "source": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1.png",
-          "sourceSha256": "ef0092c63f00c7786c493ca4c43f948d5fe0cab5e2018e9b2fddba2cafeb14d3",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.png",
+          "sourceSha256": "23a812453d6ebd3e0e3e59800345b0713ac51fcbf5a92c4399f9457ef8d3dee9",
           "sourceSize": [
             1672,
             941
@@ -202729,11 +202707,11 @@
           "runtime": "/game-assets/rocket-run/space-venues/moonwood-distant-sky-embedded-v1.webp",
           "width": 320,
           "height": 180,
-          "runtimeSha256": "354c04e08cc5f3e1c83c65adfe7a78bef099bc48191c8df336772cd21895606c",
-          "runtimeBytes": 10986,
+          "runtimeSha256": "8598e5b97efe105ec86804f73374e8d95c5d132d4de68c6d47c8b43fe8b89f6a",
+          "runtimeBytes": 3132,
           "decodedBaseBytes": 230400,
-          "source": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1.png",
-          "sourceSha256": "ef0092c63f00c7786c493ca4c43f948d5fe0cab5e2018e9b2fddba2cafeb14d3",
+          "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.png",
+          "sourceSha256": "23a812453d6ebd3e0e3e59800345b0713ac51fcbf5a92c4399f9457ef8d3dee9",
           "sourceSize": [
             1672,
             941
@@ -202742,7 +202720,7 @@
           "resize": "Whole empty background retained; Lanczos; no crop or gameplay content",
           "encoding": "WebP lossy original background only; source PNG retained",
           "fileRuntime": "/game-assets/rocket-run/space-venues/moonwood-distant-sky-embedded-v1.webp",
-          "inlineBytes": 14671,
+          "inlineBytes": 4199,
           "deliveryPolicy": "Network-independent actual retained sky derivative"
         }
       },
@@ -202777,45 +202755,34 @@
         },
         {
           "path": "source-art/arcade/rocket-run/space-venues/moonwood-delivery-v1.json",
-          "sha256": "9e343f655538993d009c6e42f40280de7eae8a807728ac83bac764e1be08d959"
+          "sha256": "19a901ec998505a5203bb4afcc426a96b619c5b7dadeff593313aa13bd1ca661"
         }
       ],
-      "runtimeDeliveryBytes": 3792980,
+      "runtimeDeliveryBytes": 3624672,
       "decodedAtlasFileBankBytes": 16777216,
       "maximumSelectedActionImageBytes": 11010048,
       "maximumSelectedSkyImageBytes": 3686400,
-      "inlineBytes": 1300993,
-      "nativeDecodedOwners": {
-        "allWorldsObserved": true,
-        "selectedActionImages": 1,
-        "selectedSkyImages": 1,
-        "selectedSkyTextures": 1,
-        "selectedRouteTextures": 1,
-        "modelLeases": 1,
-        "selectedActionBaseBytes": 11010048,
-        "selectedSkyBaseBytes": 3686400,
-        "selectedRouteBaseBytes": 8388608,
-        "scope": "Selected complete world at actual delivered snapshots; not a total process-memory claim"
-      },
+      "inlineBytes": 1290521,
+      "nativeDecodedOwners": "UNKNOWN; file budgets are not measured live ownership",
       "generatedRuntime": "src/components/learn/games/games/rocketRunCraftData-moonwood.js",
-      "generatedRuntimeSha256": "5ca71d1f0d3eb40919814a964fc28dab9c817e13e407a4da5ae04e42d17fd827",
+      "generatedRuntimeSha256": "52e39522ccaa791ab6a65d9d03e857ebb723bef890d413734650dcc367a1b8de",
       "metadataRecovery": {
         "runtime": "/game-assets/rocket-run/world-records/moonwood-v2.json",
-        "bytes": 1452141,
-        "sha256": "e003547b3c77a7e9d17870928013f06ea88d873512035ac7f2042fe356407f2c",
+        "bytes": 1441707,
+        "sha256": "a737417477428183ba318834af53fe03b1410ca242c0c512bebb862b2cbd26f8",
         "policy": "Only after a genuine selected-world import failure and explicit Reload"
       }
     }
   },
   "completeWorldBank": true,
-  "nativeContactReview": "Actual flight/action/contact frames observed; exact evaluated GLB contact/joint/anatomy gates retained separately.",
+  "nativeContactReview": "UNKNOWN",
   "humanListening": "UNKNOWN",
   "physicalIpad": "UNKNOWN",
   "rights": "Original owned art and derivative of retained original canonical Pals; no external model or paid service",
   "ownerNativeVerification": {
     "source": "source-art/arcade/rocket-run/native-owner-verification-v2.json",
     "sha256": "228a0914ebaaf71615350c7dca372499cf8f456202269244fd93f92138f0b387",
-    "reviewedInputsMatch": true,
-    "status": "OWNER_NATIVE_VERIFIED; ROOT_INTEGRATION_PENDING"
+    "reviewedInputsMatch": false,
+    "status": "HISTORICAL; source changed"
   }
 }

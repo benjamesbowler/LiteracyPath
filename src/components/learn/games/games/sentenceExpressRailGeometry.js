@@ -3,7 +3,7 @@
 // element. The native renderer may change the viewport size or scroll it.
 export const SENTENCE_EXPRESS_STOCK_CONTACTS = Object.freeze({
   wagon: Object.freeze({ leftCoupler: [26, 231], rightCoupler: [485, 231], sole: [130, 310] }),
-  caboose: Object.freeze({ leftCoupler: [26, 231], rightCoupler: [485, 231], sole: [130, 310] })
+  caboose: Object.freeze({ leftCoupler: [46,232], rightCoupler: [465,232], sole: [141,301] })
 });
 
 const finite = rect => rect && ['left', 'top', 'width', 'height'].every(key => Number.isFinite(rect[key]))

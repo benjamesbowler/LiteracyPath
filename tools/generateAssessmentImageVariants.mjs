@@ -1,10 +1,32 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
+import { INACTIVE_IMAGE_POOLS } from "./lib/inactiveImageRetirement.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = path.join(root, "public");
 const outputPath = path.join(root, "src/data/generated/assessmentImageVariants.generated.js");
+// Preview the exact surviving inventory before a separately verified atomic
+// retirement. The default, after removal, must reproduce the same module.
+const args = process.argv.slice(2);
+if (args.some(arg => !arg.startsWith("--exclude-registry="))) throw new Error("Unknown variant generator option");
+const exclusion = args.find(arg => arg.startsWith("--exclude-registry="));
+const excluded = new Set();
+if (exclusion) {
+  const registry = JSON.parse(fs.readFileSync(path.resolve(root, exclusion.slice(19)), "utf8"));
+  if (registry.schemaVersion !== 1 || !Array.isArray(registry.retirements)) throw new Error("Invalid retirement inventory");
+  for (const row of registry.retirements) {
+    if (row.kind !== "current-runtime-inactive-image" || row.assets.length !== row.assetCount) throw new Error("Invalid retirement cohort");
+    for (const asset of row.assets) {
+      if (!INACTIVE_IMAGE_POOLS.some(prefix => asset.oldPath.startsWith(prefix)) || path.posix.normalize(asset.oldPath) !== asset.oldPath || !/\.(?:webp|png|jpe?g)$/.test(asset.oldPath)) throw new Error("Unexpected exclusion path");
+      const bytes = fs.readFileSync(path.join(publicRoot, asset.oldPath));
+      if (createHash("sha256").update(bytes).digest("hex") !== asset.sha256) throw new Error("Exclusion bytes changed: " + asset.oldPath);
+      if (excluded.has(asset.oldPath)) throw new Error("Duplicate exclusion path");
+      excluded.add(asset.oldPath);
+    }
+  }
+}
 
 function filesUnder(directory) {
   if (!fs.existsSync(directory)) return [];
@@ -30,6 +52,7 @@ function buildHfwVariants() {
   const rootDirectory = path.join(publicRoot, "images/assessment/hfw/variants");
   const variants = {};
   for (const filePath of filesUnder(rootDirectory)) {
+    if (excluded.has(publicPath(filePath))) continue;
     if (path.extname(filePath).toLowerCase() !== ".webp") continue;
     const relative = path.relative(rootDirectory, filePath).split(path.sep);
     if (relative.length !== 2) continue;
@@ -52,6 +75,7 @@ function buildRhymingVariants() {
   const rootDirectory = path.join(publicRoot, "images/assessment/rhyming/variants");
   const variants = {};
   for (const filePath of filesUnder(rootDirectory)) {
+    if (excluded.has(publicPath(filePath))) continue;
     if (path.extname(filePath).toLowerCase() !== ".webp") continue;
     const relative = path.relative(rootDirectory, filePath).split(path.sep);
     if (relative.length !== 2) continue;

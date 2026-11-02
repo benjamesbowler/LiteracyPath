@@ -5,24 +5,30 @@ import sharp from 'sharp';
 
 const root = path.resolve(import.meta.dirname, '../..');
 const directory = 'source-art/arcade/physical-worlds/sentence-express';
-const configurationBytes = await fs.readFile(path.join(root, directory, 'registration.json'));
+const configurationFile = 'clean-cartoon-registration.json';
+const configurationBytes = await fs.readFile(path.join(root, directory, configurationFile));
 const configuration = JSON.parse(configurationBytes);
-const manifestPath = path.join(root, directory, 'manifest.json');
+const manifestPath = path.join(root, directory, 'clean-cartoon-manifest.json');
 const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
 const registerOnly = process.argv.includes('--register-only');
+const conductorsOnly = process.argv.includes('--conductors-only');
 const profileOne = process.argv.find(argument => argument.startsWith('--profile-one='))?.slice('--profile-one='.length);
 if (profileOne && !manifest.assets.some(asset => asset.id === profileOne)) throw Error(`Unknown actual source asset ${profileOne}`);
 const compilationStart = performance.now();
 const timed = (asset, stage, started) => console.log(JSON.stringify({ event: 'asset-stage', asset, stage,
   durationMs: performance.now() - started, elapsedMs: performance.now() - compilationStart }));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+for (const lineage of [manifest.historicalManifest, manifest.historicalRegistration]) {
+  if (hash(await fs.readFile(path.join(root, lineage.path))) !== lineage.sha256) throw Error(`Historical Express input changed: ${lineage.path}`);
+}
 const atlases = {};
 const yards = {};
 const alpha = (data, info, [x, y]) => x >= 0 && y >= 0 && x < info.width && y < info.height ? data[(Math.round(y) * info.width + Math.round(x)) * 4 + 3] : 0;
 
 async function original(file, kind, assetId) {
   const started = performance.now();
-  const source = `${directory}/${kind}/${file}.png`, bytes = await fs.readFile(path.join(root, source));
+  const source = manifest.assets.find(asset => asset.id === assetId)?.source || `${directory}/${kind}/${file}.png`;
+  const bytes = await fs.readFile(path.join(root, source));
   const { data, info } = await sharp(bytes).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   if (data[3] > 1) throw Error(`${file}: original background is not genuine alpha`);
   timed(assetId, 'source-read-and-PNG-decode', started);
@@ -88,9 +94,9 @@ async function admit(spec, input, frames, nominalHeight, pixelsPerUnit, kind) {
     throw Error(`${spec.id}: original differs from retained provenance`);
   }
   asset.frames = frames; asset.nominalHeight = nominalHeight; asset.pixelsPerUnit = pixelsPerUnit;
-  asset.registration = 'registration.json'; asset.registrationSha256 = hash(configurationBytes);
+  asset.registration = configurationFile; asset.registrationSha256 = hash(configurationBytes);
   if (registerOnly) return;
-  const runtime = `/game-assets/physical-arcade/sentence-express/${kind}/${spec.file}.webp`;
+  const runtime = asset.runtime || `/game-assets/physical-arcade/sentence-express/${kind}/${spec.file}.webp`;
   const encodingStart = performance.now();
   const output = await sharp(input.bytes).webp({ quality: 90, alphaQuality: 100, effort: 6 }).toBuffer();
   timed(spec.id, 'WebP-quality90-alpha100-effort6-encode', encodingStart);
@@ -110,13 +116,19 @@ for (const spec of configuration.conductors) {
   timed(spec.id, 'whole-body-component-scan', scanStart);
   const registrationStart = performance.now();
   const frames = spec.frames.map((measurement, index) => {
-    const body = rows[index], { cell, gutter } = completeCrop(body, rows, input.info);
+    const body = rows[index], { cell, gutter } = measurement.cell
+      ? { cell: measurement.cell, gutter: Math.min(body.left - measurement.cell[0], body.top - measurement.cell[1], measurement.cell[2] - body.right, measurement.cell[3] - body.bottom) }
+      : completeCrop(body, rows, input.info);
+    if (measurement.cell && (gutter < Math.ceil(Math.min(cell[2]-cell[0],cell[3]-cell[1])*.08)
+      || rows.some(other => other !== body && other.pixels.some(point => { const x=point%input.info.width,y=Math.floor(point/input.info.width);return x>=cell[0]&&x<cell[2]&&y>=cell[1]&&y<cell[3]; })))) throw Error(`${spec.id}: current whole body requires8% clear cell margin with no neighbouring sprite`);
     const bootLeft = sole(input, measurement.boots[0]), bootRight = sole(input, measurement.boots[1]);
     const frame = { id: `${spec.hero}-${measurement.action}`, action: measurement.action, direction: 'right', cell,
       anchor: [measurement.axis - cell[0], Math.max(bootLeft[1], bootRight[1]) - cell[1]],
       sockets: { feet: bootLeft[1] >= bootRight[1] ? bootLeft : bootRight, bootLeft, bootRight, nearHand: measurement.hands[0], farHand: measurement.hands[1] },
       measurement: { opaqueBodyBounds: [body.left, body.top, body.right, body.bottom], gutter, foreignOpaqueCropPixels: 0,
-        method: 'Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending' } };
+        method: spec.productionRevision === 'clean-cartoon-2026-10-31'
+          ? 'Whole current generated pose; directly measured visible palms and independent sole regions. Exact source-bound contacts, with rendered coupling acceptance recorded separately.'
+          : 'Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending' } };
     requireContacts(input, frame); return frame;
   });
   timed(spec.id, 'complete-crop-sole-and-palm-validation', registrationStart);
@@ -125,18 +137,30 @@ for (const spec of configuration.conductors) {
 
 for (const spec of configuration.stops) {
   if (profileOne && spec.id !== profileOne) continue;
+  if (conductorsOnly) {
+    const asset = manifest.assets.find(row => row.id === spec.id);
+    if (hash(await fs.readFile(path.join(root, asset.source))) !== asset.sourceSha256
+      || hash(await fs.readFile(path.join(root, 'public', asset.runtime))) !== asset.runtimeSha256) throw Error(`Unrelated Express location changed: ${spec.id}`);
+    const { runtime, nominalHeight, pixelsPerUnit, frames } = asset;
+    atlases[spec.id] = { width: asset.sourceSize[0], height: asset.sourceSize[1], runtime, nominalHeight, pixelsPerUnit,
+      frames: frames.map(({ id, action, direction, cell, anchor, sockets }) => ({ id, action, direction, cell, anchor, sockets })) };
+    continue;
+  }
   const input = await original(spec.file, 'scenery', spec.id), scanStart = performance.now(), rows = bodies(input, 4);
   timed(spec.id, 'whole-location-component-scan', scanStart);
   const registrationStart = performance.now();
   const frames = rows.map((body, index) => {
     if (body.left <= 0 || body.top <= 0 || body.right >= input.info.width || body.bottom >= input.info.height) throw Error(`${spec.file}/${spec.names[index]}: original silhouette touches source edge`);
     const { cell, gutter } = completeCrop(body, rows, input.info), axis = (body.left + body.right) / 2;
+    // A low fringe at one side must not drag the whole station off-screen.
+    // Keep the decorative attachment on an actual opaque body pixel in the
+    // column nearest its centre, then use that column's lowest pixel.
     const ground = body.pixels.map(point => [point % input.info.width, Math.floor(point / input.info.width)])
-      .filter(([, y]) => y === body.bottom - 1).sort((a, b) => Math.abs(a[0] - axis) - Math.abs(b[0] - axis))[0];
+      .sort((a, b) => Math.abs(a[0] - axis) - Math.abs(b[0] - axis) || b[1] - a[1])[0];
     const frame = { id: spec.names[index], action: spec.names[index], direction: 'side-three-quarter', cell,
       anchor: [ground[0] - cell[0], ground[1] - cell[1]], sockets: { ground },
       measurement: { opaqueBodyBounds: [body.left, body.top, body.right, body.bottom], gutter, foreignOpaqueCropPixels: 0,
-        method: 'Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact' } };
+        method: 'Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact' } };
     requireContacts(input, frame); return frame;
   });
   timed(spec.id, 'complete-location-crop-and-ground-validation', registrationStart);
@@ -158,7 +182,12 @@ for (const asset of manifest.assets.filter(row => row.kind === 'authored-railway
   }
   timed(asset.id, 'whole-source-and-prompt-identity-validation', validationStart);
   if (registerOnly) continue;
-  const runtime = `/game-assets/physical-arcade/sentence-express/scenery/${path.basename(asset.source, '.png')}.webp`;
+  if (conductorsOnly) {
+    if (hash(await fs.readFile(path.join(root, 'public', asset.runtime))) !== asset.runtimeSha256) throw Error(`Unrelated Express yard changed: ${asset.id}`);
+    yards[asset.world] = { runtime: asset.runtime, width: info.width, height: info.height, sourceSha256: asset.sourceSha256 };
+    continue;
+  }
+  const runtime = asset.runtime || `/game-assets/physical-arcade/sentence-express/scenery/${path.basename(asset.source, '.png')}.webp`;
   const encodingStart = performance.now();
   const output = await sharp(bytes).webp({ quality: 88, effort: 6 }).toBuffer();
   timed(asset.id, 'whole-PNG-decode-and-WebP-quality88-effort6-encode', encodingStart);
@@ -176,7 +205,7 @@ if (!registerOnly && !profileOne) await fs.writeFile(path.join(root, 'src/compon
   '// Generated from original conductor/location sources by scripts/art/build-sentence-express-art.mjs.\n' +
   `export const SENTENCE_EXPRESS_ATLASES = ${JSON.stringify(atlases, null, 2)};\n` +
   `export const SENTENCE_EXPRESS_YARDS = ${JSON.stringify(yards, null, 2)};\n`);
-manifest.registration = 'registration.json'; manifest.registrationSha256 = hash(configurationBytes);
+manifest.registration = configurationFile; manifest.registrationSha256 = hash(configurationBytes);
 // A diagnostic single-asset encode cannot admit a partial catalogue or stamp
 // the complete nine-file manifest. All source/alpha/contact checks stay active.
 if (!profileOne) await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n');

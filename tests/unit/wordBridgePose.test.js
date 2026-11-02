@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import {wordBridgeCharacterPose,wordBridgeCarriedSurface} from '../../src/components/learn/games/games/wordBridgePose.js';
+import {wordBridgeCharacterPose,wordBridgeCarriedSurface,wordBridgeHeldGlyphLayout} from '../../src/components/learn/games/games/wordBridgePose.js';
 
-const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/manifest.json','utf8'));
+const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/clean-cartoon-manifest.json','utf8'));
 // Geometry-only tests consume registered source metadata, not a fabricated image delivery.
 const atlases=Object.fromEntries(manifest.assets.map(asset=>[asset.id,{width:asset.sourceSize[0],height:asset.sourceSize[1],nominalHeight:asset.nominalHeight,pixelsPerUnit:asset.pixelsPerUnit,
   frames:asset.frames.map(frame=>({id:frame.id,action:frame.action,cell:[frame.rect[0],frame.rect[1],frame.rect[0]+frame.rect[2],frame.rect[1]+frame.rect[3]],anchor:frame.anchor,
@@ -39,6 +39,22 @@ test('hidden source hands cannot be substituted with guessed grips',()=>{
   const resting=wordBridgeCharacterPose(atlases,{world:'meadow',x:0,y:220,height:110});
   assert.equal(resting.action,'rest');assert.equal(wordBridgeCarriedSurface(resting.pose),null);
   assert.equal(wordBridgeCharacterPose({},{}),null);
+});
+
+test('held lettering occupies the forward clear face in both facings without moving Chompy or either measured grip',()=>{
+  for(const height of [94,158])for(const mirror of [false,true])for(const time of [0,.12]){
+    const actor=wordBridgeCharacterPose(atlases,{world:'dino',x:180,y:220,height,time,moving:true,carrying:true,mirror});
+    const surface=wordBridgeCarriedSurface(actor.pose,{width:64,height:34,aspectRatio:3});
+    const before=structuredClone(surface),label=wordBridgeHeldGlyphLayout(surface,mirror?-1:1);
+    assert.deepEqual(surface,before,'glyph layout cannot alter plank scale, angle, centre or real hand contacts');
+    const facing=mirror?-1:1;
+    assert.ok(label.offsetX*facing>0,'lettering moves toward the clear front rather than the torso');
+    assert.ok(Math.abs(label.offsetX)+label.maxWidth/2<=surface.width/2-4,'the entire label region clears the end fittings');
+    assert.ok(label.maxWidth>=29,'smallest supported piece retains a usable glyph face');
+    assert.equal(actor.pose.sockets.feet.y,220);
+    assert.deepEqual(wordBridgeHeldGlyphLayout(surface,-facing),{...label,offsetX:-label.offsetX});
+  }
+  for(const invalid of [null,{width:0,height:34},{width:64,height:NaN}])assert.equal(wordBridgeHeldGlyphLayout(invalid),null);
 });
 
 test('an original plank keeps its source aspect and both measured palms when fitted to long or short carried text',()=>{

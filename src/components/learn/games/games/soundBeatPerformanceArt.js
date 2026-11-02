@@ -8,8 +8,8 @@ export const SOUND_BEAT_CAST = Object.freeze({ meadow: ['bouncy', 'woolly'], din
 export const SOUND_BEAT_POSES = Object.freeze({
   bouncy: { contact: { rightHand: 0, leftHand: 1 }, ready: 3, preparation: { rightHand: [2, 5, 4], leftHand: [14, 0, 0] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
   woolly: { contact: { rightHand: 1, leftHand: 0 }, ready: 3, preparation: { rightHand: [7, 0, 4], leftHand: [5, 1, 6] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
-  chompy: { contact: { rightHand: 0, leftHand: 1 }, ready: 3, preparation: { rightHand: [2, 6, 4], leftHand: [7, 5, 0] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
-  sunny: { direct: true, contact: { rightForefoot: 4, leftForefoot: 0 }, ready: 3, preparation: { rightForefoot: [7, 2, 12], leftForefoot: [5, 7, 6] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
+  chompy: { contact: { rightHand: 0, leftHand: 1 }, ready: 3, preparation: { rightHand: [2, 6, 4], leftHand: [14, 2, 0] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
+  sunny: { direct: true, contact: { rightForefoot: 12, leftForefoot: 0 }, ready: 3, preparation: { rightForefoot: [7, 2, 12], leftForefoot: [5, 7, 6] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
   pip: { contact: { rightHand: 0, leftHand: 1 }, ready: 3, preparation: { rightHand: [2, 5, 1], leftHand: [7, 6, 0] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] },
   wren: { contact: { rightHand: 0, leftHand: 2 }, ready: 3, preparation: { rightHand: [5, 6, 4], leftHand: [7, 1, 0] }, recovery: [8, 9, 10, 11], finale: [12, 13, 14, 15] }
 });

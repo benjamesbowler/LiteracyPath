@@ -3,8 +3,8 @@ export const WORD_BRIDGE_SCENERY = {
   "meadow-construction-kit": {
     "width": 1536,
     "height": 1024,
-    "pixelsPerUnit": 200,
     "nominalHeight": 2.2,
+    "pixelsPerUnit": 200,
     "runtime": "/game-assets/physical-arcade/word-bridge/scenery/meadow-construction-kit-v1.webp",
     "frames": [
       {
@@ -13,18 +13,18 @@ export const WORD_BRIDGE_SCENERY = {
         "direction": "front-three-quarter",
         "cell": [
           30,
-          104,
-          739,
-          386
+          86,
+          756,
+          370
         ],
         "anchor": [
-          91,
-          271
+          632,
+          275
         ],
         "sockets": {
           "ground": [
-            121,
-            375
+            662,
+            361
           ]
         }
       },
@@ -33,19 +33,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "workbench",
         "direction": "front-three-quarter",
         "cell": [
-          811,
-          30,
-          1487,
-          521
+          794,
+          24,
+          1507,
+          537
         ],
         "anchor": [
-          529,
-          482
+          562,
+          504
         ],
         "sockets": {
           "ground": [
-            1340,
-            512
+            1356,
+            528
           ]
         }
       },
@@ -54,19 +54,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "rack",
         "direction": "front-three-quarter",
         "cell": [
-          36,
-          453,
-          646,
-          955
+          44,
+          442,
+          687,
+          971
         ],
         "anchor": [
-          507,
-          493
+          540,
+          520
         ],
         "sockets": {
           "ground": [
-            543,
-            946
+            584,
+            962
           ]
         }
       },
@@ -75,23 +75,23 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "bank",
         "direction": "front-three-quarter",
         "cell": [
-          674,
-          604,
-          1508,
-          945
+          703,
+          586,
+          1529,
+          959
         ],
         "anchor": [
-          416,
-          82
+          407,
+          134
         ],
         "sockets": {
           "ground": [
-            1224,
-            935
+            835,
+            950
           ],
           "walkSurface": [
-            1090,
-            686
+            1110,
+            720
           ]
         }
       }
@@ -100,8 +100,8 @@ export const WORD_BRIDGE_SCENERY = {
   "dino-construction-kit": {
     "width": 1536,
     "height": 1024,
-    "pixelsPerUnit": 200,
     "nominalHeight": 2.2,
+    "pixelsPerUnit": 200,
     "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-construction-kit-v1.webp",
     "frames": [
       {
@@ -109,19 +109,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "plank",
         "direction": "front-three-quarter",
         "cell": [
-          30,
-          69,
-          707,
-          381
+          28,
+          62,
+          754,
+          384
         ],
         "anchor": [
-          591,
-          303
+          625,
+          313
         ],
         "sockets": {
           "ground": [
-            621,
-            372
+            653,
+            375
           ]
         }
       },
@@ -130,19 +130,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "workbench",
         "direction": "front-three-quarter",
         "cell": [
-          821,
+          795,
           27,
-          1493,
-          502
+          1510,
+          521
         ],
         "anchor": [
-          489,
-          466
+          520,
+          485
         ],
         "sockets": {
           "ground": [
-            1310,
-            493
+            1315,
+            512
           ]
         }
       },
@@ -152,18 +152,18 @@ export const WORD_BRIDGE_SCENERY = {
         "direction": "front-three-quarter",
         "cell": [
           37,
-          437,
-          618,
-          994
+          414,
+          640,
+          997
         ],
         "anchor": [
-          475,
-          548
+          503,
+          574
         ],
         "sockets": {
           "ground": [
-            512,
-            985
+            540,
+            988
           ]
         }
       },
@@ -172,23 +172,23 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "bank",
         "direction": "front-three-quarter",
         "cell": [
-          672,
-          618,
-          1516,
-          968
+          640,
+          585,
+          1526,
+          997
         ],
         "anchor": [
-          418,
-          136
+          450,
+          165
         ],
         "sockets": {
           "ground": [
-            1334,
-            960
+            1321,
+            988
           ],
           "walkSurface": [
             1090,
-            754
+            750
           ]
         }
       }
@@ -197,8 +197,8 @@ export const WORD_BRIDGE_SCENERY = {
   "moonwood-construction-kit": {
     "width": 1536,
     "height": 1024,
-    "pixelsPerUnit": 200,
     "nominalHeight": 2.2,
+    "pixelsPerUnit": 200,
     "runtime": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-construction-kit-v1.webp",
     "frames": [
       {
@@ -206,19 +206,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "plank",
         "direction": "front-three-quarter",
         "cell": [
-          48,
-          112,
-          726,
-          389
+          39,
+          104,
+          748,
+          393
         ],
         "anchor": [
-          607,
-          268
+          630,
+          280
         ],
         "sockets": {
           "ground": [
-            655,
-            380
+            669,
+            384
           ]
         }
       },
@@ -227,19 +227,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "workbench",
         "direction": "front-three-quarter",
         "cell": [
-          807,
-          70,
-          1478,
-          523
+          783,
+          57,
+          1508,
+          547
         ],
         "anchor": [
-          475,
-          444
+          503,
+          481
         ],
         "sockets": {
           "ground": [
-            1282,
-            514
+            1286,
+            538
           ]
         }
       },
@@ -248,19 +248,19 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "rack",
         "direction": "front-three-quarter",
         "cell": [
-          75,
-          484,
-          674,
-          952
+          69,
+          487,
+          683,
+          954
         ],
         "anchor": [
-          68,
-          460
+          72,
+          459
         ],
         "sockets": {
           "ground": [
-            143,
-            944
+            141,
+            946
           ]
         }
       },
@@ -269,23 +269,23 @@ export const WORD_BRIDGE_SCENERY = {
         "action": "bank",
         "direction": "front-three-quarter",
         "cell": [
-          748,
-          622,
-          1518,
-          908
+          712,
+          645,
+          1526,
+          937
         ],
         "anchor": [
-          352,
-          94
+          398,
+          105
         ],
         "sockets": {
           "ground": [
-            1066,
-            899
+            990,
+            928
           ],
           "walkSurface": [
-            1100,
-            716
+            1110,
+            750
           ]
         }
       }
