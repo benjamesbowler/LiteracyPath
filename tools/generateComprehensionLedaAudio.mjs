@@ -1,9 +1,11 @@
 #!/usr/bin/env node
+import { COMPREHENSION_LEDA_AUDIO } from '../src/content/comprehension/audio.generated.js';
 import { execFileSync, spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { copyFile, mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CYCLE_SHORTS } from '../src/content/cycle-shorts/passages.js';
 import { COMPREHENSION_PASSAGES } from '../src/content/comprehension/passages.js';
 import { LEDA_PRODUCTION_VOICE as voice } from '../src/data/ledaProductionVoice.js';
 import {
@@ -12,11 +14,14 @@ import {
 } from '../src/content/comprehension/audio.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const outputDir = path.join(root, 'public/audio/production/en-US/comprehension');
-const scratchDir = path.join(root, '.artifacts/comprehension/leda-generation');
-const cacheDir = path.join(root, '.artifacts/comprehension/leda-source-cache');
-const manifestPath = path.join(root, 'src/content/comprehension/audioManifest.generated.json');
-const modulePath = path.join(root, 'src/content/comprehension/audio.generated.js');
+const cycleShorts = process.argv.includes('--cycle-shorts');
+const family = cycleShorts ? 'cycle-shorts' : 'comprehension';
+const passages = cycleShorts ? CYCLE_SHORTS : COMPREHENSION_PASSAGES;
+const outputDir = path.join(root, `public/audio/production/en-US/${family}`);
+const scratchDir = path.join(root, `.artifacts/${family}/leda-generation`);
+const cacheDir = path.join(root, `.artifacts/${family}/leda-source-cache`);
+const manifestPath = path.join(root, `src/content/${family}/audioManifest.generated.json`);
+const modulePath = path.join(root, `src/content/${family}/audio.generated.js`);
 const projectId = 'project-3c66c1c8-cc9e-4d6d-bdf';
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 const sha256 = value => createHash('sha256').update(value).digest('hex');
@@ -44,7 +49,7 @@ export function comprehensionNarrationRecords(passages) {
       const clipRecipe = bitrate === 128 ? pacedRecipe : `${pacedRecipe}-mp3-${bitrate}k`;
       const filename = `${sha256(`${voice}|${clipRecipe}|${text}`).slice(0, 20)}.mp3`;
       records.set(text, { text, textSha256, segments: item.segments, recipe: clipRecipe, tempo, ...(bitrate !== 128 ? { bitrateKbps: bitrate } : {}),
-        audioPath: `/audio/production/en-US/comprehension/${filename}`, references: [reference] });
+        audioPath: (cycleShorts && COMPREHENSION_LEDA_AUDIO[text]) || `/audio/production/en-US/${family}/${filename}`, references: [reference] });
     }
   }
   for (const passage of passages) {
@@ -99,9 +104,10 @@ async function assemble(record, segmentFiles) {
 }
 
 export async function generateComprehensionLedaAudio() {
-  const records = comprehensionNarrationRecords(COMPREHENSION_PASSAGES);
+  const records = comprehensionNarrationRecords(passages);
   const previous = JSON.parse(await readFile(manifestPath, 'utf8').catch(() => '{"clips":[]}'));
-  const previousByPath = new Map(previous.clips.map(clip => [clip.audioPath, clip]));
+  const externalClips = cycleShorts ? JSON.parse(await readFile(path.join(root, 'src/content/comprehension/audioManifest.generated.json'), 'utf8')).clips : [];
+  const previousByPath = new Map([...previous.clips,...externalClips].map(clip => [clip.audioPath, clip]));
   const missing = [];
   for (const record of records) {
     const filename = path.join(root, 'public', record.audioPath);
@@ -116,6 +122,10 @@ export async function generateComprehensionLedaAudio() {
   // Reuse only exact-text canonical Leda records whose recorded bytes still
   // match. Normalized filename guesses and browser speech are never sources.
   const canonicalManifest = JSON.parse(await readFile(path.join(root, 'src/content/storyQuestNarrationManifest.generated.json'), 'utf8'));
+  if (cycleShorts) {
+    const existing = JSON.parse(await readFile(path.join(root, 'src/content/comprehension/audioManifest.generated.json'), 'utf8'));
+    canonicalManifest.clips.push(...existing.clips);
+  }
   const canonicalSegments = new Map();
   for (const text of segments.filter(text => !cachedSegments.has(text))) {
     const source = canonicalManifest.clips.find(clip => clip.text === text && clip.voice === voice);
@@ -124,7 +134,7 @@ export async function generateComprehensionLedaAudio() {
     if (await nonempty(filename) && sha256(await readFile(filename)) === source.audioSha256) canonicalSegments.set(text, source);
   }
   const providerSegments = segments.filter(text => !cachedSegments.has(text) && !canonicalSegments.has(text));
-  const plan = { passages: COMPREHENSION_PASSAGES.length, finalClips: records.length, missingClips: missing.length,
+  const plan = { passages: passages.length, finalClips: records.length, missingClips: missing.length,
     cachedUtterances: cachedSegments.size, reusedCanonicalUtterances: canonicalSegments.size, providerRequests: providerSegments.length,
     providerCharacters: providerSegments.reduce((sum, text) => sum + text.length, 0), voice, recipe };
   console.log(JSON.stringify(plan, null, 2));
@@ -178,7 +188,7 @@ export async function generateComprehensionLedaAudio() {
     // Previous released JS can still request these paths from a browser cache.
     ...(compatibilityClips.length ? { compatibilityClips } : {}) }, null, 2) + '\n');
   const mapping = Object.fromEntries(clips.map(record => [record.text, record.audioPath]));
-  await writeFile(modulePath, '// AUTO-GENERATED by tools/generateComprehensionLedaAudio.mjs - do not edit.\n' + `export const COMPREHENSION_LEDA_AUDIO = Object.freeze(${JSON.stringify(mapping, null, 2)});\n`);
+  await writeFile(modulePath, '// AUTO-GENERATED by tools/generateComprehensionLedaAudio.mjs - do not edit.\n' + `export const ${cycleShorts ? "CYCLE_SHORTS_LEDA_AUDIO" : "COMPREHENSION_LEDA_AUDIO"} = Object.freeze(${JSON.stringify(mapping, null, 2)});\n`);
   const activePaths = new Set(clips.map(clip => clip.audioPath));
   // Remove only this generator's previously registered, now superseded clips.
   // Unknown files and every other production family remain outside this scope.

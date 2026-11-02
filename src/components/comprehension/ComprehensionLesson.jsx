@@ -53,7 +53,8 @@ function PagedText({text,renderText,kind='story',unpaged=false}){
 }
 
 export function StoryPicture({passage,shown,onToggle}){
- const picture=passagePicture(passage),[failed,setFailed]=useState(false);
+ const picture=passagePicture(passage.sourcePassageId?{...passage,id:passage.sourcePassageId}:passage),[failed,setFailed]=useState(false);
+ if(passage.cycleNumber&&!passage.sourcePassageId)return <section className="rc-lesson-picture" aria-label="Story character"><img src="/images/worksheets/muddy-colouring.webp" alt="Muddy, the pig in this story"/><p>Muddy · Sunny Meadow Farm</p></section>;
  return <section className="rc-lesson-picture" aria-label="Story pictures"><button aria-pressed={shown} onClick={onToggle}>{shown?'Hide pictures':'Show pictures'}</button>{shown?(picture&&!failed?<img src={picture.src} alt={picture.alt} onError={()=>setFailed(true)}/>:<div className="rc-picture-error" role="status"><p>This story picture could not load. You can read or listen with Leda.</p><button onClick={()=>{setFailed(false);}}>Try picture again</button></div>):<p>Pictures are hidden. Read or listen to the story, then show the pictures when you are ready.</p>}</section>;
 }
 
@@ -116,7 +117,7 @@ export default function ComprehensionLesson({passage:p,mode,teacher,groupComplet
     </section>
     </>}
    </div>
-   <div className="rc-lesson-footer">{teacher&&<label className="rc-group-check"><input type="checkbox" aria-label={`Whole group completed: ${p.title}`} checked={groupCompleted} disabled={groupCompletionDisabled} onChange={e=>onGroupCompleted(e.target.checked)}/> Whole group completed</label>}{statusIssue&&<button aria-label={statusOpen?'Back to lesson':audioFailed?'Voice help':'Saving help'} aria-expanded={statusOpen} onClick={()=>setStatusOpen(!statusOpen)}>{statusOpen?'Back':audioFailed?'Voice help':'Saving help'}</button>}<p className={`rc-lesson-status${statusIssue?' rc-sr-only':''}`} role="status">{fullStatus}</p></div>
+   <div className="rc-lesson-footer">{teacher&&onGroupCompleted&&<label className="rc-group-check"><input type="checkbox" aria-label={`Whole group completed: ${p.title}`} checked={groupCompleted} disabled={groupCompletionDisabled} onChange={e=>onGroupCompleted(e.target.checked)}/> Whole group completed</label>}{statusIssue&&<button aria-label={statusOpen?'Back to lesson':audioFailed?'Voice help':'Saving help'} aria-expanded={statusOpen} onClick={()=>setStatusOpen(!statusOpen)}>{statusOpen?'Back':audioFailed?'Voice help':'Saving help'}</button>}<p className={`rc-lesson-status${statusIssue?' rc-sr-only':''}`} role="status">{fullStatus}</p></div>
   </TeacherDialog>
  </div>,document.body);
 }
