@@ -41,23 +41,26 @@ for(const [width,height] of [[320,568],[768,1024],[1024,768],[1920,1080]])test(`
  await page.getByRole('button',{name:`Read Cycle 1: ${CYCLE_SHORTS[0].title}`,exact:true}).click();
  await page.getByRole('button',{name:'Full screen',exact:true}).click();
  const pictureTab=page.getByRole('button',{name:'Pictures',exact:true});if(await pictureTab.isVisible())await pictureTab.click();
- expect(await page.locator('#rc-lesson-stage [aria-label="Story character"]').evaluate(el=>{const panel=el.getBoundingClientRect(),caption=el.querySelector('p').getBoundingClientRect();return caption.top>=panel.top&&caption.bottom<=panel.bottom;})).toBe(true);
+ expect(await page.locator('#rc-lesson-stage [aria-label="Story pictures"]').evaluate(el=>{const panel=el.getBoundingClientRect(),image=el.querySelector('img').getBoundingClientRect();return image.top>=panel.top&&image.bottom<=panel.bottom;})).toBe(true);
  await page.getByRole('button',{name:/Exit full screen:/}).click();
  // A fixed, authored canvas intentionally scales for the projector. Check all
  // story/question views against its true content region, including longest texts.
  // All manuscripts exercise the fixed canvas at tablet size. Other viewports
  // repeat the shortest and longest representative texts against native controls.
- const manuscripts=width===1024?CYCLE_SHORTS:[CYCLE_SHORTS[0],CYCLE_SHORTS[13],CYCLE_SHORTS[22],CYCLE_SHORTS[26]];
+ const manuscripts=width===1024?CYCLE_SHORTS:[CYCLE_SHORTS[0],CYCLE_SHORTS[11],CYCLE_SHORTS[13],CYCLE_SHORTS[22],CYCLE_SHORTS[26]];
  for(const p of manuscripts){
   const deck=buildCyclePresentation(`cycle-${p.cycleNumber}`,{day:'friday',startIndex:buildCyclePresentation(`cycle-${p.cycleNumber}`,{day:'friday'}).slideCount-4});
   await page.route('**/cycle-shorts-deck',route=>route.fulfill({contentType:'text/html',body:deck.html}));
   await page.goto('/cycle-shorts-deck');await page.getByRole('button',{name:'Start presentation',exact:true}).click();
   for(let i=0;i<4;i++){
    const active=page.locator('.slide.active');
-   const outside=await active.evaluate(el=>{const r=el.getBoundingClientRect();return [...el.querySelectorAll('p,h2,h3,li,button')].filter(n=>n.getClientRects().length&&getComputedStyle(n).visibility!=='hidden').filter(n=>{const b=n.getBoundingClientRect();return b.bottom>r.bottom+1||b.right>r.right+1||b.left<r.left-1;}).map(n=>n.textContent);});
+   const image=active.locator('.p-short-picture');await expect(image).toBeVisible();
+   await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
+   if(i){await expect(active.locator('.p-answer')).toBeHidden();await active.locator('[data-reveal-toggle]').click();await expect(active.locator('.p-answer')).toBeVisible();await expect(active.locator('.p-answer')).toHaveCSS('opacity','1');await expect(active.locator('.p-answer')).toContainText(p.questions[i-1].answer);}
+   const outside=await active.evaluate(el=>{const r=el.getBoundingClientRect();return [...el.querySelectorAll('p,h2,h3,li,button,img')].filter(n=>n.getClientRects().length&&getComputedStyle(n).visibility!=='hidden').filter(n=>{const b=n.getBoundingClientRect();return b.bottom>r.bottom+1||b.right>r.right+1||b.left<r.left-1;}).map(n=>n.textContent);});
    expect(outside,`${p.id} view ${i}`).toEqual([]);
-   if(i){await expect(active.locator('.p-answer')).toBeHidden();await active.locator('[data-reveal-toggle]').click();await expect(active.locator('.p-answer')).toBeVisible();await expect(active.locator('.p-answer')).toContainText(p.questions[i-1].answer);}
-   if(p.cycleNumber===23&&i===1)await page.screenshot({path:`${out}/projector-${width}x${height}.png`});
+   if(p.cycleNumber===12&&i===0)await page.screenshot({path:`${out}/story-cycle-12-${width}x${height}.png`});
+   if([12,23].includes(p.cycleNumber)&&i===1)await page.screenshot({path:`${out}/projector-cycle-${p.cycleNumber}-${width}x${height}.png`});
    if(i<3)await page.keyboard.press('ArrowRight');
   }
   await page.unroute('**/cycle-shorts-deck');
@@ -91,4 +94,22 @@ test('Cycle Shorts full-screen word help matches the bold learning words',async(
  await page.getByRole('button',{name:`Read Cycle 1: ${CYCLE_SHORTS[0].title}`,exact:true}).click();
  await page.getByRole('button',{name:'Full screen',exact:true}).click();await page.getByRole('button',{name:'Words',exact:true}).click();
  await expect(page.locator('#rc-lesson-stage .rc-lesson-support')).toContainText('Learning words: I, am, ant, mat.');
+});
+
+
+test('Present story picture failure offers retry and restores the same image',async({page})=>{
+ let fail=true;
+ await page.route('**/images/comprehension/cycle-shorts/cycle-short-12.webp',route=>fail?route.abort():route.continue());
+ const deck=buildCyclePresentation('cycle-12',{day:'tuesday'});
+ const ending=buildCyclePresentation('cycle-12',{day:'tuesday',startIndex:deck.slideCount-4});
+ await page.route('**/cycle-shorts-deck',route=>route.fulfill({contentType:'text/html',body:ending.html}));
+ await page.goto('/cycle-shorts-deck');await page.getByRole('button',{name:'Start presentation',exact:true}).click();
+ const active=page.locator('.slide.active');
+ await expect(active.locator('.p-media-failure')).toContainText('Picture unavailable');
+ await expect(active.locator('.p-short-story')).toContainText(CYCLE_SHORTS[11].text);
+ fail=false;await active.getByRole('button',{name:'Retry picture',exact:true}).click();
+ await expect(active.locator('.p-media-failure')).toHaveCount(0);
+ await expect.poll(()=>active.locator('.p-short-picture').evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
+ await page.keyboard.press('ArrowRight');
+ await expect(page.locator('.slide.active .p-short-picture')).toBeVisible();
 });

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {CYCLE_SHORTS,cycleShortFor,cycleShortLearningWords} from '../../src/content/cycle-shorts/passages.js';
 import {COMPREHENSION_PASSAGES} from '../../src/content/comprehension/passages.js';
+import {cycleShortPicture} from '../../src/content/cycle-shorts/pictures.js';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
 
 test('all 27 farm weeks have short connected texts and three evidenced four-choice questions',()=>{
@@ -42,6 +43,22 @@ test('all 135 daily decks end with the matching complete story and its three uns
   assert.equal(ending[0].storyText,p.text);assert.equal(ending[0].passageId,p.id);
   assert.deepEqual(ending.slice(1).map(s=>s.questionId),p.questions.map(q=>q.id));
   assert.ok(ending.every(s=>s.codeStatus==='adult-supported'));
+  for(const view of ending){
+   assert.equal(view.materials.images.length,1,`${p.id}: each story/question view needs its story picture`);
+   assert.match(view.materials.images[0],/\/images\/comprehension\/(?:cycle-shorts|passages)\//);
+  }
   for(const [index,q] of p.questions.entries())assert.deepEqual(new Set(ending[index+1].options),new Set(q.options));
  }
+});
+
+
+test('every cycle resolves only its own current story picture, including unchanged reused passages',()=>{
+ for(const p of CYCLE_SHORTS){
+  const picture=cycleShortPicture(p);assert.ok(picture,p.id);assert.ok(picture.alt.length>30);
+  assert.equal(cycleShortPicture({...p,text:p.text+' Changed.'}),null);
+  if(p.sourcePassageId)assert.match(picture.src,new RegExp(p.sourcePassageId));
+  else assert.match(picture.src,new RegExp(p.id+'\\.webp$'));
+ }
+ assert.equal(cycleShortPicture(null),null);
+ assert.equal(cycleShortPicture({id:'constructor',text:'unknown'}),null);
 });
