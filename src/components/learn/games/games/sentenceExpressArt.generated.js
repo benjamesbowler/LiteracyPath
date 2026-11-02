@@ -5,42 +5,42 @@ export const SENTENCE_EXPRESS_ATLASES = {
     "height": 1536,
     "runtime": "/game-assets/physical-arcade/sentence-express/characters/bouncy-conductor-v2.webp",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 202.27272727272725,
+    "pixelsPerUnit": 174.54545454545453,
     "frames": [
       {
         "id": "bouncy-ready",
         "action": "ready",
         "direction": "right",
         "cell": [
-          115,
-          28,
-          427,
-          487
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          155,
-          451
+          253,
+          465
         ],
         "sockets": {
           "feet": [
-            204,
-            479
+            199,
+            465
           ],
           "bootLeft": [
-            204,
-            479
+            199,
+            465
           ],
           "bootRight": [
-            335,
-            475
+            315,
+            463
           ],
           "nearHand": [
-            356,
-            282
+            323,
+            307
           ],
           "farHand": [
-            396,
-            281
+            355,
+            302
           ]
         }
       },
@@ -49,35 +49,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "point",
         "direction": "right",
         "cell": [
-          581,
-          24,
-          981,
-          487
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          167,
-          455
+          224,
+          465
         ],
         "sockets": {
           "feet": [
-            683,
-            479
+            678,
+            465
           ],
           "bootLeft": [
-            683,
-            479
+            678,
+            465
           ],
           "bootRight": [
-            828,
-            474
+            804,
+            462
           ],
           "nearHand": [
-            815,
-            282
+            790,
+            312
           ],
           "farHand": [
-            945,
-            207
+            900,
+            237
           ]
         }
       },
@@ -86,35 +86,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "couple-low",
         "direction": "right",
         "cell": [
-          90,
-          538,
-          469,
-          941
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          149,
-          395
+          209,
+          465
         ],
         "sockets": {
           "feet": [
-            166,
-            933
+            144,
+            977
           ],
           "bootLeft": [
-            166,
-            933
+            144,
+            977
           ],
           "bootRight": [
-            312,
-            925
+            276,
+            971
           ],
           "nearHand": [
-            360,
-            817
+            339,
+            897
           ],
           "farHand": [
-            426,
-            816
+            395,
+            875
           ]
         }
       },
@@ -123,35 +123,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "send-ready",
         "direction": "right",
         "cell": [
-          596,
-          496,
-          932,
-          961
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          177,
-          457
+          231,
+          465
         ],
         "sockets": {
           "feet": [
-            699,
-            953
+            670,
+            977
           ],
           "bootLeft": [
-            699,
-            953
+            670,
+            977
           ],
           "bootRight": [
-            833,
-            949
+            805,
+            975
           ],
           "nearHand": [
-            852,
-            735
+            844,
+            793
           ],
           "farHand": [
-            901,
-            735
+            900,
+            774
           ]
         }
       },
@@ -160,35 +160,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "wave",
         "direction": "right",
         "cell": [
-          92,
-          949,
-          486,
-          1447
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          164,
-          490
+          240,
+          465
         ],
         "sockets": {
           "feet": [
-            203,
-            1439
+            180,
+            1489
           ],
           "bootLeft": [
-            203,
-            1439
+            180,
+            1489
           ],
           "bootRight": [
-            335,
-            1439
+            320,
+            1486
           ],
           "nearHand": [
-            303,
-            1210
+            276,
+            1302
           ],
           "farHand": [
-            453,
-            1077
+            391,
+            1154
           ]
         }
       },
@@ -197,35 +197,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          582,
-          959,
-          987,
-          1455
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          186,
-          488
+          233,
+          465
         ],
         "sockets": {
           "feet": [
-            720,
-            1447
+            694,
+            1489
           ],
           "bootLeft": [
-            720,
-            1447
+            694,
+            1489
           ],
           "bootRight": [
-            849,
-            1438
+            825,
+            1484
           ],
           "nearHand": [
-            624,
-            1204
+            640,
+            1290
           ],
           "farHand": [
-            947,
-            1177
+            904,
+            1276
           ]
         }
       }
@@ -236,42 +236,42 @@ export const SENTENCE_EXPRESS_ATLASES = {
     "height": 1536,
     "runtime": "/game-assets/physical-arcade/sentence-express/characters/chompy-conductor-v1.webp",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 209.09090909090907,
+    "pixelsPerUnit": 179.54545454545453,
     "frames": [
       {
         "id": "chompy-ready",
         "action": "ready",
         "direction": "right",
         "cell": [
-          51,
-          22,
-          477,
-          496
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          228,
-          466
+          267,
+          465
         ],
         "sockets": {
           "feet": [
-            180,
-            488
+            201,
+            465
           ],
           "bootLeft": [
-            180,
-            488
+            201,
+            465
           ],
           "bootRight": [
-            353,
-            483
+            339,
+            462
           ],
           "nearHand": [
-            332,
-            314
+            302,
+            333
           ],
           "farHand": [
-            388,
-            313
+            332,
+            332
           ]
         }
       },
@@ -280,35 +280,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "point",
         "direction": "right",
         "cell": [
-          537,
-          22,
-          976,
-          497
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          228,
-          467
+          252,
+          465
         ],
         "sockets": {
           "feet": [
-            668,
-            489
+            682,
+            465
           ],
           "bootLeft": [
-            668,
-            489
+            682,
+            465
           ],
           "bootRight": [
-            855,
-            484
+            841,
+            462
           ],
           "nearHand": [
-            774,
-            328
+            779,
+            337
           ],
           "farHand": [
-            942,
-            272
+            914,
+            279
           ]
         }
       },
@@ -317,35 +317,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "couple-low",
         "direction": "right",
         "cell": [
-          51,
-          542,
-          508,
-          960
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          230,
-          410
+          241,
+          465
         ],
         "sockets": {
           "feet": [
-            177,
-            952
+            167,
+            977
           ],
           "bootLeft": [
-            177,
-            952
+            167,
+            977
           ],
           "bootRight": [
-            337,
-            946
+            315,
+            973
           ],
           "nearHand": [
-            365,
-            861
+            322,
+            897
           ],
           "farHand": [
-            451,
-            861
+            392,
+            896
           ]
         }
       },
@@ -354,35 +354,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "send-ready",
         "direction": "right",
         "cell": [
-          534,
-          520,
-          984,
-          968
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          241,
-          440
+          252,
+          465
         ],
         "sockets": {
           "feet": [
-            669,
-            960
+            695,
+            977
           ],
           "bootLeft": [
-            669,
-            960
+            695,
+            977
           ],
           "bootRight": [
-            840,
-            955
+            845,
+            973
           ],
           "nearHand": [
-            865,
-            788
+            831,
+            830
           ],
           "farHand": [
-            946,
-            768
+            908,
+            804
           ]
         }
       },
@@ -391,35 +391,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "wave",
         "direction": "right",
         "cell": [
-          63,
-          975,
-          466,
-          1465
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          228,
-          482
+          273,
+          465
         ],
         "sockets": {
           "feet": [
-            223,
-            1457
+            196,
+            1489
           ],
           "bootLeft": [
-            223,
-            1457
+            196,
+            1489
           ],
           "bootRight": [
-            398,
-            1451
+            363,
+            1485
           ],
           "nearHand": [
-            215,
-            1160
+            198,
+            1218
           ],
           "farHand": [
-            412,
-            1264
+            355,
+            1326
           ]
         }
       },
@@ -428,35 +428,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          552,
-          988,
-          990,
-          1475
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          223,
-          479
+          253,
+          465
         ],
         "sockets": {
           "feet": [
-            680,
-            1467
+            698,
+            1489
           ],
           "bootLeft": [
-            680,
-            1467
+            698,
+            1489
           ],
           "bootRight": [
-            875,
-            1457
+            856,
+            1483
           ],
           "nearHand": [
-            650,
-            1248
+            668,
+            1300
           ],
           "farHand": [
-            966,
-            1250
+            918,
+            1304
           ]
         }
       }
@@ -467,42 +467,42 @@ export const SENTENCE_EXPRESS_ATLASES = {
     "height": 1536,
     "runtime": "/game-assets/physical-arcade/sentence-express/characters/pip-conductor-v1.webp",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 230.90909090909088,
+    "pixelsPerUnit": 178.18181818181816,
     "frames": [
       {
         "id": "pip-ready",
         "action": "ready",
         "direction": "right",
         "cell": [
-          131,
-          4,
-          406,
-          526
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          143,
-          514
+          252,
+          465
         ],
         "sockets": {
           "feet": [
-            189,
-            518
+            186,
+            465
           ],
           "bootLeft": [
-            189,
-            518
+            186,
+            465
           ],
           "bootRight": [
-            340,
-            513
+            318,
+            463
           ],
           "nearHand": [
-            288,
-            304
+            271,
+            302
           ],
           "farHand": [
-            361,
-            304
+            336,
+            302
           ]
         }
       },
@@ -511,35 +511,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "point",
         "direction": "right",
         "cell": [
-          591,
-          6,
-          948,
-          519
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          160,
-          511
+          224,
+          465
         ],
         "sockets": {
           "feet": [
-            639,
-            517
+            664,
+            465
           ],
           "bootLeft": [
-            639,
-            517
+            664,
+            465
           ],
           "bootRight": [
-            817,
-            514
+            807,
+            462
           ],
           "nearHand": [
-            733,
-            307
+            741,
+            310
           ],
           "farHand": [
-            923,
-            212
+            876,
+            241
           ]
         }
       },
@@ -548,35 +548,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "couple-low",
         "direction": "right",
         "cell": [
-          95,
-          523,
-          468,
-          987
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          146,
-          456
+          227,
+          465
         ],
         "sockets": {
           "feet": [
             161,
-            979
+            977
           ],
           "bootLeft": [
             161,
-            979
+            977
           ],
           "bootRight": [
-            332,
+            295,
             974
           ],
           "nearHand": [
-            354,
-            876
+            303,
+            894
           ],
           "farHand": [
-            410,
-            875
+            358,
+            887
           ]
         }
       },
@@ -585,35 +585,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "send-ready",
         "direction": "right",
         "cell": [
-          565,
-          518,
-          964,
-          992
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          187,
-          472
+          241,
+          465
         ],
         "sockets": {
           "feet": [
-            811,
-            990
+            807,
+            977
           ],
           "bootLeft": [
-            624,
-            984
+            649,
+            973
           ],
           "bootRight": [
-            811,
-            990
+            807,
+            977
           ],
           "nearHand": [
-            854,
-            744
+            840,
+            799
           ],
           "farHand": [
-            918,
-            739
+            898,
+            779
           ]
         }
       },
@@ -622,35 +622,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "wave",
         "direction": "right",
         "cell": [
-          121,
-          982,
-          469,
-          1514
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          169,
-          524
+          243,
+          464
         ],
         "sockets": {
           "feet": [
-            198,
-            1506
+            177,
+            1488
           ],
           "bootLeft": [
-            198,
-            1506
+            177,
+            1488
           ],
           "bootRight": [
-            380,
-            1501
+            313,
+            1485
           ],
           "nearHand": [
-            289,
-            1274
+            234,
+            1318
           ],
           "farHand": [
-            420,
-            1121
+            359,
+            1178
           ]
         }
       },
@@ -659,35 +659,35 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          573,
-          991,
-          942,
-          1508
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          196,
-          515
+          242,
+          465
         ],
         "sockets": {
           "feet": [
-            629,
-            1506
+            658,
+            1489
           ],
           "bootLeft": [
-            629,
-            1506
+            658,
+            1489
           ],
           "bootRight": [
             821,
-            1496
+            1483
           ],
           "nearHand": [
-            738,
-            1300
+            732,
+            1338
           ],
           "farHand": [
-            897,
-            1251
+            877,
+            1313
           ]
         }
       }

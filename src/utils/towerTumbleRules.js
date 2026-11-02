@@ -15,7 +15,10 @@ export const TOWER_TUMBLE_IMMUNITY_SECONDS = 2.4;
 export function towerTumbleHammerAngle(remaining, facing=1) {
   if(remaining<=0)return -.28*facing;
   const phase=Math.max(0,Math.min(1,1-remaining/TOWER_TUMBLE_STRIKE_SECONDS));
-  const angle=phase<.45?1.05+phase/.45*.55:phase<.65?1.6-(phase-.45)/.20*3.08:-1.48+(phase-.65)/.35*1.20;
+  // The registered contact palms already extend toward the masonry. Swing the
+  // held head down onto that face rather than past it; retain contact through
+  // the next rendered frame before returning to the resting angle.
+  const angle=phase<.45?1.05+phase/.45*.55:phase<.65?1.6-(phase-.45)/.20*4.28:phase<.75?-2.68:-2.68+(phase-.75)/.25*2.4;
   return angle*facing;
 }
 // These are authored grapheme divisions, not inferred syllables or letters.

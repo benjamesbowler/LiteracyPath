@@ -6,13 +6,18 @@ import sharp from 'sharp';
 import { registeredPalCanvasPose } from '../../src/components/learn/games/shared/registeredPalArt.js';
 
 const directory = 'source-art/arcade/physical-worlds/star-gallery';
-const manifest = JSON.parse(await fs.readFile(`${directory}/manifest.json`, 'utf8'));
+const manifest = JSON.parse(await fs.readFile(`${directory}/clean-cartoon-manifest.json`, 'utf8'));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const alpha = (data, info, [x, y]) => data[(Math.round(y) * info.width + Math.round(x)) * 4 + 3];
 
 test('all three rear driver action families attach actual visible hands to their seat point without inventing hidden feet', async () => {
+  const historicalBytes=await fs.readFile(manifest.historicalManifest.path),historical=JSON.parse(historicalBytes);
+  assert.equal(hash(historicalBytes),manifest.historicalManifest.sha256);
+  assert.equal(hash(await fs.readFile(manifest.historicalRegistration.path)),manifest.historicalRegistration.sha256);
+  assert.equal(hash(await fs.readFile(`${directory}/${manifest.registration}`)),manifest.registrationSha256);
   for (const id of ['bouncy-driver', 'chompy-driver', 'pip-driver']) {
     const asset = manifest.assets.find(row => row.id === id), bytes = await fs.readFile(asset.source);
+    assert.deepEqual(asset.supersedes,historical.assets.find(row=>row.id===id));
     assert.equal(hash(bytes), asset.sourceSha256);
     const { data, info } = await sharp(bytes).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
     assert.deepEqual([info.width, info.height], asset.sourceSize);
@@ -58,13 +63,12 @@ test('the live Grove atlas metadata retains measured source registration and dec
   assert.deepEqual(Object.keys(STAR_GALLERY_ATLASES), manifest.assets.map(asset => asset.id));
   for (const asset of manifest.assets) {
     const atlas = STAR_GALLERY_ATLASES[asset.id];
-    const kind = asset.kind.startsWith('authored-tree-') ? 'scenery' : 'characters';
-    const basename = asset.source.split('/').at(-1).replace(/\.png$/, '.webp');
     assert.deepEqual(Object.keys(atlas), ['width', 'height', 'nominalHeight', 'pixelsPerUnit', 'runtime', 'frames']);
     assert.deepEqual([atlas.width, atlas.height], asset.sourceSize);
     assert.equal(atlas.nominalHeight, asset.nominalHeight);
     assert.equal(atlas.pixelsPerUnit, asset.pixelsPerUnit);
-    assert.equal(atlas.runtime, `/game-assets/physical-arcade/star-gallery/${kind}/${basename}`);
+    assert.equal(atlas.runtime, asset.runtime);
+    if(asset.supersedes)assert.equal(asset.runtime,asset.supersedes.runtime,'The current source keeps its exact canonical delivery path');
     assert.deepEqual(atlas.frames, asset.frames.map(({ id, action, direction, cell, anchor, sockets }) =>
       ({ id, action, direction, cell, anchor, sockets })));
     for (const frame of atlas.frames) {

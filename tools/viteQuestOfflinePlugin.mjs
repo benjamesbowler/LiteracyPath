@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { PRODUCT_NAME } from "../src/data/teacherBrand.js";
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from "../src/policy/literacyMockVersions.js";
 import { CAMPAIGN_OFFLINE_AUDIO_PREFIXES } from "../src/features/soundSeekers/rounded/campaignAudioCatalog.js";
+import { REPAIRED_IMAGE_REVISIONS } from "../src/data/generated/repairedImageRevisions.generated.js";
 
 function collectChunkClosure(bundle, seeds, { includeDynamic = false } = {}) {
   const selected = new Set();
@@ -41,6 +42,7 @@ const BUILD_ID = ${JSON.stringify(buildId)};
 const SHELL_PREFIX = "lp-shell-";
 const SHELL_CACHE = SHELL_PREFIX + BUILD_ID;
 const QUEST_MEDIA_CACHE = "lp-quest-media-v1";
+const REPAIRED_IMAGE_REVISIONS = ${JSON.stringify(REPAIRED_IMAGE_REVISIONS)};
 const PRECACHE = ${JSON.stringify(precache)};
 const QUEST_EXECUTABLE_ASSETS = ${JSON.stringify(questAssets)};
 const MOCK_EXECUTABLE_ASSETS = ${JSON.stringify(mockAssets)};
@@ -60,6 +62,12 @@ const QUEST_MEDIA_PREFIXES = [
 
 function isQuestMedia(pathname) {
   return QUEST_MEDIA_PREFIXES.some(prefix => pathname.startsWith(prefix));
+}
+
+function repairedImageUrl(url) {
+  const revision = REPAIRED_IMAGE_REVISIONS[url.pathname];
+  if (revision) url.searchParams.set("v", revision);
+  return url;
 }
 
 function isCacheable(response) {
@@ -162,6 +170,12 @@ self.addEventListener("fetch", event => {
     event.respondWith(navigationResponse(request));
     return;
   }
+  // A previous canonical response must never mask reviewed replacement bytes.
+  // This also covers game/worksheet renderers that retain canonical URLs.
+  if (REPAIRED_IMAGE_REVISIONS[url.pathname]) {
+    event.respondWith(cacheFirst(new Request(repairedImageUrl(url), request), QUEST_MEDIA_CACHE));
+    return;
+  }
   if (url.pathname.startsWith("/assets/") || PRECACHE.includes(url.pathname)) {
     event.respondWith(cacheFirst(request, SHELL_CACHE));
     return;
@@ -220,7 +234,7 @@ self.addEventListener("message", event => {
   if (data.type !== "LP_WARM_QUEST_ASSETS") return;
   event.waitUntil((async () => {
     const urls = [...new Set(Array.isArray(data.urls) ? data.urls : [])]
-      .map(value => new URL(value, self.location.origin))
+      .map(value => repairedImageUrl(new URL(value, self.location.origin)))
       .filter(url => url.origin === self.location.origin && isQuestMedia(url.pathname));
     const cache = await caches.open(QUEST_MEDIA_CACHE);
     let completed = 0;
@@ -232,7 +246,7 @@ self.addEventListener("message", event => {
         await cache.put(url.href, response);
         completed += 1;
       } catch {
-        const existing = await cache.match(url.href, { ignoreSearch: true });
+        const existing = await cache.match(url.href, { ignoreSearch: !REPAIRED_IMAGE_REVISIONS[url.pathname] });
         if (existing) completed += 1;
         else failed += 1;
       }

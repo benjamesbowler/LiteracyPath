@@ -2,6 +2,7 @@ import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRegisteredPalArtBank } from '../shared/registeredPalArt.js';
 import { RHYME_POP_ART } from './rhymePopArtData.js';
 import { rhymeLauncherGeometry } from '../../../../utils/rhymePopMotion.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const worlds = { easy: 'meadow', medium: 'dino', hard: 'moonwood' };
 const characters = { meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' };
@@ -93,7 +94,7 @@ export function createRhymePopWorld(canvas, { difficulty, onDelivery = () => {} 
       if (image.naturalWidth !== asset.width || image.naturalHeight !== asset.height) { finish(false); return; }
       try { await image.decode(); finish(true); } catch { finish(false); }
     };
-    image.onerror = () => finish(false); image.src = asset.runtime;
+    image.onerror = () => finish(false); image.src = withRepairedImageVersion(asset.runtime);
   }
   load(`${world}-festival-v1`); load(`${world}-launcher-kit-v1`); load(`${character}-launcher-fallback-v1`);
   void art.preload([actionId]).then(report);

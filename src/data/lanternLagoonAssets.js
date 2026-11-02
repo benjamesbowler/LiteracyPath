@@ -3,8 +3,8 @@
 export const LANTERN_ASSETS = Object.freeze({
   "bridge": {
     "path": "/images/arcade/lantern-lagoon/bridge.webp",
-    "sha256": "ab515c87b283a7168c6c1377db2c150a5ba42b6327b377446a7723506fd2f14e",
-    "bytes": 175602,
+    "sha256": "5344683a4dffe5a04e1e954208f97a26c0b1ba1be4e07515bc94455a4faf28d5",
+    "bytes": 107136,
     "width": 1200,
     "height": 584,
     "alpha": true,
@@ -42,8 +42,8 @@ export const LANTERN_ASSETS = Object.freeze({
   },
   "duck": {
     "path": "/images/arcade/lantern-lagoon/duck.webp",
-    "sha256": "d5b5e511c97fca82c38f8e6c74ff178fb13aecb5fb385f5ffa90bda2d3debe8a",
-    "bytes": 32368,
+    "sha256": "1c2c76be55333810efba17be53886f12eaab84c228858b958b22fd8006103ffa",
+    "bytes": 21980,
     "width": 384,
     "height": 376,
     "alpha": true,
@@ -81,8 +81,8 @@ export const LANTERN_ASSETS = Object.freeze({
   },
   "lantern": {
     "path": "/images/arcade/lantern-lagoon/lantern.webp",
-    "sha256": "26bb72508f11e2ae71ff5f4f12438fa25f119ebc187bd1ada486721e916da3b1",
-    "bytes": 40014,
+    "sha256": "7084fd189e13282a36ea2bf50f2675f6fc8337cb4498f6e6a1b9b7594285016a",
+    "bytes": 33678,
     "width": 208,
     "height": 384,
     "alpha": true,

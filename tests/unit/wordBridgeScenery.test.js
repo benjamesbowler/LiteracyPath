@@ -3,9 +3,30 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import sharp from 'sharp';
-const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/scenery-manifest.json','utf8'));
+import { WORD_BRIDGE_SCENERY } from '../../src/components/learn/games/games/wordBridgeScenery.generated.js';
+const currentManifestPath='source-art/arcade/physical-worlds/word-bridge/scenery-clean-cartoon-manifest.json';
+const manifest=JSON.parse(await fs.readFile(currentManifestPath,'utf8'));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const alpha=(data,info,x,y)=>data[(y*info.width+x)*4+3];
+
+test('current scenery preserves exact historical generation lineage',async()=>{
+  const historicalBytes=await fs.readFile(manifest.historicalManifest.path);
+  assert.equal(hash(historicalBytes),manifest.historicalManifest.sha256);
+  const historical=JSON.parse(historicalBytes);
+  const directory='source-art/arcade/physical-worlds/word-bridge/';
+  assert.equal(hash(await fs.readFile(directory+historical.registration)),historical.registrationSha256);
+  assert.equal(hash(await fs.readFile(directory+manifest.registration)),manifest.registrationSha256);
+  for(const asset of manifest.assets.filter(row=>row.supersedes)){
+    const previous=historical.assets.find(row=>row.id===asset.id);
+    assert.deepEqual(asset.supersedes,previous);
+    assert.equal(hash(await fs.readFile(previous.source)),previous.sourceSha256);
+    assert.notEqual(asset.source,previous.source);
+    assert.equal(hash(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/'+asset.prompt)),asset.promptSha256);
+    const delivered=WORD_BRIDGE_SCENERY[asset.id];
+    assert.equal(delivered.runtime,asset.runtime);
+    assert.deepEqual(delivered.frames,asset.frames.map(({id,action,direction,cell,anchor,sockets})=>({id,action,direction,cell,anchor,sockets})));
+  }
+});
 
 test('each original construction kit retains every semantic alpha pixel and actual live-bank attachment across all three worlds',async()=>{
   for(const world of ['meadow','dino','moonwood']){

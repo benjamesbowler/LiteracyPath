@@ -458,16 +458,16 @@ export const REVIEWED_MOCK_FOUNDATION_MEDIA = Object.freeze({
     "note": "Round wide-mouthed earthenware vessel with two small handles clearly depicts a crock; smooth finish and plain shelf preserve target clarity."
   },
   "/images/assessment/literacy-mock/capacity/foundation-cross.webp": {
-    "sha256": "d08a7b6f94713f673f481c12f6925d1324ba480912e2c0e8f81f2e39bd5e8de5",
-    "rawSha256": "1cdb56caa30df7168ac816681ee5588857e5852a9fd18edce170748bfcfe59ae",
-    "reviewedAt": "2026-10-10",
-    "review": "independent_visual_model_review",
+    "sha256": "a35648f5f34a0c20f448331aee5473d5c793a46932b38b5b56a11e165667d818",
+    "rawSha256": "9b816712a959fa7319ecd2ee2f769be1f59ae4e9b026f8e37e7d9998ce868507",
+    "reviewedAt": "2026-11-02",
+    "review": "direct_native_and_saved_size_visual_review",
     "sizes": [
       768,
       240
     ],
-    "receipt": "batch-125-independent-review.json",
-    "note": "A complete three-dimensional cross stands on a base, with a long upright and shorter transverse member. Clear at 240px; smooth surfaces without decorative grain."
+    "receipt": "all-clean-cartoon-2026-10-31/cd_dino/style-hold-production/accepted-receipts.json#fresh-style-0512",
+    "note": "Two equal wooden sticks form a neutral symmetrical X, without a pedestal or religious symbol. Accepted native/full/390px/128px review on 2026-10-31; current 768px and 240px delivery directly re-inspected on 2026-11-02, with both sticks complete, clear crossed shape and clean outlined flat planes."
   },
   "/images/assessment/literacy-mock/capacity/foundation-crow.webp": {
     "sha256": "e4ed29f337a8a48846b64fa6d0dd3a2766f49d7331f4e549363c33339ade95fc",

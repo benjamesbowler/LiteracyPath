@@ -5,12 +5,18 @@ import crypto from 'node:crypto';
 import sharp from 'sharp';
 import { WORD_BRIDGE_ATLASES } from '../../src/components/learn/games/games/wordBridgeArt.generated.js';
 
-const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/manifest.json','utf8'));
+const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/clean-cartoon-manifest.json','utf8'));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 
 test('all five delivered construction sheets retain original alpha, measured visible contacts and explicit lossy RGB provenance',async()=>{
   assert.equal(manifest.assets.length,5);
+  const historicalBytes=await fs.readFile(manifest.historicalManifest.path),historical=JSON.parse(historicalBytes);
+  assert.equal(hash(historicalBytes),manifest.historicalManifest.sha256);
+  assert.equal(hash(await fs.readFile(manifest.historicalRegistration.path)),manifest.historicalRegistration.sha256);
+  assert.equal(hash(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/'+manifest.registration)),manifest.registrationSha256);
   for(const asset of manifest.assets){
+    assert.deepEqual(asset.supersedes,historical.assets.find(row=>row.id===asset.id));
+    assert.equal(asset.runtime,asset.supersedes.runtime);
     const source=await fs.readFile(asset.source),runtime=await fs.readFile('public'+asset.runtime);
     assert.equal(hash(source),asset.sourceSha256);assert.equal(hash(runtime),asset.runtimeSha256);assert.equal(runtime.length,asset.runtimeBytes);
     const original=await sharp(source).ensureAlpha().raw().toBuffer({resolveWithObject:true});
@@ -42,7 +48,8 @@ test('runtime registration is exactly the retained crop and measured contact con
 });
 
 test('encoded art does not fabricate native, human or physical-device acceptance',()=>{
-  assert.equal(manifest.review.runtimeAcceptance,'PENDING');
+  assert.equal(manifest.review.runtimeAcceptance,'PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER');
   assert.equal(manifest.review.humanApproval,'UNKNOWN');assert.equal(manifest.review.physicalDeviceObservation,'UNKNOWN');
-  assert.ok(manifest.assets.every(asset=>asset.reviewStatus.includes('native full-action/contact acceptance pending')));
+  assert.ok(manifest.assets.every(asset=>asset.reviewStatus==='current-art-and-contact-reviewed'));
+  assert.match(manifest.review.scope,/not fullgame/);
 });

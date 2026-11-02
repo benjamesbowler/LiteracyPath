@@ -1,5 +1,6 @@
 import { SOUND_BEAT_ART } from './soundBeatArtData.js';
 import { SOUND_BEAT_POSES, createSoundBeatPerformanceArt, soundBeatMusicalPose } from './soundBeatPerformanceArt.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const WORLD_ROW = { meadow: 0, dino: 1, moonwood: 2 };
 
@@ -23,7 +24,7 @@ function ownedImage(asset) {
         finish(!disposed && current === ticket && picture.naturalWidth === asset.width && picture.naturalHeight === asset.height);
       };
       picture.onerror = () => finish(false);
-      picture.src = ''; picture.src = asset.runtime;
+      picture.src = ''; picture.src = withRepairedImageVersion(asset.runtime);
     });
   }
   void load();

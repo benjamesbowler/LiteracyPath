@@ -1,4 +1,5 @@
 import { readMockAssetBlob } from './mockAssetDownload.js';
+import { withRepairedImageVersion } from './repairedImageVersion.js';
 
 const CACHE_NAME = 'lp-mock-public-media-v1';
 export const MOCK_OFFLINE_MEDIA_MAX_ASSETS = 768;
@@ -24,12 +25,16 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
   let disposed = false, bytes = 0, backgroundActive = 0;
   async function retain(path, controller) {
     let timer, abort, renew;
+    // Caller/allow-list identities stay canonical. A repaired image may only
+    // reuse the cache entry for its current reviewed revision, never old art
+    // retained under the canonical key by an earlier publication.
+    const transportPath = withRepairedImageVersion(path);
     try {
       return await Promise.race([(async () => {
-        let response = await cache.match(path);
+        let response = await cache.match(transportPath);
         const cached = response?.ok;
         if (!cached) {
-          response = await fetcher(path,{credentials:'omit',signal:controller.signal});
+          response = await fetcher(transportPath,{credentials:'omit',signal:controller.signal});
           if (!response.ok || response.redirected) throw new Error('Required media unavailable');
         }
         const type = response.headers.get('content-type') || '';
@@ -41,9 +46,9 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
           // WebKit can miss a same-key record after reload but still keep its
           // storage entry. An overwrite then silently fails. Remove that stale
           // record only after the exact replacement bytes have arrived.
-          await cache.delete?.(path);
-          await cache.put(path,new Response(blob,{headers:{'content-type':type}}));
-          const retained = await cache.match(path);
+          await cache.delete?.(transportPath);
+          await cache.put(transportPath,new Response(blob,{headers:{'content-type':type}}));
+          const retained = await cache.match(transportPath);
           const retainedSize=retained?.ok ? (await retained.blob()).size : -1;
           if (retainedSize !== blob.size) throw new Error('Required media could not be retained');
         }

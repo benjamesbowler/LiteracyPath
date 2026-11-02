@@ -41,8 +41,8 @@ test('every deliberate assisted selection stops beside its face and strikes that
 });
 
 test('the real held mallet reaches the selected brick during the canonical contact pose for all three heroes',()=>{
-  const remaining=TOWER_TUMBLE_STRIKE_SECONDS-TOWER_TUMBLE_CONTACT_SECONDS,phase=1-remaining/TOWER_TUMBLE_STRIKE_SECONDS;
-  for(const world of ['meadow','dino','moonwood'])for(const facing of [-1,1]){
+  for(const contactOffset of [0,1/60,1/30])for(const world of ['meadow','dino','moonwood'])for(const facing of [-1,1]){
+    const remaining=TOWER_TUMBLE_STRIKE_SECONDS-TOWER_TUMBLE_CONTACT_SECONDS-contactOffset,phase=1-remaining/TOWER_TUMBLE_STRIKE_SECONDS;
     const pose=physicalPalFrame(world,0,false,{direction:facing<0?'left':'right',action:'smash',phase});
     assert.equal(pose.kind,'tools');assert.equal(pose.index,3);
     const angle=towerTumbleHammerAngle(remaining,facing),[gripX,gripY]=pose.rightHand;
@@ -51,7 +51,7 @@ test('the real held mallet reaches the selected brick during the canonical conta
     // 0.24 at actor scale 0.84 and must overlap the 1.08-square masonry face.
     for(const standDistance of [.8,1.1])for(const settle of [-.14,0,.14]){
       const centreX=-facing*standDistance+settle+headX;
-      assert.ok(Math.abs(centreX)<.54+.24*.84,`${world}/${facing} must contact the chosen face`);
+      assert.ok(Math.abs(centreX)<.54+.24*.84,`${world}/${facing}/${contactOffset} must contact the chosen face`);
       assert.ok(headY>.12-.24*.84&&headY<1.2+.24*.84);
     }
     assert.ok(Math.sign(towerTumbleHammerAngle(TOWER_TUMBLE_STRIKE_SECONDS,facing))===facing,'windup begins behind the selected face');

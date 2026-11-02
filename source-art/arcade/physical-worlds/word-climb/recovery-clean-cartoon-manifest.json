@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Current shared-source bindings for Climb recovery; visual acceptance is separate per-asset evidence, never inherited from historical status.",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/word-climb/recovery-manifest.json",
+    "sha256": "92907759626e21858063e8f2edb1c05a1ce7799a1cc939124bfabdedc2be9a5d",
+    "immutable": true
+  },
+  "sourceManifest": "source-art/arcade/physical-worlds/pals/clean-cartoon-manifest.json",
+  "sourceManifestSha256": "a0b44d300ef97123cf6e8d096523308c0f7c372491895f8b1f2bd6d05b342fb3",
+  "registrationAuthority": "src/components/learn/games/games/wordClimbRecoveryArt.js",
+  "registrationAuthoritySha256": "fdc37b59bf9a90fb99ccdb9f83d9a30df1099431faeeab9efef9b74868ac084e",
+  "assets": [
+    {
+      "hero": "bouncy",
+      "family": "locomotion",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-locomotion.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "ea2055c565e7b276ffab02d615249582a8856152bdf9a70332d8417a110f72e5",
+      "runtime": "/game-assets/physical-arcade/pals/bouncy-locomotion-v1.webp",
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "bae0c0fefe3e74576c4759262be782857233801278f4b48deb9a247474b486bb",
+      "supersedes": {
+        "hero": "bouncy",
+        "family": "locomotion",
+        "source": "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "sourceSha256": "a8706aa73b3cdb484d0ff2798cc4969c5bb7e202a58ae07bb927d68b9928afea",
+        "runtime": "/game-assets/physical-arcade/pals/bouncy-locomotion-v1.webp",
+        "runtimeSize": [
+          1254,
+          1254
+        ],
+        "runtimeSha256": "70651fd1ebf0b1a56ac4d2db6f42d27cf81bb4a609544a558d60b53a009e9b47"
+      }
+    },
+    {
+      "hero": "bouncy",
+      "family": "tools",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceSha256": "71d5a0cae3f37005cb24ab6e5c634bebde35a24ad716d7c4b3579ae6decec228",
+      "runtime": "/game-assets/physical-arcade/pals/bouncy-tools-v1.webp",
+      "runtimeSize": [
+        1774,
+        887
+      ],
+      "runtimeSha256": "211fc945d3e2867fcf3f6b08dadb0c6d29c62fba95a527c6b0591e80594c68a4",
+      "supersedes": {
+        "hero": "bouncy",
+        "family": "tools",
+        "source": "source-art/arcade/physical-worlds/pals/bouncy-tools-v1.png",
+        "sourceSize": [
+          1774,
+          887
+        ],
+        "sourceSha256": "ff4deb02fcde782297f7eedb7c0ae7a135b507b6effa81043a3366074dd8005b",
+        "runtime": "/game-assets/physical-arcade/pals/bouncy-tools-v1.webp",
+        "runtimeSize": [
+          1774,
+          887
+        ],
+        "runtimeSha256": "c3019f705bee7701067dec9a96602d603ebaf6537c22cf611c751199c5de98d4"
+      }
+    },
+    {
+      "hero": "chompy",
+      "family": "locomotion",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-locomotion.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "edcc4912648255625504fae96a9ad7e6008284a514de905736fbced69d934d73",
+      "runtime": "/game-assets/physical-arcade/pals/chompy-locomotion-v1.webp",
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "89b07db8ddb0c158873ecb70a8d5c2597dd58cb18dad674c53168a8bace3fcd4",
+      "supersedes": {
+        "hero": "chompy",
+        "family": "locomotion",
+        "source": "source-art/arcade/physical-worlds/pals/chompy-locomotion-v1.png",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "sourceSha256": "f22bfc7ca15049f186e96d48d8c5d05b10ed56d8b38cbe7ec1f29fe7e639ad4a",
+        "runtime": "/game-assets/physical-arcade/pals/chompy-locomotion-v1.webp",
+        "runtimeSize": [
+          1254,
+          1254
+        ],
+        "runtimeSha256": "255579992203170c2cb1a402f5240b1c1267477a5665dba165436400cd274830"
+      }
+    },
+    {
+      "hero": "chompy",
+      "family": "tools",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceSha256": "d72038f7c1dc36a785a116afcb0c08bee109e840f8823e8b059e93937398cd57",
+      "runtime": "/game-assets/physical-arcade/pals/chompy-tools-v1.webp",
+      "runtimeSize": [
+        1774,
+        887
+      ],
+      "runtimeSha256": "5e77958c05136479a3b953cd915f54ca95317e32a02c8779beb970fab45a20e6",
+      "supersedes": {
+        "hero": "chompy",
+        "family": "tools",
+        "source": "source-art/arcade/physical-worlds/pals/chompy-tools-v1.png",
+        "sourceSize": [
+          1774,
+          887
+        ],
+        "sourceSha256": "ffcd33ffa90928e4e162bb89ed45f2848b839820c50cf76abbad4a3ad858c3c5",
+        "runtime": "/game-assets/physical-arcade/pals/chompy-tools-v1.webp",
+        "runtimeSize": [
+          1774,
+          887
+        ],
+        "runtimeSha256": "a9b5741270bd73de0e17801f17e0f13d236d4573c82f8995141bb1c3da502143"
+      }
+    },
+    {
+      "hero": "pip",
+      "family": "locomotion",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-locomotion.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "8710c382ad9d431a8421660c8d643bca0b0a39a76d343b4840431f463ef5b28f",
+      "runtime": "/game-assets/physical-arcade/pals/pip-locomotion-v1.webp",
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "dde7165b9977f461c51ce72c20149b9f5d51215afa2af3b57dc489158c845222",
+      "supersedes": {
+        "hero": "pip",
+        "family": "locomotion",
+        "source": "source-art/arcade/physical-worlds/pals/pip-locomotion-v1.png",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "sourceSha256": "9e3b1da3879d8ac21bf427d08ba85ed832a2104276bea057daa8f5b5ec114a95",
+        "runtime": "/game-assets/physical-arcade/pals/pip-locomotion-v1.webp",
+        "runtimeSize": [
+          1254,
+          1254
+        ],
+        "runtimeSha256": "8590096aac21ce8eca2f82b1755cd619dd53edafa6759ba5d24365af032d4aea"
+      }
+    },
+    {
+      "hero": "pip",
+      "family": "tools",
+      "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "2b7184df4f75173df3287e80c560b717377125f4e0a1bfa0aa4ee4982cdf7b6a",
+      "runtime": "/game-assets/physical-arcade/pals/pip-tools-v1.webp",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "395a3caf956f7a3c0a7378546b1ad82cd846fc05f5638e90639acb2629f231a7",
+      "supersedes": {
+        "hero": "pip",
+        "family": "tools",
+        "source": "source-art/arcade/physical-worlds/pals/pip-tools-v1.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "d0338db399a2cfcb99650ed273ac425ba813252a465ecc3d0f34c2a99410f3ae",
+        "runtime": "/game-assets/physical-arcade/pals/pip-tools-v1.webp",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "f927a183a28f9374195415d410ef67df7ac6a5e3f10f17fd388e3f18bdf2a16c"
+      }
+    }
+  ],
+  "legacyPip": {
+    "runtime": "/game-assets/sound-seekers/v3/cast/moonwood/pip-hero.webp",
+    "runtimeSize": [
+      360,
+      512
+    ],
+    "runtimeSha256": "96f2d84449a5ac9625f2941660536513a7a8023493fa7064e65af2db19d9449b",
+    "authority": "Existing retained Moonwood runtime; original authoring provenance is not invented. Climb-owned measured static forehand/boots and sole are in WORD_CLIMB_LEGACY_PIP.",
+    "scope": "Moonwood-only final retained-image recovery; one static pose, no delivered action-family claim. Measured hand/boots/sole pass source checks. Actual forehand/vine contact and recorded target end passed in the 25.487-second combined functional pilot; no full legacy-image summit or quiet pacing claim.",
+    "nativeEvidence": ".artifacts/arcade-standard-upgrade/word-climb/recovery-quality/current/proof.json"
+  }
+}

@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createMockOfflineMedia,prepareMockOfflineMedia,mockOfflineMediaPaths,mockOfflineMediaAssetLimit,MOCK_OFFLINE_MEDIA_MAX_ASSETS } from '../../src/utils/literacyMockOfflineMedia.js';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
+import { readFile } from 'node:fs/promises';
 function environment({failPut=false}={}) {
  const entries=new Map(), fetched=[], revoked=[];let created=0;
  return {fetched,revoked,entries,options:{
@@ -24,6 +26,38 @@ test('storage failure, missing media and private URLs never authorize an offline
  const missing=environment();await assert.rejects(()=>prepareMockOfflineMedia(['/audio/a.mp3'],{...missing.options,fetcher:async()=>new Response('missing',{status:404})}),/unavailable/);
  for(const path of ['/api/student','https://elsewhere/audio/a.mp3','/images/../private']) await assert.rejects(()=>prepareMockOfflineMedia([path],missing.options),/unavailable/);
  assert.equal(missing.fetched.length,0);
+});
+
+test('a repaired image ignores old canonical cache bytes, retains exact new bytes and reloads offline under canonical caller keys',async()=>{
+ const path='/media/initial-sounds/images/t/table.webp',transport=withRepairedImageVersion(path);
+ assert.notEqual(transport,path,'This regression requires the reviewed repair to have an explicit transport revision');
+ const env=environment(),oldBytes=new Uint8Array([9,8,7]);
+ const currentBytes=await readFile(new URL('../../public'+path,import.meta.url));
+ env.entries.set(path,new Response(oldBytes,{headers:{'content-type':'image/webp'}}));
+ let served;
+ const media=await prepareMockOfflineMedia([path],{...env.options,
+  fetcher:async(url,options)=>{env.fetched.push({path:url,options});return new Response(currentBytes,{headers:{'content-type':'image/webp'}});},
+  createObjectURL:blob=>{served=blob;return 'blob:reviewed-table';}});
+ assert.deepEqual(env.fetched.map(row=>row.path),[transport]);
+ assert.equal(media.has([path]),true);assert.equal(media.assets,1);
+ assert.equal(media.resolve(path),'blob:reviewed-table#'+encodeURIComponent(path));
+ assert.deepEqual(Buffer.from(await served.arrayBuffer()),currentBytes);
+ assert.deepEqual(Buffer.from(await env.entries.get(transport).clone().arrayBuffer()),currentBytes);
+ assert.deepEqual(new Uint8Array(await env.entries.get(path).clone().arrayBuffer()),oldBytes,'Unrelated legacy storage is not rewritten as approved');
+ media.dispose();
+ const reload=await prepareMockOfflineMedia([path],{...env.options,fetcher:()=>{throw Error('offline');}});
+ assert.equal(reload.has([path]),true);reload.dispose();
+});
+
+test('old canonical repaired-image bytes cannot authorize readiness when the current revision is unavailable',async()=>{
+ const env=environment(),path='/media/initial-sounds/images/t/table.webp';
+ env.entries.set(path,new Response(new Uint8Array([9,8,7]),{headers:{'content-type':'image/webp'}}));
+ let created=0;
+ const media=await createMockOfflineMedia([path],{...env.options,fetcher:async()=>new Response('offline',{status:503}),createObjectURL:()=>{created++;return 'blob:old';}});
+ await assert.rejects(()=>media.ensure([path]),/unavailable/);
+ assert.equal(media.has([path]),false);assert.equal(media.assets,0);assert.equal(media.bytes,0);
+ assert.equal(media.resolve(path),path);assert.equal(created,0,'Stale bytes never become question evidence');
+ media.dispose();
 });
 test('an aborted media warmup disposes all created object URLs and cannot produce readiness',async()=>{
  const env=environment(), controller=new AbortController();controller.abort();

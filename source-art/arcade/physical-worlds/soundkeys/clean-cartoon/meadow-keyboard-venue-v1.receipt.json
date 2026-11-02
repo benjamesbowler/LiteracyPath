@@ -1,0 +1,171 @@
+{
+  "jobId": "art-0666",
+  "path": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0666.webp",
+  "sourceSha256": "bb9d5c352ba0f3a8856ba6713fd43e4a7b0110d4d260f9d7765f3077db4fd478",
+  "originalSha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0666.webp",
+  "finalSha256": "c33026cfe20d32ef177ad3ad96b97d913654e7e538bd87213684df1b1a1fd041",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a18758-71c3-7753-97e6-8dd41e2a95b9/exec-41c35bd2-b0be-4b83-8b84-a14475151e8a.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0666/native-002.png",
+  "nativeSha256": "bb9d5c352ba0f3a8856ba6713fd43e4a7b0110d4d260f9d7765f3077db4fd478",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.prompt.txt",
+  "promptSha256": "351c65fce9d9022940ce4c65445ccaaacea09f76e43dc9255cdd31612f116911",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/meadow-input-1.png",
+      "sha256": "8aea7edde357fee5d8df03392964acd4256bdbad8027e8df6963d35c7f426edd"
+    },
+    {
+      "path": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/meadow-input-2.png",
+      "sha256": "cb362452e66672e6f3df74feb7746f4d54219ea0b84cf6351a22e599432f30d5"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Timber workshop, gold hanging bells and three blue bell covers per side, recorders and mallets retain an empty broad wooden floor. Red-roof stone watermill and brown wheel remain center-right beside the blue stream; fence left and plain meadow shapes/daisies retained. Crisp outline foliage, restrained smooth shading and no painted grain. Native PNG, exact full saved WebP and390 pixels directly reviewed. Both actual desktop1040x740 and phone390x650 production Canvas views reviewed in primary and forced-primary-failure modes.",
+    "reviewedAt": "2026-10-31T08:55:00.930Z",
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/soundkeys/browser-proof.json",
+    "fullContextSha256": "3a58e964b4e3bfce21d48b5816d38c6c844c01c7268dba5d173b9e538d478a14",
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/soundkeys/venue-six-deliveries390.png",
+    "display390Sha256": "08ce47b66b84533891da8d3026ff0046c2d3a6560c7dcccc749d1af9ef0f28a0",
+    "notABook": true
+  },
+  "historicalNative": {
+    "jobId": "art-0666",
+    "world": "meadow",
+    "currentHistoricalManifestAsset": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2296258,
+      "sourceSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
+      "runtimeBytes": 331382,
+      "runtimeSha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7"
+    },
+    "sourceNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
+    "sourceNativeSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
+    "sourceNativeSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0666-original-native.png",
+    "frozenRuntime": {
+      "path": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "sha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7",
+      "category": "Arcade, maps, Hollow and other artwork",
+      "group": "game-assets/physical-arcade",
+      "decision": "redo",
+      "reason": "Painted/washed/textured illustration; replace with bold clean cartoon artwork.",
+      "decisionEvidence": {
+        "file": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/image-style-audit-2026-10-29/redo-images.json",
+        "sha256": "0234a35d1e663eb7fdf89646a2160593fa8f1a763ca2e4b7bc086d01552d4318",
+        "rowId": 5463
+      },
+      "runtimeBinding": {
+        "literalReferences": [
+          "src/components/learn/games/games/soundKeysArtData.js"
+        ],
+        "dynamic": null,
+        "bound": true,
+        "graphEvidence": {
+          "file": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/remaining-image-audit-2026-10-30/current-reachable-modules.json",
+          "sha256": "20e23e20d6343f6ceaa1d6f6ba5f3752d20d4cc72fddb12ba232e7ccd2cd186d",
+          "moduleCount": 1499
+        }
+      },
+      "priorBaseline": true,
+      "status": "pending",
+      "sameArtworkPaths": [
+        "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp"
+      ],
+      "jobId": "art-0666",
+      "owner": "cd_family",
+      "originalSha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7",
+      "sourceAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0666.webp",
+      "sourceSha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    "dependentDelivery": {
+      "targetPath": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-fallback-v1.webp",
+      "targetOldSHA": "ef7565c5c309a8688373ce70fec1392f6dae215140f62f99308ed43182c983d8",
+      "targetDimensions": [
+        768,
+        432
+      ],
+      "targetHasAlpha": false,
+      "deliveryKind": "smaller-scene-delivery-copy",
+      "owner": "/root/cd_family",
+      "sourcePath": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "sourceCurrentSHA": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceJobId": "art-0666",
+      "sourceOwner": "/root/cd_family",
+      "sourceAcceptedReceiptRequiredBeforeRebuild": true,
+      "priorDerivedAuthority": {
+        "path": ".artifacts/remaining-image-audit-2026-10-30/story-other/fallback-deliveries.json",
+        "sha256": "1c1180c0f6b445e656d2f85fe9dd1c11162ef9c53b3772e7f9871954cf08aa80",
+        "duplicateOf": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp"
+      },
+      "recipe": {
+        "source": "Use the actual accepted current primary WebP or its exact accepted native, recording that real path and SHA. Do not claim a new delivery came from stale source-art PNG bytes.",
+        "resize": "Uniform fit inside the existing768x432 delivery bounds; no creative recrop, distortion or added scenery. Preserve source full scene, aspect and any alpha, with normal raster rounding verified against existing runtime registration.",
+        "encoding": "WebP <=200KiB; start quality90/alphaQuality100, visually verify saved390/128. Existing source module does not specify a unique historic encoder quality; record actual chosen settings truthfully.",
+        "runtimeMetadata": "Refresh only the exact corresponding fallback runtimeSHA/bytes/dimensions/source lineage in its registered game art metadata when integrating; preserve registration and gameplay anchors."
+      },
+      "reviewRequired": "View whole accepted primary and full smaller saved delivery, rendered game context, flag-neutrality/background finish and all essential framing. No additional original imagegen source counted for this verified derived delivery."
+    },
+    "sourceNativeViewed": true,
+    "savedRuntimeViewed": true,
+    "actualContextViewed": false,
+    "reason": "Whole source is hypertextured painted illustrative bamboo/wood/stone/foliage/reflectivefloor, not modeled3D provenance; remains2Dillustration insideCanvas. Emptyfloor/depth/shelf framing preserved; regenerate wholeframe cleanoutlinedflat.",
+    "sourceNativeReview": "DirectlyviewedfullhistoricalsourcePNGandfrozenpublicWebP: painterlyhypertexturedillustrativewood/stone/foliage/reflectivefloorconfirmed. Sameemptyperformancefloorandperipheralshelves/centerworld preservedinsemanticbrief. PNGislineageONLY/notgenerationreference."
+  },
+  "installedAt": "2026-10-31T08:55:00.986Z",
+  "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.png",
+  "acceptedNative": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.png",
+  "lineage": {
+    "originalReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0666/receipt.json",
+    "originalReceiptSha256": "d43cb707f4cded0079a160a1aaa712e2e40dd261fa9f61442115940ef843f091",
+    "historicalSource": "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
+    "historicalNativeSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "nativeSha256": "cb362452e66672e6f3df74feb7746f4d54219ea0b84cf6351a22e599432f30d5",
+      "promptFile": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/meadow-attempt-1.prompt.txt",
+      "promptSha256": "488c20cad16c7c22a246ecc0c9b70205cb58525fee3ce78c369236962b131722",
+      "disposition": "rejected: floor/background rendering not yet clean enough"
+    },
+    {
+      "attempt": 2,
+      "nativeSha256": "bb9d5c352ba0f3a8856ba6713fd43e4a7b0110d4d260f9d7765f3077db4fd478",
+      "promptFile": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/meadow-attempt-2.prompt.txt",
+      "promptSha256": "351c65fce9d9022940ce4c65445ccaaacea09f76e43dc9255cdd31612f116911",
+      "disposition": "accepted"
+    }
+  ]
+}

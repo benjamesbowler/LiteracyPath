@@ -1,4 +1,4 @@
-// Generated from the retained original/alpha/key socket authority.
+// Generated from current source/alpha/key contacts; full authoring provenance stays in the source manifest.
 export const SOUNDKEYS_ART = {
   "chompy-keyboard-actions-v1": {
     "source": "source-art/arcade/physical-worlds/soundkeys/chompy-keyboard-actions-v1.png",
@@ -375,511 +375,6 @@ export const SOUNDKEYS_ART = {
       1431,
       1099
     ],
-    "packing": {
-      "method": "original-connected-body-pixel-assembly",
-      "alphaThreshold": 192,
-      "tileSize": 384,
-      "isolatedCells": true,
-      "originalOpaqueBodyPixelsPreserved": true,
-      "frames": [
-        {
-          "id": 0,
-          "originalCell": [
-            65,
-            10,
-            304,
-            291
-          ],
-          "runtimeOffset": [
-            72,
-            85
-          ],
-          "sourceToRuntimeTranslation": [
-            7,
-            75
-          ],
-          "bounds": [
-            2,
-            2,
-            237,
-            279
-          ],
-          "anchor": [
-            129.07,
-            279
-          ],
-          "bodyOpaquePixels": 36220,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 1,
-          "originalCell": [
-            400,
-            23,
-            672,
-            292
-          ],
-          "runtimeOffset": [
-            440,
-            97
-          ],
-          "sourceToRuntimeTranslation": [
-            40,
-            74
-          ],
-          "bounds": [
-            2,
-            2,
-            270,
-            267
-          ],
-          "anchor": [
-            112.234,
-            267
-          ],
-          "bodyOpaquePixels": 37955,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 2,
-          "originalCell": [
-            763,
-            18,
-            1025,
-            292
-          ],
-          "runtimeOffset": [
-            829,
-            92
-          ],
-          "sourceToRuntimeTranslation": [
-            66,
-            74
-          ],
-          "bounds": [
-            2,
-            2,
-            260,
-            272
-          ],
-          "anchor": [
-            104.684,
-            272
-          ],
-          "bodyOpaquePixels": 38842,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 3,
-          "originalCell": [
-            1175,
-            12,
-            1383,
-            292
-          ],
-          "runtimeOffset": [
-            1240,
-            86
-          ],
-          "sourceToRuntimeTranslation": [
-            65,
-            74
-          ],
-          "bounds": [
-            2,
-            2,
-            206,
-            278
-          ],
-          "anchor": [
-            90.475,
-            278
-          ],
-          "bodyOpaquePixels": 34948,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 4,
-          "originalCell": [
-            52,
-            341,
-            320,
-            544
-          ],
-          "runtimeOffset": [
-            58,
-            547
-          ],
-          "sourceToRuntimeTranslation": [
-            6,
-            206
-          ],
-          "bounds": [
-            2,
-            2,
-            266,
-            201
-          ],
-          "anchor": [
-            151.538,
-            201
-          ],
-          "bodyOpaquePixels": 36414,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 5,
-          "originalCell": [
-            415,
-            314,
-            670,
-            545
-          ],
-          "runtimeOffset": [
-            448,
-            519
-          ],
-          "sourceToRuntimeTranslation": [
-            33,
-            205
-          ],
-          "bounds": [
-            2,
-            2,
-            253,
-            229
-          ],
-          "anchor": [
-            188.129,
-            229
-          ],
-          "bodyOpaquePixels": 37321,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 6,
-          "originalCell": [
-            773,
-            314,
-            1028,
-            546
-          ],
-          "runtimeOffset": [
-            832,
-            518
-          ],
-          "sourceToRuntimeTranslation": [
-            59,
-            204
-          ],
-          "bounds": [
-            2,
-            2,
-            253,
-            230
-          ],
-          "anchor": [
-            181.255,
-            230
-          ],
-          "bodyOpaquePixels": 35243,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 7,
-          "originalCell": [
-            1169,
-            303,
-            1391,
-            565
-          ],
-          "runtimeOffset": [
-            1233,
-            488
-          ],
-          "sourceToRuntimeTranslation": [
-            64,
-            185
-          ],
-          "bounds": [
-            2,
-            2,
-            220,
-            260
-          ],
-          "anchor": [
-            105.28,
-            260
-          ],
-          "bodyOpaquePixels": 35361,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 8,
-          "originalCell": [
-            76,
-            578,
-            314,
-            800
-          ],
-          "runtimeOffset": [
-            73,
-            912
-          ],
-          "sourceToRuntimeTranslation": [
-            -3,
-            334
-          ],
-          "bounds": [
-            2,
-            2,
-            236,
-            220
-          ],
-          "anchor": [
-            177.706,
-            220
-          ],
-          "bodyOpaquePixels": 34096,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 9,
-          "originalCell": [
-            416,
-            566,
-            650,
-            797
-          ],
-          "runtimeOffset": [
-            459,
-            903
-          ],
-          "sourceToRuntimeTranslation": [
-            43,
-            337
-          ],
-          "bounds": [
-            2,
-            2,
-            232,
-            229
-          ],
-          "anchor": [
-            174.115,
-            229
-          ],
-          "bodyOpaquePixels": 34659,
-          "otherOpaquePixelsExcluded": 18,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 10,
-          "originalCell": [
-            737,
-            589,
-            1045,
-            797
-          ],
-          "runtimeOffset": [
-            806,
-            926
-          ],
-          "sourceToRuntimeTranslation": [
-            69,
-            337
-          ],
-          "bounds": [
-            2,
-            2,
-            306,
-            206
-          ],
-          "anchor": [
-            215.849,
-            206
-          ],
-          "bodyOpaquePixels": 37336,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 11,
-          "originalCell": [
-            1131,
-            607,
-            1407,
-            800
-          ],
-          "runtimeOffset": [
-            1206,
-            941
-          ],
-          "sourceToRuntimeTranslation": [
-            75,
-            334
-          ],
-          "bounds": [
-            2,
-            2,
-            274,
-            191
-          ],
-          "anchor": [
-            249.061,
-            191
-          ],
-          "bodyOpaquePixels": 34977,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 12,
-          "originalCell": [
-            80,
-            821,
-            336,
-            1057
-          ],
-          "runtimeOffset": [
-            64,
-            1282
-          ],
-          "sourceToRuntimeTranslation": [
-            -16,
-            461
-          ],
-          "bounds": [
-            2,
-            2,
-            254,
-            234
-          ],
-          "anchor": [
-            207.747,
-            234
-          ],
-          "bodyOpaquePixels": 36898,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 13,
-          "originalCell": [
-            442,
-            794,
-            651,
-            1064
-          ],
-          "runtimeOffset": [
-            471,
-            1248
-          ],
-          "sourceToRuntimeTranslation": [
-            29,
-            454
-          ],
-          "bounds": [
-            2,
-            2,
-            207,
-            268
-          ],
-          "anchor": [
-            70.544,
-            268
-          ],
-          "bodyOpaquePixels": 32682,
-          "otherOpaquePixelsExcluded": 9,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 14,
-          "originalCell": [
-            759,
-            822,
-            1013,
-            1061
-          ],
-          "runtimeOffset": [
-            833,
-            1279
-          ],
-          "sourceToRuntimeTranslation": [
-            74,
-            457
-          ],
-          "bounds": [
-            2,
-            2,
-            252,
-            237
-          ],
-          "anchor": [
-            96.518,
-            237
-          ],
-          "bodyOpaquePixels": 35738,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 15,
-          "originalCell": [
-            1183,
-            801,
-            1383,
-            1068
-          ],
-          "runtimeOffset": [
-            1244,
-            1251
-          ],
-          "sourceToRuntimeTranslation": [
-            61,
-            450
-          ],
-          "bounds": [
-            2,
-            2,
-            198,
-            265
-          ],
-          "anchor": [
-            132.904,
-            265
-          ],
-          "bodyOpaquePixels": 32100,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        }
-      ]
-    },
     "runtimeAssemblySignature": "02bdf667d644a18a057653f094140213dee733611dcb35ab6426807f4ee3577b",
     "nominalHeight": 2.2,
     "pixelsPerUnit": 106.13636363636363,
@@ -1361,200 +856,289 @@ export const SOUNDKEYS_ART = {
     "anatomy": "Adult russet hen with two grounded feet and feathered wing tips; no human hands or carried hat."
   },
   "dino-instrument-kit-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/dino-instrument-kit-v1.png",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-instrument-kit-v1.png",
     "runtime": "/game-assets/physical-arcade/soundkeys/dino-instrument-kit-v1.webp",
     "width": 1448,
     "height": 1086,
-    "sourceBytes": 1547894,
-    "sourceSha256": "9b1f4f6798f18da46a170588b19aae40c9112ef6d496136a20b20de1229fd8db",
-    "runtimeBytes": 454554,
-    "runtimeSha256": "87b4912ed898f620290f1258afc119d40fca9e2382bf1db05781b939945bb42c",
+    "sourceBytes": 916261,
+    "sourceSha256": "b87e990eb17c5ac56f2aec1487a9f4ac4cd7d624e8b5cae929f1668420d75c94",
+    "runtimeBytes": 220164,
+    "runtimeSha256": "3f95b47dd7e0b2f667b24c0aa88dea9adb7d12dfdd9a57ce59079580a2fd003b",
     "parts": {
       "goldBar": [
-        25,
-        146,
-        445,
-        287
+        61,
+        168,
+        409,
+        265
       ],
       "blueBar": [
-        477,
-        145,
-        889,
-        277
+        512,
+        164,
+        854,
+        257
       ],
       "bellResonator": [
-        914,
-        90,
-        1173,
-        311
+        936,
+        112,
+        1152,
+        288
       ],
       "reedResonator": [
-        1269,
-        40,
-        1392,
-        329
+        1283,
+        64,
+        1378,
+        305
       ],
       "woodenFrame": [
-        21,
-        383,
-        641,
-        650
+        75,
+        420,
+        587,
+        613
       ],
       "leftEndcap": [
-        647,
-        397,
-        825,
-        646
+        664,
+        418,
+        807,
+        626
       ],
       "rightEndcap": [
-        845,
-        397,
-        1026,
-        649
+        860,
+        424,
+        1012,
+        623
       ],
       "frontFascia": [
-        1033,
-        477,
-        1448,
-        600
+        1068,
+        492,
+        1412,
+        586
       ],
       "bellRack": [
-        20,
-        702,
-        404,
-        1023
+        52,
+        730,
+        371,
+        994
       ],
       "reedRack": [
-        423,
-        688,
-        711,
-        1029
+        449,
+        716,
+        685,
+        1000
       ],
       "musicBox": [
-        716,
-        751,
-        1089,
-        1022
+        748,
+        780,
+        1058,
+        993
       ],
       "flowers": [
-        1062,
-        677,
-        1448,
-        1064
+        1094,
+        716,
+        1415,
+        1025
       ]
+    },
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-instrument-kit-v1.prompt.txt",
+    "promptSha256": "83eeb890e2c36c61caef498477546f4e403a7e5f518cdf7c096ec66eb99d8cdf",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
     }
   },
   "dino-instrument-kit-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/dino-instrument-kit-v1.png",
-    "sourceSha256": "9b1f4f6798f18da46a170588b19aae40c9112ef6d496136a20b20de1229fd8db",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-instrument-kit-v1.png",
+    "sourceSha256": "b87e990eb17c5ac56f2aec1487a9f4ac4cd7d624e8b5cae929f1668420d75c94",
     "sourceSize": [
       1448,
       1086
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/dino-instrument-kit-fallback-v1.webp",
-    "runtimeBytes": 128056,
-    "runtimeSha256": "2404ae957fe8cb94c56976ddb03b04359da565f9135d5afc26a04193b0dacec7",
+    "runtimeBytes": 71864,
+    "runtimeSha256": "9e40ecb87eed49e290818bc3fdf7e07b602ecde30802d48e7ed69ebfe30b8326",
     "width": 768,
     "height": 576,
     "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
     "parts": {
       "goldBar": [
-        13,
-        77,
-        236,
-        152
+        32,
+        89,
+        217,
+        141
       ],
       "blueBar": [
-        253,
-        77,
-        472,
-        147
+        272,
+        87,
+        453,
+        136
       ],
       "bellResonator": [
-        485,
-        48,
-        622,
-        165
+        496,
+        59,
+        611,
+        153
       ],
       "reedResonator": [
-        673,
-        21,
-        738,
-        174
+        680,
+        34,
+        731,
+        162
       ],
       "woodenFrame": [
-        11,
-        203,
-        340,
-        345
+        40,
+        223,
+        311,
+        325
       ],
       "leftEndcap": [
-        343,
-        211,
-        438,
-        343
+        352,
+        222,
+        428,
+        332
       ],
       "rightEndcap": [
-        448,
-        211,
-        544,
-        344
+        456,
+        225,
+        537,
+        330
       ],
       "frontFascia": [
-        548,
-        253,
-        768,
-        318
+        566,
+        261,
+        749,
+        311
       ],
       "bellRack": [
-        11,
-        372,
-        214,
-        543
+        28,
+        387,
+        197,
+        527
       ],
       "reedRack": [
-        224,
-        365,
-        377,
-        546
+        238,
+        380,
+        363,
+        530
       ],
       "musicBox": [
-        380,
-        398,
-        578,
-        542
+        397,
+        414,
+        561,
+        527
       ],
       "flowers": [
-        563,
-        359,
+        580,
+        380,
+        750,
+        544
+      ]
+    },
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-instrument-kit-v1.prompt.txt",
+    "promptSha256": "83eeb890e2c36c61caef498477546f4e403a7e5f518cdf7c096ec66eb99d8cdf",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 78,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "scene-thumbnail",
+      "maximumSize": [
         768,
-        564
+        768
       ]
     }
   },
   "dino-keyboard-venue-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.png",
     "runtime": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceBytes": 2498681,
-    "sourceSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
-    "runtimeBytes": 392814,
-    "runtimeSha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146"
+    "sourceBytes": 1907036,
+    "sourceSha256": "777ac079e19e901ddf77b9bc4eaa9c565e32328a3201166cca0ba99faa68bcc6",
+    "runtimeBytes": 297668,
+    "runtimeSha256": "6dc3db42986a9b5d54522de05098a32c054fd847cc9ab6080e51eb50bdffaaa3",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.prompt.txt",
+    "promptSha256": "ed775d5a96e1adbc85a28b23e5476cffe4de411d065cb42c5fe109cc7002a884",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "tool": "sharp",
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill"
+      }
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source",
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.png"
+    }
   },
   "dino-keyboard-venue-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
-    "sourceSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
+    "source": "public/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+    "sourceSha256": "6dc3db42986a9b5d54522de05098a32c054fd847cc9ab6080e51eb50bdffaaa3",
     "sourceSize": [
       1672,
       941
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-fallback-v1.webp",
-    "runtimeBytes": 78008,
-    "runtimeSha256": "13f0a93a7d0e370a37b5ff40c10fed683c2cccb8ee96dcd020257e014b23d72f",
+    "runtimeBytes": 85296,
+    "runtimeSha256": "9a50da165f49403a31e6108462cf4164701cddef5047a4b16fe5375ad42672c4",
     "width": 768,
     "height": 432,
-    "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry"
+    "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
+    "sourceBytes": 297668,
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.prompt.txt",
+    "promptSha256": "ed775d5a96e1adbc85a28b23e5476cffe4de411d065cb42c5fe109cc7002a884",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "tool": "sharp",
+      "format": "webp",
+      "quality": 90,
+      "alphaQuality": 100,
+      "effort": 6
+    },
+    "deliveryRecipe": {
+      "kind": "scene-thumbnail",
+      "maximumSize": [
+        768,
+        432
+      ],
+      "acceptedNativeSource": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.png",
+      "acceptedNativeSha256": "777ac079e19e901ddf77b9bc4eaa9c565e32328a3201166cca0ba99faa68bcc6",
+      "actualInput": "public/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "actualInputSha256": "6dc3db42986a9b5d54522de05098a32c054fd847cc9ab6080e51eb50bdffaaa3",
+      "resize": {
+        "width": 768,
+        "height": 432,
+        "fit": "inside"
+      },
+      "encoder": {
+        "tool": "sharp",
+        "sharpVersion": "0.35.5",
+        "libvipsVersion": "8.18.7",
+        "resize": {
+          "width": 768,
+          "height": 432,
+          "fit": "inside"
+        },
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 6
+        }
+      }
+    }
   },
   "dozy-keyboard-actions-v1": {
     "source": "source-art/arcade/physical-worlds/soundkeys/dozy-keyboard-actions-v1.png",
@@ -1936,511 +1520,6 @@ export const SOUNDKEYS_ART = {
       1431,
       1099
     ],
-    "packing": {
-      "method": "original-connected-body-pixel-assembly",
-      "alphaThreshold": 192,
-      "tileSize": 384,
-      "isolatedCells": true,
-      "originalOpaqueBodyPixelsPreserved": true,
-      "frames": [
-        {
-          "id": 0,
-          "originalCell": [
-            105,
-            6,
-            296,
-            292
-          ],
-          "runtimeOffset": [
-            96,
-            80
-          ],
-          "sourceToRuntimeTranslation": [
-            -9,
-            74
-          ],
-          "bounds": [
-            2,
-            2,
-            189,
-            284
-          ],
-          "anchor": [
-            86.739,
-            284
-          ],
-          "bodyOpaquePixels": 36207,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 1,
-          "originalCell": [
-            417,
-            11,
-            652,
-            292
-          ],
-          "runtimeOffset": [
-            458,
-            85
-          ],
-          "sourceToRuntimeTranslation": [
-            41,
-            74
-          ],
-          "bounds": [
-            2,
-            2,
-            233,
-            279
-          ],
-          "anchor": [
-            85.035,
-            279
-          ],
-          "bodyOpaquePixels": 40271,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 2,
-          "originalCell": [
-            790,
-            11,
-            1019,
-            293
-          ],
-          "runtimeOffset": [
-            845,
-            84
-          ],
-          "sourceToRuntimeTranslation": [
-            55,
-            73
-          ],
-          "bounds": [
-            2,
-            2,
-            227,
-            280
-          ],
-          "anchor": [
-            90.953,
-            280
-          ],
-          "bodyOpaquePixels": 38701,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 3,
-          "originalCell": [
-            1171,
-            11,
-            1362,
-            293
-          ],
-          "runtimeOffset": [
-            1248,
-            84
-          ],
-          "sourceToRuntimeTranslation": [
-            77,
-            73
-          ],
-          "bounds": [
-            2,
-            2,
-            189,
-            280
-          ],
-          "anchor": [
-            108.643,
-            280
-          ],
-          "bodyOpaquePixels": 36270,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 4,
-          "originalCell": [
-            77,
-            308,
-            340,
-            554
-          ],
-          "runtimeOffset": [
-            60,
-            504
-          ],
-          "sourceToRuntimeTranslation": [
-            -17,
-            196
-          ],
-          "bounds": [
-            2,
-            2,
-            261,
-            244
-          ],
-          "anchor": [
-            191.31,
-            244
-          ],
-          "bodyOpaquePixels": 37709,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 5,
-          "originalCell": [
-            426,
-            307,
-            654,
-            553
-          ],
-          "runtimeOffset": [
-            462,
-            504
-          ],
-          "sourceToRuntimeTranslation": [
-            36,
-            197
-          ],
-          "bounds": [
-            2,
-            2,
-            226,
-            244
-          ],
-          "anchor": [
-            98.801,
-            244
-          ],
-          "bodyOpaquePixels": 36862,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 6,
-          "originalCell": [
-            812,
-            298,
-            1027,
-            555
-          ],
-          "runtimeOffset": [
-            852,
-            493
-          ],
-          "sourceToRuntimeTranslation": [
-            40,
-            195
-          ],
-          "bounds": [
-            2,
-            2,
-            213,
-            255
-          ],
-          "anchor": [
-            150.731,
-            255
-          ],
-          "bodyOpaquePixels": 37119,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 7,
-          "originalCell": [
-            1189,
-            299,
-            1390,
-            555
-          ],
-          "runtimeOffset": [
-            1243,
-            494
-          ],
-          "sourceToRuntimeTranslation": [
-            54,
-            195
-          ],
-          "bounds": [
-            2,
-            2,
-            199,
-            254
-          ],
-          "anchor": [
-            120.649,
-            254
-          ],
-          "bodyOpaquePixels": 35208,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 8,
-          "originalCell": [
-            80,
-            554,
-            286,
-            811
-          ],
-          "runtimeOffset": [
-            89,
-            877
-          ],
-          "sourceToRuntimeTranslation": [
-            9,
-            323
-          ],
-          "bounds": [
-            2,
-            2,
-            204,
-            255
-          ],
-          "anchor": [
-            103.795,
-            255
-          ],
-          "bodyOpaquePixels": 35870,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 9,
-          "originalCell": [
-            445,
-            563,
-            674,
-            809
-          ],
-          "runtimeOffset": [
-            461,
-            888
-          ],
-          "sourceToRuntimeTranslation": [
-            16,
-            325
-          ],
-          "bounds": [
-            2,
-            2,
-            227,
-            244
-          ],
-          "anchor": [
-            133.622,
-            244
-          ],
-          "bodyOpaquePixels": 37451,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 10,
-          "originalCell": [
-            778,
-            565,
-            1032,
-            810
-          ],
-          "runtimeOffset": [
-            833,
-            889
-          ],
-          "sourceToRuntimeTranslation": [
-            55,
-            324
-          ],
-          "bounds": [
-            2,
-            2,
-            252,
-            243
-          ],
-          "anchor": [
-            59.196,
-            243
-          ],
-          "bodyOpaquePixels": 38659,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 11,
-          "originalCell": [
-            1130,
-            564,
-            1383,
-            809
-          ],
-          "runtimeOffset": [
-            1217,
-            889
-          ],
-          "sourceToRuntimeTranslation": [
-            87,
-            325
-          ],
-          "bounds": [
-            2,
-            2,
-            251,
-            243
-          ],
-          "anchor": [
-            133.243,
-            243
-          ],
-          "bodyOpaquePixels": 39273,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 12,
-          "originalCell": [
-            76,
-            818,
-            304,
-            1082
-          ],
-          "runtimeOffset": [
-            78,
-            1254
-          ],
-          "sourceToRuntimeTranslation": [
-            2,
-            436
-          ],
-          "bounds": [
-            2,
-            2,
-            226,
-            262
-          ],
-          "anchor": [
-            64.406,
-            262
-          ],
-          "bodyOpaquePixels": 39354,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 13,
-          "originalCell": [
-            445,
-            812,
-            650,
-            1085
-          ],
-          "runtimeOffset": [
-            473,
-            1245
-          ],
-          "sourceToRuntimeTranslation": [
-            28,
-            433
-          ],
-          "bounds": [
-            2,
-            2,
-            203,
-            271
-          ],
-          "anchor": [
-            65.829,
-            271
-          ],
-          "bodyOpaquePixels": 35246,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 14,
-          "originalCell": [
-            792,
-            838,
-            1010,
-            1085
-          ],
-          "runtimeOffset": [
-            851,
-            1271
-          ],
-          "sourceToRuntimeTranslation": [
-            59,
-            433
-          ],
-          "bounds": [
-            2,
-            2,
-            216,
-            245
-          ],
-          "anchor": [
-            81.048,
-            245
-          ],
-          "bodyOpaquePixels": 34910,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 15,
-          "originalCell": [
-            1184,
-            810,
-            1377,
-            1085
-          ],
-          "runtimeOffset": [
-            1247,
-            1243
-          ],
-          "sourceToRuntimeTranslation": [
-            63,
-            433
-          ],
-          "bounds": [
-            2,
-            2,
-            191,
-            273
-          ],
-          "anchor": [
-            105.628,
-            273
-          ],
-          "bodyOpaquePixels": 35298,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        }
-      ]
-    },
     "runtimeAssemblySignature": "0c2bc59d319c94e99d4776ad042dc578b4bab74bf5357001a28612d863d92e40",
     "nominalHeight": 2.2,
     "pixelsPerUnit": 114.99999999999999,
@@ -2487,51 +1566,51 @@ export const SOUNDKEYS_ART = {
     "anatomy": "pressingForepaw"
   },
   "fern-keyboard-actions-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/fern-keyboard-actions-v1.png",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/fern-keyboard-actions-v1.png",
     "runtime": "/game-assets/physical-arcade/soundkeys/fern-keyboard-actions-v1.webp",
     "width": 1536,
     "height": 1536,
-    "sourceBytes": 1778925,
-    "sourceSha256": "48d3c552a469e9d5c63f5f85b94c3d2c05c67217c5db7ab2cebf663deed3aeab",
-    "runtimeBytes": 561772,
-    "runtimeSha256": "9ab0cf07eba78d3e4de076c0807192f83e610847b2e9094bfccdaaa5c107c120",
+    "sourceBytes": 1744642,
+    "sourceSha256": "fc6ffbcb1e9aba8629be9614efc5ab7c5b1448f0d65c70dd9c232525b48e0363",
+    "runtimeBytes": 493514,
+    "runtimeSha256": "a09eb453cd45f70e69bc74679a6ebad83659ded141653cf8810b066c58831a79",
     "frames": [
       {
         "id": 0,
         "cell": [
-          108,
-          63,
-          276,
-          366
+          104,
+          40,
+          279,
+          346
         ],
         "anchor": [
-          76.927,
-          301
+          86.22147651006713,
+          302
         ],
         "bounds": [
           2,
           2,
-          166,
-          301
+          173,
+          304
         ],
         "sockets": {}
       },
       {
         "id": 1,
         "cell": [
-          450,
-          64,
-          701,
-          366
+          440,
+          45,
+          711,
+          347
         ],
         "anchor": [
-          191.893,
-          300
+          180.7933884297521,
+          298
         ],
         "bounds": [
           2,
           2,
-          249,
+          269,
           300
         ],
         "sockets": {}
@@ -2539,320 +1618,320 @@ export const SOUNDKEYS_ART = {
       {
         "id": 2,
         "cell": [
-          841,
-          62,
-          1079,
-          366
+          825,
+          44,
+          1095,
+          347
         ],
         "anchor": [
-          69.992,
-          302
+          95.16788321167883,
+          299
         ],
         "bounds": [
           2,
           2,
-          236,
-          302
+          268,
+          301
         ],
         "sockets": {}
       },
       {
         "id": 3,
         "cell": [
-          1263,
-          63,
-          1425,
-          366
+          1254,
+          37,
+          1434,
+          347
         ],
         "anchor": [
-          80.088,
-          301
+          104.94285714285706,
+          306
         ],
         "bounds": [
           2,
           2,
-          160,
-          301
+          178,
+          308
         ],
         "sockets": {}
       },
       {
         "id": 4,
         "cell": [
-          55,
-          486,
-          328,
-          750
+          44,
+          479,
+          340,
+          731
         ],
         "anchor": [
-          137.274,
-          262
+          211.13636363636363,
+          248
         ],
         "bounds": [
           2,
           2,
-          271,
-          262
+          294,
+          250
         ],
         "sockets": {
           "pressingFingertip": [
-            89,
-            730
+            90,
+            718
           ]
         }
       },
       {
         "id": 5,
         "cell": [
-          450,
-          489,
-          702,
-          750
+          434,
+          481,
+          717,
+          731
         ],
         "anchor": [
-          143.938,
-          259
+          176.18248175182475,
+          246
         ],
         "bounds": [
           2,
           2,
-          250,
-          259
+          281,
+          248
         ],
         "sockets": {
           "pressingFingertip": [
-            490,
-            732
+            483,
+            721
           ]
         }
       },
       {
         "id": 6,
         "cell": [
-          861,
-          478,
-          1058,
-          750
+          851,
+          472,
+          1068,
+          731
         ],
         "anchor": [
-          86.5,
-          270
+          107,
+          254
         ],
         "bounds": [
           2,
           2,
-          195,
-          270
+          215,
+          257
         ],
         "sockets": {
           "pressingFingertip": [
-            940,
-            733
+            956,
+            723
           ]
         }
       },
       {
         "id": 7,
         "cell": [
-          1253,
-          487,
-          1434,
-          750
+          1237,
+          471,
+          1450,
+          731
         ],
         "anchor": [
-          84.576,
-          261
+          36.73076923076928,
+          255
         ],
         "bounds": [
           2,
           2,
-          179,
-          261
+          211,
+          258
         ],
         "sockets": {
           "pressingFingertip": [
-            1295,
-            731
+            1268,
+            723
           ]
         }
       },
       {
         "id": 8,
         "cell": [
-          76,
-          878,
-          308,
-          1134
+          67,
+          862,
+          316,
+          1115
         ],
         "anchor": [
-          83.223,
-          254
+          215.38709677419354,
+          248
         ],
         "bounds": [
           2,
           2,
-          230,
-          254
+          247,
+          251
         ],
         "sockets": {
           "pressingFingertip": [
-            273,
-            1112
+            282,
+            1107
           ]
         }
       },
       {
         "id": 9,
         "cell": [
-          443,
-          882,
-          708,
-          1134
+          436,
+          870,
+          716,
+          1115
         ],
         "anchor": [
-          160.565,
-          250
+          91.63709677419354,
+          241
         ],
         "bounds": [
           2,
           2,
-          263,
-          250
+          278,
+          243
         ],
         "sockets": {
           "pressingFingertip": [
-            662,
-            1117
+            666,
+            1104
           ]
         }
       },
       {
         "id": 10,
         "cell": [
-          820,
-          893,
-          1100,
-          1134
+          809,
+          876,
+          1110,
+          1115
         ],
         "anchor": [
-          143.938,
-          239
+          116.47413793103442,
+          235
         ],
         "bounds": [
           2,
           2,
-          278,
-          239
+          299,
+          237
         ],
         "sockets": {
           "pressingFingertip": [
-            1073,
-            1111
+            1062,
+            1107
           ]
         }
       },
       {
         "id": 11,
         "cell": [
-          1202,
-          888,
-          1485,
-          1134
+          1189,
+          876,
+          1499,
+          1115
         ],
         "anchor": [
-          184.815,
-          244
+          128.09302325581393,
+          235
         ],
         "bounds": [
           2,
           2,
-          281,
-          244
+          308,
+          237
         ],
         "sockets": {
           "pressingFingertip": [
-            1451,
-            1110
+            1452,
+            1108
           ]
         }
       },
       {
         "id": 12,
         "cell": [
-          100,
-          1241,
-          283,
-          1518
+          98,
+          1203,
+          285,
+          1499
         ],
         "anchor": [
-          84.571,
-          275
+          98.14201183431953,
+          291
         ],
         "bounds": [
           2,
           2,
-          181,
-          275
+          185,
+          294
         ],
         "sockets": {}
       },
       {
         "id": 13,
         "cell": [
-          457,
-          1230,
-          695,
-          1518
+          447,
+          1202,
+          705,
+          1498
         ],
         "anchor": [
-          124.807,
-          286
+          137.48101265822788,
+          292
         ],
         "bounds": [
           2,
           2,
-          236,
-          286
+          256,
+          294
         ],
         "sockets": {}
       },
       {
         "id": 14,
         "cell": [
-          862,
-          1250,
-          1057,
-          1518
+          858,
+          1212,
+          1062,
+          1498
         ],
         "anchor": [
-          78.372,
-          266
+          82.90151515151513,
+          282
         ],
         "bounds": [
           2,
           2,
-          193,
-          266
+          202,
+          284
         ],
         "sockets": {}
       },
       {
         "id": 15,
         "cell": [
-          1246,
-          1245,
-          1441,
-          1518
+          1232,
+          1200,
+          1456,
+          1499
         ],
         "anchor": [
-          112.545,
-          271
+          158.19327731092426,
+          294
         ],
         "bounds": [
           2,
           2,
-          193,
-          271
+          222,
+          297
         ],
         "sockets": {}
       }
@@ -2868,532 +1947,38 @@ export const SOUNDKEYS_ART = {
       11
     ],
     "sourceSize": [
-      1431,
-      1099
+      1536,
+      1536
     ],
-    "packing": {
-      "method": "original-connected-body-pixel-assembly",
-      "alphaThreshold": 192,
-      "tileSize": 384,
-      "isolatedCells": true,
-      "originalOpaqueBodyPixelsPreserved": true,
-      "frames": [
-        {
-          "id": 0,
-          "originalCell": [
-            115,
-            2,
-            283,
-            305
-          ],
-          "runtimeOffset": [
-            108,
-            63
-          ],
-          "sourceToRuntimeTranslation": [
-            -7,
-            61
-          ],
-          "bounds": [
-            2,
-            2,
-            166,
-            301
-          ],
-          "anchor": [
-            76.927,
-            301
-          ],
-          "bodyOpaquePixels": 28582,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 1,
-          "originalCell": [
-            419,
-            4,
-            670,
-            306
-          ],
-          "runtimeOffset": [
-            450,
-            64
-          ],
-          "sourceToRuntimeTranslation": [
-            31,
-            60
-          ],
-          "bounds": [
-            2,
-            2,
-            249,
-            300
-          ],
-          "anchor": [
-            191.893,
-            300
-          ],
-          "bodyOpaquePixels": 34290,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 2,
-          "originalCell": [
-            783,
-            2,
-            1021,
-            306
-          ],
-          "runtimeOffset": [
-            841,
-            62
-          ],
-          "sourceToRuntimeTranslation": [
-            58,
-            60
-          ],
-          "bounds": [
-            2,
-            2,
-            236,
-            302
-          ],
-          "anchor": [
-            69.992,
-            302
-          ],
-          "bodyOpaquePixels": 34027,
-          "otherOpaquePixelsExcluded": 38,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 3,
-          "originalCell": [
-            1159,
-            3,
-            1321,
-            306
-          ],
-          "runtimeOffset": [
-            1263,
-            63
-          ],
-          "sourceToRuntimeTranslation": [
-            104,
-            60
-          ],
-          "bounds": [
-            2,
-            2,
-            160,
-            301
-          ],
-          "anchor": [
-            80.088,
-            301
-          ],
-          "bodyOpaquePixels": 28669,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 4,
-          "originalCell": [
-            51,
-            307,
-            324,
-            571
-          ],
-          "runtimeOffset": [
-            55,
-            486
-          ],
-          "sourceToRuntimeTranslation": [
-            4,
-            179
-          ],
-          "bounds": [
-            2,
-            2,
-            271,
-            262
-          ],
-          "anchor": [
-            137.274,
-            262
-          ],
-          "bodyOpaquePixels": 33909,
-          "otherOpaquePixelsExcluded": 16,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 5,
-          "originalCell": [
-            420,
-            308,
-            672,
-            569
-          ],
-          "runtimeOffset": [
-            450,
-            489
-          ],
-          "sourceToRuntimeTranslation": [
-            30,
-            181
-          ],
-          "bounds": [
-            2,
-            2,
-            250,
-            259
-          ],
-          "anchor": [
-            143.938,
-            259
-          ],
-          "bodyOpaquePixels": 32500,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 6,
-          "originalCell": [
-            797,
-            299,
-            994,
-            571
-          ],
-          "runtimeOffset": [
-            861,
-            478
-          ],
-          "sourceToRuntimeTranslation": [
-            64,
-            179
-          ],
-          "bounds": [
-            2,
-            2,
-            195,
-            270
-          ],
-          "anchor": [
-            86.5,
-            270
-          ],
-          "bodyOpaquePixels": 31090,
-          "otherOpaquePixelsExcluded": 85,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 7,
-          "originalCell": [
-            1157,
-            306,
-            1338,
-            569
-          ],
-          "runtimeOffset": [
-            1253,
-            487
-          ],
-          "sourceToRuntimeTranslation": [
-            96,
-            181
-          ],
-          "bounds": [
-            2,
-            2,
-            179,
-            261
-          ],
-          "anchor": [
-            84.576,
-            261
-          ],
-          "bodyOpaquePixels": 29547,
-          "otherOpaquePixelsExcluded": 4,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 8,
-          "originalCell": [
-            78,
-            566,
-            310,
-            822
-          ],
-          "runtimeOffset": [
-            76,
-            878
-          ],
-          "sourceToRuntimeTranslation": [
-            -2,
-            312
-          ],
-          "bounds": [
-            2,
-            2,
-            230,
-            254
-          ],
-          "anchor": [
-            83.223,
-            254
-          ],
-          "bodyOpaquePixels": 29887,
-          "otherOpaquePixelsExcluded": 31,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 9,
-          "originalCell": [
-            422,
-            570,
-            687,
-            822
-          ],
-          "runtimeOffset": [
-            443,
-            882
-          ],
-          "sourceToRuntimeTranslation": [
-            21,
-            312
-          ],
-          "bounds": [
-            2,
-            2,
-            263,
-            250
-          ],
-          "anchor": [
-            160.565,
-            250
-          ],
-          "bodyOpaquePixels": 31824,
-          "otherOpaquePixelsExcluded": 178,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 10,
-          "originalCell": [
-            753,
-            583,
-            1033,
-            824
-          ],
-          "runtimeOffset": [
-            820,
-            893
-          ],
-          "sourceToRuntimeTranslation": [
-            67,
-            310
-          ],
-          "bounds": [
-            2,
-            2,
-            278,
-            239
-          ],
-          "anchor": [
-            143.938,
-            239
-          ],
-          "bodyOpaquePixels": 30600,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 11,
-          "originalCell": [
-            1115,
-            583,
-            1398,
-            829
-          ],
-          "runtimeOffset": [
-            1202,
-            888
-          ],
-          "sourceToRuntimeTranslation": [
-            87,
-            305
-          ],
-          "bounds": [
-            2,
-            2,
-            281,
-            244
-          ],
-          "anchor": [
-            184.815,
-            244
-          ],
-          "bodyOpaquePixels": 32973,
-          "otherOpaquePixelsExcluded": 26,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 12,
-          "originalCell": [
-            110,
-            820,
-            293,
-            1097
-          ],
-          "runtimeOffset": [
-            100,
-            1241
-          ],
-          "sourceToRuntimeTranslation": [
-            -10,
-            421
-          ],
-          "bounds": [
-            2,
-            2,
-            181,
-            275
-          ],
-          "anchor": [
-            84.571,
-            275
-          ],
-          "bodyOpaquePixels": 30473,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 13,
-          "originalCell": [
-            426,
-            808,
-            664,
-            1096
-          ],
-          "runtimeOffset": [
-            457,
-            1230
-          ],
-          "sourceToRuntimeTranslation": [
-            31,
-            422
-          ],
-          "bounds": [
-            2,
-            2,
-            236,
-            286
-          ],
-          "anchor": [
-            124.807,
-            286
-          ],
-          "bodyOpaquePixels": 33488,
-          "otherOpaquePixelsExcluded": 791,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 14,
-          "originalCell": [
-            802,
-            829,
-            997,
-            1097
-          ],
-          "runtimeOffset": [
-            862,
-            1250
-          ],
-          "sourceToRuntimeTranslation": [
-            60,
-            421
-          ],
-          "bounds": [
-            2,
-            2,
-            193,
-            266
-          ],
-          "anchor": [
-            78.372,
-            266
-          ],
-          "bodyOpaquePixels": 27649,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 15,
-          "originalCell": [
-            1137,
-            824,
-            1332,
-            1097
-          ],
-          "runtimeOffset": [
-            1246,
-            1245
-          ],
-          "sourceToRuntimeTranslation": [
-            109,
-            421
-          ],
-          "bounds": [
-            2,
-            2,
-            193,
-            271
-          ],
-          "anchor": [
-            112.545,
-            271
-          ],
-          "bodyOpaquePixels": 29005,
-          "otherOpaquePixelsExcluded": 8,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        }
-      ]
-    },
-    "runtimeAssemblySignature": "c4d2a4cab0111c890b603840ca1ec81b03b8d0ca37171ff91d92ec82b68f3391",
+    "runtimeAssemblySignature": "fc6ffbcb1e9aba8629be9614efc5ab7c5b1448f0d65c70dd9c232525b48e0363",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 120.90909090909089,
-    "anatomy": "pressingFingertip"
+    "pixelsPerUnit": 122.27272727272727,
+    "anatomy": "pressingFingertip",
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/fern-keyboard-actions-v1.prompt.txt",
+    "promptSha256": "af2666ff1a65174e16b2ef74f1e1d131820bfe5b05373d68ed3a58ec9fd7a731",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
   },
   "fern-keyboard-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/fern-keyboard-actions-v1.png",
-    "sourceSha256": "48d3c552a469e9d5c63f5f85b94c3d2c05c67217c5db7ab2cebf663deed3aeab",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/fern-keyboard-actions-v1.png",
+    "sourceSha256": "fc6ffbcb1e9aba8629be9614efc5ab7c5b1448f0d65c70dd9c232525b48e0363",
     "sourceSize": [
-      1431,
-      1099
+      1536,
+      1536
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/fern-keyboard-fallback-v1.webp",
-    "runtimeBytes": 29968,
-    "runtimeSha256": "98027790c0c884db41369e82cecfcd66b28464a1037ce0f17f567153d7cddca2",
+    "runtimeBytes": 25232,
+    "runtimeSha256": "4848598def6b3bdf9d95fdf1e3dd03c0ec5dc79ad4f948a4c7e42152a33c9003",
     "width": 168,
     "height": 303,
-    "pixelsPerUnit": 120.90909090909089,
+    "pixelsPerUnit": 117.38181818181818,
     "nominalHeight": 2.2,
     "frames": [
       {
@@ -3405,401 +1990,608 @@ export const SOUNDKEYS_ART = {
           303
         ],
         "anchor": [
-          76.927,
-          301
+          82.77261744966445,
+          293.92
         ],
         "bounds": [
-          2,
-          2,
-          166,
-          301
+          0,
+          0,
+          168,
+          303
         ],
         "sockets": {}
       }
     ],
     "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
     "originalFrame": 0,
-    "anatomy": "pressingFingertip"
-  },
-  "instrument-kit-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/instrument-kit-v1.png",
-    "runtime": "/game-assets/physical-arcade/soundkeys/instrument-kit-v1.webp",
-    "width": 1448,
-    "height": 1086,
-    "sourceBytes": 1430856,
-    "sourceSha256": "219dcf41e5f825f00be9389b5ec0f59687089f74729acc8e84f83acfec0df147",
-    "runtimeBytes": 376142,
-    "runtimeSha256": "34c52fa2aa9de0739ed07eb76dfb70453bba8406a16b383b6e2bc76a6ea66dfc",
-    "parts": {
-      "goldBar": [
-        46,
-        119,
-        440,
-        244
+    "anatomy": "pressingFingertip",
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/fern-keyboard-actions-v1.prompt.txt",
+    "promptSha256": "af2666ff1a65174e16b2ef74f1e1d131820bfe5b05373d68ed3a58ec9fd7a731",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 84,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "first-frame-fitted",
+      "sourceCrop": [
+        104,
+        40,
+        279,
+        346
       ],
-      "blueBar": [
-        464,
-        125,
-        846,
-        245
+      "resizedSize": [
+        168,
+        294
       ],
-      "bellResonator": [
-        896,
-        78,
-        1151,
-        287
+      "targetSize": [
+        168,
+        303
       ],
-      "reedResonator": [
-        1242,
-        78,
-        1398,
-        292
-      ],
-      "woodenFrame": [
-        48,
-        325,
-        1112,
-        605
-      ],
-      "rightEndcap": [
-        1250,
-        330,
-        1408,
-        605
-      ],
-      "frontFascia": [
-        192,
-        610,
-        1261,
-        713
-      ],
-      "bellRack": [
-        34,
-        722,
-        437,
-        1004
-      ],
-      "reedRack": [
-        457,
-        702,
-        702,
-        1028
-      ],
-      "musicBox": [
-        735,
-        790,
-        1060,
-        1027
-      ],
-      "flowers": [
-        1081,
-        718,
-        1432,
-        1069
+      "offset": [
+        0,
+        4
       ]
     }
   },
+  "instrument-kit-v1": {
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/instrument-kit-v1.png",
+    "runtime": "/game-assets/physical-arcade/soundkeys/instrument-kit-v1.webp",
+    "width": 1448,
+    "height": 1086,
+    "sourceBytes": 761028,
+    "sourceSha256": "97a31feccd53dbd138fe480ba3cc6bd940afddcf5914e104e0b3ca6d444c4700",
+    "runtimeBytes": 174198,
+    "runtimeSha256": "ffe80c0fdc78d1b8d4b29406a2c78a70469bce6b183e11249b5f7684ff982a13",
+    "parts": {
+      "goldBar": [
+        80,
+        133,
+        407,
+        230
+      ],
+      "blueBar": [
+        496,
+        139,
+        813,
+        231
+      ],
+      "bellResonator": [
+        917,
+        96,
+        1130,
+        268
+      ],
+      "reedResonator": [
+        1254,
+        99,
+        1386,
+        271
+      ],
+      "woodenFrame": [
+        142,
+        353,
+        1018,
+        577
+      ],
+      "rightEndcap": [
+        1266,
+        352,
+        1391,
+        582
+      ],
+      "frontFascia": [
+        286,
+        622,
+        1167,
+        702
+      ],
+      "bellRack": [
+        84,
+        746,
+        386,
+        981
+      ],
+      "reedRack": [
+        477,
+        736,
+        682,
+        995
+      ],
+      "musicBox": [
+        762,
+        816,
+        1032,
+        1000
+      ],
+      "flowers": [
+        1110,
+        770,
+        1402,
+        1017
+      ]
+    },
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/instrument-kit-v1.prompt.txt",
+    "promptSha256": "c04e9d43b26e8322cb24b2ba1ec879e9f1ec732f9c33edb1030ada61533e2273",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
+    }
+  },
   "instrument-kit-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/instrument-kit-v1.png",
-    "sourceSha256": "219dcf41e5f825f00be9389b5ec0f59687089f74729acc8e84f83acfec0df147",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/instrument-kit-v1.png",
+    "sourceSha256": "97a31feccd53dbd138fe480ba3cc6bd940afddcf5914e104e0b3ca6d444c4700",
     "sourceSize": [
       1448,
       1086
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/instrument-kit-fallback-v1.webp",
-    "runtimeBytes": 108238,
-    "runtimeSha256": "0cae5404961a7d23755423f8f27abe1a77366c8df8c6ef6be34d63756b4fed58",
+    "runtimeBytes": 59864,
+    "runtimeSha256": "4743f61d3d1f5b0f38ae5b1e1ce0f59cbed2e6980ddfb99748db9ae9c0df6dd8",
     "width": 768,
     "height": 576,
     "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
     "parts": {
       "goldBar": [
-        24,
-        63,
-        233,
-        129
+        42,
+        71,
+        216,
+        122
       ],
       "blueBar": [
-        246,
-        66,
-        449,
-        130
+        263,
+        74,
+        431,
+        123
       ],
       "bellResonator": [
-        475,
-        41,
-        610,
-        152
+        486,
+        51,
+        599,
+        142
       ],
       "reedResonator": [
-        659,
-        41,
-        741,
-        155
+        665,
+        53,
+        735,
+        144
       ],
       "woodenFrame": [
-        25,
-        172,
-        590,
-        321
+        75,
+        187,
+        540,
+        306
       ],
       "rightEndcap": [
-        663,
-        175,
-        747,
-        321
+        671,
+        187,
+        738,
+        309
       ],
       "frontFascia": [
-        102,
-        324,
-        669,
-        378
+        152,
+        330,
+        619,
+        372
       ],
       "bellRack": [
-        18,
-        383,
-        232,
-        533
+        45,
+        396,
+        205,
+        520
       ],
       "reedRack": [
-        242,
-        372,
-        372,
-        545
+        253,
+        390,
+        362,
+        528
       ],
       "musicBox": [
-        390,
-        419,
-        562,
-        545
+        404,
+        433,
+        547,
+        530
       ],
       "flowers": [
-        573,
-        381,
-        760,
-        567
+        589,
+        408,
+        744,
+        539
+      ]
+    },
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/instrument-kit-v1.prompt.txt",
+    "promptSha256": "c04e9d43b26e8322cb24b2ba1ec879e9f1ec732f9c33edb1030ada61533e2273",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 78,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "scene-thumbnail",
+      "maximumSize": [
+        768,
+        768
       ]
     }
   },
   "meadow-keyboard-venue-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.png",
     "runtime": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceBytes": 2296258,
-    "sourceSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
-    "runtimeBytes": 331382,
-    "runtimeSha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7"
+    "sourceBytes": 1804072,
+    "sourceSha256": "bb9d5c352ba0f3a8856ba6713fd43e4a7b0110d4d260f9d7765f3077db4fd478",
+    "runtimeBytes": 260474,
+    "runtimeSha256": "c33026cfe20d32ef177ad3ad96b97d913654e7e538bd87213684df1b1a1fd041",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.prompt.txt",
+    "promptSha256": "351c65fce9d9022940ce4c65445ccaaacea09f76e43dc9255cdd31612f116911",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "tool": "sharp",
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill"
+      }
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source",
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.png"
+    }
   },
   "meadow-keyboard-venue-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
-    "sourceSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
+    "source": "public/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+    "sourceSha256": "c33026cfe20d32ef177ad3ad96b97d913654e7e538bd87213684df1b1a1fd041",
     "sourceSize": [
       1672,
       941
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-fallback-v1.webp",
-    "runtimeBytes": 71652,
-    "runtimeSha256": "ef7565c5c309a8688373ce70fec1392f6dae215140f62f99308ed43182c983d8",
+    "runtimeBytes": 75322,
+    "runtimeSha256": "44bd7808e60a664b6373046c584beb725cf6b85d4a947f9936f0f9934b291ea1",
     "width": 768,
     "height": 432,
-    "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry"
+    "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
+    "sourceBytes": 260474,
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.prompt.txt",
+    "promptSha256": "351c65fce9d9022940ce4c65445ccaaacea09f76e43dc9255cdd31612f116911",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "tool": "sharp",
+      "format": "webp",
+      "quality": 90,
+      "alphaQuality": 100,
+      "effort": 6
+    },
+    "deliveryRecipe": {
+      "kind": "scene-thumbnail",
+      "maximumSize": [
+        768,
+        432
+      ],
+      "acceptedNativeSource": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/meadow-keyboard-venue-v1.png",
+      "acceptedNativeSha256": "bb9d5c352ba0f3a8856ba6713fd43e4a7b0110d4d260f9d7765f3077db4fd478",
+      "actualInput": "public/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "actualInputSha256": "c33026cfe20d32ef177ad3ad96b97d913654e7e538bd87213684df1b1a1fd041",
+      "resize": {
+        "width": 768,
+        "height": 432,
+        "fit": "inside"
+      },
+      "encoder": {
+        "tool": "sharp",
+        "sharpVersion": "0.35.5",
+        "libvipsVersion": "8.18.7",
+        "resize": {
+          "width": 768,
+          "height": 432,
+          "fit": "inside"
+        },
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 6
+        }
+      }
+    }
   },
   "moonwood-instrument-kit-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-instrument-kit-v1.png",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-instrument-kit-v1.png",
     "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-instrument-kit-v1.webp",
     "width": 1448,
     "height": 1086,
-    "sourceBytes": 1629782,
-    "sourceSha256": "cefad19b181dedea2f9b31336286c575ff14f92753a3d4747da4ba6de79e4b31",
-    "runtimeBytes": 439092,
-    "runtimeSha256": "1b3e8d40e3e4794e3c777caaa295aed94120742bc75057458aa4e098742a6ae6",
+    "sourceBytes": 935364,
+    "sourceSha256": "cb1a9d804ce3c129df014f44cf106ac16335daf78438fbca3e590a6ab12fd0e1",
+    "runtimeBytes": 201906,
+    "runtimeSha256": "3debc3a76cfd60d12d829b8dfb5d3d806ae29aa32a3e2451bdd0553053464788",
     "parts": {
       "goldBar": [
-        30,
-        182,
-        459,
-        323
+        66,
+        202,
+        422,
+        303
       ],
       "blueBar": [
-        482,
-        183,
-        904,
-        323
+        518,
+        202,
+        868,
+        303
       ],
       "bellResonator": [
-        929,
-        99,
-        1184,
-        352
+        950,
+        127,
+        1163,
+        324
       ],
       "reedResonator": [
-        1265,
-        70,
-        1390,
-        362
+        1280,
+        94,
+        1376,
+        337
       ],
       "woodenFrame": [
-        15,
-        405,
-        725,
-        658
+        77,
+        432,
+        663,
+        630
       ],
       "leftEndcap": [
-        726,
-        411,
-        872,
-        660
+        743,
+        432,
+        855,
+        640
       ],
       "rightEndcap": [
-        865,
-        411,
-        991,
-        658
+        874,
+        436,
+        981,
+        632
       ],
       "frontFascia": [
-        980,
-        478,
-        1440,
-        591
+        1020,
+        492,
+        1401,
+        576
       ],
       "bellRack": [
-        21,
-        679,
-        430,
-        1041
+        66,
+        710,
+        385,
+        1011
       ],
       "reedRack": [
-        437,
-        669,
-        709,
-        1042
+        467,
+        700,
+        679,
+        1010
       ],
       "musicBox": [
-        711,
-        774,
-        1083,
-        1030
+        747,
+        795,
+        1047,
+        1009
       ],
       "flowers": [
-        1087,
-        635,
-        1447,
-        1040
+        1118,
+        680,
+        1417,
+        996
       ]
+    },
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-instrument-kit-v1.prompt.txt",
+    "promptSha256": "41d543132ac04a09c01e33505b8b943a384a6cca342e1a0e5a89f97a10257bd7",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 90,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source"
     }
   },
   "moonwood-instrument-kit-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-instrument-kit-v1.png",
-    "sourceSha256": "cefad19b181dedea2f9b31336286c575ff14f92753a3d4747da4ba6de79e4b31",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-instrument-kit-v1.png",
+    "sourceSha256": "cb1a9d804ce3c129df014f44cf106ac16335daf78438fbca3e590a6ab12fd0e1",
     "sourceSize": [
       1448,
       1086
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-instrument-kit-fallback-v1.webp",
-    "runtimeBytes": 121174,
-    "runtimeSha256": "f4f6a5027947024674d5d0b1eab02c5f0688f271a22857a587898509843f205f",
+    "runtimeBytes": 66992,
+    "runtimeSha256": "b18d14ecb4777e40f535bd098c90df51ce6ffd2c463f6762a3745c7e43d548be",
     "width": 768,
     "height": 576,
     "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
     "parts": {
       "goldBar": [
-        16,
-        97,
-        243,
-        171
+        35,
+        107,
+        224,
+        161
       ],
       "blueBar": [
-        256,
-        97,
-        479,
-        171
+        275,
+        107,
+        460,
+        161
       ],
       "bellResonator": [
-        493,
-        53,
-        628,
-        187
+        504,
+        67,
+        617,
+        172
       ],
       "reedResonator": [
-        671,
-        37,
-        737,
-        192
+        679,
+        50,
+        730,
+        179
       ],
       "woodenFrame": [
-        8,
-        215,
-        385,
-        349
+        41,
+        229,
+        352,
+        334
       ],
       "leftEndcap": [
-        385,
-        218,
-        462,
-        350
+        394,
+        229,
+        453,
+        339
       ],
       "rightEndcap": [
-        459,
-        218,
-        526,
-        349
+        464,
+        231,
+        520,
+        335
       ],
       "frontFascia": [
-        520,
-        254,
-        764,
-        313
+        541,
+        261,
+        743,
+        306
       ],
       "bellRack": [
-        11,
-        360,
-        228,
-        552
+        35,
+        377,
+        204,
+        536
       ],
       "reedRack": [
-        232,
-        355,
-        376,
-        553
+        248,
+        371,
+        360,
+        536
       ],
       "musicBox": [
-        377,
-        411,
-        574,
-        546
+        396,
+        422,
+        555,
+        535
       ],
       "flowers": [
-        577,
-        337,
-        767,
-        552
+        593,
+        361,
+        752,
+        528
+      ]
+    },
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-instrument-kit-v1.prompt.txt",
+    "promptSha256": "41d543132ac04a09c01e33505b8b943a384a6cca342e1a0e5a89f97a10257bd7",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "quality": 78,
+      "method": 4,
+      "exactAlpha": true
+    },
+    "deliveryRecipe": {
+      "kind": "scene-thumbnail",
+      "maximumSize": [
+        768,
+        768
       ]
     }
   },
   "moonwood-keyboard-venue-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-keyboard-venue-v1.png",
+    "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-keyboard-venue-v1.png",
     "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceBytes": 2393202,
-    "sourceSha256": "1d6e252e312e6c5898995ba00d7a282d499bc96e4e1344b7ce0e8df6604ceaa4",
-    "runtimeBytes": 367804,
-    "runtimeSha256": "f0130824a123c5489af6ce153c5bf82d2a9b6f9572738227bca0ceec92d6a69a"
+    "sourceBytes": 1857612,
+    "sourceSha256": "91be6acfa5cdf553982f55cbad58e09ef47f4fbf8139e2d01c6db7019e603a81",
+    "runtimeBytes": 269556,
+    "runtimeSha256": "419041a035740e1965a210136f3a5aeff400755851095b802abfdf501e3bf251",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-keyboard-venue-v1.prompt.txt",
+    "promptSha256": "14247ca698d8139cd104506a0e19ba9841a14fc6b6f129e4e202615f1f48293d",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "tool": "sharp",
+      "quality": 92,
+      "alphaQuality": 100,
+      "effort": 6,
+      "resize": {
+        "width": 1672,
+        "height": 941,
+        "fit": "fill"
+      }
+    },
+    "deliveryRecipe": {
+      "kind": "complete-current-source",
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-keyboard-venue-v1.png"
+    }
   },
   "moonwood-keyboard-venue-fallback-v1": {
-    "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-keyboard-venue-v1.png",
-    "sourceSha256": "1d6e252e312e6c5898995ba00d7a282d499bc96e4e1344b7ce0e8df6604ceaa4",
+    "source": "public/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-v1.webp",
+    "sourceSha256": "419041a035740e1965a210136f3a5aeff400755851095b802abfdf501e3bf251",
     "sourceSize": [
       1672,
       941
     ],
     "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-fallback-v1.webp",
-    "runtimeBytes": 70188,
-    "runtimeSha256": "7b418cf123cee75c309e186554006e55b6dc8549b778a685945adb4dd9402900",
+    "runtimeBytes": 78994,
+    "runtimeSha256": "e1d0873e627fcf94c57089129d4a41b1c285266c2914c3ffbc404611b06caf36",
     "width": 768,
     "height": 432,
-    "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry"
+    "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
+    "sourceBytes": 269556,
+    "prompt": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-keyboard-venue-v1.prompt.txt",
+    "promptSha256": "14247ca698d8139cd104506a0e19ba9841a14fc6b6f129e4e202615f1f48293d",
+    "productionRevision": "clean-cartoon-2026-10-31",
+    "encoding": {
+      "tool": "sharp",
+      "format": "webp",
+      "quality": 90,
+      "alphaQuality": 100,
+      "effort": 6
+    },
+    "deliveryRecipe": {
+      "kind": "scene-thumbnail",
+      "maximumSize": [
+        768,
+        432
+      ],
+      "acceptedNativeSource": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-keyboard-venue-v1.png",
+      "acceptedNativeSha256": "91be6acfa5cdf553982f55cbad58e09ef47f4fbf8139e2d01c6db7019e603a81",
+      "actualInput": "public/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-v1.webp",
+      "actualInputSha256": "419041a035740e1965a210136f3a5aeff400755851095b802abfdf501e3bf251",
+      "resize": {
+        "width": 768,
+        "height": 432,
+        "fit": "inside"
+      },
+      "encoder": {
+        "tool": "sharp",
+        "sharpVersion": "0.35.5",
+        "libvipsVersion": "8.18.7",
+        "resize": {
+          "width": 768,
+          "height": 432,
+          "fit": "inside"
+        },
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 6
+        }
+      }
+    }
   },
   "pip-keyboard-actions-v1": {
     "source": "source-art/arcade/physical-worlds/soundkeys/pip-keyboard-actions-v1.png",
@@ -4186,511 +2978,6 @@ export const SOUNDKEYS_ART = {
       1431,
       1099
     ],
-    "packing": {
-      "method": "original-connected-body-pixel-assembly",
-      "alphaThreshold": 192,
-      "tileSize": 384,
-      "isolatedCells": true,
-      "originalOpaqueBodyPixelsPreserved": true,
-      "frames": [
-        {
-          "id": 0,
-          "originalCell": [
-            117,
-            8,
-            286,
-            304
-          ],
-          "runtimeOffset": [
-            107,
-            70
-          ],
-          "sourceToRuntimeTranslation": [
-            -10,
-            62
-          ],
-          "bounds": [
-            2,
-            2,
-            167,
-            294
-          ],
-          "anchor": [
-            87.579,
-            294
-          ],
-          "bodyOpaquePixels": 30891,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 1,
-          "originalCell": [
-            401,
-            31,
-            637,
-            298
-          ],
-          "runtimeOffset": [
-            458,
-            99
-          ],
-          "sourceToRuntimeTranslation": [
-            57,
-            68
-          ],
-          "bounds": [
-            2,
-            2,
-            234,
-            265
-          ],
-          "anchor": [
-            105.925,
-            265
-          ],
-          "bodyOpaquePixels": 33331,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 2,
-          "originalCell": [
-            790,
-            24,
-            1034,
-            298
-          ],
-          "runtimeOffset": [
-            838,
-            92
-          ],
-          "sourceToRuntimeTranslation": [
-            48,
-            68
-          ],
-          "bounds": [
-            2,
-            2,
-            242,
-            272
-          ],
-          "anchor": [
-            115.239,
-            272
-          ],
-          "bodyOpaquePixels": 35531,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 3,
-          "originalCell": [
-            1146,
-            8,
-            1313,
-            304
-          ],
-          "runtimeOffset": [
-            1260,
-            70
-          ],
-          "sourceToRuntimeTranslation": [
-            114,
-            62
-          ],
-          "bounds": [
-            2,
-            2,
-            165,
-            294
-          ],
-          "anchor": [
-            83.371,
-            294
-          ],
-          "bodyOpaquePixels": 30742,
-          "otherOpaquePixelsExcluded": 2,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 4,
-          "originalCell": [
-            55,
-            323,
-            310,
-            553
-          ],
-          "runtimeOffset": [
-            64,
-            520
-          ],
-          "sourceToRuntimeTranslation": [
-            9,
-            197
-          ],
-          "bounds": [
-            2,
-            2,
-            253,
-            228
-          ],
-          "anchor": [
-            139.675,
-            228
-          ],
-          "bodyOpaquePixels": 31964,
-          "otherOpaquePixelsExcluded": 2,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 5,
-          "originalCell": [
-            432,
-            314,
-            668,
-            552
-          ],
-          "runtimeOffset": [
-            458,
-            512
-          ],
-          "sourceToRuntimeTranslation": [
-            26,
-            198
-          ],
-          "bounds": [
-            2,
-            2,
-            234,
-            236
-          ],
-          "anchor": [
-            91.857,
-            236
-          ],
-          "bodyOpaquePixels": 29979,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 6,
-          "originalCell": [
-            782,
-            315,
-            1001,
-            556
-          ],
-          "runtimeOffset": [
-            850,
-            509
-          ],
-          "sourceToRuntimeTranslation": [
-            68,
-            194
-          ],
-          "bounds": [
-            2,
-            2,
-            217,
-            239
-          ],
-          "anchor": [
-            127.332,
-            239
-          ],
-          "bodyOpaquePixels": 30071,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 7,
-          "originalCell": [
-            1146,
-            321,
-            1376,
-            556
-          ],
-          "runtimeOffset": [
-            1229,
-            515
-          ],
-          "sourceToRuntimeTranslation": [
-            83,
-            194
-          ],
-          "bounds": [
-            2,
-            2,
-            228,
-            233
-          ],
-          "anchor": [
-            97.299,
-            233
-          ],
-          "bodyOpaquePixels": 28684,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 8,
-          "originalCell": [
-            73,
-            573,
-            302,
-            800
-          ],
-          "runtimeOffset": [
-            77,
-            907
-          ],
-          "sourceToRuntimeTranslation": [
-            4,
-            334
-          ],
-          "bounds": [
-            2,
-            2,
-            227,
-            225
-          ],
-          "anchor": [
-            191.935,
-            225
-          ],
-          "bodyOpaquePixels": 27740,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 9,
-          "originalCell": [
-            411,
-            564,
-            649,
-            799
-          ],
-          "runtimeOffset": [
-            457,
-            899
-          ],
-          "sourceToRuntimeTranslation": [
-            46,
-            335
-          ],
-          "bounds": [
-            2,
-            2,
-            236,
-            233
-          ],
-          "anchor": [
-            210.948,
-            233
-          ],
-          "bodyOpaquePixels": 30332,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 10,
-          "originalCell": [
-            791,
-            576,
-            1055,
-            799
-          ],
-          "runtimeOffset": [
-            828,
-            911
-          ],
-          "sourceToRuntimeTranslation": [
-            37,
-            335
-          ],
-          "bounds": [
-            2,
-            2,
-            262,
-            221
-          ],
-          "anchor": [
-            230.323,
-            221
-          ],
-          "bodyOpaquePixels": 32308,
-          "otherOpaquePixelsExcluded": 2,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 11,
-          "originalCell": [
-            1153,
-            573,
-            1413,
-            801
-          ],
-          "runtimeOffset": [
-            1214,
-            906
-          ],
-          "sourceToRuntimeTranslation": [
-            61,
-            333
-          ],
-          "bounds": [
-            2,
-            2,
-            258,
-            226
-          ],
-          "anchor": [
-            230.559,
-            226
-          ],
-          "bodyOpaquePixels": 31086,
-          "otherOpaquePixelsExcluded": 2,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 12,
-          "originalCell": [
-            95,
-            818,
-            312,
-            1073
-          ],
-          "runtimeOffset": [
-            83,
-            1263
-          ],
-          "sourceToRuntimeTranslation": [
-            -12,
-            445
-          ],
-          "bounds": [
-            2,
-            2,
-            215,
-            253
-          ],
-          "anchor": [
-            107.391,
-            253
-          ],
-          "bodyOpaquePixels": 32342,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 13,
-          "originalCell": [
-            435,
-            796,
-            617,
-            1080
-          ],
-          "runtimeOffset": [
-            485,
-            1234
-          ],
-          "sourceToRuntimeTranslation": [
-            50,
-            438
-          ],
-          "bounds": [
-            2,
-            2,
-            180,
-            282
-          ],
-          "anchor": [
-            124.039,
-            282
-          ],
-          "bodyOpaquePixels": 32412,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 14,
-          "originalCell": [
-            797,
-            811,
-            1048,
-            1079
-          ],
-          "runtimeOffset": [
-            834,
-            1250
-          ],
-          "sourceToRuntimeTranslation": [
-            37,
-            439
-          ],
-          "bounds": [
-            2,
-            2,
-            249,
-            266
-          ],
-          "anchor": [
-            103.831,
-            266
-          ],
-          "bodyOpaquePixels": 31491,
-          "otherOpaquePixelsExcluded": 2,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 15,
-          "originalCell": [
-            1168,
-            799,
-            1335,
-            1080
-          ],
-          "runtimeOffset": [
-            1260,
-            1237
-          ],
-          "sourceToRuntimeTranslation": [
-            92,
-            438
-          ],
-          "bounds": [
-            2,
-            2,
-            165,
-            279
-          ],
-          "anchor": [
-            86.3,
-            279
-          ],
-          "bodyOpaquePixels": 30617,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        }
-      ]
-    },
     "runtimeAssemblySignature": "5f05a507f79770e30caf0a53f6eaa78a5d6a0fe7de710cec1807f9bf364340ee",
     "nominalHeight": 2.2,
     "pixelsPerUnit": 110.9090909090909,
@@ -5556,511 +3843,6 @@ export const SOUNDKEYS_ART = {
       1431,
       1099
     ],
-    "packing": {
-      "method": "original-connected-body-pixel-assembly",
-      "alphaThreshold": 192,
-      "tileSize": 384,
-      "isolatedCells": true,
-      "originalOpaqueBodyPixelsPreserved": true,
-      "frames": [
-        {
-          "id": 0,
-          "originalCell": [
-            65,
-            8,
-            302,
-            284
-          ],
-          "runtimeOffset": [
-            73,
-            90
-          ],
-          "sourceToRuntimeTranslation": [
-            8,
-            82
-          ],
-          "bounds": [
-            2,
-            2,
-            235,
-            274
-          ],
-          "anchor": [
-            130.218,
-            274
-          ],
-          "bodyOpaquePixels": 39735,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 1,
-          "originalCell": [
-            412,
-            11,
-            640,
-            282
-          ],
-          "runtimeOffset": [
-            462,
-            95
-          ],
-          "sourceToRuntimeTranslation": [
-            50,
-            84
-          ],
-          "bounds": [
-            2,
-            2,
-            226,
-            269
-          ],
-          "anchor": [
-            169.8,
-            269
-          ],
-          "bodyOpaquePixels": 39312,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 2,
-          "originalCell": [
-            798,
-            8,
-            1004,
-            282
-          ],
-          "runtimeOffset": [
-            857,
-            92
-          ],
-          "sourceToRuntimeTranslation": [
-            59,
-            84
-          ],
-          "bounds": [
-            2,
-            2,
-            204,
-            272
-          ],
-          "anchor": [
-            54.172,
-            272
-          ],
-          "bodyOpaquePixels": 37535,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 3,
-          "originalCell": [
-            1145,
-            8,
-            1367,
-            281
-          ],
-          "runtimeOffset": [
-            1233,
-            93
-          ],
-          "sourceToRuntimeTranslation": [
-            88,
-            85
-          ],
-          "bounds": [
-            2,
-            2,
-            220,
-            271
-          ],
-          "anchor": [
-            98.259,
-            271
-          ],
-          "bodyOpaquePixels": 39908,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 4,
-          "originalCell": [
-            30,
-            289,
-            305,
-            543
-          ],
-          "runtimeOffset": [
-            54,
-            496
-          ],
-          "sourceToRuntimeTranslation": [
-            24,
-            207
-          ],
-          "bounds": [
-            2,
-            2,
-            273,
-            252
-          ],
-          "anchor": [
-            121.309,
-            252
-          ],
-          "bodyOpaquePixels": 41062,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 5,
-          "originalCell": [
-            405,
-            296,
-            677,
-            543
-          ],
-          "runtimeOffset": [
-            440,
-            503
-          ],
-          "sourceToRuntimeTranslation": [
-            35,
-            207
-          ],
-          "bounds": [
-            2,
-            2,
-            270,
-            245
-          ],
-          "anchor": [
-            169.48,
-            245
-          ],
-          "bodyOpaquePixels": 41075,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 6,
-          "originalCell": [
-            764,
-            290,
-            994,
-            542
-          ],
-          "runtimeOffset": [
-            845,
-            498
-          ],
-          "sourceToRuntimeTranslation": [
-            81,
-            208
-          ],
-          "bounds": [
-            2,
-            2,
-            228,
-            250
-          ],
-          "anchor": [
-            140.679,
-            250
-          ],
-          "bodyOpaquePixels": 39775,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 7,
-          "originalCell": [
-            1124,
-            291,
-            1354,
-            544
-          ],
-          "runtimeOffset": [
-            1229,
-            497
-          ],
-          "sourceToRuntimeTranslation": [
-            105,
-            206
-          ],
-          "bounds": [
-            2,
-            2,
-            228,
-            251
-          ],
-          "anchor": [
-            168.241,
-            251
-          ],
-          "bodyOpaquePixels": 38070,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 8,
-          "originalCell": [
-            45,
-            554,
-            289,
-            808
-          ],
-          "runtimeOffset": [
-            70,
-            880
-          ],
-          "sourceToRuntimeTranslation": [
-            25,
-            326
-          ],
-          "bounds": [
-            2,
-            2,
-            242,
-            252
-          ],
-          "anchor": [
-            159.356,
-            252
-          ],
-          "bodyOpaquePixels": 40481,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 9,
-          "originalCell": [
-            397,
-            560,
-            682,
-            805
-          ],
-          "runtimeOffset": [
-            433,
-            889
-          ],
-          "sourceToRuntimeTranslation": [
-            36,
-            329
-          ],
-          "bounds": [
-            2,
-            2,
-            283,
-            243
-          ],
-          "anchor": [
-            110.897,
-            243
-          ],
-          "bodyOpaquePixels": 40925,
-          "otherOpaquePixelsExcluded": 25,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 10,
-          "originalCell": [
-            764,
-            560,
-            1062,
-            807
-          ],
-          "runtimeOffset": [
-            811,
-            887
-          ],
-          "sourceToRuntimeTranslation": [
-            47,
-            327
-          ],
-          "bounds": [
-            2,
-            2,
-            296,
-            245
-          ],
-          "anchor": [
-            115.925,
-            245
-          ],
-          "bodyOpaquePixels": 42195,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 11,
-          "originalCell": [
-            1119,
-            560,
-            1417,
-            804
-          ],
-          "runtimeOffset": [
-            1195,
-            890
-          ],
-          "sourceToRuntimeTranslation": [
-            76,
-            330
-          ],
-          "bounds": [
-            2,
-            2,
-            296,
-            242
-          ],
-          "anchor": [
-            255.391,
-            242
-          ],
-          "bodyOpaquePixels": 43758,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 12,
-          "originalCell": [
-            41,
-            812,
-            319,
-            1075
-          ],
-          "runtimeOffset": [
-            53,
-            1255
-          ],
-          "sourceToRuntimeTranslation": [
-            12,
-            443
-          ],
-          "bounds": [
-            2,
-            2,
-            276,
-            261
-          ],
-          "anchor": [
-            118.95,
-            261
-          ],
-          "bodyOpaquePixels": 42919,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 13,
-          "originalCell": [
-            421,
-            800,
-            660,
-            1076
-          ],
-          "runtimeOffset": [
-            456,
-            1242
-          ],
-          "sourceToRuntimeTranslation": [
-            35,
-            442
-          ],
-          "bounds": [
-            2,
-            2,
-            237,
-            274
-          ],
-          "anchor": [
-            109.131,
-            274
-          ],
-          "bodyOpaquePixels": 41074,
-          "otherOpaquePixelsExcluded": 104,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 14,
-          "originalCell": [
-            753,
-            842,
-            1021,
-            1076
-          ],
-          "runtimeOffset": [
-            826,
-            1284
-          ],
-          "sourceToRuntimeTranslation": [
-            73,
-            442
-          ],
-          "bounds": [
-            2,
-            2,
-            266,
-            232
-          ],
-          "anchor": [
-            153.456,
-            232
-          ],
-          "bodyOpaquePixels": 40858,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 15,
-          "originalCell": [
-            1155,
-            808,
-            1388,
-            1081
-          ],
-          "runtimeOffset": [
-            1227,
-            1245
-          ],
-          "sourceToRuntimeTranslation": [
-            72,
-            437
-          ],
-          "bounds": [
-            2,
-            2,
-            231,
-            271
-          ],
-          "anchor": [
-            96.1,
-            271
-          ],
-          "bodyOpaquePixels": 40943,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        }
-      ]
-    },
     "runtimeAssemblySignature": "1f536a0db25b55fa06294885446ec0f7cbe8f118048b64293b88e924c3199de7",
     "nominalHeight": 2.2,
     "pixelsPerUnit": 113.63636363636363,
@@ -6491,511 +4273,6 @@ export const SOUNDKEYS_ART = {
       1431,
       1099
     ],
-    "packing": {
-      "method": "original-connected-body-pixel-assembly",
-      "alphaThreshold": 192,
-      "tileSize": 384,
-      "isolatedCells": true,
-      "originalOpaqueBodyPixelsPreserved": true,
-      "frames": [
-        {
-          "id": 0,
-          "originalCell": [
-            117,
-            3,
-            282,
-            314
-          ],
-          "runtimeOffset": [
-            109,
-            55
-          ],
-          "sourceToRuntimeTranslation": [
-            -8,
-            52
-          ],
-          "bounds": [
-            2,
-            2,
-            163,
-            309
-          ],
-          "anchor": [
-            73.177,
-            309
-          ],
-          "bodyOpaquePixels": 30198,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 1,
-          "originalCell": [
-            434,
-            4,
-            670,
-            312
-          ],
-          "runtimeOffset": [
-            458,
-            58
-          ],
-          "sourceToRuntimeTranslation": [
-            24,
-            54
-          ],
-          "bounds": [
-            2,
-            2,
-            234,
-            306
-          ],
-          "anchor": [
-            137.753,
-            306
-          ],
-          "bodyOpaquePixels": 34790,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 2,
-          "originalCell": [
-            788,
-            10,
-            1037,
-            310
-          ],
-          "runtimeOffset": [
-            835,
-            66
-          ],
-          "sourceToRuntimeTranslation": [
-            47,
-            56
-          ],
-          "bounds": [
-            2,
-            2,
-            247,
-            298
-          ],
-          "anchor": [
-            83.303,
-            298
-          ],
-          "bodyOpaquePixels": 35016,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 3,
-          "originalCell": [
-            1182,
-            3,
-            1340,
-            311
-          ],
-          "runtimeOffset": [
-            1265,
-            58
-          ],
-          "sourceToRuntimeTranslation": [
-            83,
-            55
-          ],
-          "bounds": [
-            2,
-            2,
-            156,
-            306
-          ],
-          "anchor": [
-            72.181,
-            306
-          ],
-          "bodyOpaquePixels": 29794,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 4,
-          "originalCell": [
-            58,
-            312,
-            313,
-            564
-          ],
-          "runtimeOffset": [
-            64,
-            498
-          ],
-          "sourceToRuntimeTranslation": [
-            6,
-            186
-          ],
-          "bounds": [
-            2,
-            2,
-            253,
-            250
-          ],
-          "anchor": [
-            97.946,
-            250
-          ],
-          "bodyOpaquePixels": 33773,
-          "otherOpaquePixelsExcluded": 2,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 5,
-          "originalCell": [
-            410,
-            313,
-            642,
-            564
-          ],
-          "runtimeOffset": [
-            460,
-            499
-          ],
-          "sourceToRuntimeTranslation": [
-            50,
-            186
-          ],
-          "bounds": [
-            2,
-            2,
-            230,
-            249
-          ],
-          "anchor": [
-            98.985,
-            249
-          ],
-          "bodyOpaquePixels": 30666,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 6,
-          "originalCell": [
-            784,
-            311,
-            1012,
-            563
-          ],
-          "runtimeOffset": [
-            846,
-            498
-          ],
-          "sourceToRuntimeTranslation": [
-            62,
-            187
-          ],
-          "bounds": [
-            2,
-            2,
-            226,
-            250
-          ],
-          "anchor": [
-            103.941,
-            250
-          ],
-          "bodyOpaquePixels": 30746,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 7,
-          "originalCell": [
-            1140,
-            312,
-            1363,
-            565
-          ],
-          "runtimeOffset": [
-            1232,
-            497
-          ],
-          "sourceToRuntimeTranslation": [
-            92,
-            185
-          ],
-          "bounds": [
-            2,
-            2,
-            221,
-            251
-          ],
-          "anchor": [
-            105.217,
-            251
-          ],
-          "bodyOpaquePixels": 30424,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 8,
-          "originalCell": [
-            87,
-            564,
-            299,
-            813
-          ],
-          "runtimeOffset": [
-            86,
-            885
-          ],
-          "sourceToRuntimeTranslation": [
-            -1,
-            321
-          ],
-          "bounds": [
-            2,
-            2,
-            210,
-            247
-          ],
-          "anchor": [
-            118.391,
-            247
-          ],
-          "bodyOpaquePixels": 28695,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 9,
-          "originalCell": [
-            416,
-            564,
-            674,
-            812
-          ],
-          "runtimeOffset": [
-            447,
-            886
-          ],
-          "sourceToRuntimeTranslation": [
-            31,
-            322
-          ],
-          "bounds": [
-            2,
-            2,
-            256,
-            246
-          ],
-          "anchor": [
-            119.012,
-            246
-          ],
-          "bodyOpaquePixels": 33470,
-          "otherOpaquePixelsExcluded": 256,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 10,
-          "originalCell": [
-            774,
-            568,
-            1048,
-            812
-          ],
-          "runtimeOffset": [
-            823,
-            890
-          ],
-          "sourceToRuntimeTranslation": [
-            49,
-            322
-          ],
-          "bounds": [
-            2,
-            2,
-            272,
-            242
-          ],
-          "anchor": [
-            99.593,
-            242
-          ],
-          "bodyOpaquePixels": 34167,
-          "otherOpaquePixelsExcluded": 0,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 11,
-          "originalCell": [
-            1124,
-            575,
-            1411,
-            812
-          ],
-          "runtimeOffset": [
-            1200,
-            897
-          ],
-          "sourceToRuntimeTranslation": [
-            76,
-            322
-          ],
-          "bounds": [
-            2,
-            2,
-            285,
-            235
-          ],
-          "anchor": [
-            128.824,
-            235
-          ],
-          "bodyOpaquePixels": 34798,
-          "otherOpaquePixelsExcluded": 100,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 12,
-          "originalCell": [
-            76,
-            816,
-            313,
-            1075
-          ],
-          "runtimeOffset": [
-            73,
-            1259
-          ],
-          "sourceToRuntimeTranslation": [
-            -3,
-            443
-          ],
-          "bounds": [
-            2,
-            2,
-            235,
-            257
-          ],
-          "anchor": [
-            124.982,
-            257
-          ],
-          "bodyOpaquePixels": 33085,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 13,
-          "originalCell": [
-            467,
-            801,
-            640,
-            1088
-          ],
-          "runtimeOffset": [
-            489,
-            1231
-          ],
-          "sourceToRuntimeTranslation": [
-            22,
-            430
-          ],
-          "bounds": [
-            2,
-            2,
-            171,
-            285
-          ],
-          "anchor": [
-            106.333,
-            285
-          ],
-          "bodyOpaquePixels": 31151,
-          "otherOpaquePixelsExcluded": 441,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 14,
-          "originalCell": [
-            818,
-            812,
-            1002,
-            1084
-          ],
-          "runtimeOffset": [
-            868,
-            1246
-          ],
-          "sourceToRuntimeTranslation": [
-            50,
-            434
-          ],
-          "bounds": [
-            2,
-            2,
-            182,
-            270
-          ],
-          "anchor": [
-            74.521,
-            270
-          ],
-          "bodyOpaquePixels": 27595,
-          "otherOpaquePixelsExcluded": 1,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        },
-        {
-          "id": 15,
-          "originalCell": [
-            1183,
-            804,
-            1335,
-            1087
-          ],
-          "runtimeOffset": [
-            1268,
-            1235
-          ],
-          "sourceToRuntimeTranslation": [
-            85,
-            431
-          ],
-          "bounds": [
-            2,
-            2,
-            150,
-            281
-          ],
-          "anchor": [
-            64.28,
-            281
-          ],
-          "bodyOpaquePixels": 26497,
-          "otherOpaquePixelsExcluded": 215,
-          "originalOpaqueBodyPixelsPreserved": true,
-          "edgeRadius": 2
-        }
-      ]
-    },
     "runtimeAssemblySignature": "a5538ab0721257df5e191ff52201cd0f19a4aa1a733b794bbc73d784ffa5cd91",
     "nominalHeight": 2.2,
     "pixelsPerUnit": 114.54545454545453,

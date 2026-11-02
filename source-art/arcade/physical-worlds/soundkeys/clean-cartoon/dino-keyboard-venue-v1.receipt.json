@@ -1,0 +1,171 @@
+{
+  "jobId": "art-0665",
+  "path": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0665.webp",
+  "sourceSha256": "777ac079e19e901ddf77b9bc4eaa9c565e32328a3201166cca0ba99faa68bcc6",
+  "originalSha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0665.webp",
+  "finalSha256": "6dc3db42986a9b5d54522de05098a32c054fd847cc9ab6080e51eb50bdffaaa3",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a18758-71c3-7753-97e6-8dd41e2a95b9/exec-b36a6e01-5c94-4223-8a07-2efe1ac27900.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0665/native-002.png",
+  "nativeSha256": "777ac079e19e901ddf77b9bc4eaa9c565e32328a3201166cca0ba99faa68bcc6",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.prompt.txt",
+  "promptSha256": "ed775d5a96e1adbc85a28b23e5476cffe4de411d065cb42c5fe109cc7002a884",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/dino-input-1.png",
+      "sha256": "8aea7edde357fee5d8df03392964acd4256bdbad8027e8df6963d35c7f426edd"
+    },
+    {
+      "path": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/dino-input-2.png",
+      "sha256": "625ae0552b95dd8c2b44dd42cfe6107f37db7a00030ec2f8a7e0459a732343ea"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Golden bamboo pavilion and hanging pipes/mallet shelves frame an unoccupied tan tiled performance floor; flat spiral fossil pillars, centered blue waterfall and purple volcano preserve the source world. Continuous bold contours and clean foliage clusters replace textured source surfaces. No baked actors, keys, labels or identity themes. Native PNG, exact full saved WebP and390 pixels directly reviewed. Both actual desktop1040x740 and phone390x650 production Canvas views reviewed in primary and forced-primary-failure modes.",
+    "reviewedAt": "2026-10-31T08:55:00.881Z",
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/soundkeys/browser-proof.json",
+    "fullContextSha256": "3a58e964b4e3bfce21d48b5816d38c6c844c01c7268dba5d173b9e538d478a14",
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/soundkeys/venue-six-deliveries390.png",
+    "display390Sha256": "08ce47b66b84533891da8d3026ff0046c2d3a6560c7dcccc749d1af9ef0f28a0",
+    "notABook": true
+  },
+  "historicalNative": {
+    "jobId": "art-0665",
+    "world": "dino",
+    "currentHistoricalManifestAsset": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2498681,
+      "sourceSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
+      "runtimeBytes": 392814,
+      "runtimeSha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146"
+    },
+    "sourceNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+    "sourceNativeSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
+    "sourceNativeSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0665-original-native.png",
+    "frozenRuntime": {
+      "path": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "sha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146",
+      "category": "Arcade, maps, Hollow and other artwork",
+      "group": "game-assets/physical-arcade",
+      "decision": "redo",
+      "reason": "Painted/washed/textured illustration; replace with bold clean cartoon artwork.",
+      "decisionEvidence": {
+        "file": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/image-style-audit-2026-10-29/redo-images.json",
+        "sha256": "0234a35d1e663eb7fdf89646a2160593fa8f1a763ca2e4b7bc086d01552d4318",
+        "rowId": 5455
+      },
+      "runtimeBinding": {
+        "literalReferences": [
+          "src/components/learn/games/games/soundKeysArtData.js"
+        ],
+        "dynamic": null,
+        "bound": true,
+        "graphEvidence": {
+          "file": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/remaining-image-audit-2026-10-30/current-reachable-modules.json",
+          "sha256": "20e23e20d6343f6ceaa1d6f6ba5f3752d20d4cc72fddb12ba232e7ccd2cd186d",
+          "moduleCount": 1499
+        }
+      },
+      "priorBaseline": true,
+      "status": "pending",
+      "sameArtworkPaths": [
+        "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp"
+      ],
+      "jobId": "art-0665",
+      "owner": "cd_family",
+      "originalSha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146",
+      "sourceAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0665.webp",
+      "sourceSha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    "dependentDelivery": {
+      "targetPath": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-fallback-v1.webp",
+      "targetOldSHA": "13f0a93a7d0e370a37b5ff40c10fed683c2cccb8ee96dcd020257e014b23d72f",
+      "targetDimensions": [
+        768,
+        432
+      ],
+      "targetHasAlpha": false,
+      "deliveryKind": "smaller-scene-delivery-copy",
+      "owner": "/root/cd_family",
+      "sourcePath": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "sourceCurrentSHA": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceJobId": "art-0665",
+      "sourceOwner": "/root/cd_family",
+      "sourceAcceptedReceiptRequiredBeforeRebuild": true,
+      "priorDerivedAuthority": {
+        "path": ".artifacts/remaining-image-audit-2026-10-30/story-other/fallback-deliveries.json",
+        "sha256": "1c1180c0f6b445e656d2f85fe9dd1c11162ef9c53b3772e7f9871954cf08aa80",
+        "duplicateOf": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp"
+      },
+      "recipe": {
+        "source": "Use the actual accepted current primary WebP or its exact accepted native, recording that real path and SHA. Do not claim a new delivery came from stale source-art PNG bytes.",
+        "resize": "Uniform fit inside the existing768x432 delivery bounds; no creative recrop, distortion or added scenery. Preserve source full scene, aspect and any alpha, with normal raster rounding verified against existing runtime registration.",
+        "encoding": "WebP <=200KiB; start quality90/alphaQuality100, visually verify saved390/128. Existing source module does not specify a unique historic encoder quality; record actual chosen settings truthfully.",
+        "runtimeMetadata": "Refresh only the exact corresponding fallback runtimeSHA/bytes/dimensions/source lineage in its registered game art metadata when integrating; preserve registration and gameplay anchors."
+      },
+      "reviewRequired": "View whole accepted primary and full smaller saved delivery, rendered game context, flag-neutrality/background finish and all essential framing. No additional original imagegen source counted for this verified derived delivery."
+    },
+    "sourceNativeViewed": true,
+    "savedRuntimeViewed": true,
+    "actualContextViewed": false,
+    "reason": "Whole source is hypertextured painted illustrative bamboo/wood/stone/foliage/reflectivefloor, not modeled3D provenance; remains2Dillustration insideCanvas. Emptyfloor/depth/shelf framing preserved; regenerate wholeframe cleanoutlinedflat.",
+    "sourceNativeReview": "DirectlyviewedfullhistoricalsourcePNGandfrozenpublicWebP: painterlyhypertexturedillustrativewood/stone/foliage/reflectivefloorconfirmed. Sameemptyperformancefloorandperipheralshelves/centerworld preservedinsemanticbrief. PNGislineageONLY/notgenerationreference."
+  },
+  "installedAt": "2026-10-31T08:55:00.986Z",
+  "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.png",
+  "acceptedNative": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-keyboard-venue-v1.png",
+  "lineage": {
+    "originalReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0665/receipt.json",
+    "originalReceiptSha256": "7f7c7ddc7eed2982bd54e110b04e3e12bc9b5ecabbd97ececdb487cca907ea22",
+    "historicalSource": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+    "historicalNativeSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "nativeSha256": "625ae0552b95dd8c2b44dd42cfe6107f37db7a00030ec2f8a7e0459a732343ea",
+      "promptFile": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/dino-attempt-1.prompt.txt",
+      "promptSha256": "78307ef4a816e18f1d8a67ffb4cc34f05fef6d3e90a13b6d46fe5927a98965f9",
+      "disposition": "rejected: floor/background rendering not yet clean enough"
+    },
+    {
+      "attempt": 2,
+      "nativeSha256": "777ac079e19e901ddf77b9bc4eaa9c565e32328a3201166cca0ba99faa68bcc6",
+      "promptFile": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/venue-references/dino-attempt-2.prompt.txt",
+      "promptSha256": "ed775d5a96e1adbc85a28b23e5476cffe4de411d065cb42c5fe109cc7002a884",
+      "disposition": "accepted"
+    }
+  ]
+}

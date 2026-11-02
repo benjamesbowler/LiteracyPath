@@ -9,7 +9,7 @@
 // closed instead of silently receiving style metadata.
 
 export const OBJECTIVE_ASSESSMENT_IMAGE_REVIEW_VERSION =
-  "objective-word-direct-review-2026-09-22-v6";
+  "objective-word-direct-review-2026-10-31-v7";
 
 // A review applies to these exact inspected pixels. The recorder must never
 // turn a later overwrite into a fresh approval merely because the path and
@@ -38,8 +38,8 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "caterpillar": "6548c7d12d2597eb29e7b092d18fde2a908bf43d62c8a0f3489ebc2051769f41",
   "cheese": "a3a8eb1041eeba41b93bdf880d5046d22017a3006c2aba7b8e64ac7659b5b42f",
   "cherry": "a223d63dfc089f82afc483983e29b12f1a9b64fbc203cb702cc5325b7767006c",
-  "chip": "869d0056cc50fc3fc6d9a529d6f51f366a3a06488ae96067aafad0fae53a7a55",
-  "clock": "d15083d6179ec7b1be7bdb5328e8b24ab2de7cf86337bf8f0c5b40d68b4a0a8f",
+  "chip": "18dff3a45233243024040a70e4161c70a5f1740cfde8c97d318874b6758c6da9",
+  "clock": "faf9bf37bf41d8e4c5c46041f57ddd2be76a15b8abba701989c0144a45ef0d9f",
   "coin": "5b6e30bf65c84c423acca045c18627e445289a3547bf1f807ec7fa581b6aa659",
   "cone": "fc8fed27e420ac6b9b365c4b63308f44ea5d555467188766f79a9b867dc7b032",
   "corn": "2532ec599fb191ff4af93a821bbb080c8f7c9a603d96714d97a997d6fd994f1f",
@@ -48,18 +48,18 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "cube": "07068674e9097e1846a06f89f6c5b31994b27d0109c2abf392556bef12274d50",
   "deer": "c52590233be8d364ccd34307e8511b3ddd17cca4aa81677d4d2236864a8c6761",
   "dish": "cd0e9dbffa38c4d9109f5e55893a38bfb053a290f961d192de86d96579f86ea1",
-  "dog": "429eb02489351f3adbd96aec0db6431e89f960a16e5b25025732d8892e1ec210",
-  "duck": "cfc00d18c7275389a288be8945706171a01c296351cbe0b606b99d451077ce82",
+  "dog": "ecc642b41bed46d0dfce28cf01a4c8906101b27b1e6040746e89fb1eb35854ee",
+  "duck": "8d5200c9b9fbe638bf48f6bd4a17de6eaa7aacc40a50d8798f016505072341d7",
   "egg": "194c3136e48eecc9754f9785870bded4a53e92ce27e62ee8476221524229a818",
   "elbow": "287ef6307d251dcd4a6f725cb67c786797e825e0bad1ba40dbb4f2fb4c27751f",
   "engine": "f5c47435130316857cb1c5ed7970e287ac4578ce36842b2296a6bf51b20111cb",
-  "fan": "3e464eba90e637e6fd22049110a0ceb6636d38d37701b8ad021c3b176d02267e",
+  "fan": "7ecc94411a846e8209510e908aa4e9cefa7b8050c8cb66c35bcf2d2ceda53c77",
   "flute": "4322413681be6f6fb3a3e700e8a6e7853ceb3e52c6f151743b2ed92011a0f703",
   "fox": "8a30ba97f40a6bb60c32fc628c746839fa4e339c4e593eaa47f9feaf53e97f9d",
   "gate": "6a1924b8c70ce7744c8f58e5a3c4c0945e12d1a5321e028452060b78ba8fa89a",
   "gift": "f74608b78c7445835899550b1a9feab3637ec9883987ab5902dfff7e927e1148",
   "glass": "080db25389a58260b2595a32b343940f037deb38b93b02dc7e74e0b9fd9806b3",
-  "ham": "f9e8f2b67767cc8b1aac8325b8439cb6921a60ba8fcb277688c30f828473b94c",
+  "ham": "19e7c9b453dedc09b278ba8af51c35a01f946614459449f2e4b99a08cc677c0d",
   "hat": "53c6476e3fe59bc0f1a757120f412dd309652c1d99e731c24222bcdaa54ddcaf",
   "hen": "f03d21c631ffde9fd58e378f05fa9a8adfefac71e9d7c6d6a98aec33ddf8247e",
   "house": "b43a76f06f8939c288966c14a140705a92ef4bc7b48bf36c9e881a8748922b3e",
@@ -76,16 +76,16 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "lid": "57cd74359b6faedfcdb6b01ab762fa439ac28158fc2c0bfb2763024b58cef54a",
   "lion": "efc6eefe52aa994ff4e422e976237b7972013e316f124e8dffcf965f61bb63eb",
   "map": "c10b012c1ad71711680d85cfbd7ad87fa7427332f9b0d26d7980ce8f326207b1",
-  "mat": "4f09f9d9620718ed6fc867258a330272b6b3c6ab8152d0ea768ffacbbfac6999",
+  "mat": "53320a80169a64e19ea1b4893e7ff2f923b8deba3bb6653b6b7692757ed60bd6",
   "mop": "d4a30f4ca2e0f3fb784b3bfd9abcec48a923dccb20634804b60334e52b83293d",
   "mug": "f298dd3ad08480184bc9f2e4933a4bf8d42c95cd21a345dad756e9648e771d6f",
   "neck": "830fbe5356c617abcd2104779a5e98c1584ce353bcb595032664750b9fac6b10",
   "net": "26bbab10e8b2e0ce06d5ca92ca39f88639f71f4688f739e0dd7b0f22263e1626",
   "nose": "7ae0d5377e90cd2149232b49378a596a77c79eaab126c7b4a00b830fcaecad8d",
-  "nut": "9d06dc2eab1a686da92423c699b18340dd61b90648e36d8b8b8f6fedccabbde4",
+  "nut": "52163e522d2514c99d45db8867786639058ffbcea52473e35278982efa34e2a2",
   "octopus": "ba0ea7b33ca3786949c4e6f433adce275d0ba12c868ce29a1b31429665dd3ddc",
-  "orange": "430cfefcb7b23b0e27c77f9d34df30d8fd466c1b2c00f575b7b98acc9503497a",
-  "pan": "44c0ce117e1f0de8d4ec909ddd4eb3a628b3665aeb4be8f3b3480d7e53af1fec",
+  "orange": "414b2b384d59c850e82d2cb8f4cabc803ac4422be0b20629c0c82345eec3c26a",
+  "pan": "c1bbad3faf189496c0a1dee6cb299fdcbf35483b8f0745e3b94a9d60b104be32",
   "pen": "60985708cdff39f68f870b60c911e4e608bee0203777e7868835d3acd224829a",
   "plane": "3fe2e4d8e0231f64fd5e6c3af39f9598873a199ce25ba9ecb1b061816ca5b654",
   "pot": "eb1223aed1fb7b2cd37a24a01148fd28e0c78f4538051bb22cbe1de1c1f465a5",
@@ -97,32 +97,32 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "run": "1df5a28011746c2f8475e37ff3bef2db65a0c2eab26ac0c7b0139725287737e4",
   "seal": "42b7ae1a2db0a9cab6d8e80fde40800764416aaae99c2f4ec7bc6b59f571a317",
   "ship": "6e4bed24061a267d4684187eac844b29b4595ee65c044fac3b1441896fb18fa9",
-  "sled": "653717915f5d1bd4e04246ce88ed0c3f22fc1d22bb1ab6fd383f7667e779c828",
+  "sled": "eff7fa0e86e4e2729900115b64a63ec3526d978d4bac9178dae3e906d9ab4453",
   "snake": "ce1f6365ee9a57a72df1b066e1cc88d49ad3c791f24e49f00644382206f403cf",
   "spoon": "2d92ea354c86713bc23b68f8d94cab0a80e572671159f38b47b568e6a7747a08",
   "tap": "fcfdb50894cfe9e1bf8fc4cabe709f2d25f683b70344f26231f5ef22feb9c8e2",
   "tent": "934b6bdcc2cf131135a08e385545244e38e2063b8bc63cfe232cf2d7b7bfcfc3",
-  "tie": "bc65e2fcaa3f7c7e4a15ac1ae79b5b3896c4591a8909d355be767411885336b0",
+  "tie": "9f5d9f35edfb4fabf7925f840013df4d259864023a43aca4a308842cd7be92fb",
   "tiger": "88a7ff9fde79484b738db0d4713e928c3e00913db5ccdd1f13d27286f8ddf84a",
   "toe": "9454af6cc4745915aedb0da00be0f37c035aab3a848bbeedea1312aeaa935f83",
   "tomato": "2dfcbad6b636b1aab9fbc9f49b9fd67e64e6285ffec90236eb0a8ae3ef8f28aa",
-  "tooth": "87cdbc6455b03ac8238bffd7d0844f59cc0eec3ad74644168b1554f3f6f50022",
+  "tooth": "b46e8454ccd52a8cfb2e70e52154012ff58e8926edc0491175ee2d679fcd8073",
   "toy": "0c0156e4febdf519935ac7690b66513916366d99d96219a7a1fda6a8a886fe42",
   "train": "3861ec0afd15d9cb620cacad99a2e95587ef0a945c330d1ff017907f23ff68ab",
   "truck": "1ceafb10272fcfc4d5353beef5bb49e7bc0f9cd015f7558543642f5537e76f18",
-  "tube": "f8b57347b62383817e17354eb3b5636c8c7cd4b24546903833efbc26ec0eb24b",
+  "tube": "1718503962790f57ec85a2b0984591ed8f815dbbb7e94bf1abf2306462fe94b4",
   "van": "9c8515b70963755b1b8d8811b23fb1c56bd025bc741274f3724df46406c18725",
   "vase": "659509ca53c0456fab59f6a054299d6fbbfb4aa50f9d8c2719e62519f1aae70f",
   "wasp": "d05f3e4da4ea9b7600fe3422333996247c4f074e0e96af805d65b1e7b7b3d4ee",
-  "watch": "dc37d382a501a6b85718d2a0d5c28334e84965e8cb1f58584b6ae7451154040a",
+  "watch": "a995830ae92306a735df2b4b300f0634669fcfad065fa6cc35bfeaa2b18474e4",
   "web": "04737bd345757648e234d3bb77bae21190c0ced641c963170050cd1fbb246a66",
   "wheat": "ead7d24a374ac480ec24fbeea081665af430d8d13405bda34ee1563ebb71c40f",
-  "wheel": "65c5e89a951d9faa456da702aab80ac0db33db803af2b16b84c52a58b1af3716",
+  "wheel": "1a0896874723d280e8aae880019bf79e2f811528b7e08479ee570d8646b26c9a",
   "window": "8a411635de999269b8c0c2e4fba1287c14c1d7fb0c58982f0e3d94e11b7892ea",
   "yo-yo": "900911ece4099537d1f75eea4eb7631d06ea17651e8aae2843e45fb74f46cd48",
   "yogurt": "cf063e7b2b1cbfb95152fca0a92f8edfcfbe0f3373bce971a02e85ff9993b5d1",
   "zip": "c18d6b7f208eadca186ebd928d0bdf9e5d014ebc0902b5ecdebfb846d5f185d6",
-  "zebra": "b62e9277d235bfdfe121bd6cd537acb4c29064075e3cd50864c1e9d57f095757",
+  "zebra": "96aee794a893a2ef98c0aa8e74fcf2f87148539a8dbc021eedb162860cb9f327",
   "zipper": "2bab3a429d3d45db59c62e94f871a7575c6f8a1add6ea6a03c13f87ba5dbc511"
 });
 
@@ -149,6 +149,38 @@ const PROFESSIONAL_RASTER_WORDS = new Set([
 ]);
 
 const STYLE_REPAIRS = new Set(["cat", "cup"]);
+
+// Exact replacements accepted in the frozen completed cohort. The source hashes
+// above bind these receipts to the reviewed pixels; style repair does not clear
+// a word's independent nameability or objectivity rejection.
+const CLEAN_CARTOON_REPAIR_RECEIPTS = Object.freeze({
+  chip: "fresh-style-0680",
+  clock: "fresh-style-0681",
+  dog: "fresh-style-0690",
+  duck: "fresh-style-0691",
+  fan: "fresh-style-0695",
+  ham: "fresh-style-0701",
+  mat: "fresh-style-0718",
+  nut: "fresh-style-0724",
+  orange: "fresh-style-0726",
+  pan: "fresh-style-0727",
+  sled: "fresh-style-0739",
+  tie: "fresh-style-0744",
+  tooth: "fresh-style-0748",
+  tube: "fresh-style-0752",
+  watch: "fresh-style-0756",
+  wheel: "fresh-style-0759",
+  zebra: "fresh-style-0763"
+});
+
+const cleanCartoonRepairReview = targetWord => CLEAN_CARTOON_REPAIR_RECEIPTS[targetWord] ? {
+  reviewedAt: "2026-10-31",
+  reviewMode: "direct-native-and-saved-size-pixel-review",
+  styleProfile: "classic-flat-2d-raster",
+  sourceSheet: "clean-cartoon-completed-cohort-2026-10-31",
+  sourceReceipt: `all-clean-cartoon-2026-10-31/cd_dino/style-hold-production/accepted-receipts.json#${CLEAN_CARTOON_REPAIR_RECEIPTS[targetWord]}`,
+  reviewNote: "Accepted frozen clean-cartoon replacement: generated native, saved full-size WebP, 390px and 128px views inspected for meaning, complete framing and clean outlined flat artwork. Existing word-validity criteria remain in force."
+} : {};
 
 const REJECTED_WORDS = Object.freeze({
   bath: {
@@ -260,7 +292,8 @@ const approvedReview = targetWord => ({
   textReview: "approved-no-text-or-symbol-cue",
   reviewNote: STYLE_REPAIRS.has(targetWord) ? "Directly inspected isolated flat cartoon replacement; complete recognizable subject, no photoreal shading, competing props, text or labels." : CROP_REMEDIATION_WORDS.has(targetWord)
     ? "Regenerated as one complete isolated referent after rejecting crop-contaminated legacy pixels; no adjacent panel, competing scene, or inferred relationship."
-    : "One direct referent; no adjacent-panel crop, competing scene, or inferred relationship."
+    : "One direct referent; no adjacent-panel crop, competing scene, or inferred relationship.",
+  ...cleanCartoonRepairReview(targetWord)
 });
 
 const rejectedReview = (targetWord, rejection) => ({
@@ -276,7 +309,8 @@ const rejectedReview = (targetWord, rejection) => ({
   styleReview: "approved-clear-professional-2d-raster",
   styleProfile: rejection.styleProfile || "classic-flat-2d-raster",
   textReview: "approved-no-text-or-symbol-cue",
-  rejectionReason: rejection.rejectionReason
+  rejectionReason: rejection.rejectionReason,
+  ...cleanCartoonRepairReview(targetWord)
 });
 
 export const OBJECTIVE_ASSESSMENT_IMAGE_REVIEWS = Object.freeze(

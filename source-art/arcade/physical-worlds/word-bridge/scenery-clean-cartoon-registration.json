@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "note": "Prospective clean-cartoon source registration. Entire semantic alpha>=8 bounds retained; lowest actually opaque support pixel defines ground; directly viewed flat green cap pixel defines walkSurface. Historical generation manifest and registration are preserved separately.",
+  "kits": [
+    {
+      "id": "dino-construction-kit",
+      "world": "dino",
+      "file": "dino-construction-kit-v1",
+      "regions": [
+        [
+          0,
+          0,
+          790,
+          400
+        ],
+        [
+          790,
+          0,
+          746,
+          530
+        ],
+        [
+          0,
+          400,
+          640,
+          624
+        ],
+        [
+          640,
+          530,
+          896,
+          494
+        ]
+      ],
+      "walkSurface": [
+        1090,
+        750
+      ]
+    },
+    {
+      "id": "meadow-construction-kit",
+      "world": "meadow",
+      "file": "meadow-construction-kit-v1",
+      "regions": [
+        [
+          0,
+          0,
+          790,
+          420
+        ],
+        [
+          790,
+          0,
+          746,
+          555
+        ],
+        [
+          0,
+          420,
+          700,
+          604
+        ],
+        [
+          700,
+          555,
+          836,
+          469
+        ]
+      ],
+      "walkSurface": [
+        1110,
+        720
+      ]
+    },
+    {
+      "id": "moonwood-construction-kit",
+      "world": "moonwood",
+      "file": "moonwood-construction-kit-v1",
+      "regions": [
+        [
+          0,
+          0,
+          780,
+          440
+        ],
+        [
+          780,
+          0,
+          756,
+          560
+        ],
+        [
+          0,
+          440,
+          710,
+          584
+        ],
+        [
+          710,
+          560,
+          826,
+          464
+        ]
+      ],
+      "walkSurface": [
+        1110,
+        750
+      ]
+    }
+  ]
+}

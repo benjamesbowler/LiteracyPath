@@ -2,6 +2,16 @@ import { registeredPalCanvasPose } from '../shared/registeredPalArt.js';
 
 const HEROES={meadow:'bouncy',dino:'chompy',moonwood:'pip'};
 
+// The character is painted after the held plank so its real palms remain
+// visible. Centre-aligned lettering can then sit behind the torso. Reserve the
+// forward face for the live glyph without moving either grip or the plank.
+export function wordBridgeHeldGlyphLayout(surface, facing = 1) {
+  if (!surface || !Number.isFinite(surface.width) || surface.width <= 0
+    || !Number.isFinite(surface.height) || surface.height <= 0) return null;
+  return { offsetX: (facing < 0 ? -1 : 1) * surface.width * .2,
+    offsetY: surface.height * .14, maxWidth: surface.width * .44 };
+}
+
 // Physical construction art selection, independent of literacy correctness.
 // The held surface follows measured original palms, never a body-box estimate.
 export function wordBridgeCharacterPose(atlases,{world='meadow',x,y,height,time=0,moving=false,carrying=false,reaching=false,celebrating=false,mirror=false}={}) {

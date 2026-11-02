@@ -10,7 +10,7 @@ import {createWordClimbVine} from '../../src/components/learn/games/games/wordCl
 
 const atlas=WORD_CLIMB_ATLASES.bouncy,hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 test('Climb pilot preserves exact original/runtime identity and registers actual opaque hands and two boot soles',async()=>{
-  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/manifest.json','utf8'));
+  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/clean-cartoon-manifest.json','utf8'));
   const asset=manifest.assets[0],source=await fs.readFile(asset.source),runtime=await fs.readFile('public'+asset.runtime);
   assert.equal(hash(source),asset.sourceSha256);assert.equal(hash(runtime),asset.runtimeSha256);
   const{data,info}=await sharp(source).ensureAlpha().raw().toBuffer({resolveWithObject:true});
@@ -26,13 +26,16 @@ test('Climb pilot preserves exact original/runtime identity and registers actual
   }
   const[a,b]=atlas.frames.filter(frame=>frame.action.startsWith('climb-'));
   assert.ok(a.sockets.grip[0]-a.cell[0]-a.anchor[0]>0);assert.ok(b.sockets.grip[0]-b.cell[0]-b.anchor[0]<0);
-  assert.equal(manifest.review.runtimeAcceptance,'LOCAL_NATIVE_PASS');
+  assert.equal(manifest.review.runtimeAcceptance,'PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER');
   assert.equal(manifest.review.humanApproval,'UNKNOWN','Local native checks do not invent human approval');
   assert.equal(manifest.review.physicalDeviceObservation,'UNKNOWN','Desktop checks do not prove physical-device behaviour');
-  const native=JSON.parse(await fs.readFile(manifest.review.nativeEvidence,'utf8'));
-  assert.equal(native.localRuntimeAcceptance,'LOCAL_NATIVE_PASS');
-  assert.equal(native.reviewedEvidence,'docs/design/WORD_CLIMB_IMPLEMENTATION.md');
-  for(const id of native.currentPacedProofIds)assert(native.nativeProofs.some(row=>row.id===id&&['passed','measured'].includes(row.status)&&row.sourceFreezeExact));
+  for(const lineage of[manifest.historicalManifest,manifest.historicalRegistration])assert.equal(hash(await fs.readFile(lineage.path)),lineage.sha256,'Historical provenance is sealed separately from current artwork');
+  const old=JSON.parse(await fs.readFile(manifest.historicalManifest.path,'utf8'));
+  for(const current of manifest.assets){
+    const previous=old.assets.find(row=>row.id===current.id);assert.equal(current.supersedes.sourceSha256,previous.sourceSha256);assert.equal(current.supersedes.runtimeSha256,previous.runtimeSha256);
+    assert.equal(hash(await fs.readFile(current.supersedes.source)),current.supersedes.sourceSha256);
+    assert.equal(current.alphaCoverage.sourceAlphaSha256,current.alphaCoverage.runtimeAlphaSha256);
+  }
 });
 
 test('registered climbing mesh and socket use the same measured palm under scale, lean and actual scene translation',async()=>{
@@ -65,7 +68,7 @@ test('Climb pose selection follows controller simulation time and preserves a pa
 });
 
 test('all three original Climb casts retain exact sources, two actual boot contacts and the complete mechanical action family',async()=>{
-  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/manifest.json','utf8'));
+  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/clean-cartoon-manifest.json','utf8'));
   assert.equal(manifest.assets.length,6);assert.equal(manifest.assets.reduce((sum,asset)=>sum+asset.frames.length,0),30);
   for(const asset of manifest.assets){
     const source=await fs.readFile(asset.source),runtime=await fs.readFile('public'+asset.runtime);
@@ -119,4 +122,20 @@ test('the safety vine retains its buffers and exact anchor/hand centers across r
     for(const[offset,point]of[[0,start],[buffer.length-6,end]])for(let axis=0;axis<3;axis++)assert.ok(Math.abs((buffer[offset+axis]+buffer[offset+axis+3])/2-point.getComponent(axis))<1e-4);
   }
   vine.dispose();vine.dispose();assert.equal(disposal,1);
+});
+
+
+test('current clean Climb whole bodies retain safe cell gutters and actual independently measured sole regions',async()=>{
+  const manifest=JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/word-climb/clean-cartoon-manifest.json','utf8'));
+  for(const asset of manifest.assets){
+    const cols=asset.family==='climbing'?2:3,[width,height]=asset.sourceSize,cw=width/cols,ch=height/2;
+    for(const[index,frame]of asset.frames.entries()){
+      const[l,t,r,b]=frame.measurement.bodyBounds,cx=index%cols*cw,cy=Math.floor(index/cols)*ch;
+      assert.ok(l>=cx+cw*.08&&r<=cx+cw*.92&&t>=cy+ch*.08&&b<=cy+ch*.92,frame.id+' has eight-percent whole-body cell margins');
+      const contacts=frame.measurement.contactsSource;assert.notDeepEqual(contacts.bootLeft,contacts.bootRight,frame.id+' retains two independently visible feet');
+      for(const[side,region]of frame.measurement.bootRegions.entries()){
+        const point=contacts[side?'bootRight':'bootLeft'];assert(point[0]>=region[0]&&point[0]<region[1]&&point[1]>=region[2]&&point[1]<region[3]);
+      }
+    }
+  }
 });

@@ -108,10 +108,11 @@ export function cycleWordAudio(word) {
 }
 function picture(word) {
   if (!isCyclePictureWordEligible(word)) return null;
-  // Mock MAP's new skunk recording must not expand this Cycle revision's
-  // picture pool and reshuffle saved seeded decks. Admit it with an explicit
-  // Cycle content revision; the shared recording remains available elsewhere.
-  if (word === 'skunk') return null;
+  // New shared media must not expand this Cycle revision's picture pool and
+  // reshuffle saved seeded decks. Admit skunk's recording and the repaired
+  // table picture with an explicit Cycle content revision; both remain
+  // available through their shared media catalogues elsewhere.
+  if (word === 'skunk' || word === 'table') return null;
   // Comparable picture choices use the owned white-background illustration
   // cohort, rather than mixing old full-scene cards with isolated objects.
   // Keep the registry's semantic overrides and quarantine decisions intact.

@@ -1,0 +1,930 @@
+{
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/soundkeys/scene-kit-v1.json",
+    "sha256": "69f843000c2112296a3ba565f33ca369294fdd42a8f6cb33087bd27041a8afdb"
+  },
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/soundkeys/key-registration-v1.json",
+    "sha256": "e3db1ffdd0ee3cf91467f718ece9306773515cca5d63a3b3c1c89ee8d9ada7ae"
+  },
+  "currentSources": {
+    "dino-instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-instrument-kit-v1.png",
+      "sourceSha256": "b87e990eb17c5ac56f2aec1487a9f4ac4cd7d624e8b5cae929f1668420d75c94",
+      "parts": {
+        "goldBar": [
+          61,
+          168,
+          409,
+          265
+        ],
+        "blueBar": [
+          512,
+          164,
+          854,
+          257
+        ],
+        "bellResonator": [
+          936,
+          112,
+          1152,
+          288
+        ],
+        "reedResonator": [
+          1283,
+          64,
+          1378,
+          305
+        ],
+        "woodenFrame": [
+          75,
+          420,
+          587,
+          613
+        ],
+        "leftEndcap": [
+          664,
+          418,
+          807,
+          626
+        ],
+        "rightEndcap": [
+          860,
+          424,
+          1012,
+          623
+        ],
+        "frontFascia": [
+          1068,
+          492,
+          1412,
+          586
+        ],
+        "bellRack": [
+          52,
+          730,
+          371,
+          994
+        ],
+        "reedRack": [
+          449,
+          716,
+          685,
+          1000
+        ],
+        "musicBox": [
+          748,
+          780,
+          1058,
+          993
+        ],
+        "flowers": [
+          1094,
+          716,
+          1415,
+          1025
+        ]
+      },
+      "frames": null,
+      "pixelsPerUnit": null,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "dino-instrument-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/dino-instrument-kit-v1.png",
+      "sourceSha256": "b87e990eb17c5ac56f2aec1487a9f4ac4cd7d624e8b5cae929f1668420d75c94",
+      "parts": {
+        "goldBar": [
+          32,
+          89,
+          217,
+          141
+        ],
+        "blueBar": [
+          272,
+          87,
+          453,
+          136
+        ],
+        "bellResonator": [
+          496,
+          59,
+          611,
+          153
+        ],
+        "reedResonator": [
+          680,
+          34,
+          731,
+          162
+        ],
+        "woodenFrame": [
+          40,
+          223,
+          311,
+          325
+        ],
+        "leftEndcap": [
+          352,
+          222,
+          428,
+          332
+        ],
+        "rightEndcap": [
+          456,
+          225,
+          537,
+          330
+        ],
+        "frontFascia": [
+          566,
+          261,
+          749,
+          311
+        ],
+        "bellRack": [
+          28,
+          387,
+          197,
+          527
+        ],
+        "reedRack": [
+          238,
+          380,
+          363,
+          530
+        ],
+        "musicBox": [
+          397,
+          414,
+          561,
+          527
+        ],
+        "flowers": [
+          580,
+          380,
+          750,
+          544
+        ]
+      },
+      "frames": null,
+      "pixelsPerUnit": null,
+      "deliveryRecipe": {
+        "kind": "scene-thumbnail",
+        "maximumSize": [
+          768,
+          768
+        ]
+      }
+    },
+    "fern-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/fern-keyboard-actions-v1.png",
+      "sourceSha256": "fc6ffbcb1e9aba8629be9614efc5ab7c5b1448f0d65c70dd9c232525b48e0363",
+      "parts": null,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            104,
+            40,
+            279,
+            346
+          ],
+          "anchor": [
+            86.22147651006713,
+            302
+          ],
+          "bounds": [
+            2,
+            2,
+            173,
+            304
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            440,
+            45,
+            711,
+            347
+          ],
+          "anchor": [
+            180.7933884297521,
+            298
+          ],
+          "bounds": [
+            2,
+            2,
+            269,
+            300
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            825,
+            44,
+            1095,
+            347
+          ],
+          "anchor": [
+            95.16788321167883,
+            299
+          ],
+          "bounds": [
+            2,
+            2,
+            268,
+            301
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1254,
+            37,
+            1434,
+            347
+          ],
+          "anchor": [
+            104.94285714285706,
+            306
+          ],
+          "bounds": [
+            2,
+            2,
+            178,
+            308
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            44,
+            479,
+            340,
+            731
+          ],
+          "anchor": [
+            211.13636363636363,
+            248
+          ],
+          "bounds": [
+            2,
+            2,
+            294,
+            250
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              90,
+              718
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            434,
+            481,
+            717,
+            731
+          ],
+          "anchor": [
+            176.18248175182475,
+            246
+          ],
+          "bounds": [
+            2,
+            2,
+            281,
+            248
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              483,
+              721
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            851,
+            472,
+            1068,
+            731
+          ],
+          "anchor": [
+            107,
+            254
+          ],
+          "bounds": [
+            2,
+            2,
+            215,
+            257
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              956,
+              723
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1237,
+            471,
+            1450,
+            731
+          ],
+          "anchor": [
+            36.73076923076928,
+            255
+          ],
+          "bounds": [
+            2,
+            2,
+            211,
+            258
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              1268,
+              723
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            67,
+            862,
+            316,
+            1115
+          ],
+          "anchor": [
+            215.38709677419354,
+            248
+          ],
+          "bounds": [
+            2,
+            2,
+            247,
+            251
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              282,
+              1107
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            436,
+            870,
+            716,
+            1115
+          ],
+          "anchor": [
+            91.63709677419354,
+            241
+          ],
+          "bounds": [
+            2,
+            2,
+            278,
+            243
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              666,
+              1104
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            809,
+            876,
+            1110,
+            1115
+          ],
+          "anchor": [
+            116.47413793103442,
+            235
+          ],
+          "bounds": [
+            2,
+            2,
+            299,
+            237
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              1062,
+              1107
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1189,
+            876,
+            1499,
+            1115
+          ],
+          "anchor": [
+            128.09302325581393,
+            235
+          ],
+          "bounds": [
+            2,
+            2,
+            308,
+            237
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              1452,
+              1108
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            98,
+            1203,
+            285,
+            1499
+          ],
+          "anchor": [
+            98.14201183431953,
+            291
+          ],
+          "bounds": [
+            2,
+            2,
+            185,
+            294
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            447,
+            1202,
+            705,
+            1498
+          ],
+          "anchor": [
+            137.48101265822788,
+            292
+          ],
+          "bounds": [
+            2,
+            2,
+            256,
+            294
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            858,
+            1212,
+            1062,
+            1498
+          ],
+          "anchor": [
+            82.90151515151513,
+            282
+          ],
+          "bounds": [
+            2,
+            2,
+            202,
+            284
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1232,
+            1200,
+            1456,
+            1499
+          ],
+          "anchor": [
+            158.19327731092426,
+            294
+          ],
+          "bounds": [
+            2,
+            2,
+            222,
+            297
+          ],
+          "sockets": {}
+        }
+      ],
+      "pixelsPerUnit": 122.27272727272727,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "fern-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/fern-keyboard-actions-v1.png",
+      "sourceSha256": "fc6ffbcb1e9aba8629be9614efc5ab7c5b1448f0d65c70dd9c232525b48e0363",
+      "parts": null,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            168,
+            303
+          ],
+          "anchor": [
+            82.77261744966445,
+            293.92
+          ],
+          "bounds": [
+            0,
+            0,
+            168,
+            303
+          ],
+          "sockets": {}
+        }
+      ],
+      "pixelsPerUnit": 117.38181818181818,
+      "deliveryRecipe": {
+        "kind": "first-frame-fitted",
+        "sourceCrop": [
+          104,
+          40,
+          279,
+          346
+        ],
+        "resizedSize": [
+          168,
+          294
+        ],
+        "targetSize": [
+          168,
+          303
+        ],
+        "offset": [
+          0,
+          4
+        ]
+      }
+    },
+    "instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/instrument-kit-v1.png",
+      "sourceSha256": "97a31feccd53dbd138fe480ba3cc6bd940afddcf5914e104e0b3ca6d444c4700",
+      "parts": {
+        "goldBar": [
+          80,
+          133,
+          407,
+          230
+        ],
+        "blueBar": [
+          496,
+          139,
+          813,
+          231
+        ],
+        "bellResonator": [
+          917,
+          96,
+          1130,
+          268
+        ],
+        "reedResonator": [
+          1254,
+          99,
+          1386,
+          271
+        ],
+        "woodenFrame": [
+          142,
+          353,
+          1018,
+          577
+        ],
+        "rightEndcap": [
+          1266,
+          352,
+          1391,
+          582
+        ],
+        "frontFascia": [
+          286,
+          622,
+          1167,
+          702
+        ],
+        "bellRack": [
+          84,
+          746,
+          386,
+          981
+        ],
+        "reedRack": [
+          477,
+          736,
+          682,
+          995
+        ],
+        "musicBox": [
+          762,
+          816,
+          1032,
+          1000
+        ],
+        "flowers": [
+          1110,
+          770,
+          1402,
+          1017
+        ]
+      },
+      "frames": null,
+      "pixelsPerUnit": null,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "instrument-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/instrument-kit-v1.png",
+      "sourceSha256": "97a31feccd53dbd138fe480ba3cc6bd940afddcf5914e104e0b3ca6d444c4700",
+      "parts": {
+        "goldBar": [
+          42,
+          71,
+          216,
+          122
+        ],
+        "blueBar": [
+          263,
+          74,
+          431,
+          123
+        ],
+        "bellResonator": [
+          486,
+          51,
+          599,
+          142
+        ],
+        "reedResonator": [
+          665,
+          53,
+          735,
+          144
+        ],
+        "woodenFrame": [
+          75,
+          187,
+          540,
+          306
+        ],
+        "rightEndcap": [
+          671,
+          187,
+          738,
+          309
+        ],
+        "frontFascia": [
+          152,
+          330,
+          619,
+          372
+        ],
+        "bellRack": [
+          45,
+          396,
+          205,
+          520
+        ],
+        "reedRack": [
+          253,
+          390,
+          362,
+          528
+        ],
+        "musicBox": [
+          404,
+          433,
+          547,
+          530
+        ],
+        "flowers": [
+          589,
+          408,
+          744,
+          539
+        ]
+      },
+      "frames": null,
+      "pixelsPerUnit": null,
+      "deliveryRecipe": {
+        "kind": "scene-thumbnail",
+        "maximumSize": [
+          768,
+          768
+        ]
+      }
+    },
+    "moonwood-instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-instrument-kit-v1.png",
+      "sourceSha256": "cb1a9d804ce3c129df014f44cf106ac16335daf78438fbca3e590a6ab12fd0e1",
+      "parts": {
+        "goldBar": [
+          66,
+          202,
+          422,
+          303
+        ],
+        "blueBar": [
+          518,
+          202,
+          868,
+          303
+        ],
+        "bellResonator": [
+          950,
+          127,
+          1163,
+          324
+        ],
+        "reedResonator": [
+          1280,
+          94,
+          1376,
+          337
+        ],
+        "woodenFrame": [
+          77,
+          432,
+          663,
+          630
+        ],
+        "leftEndcap": [
+          743,
+          432,
+          855,
+          640
+        ],
+        "rightEndcap": [
+          874,
+          436,
+          981,
+          632
+        ],
+        "frontFascia": [
+          1020,
+          492,
+          1401,
+          576
+        ],
+        "bellRack": [
+          66,
+          710,
+          385,
+          1011
+        ],
+        "reedRack": [
+          467,
+          700,
+          679,
+          1010
+        ],
+        "musicBox": [
+          747,
+          795,
+          1047,
+          1009
+        ],
+        "flowers": [
+          1118,
+          680,
+          1417,
+          996
+        ]
+      },
+      "frames": null,
+      "pixelsPerUnit": null,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "moonwood-instrument-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clean-cartoon/moonwood-instrument-kit-v1.png",
+      "sourceSha256": "cb1a9d804ce3c129df014f44cf106ac16335daf78438fbca3e590a6ab12fd0e1",
+      "parts": {
+        "goldBar": [
+          35,
+          107,
+          224,
+          161
+        ],
+        "blueBar": [
+          275,
+          107,
+          460,
+          161
+        ],
+        "bellResonator": [
+          504,
+          67,
+          617,
+          172
+        ],
+        "reedResonator": [
+          679,
+          50,
+          730,
+          179
+        ],
+        "woodenFrame": [
+          41,
+          229,
+          352,
+          334
+        ],
+        "leftEndcap": [
+          394,
+          229,
+          453,
+          339
+        ],
+        "rightEndcap": [
+          464,
+          231,
+          520,
+          335
+        ],
+        "frontFascia": [
+          541,
+          261,
+          743,
+          306
+        ],
+        "bellRack": [
+          35,
+          377,
+          204,
+          536
+        ],
+        "reedRack": [
+          248,
+          371,
+          360,
+          536
+        ],
+        "musicBox": [
+          396,
+          422,
+          555,
+          535
+        ],
+        "flowers": [
+          593,
+          361,
+          752,
+          528
+        ]
+      },
+      "frames": null,
+      "pixelsPerUnit": null,
+      "deliveryRecipe": {
+        "kind": "scene-thumbnail",
+        "maximumSize": [
+          768,
+          768
+        ]
+      }
+    }
+  }
+}

@@ -45,9 +45,10 @@
       "kind": "meaning-context",
       "review": "A clear gold trophy represents a prize; recorded word disambiguates trophy from prize.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "2c40acf898fc9c06d4f20e296daec6991576f500e4b1566ea4542f274678c41e",
-      "bytes": 142408
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "a031493f5609dc3360a0091202a3456ccc48f4e85460b8f88b858a4980bb5ca2",
+      "bytes": 115910,
+      "priorDeliverySha256": "2c40acf898fc9c06d4f20e296daec6991576f500e4b1566ea4542f274678c41e"
     },
     {
       "word": "three",
@@ -155,9 +156,10 @@
       "kind": "meaning-context",
       "review": "Lightning beneath storm clouds supplies context for the recorded sound word.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "978bfbd99cb3179024ac1683d8c4d443e9fd4e21843f9844fce23610b161b519",
-      "bytes": 108922
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "0a3fc7012ade1f58652dd7a0bb0ca5570d7d7c769d2e7661a0c2bbc0198e2886",
+      "bytes": 198758,
+      "priorDeliverySha256": "978bfbd99cb3179024ac1683d8c4d443e9fd4e21843f9844fce23610b161b519"
     },
     {
       "word": "glowing",
@@ -165,9 +167,10 @@
       "kind": "meaning-context",
       "review": "An existing close firefly emits light; recorded-word action context.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08",
-      "bytes": 53432
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "4fe76dfb18743fd3bf34d7e2b229e55de95038054dc8c482bbb48228bf28b5cf",
+      "bytes": 46582,
+      "priorDeliverySha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08"
     },
     {
       "word": "sunlight",
@@ -175,9 +178,10 @@
       "kind": "meaning-context",
       "review": "A child shades their eyes from a large bright sun; recorded-word light context.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25",
-      "bytes": 11576
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "040b72de3a4410fd848c7bf64dac02206c783f561657623e489b2a193cd19c86",
+      "bytes": 38050,
+      "priorDeliverySha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25"
     },
     {
       "word": "meadow",
@@ -185,9 +189,10 @@
       "kind": "meaning-context",
       "review": "Flowers and grass form an open meadow; recorded word supplies landscape name.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "289017ad0125b2b598d6df67523fd5d4c325277dfcedf678f9bd0943e7069f9a",
-      "bytes": 197114
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "eb1aa6876839f9b086d8acfd637bf1524a057f87a959d66ba3b31a953c1887a4",
+      "bytes": 203708,
+      "priorDeliverySha256": "289017ad0125b2b598d6df67523fd5d4c325277dfcedf678f9bd0943e7069f9a"
     },
     {
       "word": "owl",
@@ -225,9 +230,10 @@
       "kind": "meaning-context",
       "review": "A close firefly emits a small pool of light; recorded word supplies glimmer meaning.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08",
-      "bytes": 53432
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "4fe76dfb18743fd3bf34d7e2b229e55de95038054dc8c482bbb48228bf28b5cf",
+      "bytes": 46582,
+      "priorDeliverySha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08"
     },
     {
       "word": "sunshine",
@@ -235,9 +241,10 @@
       "kind": "meaning-context",
       "review": "A bright sun lights a child shading their eyes; recorded-word weather context.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
-      "sha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25",
-      "bytes": 11576
+      "provenance": "Built-in clean cartoon replacement; direct native, saved and displayed-size review in the 2026-10-31 completed cohort. Existing cue meaning and context preserved.",
+      "sha256": "040b72de3a4410fd848c7bf64dac02206c783f561657623e489b2a193cd19c86",
+      "bytes": 38050,
+      "priorDeliverySha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25"
     }
   ]
 }

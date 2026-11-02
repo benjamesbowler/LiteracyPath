@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { groveDriverAction, groveDriverCanvasPose, groveDriverWorldPose, groveVisibleControlContacts } from '../../src/components/learn/games/games/starGalleryDriverPose.js';
-const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/star-gallery/manifest.json', 'utf8'));
+const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/star-gallery/clean-cartoon-manifest.json', 'utf8'));
 const atlases = Object.fromEntries(manifest.assets.filter(asset => asset.frames).map(asset => [asset.id, {
   width: asset.sourceSize[0], height: asset.sourceSize[1], pixelsPerUnit: asset.pixelsPerUnit, nominalHeight: asset.nominalHeight, frames: asset.frames
 }]));

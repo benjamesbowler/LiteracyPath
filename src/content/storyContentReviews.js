@@ -14,7 +14,7 @@ export const GUIDED_READING_RELEASE_READINESS = Object.freeze({
   humanListeningPendingPages: 160,
   visualReview: "docs/guided-reading/willow-street-visual-review.json",
   reason: "Willow Street images, original-detail visual reviews, exact-current-text narration files, and provenance checks are complete. Direct human listening is not recorded for 160 page clips; under continuous QA, missing listening metadata alone does not block release. Reported defects, quarantine, and media-integrity failures remain blocking.",
-  authorityFingerprint: "a2642bd1f93c4b88fb4d510d50b6167761c7aeb63a5ca9ba3cc5cfeb3e15f866"
+  authorityFingerprint: "e3ba7ec6e57ba0fa679c266de5085230822a91bf02c875f70b222ff12a8e61fe"
 });
 
 const GUIDED_READING_RELEASE_BLOCK_BY_ID = new Map(
@@ -35,7 +35,7 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 295,
-  sourceFingerprint: "e8303cd48c8af3768f3ce483ac1027643d4d5ef7e01ef1ba73a38ce7c30d396e",
+  sourceFingerprint: "de99f228f3ba09fa858293dbb7624f130f7e1412bbb54b93cf20016727ee1576",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
@@ -69,7 +69,7 @@ export const guidedReadingSharedStoryReviews = Object.freeze([Object.freeze({
 export const storyQuestPolicyReviews = Object.freeze([
   {
     "id": "mw_ra_c_01_pip_stone_loud_thing",
-    "sourceFingerprint": "d819a698434b27e3b8608860bc1bcb59764ce70cbf526c5a5fdca5926d1bca0a",
+    "sourceFingerprint": "6aa4924b719c11b2473e293f78a3a11053702f53503791eb6503fa9856ac8046",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -122,7 +122,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mw_ra_c_02_fern_wren_walking_garden",
-    "sourceFingerprint": "e2d09a428f0a3eda076c704fd9bc0d9225e63401f78ba5b613ebe2d92f50698f",
+    "sourceFingerprint": "d76304f6f53fb2df3114b9c2365d9b84c63d8b3288f323c227b5b2aff0187a48",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -175,7 +175,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mw_ra_c_03_luna_burrow_star_shell_door",
-    "sourceFingerprint": "648522187208866b23dbc799dc937a178b1b9aedad286356f23291f0cf7e0a25",
+    "sourceFingerprint": "2f9fa1d989469908acfb73b8fd6ee58a50dfa7ac7d68d139eb4ffe8b2812d050",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -228,7 +228,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mw_ra_c_04_dewdrop_flint_lost_glow",
-    "sourceFingerprint": "b4f5c5dea545163a933efc01e45a36bce3a75a721851a7d4b2ddee9838c950a5",
+    "sourceFingerprint": "b8a568aa387db830cf697627ada1471e40028e82ead11c6bdb9c06162e05d555",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -281,7 +281,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "dp_ra_b_01_chompy_big_lunch_hunt",
-    "sourceFingerprint": "40b6f5e0fbc548df4da23666c2b1efb3806479a284081d161ec543820ad66c16",
+    "sourceFingerprint": "e9b9de725b548a7616914cbdb1a257e4284634aa726aee271603664a1ed2f5f0",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -334,7 +334,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "dp_ra_b_02_sunnys_rainy_day_rescue",
-    "sourceFingerprint": "333b07148c3397ac5d2aac17e3e24c8326e358ac2a99db4723e673f51446e7a3",
+    "sourceFingerprint": "4dfd0a0d1b33719254ac49328fdcb62309f3c74e23f0e374c476d3599158b14f",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -387,7 +387,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "dp_ra_b_03_grumpy_almost_good_day",
-    "sourceFingerprint": "d9a60e33d0ced7294aa1b21a18fa980d168fa80e5e2f71812c196d49f127ce49",
+    "sourceFingerprint": "8e812a6e4bff39463aa258897d4af8c9142f22147e62cddfc11d8348aaabb9b9",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -440,7 +440,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "dp_ra_b_04_bouncy_big_bounce",
-    "sourceFingerprint": "d05feb164f1648147121f08b3cd5ac2748e70c8e58a3d13684d9069689b187f0",
+    "sourceFingerprint": "261beac03cd5873d0c3438fc79e1d53f525deb4ae65a1bba719cc29b6466cc00",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -493,7 +493,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "dp_ra_b_05_shys_snail_shade",
-    "sourceFingerprint": "6567045ebee7350f2a875c67a64d3f0e7153ed2ce88c7104d9b9da3c10e6652a",
+    "sourceFingerprint": "eaa40c95cc1bdf315390fb4f655f38c579e4cec3b8980c951a1c989db8b315d6",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -546,7 +546,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "story_quest_short_a_sam_pam_01",
-    "sourceFingerprint": "5b079c76807830f5066062ee703a91d60abb077ba9c4e822713a06c8a7522773",
+    "sourceFingerprint": "a4720f15e0277dadb1e8ed004052c68d4a605fdf19d5d333bf74166b653a9cf3",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -599,7 +599,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mp_ra_a_01_muddy_splashy_missing_hat",
-    "sourceFingerprint": "b65ca12b6e9e46dae6d8a466ee4ef78941606e1ce085b86cc3369e68ae360a65",
+    "sourceFingerprint": "b07645a03ca3ab818706ac9b91cadeaa7c0af028c1a983a78feb25dcd78ef176",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -652,7 +652,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mp_ra_a_02_shy_cuddly_quiet_adventure",
-    "sourceFingerprint": "9958eabc043f85532ba25a42fb5ca7d757f21162a914494199ce1abad5875535",
+    "sourceFingerprint": "d3c3e051e3d07120085a76895a218bfe09df5246d626c5b35d647150a60844a7",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -705,7 +705,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mp_ra_a_03_bouncy_speedy_fast_map",
-    "sourceFingerprint": "65d64331fa23f9aa18dde797b9633a1adcd8835c1b0d0a2d03ae23a44a473a82",
+    "sourceFingerprint": "a28624a82ef19b621272a551866b37fb9980c73f884e3d8504141e91a99465d8",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",
@@ -758,7 +758,7 @@ export const storyQuestPolicyReviews = Object.freeze([
   },
   {
     "id": "mp_ra_a_04_brave_tiny_big_little_rescue",
-    "sourceFingerprint": "9a7d996dd1f2356764ac5d358524daf2d80ce28a29d7edfe3f99a6bbf555cc8f",
+    "sourceFingerprint": "dc4beb010e7b59febba384fddc87e69d0089f6935c61e44e925ee6ef196728a5",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
     "reviewedAt": "2026-09-30",

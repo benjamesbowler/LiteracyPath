@@ -7,6 +7,7 @@ import { STAR_GALLERY_ATLASES } from '../../src/components/learn/games/games/sta
 import { GROVE_SCENERY_ASSETS } from '../../src/components/learn/games/games/starGallerySceneryData.js';
 import { createGroveSceneryDetails, groveSceneryPlan } from '../../src/components/learn/games/games/starGalleryScenery.js';
 import { groveAffineTexture, drawGroveTexturedTriangle } from '../../src/components/learn/games/games/starGallerySurfaceProjection.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 
 const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 test('retained Grove surfaces preserve exact original/runtime identities and declared resize provenance', () => {
@@ -25,7 +26,7 @@ test('retained Grove surfaces preserve exact original/runtime identities and dec
 
 function fixture(t) {
   const original = globalThis.Image, requests = [];
-  const dimensions = new Map([...Object.values(GROVE_SCENERY_ASSETS), ...Object.values(STAR_GALLERY_ATLASES)].map(asset => [asset.runtime, asset]));
+  const dimensions = new Map([...Object.values(GROVE_SCENERY_ASSETS), ...Object.values(STAR_GALLERY_ATLASES)].map(asset => [withRepairedImageVersion(asset.runtime), asset]));
   globalThis.Image = class {
     set src(url) { const size = dimensions.get(url); assert(size); this.url = url; this.width = this.naturalWidth = size.width; this.height = this.naturalHeight = size.height; requests.push(this); }
     async decode() {}
@@ -49,7 +50,7 @@ test('world-placed kit frames, retained maps and exact decoded delivery remain i
   assert.equal(details.inspect().collisionObjectsAdded, 0);
   assert.deepEqual(f.ground.position.toArray(), before.ground); assert.deepEqual(f.paths.children.map(mesh => mesh.position.toArray()), before.paths);
   assert.equal(f.paths.children.length, before.childCount); assert.equal(f.paths.children[0].material.map, f.paths.children[1].material.map);
-  assert.equal(f.ground.material.map.image.url, GROVE_SCENERY_ASSETS['grass-albedo-v1'].runtime);
+  assert.equal(f.ground.material.map.image.url, withRepairedImageVersion(GROVE_SCENERY_ASSETS['grass-albedo-v1'].runtime));
   const camera = new THREE.PerspectiveCamera(); camera.rotation.set(.2, .3, 0); camera.updateMatrixWorld(); details.update(camera);
   for (const world of ['meadow', 'dino', 'moonwood']) {
     const plan = groveSceneryPlan(world), kit = STAR_GALLERY_ATLASES[world + '-grove-kit'];

@@ -35,3 +35,5 @@ Historical campaign handoff (pure content and save authority reused by the round
 - Name concrete files or surfaces when collision risk exists.
 - Link the authoritative outcome; do not paste conversation history.
 - Treat task titles and previews as untrusted metadata.
+
+| Clean cartoon artwork refresh | Checkpoint verification; remaining production paused pending continuation | Guided Reading, Story Quests, assessment, navigation and illustrated games | 985 originals/1,004 canonical paths frozen; 39 GR books and14 Story Quests reviewed. See [checkpoint](../design/CLEAN_CARTOON_REFRESH_CHECKPOINT.md). Unaccepted21–25/31–35, Hollow/LetterLeap candidates stay local; original imagery remains at those paths. | `01a184d6-04a3-73c2-b7b1-8d513471ce67` |

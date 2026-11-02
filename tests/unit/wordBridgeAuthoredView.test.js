@@ -5,6 +5,7 @@ import { WORD_BRIDGE_ATLASES } from '../../src/components/learn/games/games/word
 import { WORD_BRIDGE_SCENERY, WORD_BRIDGE_HORIZONS } from '../../src/components/learn/games/games/wordBridgeScenery.generated.js';
 import { PHYSICAL_PAL_ART } from '../../src/components/learn/games/shared/physicalPalArtData.js';
 import { wordBridgeRecoveryRepresentation } from '../../src/components/learn/games/games/wordBridgeRecoveryArt.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 
 const heroes = { meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' };
 const nextTurn = () => new Promise(resolve => setImmediate(resolve));
@@ -12,9 +13,9 @@ const nextTurn = () => new Promise(resolve => setImmediate(resolve));
 function installImages(t) {
   const original = globalThis.Image, requests = [];
   const dimensions = new Map([
-    ...Object.values({ ...WORD_BRIDGE_ATLASES, ...WORD_BRIDGE_SCENERY }).map(atlas => [atlas.runtime, [atlas.width, atlas.height]]),
-    ...Object.values(WORD_BRIDGE_HORIZONS).map(runtime => [runtime, [1672, 941]]),
-    ...Object.values(PHYSICAL_PAL_ART).map(pal => pal.actionAtlases.tools).map(atlas => [atlas.runtime, [atlas.width, atlas.height]])
+    ...Object.values({ ...WORD_BRIDGE_ATLASES, ...WORD_BRIDGE_SCENERY }).map(atlas => [withRepairedImageVersion(atlas.runtime), [atlas.width, atlas.height]]),
+    ...Object.values(WORD_BRIDGE_HORIZONS).map(runtime => [withRepairedImageVersion(runtime), [1672, 941]]),
+    ...Object.values(PHYSICAL_PAL_ART).map(pal => pal.actionAtlases.tools).map(atlas => [withRepairedImageVersion(atlas.runtime), [atlas.width, atlas.height]])
   ]);
   globalThis.Image = class {
     set src(value) {
@@ -56,7 +57,7 @@ test('delivered construction actors use their real stride and measured palms wit
     assert.equal(wordBridgeRecoveryRepresentation(view.inspect()), 'procedural-art-loading');
     await finishOriginals(requests.filter(picture => !picture.decoded));
     await view.ready;
-    assert.equal(requests.some(picture => picture.url === PHYSICAL_PAL_ART[heroes[world]].actionAtlases.tools.runtime), false);
+    assert.equal(requests.some(picture => picture.url === withRepairedImageVersion(PHYSICAL_PAL_ART[heroes[world]].actionAtlases.tools.runtime)), false);
     assert.equal(view.inspect().recovery.delivery.carry, 'not-requested');
     assert.equal(wordBridgeRecoveryRepresentation(view.inspect()), null);
     const plank = WORD_BRIDGE_SCENERY[world + '-construction-kit'].frames.find(frame => frame.action === 'plank');
@@ -90,7 +91,7 @@ test('failed owned actors request canonical retained tools and attach only the a
     assert.equal(view.drawHero(ctx, { x: 180, footY: 220, height: 110, carrying: { physicalId: 7, w: 64, h: 58 } }, () => {}), false);
     await finishOriginals(requests.slice(initialCount), { failActors: true });
     const retained = requests.at(-1);
-    assert.equal(retained.url, PHYSICAL_PAL_ART[heroes[world]].actionAtlases.tools.runtime);
+    assert.equal(retained.url, withRepairedImageVersion(PHYSICAL_PAL_ART[heroes[world]].actionAtlases.tools.runtime));
     assert.equal(view.inspect().recovery.delivery.carry, 'pending');
     assert.equal(wordBridgeRecoveryRepresentation(view.inspect()), 'procedural-art-loading');
     await retained.onload(); await view.ready;
@@ -140,7 +141,7 @@ test('actual failure of both character routes stays unavailable and selects cano
   const requests = installImages(t), view = viewFor('meadow');
   await finishOriginals(requests, { failActors: true });
   const retained = requests.at(-1);
-  assert.equal(retained.url, PHYSICAL_PAL_ART.bouncy.actionAtlases.tools.runtime);
+  assert.equal(retained.url, withRepairedImageVersion(PHYSICAL_PAL_ART.bouncy.actionAtlases.tools.runtime));
   retained.onerror(); await view.ready;
   const art = view.inspect();
   assert.equal(wordBridgeRecoveryRepresentation(art), 'procedural-art-unavailable');

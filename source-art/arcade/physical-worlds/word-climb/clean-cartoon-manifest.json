@@ -1,0 +1,4775 @@
+{
+  "schemaVersion": 1,
+  "game": "word-climb",
+  "scope": "Three canonical current clean climbing and jump/summit families; whole-body alpha and actual palm/sole registrations; local art/contact proof separate from full-game acceptance",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/word-climb/manifest.json",
+    "sha256": "a6a6f6877e098dc79d7b74a88a2553a5dcddfa4be39c27dd0bfb613e7a2da9ec"
+  },
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/word-climb/registration.json",
+    "sha256": "9827e68748f22850979c96325d44ff602e821bc736160aa6038327e3b9ff9ae1"
+  },
+  "review": {
+    "method": "Direct whole-native generated/packed/fullsaved review,30poses390/128,18palms+60soles native details; actual current registered Canvas andThree art/contact presentation",
+    "runtimeAcceptance": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "scope": "6source sheets30completeposes.60actualThree+60Canvas presentations atproduction60/108px with±.1lean:27normal controller-selected actions plus3separately labeled climb-atlas-rest diagnostics at2sizes2renderers. Fullgame/auth/retention/cache/human/device acceptance remains separate."
+  },
+  "registration": "clean-cartoon-registration.json",
+  "registrationSha256": "942ab5e9b55644d0f212eb21664143251c4aa72b46aecc1f9deaac7c65a5d293",
+  "retainedInputs": [
+    {
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/bouncy-climb-v1-input.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sha256": "f8729d6739051efd813d453deef648a4fb4ca313a8d7a756975e4e5a541da337",
+      "prompt": "prompts/bouncy-climb-v1.txt",
+      "promptSha256": "19b9bf22f20f0c8d3929cc5e161dbe1f341417f40588e727ea8334a5bae36c72",
+      "role": "Required original edit-input provenance; corrected runtime derivative has its own exact identity"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/pip-climb-v1-input.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sha256": "ec63668cb3b52bcf982dbd1cad57bccbcc131a9b658b43abba4cd3dff0d9b447",
+      "prompt": "prompts/pip-climb-v1.txt",
+      "promptSha256": "f3dc2d0965ac1b8293c8e50b2afdac36b0f6e9cba5f6110d7ba59174acb35f25",
+      "role": "Required original edit-input provenance; corrected runtime derivative has its own exact identity"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/pip-movement-v1-input.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sha256": "6e974cca899945b571b3c1494327c287bc4859edf38c491a386507a80e2bf831",
+      "prompt": "prompts/pip-movement-v1.txt",
+      "promptSha256": "0ac7cb942efff53e3fd4abe63e5bbdb75b91d98bfc21c591c2c00c931ec20f5d",
+      "role": "Required original edit-input provenance; corrected runtime derivative has its own exact identity"
+    }
+  ],
+  "assets": [
+    {
+      "id": "bouncy-climbing",
+      "kind": "character",
+      "hero": "bouncy",
+      "world": "meadow",
+      "family": "climbing",
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/bouncy-climb-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/characters/bouncy-climb-v2.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 214.09090909090907,
+      "frames": [
+        {
+          "id": "bouncy-climbing-rest",
+          "hero": "bouncy",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            150,
+            85,
+            326,
+            485
+          ],
+          "anchor": [
+            187.33381294964028,
+            477
+          ],
+          "contacts": {
+            "feet": [
+              113,
+              477
+            ],
+            "bootLeft": [
+              113,
+              477
+            ],
+            "bootRight": [
+              223,
+              473
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              157,
+              92,
+              469,
+              563
+            ],
+            "opaqueArea": 92172,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 337.3338129496403,
+            "bootRegions": [
+              [
+                209,
+                322,
+                487,
+                564
+              ],
+              [
+                324,
+                439,
+                487,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                263,
+                562
+              ],
+              "bootRight": [
+                373,
+                558
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-climbing-climb-a",
+          "hero": "bouncy",
+          "action": "climb-a",
+          "direction": "right",
+          "rect": [
+            739,
+            71,
+            403,
+            499
+          ],
+          "anchor": [
+            192.74676258992804,
+            491
+          ],
+          "contacts": {
+            "feet": [
+              113,
+              491
+            ],
+            "bootLeft": [
+              113,
+              491
+            ],
+            "bootRight": [
+              316,
+              415
+            ],
+            "grip": [
+              333,
+              66
+            ],
+            "lowerHand": [
+              161,
+              270
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              746,
+              78,
+              1135,
+              563
+            ],
+            "opaqueArea": 101244,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 931.746762589928,
+            "bootRegions": [
+              [
+                781,
+                909,
+                460,
+                564
+              ],
+              [
+                1008,
+                1136,
+                392,
+                496
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                852,
+                562
+              ],
+              "bootRight": [
+                1055,
+                486
+              ],
+              "grip": [
+                1072,
+                137
+              ],
+              "lowerHand": [
+                900,
+                341
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-climbing-climb-b",
+          "hero": "bouncy",
+          "action": "climb-b",
+          "direction": "right",
+          "rect": [
+            125,
+            707,
+            377,
+            489
+          ],
+          "anchor": [
+            220.71366906474816,
+            481
+          ],
+          "contacts": {
+            "feet": [
+              285,
+              481
+            ],
+            "bootLeft": [
+              95,
+              413
+            ],
+            "bootRight": [
+              285,
+              481
+            ],
+            "grip": [
+              53,
+              47
+            ],
+            "lowerHand": [
+              324,
+              240
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              132,
+              714,
+              495,
+              1189
+            ],
+            "opaqueArea": 99430,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 345.71366906474816,
+            "bootRegions": [
+              [
+                138,
+                283,
+                1013,
+                1126
+              ],
+              [
+                364,
+                481,
+                1117,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                220,
+                1120
+              ],
+              "bootRight": [
+                410,
+                1188
+              ],
+              "grip": [
+                178,
+                754
+              ],
+              "lowerHand": [
+                449,
+                947
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-climbing-recover-grip",
+          "hero": "bouncy",
+          "action": "recover-grip",
+          "direction": "right",
+          "rect": [
+            758,
+            683,
+            365,
+            514
+          ],
+          "anchor": [
+            203.57266187050357,
+            506
+          ],
+          "contacts": {
+            "feet": [
+              144,
+              506
+            ],
+            "bootLeft": [
+              144,
+              506
+            ],
+            "bootRight": [
+              272,
+              506
+            ],
+            "grip": [
+              316,
+              54
+            ],
+            "lowerHand": [
+              212,
+              261
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              765,
+              690,
+              1116,
+              1190
+            ],
+            "opaqueArea": 95851,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 961.5726618705036,
+            "bootRegions": [
+              [
+                840,
+                963,
+                1109,
+                1191
+              ],
+              [
+                966,
+                1079,
+                1109,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                902,
+                1189
+              ],
+              "bootRight": [
+                1030,
+                1189
+              ],
+              "grip": [
+                1074,
+                737
+              ],
+              "lowerHand": [
+                970,
+                944
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "characters/clean-cartoon/bouncy-climb-v2.prompt.txt",
+      "sourceSha256": "8fbb5264c044ba50444199dc4087c141b967e63445f7cfb4d91d9c44e1fabfd6",
+      "promptSha256": "317a48a9774cedf357db8886affe4c02a7e6c24dcd70d39571bda461eedf78af",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-31; current whole-pose registration",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER: fullnative/saved390/128 identity/style/anatomy/alpha/margins; inspected actual palms/two independent opaque soles, local Canvas/Three current art/contact at60/108px. No inherited historical fullroute approval.",
+      "productionRevision": "2026-10-31-clean-cartoon",
+      "supersedes": {
+        "source": "source-art/arcade/physical-worlds/word-climb/characters/bouncy-climb-v2.png",
+        "sourceSha256": "074527ca04fca453111fdf53cf64c54d178e038ad81071ba6855e0ae99cd1c0f",
+        "runtime": "/game-assets/physical-arcade/word-climb/characters/bouncy-climb-v2.webp",
+        "runtimeSha256": "779998d2b74c6de3f682fb801d1af05d8dd7810941ff478abdf51a29fd6fb2cf",
+        "prompt": "source-art/arcade/physical-worlds/word-climb/prompts/bouncy-climb-v2.txt",
+        "promptSha256": "39b9f1b28e9e2595bbb17b7e0dce026ac5d835affd033007fe5d5208993a88e2"
+      },
+      "generation": {
+        "tool": "builtin image_gen.imagegen",
+        "actualCalls": 1,
+        "native": {
+          "id": "bouncy-climb-v2",
+          "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-f179bbf5-8341-46e2-84c4-350edec317fb.png",
+          "callStatus": "fulfilled",
+          "actualCall": 1,
+          "nativeInitialReview": "PASS: complete 4-body grid, crisp outlined flat fills, exactly2forelimbs2hindlegs perbody, ONEChompy tail; raised hand and knee visibly alternate, recovery hand distinct.",
+          "immutableNativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-climb-v2-generated-native.png",
+          "nativeSHA": "8ca38adc3f76ed2898f818562b5682fc5e6196cdb8b6617f80cc75f78e9ca03a",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alpha": [
+            0,
+            255
+          ]
+        },
+        "references": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-builder-clean-identity-ref.png",
+            "sha256": "1ca7b8ec9ac7685e520fcc64d7da49cf0716b3d03e8bac4b1c611218057bc97a",
+            "role": "accepted clean identity/style"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/074527ca04fca453111fdf53cf64c54d178e038ad81071ba6855e0ae99cd1c0f.png",
+            "sha256": "074527ca04fca453111fdf53cf64c54d178e038ad81071ba6855e0ae99cd1c0f",
+            "role": "immutable old action semantics/order only"
+          }
+        ],
+        "packingRecipes": [
+          {
+            "sourceIndex": 0,
+            "action": "rest",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-climb-v2-generated-native.png",
+            "nativeSHA": "8ca38adc3f76ed2898f818562b5682fc5e6196cdb8b6617f80cc75f78e9ca03a",
+            "completeBodyBounds": [
+              150,
+              67,
+              496,
+              589
+            ],
+            "wholeObjectCrop": [
+              149,
+              66,
+              497,
+              590
+            ],
+            "scale": 0.902158273381295,
+            "placement": [
+              156,
+              91,
+              314,
+              473
+            ],
+            "sourceNativeBootRegions": [
+              [
+                208,
+                333,
+                505,
+                605
+              ],
+              [
+                335,
+                463,
+                505,
+                605
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "rest",
+              "axis": 337.3338129496403,
+              "boots": [
+                [
+                  209,
+                  322,
+                  487,
+                  564
+                ],
+                [
+                  324,
+                  439,
+                  487,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 1,
+            "action": "climb-a",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-climb-v2-generated-native.png",
+            "nativeSHA": "8ca38adc3f76ed2898f818562b5682fc5e6196cdb8b6617f80cc75f78e9ca03a",
+            "completeBodyBounds": [
+              749,
+              62,
+              1180,
+              600
+            ],
+            "wholeObjectCrop": [
+              748,
+              61,
+              1181,
+              601
+            ],
+            "scale": 0.902158273381295,
+            "placement": [
+              745,
+              77,
+              391,
+              487
+            ],
+            "sourceNativeBootRegions": [
+              [
+                788,
+                930,
+                485,
+                610
+              ],
+              [
+                1040,
+                1190,
+                410,
+                525
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                1110,
+                128
+              ],
+              [
+                920,
+                354
+              ]
+            ],
+            "measuredFrame": {
+              "action": "climb-a",
+              "axis": 931.746762589928,
+              "boots": [
+                [
+                  781,
+                  909,
+                  460,
+                  564
+                ],
+                [
+                  1008,
+                  1136,
+                  392,
+                  496
+                ]
+              ],
+              "grip": [
+                1072,
+                137
+              ],
+              "lowerHand": [
+                900,
+                341
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 2,
+            "action": "climb-b",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-climb-v2-generated-native.png",
+            "nativeSHA": "8ca38adc3f76ed2898f818562b5682fc5e6196cdb8b6617f80cc75f78e9ca03a",
+            "completeBodyBounds": [
+              113,
+              663,
+              516,
+              1191
+            ],
+            "wholeObjectCrop": [
+              112,
+              662,
+              517,
+              1192
+            ],
+            "scale": 0.902158273381295,
+            "placement": [
+              131,
+              713,
+              365,
+              478
+            ],
+            "sourceNativeBootRegions": [
+              [
+                120,
+                280,
+                995,
+                1120
+              ],
+              [
+                370,
+                500,
+                1110,
+                1210
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                164,
+                707
+              ],
+              [
+                465,
+                921
+              ]
+            ],
+            "measuredFrame": {
+              "action": "climb-b",
+              "axis": 345.71366906474816,
+              "boots": [
+                [
+                  138,
+                  283,
+                  1013,
+                  1126
+                ],
+                [
+                  364,
+                  481,
+                  1117,
+                  1191
+                ]
+              ],
+              "grip": [
+                178,
+                754
+              ],
+              "lowerHand": [
+                449,
+                947
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 3,
+            "action": "recover-grip",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-climb-v2-generated-native.png",
+            "nativeSHA": "8ca38adc3f76ed2898f818562b5682fc5e6196cdb8b6617f80cc75f78e9ca03a",
+            "completeBodyBounds": [
+              752,
+              635,
+              1141,
+              1189
+            ],
+            "wholeObjectCrop": [
+              751,
+              634,
+              1142,
+              1190
+            ],
+            "scale": 0.902158273381295,
+            "placement": [
+              764,
+              689,
+              353,
+              502
+            ],
+            "sourceNativeBootRegions": [
+              [
+                835,
+                972,
+                1100,
+                1210
+              ],
+              [
+                975,
+                1100,
+                1100,
+                1210
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                1095,
+                687
+              ],
+              [
+                979,
+                917
+              ]
+            ],
+            "measuredFrame": {
+              "action": "recover-grip",
+              "axis": 961.5726618705036,
+              "boots": [
+                [
+                  840,
+                  963,
+                  1109,
+                  1191
+                ],
+                [
+                  966,
+                  1079,
+                  1109,
+                  1191
+                ]
+              ],
+              "grip": [
+                1074,
+                737
+              ],
+              "lowerHand": [
+                970,
+                944
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          }
+        ]
+      },
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+          "sha256": "71d5a0cae3f37005cb24ab6e5c634bebde35a24ad716d7c4b3579ae6decec228",
+          "role": "Accepted clean canonical identity/style parent sheet; actual generation used qualified single-hero crop recorded in generation.references"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/characters/bouncy-climb-v1-input.png",
+          "sha256": "f8729d6739051efd813d453deef648a4fb4ca313a8d7a756975e4e5a541da337",
+          "role": "Original source input to the retained opposite-limb or canonical-costume correction"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every source alpha pixel equals decoded same-size WebP alpha; RGB quality90",
+        "pixelCount": 1572516,
+        "sourceAlphaSha256": "1f37b7db129e4907eb5d3a792e59d51f01ff40939e0b27374c6f39d37903dc34",
+        "runtimeAlphaSha256": "1f37b7db129e4907eb5d3a792e59d51f01ff40939e0b27374c6f39d37903dc34"
+      },
+      "runtimeSha256": "9cb29d8b3ebb1d8e58bd79c2aa73a93d795ddb4289f41643c744e2a095a82520",
+      "runtimeBytes": 181024
+    },
+    {
+      "id": "chompy-climbing",
+      "kind": "character",
+      "hero": "chompy",
+      "world": "dino",
+      "family": "climbing",
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/chompy-climb-v1.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/characters/chompy-climb-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 223.18181818181816,
+      "frames": [
+        {
+          "id": "chompy-climbing-rest",
+          "hero": "chompy",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            114,
+            65,
+            400,
+            505
+          ],
+          "anchor": [
+            241.53391304347826,
+            497
+          ],
+          "contacts": {
+            "feet": [
+              140,
+              497
+            ],
+            "bootLeft": [
+              140,
+              497
+            ],
+            "bootRight": [
+              316,
+              497
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              121,
+              72,
+              507,
+              563
+            ],
+            "opaqueArea": 114591,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 355.53391304347826,
+            "bootRegions": [
+              [
+                203,
+                342,
+                499,
+                564
+              ],
+              [
+                351,
+                491,
+                499,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                254,
+                562
+              ],
+              "bootRight": [
+                430,
+                562
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-climbing-climb-a",
+          "hero": "chompy",
+          "action": "climb-a",
+          "direction": "right",
+          "rect": [
+            706,
+            56,
+            469,
+            514
+          ],
+          "anchor": [
+            258.9808695652174,
+            506
+          ],
+          "contacts": {
+            "feet": [
+              157,
+              506
+            ],
+            "bootLeft": [
+              157,
+              506
+            ],
+            "bootRight": [
+              353,
+              453
+            ],
+            "grip": [
+              418,
+              157
+            ],
+            "lowerHand": [
+              229,
+              325
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              713,
+              63,
+              1168,
+              563
+            ],
+            "opaqueArea": 126107,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 964.9808695652174,
+            "bootRegions": [
+              [
+                808,
+                934,
+                496,
+                564
+              ],
+              [
+                1035,
+                1157,
+                431,
+                514
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                863,
+                562
+              ],
+              "bootRight": [
+                1059,
+                509
+              ],
+              "grip": [
+                1124,
+                213
+              ],
+              "lowerHand": [
+                935,
+                381
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-climbing-climb-b",
+          "hero": "chompy",
+          "action": "climb-b",
+          "direction": "right",
+          "rect": [
+            109,
+            709,
+            409,
+            488
+          ],
+          "anchor": [
+            240.66156521739128,
+            480
+          ],
+          "contacts": {
+            "feet": [
+              312,
+              480
+            ],
+            "bootLeft": [
+              216,
+              430
+            ],
+            "bootRight": [
+              312,
+              480
+            ],
+            "grip": [
+              67,
+              95
+            ],
+            "lowerHand": [
+              337,
+              296
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              116,
+              716,
+              511,
+              1190
+            ],
+            "opaqueArea": 112070,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 349.6615652173913,
+            "bootRegions": [
+              [
+                302,
+                371,
+                1070,
+                1140
+              ],
+              [
+                406,
+                512,
+                1122,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                325,
+                1139
+              ],
+              "bootRight": [
+                421,
+                1189
+              ],
+              "grip": [
+                176,
+                804
+              ],
+              "lowerHand": [
+                446,
+                1005
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-climbing-recover-grip",
+          "hero": "chompy",
+          "action": "recover-grip",
+          "direction": "right",
+          "rect": [
+            724,
+            701,
+            432,
+            496
+          ],
+          "anchor": [
+            258.1085217391304,
+            488
+          ],
+          "contacts": {
+            "feet": [
+              322,
+              488
+            ],
+            "bootLeft": [
+              193,
+              474
+            ],
+            "bootRight": [
+              322,
+              488
+            ],
+            "grip": [
+              393,
+              76
+            ],
+            "lowerHand": [
+              235,
+              262
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              731,
+              708,
+              1149,
+              1190
+            ],
+            "opaqueArea": 111398,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 982.1085217391304,
+            "bootRegions": [
+              [
+                838,
+                960,
+                1100,
+                1187
+              ],
+              [
+                965,
+                1087,
+                1126,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                917,
+                1175
+              ],
+              "bootRight": [
+                1046,
+                1189
+              ],
+              "grip": [
+                1117,
+                777
+              ],
+              "lowerHand": [
+                959,
+                963
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "characters/clean-cartoon/chompy-climb-v1.prompt.txt",
+      "sourceSha256": "1a5986edd49840283536db32b6122f985313576d6dce21009cc4a541b35f5715",
+      "promptSha256": "cfc273be91bdf9426859d2b1b93bc58432327a0465cce4c5a6a26d50aa84f9da",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-31; current whole-pose registration",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER: fullnative/saved390/128 identity/style/anatomy/alpha/margins; inspected actual palms/two independent opaque soles, local Canvas/Three current art/contact at60/108px. No inherited historical fullroute approval.",
+      "productionRevision": "2026-10-31-clean-cartoon",
+      "supersedes": {
+        "source": "source-art/arcade/physical-worlds/word-climb/characters/chompy-climb-v1.png",
+        "sourceSha256": "ecd4a7e890ccf4c797f39d336686bd146139c4526983779b6f0352cb7676481e",
+        "runtime": "/game-assets/physical-arcade/word-climb/characters/chompy-climb-v1.webp",
+        "runtimeSha256": "0df8ba01184e91fae9a653b896fe1b00444d6b35635ed54b21dca13e2bb21950",
+        "prompt": "source-art/arcade/physical-worlds/word-climb/prompts/chompy-climb-v1.txt",
+        "promptSha256": "b4ebc01a13cba994ee7b383865e5117b28a73b3c45dd8dfeaa578a2c1c9f85db"
+      },
+      "generation": {
+        "tool": "builtin image_gen.imagegen",
+        "actualCalls": 1,
+        "native": {
+          "id": "chompy-climb-v1",
+          "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-e9e5c7e7-03d6-4dab-8091-6a169d94c2f1.png",
+          "callStatus": "fulfilled",
+          "actualCall": 1,
+          "nativeInitialReview": "PASS: complete 4-body grid, crisp outlined flat fills, exactly2forelimbs2hindlegs perbody, ONEChompy tail; raised hand and knee visibly alternate, recovery hand distinct.",
+          "immutableNativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-climb-v1-generated-native.png",
+          "nativeSHA": "4b5daf11966ad7eaa49b2787ae46a673c04643a2f55f25e5506df3d54204ba5e",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alpha": [
+            0,
+            255
+          ]
+        },
+        "references": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-builder-clean-identity-ref.png",
+            "sha256": "654d1284f54874fab374446ca3529f50bab0fc308cdddff6f6c4f00d543dbac5",
+            "role": "accepted clean identity/style"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/ecd4a7e890ccf4c797f39d336686bd146139c4526983779b6f0352cb7676481e.png",
+            "sha256": "ecd4a7e890ccf4c797f39d336686bd146139c4526983779b6f0352cb7676481e",
+            "role": "immutable old action semantics/order only"
+          }
+        ],
+        "packingRecipes": [
+          {
+            "sourceIndex": 0,
+            "action": "rest",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-climb-v1-generated-native.png",
+            "nativeSHA": "4b5daf11966ad7eaa49b2787ae46a673c04643a2f55f25e5506df3d54204ba5e",
+            "completeBodyBounds": [
+              81,
+              50,
+              524,
+              613
+            ],
+            "wholeObjectCrop": [
+              80,
+              49,
+              525,
+              614
+            ],
+            "scale": 0.8723478260869566,
+            "placement": [
+              120,
+              71,
+              388,
+              493
+            ],
+            "sourceNativeBootRegions": [
+              [
+                175,
+                335,
+                540,
+                625
+              ],
+              [
+                345,
+                505,
+                540,
+                625
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "rest",
+              "axis": 355.53391304347826,
+              "boots": [
+                [
+                  203,
+                  342,
+                  499,
+                  564
+                ],
+                [
+                  351,
+                  491,
+                  499,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 1,
+            "action": "climb-a",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-climb-v1-generated-native.png",
+            "nativeSHA": "4b5daf11966ad7eaa49b2787ae46a673c04643a2f55f25e5506df3d54204ba5e",
+            "completeBodyBounds": [
+              691,
+              48,
+              1213,
+              621
+            ],
+            "wholeObjectCrop": [
+              690,
+              47,
+              1214,
+              622
+            ],
+            "scale": 0.8723478260869566,
+            "placement": [
+              712,
+              62,
+              457,
+              502
+            ],
+            "sourceNativeBootRegions": [
+              [
+                800,
+                945,
+                545,
+                640
+              ],
+              [
+                1060,
+                1200,
+                470,
+                565
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                1162,
+                220
+              ],
+              [
+                946,
+                413
+              ]
+            ],
+            "measuredFrame": {
+              "action": "climb-a",
+              "axis": 964.9808695652174,
+              "boots": [
+                [
+                  808,
+                  934,
+                  496,
+                  564
+                ],
+                [
+                  1035,
+                  1157,
+                  431,
+                  514
+                ]
+              ],
+              "grip": [
+                1124,
+                213
+              ],
+              "lowerHand": [
+                935,
+                381
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 2,
+            "action": "climb-b",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-climb-v1-generated-native.png",
+            "nativeSHA": "4b5daf11966ad7eaa49b2787ae46a673c04643a2f55f25e5506df3d54204ba5e",
+            "completeBodyBounds": [
+              87,
+              634,
+              540,
+              1178
+            ],
+            "wholeObjectCrop": [
+              86,
+              633,
+              541,
+              1179
+            ],
+            "scale": 0.8723478260869566,
+            "placement": [
+              115,
+              715,
+              397,
+              476
+            ],
+            "sourceNativeBootRegions": [
+              [
+                300,
+                380,
+                1040,
+                1120
+              ],
+              [
+                420,
+                550,
+                1100,
+                1190
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                156,
+                735
+              ],
+              [
+                466,
+                966
+              ]
+            ],
+            "measuredFrame": {
+              "action": "climb-b",
+              "axis": 349.6615652173913,
+              "boots": [
+                [
+                  302,
+                  371,
+                  1070,
+                  1140
+                ],
+                [
+                  406,
+                  512,
+                  1122,
+                  1191
+                ]
+              ],
+              "grip": [
+                176,
+                804
+              ],
+              "lowerHand": [
+                446,
+                1005
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 3,
+            "action": "recover-grip",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-climb-v1-generated-native.png",
+            "nativeSHA": "4b5daf11966ad7eaa49b2787ae46a673c04643a2f55f25e5506df3d54204ba5e",
+            "completeBodyBounds": [
+              722,
+              641,
+              1202,
+              1194
+            ],
+            "wholeObjectCrop": [
+              721,
+              640,
+              1203,
+              1195
+            ],
+            "scale": 0.8723478260869566,
+            "placement": [
+              730,
+              707,
+              420,
+              484
+            ],
+            "sourceNativeBootRegions": [
+              [
+                845,
+                985,
+                1090,
+                1190
+              ],
+              [
+                990,
+                1130,
+                1120,
+                1230
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                1165,
+                720
+              ],
+              [
+                984,
+                934
+              ]
+            ],
+            "measuredFrame": {
+              "action": "recover-grip",
+              "axis": 982.1085217391304,
+              "boots": [
+                [
+                  838,
+                  960,
+                  1100,
+                  1187
+                ],
+                [
+                  965,
+                  1087,
+                  1126,
+                  1191
+                ]
+              ],
+              "grip": [
+                1117,
+                777
+              ],
+              "lowerHand": [
+                959,
+                963
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          }
+        ]
+      },
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+          "sha256": "d72038f7c1dc36a785a116afcb0c08bee109e840f8823e8b059e93937398cd57",
+          "role": "Accepted clean canonical identity/style parent sheet; actual generation used qualified single-hero crop recorded in generation.references"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every source alpha pixel equals decoded same-size WebP alpha; RGB quality90",
+        "pixelCount": 1572516,
+        "sourceAlphaSha256": "8dbd22c7f26e86281561ff0a0bf7bc35da611fc474e50109bb2d35220f6b02e9",
+        "runtimeAlphaSha256": "8dbd22c7f26e86281561ff0a0bf7bc35da611fc474e50109bb2d35220f6b02e9"
+      },
+      "runtimeSha256": "61fb8fb9b59675c62ca7c43b666b11d3b30abd62eea8667bba652b9fe0224d71",
+      "runtimeBytes": 189330
+    },
+    {
+      "id": "pip-climbing",
+      "kind": "character",
+      "hero": "pip",
+      "world": "moonwood",
+      "family": "climbing",
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/pip-climb-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/characters/pip-climb-v2.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 227.27272727272725,
+      "frames": [
+        {
+          "id": "pip-climbing-rest",
+          "hero": "pip",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            171,
+            56,
+            285,
+            514
+          ],
+          "anchor": [
+            139.48363636363638,
+            506
+          ],
+          "contacts": {
+            "feet": [
+              95,
+              506
+            ],
+            "bootLeft": [
+              95,
+              506
+            ],
+            "bootRight": [
+              214,
+              499
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              178,
+              63,
+              449,
+              563
+            ],
+            "opaqueArea": 85622,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 310.4836363636364,
+            "bootRegions": [
+              [
+                207,
+                302,
+                493,
+                564
+              ],
+              [
+                306,
+                443,
+                493,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                266,
+                562
+              ],
+              "bootRight": [
+                385,
+                555
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-climbing-climb-a",
+          "hero": "pip",
+          "action": "climb-a",
+          "direction": "right",
+          "rect": [
+            759,
+            57,
+            363,
+            513
+          ],
+          "anchor": [
+            209.12727272727273,
+            505
+          ],
+          "contacts": {
+            "feet": [
+              127,
+              505
+            ],
+            "bootLeft": [
+              127,
+              505
+            ],
+            "bootRight": [
+              271,
+              424
+            ],
+            "grip": [
+              279,
+              66
+            ],
+            "lowerHand": [
+              51,
+              329
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              766,
+              64,
+              1115,
+              563
+            ],
+            "opaqueArea": 88440,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 968.1272727272727,
+            "bootRegions": [
+              [
+                811,
+                943,
+                473,
+                564
+              ],
+              [
+                993,
+                1116,
+                407,
+                490
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                886,
+                562
+              ],
+              "bootRight": [
+                1030,
+                481
+              ],
+              "grip": [
+                1038,
+                123
+              ],
+              "lowerHand": [
+                810,
+                386
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-climbing-climb-b",
+          "hero": "pip",
+          "action": "climb-b",
+          "direction": "right",
+          "rect": [
+            160,
+            707,
+            307,
+            490
+          ],
+          "anchor": [
+            157.7236363636364,
+            482
+          ],
+          "contacts": {
+            "feet": [
+              228,
+              482
+            ],
+            "bootLeft": [
+              83,
+              386
+            ],
+            "bootRight": [
+              228,
+              482
+            ],
+            "grip": [
+              74,
+              44
+            ],
+            "lowerHand": [
+              235,
+              239
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              167,
+              714,
+              460,
+              1190
+            ],
+            "opaqueArea": 77197,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 317.7236363636364,
+            "bootRegions": [
+              [
+                166,
+                305,
+                1009,
+                1108
+              ],
+              [
+                355,
+                461,
+                1108,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                243,
+                1093
+              ],
+              "bootRight": [
+                388,
+                1189
+              ],
+              "grip": [
+                234,
+                751
+              ],
+              "lowerHand": [
+                395,
+                946
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-climbing-recover-grip",
+          "hero": "pip",
+          "action": "recover-grip",
+          "direction": "right",
+          "rect": [
+            786,
+            697,
+            308,
+            500
+          ],
+          "anchor": [
+            234.82909090909095,
+            492
+          ],
+          "contacts": {
+            "feet": [
+              260,
+              492
+            ],
+            "bootLeft": [
+              238,
+              486
+            ],
+            "bootRight": [
+              260,
+              492
+            ],
+            "grip": [
+              255,
+              46
+            ],
+            "lowerHand": [
+              230,
+              257
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              793,
+              704,
+              1087,
+              1190
+            ],
+            "opaqueArea": 77247,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1020.829090909091,
+            "bootRegions": [
+              [
+                917,
+                1025,
+                1094,
+                1191
+              ],
+              [
+                1025,
+                1088,
+                1094,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                1024,
+                1183
+              ],
+              "bootRight": [
+                1046,
+                1189
+              ],
+              "grip": [
+                1041,
+                743
+              ],
+              "lowerHand": [
+                1016,
+                954
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "characters/clean-cartoon/pip-climb-v2.prompt.txt",
+      "sourceSha256": "7a9f2c089302c0c64faf6edada3ee89d3a5af9ab1f5201cd184e5fb03adecf62",
+      "promptSha256": "db629e2b1ae81ad76b01463bbc09b8d4498714bfd24df716ff37a34ede6e163c",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-31; current whole-pose registration",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER: fullnative/saved390/128 identity/style/anatomy/alpha/margins; inspected actual palms/two independent opaque soles, local Canvas/Three current art/contact at60/108px. No inherited historical fullroute approval.",
+      "productionRevision": "2026-10-31-clean-cartoon",
+      "supersedes": {
+        "source": "source-art/arcade/physical-worlds/word-climb/characters/pip-climb-v2.png",
+        "sourceSha256": "1be92955101aa681ccf0d9e9ac73e68c18a72c5450abd1d2f3b8bddba5199c56",
+        "runtime": "/game-assets/physical-arcade/word-climb/characters/pip-climb-v2.webp",
+        "runtimeSha256": "8a5b19c624a4a5ff38d7f0a798305ca0d0146249ece7cd0d5b3b72f0667df807",
+        "prompt": "source-art/arcade/physical-worlds/word-climb/prompts/pip-climb-v2.txt",
+        "promptSha256": "aea749f22724abb07916c162f60d0dfd702b84ea39cf45dc9e58bec320eb6aee"
+      },
+      "generation": {
+        "tool": "builtin image_gen.imagegen",
+        "actualCalls": 1,
+        "native": {
+          "id": "pip-climb-v2",
+          "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-38be195e-04fe-40de-b13e-a047216b06e5.png",
+          "callStatus": "fulfilled",
+          "actualCall": 1,
+          "nativeInitialReview": "PASS: complete 4-body grid, crisp outlined flat fills, exactly2forelimbs2hindlegs perbody, ONEChompy tail; raised hand and knee visibly alternate, recovery hand distinct.",
+          "immutableNativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-climb-v2-generated-native.png",
+          "nativeSHA": "7a23da0cbc50764deb1b75e5652ab3bf3cd964d2fd2a24a4e78f71037f2608b7",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alpha": [
+            0,
+            255
+          ]
+        },
+        "references": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-builder-clean-identity-ref.png",
+            "sha256": "c22150f37875c5f22c97f86b1155a81f590d0c254a200c8869f046cdc8694979",
+            "role": "accepted clean identity/style"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/1be92955101aa681ccf0d9e9ac73e68c18a72c5450abd1d2f3b8bddba5199c56.png",
+            "sha256": "1be92955101aa681ccf0d9e9ac73e68c18a72c5450abd1d2f3b8bddba5199c56",
+            "role": "immutable old action semantics/order only"
+          }
+        ],
+        "packingRecipes": [
+          {
+            "sourceIndex": 0,
+            "action": "rest",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-climb-v2-generated-native.png",
+            "nativeSHA": "7a23da0cbc50764deb1b75e5652ab3bf3cd964d2fd2a24a4e78f71037f2608b7",
+            "completeBodyBounds": [
+              195,
+              31,
+              522,
+              634
+            ],
+            "wholeObjectCrop": [
+              194,
+              30,
+              523,
+              635
+            ],
+            "scale": 0.8290909090909091,
+            "placement": [
+              177,
+              62,
+              273,
+              502
+            ],
+            "sourceNativeBootRegions": [
+              [
+                230,
+                345,
+                550,
+                645
+              ],
+              [
+                350,
+                515,
+                550,
+                645
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "rest",
+              "axis": 310.4836363636364,
+              "boots": [
+                [
+                  207,
+                  302,
+                  493,
+                  564
+                ],
+                [
+                  306,
+                  443,
+                  493,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 1,
+            "action": "climb-a",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-climb-v2-generated-native.png",
+            "nativeSHA": "7a23da0cbc50764deb1b75e5652ab3bf3cd964d2fd2a24a4e78f71037f2608b7",
+            "completeBodyBounds": [
+              716,
+              41,
+              1137,
+              643
+            ],
+            "wholeObjectCrop": [
+              715,
+              40,
+              1138,
+              644
+            ],
+            "scale": 0.8290909090909091,
+            "placement": [
+              765,
+              63,
+              351,
+              501
+            ],
+            "sourceNativeBootRegions": [
+              [
+                770,
+                930,
+                535,
+                650
+              ],
+              [
+                990,
+                1145,
+                455,
+                555
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                1044,
+                112
+              ],
+              [
+                769,
+                430
+              ]
+            ],
+            "measuredFrame": {
+              "action": "climb-a",
+              "axis": 968.1272727272727,
+              "boots": [
+                [
+                  811,
+                  943,
+                  473,
+                  564
+                ],
+                [
+                  993,
+                  1116,
+                  407,
+                  490
+                ]
+              ],
+              "grip": [
+                1038,
+                123
+              ],
+              "lowerHand": [
+                810,
+                386
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 2,
+            "action": "climb-b",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-climb-v2-generated-native.png",
+            "nativeSHA": "7a23da0cbc50764deb1b75e5652ab3bf3cd964d2fd2a24a4e78f71037f2608b7",
+            "completeBodyBounds": [
+              168,
+              659,
+              522,
+              1233
+            ],
+            "wholeObjectCrop": [
+              167,
+              658,
+              523,
+              1234
+            ],
+            "scale": 0.8290909090909091,
+            "placement": [
+              166,
+              713,
+              295,
+              478
+            ],
+            "sourceNativeBootRegions": [
+              [
+                165,
+                335,
+                1015,
+                1135
+              ],
+              [
+                395,
+                530,
+                1135,
+                1245
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                249,
+                704
+              ],
+              [
+                443,
+                939
+              ]
+            ],
+            "measuredFrame": {
+              "action": "climb-b",
+              "axis": 317.7236363636364,
+              "boots": [
+                [
+                  166,
+                  305,
+                  1009,
+                  1108
+                ],
+                [
+                  355,
+                  461,
+                  1108,
+                  1191
+                ]
+              ],
+              "grip": [
+                234,
+                751
+              ],
+              "lowerHand": [
+                395,
+                946
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 3,
+            "action": "recover-grip",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-climb-v2-generated-native.png",
+            "nativeSHA": "7a23da0cbc50764deb1b75e5652ab3bf3cd964d2fd2a24a4e78f71037f2608b7",
+            "completeBodyBounds": [
+              725,
+              639,
+              1080,
+              1225
+            ],
+            "wholeObjectCrop": [
+              724,
+              638,
+              1081,
+              1226
+            ],
+            "scale": 0.8290909090909091,
+            "placement": [
+              792,
+              703,
+              296,
+              488
+            ],
+            "sourceNativeBootRegions": [
+              [
+                875,
+                1005,
+                1110,
+                1240
+              ],
+              [
+                1005,
+                1115,
+                1110,
+                1240
+              ]
+            ],
+            "sourceNativeHands": [
+              [
+                1024,
+                686
+              ],
+              [
+                994,
+                941
+              ]
+            ],
+            "measuredFrame": {
+              "action": "recover-grip",
+              "axis": 1020.829090909091,
+              "boots": [
+                [
+                  917,
+                  1025,
+                  1094,
+                  1191
+                ],
+                [
+                  1025,
+                  1088,
+                  1094,
+                  1191
+                ]
+              ],
+              "grip": [
+                1041,
+                743
+              ],
+              "lowerHand": [
+                1016,
+                954
+              ]
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          }
+        ]
+      },
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+          "sha256": "2b7184df4f75173df3287e80c560b717377125f4e0a1bfa0aa4ee4982cdf7b6a",
+          "role": "Accepted clean canonical identity/style parent sheet; actual generation used qualified single-hero crop recorded in generation.references"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/characters/pip-climb-v1-input.png",
+          "sha256": "ec63668cb3b52bcf982dbd1cad57bccbcc131a9b658b43abba4cd3dff0d9b447",
+          "role": "Original source input to the retained opposite-limb or canonical-costume correction"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every source alpha pixel equals decoded same-size WebP alpha; RGB quality90",
+        "pixelCount": 1572516,
+        "sourceAlphaSha256": "692b2d915e48e9795eccc0bda1c57028f8a1479c4679495acfa67af8d86bffd8",
+        "runtimeAlphaSha256": "692b2d915e48e9795eccc0bda1c57028f8a1479c4679495acfa67af8d86bffd8"
+      },
+      "runtimeSha256": "946ef7a685979d6b8ea266341b7d8e154d98d0c6545027134c067a9e5071cdb4",
+      "runtimeBytes": 160704
+    },
+    {
+      "id": "bouncy-movement",
+      "kind": "character",
+      "hero": "bouncy",
+      "world": "meadow",
+      "family": "movement",
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/bouncy-movement-v1.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/characters/bouncy-movement-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 206.8181818181818,
+      "frames": [
+        {
+          "id": "bouncy-movement-rest",
+          "hero": "bouncy",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            60,
+            101,
+            299,
+            469
+          ],
+          "anchor": [
+            169.58486486486487,
+            461
+          ],
+          "contacts": {
+            "feet": [
+              108,
+              461
+            ],
+            "bootLeft": [
+              108,
+              461
+            ],
+            "bootRight": [
+              210,
+              460
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              67,
+              108,
+              352,
+              563
+            ],
+            "opaqueArea": 85634,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 229.58486486486487,
+            "bootRegions": [
+              [
+                112,
+                221,
+                503,
+                564
+              ],
+              [
+                223,
+                334,
+                503,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                168,
+                562
+              ],
+              "bootRight": [
+                270,
+                561
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-movement-jump-rise",
+          "hero": "bouncy",
+          "action": "jump-rise",
+          "direction": "right",
+          "rect": [
+            464,
+            133,
+            325,
+            437
+          ],
+          "anchor": [
+            187.66054054054052,
+            429
+          ],
+          "contacts": {
+            "feet": [
+              191,
+              429
+            ],
+            "bootLeft": [
+              114,
+              420
+            ],
+            "bootRight": [
+              191,
+              429
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              471,
+              140,
+              782,
+              563
+            ],
+            "opaqueArea": 80985,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 651.6605405405405,
+            "bootRegions": [
+              [
+                525,
+                629,
+                490,
+                564
+              ],
+              [
+                634,
+                738,
+                490,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                578,
+                553
+              ],
+              "bootRight": [
+                655,
+                562
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-movement-jump-fall",
+          "hero": "bouncy",
+          "action": "jump-fall",
+          "direction": "right",
+          "rect": [
+            876,
+            84,
+            338,
+            486
+          ],
+          "anchor": [
+            189.46810810810803,
+            478
+          ],
+          "contacts": {
+            "feet": [
+              152,
+              478
+            ],
+            "bootLeft": [
+              152,
+              478
+            ],
+            "bootRight": [
+              256,
+              465
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              883,
+              91,
+              1207,
+              563
+            ],
+            "opaqueArea": 89564,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1065.468108108108,
+            "bootRegions": [
+              [
+                943,
+                1052,
+                498,
+                564
+              ],
+              [
+                1056,
+                1178,
+                493,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                1028,
+                562
+              ],
+              "bootRight": [
+                1132,
+                549
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-movement-land",
+          "hero": "bouncy",
+          "action": "land",
+          "direction": "right",
+          "rect": [
+            40,
+            802,
+            339,
+            395
+          ],
+          "anchor": [
+            165.96972972972975,
+            387
+          ],
+          "contacts": {
+            "feet": [
+              108,
+              387
+            ],
+            "bootLeft": [
+              108,
+              387
+            ],
+            "bootRight": [
+              214,
+              383
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              47,
+              809,
+              372,
+              1190
+            ],
+            "opaqueArea": 78796,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 205.96972972972975,
+            "bootRegions": [
+              [
+                84,
+                192,
+                1126,
+                1191
+              ],
+              [
+                197,
+                323,
+                1126,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                148,
+                1189
+              ],
+              "bootRight": [
+                254,
+                1185
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-movement-summit-a",
+          "hero": "bouncy",
+          "action": "summit-a",
+          "direction": "right",
+          "rect": [
+            454,
+            707,
+            346,
+            489
+          ],
+          "anchor": [
+            197.60216216216213,
+            481
+          ],
+          "contacts": {
+            "feet": [
+              116,
+              481
+            ],
+            "bootLeft": [
+              116,
+              481
+            ],
+            "bootRight": [
+              240,
+              479
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              461,
+              714,
+              793,
+              1189
+            ],
+            "opaqueArea": 91501,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 651.6021621621621,
+            "bootRegions": [
+              [
+                507,
+                624,
+                1123,
+                1191
+              ],
+              [
+                634,
+                756,
+                1123,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                570,
+                1188
+              ],
+              "bootRight": [
+                694,
+                1186
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-movement-summit-b",
+          "hero": "bouncy",
+          "action": "summit-b",
+          "direction": "right",
+          "rect": [
+            880,
+            712,
+            331,
+            485
+          ],
+          "anchor": [
+            174.1037837837839,
+            477
+          ],
+          "contacts": {
+            "feet": [
+              119,
+              477
+            ],
+            "bootLeft": [
+              119,
+              477
+            ],
+            "bootRight": [
+              233,
+              475
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              887,
+              719,
+              1204,
+              1190
+            ],
+            "opaqueArea": 91119,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1054.103783783784,
+            "bootRegions": [
+              [
+                937,
+                1045,
+                1124,
+                1191
+              ],
+              [
+                1050,
+                1172,
+                1124,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                999,
+                1189
+              ],
+              "bootRight": [
+                1113,
+                1187
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        }
+      ],
+      "prompt": "characters/clean-cartoon/bouncy-movement-v1.prompt.txt",
+      "sourceSha256": "0cba1616691a08b21bc23f917160c2ccf700e3e3d0d6952cf28fd6ddb944910a",
+      "promptSha256": "5b6a5d5d356890d605ed2448cb58a9a2b41ead188d024487a43cd70fe0c7aa8c",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-31; current whole-pose registration",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER: fullnative/saved390/128 identity/style/anatomy/alpha/margins; inspected actual palms/two independent opaque soles, local Canvas/Three current art/contact at60/108px. No inherited historical fullroute approval.",
+      "productionRevision": "2026-10-31-clean-cartoon",
+      "supersedes": {
+        "source": "source-art/arcade/physical-worlds/word-climb/characters/bouncy-movement-v1.png",
+        "sourceSha256": "d9fd1309e38ce2d25b2a4917696828152a93802c58dedac46c67da43659e9d14",
+        "runtime": "/game-assets/physical-arcade/word-climb/characters/bouncy-movement-v1.webp",
+        "runtimeSha256": "3bf23c013432704fa2c68ac368250a24588a177779f5b7080d7d15b4f8ee2b12",
+        "prompt": "source-art/arcade/physical-worlds/word-climb/prompts/bouncy-movement-v1.txt",
+        "promptSha256": "5c9cf9803833b70a02ddb29aa75002998d3a717d217ccc4479565aaf407b5ccb"
+      },
+      "generation": {
+        "tool": "builtin image_gen.imagegen",
+        "actualCalls": 1,
+        "native": {
+          "id": "bouncy-movement-v1",
+          "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-b6a7d7db-ace0-4d9d-9177-4c48bf2256ab.png",
+          "callStatus": "fulfilled",
+          "actualCall": 1,
+          "nativeInitialReview": "PASS:6wholebodies,2arms2hindlegs, cleanoutlinedflatfills, distincttuckedrise/extendedfall/squatlanding/summitposes.",
+          "immutableNativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+          "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alpha": [
+            0,
+            255
+          ]
+        },
+        "references": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-builder-clean-identity-ref.png",
+            "sha256": "1ca7b8ec9ac7685e520fcc64d7da49cf0716b3d03e8bac4b1c611218057bc97a",
+            "role": "accepted clean identity/style"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/d9fd1309e38ce2d25b2a4917696828152a93802c58dedac46c67da43659e9d14.png",
+            "sha256": "d9fd1309e38ce2d25b2a4917696828152a93802c58dedac46c67da43659e9d14",
+            "role": "immutable old action semantics/order only"
+          }
+        ],
+        "packingRecipes": [
+          {
+            "sourceIndex": 0,
+            "action": "rest",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+            "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+            "completeBodyBounds": [
+              55,
+              98,
+              371,
+              602
+            ],
+            "wholeObjectCrop": [
+              54,
+              97,
+              372,
+              603
+            ],
+            "scale": 0.9037837837837839,
+            "placement": [
+              66,
+              107,
+              287,
+              457
+            ],
+            "sourceNativeBootRegions": [
+              [
+                105,
+                225,
+                535,
+                610
+              ],
+              [
+                228,
+                350,
+                535,
+                610
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "rest",
+              "axis": 229.58486486486487,
+              "boots": [
+                [
+                  112,
+                  221,
+                  503,
+                  564
+                ],
+                [
+                  223,
+                  334,
+                  503,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 1,
+            "action": "jump-rise",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+            "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+            "completeBodyBounds": [
+              460,
+              63,
+              804,
+              531
+            ],
+            "wholeObjectCrop": [
+              459,
+              62,
+              805,
+              532
+            ],
+            "scale": 0.9037837837837839,
+            "placement": [
+              470,
+              139,
+              313,
+              425
+            ],
+            "sourceNativeBootRegions": [
+              [
+                520,
+                635,
+                450,
+                545
+              ],
+              [
+                640,
+                755,
+                450,
+                550
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "jump-rise",
+              "axis": 651.6605405405405,
+              "boots": [
+                [
+                  525,
+                  629,
+                  490,
+                  564
+                ],
+                [
+                  634,
+                  738,
+                  490,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 2,
+            "action": "jump-fall",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+            "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+            "completeBodyBounds": [
+              868,
+              85,
+              1227,
+              607
+            ],
+            "wholeObjectCrop": [
+              867,
+              84,
+              1228,
+              608
+            ],
+            "scale": 0.9037837837837839,
+            "placement": [
+              882,
+              90,
+              326,
+              474
+            ],
+            "sourceNativeBootRegions": [
+              [
+                935,
+                1055,
+                535,
+                615
+              ],
+              [
+                1060,
+                1195,
+                530,
+                615
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "jump-fall",
+              "axis": 1065.468108108108,
+              "boots": [
+                [
+                  943,
+                  1052,
+                  498,
+                  564
+                ],
+                [
+                  1056,
+                  1178,
+                  493,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 3,
+            "action": "land",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+            "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+            "completeBodyBounds": [
+              64,
+              764,
+              424,
+              1186
+            ],
+            "wholeObjectCrop": [
+              63,
+              763,
+              425,
+              1187
+            ],
+            "scale": 0.9037837837837839,
+            "placement": [
+              46,
+              808,
+              327,
+              383
+            ],
+            "sourceNativeBootRegions": [
+              [
+                105,
+                225,
+                1115,
+                1200
+              ],
+              [
+                230,
+                370,
+                1115,
+                1200
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "land",
+              "axis": 205.96972972972975,
+              "boots": [
+                [
+                  84,
+                  192,
+                  1126,
+                  1191
+                ],
+                [
+                  197,
+                  323,
+                  1126,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 4,
+            "action": "summit-a",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+            "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+            "completeBodyBounds": [
+              454,
+              667,
+              822,
+              1194
+            ],
+            "wholeObjectCrop": [
+              453,
+              666,
+              823,
+              1195
+            ],
+            "scale": 0.9037837837837839,
+            "placement": [
+              460,
+              713,
+              334,
+              478
+            ],
+            "sourceNativeBootRegions": [
+              [
+                505,
+                635,
+                1120,
+                1210
+              ],
+              [
+                645,
+                780,
+                1120,
+                1210
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "summit-a",
+              "axis": 651.6021621621621,
+              "boots": [
+                [
+                  507,
+                  624,
+                  1123,
+                  1191
+                ],
+                [
+                  634,
+                  756,
+                  1123,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 5,
+            "action": "summit-b",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/bouncy-movement-v1-generated-native.png",
+            "nativeSHA": "f221309f907f0b30116414ced5356345f4ca0a6bfbb45233eafe9af028e8918d",
+            "completeBodyBounds": [
+              880,
+              672,
+              1231,
+              1193
+            ],
+            "wholeObjectCrop": [
+              879,
+              671,
+              1232,
+              1194
+            ],
+            "scale": 0.9037837837837839,
+            "placement": [
+              886,
+              718,
+              319,
+              473
+            ],
+            "sourceNativeBootRegions": [
+              [
+                935,
+                1055,
+                1120,
+                1210
+              ],
+              [
+                1060,
+                1195,
+                1120,
+                1210
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "summit-b",
+              "axis": 1054.103783783784,
+              "boots": [
+                [
+                  937,
+                  1045,
+                  1124,
+                  1191
+                ],
+                [
+                  1050,
+                  1172,
+                  1124,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          }
+        ]
+      },
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-tools.png",
+          "sha256": "71d5a0cae3f37005cb24ab6e5c634bebde35a24ad716d7c4b3579ae6decec228",
+          "role": "Accepted clean canonical identity/style parent sheet; actual generation used qualified single-hero crop recorded in generation.references"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every source alpha pixel equals decoded same-size WebP alpha; RGB quality90",
+        "pixelCount": 1572516,
+        "sourceAlphaSha256": "d89529f97d844956511e26df290c0694c20f06a5bd3b23b120d8735aceb374ef",
+        "runtimeAlphaSha256": "d89529f97d844956511e26df290c0694c20f06a5bd3b23b120d8735aceb374ef"
+      },
+      "runtimeSha256": "851426e95a9955e8f4bb694ed8bb2e6eb5328ca6107be633c8acf66b8c0101b6",
+      "runtimeBytes": 241054
+    },
+    {
+      "id": "chompy-movement",
+      "kind": "character",
+      "hero": "chompy",
+      "world": "dino",
+      "family": "movement",
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/chompy-movement-v1.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/characters/chompy-movement-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 191.36363636363635,
+      "frames": [
+        {
+          "id": "chompy-movement-rest",
+          "hero": "chompy",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            36,
+            135,
+            345,
+            435
+          ],
+          "anchor": [
+            192.34503816793895,
+            427
+          ],
+          "contacts": {
+            "feet": [
+              121,
+              427
+            ],
+            "bootLeft": [
+              121,
+              427
+            ],
+            "bootRight": [
+              252,
+              425
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              43,
+              142,
+              374,
+              563
+            ],
+            "opaqueArea": 82857,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 228.34503816793895,
+            "bootRegions": [
+              [
+                130,
+                220,
+                509,
+                564
+              ],
+              [
+                224,
+                343,
+                509,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                157,
+                562
+              ],
+              "bootRight": [
+                288,
+                560
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-movement-jump-rise",
+          "hero": "chompy",
+          "action": "jump-rise",
+          "direction": "right",
+          "rect": [
+            461,
+            144,
+            332,
+            426
+          ],
+          "anchor": [
+            197.45038167938935,
+            418
+          ],
+          "contacts": {
+            "feet": [
+              161,
+              418
+            ],
+            "bootLeft": [
+              161,
+              418
+            ],
+            "bootRight": [
+              247,
+              418
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              468,
+              151,
+              786,
+              563
+            ],
+            "opaqueArea": 78852,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 658.4503816793894,
+            "bootRegions": [
+              [
+                586,
+                671,
+                485,
+                564
+              ],
+              [
+                675,
+                752,
+                485,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                622,
+                562
+              ],
+              "bootRight": [
+                708,
+                562
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-movement-jump-fall",
+          "hero": "chompy",
+          "action": "jump-fall",
+          "direction": "right",
+          "rect": [
+            880,
+            127,
+            331,
+            443
+          ],
+          "anchor": [
+            210.2137404580153,
+            426
+          ],
+          "contacts": {
+            "feet": [
+              167,
+              426
+            ],
+            "bootLeft": [
+              167,
+              426
+            ],
+            "bootRight": [
+              242,
+              423
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              887,
+              134,
+              1204,
+              563
+            ],
+            "opaqueArea": 85140,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1090.2137404580153,
+            "bootRegions": [
+              [
+                1014,
+                1107,
+                478,
+                554
+              ],
+              [
+                1111,
+                1205,
+                478,
+                554
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                1047,
+                553
+              ],
+              "bootRight": [
+                1122,
+                550
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-movement-land",
+          "hero": "chompy",
+          "action": "land",
+          "direction": "right",
+          "rect": [
+            36,
+            817,
+            346,
+            380
+          ],
+          "anchor": [
+            190.6432569974555,
+            372
+          ],
+          "contacts": {
+            "feet": [
+              129,
+              372
+            ],
+            "bootLeft": [
+              129,
+              372
+            ],
+            "bootRight": [
+              259,
+              366
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              43,
+              824,
+              375,
+              1190
+            ],
+            "opaqueArea": 75429,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 226.6432569974555,
+            "bootRegions": [
+              [
+                99,
+                205,
+                1143,
+                1191
+              ],
+              [
+                222,
+                350,
+                1143,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                165,
+                1189
+              ],
+              "bootRight": [
+                295,
+                1183
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-movement-summit-a",
+          "hero": "chompy",
+          "action": "summit-a",
+          "direction": "right",
+          "rect": [
+            467,
+            756,
+            320,
+            441
+          ],
+          "anchor": [
+            193.19592875318062,
+            433
+          ],
+          "contacts": {
+            "feet": [
+              117,
+              433
+            ],
+            "bootLeft": [
+              117,
+              433
+            ],
+            "bootRight": [
+              252,
+              432
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              474,
+              763,
+              780,
+              1190
+            ],
+            "opaqueArea": 85391,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 660.1959287531806,
+            "bootRegions": [
+              [
+                516,
+                639,
+                1147,
+                1191
+              ],
+              [
+                647,
+                767,
+                1147,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                584,
+                1189
+              ],
+              "bootRight": [
+                719,
+                1188
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-movement-summit-b",
+          "hero": "chompy",
+          "action": "summit-b",
+          "direction": "right",
+          "rect": [
+            880,
+            757,
+            329,
+            440
+          ],
+          "anchor": [
+            208.5119592875319,
+            432
+          ],
+          "contacts": {
+            "feet": [
+              117,
+              432
+            ],
+            "bootLeft": [
+              117,
+              432
+            ],
+            "bootRight": [
+              268,
+              426
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              887,
+              764,
+              1202,
+              1190
+            ],
+            "opaqueArea": 86934,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1088.511959287532,
+            "bootRegions": [
+              [
+                957,
+                1063,
+                1147,
+                1191
+              ],
+              [
+                1071,
+                1203,
+                1147,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                997,
+                1189
+              ],
+              "bootRight": [
+                1148,
+                1183
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        }
+      ],
+      "prompt": "characters/clean-cartoon/chompy-movement-v1.prompt.txt",
+      "sourceSha256": "50994024261eaf01a7ca205405a8bde0f375caaa93760df666f089ec0afc1ae8",
+      "promptSha256": "97bc196de6ed8083d54a74b33d607610a8f853fe773883beead08b2545eef168",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-31; current whole-pose registration",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER: fullnative/saved390/128 identity/style/anatomy/alpha/margins; inspected actual palms/two independent opaque soles, local Canvas/Three current art/contact at60/108px. No inherited historical fullroute approval.",
+      "productionRevision": "2026-10-31-clean-cartoon",
+      "supersedes": {
+        "source": "source-art/arcade/physical-worlds/word-climb/characters/chompy-movement-v1.png",
+        "sourceSha256": "ecba551d2df4a18389c21660cbe7a40b7ff24022435867fe78f881884a50a6f2",
+        "runtime": "/game-assets/physical-arcade/word-climb/characters/chompy-movement-v1.webp",
+        "runtimeSha256": "a593e3d6ceef2587f3c31f3b9e831fcca7c9ddd9774246cd6501b6e49055d67e",
+        "prompt": "source-art/arcade/physical-worlds/word-climb/prompts/chompy-movement-v1.txt",
+        "promptSha256": "6d1f5775d789737c9d10d00ed474dd1fe9f0680aaeffb3e8c7be88847b9e5e4e"
+      },
+      "generation": {
+        "tool": "builtin image_gen.imagegen",
+        "actualCalls": 1,
+        "native": {
+          "id": "chompy-movement-v1",
+          "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-befed93a-05d3-48d4-aa7b-8d7ac142262b.png",
+          "callStatus": "fulfilled",
+          "actualCall": 1,
+          "nativeInitialReview": "PASS:6wholebodies,2arms2hindlegs, cleanoutlinedflatfills, distincttuckedrise/extendedfall/squatlanding/summitposes.",
+          "immutableNativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+          "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alpha": [
+            0,
+            255
+          ]
+        },
+        "references": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-builder-clean-identity-ref.png",
+            "sha256": "654d1284f54874fab374446ca3529f50bab0fc308cdddff6f6c4f00d543dbac5",
+            "role": "accepted clean identity/style"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/ecba551d2df4a18389c21660cbe7a40b7ff24022435867fe78f881884a50a6f2.png",
+            "sha256": "ecba551d2df4a18389c21660cbe7a40b7ff24022435867fe78f881884a50a6f2",
+            "role": "immutable old action semantics/order only"
+          }
+        ],
+        "packingRecipes": [
+          {
+            "sourceIndex": 0,
+            "action": "rest",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+            "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+            "completeBodyBounds": [
+              37,
+              134,
+              426,
+              629
+            ],
+            "wholeObjectCrop": [
+              36,
+              133,
+              427,
+              630
+            ],
+            "scale": 0.8508905852417303,
+            "placement": [
+              42,
+              141,
+              333,
+              423
+            ],
+            "sourceNativeBootRegions": [
+              [
+                140,
+                245,
+                565,
+                635
+              ],
+              [
+                250,
+                390,
+                565,
+                635
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "rest",
+              "axis": 228.34503816793895,
+              "boots": [
+                [
+                  130,
+                  220,
+                  509,
+                  564
+                ],
+                [
+                  224,
+                  343,
+                  509,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 1,
+            "action": "jump-rise",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+            "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+            "completeBodyBounds": [
+              451,
+              82,
+              825,
+              567
+            ],
+            "wholeObjectCrop": [
+              450,
+              81,
+              826,
+              568
+            ],
+            "scale": 0.8508905852417303,
+            "placement": [
+              467,
+              150,
+              320,
+              414
+            ],
+            "sourceNativeBootRegions": [
+              [
+                590,
+                690,
+                475,
+                570
+              ],
+              [
+                695,
+                785,
+                475,
+                580
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "jump-rise",
+              "axis": 658.4503816793894,
+              "boots": [
+                [
+                  586,
+                  671,
+                  485,
+                  564
+                ],
+                [
+                  675,
+                  752,
+                  485,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 2,
+            "action": "jump-fall",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+            "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+            "completeBodyBounds": [
+              851,
+              116,
+              1224,
+              620
+            ],
+            "wholeObjectCrop": [
+              850,
+              115,
+              1225,
+              621
+            ],
+            "scale": 0.8508905852417303,
+            "placement": [
+              886,
+              133,
+              319,
+              431
+            ],
+            "sourceNativeBootRegions": [
+              [
+                1000,
+                1110,
+                520,
+                610
+              ],
+              [
+                1115,
+                1230,
+                520,
+                610
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "jump-fall",
+              "axis": 1090.2137404580153,
+              "boots": [
+                [
+                  1014,
+                  1107,
+                  478,
+                  554
+                ],
+                [
+                  1111,
+                  1205,
+                  478,
+                  554
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 3,
+            "action": "land",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+            "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+            "completeBodyBounds": [
+              39,
+              740,
+              430,
+              1170
+            ],
+            "wholeObjectCrop": [
+              38,
+              739,
+              431,
+              1171
+            ],
+            "scale": 0.8508905852417303,
+            "placement": [
+              42,
+              823,
+              334,
+              368
+            ],
+            "sourceNativeBootRegions": [
+              [
+                105,
+                230,
+                1115,
+                1200
+              ],
+              [
+                250,
+                400,
+                1115,
+                1200
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "land",
+              "axis": 226.6432569974555,
+              "boots": [
+                [
+                  99,
+                  205,
+                  1143,
+                  1191
+                ],
+                [
+                  222,
+                  350,
+                  1143,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 4,
+            "action": "summit-a",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+            "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+            "completeBodyBounds": [
+              456,
+              668,
+              816,
+              1170
+            ],
+            "wholeObjectCrop": [
+              455,
+              667,
+              817,
+              1171
+            ],
+            "scale": 0.8508905852417303,
+            "placement": [
+              473,
+              762,
+              308,
+              429
+            ],
+            "sourceNativeBootRegions": [
+              [
+                505,
+                650,
+                1120,
+                1210
+              ],
+              [
+                660,
+                800,
+                1120,
+                1210
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "summit-a",
+              "axis": 660.1959287531806,
+              "boots": [
+                [
+                  516,
+                  639,
+                  1147,
+                  1191
+                ],
+                [
+                  647,
+                  767,
+                  1147,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 5,
+            "action": "summit-b",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/chompy-movement-v1-generated-native.png",
+            "nativeSHA": "eb8dae1d7a2adc4021b0f07ea276a5fd62a85304d0873ff15b1bbd3be115dcc8",
+            "completeBodyBounds": [
+              853,
+              670,
+              1223,
+              1171
+            ],
+            "wholeObjectCrop": [
+              852,
+              669,
+              1224,
+              1172
+            ],
+            "scale": 0.8508905852417303,
+            "placement": [
+              886,
+              763,
+              317,
+              428
+            ],
+            "sourceNativeBootRegions": [
+              [
+                935,
+                1060,
+                1120,
+                1210
+              ],
+              [
+                1070,
+                1230,
+                1120,
+                1210
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "summit-b",
+              "axis": 1088.511959287532,
+              "boots": [
+                [
+                  957,
+                  1063,
+                  1147,
+                  1191
+                ],
+                [
+                  1071,
+                  1203,
+                  1147,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          }
+        ]
+      },
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-tools.png",
+          "sha256": "d72038f7c1dc36a785a116afcb0c08bee109e840f8823e8b059e93937398cd57",
+          "role": "Accepted clean canonical identity/style parent sheet; actual generation used qualified single-hero crop recorded in generation.references"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every source alpha pixel equals decoded same-size WebP alpha; RGB quality90",
+        "pixelCount": 1572516,
+        "sourceAlphaSha256": "43fc0f47c85257c40407acb6e37e9fef11418ea642d7c67b8a1e6ce308094af5",
+        "runtimeAlphaSha256": "43fc0f47c85257c40407acb6e37e9fef11418ea642d7c67b8a1e6ce308094af5"
+      },
+      "runtimeSha256": "6648c17aa88dd6b7713ca6fb5cce6cba8c0fa535179ec0e0cc0ec091fc1fd5ba",
+      "runtimeBytes": 224956
+    },
+    {
+      "id": "pip-movement",
+      "kind": "character",
+      "hero": "pip",
+      "world": "moonwood",
+      "family": "movement",
+      "source": "source-art/arcade/physical-worlds/word-climb/characters/clean-cartoon/pip-movement-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/characters/pip-movement-v2.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 222.27272727272725,
+      "frames": [
+        {
+          "id": "pip-movement-rest",
+          "hero": "pip",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            76,
+            67,
+            267,
+            503
+          ],
+          "anchor": [
+            168.9777777777778,
+            495
+          ],
+          "contacts": {
+            "feet": [
+              94,
+              495
+            ],
+            "bootLeft": [
+              94,
+              495
+            ],
+            "bootRight": [
+              212,
+              489
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              83,
+              74,
+              336,
+              563
+            ],
+            "opaqueArea": 75043,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 244.9777777777778,
+            "bootRegions": [
+              [
+                127,
+                215,
+                486,
+                564
+              ],
+              [
+                220,
+                334,
+                486,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                170,
+                562
+              ],
+              "bootRight": [
+                288,
+                556
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-movement-jump-rise",
+          "hero": "pip",
+          "action": "jump-rise",
+          "direction": "right",
+          "rect": [
+            492,
+            92,
+            269,
+            478
+          ],
+          "anchor": [
+            159.68888888888887,
+            470
+          ],
+          "contacts": {
+            "feet": [
+              174,
+              470
+            ],
+            "bootLeft": [
+              123,
+              446
+            ],
+            "bootRight": [
+              174,
+              470
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              499,
+              99,
+              754,
+              563
+            ],
+            "opaqueArea": 70599,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 651.6888888888889,
+            "bootRegions": [
+              [
+                563,
+                622,
+                478,
+                541
+              ],
+              [
+                647,
+                723,
+                470,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                615,
+                538
+              ],
+              "bootRight": [
+                666,
+                562
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-movement-jump-fall",
+          "hero": "pip",
+          "action": "jump-fall",
+          "direction": "right",
+          "rect": [
+            872,
+            72,
+            346,
+            498
+          ],
+          "anchor": [
+            228.08888888888896,
+            490
+          ],
+          "contacts": {
+            "feet": [
+              190,
+              490
+            ],
+            "bootLeft": [
+              190,
+              490
+            ],
+            "bootRight": [
+              255,
+              479
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              879,
+              79,
+              1211,
+              563
+            ],
+            "opaqueArea": 77121,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1100.088888888889,
+            "bootRegions": [
+              [
+                1033,
+                1121,
+                467,
+                564
+              ],
+              [
+                1121,
+                1212,
+                467,
+                564
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                1062,
+                562
+              ],
+              "bootRight": [
+                1127,
+                551
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-movement-land",
+          "hero": "pip",
+          "action": "land",
+          "direction": "right",
+          "rect": [
+            36,
+            782,
+            345,
+            415
+          ],
+          "anchor": [
+            186.71111111111114,
+            407
+          ],
+          "contacts": {
+            "feet": [
+              111,
+              407
+            ],
+            "bootLeft": [
+              111,
+              407
+            ],
+            "bootRight": [
+              227,
+              400
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              43,
+              789,
+              374,
+              1190
+            ],
+            "opaqueArea": 74170,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 222.71111111111114,
+            "bootRegions": [
+              [
+                88,
+                193,
+                1122,
+                1191
+              ],
+              [
+                197,
+                316,
+                1122,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                147,
+                1189
+              ],
+              "bootRight": [
+                263,
+                1182
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-movement-summit-a",
+          "hero": "pip",
+          "action": "summit-a",
+          "direction": "right",
+          "rect": [
+            476,
+            726,
+            301,
+            471
+          ],
+          "anchor": [
+            180.79999999999995,
+            463
+          ],
+          "contacts": {
+            "feet": [
+              99,
+              463
+            ],
+            "bootLeft": [
+              99,
+              463
+            ],
+            "bootRight": [
+              252,
+              459
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              483,
+              733,
+              770,
+              1190
+            ],
+            "opaqueArea": 75592,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 656.8,
+            "bootRegions": [
+              [
+                517,
+                636,
+                1111,
+                1191
+              ],
+              [
+                644,
+                762,
+                1111,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                575,
+                1189
+              ],
+              "bootRight": [
+                728,
+                1185
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-movement-summit-b",
+          "hero": "pip",
+          "action": "summit-b",
+          "direction": "right",
+          "rect": [
+            872,
+            723,
+            346,
+            474
+          ],
+          "anchor": [
+            206.97777777777787,
+            466
+          ],
+          "contacts": {
+            "feet": [
+              130,
+              466
+            ],
+            "bootLeft": [
+              130,
+              466
+            ],
+            "bootRight": [
+              276,
+              462
+            ],
+            "grip": null,
+            "lowerHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              879,
+              730,
+              1211,
+              1190
+            ],
+            "opaqueArea": 76968,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 1078.9777777777779,
+            "bootRegions": [
+              [
+                948,
+                1058,
+                1107,
+                1191
+              ],
+              [
+                1062,
+                1193,
+                1107,
+                1191
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                1002,
+                1189
+              ],
+              "bootRight": [
+                1148,
+                1185
+              ],
+              "grip": null,
+              "lowerHand": null
+            }
+          }
+        }
+      ],
+      "prompt": "characters/clean-cartoon/pip-movement-v2.prompt.txt",
+      "sourceSha256": "94b521a020509855eb5aa953743efc708077b5bfe8412f0cac49a72b6e6548d9",
+      "promptSha256": "e6f7a17ebcc36ccb8658bbec8f07155eb248437bb2c66bac3ce247e535719fda",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-31; current whole-pose registration",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "PASS_LOCAL_CURRENT_ART_AND_REGISTERED_RENDER: fullnative/saved390/128 identity/style/anatomy/alpha/margins; inspected actual palms/two independent opaque soles, local Canvas/Three current art/contact at60/108px. No inherited historical fullroute approval.",
+      "productionRevision": "2026-10-31-clean-cartoon",
+      "supersedes": {
+        "source": "source-art/arcade/physical-worlds/word-climb/characters/pip-movement-v2.png",
+        "sourceSha256": "d3f980679860d3d42989b57edb70e9eaa1a1b7ef18c182be0001491d02963597",
+        "runtime": "/game-assets/physical-arcade/word-climb/characters/pip-movement-v2.webp",
+        "runtimeSha256": "63852ec7b037f191967d9065e976c668b3f391448204fe4612d4a79d29d83e73",
+        "prompt": "source-art/arcade/physical-worlds/word-climb/prompts/pip-movement-v2.txt",
+        "promptSha256": "a94f7d8657a56d9d683de2c5175fe023e842fa8fd9caedcc5a24eb0be652bfa0"
+      },
+      "generation": {
+        "tool": "builtin image_gen.imagegen",
+        "actualCalls": 1,
+        "native": {
+          "id": "pip-movement-v2",
+          "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-81b6a28c-5175-44df-9119-1ac180b64337.png",
+          "callStatus": "fulfilled",
+          "actualCall": 1,
+          "nativeInitialReview": "PASS:6wholebodies,2arms2hindlegs, cleanoutlinedflatfills, distincttuckedrise/extendedfall/squatlanding/summitposes.",
+          "immutableNativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+          "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alpha": [
+            0,
+            255
+          ]
+        },
+        "references": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-builder-clean-identity-ref.png",
+            "sha256": "c22150f37875c5f22c97f86b1155a81f590d0c254a200c8869f046cdc8694979",
+            "role": "accepted clean identity/style"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/d3f980679860d3d42989b57edb70e9eaa1a1b7ef18c182be0001491d02963597.png",
+            "sha256": "d3f980679860d3d42989b57edb70e9eaa1a1b7ef18c182be0001491d02963597",
+            "role": "immutable old action semantics/order only"
+          }
+        ],
+        "packingRecipes": [
+          {
+            "sourceIndex": 0,
+            "action": "rest",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+            "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+            "completeBodyBounds": [
+              68,
+              67,
+              368,
+              646
+            ],
+            "wholeObjectCrop": [
+              67,
+              66,
+              369,
+              647
+            ],
+            "scale": 0.8444444444444446,
+            "placement": [
+              82,
+              73,
+              255,
+              491
+            ],
+            "sourceNativeBootRegions": [
+              [
+                120,
+                225,
+                555,
+                650
+              ],
+              [
+                230,
+                365,
+                555,
+                650
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "rest",
+              "axis": 244.9777777777778,
+              "boots": [
+                [
+                  127,
+                  215,
+                  486,
+                  564
+                ],
+                [
+                  220,
+                  334,
+                  486,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 1,
+            "action": "jump-rise",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+            "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+            "completeBodyBounds": [
+              484,
+              51,
+              786,
+              601
+            ],
+            "wholeObjectCrop": [
+              483,
+              50,
+              787,
+              602
+            ],
+            "scale": 0.8444444444444446,
+            "placement": [
+              498,
+              98,
+              257,
+              466
+            ],
+            "sourceNativeBootRegions": [
+              [
+                560,
+                630,
+                500,
+                575
+              ],
+              [
+                660,
+                750,
+                490,
+                610
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "jump-rise",
+              "axis": 651.6888888888889,
+              "boots": [
+                [
+                  563,
+                  622,
+                  478,
+                  541
+                ],
+                [
+                  647,
+                  723,
+                  470,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 2,
+            "action": "jump-fall",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+            "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+            "completeBodyBounds": [
+              828,
+              70,
+              1221,
+              643
+            ],
+            "wholeObjectCrop": [
+              827,
+              69,
+              1222,
+              644
+            ],
+            "scale": 0.8444444444444446,
+            "placement": [
+              878,
+              78,
+              334,
+              486
+            ],
+            "sourceNativeBootRegions": [
+              [
+                1010,
+                1115,
+                530,
+                650
+              ],
+              [
+                1115,
+                1225,
+                530,
+                650
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "jump-fall",
+              "axis": 1100.088888888889,
+              "boots": [
+                [
+                  1033,
+                  1121,
+                  467,
+                  564
+                ],
+                [
+                  1121,
+                  1212,
+                  467,
+                  564
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 3,
+            "action": "land",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+            "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+            "completeBodyBounds": [
+              47,
+              736,
+              439,
+              1211
+            ],
+            "wholeObjectCrop": [
+              46,
+              735,
+              440,
+              1212
+            ],
+            "scale": 0.8444444444444446,
+            "placement": [
+              42,
+              788,
+              333,
+              403
+            ],
+            "sourceNativeBootRegions": [
+              [
+                100,
+                225,
+                1130,
+                1230
+              ],
+              [
+                230,
+                370,
+                1130,
+                1230
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "land",
+              "axis": 222.71111111111114,
+              "boots": [
+                [
+                  88,
+                  193,
+                  1122,
+                  1191
+                ],
+                [
+                  197,
+                  316,
+                  1122,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 4,
+            "action": "summit-a",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+            "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+            "completeBodyBounds": [
+              469,
+              677,
+              809,
+              1218
+            ],
+            "wholeObjectCrop": [
+              468,
+              676,
+              810,
+              1219
+            ],
+            "scale": 0.8444444444444446,
+            "placement": [
+              482,
+              732,
+              289,
+              459
+            ],
+            "sourceNativeBootRegions": [
+              [
+                510,
+                650,
+                1125,
+                1230
+              ],
+              [
+                660,
+                800,
+                1125,
+                1230
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "summit-a",
+              "axis": 656.8,
+              "boots": [
+                [
+                  517,
+                  636,
+                  1111,
+                  1191
+                ],
+                [
+                  644,
+                  762,
+                  1111,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          },
+          {
+            "sourceIndex": 5,
+            "action": "summit-b",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/pip-movement-v2-generated-native.png",
+            "nativeSHA": "def377dedc2a9f8f367c7e5378c49df26ab2376171be1ee3c7ac28b0c65bc960",
+            "completeBodyBounds": [
+              853,
+              673,
+              1247,
+              1218
+            ],
+            "wholeObjectCrop": [
+              852,
+              672,
+              1248,
+              1219
+            ],
+            "scale": 0.8444444444444446,
+            "placement": [
+              878,
+              729,
+              334,
+              462
+            ],
+            "sourceNativeBootRegions": [
+              [
+                935,
+                1065,
+                1120,
+                1230
+              ],
+              [
+                1070,
+                1225,
+                1120,
+                1230
+              ]
+            ],
+            "sourceNativeHands": [],
+            "measuredFrame": {
+              "action": "summit-b",
+              "axis": 1078.9777777777779,
+              "boots": [
+                [
+                  948,
+                  1058,
+                  1107,
+                  1191
+                ],
+                [
+                  1062,
+                  1193,
+                  1107,
+                  1191
+                ]
+              ],
+              "grip": null,
+              "lowerHand": null
+            },
+            "wholeObjectAlphaExtraction": true,
+            "resampling": "LANCZOS proportional whole-object scale, original alpha isolated via connected body+1px AA; never pixel-painted anatomy"
+          }
+        ]
+      },
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/pals/clean-cartoon/pip-tools.png",
+          "sha256": "2b7184df4f75173df3287e80c560b717377125f4e0a1bfa0aa4ee4982cdf7b6a",
+          "role": "Accepted clean canonical identity/style parent sheet; actual generation used qualified single-hero crop recorded in generation.references"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/characters/pip-movement-v1-input.png",
+          "sha256": "6e974cca899945b571b3c1494327c287bc4859edf38c491a386507a80e2bf831",
+          "role": "Original source input to the retained opposite-limb or canonical-costume correction"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every source alpha pixel equals decoded same-size WebP alpha; RGB quality90",
+        "pixelCount": 1572516,
+        "sourceAlphaSha256": "f84701942c85470193474fcebc7f2ae34a39d971cba27572ddd3178ded549c22",
+        "runtimeAlphaSha256": "f84701942c85470193474fcebc7f2ae34a39d971cba27572ddd3178ded549c22"
+      },
+      "runtimeSha256": "1b17f025fab541a10bc5a132a99468ace3b9e89c10626868cb1ba06e2196fa58",
+      "runtimeBytes": 228004
+    }
+  ]
+}

@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 8016,
+    "imageCount": 8880,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -15,6 +15,384 @@ export const appVisualAssetReview = {
     "method": "Every inventory image was visually scanned in indexed contact sheets; flagged assets were opened at full size, repaired, and sequence-checked."
   },
   "assets": [
+    {
+      "path": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
+      "sha256": "18d77d3c4db8a9e3528db02e7d3ca132700641223826ab287be5bacda506c505",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
+      "sha256": "9b50888d858487b4954346391529959e06fa7d5df310968a41f4ce6bd3b2684c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
+      "sha256": "203cb8452e4c89c357089823f4eda4a6e632c52f3cea68a3256b076a87d7b4a1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/bouncy-locomotion-v1.webp",
+      "sha256": "bae0c0fefe3e74576c4759262be782857233801278f4b48deb9a247474b486bb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/bouncy-tennis-v1.webp",
+      "sha256": "df135f2e82732b990205dcd9b95425ac3296191c2948b6e917caf73ff1c57304",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/bouncy-tools-v1.webp",
+      "sha256": "211fc945d3e2867fcf3f6b08dadb0c6d29c62fba95a527c6b0591e80594c68a4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/chompy-locomotion-v1.webp",
+      "sha256": "89b07db8ddb0c158873ecb70a8d5c2597dd58cb18dad674c53168a8bace3fcd4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/chompy-tennis-v1.webp",
+      "sha256": "3d45aea469108603ee78ab6f47d412e8fd6de2411a963c55e2d1d77828653871",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/chompy-tools-v1.webp",
+      "sha256": "5e77958c05136479a3b953cd915f54ca95317e32a02c8779beb970fab45a20e6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/pip-locomotion-v1.webp",
+      "sha256": "dde7165b9977f461c51ce72c20149b9f5d51215afa2af3b57dc489158c845222",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/pip-tennis-v1.webp",
+      "sha256": "e13050105182e72fccc14a25a3909cc71873e7a8b7ca328fa2a8b18e823c1471",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/pals/pip-tools-v1.webp",
+      "sha256": "395a3caf956f7a3c0a7378546b1ad82cd846fc05f5638e90639acb2629f231a7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/sentence-express/characters/bouncy-conductor-v2.webp",
+      "sha256": "62c3b8bf9c78a5fb1986fb3b1076e0a47699f4b4794fef57e4bd2752eae85fc3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/sentence-express/characters/chompy-conductor-v1.webp",
+      "sha256": "6dda3c9c0e7c7b600c4f4521961647a0235a405083b82ec1915c07c27da23cef",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/sentence-express/characters/pip-conductor-v1.webp",
+      "sha256": "d4e1bcdab905b4bc13e7214f1adffa15a50796b18ae7f76369efd5053280ae26",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/chompy-keyboard-actions-v1.webp",
+      "sha256": "67312fcee20c2c29ab4e4a20907ffac0b8a56d504f3918094b171765b0d2dccc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/chompy-keyboard-fallback-v1.webp",
+      "sha256": "043636178938ad18c7a2e08028d608b9dac55de8f5772489502bffb4b3475f7d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/clucky-keyboard-actions-v1.webp",
+      "sha256": "5d13e7117e4a3e7b1cb3056034b29866867fec2fc8332ce9416a9d686ba6a71a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/clucky-keyboard-fallback-v1.webp",
+      "sha256": "821c38262c18a3373b3adfaf01681e60a91c2f5e9e55772341bbffb7d514f506",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/dino-instrument-kit-fallback-v1.webp",
+      "sha256": "9e40ecb87eed49e290818bc3fdf7e07b602ecde30802d48e7ed69ebfe30b8326",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/dino-instrument-kit-v1.webp",
+      "sha256": "3f95b47dd7e0b2f667b24c0aa88dea9adb7d12dfdd9a57ce59079580a2fd003b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-fallback-v1.webp",
+      "sha256": "9a50da165f49403a31e6108462cf4164701cddef5047a4b16fe5375ad42672c4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "sha256": "6dc3db42986a9b5d54522de05098a32c054fd847cc9ab6080e51eb50bdffaaa3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/dozy-keyboard-actions-v1.webp",
+      "sha256": "7e3dfaaa476c7c4d29e35e032c1b3bc2e7525806160ab2821addc257386f02bc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/dozy-keyboard-fallback-v1.webp",
+      "sha256": "a4ae1d4f449df4fc69c76096b94bf518a586a19a11f475539b94c33d3a6a35f6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/fern-keyboard-actions-v1.webp",
+      "sha256": "a09eb453cd45f70e69bc74679a6ebad83659ded141653cf8810b066c58831a79",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/fern-keyboard-fallback-v1.webp",
+      "sha256": "4848598def6b3bdf9d95fdf1e3dd03c0ec5dc79ad4f948a4c7e42152a33c9003",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/instrument-kit-fallback-v1.webp",
+      "sha256": "4743f61d3d1f5b0f38ae5b1e1ce0f59cbed2e6980ddfb99748db9ae9c0df6dd8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/instrument-kit-v1.webp",
+      "sha256": "ffe80c0fdc78d1b8d4b29406a2c78a70469bce6b183e11249b5f7684ff982a13",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-fallback-v1.webp",
+      "sha256": "44bd7808e60a664b6373046c584beb725cf6b85d4a947f9936f0f9934b291ea1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "sha256": "c33026cfe20d32ef177ad3ad96b97d913654e7e538bd87213684df1b1a1fd041",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/moonwood-instrument-kit-fallback-v1.webp",
+      "sha256": "b18d14ecb4777e40f535bd098c90df51ce6ffd2c463f6762a3745c7e43d548be",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/moonwood-instrument-kit-v1.webp",
+      "sha256": "3debc3a76cfd60d12d829b8dfb5d3d806ae29aa32a3e2451bdd0553053464788",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-fallback-v1.webp",
+      "sha256": "e1d0873e627fcf94c57089129d4a41b1c285266c2914c3ffbc404611b06caf36",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-v1.webp",
+      "sha256": "419041a035740e1965a210136f3a5aeff400755851095b802abfdf501e3bf251",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/pip-keyboard-actions-v1.webp",
+      "sha256": "f19acb04b692785fda3684f43c849e2277796f7683ca13b996b125b181428809",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/pip-keyboard-fallback-v1.webp",
+      "sha256": "d48403b0165d82d05372c329b5a3a3e8755f840ff9b51e755ffb97da7cd45435",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/speedy-keyboard-actions-v1.webp",
+      "sha256": "a82adaf06cd526f4dcd84f8e6437bb29cd83b32f27b985636402eaa961e87860",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/speedy-keyboard-fallback-v1.webp",
+      "sha256": "c893abbe02256bb44f11929a1127ed4d2ef085e456dcbe019b5a0f25f533ea8c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/sunny-keyboard-actions-v1.webp",
+      "sha256": "0beebda8e5d62b0e3ff21747e2babe33dadea006f5fe3540df1bb2e0bc5558f4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/sunny-keyboard-fallback-v1.webp",
+      "sha256": "46b53ba6dc910944faafb0e9d311aee8d320ba755490187845e20959c6d18588",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/wren-keyboard-actions-v1.webp",
+      "sha256": "266279d3ffd36eec37267102e8c1fd88cc16b83d12fff52c9406afdcaa7e2ee0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/soundkeys/wren-keyboard-fallback-v1.webp",
+      "sha256": "0b24bde7381ebe52133ed78c8685058b0e93741e828bd87b155b30d060faf230",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/star-gallery/characters/bouncy-driver-rear-v1.webp",
+      "sha256": "4b9162d3f6d90aaa8d265f48a3a74065e6778f33c55d12ddf5a980aac83228a8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/star-gallery/characters/chompy-driver-rear-v1.webp",
+      "sha256": "70d6ba9c24b05514f42092655c5d9277e238dcff7933a31afb3d08bfd9c01ca5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/star-gallery/characters/pip-driver-upper-rear-v1.webp",
+      "sha256": "240e55559572098ce13dbd18d675496f470609b54267bf52b55273bbaae69479",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/star-gallery/scenery/dino-grove-kit-v1.webp",
+      "sha256": "5d26c4484509eb40963dfb788ca66ed382587fd6932d4deaff07800a801347e0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/star-gallery/scenery/meadow-grove-kit-v1.webp",
+      "sha256": "ece850d1210911d17d7df65bc0ea69055d9423628667bdc48acbf3424997c3ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/star-gallery/scenery/moonwood-grove-kit-v1.webp",
+      "sha256": "4321a6a98a77aacca5665cd585fe6076b3b12cec749675820777457342a30544",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/characters/bouncy-builder-v2-input.webp",
+      "sha256": "ba705d5af7eee57dcd5f82e8c454b257b1170372c8e1bccd5ac15aab5735f584",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/characters/bouncy-carry-opposite-v1.webp",
+      "sha256": "2164b9c77fe8d232d8c96462fa29de4fae04f97d2f57ac2eb7f37edc9de6badb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/characters/chompy-builder-v2.webp",
+      "sha256": "c2fb091b34fc5dd220c51c26267841023f89b1b5d2976bd0b3b01a01a7d20b6d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/characters/pip-builder-v1-input.webp",
+      "sha256": "3d2bc32d5cff1accf0ce76580a4f0c747d59ccf3326759b69a034a4b8a6b29df",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/characters/pip-carry-opposite-v1.webp",
+      "sha256": "e793b64c68b4686b2812c94ee717ec7481470a132def69d4539193168c065669",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/scenery/dino-construction-kit-v1.webp",
+      "sha256": "26dfb0ee3878c46223868bf058e0b2acc4f167f5dad27da3f52d190aac859e2b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/scenery/meadow-construction-kit-v1.webp",
+      "sha256": "2fc304969af876a4b6bf3f8cedf02134ab8f42d1ca890fb9a2171b7ae9665123",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-construction-kit-v1.webp",
+      "sha256": "d6e987712d269fc64d3c900376ced45877337450d486b752e4128c89ad957ed4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-climb/characters/bouncy-climb-v2.webp",
+      "sha256": "9cb29d8b3ebb1d8e58bd79c2aa73a93d795ddb4289f41643c744e2a095a82520",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-climb/characters/bouncy-movement-v1.webp",
+      "sha256": "851426e95a9955e8f4bb694ed8bb2e6eb5328ca6107be633c8acf66b8c0101b6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-climb/characters/chompy-climb-v1.webp",
+      "sha256": "61fb8fb9b59675c62ca7c43b666b11d3b30abd62eea8667bba652b9fe0224d71",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-climb/characters/chompy-movement-v1.webp",
+      "sha256": "6648c17aa88dd6b7713ca6fb5cce6cba8c0fa535179ec0e0cc0ec091fc1fd5ba",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-climb/characters/pip-climb-v2.webp",
+      "sha256": "946ef7a685979d6b8ea266341b7d8e154d98d0c6545027134c067a9e5071cdb4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/physical-arcade/word-climb/characters/pip-movement-v2.webp",
+      "sha256": "1b17f025fab541a10bc5a132a99468ace3b9e89c10626868cb1ba06e2196fa58",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
     {
       "path": "/game-assets/quest-pixel/dino/items/amber.png",
       "sha256": "110f5d9fdf7eb2e2aaa828f5e1ec0846f7c48e39b015bdd4770179df8bbe58ab",
@@ -74,6 +452,126 @@ export const appVisualAssetReview = {
       "path": "/game-assets/quest-pixel/storm-coast/scenery-premium/lens-shard-pickup.png",
       "sha256": "9bed93fcb7b789817f75ce80d1df1a7e1c7468d8d50e6886fa4fcac50f9c6aa9",
       "status": "approved"
+    },
+    {
+      "path": "/game-assets/sound-seekers/avatars-v3/pip.webp",
+      "sha256": "759d739ac973d0acce3c01174ad67d624037582f53b3028cffc3a40c27422691",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/adventure-actions.webp",
+      "sha256": "5286c84912b9645f944d8f9ea7546ee991e0afa36572c6eafcd5bb4df1b7134c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/bouncy-walk.png",
+      "sha256": "d130e6a014f8c0ce6d0d852463a176640bb7f21e3208e7eb150ce1c4dd181881",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/chompy-walk.png",
+      "sha256": "378d6eb9f51937bdec263f1c187004b059db56a6b9a2ccfcb333082f9176465c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/clucky-walk.png",
+      "sha256": "916d122de3998bc1e8d466c16af0e76e245c55f93ecc6aeb5f152b5f8c9ee674",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/meadow-actions.webp",
+      "sha256": "799b70a2e0a30c3c4d665d8814d9e48e5c96520b3883a9313d4304e19d7e2e42",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/muddy-walk.png",
+      "sha256": "396b430e61a6e9dc5e56196ba9b9fcc44449ec1777f9950f9ba45f6d1a6d31e9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/pip-walk.png",
+      "sha256": "743884e3e35dcdb52cb68c81cf598e94c6c9626414166ea5a628a060f7c61f92",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/speedy-walk.png",
+      "sha256": "fbdbf8bcda45f0d4eae29db4804f697b55ebde3ced3bcc0e663e74d23ee5e278",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/splashy-walk.png",
+      "sha256": "8793e68e7ec892b81783410d068e714debc35b98a9af9529328b90247d2df039",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/campaign/heroes/woolly-walk.png",
+      "sha256": "92c03390cab9402557b64f74f4b858a651c096adc29b535acb702a8f8e507503",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/characters/pip/pose-ready.webp",
+      "sha256": "8216a1f6be72642b14faaf894b3b72952f552f3a876217eebef0cef9a4b50a8d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/dino/chompy-hero.webp",
+      "sha256": "5c06a592b29824396ea78d8fdc95f0a46252ff4503c0c4aa622a8ebec9bed750",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/meadow/bouncy.webp",
+      "sha256": "87ee356b7696efe832444cb28e50de0f85f11d3958d8b8b7d2e8cd753a81e88e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/meadow/clucky.webp",
+      "sha256": "88ddaadb268fbc7683283281ee827bbb99506edd10010f7b6db540dec1c3a0e5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/meadow/muddy.webp",
+      "sha256": "b8a06d00f7993ca65504547c8b1cb408d261cdbca469673b6b7b70d671b90877",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/meadow/speedy-hero.webp",
+      "sha256": "c48aaae09e0a75dd507427d1db7e2059d0f6f20b3c2e4668bfceed0e8c1a9479",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/meadow/splashy.webp",
+      "sha256": "df93e5455c291f6d82ae79a0ed472960eb5b6aedef9ab424d540bc182689c3eb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/meadow/woolly.webp",
+      "sha256": "2e58539cd555273583dbf6d675f2a6e8185fd60493bdaf29693b53e71daea1b3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/game-assets/sound-seekers/v3/cast/moonwood/pip-hero.webp",
+      "sha256": "96f2d84449a5ac9625f2941660536513a7a8023493fa7064e65af2db19d9449b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/game-assets/sound-seekers/worlds/dino-pals-overworld-v2.webp",
@@ -1558,12 +2056,6 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/025e5dcced0f6883dbaf75d2.webp",
-      "sha256": "025e5dcced0f6883dbaf75d2b69b711b0567468c25ad761130b195166a34e1ba",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/032116bd2c33b9658e06136f.webp",
       "sha256": "032116bd2c33b9658e06136fdc93285f4938dfd2c92198244b0cfebcba3f0b82",
       "status": "approved",
@@ -1588,6 +2080,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
+      "path": "/guided-reading/card-covers/050a5e342232803e5fabb48a.webp",
+      "sha256": "050a5e342232803e5fabb48ae4c9d0e5fc46cb284a4bbc36054aad49368f8a60",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/059d403f332cb57aca685669.webp",
       "sha256": "059d403f332cb57aca68566905052c61f211cc093c611fe14c41986c8c12c5af",
       "status": "approved",
@@ -1600,10 +2098,10 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/0a9df7dcf488a60b3800123f.webp",
-      "sha256": "0a9df7dcf488a60b3800123f6d253b0b3303ced82d767cae0d3a00d179b85990",
+      "path": "/guided-reading/card-covers/08773ff29926fbb14a64e2c0.webp",
+      "sha256": "08773ff29926fbb14a64e2c010f1bcd9aeb36b2aaa23409500670782ff2648ed",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/0ba46829ba86f675211f1e00.webp",
@@ -1618,20 +2116,20 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
-      "path": "/guided-reading/card-covers/0c5677c5cf2e03e3dfc9dcd7.webp",
-      "sha256": "0c5677c5cf2e03e3dfc9dcd717d51269b29d21962cb245db46c9af2640ddb119",
+      "path": "/guided-reading/card-covers/0d028de8574016d988f1f29f.webp",
+      "sha256": "0d028de8574016d988f1f29fcc2a3ebbda490c3fd4bcfa97650412c2a3c3c3dc",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/guided-reading/card-covers/0e46cf68acf51c050b93eca0.webp",
+      "sha256": "0e46cf68acf51c050b93eca0c77c017b335d2880cca8117b0acf695a991bd039",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/0e98db6136b665d6fe6e5299.webp",
       "sha256": "0e98db6136b665d6fe6e529928366d86f7e8704b146fee515d59a64367120627",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/0eb26c46f0ebf0236ba98ddc.webp",
-      "sha256": "0eb26c46f0ebf0236ba98ddcc7609da61d6ee5b12911b5bfba7f014b7b1838ed",
       "status": "approved",
       "reviewedAt": "2026-10-28"
     },
@@ -1646,6 +2144,12 @@ export const appVisualAssetReview = {
       "sha256": "1099e9badbf5bcdafd73bc91e69e9ea0861ac42ef6d6f17dd7af579ec9145a5d",
       "status": "approved",
       "reviewedAt": "2026-10-29"
+    },
+    {
+      "path": "/guided-reading/card-covers/13904f9346d10f3649372c1a.webp",
+      "sha256": "13904f9346d10f3649372c1ab134b8c80a5888050c8f56c1c9f212cec2ba0ed4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/1622fe9160c04dc34d8aeb41.webp",
@@ -1664,6 +2168,12 @@ export const appVisualAssetReview = {
       "sha256": "17726720ed29b3d80036551a5d44e1efda3770ccb46e3f435b21e6cf97aaf08e",
       "status": "approved",
       "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/17b79e17a62dc8a630651d0f.webp",
+      "sha256": "17b79e17a62dc8a630651d0faea0fc215af7c19a844aed68164a78961c26b208",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/17dcdb0a262c38a9c0988e81.webp",
@@ -1696,6 +2206,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
+      "path": "/guided-reading/card-covers/1b63751535bdfcc946f046dd.webp",
+      "sha256": "1b63751535bdfcc946f046dd96537ef14faeda18dcb31c104ced5858ee6df40c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/2043b631a76ee9c663178897.webp",
       "sha256": "2043b631a76ee9c663178897626a74646f3ccc0624564fbaa424c38d0936be51",
       "status": "approved",
@@ -1714,10 +2230,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
+      "path": "/guided-reading/card-covers/221259a2b8f9242e38e3acb5.webp",
+      "sha256": "221259a2b8f9242e38e3acb502bf38dd1d220bcdba62445215e947191d46a51f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/221584b74ced796399c81a34.webp",
       "sha256": "221584b74ced796399c81a34df01ca98b3ebc38c3b44538ba439c2e7423b9697",
       "status": "approved",
       "reviewedAt": "2026-10-29"
+    },
+    {
+      "path": "/guided-reading/card-covers/2276112b54c344d2c54faba0.webp",
+      "sha256": "2276112b54c344d2c54faba08d083e967788c10be41a5addb2579f943b3df3c1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/23fb3a828397e8296ac9eb46.webp",
@@ -1756,10 +2284,10 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
-      "path": "/guided-reading/card-covers/26f3acc22b3bc38c7127b26e.webp",
-      "sha256": "26f3acc22b3bc38c7127b26ec4194a68b3bd8628a9ab08b7c995778f5a95a60d",
+      "path": "/guided-reading/card-covers/2a82003aafbf33a08f7e0141.webp",
+      "sha256": "2a82003aafbf33a08f7e014194bbde66ff1dee1be003797e699591a6bd78ddac",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/2b7ff3215c4ed89a09f07601.webp",
@@ -1786,16 +2314,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/2d6e7751f36c745456240c6f.webp",
-      "sha256": "2d6e7751f36c745456240c6fea88d58e96623797125890866cb1fbe70a993f60",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/2db11c40b9ad84b65cf12e0a.webp",
       "sha256": "2db11c40b9ad84b65cf12e0a7e9ca47d40c9d56f3be3db3eb450ad671bd79f1b",
       "status": "approved",
       "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/2db4679707924892fa5b87d9.webp",
+      "sha256": "2db4679707924892fa5b87d96c6d8524074310bb24a11f7b79b0f38b63e20fdf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/2f741b59e78d2930297b68b6.webp",
@@ -1852,22 +2380,10 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/357cc3b23296cb63143ca47f.webp",
-      "sha256": "357cc3b23296cb63143ca47ff93088e148196574b3e946c0fbda1ef207a61bf2",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/359267a3f36448b29514c7c9.webp",
       "sha256": "359267a3f36448b29514c7c9a83df56ce4eb1c481873676807778eec49a81654",
       "status": "approved",
       "reviewedAt": "2026-10-30"
-    },
-    {
-      "path": "/guided-reading/card-covers/3593cf1fad63735360bbb337.webp",
-      "sha256": "3593cf1fad63735360bbb3376452a4f34829b5d79c69083fe651f16d5003e056",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/card-covers/36477482868e318c85326aa3.webp",
@@ -1936,12 +2452,6 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/3c84e4ed2a67f89119fffadd.webp",
-      "sha256": "3c84e4ed2a67f89119fffaddd2d3244ac0df7775bbfa1cc79e29cc0fb2518c75",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/3cb3ffa09c8f4080edaf6ffc.webp",
       "sha256": "3cb3ffa09c8f4080edaf6ffc5748c117da08a72d82779943c8c156dca1b3bf37",
       "status": "approved",
@@ -1958,6 +2468,12 @@ export const appVisualAssetReview = {
       "sha256": "3f882c841f87d979c9a7b53ac83e1e25377d9bb3e987c5f5bdec42dcc2ff540f",
       "status": "approved",
       "reviewedAt": "2026-10-30"
+    },
+    {
+      "path": "/guided-reading/card-covers/402243b6f96255e50ba54019.webp",
+      "sha256": "402243b6f96255e50ba540194443c385e53ad9cfd4c678744f6077d818233784",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/404c271c6fc9fe115c20d054.webp",
@@ -1996,12 +2512,6 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/43f076092c320046e0c6dbdd.webp",
-      "sha256": "43f076092c320046e0c6dbddaba54b106cac4edcba912c126218152daa704615",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/440225cbd1f64e6b4a86b9fd.webp",
       "sha256": "440225cbd1f64e6b4a86b9fdb80e675ebdd8e688e3ee2d7af48d255ebbea3d11",
       "status": "approved",
@@ -2030,6 +2540,12 @@ export const appVisualAssetReview = {
       "sha256": "463baf167e28264d42beed007b0ef2446e23b9091866fb5b5d583e7c9f6c0df5",
       "status": "approved",
       "reviewedAt": "2026-10-30"
+    },
+    {
+      "path": "/guided-reading/card-covers/4660486188a6384de49d734e.webp",
+      "sha256": "4660486188a6384de49d734e76cbfd4d480666a38d24f1e96e876c226fb36f1b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/46a5e2b71393a74d75b89a8f.webp",
@@ -2074,6 +2590,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
+      "path": "/guided-reading/card-covers/4bfc8396d552ef2512d58e4d.webp",
+      "sha256": "4bfc8396d552ef2512d58e4dcaa3e2b91258ce7c2521327fcce6621f79be4b96",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/4d95fc1d6bfc262cee6e29b8.webp",
       "sha256": "4d95fc1d6bfc262cee6e29b858fba91458b5900a4f6f583f1a92cc5b10087829",
       "status": "approved",
@@ -2084,6 +2606,18 @@ export const appVisualAssetReview = {
       "sha256": "4ec7b9149db2be949e6b71434895ae9758f21cd7efe3054ec82da363bd4ac146",
       "status": "approved",
       "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/4fbdd0c191d8afe864058065.webp",
+      "sha256": "4fbdd0c191d8afe864058065de6ec7a1a2e83c7342ed02e71d18a0bcd0e01a7f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/guided-reading/card-covers/51137804dc350d24827cc8eb.webp",
+      "sha256": "51137804dc350d24827cc8eb5c757d5be78a056fe5a24cc2b4bc2398693ce7bb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/5186bacd72719fc779d0a0fb.webp",
@@ -2110,16 +2644,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
+      "path": "/guided-reading/card-covers/552bcf74a37ff9af54c7c793.webp",
+      "sha256": "552bcf74a37ff9af54c7c793e1109f586968dd656a0575350434fb8f0105a314",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/guided-reading/card-covers/57fdf8db0cb4332ea3fc5efb.webp",
+      "sha256": "57fdf8db0cb4332ea3fc5efbfd5fc3701863df6d9343fe8385c4716c45a914d3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/5912570d8281331378dcff32.webp",
       "sha256": "5912570d8281331378dcff327d53f893dd0d1970cb1335784982c3b2c36cdac9",
       "status": "approved",
       "reviewedAt": "2026-10-30"
-    },
-    {
-      "path": "/guided-reading/card-covers/5962e006e5284f4df20dcdc7.webp",
-      "sha256": "5962e006e5284f4df20dcdc78ea633d3d5ca0f8f23fcf2ea5e94c7668c449524",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/card-covers/59746e881ca656d2a1760f12.webp",
@@ -2128,28 +2668,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/59e8a88d88a3f82ffdfd741a.webp",
-      "sha256": "59e8a88d88a3f82ffdfd741a062d1f24f1e056fb63a980d4fa5190def8157ded",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/59e9a8bec9a332e94010bb44.webp",
       "sha256": "59e9a8bec9a332e94010bb443dd6505365a1b50f00aaca403b87b3436328752f",
       "status": "approved",
       "reviewedAt": "2026-10-29"
     },
     {
+      "path": "/guided-reading/card-covers/5af400ebe91fa931a5641aea.webp",
+      "sha256": "5af400ebe91fa931a5641aeae3e472ae667bd14280e89e489096c6f394631357",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/5c175680746f3fcdc1fdcced.webp",
       "sha256": "5c175680746f3fcdc1fdcced47ea7b9941831f58dd96cd8dfb42a45822d7e9ac",
       "status": "approved",
       "reviewedAt": "2026-10-30"
-    },
-    {
-      "path": "/guided-reading/card-covers/5d25b360be0e41c9212d0e92.webp",
-      "sha256": "5d25b360be0e41c9212d0e920f5570b47d7410548b0884784d74730e7f4b9ca3",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/card-covers/5d302d9de9757899bf145a87.webp",
@@ -2164,16 +2698,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/5ee900f8ca70944b7da51a2e.webp",
-      "sha256": "5ee900f8ca70944b7da51a2e418e5148ad0c14ecafeca11a338499ee066dd3a6",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/5f6d048d931aac0c70bd9eca.webp",
       "sha256": "5f6d048d931aac0c70bd9eca08eb6eaf1d679b04960ff956d884efd85e39d469",
       "status": "approved",
       "reviewedAt": "2026-10-28"
+    },
+    {
+      "path": "/guided-reading/card-covers/5f813f74d48bac62993bc978.webp",
+      "sha256": "5f813f74d48bac62993bc978e45012536f600dd4bfdd9861df3a080cd4f9599b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/605d1cf496f4dcae9d7467d1.webp",
@@ -2246,18 +2780,6 @@ export const appVisualAssetReview = {
       "sha256": "6da1242374c1ad32cc01619d0b4043909ae442d92f14f73a3ba68528bf1a1524",
       "status": "approved",
       "reviewedAt": "2026-10-29"
-    },
-    {
-      "path": "/guided-reading/card-covers/6e37742cde8211230e27036d.webp",
-      "sha256": "6e37742cde8211230e27036d813ff18a29b319a036fe8eb63b0d890f3d9a0f21",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/6f492ba545216dad65bc9e3b.webp",
-      "sha256": "6f492ba545216dad65bc9e3b25fca5559a1150e181c50e81f6e168f0285fa3fb",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/card-covers/72475025e7de459acf015c3f.webp",
@@ -2386,6 +2908,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
+      "path": "/guided-reading/card-covers/8570a02ad298d5724eeb35a2.webp",
+      "sha256": "8570a02ad298d5724eeb35a23c050bc35097fcce4f4d64e8003642ba6605fb6f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/859aa783dbd2d4ac87587d7c.webp",
       "sha256": "859aa783dbd2d4ac87587d7cce60dd966251299d708eac52f970e37d9da4095e",
       "status": "approved",
@@ -2452,16 +2980,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/8c96aef7cbd8dac20089d7e6.webp",
-      "sha256": "8c96aef7cbd8dac20089d7e68515e5fa00d7aaf6f18d3b2e0bfe1605f987ffaa",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/8d11137dadff9bbb3ff9c2bd.webp",
       "sha256": "8d11137dadff9bbb3ff9c2bd3e0646104ca3335a44f8627ffebcd074544deb6b",
       "status": "approved",
       "reviewedAt": "2026-10-29"
+    },
+    {
+      "path": "/guided-reading/card-covers/8dad634183e289c0d2f0a21b.webp",
+      "sha256": "8dad634183e289c0d2f0a21ba41cbedd550cb6218998c332c4e50fb3e1b40ccb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/8e4485d2a07a32885066a284.webp",
@@ -2494,12 +3022,6 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/9119bb3dbdd3ec0755d70a81.webp",
-      "sha256": "9119bb3dbdd3ec0755d70a8114a5ccdc8ce8c2094624a88ffa83a803528275ce",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/926f2034fc9d201afb96cca8.webp",
       "sha256": "926f2034fc9d201afb96cca8aaf8c2c8de0959052e8585f23bf9067b3c1df73d",
       "status": "approved",
@@ -2510,6 +3032,12 @@ export const appVisualAssetReview = {
       "sha256": "92fecc91b7aa9ae43990f573d428938a76395261850cc7df08a3460145a05fb1",
       "status": "approved",
       "reviewedAt": "2026-10-29"
+    },
+    {
+      "path": "/guided-reading/card-covers/9303be71c1ee9290891f2728.webp",
+      "sha256": "9303be71c1ee9290891f272833013436ba28be775a82e7c0ff5f83ec70c8a982",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/934cccd78449c4264ec7f90f.webp",
@@ -2532,12 +3060,6 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/card-covers/94ceba3ff60b93d2e7752d15.webp",
       "sha256": "94ceba3ff60b93d2e7752d154cac182309955b23f58da5b534b208d1ce087516",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
-    },
-    {
-      "path": "/guided-reading/card-covers/94f3bb53015833aef2bd9cf7.webp",
-      "sha256": "94f3bb53015833aef2bd9cf72d3e2def8d2dc45bf3319a0da335f0d87a15a7bc",
       "status": "approved",
       "reviewedAt": "2026-10-29"
     },
@@ -2626,6 +3148,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
+      "path": "/guided-reading/card-covers/a0800a78cc97887731dfd2f4.webp",
+      "sha256": "a0800a78cc97887731dfd2f471e6a59bafefff566efc594422b8e021cd8dd9f5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/a097c06330624be1ca992882.webp",
       "sha256": "a097c06330624be1ca99288210ae4542d235a62d2d61668a31fff35ff5f95e47",
       "status": "approved",
@@ -2650,34 +3178,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/a420925601f8c5bce8b35d94.webp",
-      "sha256": "a420925601f8c5bce8b35d94aa42a8a3912928570233b18071f193a25521dd13",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/a43cf0c350836d45f584148e.webp",
       "sha256": "a43cf0c350836d45f584148e5e62177de4d5aa14cc605b695bf8d77827f18996",
       "status": "approved",
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/a561a9aba8bfb0c56a985d93.webp",
-      "sha256": "a561a9aba8bfb0c56a985d93f95b90c966d456bb3a50a3411eb1743dfe0436bf",
+      "path": "/guided-reading/card-covers/a7d125cceb7b926a46e5da59.webp",
+      "sha256": "a7d125cceb7b926a46e5da594613a023d6d93fe10f4566c8278d7dd401d628b5",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
-      "path": "/guided-reading/card-covers/ac5277ce2a9b19cdcc5bbcbe.webp",
-      "sha256": "ac5277ce2a9b19cdcc5bbcbe403c0489f3390b14ca1f2084553ecc099cda9797",
+      "path": "/guided-reading/card-covers/aa109e1669ce458714f96428.webp",
+      "sha256": "aa109e1669ce458714f9642868461a2dcf8fb5e99d42def30138e719fa5a5584",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
-    },
-    {
-      "path": "/guided-reading/card-covers/b00cac2fd58ece1749e0d11c.webp",
-      "sha256": "b00cac2fd58ece1749e0d11cf25fb878125106e22660bfdd545c571a783cf6d8",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/b017038815c8af33e8219f9f.webp",
@@ -2740,20 +3256,8 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/b4ca0fd96d95b3f1a2fe3ce7.webp",
-      "sha256": "b4ca0fd96d95b3f1a2fe3ce719cefa68101279971f64f1b5e4cc977fbf8e44b5",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
-    },
-    {
       "path": "/guided-reading/card-covers/b53001bd1499aef61f3e5c2d.webp",
       "sha256": "b53001bd1499aef61f3e5c2d31dc88ebddc7b1f951ee69f911ecbf2d0abedb56",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/b74c7d211161b5182a9c4c4d.webp",
-      "sha256": "b74c7d211161b5182a9c4c4d5488576f690eadcaad10ce85f4d11eb265f5f176",
       "status": "approved",
       "reviewedAt": "2026-10-28"
     },
@@ -2780,12 +3284,6 @@ export const appVisualAssetReview = {
       "sha256": "b9339baeb490cc03852cc2c14714221c95f5c8208668ab34f6595916a8f4186d",
       "status": "approved",
       "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/b989d87e1a732a67947b20c1.webp",
-      "sha256": "b989d87e1a732a67947b20c14b0331777d7d792acdd95a1e229c4920c2d470fa",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/card-covers/bbd96d7cfa6a7517726ff97a.webp",
@@ -2824,10 +3322,10 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/card-covers/beeb384e4e7830dc8409ac10.webp",
-      "sha256": "beeb384e4e7830dc8409ac10abc1715f52ae8b24a3955e3770933be8ef57e2e5",
+      "path": "/guided-reading/card-covers/becdaf7ccad79f3e7f5882c0.webp",
+      "sha256": "becdaf7ccad79f3e7f5882c0e127e88f872e5a673abaf18de26b1550226a59eb",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/bf58d5e7915d658f8a9b64d3.webp",
@@ -2884,16 +3382,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
+      "path": "/guided-reading/card-covers/c5868b88d1cb089202098514.webp",
+      "sha256": "c5868b88d1cb08920209851436c1d98d873d329bea34d3702f4a63e7764f05d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/c696e6f2f756df697b678269.webp",
       "sha256": "c696e6f2f756df697b678269cb882f69d245cd382a242b384c99d48c7a3bd8f9",
       "status": "approved",
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/c6e18461314a93d75dce9bd3.webp",
-      "sha256": "c6e18461314a93d75dce9bd398be3dda86349e683bb544b955910c7543930773",
+      "path": "/guided-reading/card-covers/c800215a9276f672a130ca47.webp",
+      "sha256": "c800215a9276f672a130ca4726cff00376c02a5e4caa3c297965dc6b84981bf4",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/c8bf14a585de39b3c1af4e19.webp",
@@ -2938,28 +3442,10 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/cdf81c42b13d52735ee48536.webp",
-      "sha256": "cdf81c42b13d52735ee4853636869664ce116412bfd72579f5d7b7b02c3279a6",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/cefeea541499b03a86e3faea.webp",
       "sha256": "cefeea541499b03a86e3faea3e1d6e28dbffdbc85798802b514c8f6628571400",
       "status": "approved",
       "reviewedAt": "2026-10-29"
-    },
-    {
-      "path": "/guided-reading/card-covers/cfe003b04d645ff655577ccb.webp",
-      "sha256": "cfe003b04d645ff655577ccbccc9ab7f721ea49ac001805ba607100e5a007bb7",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/d000f931a840c17fdf687a4f.webp",
-      "sha256": "d000f931a840c17fdf687a4f04dab28e7d6357bf41e2fc15292ae430e14d8d2e",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/card-covers/d041955adbbf08d53a792ced.webp",
@@ -3100,10 +3586,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
-      "path": "/guided-reading/card-covers/e215d54f9866a262e6e8ad55.webp",
-      "sha256": "e215d54f9866a262e6e8ad55e2273b551a79d871ee24ac42fab35f4913f3c2c3",
+      "path": "/guided-reading/card-covers/de53310a5f5b91bab6a0e654.webp",
+      "sha256": "de53310a5f5b91bab6a0e654c3d38d89791b4efe01ce4be3f2c012a76de7d103",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/guided-reading/card-covers/de8c5645090beaf45a297e63.webp",
+      "sha256": "de8c5645090beaf45a297e63bf50d6d06f564cdeea6ac09d66e3142250e1cbb0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/e2af94592de3ac990170c786.webp",
@@ -3112,10 +3604,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
+      "path": "/guided-reading/card-covers/e4ebadbb9c4aec4d4c328c53.webp",
+      "sha256": "e4ebadbb9c4aec4d4c328c531986981913f6be898ae3a4db9984437557a0448a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/guided-reading/card-covers/e6da549dce33a664fd1ce186.webp",
       "sha256": "e6da549dce33a664fd1ce186464c6131d399bc20fc27b22eaf61731861b39cee",
       "status": "approved",
       "reviewedAt": "2026-10-30"
+    },
+    {
+      "path": "/guided-reading/card-covers/e782599d038d0dff66f8aa28.webp",
+      "sha256": "e782599d038d0dff66f8aa28515231764e7a80cd199fa0f714957ceb102ab69e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/card-covers/e80133fe82fc6ec98e6333c0.webp",
@@ -3230,12 +3734,6 @@ export const appVisualAssetReview = {
       "sha256": "f72009166408ff4e84c24e6a2e07ef27c1d35f54e4eea68e8329ce5c28d3be6c",
       "status": "approved",
       "reviewedAt": "2026-10-29"
-    },
-    {
-      "path": "/guided-reading/card-covers/f7efeb33b832e8f770f1b747.webp",
-      "sha256": "f7efeb33b832e8f770f1b747379f202f29bcd63534ffbe616107d33208b64936",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
     },
     {
       "path": "/guided-reading/card-covers/f85b38ee6ff461d17647fa94.webp",
@@ -7117,48 +7615,57 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-001.webp",
-      "sha256": "81b6b5171d1e762d04f8adedd24e47fc172b6494bf61725eebcb9d720170aa99",
-      "status": "approved"
+      "sha256": "c1d5fff33215a1c68532d607a316bb1f5e18818c35b4f149dbed013981c665ca",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-002.webp",
-      "sha256": "3cdebfb698cb5ab92c6fe5f89734605e5abc5674a0c467dc2def67a4e4dc3767",
-      "status": "approved"
+      "sha256": "f900259aba54f5e737f09ee39b7391ca974a273385e58014fda46944bc4ae845",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-003.webp",
-      "sha256": "d293aa5a2ef9c998c951ade1093d0a1174f4c6e236512de9e04f112f19ffe28a",
-      "status": "approved"
+      "sha256": "1817240768200d576d5d94b40b0ce1761e4544dcdf157d13d1a8570ff9777fec",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-004.webp",
-      "sha256": "b298479045f3a38c866fae3a92db8eb1aba621c6585a63851ccfa0fa04307a24",
-      "status": "approved"
+      "sha256": "39a91b59c391062005616e0741a73ee077f8fe95f9d89049f5b1c63f7ea39ae2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-005.webp",
-      "sha256": "d038fe33d591df7457e564f639bf4abeafcf9d5b3057183cc3cb58152b49b9c0",
-      "status": "approved"
+      "sha256": "b75ff714738163b4e7fd4f90153e25c265d247193bb4fcdad5ef5efff1619711",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-006.webp",
-      "sha256": "fd5a8f586c2642e42b5537cf83e0e676e7264b813caa15dbbb3c0ea7653d9366",
-      "status": "approved"
+      "sha256": "a39abcf0bb1b78231e6cd97a8a2058b146bd4f7f17f1459f9dcaeb37dae3f0e1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-007.webp",
-      "sha256": "733209b965b3f238ec7815ee7abe696e5e86566e76078658a1a7ae480da1d388",
-      "status": "approved"
+      "sha256": "c07737ce0a7dad7bd5a04e103f42f8b9dba74691b520f82de7024356f583e3b6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-008.webp",
-      "sha256": "22c473c695c52136a5c468d72bff0466723fd8aa2ac7a2ba6ef273ae40dd3a61",
-      "status": "approved"
+      "sha256": "70ba7e91954e23084d704e3c22ab5a11179835932abdee3a8239dfd8b562e478",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-01/page-009.webp",
-      "sha256": "2968013e2659acd18110d01fcbca51b07eac25963cfeeced55b1a21f7bcb12db",
-      "status": "approved"
+      "sha256": "3eb5446ff5413d2df2c99555a8105188eede25e6abef8d6c3db32563314342ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/cover.webp",
@@ -7167,48 +7674,57 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-001.webp",
-      "sha256": "2206d73d25904ab5974687871e06e10e72eef182a02b1ca2ddadd7bdd3184890",
-      "status": "approved"
+      "sha256": "b2da3d0db33e4b08355023bc7a02314b699cb148d62fb34ce01bc3224ebfc307",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-002.webp",
-      "sha256": "661d1afe2b363894ced4155d833b0b83dd387ac13cde3a4b02393ed78f1043f8",
-      "status": "approved"
+      "sha256": "63f892ba00bd74c05ad019163266b4c0049bc7b6760c05bae6409946f88fbe0e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-003.webp",
-      "sha256": "ac08721abda1215a12cdbf08efaff32b912dc067df59dd638118a6478b9ecae3",
-      "status": "approved"
+      "sha256": "285fde60017df2e63984ddc2e69a19a38a62d216cdede54aae7a2a6f19736312",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-004.webp",
-      "sha256": "06dc71781a807ecbc2e17e9c375f4f2ff34c220cb8865c7fb35f8c02ab2e170c",
-      "status": "approved"
+      "sha256": "903f5e32e08c0f20b7f0f8da0375f724372b88db3279bda7d239ec26f10e49df",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-005.webp",
-      "sha256": "3db99cc93068b3f33d5e36e870b2b336fe88157b96c6f73f8872f49fe0a3526a",
-      "status": "approved"
+      "sha256": "46817ef0dd9c1f02dae61bc82ad53768a41da1cd35dc9ddc0f7c55e8cc371c48",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-006.webp",
-      "sha256": "2b04d97ae30a4aa572042358200197714bbf3b8e7c84729ab252b55ccbbdac40",
-      "status": "approved"
+      "sha256": "d06209fab118c267861bf3835a03a9f3a47ac2fc6b681300786ad7ed43353e48",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-007.webp",
-      "sha256": "1b6baee6b0201da24555fe319a00269e30736826de5b02b064e0609b4b3bfbbf",
-      "status": "approved"
+      "sha256": "23716846a3d560ff76d7ff743792129799de6ea24a5f03d48271c2e725217081",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-008.webp",
-      "sha256": "fad07c39376c04cf1b9940dd0a17b735908f9747171df9b9b45096be34aa12cc",
-      "status": "approved"
+      "sha256": "3fec4ef1092e2d4b43345a76ea4901ef7e89cac556f2c973558b69c62984b185",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-02/page-009.webp",
-      "sha256": "20cfe6d70e0b586c94db81140d7780a3b634fb2692572ca60b80159c2723d146",
-      "status": "approved"
+      "sha256": "a24bf62bb6a3bc6f9d1821a3a5f1b9503f477a8364fa2690ac5df8897304bc45",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-03/cover.webp",
@@ -7363,8 +7879,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/cover.webp",
-      "sha256": "f43ee538bb27e0305a66eaa9b1175c17935148ebc794ba203fbe1f1d3529c43e",
-      "status": "approved"
+      "sha256": "2b464c1563cef9f9c0500ee51373b0fb3508acf75c81014af2a094157f2d61b3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/page-001.webp",
@@ -7413,8 +7930,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/cover.webp",
-      "sha256": "0ba035b5c8ccf157e949b8797dc1aeb1d745d488bc697927dde1b61784b5be13",
-      "status": "approved"
+      "sha256": "2307e826c4fb64b4e24fd03cdf01c89da37aaad10d77429ee6b8aefa0e04659e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-07/page-001.webp",
@@ -9334,8 +9852,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/cover.webp",
-      "sha256": "19527e72190fa968360617cdd07e8836e2537f7c2996a6cfbee582d471866172",
-      "status": "approved"
+      "sha256": "cfaf43a9b15c3846076941b8c8d5ed7e8c9609621b28e3a17974397cea249e73",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-001.webp",
@@ -9354,18 +9873,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-004.webp",
-      "sha256": "d4dcb8ec0cc0237a7b3a305fa9b44aa62c016c7630954d454db20856b10a6b3c",
-      "status": "approved"
+      "sha256": "7fd5646ddf3bcfba6050028578898618bdcc01ee03d577f44c0abb295812cd0f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-005.webp",
-      "sha256": "ad8abfc08cec3794c028c5e0b5f985074bcbaeab8d1166affc2470f4d25c464e",
-      "status": "approved"
+      "sha256": "c953a5ddc44c51c51f31b5697bfd8e25247e0aa7837da0b7c2efb41b2e34d9b6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-006.webp",
-      "sha256": "6c20652d9d04cc697d61ba5c28d5ea0f60d240ff8d2977a3ef369a7442c4ba13",
-      "status": "approved"
+      "sha256": "8ec779369703bb0923f5b58110ace1531e4c38517e19d2396c9ad8de3dcfc9b3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-007.webp",
@@ -9374,8 +9896,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-008.webp",
-      "sha256": "9bd689c6cf3f54007d6fa214a978133c192d5eb85b09afe1b5d7a69110a908c0",
-      "status": "approved"
+      "sha256": "79f76e52b30cfee43ecf990db6ea384873d090f97c5190c5ce3303bed471249f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-009.webp",
@@ -9394,8 +9917,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-012.webp",
-      "sha256": "817d573268fa0f4b550f7dddd169269235a39f4a64da81b3f7e3d7ab4a8acc34",
-      "status": "approved"
+      "sha256": "aefbab3f5ee45042c82ed41261ecc48f0d42a9aef342c6df06065417becf3654",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-02/page-013.webp",
@@ -9419,13 +9943,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-003.webp",
-      "sha256": "e4c06e55217440ee4a017a983e9c03b2c1e7a13c3fbb2e13c641df6577b722f5",
-      "status": "approved"
+      "sha256": "e0a464192c163afafbd31020aafa03f0e449523743aa0243b660487e6d26dc45",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-004.webp",
-      "sha256": "d8ce38394659b54d308b4791f8fbf1790da9d6257e9c0426a86085b2d7b80ca6",
-      "status": "approved"
+      "sha256": "25f35fefb998ba7d599d895507b36fdb829cf58671068231dc3feefa70b2b4de",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-005.webp",
@@ -9470,83 +9996,99 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-03/page-013.webp",
-      "sha256": "32a0b581a4daf05ed93e90ef4524f4c9e07a6314873bf11817becf4abc851e19",
-      "status": "approved"
+      "sha256": "a9a77b4c830f68ba72bb49c67720adc5ea6e44d4d116fb0ef637ccbde4b6fbf2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/cover.webp",
-      "sha256": "ed2baea3f6397b2dcf5678241ad097d60160535e722075c2426ff231796b0ba2",
-      "status": "approved"
+      "sha256": "afd423506eef160f56b136abafdcc737ad4e25a64a6f07871ca0a2210220932c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-001.webp",
-      "sha256": "d45a16da0354924d2622a54ba79dc6bd0a202e994ac2db7b10ac5f84400e028a",
-      "status": "approved"
+      "sha256": "b96b52d9865a09030302696845b1858315a1e5e4a00efaae9333bc7382a1c2c6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-002.webp",
-      "sha256": "b15f0159b6bd3e58d586803373eb438a2fe6c765d3b7931fea04761e87ab1a13",
-      "status": "approved"
+      "sha256": "0961201a2b9ac35a0a147231797f503030234b2b2058295d04743dda85fb2c79",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-003.webp",
-      "sha256": "443e5886ab4cf178c698c98e83aead19353e853dabb70a97bdeb2c8be97c3d73",
-      "status": "approved"
+      "sha256": "c68b5352196709bf821de50dff63c53245db37e8df989f651061cdaeacf65045",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-004.webp",
-      "sha256": "c38115673ac3942fc18af873757deb5e5396eb644dc0668a392f9c045d772177",
-      "status": "approved"
+      "sha256": "c17e69bbbb95b0777cc2ed4a5674148dd1c8e1e2c791dd13f6ead74f77b8aeb8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-005.webp",
-      "sha256": "bd2daeadf5833618ba34ed8ec41224d96cd886ac7c0e25fd64001ed2bf10a746",
-      "status": "approved"
+      "sha256": "23eea19723021aaca7a9e44ee2f39211f6b524dd07e0f1d162b75dd8732eadd4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-006.webp",
-      "sha256": "ece072308c1be6764b936e7cbe540e09e4e0a719d55b6478f67b2044c025ac02",
-      "status": "approved"
+      "sha256": "1edc5750aace150628be339e07cd8c766f02bb413a00c850d8cb4f1d95e9ee36",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-007.webp",
-      "sha256": "1e162439f8c66c68dc1dddbadfcbf4d653cc52216f4038a436ccb595bc3a5d6d",
-      "status": "approved"
+      "sha256": "f09ea863146223464086c69f8b860b2c13518ea622a9f6c17b3b481ff3ba05f0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-008.webp",
-      "sha256": "cb5a5048160ffdcd738d414ee30a501c92c6a47c43d92b1cfbe9d0e084e06641",
-      "status": "approved"
+      "sha256": "74841dc73a69b11376f5ea070376c2efd85f0c5f875e263b9c25a81a879dd166",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-009.webp",
-      "sha256": "4de87f4514a962915c6c87c3333930853d63c33842bbb0d48848bddedc1558c9",
-      "status": "approved"
+      "sha256": "57eec758c37f242ec1b70edea29e85509ac00644f0fbcba6cc19d7d32e4ec85e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-010.webp",
-      "sha256": "4cea2096ad79a63407ec5aedb62b1ee1f401bd97c8fbca6a8a3cac553ee4de6d",
-      "status": "approved"
+      "sha256": "73d17773c23675cdce950b3bf0ec6514962eb3a37dc068fd6f8f944f2d06bd8b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-011.webp",
-      "sha256": "5a51390dccc8da747afeee3cb606795efc3e919ae2a5e9fe90b7b61f74e0d7dd",
-      "status": "approved"
+      "sha256": "688efadc957db7f3f07e3e1c57e76b73f90dce3f7172aab3bf269e8e4c614ab8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-012.webp",
-      "sha256": "6dddef48b85b3b8c417f6633475cfaf67b354c08adfa910aa4315a752a50ba66",
-      "status": "approved"
+      "sha256": "82fad7337d40491737041a61bee34df3b2f6331a80c99773df3c285b3e0effe2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-013.webp",
-      "sha256": "41f751d42a1e988105e44d2ab904a78d0ac2d51ed3dfdaf89a1219d40f4a01c6",
-      "status": "approved"
+      "sha256": "578cec0f6c8675d2132fe377c22acbafeb327ff31dc3aa9163703b635aa08504",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-04/page-014.webp",
-      "sha256": "3ca836696121584ac986cd7548e63989eaacb3b2bdd25b425971ea798daadf8a",
-      "status": "approved"
+      "sha256": "cb504bcb74514dddc90aac20585bba535bb555ddbb23606d3c99fe5e1753db46",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/cover.webp",
@@ -9555,78 +10097,93 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-001.webp",
-      "sha256": "a5015cbfb16891cbd74c9876279ab9134e1af96a1104b3b07650a468d2c409fc",
-      "status": "approved"
+      "sha256": "6326b26415979f2c6a727f7082c448c333720a15e31c47dd1b7320c09bb894bf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-002.webp",
-      "sha256": "fb18b87ca0e92b7e64f28facc82dbf1c8b25443af38ca867903c497aea61908f",
-      "status": "approved"
+      "sha256": "a33340276e96c2d0d26ba87fa6c74e8e26a73d7b1f4d0a05c6a7f496f1a81ee8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-003.webp",
-      "sha256": "c6952f5f1ca7165971345beac7d1f72311e49df4b422bbcf6e060960b4edab68",
-      "status": "approved"
+      "sha256": "3e2564937f0b4fe71553883576a271120898bcd8b95a4348061363ea164b8ba6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-004.webp",
-      "sha256": "28671a7a790779fa83766456dc8fce392c41a0045c5f0985670fec218c7bfe97",
-      "status": "approved"
+      "sha256": "d2db93f2a3fa7b898db384b568c8ccfc85b56b6bd398b856903d6ab330477e13",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-005.webp",
-      "sha256": "a29b37a39e0e5ece848081bda1ed0428660ad083589657cda7ad47d6554d2234",
-      "status": "approved"
+      "sha256": "33f3346f63d0b681e6966a4ffdd05784656383b8c654a4826a549da23f632ece",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-006.webp",
-      "sha256": "8638b88d416a9e84dee91c1af6e78c0cac86ca6b9dc287b620aaa7cfdda56612",
-      "status": "approved"
+      "sha256": "2cdb64a5b0c57b7c86f213b5b1ef5379fa5af7d4314da7a6a223ce74cef3c230",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-007.webp",
-      "sha256": "48db35fbb33175ee4f9d133465f6d9a6365eee93c744377832542834cb8811a8",
-      "status": "approved"
+      "sha256": "1ce8861ca0fce9f68e1e5c4320d882311f1a2561939f26365da1b412073eae6b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-008.webp",
-      "sha256": "47c9e4915faa1333e8846af991fa63ddaea22cbab8994a5b86029f083892193d",
-      "status": "approved"
+      "sha256": "8d5bbd54c02f991b9d5e5604ae4851079178668233d37d52b380941f279fb651",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-009.webp",
-      "sha256": "56b7f5e0c9459024396c79a4c9114c90d4d47f2142fb368a4f83ad93b68025a8",
-      "status": "approved"
+      "sha256": "44d23addb3da073035fe2e3fbad0c640c7eecb203153553ab7ef2d1f70f65fa2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-010.webp",
-      "sha256": "7726295ba7e7775317a89f3c014d3ae38b4d83b04871298c5cf7698b34d33a1e",
-      "status": "approved"
+      "sha256": "c3b13ec319e71b01968b45bac4e530a34760a04b8aeea47c10ed1010863fd44f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-011.webp",
-      "sha256": "29070cca0a36de3d563ba6c1a97f2071a9b2642f44bc8fe02e0a81a88b55b04b",
-      "status": "approved"
+      "sha256": "1ca891c8e0eb2f313e4e292aa4bdc0893ddb35ac6db4179d2ef4f6cccd1888d4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-012.webp",
-      "sha256": "839601db783c8de9f769455566527e582679faceb5978d74f52a01cb89e19854",
-      "status": "approved"
+      "sha256": "e826a3334a05aeefe725f8888a53feb322816c178143d68209f874d6e6d3f579",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-013.webp",
-      "sha256": "6eff7183208b8933471a495d9ddbbaa16bb5ab5668866f68e37424c605d51c25",
-      "status": "approved"
+      "sha256": "9c3fdebe47a0189508f83d71c5e8b892a60463fe426ab764de5ec583dbcc30d0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-014.webp",
-      "sha256": "e2e7e866785bb00e4d152f45282176c7478205bbb4e192c1f8f9a4f509bf27fc",
-      "status": "approved"
+      "sha256": "152e045f83aa34fa27efbd491a27f52533b0ff17eb0265255fbbe8cdcfba71db",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/cover.webp",
-      "sha256": "af8ba390e97fed7f7702f6b83933729c99957f296e0e5436a129ab66f3040b03",
-      "status": "approved"
+      "sha256": "9852b3572af62117018804a87599b60845dab8c4186c6f40c6c892c05b61d87f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-001.webp",
@@ -9635,13 +10192,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-002.webp",
-      "sha256": "e5ef3a6eeb479f1e1bc79bca7829beebd7f9a0c2f8ae86e5e6c067bd26a70a71",
-      "status": "approved"
+      "sha256": "09193a7aa1c544c09256112b0b5496ff123c31828cbd0063dda4e9baed30d079",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-003.webp",
-      "sha256": "55340c995341f2505afc6eb70b21aeefeaf7056f794a53b88e25e56e0ed14f9a",
-      "status": "approved"
+      "sha256": "83b1fe67cc066574bb0e17672d07b8d0ac7db11c5209674c1f3b09a598a4dfd7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-004.webp",
@@ -9650,28 +10209,33 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-005.webp",
-      "sha256": "e2d39dac00c5cadc4ab41d978ca554b831d8926924a5fd9e10861ac548add645",
-      "status": "approved"
+      "sha256": "b2e372004920cd264f1d1a24ee10865f72441e0034de3dea38939426729d5024",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-006.webp",
-      "sha256": "97aca1e366b97c1010a10e99b8b977fed25e258e34c8b85add4d5eee0db37350",
-      "status": "approved"
+      "sha256": "c163fd3ac01d267995e1416e6c8553eceaa6d830602a89cb087c3489bd8d709a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-007.webp",
-      "sha256": "4272225877048673140d6cbba7ad9e7c853c1b0a950beeaff10c7ba4952157ce",
-      "status": "approved"
+      "sha256": "37a14655a291ec8e5e337f6c03f0551445d95a59b497a6ca04a12aa733f81713",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-008.webp",
-      "sha256": "ac82b4d612de1de2b9ac09c9da88fe7d17b0cff8eb4617be6366f5f804ecebf0",
-      "status": "approved"
+      "sha256": "b5b6535a414e7da7ee01c4767f44c06812b8f7ca522a3c2ddb62ed5380620ef9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-009.webp",
-      "sha256": "a993a7dcf568d108d02dd16731fa996f6bc34a64da46be5f1a0eb53ef84984de",
-      "status": "approved"
+      "sha256": "56b4309b9b378ae4876f4a84eb142fd84dea15abef89ba648aa4a784c5647422",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-010.webp",
@@ -9685,88 +10249,105 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-012.webp",
-      "sha256": "e3141d82e3eaab2f53adf6e76f598200baffa827cfef0f9ad928cbaaebaff572",
-      "status": "approved"
+      "sha256": "7f855131fd98bc2fbc10025a5df5bfe46faea5872974a3fde839c41ba0d07994",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-013.webp",
-      "sha256": "e7140c06a5e5aac10b8954bc8923cef560b77af93f513746b9f659db5f349fc7",
-      "status": "approved"
+      "sha256": "cf3cf0f8e193481335b97d428fb1e285bebb1932c5324b2176eaae4a5759ca6e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/cover.webp",
-      "sha256": "9c77db40b845e90cacf43093fb5a862d9d855b0b7c21859708315ce1423b4ecd",
-      "status": "approved"
+      "sha256": "7fadaaeb5e5d2a98499a3054a6d6595f7ef84953b5fef2b3837879867dc8aa92",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-001.webp",
-      "sha256": "6987d0941f0371da0b9d596fa444d86b8a21821439ed46bf91895529a2f79ff5",
-      "status": "approved"
+      "sha256": "c13af835c8d460cf59d5bdd3dfa558d37bfe42c0d3aec4550bf11f1adcee7c0c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-002.webp",
-      "sha256": "86ed3a50b8de9769851eb5e9d79ca33d13539797890715cfbf515df749361ff6",
-      "status": "approved"
+      "sha256": "559a7101184a9875853e8317c52d06be663d4507d158094c23085b4fbb7a5c71",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-003.webp",
-      "sha256": "fb771f4ed422cec2baced45ba87e27b8c43b5861eb611bbe3433ecb47d206fdb",
-      "status": "approved"
+      "sha256": "7d832d33b97a883fefd3b0a8354541841bef37bf21c4de340882570d8e178a5e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-004.webp",
-      "sha256": "b4db6ebc1378df57f9de48ed27efab6cf3c5904c753e8e368a38fc07b06d8409",
-      "status": "approved"
+      "sha256": "64929a3d764f1ae6921adbfb3f80f4b67b1349475f11ee8041245cc7e95397d3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-005.webp",
-      "sha256": "aeac30dc850707f11751882c59ad27065aecb3c4b1a729acd0ced30131866571",
-      "status": "approved"
+      "sha256": "fa2af8b821326219658f9e82089ad9030960e0b8c5f5528d208eabcc7c799744",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-006.webp",
-      "sha256": "100fcaac5b7242a0e092ce228e1fe673893906c78dce5b3596a1bf98359b5037",
-      "status": "approved"
+      "sha256": "a5f07c3e2c833c5b888327fac3e9ad6edd9d6790b50b5fb89d152980bbea05d3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-007.webp",
-      "sha256": "e99f89ab0216ad737cde2ff4a41d47993ed201945a8ef888586ed6476178c286",
-      "status": "approved"
+      "sha256": "569ba297f54fbf4f0dbd7d182fe3d9389fa7b76e3510c86b011f2b3389e1bc34",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-008.webp",
-      "sha256": "840b62cd546b3fdfc7ed1543a748dba5c10c30805715ff16f5a8e22822446fee",
-      "status": "approved"
+      "sha256": "5e5d212626634122b49329412f72a52fb171923870bfe4ae9d7fc9764bb6a3d1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-009.webp",
-      "sha256": "0a37f8ec55b30484add6783f8eccd7e3fb6ca69fd305b3faf2194dfe11640ef3",
-      "status": "approved"
+      "sha256": "aa6461f4c33d1e8e9789f25a32532096d31f637dc266cc6caafa3ec4e134dde0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-010.webp",
-      "sha256": "251b6d447390d82b6bb1e91894364aae776672e16a7ac21d614501734d2e9fd2",
-      "status": "approved"
+      "sha256": "5f90332141f1a58b39a6299ae9b15a9a7733f290c6cda17cd68f5ce73ff9948a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-011.webp",
-      "sha256": "cfb2a88e818216af6a9b1c53e31c141e10451afe1f596da3d2cf549b91b3d2b7",
-      "status": "approved"
+      "sha256": "368173b4353bf0794bd3cc2ceb2657a552a5ce7ec211ca30e277e6f155df55d5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-012.webp",
-      "sha256": "114d3b71c11ea3d97d885ec19bd137592111aea5b19fc52cb5d917c19987eaa1",
-      "status": "approved"
+      "sha256": "35c2eb5283a671ae94a74a54f09c0b493ec90974783c6b5b22630bf5296b426c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-07/page-013.webp",
-      "sha256": "a16040e05be8256bbde68bc489940426f83724f6c300c0e1692ef263f8755331",
-      "status": "approved"
+      "sha256": "8fd09aa424030d75b03646ee2c6f4e1bed0c3803e2c40d3b768a259fe008d10b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/cover.webp",
-      "sha256": "22e57e6d03e6ac12f06a823b4f9217369f5e98cc12b8cb1d985090e418a32919",
-      "status": "approved"
+      "sha256": "903ceca72d48443470738094b3275404578220ede24cef73322828e67adb0022",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-001.webp",
@@ -9775,8 +10356,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-002.webp",
-      "sha256": "6af3312ef503e8cf50b5574220bfe275025b5c5831f1b78559ce173cb1aed996",
-      "status": "approved"
+      "sha256": "f39179be5b26e737079ca1a019dca9106597b00b36b1e846ade521ed06fcff63",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-003.webp",
@@ -9785,8 +10367,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-004.webp",
-      "sha256": "c02505b762ca4e797ee8e2d58de2e24fc5df0a11e46e6fec3c7563b689359f8e",
-      "status": "approved"
+      "sha256": "c1ff1d8a245816026682053cd1ac0fddee5b953b7feead71a7bc07cca60dec48",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-005.webp",
@@ -9810,13 +10393,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-009.webp",
-      "sha256": "14fd3981330d35b0d5522fd483d0aaa6940aa09755f3a2f054f9bb95573a5430",
-      "status": "approved"
+      "sha256": "62a46c1dc1a74f5505df6f8013341467b8f37f9b62a6441d79edf9efcb0a5d7e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-010.webp",
-      "sha256": "2711c4a42b566fffa2be9370148dce572c576cc75de255ef5c73ee24a509bba8",
-      "status": "approved"
+      "sha256": "45914dd342805e11850d4a77443afad82af7dd815c7bc3e23c92a5065d9d6f8a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-011.webp",
@@ -9830,63 +10415,75 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-08/page-013.webp",
-      "sha256": "37eadaaf3c9ad2865c07174753b6fc25f3bfb468f8e47169a1fd81ef16f10ed1",
-      "status": "approved"
+      "sha256": "3dabf104a566dbfc1862089d0d486e6c18230749115d9300fee3d8f5db3a24d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/cover.webp",
-      "sha256": "915c768bc3608986b1c543297d6092238272c410c6c5be2edead3e31ed29d351",
-      "status": "approved"
+      "sha256": "74dd35d6327b89675999cd92505977c273daf625f4af229485f0026c5da336b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-001.webp",
-      "sha256": "19a6d730fa15f37a1fb61307a8e4ce1ae0c6b2128e84a18aa83b2c6ab0ee24f5",
-      "status": "approved"
+      "sha256": "abdc837fe71913b30fb5878e36a3be7bc05bf73f7dd61550bcf11fa1466a6b7d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-002.webp",
-      "sha256": "c9f0515a6b779d331192a42ed96f3f6fd0f15316413041c97127dfd1563a0369",
-      "status": "approved"
+      "sha256": "6b21b3ba40847db09d008ad7f1c9a9112dfa50b5b02766a30c4a4faff80296ac",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-003.webp",
-      "sha256": "409aee0bc982748f14a2bbb4d368fea81df93afa3a824ba90afecacf065e02d8",
-      "status": "approved"
+      "sha256": "535606661d1ada8b9396e22fcd95a5b7da0cddbaacd0e0917129a5949ead199a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-004.webp",
-      "sha256": "5025a6107fe1f5515c3dee41fe828c2c96a934730bfbaeb794af87eef913e3e0",
-      "status": "approved"
+      "sha256": "0375d5228a58e5639e70a3a46c607fe12ab84fb7f184c43516683cad704a5d99",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-005.webp",
-      "sha256": "9ff49da93864c3fee23d5f7377f3480464c1e0e4c3c9259fe793bb77e5009473",
-      "status": "approved"
+      "sha256": "a7029ffa1a82d6149be48c2fd6f1fa927789ca44ad8c8e115f73383cc80eb2d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-006.webp",
-      "sha256": "2a7e51f885d6b6c7d50bc5e5ac1a266f3ea4aeb5421fa58648964486efe224d3",
-      "status": "approved"
+      "sha256": "e41d5a8082e3563dcfc5c8e7a0867521ac70be11e3049debacfaa71bd1d30a9c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-007.webp",
-      "sha256": "b72f7fa8c2e9ab06d97541f47b1398a46501f232d665f833c2c78a1241f2be43",
-      "status": "approved"
+      "sha256": "eaa4ffe917d8c62e1912c8c0de7d0e5590ad1a1e3b9814fee1149b68f344bb46",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-008.webp",
-      "sha256": "f341f732c15cca02b4bca663fd8690feb0dea1591b233363e6827f0f4b071612",
-      "status": "approved"
+      "sha256": "1d92b28b6259146caa1d1e7ccdd37018aaf2398827d405b9bc47597a7a2cbc3b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-009.webp",
-      "sha256": "ed0c443af28bd00d7158c09c5fb0c272512c6f8eebab74fdb1d629ef0e1d08fe",
-      "status": "approved"
+      "sha256": "c47b619a6429ab4afa80b2d19ea6655ec0bc5e8e06c57a3d6436a30776a4b23a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-010.webp",
-      "sha256": "60a9119cdad28c4e9e894ab73ffa0051250e0010473aff72995995f1f95843ba",
-      "status": "approved"
+      "sha256": "9189c1fbbe3761d42524f62eda4dc866d97b89d6b4b9ea59e95b5d35d433c44b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-011.webp",
@@ -9895,13 +10492,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-012.webp",
-      "sha256": "5d8c2b79fafc290f057165342ead7a6ef81ec5be44a7e6d255ba07d6fe20afab",
-      "status": "approved"
+      "sha256": "cc99e821df46544a4b91755a2ce40d3d11325b54c7a6f6580bca6c49d8d02d6a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-09/page-013.webp",
-      "sha256": "25f2dae106bcb3db355a23b996ba6c17144021ef3a276b34816355eb54414b0b",
-      "status": "approved"
+      "sha256": "18e1c89fa53f218824b30891f097d706ff09dcdd0fe58cc707cde1d6d87b8962",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/cover.webp",
@@ -9911,44 +10510,51 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-001.webp",
-      "sha256": "0d48f28c9fac4e4e89db7f31156f6bca9895b0ead1e29d508af9d7ca1b3df205",
-      "status": "approved"
+      "sha256": "c570862a9ba87bf80a1c2f3b4355cf03357d8a2f634e8c33829a6062809a1c5c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-002.webp",
-      "sha256": "ca2a089795448d60c208220dc1f8356a7a6c12dfa4412c816669df7d8aac7c2f",
-      "status": "approved"
+      "sha256": "e1dcfd9920d21151fe95cbeceb74974338d47c0b67597808be9771ae7513ebe6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-003.webp",
-      "sha256": "119e4247d277d243529258f0d762d97b78c5cdf1dd44677019fb468b488478b7",
-      "status": "approved"
+      "sha256": "d7033a39b5a4c29c1d2455d9673c5183f7e97143ebe1e84b5deaaf8ded2f61a6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-004.webp",
-      "sha256": "1ef92341da2d85415bde351ec9910acf37963c3c59b5fbfdedcecad263f4cc21",
-      "status": "approved"
+      "sha256": "366d6b9562a5fae2c1522dbbca2960b2ac6dd37ab63841730d723e9c192690bf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-005.webp",
-      "sha256": "ec24090ec2f5d0b4a1f75c4ea228dad06d2e3e00dc75f5ce606106ae0475b579",
-      "status": "approved"
+      "sha256": "d5ef398d151bb537ce685aa8dcb7f4ac780d81e16a796b016c077fca54a18b22",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-006.webp",
-      "sha256": "f37fc392b0553d3e0f33ee547df1764a865fa2b3aac12486cc97298bac1aba08",
-      "status": "approved"
+      "sha256": "1888d88e19e51471a1611517bc411f8cfba0730a7bf744f10a04d5c259ff902b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-007.webp",
-      "sha256": "ad69a0af5bdc1095b828dffef7c90abd71ef9a2c61848564c0309fbb33f1766c",
-      "status": "approved"
+      "sha256": "a629e651d5b4c57493a00857ab5965be853a4fd69f521d174598f1d67a417766",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-008.webp",
-      "sha256": "b03e0c10dbf53d3e61be3bf29ff5fbc0fbf1a111734ba6d1a85bd9eed4c72f0c",
+      "sha256": "45931f0ac065b57198e697fc0b5a8776f81ca9884fabba6d352c1e47599fda5d",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-10/page-009.webp",
@@ -12737,8 +13343,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/cover.webp",
-      "sha256": "430f259f05732f34b9fff775fb0f9d9f65d3a961c5b834a9b8f9b8465a5980ea",
-      "status": "approved"
+      "sha256": "f1ebe1affa1d3005a390c639aef676db506c9ee8231c06624cbca867e1e7162d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-001.webp",
@@ -12762,18 +13369,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-005.webp",
-      "sha256": "cc97633ca9ef9d6bf33d8e8c0628056da67ef17945fadddd7fd78c0d7002ce5f",
-      "status": "approved"
+      "sha256": "ed29a9f920152f5c0989729777d693072efea7b1c266198c2dacf7b514126748",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-006.webp",
-      "sha256": "4824df10382d73f47f50ae3d11cb67b364bfdb2ac2dd221651a55354d79846ff",
-      "status": "approved"
+      "sha256": "bf5021aa1b67f0bab6bd20d352ae0b14f19a801d08b206a387d8d24414924d52",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-007.webp",
-      "sha256": "f7844969ee01c1d55d1612d2ebd43ec43f36896466753accfc16ea0e5f98d830",
-      "status": "approved"
+      "sha256": "b416a7797af092df6cb2e5690a2c239dc83599f72f1e9d5954e619dd50e2c05e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-008.webp",
@@ -12787,18 +13397,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-010.webp",
-      "sha256": "4ae157d9d9e3dbc9e01dfe9c701e483774058e5a92f9d4199b3cbfac8c4f307c",
-      "status": "approved"
+      "sha256": "6d5627ea7cbbaf875958376bd6405b47a1e6edf98bdb794e63e9b03af3cc1302",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-011.webp",
-      "sha256": "b928a7580f4b30d3b0bdc6484f6a324a589f1cb37e99f9b27bf1c6e008640b90",
-      "status": "approved"
+      "sha256": "753e6c624b154e214dfd751d32e447d86f3fa370a2ea5e2d66d5c618e9deb8ff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-012.webp",
-      "sha256": "886297cbaab80f6e689f54ac64b31c1f5638d3daf52d881b0abbedfbe4d2bb3d",
-      "status": "approved"
+      "sha256": "92db12da62fa79c5422ce4a03ad070e046017800fd0ac5ce61271b16480bf5cd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-013.webp",
@@ -14995,1385 +15608,1593 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/cover.webp",
-      "sha256": "cd16dba38dc472b6a099ff5b5ae70993c1b054fa1c879abd4ec41c84334bd866",
-      "status": "approved"
+      "sha256": "1b370c38d9bacade2af5fce383b3a39c47c59a443887816819008327631f9b6a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-001.webp",
-      "sha256": "d88ffff77c032df07745c6c9752e0aae88c2af16e7b9b17798baf497780ee9b2",
-      "status": "approved"
+      "sha256": "e86f1cb31a2f56f39a731a5626ff56124b9fb26b7f911623076be0cfa36fed43",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-002.webp",
-      "sha256": "f64afae10146597638d9d98ef5088870d72a511e16c84773b74289cd4a39207c",
-      "status": "approved"
+      "sha256": "74ee00e5d263a97d5d36cdf6d4bfdc3e1836e027b7d31066521c3fe194e94f34",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-003.webp",
-      "sha256": "0121e3bdcb257bb9a0b986d5c09b681785818cbd7b867fc29068fe6c9b26492c",
-      "status": "approved"
+      "sha256": "f2e069b5ce61b13518e897908329e0d2d65b6cce609d3c0e3ccbe8154d17800c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-004.webp",
-      "sha256": "d27a28d80447f8c456ebe5322758b864a05a977a1ba9c6e99d2e22c9959fb77e",
-      "status": "approved"
+      "sha256": "9f42b33b1484263614a3b463c4d69b260ae01f404553fc87b93cd0d389e73eaa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-005.webp",
-      "sha256": "301be29070832244cd8692a78096340583acd2cca725f17e4aad98e0d2bef3f3",
-      "status": "approved"
+      "sha256": "abc0d059cebaa7101b7bddddd95563966efc1f952b916fc94e545c242384ff9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-006.webp",
-      "sha256": "8363486deb0473614d946631bda39a6094b08d02e1a224e394bbfab9639c4246",
-      "status": "approved"
+      "sha256": "c149c2b9386d4e5f2dbd1fb9c74837115532b5b6fcfb27b89d1d517b0f5a6825",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-007.webp",
-      "sha256": "4e5abf2e735bb348fcaaf6af3eaec7b230c80b97b6f35defccfa73d2b7133a95",
+      "sha256": "f279c845919af8b2dd4366986e7f429f3d4604d37c3cf92e0961b0ed02d6a48d",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-008.webp",
-      "sha256": "918188fa4c37eb321a262f189ce964626097bd8a8ff315ecacb3053fc1d579d9",
-      "status": "approved"
+      "sha256": "882e8e022f69ff12a7f29ace95caabc318c7afb3a5c96452b095093e842d1a3c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-009.webp",
-      "sha256": "7d81df9966bdcb8c5d4f1f49a664b978c5946f6b4d25ff89382e9f9e673fc38e",
-      "status": "approved"
+      "sha256": "9136fa5ee1275ae35478ac27ce922bdd09f6986da22cf80d7359bf15ddcd0758",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-010.webp",
-      "sha256": "3f463590811bd73f63f799ae2fe2e7f3e6481f39bbdb1af0d37965876a933c62",
-      "status": "approved"
+      "sha256": "44872fae82c8b7e50c76fbee96344340e15d6017c7004ae4cbf7aa96632e5a76",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-011.webp",
-      "sha256": "5da8a8aec7c5acd25228a1aeb39e330a96b3d4afd29288f5dc8eae4db11f561b",
+      "sha256": "fe9604700a3f666461066aca3f76196d369d75e244fb0c8e13de09e652dd3955",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-01/page-012.webp",
-      "sha256": "cc7970bd5b2e8df6c69afc98458f6450999a8148b4a34af84d1b9cf9faab9e8f",
-      "status": "approved"
+      "sha256": "a9bd42c08ea3db4d629eb5b8103a73e7f3def3c4efa4a3f600c29ec7885d6463",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/cover.webp",
-      "sha256": "dbd3e5c22d8169de872426c8ac15d76b44e443a6c9e6e2e7cd01aec3d86bf234",
-      "status": "approved"
+      "sha256": "32a72dd8367241cd05e3b1a309372175562591dbff89b2fc3eea090e119455eb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-001.webp",
-      "sha256": "88b37a5fea2c11101d97e4ef386e5fc9eeb717993c0e26197f1a77e2188e993b",
-      "status": "approved"
+      "sha256": "e8324eb7134a3a4fd8cbcb9f619686360dc56b12f477fccd5cce56ee190fc4b3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-002.webp",
-      "sha256": "b8b3e373f13ae9c0ea50b84fae71ad2983713e604102e30ea8cc8a65964f76be",
-      "status": "approved"
+      "sha256": "85c12a7207af68c35950302710e69428bf1e32faf22552a8b6cf135d4a82c135",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-003.webp",
-      "sha256": "34dbd42c05bf22c6a88ef396dfaaeddfe16063c2287c977c536c00db98ce0f49",
-      "status": "approved"
+      "sha256": "175df8a2d9d849a79f3ed61a4d6f4acb81ffd9c2282cbd3bc70e8f27efa4ca51",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-004.webp",
-      "sha256": "47bccff12e428b61b1987c704c9af9d05cf5558f79315494f69c33306d21681c",
-      "status": "approved"
+      "sha256": "af84adc46d25b8b9d84deb12fb68e89a9a63b708bf2024b6158044b85d793b1e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-005.webp",
-      "sha256": "2a149b391511cba88d9ea02239d2c017f73eeebc302259a0e760884b5a39c586",
+      "sha256": "66ba9a67d5311f319b24de6e6b5242476ca559246525a7be049b084a74c4d7c8",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-006.webp",
-      "sha256": "1ae2afd97734f2bd0f40016021615df2cb3af53476dd335b316e8a18563f6a95",
-      "status": "approved"
+      "sha256": "cc0bd21c14844a222b2cbda504c5111a26feaa7c59d7f39c325a941ce08f02b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-007.webp",
-      "sha256": "938a631d7184fcf05a6145c2ecca9f34fec9500cd093e79f7a1ecff7eaab59cb",
-      "status": "approved"
+      "sha256": "fd4f7ef2d4b1b96834758b14934141063cad7d7e34c369ba9165bbbe6ccae318",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-008.webp",
-      "sha256": "7bb4d8d3d9e35ead2d503bb9fb0179f4ef970469ee867a424743b62cc60adb9d",
-      "status": "approved"
+      "sha256": "18b16e7b05b309fdb2d630678cc72a6b97a9fb5532b03fea42dd0e56a9a09f43",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-009.webp",
-      "sha256": "d4e7ad42286d9ee952d436a98a1683d1f53d44e1c92c9f7dca1500df798b0391",
-      "status": "approved"
+      "sha256": "beb7d80515e10104195e88ddefd1e8c03d70d0a283872c6ec85f52621bbe52d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-010.webp",
-      "sha256": "4e7955530e145807c430ccbd377c556de84e8d220fe4ed463d507cbf30a482d8",
-      "status": "approved"
+      "sha256": "056670bd85f8fa399a078ef6ce1510de949f027c9c667b75d869d3f78ea91a95",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-011.webp",
-      "sha256": "f158d2a09436be8cf3673031be9fb52b304495360fb151ea2cc92dde858f5f74",
-      "status": "approved"
+      "sha256": "eff887e2ffddd36eb19ba9bd0f217887f7cfaaf0c7f61c276c95d84b8c1e49ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-02/page-012.webp",
-      "sha256": "883fe107dcea43f44519dfd0c684eaa5bb04b24c6f3d77803569a64766e9bdb2",
-      "status": "approved"
+      "sha256": "7ab013ca7a3c951612b629696eec68b69f20aec44500897846c1374f325d928b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/cover.webp",
-      "sha256": "cd72c44cf9e3096dd460ec391df5777ddfcc374a8259e39f0112f9bd04833d7e",
-      "status": "approved"
+      "sha256": "2ef53517d14de296b53891baa5f78651aa902b79209516ef3b79c7ed34cee5c4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-001.webp",
-      "sha256": "319375d53b783fbad568ff121e051bf0287224e5f8de22ba9fce04d559cee5f6",
-      "status": "approved"
+      "sha256": "43b61fc62411a77ca9dbc28c3b229879ab0d1de59f41f55b437b7bc5de344bd3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-002.webp",
-      "sha256": "4f713dfae76f1546ec8886d80b2c92d62febc954bb4d4c8e1eeb3afdddd4eb1a",
-      "status": "approved"
+      "sha256": "f2d521fafc0c04e28ea3819c735ec98398abda36cfd3593fbfbde9df1ca561dc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-003.webp",
-      "sha256": "baca71bafa01caf347c6d6185fe4079b654e48efa901b7dc4683c1098f98829e",
-      "status": "approved"
+      "sha256": "9e9d7fd86003e9afcfef80629b69fa6908bc58f0a1465139d99448757e1bf357",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-004.webp",
-      "sha256": "9bbbd685fe77b1caf8b6d98028807504632ed0128762dd25db857000c2f15ca5",
-      "status": "approved"
+      "sha256": "1ed7789306d30b7ef9504decd25d4f65f6f48f87330cc887140423b85709d056",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-005.webp",
-      "sha256": "db1cf54b9e216d1d119289e3b22b410e087fe8d6062f5b8613af73e96b7dd83f",
-      "status": "approved"
+      "sha256": "49fd48acf70f9795f5212acfd690c212c3481a883a712bbfc6a390c40dcf482b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-006.webp",
-      "sha256": "65fa02f25f9c18b46e6fa9b28328e03c23d63ea9113797a88e724e177fcfd085",
-      "status": "approved"
+      "sha256": "e9124beda3ffb327b3d6d518c1ba2131da5e307508555546aef3336871571d88",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-007.webp",
-      "sha256": "27e7607348a1448a3f5ee5592b795eaa057bb2613d225a7a741a122beba2f205",
-      "status": "approved"
+      "sha256": "5c1009eb91b8074e6426d9c1dd5c8bade73112a282b4711bb25d6a2dbc235d2e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-008.webp",
-      "sha256": "42e3e5e43afb9a3e6a010778a9df00edf5e3607454515536a790109cc99ba4f7",
-      "status": "approved"
+      "sha256": "38a100b1fc437bfad0e0940a55db2b4b96ea292badd2be1016b5d476c51b130b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-009.webp",
-      "sha256": "5a87e36459dc532c6f45a053756255cf5af0f4921cca000229d694104f7c1bb8",
-      "status": "approved"
+      "sha256": "07d1e7f2e7ce015e8682bb841b5a3c9787ecc1d257e49da0e3800398094f0e0a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-010.webp",
-      "sha256": "07c505bb95dd3d333499e13e1bb34ca0cc2185b434c857d42b34dde2d0a7fe92",
-      "status": "approved"
+      "sha256": "68361135026060d613457de0e9d8c94535ea018fa949adf18ef40e767edacf22",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-011.webp",
-      "sha256": "04cb5fb341625dc5cbf68a6a9724d45ae8359fb9abaf29e7b66539958662409a",
-      "status": "approved"
+      "sha256": "b2356514ffb7cd4b2e826c65095c1a6812693298879e698dd4b4e5062ba011ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-012.webp",
-      "sha256": "e5e362e726877a5c896e8edc4339d00203690fd26894d1aab69a69200252d006",
-      "status": "approved"
+      "sha256": "2f8d3930de578bcaf2f4d7fc7d591bb0f13dbdf070ab2f048b932a60608094f2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/cover.webp",
-      "sha256": "023350a580fb54ea1649abef326a39bb3ae36424c4c4c723cef12bcdb10aff98",
-      "status": "approved"
+      "sha256": "117cac256380c04fee550f00c4e1d82204abddb9ef525faff1c5e86683e621ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-001.webp",
-      "sha256": "21dcc89ea2b9cf3e16d19bd610989c0853e4dfc172b5cb5bb4816c02b338162c",
+      "sha256": "f0c69f435901a797565aec0c44ca0a9f8dc58180ffb5c2799d4b6bd3d2ef8ba1",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-002.webp",
-      "sha256": "71e02db3a3329cc553d3ef6fb784016de815613e141f7d747004ba6c66400b4f",
-      "status": "approved"
+      "sha256": "576594062461b984b98786c83c80a51bd853d6744b0b339cf31d625c105702c6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-003.webp",
-      "sha256": "9626f8dcc9838457086d0ea64d60d268c1441659bfbadf736e5c4e2cdf065a0c",
-      "status": "approved"
+      "sha256": "5bd84c3519ef6f96ce7a070b4632b9300fb7ed9e65b02385c38abbabe20fff41",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-004.webp",
-      "sha256": "03d03e0248f7cd24c7e66dead6cedb84232bce9f8ea547b76bde8fb9e0070e21",
-      "status": "approved"
+      "sha256": "9489c5fed69103837ce926db104278408f46726ad1039a986e9f5a64b8dd9b15",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-005.webp",
-      "sha256": "247ef0339a8766389ccabc3d9f1cbcb1615bbb0b3fb97db9d69440c6f74e8997",
-      "status": "approved"
+      "sha256": "386d973d9d03482f1b3aeee8fbc2f75fd552cedeb455e0604557971d4e3011ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-006.webp",
-      "sha256": "9e55ac8a3c1dd313d53fa6c7149eb6a339403ec0cde1542bd5f3ed8d6b329f4b",
-      "status": "approved"
+      "sha256": "9ae48f88cd5e328539f3c44cfef363e5779a62edcbf73852a41fae954788eb20",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-007.webp",
-      "sha256": "b4042f50890395ed45ff41c4e01d110975f9c812abb9acbbedfdb3edae183ab1",
-      "status": "approved"
+      "sha256": "404d3f6c0731f53b9b76fff5e66d42b65ee744ec991abff25a739808d7e8a057",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-008.webp",
-      "sha256": "5138d66ba8cc705de64e5503d114fe0be0c7be4b27ca58cff1d92a90b329fda0",
-      "status": "approved"
+      "sha256": "461216b83d91b0296ca3d63acb02f37403eca987579437d7ae20d8cd0c2d34ff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-009.webp",
-      "sha256": "3c02032ae83528941998525bdd35ba85ec9ea6cc7691626c9c7e27269d58b5dc",
-      "status": "approved"
+      "sha256": "5625b59409ffdb7861e0f3230211436ebaa729d75a49c9df7ce661409dc133ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-010.webp",
-      "sha256": "44b8262b6f4f4b85887e28bf04ea2e5a2210ce251676e26a6cb83a113c45cc19",
-      "status": "approved"
+      "sha256": "fef378dc13e9f6bf7007ca3681b5336d852a0bc3dc5c20f803c256141dc674e5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-011.webp",
-      "sha256": "5ea6f044dee6ca8e90d6f841fbfe99f95c087146518f1010c55abecbc73db99a",
+      "sha256": "7d3e9abf02912e10e46d9ee924ae6ef7946f4d94962bfc800d0bcfa263b9486a",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-04/page-012.webp",
-      "sha256": "da5711e403042ebc33475817609c92ca823b0563a92604a450531059cc378715",
+      "sha256": "ae7495131843e09bb95777c3fb366e7d1bcffdefe40b851478bf5fd803c1f486",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/cover.webp",
-      "sha256": "3b2d1b6f0fcfce869145166af4d858c28839e748029544242f05ed249fe90925",
-      "status": "approved"
+      "sha256": "6a6ac3f2c619ca88d20bb73b483b553275112255ac9024c2bcdae2079da3c44c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-001.webp",
-      "sha256": "5395532a0958879353fdc7d0bc2a7b2e3338a468491be402d75bab744b0a6217",
-      "status": "approved"
+      "sha256": "3ad0b71f1c57267d6e80266f55ad4313775fb0e8cf731c50d3b4ba6b4bae35fb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-002.webp",
-      "sha256": "9d72eaed3cbdf4d2236bcc4e1c699cf2feff28c525330cb8fdf37d91eb33af3b",
-      "status": "approved"
+      "sha256": "fa520c165765672e958566da3dc3197f4457c144c790d15d211c9c4e534ad9bc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-003.webp",
-      "sha256": "3338b69e76ad7e8ab09e9c46d611d8446cb8c1ec51f6e27a17096d1086857715",
-      "status": "approved"
+      "sha256": "63f30f1798fb8849742e9dc6f2c6cebf08303df960c8a9300344adfca455b486",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-004.webp",
-      "sha256": "ac43bfe537dfbed9d7eda8b636a3e503ecaad3220c99a088505e7ed563e2ae41",
-      "status": "approved"
+      "sha256": "d8b2a91033810be955bfc2d4accac30d9cfb6a3159464ff9befa561d0e60c9f7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-005.webp",
-      "sha256": "f3967240fa6b22384cb12d29f7087d376367b893ef265b1fd489a174588a1e60",
-      "status": "approved"
+      "sha256": "64d3bc5cfbe1df1da1250710d5061a8527c60ce1cbbac347bf8d362cedf48136",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-006.webp",
-      "sha256": "9602a60701568e179ba654e5b624d45bb04f4e6006773131a76198c6613a4a4a",
+      "sha256": "2d6724b64e0d46b8f564b3c5c6817b7dfed050c97ee0bf995005cffa3c5da7a0",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-007.webp",
-      "sha256": "bd073e31e6623f83574dbf66b42dc6ff476115fee077c708e1a255b76f5df881",
-      "status": "approved"
+      "sha256": "7d9288a41daf936d38d579ceda2a45baee5087e2bb955d721e3c45a6adfbc05d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-008.webp",
-      "sha256": "100ddf4de80342d720156f67441f6faa31117dc483e81c20b3ad253b2eff4e77",
-      "status": "approved"
+      "sha256": "f213fa80b3c6ca8671b32cf55fd569123b2ae0cb0f28ffe3f345a6a734a4e477",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-009.webp",
-      "sha256": "2c58766c6e0211d0d5d18bcbbfe2fa180b9dd7fbf1b0b27ac04c7298392283f0",
-      "status": "approved"
+      "sha256": "6300855037c000af788a81997bb3931f4c72bc3fd8d22dfae5a0138b82419656",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-010.webp",
-      "sha256": "6be25cc8f736c23d05e7ad92b6179786304d58bcd6c46a2301e6238c1c976401",
-      "status": "approved"
+      "sha256": "6156a2f65ac68efd23dd70f492c65e93be5d11cf92bfec5a6f259020c4c6306e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-011.webp",
-      "sha256": "9dd917e16a17cc1c89a849db35b9a3d74bc20677d017666cfa5471ae54f07971",
-      "status": "approved"
+      "sha256": "8536e790e04b914c00d1396f52ff58af74cf0165650d95c50cfbfad9bbf85fe6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-012.webp",
-      "sha256": "ae2ec612e9b6034f8da67d6f46d739af5c28a89504eb9d2a115acec92a56e5a7",
-      "status": "approved"
+      "sha256": "decd051abed4666b98696c260df07ddc307ffc704333ba2ef7f26a8f671b0f94",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/cover.webp",
-      "sha256": "813ee9428d6028192f1b4b9314e897b0c73cf69bde4c9e0db3726278f023d864",
-      "status": "approved"
+      "sha256": "8a53a9169e4ccfe13bdfcc1bad5c6cd946e61dbe1e299c8838d1a09da55d271f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-001.webp",
-      "sha256": "bf154e368681c2477bb0b065237562e92ba073ded13f369f2442578411731186",
-      "status": "approved"
+      "sha256": "6c23ef4903cf847c417ce2d69085977a6d14f0aedbca8a4feb6d67da97f12542",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-002.webp",
-      "sha256": "0ca4118f7635e5862e1049776b17927a98c20c516804660d4302e2aba381fd51",
-      "status": "approved"
+      "sha256": "69266a56f2fb48b0ea2db0fea3eb6505a4395ea9e900bbe5c5d0e8bfda228349",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-003.webp",
-      "sha256": "f9d05277e4a31c7b043c01f691d21de993670d58cb2b611d0204958bbbdbe7ad",
-      "status": "approved"
+      "sha256": "d48c698b8fcf030aae5b4916d77d4383b44e04f71796a6aed65d1a0cbf8e14f2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-004.webp",
-      "sha256": "1c5cd0b97d1e2921bdc6128da03476c6bc7d43261bfa7954bdd51a28f25a0927",
-      "status": "approved"
+      "sha256": "2f1e42ec429baf74bd6cf9d6f63393d7c431a6d560a0250eba8395ca301a10ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-005.webp",
-      "sha256": "03213053f36c21b250e0df1709baf4e3e96f4ac8d7e8c461d106da8480645129",
-      "status": "approved"
+      "sha256": "9324d8441d0dd5ff6d29a1731cb45ac2d35e4b8a73abda2307508e885586556f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-006.webp",
-      "sha256": "4bae4f61d084c02cbc7b05d1bc327c4ff12484fe6eee1b107b5e688184a95f83",
-      "status": "approved"
+      "sha256": "d0fdee6f6d5a15a11ee88101c6e2bfcb30b5518bf711c7ed23eeef0cd17e5e87",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-007.webp",
-      "sha256": "158191dc02d3c4c63e7222b6525b94d93b7d53009d3fedf1bde545907be78c7e",
-      "status": "approved"
+      "sha256": "f4627ff63c943cc610176416a3971c487af54a5583d8b6c12fcfebecdf96df69",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-008.webp",
-      "sha256": "da8f8e6b742cb21a9451889e4eb69852685298d5dcfbe752a69bd22cbbd53553",
-      "status": "approved"
+      "sha256": "f15bc47158bf68ad398ed37c804ee1ed572fc4cb499eae39e400bdad7e101bd4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-009.webp",
-      "sha256": "ca5045ca1fc78cf69c73ed6d94bb049047c560bf1e4532ac8ab1feac3d678433",
-      "status": "approved"
+      "sha256": "fff41afa5a2b1caa5b053e76f4054a78e363dd3208004362b5f4a61f0f47dad0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-010.webp",
-      "sha256": "b48cce71b0bcb46528109a3ed281cff2a9d899c4bcccf98e6d34760dfd393348",
-      "status": "approved"
+      "sha256": "d166f6240b614b965a18625a1525c4b98a4f0a43219349fc2acc9cd317baab74",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-011.webp",
-      "sha256": "e70e991afd1439198c2dc5895cd42abd6fcda817be7586596a1467372a7e3a2a",
-      "status": "approved"
+      "sha256": "52c8d0f67aa3ec58b761e52ee3d7846848bb25720d56917c2e4cb537ce892fff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-012.webp",
-      "sha256": "ea9afdc4388cd6ad727067ae4cad443db07f8e5dddd93a92bfc83981e053f9da",
-      "status": "approved"
+      "sha256": "ca6a6b24cb63515bb73871910656cd3cf3225445a7293e8adcc8c4aa198dc381",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/cover.webp",
-      "sha256": "672ed30dcd069043e1fdcfb87cc75e76c1a231ecdf0f60f8d71155e2a78584ad",
-      "status": "approved"
+      "sha256": "00a05eca2433c5e778f1aa2339aa4fae0208ba18bfa60845b7d9873846511705",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-001.webp",
-      "sha256": "40cdeb30f6531d0d5d887a5ec74515d2458429f50758bd40665f643c7b461cf2",
-      "status": "approved"
+      "sha256": "31e48f644d5b30919998b3d9ddc15d1382f02ede210ac19b9cd5d83ef2bef13c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-002.webp",
-      "sha256": "d20dbd486f378cd8ac6bac11769d2864a9735ee21d20b79e5b90a8acf4ebc5b3",
-      "status": "approved"
+      "sha256": "be25e20f060285cb48277901371b99ef70bdee492c35de1b1566c7b48b705aad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-003.webp",
-      "sha256": "211222649bd00e7b589f7218cdcbf15de4d145460ecf776070e368b8e21bec48",
-      "status": "approved"
+      "sha256": "e2b257a7f49f446e0e057064b00e6fbcfdc302134d769145b500e13a21ea6329",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-004.webp",
-      "sha256": "e82ad68806ac93b6dea51434dcee6432092d913bf5d22d5fb5a135c72dd68722",
-      "status": "approved"
+      "sha256": "f816ba6a6feaa695b85baf50ccc4189719706d9e88dea16bf52dec558060e88d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-005.webp",
-      "sha256": "8f9c6aac81c48f9c1214f73a1e13fadc658edabd03593e208aa9b7912380ac24",
-      "status": "approved"
+      "sha256": "4b2363fe3e58e804c2c21f772f781bd4de993d0f09c05e21ca3b8edfecc80bb7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-006.webp",
-      "sha256": "6b78dc01efcf40af8928d7ada28e9c003d760aa9ee5aa3a23fd23179a0a4d7c2",
-      "status": "approved"
+      "sha256": "2f8e7fdcea03e680e65662c84d6e9e1916f60828c75a9fa8f1b3947388d13f0f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-007.webp",
-      "sha256": "d6206d4efd4eafa10135068027db0bb2d431634055a5df4d3bb7835ff4d7e039",
-      "status": "approved"
+      "sha256": "77430144a9f6f0cc70976d61e94a5f36f39acf0851010e48aa67177b0be42076",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-008.webp",
-      "sha256": "0a5b8c3a53b3264f743ac43383c09e1cc264dd6ca85352bd2547316e873cc58d",
-      "status": "approved"
+      "sha256": "b42dd30211decd10208de890e33e40c9f6dc408de731b460768cf62b7cce8d3f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-009.webp",
-      "sha256": "0207a33cddf58d61fd1432265258f8efc6c130931743e64468afda003c04f3a4",
-      "status": "approved"
+      "sha256": "4f05b731a5edde4fdbece7303d5bc656d871304aa0444724700d5bc32a1e4556",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-010.webp",
-      "sha256": "2b27f798e26fbb29f7dea862755c70b7a13629778faddb57e7628ba19ec49215",
-      "status": "approved"
+      "sha256": "a8e437ddd53fd34501c10ae6d95c4e424d652e1953356fd966bce6710b7f9be5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-011.webp",
-      "sha256": "c6b24b14a40e4a01b69fdfdf4084c404bab613d113557d50f0ac38877cf93e43",
-      "status": "approved"
+      "sha256": "0732ff54cc0d98223d7eb90d1e9a5bf5c642e62dc6cc9b98e5f28d343a167b7b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-07/page-012.webp",
-      "sha256": "bf58cc347790c29aa8858b8190820adec8dd473d1f1369ce176fe7dafa06ec8b",
-      "status": "approved"
+      "sha256": "89dc5b9a0f7c877475c984abb5d38bb09725704900ef2d8aff0453f9695e9293",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/cover.webp",
-      "sha256": "a907c29f006f707805ad3ad493e1202803109fac96d1779bfc25c6422009886b",
-      "status": "approved"
+      "sha256": "3334a15132aa2d74dfc53dcf8f1aa1e6783a6f9870b2f4dedc0b222f25e2c371",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-001.webp",
-      "sha256": "1f83414a87c9be10e1637540f5527f5a274851faf8478a487e9a54ad904cde8d",
-      "status": "approved"
+      "sha256": "d1150e49151ddcb7dc051c5df31fa36e16cb8d1a5472c11258a0054dd3aa9b18",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-002.webp",
-      "sha256": "e1a752ea8283b7edb26f15adb0131ee6d300872ec1b95827a8b70ede9f3581ad",
-      "status": "approved"
+      "sha256": "c80afea8954c11bed7f3fcc52cd94ec53b73b59c7fff83797de9f5a27032ecd2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-003.webp",
-      "sha256": "706e0fc2aaca9cbb5f0835b7481e765394fa47c251e16816a82d398b15d5dbe0",
-      "status": "approved"
+      "sha256": "1fc1c30728151a6e3532d443f1c273cca8e10acadbd653a9c37069b70ef6a3f4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-004.webp",
-      "sha256": "a16294ad8a1a4d38360f150e4bc7e72b464766104b688a88f33bb222b97bb4ab",
+      "sha256": "d5538a754d789cd9606ddac31dab49bc271783330ba920d0749f04342c63de8d",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-005.webp",
-      "sha256": "d24bb00fa141a923ff3c418be5712b03fc0882034a6cd9c6a1fac5138f492417",
+      "sha256": "679cbc3c1bc6f5d8779508d2217fe9c3683a540ac50a0e6c79554585027f0002",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-006.webp",
-      "sha256": "36e7722e3170db1c905314e0b4761ca3a675ebf8665dea217bb37c937f6e3da8",
+      "sha256": "03e6a98a4c071988a684b4347d662dadf2b2c769b1ab1641e2fd603fe6503a0d",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-007.webp",
-      "sha256": "4391c74843310a65c0b097cc27a3c858e891a29c79416b8bca29fae628c91647",
+      "sha256": "5d593c35f20bc2c6da4b2f138dd7ad809ebb0fdafabb3b036f76a5adcbe503c3",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-008.webp",
-      "sha256": "177eaa44e79971eb85b94c3884b83c46ef0389e13723033c92dcbe95077cc018",
+      "sha256": "60f8d7ff0f71cc84ee5b2f03ed8d7c380e4d2935fe2ddcb4139c8ac4294011c4",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-009.webp",
-      "sha256": "ec80f6793af44b37409681ed5419640c836dffbc804f4b3e95bbbd0f8bac06f9",
+      "sha256": "9453ab7e15164c34b8ad75a0202786a3b17a02bbfbce56c69bc0189234a87017",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-010.webp",
-      "sha256": "9ab005c3b398d1058ddc5111a53d8db67dc24a7e4f55e2775037c963463a9a1c",
+      "sha256": "1ef148d355e045ba61fc7de4d228a9b9f60a7bce7f58910afee4264dc73603f9",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-011.webp",
-      "sha256": "af7ba4b2896fb28058465833ac9993027833a97f24f92fdbb4948f73c49df2c5",
+      "sha256": "38ce06dcad7a440e4240173034877a19ed4bb04a6103f80bd19679cf81e3ade3",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-012.webp",
-      "sha256": "e5a9ee43c6162dc649ef7bb3b529e8f40b8ce123295a2a4c4460d9133db4657e",
-      "status": "approved"
+      "sha256": "e9ff7639fc2b909f760b5f52f083935698db90bd3c850bc7b61611302aea5727",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-08/page-013.webp",
-      "sha256": "1a5cf0c0e7bc410c41c58e79736b54280da9f5a2738da93ad882c99c78f019c4",
+      "sha256": "7e05c0b380b44ab6bc41ff8687be731fa381ca6c0124857cd7df37190b1fe83b",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/cover.webp",
-      "sha256": "8dbc99b96358209a673c4b736ab8ffe477dc967be41886f928a5c112f33f6d5d",
-      "status": "approved"
+      "sha256": "3e31ed3644dc67def8d4ad6a532b4ac8af9fb04b15aa77b0a7d05dde4f3666e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-001.webp",
-      "sha256": "6618244bc2acad52ff33cef10a743173916620ec419169a706f6589dc9dafa53",
-      "status": "approved"
+      "sha256": "48e42aa81a3815440340462c550537fa836872aa986da5fe4745cd7e7230e0c7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-002.webp",
-      "sha256": "24b3a5314b75168621706d1010e5f05b787a28d724b3803771fc2c2b78309d2c",
-      "status": "approved"
+      "sha256": "15c6f1786e8b404bd80609191c13b33c2eec6ee17130d25324233e6667178829",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-003.webp",
-      "sha256": "ea556a6110de6853a9ec4407ba48ba5d3a750a7e7339883e03cd99c4340630ce",
-      "status": "approved"
+      "sha256": "43284405fc1c83b597fbe86aebdbbabd599c02cea95b7f6c973afb9e27e4ed82",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-004.webp",
-      "sha256": "d0d5da95a8a91acb6451ff1caacf94fe3860bf152a900af1779f1f0bb4400718",
-      "status": "approved"
+      "sha256": "45c94e6c969b96012043f11a4b4260b14199fd20f5b0c6ce6c9c47c693c7dc0e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-005.webp",
-      "sha256": "587d95c2ba299552eb1cc9605c2ec02e73caa05efbaf25e126b5a0bd92b36e36",
-      "status": "approved"
+      "sha256": "899937baf56521f2289a0bec84050c7e15f4d8a95fb896f8e09464f688da8aaa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-006.webp",
-      "sha256": "8bf24570c4ccd7bde0baeea459ec28496969ea278e97880ed065ae0b7d264b57",
-      "status": "approved"
+      "sha256": "62170ff0c4108c0298f73d7415c801dd9016bc3b6395cb32ab55c16cd3817bbe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-007.webp",
-      "sha256": "b9a2ffae8a97e2f98050b9903625fc6bb841c35ace5622f4f095459868d0b0c8",
-      "status": "approved"
+      "sha256": "ba49939599514c4502172cfa8cce778cf44b95872bdb329e1611c3857bbb6ab1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-008.webp",
-      "sha256": "3db5e93ce0965c4cfb390ddb4635e83644c7d495bcd4714eeda5ba90e05b0153",
-      "status": "approved"
+      "sha256": "d18d9731c7227274437540896fedd1f7d72903b33d77a7e4a809399bedf2ddbf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-009.webp",
-      "sha256": "eaca213a03e7438136eaf0a025767d0862f345ec97709bc5116acf5be266d218",
-      "status": "approved"
+      "sha256": "79c0871eb6749e0046478e4e7ad9cac6fc6f7b311e69b2c240d30312d20455ac",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-010.webp",
-      "sha256": "49650dca23fa25cf0ca645652a079cdc62b1c4b102892d505c9b206227febbe8",
-      "status": "approved"
+      "sha256": "a339d909a38e12a9a1bef79b559dc07da184d208dda02b98b93c1ebec3e21c02",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-011.webp",
-      "sha256": "5e1e190f1c82c62e1ff70168f5e0028c7b39da19839655de730020ad68544b8b",
-      "status": "approved"
+      "sha256": "677d501f7885c2972ccf4be86fd8369231f0e6734e2877d333e59216c4b5aafc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-012.webp",
-      "sha256": "d6999de2eca22c4fc1def071137be12ed4ff1e851bf2a584cbd9e199134b561d",
+      "sha256": "9a9ff1d9ec873103b125c9d9f0eaca532bcbb54f279392fb9b0756b510494c57",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-013.webp",
-      "sha256": "14d1312387416ad3b8726180b8c31f4156222a3db5b6106b18cd6765ad1a2577",
+      "sha256": "caa94777fc1c507139c23886539bd2fd90ed5ca673f1bc8a7c29cc43261ab4b7",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-09/page-014.webp",
-      "sha256": "a32591f4917fd81c27c9af366bf0a571c199c4071e3b6aa24bcf9510b37f8f02",
-      "status": "approved"
+      "sha256": "d88db43d9ce880728b78214e0f90bf6064a9cbe746937057ca6842fd4d126301",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/cover.webp",
-      "sha256": "2e7c85b26cbb7eaffe4bbfee85dbd00e280c9a8dd5d15523d340a11b43be8a77",
-      "status": "approved"
+      "sha256": "45812936633e1ab60e7b2511f22fd34b2599eb10d2361472678a064e4325b0c5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-001.webp",
-      "sha256": "146145e7900305bca8dd2baefad0a965fef3f4b7623908c04561fdf6e727c22d",
-      "status": "approved"
+      "sha256": "5fcfba49b80f0754e4f2b9b136f32d837e53da57ea1059bed45c852cd757dec5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-002.webp",
-      "sha256": "6545e97ef541928b6859825dd36e9ea83ce02b969355e49866dac30a39110925",
-      "status": "approved"
+      "sha256": "438af2c26b9737e39ca8a1fbc34e828793f2106c20e1c7b0e6f4c22fd1031be6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-003.webp",
-      "sha256": "bd193feb67a2b9b2dd9d0fd78ca2020933b205c0fb76baa13636267c365b7e5b",
-      "status": "approved"
+      "sha256": "47b8647dbf15b5f2bf6091dc692e2e34f23e4f5f930a1a8ba044bd5c9a79f1bd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-004.webp",
-      "sha256": "4ee483d26b5ba4a16ff82bf9eaf5b6e289e48680fc0d3517878c3ae723f9aa99",
-      "status": "approved"
+      "sha256": "3a3313c017478972253ac4b0bcbbdd340f56cd995a9620c3289b3f080e8933f9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-005.webp",
-      "sha256": "4c14d87b2625c816d32f80da65fd53b4c1481b04768237c34037046a7012efdc",
-      "status": "approved"
+      "sha256": "86cb82fe966e4b8a6f849b7bbef7000188a24eb0d80164347aabf9195d5d368c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-006.webp",
-      "sha256": "03e3a0558be6e552fa92632d94e0b5bcb92e9545c360c366c24527b4e55e4ac7",
-      "status": "approved"
+      "sha256": "95baeb1e93c0668be0c5cd27dd4ea74a02c2bca50679103a7dc14c7bc79372aa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-007.webp",
-      "sha256": "be7157b429e72cd470fc494d0d528cccb7b1308bba597e5d6f246cf2478f7482",
-      "status": "approved"
+      "sha256": "b5b9fb4a77ed76a617651b49288964eecbefda84c472e29522974b5504329cd2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-008.webp",
-      "sha256": "c176be043325351fd6b76c22eefab836ec8913d1e6280261770858d6c7a7cf3b",
-      "status": "approved"
+      "sha256": "649ddfd3d835f86d9176061f2ed5fabac63cb58b586f0788c4450a9a8447848c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-009.webp",
-      "sha256": "49c1867651ebd24d0e61a53ea3cfc3f930f4585d6e7cff34610d629500b72566",
+      "sha256": "bcf7f010777f3edaf0a2fcd831ffe8268e38a85e9fa30643d25e45fb21048756",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-010.webp",
-      "sha256": "fb72bc6c9f8dee888873fd783222b38306d00ff2a6a8ab2043c6d702f59c9bad",
-      "status": "approved"
+      "sha256": "95ef076cb40cd652933303fa214104e146c8bff3f1e5a7cf8273b3d203a812a4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-011.webp",
-      "sha256": "59a255112a5c7c2eaa058b2f5d9243f2e2affd44c1739527b8b9d4dfb88676b6",
-      "status": "approved"
+      "sha256": "1861a28b9d0eaf3a08899b85e82bee21337dd76f2183061fc92c57425328e807",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-012.webp",
-      "sha256": "09ea7b06b87d87ffaaa05d8f314cd05c9e257b9e1a0f3fcb1680b01e39ddbda4",
+      "sha256": "940e86590687450dbfb285698afc3b26ef4e3b1ce30df29e35f817ee3060a3ef",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-013.webp",
-      "sha256": "25ac4e4336e9c550585af3ffe099d532bf226a32afb1ad818fef7bea767c71b1",
-      "status": "approved"
+      "sha256": "1f90e8897c17e25b1c010b9d21a1374f1643a4b79009b3e2d6404d85cc374289",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-014.webp",
-      "sha256": "d0e5329404c8eccc45122bb3d0ff7ef5b6e6876bd6dd67ce3f635d1d545b3c5a",
-      "status": "approved"
+      "sha256": "d603a5dca9f054cb5dc022c2e6b7c8c05ac0564294ef7d706471a6d697677e80",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/cover.webp",
-      "sha256": "2b3d4853df4271057d94303d2f0a097df4701704b4a5940fa335c8204b7551d0",
+      "sha256": "3d35392144346dbbe93393ba72ac2fa5b031ab2771b066b7da538ce77f54800e",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-001.webp",
-      "sha256": "b4c0e2f99aac2762ce52187745f7a3165a11fcebd62de192ec17b97ee5a39038",
+      "sha256": "83c53f6b74eb4da683f7b255496690b35b7f6b284ea4fd18f59c0aa0ce36eb95",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-002.webp",
-      "sha256": "64cafac1ab6815d93e0b6ad9fd6241275cd079421fbdcc38e71a2ebb7333c7b0",
+      "sha256": "b380f2a1b7ff013cc86db477abb7891a1c1eb91f29f60266399d1028fe1d6792",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-003.webp",
-      "sha256": "023ba8cc79e25b969ebad849c6449423d653b5c6174c5bdb9697c66bc40d705c",
+      "sha256": "0a29e359bc2910b4b4be09a1488b3b0033d57d7cb8a97ae89138cff2e0872ddb",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-004.webp",
-      "sha256": "bd205745ed935629a43b3349f31495ec34ba8ab71afc37a765d5d174a4cf4ccb",
+      "sha256": "e87cd6b76ca34b08c848e451dc8257ee4b5e3954656efa83e93fb114aea8c051",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-005.webp",
-      "sha256": "a8916c7f0e350e0764b9fcecb28b0ee6567755ae04063ed0fc06a91d9a04bee0",
+      "sha256": "22a1306e5cb5908092a2fd65c51bb5e84a743f34e14c070c3f772618a76aa033",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-006.webp",
-      "sha256": "9ed5c26649d421ccc61d7823ec185619242293cc5d58da0308dcb64187c4ce95",
+      "sha256": "b25cbe2c95a0b1c88fd10e40914646f31dbc5e1365764f2c9367dbb671aee5f4",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-007.webp",
-      "sha256": "d387e3a5248ff34a94b40454e523b2764b53c0a5a0b5821339d37a5dd4852fd8",
+      "sha256": "86e5066c6579b97d1cc0d0fccb2418fbb17197c41f8f0259d112949bd07a5f4d",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-008.webp",
-      "sha256": "2174cf4771df7a9b6e05f22adb946a711a835503ba9e78d04874c6205975272d",
+      "sha256": "f7fce1218a3cf9d16fc7bf45ce50bff7cd4708bd5034a1443d78927de4fb4ffc",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-009.webp",
-      "sha256": "0db422d0f10d447142b1b6561d8b64d247dac3b3b48ed04e15ffd2ac144a79ce",
+      "sha256": "1ef5b26ce169f5c9eb870efdf9587f9f0c9c3d556a6fa81a15bd09c9ce7ff262",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-010.webp",
-      "sha256": "a06913ec850798b47a37aea973afd15f8d916ef3bcfd7f94c1f477a345b20bc0",
-      "status": "approved"
+      "sha256": "02d12f1904eb4806664c19ab78eb8260c97b02718ecf84dea93f152422d75bd5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-011.webp",
-      "sha256": "b62ab73c40004e328869132c290573ec902fdeb77489f2d8bab5d1a8c25fde76",
+      "sha256": "2f8d9d9ba510d9d25b842345517f0cd4026879b3c35b01590c229ed2cffd2c30",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-012.webp",
-      "sha256": "878d8254dddb4d5f6b7349c89432a2fb2fe352341770d3f62f04ffb73468486b",
-      "status": "approved"
+      "sha256": "39a50edd473e6bc757fdeb20075e9906dca67a921d7378dc7ff41f9552db28e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/cover.webp",
-      "sha256": "d10c516a8a335aea94e912cf9542a6dfdfce39616ff9f785f1da599c66132c82",
+      "sha256": "8d24d933ab69a19c712197f0c0981b8e3e1fcfc080a2e999f05ab1209c87f46b",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-001.webp",
-      "sha256": "27bd295907e49f3a0a8b7b00936344cbc35081168136d49b3f1eb512449895ba",
-      "status": "approved"
+      "sha256": "8e1706a80a88db8509c3132e6fe5a52c82076abac3df65898b96992411799762",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-002.webp",
-      "sha256": "254df70c958d10051d009acbed597dc410c0853657e2b940865de8c68195faf2",
-      "status": "approved"
+      "sha256": "8421984b18010f481c95ecade6cc3e33e3ecbd5db230199fde4608ecc2d8bd46",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-003.webp",
-      "sha256": "c8e0c13c1318c7f706238df2858d4e29873c19e91868a102fe295fda7972cf9d",
-      "status": "approved"
+      "sha256": "51072cda07b61df77f8be74fbae10c45721e1cd03b0a97be1dad17c759942b13",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-004.webp",
-      "sha256": "6f0c05ed46247b8cf2859f7ea4a308cda96681d1d98849698341170754977ec2",
-      "status": "approved"
+      "sha256": "10ebaa16755785fad5ac3dd9554732371cb4de8cdfa9b9b543aedbc1c745cdb3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-005.webp",
-      "sha256": "10dd54ff33bb2da97dd6a97f1667db62966a72f412f9d667459810db95359b2c",
-      "status": "approved"
+      "sha256": "88085f3df0fac98f4d25c1f2d00323701584e51681a92bad3f056cd5f2d52d06",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-006.webp",
-      "sha256": "172ed36e62d913496cf41bf0ddd8bc1ecfe6e8bb746ca2e7a476f8eeb135b912",
-      "status": "approved"
+      "sha256": "5c39b233ccb26fba541d4ce2d94cb5558aa1aa4cd571cf5082d41b02916bb1e9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-007.webp",
-      "sha256": "f155fb3795133912bb29aa46964b95091c4619393d9e9841c48b3de6f332cd6e",
-      "status": "approved"
+      "sha256": "2e4c481665e747963047e5333f253c7cb1c6ccd22b9b8b0fe2e3005db929ce96",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-008.webp",
-      "sha256": "6aaa98fc18c91edd936ca5956a04939dcd7e72428361907537e4b02c619b4189",
-      "status": "approved"
+      "sha256": "3d4b891d6de9484af4798229fcb3bcc0502b94413e5d68f2309a9d53173080c2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-009.webp",
-      "sha256": "717023d34e36f37e5c6c6941f8f53054b5da7b1b2ea142fe6da34ff28aa0cd47",
-      "status": "approved"
+      "sha256": "fa3786aa977400a3d8215a47114db0c83430aab78b85a5d5f6962c29676a5b5e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-010.webp",
-      "sha256": "dbcf7a9231ead4285f01b8371a08efcbf0a77c9c3655c5d7c260a9fb541560f1",
-      "status": "approved"
+      "sha256": "cb49a39d2bf125ed3df51c151bfe9b7e7a7bf8904aa50fbdee7147f34b28f317",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-011.webp",
-      "sha256": "4febb22b208b4996d2f1403feba0df85e257f61d5a40c8025bee9a8860aff2f1",
-      "status": "approved"
+      "sha256": "981a1d28237674904ac907f611c38fdc8b55a94a5a7ebee712761f27db505d07",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-12/page-012.webp",
-      "sha256": "9048e9250618c90b36b9aee92ed243a5e259dcd0370e53b07cb6806d97a3d41a",
-      "status": "approved"
+      "sha256": "c1af35c422ae9e7778a33d40fbe806c0e70c8e38b9849384b9ef04717c38561a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/cover.webp",
-      "sha256": "66ecfbc98233733ae07d468a684a58357a1f4ef4e60e493e18aa9208dc076e65",
-      "status": "approved"
+      "sha256": "229368fc16c58f3286134cabe7f99e459603cd9fce995be16f959001a2ce61a9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-001.webp",
-      "sha256": "323c76069342cd476cc9b3b159d04ed4e66fb096b7f79bd02d9dba2c1df2e7bb",
-      "status": "approved"
+      "sha256": "e0eff0fd32eefcbd0be5a3757ab9a013083d34d05dd0e2aaa783f19f144e96b4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-002.webp",
-      "sha256": "66a0ac5873cb2ba2bcb58470bafc35034d4dbf34c6fa1ad9c80619512fcb6e43",
-      "status": "approved"
+      "sha256": "788e2caf9a8aaf47a8994417c9488e4c2b86860bdeda130a90e5b152fc95b845",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-003.webp",
-      "sha256": "af543ae9a0f82e24905d62f1e05c1a043e4d67447a791f795343d3ac5ac4a655",
-      "status": "approved"
+      "sha256": "1b9cc189afa9a6528a87afa3d4e6f9cba955505fd9ad12a59c9c32f1d2fd6adc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-004.webp",
-      "sha256": "01ae5524ddf6bf04657e6c7ff85add130c9c8963d1c5084afe1f9934aa6e9e99",
-      "status": "approved"
+      "sha256": "5a467d8918eaecc62f6884354629cbc005272456ce69550f82ce61f408527ee5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-005.webp",
-      "sha256": "74b8cc70b5f7e1ecf4744b355f9e327d5039e217fb3d7f722711a93a87d43b47",
-      "status": "approved"
+      "sha256": "8f4645678eed00fa935b9a83ed7a8a41d3d1c955133df272e81fdbea42fbba71",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-006.webp",
-      "sha256": "107cd31a50f46a369200eeb09b050a91b42fb8da1fd53b60958dae8656733565",
-      "status": "approved"
+      "sha256": "96c38d4c52f0c3615e996de40734790e4821bbd7e72439114a7624874e381af1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-007.webp",
-      "sha256": "4dfa4521ac74875424860722dc1ad3d8a16b10a54a8c50693d47303805a465e6",
-      "status": "approved"
+      "sha256": "c9a181ddb0d6a01841106e3a2b17013acd8073f5fbf382e1feead694ea820213",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-008.webp",
-      "sha256": "7bc964fb6ab3206d8e88db2d8088d1c4d5c1084bd50a53dc0baf8b472d55b344",
-      "status": "approved"
+      "sha256": "e15c962de2d6177c8df378d574f5804863c1b73fa653f37537e2d704b8006f7a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-009.webp",
-      "sha256": "f582589eca2068f41cb95042a3976e0df6358fb88627b93751ea80363c4f8684",
-      "status": "approved"
+      "sha256": "2bae1e12784d659c1d55a60cdb028436a4cb2f2782fb16cffb91a2b89eed51ad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-010.webp",
-      "sha256": "ad21268ff976031edf1891a0ca44065056bbcfda6f65d983a42f091e8a1c680c",
-      "status": "approved"
+      "sha256": "7a41616ff69ef26cff73d55bbd7e743684eb9258d12ca56f4b9b212dff28ebcb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-011.webp",
-      "sha256": "ba99bbc945e65f66b68a34d7c2f9604a1f48a5e78c615c47e0e035c489c13200",
-      "status": "approved"
+      "sha256": "8dfb475ac5ce3e6168992a162f8304c7cb0af01e200af195787a245c40e44b0e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-13/page-012.webp",
-      "sha256": "7bfe51c3077b3d674221813284026a62cc0b578c11595fcae241fbe4adf8cb3f",
-      "status": "approved"
+      "sha256": "35db3dd8a7893e7b3875320dd8515fb37127eb0e2a097c53f31310e691e28547",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/cover.webp",
-      "sha256": "9b9cee5417a7e80b0d94027c0a44de7e1063b5bc999c36e932609ac63baa78fb",
-      "status": "approved"
+      "sha256": "55a13abbe10a8319778daea697fd0be6907e1b01c29c853415a3f8911522d9c2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-001.webp",
-      "sha256": "13b3e137f414d6072e7b390da23a7667a777d0fc9f2cf1baf2e93aac337c7047",
-      "status": "approved"
+      "sha256": "60e878145fd33e3da53d6600b59072f4a1588ebb4ba17d1dff1328a6c0ce6688",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-002.webp",
-      "sha256": "8227ed7d8f1813e67434682d57f82724ae2f5457c29034f0f69c2328c30f3fae",
-      "status": "approved"
+      "sha256": "331584a8dd81af6cda0cfea95a1f78b87fede0911a5e29ae83c5826713363c2e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-003.webp",
-      "sha256": "b9403fbd110dce6775822d9844b0fdd7bf2d6b2cc0d03cb69844bd23173573b9",
-      "status": "approved"
+      "sha256": "8803a0f8472cdcb81b7ab9371622ce29aba2d22846d28fd3941c393aa60f7da7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-004.webp",
-      "sha256": "cf33ffe9219620a1c666576a424e3152a5cbf7a0709f5d0304969bc4291c1967",
-      "status": "approved"
+      "sha256": "86327a9ccd1cfd286f29320a145bcc8406bc999cf0d97b9d19b9c4352e3c441a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-005.webp",
-      "sha256": "a804f9a59eb4d6c80813ee4b143b45d3578b7957c19f8dc884404e237d9dcb7b",
-      "status": "approved"
+      "sha256": "7bcf4992ac7d116fd99f1476262040855f681fdc6ea96f831f944251f78df465",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-006.webp",
-      "sha256": "71af434401846974edc4f432414cc79414dc376302a743f86b953496f2c8a1ce",
-      "status": "approved"
+      "sha256": "a0485880959ccc2a3d94c6a968a96f39ae2690e46f3c3b1e9c0ead724b5a0f9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-007.webp",
-      "sha256": "2ac455ca3372d402a749423b110a03d1c839881d66b602895d994fd7236967f4",
-      "status": "approved"
+      "sha256": "8987418969934d4b466af642c9f1f3ecca711c9be614124a3db8034537d1ec72",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-008.webp",
-      "sha256": "5b9e2f2a706f62d54d716a52b01b11858d40025c5d07303da2b02db65afa72b8",
-      "status": "approved"
+      "sha256": "53cbf46cf9ffff1670119c8aa6b9b4c9a6d6bed05fdd1931f48546a4d904d383",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-009.webp",
-      "sha256": "105f5a58253e4647ed708cfcccf6ac448766ec2419bb640a2703777ff2da94ff",
-      "status": "approved"
+      "sha256": "77135c3142ad96fe7e630bd07a321862e9dff959eebf0f43f8e9ad39582acfd9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-010.webp",
-      "sha256": "a3bddcd271a6f7a8aea70314775041ec9bf988ae0199cb85e5b74b56aa775398",
-      "status": "approved"
+      "sha256": "8ee1576f43b52b32b60a3431f7ed35df6551f3cdd35e108eb3c1438c03f57304",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-011.webp",
-      "sha256": "8af553cdef6f0b9d91eb0387dd45da2110f3f838206c9a604ed31fc287c1312e",
-      "status": "approved"
+      "sha256": "e280e611c2230783df63b6052b04f9de1266e4b39212aa1624ae037cf63dd659",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-14/page-012.webp",
-      "sha256": "5664949fb2ca1b0a104a67a0695e50b9f819d5ebf52523de612fc81f6fd16002",
+      "sha256": "908f6e6360621255e67fcc31e29ef440b0b7d3be592642e55d14ea14ba7ae708",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/cover.webp",
-      "sha256": "2d94b68ce197183e5403fc43cb368ecadd18639c77c01db4ab0dbfa493bb0dbf",
-      "status": "approved"
+      "sha256": "73866c8e5b6a98af787fc70f2a5eb8fe998c1b8436b4b527c4d331eb3da457d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-001.webp",
-      "sha256": "673fb284bd0d136e822b2d853db3507f235d44bbd4fc4e9378388bc69c8b3eb1",
-      "status": "approved"
+      "sha256": "bd2b928746ffe11e73989a6657290dd69904002827ae924efe4c0b091867a78a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-002.webp",
-      "sha256": "fad038a6146e47f9924bee97233c3d5a0d6da6289c5c273fcce56c2725ca008c",
-      "status": "approved"
+      "sha256": "b9b1ae5923ef94e4b57ae773ab6e011d1f385a74f538f7fc573e6bd7fed3fcc7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-003.webp",
-      "sha256": "24384147edbfeb1553478a78b0b272234a256ebf90ebe3789c98a6dbad9ff2fe",
-      "status": "approved"
+      "sha256": "141a2f0502e39221874e43955e2a62d35eac9a33f1181c808cf9748ed6c87191",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-004.webp",
-      "sha256": "4c8a72db1eb5ea90bc9da92bdae0aafd04f3df554a8034f4b2e88c39ff2ef8dd",
-      "status": "approved"
+      "sha256": "a4a69275defce5b9fe5ca9e49eccd80c87413743341948acfed5a5e918541c25",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-005.webp",
-      "sha256": "f6b7d67f69f5f03d74010749c3a589be510ab2c23774316a7edc61661b0968f7",
-      "status": "approved"
+      "sha256": "deef8dde4b3ef2996e2c7c0e542b691addd83d9cf49bc710a7a2c4e68420acb1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-006.webp",
-      "sha256": "f439a9a3a8e08990afd90d105716e01e341c6c74029d03649c2f50c897cdcace",
-      "status": "approved"
+      "sha256": "22b2777eb34b22fb7826f01a65c0041b43238b85bf9aad78621605a9cf2e814b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-007.webp",
-      "sha256": "5a03aa0c8197a2d04022a858d77fe4ce5fd6de1127faa6413cede526cced511f",
-      "status": "approved"
+      "sha256": "c79fddbe15d9d876f472539aad83ad5a3c5d0c1e10a99134608d535e05c6d267",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-008.webp",
-      "sha256": "7d7121b6b914ca443ff33b76aabf39d01c74be36013642f1c2e3b1a4a054cde2",
-      "status": "approved"
+      "sha256": "cef18ae12331e00fec22099e86e62e9e151de7e97401b3c17a0004038e169d43",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-009.webp",
-      "sha256": "ac744bdc195e36f85d2a65b7b7e7ac554fcd922e1203082cce0f0ab01a535ee1",
+      "sha256": "08dcaafe20bfe7452d3dab6bb518b63581142e7b6b78399ef6b5b854dd7d0913",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-010.webp",
-      "sha256": "4043063b211703d7a74d5eeb1809cbfc777a89dd4954334c8badbce7a6c47c0f",
+      "sha256": "2db90bd6399f5fb862ff4b07c2d1a280e367612f7ba4635636de76dc3b093e52",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-011.webp",
-      "sha256": "1e43a73a1bad5a52ad0e4f4230bd4eb48c3a9c95a8f482545b3bb30a017061ec",
+      "sha256": "7118c77118b14e67bf22d5e3af5a4007a2f3941c28cad537e7d678006caa4b20",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-012.webp",
-      "sha256": "4104cea52f3491978e4a04fa31aab886af7e0219b91f1929658963b63eada22a",
-      "status": "approved"
+      "sha256": "d663c4ab9c88d280e1cd506b68c0b4d3230ac9924b79a5a22fd6665cfed30bd6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/cover.webp",
-      "sha256": "e77233d44e1f355cd8bd1ed52cb3c8dc8db23b671a0a1e79643c77daffc042d8",
-      "status": "approved"
+      "sha256": "b8a24e37cb4b1f5d78d09760d3890326622369056b0f1ad40d69c3c1cfe1782a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-001.webp",
-      "sha256": "5a51f0bf5a9a173dea5b6334f314706ab215fe29cc2de070f4960bbd599968d2",
-      "status": "approved"
+      "sha256": "89892f8499c1ee0ec2f28a6a22b29158f2c7c3e5a76806907873cd34c8ca67cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-002.webp",
-      "sha256": "85a517fe9822914187deb5030dcf34d66ac1bbd934581f835e154488e22d2933",
+      "sha256": "8760e156671cbd63c5dc945a8645086e0d2da2813be06930f6a4c3db0f1a7a9c",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-003.webp",
-      "sha256": "e704907474fbdb1a56e1d619039dc6bf4d428cb38a3635206c0a3c8085551517",
-      "status": "approved"
+      "sha256": "ea5e46f81b41a273de864158e8e8621de77e473956469662b7d870227ffd66a8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-004.webp",
-      "sha256": "d3e1a91c08ef533cbf3d003c166b18fd8387078e674c417105e459ac362263d5",
-      "status": "approved"
+      "sha256": "01ff7143d182f6c8d35d7debe1afd36790002379eebec17b2c3ee757170a9f2e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-005.webp",
-      "sha256": "1a243705743a05f035d5bdd843f131e63918904cb9d8d93df58009fb0cb91e64",
-      "status": "approved"
+      "sha256": "316c33e407a4c0610a9bfd85f3114d972ee78a5a7d972506438d62ade57e052b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-006.webp",
-      "sha256": "51d18b1df807f4a14ccbda2e20c0aab5c922bdc202b5d4aea660db4de81045a9",
-      "status": "approved"
+      "sha256": "c94c23ee5b0942e086ad0798ee4f99fca2889b42633b377e88f4a168f6ae694f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-007.webp",
-      "sha256": "c85729304c68a1e512ee1defe0952860ebfe0af75e9de47375e6f719b176dfcb",
-      "status": "approved"
+      "sha256": "f04b7735f20e63c75ea07c04fcaf0a7a0da211d470208068285ce76e6f8b952a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-008.webp",
-      "sha256": "6d4d30eff7f8b14af8ddd06f7696c02c88611ad589ca6c0e6b462156bd0e69d6",
-      "status": "approved"
+      "sha256": "b7436584f4e43fcdb1d824f6902a2c554c23a7d87811eff39b1d212c5f097bb9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-009.webp",
-      "sha256": "f417349de3e957702633ad5791ef3d37cdc5ce6012dc292044cb9b71b2eee226",
-      "status": "approved"
+      "sha256": "a727c361104a89fe5b2f083ee64602049ffdc9efd84fca31ab6de7080202d283",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-010.webp",
-      "sha256": "8a5f53a09fcd78a8ae86f5f20c9543e96c880878e142a3b4a3ac3c935d6a1868",
-      "status": "approved"
+      "sha256": "a091788404ef5220b4a893c269d893d1ac7d3cd4de0263b8a95760e8f0632812",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-011.webp",
-      "sha256": "58e1128362eac31da13704644f04f09f96205a7c92e0688ef1dfde473f4d2010",
+      "sha256": "ea2f5d0d975fe5f968eb84d8edaa839c45b5f528cb633027707f7a886573ae7f",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/page-012.webp",
-      "sha256": "af381be233af87ab5c0cd66554546df3f3f301961eeeff7a7e134a24f1676b90",
-      "status": "approved"
+      "sha256": "75e0a575b92b7d86b7c1e161e0e73b00415182d761fed0ea5db4db6ed876c4b4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/cover.webp",
-      "sha256": "ed68b1144a9ef2abd5e96b29c260d99dcce651595cd15771dce132d7da9fd4ef",
-      "status": "approved"
+      "sha256": "5ed5f2d917939dac904093c35f3a4c3276bb3b82c35bda693f1c5335d46bf733",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-001.webp",
-      "sha256": "e7e590974ed36ec3639b50a0fb6ef76e4e36a95d2e00e326c203cc6cff6d33c1",
-      "status": "approved"
+      "sha256": "92cb0235e21fb403a6353394f2c76b5b06964a8ff0cf155903e4f522230c9dcd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-002.webp",
-      "sha256": "70aa00e2d6ba137018b227ff90a0256bc5b7a57a9236d18681708300880c2513",
-      "status": "approved"
+      "sha256": "0c5c1d57f2808125b71a53c892893da9487072f2618129f35a7a2a0d7d718314",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-003.webp",
-      "sha256": "4094137317113da34c2a8d86790dd84de69f51fd2de603dd41b7ed2b95bdb1a9",
-      "status": "approved"
+      "sha256": "b4240fa0a2c4fe54d961b3b544309708399f2a385e8af2ff993bd70518b1b04b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-004.webp",
-      "sha256": "fa48a349274a3e97409f635729e8467fb09ddfe57f84ca3929cfb90c9844c52a",
-      "status": "approved"
+      "sha256": "204c4b5f90d93ad6b922228fd1814c2be2d8747b4e6657a62ee64988d8895119",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-005.webp",
-      "sha256": "4e6caed4a2c6a4a6fbf17304ff0050c1c88c94f808b69e3e7a45053eb1e6f588",
-      "status": "approved"
+      "sha256": "cac85e140b63517916f1fa588776c8675177ad7ed3e0f46da912005f41a07eed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-006.webp",
-      "sha256": "c5a27ea9115fb15c8c7f4ec367b0cce28f29048a7e7f655122f3483046a7de28",
+      "sha256": "810152c1e81e94dedd2e7a882e0d35b7566296af97b1cee49f49e95f9c3f1be9",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-007.webp",
-      "sha256": "5c47a7582b95139a616f893d8b14d841eeea8b515edea6b6bb88789931be6d88",
+      "sha256": "9e41e4df40f52db549b4fd3f6f95b01d3703479c5a777cb101177b74a5b71e79",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-008.webp",
-      "sha256": "4a4f5e5ead1792b5e9a66025e4427f112e157c32fbf3ab77922f16448938d091",
+      "sha256": "478f9270b63f9d7d792f90a4793961d4c86dd7188218db8aae0949a1857c18c2",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-009.webp",
-      "sha256": "9274ef8c8a641272b9660b9b4429568d79527ef73782cbef6a2cf9eb260ce71e",
-      "status": "approved"
+      "sha256": "11dd1ba95cbc464940bf36f4772b3652b98312a96b2ff07b0553213d522decdd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-010.webp",
-      "sha256": "904d35263ecbc8d78d35cee6db1ea5dc1b833cdabe90a85e34bc83a45d590ecc",
+      "sha256": "fa073d1456f8ca5ab968d08e6b7e7de426f9fe5b5107b3e12c3af3a748b96f67",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-011.webp",
-      "sha256": "78f76a9caad2a433e4cb373ac6cba92ae20d7fb69f477a3d4edc1bc774ca8573",
+      "sha256": "864c14a425fd33780ebecb16489fe38b26a5da1d8f25f8954fcdf1b0b407aa99",
       "status": "approved",
-      "reviewedAt": "2026-10-28"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-17/page-012.webp",
-      "sha256": "22c9b2584124524d57061796813fea9bad802413b3329ae2fb7fdfaf798acdcf",
-      "status": "approved"
+      "sha256": "a58e53b8783daf8824c03aaa2fe6acd3416f67b337cd70ef7088a08ac1bfaf44",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/cover.webp",
-      "sha256": "6999543fff2ffb3bcd7d4827e1f3dbf1e6e83985e88e3da183b7f5b84c205c9b",
+      "sha256": "315ada16766107581d419545794d1a1bec1fa40e0af9a9a1536acff54c0ce4dd",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-001.webp",
-      "sha256": "d2a1186492aa368d8883532c1c974a12aab43d0b83d97d20ec5bcda8b429ecd7",
-      "status": "approved"
+      "sha256": "238b8bbd777f71510f61d1ad38a341755fdcf124d28bb72765600721f8abea41",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-002.webp",
-      "sha256": "8b2898a24009d8190fa0c4af2d59f3517a91eb019c8f056e94f753220bb3430b",
-      "status": "approved"
+      "sha256": "0487f282cd6431303018026ad906acea37c91bdd9a52e405f35a64d968ac0f9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-003.webp",
-      "sha256": "f461927cd36a32a2edf604d22821b109cebbc6eabcd107683da5e24833caaee7",
-      "status": "approved"
+      "sha256": "679e31e9478e8eb98932e3b12745e2a70594ed214ec7902ee8ef5f0919a8f517",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-004.webp",
-      "sha256": "4e9d60decb397def9b308571d3b8c72f46a3f104976ac811ab45e815a8780602",
+      "sha256": "652086402a511ae752f9669e053e9ce878806dcbeb10640c69d9f86dbdd84b23",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-005.webp",
-      "sha256": "08bbedac25d61551c5cec3e1ee5f0c8980c65d081fed0e7424119b1821ea8189",
+      "sha256": "089d034a0494ac4f07fd8efabbfa853237d034ecbc5e26d0dd697bfce17ae7da",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-006.webp",
-      "sha256": "276b799bb8faab78c00e85c03045be3437e56de9becb12073064246048e823da",
+      "sha256": "a8b2f8b0353bf3cbec39aeec7212852cb3c1c99af86b11d5ea2c17171ba9061d",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-007.webp",
-      "sha256": "89a73ec6055ff290c46986337f2affb0ed0b1856d2326976b6f24eeab9c6a795",
-      "status": "approved"
+      "sha256": "9f4f1d75b377c0050768b3b5197a823123fa8d4d828a6b8d30deedef0cf36ae8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-008.webp",
-      "sha256": "ac1c2b6d62d7d0014a37bbbe694b10e1a3ec2b65924aced7173e9be38a688c73",
-      "status": "approved"
+      "sha256": "10e1906faa53c8e2b45a0975a95b90c45296c446509b3b75eaa4100c7572197a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-009.webp",
-      "sha256": "84a9287e39cfcaa387abc69fa69d51df76163647549fb5673f8c360ea6e728e8",
-      "status": "approved"
+      "sha256": "c49dbacaabf8f40049d6a4793599e5ebb817d7958f07320036e0058a01522300",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-010.webp",
-      "sha256": "9b248273edd1622903c7e15c19abdb940ebe919f13acfd51e77bb69c12569f21",
+      "sha256": "ec777e6d42c129b29fb95e49819ab1d93b3a0b1c23d3d113ced71c20caa86da1",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-011.webp",
-      "sha256": "e40c6174f436047dfc13c0fd4a3af52484b3a36db61d7893d2c0042b80a931f0",
+      "sha256": "7d247432ad7f10fc224cfadc8e3204e6a1686a562b19ede4b84f745338f56d0b",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-18/page-012.webp",
-      "sha256": "a32a213969237b2d3e8ff3b84c442710c132221b101ec082a8590d7b841026b9",
+      "sha256": "375efc80f2bc2059b2d82a4494571c458a33757695495d5c760a3740e5aa7388",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/cover.webp",
-      "sha256": "37bad30bfdc9510a1d4b62233a08570fb83a87668c03c228efa7a79e01bd224e",
-      "status": "approved"
+      "sha256": "4e3bc4b7f4933238ecc5ffc151d9c12a85314ad52885903b548c45ab6c628062",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-001.webp",
-      "sha256": "ae0685b303923f4f03d231aef8c698e9e76850796c82d7817ed55318a3fc3276",
-      "status": "approved"
+      "sha256": "c7dc8b22422557df4f114ba3d56353856f660bad1fa832019d46fdd3bfbea25a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-002.webp",
-      "sha256": "69b45f8d61b1ccd31e72af593cb45c0fae76a38f38079a2b477a33b0270704ad",
+      "sha256": "e61a0a42463c2eb1373503ffa08b0c43f3d2efa9763bdfc9a011563f7f3bfa2e",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-003.webp",
-      "sha256": "7ddacc010d865d6fe3799cd806d862ebfa6d0692e3ee03c4d1d9596981630321",
+      "sha256": "edf8bb36d7da2c5c74b88d5c36f2a115c0b1c49bf2e8a9ed67f84f0341543887",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-004.webp",
-      "sha256": "485e5069d555d914d1fcd5fc62fdac903adb6c51b387c9c89d048bfbd600b457",
-      "status": "approved"
+      "sha256": "e17b6c8494fa710260d85ec9c1024ec987262d7684f027d6850e0b02c7c3ac70",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-005.webp",
-      "sha256": "625c05a0950d347b1e142396ecf1ee25639e5001f79a470e25c74a6cb306806f",
-      "status": "approved"
+      "sha256": "a0c7a404d64977d9cdd1aad6ce83ce5f0a515446fec26ea26af05593771f8691",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-006.webp",
-      "sha256": "c9a51b6e64132062999a500e6c115aa9a2dd594067556088c2ab02ed8cde52c3",
-      "status": "approved"
+      "sha256": "42dc8efbe6c252bac1eaa0d1f415cebaa5f2447a53db23fa31761b558ddc8c61",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-007.webp",
-      "sha256": "c297199f204d2ca6108832f46b77e420aab75b92bc07b1bc7b30679ca8b542b1",
-      "status": "approved"
+      "sha256": "a3179ce06b77386f71dec6fbe6ebf4aa4b42fd87ae53fb36eb3e779c7724cdb7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-008.webp",
-      "sha256": "3741bc573f8f158594a11a75800056d0dcc71755b25988215298bc83ff9efdcd",
-      "status": "approved"
+      "sha256": "a23c88e3adef3d35cded9e2949ad8b1f780de063e3d08fb3146d50dd097277d4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-009.webp",
-      "sha256": "358d70e52ca5896634876d448fc05a386e5b26ee8c270cba24b5d4c4e51fa1af",
+      "sha256": "562a6ac5f171299dac400c92c667fc439f92e1b2d792747d9c82538ad1aea77f",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-010.webp",
-      "sha256": "d2f82959b7d9b194cfb9f3717799f431f105e413b79787e713f7f41fd344f5ff",
+      "sha256": "9fd8de5da4ad25494c498f77a2d7e050dd5886bd4aa7ab76c912d0c3d9acce96",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-011.webp",
-      "sha256": "5a47efd7ba8874fa483503ffb1bbe5e0ef1a9808cc70dfe4b14f5e6247a6acfc",
+      "sha256": "d1aa4bb04fe85d691b69c82b8159678cde5b971f0c147994f3bce473992ebc00",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-19/page-012.webp",
-      "sha256": "1371516187237bd2ebe00803254636263f645df532feb02176eb33d7bd90c77b",
+      "sha256": "dd675fd82a8657c9bffe0a033a7218fa70775ced279c31b1114dc836327a0029",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/cover.webp",
-      "sha256": "1a300a5d1f67277453129c1a724376d4eb135bcdba460b43b6aa0502fa786f7e",
+      "sha256": "3f86d2f770627a73a91b3c8c029211215948962aa3ea55bf75d1dd0ebfad60ef",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-001.webp",
-      "sha256": "ce3fb75137d677a5a9e92985d18c55aa37fbcc6a60cfdbda047daa7e1ed0940a",
-      "status": "approved"
+      "sha256": "8ca512bdac8366d45955c45c8561841da9d1c2afe46029b19c281f8f637b494c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-002.webp",
-      "sha256": "a1aa41beca1775e7fc36e6c4343f36edb834393b04792d660f76301cab0be6e6",
-      "status": "approved"
+      "sha256": "cce79e6a016527fc088f38dd10b8f41cbf08f7e7d6e6a0c34e80460681229b2d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-003.webp",
-      "sha256": "e2f9ccad900e67a53a1afc9e45becfae13fd082e179725ad7a16e3f945648681",
-      "status": "approved"
+      "sha256": "31f21f841bd81b664887cc9895a33d8edba673b3fae6074140c0ca06f4305f1a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-004.webp",
-      "sha256": "850431dc88dee131d74fc7dc550066047fc8de40628b8c6a63ed33cca2f15aec",
-      "status": "approved"
+      "sha256": "ad469a6376f8df00eb16d917cba57f074cb6b07c7d28350277e4278b375feffe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-005.webp",
-      "sha256": "98802e5f539f8d31888e56630866535dcfc2d99f62b1c076f09b2d8a8d349ad0",
-      "status": "approved"
+      "sha256": "21a3836abfe250fbd6065a6ce8c31dfbb01cf4c5c08efe11258d6c2fd54ce02e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-006.webp",
-      "sha256": "f692c3b855c91539b0cccf55d38fd9ac66bc6e022f766478acbb2046858cb2f4",
-      "status": "approved"
+      "sha256": "deae5cb1db3a89917c5674093f307a29434ba4bbfafe8f12bbceaede790bccde",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-007.webp",
-      "sha256": "417fcc6d299c8c7850b94e0a83440f75c5b2fa87b02a8d920d10dcc141d79b4a",
-      "status": "approved"
+      "sha256": "47e8ac72cfc3ceae1147474efa461da50adbf4efb74e751461e944e98e0c1fee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-008.webp",
-      "sha256": "010be447e15335147eb12d921a26316f392847de4247685d95fb15abee6a0dbd",
-      "status": "approved"
+      "sha256": "cb66155a8c1e9ad01f4955e83323d2c63baf9ce5db13606a005c4a1020b31fd8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-009.webp",
-      "sha256": "b7a7adbd43730c554b9ce351f4dd2abae829a92f489e470295c3b7700de34a09",
-      "status": "approved"
+      "sha256": "d8da9c1674b39eec7057bd76fcbca612f632613265ba55e340c6aed8659003cd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-010.webp",
-      "sha256": "c7f615e6cff263f3ae6d85d159427e479c65489d29db3df265b82303f43b37fd",
-      "status": "approved"
+      "sha256": "a48c2e0008eeb12c7bf586a70e4e78476dc1aa0603c29caa5a356708caaf1bbf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-011.webp",
-      "sha256": "887159db7842826bb5fcad37f0a97f38b9834a91a57271430c9ccdf9ac38bd2e",
-      "status": "approved"
+      "sha256": "fd2698735b50cda07f869aa7099ef5129a437fc6362893d662d4c74dbd21f3f4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-012.webp",
-      "sha256": "3dec94c47fe5b82eb26b682c4ba1d259b83e9a77ef91f2012935293cbe894c05",
-      "status": "approved"
+      "sha256": "f37cbe5d3efece62f7571d193305490d794ed55d9cb247d4ea35dacd178b3d89",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/cover.webp",
@@ -16714,8 +17535,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/cover.webp",
-      "sha256": "3b677d76976ed742ba23891c9ded0e001c08c75faef99f32fe7cb7882b61de12",
-      "status": "approved"
+      "sha256": "eb1379a15f7cbccc6e48797c23bd45b71cab163e71b5e8a37d781e83dc35e360",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-001.webp",
@@ -16725,106 +17547,123 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-002.webp",
-      "sha256": "398d4fa1f62ca05c6c9b005853873cf827bcf0e5e23016f50fcb02a324ef59c1",
-      "status": "approved"
+      "sha256": "89f16e1be8c16ba426abeb94dccb6a44fa6be3cf7eec7c9bb7ce1e81069394ba",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-003.webp",
-      "sha256": "6211e70d98799898b2958baa3e524ed41d548b5cedc466f2e69b2ba9752c0793",
-      "status": "approved"
+      "sha256": "03c5206fc9306f562ecbbf19a0877deb25fb6d97e0faabfd68c7e4e0073c4de7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-004.webp",
-      "sha256": "4bed488cca63b4f8c389fac29b3a97083122a38f92259bf51f11702e933a5f61",
-      "status": "approved"
+      "sha256": "3b5ec56e628c0ebe7b082c1ab32a2e49710a9ab02b2fbe051deaf133f7270c96",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-005.webp",
-      "sha256": "57c6dd3451aee8e99a93f4425ec19275a6ac929836ac37f034227fa1f8ac845e",
-      "status": "approved"
+      "sha256": "9e37c89c025c6641e031c2db7d00a9112721b9b8413e15728da0fdd31258772c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-006.webp",
-      "sha256": "bdeb12be352c013a1f43ff9fdb8843562ac0f2fdca1d1f4f808086a9320a710c",
-      "status": "approved"
+      "sha256": "089e39bf18d4abcc36e3c767114d3112fd116aab2f862b150ae4108b936cb074",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-007.webp",
-      "sha256": "7f236c2289ebc82e957da3eed45332541f85adf96f6bc576c12613e2440c8c3f",
+      "sha256": "96e848aa5cfc52296f5752fbc2cc49e2ca384a07301aa3ceb7ec39a73a276479",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-008.webp",
-      "sha256": "2dfb5b90267f1c300324b4a10761c5c4df428ad8564c2e244bbcdf638cc060eb",
-      "status": "approved"
+      "sha256": "fed655cdc843530d5aff46488011bcacb0adb2a2d22810944940f837b7dc6ec4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-009.webp",
-      "sha256": "fc6363bb678560d5580e200251b2afd3eb45c5a30ce366248efe6f0a165c7f96",
+      "sha256": "36887fb6372d1c70643b9b174b89f7988b30400c76ac7a58d4c1a012934b5da1",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-26/page-010.webp",
-      "sha256": "99325a4e849d35b676550e2d27a47e7d46ee0a946ac65e8689152c15b4a83c03",
+      "sha256": "650423baf4fe43bb7accf920fa52947b8dd553fc85fc7282ccf8dd06d6a4d89d",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/cover.webp",
-      "sha256": "4dc0d2dc1556cee04d0e121102c800b15a69d29802b750b78015daecf4a2886b",
-      "status": "approved"
+      "sha256": "701d97e18a66101bb127a7f97829241d172a8ab156aecb3bce4436c24987d048",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-001.webp",
-      "sha256": "4dc0d2dc1556cee04d0e121102c800b15a69d29802b750b78015daecf4a2886b",
-      "status": "approved"
+      "sha256": "701d97e18a66101bb127a7f97829241d172a8ab156aecb3bce4436c24987d048",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-002.webp",
-      "sha256": "37b7bf26c301610915786ad60b8249f8766ebe8d82c91a950af81ee76d007461",
-      "status": "approved"
+      "sha256": "6f9ca159be606f9c83dc3f49e0c604e89aa7ef60bcee971af26c32d350123680",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-003.webp",
-      "sha256": "d242801dfb3f86e740d76e38f59723395676df5dd7f7bc14cd1db1babb2a4a8f",
-      "status": "approved"
+      "sha256": "e628b1df764be3fb3a79e39846bb638b2927dfe0aee9964a23f1cdd13d38793d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-004.webp",
-      "sha256": "345bac2250b56e31903c7492ebcc6970c26072bd4f8a66e1dd9d4738373bc3dd",
-      "status": "approved"
+      "sha256": "04a7a92fbf3869c0de8ef16d3c3444e806a00585c6ff21a63ca53f62fe7d1030",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-005.webp",
-      "sha256": "fda9643e3e21817ebf8e7ce4b5f594d14c25090114b2043ff68ab5add54606b3",
-      "status": "approved"
+      "sha256": "f8da9fdfbbe51bd48f6b1dc8989696292cc332705b6ec56bb33de8edab5aa0fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-006.webp",
-      "sha256": "278edb9cbc21dd3d103f4b0402fde66a4e4f08e6991cf6622435d4df5d772a9f",
-      "status": "approved"
+      "sha256": "fd4d7bba3dedcb3ef46a40f939a2e860aa4f1d36bf56f25979cbce5337e38bc5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-007.webp",
-      "sha256": "dd06e8fa8ffe45d69693a650059ec3f3cc98b29eced35a4f2e365e17afded4c8",
-      "status": "approved"
+      "sha256": "201094373af7b1028df59867c561e635752f646b856317d8edb49ad3f6df5d2e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-008.webp",
-      "sha256": "56c1e543443ee4f1f1d05d07fd242ffa7d126a0ddd6b3ee5d45a65e39d51fad3",
-      "status": "approved"
+      "sha256": "9aa30f87acae81261255c924f9fd29cb3c6f2e43d24ab298321ba7667b894f0a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-009.webp",
-      "sha256": "64918d2ce9dd23f95f6f264d341f1d15b4982a3f79c9f6a59037cdb41ab30c15",
-      "status": "approved"
+      "sha256": "d25bd19ee9312035f1cf3b9d9a90008ff328ac3d6cfaaeb5ba7d44b7ef61bf6c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-010.webp",
-      "sha256": "90799678849c95486061247eaae08a41772443d714df1fb0c21a9b405b879c78",
-      "status": "approved"
+      "sha256": "3e45d23c79d65c2c8896c2ea79387fade4a6b15a5308fd08577870e9b4ba3ad8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/cover.webp",
@@ -16834,145 +17673,171 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-001.webp",
-      "sha256": "ed4298109037102cc1f7791e081b7dfeb0359ff60607cb4a8069272aaa3af39c",
-      "status": "approved"
+      "sha256": "bf4713afb395f0b726cd73782f5fd55031607727e91a683bc928e3a6d7a0e381",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-002.webp",
-      "sha256": "5f44b9a8da7caffc80d1c85d1cedd8c81014eaa70349549985c2cb2f208bf28e",
-      "status": "approved"
+      "sha256": "09bb82d701de3ac44284ace81f0bc0ad08ab1615c4b7de6c464126bc57da8274",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-003.webp",
-      "sha256": "3205c30cb577510e26420d68cb78313a84f8844b026f0ea542ee26a4a0ba435b",
-      "status": "approved"
+      "sha256": "57d9f6e0f55c50bfbfce28127b829dbc7978fcc7b1f6da1995d3970d1b885660",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-004.webp",
-      "sha256": "4209735eea59a83385c186807ef8efc35aaa03e7bb56186df8812ed9d7a95a3f",
-      "status": "approved"
+      "sha256": "2a8ef3c71599345502f67a225e2d8e3798f104a34f60ccd4cabbe48eafcc343e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-005.webp",
-      "sha256": "94da5279db5aa643852c920061ef00f6493742ab006d2fb9464512ee1267be24",
-      "status": "approved"
+      "sha256": "3265f1608ae5d065e998a781c49c850db0e910b9463d9ba5dc28c5b2c96c1269",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-006.webp",
-      "sha256": "25a4a931acc306107afdb5064cdbbe68c513e30a4ecea2d4f396ef6489c45174",
-      "status": "approved"
+      "sha256": "f919fb022a8f7b5803b75297ae098118a6780ec4ca98c69007495656ca618195",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-007.webp",
-      "sha256": "60a76c69d07138e6cf8e2ef7bc161d1eb5c7ef21450bb2af4534f52e5a85af19",
-      "status": "approved"
+      "sha256": "76ef86771c05b5f1a52526d4eef647173fe1489f3571f994ce0f4b5fa7de3533",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-008.webp",
-      "sha256": "0ba4d08fd2e50b562457a4a76201b82b5144e3b9b3efc53fb6d8d469f4da87d4",
-      "status": "approved"
+      "sha256": "c088125d9121c7f2c558ea1aca36fd1396bcd4d9a1c199774efad7d83a68937c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-009.webp",
-      "sha256": "af81fba68ac07a29cc27deb36f92b600771b80d6f89197f5da53c287d24d30ab",
-      "status": "approved"
+      "sha256": "70a0391f815b61933db56ece6fb67ec0a85020b13413ec8d6cafb5f34fc4c063",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-010.webp",
-      "sha256": "a76aeb88c75bc4e76f876583fb70ac801991d259486c652ef9900fc5e21583b9",
-      "status": "approved"
+      "sha256": "b3399f32034dd64b8db4521908db69cf248c9381975a1115f1fa3b21e29312e1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/cover.webp",
-      "sha256": "f87322c8f65522bcba3b1dd83f084628738873f6bc4cc5aa4ddb428adf02dc03",
+      "sha256": "80abd40783a82ee8f51fd269a81166ada57b9b23cf95f677bc2b0e0ded0c79b4",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-001.webp",
-      "sha256": "040e0196c3d90da4fa92e6649d8d1e9b1a700a6fa66d65d94870d1e1200da20c",
-      "status": "approved"
+      "sha256": "a97a09ca50f798fca4ef65b091d62034aa3b71866709520823d101f0d9b9cfd2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-002.webp",
-      "sha256": "68fd7bb4bb19f6d58cda7c9a7a0d3fcb100340be000c6a4f2eb69f834774ade7",
-      "status": "approved"
+      "sha256": "525cabec8f5ba9d98c018656bf35d71d9abc8e9d7402c88f548cb39b38466950",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-003.webp",
-      "sha256": "dd4015d6347445b8bfc35403143f6dad9a03386f12611092911a588fe6071204",
-      "status": "approved"
+      "sha256": "15a77c14f2bffc987c27b819dd81c618adf10c5fd9ccde64ab214a6cdc384757",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-004.webp",
-      "sha256": "be1512281923079201e764d078c8e68413bfd7dec2b6de9c1f77af3b600f2bbc",
-      "status": "approved"
+      "sha256": "41c3cb8d8f7b8d87935d22a0af15f8315444715449ba50e44469dfc1562a0402",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-005.webp",
-      "sha256": "a13dd9d514910f3e4b9278694ec1401704dae094a674f4863c3554149432ed3e",
-      "status": "approved"
+      "sha256": "8926597c1bbcc7e46dc175ff810441b4675b6f65b8bd578c8bfa9260a483131e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-006.webp",
-      "sha256": "702ab01f1a5cb44662b702506d561c4d2df4138a8b9a070bbb55f809c2fe021a",
-      "status": "approved"
+      "sha256": "159f566bb6cfd8ef6da7d9aaabec72c2e5b92a4a38224368499717c9271b3917",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-007.webp",
-      "sha256": "d135795c9ce277eb78ea715c9e444ebd95723a666373b14c8c906e026dc31226",
-      "status": "approved"
+      "sha256": "7f7be5c9b1a002d9fd5063902a499cd977de28d9fee1ed949b9bb0646b22e694",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-008.webp",
-      "sha256": "e86b44ae9ad4eaa7055c81f190ae5a01928aa1e6edf22d040669b4553bda8a4b",
-      "status": "approved"
+      "sha256": "fe4ef00123ee4cf934b7dc74382f81a8d71e2fa5431b7334d251a9077b9689c8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-009.webp",
-      "sha256": "f2ca9ecebddacdf5d6ad5739cc72d930a333c1fc20dcec0b971d03df5f8d7e41",
-      "status": "approved"
+      "sha256": "c81cef76877f382d41f2058a546dd632b3f12efb6d4dda3879c52b090ed65e98",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-010.webp",
-      "sha256": "0f843d9c9bcf25d5ffe104aa3130809e3d324c212c3a3b01271eaa456e486f70",
-      "status": "approved"
+      "sha256": "2a09641b4252761061bc6307e81ceafc5f1ab444747f04d129298d6ca706a5cc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/cover.webp",
-      "sha256": "5cee1076f111bc73e939e6631d2c4cfbca8afe3714d599b294c0e678e7c0a577",
+      "sha256": "0112d5cdec63a5d3a61b539442adae4eeea8a42c79cc88b699ef80e38d298c46",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-001.webp",
-      "sha256": "e90a52b0a42368d785059230751c09f9774927ef4e7bba1fbf81768d7f220445",
-      "status": "approved"
+      "sha256": "00b4f635aaaffe6cf5eb128e88393a88cf69916cfee57295226941b453b0a2d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-002.webp",
-      "sha256": "6e84732cb1e156671336f0253442f71298ae0561cae9c0588a701c2c699a9ead",
-      "status": "approved"
+      "sha256": "104f087beaca86c9b2334cb68e0146050efc1f23ddbbb74b58275060da2e5dab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-003.webp",
-      "sha256": "bb9044de063d396233aab881d27b27b6942ad0ee3f4c9f061e63dff74e21c830",
-      "status": "approved"
+      "sha256": "ff32f100a1beaf887136685cce2d87d9b1be55953dde5af595174fdbe1804afb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-004.webp",
-      "sha256": "118290f32cecd68b980818d84599fce3034b4c61122bc01b1bc9f4ecfe2a8dfb",
-      "status": "approved"
+      "sha256": "db13c11817a2c09352e00b5a057db35bb9b19afe20397d6b99093139837d2367",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-005.webp",
-      "sha256": "f90cb7e0c27a3f5523087450c5d418807dba87c3999b532ca831cca7349da3ba",
-      "status": "approved"
+      "sha256": "ee1df7c58bc9534c6c144e1f5634c7f0169b2d3a5e053e5beed01d0ddf67a7d2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-006.webp",
-      "sha256": "26ff068ffeb76fcb102e584de9821481cca33c4fa8cd5495de95505a231a07af",
-      "status": "approved"
+      "sha256": "539ee12ec568abe7abd8f9d36ec45f6f9b1932166f84631571e3879dd2245148",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-007.webp",
@@ -16982,18 +17847,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-008.webp",
-      "sha256": "372a91149a9c1074f8497440059690245562bd7baea7cf0d73b6323915322d8b",
-      "status": "approved"
+      "sha256": "6ce3d20c3f19a2eb38c17157ccfc2a76b3be9a631ee27540e7f28a5529f27220",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-009.webp",
-      "sha256": "0986c27191c428d3d52cac9d1aa6f803514215bb62ce552300a94117051bd602",
-      "status": "approved"
+      "sha256": "76478b81b335d7adc35a880ee47a74f3ac71c872eec31962d89edc2dc9a6e57a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-30/page-010.webp",
-      "sha256": "e379da456593aec6624b6021ec58d79226135a0aa3e375547b93c4413ce4bff8",
-      "status": "approved"
+      "sha256": "d3a49984717b681d3e15b93a5666727ed64a4273f2c68caf0b863ed1a0a2d077",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-31/cover.webp",
@@ -19396,6 +20264,84 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
+      "path": "/images/arcade/drum-trail/bouncy-walk.webp",
+      "sha256": "6835b9e1cd2302ec6520129824b7aaf38eb8e3198d9cc48bfc983975ee1a9e7e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/drum-trail/icon.webp",
+      "sha256": "bb17607daa96ae8beef4b96c1a678311a05eeae743ddf1fe3cad1f66fe6aaa67",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/drum-trail/props.webp",
+      "sha256": "cb0eb731d70b6fa344ad01da284e8017b01944371c73b6e71158ad3878591fe0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/bridge.webp",
+      "sha256": "5344683a4dffe5a04e1e954208f97a26c0b1ba1be4e07515bc94455a4faf28d5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/cat.webp",
+      "sha256": "3382b934b2937b47e937f4ab3bbad09bf3b9ef35aafba239a4d1cf3b77a17927",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/dog.webp",
+      "sha256": "3e9182642c63b8e380254be12b32df5551ea3eb0072ab36e20c2988ba4676f03",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/duck.webp",
+      "sha256": "1c2c76be55333810efba17be53886f12eaab84c228858b958b22fd8006103ffa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/hen.webp",
+      "sha256": "2292ee443d31ae689879e6e19247ded0ce0b9f982fc7d5d16daeb1211ae4f4ba",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/lantern.webp",
+      "sha256": "7084fd189e13282a36ea2bf50f2675f6fc8337cb4498f6e6a1b9b7594285016a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/pig.webp",
+      "sha256": "b06928fb003e4e185403f4b98d2075b55a0666154d67c916f1aa09b8d01ab33d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/rabbit-eating.webp",
+      "sha256": "b90d08af522c5be454021e7e1071e4416e5b38664d4f729204d195c2cda38e5a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/rabbit-jumping.webp",
+      "sha256": "064dce80946f9868bfaeab19c8849a7b12097e6f73e1fd05b82727a74e68dc3b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/arcade/lantern-lagoon/rabbit-sleeping.webp",
+      "sha256": "acf0d95212fefa794fa31fc1bc945e9962c5a1dfc95416ba93ff739d3d8b60ea",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/blends/act.webp",
       "sha256": "54fec9e4fd6716fc009ad30db65e4951b36bd31ad934ca7c106f7d4d7136184a",
       "status": "approved"
@@ -19482,8 +20428,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/blends/flag.webp",
-      "sha256": "8c5a7615ca14f0e46e64047c42fdf19a973fc78225794f67b3c844a8452cb94f",
-      "status": "approved"
+      "sha256": "0882325bf7d187ff0b443ff466bd1ab19a1e52da5524dee916e552e192f91847",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/blends/flower.webp",
@@ -19602,8 +20549,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/blends/shrimp.webp",
-      "sha256": "c56fec72972f29ac4e0f7006a26457734a99e467be6e9451be5a1e56222e766c",
-      "status": "approved"
+      "sha256": "37e0959890619882d90b44af2ed666319fca52a87c26469a33a40841418c7f9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/blends/skateboard.webp",
@@ -19907,8 +20855,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/digraphs/thunder.webp",
-      "sha256": "978bfbd99cb3179024ac1683d8c4d443e9fd4e21843f9844fce23610b161b519",
-      "status": "approved"
+      "sha256": "0a3fc7012ade1f58652dd7a0bb0ca5570d7d7c769d2e7661a0c2bbc0198e2886",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/digraphs/tooth.webp",
@@ -19917,8 +20866,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/digraphs/trophy.webp",
-      "sha256": "2c40acf898fc9c06d4f20e296daec6991576f500e4b1566ea4542f274678c41e",
-      "status": "approved"
+      "sha256": "a031493f5609dc3360a0091202a3456ccc48f4e85460b8f88b858a4980bb5ca2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/digraphs/truck.webp",
@@ -20011,14 +20961,21 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/generated/concepts/bright.webp",
+      "sha256": "040b72de3a4410fd848c7bf64dac02206c783f561657623e489b2a193cd19c86",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/generated/concepts/clean.webp",
       "sha256": "aed525e2d0d88791fad16822c3f5b1ec195c6abb33ada1f68e40bfdf8eda858d",
       "status": "approved"
     },
     {
       "path": "/images/assessment/generated/concepts/dancer.webp",
-      "sha256": "8186dce41b43d36093ede1401413461388d60b9e4db6af14cd8db43f221f04da",
-      "status": "approved"
+      "sha256": "946bb8992ed0aadff2577042370b41cb1fbc2a49a0a243e6f4dc8c78bc17b3ac",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/generated/concepts/dark.webp",
@@ -20226,6 +21183,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/generated/concepts/write.webp",
+      "sha256": "324ab1e3675ee79844c8cb9092568b655622e4d814ad7ae610c25cc4291a2364",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/generated/concepts/yell.webp",
       "sha256": "65592e778f0ece01d27d27239e8d7d0ec5ac29b1b593589027d6b1250f7aa247",
       "status": "approved"
@@ -20377,6 +21340,18 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/generated/initial-sounds-l2/underpants.webp",
+      "sha256": "6df15975149d62f0b81aae07999a0411e2deb464eec8a704ece62a6630f7f152",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/generated/initial-sounds-l2/undershirt.webp",
+      "sha256": "d6073044303d658214b32e65aff0354a7a54e25be0b2bf9dd460fc7d18c5800f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
       "sha256": "04d05dc2872262ce929e9f346b214477f4a74f5dff3cc55d263a1bc1afb70199",
       "status": "approved"
@@ -20410,6 +21385,36 @@ export const appVisualAssetReview = {
       "path": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
       "sha256": "e8b99649f9ef0815ce57f6dd69580184ce590c6108462f57101e9d128def252c",
       "status": "approved"
+    },
+    {
+      "path": "/images/assessment/generated/phonics-quality/bun.webp",
+      "sha256": "ff5be520bd65a543e01003ab574ec6b735c4cc7f795d4fb62be20e107d18cd1d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/generated/phonics-quality/dot.webp",
+      "sha256": "603582fa22663270f5ea2f25f044bf1f56e62c5cf77ffe4b88fd5b7ff3befe1c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/generated/phonics-quality/peg.webp",
+      "sha256": "e9bad7b777a95755d0458ea61622c63564dcfcb40b2da725bc105895b61d342f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/generated/phonics-quality/tin.webp",
+      "sha256": "56cef46535373a50fbc7e8b4ea0372511269cf04965f447ca13bb9f2e0b50b23",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/generated/phonics-quality/wig.webp",
+      "sha256": "4c4e86421671c78a3764e074a79c855f74bc23b7d3aa452239eda3dd5d10bad4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
@@ -20862,6 +21867,354 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/grammar-scenes/apple-between-cups.webp",
+      "sha256": "aa651a1a13bc7f23caa9261514ad4e31aa84008fbaf386366ae69c3d1c8bff9b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/apple-inside-lunchbox.webp",
+      "sha256": "f74c4495f2c292b847d962564ffc88bca26908366fbda40d347c2ba238c8f82c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/backpack-near-bench.webp",
+      "sha256": "c38743dd11408b6d0f14caafbfd47d6a134c413a9e2f401db78e4c35ad338e5b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/ball-below-shelf.webp",
+      "sha256": "4d7a3add30046d584126fb2f71a6b7f6281be36f08fa4d1efda7f0b987f8f36f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/ball-between-boxes.webp",
+      "sha256": "c43feca23a01029596cceea1159adfd09e4f32212ca6bc232bf5c833126c9da0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/ball-outside-basket.webp",
+      "sha256": "bd1c455e479d31d9a498a37151e1ca81acd00476c75366193f1e56be29730a6e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/ball-through-hoop.webp",
+      "sha256": "3579a30dbe5ba95ced4bd7e4fefea6b40af52dc4c3338d2c5ba6908c3be34928",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/ball-under-bench.webp",
+      "sha256": "d69926fac0394ed844dd240ea01d899f238b13a144529b1e61fdfa87c284af19",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/balloon-above-child.webp",
+      "sha256": "5569f36c75d35206fe541a99545f01ed29a0b735798965917793d777d083d935",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/balloon-between-kites.webp",
+      "sha256": "b41e98a6cf1ad4e4d02454651c75733ad681a6f628ae93003af39c86db54b3b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/bicycle-next-to-lamppost.webp",
+      "sha256": "b63ae78db6ae7bacb5a29b5669d7df9e8954c4e3c893a3ac4754e84d718bac95",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/book-on-shelf.webp",
+      "sha256": "749fda125bc5b556350a694fdefc5b7c0a7346802f0a23d7dcab8732a4fd0d0b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/bridge-over-stream.webp",
+      "sha256": "b6bbb6c8b4cce91796fd14c4eace4367e8852e04cb3cfab5959c8e5d9404522f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/butterfly-among-flowers.webp",
+      "sha256": "8fb21337c2dd48c1851e038ed0346b64e5b3e3b46318d0d45d337c26e7a2f634",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/cat-behind-sofa.webp",
+      "sha256": "ce7345d322cc0b4bab51fe169a2723cd2cceb18a91eda1536f2cde2e2d6b110c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/chairs-opposite-table.webp",
+      "sha256": "f2d9bb98c6acba9ac68defd9a8bdea5c2bc7e446892a96f8451244e22bfe0382",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/child-between-trees.webp",
+      "sha256": "80dc3f372e6403d74effd176fcd9a1db84de550744f053344e490803f18d1dd8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/child-inside-bus.webp",
+      "sha256": "5f6cf7fd62c665ac08957f7065ae90f3e32092ed92ca1bd9ae2dda8dbb1ba332",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/children-opposite-net.webp",
+      "sha256": "5e0cc498a5692a47c8b9c26e04731ef8315a46fbf2e713b0f2df46e26822d658",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+      "sha256": "e8abc8c6e8aeb09413991421a0bb5884d03e272c9c8e33909095438cf04dd989",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/dog-in-front-of-house.webp",
+      "sha256": "532f7c080e0d15a9eddb24a53e436af306a65b91ee38ef65343abb2673fa78b4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/dog-near-doghouse.webp",
+      "sha256": "079a94fc694c4ac62dcc4965a8ab875278ab67de4f694d0b2f2263786648696f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/dog-next-to-bench.webp",
+      "sha256": "0e8075f67a649e2397a068b3d13fc1a7a67db5234346764d2f0bf3e4c23f186b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/duck-among-geese.webp",
+      "sha256": "554442ce0e1c34b8a1d44911756b4e8605d0ce1c5d21f27cd4365c0f9dca4490",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/duck-outside-pond.webp",
+      "sha256": "a2cb43ca310b27e93092fdc91b8945a90a6aa3c0ac4889f9ba10b2c2ff4d098c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/eagle-over-mountain.webp",
+      "sha256": "232fa756e9f3f463fec2c131eff743a18c0f06cbf6efdb6aa195ecaaf544ca07",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/fish-below-boat.webp",
+      "sha256": "1fcc27deec4c932c69152f515bb30375a85b9714092e0fac17cd1c756020e6a3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/fish-in-bowl.webp",
+      "sha256": "7241c66f7eee288762be8d27e2a534518129ed3ddd816fe1622d4612dec1918e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/flower-in-front-of-fence.webp",
+      "sha256": "e545a3fd71175fcab6d35acf422e0e3b8f0d1a290fc0905859502667c7a058fd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/football-under-table.webp",
+      "sha256": "10c70ef95c253fdd97c1b161b2e019fed2816fedcaf0ddf0a1badcbdef6a1091",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/four-pencils.webp",
+      "sha256": "a2c1c15b1ee21bb84ba9f44c647222246ad2d085fd2ddc5078014a9caa3db7f8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/hat-on-head.webp",
+      "sha256": "81c071bb2ab4d748c9723a445e2f317f09bb59b8e504ebab842c016130d966a5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/hat-on-stool.webp",
+      "sha256": "32312b9f57a4ad19b6e2e994ffb349f4855dbfe04457d888aae3c52856cc81f1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/kettle-near-sink.webp",
+      "sha256": "3757acd3fb3125c8cd6df5021bde897c5fd9bd60e2d98536dbd71cc3ab31b20e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/kite-over-pond.webp",
+      "sha256": "be5d2468bdbfcc76ef71c2b2e99fb16062c4edc9b3cdd3a83ab48a3d48e09e71",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/kitten-in-basket.webp",
+      "sha256": "90c9590ef82d5f511e128b0321f0530272cad1cde66c21ccd0d169df531f2850",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/kitten-inside-tent.webp",
+      "sha256": "babf53de7730d149c3755ded2aa6b719135aaa9ec093412d4faaafe6664f205a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/lamp-next-to-bed.webp",
+      "sha256": "a39883b258154c9197c5e6ad8ba52ffe14eff72bdf50f1cb54441566ee0c46ce",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/light-above-table.webp",
+      "sha256": "5271645bff9c6cc6a35a7f5761586754489120b57462a5aa57f111ffa39246c2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/mouse-through-wall.webp",
+      "sha256": "e4c10c9d41799cd3b94057f755a7c9d69024feda911ebf605031b7a5ec475cad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/path-around-tree.webp",
+      "sha256": "f274cdade98413256132ef58e9b35344d0710d12157fde536dd1cc12c7ba6cbf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/pear-among-apples.webp",
+      "sha256": "72556474b1ccd29073bfd0930af679be6702ca1f808b0a76a44a45fd4e9f7d87",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/pencil-among-crayons.webp",
+      "sha256": "f1e5829c09ff4f95b31152135b1486972c8f95092859b6d24e08efe153417853",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/pencils-in-cup.webp",
+      "sha256": "1f91b5cdec00ecd11d285c86e4dfbf6ff2d02083e8cb3034795333814edfcecf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/red-ball-among-blue-balls.webp",
+      "sha256": "ca3a6f9a8667bc16545dfbbe60ccf1d0b1aa9c979dd9dc5dd4f2f1a60058c4ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/ribbon-around-gift.webp",
+      "sha256": "a0b70fc62849c6660e3e8c43df345fa26fb0da62dc8e7cc021ab689105b326ff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/road-around-lake.webp",
+      "sha256": "b182b29f65c734683f927362b945d125649e733b429364ca31904fb021928fd9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/scarf-on-chair.webp",
+      "sha256": "ef67a3bc828ab42c5456fc4d51ad2c85c4edc1b16794465dc4889ea2b09752fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/shoe-under-stool.webp",
+      "sha256": "4d9b1bb85c501321e6312454d27b6757d25a3b0686af7d0735e8fe6972c48c0f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/sun-behind-cloud.webp",
+      "sha256": "7d1720a39f141d953271987a0ca036f54e5ca77f019d3f4bf89dcca6dd5cbd66",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/three-buses.webp",
+      "sha256": "c65c38656be63a679f1208d9e529aa50c6617609a83a19abec9042b579324fdb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/three-peaches.webp",
+      "sha256": "3e78edb3649a594ce8e4244e8502b5abf34f0cc7b7b2fa225b30fbab08d95071",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/three-spoons.webp",
+      "sha256": "a7cd10e24226d6102664019e2b223d02e5eead0c8228a40bbe1de5b5a3ee8916",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/track-around-castle.webp",
+      "sha256": "1de3dfacf44649dd8d10fb9e387ba6d81980f2c0ccfbc077246d7bed1e40b7fe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/two-benches.webp",
+      "sha256": "0f998317c23d5ac70d44176d992ddcc92d26d959c0691e76ed4154fb869cb0cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/two-socks.webp",
+      "sha256": "6300a54bef4e27ce43196f4be96cc0026c2112ce5b82faf1fc95245cd267f3fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/water-through-pipe.webp",
+      "sha256": "531bf7a603d2a7e6d7c0480719f3295606dcc11cbfaadb06e23a878c667c0f3a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/grammar-scenes/wheelbarrow-near-gate.webp",
+      "sha256": "21cb36a55a26c349b6c22c3e04b5860822cd6c8fdbcbdac56b01712cd301d143",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/hfw/big.webp",
       "sha256": "eeaccfc94c9586628acd4f05518f043235413089b53798fc3b6188715656f4a2",
       "status": "approved"
@@ -20890,6 +22243,12 @@ export const appVisualAssetReview = {
       "path": "/images/assessment/hfw/open.webp",
       "sha256": "3efcaeaa7379b4a22b37265400169d1678f00ef5958503a21fc6e34679997ce3",
       "status": "approved"
+    },
+    {
+      "path": "/images/assessment/hfw/see.webp",
+      "sha256": "e303f796cdbffb161c715e73be3fbb333e180b92d9fa8108e05bb2bfa3840840",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/hfw/up.webp",
@@ -23063,8 +24422,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/hfw/variants/hfw-76-100/thank-l1p1-02.webp",
-      "sha256": "26e280c7d6a36a3c66ab319f38b16470bfed9188c2ceaccd1697cd6f4c39ca7a",
-      "status": "approved"
+      "sha256": "10505cca5df49abb9228d143bab7df1bced998ea7c2e0d9589587b0a486f2f6f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/hfw/variants/hfw-76-100/thank-l1p2-02.webp",
@@ -23167,6 +24527,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/language/variants/antonyms-synonyms/cry-weep-01.webp",
+      "sha256": "5ed3e49b2fabb87cf1821b6ef4496918107b0b8e3bd6ea9682c90def75f87123",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/language/variants/antonyms-synonyms/dead-alive-01.webp",
       "sha256": "1a4edadda2ef235d9154a080a74f7dec36f3a458ac0321e88eabed614ab2190e",
       "status": "approved"
@@ -23188,8 +24554,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/language/variants/antonyms-synonyms/eat-munch-01.webp",
-      "sha256": "1535b15008520f6eaa544c71d4960d62ed600c1b9283e658d67e85ffe99a6e50",
-      "status": "approved"
+      "sha256": "5e798540bd23772dd7dcda8baf86f7831a5561c452db364e11334d21d82d3dfb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/language/variants/antonyms-synonyms/false-untrue-01.webp",
@@ -23637,6 +25004,60 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/careless-01.webp",
+      "sha256": "2e0d216735a1556170b496b11012f899ee93bd1a1d5d43f119c8db38dd40ab70",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/dislike-01.webp",
+      "sha256": "51ecaf17957d2e65defa4c077aafdfc71b65d7d74f742a134aa0c7ac371a0260",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
+      "sha256": "fb167cd605c74831efa97902e8302ae2aa1c7e68c9916d81560131abe098453a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/helpful-01.webp",
+      "sha256": "e5e6ea9802818058e897dc4d76d1d0f041e52fb766463eccc3c5965a20eb2375",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/reader-01.webp",
+      "sha256": "951911b4eb6bc4665eb8837b0339edf20a46e51b8f146c0f3281a903907490e0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
+      "sha256": "da16e842bbf677cc8cfd8d576b04d3d3a8d4aaa64b573a9e4e14131e68587241",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/unhappy-01.webp",
+      "sha256": "5b15a4385949bdbba877060499766f5d7c4d95cad4a632c5efa81ad1abe40abc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/unpack-01.webp",
+      "sha256": "7937adae29067fa2b9efc8a8b2c8699959316122f8591a978d7acf65163a7001",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
+      "sha256": "026e755a8a266c056298aa48fa14f4a0bceea13d38c3f0ac570aede5f3bfdf7d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/language/variants/prepositions/above-01-star-tree.svg",
       "sha256": "b3225559db0d4710e8b16539dfe3d2e84e871afe92129691619d5bb873af5a7c",
       "status": "approved"
@@ -23762,6 +25183,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/language/variants/prepositions/in-01.webp",
+      "sha256": "7f2dd1df23ff3d32a7e1ffad6aaae503cd8f781dd9422b75141fdc47d2ad590d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/language/variants/prepositions/in-02-fish-bowl.svg",
       "sha256": "26b8087a271e75e085d71aa62add2bc02bfc23e27eecc30dd82daacff0d26bd5",
       "status": "approved"
@@ -23775,6 +25202,12 @@ export const appVisualAssetReview = {
       "path": "/images/assessment/language/variants/prepositions/in-front-of-01-dog-house.svg",
       "sha256": "a3dfeaaa5ff957295c76bdf8ad0a5baa6722e601463fd3ebed5e1a660fc6d5cb",
       "status": "approved"
+    },
+    {
+      "path": "/images/assessment/language/variants/prepositions/in-front-of-01.webp",
+      "sha256": "f1a96661f6480517937cf234b87fce0b89a518e627f22f368439609132071150",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/language/variants/prepositions/in-front-of-02-child-board.svg",
@@ -23835,6 +25268,12 @@ export const appVisualAssetReview = {
       "path": "/images/assessment/language/variants/prepositions/next-to-01-pencil-book.svg",
       "sha256": "20e560561c3f5ba830b6a57cb442bec704c33ba0a927893c8c0686723056b419",
       "status": "approved"
+    },
+    {
+      "path": "/images/assessment/language/variants/prepositions/next-to-01.webp",
+      "sha256": "cb512b29bc4855046f1a7880337cd7184581c2fe2dcfc46cbfba3947e61316c8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/language/variants/prepositions/next-to-02-cup-bowl.svg",
@@ -23937,9 +25376,1582 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/assessment/language/variants/verbs/bounce-01.webp",
+      "sha256": "437a3d6f68d96f1655a10e844254c57181abdefa5ac510ab861a0598cb38b860",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/verbs/fold-01.webp",
+      "sha256": "6632ac69f7886fcb707e76f73f81040e720263bce4bc465a464117de291bc789",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/assessment/language/variants/verbs/stretch-01.webp",
-      "sha256": "0600f0df9c9ea31cdaffe7c309a4de49c0a1bc57f2c57e33e092815c2422e064",
-      "status": "approved"
+      "sha256": "1e4624caf845e8861d096f24e256e2d2ff33116e048bf219bd24520f2dcdfe5b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/language/variants/verbs/whisper-01.webp",
+      "sha256": "005db891b0d1f4af9fcfa48f4761535d9e9bdaea5b9cbd8c386ca9a0de4b86c9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/banana.webp",
+      "sha256": "73075c0742316b6da70e6fe1d68432d0d240a00f4f2a5a43eea8d8e325f37161",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bat.webp",
+      "sha256": "33bcf55038c66242d9ba4b3605bbfa0d924a77f812137dcfba7438b0cb00d11f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bed.webp",
+      "sha256": "ed15e391665d3c919ff459420656f05c3e022453597a97e5ede4995a67f6d465",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bee-flying.webp",
+      "sha256": "83ce538822ac66057c7da20d38467199eb89f378f82ff0630990a00154195d80",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/blue.webp",
+      "sha256": "8457354ec88816fd534f85db3dbedbd5b3bb32de2ff51b6728aab8c1962c5a4e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/boat-under-bridge.webp",
+      "sha256": "13158311e109784cc2a6aac66f886477ff16a7784d6b789e0b07827de3d11f26",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/boat.webp",
+      "sha256": "ca5b87e67187a28a860987c0992d84654a21499175dba913d3a34e680cc6af3b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bubblegum.webp",
+      "sha256": "705c5004f353c319a2cd9714b0ed74b9346b2f1af6e5cc00e98ecb60cc77a6dd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/butter.webp",
+      "sha256": "bd56d74ea9726c8aca8b21c6ebabe4a78bc976e457ade53f7db1a2adb7107585",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cake.webp",
+      "sha256": "175b3a95f433cd6160accc9540168a1ea57c07ed0501e332a720adc7d8ed5d52",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/carlos-with-watch.webp",
+      "sha256": "d3524e903fcb18911d2023b7a4ef5af351f69cf486d921a26dc569115115c583",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cat-resting.webp",
+      "sha256": "a8bf5442ff0a172b05f7748693d2bc7ccdac4640d410c22a285d7cdd67f8058c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cat.webp",
+      "sha256": "315074e9a0cf667538ad259e4ec92e49ae0880a863e76f528783ec62b31a6bb1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cheese.webp",
+      "sha256": "914bdb9d9c11b1fe52243dd06856504d2eeb77658c2da7c16f032c4182e07dfd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/child-running.webp",
+      "sha256": "f9bd570107ed5aea48d6e44a760376b75cd9af7f115614930eced3f2ba79e00f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cube.webp",
+      "sha256": "09fd68eb7c05e8bafbf5b301bdd232e4b09e807dd2b1b1b6cccb32a167b114d6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cup.webp",
+      "sha256": "70547a2c4d3f8d7c5703c8f575339efa9f554d01870030eadea5efecc1b20042",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/day.webp",
+      "sha256": "3d0fd9745e5a5586d9f64ff885e007f4ef4df3fc02147088ad474c759f980969",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/dog.webp",
+      "sha256": "06919b84a1419a4d1607b67dba0e472bf767e4835e73c460daae0537288b87d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/doing-schoolwork.webp",
+      "sha256": "702ef6709779295241a39c4c7a09624033af28222540aec9a30d340d55a78089",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/eat.webp",
+      "sha256": "f32ac20d8a359f4dc649da0e3edf88104a7e77ae223feafa8546f0d9e7703898",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/feet.webp",
+      "sha256": "5196d1c63c9e2054434a02240b1c8c3085812184ff50181dc4db7b392a98a0ce",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/five.webp",
+      "sha256": "f9865764c7a68774bb3705927bf0aa37d6a3de421a6fc452fe5d7574f064f239",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/flute.webp",
+      "sha256": "410711107e0d290493887fae7d400137e567a378006f5a10f295d4a3b974ceaa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/friends.webp",
+      "sha256": "5b2e4e6cf56615662b02cfa18e01b7325d6a23b88c8d855e18273e1c3cfe4728",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/frog.webp",
+      "sha256": "4fee0657a9c85175138e3adc3222fd6f450f0bc499b0a87bac3621639139c3ad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/hammer.webp",
+      "sha256": "afefb366c009d9165540aca03574ce5e3f2600745e71cba7fcf1a515a5b1f098",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/hen.webp",
+      "sha256": "66bddb3fc3f51a02fef1357c66ec3ff618b13ed6f8f2c7b5dc9a23576274e735",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/hide-and-seek.webp",
+      "sha256": "1e7a7fa015bd90caa1097aee9825ed25326e25f5f1dea63b25924e9b3b1d737b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/ice.webp",
+      "sha256": "115b03468a913af6173b7da18c87d4d04d6e620fa8a47f1f5d8751f3055d888e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/igloo.webp",
+      "sha256": "bd165db9f46fe8b4c406adb45dc9c515e2c5e789e09be81df626daf634ec9a0e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/legs.webp",
+      "sha256": "a974af3abda5fb303c400c8d6b4813df5ef0ad9761b57cbd4b5373a6eb284a83",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/log.webp",
+      "sha256": "f554b0fe4454ba2e12c41e468fbb5e61e5ff3d48f68baa93c7d0b69c9965bc56",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-in-front.webp",
+      "sha256": "31e32b4528c7662c46abded2b86c3234a6add8ac694d85b52b8dabc6776d339a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-inside.webp",
+      "sha256": "a8faad3f5db1db5c7b0c7fa7225c5832b638906bddca0427348ec946759c771c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-on.webp",
+      "sha256": "77e07dbffd9ab63f514cd0469850c3b285bbe8b741aa2e8705fd9d981c1d4c64",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-under.webp",
+      "sha256": "401411ffe448f943244621108deafae3a291c1a996c4c64732bc1ea5613e5044",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/orange.webp",
+      "sha256": "fd759b52f8aee4b0e1b4395c7b2a17d2202a0926ef6dba9effdf7f1cc3d14100",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/pie.webp",
+      "sha256": "e1c0fb62e4b8782f42537b46596abe177de3cb0d289db12bdeb6c6115f076ca1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/pig.webp",
+      "sha256": "318732850f38bea58cb55f4c56523fbccf21f3e08644494f39aea9dd36f323f3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/pizza.webp",
+      "sha256": "3dccfbe1169807e2794a8f25f698fec486e68e73e164c5b0e6c1889d38b9d5df",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/police-station.webp",
+      "sha256": "d3a6e060982eb7ad0ac6679c0e8526cf2e132de59ff79baf8960fbb5bd5bb9da",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/potato-chip.webp",
+      "sha256": "1048e7fbf9b69ddfeee7bf27a958d0d520cacfb4f3610844c121633b3551cf7f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/rain.webp",
+      "sha256": "5d5cf9d82942a8449e710dbcdf7dc0d7678576f6663c5bf600edbeca25e891c3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/road.webp",
+      "sha256": "8a3c47c79e43ff45336b06235bb28fce86b1684f6024f6f1ce05819ac69c9665",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/saw.webp",
+      "sha256": "5b86671e36e689168b06a3470fd94af9ac6c8b579bbbc13cf2f92ad29ddf1abf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sky.webp",
+      "sha256": "6e7cb9f1a5176c6a6f72347de795bd66db345fa476105910758d8be12ab3fa1d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sleep.webp",
+      "sha256": "7bf0fb87208289befc05ce471cbb0802e4de509e019d03233e823e48c015b3e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/snow.webp",
+      "sha256": "e64a228150003ed975350fbe6b68d13668ad70cc91f1cb50c16b62c06720a6ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/snowboarding.webp",
+      "sha256": "dcb6ec1ffd53419b79b3c4929704eac72afba0daa10b5afcc9b02f44853a5bea",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sun.webp",
+      "sha256": "5bc9cf21dcb3cd9beee8705a7abaf7d1542f05a1e681a8664e0f4ba0e283b8d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-cutaway.webp",
+      "sha256": "9ddd0abeb76b1e2482a7cee65c90b528b3f8eede188540eda253583c8e5f5fe5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-on-bridge.webp",
+      "sha256": "79dd84df3351225c17d2f257ec085ff052d220c316aba8b5f6c2dfa93784e494",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-outdoors.webp",
+      "sha256": "fea216004482c06dcb120708da4a598c0b5c04153e0aefb7ceb097bc791f6f0a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-tunnel-entrance.webp",
+      "sha256": "8adce9ce5efbc4c0f7e067bd438885bed46c2bf58cecaab39134b68c2bb12d8f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/water.webp",
+      "sha256": "cd35ca8a515755748ba14be0504200a5a30bc6b924a6e19d8afcdb0f42943a0c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/wrench.webp",
+      "sha256": "54548c96ad88a838bf78ef9878efa8852dee3542e78b7329307d91e90088a4bf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/kite-1.webp",
+      "sha256": "be6e6d6d50ce412094acb909efef1a26119767a1930c1de68fd413e1ed87c1a4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/kite-2.webp",
+      "sha256": "04bdf77c98f0d12535b8263731e0aed0728aa5694439dcdd00bc195bb12d429b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/kite-3.webp",
+      "sha256": "fb3fcb52518ada1c89695ae0056b701e702d76d44c2baa17dd5ae599c0703720",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/seed-1.webp",
+      "sha256": "638154cbbbc48611da213be0cd5b24c124cb872b2cfad07219157121f77332c3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/seed-2.webp",
+      "sha256": "885c52aaf3c251ec0ed4ae765707649f388ef8bb1fb73a0d383814268836de90",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/seed-3.webp",
+      "sha256": "898d29778ae06198b76a11f679a1fdd2661142a54bb806f11d17b697ee6de85d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/snack-1.webp",
+      "sha256": "413fd6744bcec1069a7e9a2d052bcedf8b40c839c3b9da3a5c220a68c7a615a2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/snack-2.webp",
+      "sha256": "cfee1c5e5327c3a8153886d7be3857d001681107d3480cce3cac5080f74d713c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-interactions/snack-3.webp",
+      "sha256": "cafa2bc798b02675161f53fa2b02d4a7fb0841889d89a8c956139972429c87e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/beds-opposite-room.webp",
+      "sha256": "1cbf3e0a09a40077c9260eea7e302c5ad38e01edcc5720b4a81fcf0f7eb3ab18",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/bench-between-flowerpots.webp",
+      "sha256": "a03208509f3a80bff13cdd53791da47143cf55c875a09e8301e9e8379af7988f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/benches-opposite-path.webp",
+      "sha256": "2f122e9a7aa4ccb676d8173aaf9b022b9b6289e04bf3cd4e05197d5353538be5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/bicycle-in-front-of-wall.webp",
+      "sha256": "64900f7cd030f429b70f0433364e151f448e9ae4967970653d8345772bbb1eba",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/bowl-between-bottles.webp",
+      "sha256": "39036beb48a6ae6ea5a8007bd97fc8bb5bc13fa208c5b5b43c687b16b971c40e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/child-behind-armchair.webp",
+      "sha256": "d2b0bb7c55c850ee2305297cc30254c8496dfb7b7a244979b9740cb088905ccc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/child-in-front-of-easel.webp",
+      "sha256": "33843c83a6cbeb4cf5901727d1fa254c6fbafe8d002537cf804d8c4403b219d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/child-through-play-tunnel.webp",
+      "sha256": "1847a62b5ad175dc6ed498f831d78ddd73ec8ac8401b4813d8862cec1b0bb315",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/children-around-sandpit.webp",
+      "sha256": "7adbef21b047f40535f607ef8f209de10153373dad4fe2c813832fce2d8b4669",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/duck-behind-reeds.webp",
+      "sha256": "863230146de4628c16ad64a946ecc76f8e052807f053100179d3a75f7cb8eff6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-band.webp",
+      "sha256": "cf989619a94fc7108431803c82aa5f4b7d7cf1d4f80fe20a0eb6b4ebb9df04b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-beg.webp",
+      "sha256": "63621b11575f3027b218321e6acf7c3779fa8db9545089e071ec538657847410",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-bend.webp",
+      "sha256": "4b0a3f8af16ee420f0c7d2075e2ab03882c86229fa6e2bb7b3dcc45a8774c2b7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-bit.webp",
+      "sha256": "46b80555ee9ad301776499921d2dc38254c370527136070770b976a4f7f0642a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-blend.webp",
+      "sha256": "13c41b8f82b5f94d4c2590c93822366728db010d23cb1025364f7ced889524d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-block.webp",
+      "sha256": "a464bf284a83b4acac394c2d963a462ed3ee7ee75bc3035dd64e7089419f3d90",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-bolt.webp",
+      "sha256": "e4fdd0dc5d237a484bdfe2f983eea9824135b484068da752d9ef58a22da4adb7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-boot.webp",
+      "sha256": "810679aaa5fd8b24a0ba341afcce220f399e8ffe7cb447eae5a6945b83ac0bc2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-brace.webp",
+      "sha256": "a82cc12f02efb7ce456060633b8334bd43a07f823de1af47d4e5481a825fd6d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-braid.webp",
+      "sha256": "556f8e2dbe9b0cc18c09e189d56cf2b8ab9b2514fd415bae176a1ceb80dcdd81",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-branch.webp",
+      "sha256": "43f897a48f98c955f1c440be44d8be330a754db3471fcbde8fa369a51c489728",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-bridge.webp",
+      "sha256": "90b3804a71fae1988bbd04ca90dff8ef33a54f621f6b2a254b47d5185fdffed7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-broth.webp",
+      "sha256": "a98e97919186bb449decd595242c97de79eca2cb12602e71b1bb3084f66acbb0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-bump.webp",
+      "sha256": "aff720308f974ea7a9b891c37fe7a4d5301b9bbd3dc68e46e3fc7184a59c3b9b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-camp.webp",
+      "sha256": "309dfa4dc767a8e57db70f97ffa4e78d5a90ca93ba1d30ea09085ddadc3c344f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-check.webp",
+      "sha256": "4ca62b65840ae9bc4e449291e67a254e1d9e7a731f4750d04599e992caef71d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-chess.webp",
+      "sha256": "b12b96f87577872d1334adec2d756ebbfd527d706048df00ef867f521711034c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-chimp.webp",
+      "sha256": "8c060954ac10a93a8885a1f4da862e9bb4ca2512c1328948c2c90171b5cff7df",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-chin.webp",
+      "sha256": "017eadec1250b4ede10d64cc2f635c6b09ebba4675760145fad38d7507185315",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-chuck.webp",
+      "sha256": "1bbecee029b4831868378313136226989df7b808d625046f1b45fcaa8cf49765",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clam.webp",
+      "sha256": "af1b9adc45e21403e407e821e979271fb0da92bdd8db54987b6586750a9f9e60",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clamp.webp",
+      "sha256": "20b604a61cc173a00a84ba92cdce9d429debbdfc2a176c3f7633c23aa81a0b79",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-claw.webp",
+      "sha256": "b1b57403b4df42440caaaad0d6f3711ed41fe2613bd43a67f5bde8c0083ac885",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clay.webp",
+      "sha256": "e20023f61ed39ee806e44a35ee284be8daa7f4fe152564bbfc7c77621e824279",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-click.webp",
+      "sha256": "88469d7e7be0641779b545c112872b2b63b9d3d4f4d352a67791149d546473b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clip.webp",
+      "sha256": "142b282ac3023638d0a3603dd5d1e75af697bc7fc729ab352f74e716657a45dd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clog.webp",
+      "sha256": "3ff7594931de3587d1a705eb5520f5c166f86594e43774f77b30bc226e90599c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clown.webp",
+      "sha256": "275452679eca0fa8efcbe6721f3baf81c4ae39d758c5af861e7c7e17107238c1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-club.webp",
+      "sha256": "8ef41fb0d6d8d13dc3bcd112c2e73e3fff90f79e0ee4d151effcc09d45c73aa3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-clump.webp",
+      "sha256": "a29697ccb2fefee10e1fc7507694632b7c4882ea7d3b5b5931b7ce1f5a968983",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crack.webp",
+      "sha256": "65bd5bb7f8d5e400cb417262795326ce39c833a0fd28a06950ade5969435d447",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-craft.webp",
+      "sha256": "5f89237ab9ac046598e4db0c3b0240f443fcad2a1693464564d488178f0dd45c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crane.webp",
+      "sha256": "0bccc13f3879bce0d83e2b7cefded017dba4907cf0915711ec5bfdf2d1aee064",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crate.webp",
+      "sha256": "eb5a3ed51d29a75210e0a997f31bad2851a2c29a69d523f22d02de701235ffcb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-creek.webp",
+      "sha256": "8bc414a5f6531e127880060675f88243ac3eadd808928cfd888621d1d10b2f4c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crest.webp",
+      "sha256": "f69d8f9761967375bb5b19daa699f486e1d16427aa0545a40b38fd60275b42d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crib.webp",
+      "sha256": "fd71ec81011d386e439bd4ef0a604b6ab58d4627eff2897c0fc1f139e13f925c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crock.webp",
+      "sha256": "addfdc7ca2f44411f9e9d8fe29b9de0196dea3c9602d45005fc709bc3ab7f36f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-cross.webp",
+      "sha256": "a35648f5f34a0c20f448331aee5473d5c793a46932b38b5b56a11e165667d818",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crow.webp",
+      "sha256": "e4ed29f337a8a48846b64fa6d0dd3a2766f49d7331f4e549363c33339ade95fc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-crust.webp",
+      "sha256": "d786afb1c6f8c8ba9694395e420b7f3367bfbdede7d1557dde679e1c0a5889bf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-cry.webp",
+      "sha256": "8618f81fa04af708e552c99cf2a0759c8747f063ceebf0dcbeac2366b90b753a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-cub.webp",
+      "sha256": "995e15a5ae37de21ca6844cfaef1fc6d2d97c16e19f78025fc319aa531c44e09",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-cut.webp",
+      "sha256": "c4b3d6e14453ab544c68a117b56b5e377055983ad6be55830b7025bea4a49679",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-dent.webp",
+      "sha256": "09cf42c5142875be282ade11f8bbfdd59ba097c27018e274abfecdaef809a00f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-dig.webp",
+      "sha256": "dd3d9f21cb09a561ad5f60717e623e670bc15a87267fdcee414eeb008ab48a77",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-disk.webp",
+      "sha256": "ae3bb8f1583a3512a3606d6c8865518cd3740f08bb90456f7d630b545c546395",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-door.webp",
+      "sha256": "838d55f0a1e6106cf4b60ec82b638d01147216d3859e8bddc173af80ecf720c6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-draft.webp",
+      "sha256": "39a0f74717ff10075aa7b308fbb876ac192ef18223c0d0f2fee3ad08358bc9f0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-dress.webp",
+      "sha256": "0c7239fba6d350bd2952dfa70c44ece00617395475e272dd23842af8d32b7142",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-drop.webp",
+      "sha256": "d857faf709859d95ce08928446db77ac04fa2c1bc5dc6833e63a10e34ae4fd73",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-dusk.webp",
+      "sha256": "1d081ab9c79625f6b7bc65501a402cea6f73952d296bcc505441eaa8b58c5b9f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-farm.webp",
+      "sha256": "5b00260774e9456a3608a7830f87b93cd416c0c5abf5e66a9ca098348004bae2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-felt.webp",
+      "sha256": "b21b926dc5ef934a0a63337881ee6b85d0f66a72cdc47a010632145957baadbb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-fin.webp",
+      "sha256": "c1a91524b0b3a146e84de8be720b43f96546ad96f3ddd39ffe9858100b1bbbdd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-flap.webp",
+      "sha256": "d74d7e2a9f8c4c4814d6165add67d1628677dd5fbfc56def7afacb21f464d6d1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-flat.webp",
+      "sha256": "426fec4f52e2d6d587c3c90734caf2f560eb8eb247a99d1285f110e4cb855025",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-flea.webp",
+      "sha256": "9230d51dcbcece42cb832f1b7c877a8d4ef7151e5c137468841c24da56af1174",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-flip.webp",
+      "sha256": "eb1fb97e86b061976ba3c4f8a803a62e4fbd67c5dbc21b169b70c4858ab0cd98",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-float.webp",
+      "sha256": "b053a1472979888b721d83e989d111fbde3ccec20b92923101f4a8d1821832cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-floor.webp",
+      "sha256": "f194f22afd444885871a89c6d2d5bff4c6ee655e5f0772328bf678d15d25518b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-flop.webp",
+      "sha256": "34e658482582d293aaf84b14c660daf45a5fd9037a59922126fcc210f0eaa44e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-flow.webp",
+      "sha256": "5a5f61bd459589f27ec16c97d9b0dfff5e2f6e03fb06ab380e0c2b06e4ad6bec",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-fog.webp",
+      "sha256": "460fecb5b8805a0c9c645114ac596167eff70b9781736ed29c2c28a84f7a1ad9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-frame.webp",
+      "sha256": "0ec2a19932aba553afb1a645fa75a1a3ef0e0325e8a9966d9d60a625bc4e7e01",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-freeze.webp",
+      "sha256": "e914fec8de3a12bea3e08775ef9fcb9eb7193f9acb459ee1a260e0c05d31918a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-fridge.webp",
+      "sha256": "2ae7c4c2d7c02093b03ce20126119e0c6e1bd9904f7dec76816ddb8da7507374",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-fries.webp",
+      "sha256": "bdc5125d9352f84a3bc961badd2a9427e2e5eedadf11ef325c6fa078d6e1e706",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-frill.webp",
+      "sha256": "50540187178361de362979df385eebeff5f818e003cf59b0206cff87b99dbf47",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-frond.webp",
+      "sha256": "e28f5d5f70b3dce412d28ea1b30c1fef16c5089c89ecd1dd66de449ed10a5bd9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-frost.webp",
+      "sha256": "7c1ee0a738d9798e85742f581cb2434a8f6080132feffc252f1bb77a3b9740dc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-frown.webp",
+      "sha256": "996cb2cd679d7fc7ce34539d6a96deb5c66a1cdb7f8031d4f19d57b90bde76a6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-grin.webp",
+      "sha256": "5b716349486d1b3d8ac38199f1fd6fcae2b68e41be0c82e279c6ea14c95190f9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-hit.webp",
+      "sha256": "e00a9fda98e432694d3c47276f5c823feffa93e8b94609806fae363ab29fd000",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-horse.webp",
+      "sha256": "e05c45064420e351ce6a14481d82cce1f5d7783428e17219b64125e5036e794b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-hug.webp",
+      "sha256": "0383d318eba011b4089eae4a9db0aeab1beaa3e5c3a1d9e78e8fc482cd2846a9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-joint.webp",
+      "sha256": "dd24178fd2bae8fb8d2634137491c85286cce8f9c3312301d82446caa0be43f7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-kilt.webp",
+      "sha256": "ca0abd017180af88f289b871db133bda0fb7faf974afd0b3e46fb0d13f4431f5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-kit.webp",
+      "sha256": "f7eba4bd4c50aa3c85dc53072f6063b0bbb5c437059fefd491377c88a154fa03",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-lift.webp",
+      "sha256": "07d736704e13786957ddf9db41c065a78c43a0d58cd0a02accdb526a01de8f0a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-loft.webp",
+      "sha256": "e358ef4577d1b846935c4fd390c385de6f5871daeb0590def6a5ae7654fb058c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-lump.webp",
+      "sha256": "114377dd1e2605ce4db3cf948f9bc7e10e3173d6ba3a6307db3164eaf4aa20a3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-man.webp",
+      "sha256": "7285cc07426a4423d2eff7cac646131e9d7992208b743aef491c607ff406cdf5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-melt.webp",
+      "sha256": "c9bdb5e2791d5464449d73898170a7a97615e03cf98ec4673702fd7385293c25",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-milk.webp",
+      "sha256": "b190f90bb6fa34242b5143ca4d759fca7e57ef16a5b53f13e3720a20568ad4ec",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-mint.webp",
+      "sha256": "9a2370331e75d2a71a47d63864436b06a3f0772d52936dea10e562683321c8a4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-mist.webp",
+      "sha256": "f9ce0ea6fc52fc4813af07068952466c7323db25da005d8405e4b50077f74517",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-moth.webp",
+      "sha256": "b3caae39c07346183b59bd17c2d02884bf024290f60ee708ad9e814f57f8d206",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-mouse.webp",
+      "sha256": "28457050306c4e4b021ad4bb94d913171ec0424cced61f8d58f38526f01c1d7b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-pelt.webp",
+      "sha256": "e08412abcba89dc05a4aa3abc5863f177e31c1ec9e0da913d4f6e38df7665243",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-pet.webp",
+      "sha256": "8c92ecde5c1f5c5e59d1c89b439d60fa51e0ae5f4cee460972f7ff592c87e0f8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-pink.webp",
+      "sha256": "d368b6063c82efedaffca4eee882b96c827203bafb6404f915c1c074e7c69ce3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-plank.webp",
+      "sha256": "c1b2c341c717b4f00a93f7cd1bb7bd4b44253e131f56cdade0f8f878e19debb7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-plot.webp",
+      "sha256": "4adf0ed56645f0c66c80c81a78e3d3cf0fe4edf1ba4b2b5b8a37c9ad8bfc90af",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-plum.webp",
+      "sha256": "1a7f68f970346686cb3fa25d262ead1f7ded87cbd35f9f58e48768678161008c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-point.webp",
+      "sha256": "046def9beddd26b901ae05bfd8e90e4563d7c5f20236dabf79dedd91c2e9c8ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-pop.webp",
+      "sha256": "6901fcc9bdabba53877daf72586caba7d35c99baf633374912ce661211657713",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-pram.webp",
+      "sha256": "8c4a2a711cc909fa396033e9e35f9a139f8d6559eddbf84cd33331d625bf3fa1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-pump.webp",
+      "sha256": "52910a5abd974525db48160ba45ae2512e08a309cb8cfbfe5931cd9196ab1104",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-ramp.webp",
+      "sha256": "225319def24304b46a8e9f276438b2b204205b51eb5b9eebb6d58e2d36c8ed88",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-rod.webp",
+      "sha256": "1a06e62558247a905bbe642182ad19225ace254329b6d0dff6e939e610393f8b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-sand.webp",
+      "sha256": "a1c7ff8bc81e5803ed0ead685a2bbd5b0b806a325de69f3fa53fc7aa5839a2f2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-screen.webp",
+      "sha256": "344b37faec503b250e6510aaebc00ecd8ce225f37c88749c4670b34ca2ee4b40",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-shack.webp",
+      "sha256": "053bf75b99b3603854c8051a26c02bd562753bd28b1c98ba7f002554accdad34",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-shaft.webp",
+      "sha256": "61c1261ef30b03e341364c9a81f15872ac68dc185f8954b434c7779f10f521cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-shed.webp",
+      "sha256": "b8eff2504ef562c946feb5c5215e57516307bbbe9d9d79c5c4c4c299a2f63ec4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-shock.webp",
+      "sha256": "6b124cc93b5ca9142f579a80565151ad7d468707bab433fe905c4f5f51eae6f9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-shuck.webp",
+      "sha256": "6abaf80518a5158362a80465a88150d099d07c6128a2c4f7fb486f648ff23e45",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-sip.webp",
+      "sha256": "117211bea611a5b0fe1f08f8941df9d720abb6fb6fa4103d3874d01307522450",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-skate.webp",
+      "sha256": "c8d2022929f9d9bcaa4c32d19ad37f86dd41e23458a2a9371cc051c74a9fe309",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-sketch.webp",
+      "sha256": "9f2071f47c4510cf31308bf35bc0d0e4818ecd4074e3f1406120a8150af80de6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-ski.webp",
+      "sha256": "bbf56e4165faf9a8dccdc3834efbc977c2383c53e4b999203a837f9faa1cc624",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-skin.webp",
+      "sha256": "3a438940e0688324a8cc531163d2f1862b8708d64a9ee31c1b63f617f293a2fb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-skirt.webp",
+      "sha256": "9804b1fc1432f26f410103c0327480fc735f1d2c09ab6fac49df39e7fcf79a5b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-skull.webp",
+      "sha256": "23fb6bfb7182bd84efb1017cc229c87ee5c989ab4093480e0141c3ede61692e6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-skunk.webp",
+      "sha256": "a859df42160b14853cb5bad40b64f7e68ba7f8d8347b42394b4b1a93cdadd6ca",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-slap.webp",
+      "sha256": "26ef6778739a804fe27dfe1db999b756fe6ad8702433273923c49759ab809686",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-slip.webp",
+      "sha256": "a8532066df9d74958546c8851dddd22f0fa645a2fffbe1c2d6fcef13e89d24d0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-slit.webp",
+      "sha256": "10a640f26fbe1ff8ba6fc984d66229981f338e433d1dacdd112da30dfca6ea45",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-slug.webp",
+      "sha256": "f4980e557040b6744ec0761000255665210974a987908de2eae4c75af30a2150",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-snap.webp",
+      "sha256": "92d656093be31c44d1fbe7668c080bd9412e9dd966319f0b42c5e5ffebac3f68",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-sneeze.webp",
+      "sha256": "d20f4c68469ca4d27ac4b552b6df94515d6e8198d564dc585f39c7563fc74085",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-snip.webp",
+      "sha256": "a5c5283a5315f4e2fab397fd51bdeb2673144deafe68ed5d402995dd746dfc51",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-snore.webp",
+      "sha256": "329f7701f8db236d0e1fa9eefc5020470cc8ec4778379f8834b3ac31fc6cb449",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-snout.webp",
+      "sha256": "efa83f386e256b0de86996261b89f6c11832176c9269d5db9c5484eeb165381c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-snowsuit.webp",
+      "sha256": "97cb6ccadd77030ec6af6e0cd4e206a7e8ea24d7ae9641ea31345e34fdac25ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-soft.webp",
+      "sha256": "1af1a4091f12d467291d15f0fdd5ae1b9d92a408e343fc00a6126d3dd48f19ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spade.webp",
+      "sha256": "99b0701c4e3944b9b2acc5ca086ad2e3ae8e8d27b22141ecccdee70668d758fc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spear.webp",
+      "sha256": "912aff5725c5cd6fef0dfa5148af88dc69fdfae7f4f5252d89301077ff1ea215",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spider.webp",
+      "sha256": "a4f40f1ebf6d8079223a26135bb6b015398bdbc5fa7b7c212767af190cfa9394",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spike.webp",
+      "sha256": "a30dae5dd4a76edb68ceaf6307ceade7d2030d9ad453de909df6060ac41b06ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spill.webp",
+      "sha256": "b7813b7bcc7eaddbe074164cf619c1b61853e39261c84cd2f552acb8daa3ea7b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-split.webp",
+      "sha256": "eb567d2e4440cc3012aea98093140124c04160c7fb0d8296e36f8ae7cfa0e2d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-sponge.webp",
+      "sha256": "bc01efb0b76171da64b338dd6036ffba04a32954b71667a24f0db3c07ec20883",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spool.webp",
+      "sha256": "be239848eb4013ececb102a2fdee8735f37bf5a606bf83a5b213e4e1ed3ae69d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spot.webp",
+      "sha256": "e1ca2be8d8f842bb02da75b0d9ed15fc67a562ff467ea8490434aea284a1ce18",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-spray.webp",
+      "sha256": "49420e2e204016134bbb7cd9c9aed5a4043505970aa598f1fa4604232c2e2941",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-sprout.webp",
+      "sha256": "b4ae8b40a15ae9807741d9ebb8e1e9e4d775328551966edb7a80e3ed8b541848",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-squeeze.webp",
+      "sha256": "85030d2af799280c54a490c77607e55432057508101a03277f32c11d05e5dc17",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stack.webp",
+      "sha256": "d053bf3bd3e7d2f728273f1b8e01315e18673b732b6279e82ecec041b0b7e201",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stamp.webp",
+      "sha256": "f1acd4c23afb5e1fe722cd2402032aef5faac3e7c13f54e972bcd3ba6f188fe9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stem.webp",
+      "sha256": "bdd56b4b369598ed652cdf3ddf99a8bfee40f3da0ba1bb32f45fa05af4468fc8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-step.webp",
+      "sha256": "77ff01291af8a33316bc63c996cc590771dc9ab633398b6021eef3141d7c6636",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stick.webp",
+      "sha256": "e8a05228d08ce62cce81789f0207fa27abd849a0def0796aa6c9e3e2866f2f8e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stock.webp",
+      "sha256": "8c5a0d86966251452c737415529261d573afbc14380c46ca0f2a5919a45e7037",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stomp.webp",
+      "sha256": "174177f59a6d86ed550cbff37b55275fafcbae1c0d923dcfcb365a1a45287d79",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stool.webp",
+      "sha256": "750d480ffe77e5c852132b3a7d54826d693a49acdd7999b928382ec4a2741cfe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stop.webp",
+      "sha256": "72a60e6b57f5cf94f2a4b9bb54ee2766629e7c4c6d6c68fdb2219c1ff7a46198",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-storm.webp",
+      "sha256": "1152f98a09ffe5fe398af480a510a2f101700316ca65648a619998701d9d3be5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stray.webp",
+      "sha256": "3f23ff436d09537b510649fa1a78faa7960bc4843416a70f104081e9195657b8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stream.webp",
+      "sha256": "ad5c7d2d7a8e4d629fe96ab6bfca84ab185a54134b063746d78a5d21dc41bca9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stripe.webp",
+      "sha256": "54509d336e8993c5b41779cda682786b13c6ddbbafdc82fe95f4f23286a7c139",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-strut.webp",
+      "sha256": "738576f9df3159dc172f45c6e9186a7d90d09d59e0d8bf425b8292b04af15a95",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-stuck.webp",
+      "sha256": "1be41410484f6eb5046a67c7de9d2675329cc2651673664421996c041611de93",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-swim.webp",
+      "sha256": "da5dcb5e5559980013123c8fc0a6ab95789f2815330c167d647edd8581f72c23",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-tank.webp",
+      "sha256": "f891b3055bd4bf2104e24e3bec3fbb92c594f16991443415f83af730f0b65d50",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-test.webp",
+      "sha256": "5b3da66c158294eadfc68ea56ea2ae0e0177c5fbd57e94e7061ac43bb739d6b5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-thick.webp",
+      "sha256": "e5ee3bedab178906d552dc94a211c215116a8640c7f3a5e1372e2194f500e245",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-tilt.webp",
+      "sha256": "86c407b77ea2b5d1f6623ec537cf9477e8c326821b222bbab9e9dacf5c6fe1fb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-track.webp",
+      "sha256": "4f4e9d89f24696bde5aa598f2239141e7fc2566ac18a8959de67a86551b5d69b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-trap.webp",
+      "sha256": "04ba3364dbca068b6365ea7a407730bbee7f5910c187f69189ba0af82ae2a9ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-tuft.webp",
+      "sha256": "0d423b84cc416203b93d136afa436909eb22c03e8d3374b756a7ef2225105040",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-vault.webp",
+      "sha256": "e201e582ef9c3b2dcf1fce0ab214329b093650a650698da2bedb4338dd0ffdc7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/foundation-vent.webp",
+      "sha256": "c68b2be0ede56d954b1b9e646d06a86d3888ad5aae543ee4fb9309c442aa421a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/fox-in-front-of-den.webp",
+      "sha256": "76524d4e98cb6ef2ca2b54e98aaeab6db74ff7064d0e45ef3df948a9490c02c9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/gates-opposite-lane.webp",
+      "sha256": "7c0cc455b55e1f39fed8bef0a33ee6f5b5265ba66c7bf01bba98c81bfb9b54a8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/goats-opposite-stream.webp",
+      "sha256": "c4a1b38c552b6d93222ae34ef568154e6a407f3f852847605120b3eae730cb44",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/ivy-around-pole.webp",
+      "sha256": "af56edae5172658f647971c699fcded3b08cb0e84c032a0e5c28002f215fef39",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/orange-among-lemons.webp",
+      "sha256": "0008afb3c8f437a849cc42f7272653404e258ab5886f2da5656a8fc3198a6a6d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/players-opposite-board.webp",
+      "sha256": "2912957ebd791d1a8216ffa22629148fbee1b9e15d96913c432e0559e940a12c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/puppy-behind-water-can.webp",
+      "sha256": "3c871215d1b2565502a04edd73c67efb819117b0c753d2c28c86c6bfaf839b6f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/rabbit-among-toys.webp",
+      "sha256": "e5403b76b8e7327c4b64ecacbe181a71cb92dd0f58aee7d3c0a3d57f5321669b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/rabbit-behind-rock.webp",
+      "sha256": "5ae76be1a4e1e98c59b4908e4df15659a717a442b4795d2124ba281ed72da227",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/red-leaf-among-green.webp",
+      "sha256": "a5b8cfe03475c12ec3f108348bf72b8d19c90c99738fb549027b3c402fe3e634",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/ribbon-around-jar.webp",
+      "sha256": "4c0c1908130cc751a7de97e9399ead7bd5927327e7195e3da6835a372fd923f6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/ribbon-through-bead.webp",
+      "sha256": "459afacf56b94bdc5d405d9f9261052be4ede6072c2b90459b44ab371a83e1e5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/sailboat-between-buoys.webp",
+      "sha256": "6bffd9c9d1cc47611d03293330feb7694225be4e4668ca0358514f77ce5534eb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/shops-opposite-street.webp",
+      "sha256": "00a3c21971d898de9a41b8569d0d25d2fab1fa72697e531f2e5e4439ae067e07",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/stones-around-pond.webp",
+      "sha256": "271f6b6117f1fee9782071bec345f7f8ae4c13e7912f26c62ec5506a8ddbb7a5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/stream-through-culvert.webp",
+      "sha256": "285782460d431351931c13dce26e88d2aa4ffd4bdc85770196473fe659ff8022",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/tractor-behind-hedge.webp",
+      "sha256": "43b5c971b42caf971ee1aa489fdfba505d692c58de7151ae44749b0108476ac8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/capacity/wagon-in-front-of-shed.webp",
+      "sha256": "fbc036e249ef52969cd0cfc4d695ff1a9eaa0caf4522abd58dad16e462af384c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/object-atlas-v1.webp",
+      "sha256": "233d2f96521689e59dea0aef90a75a6572c09b08afe5af7b631a8e140f81ee72",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/long-vowels/beach.webp",
@@ -24158,8 +27170,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/long-vowels/sky.webp",
-      "sha256": "dc98249fe64e32f270463417f7ca3fd5e2d1c0a4276d04701bcc77bf08df3e8d",
-      "status": "approved"
+      "sha256": "a6f8b7db44fc0e44842a0ed46055e262e92a5ea7e2f2bcd3fbe7821322c0bd42",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/long-vowels/sleigh.webp",
@@ -24235,6 +27248,648 @@ export const appVisualAssetReview = {
       "path": "/images/assessment/long-vowels/tube.webp",
       "sha256": "6fc2a63b243595d6981dd66c24e5e440d04f1ba993bd36f7dd0f07b62caad18c",
       "status": "approved"
+    },
+    {
+      "path": "/images/assessment/objective-words/ant.webp",
+      "sha256": "1e411e9d70a3babd9cb24b429ad9f2647c589661c27272752fa997cca59746ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/apple.webp",
+      "sha256": "7896428deaa3004d5a5109eb6406664ac712018d19c968c98dbe049039bf1529",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/astronaut.webp",
+      "sha256": "2bb52d3f1798c6f8f2842cf6fa681f70686d12de75d319d1e5ff233cdec23537",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bag.webp",
+      "sha256": "b58a446802182757343983d5b67d7e53d8af3d04ac0c0d1c28b696e00114c086",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/banana.webp",
+      "sha256": "c96aa7ef6e0fb31a0675fa2ab5c3833c3fcda3fb89a9f84c7a842dbd10b931a2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bath.webp",
+      "sha256": "c1a667035697ecc7d8d2b2d83c97857b90af261833445ab4da897d40fb29dad5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/beach.webp",
+      "sha256": "979c1524d308dc6e850e0c5032070a85dd6aff8edae00b60b527005b715ec829",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bed.webp",
+      "sha256": "884ca2c409cd20c13f9701028972aa4033f6ad8215d233315458da0ee8a09010",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bell.webp",
+      "sha256": "2978cd3ffa64ebb9060ad35f9ebfebd17d9b280ae9156621cfc8a5c40a9b70f4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bench.webp",
+      "sha256": "ede5264ff4a145081b2611c9a2400509bfadb9d43f4536adfe06b71398a5ffdb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bike.webp",
+      "sha256": "a7700c037d08f543e49c1f4c4d8f560ddff7a9a109517e2d32293a8ce2f817e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/boat.webp",
+      "sha256": "c17d6aa880db32d60c5ad7e4c1f2376eafd02d3f1c43ad8f4fbe986aff9c5578",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bone.webp",
+      "sha256": "ffcd418b80a21374d24647cd7bfce68e27c472cea4b2c514031346e4614670ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/bread.webp",
+      "sha256": "a30fbc00033d7555b5b95aa9d4eae011c307d8d5aec96831c0daa07d3ba4fa21",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/brick.webp",
+      "sha256": "915e23960e462f792c1e52cfaad523f4655c1da4b24ff9316844ae5abd4153ba",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/brush.webp",
+      "sha256": "2ddd72623933a0e34e1c268573e1c60e25b1a13d682c0222e8fea011ddb286ad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/butterfly.webp",
+      "sha256": "2de8f61e6e97adfe79f6d6badf46e7a3d9f57901457d9e8b63928337100bf741",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cake.webp",
+      "sha256": "1fec68196ba8f069a7a16cd66dbc8d4719f64098758b845fed2d8f3bcc3d4ed9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cap.webp",
+      "sha256": "0655a8f3b7e6466d979296c2752945381468ff4e230c75f0d65500356d647c91",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cat.webp",
+      "sha256": "8904a2e78213c906eaa7d1a86e9a7c380466886274475523602417f0269426aa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/caterpillar.webp",
+      "sha256": "6548c7d12d2597eb29e7b092d18fde2a908bf43d62c8a0f3489ebc2051769f41",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cheese.webp",
+      "sha256": "a3a8eb1041eeba41b93bdf880d5046d22017a3006c2aba7b8e64ac7659b5b42f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cherry.webp",
+      "sha256": "a223d63dfc089f82afc483983e29b12f1a9b64fbc203cb702cc5325b7767006c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/chip.webp",
+      "sha256": "18dff3a45233243024040a70e4161c70a5f1740cfde8c97d318874b6758c6da9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/clock.webp",
+      "sha256": "faf9bf37bf41d8e4c5c46041f57ddd2be76a15b8abba701989c0144a45ef0d9f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/coin.webp",
+      "sha256": "5b6e30bf65c84c423acca045c18627e445289a3547bf1f807ec7fa581b6aa659",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cone.webp",
+      "sha256": "fc8fed27e420ac6b9b365c4b63308f44ea5d555467188766f79a9b867dc7b032",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/corn.webp",
+      "sha256": "2532ec599fb191ff4af93a821bbb080c8f7c9a603d96714d97a997d6fd994f1f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/crown.webp",
+      "sha256": "a56dd8d1f6e7500738110d6b49b91a8f05155ef81eb8806991904c8cdbd7a377",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cube.webp",
+      "sha256": "07068674e9097e1846a06f89f6c5b31994b27d0109c2abf392556bef12274d50",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/cup.webp",
+      "sha256": "d722ec534c3cbcab3d851f00823c7a23c949a0e3b7d6ef93e81ff06ceb20239c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/deer.webp",
+      "sha256": "c52590233be8d364ccd34307e8511b3ddd17cca4aa81677d4d2236864a8c6761",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/dish.webp",
+      "sha256": "cd0e9dbffa38c4d9109f5e55893a38bfb053a290f961d192de86d96579f86ea1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/dog.webp",
+      "sha256": "ecc642b41bed46d0dfce28cf01a4c8906101b27b1e6040746e89fb1eb35854ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/duck.webp",
+      "sha256": "8d5200c9b9fbe638bf48f6bd4a17de6eaa7aacc40a50d8798f016505072341d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/egg.webp",
+      "sha256": "194c3136e48eecc9754f9785870bded4a53e92ce27e62ee8476221524229a818",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/elbow.webp",
+      "sha256": "287ef6307d251dcd4a6f725cb67c786797e825e0bad1ba40dbb4f2fb4c27751f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/engine.webp",
+      "sha256": "f5c47435130316857cb1c5ed7970e287ac4578ce36842b2296a6bf51b20111cb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/fan.webp",
+      "sha256": "7ecc94411a846e8209510e908aa4e9cefa7b8050c8cb66c35bcf2d2ceda53c77",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/flute.webp",
+      "sha256": "4322413681be6f6fb3a3e700e8a6e7853ceb3e52c6f151743b2ed92011a0f703",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/fox.webp",
+      "sha256": "8a30ba97f40a6bb60c32fc628c746839fa4e339c4e593eaa47f9feaf53e97f9d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/gate.webp",
+      "sha256": "6a1924b8c70ce7744c8f58e5a3c4c0945e12d1a5321e028452060b78ba8fa89a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/gift.webp",
+      "sha256": "f74608b78c7445835899550b1a9feab3637ec9883987ab5902dfff7e927e1148",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/glass.webp",
+      "sha256": "080db25389a58260b2595a32b343940f037deb38b93b02dc7e74e0b9fd9806b3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/ham.webp",
+      "sha256": "19e7c9b453dedc09b278ba8af51c35a01f946614459449f2e4b99a08cc677c0d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/hat.webp",
+      "sha256": "53c6476e3fe59bc0f1a757120f412dd309652c1d99e731c24222bcdaa54ddcaf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/hen.webp",
+      "sha256": "f03d21c631ffde9fd58e378f05fa9a8adfefac71e9d7c6d6a98aec33ddf8247e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/house.webp",
+      "sha256": "b43a76f06f8939c288966c14a140705a92ef4bc7b48bf36c9e881a8748922b3e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/iguana.webp",
+      "sha256": "3ec7a4ad63c0f802a1ca9334369a4d3fbd9d3255aa14277733c58b69b6f09980",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/ink.webp",
+      "sha256": "a2e7877162532d9b8682f33d1124c1b8ccedaee6f0213fd4ef5d10a295bb2f4a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/jam.webp",
+      "sha256": "f617e1afd8ef945cfe0241cc489b8ab854d1d5c60035eb38777506e7d6a4b68a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/jet.webp",
+      "sha256": "f4699ac5276dc71189ac4b341f14e63ba5a959da6385d76575cd53c367cc7263",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/kangaroo.webp",
+      "sha256": "b8b5ba53c972ac1672a04f082f6de6ac3849f5540e6372eada456d73960ca266",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/key.webp",
+      "sha256": "a9ebee9ad24ee878f321507cae0f5d47643e7fedb258c2115fcde8bb772255d0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/king.webp",
+      "sha256": "01bfa9b722854720cfb3ac6897cd34a32c4bd63d90bfe54d73c98a40ae5fe911",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/lamp.webp",
+      "sha256": "2c9d80adcb449cb9fcddf6d521ea775979207b7e7a50392584f383ed325b61ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/leg.webp",
+      "sha256": "7825ca65b6c298166e06138122543989d8ed44e1f9b1ccce42c300946afeb566",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/lid.webp",
+      "sha256": "57cd74359b6faedfcdb6b01ab762fa439ac28158fc2c0bfb2763024b58cef54a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/lion.webp",
+      "sha256": "efc6eefe52aa994ff4e422e976237b7972013e316f124e8dffcf965f61bb63eb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/map.webp",
+      "sha256": "c10b012c1ad71711680d85cfbd7ad87fa7427332f9b0d26d7980ce8f326207b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/mat.webp",
+      "sha256": "53320a80169a64e19ea1b4893e7ff2f923b8deba3bb6653b6b7692757ed60bd6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/mop.webp",
+      "sha256": "d4a30f4ca2e0f3fb784b3bfd9abcec48a923dccb20634804b60334e52b83293d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/mug.webp",
+      "sha256": "f298dd3ad08480184bc9f2e4933a4bf8d42c95cd21a345dad756e9648e771d6f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/neck.webp",
+      "sha256": "830fbe5356c617abcd2104779a5e98c1584ce353bcb595032664750b9fac6b10",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/net.webp",
+      "sha256": "26bbab10e8b2e0ce06d5ca92ca39f88639f71f4688f739e0dd7b0f22263e1626",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/nose.webp",
+      "sha256": "7ae0d5377e90cd2149232b49378a596a77c79eaab126c7b4a00b830fcaecad8d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/nut.webp",
+      "sha256": "52163e522d2514c99d45db8867786639058ffbcea52473e35278982efa34e2a2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/octopus.webp",
+      "sha256": "ba0ea7b33ca3786949c4e6f433adce275d0ba12c868ce29a1b31429665dd3ddc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/orange.webp",
+      "sha256": "414b2b384d59c850e82d2cb8f4cabc803ac4422be0b20629c0c82345eec3c26a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/pan.webp",
+      "sha256": "c1bbad3faf189496c0a1dee6cb299fdcbf35483b8f0745e3b94a9d60b104be32",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/pen.webp",
+      "sha256": "60985708cdff39f68f870b60c911e4e608bee0203777e7868835d3acd224829a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/plane.webp",
+      "sha256": "3fe2e4d8e0231f64fd5e6c3af39f9598873a199ce25ba9ecb1b061816ca5b654",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/pot.webp",
+      "sha256": "eb1223aed1fb7b2cd37a24a01148fd28e0c78f4538051bb22cbe1de1c1f465a5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/quilt.webp",
+      "sha256": "1cb2d1c2a90339a50ab67c4055c65e1069d7dbe2081ee4bdbdde2f4a84ebf66b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/rat.webp",
+      "sha256": "d3804eabd824d7b4bc6894cec517c82901ef712ae0852e5d0634c7af2c16520f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/rose.webp",
+      "sha256": "5f328ef4e5c1715ec3c4b09d606a71bd44d6669ee1dad173e8da652d0655cac3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/rug.webp",
+      "sha256": "38946a64472b0adbf45f3dfa893518ce49bf839754652b21e145678a8254b4a1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/run.webp",
+      "sha256": "1df5a28011746c2f8475e37ff3bef2db65a0c2eab26ac0c7b0139725287737e4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/seal.webp",
+      "sha256": "42b7ae1a2db0a9cab6d8e80fde40800764416aaae99c2f4ec7bc6b59f571a317",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/ship.webp",
+      "sha256": "6e4bed24061a267d4684187eac844b29b4595ee65c044fac3b1441896fb18fa9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/sled.webp",
+      "sha256": "eff7fa0e86e4e2729900115b64a63ec3526d978d4bac9178dae3e906d9ab4453",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/snake.webp",
+      "sha256": "ce1f6365ee9a57a72df1b066e1cc88d49ad3c791f24e49f00644382206f403cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/spoon.webp",
+      "sha256": "2d92ea354c86713bc23b68f8d94cab0a80e572671159f38b47b568e6a7747a08",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tap.webp",
+      "sha256": "fcfdb50894cfe9e1bf8fc4cabe709f2d25f683b70344f26231f5ef22feb9c8e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tent.webp",
+      "sha256": "934b6bdcc2cf131135a08e385545244e38e2063b8bc63cfe232cf2d7b7bfcfc3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tie.webp",
+      "sha256": "9f5d9f35edfb4fabf7925f840013df4d259864023a43aca4a308842cd7be92fb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tiger.webp",
+      "sha256": "88a7ff9fde79484b738db0d4713e928c3e00913db5ccdd1f13d27286f8ddf84a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/toe.webp",
+      "sha256": "9454af6cc4745915aedb0da00be0f37c035aab3a848bbeedea1312aeaa935f83",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tomato.webp",
+      "sha256": "2dfcbad6b636b1aab9fbc9f49b9fd67e64e6285ffec90236eb0a8ae3ef8f28aa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tooth.webp",
+      "sha256": "b46e8454ccd52a8cfb2e70e52154012ff58e8926edc0491175ee2d679fcd8073",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/toy.webp",
+      "sha256": "0c0156e4febdf519935ac7690b66513916366d99d96219a7a1fda6a8a886fe42",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/train.webp",
+      "sha256": "3861ec0afd15d9cb620cacad99a2e95587ef0a945c330d1ff017907f23ff68ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/truck.webp",
+      "sha256": "1ceafb10272fcfc4d5353beef5bb49e7bc0f9cd015f7558543642f5537e76f18",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/tube.webp",
+      "sha256": "1718503962790f57ec85a2b0984591ed8f815dbbb7e94bf1abf2306462fe94b4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/van.webp",
+      "sha256": "9c8515b70963755b1b8d8811b23fb1c56bd025bc741274f3724df46406c18725",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/vase.webp",
+      "sha256": "659509ca53c0456fab59f6a054299d6fbbfb4aa50f9d8c2719e62519f1aae70f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/wasp.webp",
+      "sha256": "d05f3e4da4ea9b7600fe3422333996247c4f074e0e96af805d65b1e7b7b3d4ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/watch.webp",
+      "sha256": "a995830ae92306a735df2b4b300f0634669fcfad065fa6cc35bfeaa2b18474e4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/web.webp",
+      "sha256": "04737bd345757648e234d3bb77bae21190c0ced641c963170050cd1fbb246a66",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/wheat.webp",
+      "sha256": "ead7d24a374ac480ec24fbeea081665af430d8d13405bda34ee1563ebb71c40f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/wheel.webp",
+      "sha256": "1a0896874723d280e8aae880019bf79e2f811528b7e08479ee570d8646b26c9a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/window.webp",
+      "sha256": "8a411635de999269b8c0c2e4fba1287c14c1d7fb0c58982f0e3d94e11b7892ea",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/yo-yo.webp",
+      "sha256": "900911ece4099537d1f75eea4eb7631d06ea17651e8aae2843e45fb74f46cd48",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/yogurt.webp",
+      "sha256": "cf063e7b2b1cbfb95152fca0a92f8edfcfbe0f3373bce971a02e85ff9993b5d1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/zebra.webp",
+      "sha256": "96aee794a893a2ef98c0aa8e74fcf2f87148539a8dbc021eedb162860cb9f327",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/zip.webp",
+      "sha256": "c18d6b7f208eadca186ebd928d0bdf9e5d014ebc0902b5ecdebfb846d5f185d6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/objective-words/zipper.webp",
+      "sha256": "2bab3a429d3d45db59c62e94f871a7575c6f8a1add6ea6a03c13f87ba5dbc511",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/release-media/ant-800d67c2.webp",
@@ -24515,8 +28170,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
-      "sha256": "d07d92e7e268e16d6d1f5afe31bc0128062233126643881f7e17ab3298d36718",
-      "status": "approved"
+      "sha256": "962d5eb00823068c64da0432f04499663b9c97bb2a4f006784ef34cab153a0eb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
@@ -28816,8 +32472,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/rhyming/variants/ad/mad-02.webp",
-      "sha256": "15f9476b9a4024f7dfc1db1d3d82135da2b775ce1a9010404a4324b08a89181f",
-      "status": "approved"
+      "sha256": "12d1e5cf91c51c1ffaae41578ab5edd4f587bcfb8f31aaeedbc1365564ad906f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/rhyming/variants/ad/mad-03.webp",
@@ -29056,8 +32713,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/rhyming/variants/all/wall-02.webp",
-      "sha256": "03a085663c1fbb985f6784ade2338e87db2ce2d69849c66273f4c065c6225572",
-      "status": "approved"
+      "sha256": "2641915bc88b8977fa1784079e7dfdb4201e745e3b35f6036c95908d6b64c73b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/rhyming/variants/all/wall-03.webp",
@@ -29916,8 +33574,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/rhyming/variants/eg/peg-02.webp",
-      "sha256": "7a59716710912f77f0920497aacafff125283a54db3adbdbb65a9d44863071e0",
-      "status": "approved"
+      "sha256": "70246998f0ee940b00ba827ba37c86988ebc077cb620895c056ded5e8a0efbf5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/rhyming/variants/eg/peg-03.webp",
@@ -30256,8 +33915,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-      "sha256": "784bcbdc77e57039972a368f27d49476b184fb7e1a922ad4f1b0d9611bd585eb",
-      "status": "approved"
+      "sha256": "db3c022b4e1d0169a1b5e5f9dbf7eba620629acf50518da9ed2dc9642262f07b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/rhyming/variants/ick/kick-03.webp",
@@ -31456,8 +35116,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-      "sha256": "19c0ba1ac52410a8a5a8238efac98e8ea9bfa568ecd125269ae327eb2dea3219",
-      "status": "approved"
+      "sha256": "db86578fad1b0455220bf355ea75bf98faae3eed4c5e149c1064248512d216cd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/rhyming/variants/pup/pup-03.webp",
@@ -31616,8 +35277,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp",
-      "sha256": "dbfc4c14e869965c3d54f6358e84c965db535bb00f2ae9ba72e1df006dd01baf",
-      "status": "approved"
+      "sha256": "1cde79ed7767f8e73a1fc1b082e925204ff2e1c735f639ccc2c3af9fca5b6607",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp",
@@ -31665,9 +35327,16 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/brand/literacy-guide-share.png",
+      "sha256": "4281afd54cf3bbc7c6ffa1284045e4f5580808d017fb92d557877f950c717d94",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/blends/black.webp",
-      "sha256": "a4dfc40e924730b2404494f80c1182154a93e5bb923310c86b1a75f3a7413551",
-      "status": "approved"
+      "sha256": "88fd6ce2745339d4a57e0cedf390a19afc93418215388567f6fb6c25f65278af",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/blue.webp",
@@ -31676,8 +35345,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/blends/cloud.webp",
-      "sha256": "1f00c46c037c5f120bf200bc80e415db5e963f5716e2354eecb62e6238684a37",
-      "status": "approved"
+      "sha256": "aa09c62b25beabd90694bb81cf503e66a74ac7c9f636fff1d0239d7cafed5c98",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/drum.webp",
@@ -31686,58 +35356,69 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/blends/flag.webp",
-      "sha256": "6adcc6a83325adc233fd628739baf37f93797be19370fd2b50734995fccaeff2",
-      "status": "approved"
+      "sha256": "13b6984b2db958c3658f52723101c5b68bbb81092fb8fc9389e1669628cef0bb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/frog.webp",
-      "sha256": "c422af1991c47d91e956ab27162999ffb4c37f0adeaec4c49a6052c623b7fc53",
-      "status": "approved"
+      "sha256": "9aa33c939d09e610afb22a059ece71aab8662b8be54ee7062907575d5eb39ef5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/slide.webp",
-      "sha256": "b7a9d7036872216e2db8ede13ef74ad1827466ca8f931b41f0285d9a32fc1c55",
-      "status": "approved"
+      "sha256": "d49f92aa99d776f000b55d1e1a18564e3e83ccbd50c5c0da91597cc1dff7625c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/snake.webp",
-      "sha256": "e97650c00d2eaadceda88718e003a4c6e03d6c4863d1b418c45afd203634e9cf",
-      "status": "approved"
+      "sha256": "fccbed59145ba376c7cf26c7ecdc23eb9230380d659a3762546e08bdd46781e7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/star.webp",
-      "sha256": "64861447a2b37cfba8ac5b8350202b83bf0d2eaa3f504770af575d5ea559b860",
-      "status": "approved"
+      "sha256": "b67aea4190099eeffda49b14833f14e875e291a40c6f81e441daddba6382ed6a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/blends/tree.webp",
-      "sha256": "8d23f945663bc473f054979af25acd9ef73e4c803207c2daf52c034af621a245",
-      "status": "approved"
+      "sha256": "1f321320791466a1e07c9d49a3c9bf6a1c5a9fe298260fff3781a62387ba155d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/bad.webp",
-      "sha256": "d514a89fb2b6d697dfc96e04085bde0c5199f9104f0757f59d1a54a2a93b8f12",
-      "status": "approved"
+      "sha256": "e4f34daffc2c0df60ac8440c0bf46e6a6b84bd657c0c21ec49a0e94d80a9c466",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/bag.webp",
-      "sha256": "1dfbc4617febcba3e566ef076f4ddc47f46ae5d9ab036f9c7e1e7d6e597e8939",
-      "status": "approved"
+      "sha256": "fd8191ae1455e61975b8f3828c5b25022840b16a8648d7a4689b910b6fdf8ac1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/bat.webp",
-      "sha256": "6c09fc32660e03d8410600ac723f562e16c26a3c82f98e573720f6e77521658c",
-      "status": "approved"
+      "sha256": "2128342ac766d8c51aa16f4860f64bcd3e598ad9e9e64b60d6e56ca2482dcf9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/bed.webp",
-      "sha256": "20d29c61eddc9e4414c26644c76ea2752766538f0b6cc4cd50476683e3fecffc",
-      "status": "approved"
+      "sha256": "e454fca531aeb9ca5a2266ad84d224f7f90daa77d096d0454c6fc4e93d20cea9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/bid.webp",
-      "sha256": "ac0b7ecd65cdab2815aba4e2cc032fea4c07648fde81e1fcd26e0a1da3a8c1b7",
-      "status": "approved"
+      "sha256": "af0c54b3db5c9e6e39289b82ae129c313add2af4361fb8f9f1f573e2ce9205a5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/book.webp",
@@ -31746,173 +35427,207 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/cvc/bud.webp",
-      "sha256": "3ced508a0c31b1fa907a8eae9d87b012a5e870a99610074299f1557f3a9eaed0",
-      "status": "approved"
+      "sha256": "f6c8d430b7c961f35e55ca842f1c3f1cff83ea629f4bdc2d4b7a97f63a7ac49e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/bug.webp",
-      "sha256": "07a8942ba63aeba8be206982d6c7582bd0e1629dbd46fbed2d83eb24e3bfd95d",
-      "status": "approved"
+      "sha256": "a1f73a862bc136be75dab71cd6805f4a7514b978c8bb1d53f52d7b82ff69c75b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/cap.webp",
-      "sha256": "b5cbbadacbf75686cd1863414287d6718d74d2dcf5fae74f32914c60165747c8",
-      "status": "approved"
+      "sha256": "41265f62d149c8eb8756e111239d15fba865075bba18e710aec75b2a78664073",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/cat.webp",
-      "sha256": "f8a4bc6656bc6542ab4f75226065bd8dbc1e519ea03eb1d658af0af0a6e140e6",
-      "status": "approved"
+      "sha256": "bd51a3b68d16c660a0406222ae9cf566a802122db9cfdf1df111f2d77f0cd801",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/dig.webp",
-      "sha256": "3ab660ec5140e800b5f2b34cfe295237b245f9ebfb6a6f4189958164bacdeed2",
-      "status": "approved"
+      "sha256": "3a5e625ab5cbc6d444aad384fb7ff6004ea22d75f4496d9f54e54930d8de5ec3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/dog.webp",
-      "sha256": "397db0b4388de63b2b64c11fee0b77869bf28001234d508cdbe6f38108c39db0",
-      "status": "approved"
+      "sha256": "5c66f6579a2d45e4c6657d84181e3b18fbc62cd326211e370851b654ed59a8b7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/dot.webp",
-      "sha256": "644518a1bce9c0ce423dc6bd2d9bd9c48462060b6d2734240aa52ba6a2753da4",
-      "status": "approved"
+      "sha256": "3a7e6e7995bf104bcddf0f33676cc02c39e4c47cec24505bb40bc2978d28f3f2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/dug.webp",
-      "sha256": "4aac1af643cc61121195e3886fc57ddc24c51cf47649763fdb22eae0771d5cfe",
-      "status": "approved"
+      "sha256": "067687165394991320220e29fbd4122a9c91536b88fab144c5889e02a6fc1515",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/fish.webp",
-      "sha256": "615d518396de09fbfc4be12253837e783c25039951bef16c023768830905a7ff",
-      "status": "approved"
+      "sha256": "f48f084f481169eee6ed6a33b69b42dcd4580a0a53d6768656a810192d30b97e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/hat.webp",
-      "sha256": "7b78e81337fce0b8e026172903af048f1e7c932acd359aaaf10c4b9bbca70928",
-      "status": "approved"
+      "sha256": "b5add643d99653cce551f876b93787c56224dfb2ca5af1ead3b67537705abaa6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/log.webp",
-      "sha256": "cb999ed29c994926d6579984e22a34e6b497845a0848005eceeddc1ae41883bf",
-      "status": "approved"
+      "sha256": "3d21f979cb6b7256a5abb06bafabedfa996ed86959332766d833f19266103e66",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/man.webp",
-      "sha256": "cb5eff2780bd3f9d4a5704e4829a6c756a7dadd9507b65e87f4df551def24212",
-      "status": "approved"
+      "sha256": "e9bc103b5cae62ddc5334a5e2dea2fdf9da245adb3073d3316430211a3e4973c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/map.webp",
-      "sha256": "114a002ef8978186a2b26445d2595cdab0941101ddf2e06a503960b76443adde",
-      "status": "approved"
+      "sha256": "728fbd5eb1086ee74f6e3b7b457257414c0c709b1162414ba07d9bc9ce2fd666",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/mug.webp",
-      "sha256": "7cd49470a9a58f2e3754dd84450a213f3a053879439ab312f963f0cc782dfae4",
-      "status": "approved"
+      "sha256": "912b0481770d3905cdf11286e0085898fd9aaa83e7b5fc81869f8cefdb0c6d01",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/nap.webp",
-      "sha256": "5a8829d59352057cea15081542bafe6b6a1ce99572ad3c27cfed821b92b37136",
-      "status": "approved"
+      "sha256": "78606b71a666af69c75a361ed734e33bcccb262781c220d49c1c4fe7958d5127",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/pan.webp",
-      "sha256": "d0515b406ed93168a448fddd2c8d7246403921edcd786e4fcec143c051cf1f67",
-      "status": "approved"
+      "sha256": "817f59088aecda17a296edb8bc5eeff0eb44577db52a4cba7c612ffc5a60c0f8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/pot.webp",
-      "sha256": "cd9469d5867d89cb41ae8159b4d6e0af8d8cc79faa696e5fca36722ee8bd1e3f",
-      "status": "approved"
+      "sha256": "2a61eebd49eab4a6f225ef0adb0376a05d4f976baaa7a220a3be855c11fb636a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/cvc/sun.webp",
-      "sha256": "dc7b67f36539d835865ae2fb7276df87c3898389458f0477b1c1776e189fe5a3",
-      "status": "approved"
+      "sha256": "d4685da33aed02915608170623c04a57273550536822e29d036e06dfbdad3c64",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/chair.webp",
-      "sha256": "a5e24e01ebb994b55348d387134d52d3541983c9af2606ff01379505450f1508",
-      "status": "approved"
+      "sha256": "6e04401f334369ab7089892b7800aa1f294aa447633e917a41c22192a3f16790",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/chick.webp",
-      "sha256": "2f87a87683726cf3ef99e21bf53f60475d4d78559f0011324376808f07a70ad5",
-      "status": "approved"
+      "sha256": "e89a55abce23c8e2c8d2301a1fab2835f17a3b7ddc001eb516c112b1e963a280",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/phone.webp",
-      "sha256": "2f6a3af33ee6284a3d4aae1916c3457566398b7ba60ab2f105d410314d861152",
-      "status": "approved"
+      "sha256": "c16f09e4ede995f9e287bdfd6c3774489eeb5201fbae9b4f6ae0e283ec0068d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/shell.webp",
-      "sha256": "07b9034961c17a0ecf0cb5dcf0d56a0cb890e0e7839f9ec51d8aca575a0add6b",
-      "status": "approved"
+      "sha256": "4def043b974eaa05543a25521e057abe60fed223c68fd4ac71c3ac7f44918c0e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/ship.webp",
-      "sha256": "6a02367a8de531a7192cfe0e1119bb24df9e30ca643b2135ac09fe5a63b8cc11",
-      "status": "approved"
+      "sha256": "a764cdc2e02d5708032d675d8bc25409d9bae5a02fbd4dc32fbc093c1803b6f5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/thumb.webp",
-      "sha256": "65c947a8071d5877dc0e67a986353ba4c6bbbbe7e8b64028ab908dce63073a81",
-      "status": "approved"
+      "sha256": "e790830cc6d296a5449d59d88e34c3d65185edeba93711e594a3bb9db80e4963",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/whale.webp",
-      "sha256": "14bff3936071ace57275ef5de10a0a59c7221ffc6c806c49c8461574e8646748",
-      "status": "approved"
+      "sha256": "959d946401c16ce32b139003c76c1455204810d46c5af243fd99335de572d6c8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/digraphs/wheel.webp",
-      "sha256": "cdc192c63df2c5acd63bad5a8febf5efb2ff2fe6738081db76601394978fa84d",
-      "status": "approved"
+      "sha256": "0f177db3990140c7f1132a4dde62989ac8fa5006affc9994e53ad89efd68e690",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ant.webp",
-      "sha256": "6312a0c3199d156eeec0ffc2759e8e8d202da2478fdc9bec9951d23c346e8046",
-      "status": "approved"
+      "sha256": "897588cff4379ca2464c47f623a78bc51db56524071361e02f76bad860cae29a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/apple.webp",
-      "sha256": "38a7a67089abb2ae18350f7c074719d68f862e14c2c0a932bc4b47206490ca47",
-      "status": "approved"
+      "sha256": "8a233ee16de8dadafa622268702eae0a5ed54faf6337643bb85c5748d88092d4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/axe.webp",
-      "sha256": "e05c6dd8aa4719af0339d66b8a8e288622b2fe11e66dfea3794741fd8a3bbeb6",
-      "status": "approved"
+      "sha256": "2616b4f771862a78c88cc3ddd9598e0e31de064d0bd1586a4f87fbf520d59b7c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bad.webp",
-      "sha256": "7d4a7a1bc6ffbd869dedf02520f7c447a4c715f25c81f87520da851c303a1d8e",
-      "status": "approved"
+      "sha256": "05332a69be06e4e832504e1ac38b47f2a15f872a958e11b77eec87909b6ec715",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bag.webp",
-      "sha256": "fb76422e700249942367b754ec7edce9743982ea00ba75b1233ac138be64b9ed",
-      "status": "approved"
+      "sha256": "68708edb0d8a55a9ecaab63523b230c235be4046cd7b01e25bc9d35e25a24168",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ball.webp",
-      "sha256": "428cae71c686684a759f9af6f4890406998bc5dee3ba0d90544c2ebc25d3cf7c",
-      "status": "approved"
+      "sha256": "80e68acd4d5f823f4bb152c25aa8f7a769ab715f1b540a4b4dd01094910373aa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bat.webp",
-      "sha256": "39d14d69e86d37ff553f45b355649d6c7917ad14d4a144b1e88ca1f84b15ad61",
-      "status": "approved"
+      "sha256": "7c650b0b964f15cf378aaf7578ee6d2d46a8ef08f9d5c8d7d2b9738ebfe4283e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bear.webp",
-      "sha256": "4977a98fd9054d4808ab2b9d831d56a7850a73ac3048e475b5421105c17f5ad4",
-      "status": "approved"
+      "sha256": "dc2250e1a0edb2096c1c34eb357d610abad676378c255b50515576e724df3eb1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bed.webp",
@@ -31921,13 +35636,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/bell.webp",
-      "sha256": "5ba9ffd0b3e3aff6ced5257a377c1a4786d65b7b6225c0cbc90c1893f544e652",
-      "status": "approved"
+      "sha256": "fbca86ffca4fb1762694e007c2f406f51c6c68c2ef9df451effd6a0d2255af89",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bid.webp",
-      "sha256": "eaea59649ea5cf2596443b6eac90aca975e3dd7f9d235fb7d93b5371329f964a",
-      "status": "approved"
+      "sha256": "479631be6049dfbf8d33bb6f17ae6cd0226476be9c0e2f6a0ed14f4af8c32907",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/big.webp",
@@ -31936,128 +35653,153 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/bin.webp",
-      "sha256": "58069f7ccb9aa3f88ad7e6af8da4031de0506b9902cfa3358c7fc592dacb0f65",
-      "status": "approved"
+      "sha256": "f04dfb1d1750a6a20c10a4fb0f80a65447dfe29068244f0b21f117af765acd77",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bird.webp",
-      "sha256": "0df42dca5a6602a9d58482d41c2840985b2a6671ff3753cef8b5e55eed2224c2",
-      "status": "approved"
+      "sha256": "43dded69496c9f477d8a29335f6848f19e4de163ed3fc2045bd7a4e796d6dff1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/boat.webp",
-      "sha256": "14e03bc143832580a778980ff3d23a1e4542752ce468966d3c1ffe7b649ec6d8",
-      "status": "approved"
+      "sha256": "aadd06ea32cbbc3d5b18057b9e6dbabc0a48d4c85ccb5f0da68053d2ad9a761f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/book.webp",
-      "sha256": "c2ffb467b252bc2609344929394f4ed2834f6067e81c4f16f9270a6bcda3c0d0",
-      "status": "approved"
+      "sha256": "17cba3ca6aa6ee0af7f74737a6e0ead445f35a8babef460f092c80ef08309e7b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/box.webp",
-      "sha256": "d3529ba3c73c0876b51b6c7157033937568217935526fffbb3610b9bc59b83b0",
-      "status": "approved"
+      "sha256": "b51297d62177784717bf75b02a8cf257d06dd5f79225f646c371dab551529698",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/brush.webp",
-      "sha256": "3fa0bf0287f49861aa9818b9fb6f066c384d975f77c357fdd863c4d0c8eb4c08",
-      "status": "approved"
+      "sha256": "07dbbc650c50a1ff16ddcbb9a27efdcf9904a1ef54772231c05146639dae9398",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bud.webp",
-      "sha256": "074ea6b37399592ad5b0060c31fd371e584367dc1e83e0527e80f1adfdca617e",
-      "status": "approved"
+      "sha256": "c761a73bcbafb96b31f1eca5d8e349ba663abe5b7e238bb6d1175219f0e30981",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bug.webp",
-      "sha256": "6d89e08841712acfdbb2e7554d2eb305fa51f68272bc6f7e75f99a0556208015",
-      "status": "approved"
+      "sha256": "fd98b30b5e0b511316ddc92ae773ded77de7e65c430f7532a8c95ed8bf6e4e50",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/bus.webp",
-      "sha256": "52432d9a26783f1ee77a7a89c70fd1748b8c8584c3f24cb992976d0debc0c833",
-      "status": "approved"
+      "sha256": "d587ad46e77c904565bb6cdb7505f566fd7bae1db6834ce01cdd1d57b59de275",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/cake.webp",
-      "sha256": "934bf5f3907da62b43d83ffb187778c0b1ffb1d8ab9884197a4e0fc396a2b1c1",
-      "status": "approved"
+      "sha256": "8a8d263f90e569247aa0d7e2ea00d6572f9c698c7eb6f2a9da3bb9b38d289843",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/cap.webp",
-      "sha256": "812f6a20b9455b00a2a99ecfebe8c69c392f1fd98c106d25bcdd9e068ddc20a8",
-      "status": "approved"
+      "sha256": "a6f14564ee8b0252218e0f543faaf8eb6e831c61054859fa10d18410989900fd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/car.webp",
-      "sha256": "85bcc32954969b0b69ae2e8e19b2ca78114b2c173a8ec27f6aeb06fb27b0f43b",
-      "status": "approved"
+      "sha256": "3bf74e7a2fb3de390ff6de6c4f9f30cc45f8740f349eb00f7dfadcb15e12a0f5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/cat.webp",
-      "sha256": "7ed571b4a1b303b7a0c86d831e149a0768580b433f37b7a2aa1bfc1f08f5380c",
-      "status": "approved"
+      "sha256": "754d68d42ab20e06e1ad511e12a249d411a7434245453118552a63305b420a32",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/chair.webp",
-      "sha256": "679514bad312842ad92228807d3f70ea60fc8411fcbf5d71cb63368603ef9082",
-      "status": "approved"
+      "sha256": "cd36a72100734857dfd2c7d14f0d5b8bff0bcb909310c2230e9563dafc4969d1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/clap.webp",
-      "sha256": "5547b0b7f9ea75a26847d04afffbe1a66103a51e72aef03dbae78e2dab8654cb",
-      "status": "approved"
+      "sha256": "038e9454832255831e026b08ad2dce9584676534baad3b9ce7a12328943c3d8b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/coat.webp",
-      "sha256": "a3b6b9adba7cc9455eed4f9f40a74c54beab7f4bd76feff7a1c594e0aa736988",
-      "status": "approved"
+      "sha256": "20c65caf8a9821bbddd787e88fb842b7aa7bed2ab54d2fe3d7b120792f991df5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/corn.webp",
-      "sha256": "42123f69ce9446211ba1e76f6981043b1e134e8c2512e69c8793aff41e4edcfc",
-      "status": "approved"
+      "sha256": "1ea48c689d3b384df8197d7c636d8f3632a0ecc0c8a72a0f04985d165a81a362",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/cot.webp",
-      "sha256": "143ea03fd32728ad523f5ac6bcfd18cc4e6f539586867aab63ffce4d06320eb7",
-      "status": "approved"
+      "sha256": "28802fe93cc812ff4f39b90ed839253931d45ef39edd35263f4e93f0e90caae1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/crab.webp",
-      "sha256": "ba97dd05f372c7b681219a2342bac5277840778fdcab22c505b6ccc227342bd7",
-      "status": "approved"
+      "sha256": "d0ba6bc8207698bdab503c838747ec3ed6ee63b8028f36d4e7c33ded024ccd2d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/cup.webp",
-      "sha256": "97ac61e9ee96f07dd918a9fcd5cc651f749be2d9b2d44dbdfc8857d85428ebd5",
-      "status": "approved"
+      "sha256": "0cdebbacd6bc9392ebb07050b98972cdb93f5255b3bd9210d0509142a9995416",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/cut.webp",
-      "sha256": "11877018a59cf4e93380d7c92996d60aa49cd7a6c8e253416b4d5b7b7479b2fb",
-      "status": "approved"
+      "sha256": "b023a0aa7a0ad2da1b0c505198421533a98d3eba89456622377f03f541e18fd0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/desk.webp",
-      "sha256": "b053cc0c276cb4e43d044cbd4fdb893cd8e9725aa84a7bff0990840472e47b70",
-      "status": "approved"
+      "sha256": "00bf13cab380382d5e0257e291ef8b4acce9d907c7eb260b7406b51484740056",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/dig.webp",
-      "sha256": "5f336b9900631288abd80bc845393e273e585c99556c635fd8efa776deefdb2a",
-      "status": "approved"
+      "sha256": "b86bef63c98fec8dadf403721bd981f23367ca85772f95efdf1ef2116994a43a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/dish.webp",
-      "sha256": "e526d356fa2d36dd72ee4b51319930762ca643366692acf46436dc77957c188b",
-      "status": "approved"
+      "sha256": "309ed46a40d79cc451110075b5b95e24681619912712d56a01eaad2c34e362d0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/dog.webp",
-      "sha256": "7277c7552f51f2b992632ed5b7067aa12765b19e6ed436f61f5877ba449dd9e9",
-      "status": "approved"
+      "sha256": "7f994c9eca6451611aa481d126758a1873545d411f18270a4b14b6b3985eb0e8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/drum.webp",
@@ -32071,58 +35813,69 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/dug.webp",
-      "sha256": "db5cad3d65e87131762503a450575cf4e3fafdba7fc9dbbd22941c5aeafcc863",
-      "status": "approved"
+      "sha256": "51e3fd8887006df015b5bfba455563ae6d8e86aa993da08bdcb853873afd9d1c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/egg.webp",
-      "sha256": "f6cae18c21320a2a609ac8b36884f074280c485181238637ee0ae6f651116072",
-      "status": "approved"
+      "sha256": "6d3b5313480272f0b998ed64c5b013b319a59151c3af2cd0dc1290a1bf874869",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/elephant.webp",
-      "sha256": "0dc13d90d45c37152ccc36e291a0d856720755d15ba766b411090abd1c03a3d6",
-      "status": "approved"
+      "sha256": "9fae5bb593ff0db9896e14f7ee0ea7f46ba907997585abd3084123cdc7f44736",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/envelope.webp",
-      "sha256": "55d5d5274b6f387eed91a71bb8a6bb767499b74feaaa0c606975c3ecd6053f2f",
-      "status": "approved"
+      "sha256": "8d19834417cd646c8fb9b43306ffe24fbcd34079d9c88f07432b5a29e58ee1cd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/fan.webp",
-      "sha256": "adad183df935a4b2a1f81a4f5f32a25cac513f82f70465c0d2a07728670e110a",
-      "status": "approved"
+      "sha256": "6fc50a6635cb8717485419426385c918b4173b29677440287ed3c1d902bae107",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/farm.webp",
-      "sha256": "ce5111281fe2f54c96efcd107acee6cf6443e30c94633f3211f36d82be778e71",
-      "status": "approved"
+      "sha256": "bbfebe320ca2c041d71d606c10f275ca62f89890df95cf24a1d0456ea28ca190",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/feet.webp",
-      "sha256": "c7a4bcc73a4ee655825a269565914f9383e46e99c88145062734e3ba161165df",
-      "status": "approved"
+      "sha256": "13e6cfb9b9213c9cecd00bb2c3ca7064ee8b4339c44bcbaeaaf529fbee1b2586",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/fin.webp",
-      "sha256": "e78a470c79455048ad8c697cec5e4cc436e2131ad8be06a84227b9f5fe63905c",
-      "status": "approved"
+      "sha256": "c78c47d051756f0e70a8e6021523550927d1661aade3af4ae512ecec12536801",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/fish.webp",
-      "sha256": "7f38eb1545f01575287f7cc3c5dcbea2909a66aea07ee52e2162e425634c2118",
-      "status": "approved"
+      "sha256": "f5de0c67ede9f94407599fea33c35dee5cba427bd73865789a968348a5923cca",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/flag.webp",
-      "sha256": "6adcc6a83325adc233fd628739baf37f93797be19370fd2b50734995fccaeff2",
-      "status": "approved"
+      "sha256": "13b6984b2db958c3658f52723101c5b68bbb81092fb8fc9389e1669628cef0bb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/fork.webp",
-      "sha256": "2fb11a6c3ec7e7524601ffe8e1bc60e634811c7886b13375d3241551b4140668",
-      "status": "approved"
+      "sha256": "46fe90aabf90878c87845f60a7b57accffdb7b6b9ba30d5c46b4cbb6b9cf67f5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/fox.webp",
@@ -32131,23 +35884,27 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/frog.webp",
-      "sha256": "909c7b47026bab01e92fbcea38f47e3760a775faba99f20339161f85b05c9757",
-      "status": "approved"
+      "sha256": "a07380be3b255a1d2d136780f26827ddda3cb8915ea3606089395128a7bff625",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/gate.webp",
-      "sha256": "a580837960712464d37df139d9dbf559188a074f267da11ccf921cebc91bca19",
-      "status": "approved"
+      "sha256": "6cc52dab49e62eced048ea5e6a082ba6d28d1b180461a8bfae7e437aee1fb41b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/girl.webp",
-      "sha256": "d2dc401e914d2fa0c87a26bf4d84c0f7ab06481b3a61cb0fc24147137c6e1b8b",
-      "status": "approved"
+      "sha256": "6a176ad0bbef816c958c0fe1c7a1a952449034fe02b899ec4eb73f479c76c286",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/gum.webp",
-      "sha256": "796520c0e6c1357c1613e79953a5f5bed05dd7ede11ecce1d8f4d7cabf6b2452",
-      "status": "approved"
+      "sha256": "82afbf8403fba96b2b083d08568856bbca2d1097ca8382a347b723b6315696e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ham.webp",
@@ -32156,63 +35913,75 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/hand.webp",
-      "sha256": "98e63fca7179226552ebfcd363960141e43dc2c1eae930a3c3de7e09756a4702",
-      "status": "approved"
+      "sha256": "8a30b5f396393e749dfcfb57b0d676400d45ef2418c0f40a54afca7d5896e28c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hat.webp",
-      "sha256": "1c53c4fc193572a8aa216cd166846fa84307a55838c3343dda0237e2569c884a",
-      "status": "approved"
+      "sha256": "b7f00467faa76c4566654a01fdeaa790a6af859d0d69bb6a387c4ae493ec61c6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hen.webp",
-      "sha256": "4e5c92daacaf55baee3b89158dea95afec4738b8bc7f1108ac6359a7541d71ad",
-      "status": "approved"
+      "sha256": "154be0d605b17ce3788ce1d7aad96c081db1a55ea421aab52c63eff130230cb1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hit.webp",
-      "sha256": "b148ee60abb79fe3e62c77abda6624c49d2904713ebaf9d65476d823190a0686",
-      "status": "approved"
+      "sha256": "fd4e84ee34db3f2c5cef48c73952ae001796a3bb7a2e16fa0e1f10171d267e86",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hook.webp",
-      "sha256": "fe71b1a4a79715d4b89c9fcc277fb3d81adbb78d5769ca99378d1f3938e52470",
-      "status": "approved"
+      "sha256": "51ec4a330b58b3259c506eda2e72b0dbae5b0beaa047926b17fbbf2e9388fea1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hop.webp",
-      "sha256": "ca53e86061fe3296455216e433c106daa31ee42a6d20e344e515ad28e3686864",
-      "status": "approved"
+      "sha256": "061c685b9aef2cb0cfc5c2aa9aef4dbda4e4b04fb30e2c78f2183e24e01ef879",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hot.webp",
-      "sha256": "f7326b1020d47c2aedc633d56dc1582751035e620a908ad16ce0b7ee9d493216",
-      "status": "approved"
+      "sha256": "ad097277c88576c0a4a98650a79fb15b36b7140b35f76cd2cc93545b3e2ac82c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/house.webp",
-      "sha256": "d939f5ece0adf903305ca1c8c77730993ae60fb0facfc7b590044bc8333118fb",
-      "status": "approved"
+      "sha256": "d6e0849b033c0bd517c78d120ddd3326a608cdc38ccd27ad59651aff75cfa69a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/hut.webp",
-      "sha256": "befde02d12c6fc12e4b5104c254ac4d6d24ebf7524bcacd6afed56936b96a9f8",
-      "status": "approved"
+      "sha256": "181f4d230519214ecb93e6c6675c5d497ebf41537f9b8a5d8c84c9f7b640b92e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/igloo.webp",
-      "sha256": "e45a6d92d56c4676e5607c08965aee433e4aa835d83b30d2f1ae417cddf5d5b9",
-      "status": "approved"
+      "sha256": "2a8e0e4b4d27e1e2dfd74275a970cc55042fc11aac246abbeffbf6ef20170481",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ink.webp",
-      "sha256": "f66899e7cec69e3bdc18944891a89fb23fe9d0344af936aeb2530813123de8c6",
-      "status": "approved"
+      "sha256": "9913bdfd68537af8e2cdcdd54585f1b76ba0dfc9f83923b70ad345270ace7719",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/insect.webp",
-      "sha256": "977802e5171b342e6d5be12e76982504ea11016cc6332719d44e69f2fa5fdda8",
-      "status": "approved"
+      "sha256": "20fcf5162eeb1e9ed2a1b34cfb86993c68dfc585ad05843e5cf7694024d6b4ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/jam.webp",
@@ -32221,48 +35990,57 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/jet.webp",
-      "sha256": "1ce671e8640c13039bdae5b747b72feb10ea7956a9cdfeb54dca2aa4bfd666dd",
-      "status": "approved"
+      "sha256": "b1590d09b21f42ff4c15c11a74957ad626af536569b3e9497cf04ac1fd638f9c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/jug.webp",
-      "sha256": "8680e3e24a933fcef45a534a09053ab28f0e7cb4f16d3b6f4fce7469c9652e6c",
-      "status": "approved"
+      "sha256": "68d62011663bc726788709f50faf37f77df71d846d9585decc548c2667d8233b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/key.webp",
-      "sha256": "08f1960022ece33e65dd8766c56f198adf0193d4bbd54c1c8df0075647d3a704",
-      "status": "approved"
+      "sha256": "8ddc6d898e777f0d4f127a427d73aacc23d5dca5d9be56a3fe59bf70ae88c1a2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/kid.webp",
-      "sha256": "1c49096b42ae1621097989bfaadf672650842aca2594f7805d987d089f5639bb",
-      "status": "approved"
+      "sha256": "f2f51978dad93d2c12e7115859a7cda7efd4191989083a2b0740bb8b1d717e33",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/king.webp",
-      "sha256": "eddc758f3f578afda434937fc70a3e68d46834708a39ee684214a69dae674071",
-      "status": "approved"
+      "sha256": "0df5498bd0cb6f7df863fa1eafdeb23948f03405ec11519c04b358bced476e86",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/kite.webp",
-      "sha256": "1375e46db90773bdcb29def89a41ad3be30bb1ad32853807565bea1addd07bed",
-      "status": "approved"
+      "sha256": "00c1ce9776f7a99fae702500672d79de16968ee7024ec6deaf80e4c67314ab09",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/knife.webp",
-      "sha256": "e3ccd7c9d369a552f164eb1fe4f2c03f2d7318bc3ea9ba161ce32a4cac6382ad",
-      "status": "approved"
+      "sha256": "14951da2a87241ddbf173c6460cec3fa1235f4a0149dfcd7a9d7b42dcca0187f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/lamp.webp",
-      "sha256": "0608be6d42e4bdb424db12f28c0f18f5a111a32e2b185ba494b1f2b942f5e8ba",
-      "status": "approved"
+      "sha256": "d2911dc50e5903b0b2a33ead8ca852a18f7eabd987f4327c6421e4d1e3f39785",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/leaf.webp",
-      "sha256": "31e83c1a26341ba51475da156fccbd4fee7904af52fe1f275d0b580b7ff8f535",
-      "status": "approved"
+      "sha256": "fbee5c92e5ade2965fa40995be17d32d82a1feb995092fca85545ede11654fbf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/leg.webp",
@@ -32271,23 +36049,27 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/lid.webp",
-      "sha256": "8918b102d1cabc8ceb9e7cce5f5ce53ac4546090224cb6c4952db8874d853487",
-      "status": "approved"
+      "sha256": "2daba7ed7a79c090e09efae03e3771b8b1a327dd6fc7770415202aa90cffc551",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/lion.webp",
-      "sha256": "62dd93161d31648b21c369e269277c08a7713d80d30437b20ab2e1f16eb32954",
-      "status": "approved"
+      "sha256": "3aeeb7415e4cd3829e73a3f25b716598dcf65dfd63e439152a2eee08c08a6ed9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/log.webp",
-      "sha256": "452751fbec7c173a44644da49cb1d42d5fb129cc9a52e6929f3c085250e3ab91",
-      "status": "approved"
+      "sha256": "f2a352a23db62ce4befb19eba7e2cc30f0a28dcbc3b91ac4fe8c93a4323dc736",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/man.webp",
-      "sha256": "9e737e8063b94cb998fc6395888ad951562034b7d18249ecc0399adb98d6c6e6",
-      "status": "approved"
+      "sha256": "1d07e63b029efc801b1521251ec433d1688ba128612980869e62b574b0079ac2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/map.webp",
@@ -32296,13 +36078,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/mat.webp",
-      "sha256": "d29d8edb7be2dabb1bd144efb9241789c572134955b8a45b7aeb4d23fdf862b3",
-      "status": "approved"
+      "sha256": "034c03cdc92aeee82245814b5e00b8c07a26832f124dc8ec7d0124cec62cc1c3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/meat.webp",
-      "sha256": "2a941ef94138a1299c68a93c010848486f1c3dc0307522ab1079dbdc887fc17f",
-      "status": "approved"
+      "sha256": "0972d697a71408dbcf9caa5f75bd7195102cbfddafed2e64381b38327a2ed776",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/moon.webp",
@@ -32311,63 +36095,75 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/mop.webp",
-      "sha256": "1c62189aa77d84e139bd95e0d0ce0c864232c5b1d05c592bd8073e0b8066284a",
-      "status": "approved"
+      "sha256": "250c1bf3881dd6c71e1c6d70569a1a0b61f247c734209b73718b17cfb7e2d247",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/mud.webp",
-      "sha256": "00b405635173edc3c604e09a812c78e16c475ce9d9bef6916cfecddadad55a18",
-      "status": "approved"
+      "sha256": "aae4d48d161379c951df6dfb2ce02ed677fa0be9356db87b5208b6cf7e6622eb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/mug.webp",
-      "sha256": "940805c0b0ab39e163ecb8b50de3c87d4ed40571f5e1e85741d69e65903feb93",
-      "status": "approved"
+      "sha256": "23ac3a5f02adce725062cb08da640b2bca3854159465b94c023fc30768d9d43d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/nap.webp",
-      "sha256": "8c283e867ca63c418fec0dc7438875ce106cbedef4729ca845b8ce4dcfbf9876",
-      "status": "approved"
+      "sha256": "7cbd773ea2b0c3448b804bdaba03573c2481645503918bc0c56ad6228244b024",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/net.webp",
-      "sha256": "6b47c1ba37f53bceb906b0524e3022d6b72b7871009c4f8ff9dc07449c39dadf",
-      "status": "approved"
+      "sha256": "0f962107c5e15cd7aca4232ad57ad56fb75fd3bc36c2d9801ec52017894f2bc7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/nose.webp",
-      "sha256": "7c2c98fef454b97b569881802c61bb45dfa7fae77ab4ac05369beb12eb200ee9",
-      "status": "approved"
+      "sha256": "693129f9def7b07da3f6ce9817885d611a93bc8ccb550034c374df7392a496fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/nut.webp",
-      "sha256": "90de57c9c6a4573dab5c6204f934cae7f8e95d234180fb693981c009be5f7d21",
-      "status": "approved"
+      "sha256": "e0227031c6e061214a7be47eddb4b0c81116016d9dfd46eddfa629d092d67521",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/octopus.webp",
-      "sha256": "81e9b0edaf71be4232384f757913d471a363ffd4d4d4c9b415e735f5145387d9",
-      "status": "approved"
+      "sha256": "3974bb4529289bfe0aed32e4b28022cf34d7956e305b42b0eec67c6fc0d796dd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/orange.webp",
-      "sha256": "b9aaa94d9581b092908ea57ef7bd7d1bedcf49ae40897773ab2811688328ce7f",
-      "status": "approved"
+      "sha256": "3829c8ffcd93ace862b1eb0adc57ec485d93e1326b5eb68e95fbd166f59fa2b6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ox.webp",
-      "sha256": "2661ce5c9afedf60d6e754ae13f57ae17baf0d08528709089cd27fb09a1bb273",
-      "status": "approved"
+      "sha256": "348f6d9f0387e5261621701f24e03d0b8f0ed98c28e25f119f54ea7f627df305",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/pan.webp",
-      "sha256": "56f1dee07f2792612cec4a04c1c82046cdddd52a9717db98efc7ecba3ab3665d",
-      "status": "approved"
+      "sha256": "c3f0d95e295f1fe50af14690fd5e55723eb8152f824a0e6e883d0f3c7e7b5583",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/park.webp",
-      "sha256": "e5b3f02e934aa36eac7bfd0b1b4b6be93ed65cb3204d5883f3b268b1545dfa7b",
-      "status": "approved"
+      "sha256": "8fd31744efc5c6810a92bf720839c7ef62c006e3ff08025814437b8a5e39f8d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/pen.webp",
@@ -32381,33 +36177,39 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/pin.webp",
-      "sha256": "fdb72814a99dfb4992dc0467a501f1f4ba3fb059902e8cda6cb0174712d4817b",
-      "status": "approved"
+      "sha256": "f7fa9d2df618f0d17d43020a8655a27458e674bf7a87571d928e201375b63055",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/pot.webp",
-      "sha256": "e1720353b5f2e7b2006e8abcb816dcd27604579955beb0e94141f88f33114171",
-      "status": "approved"
+      "sha256": "91c45a27d9df8e14df8e6e8b563917aa42044a8b38ae27d7cf9b84163ebff77e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/pun.webp",
-      "sha256": "bf8cd064ac5f4ed8ac002f4791ef90e8af1d273ca497e8cd14555c379b585ed0",
-      "status": "approved"
+      "sha256": "b612a7d9e1c40085e65a9bb55393db4512c4388ae7556dde293979b04175e09a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/queen.webp",
-      "sha256": "8bb2648df770d4016f8a19a85892b0093ece0f45a886b81d55e2606492f7e445",
-      "status": "approved"
+      "sha256": "bf36c9c80525df5172c6771cb90e297533514e3862c24fadb1d0f28dd52e6e3d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/quilt.webp",
-      "sha256": "9da1c130f4b34b09aa127ec9da637b9355a5590f1d575e53e6ebb4dbd38a4490",
-      "status": "approved"
+      "sha256": "7009c245f915943a93446624f51db270a22374e5082cdb89e71d60d3a3324e3d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/quiz.webp",
-      "sha256": "83e9b9620ade8027238a076696adbe92f26a02f334ae161e6dabcffee23c832e",
-      "status": "approved"
+      "sha256": "2e7f9496257f2df5f462c610a2fe43f146fb0b555c446912c5fc2c249599c3b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/rain.webp",
@@ -32416,73 +36218,117 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/ram.webp",
-      "sha256": "8450bd9878e55e65d8ecded281b30c63c5a6527c138aa58c6488fb30d439a7be",
-      "status": "approved"
+      "sha256": "cd930746e7c23312171d7dde5d430f86ee7e7e4b0e2a4bec1a302931bcf4a566",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/rat.webp",
-      "sha256": "496efd6cfcc65810435e46ee10f79b4b7e83f4f50c5644406a7614515ff73d52",
-      "status": "approved"
+      "sha256": "b6a048327c983b914c3181d6dd74f2035b51b22d53e6383e1e48a21c9a56b301",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/red.webp",
-      "sha256": "99181d8484dfd4b90ade6b09ed5b815cce29724265f17ed9d6bd528c4f3b3eb4",
-      "status": "approved"
+      "sha256": "13dd14917dbd971d78011c6f21a0dd07d27f2033a913131ead7b95117f4cfd41",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/initial-sounds/reviewed/drum.webp",
+      "sha256": "636923f92fccbd3648a305202348dd3c879a79c6b87db3bd409574151b9ce3ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/initial-sounds/reviewed/monkey.webp",
+      "sha256": "7ae309a3012fda558e610b3e951367ad56d0548c1c4ba772c50e554fe2f50b58",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/initial-sounds/reviewed/moon.webp",
+      "sha256": "25a7336d76bf2343de41f390e12761b685132bd1bbf6cc43647fdd467eb93571",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/initial-sounds/reviewed/mountain.webp",
+      "sha256": "abb26f1469f69aca48bcff05ddf283e59903b294ec5bdeffa49b7cd349e54289",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/initial-sounds/reviewed/tiger.webp",
+      "sha256": "46efa81adb7cbf57ccb24f0484d4ff2ddd53ad554f2739bde23b150339a63ce0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ring.webp",
-      "sha256": "5b21560807c6fc02d96973839214d95ded92c3b433d2215dbca583094c9fb1e3",
-      "status": "approved"
+      "sha256": "a0b04da1e2341a847a6a7945bb2702dd2f2fc89d4cb159a05104df4069581e5a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/roof.webp",
-      "sha256": "3e0218cb63959fe2a1d34d1abe1ffbc52db927448458ea56739eb11681aebdf4",
-      "status": "approved"
+      "sha256": "6be5b3a7b6d36b7b07515b81910c19f55179946fca40023a71fca161d2b81acd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/rope.webp",
-      "sha256": "b3d8a6a8546888eee7e35ce0f755295a01dbffc631b9c729a2c0020b2f84b8b6",
-      "status": "approved"
+      "sha256": "c55c97ddb1f96a93a249c9ac34893931de1ab5b3b2edd626fd54105debab4ac0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/rug.webp",
-      "sha256": "4ddd367430f17a2a87125abe52f0517209cf0a47a34e8efd7e6006492088a6f0",
-      "status": "approved"
+      "sha256": "bffe8a4d32a7b497c6bd012342c4a1c3e6c66b910da2fb0fef25705a01aea66b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/run.webp",
-      "sha256": "c30e41abba33a2d0860836453c599650a4dbb1c42087644106d52acdfbf58c9c",
-      "status": "approved"
+      "sha256": "f133e2a4328a655769c4de484d66a669fb9c1a2236492dfdb986cab89640cb84",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/sea.webp",
-      "sha256": "5cbf271543e6271c0461b0d7fa4a3752f3f800c60238fdc7029d40341dd940dd",
-      "status": "approved"
+      "sha256": "e756c798883789fdd2f9c37860f8b99ba1e1a409d459223fe3cbaedb5691dccd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/seal.webp",
-      "sha256": "91553309eac6d76df5186c9dc390c2dc813560e58373109ffacb5d1698de1bba",
-      "status": "approved"
+      "sha256": "236cd6316266677a66f372adfd9a4ceca9f13963c86c85c68099e1065c728582",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/seed.webp",
-      "sha256": "43b2e3f273229a7508136e7e92b9d2fd355996f5ecf2c37f71cbf35ba63a0dd9",
-      "status": "approved"
+      "sha256": "200f7b13176b1714c1f145fc83d1e54c2832fbc660ea6cefe65065be23d346b5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ship.webp",
-      "sha256": "d95adfbd538a64f7dd10ac4c016e6106a0b92019d6ca2e523eb2f95b94e94037",
-      "status": "approved"
+      "sha256": "89ba0fc4f811794ec70054c8610062ad59e61548ff9f26381f679480ab479fbd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/shoe.webp",
-      "sha256": "7344705c00bf3567e4096788cbfb38746332f204244e26cde0034057ed4e6352",
-      "status": "approved"
+      "sha256": "632e5fd5f62f070b49690cf4bf0bf08e9c7dba7694a20d08eec532c926b7fba0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/shop.webp",
-      "sha256": "13db0d0a1185519cb34e67f02b9820f13df88fc4384f113aadd6e6c833761f8c",
-      "status": "approved"
+      "sha256": "17f9839c87c344db360dc31d1a35e49bee7b9177b86b42e70213d7bdbe81a94d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/sit.webp",
@@ -32496,18 +36342,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/sock.webp",
-      "sha256": "d789a00fca1a63cd3f79e8213d62daaf3a773c5231113282142c5d75ba91d741",
-      "status": "approved"
+      "sha256": "ab422dfb97a94513b4a02ab26c1c1a3143074de017286bfa11d1d6714059c88a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/son.webp",
-      "sha256": "51c4354a766f3ba6ace46a6944978b248161bb1130b67b4780c0225ec0114745",
-      "status": "approved"
+      "sha256": "3200cc8f787a67e9451311ebb81b8daf8fb392017405e428306af2706f405d12",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/spin.webp",
-      "sha256": "33f9a89c0ea61e7f0d2b582618c02ceec3d5ec0355a69944babfd493ccb90a29",
-      "status": "approved"
+      "sha256": "1ea6ba0c7cb4c99ba817010d9f11169a74242c45e570638a7240693d20f585b5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/star.webp",
@@ -32516,158 +36365,189 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/initial-sounds/stop.webp",
-      "sha256": "72ca1b7184e3181d653beae222909b6866d4f318a54f975838d33ec730cb797f",
-      "status": "approved"
+      "sha256": "eb3de0f82e031645ff760d8b37cb3fac48e4e9f7006ef457a6db6be8d642bc9f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/sun.webp",
-      "sha256": "4cb97ab33d968eb76ac3d040fddb21464423825ff803d41c9746b4559727b661",
-      "status": "approved"
+      "sha256": "5087a49a0dd8c8b84c5d863db265dfa95eea73e9324e02298891b70a2b9fcc5d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/tap.webp",
-      "sha256": "86f21c056117e4fad72adf9df8d312e2a01adefd6d00f569f15072306263c851",
-      "status": "approved"
+      "sha256": "abf58911ce2825ba8c010912cfd152d469be508866ef9117ceebc01a6e8b4dd2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/ten.webp",
-      "sha256": "189e5a8373b61dc83762209fb7d1c20d5588145ea19f6a7dc249c6c950c24d98",
-      "status": "approved"
+      "sha256": "d0e2604ffeb2330f019178b6b516d0da69615875c16aaa39991c8a359fb18fe9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/tent.webp",
-      "sha256": "6d177c725f141a2cf270e850ef272c635d7d210dc22f443664066bf1df17e3b4",
-      "status": "approved"
+      "sha256": "f6baec394825f4d94ac7dff5de5b7f1c2b7ef825464794c1a81a3b727bf000e8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/thin.webp",
-      "sha256": "7a507cc65feeb7ccf6716557415992b05106fc6fb4bdee5a3999af2df800a864",
-      "status": "approved"
+      "sha256": "60875eaee9bc6d8d21084ee99125001e5ef6824e5647aa347ef26ae4c9523932",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/this.webp",
-      "sha256": "71eb8645ae72d0dad48ef57b44b0a8168cdb67fd593aacc5f9bb5a7be8504e68",
-      "status": "approved"
+      "sha256": "c8fb7ec810fb9b6a533b7dd8aafa1a1e7644671866ba164b102ccae01bebbf18",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/tiger.webp",
-      "sha256": "6488fb982f846d1aa414858d07f1e02a40c08e066c228432c37785be5a287996",
-      "status": "approved"
+      "sha256": "2e1246c183fa800a2a136eb576f4b747f8d5dd62c2ec3edabd16698e076c5832",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/top.webp",
-      "sha256": "bb9e5e3547ad0122f2c1a64ef56c690ddd31df1bfc489605dfc696b27db45d66",
-      "status": "approved"
+      "sha256": "cdee751dd341b40ed9c364b7a12841becfdb2c1cd69bb020c326c948fef3e574",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/train.webp",
-      "sha256": "aea681840eba902e24bba0ae9bb7e322cab670eef72b117195bccd21747c2376",
-      "status": "approved"
+      "sha256": "8be947f8cbc183080aed977453a307b2bc878786f4591f2b7230dea195c0eaa9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/tub.webp",
-      "sha256": "b35e02490caadc8ddd7df0102de0f728eb2a0fe38861b50395dd336a3024f39c",
-      "status": "approved"
+      "sha256": "57b574e9a42d7a9f7926bb259722a8fb10e282159df2abd522fee42176fe7d3d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/umbrella.webp",
-      "sha256": "626b28574d0c870eb9b81304bc8b1391beb7d6d5313b822a7b3ad5d816b4006e",
-      "status": "approved"
+      "sha256": "b84a84ea837a313090172cf97a096b6a9a7fa72de5507e2f52d0da7e137b1407",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/uncle.webp",
-      "sha256": "8041ca75a37826bbc195dc7b2166bfb1f8838a6ca3c81223e691e3c1b42351b6",
-      "status": "approved"
+      "sha256": "522b91810c36aa01c59056a4a6964e0d14f536e647dc989df10a1339b425b86f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/under.webp",
-      "sha256": "c26fc6d09b1dc2131379c177d2504e02c4bdf9e05098ea3022ca5c9aed2ff802",
-      "status": "approved"
+      "sha256": "5f2d8398c0c5af7e9f30ebf4146057a9049f323f5400cf6a2ff722e33e6ac3b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/unicorn.webp",
-      "sha256": "7617dc435a0281ea7b73dc9174dc4385b8fb29d8fc804b0b1782c9724abe36a6",
-      "status": "approved"
+      "sha256": "2889fabc9044fd5b3d966b01eb98025967fb290bf893bd0b98efb86a8685f042",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/up.webp",
-      "sha256": "4ad3a98a1f8f11ca0b52541e4cfc077bca9222a7bcb2325cffacfea047cf3863",
-      "status": "approved"
+      "sha256": "864e8720ed31b1a69254ccf81bf91956091067909667a4e6f85cf9bbf43e4914",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/van.webp",
-      "sha256": "780b8f09650a8333a7fa51ae6785d5cfcc01e2a0a6ec988e3e0bdfa49821e6b2",
-      "status": "approved"
+      "sha256": "a7bcdf3101ae2e3dc90aefbe6f11310cc99a8ed496103fa34c43b4672a6fe951",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/vase.webp",
-      "sha256": "47f03b023edd4e5b161f4af0e8c5d26d52d889dd6879f9dab2915d60651ca086",
-      "status": "approved"
+      "sha256": "8c936907f30dd89b92da50ac48e7a4edb888ad37cbedaad3e6ff09d2899eb94d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/vest.webp",
-      "sha256": "8e12c2b7c7f30879397caa60f2eb1f445fbd356a2e0d1b99b77b7fed4ff7eea7",
-      "status": "approved"
+      "sha256": "2503b5f580f29cdb6a23092165c031e2041f311de5bd8d2faa9189f0145375f2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/vet.webp",
-      "sha256": "0b6f95dd31bceefe98eaa351f57ecc30a772cca199d0e1392d5ee89c4554716f",
-      "status": "approved"
+      "sha256": "75779e5d0d3e6390fcaf683161cdc393eba4f6180f58865a379135a85d19eb5c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/web.webp",
-      "sha256": "06dbb1c5d3556759b795007e960ac946c79179ffbb4d85241e72629755c287fc",
-      "status": "approved"
+      "sha256": "30ea08e4260b02dec9d2e1c52b3d56bc0fd3aeee82194cddde2e4890c26fca14",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/whale.webp",
-      "sha256": "4dde19b2e197f28d0ff6b0381489e2cc57911b836393aad5c3977cd5f7d73f42",
-      "status": "approved"
+      "sha256": "fda9d81984ac10ac54fdb2899dc55c78c547f5b96f429d71c361e9dfafcee850",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/white.webp",
-      "sha256": "9ec8908ae8531859b4707fa7559dd752bb8358a6c8ad3653a203e9fa6666d001",
-      "status": "approved"
+      "sha256": "0ff7733526af3eb223946493aad70d73827d8236d9487a80f24ebc324fd62b7b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/wig.webp",
-      "sha256": "9e0d6a2a12bdaabf8af347341b4b264dd5e2ac20af3cb4941b35070fbedaf3d0",
-      "status": "approved"
+      "sha256": "4e6158300cea863486cf61131371e63f115ece0befc8dae9849d5a427c0a5143",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/worm.webp",
-      "sha256": "3497bc549639918881178aa7b638fe94313a8bc0de503c272e23f4a3b0ba0d80",
-      "status": "approved"
+      "sha256": "94f0f7d22897595cbf05a858d2e3bc2e0adfa4bad59f8cb5e4f5bc50b4d8c593",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/yak.webp",
-      "sha256": "9c71f26ffa192debde4c222866b4f9bed5ee82a1e9c6276a3e41ba86852eabaa",
-      "status": "approved"
+      "sha256": "4493476f65aef307729ebb31d092be4ca24209ccec67598c70d6ad062a5815a2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/yarn.webp",
-      "sha256": "ad3ed202d69f923d75b1abc3e57041380832fea9dbcedeb1de9a902f9015f0a9",
-      "status": "approved"
+      "sha256": "52f71718833f44fb764907a64a956fb5edafd6ddfc5d0483127db6d5c42c5803",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/yo-yo.webp",
-      "sha256": "e8fe26c9211bcc5b0ce90445db4ab4d328c22c183e92aadbcd12f176a49df5c4",
-      "status": "approved"
+      "sha256": "1b6cc4eacc084a0d248cc71c80f66d9fcb233bd5297fc89d9c3eedb0c1b509c5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/zebra.webp",
-      "sha256": "81747626fd862580d6a3c6b7b70b9f2c0c85425dd50c8f67da79c6891a82bba1",
-      "status": "approved"
+      "sha256": "b73351c2d187c433371084976e0ca83abbf95553360c753665ba78362d9524b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/zip.webp",
-      "sha256": "00276b215aad43094cbdbb8b12800f0e305c6934250eda7aafb927b8eb9dd554",
-      "status": "approved"
+      "sha256": "db47c1063d5cc6938d0232043043c0ab40c914d79093544c06b2a5381b566aa3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/initial-sounds/zoo.webp",
-      "sha256": "d78423ee517ffe4e3c0af50af5802a55fcd7d6a4f2ad824f6bb16b2566c1aa3a",
-      "status": "approved"
+      "sha256": "8b6511116c1de8beb6851855a9f4e25fb698bec15cbbc8fa51e73167b657fa64",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/minimal-pairs/cot.png",
@@ -32685,14 +36565,28 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/minimal-pairs/pin.webp",
+      "sha256": "02a1fee2476d76f474ee94ecd028f4edce787ec65510181448e3b6eef6de1858",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/minimal-pairs/pun.webp",
+      "sha256": "81a77a69f3e855421e7fe112a33218b5c95aa76552f5cd5ef10361038ed757a5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/plurals/books.webp",
-      "sha256": "95c56be75293b7bb4cc958fa01088e9384a519a9937d8fc2a2c61697880d759b",
-      "status": "approved"
+      "sha256": "da4eba1d4a6d18a4595f49eefbcd6d1b6b4e8138a8c55213ad54b3a91630d855",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/plurals/boxes.webp",
-      "sha256": "00b2329c39d1ca23eac6f815100ca88bd12bc1201eb7755d3fa5e50714844a89",
-      "status": "approved"
+      "sha256": "054abbe3aee1d9e82cdf897c6814960a9951e1b04f366442bca634a6ce67f10a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/plurals/brushes.webp",
@@ -32701,18 +36595,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/plurals/cats.webp",
-      "sha256": "01bbec1f532c47055e91a3c3b7c2b2510d516530e7c92274c8171907ad9c1972",
-      "status": "approved"
+      "sha256": "832b38bcdabeada2b0bac9a55b2fe8c57b553b8845d041018137bcd2ca04c05b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/plurals/cups.webp",
-      "sha256": "087f2c13c479e6f5ca8dfd5596b4e16b0a4c0c734523d06449cca7e9b653595f",
-      "status": "approved"
+      "sha256": "4955374b94f5c415e8dc8c48a0d6825e51fa3eff8bd85cf05c18a6294c723520",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/plurals/dishes.webp",
-      "sha256": "6e894d1f087e2651f0ff64a72bd79f81bf8c51ceff73d2cf7e1b7cdd559abc40",
-      "status": "approved"
+      "sha256": "7965146f620c5950d474b7ae98ce64be3f4909287d092d83183a9e7f1a072039",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/plurals/dogs.webp",
@@ -32721,8 +36618,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/plurals/hats.webp",
-      "sha256": "8186d9b949a150270ed00af9e1716cfe40aec935cbdcad13a7b3a103fc217646",
-      "status": "approved"
+      "sha256": "7aa241ad6eb6c8edaddcda83a6f959c80debef793de803a074028785e3f3992b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/r-controlled/bird.png",
@@ -32736,13 +36634,87 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/r-controlled/deer.webp",
-      "sha256": "61ac9e2175adbbaa0dc52ab38cad54d9c952f6e37fc7b2f1a43d84d06608e52b",
-      "status": "approved"
+      "sha256": "c77a39850072bc703d6e76f8bb7e6888e030b68105e787e5b9311f09d082b5bc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/r-controlled/horse.webp",
-      "sha256": "fd4e554d51b649b919fe16f773fd7af7961672babe63f3b7ae8430218c7c3cbe",
-      "status": "approved"
+      "sha256": "92b9e02dc458b87470e26d3998f20822300a1e3bc2bfcc6be5e6872bb44ee033",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/arcade/ancient.webp",
+      "sha256": "3ea26184f6eafed3eb2e95ab900a327cfbfa5bf2f29386dd9f6d7a6317d3bac4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/arcade/fragile.webp",
+      "sha256": "c470bc605210c14dfe048e4e964d0e3d35e5d6582d229a8585e3f9eccde99830",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/arcade/glow.webp",
+      "sha256": "4fe76dfb18743fd3bf34d7e2b229e55de95038054dc8c482bbb48228bf28b5cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/arcade/knight.webp",
+      "sha256": "df74ef185ee1a31f6856a20dced620e50ce152a3503778c6bc98cb123d33bcae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/arcade/noisy.webp",
+      "sha256": "32c6015939f76928f80a592bff9a99f9877f8b9c6e6f596529d94052930ae916",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/arcade/square.webp",
+      "sha256": "e66169245bd36595563d0e8cab8abc9113c8198c47411e24d93204bd56658321",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/chat.webp",
+      "sha256": "82820fc59a0b69ab2a25a3e36d46683b43fabcf0b9edea66b56b2677395f16b5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/chill.webp",
+      "sha256": "953ae70cd22cbfe0f808ddd3b22ae90d28f3068a916bd2f290855b81597e2f8d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/letter-leap/stump.webp",
+      "sha256": "9678b7380fd8b85681c68293f9872eb9abe6cd465ff208d750b35f831c2b26fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/magnet.webp",
+      "sha256": "89d4cc36465f3af0b9b20636f92e5c6b0d62bb1c8f582807e1ad7880aa730fe7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/sat.webp",
+      "sha256": "8588c628f5715659b44c1289893b0a881844a2c6ad7df715861e62a6968daf25",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/reviewed/thud.webp",
+      "sha256": "d20aff7c20ffeb0154d73d2b4a9751a732abaec26f3681ac347977c231ed198c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/sentence-scenes/bag.webp",
@@ -32821,23 +36793,32 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/short-a/ham.webp",
-      "sha256": "e26d56f074526fd796ffc3737426105ce87add1c28114afcc7a32e3a8b0d3b8d",
-      "status": "approved"
+      "sha256": "9c03bd57e5f303623ae162fe709154a99a30822c09656dcdaf260852ebcd71d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-a/jam.webp",
-      "sha256": "bf942db72b79e086decdd68a75f9dff055a9ed9c4f57c3986916d796b8670813",
-      "status": "approved"
+      "sha256": "b23fd981ee0969acb968a0e8fc8d38adea3f38dbfa9356bba615d09e64f9aa9b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-a/ram.webp",
-      "sha256": "f801f19ca3dc3cbb5135ab035f300f5245123eb2597becbd28a3e5759516c1ce",
-      "status": "approved"
+      "sha256": "7978ac8bd30bc6b0a69b872f93e4080065b8222f1147b45238b20c03f8e43fbd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-e/jet.png",
       "sha256": "946ad58ccf88379cca3a7acf48ef5826f30f116bdaed1a15f05f8c78bf1333ab",
       "status": "approved"
+    },
+    {
+      "path": "/images/child-mode/short-e/jet.webp",
+      "sha256": "36fba5e88c552918ae385eddf615d8a14b291dced8fb45b8e35ad5a5f6d8cece",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-e/leg.png",
@@ -32850,9 +36831,21 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/short-e/net.webp",
+      "sha256": "f6ddd669b84892b118771ab5d03d93ff1eb1ade10f8c9a36c8523f46d7671fc3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/short-e/pen.png",
       "sha256": "4568a42859935cb8d2682b7caac89e52c46fa268d5e40ba5a77319a1f737682d",
       "status": "approved"
+    },
+    {
+      "path": "/images/child-mode/short-e/pen.webp",
+      "sha256": "2143bcc50e1c95027a38ec6de08c90b383733a7312fa4329fed714b20bec7b27",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-e/red.png",
@@ -32863,6 +36856,12 @@ export const appVisualAssetReview = {
       "path": "/images/child-mode/short-e/web.png",
       "sha256": "a14fe3af7a86ba5d184cd4dc8c29f10545016a23a2b439c31032e05763f1f720",
       "status": "approved"
+    },
+    {
+      "path": "/images/child-mode/short-e/web.webp",
+      "sha256": "a87e2f76c4980a5ae6d1c7a9fae28fd9b89fe63119686821c1695c7e2e2d9ad3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-i/big.png",
@@ -32885,9 +36884,21 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/short-i/pig.webp",
+      "sha256": "7f5ac0b96cdb636307df7751d7666fd6fd8bc1ca27bbea3d9e1ddfeec5e262ce",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/short-i/sit.png",
       "sha256": "205ed03d40f3ec36eb0f20001d068fccdd87337041c11e5705a9785018a4e770",
       "status": "approved"
+    },
+    {
+      "path": "/images/child-mode/short-i/sit.webp",
+      "sha256": "2074df4350bb55df1dc8101679752041bc8faca037988452287f93b99c170e67",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-i/wig.png",
@@ -32895,9 +36906,21 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/short-i/wig.webp",
+      "sha256": "69a551a68ba7a3d6afcf8cdeedc22e9daa2471d198a934c45db1d3383b6b01f6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/short-i/zip.png",
       "sha256": "75aab305b7a673ce48b34b024ab34716bf70fa5479a8fa40f5b4f69f4c864e4b",
       "status": "approved"
+    },
+    {
+      "path": "/images/child-mode/short-i/zip.webp",
+      "sha256": "1ba8b4a9e1fb54396203b41327643514adbd2aeb813e4569de96ecc5c0789a18",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-o/fox.png",
@@ -32906,8 +36929,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/short-o/log.webp",
-      "sha256": "452751fbec7c173a44644da49cb1d42d5fb129cc9a52e6929f3c085250e3ab91",
-      "status": "approved"
+      "sha256": "f2a352a23db62ce4befb19eba7e2cc30f0a28dcbc3b91ac4fe8c93a4323dc736",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-o/mop.png",
@@ -32916,13 +36940,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/short-o/pot.webp",
-      "sha256": "e1720353b5f2e7b2006e8abcb816dcd27604579955beb0e94141f88f33114171",
-      "status": "approved"
+      "sha256": "91c45a27d9df8e14df8e6e8b563917aa42044a8b38ae27d7cf9b84163ebff77e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-o/rock.webp",
-      "sha256": "d5b49a26e78575cf5c0b48f133c6a4524a2a5f4c85628b790d72aaad4200f4f9",
-      "status": "approved"
+      "sha256": "52ffeec4eb393d7285c2f5df2b751abc2cf4b5f99b831418a2ece24cf928c9f6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-o/sock.png",
@@ -32931,18 +36957,26 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/short-u/bug.webp",
-      "sha256": "6d89e08841712acfdbb2e7554d2eb305fa51f68272bc6f7e75f99a0556208015",
-      "status": "approved"
+      "sha256": "fd98b30b5e0b511316ddc92ae773ded77de7e65c430f7532a8c95ed8bf6e4e50",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-u/bun.webp",
-      "sha256": "848aaa0724cf9e084ad0a5a0c343930ccc135b59857009f5e997ead174948d10",
-      "status": "approved"
+      "sha256": "79b9d878c3747b0e46a350f9fd09a3b34eda919661b5f0a04fc73815c32d4083",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-u/bus.png",
       "sha256": "86fbcfdb8a68d4faf9b78df952471c3a93559770c3b6b8bfc3282e1d75c3bbb2",
       "status": "approved"
+    },
+    {
+      "path": "/images/child-mode/short-u/bus.webp",
+      "sha256": "c833bc8d1240e2e4d82b35c2d7402976fb51d91329564273123563bdeebe7eb2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-u/cup.png",
@@ -32955,14 +36989,27 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/short-u/duck.webp",
+      "sha256": "caa6f47eb29c6f1112fec4ff6e6f6cc3fd9824cf4f9a8a55d1a951f29ca69854",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/short-u/mud.png",
       "sha256": "cffbd8b66f779a82c02dcfcb27a993abe71337816e3bc63942759f8d5b64a569",
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/short-u/mud.webp",
+      "sha256": "fad6b511f67621f064059fa06cb60cd26ba7aac9e420b07d9a535d54ba598247",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/short-u/mug.webp",
-      "sha256": "940805c0b0ab39e163ecb8b50de3c87d4ed40571f5e1e85741d69e65903feb93",
-      "status": "approved"
+      "sha256": "23ac3a5f02adce725062cb08da640b2bca3854159465b94c023fc30768d9d43d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/short-u/nut.png",
@@ -32970,9 +37017,16 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/child-mode/short-u/nut.webp",
+      "sha256": "652d077f78bf428caca2761001007097fb35909bc2873984aead0081b1772439",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/child-mode/short-u/sun.webp",
-      "sha256": "4cb97ab33d968eb76ac3d040fddb21464423825ff803d41c9746b4559727b661",
-      "status": "approved"
+      "sha256": "5087a49a0dd8c8b84c5d863db265dfa95eea73e9324e02298891b70a2b9fcc5d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/cave-button-panel.webp",
@@ -32981,63 +37035,387 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/ui/cave-reward-icon.webp",
-      "sha256": "4c998757e9caf29189bb663db12fe08404dc6cbfa44ea54172cdda15df406a91",
-      "status": "approved"
+      "sha256": "c9cd05313e780bd96aec759e9cb8dc87fbd480c28e9f625f6e168c84b80ffbf6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/crystal-shards.webp",
-      "sha256": "ffe6be17a44ab710d93a59b8551966f6629dbde08a1607ac44367fa45e644342",
-      "status": "approved"
+      "sha256": "5570e213ea1044877432bbbdd7d5642b275c6efc8d756eb0fd492fbd426773cc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/crystal-sparkle-particles.webp",
-      "sha256": "6deca6ea7bf751e5049ffd85f94a52835da6c500e19d0b93b22b706c47437db0",
-      "status": "approved"
+      "sha256": "36b2aafc77618497d39dc1d7645e88c4588efc03acb159a6221bd34b69f70eb2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/floating-crystal.webp",
-      "sha256": "ff0f1ecd2b40abdf51ddcf5ef17d0d359757d933ccd3d8da3ed4e5f33db68a36",
-      "status": "approved"
+      "sha256": "eb6cf9db484c29e2f0e5f61b0105876faf02c2a286fee6144a620bc486b74be8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/glow-burst.webp",
-      "sha256": "76217ec52daa1e1119059a74ea189bb117aeda599c01057a63e22b5164c5ac8f",
-      "status": "approved"
+      "sha256": "a7b39626409a5aa66f9c82dcf487a569dc5afca6e62a628b74e4b7373c545924",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/listen-icon.webp",
-      "sha256": "4c6dd3b37c4e899c18b9750aa463fa110adc265459452fa9e5b1d27673c14e9f",
-      "status": "approved"
+      "sha256": "8f621c953b54ce4718dbac591a8321a9e4b30a5ed5750a717fd95dbabc6ca467",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/magical-particles.webp",
-      "sha256": "ad91d0e01ff44cdc211f5d1c5d1d519d91118655a12b036d2ae20a228de572a4",
-      "status": "approved"
+      "sha256": "30b80eec8e080a5cf2dae0e2e1bd59052c4e4be0626754c41dfa1ec5370ac010",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/mastery-badge.webp",
-      "sha256": "bbf4af4e840510022fd8ac8d13fa8344d9159ae2150f38fe06fd28c694af5962",
-      "status": "approved"
+      "sha256": "a10d945155c931b8cddb38e0f133376202f047c8e714c99f8e321d8a449da9ff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/reward-star.webp",
-      "sha256": "8fcad89349bf007a25ea0a3f883692101afd5b9639cd54bee5709b2f2a485c1c",
-      "status": "approved"
+      "sha256": "e7c8bb189dd0e880a6be7d320c787f5c332dd307fc8dba3735233331ccd504ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/ui/success-sparkle.webp",
-      "sha256": "1fc5f06628cea88034e383f06487d51b71daf940cbad51a7c43aea238ea31208",
-      "status": "approved"
+      "sha256": "c8df3e5d6ecd1963348e6bf0980dd367f1544bc950888ed78fde78af93b96f83",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/bank.webp",
+      "sha256": "00a0dd3bb92219ba553e02ff1dc1294501ae90ecc078a701005fee6c7a7a94e9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/beard.webp",
+      "sha256": "5ee130026755bbdfc7a09642c7564da4b0b25f4e9ee3adec3d7f2730ed4c1539",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/black.webp",
+      "sha256": "f54ab028642c4bd4378dc6ed4caabfda8e2209f79282c982e75d7f12b8c1b441",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/blue.webp",
+      "sha256": "9f7fa9e329923ebb73187718d00aec1623b87d569bdbfc0220fe5af17c1e645b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/brain.webp",
+      "sha256": "bceaa0bdf41c5d428cc010e5a3d6a84183480056d5ffd5f01dc87b75c930da53",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/brushes.webp",
+      "sha256": "c77da264f7579d210ccda7769f2002fbb7007c9cabccc84e477ce997fb8ebc0b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/cats.webp",
+      "sha256": "d9a41bd9a91f5d52b6d8f2b1dd2d38bfaa1f532aaf59eb0bce14f77ef116821f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/core.webp",
+      "sha256": "d1c3941186bd4cb045596430b004a20ca71c32765443becea4f83c8ec56725b0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/cream.webp",
+      "sha256": "e23ecb34cd6a4fbb94b3b7fd35ae0f697cd9455b689a4aa0d94be6f2b16631f6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/cut.webp",
+      "sha256": "89be6dc80db24d544e224a152ab26251ea0611608b2e6c45ace8152c00832fd9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/dogs.webp",
+      "sha256": "6b9ce9f697e36a9d84460b01b96d3020e46769331cf08be40e07d7458714dd3a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/dug.webp",
+      "sha256": "b45fec3c5a48d9f9148060ac81d4fb38b1747d47038c57fe70f9369bca6b4137",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/face.webp",
+      "sha256": "0d1d246deefe9fd257c79c19a9cfe75b4721f48237c6cae05e1b35cbed1e1df1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/fin.webp",
+      "sha256": "1416ccb88565be94b24fa7c9a265528ca60f0596df8a86b139c941ed4af86770",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/fist.webp",
+      "sha256": "8f47e1db78aaa762880cd27f18f2f5acdf0946c0d0cfbee405158207f5752466",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/foil.webp",
+      "sha256": "75ef1c9912541065257732111d549e7edd87fac856d9c77a284ae006b41a7ce9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/foot.webp",
+      "sha256": "80916af7851c9b3e07a14db2509c846635c204d7e99625c73632aa27e97270d1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/four.webp",
+      "sha256": "4d435e350718d06c1b7d95cf5a9a931b561dbc7b110c5f6abdc5b410e1d31ec4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/gum.webp",
+      "sha256": "0d2ca2d2939a56f94933f0fc1cf99eba3077a06d65d2ebdaf2df30e65a29b18e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/hair.webp",
+      "sha256": "1e8bd71b3869efb93606858af1d4d6a877bf93288a349d2da4e80d54c3bde562",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/hang.webp",
+      "sha256": "b9fea02827da804edaaa751b386152d706713dbe29d68afeee50faf035465598",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/jay.webp",
+      "sha256": "2425be31b7f49e817939b2a0153cf892cd5507f3bf97e0f5670a2bd2fddfd87d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/kiwi.webp",
+      "sha256": "ff128987a53d52e78aa00a9464be65b7d79b9f260885d9ccfd0756971d16a4b2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/line.webp",
+      "sha256": "6564add4e0502b01c2dc20cad2b976e92c0e2d1055bd603ce15346ec414f0fd7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/money.webp",
+      "sha256": "3a24c02a59a44da0196e37e8fe914387d2181adddd363e0addeb24ba1f5087d0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/mouth.webp",
+      "sha256": "9fc40af77cad125e3385c3cb6bc6dc9d1375645eacea959e8c3f9440e2566f1a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/nine.webp",
+      "sha256": "9fa4b7ff8cc053cb5b429b43caa3bf51a76d52531c331fd441d371590ed515e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/oar.webp",
+      "sha256": "dab5445f098d5ab6c865394cefde72726615daf3cb3133d8fc9f13fb8800ca7e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/potato.webp",
+      "sha256": "8332ed8d61764c3448cfea80350ff42652b20142deaa85c1be18bdcab68901ee",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/rain.webp",
+      "sha256": "6b186cb6dad74b0573fd29e85821b0fb34144144643fa0db439b1f54ed3bf071",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/rainbow.webp",
+      "sha256": "362d44fd79f6658cc66e5e540d36a2cb42b6f15feb93f9a0e0770f63961adf9a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/rang.webp",
+      "sha256": "b8fc1009cb4649b52c52358576f13ed698521156ffbf5bed844078d8af2060ca",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/red.webp",
+      "sha256": "256bb8b9bd52af27d504fc26e8e64842fd3017b809293ef24f1556887b19ddd2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/rice.webp",
+      "sha256": "d8cd55bc1e41fb03153f3059dbef016804a19c1704fefb82a4bdf5ca8c73a5b5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/seven.webp",
+      "sha256": "eed460ad79eabff1c82052235222c21b5e334942f76f57001aa2b4b00a1ecf03",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/sink.webp",
+      "sha256": "dd2ec3f5c22c85ada0ba06318bf357c3fea945bc5671f6244225e08ab2d98cb0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/six.webp",
+      "sha256": "5ac4b818b2880aa7fcee285c88fc0937c7e3852bee062f9a9914c2ab3ff2c7cc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/soup.webp",
+      "sha256": "2982d31eb0bac7bda6ba7f02225a664bfc4ec5c48f6648cb88745bb2dc9b960b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/spit.webp",
+      "sha256": "cd6775eae964a5e335f4e356da34de7dcdcb54d0e35b933a3f6ed15c1b6d0b0d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/spot.webp",
+      "sha256": "3048ed08887410ec8ae7d74ef780c5387215a41edcf2f1ef76eaec4a3c7d7acd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/straw.webp",
+      "sha256": "4f39906eb08cbc2822421a1fc4e752f9ba19eba174750a86adf4d70d25777768",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/string.webp",
+      "sha256": "c7be1386ce9f35c5c9eb93e7948218dbc5f2cc20d29168afc3724c456753f1aa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/tablet.webp",
+      "sha256": "bd025ac05a9988a49970f67e0c2e4b99f20c190234f13eac95043f7c75fc17b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/tea.webp",
+      "sha256": "25749a8018986ed917fb33096782247460288afdb00571ceea547232c98f4f88",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/toast.webp",
+      "sha256": "0d84b778c764966dac7448581c35f8c76b0b0dd0c80a45755f51ffff5de22fb0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/torch.webp",
+      "sha256": "586391c0f5f0513a8dce4059fd1cd4857012bfcc6d84b028bdc8197c3138129c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/trip.webp",
+      "sha256": "e8878ca756d0a4ce010c9b542c675d99b3e63c033be6d8af70a87eb05ad00618",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/two.webp",
+      "sha256": "f3e56655c7aa7d8d5f958f569ef4368b6bd2f9284196bd55ce50748e6492a5e4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/wax.webp",
+      "sha256": "c7263c3656ae9dbea023b13210a6e5e1bb86c0f3b70b2418a3b3f75ba5d0d5dd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/white.webp",
+      "sha256": "366555dcba3ef0f58cee565d56ca8a615c555d42de9a08ae232c57fe45ee6409",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/wood.webp",
+      "sha256": "21f43f532cb671f6ec5e401491df6a76803c4ae732a9389c1f04ff80a9cfeedc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/child-mode/vocabulary/wool.webp",
+      "sha256": "74a9f9855a755a2ba988aa02bc684cab469bdbc55391571907ab8564de8c8d17",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/vowel-teams/bee.webp",
-      "sha256": "c367fee2167c3b5c8572ee222672910bc921ce8f8d9b95ebc1cd1e7fdcbb6d9d",
-      "status": "approved"
+      "sha256": "82602e87b7d50fbf1bc4d3e84578d94b1be451655662b3fdffab7eaab7953344",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/vowel-teams/home.webp",
-      "sha256": "b3a919fa526066c8aa9ad0243a51cb3794440e9eb08a1eb3703cc98c0a9a5e6b",
-      "status": "approved"
+      "sha256": "6965e849dbf7b18c3f42ac9ed1a8a4f2a608060851d1ea71c57f34e8fa7612de",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/vowel-teams/tree.png",
@@ -33046,18 +37424,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/child-mode/vowels/boat.webp",
-      "sha256": "331a24a7fb7a937158a26d671ee882410918b873d8735b3fd9453d2c503e2d6c",
-      "status": "approved"
+      "sha256": "605a21e2794d4fc9856c328bec558ab72bde8595b71fe0bcd059cce27d31fc62",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/vowels/coat.webp",
-      "sha256": "8615e19541fdb72bab3c85d2ca88cd9954172b6c8df9db561e54af24eb7bb528",
-      "status": "approved"
+      "sha256": "e203508319f257b3e860a83641c9e8f9c38cdf84b4ccbb83a5b83f4c0e796b53",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/vowels/goat.webp",
-      "sha256": "9475e07ce1f8491b4241c4dd4cb7ffcf3481be5fdea9cb2f70e27f2b7ed80f54",
-      "status": "approved"
+      "sha256": "f8f007c563fc0923fdd619fd3e6a84b3b87bb81aae037d42f881ce8c6c5babad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/child-mode/vowels/road.png",
@@ -33116,8 +37497,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/comprehension/girl_reading.webp",
-      "sha256": "6bc7cedc63a73bbfce4dd3460056239123fad0960536760431f39f8d16e0cb9b",
-      "status": "approved"
+      "sha256": "bcf759954b912c25ec6b5c36d4255a88fade22040a31f0b0956637b494895862",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/comprehension/paint_flower.png",
@@ -33125,9 +37507,1042 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/comprehension/passages/chips-art-space.webp",
+      "sha256": "c2b07463defa6352278fd516b86dd0840b0352dcc51e5438e63376835d6bdc61",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-bin-lid.webp",
+      "sha256": "7ef8dc2bba278535fbf692f1c6059cf705f3de6881a25b46c56162ab69a419ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-boat.webp",
+      "sha256": "bcacc1815464292db3d0eb0f690220a3e949426cb89cf091a2dd1cc9f1542329",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-brush.webp",
+      "sha256": "a184ac1995792a460c179b94e27dfa4b7adf421e237f2fe6ca0a130e2dc705fc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-bug-cup.webp",
+      "sha256": "03967bdfb5d0cf94750a52a1e312e2e35c4582cf1ae0c593824778416bb3aef4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-chair-paint.webp",
+      "sha256": "8e52f8f834a4c80fe7d4297becbee11a0675f24076bc529da2d33ec7f8236e88",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-chest.webp",
+      "sha256": "23124ddf57bac39da8dc34080bde5763d3e03a211dac00a743836c7d9ee04967",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-cube.webp",
+      "sha256": "aa1bdc50a134effdac40bc57f7e6107017645e30a0e2bc167b5e6f13101a7948",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-damp-clay.webp",
+      "sha256": "0c6be32937e616bc9cc9d9a2e0f9fb4a95da734ed41006c50d3dc8b54dbaa766",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-day-trip.webp",
+      "sha256": "a1068fa2eaf2e35d40a4fb9bba3ce1daf7791540bed86e9f27eb1d000d9a546a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-dish-stack.webp",
+      "sha256": "ebd2b89484e024f8ecad45e2b4f50060a8166eb7829ec3cdb7deae8519a02c94",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-hose-coil.webp",
+      "sha256": "725ca838dc8cfd37e0b7d53c659f762b627fdf9063e1c9c1aaa81ca6eab5c702",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-leaf-book.webp",
+      "sha256": "fbfb3f8712ab48fc79e52eb16b0a25f7caca49b55ab07d6a3ba07548889e4e9c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-leg-table.webp",
+      "sha256": "279d4bd738b82268b34268ff11e30dfade0c43719dcf62a1fb61765cd4418ba8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-long-ribbon.webp",
+      "sha256": "745b6814cbd33418b76c3142d5097dc0382e4052a8d05be84f3723866edb9403",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-low-window.webp",
+      "sha256": "bd7f100c23d6130a6e874267102306469badfdf07225cba83ced0cb883369b9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-map-dots.webp",
+      "sha256": "8c4d56e009659dea6b8dd56d0e2a9f2016199fa9a9fdbf615da6a02cb25c275f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-map.webp",
+      "sha256": "b4347e91f5ea9c38c13c536eecfae84e039484e387834510f5c3e3e034b15184",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-race.webp",
+      "sha256": "3b84d77a629c1b475e1a6f79a1675e2b7137708fd19e7fb1330ba63692d703ea",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-raincoat.webp",
+      "sha256": "33ce522fbe2a4542dde630e5390d0f22c0593b570c4167585916baee2dff56d5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-shed.webp",
+      "sha256": "35893b9685c4ba703609b8d6526cfb7784d695349a58f0b39de25c1ab25f98e7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-snack-packs.webp",
+      "sha256": "919aa3481e6069c2fc020e0ad614a477912527d74a7ac3f6e80ce77b68b64d70",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-stamp-pattern.webp",
+      "sha256": "de28dfbb551acdff124a2aeb723ba91506892bbd8669e3b417609d043e7ff1f3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-stew.webp",
+      "sha256": "11d58338e3623c7faa2b9418c9b62f883fbeb88ea4b1ba45358a66ebfbc4dabe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-sun-cap.webp",
+      "sha256": "60a3f21e6b1eb177e7d8de7304531e406e6faaa7b6fc8dd6fe177a5812f309b6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-three-threads.webp",
+      "sha256": "3ec6004449e88357ed8e0aa3f181efe339991bb3f00cee4608b2ac45493063b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chips-white-chalk.webp",
+      "sha256": "53e191e34d0bb65f7049641e0d1ff6d475758022c7142d55c4c4b961ef3cda01",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-beach-shells.webp",
+      "sha256": "86738ccafcdbc6980186e93316eca0de5453f27065bae4a1f5c296abc829d349",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-bin.webp",
+      "sha256": "3d43fcfaa86c2509bb4f813a15e48c6c9e5ee0484e0d96518e6f07d12902fa99",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-block-track.webp",
+      "sha256": "6ec29bf0f90f4c4b421e7c0929e8fdd378f8c250250b22b803a01018962870a7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-cap-shop.webp",
+      "sha256": "05b6427f53e317170777a808d905eafe67ef28c31d667d0fcc096d81f13bfcfd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-case.webp",
+      "sha256": "9f6c30b41960ab7609eb8eee7314591fe24d7b6edf2b84aa8bba6cdf69b7ccf3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-cheese-triangles.webp",
+      "sha256": "a507026c385b5985f08363068663eae2c5a98a6e8bc6eb4b037de08a63a6b765",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-chip.webp",
+      "sha256": "95cbae0e76fad90d2d4f641005f41a726f6297b28508f6e82ead5331583a4667",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-fox-photo.webp",
+      "sha256": "f71429344978441624694b91a54abd49753c4c9ff22346c8c621ffa687c5783c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-game.webp",
+      "sha256": "3f73c8921d76ff26e6a24f65b2c66d6df67c7d6882792712cf324d1c29037c2b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-hideout.webp",
+      "sha256": "6565007eb1a1f8b8cabd1ac3e91c577c4f8501a5325e5b967d0f05288195a226",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-ink-pads.webp",
+      "sha256": "50874a79b230ec96c036085b3bcd51cc49c974c94d9567fd584df92b24ec4db3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-jam.webp",
+      "sha256": "d778c1e1fa38882322456293f3484039ecc2bba9b7c36c185271fc15a25d473e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-light-shadow.webp",
+      "sha256": "0f712a94d96be16308cb7402d653942039c30c1dfe3bc12a91753597eb9b58d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-list-rest.webp",
+      "sha256": "8f3056356481b1bf7edd0489f0ace52ba6870ec7a9df2b5e8a033779a03829b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-note-delivery.webp",
+      "sha256": "635609cf688443ad8ff56bbf053683ddbde06f15f9a076a35de28b43cee844cd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-paper-sail.webp",
+      "sha256": "276b9bc8ca14cae1f66375b125d6c73db6c807b765097c275ffbc012f482d42b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-peach.webp",
+      "sha256": "dbb768ca8386713bc49c5ee18aaf36c16038a508d2e8a04648e4018b0cbb2656",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-red-bed.webp",
+      "sha256": "030d81aa682fc4e7dbccf5081c0d8ad4c3deee14af71d55d57dee71aeb6e05a9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-road.webp",
+      "sha256": "bdd3be80122da2f5891587015ad0710e1d3540ce6a0b4daf9c28607b3a7baed5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-sheet-fold.webp",
+      "sha256": "509be668fd85c82ff67f88a50362baddc39be434a87a44443ce300f322b7b64f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-snow.webp",
+      "sha256": "3a9fc29d8f3124a9ad4e10ad8796664fa9832bbccc9f1217a1865059c6d809ba",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-stamp.webp",
+      "sha256": "a8c62a436dae7e2578e42e3ceb8255a602cc7e01bc09228a6becd7c883fc38a8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-table-wobble.webp",
+      "sha256": "cec64286d741a3a16bb396a62c7434eae33845ba825c6f8daa9645a1c9dc5939",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-teeth.webp",
+      "sha256": "2432a03ffb8203b888fd1a321cce168fd443ce13882e758fac89844173507bc1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-thick-soup.webp",
+      "sha256": "4e8a37628a547ce5500bf1b4f40af5e77b88d5f527f097c06ddd2b2fd2189a22",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/chompy-thin-paper.webp",
+      "sha256": "aba6ada2baf3a9de81123fb6f9ac2d34bb8b115aaa01b6c610661b76639eae33",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-bath-toy.webp",
+      "sha256": "e864aeecc8e0af96572b9dc9ce9e02978bdf9cb6e91be2fb9b180cb465b22732",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-birthday-cake.webp",
+      "sha256": "a5e4a7bdfcde81277255e5ab3b5147990ed818dc5ac595d0c0e0c3d7b763681c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-blue.webp",
+      "sha256": "95f23dcb31f9a005d30a6eab5304cc2c06f88c1dd4d5c0531d00f9b36a9ae86f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-bone-print.webp",
+      "sha256": "c872dde730a5fc273e607aab0e8433ea115d680acc7e2d3d4a834d73bfc857f8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-broken-pen.webp",
+      "sha256": "a30544d70e05c0208688d99b6e0cfb4bdfa57fa1a293a2e568ff35deb3c33ed3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-brush-road.webp",
+      "sha256": "59f0264d38f4e541961f557bd87e5d57e284c0801985c6d5a4b389b48c60248f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-chest-puppet.webp",
+      "sha256": "7222a97e02d77b7b6575f2068e218ae6e5cb917d1f901e3b5f5e666037794b32",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-clock.webp",
+      "sha256": "df18debc4da3ea522d7b120db32c039a26e6f75d9af95bfa71df536001d010ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-fan-paper.webp",
+      "sha256": "ff5d8fc60f73d615b13cdd25cdbb828de4a24f7ce085fdae314fedc443e09c50",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-garden-slide.webp",
+      "sha256": "b15825646318fa11aeabd9b28e46c6726cfc2f33003a45896bde7befff791309",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-hay-bed.webp",
+      "sha256": "51fa3cbf83168c0ef0d8a6a3e9bd1873819a4d31ec4b07975e98bff2a84fb7ad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-hike.webp",
+      "sha256": "893d7d061b209f6cd2a7551e101355945736070d7d79161dd35ac15298832891",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-lid-print.webp",
+      "sha256": "985521659ed74abe377e63b21da46a70e16163a1c7a5c03caa058bd7022ec264",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-log.webp",
+      "sha256": "1b5d9b01cdbf9448a47ca38bbba1d26996e3862d6d3d2f8021aeb899b9daccea",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-mix.webp",
+      "sha256": "cdfc9bb43b2615880f9cfe6f30ba6662b7b200752b0dbdb4abd2360e91735acc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-mug-label.webp",
+      "sha256": "475ff1cc7535e9ff841e4e7806eb9a03d56e81681fab19eb262c7016aac24b43",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-night-bag.webp",
+      "sha256": "ea51157e8ad2cdd5447cc54c2c00fd7e72f98a46bea0658afef03a3557c38c25",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-paper-plane.webp",
+      "sha256": "cdb928b3036aa4ecd45c4321f196f53ca94d78755b59dd21a86d96f2c3523f9c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-path.webp",
+      "sha256": "2244d33974afc45464c4ae91cc34bf7b18c61db6ef0dbbe125a40f7857966cc0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-pot-tunnel.webp",
+      "sha256": "6d5e1df5f7d2c2df82f1243eef3ea22054be26ea1bf0643b555942e171418f1b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-seeds.webp",
+      "sha256": "b635904c9b17691a2da070f3c7420b9ae4726f321fd1d5879ffafc430643cff8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-snow-boots.webp",
+      "sha256": "7f5322b101b56d688b0a72b51e0c6d67e415c7991b17049182d6c5f045926c03",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-string-phone.webp",
+      "sha256": "48c0a7baba758ce51aab0e2886a8ecf0f109cd26769dc8539cac5be6a054c610",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-sweep-leaves.webp",
+      "sha256": "2321f37eb3478c10dc36d3d91816b4b4139498f4ea8c654f30bbd5b6f214079f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-these-shelves.webp",
+      "sha256": "3f18e8088fa7e6197b73b9f3027daff527d16e7c3f65e596265f2904d9b5599c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-thin-bridge.webp",
+      "sha256": "69d7ba069fb75074c1c8d4dc22a51aac47d78a49d64e8affed7dee0cc65c1ceb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-toast-sharing.webp",
+      "sha256": "80b2ef8064aee6b2e8527a26151f5d33f5f57e364ca13de3e620a100a24b6bec",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-toast.webp",
+      "sha256": "c730a381a64bb4b46db745ccc28af71d316c3abb057c2c1ae00cdf2813e7e16b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/fluff-tune.webp",
+      "sha256": "39660d6a7cfb7bc3972e7864302aaeab586c5fac90a4aa2055211eacdf6dbdbd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-bath-cloth.webp",
+      "sha256": "4b01dadc600766d913e9ab62a8a22a58e601e00a7915ba171631810b58634c27",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-bee-distance.webp",
+      "sha256": "956af2d59d3bea5917cb596b9d2f00e450826530a04129bfe4c1edf4182db196",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-bench-picnic.webp",
+      "sha256": "26e4a4f42367f38e0570fc50ea48bd2a11e5637fb7da27115fb4fed3cec88473",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-bike-tyre.webp",
+      "sha256": "15ca0851db05708a19ad5f1119be68f3f6b56fa7eaca5e43b81699f61b9c54f0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-blue-puzzle.webp",
+      "sha256": "18b89ef8af008aab83c565fdaca03652e7983e70cf1d7b252826977c67b96545",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-bus-stop.webp",
+      "sha256": "6227705fc3c77b0b73a333a2dfe10621b75fe5ccb0c95ea33b6091b5091062fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-cake.webp",
+      "sha256": "108c473b8ab480c63b05b88f28eff01e65fe303d16013fa0aac14c568578c3c2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-cardboard-tube.webp",
+      "sha256": "bae459d4ee85ef5c96dbb692e87c69cd6f9de687c4c0e8b0c6b9f9e4859a68a3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-clock-blocks.webp",
+      "sha256": "29dd3c54a98ce4feb8b540806f6987a74b7eb846884e5dd4599ad94f58b079cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-cone-stack.webp",
+      "sha256": "f26342f7119dd7cbf07bb9293f9c38f127deba7093397c494e789e551458f0e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-cup-tray.webp",
+      "sha256": "a200081535a9656dec9e486de268d1b043885b123a523fe5d86dbf6f8b8235c8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-fog-window.webp",
+      "sha256": "c077ff575d2bd356d7424e928c7478b8befca592e22d914966ea810f50fda39f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-gate.webp",
+      "sha256": "31625b9d912e2ba3de7a3244e965152f6eef9c0e90026b662b2727283ad873b2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-hay.webp",
+      "sha256": "d75aa01429a4046d67a34463df58156088baf6f48777ea79e0abc09330c6c156",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-ice-tray.webp",
+      "sha256": "33bad95135fed2c8d9d64f7f7de218000082f6fb3caf684c17a71a890c2d0ffd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-mat.webp",
+      "sha256": "d2f788b5fcc7b1a4b3eb21fbf79e6f8691abe7eee44703620d97bb4c80f34ee2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-peach-seed.webp",
+      "sha256": "b0cdb3412d1ad9b1cfece803c11582820e441c337b64b82a5ed61e4a7834c674",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-picnic-shade.webp",
+      "sha256": "04776740baa6480e5690f2d63bf040379cd25a82698e3954b5b10fc0e21339ff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-pot-lid.webp",
+      "sha256": "c806fa6fd8dad0f234acf1451399c98cf2897f0096ccdb9b7859e10148633afe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-rain.webp",
+      "sha256": "61fb0872a9e924b84a8c5388922ef06366624688ca8e876c57a398d2a8592597",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-ring.webp",
+      "sha256": "35c59d3d8a62287aea6716180f6f458d27f6562b39aac6e93b1534ac82b0ff1b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-sand-marks.webp",
+      "sha256": "57277b05abea68dc5bf4089b5df1a4575e5c45a2814974aa7610f7c05d29ebbb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-seat.webp",
+      "sha256": "81bc13c502bce7852f96318f31d7527f4ec683c909f8b9be1df75ff8607da34b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-shell-shelf.webp",
+      "sha256": "ad6c354e67969982f81da6a8f6f1c506cee31217afad880bb18c7b2e5344cbb8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-shop-list.webp",
+      "sha256": "8cdc17ff6519f89eab688c911a5fd825fca2e32b004a2ec9bcacb8c2299dc612",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-six-sticks.webp",
+      "sha256": "447a269670271da5397b19bac18b155788353fb71d8c7dde186e3b1afb18f7b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-ten-eggs.webp",
+      "sha256": "253f038f28979f7fa2535affd6d6a854b4302b24d6e3896b4f10b8b65a1c8f4b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-tent-flap.webp",
+      "sha256": "381604dac52af974e37e075d9bc56dd89d2f8078bca123a7d636bcd5b010ada0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-train-bridge.webp",
+      "sha256": "6bb330aa209d76f34c6ade6259ce048ed532f7ff048c8514b6c1efead9630cc3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-train.webp",
+      "sha256": "774841ae7c539a8a833526ea2373c82d4f89affc08463263e715af39b91c4b00",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/muddy-tub-boats.webp",
+      "sha256": "56f4eedf643ffc75e8f7db4f856b9401a1d1ea866332d7de3d31475df9109d16",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-bag.webp",
+      "sha256": "e467bde5eba9a51af444a78e67d6186281ae767b3f51034d44d4a7d5beca300f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-chalk-arrow.webp",
+      "sha256": "20f9e2cdf13b5d7a5dd8565b55552e189e8c5b65e801007c194106e26d850d49",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-clay-bowl.webp",
+      "sha256": "a4affd3d52b4ba9f21254f41fa11cc3dfa6fcae38b88bc044de2e0b065aabe40",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-cone.webp",
+      "sha256": "b0c8b51bb3262cb65fb21da7e74156f95535c44f47b99ca60875ec154df54823",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-covered-plate.webp",
+      "sha256": "e092e8fa8fc937f6769b7ffba58be280a3df0162c6394bacfc714090796af603",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-cube-tower.webp",
+      "sha256": "c6422400dfde13ccaf512d8bed0ee2f1b6eec84ebe1e7f216c815c4a49ac404b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-green-beads.webp",
+      "sha256": "0f6d38b4e27b1745b72423b0a96c9f2432b49a9be346c9ddd66a378ce10d62e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-home.webp",
+      "sha256": "56487fbdfa81dd468fd4fd4f10e5dfbb9a3253713e14016b630ac0c5f8128719",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-hop-spots.webp",
+      "sha256": "cb7027f10c8c65714aaa62e8e74e8ccc09aba5fb0f878bf9b987b1eaf97cbdbb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-lunch-box.webp",
+      "sha256": "0bcfcf4958a96d1a574739077107ff8694afd578cbaab23caf4186271c18b13f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-new-ball.webp",
+      "sha256": "e52a92ac6d8443e3c006a1f869debb95481f372993a33d069ee2c2d0b95fcf19",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-night.webp",
+      "sha256": "25d2567dfca616e247376bf3013f97ffc661660e90c413182c3ab37fa2770870",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-nut-shells.webp",
+      "sha256": "5d7c69190a7ab221455a22d3fbcec9c561668cdb771df7d3e16b7f1b0f40bdeb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-pet-food.webp",
+      "sha256": "e1e03478b517f7af0dd32e066e15fb467dff64ab7ce256b27e80509c67ca018a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-pin-wheel.webp",
+      "sha256": "86e736c7077e6faf49bace1e0c7e2c214d031f242197ad5615b84e12817f8507",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-plant-label.webp",
+      "sha256": "f06dbdeace582e565bee407e683a9ecc978c0ad58ac5e58382afc49cac9e13b9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-play.webp",
+      "sha256": "13ef73d7eec7bf237e57b5cc49781827220f3970216d4d792df96bee70ef8d19",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-reading-team.webp",
+      "sha256": "a05b38dcf2b7d10b0599331d66c7403c265b5f34a2289381aa69444c285d1bdb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-red-net.webp",
+      "sha256": "817dfa3efd7f8939dd4ee91c3195a33a9fbc6bf1009bdddbd016208cd0ec1b90",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-rose-pot.webp",
+      "sha256": "fad494ee01846095c1494b600224c146f4100f92709a890973ceb3138b2c48bd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-safe-candle.webp",
+      "sha256": "adc5875603cd71782924236de5ea46cca26e62dac9896b3da58e1e834aa2217a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-sheep.webp",
+      "sha256": "b8301e00529090406383672b1a71b85349e626440f71e83f169acad339cf735c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-shop-bell.webp",
+      "sha256": "4ff1574fffee70b51459badeadb622fb68e4fede11674d61e3166e67f2dba5e7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-sink.webp",
+      "sha256": "91b6ce576e96d792ac491453a273355c6822d37092d3ea943e47ac87952252e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-snail-trail.webp",
+      "sha256": "e59fcd57e7644df5cca26b8eb0abbbf477936e05a9077b1cf718fb7a6a9f3b0f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-striped-socks.webp",
+      "sha256": "6237786d3eda06384b701a5e7a90db066bd7e0bd2d7d25c74963f535d8efdf3f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-tape.webp",
+      "sha256": "33e7b1659c29c519770443c854c4b1baf50ba7e4879c68e99fe346ca752ddeed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-tea.webp",
+      "sha256": "f465275fb2cac794cc31824b313f91818d6ca9ecd42e642c4e66c9cec3cfdbc7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-tent.webp",
+      "sha256": "d654a7867804f61991dc67b6002e8fbac9208eb7e54c5f610aad43889fb64845",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-third-plant.webp",
+      "sha256": "e280d53ca4c7bb968908135d66615cee3ce2eda3e694d99c8cecff77f1a933ff",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/pip-zip.webp",
+      "sha256": "e7763b2116c50c215304c6f7b5ee6015cd6a07bfcae03fbc41a42860284b3382",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-beach.webp",
+      "sha256": "0f83129a4b5e1c082536c00b199501f1020f9dbad43d99cfdbcddf71b82a3ce5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-bike-basket.webp",
+      "sha256": "54d87a22394a1e41fb47c7f745e339524ec9e1ef78aaa15738664a14ac4f8dd4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-blue-glue.webp",
+      "sha256": "bf7667beec4d7ed0917dad12e08c544106ff756bf0fc6ff88531279188f5c6c4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-box-drum.webp",
+      "sha256": "24ea328bed0087b7cd0467e32d33006b101de1a2de512e65f07c332da8d0edb7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-coat-pocket.webp",
+      "sha256": "fd25870289080aeca5a755b1377b51cf7de31e44fc4bdfc4075b1f963ff16c4c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-cup.webp",
+      "sha256": "cf6304f403431611796af016b17d4f534e43a0e256c7865790fdc5e1d5fa4c93",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-field.webp",
+      "sha256": "4df6fc57c805083030db66ce0aafece2acba5ab0a8cc5df8c1c70fdb784aea5f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-flute-rest.webp",
+      "sha256": "779a4ee85de119d177edd08a118533421ab82331a56d4a5ae48f63ba508208ad",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-hose.webp",
+      "sha256": "a13356095cef7732cc466bbae46342aaa9a781cc6279166a0c26f550328a5f51",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-kite.webp",
+      "sha256": "9b83eabfea94a093be5857d00ac949d39add08e2cee08eafbc788474150822cd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-lunch-choice.webp",
+      "sha256": "3445a3be56a2af072a92d5645da1d52ecfda9c463c7ef83ee872655ff6074404",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-meet-tree.webp",
+      "sha256": "05c696db13e62322b66cde1fd9a6a8cede61755b88d15ed8086ca58d633eddbc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-missing-game-piece.webp",
+      "sha256": "9b9f89d849d89772626057f64c46e0a76fe1deeb9944f9d1df03e4b31a3824fb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-pan-pancake.webp",
+      "sha256": "b517754503a8fcb9af24155be0f37242207a7c8e2336946236e4a73d9e4015e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-pet-bed.webp",
+      "sha256": "4a02b76c811d667582b8f36cac18560a7fdd49db8a702c4cff3a29f9dd6770fc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-pink-link.webp",
+      "sha256": "07be902cc846d6361e33a5b6300706e32b941cad6814d4a7d465f3037065aca5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-rainy-play.webp",
+      "sha256": "197509c85dc9b2070b7b79c7e27531d566f45e0ecd4e094566564fdf2ff6f248",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-rope-handle.webp",
+      "sha256": "bf08269feb91c425cc45a7d05b1d3c2cc4edbc1939c13c14dd9fa0daed911113",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-rug-roll.webp",
+      "sha256": "b6c038e65c790c5a8cac2a6cf4bce6d5549f5a1617a25aa66ef76f95e63f33b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-shadow-shapes.webp",
+      "sha256": "3c16b3bda0f516b26962bd380872017d1fc59c55accd2d37f0c83efdd237a665",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-six-pens.webp",
+      "sha256": "82f7b15d1fcfad525281cd70736ed37560d4d161b2cb47f4cfef0d856a59261d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-steps.webp",
+      "sha256": "6eff7f929715659e4c733a45404a95ad30ce6b7039bd60e3619ddf0e903cfbd9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-stick-measure.webp",
+      "sha256": "5455da6e68f3c893b0e4b8308a32acca98b627f3511f0b158cbc6cac0f945101",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-string-beads.webp",
+      "sha256": "01c29ab9b067ac4fa0928ef7c57249b7872a80b096bcf36a7b703c30689a737b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-these-boxes.webp",
+      "sha256": "a26d82bfcce0ccff46890bef45aeaa207388407a8daddad57cd89c399ba8c844",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-trail.webp",
+      "sha256": "2d6995bcb11fee0c8eecb9e7be5465ff2aff23b255da7b8d17c21ea86061f3ac",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-train-seat.webp",
+      "sha256": "d8f7504a2d0147bd05ba6f5603ce5ed5d7265c9c11abe7f4cdb665640850178c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/comprehension/passages/socks-wet-hat.webp",
+      "sha256": "04a6d98505694d3433f4ed59b80772f86a914b828b9b738b4a396cd38a0e3090",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/comprehension/rainy_day.webp",
-      "sha256": "7249df2fb2fb1409d37cd6c08827461d4640f0ee4942f1eadae5b03bb29abf4b",
-      "status": "approved"
+      "sha256": "ed111dba5419fd723571e8fef24fcc2d32cf1fedc13f673dace750693c032bab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/cvc/bat.svg",
@@ -33170,9 +38585,22 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/cycle-practice/fizz.webp",
+      "sha256": "19f140261cfc727f7a605e8b478fb2538cf034ff2ac833fa992f7a42b7752585",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/cycle-practice/rung.webp",
+      "sha256": "e5c329c63ec51edceb7ac777a0c8080971cb2de076ba0e4546618b721811f66c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/emotions/angry_child.webp",
-      "sha256": "fc5379a2d87affb5eaec10fb8f6b2a0281ce9148c6659d46ee5d1e2c7ba2c9c9",
-      "status": "approved"
+      "sha256": "8d95fb9809907891277f3ca1fcf084948f0fa9d46aa884cc133099495737c8d5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/emotions/calm_child.png",
@@ -33181,8 +38609,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/emotions/excited_child.webp",
-      "sha256": "3bbd4ce9eb1d1145cc9787f81b447de90ea859cc213dfdd99c5ee2868bcdf8d9",
-      "status": "approved"
+      "sha256": "8df6aae7699ebc23c40a684b7b828c66700c73116b08327d4b52be00e21586c3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/emotions/happy_child.png",
@@ -33205,14 +38634,22 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/games/tile-platform.webp",
+      "sha256": "305fceb5174893b2ebddde3803f3453cee88cba119f7c1d65ed1c12a8e396b7a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/general/cat_sleeping.webp",
-      "sha256": "da1eb4197358b730c22d957ade8ae58c2b6dedb2d51e82d9bd96d6f5276c5770",
-      "status": "approved"
+      "sha256": "426443a1ca05879345e9f16bb42cb736ab5a4887fd7cd5870e2f93fac994ba1f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/general/dog_running.webp",
-      "sha256": "d559ec5f05d6d56e8598071204a6318961698a6e35c2b9c49b8c6152440a2cee",
-      "status": "approved"
+      "sha256": "522073d5ad4a8ab6f54a2309a85dd99738810a0ab11144da484eca86e698045b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/generated/boy_afraid.webp",
@@ -33275,14 +38712,38 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/learn-games/art/blend-and-build.webp",
+      "sha256": "1933d6c40703ad3313a9c6754e0aebd5acf8dce6d2fa5ca034d9602eee72ea8c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/learn-games/art/cvc-train.webp",
       "sha256": "93a82f1b5686a9cf97447f68f661723aed137ba4b8063eb030659368ebce923f",
       "status": "approved"
     },
     {
+      "path": "/images/learn-games/art/cvc-word-builder.webp",
+      "sha256": "8120a541069100361f3a455cf909ae6796d423fb5f07af031d38bc627a72d40c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/learn-games/art/grammar-grind.webp",
       "sha256": "daa568805c009a5c07eebfaa049342c9078324b1a83971e3b972d7c20b498e86",
       "status": "approved"
+    },
+    {
+      "path": "/images/learn-games/art/pop-the-word.webp",
+      "sha256": "5dbdb9d743dc674e59e2a1c4e9e841e964b781101796049e5c86e7518d308a77",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/learn-games/art/reading-race.webp",
+      "sha256": "c0c656fb01b5bab1bf5c7286077da9db39086232dc93d07fc4bb991ade8b8686",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/art/rhyme-pop.webp",
@@ -33293,6 +38754,12 @@ export const appVisualAssetReview = {
       "path": "/images/learn-games/art/sentence-express.webp",
       "sha256": "6932be256875d1df8c73ad35cfa24e5eb969107c06808659915418d094b44bc8",
       "status": "approved"
+    },
+    {
+      "path": "/images/learn-games/art/sight-word-memory.webp",
+      "sha256": "20f85c45da8f2d30b7862ef4e2b73192f450220ebedf8b802a298f9978c9f8fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/art/sound-safari.webp",
@@ -33310,24 +38777,34 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/learn-games/art/word-hopscotch.webp",
+      "sha256": "c9bd5be8cf222a73e116d6aeeae2a2a3a755803d51b4b7b22e3f6d9a889948f0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/learn-games/icon-blend-build.webp",
-      "sha256": "bb07e527e01c38d8d312ecf939c241a741cafd211d82d87c822daebd3f2e3714",
-      "status": "approved"
+      "sha256": "4df895c3826f53b6e141d9240188b820b1d8069c7767ed50c873a8a8f6d78ab6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-cvc-builder.webp",
-      "sha256": "7f7c062d9815580230170381b24616812a477dc35de37e41039d9973f3002986",
-      "status": "approved"
+      "sha256": "b7912ab29032955663c0e9ce57666782a307b4ad63d9b697a869fed76e20ece1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-pop-word.webp",
-      "sha256": "260a2b863152ba5b06a89c147d8d344b2318077b87a9170987ab561753aae0c0",
-      "status": "approved"
+      "sha256": "490aa7079cd803c5fed58aab6d8895905a02fe808ee1bf302708d3466b3a183b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-reading-race.webp",
-      "sha256": "b6fdedc536914ef5cf5ae0f32845229991d323075e88f9c06b6c14cba1bd8bf6",
-      "status": "approved"
+      "sha256": "c703cd3fa821588af5f770b9ca438077168a559e831f4469b530d534e933705e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-rocket-run.webp",
@@ -33336,13 +38813,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/learn-games/icon-sight-memory.webp",
-      "sha256": "b9c112dc62baab389e6ae8405743d7ea9c1548db6d2a11adabef1ec7ac6ee11f",
-      "status": "approved"
+      "sha256": "088aaacdabec6c1a624e626107331df2e2171d2798d16d5a2f42a7df62845d86",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-sound-slide.webp",
-      "sha256": "d2b96f3bc739f0fb53c0091453bf388c3b7047d461c80d976eddecf7a1538211",
-      "status": "approved"
+      "sha256": "3950376548850f8120c141a671061b0756e6b47b13b2b0f5a0ca7973e46c4fa8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-word-climb.webp",
@@ -33351,13 +38830,32 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/learn-games/icon-word-hopscotch.webp",
-      "sha256": "a377530ca684b281ff4b43fe4174c4b391f1b622762dca095ae61cb3e812dc4b",
-      "status": "approved"
+      "sha256": "c21fb119787d7b5a5df6c6668c111e4392914227812063f3b072588d46a53ef9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/icon-word-leap.webp",
       "sha256": "2cd0da472011c6871701d15fef9e84efbd46b7c8a51c3e4e11737e2d7366264f",
       "status": "approved"
+    },
+    {
+      "path": "/images/learn-games/menu/burrow-builders.webp",
+      "sha256": "61b2dae67dbd2f411c30171d0fc6fecb57744df3690008d4dd25ed3426f6956a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/learn-games/menu/rally-pals.webp",
+      "sha256": "4d3cc0af71548aa7edfdd19ed5ce3c89bc38e2a67d9f602df31dbba3a749b7e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/learn-games/menu/tower-tumble.webp",
+      "sha256": "6c89ab4a1b56e40f92b6744030abdb431ae0341aa19de5f13f82e9b2103c8bb2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/learn-games/phinny-cheering.webp",
@@ -33502,6 +39000,102 @@ export const appVisualAssetReview = {
       "path": "/images/learn-games/word-bridge/moonwood-pals.webp",
       "sha256": "ecbfc532584a299c627fda0c75e874f21304ba370b7f781cae903c7b87a66744",
       "status": "approved"
+    },
+    {
+      "path": "/images/navigation/arcade-icon.webp",
+      "sha256": "4d2184f76129578798ecb41d5e6ff3c92b669a029e4b93b458ffd2e35ad0414b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/books-icon.webp",
+      "sha256": "884857524101cebc1496889c2f88dd2cdc54d0e569bb78853c33a9e8b8e0e5be",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/hollow-icon.webp",
+      "sha256": "86f715b82ed8210581fd65bb08ea649e73b52e984e5cc6bc3a05614e7f02af6a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/letters-icon.webp",
+      "sha256": "ff034518ce9b5a77017944a1683f53625d7ed4d4f9587fce0340db7a25b0162f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/map-icon.webp",
+      "sha256": "3e186c130619865e724af6632cd02491d0d29dda0f45f640953a51b31eb04971",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/sounds-icon.webp",
+      "sha256": "6619d716b3199a59744d0e79e6281312bdc697ce9e88cbf69e2873f674040483",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/story-icon.webp",
+      "sha256": "c33e7319246f4283eb4e1cc6dec164c3445e75a6ed967e0affa96996ae0419b1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/arcade-icon.webp",
+      "sha256": "12fbd7c53b0edc032e4fa35a32a3d6f004c0738c16287ab1089bacd9f6a8211c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/books-icon.webp",
+      "sha256": "cc23f37e464c3be5bdfacca2a0056e52ce7badb3c8be44732043a2430f0cd0da",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/hollow-icon.webp",
+      "sha256": "cd094851508dc6271cc6f8ffe9e267fab4b6e2681964323b685b1b0e387ca6f0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/letters-icon.webp",
+      "sha256": "7530ff8047d8f2901cfcab3c7c41380f8470ef59ee49a63e73466c04c61e06d9",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/map-icon.webp",
+      "sha256": "b71dd6f2beb90334b28adba27cbf671b6faa4a1eef15032cd6b5f67ab78f9c7f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/sounds-icon.webp",
+      "sha256": "69fc197810658b31a21d836d6a2ff5f0e63a9671b8a2a56dd2dae3c54fd70517",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/story-icon.webp",
+      "sha256": "a59c6c9a6630f97fe9bdedacb236464e2a836549d0b3ae473fd1eeb8bc8e1bed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/ui/words-icon.webp",
+      "sha256": "13330936e1f97b91740149115b9b91c1cfa59f784d869737b456c5fc9fdaff91",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/navigation/words-icon.webp",
+      "sha256": "9a3e293a75941e47af478badd158a93bd62b052c77b99e71bbecc6cb75473153",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/objects/book.svg",
@@ -33819,6 +39413,18 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/present/vocabulary/cat-on-table.webp",
+      "sha256": "9c3ad99be2bb7b1a3e184779b5347b52b3e4fa6e8ea25522e061da11cd1cb38a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/present/vocabulary/dog-under-table.webp",
+      "sha256": "35faa4250e3e56a5a380457089661dd6eb673f0217db84e7cedcad2f31c88c8e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/images/quest/dino/ground.webp",
       "sha256": "1de41d07d9369414359e7201ced37fe88e3d2b3aa060f5ebdf2e1b3cae2a47e5",
       "status": "approved"
@@ -33880,1268 +39486,1269 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/covers/bouncy-berries.webp",
-      "sha256": "3ce0a540226bbdefc99a993e228dd85389f2e4a3a7ac9845b2bdaa9ec3046b81",
+      "sha256": "7b080c0f12431bdfffe1e800089f265f7c00c4da7cf9e75c64edf58b1c3dfc89",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/chompy-picnic.webp",
-      "sha256": "e9f8ec570c087c2da1187be3b4e8804353d8b08f97b0ffac471ec6c28c7a1c4a",
+      "sha256": "b55220a4e394bbcf6269387dc2135564af44b6bafd0c195157ff13712193c996",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/flying-map.webp",
-      "sha256": "ff9e750ef6099ade84d632dadbc286063a061e2f64e177ea7dd42d08823cfbf5",
+      "sha256": "e41007994e852ef5f7cf8a2eb960e327b55f8220d97a0146eb82066152577719",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/grumpy-nap.webp",
-      "sha256": "acc1eadd54ff0d7f19b617cb442f03088f05073b2278eb65773d767088756e7c",
+      "sha256": "bd6764090c125fbfd9891a67932fb4fbf1be11e847c07ebe80cc3034981d6f88",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/hidden-glow.webp",
-      "sha256": "59188ab2c998bfb77fad82e451f00423d32123aef7a863173d5abaf8ecace0c1",
+      "sha256": "918a8fb976927eba411efdc7fd8fbbbfa7d18eabb211d8c48906223b933c8acf",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/little-rescue.webp",
-      "sha256": "1a966f23923f77d490f73ffaca17fb9ba6c1fe7f246295120ef338ab44e95b90",
+      "sha256": "eb8b8c1cb73048ca145c39cd8c459e3a612c28af41da790b17745cbdaf4d6d97",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/loud-thing.webp",
-      "sha256": "11ed235297dfb867c22996e5723eb3589358d7a89cb4ee9029db1185f47bc611",
+      "sha256": "a39e0e7ba94fb1f8b1e5306b8009b2364171e97f54f900e8dc01c671e3b6a8c1",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/missing-hat.webp",
-      "sha256": "d74dcb2054092d6d04e0ddeebad849955da9541e3fc7bacd8c01c14770815ba6",
+      "sha256": "d7db59a5b2831880a4e5cd77e770b90db495043caa42da55efe91562cd6ad85b",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/quiet-hello.webp",
-      "sha256": "00d20859961a37341995566bc94aa43f1d2f9c66bf69c6ed4a65615fbd02f44b",
+      "sha256": "e934f453818ba617154ff6e97195c78eb25d31094dd5adda41b14bc0462a3df7",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/sam-pam.webp",
-      "sha256": "5bd53e0ea4ea6b7dc790a0d776c81a9e6e3b5a18027fd69c83c69102a886d38d",
+      "sha256": "0eeb3b3aac93a3eba46f22f73e32f2b46eee6c1bc2cd03e4e1bfac9243c093cd",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/shy-snail-trail.webp",
-      "sha256": "348865245fd4f05f58483e05e22b78297ffee3644b100f53ffc00f05f6acaf1e",
+      "sha256": "685cfa7164db68809cd22ea660860af24a9a36a34506d621f229844a862fa841",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/star-shell-door.webp",
-      "sha256": "fe44371cb8641c006f2a47a53066ba8e00ee7fbc758acf8c043c37dacda19487",
+      "sha256": "3bcbbd9aa9b486c7b9bd04edd2693358786f230f5be8ee0f8538d7f5a522c3c0",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/sunny-rainy-rescue.webp",
-      "sha256": "ec47bc834031824187dd541cb64796f92dcac3cf341fa2872fefdf24d98d18b4",
+      "sha256": "10eefe1431e82cde2f3f6c766051846e2cc5b1041e76bd3a709cb927bab6a671",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/covers/walking-garden.webp",
-      "sha256": "54345dc71b9f6651c069ca3b711ac13014be5b7e398738d597029f8534f9df6f",
+      "sha256": "083904a854cb9c63c06d7792a23e5e44467223d5d6c3566dedfc745f45faad2c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p01_start.webp",
-      "sha256": "81ac8cb6fa17b17cefa43fcf3d6c5c106c500cb53996186c0dee9ad5539a6e47",
+      "sha256": "7a511da2a59f38ca012abc814f5070fc4a9764f3057f127630291d2740134ebb",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p02_berry_corner.webp",
-      "sha256": "8ee1221e3d83e14abb9b421ee655f4355663508eb02fbc24e7f5241997bfd987",
+      "sha256": "3c760175d1dbb493d7b8e5ceda658e46de0f0c42dfc918b9e102e1077badda02",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p02_cozy_cave.webp",
-      "sha256": "cbc876dd02afdc62ba1b716696ce7f405550372f66bdc3ba6ae4d136bf947faf",
+      "sha256": "0853e11d56482a6739d050cd4476f16ee2e3c5848e68392401bcde92926c44f2",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_help_chompy.webp",
-      "sha256": "8d232c59c206eb3dc8e2e0f3ee7287a18d887b64832f8ab21e43d6ed6b5975f1",
+      "sha256": "49cc40862b1a4ec04374654f8d2998df84f83c4e9dd7a8b7f499d780d8f72adb",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_tiptoe_out.webp",
-      "sha256": "dc6aa8432488370b84a8cba70355ddeb957e112dd2cb0e120d99cd2aaf7ec052",
+      "sha256": "8428a89ed855344caa94a63035d2cf3c3df4beddc83fae0f2788a1822446b351",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_big_bounce.webp",
-      "sha256": "27686a962bc32de771d4259c037cf7a8bf5f9646b647bfcbc05eef4a70e19916",
+      "sha256": "335360a9f300e6d531a5cb4cf424fc96415be672621dc51d166bc9bd97559539",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_careful_bounce.webp",
-      "sha256": "8dead9908a40e5abfef1b24e677269d70f927b67fcbf8d01d1fffdc303fc338e",
+      "sha256": "e7e57c156a950f48af0da4d6c25cd681d4cbaca978c17f85380547351d608f2d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_pebble_trip.webp",
-      "sha256": "e37773308ee886fbbd1a0c901527bb9d833e49c29be88c9b509858e89ab1ab00",
+      "sha256": "0581cf3063d34ca5576a1db4cd94a6a77db45ac99c393a6945e557abd3ebdd81",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_quiet_exit.webp",
-      "sha256": "1e569cf5c1dd60f151621fda67c9150447d399ed570cdd37dc1ecaa50afd1491",
+      "sha256": "35d7e252b979afcc88b68176cf4df0ba89664457d1dc68e0394661120950020f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_berries_fly.webp",
-      "sha256": "89a01a8f943f371652652b42ce3360d6ab83cda5e96ac31315b7ae50186af33a",
+      "sha256": "cbddd564314c43965ad103a9a45a7e75f9ab9fd83a3f6671d7cb5156ef8c46fe",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_cave_echo.webp",
-      "sha256": "4c7910032e98c9ed11e17bcf84bb6c99d4a6dc91d3ce44d0f7d5d2d4c6af5de0",
+      "sha256": "33729d2d883159a09debc4de97329a5c37e5f5c7109a8dd36c95464ece30dfd6",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_legs_give_up.webp",
-      "sha256": "580ea5976043ece620d8f094fe95d82a4fb9a8c9b9621685c81ca52c33d73b23",
+      "sha256": "e4b7979b5ca24fd4bc69b0c6e2c85bb8d17f8a29be839b687e74dbbb594eaa59",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_chompy_catches.webp",
-      "sha256": "1b5d25f08aa02438d61e1d8af906a3a8662b559019c3245c43c57332c5cf78c9",
+      "sha256": "06026e6bf2e3cbc0e22477d31a9cddb340bd6866651e64e604d309784cd43c46",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_everyone_sticky.webp",
-      "sha256": "c72582129366601a707932ca1d1a22844d4c99f3da1b83bdbaf3d534480fc88e",
+      "sha256": "fe18f0783a0669c6ffc7beffbd7fc35a422900643597d5ba70ceb7f8492b08c6",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_dozy_advice.webp",
-      "sha256": "43c8462d7e998a3a7124111bfb532853440d2cf988a5ef5f01ea5026851d8870",
+      "sha256": "2a6a09e745919df0c242ba8f6462c8725abc5502e24096c33b61f10800b7991d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_nose.webp",
-      "sha256": "16659af42d27d85165a122586ad7d099d843b4b97150256f2dbc6a6b6cfb4597",
+      "sha256": "5b5462613f081ad55c36bd021f814b606af0533dcf9668d39887554bc6c8a405",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_berry_ending.webp",
-      "sha256": "f983fcce65fc98f2092cc76f615335eb7d802d323f10b5fd52ba1a38fba3ec64",
+      "sha256": "e4f59e5bebfa29058ae057000d9d5e42fc30a270bd0e3db2ae65d141c393a23c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_quiet_rock_ending.webp",
-      "sha256": "ea902e764e5d9f5eb066df325e38f6ee313f1aff04f384c2d41220830001d9b9",
+      "sha256": "86229b3abd022e78e5369fff9dbc9d4f43b5a562a3a0f1ace20cd33e8a7cbda4",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_rock_ending.webp",
-      "sha256": "f55235002afa317426ef520286391a951471a1b0e962082fe8fafed2216fa035",
+      "sha256": "4cbdd2b798dbc2a94d7c916bf4a5c8c1d3112602b5bae601e343377689503654",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p01_start.webp",
-      "sha256": "a439a3bd19f5b81ae9963a4ca1bfb183adc26f53256069c7603e9fcc1198da8d",
+      "sha256": "5736d4e0bd4b61bb8e2a901c7d27fb39600260f5ffea33b4db6b5824db6b4829",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p02_berries.webp",
-      "sha256": "07ade7117e757ef705509002c19ab339855a1f2bc99897668009f16b9e84f411",
+      "sha256": "a851004dc49c20a375ffa5034a8ac4610b4cb2bb14fd1460ab2b20896141c132",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p02_cave_door.webp",
-      "sha256": "e788be67eb22d0b2f009d54a404d1544bdfc42eb37a4eb580f4b002f4c8b88c0",
+      "sha256": "62ded10efe9f6cb8613ef4f60708fd3207f696373e53e617d65d17f8889d156c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_ask_sunny.webp",
-      "sha256": "7a18064011d91d537926337ccaafe980514cfcd346aa11cdce4a3dc06e219651",
+      "sha256": "86b0e807579f9bf9fc687795e669d9b8b81df25c6ab0eeb653f7425fcede2455",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_save_berries.webp",
-      "sha256": "1afff72f45276535caa246cf827343b2131b68bf95b8e2f7dde52ffb7ff430ae",
+      "sha256": "1e0019c128005fb8a7933cfa82d3626d598bb8a527cf016a172c437a823cb088",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_grumpy_berries.webp",
-      "sha256": "63211efc963d046e1f3d44b62103048e364a7eb3d0ffdf40b1bc2067ce1a89a5",
+      "sha256": "8f64e8fb1a6f4d236a7476775aa8b007f2736f2755b79b2769a58e3ae2706f68",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_sunny_shares.webp",
-      "sha256": "464f4b8656965c373cb44d6cb5a73adbace47d17f7236c89e07435673df4315a",
+      "sha256": "5137f6361d19775991cd5e8f7d8220aa16848e5550efffade9400b8aadeed0bc",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_big_flat_rock.webp",
-      "sha256": "0cf528939e4b9ea11f20b008db3d5495fdb7394226a4de1085c36d932a95eb75",
+      "sha256": "6092428929cf19166e753f4db88f11c455854fdfdf82024e5955688c028b9b8d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_grumpy_tiny_smile.webp",
-      "sha256": "202dba6cbf29c5af9337388e65da1f4f5d4ddf0040f017f69cb9672141f02ea0",
+      "sha256": "86d25b98427d9b1953a8776421ca7a10e7559f77662c7afc530a50948d3e6747",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_bouncy_lunch.webp",
-      "sha256": "d544bed51f3bd6d5739e270a8644a514b9f9e8d4748a1a0560199ee0308ce377",
+      "sha256": "905fa5e1bde0b3a6475172377d6915f7152f7987d9a843183ee46c98ef48c2fa",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_everyone_eats.webp",
-      "sha256": "1a2d8e6676e9795229d5caaef2ec07eef3f95489d6abbb2413dcd49b65c26ea3",
+      "sha256": "af13ff4431c1e2d3aea42c5e374daf355fbe07258d260b7ac863245f9edb7fac",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_grumpy_full.webp",
-      "sha256": "b6783897a78159f0631dd2099000d7b77c27f4d416eaa1ddfe81d724baea0bc0",
+      "sha256": "14b1e52a8db5cb9ee448d5db485985fee021cc8e277bb939488340cbbaebcf08",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p07_berry_rain.webp",
-      "sha256": "b91e6237aaa7aef8a02f4f73cee72c4043e85627410e537fea66fe502d161d64",
+      "sha256": "2a2f21995b6ee44df9b49d1666e9c670107e19b034de2b1ebae7e829d77e56d9",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p07_leaf_hat.webp",
-      "sha256": "fcec37db7844956e3b24f41334f3ff94093f80636cb8787c2692f703b3072725",
+      "sha256": "49daed58791176346b63acdd3af8ec1aadc38b78bdbb98714dd5a479b1840055",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_berry_mess_ending.webp",
-      "sha256": "3c91ba54a6a6f6e3c5cd48c2a5f3ec7c3eaef1dfb1828a6486bb3b3dded2681f",
+      "sha256": "a6d2feaf1004babae0d2a2ba85c8c3c9ff6282008c2b9e272963777fd755b4ee",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_leaf_hat_ending.webp",
-      "sha256": "2d225f63214cc6cc2cd93ab8f220aa920f48fed444e23a2a4995007fd2d404bd",
+      "sha256": "045ab52a5e5878a4c1abc1a5eab73e385548f3b4a611d3b761ae7e313e3ddf62",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_thank_you_ending.webp",
-      "sha256": "bea152a1b54ea4ec3c080d364d68867aee7d46cf8f28e42458353474604174ee",
+      "sha256": "7fd130d148cc07acb96f155d769444062c181552f6bf3040fafe9543fa293389",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p01_start.webp",
-      "sha256": "487461cfbf7c35c3143d2efc63b7fa3cce10de23d1bae5a96c3213f5111758d2",
+      "sha256": "78236df4b42576142ee789d92d6648e8e63e2d7ac57459472875f3a5b5c33651",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p02_bush.webp",
-      "sha256": "182ff383d1f5cde8028b41234aaff29beef0e6a3e11e42d3ca330f0fb93fdbdc",
+      "sha256": "318447a08401f52be788fb86b68460d838cc1c33966679ab163c6510770f154b",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p02_stream.webp",
-      "sha256": "92cf9078b908edec30ba7ed8bbf6439af6dc8af5425c4b0352f1e3b1feeb1792",
+      "sha256": "6c5935408dfefc779b81400b924c87045ac88ab2ce6783beb934179d1c600fb7",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_chompy_finds.webp",
-      "sha256": "a8d75dc7c50c9e70db4f07508e105ae682d0fe084b7e382469d79a2bdf800d0f",
+      "sha256": "94cfee62008b7316c4947b7493dac186847eec8db32be03edb53f1e00f511b39",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_list_making.webp",
-      "sha256": "6b00d49d536f2da5adae4d1a15c3eefd6dfab0f4a043f07547a6de28b1faf86c",
+      "sha256": "c8abbdd048e76d71f8cd471843589d309b3c6d8a3fb651bee4c7d5a2d8000f78",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_stones_fall.webp",
-      "sha256": "88cf05346b527379fb05bfb71cfafb7e8515a2bd2461eb07ad5be98def925ccb",
+      "sha256": "7288ab51ca0755b529762e751175736a96a742727d8f5c47d99b318d09eb0c2c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_ignore_chompy.webp",
-      "sha256": "dbb8759bc9a251b9f8ea9df6b2666b8438ad5472139dc52651257d0118e034c2",
+      "sha256": "9006e84c7d7e2d981d2ee5f0067a1328145c49b19e3054f16f3e4a786c96afce",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_splash_chompy.webp",
-      "sha256": "6df0ea9b690c06c6e12d20b3271edc87ef379fd00f53cb716c4c9f2c366e2f72",
+      "sha256": "875064e1f6cd2caca23f25435ec64fcb061ea102feca286a8e84c79bb6a2c735",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_tell_fancy.webp",
-      "sha256": "0580cf7e55f6fe188b1f1ee237263a34642f8aedf697aec5ea5161e9e102874a",
+      "sha256": "1147d718bb8a0623f92f8a530bc89846c642a1b267f6203e155c14da3739b823",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_tell_sunny.webp",
-      "sha256": "9282433c0f760908e932ba79500aed289c2f12e623b6493a88d925119c073b9c",
+      "sha256": "0cd344a090a35d0e82f6788e7c6208b5fddf829eea91e94e0fa765a08e9b77f1",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_quiet_stream.webp",
-      "sha256": "0387c8c2da7e2c4dcc19d54181f5434f77aef844f6521ea885f427459ad635b8",
+      "sha256": "2a72168584b346d473170ce00eb09b6ea70624cd5defb3379cde84ce462873b1",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_sunny_helps.webp",
-      "sha256": "b984b9c393c71327820ab004c7a4eda9fb91ad944e98082a8d5ed977a71a1557",
+      "sha256": "81e7a0bd2bb3dd56e8d0c9050c98df83b0f2b3bb9b5950e69cb01dc0b6877437",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_rebuild_stones.webp",
-      "sha256": "c2af766237cdc40bdb0f62ac2f117f9a1c42faf82f338354a4e072d4a62cb12b",
+      "sha256": "d72c143364cf1ff74902b764410bf785a8752fb66bd78b2108d5b87fcb8201a1",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_twig_fixed.webp",
-      "sha256": "54a98178c4a683ff572806ae660a130b8b52dfb1946901bd8a150f6cb1f7bf3c",
+      "sha256": "9d5cb2038e9fa406a255d56524bcdd5a5ede66dd23793c9d751df97fa9bb4766",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_wiggly_splash.webp",
-      "sha256": "98737baa1a9209cd6c2781d220ba673540fc6e9f380677255c0876984d76167e",
+      "sha256": "ea1f1541e085366f6b2239d9c25068423b7da1298c9bc732c271175ebb688322",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_all_soaked.webp",
-      "sha256": "4b705c010e65498745a4e117acdfba5cd862ee9adb5d55117b7b216d1485b5b6",
+      "sha256": "2f66398796bacfa4b6e5e09ab2ce28853a8581919ebf942a6f2c7cdfcb0af719",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_one_thing_done.webp",
-      "sha256": "66a1a569a40941ac0fc3c6a6a8cc859b5309924e55d5d7ef9571be7d6df37b03",
+      "sha256": "272d927fbead7756763c2383ceafe4f7b9803b1068f62a25b9400d5a1069b157",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_tower_rebuilt.webp",
-      "sha256": "1a705b522bb561ed83db1b0d6f28e2af7ca538011486735afb74efa2cce9e741",
+      "sha256": "8c31d074d414210d0f172b5cbcc89d8a2ef6ea7660bda97b47fb286753d3e506",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_soaked_ending.webp",
-      "sha256": "e02ba2d8ee3998b28b82221dbc045f5b286f9ebb739f83a808fbee2e7b0b29d9",
+      "sha256": "b88fe8faf7258dd24595490a8f1e2b9e54d72b85f4626d788d34bcd0deb424e3",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_sunny_help_ending.webp",
-      "sha256": "5a96c4a0d5cd756a8381ad47f72a0335ddcf063a87f542540c00f1228541fe98",
+      "sha256": "8040274e43fc8ba97e2dfa86785408747c349536811382928976071b12f59cbe",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_warm_ground_ending.webp",
-      "sha256": "2e3cc2b27b29d90630c6c98ddfc7e134026207a5b354058c4e2c6123bd07c0a9",
+      "sha256": "f15def09c5cb5aa45647cf8360f58c7b2a72d21aef06487339da52b2ea314d97",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p01_start.webp",
-      "sha256": "71eaceb6be73ef3817e19ce1abb38be1cfb1f50e351dd61759510b2ad0e9615c",
+      "sha256": "9e59e57d219b1500e76a125c65fad0211d4b457b5af5f19b9fb24f5313aca147",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p02_leaf_failure.webp",
-      "sha256": "fb07f657eaba9783915963f89d0e5a92a5672f4c9bbab0ea310f4e00fc312cda",
+      "sha256": "9edfac7aa055913778182de5c827ebd79cb4e7e1b46522cb199a9693a02afcae",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p02_twig_failure.webp",
-      "sha256": "df0a2d3e43788ebe0ccec5dca8cd91516023137a40ce26656d24815605499d5e",
+      "sha256": "c920ab44392f246b70e69bb5dacf319109707e92a63d1d2121878ae906126302",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p03_bark.webp",
-      "sha256": "cb5a40c0062087e067e1d41b983bae9a6a9950559b434fb46112e4ca0c533e4c",
+      "sha256": "db5bfc477bf409ca1a4ba72c95339705fb9a3be0425f9c3298915b55661850f1",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p03_moss.webp",
-      "sha256": "3bf34cbc9d088fc3e76e00bedfdcee8395884bde2c14379b425dd2a0aabd175e",
+      "sha256": "45ee8091818ddf57234616836d7ef928ddb48e4c2e91c381439c6a96b0649770",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_bark_steps.webp",
-      "sha256": "2e6439284c6e7969816d8eb38ef2904fc7f4606ded15aa5907310a11a4221182",
+      "sha256": "c3cb9c2e03098da2f1c11f6c14d1d351e1e77d6c60836c687046fa826fbe3637",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_moss_dots.webp",
-      "sha256": "55663a795b9669ca5a3455adadfd6e90594caf61ededd37089850c836d6d3eb5",
+      "sha256": "9f5460736eabdea79bb2d096b1c299e1c037f25245eca09f61d813650372fa27",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_moss_strip.webp",
-      "sha256": "6600405cbc84bbf2156ef0eb3ef0f4e8d4f261152a029e70959ec2f2679f5d65",
+      "sha256": "28c4797c828cdc92db71961879474844d74f67e7ce5d022a4731990fcef66d17",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p05_bark.webp",
-      "sha256": "42cc2448181dbd7ecf82f90b4fd19487824f4432e7455bea49a67fc8de43962a",
+      "sha256": "a2fedf2dec55445796ca3c56e86707d5b881ba43bdc1aa9a479c16c107aa7e95",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p05_moss.webp",
-      "sha256": "5051a6200ab986bfc614e3bc53baf1305ba00f42ee2602d70832fda20be17ec0",
+      "sha256": "a9559545fe1cb1e8c7873044d3134842ff3c531f91d6b517a0474a148a6b0c1e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_fern_ending.webp",
-      "sha256": "020981c7c0ec2d41a38caef8b94800bfbdc58a51c4fcd1dfbb905966dd90bde1",
+      "sha256": "8fca6c548026db93d3fc46e8ef23759a5789968a9b08540a84ae3f942837cb5f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_log_ending.webp",
-      "sha256": "d8d95626d4df74300489f57607678520b2f339fc0cc32ce879e34f075648d55e",
+      "sha256": "46e531149d9775194c1a3a0a26f6dcef136d4c4e0148c229b28de5ca3f37d209",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p01_start.webp",
-      "sha256": "6ce0541a6aad06c44d9d754a266539ff4476c0a63fac3ac3ead04514b5fa70eb",
+      "sha256": "e3c45d004217c07e53ee41ffa0c01568cbe2c27989c9f71cf1b4140191721682",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p02_dozy.webp",
-      "sha256": "b186e57641e36f85ef7304d598efe8b54258fdcef3417f2b94e5ede2cedff2fc",
+      "sha256": "209a2fea10e7ad2d48ba7eff08b4816d0c74e68d9fd961741a3573fb3b491a6c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p02_grumpy.webp",
-      "sha256": "5458821557f515cb7e9dc24b94bf9a89f9fa388fe631ecbd0865b8b0f335ceae",
+      "sha256": "ece77dd6d10d9b546eb4bafe79e28aab2295d1abf369e866f484773a040651c9",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p03_cozy_cave.webp",
-      "sha256": "a79e927f3a617f1276568a558af1af95160ebc1e603b5cb44fcb53d19911bc5d",
+      "sha256": "67d5b3576b63781ee233f29cecc70b5884ea14c048eebd526f010c6a19d80b2d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p03_dry_rock.webp",
-      "sha256": "41f95251f2961c211d7f9c03c956377dc6671645ff233ecac1dc2fe4b039c4b8",
+      "sha256": "62d0946832ced4eb4db94325fbeef6b12fb8e1846d3058fb3854dc9c0b9a2fb3",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p03_puddle.webp",
-      "sha256": "75513ae51e1708ede8c08bb1d088e8e620615ec7c47f0db6d9ac5e073cf001d6",
+      "sha256": "cf803fb281fa0ce0af89081d1206254f5c49284ce2650d7323b48964ec214660",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p04_cave_grumpy.webp",
-      "sha256": "5a137f0fcbdef5ccb3da56dcfd1970d34a2d5bb68b3275bb9cd590020a58e7d5",
+      "sha256": "c602c19e19eeae9e32795e9e8009a0ee8ce3d3a3ae330c8d61730c20ce0d6afc",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p05_leaf_roof.webp",
-      "sha256": "0cfc8260d5ef26a6713a68bd5f192bb52f9ae3b44c83576860308bbe0d30a590",
+      "sha256": "ad6b89d759241ccbea60b3d818c484ad940ef21fee6fc052dbf46821e49a9ebe",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_dozy_dry.webp",
-      "sha256": "8358d97b49e64c7db237b5ab32e9a15e9dc6a9afbe93e8d566f90d6784e32ac6",
+      "sha256": "cc8552b864697b62f041200a5d49f21b4d1aff2ab12f5033fa713e9e8cb94551",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_dry.webp",
-      "sha256": "7e1783241d6ee0b6ddb07ac7743529cb6d2d89198ff29a518ce558b4a0efcd3b",
+      "sha256": "2f179e2152dd24af8159e597d7b82996c894f1742fa9013553d7203f664a7db8",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_smile.webp",
-      "sha256": "fdb84b48fc993f655f964097f38aafd60e2ef1d579675423b82025c53d040753",
+      "sha256": "347a89b8e7fd06d95dfd13df9a23a4195ef2739f930db3fbc3468ba7668ef7da",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p07_leaf_boat.webp",
-      "sha256": "2e40e4d9b8eedb6e4d38aaad5cfe5bf3e59ec58447cefc7f4a26b55986079f56",
+      "sha256": "102000989d4d9ff7d4d373870886e84d8886b0d0b5c7f963095e9e0966c97fb8",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p08_grumpy_laugh_ending.webp",
-      "sha256": "72f3b9882f2d6297016cdd634052ac2b29839950c612a6003adf7fdf286a3d28",
+      "sha256": "448359729494e89d64f41bc28d0c96a96886663ff76bfce22ad6cf877f11dd37",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p08_quiet_ending.webp",
-      "sha256": "5a116f9b6c26f4f20e27c68f820a5ea7de66cdeeac1c30a00ee9f577abcbd98b",
+      "sha256": "bace8b12d9d0e6630d017ba4737fcc7781ffb5a5dc17787d47eeddce155e68c9",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p01_start.webp",
-      "sha256": "d33f32dacd4200de44acab0a51667e90150aec328b42f39f490142cb5a664617",
+      "sha256": "918b04ccf6034e0a0504b1fc629f8f76510c0f9a500aed571fcca4394f0e583f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p02_bouncy.webp",
-      "sha256": "b6c542d5cd1fdd90f61a14e2f615a32c6fc4ff4c41d2200eb611c506f9fec162",
+      "sha256": "53f971841ac9da7fe4ff07411bcd14899a5f00c01a6c7c4ef101d8bce36576be",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p02_speedy.webp",
-      "sha256": "3fb5b18284e1470a84a1a800a5e0dec4e31d4863cf310e3dbe9235f3baee9503",
+      "sha256": "1c8dbf3c5eccde946f7579f21815505957c136beac8630f221904649e1dc1a07",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_barn_fast.webp",
-      "sha256": "bc86936f1622f056af68d7738a4b7f705f6caa9caad611abc0020e8f6b3bafbd",
+      "sha256": "b1e1cfe58c59c48d5f78725ef2f97bb515f6274e72df6521cafe08cb624d55b8",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_barn.webp",
-      "sha256": "d97b106e7d392c8357cabe9114fe93d12870dfb3780d1e4f85025a316db2a999",
+      "sha256": "72568f4cb64975dc04cece7186c5d5b31f684150b2b2802795467d5456f5e9d7",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_map_caught.webp",
-      "sha256": "9961336399573c4842a282fb1167ddca3bebfb89cddce7d9622425ea7b71046e",
+      "sha256": "d33b135395e0833d33ffe40161a7cb0ef7b0ad64ac496983ff888dcf0193a289",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_too_fast.webp",
-      "sha256": "6bb7dc5260067c08c1e12d20a565a03604f71455d395ee082b97d7a47aafb120",
+      "sha256": "4739df6c7a22e03215a7f2ac08dc0c0539e1890c5750a35f6d8b29f6e75cb45c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_big_tree.webp",
-      "sha256": "6fd68419d680de0e3c167e6ab1c94b3e0a18236abaef324ee10125f4f2fccc9d",
+      "sha256": "88d557ba422d1e989097d6218bebdc236729f71e724f4c62f8770ecd22a62550",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_speedy_waits.webp",
-      "sha256": "c843dd628a4bee3573fa7ae293e3771a9d50c718c6dc846d64a6d1379cb961de",
+      "sha256": "a1e000883c6c1f3f34809c8cde34bcef8cdb1fcbb994cc4997f9c01d1f988f10",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_home_ending.webp",
-      "sha256": "0ad290fa527eadd7d4df3bcde5dcd083abb47e4724c15732100666df06b88984",
+      "sha256": "b64dd25db26d98189627058cf817d049d168ad3eabda9e2e1d5c8ef3133a937b",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_tiny_snack_ending.webp",
-      "sha256": "eef011a831a454c9c02eb974814d90f81ee567caadb9c3ea2e706c86326b05e2",
+      "sha256": "c05def4849c00a5936c30842af266b7578b9f8104df7d9a1fd85ed5f429f4cf2",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p01_start.webp",
-      "sha256": "676e2399d1cb2cc500d8383b9bd5da985f3849107e995b88b8c77f644d8f038f",
+      "sha256": "495798c052c4e97e250e75a2a3920b6cb1456e12c23f2cda8f5db85e52312b8e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p02_brave.webp",
-      "sha256": "c6cca0aa5943bcaf277cd2ce0cadfc457facbee7cf6e382afe2f542da024f421",
+      "sha256": "2ad63d8454ec3debe570bccd423bb7996da11143a6b52453070893c3734390c7",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p03_pot.webp",
-      "sha256": "bb3e1ea03beb283d066c20baa1ba495e6108cf150bff57f2ff8f6994f7c13331",
+      "sha256": "5a30416756630aba6859867614cc3d93afda76f67c30ebbc5a014ddc0d975268",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_hat_in_pot.webp",
-      "sha256": "d7a722b11c0d2242a3f23710e0fec6e7e0a881ae9eb45a90f0b11ce210e39c1e",
+      "sha256": "6f24cd89416fe77993c046058b708d5fd1a951e897850449c81c3fb2e764e315",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_tiny_in_pot.webp",
-      "sha256": "03dd3ab21974396c26e7a7db12e74faa5ef49d115246ec4f97994316ea995fc3",
+      "sha256": "6ded594a9e5f5729c406b4aa7a399e1f37f4a65b69cc9e2aee8b3e63420adfa8",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_stuck.webp",
-      "sha256": "ce102640c78a4779a625595e0d2eba523bc72d8eb119c54458e11bbce772e5a0",
+      "sha256": "f59bd9d8d75d4c5193974db38e5553353ff29baa8af45d2c5bfa9f641291587c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_hat_found.webp",
-      "sha256": "ab7f1f4bfdbf55c6069fb6b3df9f018ec12ea025c5081c445a9840e430ee9959",
+      "sha256": "cc4495c75a9d6550a2e54d95feaa02a50478339477eda45925d0ed199c208562",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_hat_on_brave.webp",
-      "sha256": "a1cb943f0339503006c90d71cef7ea20990d3d95c0652e6c293030b97da9340d",
+      "sha256": "d627fa12dfeb77d76e4654e917832b6adfcdaa7c0c1cf55af862330e0faf6e77",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_tiny_helps.webp",
-      "sha256": "74a36854e237bc575352347e873b4f540ed5b562771fcc03e2e380b595a66b7a",
+      "sha256": "ce5500d7ba79f7f384c5cd4de51d4b07d5e9bbe29b84748b65f212557ef45aa7",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_woolly_helps.webp",
-      "sha256": "03daa990772223aac3c6dd9d9aab5b421ababc680f95a6f822f08927c84a9659",
+      "sha256": "0419409f809df28452fef91b1dcab4f6297e375bc16c4b7fe76ba99195fff8e2",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.webp",
-      "sha256": "ef29b3406bab575beb639dc628d3ddc38dbc7315a661fd3926681f82bf8cf92a",
+      "sha256": "0dfd1623f3b57390a5160400a1251ae9330ccfe12329a9a40822c3344ba87c52",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p09_fancy_brave_ending.webp",
-      "sha256": "ec17927c975d1c1934b4d6f83afea4f9b2307586fcbf117a131bd4edf603f8e8",
+      "sha256": "79a54a24a6efe14e8cfbc71c2f158ac459ec3aa304759aab429d8542941a0493",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p01_start.webp",
-      "sha256": "eea8ad0b97049a2caabba14b88a1b713783975a780bd8e8eb37e455249312ff5",
+      "sha256": "44ead07e90908d9f46eb038344afb7a60c79db95bd79ad06d4fa99c6edd5b89a",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p02_muddy.webp",
-      "sha256": "a470e6f1b209729bc65829fea481dc4af3830e4c5bfd499252afe14687c68d8a",
+      "sha256": "22a4c9f44cbed2b577dfb3ee9a12e6d67ff1b541fc1742ae6ca35a6c6b27af48",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p02_splashy.webp",
-      "sha256": "2bacc87ea600ef438c12e47b1f85b37087f6613ecd2292e3a87fd3fe240a3d08",
+      "sha256": "6d4b06ed7bb146a4316c448da51bbe44ff269ade6fa6ab9a47cf4622c527b571",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_leaf.webp",
-      "sha256": "223fc5020fc47aec89d55c672c9762395dd64940652c95ec8c9b95008d280b3f",
+      "sha256": "95a0d9240ed1cd8b21e0dc5fbb9e3bd560e2b8c5bd53324b2d7aee3944d1c9fa",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_stick.webp",
-      "sha256": "774bce7b7795270708568757d4f3535385d69be62f9137042aa07bd2df70e835",
+      "sha256": "4ef811a6999b9ed16baaa1ad0dfd48b0651e2b3025617714574872cbd006d900",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p06_hat_muddy.webp",
-      "sha256": "6d50754751614fbbdf7e31a7fd365e3e201277bc4fa9881c1c4c0181146381a4",
+      "sha256": "76e477c02a6a21e83f9577499d80acccf980bb232a1285eebd2e7374b24b9006",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p06_hat_wet.webp",
-      "sha256": "30e7c5296d20abacf10c2037398d37a8b79cc8dd271d337af8403f6df41f6a98",
+      "sha256": "d74c27ebc9ea8ed89d77f92165a8c0716eea66c5c10752237dd660e8bec719f4",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_clucky_muddy_hat.webp",
-      "sha256": "2ba86d67acb5629a0d635b38b7a5e205661b1b6f363273f0a217de2bcdddd8d0",
+      "sha256": "f25cea556fcd17d690c479c1f9e03b78935afd6d7c6498d702ff3d583054eb03",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_dry_hat.webp",
-      "sha256": "a48dff74106bf8a07c7774b36e01acf70dcae6c24227739dfa987e4b26f98dc6",
+      "sha256": "eaaf46fc0db0d99c365be7d4b7d6e0160587d9d684965402ed62f96242f9b4b6",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_wash_hat.webp",
-      "sha256": "1efffce466be33b9dd0559a5d35756bc7c805bc0190ac00ed2760ca560b4a727",
+      "sha256": "cf340765447f9be57025080dad16acb4d8882aaf987571dcb80cc49f86927eaa",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_fancy_muddy_ending.webp",
-      "sha256": "8f8a91e70d59f9a265859e6531052f9502d103c17f42eca7c55b2fc3a7d47055",
+      "sha256": "6a0ee2431e1c6af353319ca562c6dc9b95539d94c8429cb97190c563bba4e995",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_pond_ending.webp",
-      "sha256": "871d7a01a7fa9d86b6693f716b5af6eb20f2818241f5a3ae49e677ecce8d2cea",
+      "sha256": "cec401ebdd46bb1d5b33bd9990da6bdbb7e65426712041e9678c1dbb24495092",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p01_start.webp",
-      "sha256": "615763405ee75d07ca945329c8e22903a7e29134787f956fe1d769aa37f76c16",
+      "sha256": "0b1004c93bd5fba811dacc3bf9e415c5f093934846891b77e769f53db0465bac",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p02_cuddly.webp",
-      "sha256": "f6ec595d2ff7e959dbbb0cfc396e86bfe7614e1441bf1a05fa402b103d362c55",
+      "sha256": "7e323b6b40b7c35df12a7c386a3f1db8d51f5b14b497f6d670473265f7b34959",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_call_shy.webp",
-      "sha256": "1d085922ba11ada98f316f3affb66441efdfec4e5fd91bef8fddb99ef1c7f5ea",
+      "sha256": "68f55a305519c4af2e980d76ee74e1b1b4e8372331df6a4627879e59af657496",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p06_go_to_tree.webp",
-      "sha256": "3c2a274d1d346d2ae34eabe15a7b5aaf13d5e7036c5c2fd3cb6d1a14ca846d08",
+      "sha256": "7dc469d042d8354e5eba71f6c74cc0d6698c34be9de35d855192e8f64d756b9f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_under.webp",
-      "sha256": "8d41e25bcc8a2ff1781a532cfe9594ac7cbceda1b78d6aa1f5e8debbadf7502a",
+      "sha256": "8c7e7b498a4b7bfa74096f820234d7493b3b5a0f861e1343c6e77d367b061996",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.webp",
-      "sha256": "7f48866a1f3ff3c337fbeaf2b2001b281ed45d8d8c85998181e6e4530525078e",
+      "sha256": "dd7b6ff81f272f8bcdb3db80600e54c3dfad70bd000592ffd907d284fb75c32c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_purr.webp",
-      "sha256": "4d182674c6ae2488685e3e971a30f39af01b8a42eed9e0ce952013807c1c1024",
+      "sha256": "016e6ab615b895c7080062a0a1cb703e57e8f58dd69f61edd0fb06df97bf0459",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p01_start.webp",
-      "sha256": "0ad73c8aa95ee5d0a2093d3bd1f27d0fd24c0e3ebae7e2b4621d50c084d8d8ff",
+      "sha256": "731f622c2b1923df35cfa8ac3579bf7b80fec72b78e5a1054d4bad1afc68e620",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_water_whisper.webp",
-      "sha256": "d71dda13beb6f41ddf95129b610f90d1aaf6604bd6abcbb2603af3c7094750b6",
+      "sha256": "e82f1004afd8b9bebee14d083be5cec409c4faad5fbe6f39be0c2cbe36669020",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_deep_dark_edge.webp",
-      "sha256": "08f1566a09822456f3f53b05a959813590437565ca2496c268972cbc58876a58",
+      "sha256": "a094a06418a334219d3b53e062db31760f25f63f89d5d8b4714612af19e61877",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_glow_cave.webp",
-      "sha256": "5f3246ec6e21f0bd4ce546b76ac04da0474a9eeb99de13e9de23228c749c0e58",
+      "sha256": "5e26e9722756395d8da601eebb68ffc77c5982119873a5cae1b4527384849e4f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_lantern_pop.webp",
-      "sha256": "28f23059efed687bb1c9496108949f00178c7298a36b95c17fbad3d02c8cca84",
+      "sha256": "d1cd8f7bd6cb56eca1a7a3bfc8d7fff6cd4260da8b4067b4c939cc052abe4dce",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_path.webp",
-      "sha256": "573cdfaf6ef79f9edda7fca0184e5b48c13bb4fe4bc71e6807857b23140d1c45",
+      "sha256": "1c069aeda09a94582b132add3313b8f7e71af3c7db3e1c9d954b40c9fbcb1ad9",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_quiet_tree.webp",
-      "sha256": "7e806997f28a3f5a9705455eb01d2db780308c1bb6cd756317fd4fb5750d1595",
+      "sha256": "aa870b24ec73b473844bb0855b9a878ea1eaea998114f5d5140f8425b9f16626",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_sleeps.webp",
-      "sha256": "bbe268e4d1847e63e19c0f0e9ecb184b10148ce15b9dd118d91d6da312b86123",
+      "sha256": "95ab1e703172d6fb4b993c1a1cce6fd22220dd54ed6935f1f930d7086e6c4098",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_wakes.webp",
-      "sha256": "950fec802caf423dd89653fa984e84e4d2e99c088ca0049b47f50f563db60ac4",
+      "sha256": "103d9f7de82055bcacab6261d43ce4188281af63b35d69eebce8bd3ddf4239f9",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_heavy_crystal.webp",
-      "sha256": "38d071e963f4ad32a03c19c1ba7ae85ee1c959bf92bafbda68b9f769020858cc",
+      "sha256": "420d4cfbd6533aed59ab889358b17c92d422ba3cc45107a9bf40172615fe560c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_crystal_moves.webp",
-      "sha256": "96e03be98ef1cfd042d0cebfc7153597944027db65d2cea9a81f81f7df7b8e3d",
+      "sha256": "3b1009c05f623a612ca5e1b93d745d6cc482c9251dd0547c8781c7c5d97488ab",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_sorry_glow.webp",
-      "sha256": "efbec3a36732ff636a7cf4e7f2308c875731a8296f6b9dc6d55b411901835311",
+      "sha256": "1b89bcef28cce33251b573d1bc96904e978d6326a8613628a6da21369e7fa35d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_team_pull.webp",
-      "sha256": "cff2c58154686fa99ea4ea543f053eec2218e43c874f5ff742a9b3a49ff7ecf5",
+      "sha256": "4a1cc30f6d8c33d27c33b4d049b85fef33601925580a7c300d0d50ec6c35c458",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_glow_chooses.webp",
-      "sha256": "bf105a6eb5522c02bb4a12d69b78ecc3d0e714aa354bac099fd025ee4feba68a",
+      "sha256": "50594949cd5c69076d1791a26df98f14204c877d3b879619df802398660229c0",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_gentle_ending.webp",
-      "sha256": "c745627843008365b88c98b76c53cd13ead3730b67a77b6349d62a8b245b5d2f",
+      "sha256": "2cde0a267dc4f7c781a04103e045d8a13e51619bc9a1d9c644ef0128114698ee",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p01_start.webp",
-      "sha256": "6a7f4f3e23128caa8273d760292e70ea56ff7ee4d635c9075a19a05dce817bec",
+      "sha256": "972ad262989a9383d123b2f19af88ad90c02ede23f45cdaf5728784a5810bf48",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp",
-      "sha256": "5089ba9a49d0626bcb8ecaa9fc45ecd5d8577c47ccefbfd34660302575d68795",
+      "sha256": "7fc48496199d906878ab36f11bd2c7ed6e220f22a161aedac0cf4ba88842a63d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p03_pour_potion.webp",
-      "sha256": "b54872095e31c9fb4862b999fca4116a465591309e1932e79e361bfb8073075e",
+      "sha256": "42dfeafae18248f3f782b0cd81cad235add0b4cb1af4ed1beb1f9b2ea1e74267",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p04_all_walk.webp",
-      "sha256": "3c896d4b943173e43584e25f2c53d13b75e404231ce86921c7d1e9d2a641e05e",
+      "sha256": "7295717a62ffe370926a932c4d159352d03aae5077aaaf4707d372958e1c75d6",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p04_small_plant.webp",
-      "sha256": "9e611245fb081531c0e75feb821ee218ba0c75d7dcacbd782e369648b1b202ab",
+      "sha256": "2a80f301a43723f55ee3dccdd3fe5d15402dfdf3031ddbcbe1c1437d2771873e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_tiny_escape.webp",
-      "sha256": "da256b83033e611191322dc45c3abf5ac60f340f49e61e3d2e16d1062b14dbd0",
+      "sha256": "5a65e48fa87f049ded5ee3b245025d9896ed64976dd514853bca6df15f689907",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_too_late.webp",
-      "sha256": "8b8863f69c57487fbddcdfd5c5b51900709e10f18f1ddbcb55b0e198bff2f0fd",
+      "sha256": "7f57e223b8b6131c94bb3728ffdeb6494d0d43bc0c34fe46dd4a701f2c4f0d6d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p07_sing_softly.webp",
-      "sha256": "36f34f7ab9b2b78afccfd74d4cb05cfe55fbd925c4ab423105c234626ffea481",
+      "sha256": "f847bb8c6befd5ce650afa0d7dfe25539c36214b5db397c9b382a6645da2ee20",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p08_almost_fixed.webp",
-      "sha256": "011b767eef6b9cbf13c30f51582d554d530a1c225373e289ab6fd7d475edc7ec",
+      "sha256": "143691d6a3d1a67afae5ba15da60fbb5ba4bccd89f8cfd2c5e439bd4debe78e5",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p08_return_home.webp",
-      "sha256": "c2da7345be3a92ff1137c5781bf176d0ce01bf83b03cb232b4b132d74499baa7",
+      "sha256": "f7b276c7a5b29c64b4308a5dae7cb4ff0fe77caf91c0f43d9fbfd18b93dec0fd",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p08_tiny_dance.webp",
-      "sha256": "939377c8c9e168c5f74fd1d0fe95978ac1a2813b09fd30a62ae4d51afb7c70b3",
+      "sha256": "4d875b7f417c41f83b5913d5f1edf88cf3fdd1e15611cf19f694a5f7499b3a27",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p09_plants_settle.webp",
-      "sha256": "15358815d3ba4df3301b1191f2271d6d5f95895e9fc9d21d24fc971f60e2a0cd",
+      "sha256": "53dac74006fa54b3e0f44213488671c5b2991e5172977b4dd408cf0d40765068",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p09_silly_garden.webp",
-      "sha256": "d80892b97c893ed381359509719d697eb526cc524b5eec50411014eb02a16a47",
+      "sha256": "877f83d6852a1056963d92c6dc2d10e4040e3b71c499e96e7670ddcbe8c2260c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.webp",
-      "sha256": "979c8837f461763fc78181e1ef371262333cb6feecbba44012a7974f4a9d5545",
+      "sha256": "635886b5a25a03fee5ce26ac0bd81fb8f4ae99181bdc72b02ad9b14c2975e55c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p12_ending_calm.webp",
-      "sha256": "39e2256574a4f3dc4fe9a0e3b5a12983d92ea69253e72d3cf18c0d4a05d25b30",
+      "sha256": "e1f0f321ab8d2f717a897686837bab1b131513f7c51c71d81b0769ebb5c32c90",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p01_start.webp",
-      "sha256": "bc7f88c7d050f33cb02de7663aed3fd3805daa9d5fe517eb506dc2991f3d29b3",
+      "sha256": "70f9bb4c7efeb9c0baced6665d7977d7de186e9d4774194897625ba83c955249",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p02_moon_map.webp",
-      "sha256": "225b21487edecf50c85f013b7a8abb5d1650b58ecf5b0db6f4e4e6355c727061",
+      "sha256": "c48c21e1d7c577d9e8c7edb103ef0d136e3bf32fa55cbaa5bafd436271c6093e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_stream_path.webp",
-      "sha256": "68b54cc6f0a46736a347315bbb53e6a397ed7a3abd70b799b9ee76f8fc17b010",
+      "sha256": "20a50db6611c36c0fc3a945cf0123cbd247b9a810955aeda646130ea023308f3",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_burrow_digs.webp",
-      "sha256": "f4876fd8621c7dbc1c438ff023fc3c6bcb9138554bb9f1d65ef2e3a69d927372",
+      "sha256": "52146bc37708c3691fdecc51e1352359c77f64151fb0556f15a3694c45dd26e6",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_upstream.webp",
-      "sha256": "baaa94610b37b76850b074322b242675417da9c1e8738bd6368ff921332903b6",
+      "sha256": "5d55a40a2a438420bbb54d34e402ab4b622e137ea8fc42b759b2ae0a17d7ccb0",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_burrow_repairs.webp",
-      "sha256": "33d9c0df23dfe5b7ba68d119d4c6322061e2890a37da7fda131c114dbd4fe4f1",
+      "sha256": "37ff99525788b5fd5a5254076929dc4acc51ef0f85059b9d3ddca16c6e339528",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cracked_shell.webp",
-      "sha256": "408cc421fbb14ead8991d6aaf48b9de01dab94830ebe637b12e9ae2a0d8a7ede",
+      "sha256": "ad27e6470d0cf10b9fa204718db42c8909cc4aea64712592921dff4cffacef60",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cross_stones.webp",
-      "sha256": "711dfd22d9351a514d5b6b082033b753efdd863e192ca9f8b1ed3df070378b6c",
+      "sha256": "b5a41074dbf73f618a6051e03bed8cd96fd3b03f7bc1d741d876091122ff48e5",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_hidden_door.webp",
-      "sha256": "eeef846dbc396b9c8feaf6d8fec91941cc082cdce128d69fa90d52a619bd3c86",
+      "sha256": "0866aa938f2f4197b5e9d29f2bec3235e04accf6ff83ddb84bac36a6864aae0f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_door_opens.webp",
-      "sha256": "2c09fb8bc64340ffec75502a124a205de4c3569030ba4eccc43dd331893fc887",
+      "sha256": "ffeb08902a5b648de9faa1899c115cf6ecd701524388cae0a2cad796e36f1ad1",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_map_inside.webp",
-      "sha256": "2385f5c225ede20d2be990ecf1f32b6c89f7476763f0b2bc8ce01812ca293f75",
+      "sha256": "d5f640b16b9c4eaebc7c82bdeb415e99c765c6c35478472cbb032eee65c34231",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.webp",
-      "sha256": "c840f6260c5a6d98c21b61776836b97533d8f90181a5183a4f83b3a485849e6b",
+      "sha256": "6b907456a66083ec2d0586bd08437d85d726efe5e3a567d53f40ec476647ab17",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_door_open_ending.webp",
-      "sha256": "1b26cead2ee9dffd9f6b6a3ba944c16f95c7df632d5bab8c93a4b7b4f9dfd8b6",
+      "sha256": "0e3345e5909d543a108ece8985673ecca378427575ca8e539751789a0bdec602",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p01_start.webp",
-      "sha256": "004c78c1ae3e6b681d04cf91b5a1cd3db259c01de4d92732c6d36c24b56e604e",
+      "sha256": "ac7262993652e2b0be8d03076c2253ae64b788ce2e9c78ec769a1e6586bab242",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p04_inside_marsh.webp",
-      "sha256": "b8f15c82ae8709c2f6369644f6af1ab2ebc1b0da5d3697497a487bf215b799a2",
+      "sha256": "43dfa63313011e7459fa5b376b7b23419e5360f26b5e783f8aef4a4641b63afd",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p05_reeds_shake.webp",
-      "sha256": "04babab36036546611fef763476f96274be64aee1c972f1b2f3400ed65843655",
+      "sha256": "84f06295ac0174e982527d27d2e2528acca9a5fafcc46462390bf945a6e24b09",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p05_tiny_tracks.webp",
-      "sha256": "35beff9559ee0d98f9afa8deae4e5730296e2a94b157572b24b71302e2327a27",
+      "sha256": "4f55434462bd87ba7053f9b96d0c07ccb779b04165fb9d05101c2eac1231a692",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p06_mossy_stone.webp",
-      "sha256": "2b3c7c5d809e3fff898c94d532d974f93c6265df2c72f5d5f5e66ad21dfd96d3",
+      "sha256": "75e8731bc23cf97b52d575fd096abe132980959d854e235e3ce77a04c4b973c4",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p07_pip_speaks.webp",
-      "sha256": "18460c972259f30fb06a8227d9bf577172f59895001c789a6389411a7660f220",
+      "sha256": "32d8ce73f326068229508a8273ac5b76874eb78c1df71bfed9fa67709fed58da",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p08_search_family.webp",
-      "sha256": "66dafbd2e0388277e0277d8d466303c30ed6ad45bc45c50a825220e72be86b48",
+      "sha256": "027d783ea22387e3ed76f621304ec91c674973ca71d7c8a029b0548d389c9185",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p08_stone_calls.webp",
-      "sha256": "b0d8ddfaef8c960aae74b052a82665a913cf8d48cfec5d046e981a7cd79bc2cd",
+      "sha256": "2fd26b1494a1cd55552000bb1de1b26dfd1ea87793df52931dbd1a2fd3525d25",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_pip_covers_ears.webp",
-      "sha256": "c8ea51d17d5864b60cb568e46ac2dcff08953e66077fd2cbb1eed58af5244fcc",
+      "sha256": "34aa7df574a343636d302b45858265842685923e0c404a1eeb54f872677573fd",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_pip_listens.webp",
-      "sha256": "c9fe9a865636c8bbcaf3a8536e8f05f8e853c5f2eb30faf0ed102724c320bad5",
+      "sha256": "088b6ec378dca029e51fe42493f2acfa4da5a465473e100e491a871f5cd0abb3",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_toadling_calls.webp",
-      "sha256": "655dada01d956f588c99f299f52870bb9f8876237817c41346b6d0a6363dc31e",
+      "sha256": "86fdbbe569b18f96e38b0bc585f35d6058c58ef2b063a729677e49ae08e7e796",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p10_family_found.webp",
-      "sha256": "501f8066e23d2c6cd34496657ae2b097cbca5fc7722289d35510c0a37ce6baea",
+      "sha256": "87235adb535147c683955e5c28f24e5e5f9efd0281d8fb578ffbed7ab2303af0",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p11_toadling_answer.webp",
-      "sha256": "78e97362bd5ce28cceab7650dbc26ec71ae4a639b36276db79777161fa8c3aa3",
+      "sha256": "6f9e395e3d29d40f899644889ffb0813578f124c6ec0eae50b7c1bca1d88575e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-01.webp",
-      "sha256": "e3f29a5116896e8e12aa2cdac69ce5c1429f8dcd6bdfe8e3ffae693fa661b230",
+      "sha256": "af7c37a18cd66e9277a18b7955011e84dc9e019e8d2b4742fb6ae6170049d20f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-02.webp",
-      "sha256": "cd51ab7ecff3e4028092f22aa5b820c50495e546152480f91f460e1997dbbd40",
+      "sha256": "d75a9266a237a5d4286a42f17ad1abdae2e357a90946e878b42ce951008a899c",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-03.webp",
-      "sha256": "d3f18e09e2f530a280eefed07438be50560daf604ff99e0ea7c3dbbee987fe37",
+      "sha256": "b1801bba555a2e05a736f50e1fa63920f41882195754f6046635e84577de0440",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-04.webp",
-      "sha256": "d9387aea802f0bf171ded8924479ffb969f7ef06c3b6c34e1d6bbf1c427324e3",
+      "sha256": "e50662278bb4980f956f1bebfa863c57c35e310139328e9bce7c019fb5caae14",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-05.webp",
-      "sha256": "e76aa8c19420e89218bd05c84b197c5be3121488133399607b708ea091e0fa2a",
+      "sha256": "481929926ad2614999bd91ba14c18cdae098f9fda93c442a05c2e727acdf1a24",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-06.webp",
-      "sha256": "5c326690b58d298fa00a285a66a6231f309c6f474627a4d9d8e5ca2836e7fa0c",
+      "sha256": "496646e3af94b7c4ca621e7ba9aa3e44aaf12f864ff6c0f203ae2bffdd8af583",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-07.webp",
-      "sha256": "d32d233c2f7623abae5983ea14ecf5f287712455065c72ee80536c892e54a441",
+      "sha256": "24201ab9a4d5452d03dad26c4f45aa8599fd748f0ee7526eb2c1219fac9b4a5e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-09.webp",
-      "sha256": "40dc548db3c15b2ec9b731d6bc43482d04b11a7077526430ed142ba259b8f559",
+      "sha256": "29e32d4963f4a35c8a9a2fdf23997138ec3c32dc3cee88e7bce133906f5ff62f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/page-10.webp",
-      "sha256": "10a02f57d087d96cd1bdf96983f6752ee76e7dcb48315a7dffe8042b03db8497",
+      "sha256": "39534a7483148972b6b45da04bbfe655f06ea42526f949157fd73d1b14818f9e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-bag.webp",
-      "sha256": "b47aeccaa57d09ded712e47dc64149be27b9be1c586ba046aa7f09e924bd46a5",
+      "sha256": "4914a3dd9278030017b93838520a7996c476191f734e065c647a34ec28edf82e",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-cat.webp",
-      "sha256": "00c50e7ce10df858b12c356661231f99d03e095d4ea6db96b36523c7dff67122",
+      "sha256": "383808919e3cb3eef26bf94d0078763b40848c607123f6eab273f0e74e2fcfca",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-jam.webp",
-      "sha256": "df2e24c50f68472244bf5f6c21bf8cbd5504bfdc5922d1e536231103c2d3a255",
+      "sha256": "3181569ca2a483bb847543231570d83aa9f15f81d727339e3239a1b495b2ed2d",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-map.webp",
-      "sha256": "49099deec9b58b33f5724e13ef8438f8acc5f306117fe7c330b65b323cc9c4b7",
+      "sha256": "9de48ddc035099d6ec85d02c62d76c678109a19ffeac97718296b3f6565d8f92",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-mat.webp",
-      "sha256": "4b42e801ba4598a1664b4972b2144622c2da1fd61626a0a44070b5daf84216b4",
+      "sha256": "6fc73493211d63c3261f289e3988994c62eee9ba565bfcf04fd8a7f04b7e80bf",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-van.webp",
-      "sha256": "892cb0a1b1b680a64ff47089bbc0b0c2656af44cfb0e50b86e74fd1803f6ea66",
+      "sha256": "86bef5103fe01a12165439ce4fce40c23bf2b2197dbe732fbf739c9beccf803f",
       "status": "approved",
-      "reviewedAt": "2026-09-30"
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/vocabulary/apple.webp",
-      "sha256": "6f72070f3b513dc22bcec8bdbbd02297a19a6af89113776be356393bed56687b",
-      "status": "approved"
+      "sha256": "8a46096cef36ba1a412870d22d3415d371326254eaa51486e20dbc27e9d2e105",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/images/vocabulary/backpack.png",
@@ -35209,6 +40816,42 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/worksheets/chips-colouring.webp",
+      "sha256": "7c47177b847edf745096d6bfc0fac61491a50b163130a3369446e3a0caa7ee63",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/worksheets/chompy-colouring.webp",
+      "sha256": "2cf9a91de19c0ccea9faa1e569b4997118c94b04b929c8e79e5d5b37cd4b98c0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/worksheets/fluff-colouring.webp",
+      "sha256": "8c7b693713e8a4bcb96bdd96d82f12fe78086fcb5850f48e135da4101c9fb3a0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/worksheets/muddy-colouring.webp",
+      "sha256": "6e7e9d1338353261677a8e91a08939cadb47d36fee772511b8074b6f9471e577",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/worksheets/pip-colouring.webp",
+      "sha256": "4be75ae3bfbba9f1b495b2daa35a2a9e5855dbbbf3b0b898e26190ad7589b2ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/worksheets/socks-colouring.webp",
+      "sha256": "1897e61527b5e211af9c4cd1c6d63f3a38fcb4ab45742a42eeacc69f81e0e7ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/final-sounds/images/b/bib.webp",
       "sha256": "b461d441f06b445ebb3c508259dc35084bd1ca881d354bce60b85cdbe14ba5f7",
       "status": "approved"
@@ -35254,6 +40897,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/a/acorn.webp",
+      "sha256": "dfb419ace53c2ea9ad7e8a83eecb80b0384e96f20ae90f0af9b1b4fbdcf6e324",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/a/album.webp",
       "sha256": "e348690dcef25c0dd340bc0027557622b978faa42384c31a4f19e746d6bd7c60",
       "status": "approved"
@@ -35290,8 +40939,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/a/astronaut.webp",
-      "sha256": "c10172e0bac4efb021ef2020d25a9b9f9a5e67de4037dc56d33bae3336d00efb",
-      "status": "approved"
+      "sha256": "ae01606480c1b0f832a63050bfd72928c0f91c35829817ab214c595c59ceb683",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/a/athlete.webp",
@@ -35360,8 +41010,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/b/butterfly.webp",
-      "sha256": "8158f00f23a4665b94bc26060529bc588c173599ffeeff836940ed27e162ac3c",
-      "status": "approved"
+      "sha256": "4e0e8fe5180fa4169c26c6f9e277ee7c466f45ec25bbcc4f92b3520c4f429e2e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/c/cake.webp",
@@ -35399,9 +41050,16 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/c/caterpillar.webp",
+      "sha256": "7159fe197f8bb1e142f2e22ce27e1684ae0d331c7d00dd6ad93db5222bcccba8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/c/cow.webp",
-      "sha256": "92049b08cd5a6003f31ea4df6f22a34c5b2bb83dc374e3486aba7479a7aa0091",
-      "status": "approved"
+      "sha256": "aac5c1de53f86ae3f8e244500e9d58ec98f97bdfacf31992c6d2b29d49091401",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/d/daisy.webp",
@@ -35430,8 +41088,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/d/doll.webp",
-      "sha256": "8e7c0c78b89c265a81bc2d6c5742b0d73b1e9a45008f7432ec7da770dc9af613",
-      "status": "approved"
+      "sha256": "d807df0ec44a456151591d79e0a40c5cd76773c476d183c5ed6ef99f1d27a798",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/d/dolphin.webp",
+      "sha256": "f89da1d4e7f62139f2d7f6ded2aa55584f879938eec1273dba1fe8fd4fa947ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/d/door.webp",
@@ -35487,6 +41152,12 @@ export const appVisualAssetReview = {
       "path": "/media/initial-sounds/images/f/fish.webp",
       "sha256": "488f8768efe68b29c753f45ee89d1b88484861ce58fc6b7cd24a6598d7ed2bd2",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/f/flag.webp",
+      "sha256": "6b1aa508f068295421cff0fae246dfbe99b07ce40b4c24638f823a74ed4c26e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/f/flashlight.webp",
@@ -35564,9 +41235,27 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/h/hand.webp",
+      "sha256": "6367377b48038e6fbeeae1551724342a15a49091948bdbf52f4f0fd725519c30",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/h/hat.webp",
       "sha256": "0d9d98fc023e351ab14269386b65b40e977afcfc65256e1fe6a3e1adb9607b01",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/h/hedgehog.webp",
+      "sha256": "d5f2d520122f68f360b4bd2c55b59d4f0715a9620ae0c1dc8c6776b284d654d5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/h/helicopter.webp",
+      "sha256": "ebf44a6a35927e897254feb8f6ee2e4d947efa0bc9d58a749b931ef414e1eb3b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/h/hill.webp",
@@ -35660,13 +41349,33 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/k/kitten.webp",
-      "sha256": "7164b2e4b9d4bf1f5c4b3cdc92e97604ff1fb0be3bb20f90a71c9a40616fcac9",
-      "status": "approved"
+      "sha256": "52d8d228fd289890afd3a87468dab32baf240e629c8b9e2ba861836b191de2bc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/l/ladder.webp",
+      "sha256": "a53bdae36c8922da85346a046ed7211dc9629972a65b59747c594c1810527394",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/l/lake.webp",
-      "sha256": "28c03998f8eea6265a8442d712fe4abd3d5a0244c9041068ddb0c40e0250204f",
-      "status": "approved"
+      "sha256": "937e90e0b9263727ecdbec215894503653c2928794f8c7dde50d66d11c7427c0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/l/lantern.webp",
+      "sha256": "6b6f2dd64cdc000f0b48f434c682c877f5d0be03ad42c58f87dd55f70a74437a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/l/lemon.webp",
+      "sha256": "28b56505e5f849525034e64a4497adfc60efdd38af3856c79818d2ac2a3bc292",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/l/library.webp",
@@ -35689,6 +41398,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/m/magnet.webp",
+      "sha256": "ef63210d7dcd71d392be6aa1d7bc498d45db52c209f209bdaa56577ec7e3d056",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/m/marshmallow.webp",
       "sha256": "a61b999973febe316f023259f45e7a230dbef1cba079f5519c9b35b0e9269ff1",
       "status": "approved"
@@ -35705,6 +41420,18 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/m/milk.webp",
+      "sha256": "079dfeab6728ac7359a287098de877aba404b71bc45eff14f331dcfdaa8ad155",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/m/mitten.webp",
+      "sha256": "59c68920f27322b619cc13832d0143df50d2d733cb10a41adc62cf3066afea5a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/m/monkey.webp",
       "sha256": "353bdb4ba0756553a1b63f1e52291646b9baaad1cb5b77e549853627e3cef1ed",
       "status": "approved"
@@ -35715,9 +41442,22 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/m/mushroom.webp",
+      "sha256": "40ceff3c84c53b7238d0f2bd3e505261fcef17faaeac6c78bf898f512cf86bcb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/n/nail.webp",
-      "sha256": "0814fcce6a11be2da3f6d76f9f3189b39441701791b5d23e1169d983f90909c3",
-      "status": "approved"
+      "sha256": "7d95807ed1ac4831b91a851536bef547348bedb4262cd87f8f38c2aaddee4923",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/n/napkin.webp",
+      "sha256": "d493f0738ad59b77e5c2950dff325defd450a3d29ff64ac163deb9789b536295",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/n/nest.webp",
@@ -35760,6 +41500,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/o/otter.webp",
+      "sha256": "bab694b45a2b8b8b7b45aa3e698b3a0bd611e19ce38867093fec7a68aad565b0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/o/owl.webp",
       "sha256": "3f9bd4ef37c67d37305f072e61221402d5b891cddc777c61885853a506331ec5",
       "status": "approved"
@@ -35771,8 +41517,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/p/pencil.webp",
-      "sha256": "f5553bf2d84840560aa185a9a8114fc102022ec556bda68d8c51a7845a4b7cb4",
-      "status": "approved"
+      "sha256": "cb5f9c39b926edbb2ad75b97c020c014104a358f5881d21f80cfbe5af1153d7b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/p/pineapple.webp",
+      "sha256": "04ecc9b2a70e05d19f9d227dd030d294be1a0b93d9df20de4d9bb3ff4d4e5371",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/p/pizza.webp",
+      "sha256": "57a12450c0134ecb56b8652436893cbd7f78247f7025f1bb59f8ffbb8a80e0af",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/p/playground.webp",
@@ -35793,6 +41552,12 @@ export const appVisualAssetReview = {
       "path": "/media/initial-sounds/images/p/pretzel.webp",
       "sha256": "25a360c1ea643859c55d06473cf7aeb400c213669e0b22a70ce9ebbca0b1c3cb",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/p/pumpkin.webp",
+      "sha256": "47b238f03ed676c65cb52bdb998c4894e53a48a329e7755bad6b98bd03112867",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/q/quail.webp",
@@ -35850,6 +41615,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/media/initial-sounds/images/r/rocket.webp",
+      "sha256": "601dc7dc7fd9518ce14777b99c72f689bbf0998707f7027b23aa79afaaa246ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
       "path": "/media/initial-sounds/images/r/roller-skates.webp",
       "sha256": "fb8419dc29e3194162934f6387a2cdaf9b8d3f1f6b25f13ea7dc56dad7a2d8bc",
       "status": "approved"
@@ -35858,6 +41629,12 @@ export const appVisualAssetReview = {
       "path": "/media/initial-sounds/images/r/rose.webp",
       "sha256": "a4887e65806e3b9daf7ecf1de5f7c32d8588ad0fcd8369aa38909e5675049c16",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/r/ruler.webp",
+      "sha256": "fbe760e7be78fffeb1ae0521366857aba48b0172a53433deb7c74744f7d8a65e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/s/sand.webp",
@@ -35901,8 +41678,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/t/table.webp",
-      "sha256": "a616f5dddb2db609e174298b96c5dff52b9da3e8923751479977bea929f205a0",
-      "status": "approved"
+      "sha256": "78df1dee6bbd68c2db88582d0f76fdc15ef639610f229de8b8e6e034d0574086",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/t/thermometer.webp",
@@ -35923,6 +41701,18 @@ export const appVisualAssetReview = {
       "path": "/media/initial-sounds/images/t/toothbrush.webp",
       "sha256": "8e109341a18c8292335b93e22c5ef9c7602650cf18a0881368cae9b78eed457a",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/t/truck.webp",
+      "sha256": "6a15b2a7bb9a1bf275678a13e93e465e01e926b8ad8b9ce799aecf2a6bded821",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/media/initial-sounds/images/t/turtle.webp",
+      "sha256": "e30c991c15581a81742615905870c8eb915aaf16769cd840fa1584edcb606c1a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/u/ukulele.webp",
@@ -35966,13 +41756,20 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/initial-sounds/images/v/vine.webp",
-      "sha256": "6df1f80ae46fcd5de1091b9cf3d8ae7f2985c69b1635bb17bdf22e8cca25533f",
-      "status": "approved"
+      "sha256": "7213cde16841bc59080c2a3870b45981cce4df8f6adc074c6c8f726813bbffd5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/v/violinist.webp",
       "sha256": "2c786381ef1d956d70538d4619aa783b827f7db35ee729f44fccb496736a2dff",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/v/volcano.webp",
+      "sha256": "f1aaf19639119068c6314c723150f482b765aaf84dd70c09ded1b90a18cf555f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/w/waffle.webp",
@@ -35983,6 +41780,12 @@ export const appVisualAssetReview = {
       "path": "/media/initial-sounds/images/w/watch.webp",
       "sha256": "55d3a5d687d35f5ec997f3bd68c4de955bfe105402245c707a4e3aee7f105f4b",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/w/watermelon.webp",
+      "sha256": "186fa2ac7b1a58dbc93b5992609ff936e02c6492a608d1ed04311d7999426fbb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/initial-sounds/images/w/weather.webp",
@@ -36061,13 +41864,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/learn/images/cycle-23/bang.webp",
-      "sha256": "fe4b4e05f77d5a663646ddfec9d67ab9b38b6d17822b16bb3d857f6fad826418",
-      "status": "approved"
+      "sha256": "fc7c481b2746d8f34e01b1a723bfb6b7c27acd8bbd8a0c6009226f5d78f21944",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/learn/images/cycle-23/gong.webp",
-      "sha256": "345d6fbc9f75de267b68947ecb3aa7cb044648a1a4f5c1a8405c9cd1a8dc3edf",
-      "status": "approved"
+      "sha256": "b640c72f7a58f61db907c9b9b3d571d37795071ac26f0efbcd044e0471125e1d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/learn/images/cycle-23/hang.webp",
@@ -36081,8 +41886,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/learn/images/cycle-23/song.webp",
-      "sha256": "dd24ad40067f2a0b2b18895102fcf12002f867a828e3bdba46971c5f1b9a6472",
-      "status": "approved"
+      "sha256": "1ced0d0a7e397cd0c6b1d4d1e3bf2a2ceeabccfdd537e3da0e950ef1015892b8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/rhyming/images/lip.webp",
@@ -36091,8 +41897,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/rhyming/images/sad.webp",
-      "sha256": "cabe2e8eec104d0843dc450416685b08f744f7a3218783bb5a9f2d035edfbc16",
-      "status": "approved"
+      "sha256": "2560e4ec022f593394aad0e44491337be1ed8525129d7ad1d94ab7a83a6530dd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/rhyming/images/tag.webp",
@@ -36266,8 +42073,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/am.webp",
-      "sha256": "6640231e7a09fde424759bfef3dba788ed02e4b7940f82af56162afc3cd79e65",
-      "status": "approved"
+      "sha256": "c50a01695c871bac91cadab98a7b851d2cf7d30ffa1ef987da78a2b7f192038d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/among.webp",
@@ -36371,8 +42179,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/baby.webp",
-      "sha256": "4bdc9e59fbd11db239706b56198d099c4b2eccddaf352832e571ce11e08078af",
-      "status": "approved"
+      "sha256": "29d3b2eebf63ed22421f8511ebfb190feac3e1dadce2532ce6ed81df4163b483",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/back.webp",
@@ -36406,8 +42215,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/bake.webp",
-      "sha256": "4c8a4c2bf3ab676ec9d2de7d971333b01206e348efb8c25875dc18daf48da7be",
-      "status": "approved"
+      "sha256": "8383a955c60d6451821b341c6cb4a0704f916dbb6434e05944b1eff3420c1fe1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/baked.webp",
@@ -36446,8 +42256,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/band.webp",
-      "sha256": "f02b481864b6a1a1d246b102d3f87629fcf799103a424ef0304a078f7317e38c",
-      "status": "approved"
+      "sha256": "43c5d8b9e39883718ab4c43734b5ddde005c9bb72d7ad53121e6670b0ead4803",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/bandage.webp",
@@ -36496,8 +42307,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/bats.webp",
-      "sha256": "29b7a8b3597e5c668ac2f040383e03bef81bc432e7e5f5823fa22d14e056d466",
-      "status": "approved"
+      "sha256": "954b3c54d4f00b53919c90c4af588ab5571d6b3b4efbf8f5b4783a80935f47e2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/bay.webp",
@@ -36506,8 +42318,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/beach.webp",
-      "sha256": "a868b0f53974c043485ee6d563a474f4a082a023940bfd6af2a052bfa7b1175b",
-      "status": "approved"
+      "sha256": "ec3f241ae6341be34a052c76e1c513af6febcef85e2766931690cd71e715d572",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/beachball.webp",
@@ -36546,8 +42359,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/because.webp",
-      "sha256": "2746f6c47fa98b255e4c401af1e2052b89de7d8306633a599eb77d6686670079",
-      "status": "approved"
+      "sha256": "7ffecf169418d93f65c95170c61acb1eae543d7fe3eb0fecb18232405e1b5f33",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/beds.webp",
@@ -36681,8 +42495,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/bite.webp",
-      "sha256": "e6d2ee113f41eeb91ccd1ad4e2008dea37c1d3f37c6a021bd7e2e3d9ac0b55dd",
-      "status": "approved"
+      "sha256": "288dea94ff7f602bf3247a02dd5974f6084f5e0735369a8271c11874efbddceb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/blackberry.webp",
@@ -36701,8 +42516,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/blend.webp",
-      "sha256": "eb5db66766b1c06240780cf9d8e7f2e677d00820578f1d0735decaa7b4252941",
-      "status": "approved"
+      "sha256": "10bd140783c9f67102fcc435ff5e6ec00506e0c0bf201c39afd61be941399ced",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/blender.webp",
@@ -36716,8 +42532,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/blink.webp",
-      "sha256": "d5a61b8e5af2091400713a8cbac6b887211d1547f03fc77622da176bdafdd191",
-      "status": "approved"
+      "sha256": "876f3305033725bbca71f53179fdaf1964d9813e69805747ad78398dced96a4a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/blob.webp",
@@ -36741,8 +42558,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/blow.webp",
-      "sha256": "9b0356d29f65a5a14a26e367e261ec0bd3f86e5fab1cac91864021839205508c",
-      "status": "approved"
+      "sha256": "5652f0c1ba934d5e38d09d2298e1915c22ab23c20e21fc1f8c3fb56b10211764",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/blueberry.webp",
@@ -36821,8 +42639,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/born.webp",
-      "sha256": "8526e95b40a5972a2e09391eac085d64cfb90cb9a2bd97d67249538227d77860",
-      "status": "approved"
+      "sha256": "df385b190dacded573227105b9ece45573cd3d3b38334bc7607cb2ec24c1d0c5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/both.webp",
@@ -36886,8 +42705,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/brave.webp",
-      "sha256": "fac09bcf62a0ca57aa30d12167c7a2f6ac9aea8b161c4a637a6be7105f53b008",
-      "status": "approved"
+      "sha256": "058ac311fec07c0be84253946b8d961478461cd4dcce098163123fe05572ba06",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/bread.webp",
@@ -36986,8 +42806,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/bunch.webp",
-      "sha256": "a303331b41378d0a30e309c5b4971bb49a937558acb8e473b952ac6ad4874811",
-      "status": "approved"
+      "sha256": "b9532e69031e46cf08ebe85cadc623b2ba235935573b22674e352f848cfcaacc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/bunny.webp",
@@ -37076,8 +42897,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/call.webp",
-      "sha256": "19b08f4131f9294b7b7a4c783153ae8c669958d15e14b8ce46264764da3e7c64",
-      "status": "approved"
+      "sha256": "016e0121d112779062393339d455e40a66ced3c662f50f9a647ddb7f8d30b5a2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/camel.webp",
@@ -37141,13 +42963,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/carpet.webp",
-      "sha256": "c51f74e4abd358fe431df291652f8f2b5aef82ef7afe6fc8bc17cdb47512a489",
-      "status": "approved"
+      "sha256": "9aa2b9c653c491404e46dac114079dfe83a18700e794a19d3c07acdcd50225dc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/carry.webp",
-      "sha256": "adea4c26033014bc7df8796d4bc6b2dfbff9b3fb2fecc9cddebc909b82294bc0",
-      "status": "approved"
+      "sha256": "52f9913d5f8a415bc7398dea0e6c5a1609f75b1419981d324c63218a98e1a2f2",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/cars.webp",
@@ -37176,8 +43000,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/catch.webp",
-      "sha256": "6d538e9f87c03b552ec188ad32e7688a140b5ac842e9b3b3cbe8bc5b0a49fe9b",
-      "status": "approved"
+      "sha256": "ee27bfb4c1fcbda9bea231ad9293cd0b023a8e47a70431aa4815006886773073",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/caught.webp",
@@ -37216,13 +43041,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/charm.webp",
-      "sha256": "90d4868ed7ef74687bb683fdab90f814965576d90f0221dd8e8de2c4854ead78",
-      "status": "approved"
+      "sha256": "b810d8cf301e2d6568bf2285fd121e0b280fc0bddd2619bac713af4b37b319c5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/chart.webp",
-      "sha256": "9a5eaca3fe582cd64eaab35f07b7fd0cee5efb6fe88b94bebacf6fded059c309",
-      "status": "approved"
+      "sha256": "324cb4444d7e87b8fe5e0121100e4be80b444db6b82a93c4b8dd30f0dd287cd3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/chase.webp",
@@ -37241,13 +43068,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/cheek.webp",
-      "sha256": "57e64feb28b2cfb5da77efba665b3cba713cf7a63a400d8eca2bded72c388907",
-      "status": "approved"
+      "sha256": "ba83bcb65151e770f24cc60c813f5ae05431dc875f6ff82e024ed7fe2221c337",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/cheer.webp",
-      "sha256": "e8abca5c5d65c036341dc4419e1d539fa7303868c19e3db96fa289c8cffd92da",
-      "status": "approved"
+      "sha256": "6df993010d0af7ee21d6a72d38c284877889b920f1d5349282ca3b7662b4ee17",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/cheese.webp",
@@ -37386,8 +43215,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/class.webp",
-      "sha256": "f929de2ff807b7bd19bcec51fbf4eb97d4ac612defaecf81eb74e5d4d54e7ae9",
-      "status": "approved"
+      "sha256": "18ec283736283f140c69ea091d97da69488fc4988df0fd1990f0243901814aa7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/classes.webp",
@@ -37426,8 +43256,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/climb.webp",
-      "sha256": "beb2b496f3a90f300b4cf03dc317121c5207e6d20196c812464720df8327e841",
-      "status": "approved"
+      "sha256": "9770986fb391c783f565591fd815084ebea52ed890954afaff5cb22a34d0cda6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/clip.webp",
@@ -37561,8 +43392,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/cook.webp",
-      "sha256": "e4b07f6c55777ffd24ba9f712ac6bbfaed71550553cca74326baf3ec1101f84a",
-      "status": "approved"
+      "sha256": "4c54ec22d999e5f689b7fc36275e815237a5aac7102f05523460d7b755fa4793",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/cooked.webp",
@@ -37586,8 +43418,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/cop.webp",
-      "sha256": "14ee37b9a748329c28e42adb5c4ec9d58ad7528ed89da4a9ba5f93699bc727e1",
-      "status": "approved"
+      "sha256": "c84a17448d8ecb445cfe08125ccf0c4701894e5e16076d3b1c6fee1937772e8e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/cord.webp",
@@ -37666,8 +43499,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/crash.webp",
-      "sha256": "de54f056a47f960eb8162a09e89215592152fce7b0627be2db49cde3ff016eb3",
-      "status": "approved"
+      "sha256": "cfc9b5b8ac145b81cbeea3a9b0b7b920dd69bc00461c788a0963b4406efb5be7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/crawl.webp",
@@ -37711,8 +43545,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/crisp.webp",
-      "sha256": "66870b1bbe2c1564f4e9fccd6e350fae25232b6b4c663e00ef91ae556f5557e0",
-      "status": "approved"
+      "sha256": "5552c17cb6648d8c68a19af76ef69b10e0670ecccdcb90737305a2e39f171685",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/crocodile.webp",
@@ -37736,8 +43571,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/cry.webp",
-      "sha256": "1d0571557d68757207743c1d8a3292e99128f66187248ed1da76d9ef00f11cc6",
-      "status": "approved"
+      "sha256": "7fa927d024830f105a5c5086f2800c913b4e1c35c722d3b2197b3b19df0c7a42",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/cub.webp",
@@ -37791,8 +43627,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/dam.webp",
-      "sha256": "afe49a63c7cf5378b8edf7a7bb0a54c3450e4b58bd7a151cc173b3d3c8ee4dd2",
-      "status": "approved"
+      "sha256": "d52c6afbd8eb278a778e6d78cdd63b1ea032d332fde23bb21cabb48fdc7d8f80",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/damp.webp",
@@ -37826,8 +43663,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/day.webp",
-      "sha256": "954da78aac5d7af75bd13b2864746f8c976592cf4e7298495ce553cc847bcd6e",
-      "status": "approved"
+      "sha256": "2808f4e4a537988df3d7fe77e0b9327865b488acc663ecad88a4bec2f1124e30",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/dear.webp",
@@ -37836,13 +43674,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/deep.webp",
-      "sha256": "984d755ca7bf868beb66e64af02e03d648cee3f3e44e93ce13a3f01f9e2a3f69",
-      "status": "approved"
+      "sha256": "d351b2e79d48c10d269fc08e24b7375bf0d245ee0a58491e9b4441c19dcfd9f3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/den.webp",
-      "sha256": "010dba6424c358e9ef90285752d8e85e30bd6dc5bc4f172dfc175330a8582b8b",
-      "status": "approved"
+      "sha256": "b28bdfce4805ec1e860e5637f84c760783c355c7a0e386f0aeba126e87042cc8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/dentist.webp",
@@ -37861,8 +43701,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/did.webp",
-      "sha256": "4be667b875aeab3b89fd9d71f35ca02dfe13a37cf8747e105e8422d187414129",
-      "status": "approved"
+      "sha256": "ba4b1a9b204082390212f99ab4a61e1e9c019bd76aa89ca2c462976e8a80195b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/die.webp",
@@ -37881,8 +43722,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/dim.webp",
-      "sha256": "3ae293434891804c221cb351d210631ef66ecfc88bdc2454a6668725ea8ce4b0",
-      "status": "approved"
+      "sha256": "65a93310440fe33088950833eab51bf16fc7ecc0d66085432fabd3e999e3f5c8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/dime.webp",
@@ -37916,8 +43758,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/dock.webp",
-      "sha256": "e753c9284daaaf730c63fbf97badb32fa25224d8870a77ffabb9e33f27a3c78d",
-      "status": "approved"
+      "sha256": "b22e8ef0431a091b2dcd88085642cb3b5a39400962663cef4cf9f4c2fc0f1380",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/does.webp",
@@ -37976,8 +43819,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/draw.webp",
-      "sha256": "e0970532bad909570a28181ad0ea677eaaa1a5ee32d167f491ca30924fab3ee9",
-      "status": "approved"
+      "sha256": "766612e0b4e3f51cb3485652f3a65dbe1d91c520176c141e253e4aad330dddf7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/drawer.webp",
@@ -37986,8 +43830,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/dream.webp",
-      "sha256": "079fefc497642f5a04c4a1cbf1b01905fc6d70d2c94f920232255bf1ab235072",
-      "status": "approved"
+      "sha256": "068b913ad0cb23c1d7935dff850b78fd9ed9f3ef5dec0b212f82ea30f8f20124",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/dress.webp",
@@ -38086,8 +43931,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/eat.webp",
-      "sha256": "36f7ad45706142609c773f69650c1171da28b5d1c30e6bfde0318947a9bf35cc",
-      "status": "approved"
+      "sha256": "af93a5f76c01820dbedeeb86521cd38bce56cb63b95877f83ff7081ae04709c0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/eating.webp",
@@ -38166,13 +44012,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fair.webp",
-      "sha256": "873fc4175e9d73afc922f7c7e5726dd5e39b07bae99757d82a0f42b97ca102db",
-      "status": "approved"
+      "sha256": "807c8497fe37617794f06cd80d258846bf958a41a256b73dff251038652a2454",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/fall.webp",
-      "sha256": "e2699d9492ef3d04402c16c2d737171da5a83425e1a5b7f04dd64f05ba9489ee",
-      "status": "approved"
+      "sha256": "3f61c7ae390d3b2e2700e31bd94f43a01410ec90aab7a566a412959077c91c56",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/fame.webp",
@@ -38211,8 +44059,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fat.webp",
-      "sha256": "b56faaacc2f1f5f4607bdc125c6078143e6b88bf62846e0b4aef528f3f9de684",
-      "status": "approved"
+      "sha256": "13cd47bafd6b11acc019638e6ba5a04fc38557fededfe5caa3178798852ed0f6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/father.webp",
@@ -38246,8 +44095,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/feed.webp",
-      "sha256": "f30d0cc645ce34940c7e9f31592236d23687430697d64e6eac8b661ea2d342e9",
-      "status": "approved"
+      "sha256": "0d443f0faf640b955d3e7b5532609fe7210682b0fcfbbe9d17d03a547e29ac95",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/feel.webp",
@@ -38256,8 +44106,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fell.webp",
-      "sha256": "85e59b52050345b38f22eab7ab88f5389cecc54098a72a9218ad4150468ecc49",
-      "status": "approved"
+      "sha256": "e55be177c3c11e841418fed4de7b67160102d1e7c647e2d6e03518248537fc6f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/felt.webp",
@@ -38346,8 +44197,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fix.webp",
-      "sha256": "adcb521223bf9b1616574f43df9b2a5455894626f2722340ddc71018b8aae530",
-      "status": "approved"
+      "sha256": "c36332124b6c3bba9e895a8b7d283172376b6be7fb74ad6c85cc016c1bcbf48e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/flame.webp",
@@ -38371,8 +44223,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/flight.webp",
-      "sha256": "7cd6a77703455d2e44049f4b1607aea0296ef5d80cfefa70892c0807d6cc0937",
-      "status": "approved"
+      "sha256": "c6032d38781c7ae99a15654604afc2828463b8da09f7b018a43435cb5c78ae31",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/flip.webp",
@@ -38386,8 +44239,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/float.webp",
-      "sha256": "56b54788862f9f2430675040076257c9a3feec5b09564547c8b5933c502efce2",
-      "status": "approved"
+      "sha256": "ec6623ffbf72e77d36d7ceeb19758f0c613073c389d48ef832c1f30f67667e83",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/floor.webp",
@@ -38396,8 +44250,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/flow.webp",
-      "sha256": "8b80e0f6edad99f01ef746735ee3c527307af2b7e65da0752834cc4f3eaf0652",
-      "status": "approved"
+      "sha256": "783c137a44cf89ff20bb771234325a8288daa6d9acdf33c7510df01a1fd423ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/flowerpot.webp",
@@ -38451,8 +44306,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/food.webp",
-      "sha256": "0308d8aea72729618e278d497f579e6f41dc5f7f58a6fce169b0ff0f15b58ea8",
-      "status": "approved"
+      "sha256": "7ec0dfe3b9ed9dd84528a764e31d1ae426f4b760c4defc4d3b31e1b9e0d1846e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/foot.webp",
@@ -38471,8 +44327,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fort.webp",
-      "sha256": "49695a5e7590dee9530e919003d73531109f36feee06102880ec28c62f55a74a",
-      "status": "approved"
+      "sha256": "33cdf7e23c699a4fb100e10edc96ed375d8b76da1eecbdd95ba7c342eb5df207",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/four.webp",
@@ -38481,8 +44338,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/foxes.webp",
-      "sha256": "8ffe9e8aefa9a444a89d7c3cd568c49809c86654ebcf05970563683e569346e7",
-      "status": "approved"
+      "sha256": "1a4bdd7398dd0a2a64a891a971f8dbb9c2a330377f995bc95db0154b25f66ed5",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/foxglove.webp",
@@ -38526,8 +44384,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fright.webp",
-      "sha256": "acab3ac859843465054d72d862ad387ac2c2967bc5b0dad7bf2bf6b2bb129c24",
-      "status": "approved"
+      "sha256": "df4e06786bc2988a3432100ef7c3b36d1d6a8ba6ee4e1a8d959bc3c3a67e4519",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/frogs.webp",
@@ -38561,8 +44420,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/fun.webp",
-      "sha256": "5d80d159d26615543bdceab44d434be206b5d70f9be9ebeae61ee1584cc3e88d",
-      "status": "approved"
+      "sha256": "02a9cd23edb67b4a3c8756bd8d46fb378f2bd21476d22e4797156872d9a740bd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/fur.webp",
@@ -38586,8 +44446,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/gap.webp",
-      "sha256": "6a75459dddf65817abd481b1b558ef3ce6eb731b7380ea224bef829dc390517f",
-      "status": "approved"
+      "sha256": "66131f9f0fcd623226df2073e2e0dd42d07e4b7da59238c32e67cfc81558858c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/garlic.webp",
@@ -38846,8 +44707,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/hall.webp",
-      "sha256": "de06ce4f4b6b875ef72b4edcb5281718aeec4e7e12b5cb3c226adc4bf468dd94",
-      "status": "approved"
+      "sha256": "abb367c24852deb9682244fecc0d2479561779fb1dd0a5b954338b7c2b2e6c6a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/hamster.webp",
@@ -38961,8 +44823,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/herd.webp",
-      "sha256": "665a800b532329e989300f9751564d0e5af7ae99a9a32c2f49311c7e927bf61b",
-      "status": "approved"
+      "sha256": "6d4492e2cad72cb55f46c758f284e0a35cdd10982f65a45c6c951b737c079f21",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/heron.webp",
@@ -38991,8 +44854,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/high.webp",
-      "sha256": "ca9a753ab2c263999c1ce0d1561b597f61cb3e1c231bcdb17c93ba8bf8e997f3",
-      "status": "approved"
+      "sha256": "5c1d0a5f438f23ddcab62248f8e0b86c2c20cdc0d461f2ce92652f9cacb42e77",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/hike.webp",
@@ -39091,8 +44955,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/hug.webp",
-      "sha256": "7e143a0852f5e68672c3c0cf79e4a58a3ccdd641b18a7cb4d5a0d2bb4d57ec49",
-      "status": "approved"
+      "sha256": "65f695eb17e7873770aabd24a322d9573e78575cb3f6f27a6f0a7a47b604b7d1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/hula-hoop.webp",
@@ -39161,13 +45026,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/jog.webp",
-      "sha256": "a052cd0390f4a8ccf28130ed0b0c9476bbc8f2df0610b9dacf0f4b0cb74d8cbf",
-      "status": "approved"
+      "sha256": "65fa1ce7c736cfbc5d2af3e5304bba5ee3bb0e049554571b8d029d2d33a66a69",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/join.webp",
-      "sha256": "ae3e0f5f28dce471d64cf80b88161fa62e8f64344d6e2b15044bf976c6f0dd3f",
-      "status": "approved"
+      "sha256": "8c5341e71f6c669f7c92adc93f5805a5992dd5ebd40a6a520bb2dc5e758fba72",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/joint.webp",
@@ -39211,8 +45078,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/keep.webp",
-      "sha256": "45ebc627ff85605fa8413632bd9b06613de5504ddad87b66555d48c1a83d8364",
-      "status": "approved"
+      "sha256": "be8289675600206f0df7e9dc61d13c118b837aed4f10ebab6ec5c2b7fe00e27d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/kerchief.webp",
@@ -39266,8 +45134,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/lad.webp",
-      "sha256": "ab5cd4253e22bf1e600f3537ee4300b0a023e056edff3f08360f0a59ddcb8312",
-      "status": "approved"
+      "sha256": "982bd8b37049b06e1b981faf1c5da1b7d4a96f3a85c882b278373d5becffa97c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/ladle.webp",
@@ -39596,8 +45465,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/march.webp",
-      "sha256": "5d0d2d11d949ade96ec9f297557907fabc453280ddeee762f74b55e70d58cfd2",
-      "status": "approved"
+      "sha256": "3a397a04f4ec753208bdea0b692e25e072fab9bf62912f136f30ca98733bc5a0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/marigold.webp",
@@ -39631,8 +45501,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/meadow.webp",
-      "sha256": "289017ad0125b2b598d6df67523fd5d4c325277dfcedf678f9bd0943e7069f9a",
-      "status": "approved"
+      "sha256": "eb1aa6876839f9b086d8acfd637bf1524a057f87a959d66ba3b31a953c1887a4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/mean.webp",
@@ -39661,8 +45532,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/men.webp",
-      "sha256": "b449306f397dabf6e414b24dd51088527f101ea1d1e25be68ac4cac00e0aa3cd",
-      "status": "approved"
+      "sha256": "f853a60547ed1ff665ab415300b27c9036306a8a0cb91b48e4e58976d894bcc3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/mend.webp",
@@ -39691,8 +45563,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/mist.webp",
-      "sha256": "28f9927861a6fb7cf21fa0631c0819caf049fce991c0463ab6f0343c4b576d07",
-      "status": "approved"
+      "sha256": "dcd41e168eb9f75f05e902af5184fe40b0b917ba94f7b4c14e1c92a99ff61f09",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/mittens.webp",
@@ -39786,8 +45659,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/mum.webp",
-      "sha256": "eaff0e0a00144244cc8821ca16a56739b94c4be0ab5b8e121c14b845b0b1ec54",
-      "status": "approved"
+      "sha256": "d2524f891b6280282b45cebbd0bf798c147fd3efc34f9805cfd17ace36f83fa0",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/music.webp",
@@ -39801,8 +45675,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/name.webp",
-      "sha256": "959535db89f8a58ca255101aba780010e7fa968ac9723c116c7292e55b7e1e25",
-      "status": "approved"
+      "sha256": "f33b8999ed5759e5095a8349276aa135b347485f93c738e944c77e2e65241c25",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/named.webp",
@@ -39871,8 +45746,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/nod.webp",
-      "sha256": "eedf71089ba431816faf7039ca0159be730d4df89eb9ff478be4a55eb7688602",
-      "status": "approved"
+      "sha256": "28ccb4fc7914ac93a304b1b6832763868dc92f7a96ffec6335262ed91525e2a6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/noise.webp",
@@ -39883,6 +45759,12 @@ export const appVisualAssetReview = {
       "path": "/media/vocabulary/images/north.webp",
       "sha256": "0dac8bc7f75d3344ec1a08452a8522546f2b60ac242488c39cae77ffe623efab",
       "status": "approved"
+    },
+    {
+      "path": "/media/vocabulary/images/noun-school.webp",
+      "sha256": "d5931772a99ba079584f408bc8e92fe3157e60fe0cffe9c4e61069823fcdad73",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/oak.webp",
@@ -39901,8 +45783,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/off.webp",
-      "sha256": "107916fe765f7ebbbeef7ecc395616b465a5b747133f0588b5e18e8ad8f53616",
-      "status": "approved"
+      "sha256": "c6f4c2d8a4f5f05c629d23caec8b9e5f01b43935fe029589646c82f171e35473",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/oil.webp",
@@ -39946,8 +45829,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/own.webp",
-      "sha256": "80867a684f0b26231bde2787c639819d8ade1384a4abf9ce02875a20536302bb",
-      "status": "approved"
+      "sha256": "ec1f96088ea6aa5e9b29b9ad1526313e8138919413a83b3928cf61b262d9bcbb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/pad.webp",
@@ -39991,8 +45875,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/pair.webp",
-      "sha256": "068b796e05cd22113659f61023e20a2393c555a3c8e90817e94d31409f14b12e",
-      "status": "approved"
+      "sha256": "353c40e05f7552b202356a209e1a59a46b40eb408995fc5b512c9e8eb85bb2fc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/pale.webp",
@@ -40046,13 +45931,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/past.webp",
-      "sha256": "04060027296e6629e686839b2331e9b0ea8685d44570443f3a63fad42b3ed1fd",
-      "status": "approved"
+      "sha256": "69265f357f815433c5b17a6db87f70be018a847e08c2fc31ccc3dfb042943f57",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/pat.webp",
-      "sha256": "095c89948a00ae122ce3ca778ff0ba36bf8b6b542ebe56c2d7be186e5139651d",
-      "status": "approved"
+      "sha256": "79f7a661f3a6ef3c9dd4546b0edd13179b09e7fa079bf19593091a4b06b01ff3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/path.webp",
@@ -40101,8 +45988,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/peel.webp",
-      "sha256": "f333bd8799824307fa254287fbb9b16fd77f78370315412013e7640548305753",
-      "status": "approved"
+      "sha256": "e9b85fceb54d9d025624a9ccc8ece9051c55fc1345f2786a93b389e80d700431",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/peer.webp",
@@ -40171,8 +46059,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/picnic.webp",
-      "sha256": "8d62db86914427bc22a961017df1dbb67853b7dfad8391a30ce91fa01471b16a",
-      "status": "approved"
+      "sha256": "8c249990888e0aa3b4c9c049a5867445ca42dd464724dde1e39ac33ba1b61780",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/picture.webp",
@@ -40186,8 +46075,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/piece.webp",
-      "sha256": "26a4ee5db1f777c492e8ce84c6962112712b857b5b9b7baa1642562e9d2477b1",
-      "status": "approved"
+      "sha256": "003c237d70fcce8dee836bd7764332f216dd341ea5033987c51ca027d00d769d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/pigs.webp",
@@ -40221,8 +46111,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/pink.webp",
-      "sha256": "6712abb972788ca1ef4d6afac41ac0fe345240f6004b4956e0879754bd6e4df8",
-      "status": "approved"
+      "sha256": "d6920f699314040f808dcf460f12fd0321d2f22cc6b12c5108fe4f093205f5f8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/pint.webp",
@@ -40236,8 +46127,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/pit.webp",
-      "sha256": "c41735292895a1eb7fb50d6a86a769abce0a6082cdb7aa837ddaf92b794caba3",
-      "status": "approved"
+      "sha256": "9c0e773d83bac1750e6e80314b5c406c8a426b255b2a3072692534ac8155a63c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/placemat.webp",
@@ -40251,8 +46143,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/plan.webp",
-      "sha256": "805f3f3a995c2ce0740619f62ee163b076fc3c3b4e07f3bb35e772620628eaee",
-      "status": "approved"
+      "sha256": "1809fd67291450d9d0d00bbe92d767423a58c64360b5d910340e2436585b4522",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/plane.webp",
@@ -40286,8 +46179,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/playing.webp",
-      "sha256": "406f65c349f736b23c83cdcef8b1f96520716aa2a0113835803ef45574cbd134",
-      "status": "approved"
+      "sha256": "840963d5daaaed4c509b80c732bb3ee72b9ed52b48bc30842639e62b079d0174",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/plug.webp",
@@ -40311,8 +46205,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/point.webp",
-      "sha256": "755fde3e327dd939d0e4d915f23730a485ab1f12581f5dbb19812ada55692e5c",
-      "status": "approved"
+      "sha256": "ed4837e0a3381a3c036619454fb642d179da029cf4c2c481874992d19ab8e2d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/pole.webp",
@@ -40341,13 +46236,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/pop.webp",
-      "sha256": "c0fd68508d477d3ca0ba5882ba8da0e8e7faf8b33a2609c8e1fabff5c5d22fda",
-      "status": "approved"
+      "sha256": "a93f2e0b2bd5eacc0759628b04409e18da53c5d99df2cdca524444ec636b7f5d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/porch.webp",
-      "sha256": "df84b51c21492569afc6e5d2a6e74733385c304e07bdf467003c090005260a8a",
-      "status": "approved"
+      "sha256": "cb5ee2bf37fd8962f0de6c5822edb1272792898297b8fa9187b693845b93f8fe",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/potato.webp",
@@ -40431,8 +46328,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/puppy.webp",
-      "sha256": "e568210c9d3d2c913eeff0530247a642283cef192e120696c048ba9fa81db91a",
-      "status": "approved"
+      "sha256": "314d8a7cc17ba3b2b1d047910be26c09a424d9f6b17ac1d46c157343aca7319b",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/purple.webp",
@@ -40496,8 +46394,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/ran.webp",
-      "sha256": "d8ae7a09ce8d6edc6db7b6551612153876f276943685af32ae103c6305fb1c8b",
-      "status": "approved"
+      "sha256": "7ac0f6b3436f982e4add0d323a62b83d603ce24891f4e933429ea84d5c442145",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/ranch.webp",
@@ -40526,8 +46425,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/read.webp",
-      "sha256": "f5d1d9e8cdd54d374937df1d64440e7cb610b705dfda15a99dd15ba4d4db07e0",
-      "status": "approved"
+      "sha256": "9a5d5bd3605537fb4255e8385bd76abf0ece777a235869f7bc2ad56a3e32bffc",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/reading.webp",
@@ -40566,8 +46466,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/rich.webp",
-      "sha256": "f92b58015a783016539ec745d827cf772dbc7ae4b9be3a57aa69fbc9bc7cc52c",
-      "status": "approved"
+      "sha256": "72961785d5eac7dbfe8d88025f55d9cd5403cb456a71853c968806f088bca0ed",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/rid.webp",
@@ -40591,13 +46492,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/right.webp",
-      "sha256": "06e1d25a3bc62b7e819b88631cb62930f3e620651dca7d2a56f568a3815007a4",
-      "status": "approved"
+      "sha256": "917521f742bc160343e36de1e94016d209e86204b846ca6e83162a9884f5c806",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/rim.webp",
-      "sha256": "d5308c4e4485f0cc77f028e6c3e960e762055fe49dc9705be91bd6acf8ddd4a5",
-      "status": "approved"
+      "sha256": "5709366c89e2e3a713681b89003d9fdb56c1f622377f4c16f7aab179d1618f2f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/rip.webp",
@@ -40666,8 +46569,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/room.webp",
-      "sha256": "85e75d2c9434676b8b07ebd09e33606853e9faf63e9f07731c7aa1fd96eb8f72",
-      "status": "approved"
+      "sha256": "51a01ec1904cb26b88627e9429c23647a1bcbeac0e6f53fbfefa00fb9a997e4a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/rot.webp",
@@ -40691,8 +46595,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/rub.webp",
-      "sha256": "6327ce00147d60ccfe53cecc484097b6214728ed7b36291b822b02afa754f426",
-      "status": "approved"
+      "sha256": "62a8c696417cff160613f8859973b112906affe822b8516077990f07a4ac7438",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/rule.webp",
@@ -40706,8 +46611,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/rush.webp",
-      "sha256": "f392705c5d8ee897ff8e6b0e7bb5d8493685d3e2c78da0ef2f8c43548b716458",
-      "status": "approved"
+      "sha256": "8d0e2285b5eae513511b025598a62c23324e72c2b81b4760db4303b2f8115945",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/sack.webp",
@@ -40766,8 +46672,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/say.webp",
-      "sha256": "568534cc521eab3de625fea03a1e6e207f101ab95b612aeca507d333e867d20b",
-      "status": "approved"
+      "sha256": "e58afbb77770ac6395a95fd4dd0d59b72fa6731eeca5ca2f06e8dc7ae80a2ae4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/scale.webp",
@@ -40831,8 +46738,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/sell.webp",
-      "sha256": "a99bfc6661ea0df283be84febb03e8cc1c89a8cbc38bc656df2fa0f1238ecc3e",
-      "status": "approved"
+      "sha256": "0ad7e0e17621e79ea441b87d87896b5e57c172511dd8f7d476492557e8468fe1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/send.webp",
@@ -40861,8 +46769,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/shade.webp",
-      "sha256": "4eea9c848334095cb2f5aab2bb315dffa849c926ca0aae6231e01068853e799b",
-      "status": "approved"
+      "sha256": "20d5d1fdefa9a44ceb85f6aa314fcfd521bb6b83987c52c8fff1182bf2151a6c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/shadow.webp",
@@ -40886,8 +46795,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/shape.webp",
-      "sha256": "b645b21602bf989a4d5a0e0e4316963972410995c3758aea87e4f2422e098dc5",
-      "status": "approved"
+      "sha256": "a992806a9d5fabb79d21f8b236b547469e0e6208bd1aa0e8fecb553b21167101",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/share.webp",
@@ -40911,13 +46821,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/shed.webp",
-      "sha256": "50206cfe15589cb21d695357aab3f7c8c1efc615986cfb551df477c8f0c59488",
-      "status": "approved"
+      "sha256": "9e9fed21a76161b1947cf454afe7271c977bcc3cd11c7b67d98e88e04a0024ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/sheep.webp",
-      "sha256": "ccdc070d37b69b06868415a6bd5244211aff62e49d8eeaa351a4cca31f85e68c",
-      "status": "approved"
+      "sha256": "ace14c7f1e728cdd017218f8ca1ad890ff70563ba58236ca927563fb2204f298",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/sheet.webp",
@@ -40991,8 +46903,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/shout.webp",
-      "sha256": "99f8c0e092e4a18c91fb5e8c72bfbece9fa2198cc7a0e85542b198572fcd53f7",
-      "status": "approved"
+      "sha256": "406175276fce1e74d2290434b3d81bc1cbe454c872535b1e2f940a653c7fcf39",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/shouted.webp",
@@ -41011,13 +46924,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/shut.webp",
-      "sha256": "6899c1ed5f081c0e907abf73fa9b69b8a5a674407944637824de12d07073102f",
-      "status": "approved"
+      "sha256": "3d00c2bf381a6ddd41b79d986f6f35f94b18633905d4a2e230b98b22e3197165",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/shy.webp",
-      "sha256": "e96f9ef7f63a75662178018362e2bce84a78fc4563f549fd32b978121bd44ece",
-      "status": "approved"
+      "sha256": "837e2e61dd294ff5a1b366668db96ec46f5258258864935f3b78ba370c35a3a1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/side.webp",
@@ -41026,8 +46941,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/sight.webp",
-      "sha256": "f50a110dfa9a934d983798485262bf804730f1fd442373ad87ee081a3ba2d00f",
-      "status": "approved"
+      "sha256": "bdd260e0c48eebc906c31802e3e9643b76e8e95955b2269ed2a2b48d04ebffe7",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/silk.webp",
@@ -41106,8 +47022,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/skunk.webp",
-      "sha256": "902752e60623f5670dcc637dfbbf8cf8c6e8fcad431b55e200afdd5f0bad12a6",
-      "status": "approved"
+      "sha256": "d0cc47d81b7aa350b60023fcc8d1414798d26e4795aca5957a4b7409c042437d",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/slam.webp",
@@ -41116,13 +47033,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/sleep.webp",
-      "sha256": "32b9a9eb7bc6d4b99e37192de3a8078c71436b63a47ec03e69569d6560d023a3",
-      "status": "approved"
+      "sha256": "f0f7f23a2bc098cc44fced78723cbf3435ee157b5b4ea473a81427b5f49c3c50",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/sleeping.webp",
-      "sha256": "2efeac72747e53bbcb73c1303bae81a47d27a95f58d6780151dc20f4fa4ea1b7",
-      "status": "approved"
+      "sha256": "72c88845babba8582c35b4bb639058fe9e5717194e7076149c73026f94f2e056",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/slim.webp",
@@ -41131,8 +47050,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/slip.webp",
-      "sha256": "9aad8b5edf948759742cb39fd0aed14264fe4d404320866a9258feac38df41dd",
-      "status": "approved"
+      "sha256": "581734e64d4be3bf2b8e546f8805d24a3de19581f4bdbce511fc2ba2b9c54820",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/slot.webp",
@@ -41176,8 +47096,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/smell.webp",
-      "sha256": "488cc2980523575a4de1e1ea80bc616851dd1a7bf67ad812b5c2be8348b25208",
-      "status": "approved"
+      "sha256": "2055f9e5000ad1738e0dd2770f32cea399786293a9d0e2d377fff132268f90e1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/smile.webp",
@@ -41231,8 +47152,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/snow.webp",
-      "sha256": "f59bc18055cd514efa831628c29348469c3329899bbbcb0eca27ce6ad0cd1cff",
-      "status": "approved"
+      "sha256": "456b59194bff9297fb5e067e8cfdb218e3c8ca06f6db7d9be3c63b505608a481",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/snug.webp",
@@ -41266,8 +47188,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/soft.webp",
-      "sha256": "05156b857610f4219ea6e7e7352efd5057c2538c27e0558f280e66b37f3b9c9b",
-      "status": "approved"
+      "sha256": "e157cc85896910daaaa680ecf15e1695163d825e38093719fc80af66263fb5fa",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/soil.webp",
@@ -41291,8 +47214,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/sound.webp",
-      "sha256": "d833c3df3647630a6dd37e2b9464d234bbb6acde1e5882dc17d1fa69aded6ab7",
-      "status": "approved"
+      "sha256": "1b5c7837b005a27fefc8e498892fd679fbd80d44d18a64d90bd74ce6185e01a4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/soup.webp",
@@ -41361,8 +47285,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/sport.webp",
-      "sha256": "049076becddbf22e0aeac36339be91f26cde998c8a8d9ca0f6eb568db2fc4893",
-      "status": "approved"
+      "sha256": "bf30d81cf5e61e7445f4cb4576651a8e6ba6e1fb284f8faae6139d5a8e15c43a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/spot.webp",
@@ -41411,8 +47336,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/stay.webp",
-      "sha256": "2338a2c972a5f063d47138a668b1998aa8add7278472738cdb31b46a5a5f7171",
-      "status": "approved"
+      "sha256": "7a99a0535717f4dbf72827c4e637ea89ef1f3c7c24d8f370ea5f683fa7075e56",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/stayed.webp",
@@ -41456,8 +47382,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/stir.webp",
-      "sha256": "e6c1946e28b7cecc9110e245360c221c6c3e021e28b84fcd176577c49681bfaf",
-      "status": "approved"
+      "sha256": "96e3d2ce66743e09b66d6ee038c825a0d215c0af3746cf1396990e40f8cfccd6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/stone.webp",
@@ -41486,8 +47413,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/storm.webp",
-      "sha256": "b16d4f4ffe695c9fc214762abc76f8272ee396114a0b5b4fca6490bf6c605189",
-      "status": "approved"
+      "sha256": "29b38512f956139b1d44ef55afd49205ac7288591767c11aab64bab695255be1",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/story.webp",
@@ -41506,8 +47434,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/stream.webp",
-      "sha256": "a4dd1276597e098b0c2319b5d61fca40f4681931ea15e59896ee9bd04b937823",
-      "status": "approved"
+      "sha256": "1456e935b7b1aa3e5419030760075aef1f5a04232d44554defb0190b586203c3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/street.webp",
@@ -41551,8 +47480,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/sunset.webp",
-      "sha256": "62bf588ba715c52cfd27ea6f931a65f8e711a5026b3933b1a05e1850394541d6",
-      "status": "approved"
+      "sha256": "b637a56e6bcab61fea8f3c9f879883b8123e688da69bab1d2cd2a19fb4872794",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/supper.webp",
@@ -41571,8 +47501,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/swim.webp",
-      "sha256": "6d1b1615c9e298888d2f15959d1d3067c5c6785724a5906960308c9180927a0b",
-      "status": "approved"
+      "sha256": "d97a1a617fa3c5edd515e2ba64f05fccc3cfcf3016eb97a6f7be11fa5509812f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/swimming.webp",
@@ -41631,8 +47562,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/tan.webp",
-      "sha256": "b90e9e7a51d8dab3e9d7f27435a95d0bff6b47e5486a12fe49405d43451d5667",
-      "status": "approved"
+      "sha256": "59fcff21056d2d070a5f701a58b13ab1dd944d19ace517f67b403930a76388ae",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/tape.webp",
@@ -41661,8 +47593,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/teacher.webp",
-      "sha256": "fc41e9d5178bf1fbee96dd5ae8e5e3a844ecd6485ea35927a9b4c2ebd79a90c5",
-      "status": "approved"
+      "sha256": "bea285d4922774dc89786456fbccb9f468e18a9f671a869f04b2be53c9a3f442",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/team.webp",
@@ -41696,8 +47629,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/term.webp",
-      "sha256": "e648df5bfa658ccdbe31b612980134fd5204a92a31e7be9ac38229e8bd3864e2",
-      "status": "approved"
+      "sha256": "5c5d4b7613fa4762dc33a59da7cba16fe0babd0ee1093251de92201b157c024f",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/test.webp",
@@ -41711,8 +47645,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/their.webp",
-      "sha256": "1e10dc77bebbacda2ac80b5459b0573417c61d5e5e2dffc0f503ef13cf90d0f0",
-      "status": "approved"
+      "sha256": "7322f22ed6cde795e614c02d76a47b5e74be4284134f588617c1e4dc55ac444e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/theirs.webp",
@@ -41726,8 +47661,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/there.webp",
-      "sha256": "a8954d4dded2f10f3befa29ee4dedaa1b4f8526ed5a6b57087a05a0e5657a422",
-      "status": "approved"
+      "sha256": "6537b1af1b9672ed441bb14f8b9e9ad9755d071914367dcc030df718ecbca723",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/thick.webp",
@@ -41751,8 +47687,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/think.webp",
-      "sha256": "96a71244edca76df7e0bbcd63958f233db1f94c254a9779491376833d9829b91",
-      "status": "approved"
+      "sha256": "d4ca00c9794600feec38d29f4812953f93340561a7e8735d8827b9a8ede2ffb6",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/third.webp",
@@ -41791,8 +47728,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/throw.webp",
-      "sha256": "90cdf8951b916c364ef14edab22bf3bb952c0f29c4abc5e2198d15da15d810a3",
-      "status": "approved"
+      "sha256": "56b0791f8d2e7806a83c74e8318b0467194aff1e1fd452706ee49b40fc94e448",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/thursday.webp",
@@ -41811,13 +47749,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/time.webp",
-      "sha256": "c0311f9ec892d1c616e23bdff6774e006bc7d12c3edcb039aa00fa9a411b401f",
-      "status": "approved"
+      "sha256": "d465d9d45a1b19389fbce429aa01ae24ceb2b248d7c373c49037a6ab5fed0493",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/tin.webp",
-      "sha256": "1af5e3d270f4e8e52fc467d7e43b17740259487289945f4547e2ddd9f2c67b3d",
-      "status": "approved"
+      "sha256": "7eefc5c7b0431065d7f015702bfb9892634ebccaacaf09078c8a10e0dbbe0862",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/tiny.webp",
@@ -41826,8 +47766,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/tip.webp",
-      "sha256": "73b035e8cf81ce508999ac0fd90ba97e63c63ce318198b7171887c1ca34f45f8",
-      "status": "approved"
+      "sha256": "b9477f4a429387a63170dfad110976e5c3602080ba145ff40ce0fd0ea0ceb5fb",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/tire.webp",
@@ -41861,8 +47802,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/too.webp",
-      "sha256": "5e2bd880009133599737b2928a33ff66ffc67f49a4293373be02bf353ec3f558",
-      "status": "approved"
+      "sha256": "9e8292f4257c61ba063266d4e57f876fdd11f34a301861d1b63a3f753bdffd17",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/took.webp",
@@ -41926,8 +47868,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/trail.webp",
-      "sha256": "282ca6e59e3f2553d1002478e5223aaebe7b5131bc98ebfc2342deca9f593c42",
-      "status": "approved"
+      "sha256": "d7bab97952192977795c1b9916210d44d916cbf8f3ba5ad2f347735cd86c2528",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/trap.webp",
@@ -41976,8 +47919,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/try.webp",
-      "sha256": "5b724bf3165bb6eee801fa8e3b88e22b9c164a7099d93365c442c3bd28c3700d",
-      "status": "approved"
+      "sha256": "d59d79e2bbfaea45be6df8129b447b5f18b359e33b30bd184728f3e01d96ba3c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/tube.webp",
@@ -42026,8 +47970,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/twist.webp",
-      "sha256": "ec1b168f812e11cd6b91af9d248f4e1b134e42402e8dc2421ea22482f4692037",
-      "status": "approved"
+      "sha256": "e2f16f80384f230785bffa4f2bcd4803f8b929a8c1ab5e2259048dd9771de48a",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/two.webp",
@@ -42211,8 +48156,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/walk.webp",
-      "sha256": "f3de2f106042714c4caaba3104403e8e2258c192d21ba89bd966882b311eba18",
-      "status": "approved"
+      "sha256": "6371838055ee248a3cf4989bba98c3c014c2f16c95cf3c5cd2f5a2cfee4130df",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/wall.webp",
@@ -42221,8 +48167,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/want.webp",
-      "sha256": "614cabff182a2e88b9a5e2d5831aea42d05c2a2c5ff314d61fd7207108ba3d55",
-      "status": "approved"
+      "sha256": "b097f32446eba38c29de5034ca1aa2461f4394160ab83b009b478828e67fc36c",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/wanted.webp",
@@ -42241,8 +48188,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/wash.webp",
-      "sha256": "c2bcef2f68c0b1de9aee0fb35afc2182d3591706ab43f77be4ff889bd14d5230",
-      "status": "approved"
+      "sha256": "d1f6577148e91634e3a96e34c5320986736a8bef64c4b5cc0f445ecb1b08b854",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/wave.webp",
@@ -42256,8 +48204,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/way.webp",
-      "sha256": "7ad165af2b3cb729e4bcc5d3f5a9bf39a2ee031d2a222e6bde29314c4426722b",
-      "status": "approved"
+      "sha256": "f3ff28e51b9dd4bce8e7b022f97e88a66a5f3abd5494f35a55f6dea1178f7ab3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/weak.webp",
@@ -42266,8 +48215,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/wear.webp",
-      "sha256": "f2a8d337b181575abac63ccf2d56208de32bf709f07c4209ce379efe1d706c74",
-      "status": "approved"
+      "sha256": "057cc8ce2c4ed0654aa0b3dd07ca90f07dd068fcc0db3c215f722821b1e48a7e",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/wed.webp",
@@ -42296,8 +48246,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/were.webp",
-      "sha256": "c552fbeacedd25374bcd2678fa32145d818b76b449f2cc2539c7e9c5082e1e97",
-      "status": "approved"
+      "sha256": "301566a18ef1bb0a4e541ce2e3c8f8a59f87e1fdb7207f5ae2f90251f49f1d06",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/west.webp",
@@ -42311,8 +48262,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/which.webp",
-      "sha256": "2eca17679601777321870ef1ac8c50fd326afc9a45b6a77bd4354efac1179177",
-      "status": "approved"
+      "sha256": "72a0f4b11a50301b251dcb2ce79957aecfc3655d4f9c75756f0517e5df681d35",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/while.webp",
@@ -42336,8 +48288,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/why.webp",
-      "sha256": "5240764a62c64f466fe5b46a94a10f46594124c246dc7a5c9b4849bbb0a3d478",
-      "status": "approved"
+      "sha256": "c86a2ccb578b15e6f99fe330601e1315875fcd2b30a08066d2127ed66ab7fd52",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/wide.webp",
@@ -42356,8 +48309,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/win.webp",
-      "sha256": "193d0118c2091cffd7bfe8990c89e3a4c0c59265407eb0981191e80b3448d180",
-      "status": "approved"
+      "sha256": "653e308226d02c2938a1d29d8e05a20cf6a5fd5dd818351d4fdb159e6a767df3",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/wind.webp",
@@ -42386,8 +48340,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/wishes.webp",
-      "sha256": "67d51abdfb4bfdf34ca472dfa66843a9d3db0c99074b40651b7b1fa963f9a0c3",
-      "status": "approved"
+      "sha256": "8d0f3abe5d7dc3b7503027e64d5ffc3c08f6153fd959b0c11e6ee58bce2dba66",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/woke.webp",
@@ -42461,8 +48416,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/yawn.webp",
-      "sha256": "4e1490799daf659e7c33bae913dc8e2bde4c48a3cf1b758406dbc64b43d97fe6",
-      "status": "approved"
+      "sha256": "97638bd6a312714e371f8b0b789a886b91f39c347d9a9d2f22efac0825c5cf00",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/year.webp",
@@ -42471,8 +48427,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/yell.webp",
-      "sha256": "b46f637849906902b019da1c9e4dc40f3295b0469cc8908415e6569fbdb521fc",
-      "status": "approved"
+      "sha256": "de7beb061448cc72c8c092658d8d3e7a9ac72a7c2b3a8305fd1a659541cb9cc4",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/yen.webp",
@@ -42501,8 +48458,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/media/vocabulary/images/yum.webp",
-      "sha256": "2898668d4fc7e0411beb7dc42269294f46fb726ed6cfb8caaddeff46cdae96b5",
-      "status": "approved"
+      "sha256": "e53fe5da0f61898a1d538ac7eec3152ea1fae55e6b8441c2a689ed3cef0620fd",
+      "status": "approved",
+      "reviewedAt": "2026-11-01"
     },
     {
       "path": "/media/vocabulary/images/zip.webp",

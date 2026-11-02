@@ -83,8 +83,15 @@ test('pose selection follows real movement, reversal, spring/take-off, falling a
 });
 
 test('retained original sources and delivered derivatives match independently recorded dimensions and hashes', async () => {
-  const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/letter-leap/manifest.json', 'utf8'));
+  const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/letter-leap/clean-cartoon-manifest.json', 'utf8'));
+  const historical = await fs.readFile(manifest.historicalManifest.path);
+  assert.equal(crypto.createHash('sha256').update(historical).digest('hex'), manifest.historicalManifest.sha256);
+  const historicalAssets = JSON.parse(historical).assets;
   for (const asset of manifest.assets) {
+    if (asset.productionRevision) {
+      assert.deepEqual(asset.supersedes, historicalAssets.find(row => row.id === asset.id));
+      assert.equal(asset.runtime, asset.supersedes.runtime);
+    }
     const source = await fs.readFile(asset.source), runtime = await fs.readFile('public' + asset.runtime);
     const sourceInfo = await sharp(source).metadata(), runtimeInfo = await sharp(runtime).metadata();
     assert.deepEqual([sourceInfo.width, sourceInfo.height], asset.sourceSize);
@@ -99,17 +106,29 @@ test('retained original sources and delivered derivatives match independently re
         assert.ok(data[(point[1] * info.width + point[0]) * info.channels + 3] >= 160, `${asset.id}/${frame.id}: contact is an actual opaque source pixel`);
       }
     }
+    if (asset.kind === 'foe' && asset.productionRevision) {
+      const { data, info } = await sharp(runtime).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+      for (const frame of asset.frames) {
+        const [x, y, width, height] = frame.rect, [left, top, right, bottom] = frame.measurement.bodyBounds;
+        assert.ok(left >= x + width * .08 && right <= x + width * .92, `${frame.id}: wings, tails and feet have clear horizontal cell gutters`);
+        assert.ok(top >= y + height * .08 && bottom <= y + height * .92, `${frame.id}: crystal crowns and soles have clear vertical cell gutters`);
+        const [footX, footY] = frame.measurement.soleContactSource;
+        assert.ok(data[(footY * info.width + footX) * 4 + 3] >= 160, `${frame.id}: the delivered contact is an actual opaque sole, not the transparent gap between feet`);
+      }
+    }
   }
   for (const world of ['meadow', 'dino', 'moonwood']) assert.ok(LETTER_LEAP_SCENE_ART.terrain.frames.some(frame => frame.world === world));
   for (const world of ['meadow', 'dino', 'moonwood']) assert.ok(LETTER_LEAP_SCENE_ART[world + '-horizon']);
   assert.equal(LETTER_LEAP_ATLASES['bouncy-pals-passing'], undefined, 'the defective unused first-source figure is never published as a pose');
 });
 
-test('public scene metadata preserves its complete source contract with current branding and relative input references', async () => {
-  const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/letter-leap/manifest.json', 'utf8'));
+test('public scene metadata preserves measured contracts while source manifest retains authoring lineage', async () => {
+  const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/letter-leap/clean-cartoon-manifest.json', 'utf8'));
   const root = path.resolve(import.meta.dirname, '../..');
   for (const asset of manifest.assets.filter(asset => asset.kind !== 'character')) {
     const expected = { ...asset, width: asset.runtimeSize[0], height: asset.runtimeSize[1] };
+    delete expected.supersedes;
+    delete expected.generation;
     if (expected.creator) expected.creator = expected.creator.replace(/Literacy(?:\s+)?Path/g, 'Literacy Guide');
     if (expected.referenceSources) expected.referenceSources = expected.referenceSources.map(reference => {
       if (!path.isAbsolute(reference)) return reference;
@@ -118,7 +137,7 @@ test('public scene metadata preserves its complete source contract with current 
       return suffix;
     });
     const published = LETTER_LEAP_SCENE_ART[asset.id];
-    assert.deepEqual(published, expected, asset.id + ': only public branding and reference representation may change');
+    assert.deepEqual(published, expected, asset.id + ': measured scene contract stays exact while author-only lineage is omitted');
     assert.ok(!/Literacy(?:\s+)?Path/.test(published.creator));
     for (const reference of published.referenceSources || []) {
       assert.equal(path.isAbsolute(reference), false);

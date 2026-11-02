@@ -33,22 +33,29 @@ authoritative. The standalone MIDI playground is unchanged. Shared registered
 art, audio ownership, optional instrument duck gain, version exports and progress
 bridge are owned by the parent integration.
 
-`source-art/arcade/physical-worlds/soundkeys/scene-kit-v1.json` records exact
-originals, prompts, runtime hashes/dimensions, source alpha bounds and registered
-sockets. `key-registration-v1.json` is the sole measured registration authority.
-`scripts/generate-soundkeys-art.py` and `soundkeysArtPacking.py` reproduce the
-delivery bank. Six sheets whose original components cross nominal grid borders
-are packed into independent 384 px cells; every opaque original main-body RGBA
-value is preserved before WebP encoding. Lossy WebP RGB is not claimed identical
-to PNG. No target words or UI are baked into scene art.
+`source-art/arcade/physical-worlds/soundkeys/scene-kit-clean-cartoon.json`
+records current source files, runtime hashes/dimensions, alpha bounds and measured
+contacts. `clean-cartoon-registration.json` records the current replacement
+registrations. The historical `scene-kit-v1.json`, `key-registration-v1.json`,
+original PNGs and prompt snapshots remain immutable provenance; they do not
+approve historical pixels for current illustration style.
+`scripts/generate-soundkeys-art.py` uses `soundkeysCleanCartoon.py` for the current
+bank and `soundkeysArtPacking.py` for retained packing contracts. Native opaque
+body pixels are preserved through mechanical packing before WebP encoding;
+lossy WebP RGB is not claimed identical to PNG. No target words or UI are baked
+into scene art. Current byte counts and dimensions come from the current
+manifest rather than a separate static total in this document.
 
-There are28 current WebPs totalling6,539,330 bytes. Per-band normal decoded RGBA is
-25,735,628 bytes Meadow,41,643,860 bytes Dino and41,504,044 bytes Moonwood; the
-hypothetical entire bank is118,173,260 bytes. Only the current band is resident.
-Band changes release old images/action banks and reject stale decoder callbacks.
-Eight independent original-idle performer fallbacks and six separately decoded
-lower-resolution original scene derivatives remain playable on failed primary
-art. Reload stage art preserves the exact word, prefix and response history.
+Only the current band is resident. Band changes release old images/action banks
+and reject stale decoder callbacks. Separately decoded performer fallbacks and
+lower-resolution scene derivatives remain playable on failed primary art.
+Reload stage art preserves the exact word, prefix and response history.
+
+The clean cartoon refresh includes direct native, saved-image and local renderer
+checks for primary and fallback artwork. A pre-existing short-phone layout can
+partly cover Fern's face with the upper native keys on the lower key bank; the
+old artwork with the same layout reproduces this. Source and contact acceptance
+does not establish a full-game, physical-device, listening or hardware-MIDI pass.
 
 ## Learning, audio and recovery
 

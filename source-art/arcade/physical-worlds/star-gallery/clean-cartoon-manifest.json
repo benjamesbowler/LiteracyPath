@@ -1,0 +1,5155 @@
+{
+  "schemaVersion": 1,
+  "game": "star-gallery",
+  "scope": "Current clean-cartoon rear-driver source/runtime/registration bindings; original historical model/source/prompts and separate scenery contracts retained unchanged under pinned historicalManifest/historicalRegistration.",
+  "review": {
+    "runtimeAcceptance": "PASS_CURRENT_SIX_SOURCES_LOCAL_NATIVE_SAVED_CANVAS_AND_THREE_CONTACTS",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "evidence": "docs/design/SENTENCE_GROVE_IMPLEMENTATION.md",
+    "scope": "Current3rear driver sheets:18poses native/packed/saved390/128,36Canvas+36actual registeredThree driver/control renders on unchanged retainedGLB. Current3grove kits:12wholeobjects native/packed/fullsaved390/128,24Canvas128/72+3actualThree tree/stump/regrowth+3boundary flower/sapling closeviews. Tree barkcut/rootcontacts and historicalrelativeobjectheights preserved. Localart/contact evidence only; no fullgame/cache/human/device claim.",
+    "currentGroveKits": "PASS_NATIVE_SAVED_CANVAS_THREE_TREE_CUT_STUMP_REGROWTH_BOUNDARY"
+  },
+  "assets": [
+    {
+      "id": "bouncy-driver",
+      "world": "meadow",
+      "kind": "authored-rear-seated-driver",
+      "source": "source-art/arcade/physical-worlds/star-gallery/characters/clean-cartoon/bouncy-driver.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "abece9da322680051861dffaab11778ff7551312352572c83af80dc02c2722c0",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/characters/clean-cartoon/bouncy-driver.prompt.txt",
+      "promptSha256": "c0db7cf77cc00f74bc0c43975279a0f5eb6ff0636c671288923508705d08e803",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin image_gen.imagegen clean2D 2026-10-31",
+      "referenceRoles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/pals/clean-cartoon/bouncy-locomotion.png",
+          "sha256": "ea2055c565e7b276ffab02d615249582a8856152bdf9a70332d8417a110f72e5",
+          "role": "accepted clean exact qualified identity/style only"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/687fd67dac0c181ad70a41117a2c7725d16f00001ebb10daa1bfd574695a2a84.png",
+          "sha256": "687fd67dac0c181ad70a41117a2c7725d16f00001ebb10daa1bfd574695a2a84",
+          "role": "exact6rear-seated driver actions/layout target"
+        }
+      ],
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "ready",
+        "steer-left",
+        "steer-right",
+        "lever-anticipation",
+        "lever-contact",
+        "recover"
+      ],
+      "attachment": "Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts",
+      "runtime": "/game-assets/physical-arcade/star-gallery/characters/bouncy-driver-rear-v1.webp",
+      "reviewStatus": "PASS: fullnative/packed/fullsaved/390/128 actual18rear poses;36Canvas +36actual currentThree driver/wheel/lever contexts directly viewed; exactseat/palms/alpha, no extra limbs or invented occludedbody; Pip plainrearbelts corrected with oneactualfocusededit. Localart/contact proof only.",
+      "frames": [
+        {
+          "id": "bouncy-ready",
+          "action": "ready",
+          "direction": "rear",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            254,
+            362
+          ],
+          "sockets": {
+            "seat": [
+              254,
+              362
+            ],
+            "leftHand": [
+              152,
+              228
+            ],
+            "rightHand": [
+              356,
+              228
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              80,
+              50,
+              431,
+              462
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "bouncy-steer-left",
+          "action": "steer-left",
+          "direction": "rear",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            268,
+            368
+          ],
+          "sockets": {
+            "seat": [
+              780,
+              368
+            ],
+            "leftHand": [
+              636,
+              197
+            ],
+            "rightHand": [
+              876,
+              274
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              602,
+              51,
+              934,
+              461
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "bouncy-steer-right",
+          "action": "steer-right",
+          "direction": "rear",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            252,
+            370
+          ],
+          "sockets": {
+            "seat": [
+              252,
+              882
+            ],
+            "leftHand": [
+              157,
+              777
+            ],
+            "rightHand": [
+              380,
+              720
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              85,
+              563,
+              427,
+              972
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "bouncy-lever-anticipation",
+          "action": "lever-anticipation",
+          "direction": "rear",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            248,
+            368
+          ],
+          "sockets": {
+            "seat": [
+              760,
+              880
+            ],
+            "leftHand": [
+              648,
+              750
+            ],
+            "rightHand": [
+              910,
+              636
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              593,
+              563,
+              942,
+              972
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "bouncy-lever-contact",
+          "action": "lever-contact",
+          "direction": "rear",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            249,
+            378
+          ],
+          "sockets": {
+            "seat": [
+              249,
+              1402
+            ],
+            "leftHand": [
+              138,
+              1271
+            ],
+            "rightHand": [
+              402,
+              1373
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              81,
+              1078,
+              432,
+              1482
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "bouncy-recover",
+          "action": "recover",
+          "direction": "rear",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            262,
+            381
+          ],
+          "sockets": {
+            "seat": [
+              774,
+              1405
+            ],
+            "leftHand": [
+              658,
+              1268
+            ],
+            "rightHand": [
+              915,
+              1210
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              595,
+              1075,
+              940,
+              1484
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 187.27272727272725,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "4b9162d3f6d90aaa8d265f48a3a74065e6778f33c55d12ddf5a980aac83228a8",
+      "runtimeBytes": 238230,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "bouncy-driver",
+        "world": "meadow",
+        "kind": "authored-rear-seated-driver",
+        "source": "source-art/arcade/physical-worlds/star-gallery/characters/bouncy-driver-rear-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "687fd67dac0c181ad70a41117a2c7725d16f00001ebb10daa1bfd574695a2a84",
+        "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/bouncy-driver-rear-v1.txt",
+        "promptSha256": "6e064eab217bf6fff72c9efc779e1d58862b9a54d4704180cd17ea36ecde16fd",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+            "sha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+            "role": "Canonical character identity/material; fresh garden-driver poses"
+          }
+        ],
+        "alphaSamples": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0,
+          "centerGutter": 0
+        },
+        "actions": [
+          "ready",
+          "steer-left",
+          "steer-right",
+          "lever-anticipation",
+          "lever-contact",
+          "recover"
+        ],
+        "attachment": "Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts",
+        "runtime": "/game-assets/physical-arcade/star-gallery/characters/bouncy-driver-rear-v1.webp",
+        "reviewStatus": "Source directly inspected; actual contact registration/vehicle-camera/native loop acceptance PENDING",
+        "frames": [
+          {
+            "id": "bouncy-ready",
+            "action": "ready",
+            "direction": "rear",
+            "cell": [
+              54,
+              18,
+              467,
+              468
+            ],
+            "anchor": [
+              201,
+              351
+            ],
+            "sockets": {
+              "seat": [
+                255,
+                369
+              ],
+              "leftHand": [
+                142,
+                233
+              ],
+              "rightHand": [
+                372,
+                235
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                61,
+                25,
+                460,
+                461
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "bouncy-steer-left",
+            "action": "steer-left",
+            "direction": "rear",
+            "cell": [
+              588,
+              19,
+              959,
+              468
+            ],
+            "anchor": [
+              183,
+              350
+            ],
+            "sockets": {
+              "seat": [
+                771,
+                369
+              ],
+              "leftHand": [
+                635,
+                210
+              ],
+              "rightHand": [
+                861,
+                238
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                595,
+                26,
+                952,
+                461
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "bouncy-steer-right",
+            "action": "steer-right",
+            "direction": "rear",
+            "cell": [
+              76,
+              513,
+              466,
+              947
+            ],
+            "anchor": [
+              178,
+              338
+            ],
+            "sockets": {
+              "seat": [
+                254,
+                851
+              ],
+              "leftHand": [
+                179,
+                699
+              ],
+              "rightHand": [
+                413,
+                723
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                83,
+                520,
+                459,
+                940
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "bouncy-lever-anticipation",
+            "action": "lever-anticipation",
+            "direction": "rear",
+            "cell": [
+              584,
+              511,
+              973,
+              947
+            ],
+            "anchor": [
+              178,
+              342
+            ],
+            "sockets": {
+              "seat": [
+                762,
+                853
+              ],
+              "leftHand": [
+                650,
+                723
+              ],
+              "rightHand": [
+                937,
+                620
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                591,
+                518,
+                966,
+                940
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "bouncy-lever-contact",
+            "action": "lever-contact",
+            "direction": "rear",
+            "cell": [
+              75,
+              988,
+              454,
+              1430
+            ],
+            "anchor": [
+              181,
+              340
+            ],
+            "sockets": {
+              "seat": [
+                256,
+                1328
+              ],
+              "leftHand": [
+                158,
+                1157
+              ],
+              "rightHand": [
+                421,
+                1323
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                82,
+                995,
+                447,
+                1423
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "bouncy-recover",
+            "action": "recover",
+            "direction": "rear",
+            "cell": [
+              571,
+              979,
+              974,
+              1429
+            ],
+            "anchor": [
+              202,
+              341
+            ],
+            "sockets": {
+              "seat": [
+                773,
+                1320
+              ],
+              "leftHand": [
+                635,
+                1180
+              ],
+              "rightHand": [
+                938,
+                1178
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                578,
+                986,
+                967,
+                1422
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 198.18181818181816,
+        "registration": "registration.json",
+        "registrationSha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "dbbd518f960a258bb5ca14169175dfbc0187f92e50f387189b5db706da4b7a3f",
+        "runtimeBytes": 261442,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "originalSourceSHA": "687fd67dac0c181ad70a41117a2c7725d16f00001ebb10daa1bfd574695a2a84",
+        "actualBuiltinCalls": 1,
+        "nativeAttempts": [
+          {
+            "actualBuiltinCall": 1,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-d6069574-a494-48d4-9d79-de55f2a9d450.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "pending native/full direct visual review"
+          }
+        ],
+        "mechanicalPackingRecipes": [
+          {
+            "frameIndex": 0,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              256
+            ],
+            "wholeSpriteCrop": [
+              72,
+              20,
+              451,
+              465
+            ],
+            "measuredNativeHands": [
+              [
+                150,
+                212
+              ],
+              [
+                369,
+                212
+              ]
+            ],
+            "measuredNativeSeat": [
+              260,
+              356
+            ],
+            "scale": 0.9303370786516854,
+            "placement": [
+              79,
+              49,
+              353,
+              414
+            ],
+            "measuredFrame": {
+              "id": "bouncy-ready",
+              "action": "ready",
+              "direction": "rear",
+              "cell": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "anchor": [
+                254,
+                362
+              ],
+              "sockets": {
+                "seat": [
+                  254,
+                  362
+                ],
+                "leftHand": [
+                  152,
+                  228
+                ],
+                "rightHand": [
+                  356,
+                  228
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  80,
+                  50,
+                  431,
+                  462
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 1,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              256
+            ],
+            "wholeSpriteCrop": [
+              582,
+              22,
+              942,
+              465
+            ],
+            "measuredNativeHands": [
+              [
+                621,
+                180
+              ],
+              [
+                879,
+                263
+              ]
+            ],
+            "measuredNativeSeat": [
+              775,
+              364
+            ],
+            "scale": 0.9303370786516854,
+            "placement": [
+              600,
+              50,
+              335,
+              412
+            ],
+            "measuredFrame": {
+              "id": "bouncy-steer-left",
+              "action": "steer-left",
+              "direction": "rear",
+              "cell": [
+                512,
+                0,
+                1024,
+                512
+              ],
+              "anchor": [
+                268,
+                368
+              ],
+              "sockets": {
+                "seat": [
+                  780,
+                  368
+                ],
+                "leftHand": [
+                  636,
+                  197
+                ],
+                "rightHand": [
+                  876,
+                  274
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  602,
+                  51,
+                  934,
+                  461
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 2,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              768
+            ],
+            "wholeSpriteCrop": [
+              90,
+              525,
+              460,
+              967
+            ],
+            "measuredNativeHands": [
+              [
+                168,
+                756
+              ],
+              [
+                408,
+                695
+              ]
+            ],
+            "measuredNativeSeat": [
+              271,
+              869
+            ],
+            "scale": 0.9303370786516854,
+            "placement": [
+              84,
+              562,
+              344,
+              411
+            ],
+            "measuredFrame": {
+              "id": "bouncy-steer-right",
+              "action": "steer-right",
+              "direction": "rear",
+              "cell": [
+                0,
+                512,
+                512,
+                1024
+              ],
+              "anchor": [
+                252,
+                370
+              ],
+              "sockets": {
+                "seat": [
+                  252,
+                  882
+                ],
+                "leftHand": [
+                  157,
+                  777
+                ],
+                "rightHand": [
+                  380,
+                  720
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  85,
+                  563,
+                  426,
+                  971
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 3,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              768
+            ],
+            "wholeSpriteCrop": [
+              588,
+              525,
+              965,
+              967
+            ],
+            "measuredNativeHands": [
+              [
+                648,
+                727
+              ],
+              [
+                930,
+                605
+              ]
+            ],
+            "measuredNativeSeat": [
+              768,
+              867
+            ],
+            "scale": 0.9303370786516854,
+            "placement": [
+              592,
+              562,
+              351,
+              411
+            ],
+            "measuredFrame": {
+              "id": "bouncy-lever-anticipation",
+              "action": "lever-anticipation",
+              "direction": "rear",
+              "cell": [
+                512,
+                512,
+                1024,
+                1024
+              ],
+              "anchor": [
+                248,
+                368
+              ],
+              "sockets": {
+                "seat": [
+                  760,
+                  880
+                ],
+                "leftHand": [
+                  648,
+                  750
+                ],
+                "rightHand": [
+                  910,
+                  636
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  593,
+                  563,
+                  941,
+                  971
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 4,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              1280
+            ],
+            "wholeSpriteCrop": [
+              89,
+              1021,
+              467,
+              1457
+            ],
+            "measuredNativeHands": [
+              [
+                151,
+                1229
+              ],
+              [
+                435,
+                1339
+              ]
+            ],
+            "measuredNativeSeat": [
+              270,
+              1370
+            ],
+            "scale": 0.9303370786516854,
+            "placement": [
+              80,
+              1077,
+              352,
+              406
+            ],
+            "measuredFrame": {
+              "id": "bouncy-lever-contact",
+              "action": "lever-contact",
+              "direction": "rear",
+              "cell": [
+                0,
+                1024,
+                512,
+                1536
+              ],
+              "anchor": [
+                249,
+                378
+              ],
+              "sockets": {
+                "seat": [
+                  249,
+                  1402
+                ],
+                "leftHand": [
+                  138,
+                  1271
+                ],
+                "rightHand": [
+                  402,
+                  1373
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  81,
+                  1078,
+                  431,
+                  1482
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 5,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-bouncy-driver.attempt1.native.png",
+            "nativeSHA": "7d8fd3ef881ecebaab30ab6512e3a93a2c77b3b093b109107fb1ca9241fa37b4",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              1280
+            ],
+            "wholeSpriteCrop": [
+              581,
+              1017,
+              954,
+              1459
+            ],
+            "measuredNativeHands": [
+              [
+                650,
+                1226
+              ],
+              [
+                926,
+                1163
+              ]
+            ],
+            "measuredNativeSeat": [
+              775,
+              1373
+            ],
+            "scale": 0.9303370786516854,
+            "placement": [
+              594,
+              1074,
+              347,
+              411
+            ],
+            "measuredFrame": {
+              "id": "bouncy-recover",
+              "action": "recover",
+              "direction": "rear",
+              "cell": [
+                512,
+                1024,
+                1024,
+                1536
+              ],
+              "anchor": [
+                262,
+                381
+              ],
+              "sockets": {
+                "seat": [
+                  774,
+                  1405
+                ],
+                "leftHand": [
+                  658,
+                  1268
+                ],
+                "rightHand": [
+                  915,
+                  1210
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  596,
+                  1075,
+                  940,
+                  1484
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chompy-driver",
+      "world": "dino",
+      "kind": "authored-rear-seated-driver",
+      "source": "source-art/arcade/physical-worlds/star-gallery/characters/clean-cartoon/chompy-driver.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "b2298337802603c5d7ac7461f1f4850fc42caf1f4ef284f01c4c7b2d65758c30",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/characters/clean-cartoon/chompy-driver.prompt.txt",
+      "promptSha256": "9eaed3aa07548a380e941e609c561e4109f9a7c54423c62ef959a2989a30c1c8",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin image_gen.imagegen clean2D 2026-10-31",
+      "referenceRoles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/pals/clean-cartoon/chompy-locomotion.png",
+          "sha256": "edcc4912648255625504fae96a9ad7e6008284a514de905736fbced69d934d73",
+          "role": "accepted clean exact qualified identity/style only"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/a87169ae90df6afc053693826e03213b5b943f9fe3dc089f1b2e0fef0343c515.png",
+          "sha256": "a87169ae90df6afc053693826e03213b5b943f9fe3dc089f1b2e0fef0343c515",
+          "role": "exact6rear-seated driver actions/layout target"
+        }
+      ],
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 1
+      },
+      "actions": [
+        "ready",
+        "steer-left",
+        "steer-right",
+        "lever-anticipation",
+        "lever-contact",
+        "recover"
+      ],
+      "attachment": "Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts",
+      "runtime": "/game-assets/physical-arcade/star-gallery/characters/chompy-driver-rear-v1.webp",
+      "reviewStatus": "PASS: fullnative/packed/fullsaved/390/128 actual18rear poses;36Canvas +36actual currentThree driver/wheel/lever contexts directly viewed; exactseat/palms/alpha, no extra limbs or invented occludedbody; Pip plainrearbelts corrected with oneactualfocusededit. Localart/contact proof only.",
+      "frames": [
+        {
+          "id": "chompy-ready",
+          "action": "ready",
+          "direction": "rear",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            253,
+            363
+          ],
+          "sockets": {
+            "seat": [
+              253,
+              363
+            ],
+            "leftHand": [
+              143,
+              255
+            ],
+            "rightHand": [
+              367,
+              257
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              94,
+              51,
+              417,
+              460
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "chompy-steer-left",
+          "action": "steer-left",
+          "direction": "rear",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            256,
+            367
+          ],
+          "sockets": {
+            "seat": [
+              768,
+              367
+            ],
+            "leftHand": [
+              668,
+              240
+            ],
+            "rightHand": [
+              875,
+              310
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              607,
+              52,
+              929,
+              460
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "chompy-steer-right",
+          "action": "steer-right",
+          "direction": "rear",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            243,
+            370
+          ],
+          "sockets": {
+            "seat": [
+              243,
+              882
+            ],
+            "leftHand": [
+              164,
+              804
+            ],
+            "rightHand": [
+              374,
+              733
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              85,
+              569,
+              427,
+              966
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "chompy-lever-anticipation",
+          "action": "lever-anticipation",
+          "direction": "rear",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            243,
+            364
+          ],
+          "sockets": {
+            "seat": [
+              755,
+              876
+            ],
+            "leftHand": [
+              650,
+              779
+            ],
+            "rightHand": [
+              911,
+              722
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              597,
+              564,
+              939,
+              971
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "chompy-lever-contact",
+          "action": "lever-contact",
+          "direction": "rear",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            248,
+            367
+          ],
+          "sockets": {
+            "seat": [
+              248,
+              1391
+            ],
+            "leftHand": [
+              157,
+              1273
+            ],
+            "rightHand": [
+              418,
+              1379
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              74,
+              1079,
+              437,
+              1480
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "chompy-recover",
+          "action": "recover",
+          "direction": "rear",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            243,
+            370
+          ],
+          "sockets": {
+            "seat": [
+              755,
+              1394
+            ],
+            "leftHand": [
+              646,
+              1272
+            ],
+            "rightHand": [
+              911,
+              1246
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              595,
+              1074,
+              941,
+              1486
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 185.9090909090909,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "70d6ba9c24b05514f42092655c5d9277e238dcff7933a31afb3d08bfd9c01ca5",
+      "runtimeBytes": 226500,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "chompy-driver",
+        "world": "dino",
+        "kind": "authored-rear-seated-driver",
+        "source": "source-art/arcade/physical-worlds/star-gallery/characters/chompy-driver-rear-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "a87169ae90df6afc053693826e03213b5b943f9fe3dc089f1b2e0fef0343c515",
+        "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/chompy-driver-rear-v1.txt",
+        "promptSha256": "88df010c201ed72a11ee39092353e0982df3370944d76c8d43207dfa9c075447",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+            "sha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+            "role": "Canonical character identity/material; fresh garden-driver poses"
+          }
+        ],
+        "alphaSamples": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0,
+          "centerGutter": 1
+        },
+        "actions": [
+          "ready",
+          "steer-left",
+          "steer-right",
+          "lever-anticipation",
+          "lever-contact",
+          "recover"
+        ],
+        "attachment": "Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts",
+        "runtime": "/game-assets/physical-arcade/star-gallery/characters/chompy-driver-rear-v1.webp",
+        "reviewStatus": "Source directly inspected; actual contact registration/vehicle-camera/native loop acceptance PENDING",
+        "frames": [
+          {
+            "id": "chompy-ready",
+            "action": "ready",
+            "direction": "rear",
+            "cell": [
+              96,
+              28,
+              447,
+              476
+            ],
+            "anchor": [
+              172,
+              342
+            ],
+            "sockets": {
+              "seat": [
+                268,
+                370
+              ],
+              "leftHand": [
+                164,
+                265
+              ],
+              "rightHand": [
+                382,
+                262
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                103,
+                35,
+                440,
+                469
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "chompy-steer-left",
+            "action": "steer-left",
+            "direction": "rear",
+            "cell": [
+              590,
+              45,
+              948,
+              476
+            ],
+            "anchor": [
+              185,
+              324
+            ],
+            "sockets": {
+              "seat": [
+                775,
+                369
+              ],
+              "leftHand": [
+                686,
+                248
+              ],
+              "rightHand": [
+                895,
+                318
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                597,
+                52,
+                941,
+                469
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "chompy-steer-right",
+            "action": "steer-right",
+            "direction": "rear",
+            "cell": [
+              105,
+              538,
+              476,
+              967
+            ],
+            "anchor": [
+              185,
+              314
+            ],
+            "sockets": {
+              "seat": [
+                290,
+                852
+              ],
+              "leftHand": [
+                201,
+                793
+              ],
+              "rightHand": [
+                412,
+                727
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                112,
+                545,
+                469,
+                960
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "chompy-lever-anticipation",
+            "action": "lever-anticipation",
+            "direction": "rear",
+            "cell": [
+              598,
+              530,
+              954,
+              974
+            ],
+            "anchor": [
+              169,
+              322
+            ],
+            "sockets": {
+              "seat": [
+                767,
+                852
+              ],
+              "leftHand": [
+                649,
+                803
+              ],
+              "rightHand": [
+                920,
+                719
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                605,
+                537,
+                947,
+                967
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "chompy-lever-contact",
+            "action": "lever-contact",
+            "direction": "rear",
+            "cell": [
+              111,
+              1022,
+              482,
+              1446
+            ],
+            "anchor": [
+              174,
+              307
+            ],
+            "sockets": {
+              "seat": [
+                285,
+                1329
+              ],
+              "leftHand": [
+                195,
+                1252
+              ],
+              "rightHand": [
+                453,
+                1346
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                118,
+                1029,
+                475,
+                1439
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "chompy-recover",
+            "action": "recover",
+            "direction": "rear",
+            "cell": [
+              592,
+              1013,
+              952,
+              1457
+            ],
+            "anchor": [
+              177,
+              321
+            ],
+            "sockets": {
+              "seat": [
+                769,
+                1334
+              ],
+              "leftHand": [
+                646,
+                1250
+              ],
+              "rightHand": [
+                918,
+                1195
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                599,
+                1020,
+                945,
+                1450
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          }
+        ],
+        "nominalHeight": 2.2,
+        "pixelsPerUnit": 197.27272727272725,
+        "registration": "registration.json",
+        "registrationSha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "4b7c193b9cc7640242021522c058f1267eb7f766313e536bb24de74b63b85cab",
+        "runtimeBytes": 199732,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "originalSourceSHA": "a87169ae90df6afc053693826e03213b5b943f9fe3dc089f1b2e0fef0343c515",
+        "actualBuiltinCalls": 1,
+        "nativeAttempts": [
+          {
+            "actualBuiltinCall": 1,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-2092ad53-d772-4d07-9e26-1da3afc724d9.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "pending native/full direct visual review"
+          }
+        ],
+        "mechanicalPackingRecipes": [
+          {
+            "frameIndex": 0,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              256
+            ],
+            "wholeSpriteCrop": [
+              93,
+              25,
+              451,
+              479
+            ],
+            "measuredNativeHands": [
+              [
+                148,
+                251
+              ],
+              [
+                395,
+                253
+              ]
+            ],
+            "measuredNativeSeat": [
+              269,
+              370
+            ],
+            "scale": 0.9078947368421053,
+            "placement": [
+              93,
+              50,
+              325,
+              412
+            ],
+            "measuredFrame": {
+              "id": "chompy-ready",
+              "action": "ready",
+              "direction": "rear",
+              "cell": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "anchor": [
+                253,
+                363
+              ],
+              "sockets": {
+                "seat": [
+                  253,
+                  363
+                ],
+                "leftHand": [
+                  143,
+                  255
+                ],
+                "rightHand": [
+                  367,
+                  257
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  95,
+                  51,
+                  417,
+                  460
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 1,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              256
+            ],
+            "wholeSpriteCrop": [
+              595,
+              27,
+              953,
+              479
+            ],
+            "measuredNativeHands": [
+              [
+                664,
+                235
+              ],
+              [
+                892,
+                312
+              ]
+            ],
+            "measuredNativeSeat": [
+              775,
+              375
+            ],
+            "scale": 0.9078947368421053,
+            "placement": [
+              605,
+              51,
+              325,
+              410
+            ],
+            "measuredFrame": {
+              "id": "chompy-steer-left",
+              "action": "steer-left",
+              "direction": "rear",
+              "cell": [
+                512,
+                0,
+                1024,
+                512
+              ],
+              "anchor": [
+                256,
+                367
+              ],
+              "sockets": {
+                "seat": [
+                  768,
+                  367
+                ],
+                "leftHand": [
+                  668,
+                  240
+                ],
+                "rightHand": [
+                  875,
+                  310
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  607,
+                  52,
+                  928,
+                  459
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 2,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              768
+            ],
+            "wholeSpriteCrop": [
+              95,
+              523,
+              474,
+              962
+            ],
+            "measuredNativeHands": [
+              [
+                183,
+                783
+              ],
+              [
+                414,
+                704
+              ]
+            ],
+            "measuredNativeSeat": [
+              270,
+              869
+            ],
+            "scale": 0.9078947368421053,
+            "placement": [
+              84,
+              568,
+              344,
+              399
+            ],
+            "measuredFrame": {
+              "id": "chompy-steer-right",
+              "action": "steer-right",
+              "direction": "rear",
+              "cell": [
+                0,
+                512,
+                512,
+                1024
+              ],
+              "anchor": [
+                243,
+                370
+              ],
+              "sockets": {
+                "seat": [
+                  243,
+                  882
+                ],
+                "leftHand": [
+                  164,
+                  804
+                ],
+                "rightHand": [
+                  374,
+                  733
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  85,
+                  569,
+                  427,
+                  966
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 3,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              768
+            ],
+            "wholeSpriteCrop": [
+              595,
+              521,
+              974,
+              972
+            ],
+            "measuredNativeHands": [
+              [
+                655,
+                759
+              ],
+              [
+                942,
+                696
+              ]
+            ],
+            "measuredNativeSeat": [
+              770,
+              866
+            ],
+            "scale": 0.9078947368421053,
+            "placement": [
+              596,
+              563,
+              344,
+              409
+            ],
+            "measuredFrame": {
+              "id": "chompy-lever-anticipation",
+              "action": "lever-anticipation",
+              "direction": "rear",
+              "cell": [
+                512,
+                512,
+                1024,
+                1024
+              ],
+              "anchor": [
+                243,
+                364
+              ],
+              "sockets": {
+                "seat": [
+                  755,
+                  876
+                ],
+                "leftHand": [
+                  650,
+                  779
+                ],
+                "rightHand": [
+                  911,
+                  722
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  598,
+                  565,
+                  939,
+                  970
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 4,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              1280
+            ],
+            "wholeSpriteCrop": [
+              91,
+              1012,
+              493,
+              1456
+            ],
+            "measuredNativeHands": [
+              [
+                184,
+                1227
+              ],
+              [
+                471,
+                1344
+              ]
+            ],
+            "measuredNativeSeat": [
+              284,
+              1357
+            ],
+            "scale": 0.9078947368421053,
+            "placement": [
+              73,
+              1078,
+              365,
+              403
+            ],
+            "measuredFrame": {
+              "id": "chompy-lever-contact",
+              "action": "lever-contact",
+              "direction": "rear",
+              "cell": [
+                0,
+                1024,
+                512,
+                1536
+              ],
+              "anchor": [
+                248,
+                367
+              ],
+              "sockets": {
+                "seat": [
+                  248,
+                  1391
+                ],
+                "leftHand": [
+                  157,
+                  1273
+                ],
+                "rightHand": [
+                  418,
+                  1379
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  74,
+                  1079,
+                  437,
+                  1480
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 5,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-chompy-driver.attempt1.native.png",
+            "nativeSHA": "3b4103fdcd56b56248c2c4c4979dd1204c38875784a74ec0f91efa5db03feeea",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              1280
+            ],
+            "wholeSpriteCrop": [
+              593,
+              1004,
+              976,
+              1460
+            ],
+            "measuredNativeHands": [
+              [
+                650,
+                1223
+              ],
+              [
+                942,
+                1195
+              ]
+            ],
+            "measuredNativeSeat": [
+              770,
+              1358
+            ],
+            "scale": 0.9078947368421053,
+            "placement": [
+              594,
+              1073,
+              348,
+              414
+            ],
+            "measuredFrame": {
+              "id": "chompy-recover",
+              "action": "recover",
+              "direction": "rear",
+              "cell": [
+                512,
+                1024,
+                1024,
+                1536
+              ],
+              "anchor": [
+                243,
+                370
+              ],
+              "sockets": {
+                "seat": [
+                  755,
+                  1394
+                ],
+                "leftHand": [
+                  646,
+                  1272
+                ],
+                "rightHand": [
+                  911,
+                  1246
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  595,
+                  1075,
+                  941,
+                  1486
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "pip-driver",
+      "world": "moonwood",
+      "kind": "authored-rear-driver-visible-upper-body",
+      "source": "source-art/arcade/physical-worlds/star-gallery/characters/clean-cartoon/pip-driver.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "687b92845ee9385390b631f1080a6b1b3d621ff3afc445c439592132f8e68d20",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/characters/clean-cartoon/pip-driver.prompt.txt",
+      "promptSha256": "cf7ee005baef5b58920e71f36119c66bc0bc755e44d42b0727ee70810ae64eb3",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin image_gen.imagegen clean2D 2026-10-31",
+      "referenceRoles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/pals/clean-cartoon/pip-locomotion.png",
+          "sha256": "8710c382ad9d431a8421660c8d643bca0b0a39a76d343b4840431f463ef5b28f",
+          "role": "accepted clean exact qualified identity/style only"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/7fe617fd2fd97320baa7dd56c992d9f91180906c1386527fa921528000e4771e.png",
+          "sha256": "7fe617fd2fd97320baa7dd56c992d9f91180906c1386527fa921528000e4771e",
+          "role": "exact6rear-seated driver actions/layout target"
+        }
+      ],
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "ready",
+        "steer-left",
+        "steer-right",
+        "lever-anticipation",
+        "lever-contact",
+        "recover"
+      ],
+      "attachment": "Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts",
+      "runtime": "/game-assets/physical-arcade/star-gallery/characters/pip-driver-upper-rear-v1.webp",
+      "reviewStatus": "PASS: fullnative/packed/fullsaved/390/128 actual18rear poses;36Canvas +36actual currentThree driver/wheel/lever contexts directly viewed; exactseat/palms/alpha, no extra limbs or invented occludedbody; Pip plainrearbelts corrected with oneactualfocusededit. Localart/contact proof only.",
+      "frames": [
+        {
+          "id": "pip-ready",
+          "action": "ready",
+          "direction": "rear",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            259,
+            441
+          ],
+          "sockets": {
+            "seat": [
+              259,
+              441
+            ],
+            "leftHand": [
+              121,
+              336
+            ],
+            "rightHand": [
+              386,
+              337
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              84,
+              52,
+              428,
+              460
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "pip-steer-left",
+          "action": "steer-left",
+          "direction": "rear",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            233,
+            440
+          ],
+          "sockets": {
+            "seat": [
+              745,
+              440
+            ],
+            "leftHand": [
+              623,
+              310
+            ],
+            "rightHand": [
+              900,
+              358
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              589,
+              52,
+              946,
+              460
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "pip-steer-right",
+          "action": "steer-right",
+          "direction": "rear",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            282,
+            436
+          ],
+          "sockets": {
+            "seat": [
+              282,
+              948
+            ],
+            "leftHand": [
+              128,
+              860
+            ],
+            "rightHand": [
+              394,
+              800
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              80,
+              571,
+              431,
+              964
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "pip-lever-anticipation",
+          "action": "lever-anticipation",
+          "direction": "rear",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            236,
+            439
+          ],
+          "sockets": {
+            "seat": [
+              748,
+              951
+            ],
+            "leftHand": [
+              609,
+              852
+            ],
+            "rightHand": [
+              930,
+              771
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              563,
+              568,
+              973,
+              967
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "pip-lever-contact",
+          "action": "lever-contact",
+          "direction": "rear",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            256,
+            429
+          ],
+          "sockets": {
+            "seat": [
+              256,
+              1453
+            ],
+            "leftHand": [
+              123,
+              1336
+            ],
+            "rightHand": [
+              389,
+              1448
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              81,
+              1074,
+              430,
+              1486
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        },
+        {
+          "id": "pip-recover",
+          "action": "recover",
+          "direction": "rear",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            236,
+            441
+          ],
+          "sockets": {
+            "seat": [
+              748,
+              1465
+            ],
+            "leftHand": [
+              603,
+              1339
+            ],
+            "rightHand": [
+              926,
+              1307
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              1081,
+              972,
+              1478
+            ],
+            "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+          }
+        }
+      ],
+      "nominalHeight": 1.55,
+      "pixelsPerUnit": 263.22580645161287,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "240e55559572098ce13dbd18d675496f470609b54267bf52b55273bbaae69479",
+      "runtimeBytes": 226510,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "pip-driver",
+        "world": "moonwood",
+        "kind": "authored-rear-driver-visible-upper-body",
+        "source": "source-art/arcade/physical-worlds/star-gallery/characters/pip-driver-upper-rear-v1.png",
+        "sourceSize": [
+          1024,
+          1536
+        ],
+        "sourceSha256": "7fe617fd2fd97320baa7dd56c992d9f91180906c1386527fa921528000e4771e",
+        "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/pip-driver-upper-rear-v1.txt",
+        "promptSha256": "3af9290aaa5386cb8fc96eebb5d92b2061f665c7326c68cdd78b822bc338b633",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sound-safari/characters/pip-operator-v1.png",
+            "sha256": "8c67cbd2a196773703321a84eb8f63578e54f5f63e64663fa68783ac433c53ee",
+            "role": "Canonical character identity/material; fresh garden-driver poses"
+          }
+        ],
+        "alphaSamples": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0,
+          "centerGutter": 0
+        },
+        "actions": [
+          "ready",
+          "steer-left",
+          "steer-right",
+          "lever-anticipation",
+          "lever-contact",
+          "recover"
+        ],
+        "attachment": "Actual source seat/belt anchor and visible measured hands; no invented lower body or foot contacts",
+        "runtime": "/game-assets/physical-arcade/star-gallery/characters/pip-driver-upper-rear-v1.webp",
+        "reviewStatus": "Source directly inspected; actual contact registration/vehicle-camera/native loop acceptance PENDING",
+        "frames": [
+          {
+            "id": "pip-ready",
+            "action": "ready",
+            "direction": "rear",
+            "cell": [
+              76,
+              8,
+              440,
+              474
+            ],
+            "anchor": [
+              185,
+              439
+            ],
+            "sockets": {
+              "seat": [
+                261,
+                447
+              ],
+              "leftHand": [
+                130,
+                305
+              ],
+              "rightHand": [
+                390,
+                307
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                83,
+                15,
+                433,
+                467
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "pip-steer-left",
+            "action": "steer-left",
+            "direction": "rear",
+            "cell": [
+              598,
+              14,
+              940,
+              474
+            ],
+            "anchor": [
+              162,
+              433
+            ],
+            "sockets": {
+              "seat": [
+                760,
+                447
+              ],
+              "leftHand": [
+                627,
+                271
+              ],
+              "rightHand": [
+                883,
+                343
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                605,
+                21,
+                933,
+                467
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "pip-steer-right",
+            "action": "steer-right",
+            "direction": "rear",
+            "cell": [
+              65,
+              502,
+              421,
+              956
+            ],
+            "anchor": [
+              225,
+              421
+            ],
+            "sockets": {
+              "seat": [
+                290,
+                923
+              ],
+              "leftHand": [
+                122,
+                849
+              ],
+              "rightHand": [
+                396,
+                761
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                72,
+                509,
+                414,
+                949
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "pip-lever-anticipation",
+            "action": "lever-anticipation",
+            "direction": "rear",
+            "cell": [
+              560,
+              494,
+              1009,
+              960
+            ],
+            "anchor": [
+              184,
+              440
+            ],
+            "sockets": {
+              "seat": [
+                744,
+                934
+              ],
+              "leftHand": [
+                615,
+                832
+              ],
+              "rightHand": [
+                949,
+                751
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                567,
+                501,
+                1002,
+                953
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "pip-lever-contact",
+            "action": "lever-contact",
+            "direction": "rear",
+            "cell": [
+              76,
+              971,
+              457,
+              1459
+            ],
+            "anchor": [
+              185,
+              444
+            ],
+            "sockets": {
+              "seat": [
+                261,
+                1415
+              ],
+              "leftHand": [
+                130,
+                1286
+              ],
+              "rightHand": [
+                397,
+                1401
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                83,
+                978,
+                450,
+                1452
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          },
+          {
+            "id": "pip-recover",
+            "action": "recover",
+            "direction": "rear",
+            "cell": [
+              565,
+              974,
+              1015,
+              1444
+            ],
+            "anchor": [
+              197,
+              443
+            ],
+            "sockets": {
+              "seat": [
+                762,
+                1417
+              ],
+              "leftHand": [
+                623,
+                1292
+              ],
+              "rightHand": [
+                950,
+                1227
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                572,
+                981,
+                1008,
+                1437
+              ],
+              "method": "Source-inspected visible rear hands and seat/belt; genuine rover occlusion, no guessed feet"
+            }
+          }
+        ],
+        "nominalHeight": 1.55,
+        "pixelsPerUnit": 291.61290322580646,
+        "registration": "registration.json",
+        "registrationSha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+        "runtimeSize": [
+          1024,
+          1536
+        ],
+        "runtimeSha256": "d4fa3ee7b54ce91f5d023c884a0276b6057388bf635e0b11e87289c9cd91a770",
+        "runtimeBytes": 240918,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "originalSourceSHA": "7fe617fd2fd97320baa7dd56c992d9f91180906c1386527fa921528000e4771e",
+        "actualBuiltinCalls": 2,
+        "nativeAttempts": [
+          {
+            "actualBuiltinCall": 1,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-da526330-bbc8-480d-9b35-f70a11c60323.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt1.native.png",
+            "nativeSHA": "f37f79d2a3d028a707e21ddee6858815882fa71dfbe12e33efdd19ffae2681fd",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "HOLD: all6rear belts have frontal goldbuckles absent from rear canon/reference; native not installed"
+          },
+          {
+            "actualBuiltinCall": 2,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-d255ad6d-2cbd-4c61-86a3-1e06bb56d977.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "pending direct repair review"
+          }
+        ],
+        "mechanicalPackingRecipes": [
+          {
+            "frameIndex": 0,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              256
+            ],
+            "wholeSpriteCrop": [
+              84,
+              12,
+              473,
+              473
+            ],
+            "measuredNativeHands": [
+              [
+                127,
+                333
+              ],
+              [
+                425,
+                334
+              ]
+            ],
+            "measuredNativeSeat": [
+              282,
+              451
+            ],
+            "scale": 0.8884120171673819,
+            "placement": [
+              83,
+              51,
+              346,
+              410
+            ],
+            "measuredFrame": {
+              "id": "pip-ready",
+              "action": "ready",
+              "direction": "rear",
+              "cell": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "anchor": [
+                259,
+                441
+              ],
+              "sockets": {
+                "seat": [
+                  259,
+                  441
+                ],
+                "leftHand": [
+                  121,
+                  336
+                ],
+                "rightHand": [
+                  386,
+                  337
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  84,
+                  52,
+                  428,
+                  460
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 1,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              256
+            ],
+            "wholeSpriteCrop": [
+              559,
+              14,
+              963,
+              475
+            ],
+            "measuredNativeHands": [
+              [
+                598,
+                305
+              ],
+              [
+                910,
+                359
+              ]
+            ],
+            "measuredNativeSeat": [
+              736,
+              451
+            ],
+            "scale": 0.8884120171673819,
+            "placement": [
+              588,
+              51,
+              359,
+              410
+            ],
+            "measuredFrame": {
+              "id": "pip-steer-left",
+              "action": "steer-left",
+              "direction": "rear",
+              "cell": [
+                512,
+                0,
+                1024,
+                512
+              ],
+              "anchor": [
+                233,
+                440
+              ],
+              "sockets": {
+                "seat": [
+                  745,
+                  440
+                ],
+                "leftHand": [
+                  623,
+                  310
+                ],
+                "rightHand": [
+                  900,
+                  358
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  590,
+                  52,
+                  946,
+                  460
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 2,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              768
+            ],
+            "wholeSpriteCrop": [
+              72,
+              513,
+              469,
+              958
+            ],
+            "measuredNativeHands": [
+              [
+                127,
+                840
+              ],
+              [
+                426,
+                772
+              ]
+            ],
+            "measuredNativeSeat": [
+              300,
+              939
+            ],
+            "scale": 0.8884120171673819,
+            "placement": [
+              79,
+              570,
+              353,
+              395
+            ],
+            "measuredFrame": {
+              "id": "pip-steer-right",
+              "action": "steer-right",
+              "direction": "rear",
+              "cell": [
+                0,
+                512,
+                512,
+                1024
+              ],
+              "anchor": [
+                282,
+                436
+              ],
+              "sockets": {
+                "seat": [
+                  282,
+                  948
+                ],
+                "leftHand": [
+                  128,
+                  860
+                ],
+                "rightHand": [
+                  394,
+                  800
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  80,
+                  571,
+                  431,
+                  964
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 3,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              768
+            ],
+            "wholeSpriteCrop": [
+              555,
+              513,
+              1019,
+              964
+            ],
+            "measuredNativeHands": [
+              [
+                608,
+                834
+              ],
+              [
+                970,
+                742
+              ]
+            ],
+            "measuredNativeSeat": [
+              765,
+              945
+            ],
+            "scale": 0.8884120171673819,
+            "placement": [
+              562,
+              567,
+              412,
+              401
+            ],
+            "measuredFrame": {
+              "id": "pip-lever-anticipation",
+              "action": "lever-anticipation",
+              "direction": "rear",
+              "cell": [
+                512,
+                512,
+                1024,
+                1024
+              ],
+              "anchor": [
+                236,
+                439
+              ],
+              "sockets": {
+                "seat": [
+                  748,
+                  951
+                ],
+                "leftHand": [
+                  609,
+                  852
+                ],
+                "rightHand": [
+                  930,
+                  771
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  563,
+                  568,
+                  973,
+                  967
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 4,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "wholeSpriteAlphaComponentSeed": [
+              256,
+              1280
+            ],
+            "wholeSpriteCrop": [
+              80,
+              993,
+              475,
+              1459
+            ],
+            "measuredNativeHands": [
+              [
+                128,
+                1289
+              ],
+              [
+                428,
+                1415
+              ]
+            ],
+            "measuredNativeSeat": [
+              278,
+              1421
+            ],
+            "scale": 0.8884120171673819,
+            "placement": [
+              80,
+              1073,
+              351,
+              414
+            ],
+            "measuredFrame": {
+              "id": "pip-lever-contact",
+              "action": "lever-contact",
+              "direction": "rear",
+              "cell": [
+                0,
+                1024,
+                512,
+                1536
+              ],
+              "anchor": [
+                256,
+                429
+              ],
+              "sockets": {
+                "seat": [
+                  256,
+                  1453
+                ],
+                "leftHand": [
+                  123,
+                  1336
+                ],
+                "rightHand": [
+                  389,
+                  1448
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  81,
+                  1074,
+                  429,
+                  1486
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          },
+          {
+            "frameIndex": 5,
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt2.native.png",
+            "nativeSHA": "29643bb272e3a035cf68dcd24a902ae0beb2e083f11453421922a1397a1df2f9",
+            "wholeSpriteAlphaComponentSeed": [
+              768,
+              1280
+            ],
+            "wholeSpriteCrop": [
+              559,
+              997,
+              1020,
+              1446
+            ],
+            "measuredNativeHands": [
+              [
+                604,
+                1288
+              ],
+              [
+                967,
+                1253
+              ]
+            ],
+            "measuredNativeSeat": [
+              767,
+              1430
+            ],
+            "scale": 0.8884120171673819,
+            "placement": [
+              563,
+              1080,
+              410,
+              399
+            ],
+            "measuredFrame": {
+              "id": "pip-recover",
+              "action": "recover",
+              "direction": "rear",
+              "cell": [
+                512,
+                1024,
+                1024,
+                1536
+              ],
+              "anchor": [
+                236,
+                441
+              ],
+              "sockets": {
+                "seat": [
+                  748,
+                  1465
+                ],
+                "leftHand": [
+                  603,
+                  1339
+                ],
+                "rightHand": [
+                  926,
+                  1307
+                ]
+              },
+              "measurement": {
+                "opaqueBodyBounds": [
+                  564,
+                  1081,
+                  971,
+                  1478
+                ],
+                "method": "Whole generated rear seated/upperbody silhouette; measured opaque seat/belt and both visible hands; no invented feet or semantic pixel repainting"
+              }
+            }
+          }
+        ],
+        "focusedRepairJob": {
+          "jobId": "physical-pip-driver-rear-belt-repair",
+          "actualBuiltinCall": 2,
+          "reason": "All6rear belts incorrectly show front goldbuckles absent in exact historical rear source and approved backview identity",
+          "prompt": "Use case: precise-object-edit. Image1 is approved clean Pip identity and shows plain BACK belt. Image2 is the exact new six-pose REAR UPPERBODY driver atlas to edit. Image3 is historical REAR driver source with correct plainbrown rearbelt. Change ONLY the SIX mistaken gold buckles on the BACK of the belt in Image2: remove the yellow/gold buckle rectangles from all6sprites and replace those small areas with the same continuous plain BROWN belt strap. NO rear buckle, no gold marks on any rear belt. Preserve every other accepted pixel: all6backofhead hair/ears/greenclothes, twoarms/hands/poses, intended belt-cut upperbody framing, clean outlines/flatcolors, exact2columns×3rows portraitlayout and original truealpha. No faces, no lowerbody/legs/feet added; no repaint beyond small buckle regions. Preserve transparentbackground, no new shadows or objects.",
+          "references": [
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/pals/clean-cartoon/pip-locomotion.png",
+              "sha256": "8710c382ad9d431a8421660c8d643bca0b0a39a76d343b4840431f463ef5b28f",
+              "role": "accepted clean exact qualified identity/style only"
+            },
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-pip-driver.attempt1.native.png",
+              "sha256": "f37f79d2a3d028a707e21ddee6858815882fa71dfbe12e33efdd19ffae2681fd",
+              "role": "exact clean current6pose edit target"
+            },
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/7fe617fd2fd97320baa7dd56c992d9f91180906c1386527fa921528000e4771e.png",
+              "sha256": "7fe617fd2fd97320baa7dd56c992d9f91180906c1386527fa921528000e4771e",
+              "role": "exact6rear-seated driver actions/layout target"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "meadow-grove-kit",
+      "world": "meadow",
+      "kind": "authored-tree-cut-restoration-kit",
+      "source": "source-art/arcade/physical-worlds/star-gallery/scenery/clean-cartoon/meadow-grove-kit.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "9907c70b977d334ffc5322c18a81d5a9abfb268e25728fee85111e0d46a64a4e",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/scenery/clean-cartoon/meadow-grove-kit.prompt.txt",
+      "promptSha256": "7fa13141960d463f624b8abef09a2a0615742a494346b664736a77ca17266cc2",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin image_gen.imagegen clean2D 2026-10-31",
+      "referenceRoles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/meadow-construction-kit.png",
+          "sha256": "2822ef70b12460a8f0ef9cb07f0588dfcc3826dec0e2ce7a13ce8f58dc0bed5a",
+          "role": "accepted clean2D outlined flatstyle/truealpha reference only"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/d5916550340872ba5e8b1f75a6e64339d4ef1e1ab48a7fdae6f404ea577e42fe.png",
+          "sha256": "d5916550340872ba5e8b1f75a6e64339d4ef1e1ab48a7fdae6f404ea577e42fe",
+          "role": "exact fournature-object meanings/palette/layout target"
+        }
+      ],
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 1,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "tree",
+        "stump",
+        "sapling",
+        "flower-bed"
+      ],
+      "attachment": "Actual ground attachment and tree-bark cut contact; live text and cutter remain separate",
+      "runtime": "/game-assets/physical-arcade/star-gallery/scenery/meadow-grove-kit-v1.webp",
+      "reviewStatus": "All4native+packed wholeobjects directly viewed clean, requirednature contrasts retained; saved/browser review pending",
+      "frames": [
+        {
+          "id": "meadow-tree",
+          "action": "tree",
+          "direction": "front",
+          "cell": [
+            0,
+            0,
+            800,
+            603
+          ],
+          "anchor": [
+            437,
+            549
+          ],
+          "sockets": {
+            "ground": [
+              437,
+              549
+            ],
+            "cut": [
+              405,
+              437
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              0,
+              800,
+              603
+            ],
+            "alphaBounds": [
+              122,
+              63,
+              677,
+              551
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "meadow-stump",
+          "action": "stump",
+          "direction": "front",
+          "cell": [
+            800,
+            0,
+            1536,
+            630
+          ],
+          "anchor": [
+            355,
+            574
+          ],
+          "sockets": {
+            "ground": [
+              1155,
+              574
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              0,
+              736,
+              630
+            ],
+            "alphaBounds": [
+              932,
+              341,
+              1403,
+              576
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "meadow-sapling",
+          "action": "sapling",
+          "direction": "front",
+          "cell": [
+            0,
+            603,
+            800,
+            1024
+          ],
+          "anchor": [
+            395,
+            383
+          ],
+          "sockets": {
+            "ground": [
+              395,
+              986
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              603,
+              800,
+              421
+            ],
+            "alphaBounds": [
+              209,
+              649,
+              591,
+              988
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "meadow-flower-bed",
+          "action": "flower-bed",
+          "direction": "front",
+          "cell": [
+            800,
+            630,
+            1536,
+            1024
+          ],
+          "anchor": [
+            334,
+            358
+          ],
+          "sockets": {
+            "ground": [
+              1134,
+              988
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              630,
+              736,
+              394
+            ],
+            "alphaBounds": [
+              875,
+              706,
+              1460,
+              990
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        }
+      ],
+      "nominalHeight": 4.7,
+      "pixelsPerUnit": 103.40425531914893,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "ece850d1210911d17d7df65bc0ea69055d9423628667bdc48acbf3424997c3ab",
+      "runtimeBytes": 245474,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "meadow-grove-kit",
+        "world": "meadow",
+        "kind": "authored-tree-cut-restoration-kit",
+        "source": "source-art/arcade/physical-worlds/star-gallery/scenery/meadow-grove-kit-v1.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "d5916550340872ba5e8b1f75a6e64339d4ef1e1ab48a7fdae6f404ea577e42fe",
+        "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/meadow-grove-kit-v1.txt",
+        "promptSha256": "c1bd141591ec0600c0664f239f9dac117b81d24c49d811a5e25923952638b2db",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+            "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+            "role": "Canonical material/lighting direction; original game-specific cut/regrowth objects"
+          }
+        ],
+        "alphaSamples": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 1,
+          "bottomRight": 0,
+          "centerGutter": 0
+        },
+        "actions": [
+          "tree",
+          "stump",
+          "sapling",
+          "flower-bed"
+        ],
+        "attachment": "Actual ground attachment and tree-bark cut contact; live text and cutter remain separate",
+        "runtime": "/game-assets/physical-arcade/star-gallery/scenery/meadow-grove-kit-v1.webp",
+        "reviewStatus": "Source directly inspected; actual contact registration/vehicle-camera/native loop acceptance PENDING",
+        "frames": [
+          {
+            "id": "meadow-tree",
+            "action": "tree",
+            "direction": "front",
+            "cell": [
+              68,
+              1,
+              757,
+              599
+            ],
+            "anchor": [
+              335,
+              589
+            ],
+            "sockets": {
+              "ground": [
+                403,
+                590
+              ],
+              "cut": [
+                407,
+                472
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                0,
+                0,
+                800,
+                603
+              ],
+              "alphaBounds": [
+                75,
+                8,
+                750,
+                592
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "meadow-stump",
+            "action": "stump",
+            "direction": "front",
+            "cell": [
+              870,
+              304,
+              1407,
+              599
+            ],
+            "anchor": [
+              280,
+              286
+            ],
+            "sockets": {
+              "ground": [
+                1150,
+                590
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                800,
+                0,
+                736,
+                630
+              ],
+              "alphaBounds": [
+                877,
+                311,
+                1400,
+                592
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "meadow-sapling",
+            "action": "sapling",
+            "direction": "front",
+            "cell": [
+              206,
+              603,
+              619,
+              1019
+            ],
+            "anchor": [
+              198,
+              407
+            ],
+            "sockets": {
+              "ground": [
+                404,
+                1010
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                0,
+                603,
+                800,
+                421
+              ],
+              "alphaBounds": [
+                213,
+                607,
+                612,
+                1012
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "meadow-flower-bed",
+            "action": "flower-bed",
+            "direction": "front",
+            "cell": [
+              814,
+              654,
+              1441,
+              1007
+            ],
+            "anchor": [
+              272,
+              344
+            ],
+            "sockets": {
+              "ground": [
+                1086,
+                998
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                800,
+                630,
+                736,
+                394
+              ],
+              "alphaBounds": [
+                821,
+                661,
+                1434,
+                1000
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          }
+        ],
+        "nominalHeight": 4.7,
+        "pixelsPerUnit": 127.23404255319149,
+        "registration": "registration.json",
+        "registrationSha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "54cea2a8cc0e4d5bcbc88624eeaa0df22433d3ac63fa1206d031b89e2bf9c680",
+        "runtimeBytes": 460456,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "originalSourceSHA": "d5916550340872ba5e8b1f75a6e64339d4ef1e1ab48a7fdae6f404ea577e42fe",
+        "actualBuiltinCalls": 1,
+        "nativeAttempts": [
+          {
+            "actualBuiltinCall": 1,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-c433c0d0-3cbc-4947-ae2e-2b00d250cc40.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-meadow-grovekit.attempt1.native.png",
+            "nativeSHA": "35bdd5881786ef77f26a34988ed51895823fc37fe7de09efc8c4fddb391e1bdc",
+            "dimensions": [
+              1536,
+              1024
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "pending native/full direct review"
+          }
+        ],
+        "mechanicalPackingRecipes": [
+          {
+            "frameIndex": 0,
+            "action": "tree",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-meadow-grovekit.attempt1.native.png",
+            "nativeSHA": "35bdd5881786ef77f26a34988ed51895823fc37fe7de09efc8c4fddb391e1bdc",
+            "wholeObjectAlphaComponentSeed": [
+              450,
+              500
+            ],
+            "wholeObjectCrop": [
+              46,
+              6,
+              838,
+              702
+            ],
+            "historicalOpaqueHeight": 584,
+            "historicalBounds": [
+              75,
+              8,
+              750,
+              592
+            ],
+            "region": [
+              0,
+              0,
+              800,
+              603
+            ],
+            "scale": 0.7011494252873564,
+            "placement": [
+              122,
+              63,
+              555,
+              488
+            ],
+            "measuredRegistration": {
+              "action": "tree",
+              "region": [
+                0,
+                0,
+                800,
+                603
+              ],
+              "axis": 402,
+              "cell": [
+                0,
+                0,
+                800,
+                603
+              ],
+              "cut": [
+                405,
+                437
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 1,
+            "action": "stump",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-meadow-grovekit.attempt1.native.png",
+            "nativeSHA": "35bdd5881786ef77f26a34988ed51895823fc37fe7de09efc8c4fddb391e1bdc",
+            "wholeObjectAlphaComponentSeed": [
+              1160,
+              500
+            ],
+            "wholeObjectCrop": [
+              851,
+              331,
+              1514,
+              662
+            ],
+            "historicalOpaqueHeight": 281,
+            "historicalBounds": [
+              877,
+              311,
+              1400,
+              592
+            ],
+            "region": [
+              800,
+              0,
+              736,
+              630
+            ],
+            "scale": 0.7099697885196374,
+            "placement": [
+              932,
+              341,
+              471,
+              235
+            ],
+            "measuredRegistration": {
+              "action": "stump",
+              "region": [
+                800,
+                0,
+                736,
+                630
+              ],
+              "axis": 1155,
+              "cell": [
+                800,
+                0,
+                1536,
+                630
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 2,
+            "action": "sapling",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-meadow-grovekit.attempt1.native.png",
+            "nativeSHA": "35bdd5881786ef77f26a34988ed51895823fc37fe7de09efc8c4fddb391e1bdc",
+            "wholeObjectAlphaComponentSeed": [
+              440,
+              875
+            ],
+            "wholeObjectCrop": [
+              266,
+              705,
+              624,
+              1022
+            ],
+            "historicalOpaqueHeight": 405,
+            "historicalBounds": [
+              213,
+              607,
+              612,
+              1012
+            ],
+            "region": [
+              0,
+              603,
+              800,
+              421
+            ],
+            "scale": 1.0694006309148265,
+            "placement": [
+              208,
+              649,
+              383,
+              339
+            ],
+            "measuredRegistration": {
+              "action": "sapling",
+              "region": [
+                0,
+                603,
+                800,
+                421
+              ],
+              "axis": 405,
+              "cell": [
+                0,
+                603,
+                800,
+                1024
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 3,
+            "action": "flower-bed",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-meadow-grovekit.attempt1.native.png",
+            "nativeSHA": "35bdd5881786ef77f26a34988ed51895823fc37fe7de09efc8c4fddb391e1bdc",
+            "wholeObjectAlphaComponentSeed": [
+              1120,
+              880
+            ],
+            "wholeObjectCrop": [
+              795,
+              684,
+              1475,
+              1014
+            ],
+            "historicalOpaqueHeight": 339,
+            "historicalBounds": [
+              821,
+              661,
+              1434,
+              1000
+            ],
+            "region": [
+              800,
+              630,
+              736,
+              394
+            ],
+            "scale": 0.8606060606060606,
+            "placement": [
+              875,
+              706,
+              585,
+              284
+            ],
+            "measuredRegistration": {
+              "action": "flower-bed",
+              "region": [
+                800,
+                630,
+                736,
+                394
+              ],
+              "axis": 1172,
+              "cell": [
+                800,
+                630,
+                1536,
+                1024
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          }
+        ],
+        "relativeScaleContract": "Historical opaque object height ratios to maturetree preserved by wholeobject proportional packing; fullsemantic-cell padding8%",
+        "pixelsPerUnit": 103.40425531914893
+      }
+    },
+    {
+      "id": "dino-grove-kit",
+      "world": "dino",
+      "kind": "authored-tree-cut-restoration-kit",
+      "source": "source-art/arcade/physical-worlds/star-gallery/scenery/clean-cartoon/dino-grove-kit.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "91bbf281c50eb97832b42c88620eddd86980871ca988994383ec906411aaa985",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/scenery/clean-cartoon/dino-grove-kit.prompt.txt",
+      "promptSha256": "4579278e0dd57adbe71da42daf64a6a04377bb0b4a55ed57decf724ecc88324c",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin image_gen.imagegen clean2D 2026-10-31",
+      "referenceRoles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/dino-construction-kit.png",
+          "sha256": "64464be933d2db3ded2635dbca1abe1a8b938c1e88e8f5d2c766377393a8f53d",
+          "role": "accepted clean2D outlined flatstyle/truealpha reference only"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/079029806fad08fc1af9c7695dbee3f2be0fb71b09ea351bf9815fa164066f57.png",
+          "sha256": "079029806fad08fc1af9c7695dbee3f2be0fb71b09ea351bf9815fa164066f57",
+          "role": "exact fournature-object meanings/palette/layout target"
+        }
+      ],
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "tree",
+        "stump",
+        "sapling",
+        "flower-bed"
+      ],
+      "runtime": "/game-assets/physical-arcade/star-gallery/scenery/dino-grove-kit-v1.webp",
+      "reviewStatus": "All4native+packed wholeobjects directly viewed clean, requirednature contrasts retained; saved/browser review pending",
+      "frames": [
+        {
+          "id": "dino-tree",
+          "action": "tree",
+          "direction": "front",
+          "cell": [
+            0,
+            0,
+            800,
+            637
+          ],
+          "anchor": [
+            390,
+            580
+          ],
+          "sockets": {
+            "ground": [
+              390,
+              580
+            ],
+            "cut": [
+              397,
+              457
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              0,
+              800,
+              637
+            ],
+            "alphaBounds": [
+              85,
+              101,
+              714,
+              582
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "dino-stump",
+          "action": "stump",
+          "direction": "front",
+          "cell": [
+            800,
+            0,
+            1536,
+            637
+          ],
+          "anchor": [
+            383,
+            580
+          ],
+          "sockets": {
+            "ground": [
+              1183,
+              580
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              0,
+              736,
+              637
+            ],
+            "alphaBounds": [
+              901,
+              321,
+              1434,
+              582
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "dino-sapling",
+          "action": "sapling",
+          "direction": "front",
+          "cell": [
+            0,
+            637,
+            800,
+            1024
+          ],
+          "anchor": [
+            390,
+            352
+          ],
+          "sockets": {
+            "ground": [
+              390,
+              989
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              637,
+              800,
+              387
+            ],
+            "alphaBounds": [
+              219,
+              703,
+              580,
+              991
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "dino-flower-bed",
+          "action": "flower-bed",
+          "direction": "front",
+          "cell": [
+            800,
+            637,
+            1536,
+            1024
+          ],
+          "anchor": [
+            353,
+            352
+          ],
+          "sockets": {
+            "ground": [
+              1153,
+              989
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              637,
+              736,
+              387
+            ],
+            "alphaBounds": [
+              870,
+              712,
+              1466,
+              991
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        }
+      ],
+      "nominalHeight": 4.7,
+      "pixelsPerUnit": 101.91489361702128,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+      "attachment": "Actual ground attachment and tree-bark cut contact; live text and cutter remain separate",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "5d26c4484509eb40963dfb788ca66ed382587fd6932d4deaff07800a801347e0",
+      "runtimeBytes": 270122,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "dino-grove-kit",
+        "world": "dino",
+        "kind": "authored-tree-cut-restoration-kit",
+        "source": "source-art/arcade/physical-worlds/star-gallery/scenery/dino-grove-kit-v1.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "079029806fad08fc1af9c7695dbee3f2be0fb71b09ea351bf9815fa164066f57",
+        "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/dino-grove-kit-v1.txt",
+        "promptSha256": "de2138a406143a47503dab5adbe2070a1da0d9a25b5bd93bd0e30edc7dbef4e7",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+            "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+            "role": "Canonical theme material and lighting; fresh game-specific cut/regrowth objects"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/star-gallery/scenery/meadow-grove-kit-v1.png",
+            "sha256": "d5916550340872ba5e8b1f75a6e64339d4ef1e1ab48a7fdae6f404ea577e42fe",
+            "role": "Only semantic object family/layout; new species/texture/world"
+          }
+        ],
+        "alphaSamples": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0,
+          "centerGutter": 0
+        },
+        "actions": [
+          "tree",
+          "stump",
+          "sapling",
+          "flower-bed"
+        ],
+        "runtime": "/game-assets/physical-arcade/star-gallery/scenery/dino-grove-kit-v1.webp",
+        "reviewStatus": "Source directly inspected; actual world placement/choice plaque/cutter contact/regrowth/native acceptance PENDING",
+        "frames": [
+          {
+            "id": "dino-tree",
+            "action": "tree",
+            "direction": "front",
+            "cell": [
+              40,
+              4,
+              796,
+              637
+            ],
+            "anchor": [
+              330,
+              630
+            ],
+            "sockets": {
+              "ground": [
+                370,
+                634
+              ],
+              "cut": [
+                407,
+                502
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                0,
+                0,
+                800,
+                637
+              ],
+              "alphaBounds": [
+                47,
+                11,
+                789,
+                637
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "dino-stump",
+            "action": "stump",
+            "direction": "front",
+            "cell": [
+              806,
+              288,
+              1432,
+              637
+            ],
+            "anchor": [
+              346,
+              343
+            ],
+            "sockets": {
+              "ground": [
+                1152,
+                631
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                800,
+                0,
+                736,
+                637
+              ],
+              "alphaBounds": [
+                813,
+                295,
+                1425,
+                635
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "dino-sapling",
+            "action": "sapling",
+            "direction": "front",
+            "cell": [
+              201,
+              637,
+              625,
+              1019
+            ],
+            "anchor": [
+              251,
+              373
+            ],
+            "sockets": {
+              "ground": [
+                452,
+                1010
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                0,
+                637,
+                800,
+                387
+              ],
+              "alphaBounds": [
+                208,
+                637,
+                618,
+                1012
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "dino-flower-bed",
+            "action": "flower-bed",
+            "direction": "front",
+            "cell": [
+              800,
+              643,
+              1457,
+              1020
+            ],
+            "anchor": [
+              371,
+              367
+            ],
+            "sockets": {
+              "ground": [
+                1171,
+                1010
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                800,
+                637,
+                736,
+                387
+              ],
+              "alphaBounds": [
+                803,
+                650,
+                1450,
+                1013
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          }
+        ],
+        "nominalHeight": 4.7,
+        "pixelsPerUnit": 134.68085106382978,
+        "registration": "registration.json",
+        "registrationSha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+        "attachment": "Actual ground attachment and tree-bark cut contact; live text and cutter remain separate",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "02e055ff396aae61da5aab7fea3f7cec9b4e4bdf019181a17f36c42f5965a231",
+        "runtimeBytes": 569610,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "originalSourceSHA": "079029806fad08fc1af9c7695dbee3f2be0fb71b09ea351bf9815fa164066f57",
+        "actualBuiltinCalls": 1,
+        "nativeAttempts": [
+          {
+            "actualBuiltinCall": 1,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-d6e999f3-73d9-4e81-8cf7-544f21dbe409.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-dino-grovekit.attempt1.native.png",
+            "nativeSHA": "a74d81075a7b21c35ecf35c0f924f780f178fefb26326555829edbff544ec0c8",
+            "dimensions": [
+              1536,
+              1024
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "pending native/full direct review"
+          }
+        ],
+        "mechanicalPackingRecipes": [
+          {
+            "frameIndex": 0,
+            "action": "tree",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-dino-grovekit.attempt1.native.png",
+            "nativeSHA": "a74d81075a7b21c35ecf35c0f924f780f178fefb26326555829edbff544ec0c8",
+            "wholeObjectAlphaComponentSeed": [
+              450,
+              440
+            ],
+            "wholeObjectCrop": [
+              32,
+              12,
+              895,
+              672
+            ],
+            "historicalOpaqueHeight": 626,
+            "historicalBounds": [
+              47,
+              11,
+              789,
+              637
+            ],
+            "region": [
+              0,
+              0,
+              800,
+              637
+            ],
+            "scale": 0.7287878787878788,
+            "placement": [
+              85,
+              101,
+              629,
+              481
+            ],
+            "measuredRegistration": {
+              "action": "tree",
+              "region": [
+                0,
+                0,
+                800,
+                637
+              ],
+              "axis": 390,
+              "cell": [
+                0,
+                0,
+                800,
+                637
+              ],
+              "cut": [
+                397,
+                457
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 1,
+            "action": "stump",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-dino-grovekit.attempt1.native.png",
+            "nativeSHA": "a74d81075a7b21c35ecf35c0f924f780f178fefb26326555829edbff544ec0c8",
+            "wholeObjectAlphaComponentSeed": [
+              1160,
+              500
+            ],
+            "wholeObjectCrop": [
+              843,
+              337,
+              1519,
+              668
+            ],
+            "historicalOpaqueHeight": 340,
+            "historicalBounds": [
+              813,
+              295,
+              1425,
+              635
+            ],
+            "region": [
+              800,
+              0,
+              736,
+              637
+            ],
+            "scale": 0.7885196374622356,
+            "placement": [
+              901,
+              321,
+              533,
+              261
+            ],
+            "measuredRegistration": {
+              "action": "stump",
+              "region": [
+                800,
+                0,
+                736,
+                637
+              ],
+              "axis": 1155,
+              "cell": [
+                800,
+                0,
+                1536,
+                637
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 2,
+            "action": "sapling",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-dino-grovekit.attempt1.native.png",
+            "nativeSHA": "a74d81075a7b21c35ecf35c0f924f780f178fefb26326555829edbff544ec0c8",
+            "wholeObjectAlphaComponentSeed": [
+              425,
+              850
+            ],
+            "wholeObjectCrop": [
+              222,
+              674,
+              643,
+              1010
+            ],
+            "historicalOpaqueHeight": 375,
+            "historicalBounds": [
+              208,
+              637,
+              618,
+              1012
+            ],
+            "region": [
+              0,
+              637,
+              800,
+              387
+            ],
+            "scale": 0.8571428571428571,
+            "placement": [
+              219,
+              703,
+              361,
+              288
+            ],
+            "measuredRegistration": {
+              "action": "sapling",
+              "region": [
+                0,
+                637,
+                800,
+                387
+              ],
+              "axis": 406,
+              "cell": [
+                0,
+                637,
+                800,
+                1024
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 3,
+            "action": "flower-bed",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-dino-grovekit.attempt1.native.png",
+            "nativeSHA": "a74d81075a7b21c35ecf35c0f924f780f178fefb26326555829edbff544ec0c8",
+            "wholeObjectAlphaComponentSeed": [
+              1140,
+              880
+            ],
+            "wholeObjectCrop": [
+              805,
+              680,
+              1510,
+              1010
+            ],
+            "historicalOpaqueHeight": 363,
+            "historicalBounds": [
+              803,
+              650,
+              1450,
+              1013
+            ],
+            "region": [
+              800,
+              637,
+              736,
+              387
+            ],
+            "scale": 0.8454545454545455,
+            "placement": [
+              870,
+              712,
+              596,
+              279
+            ],
+            "measuredRegistration": {
+              "action": "flower-bed",
+              "region": [
+                800,
+                637,
+                736,
+                387
+              ],
+              "axis": 1170,
+              "cell": [
+                800,
+                637,
+                1536,
+                1024
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          }
+        ],
+        "relativeScaleContract": "Historical opaque object height ratios to maturetree preserved by wholeobject proportional packing; fullsemantic-cell padding8%",
+        "pixelsPerUnit": 101.91489361702128
+      }
+    },
+    {
+      "id": "moonwood-grove-kit",
+      "world": "moonwood",
+      "kind": "authored-tree-cut-restoration-kit",
+      "source": "source-art/arcade/physical-worlds/star-gallery/scenery/clean-cartoon/moonwood-grove-kit.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "d9bfd2ffa5048fdadcd9d2b045b4cef70502934927cd2e57d21ce73fd735bc07",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/scenery/clean-cartoon/moonwood-grove-kit.prompt.txt",
+      "promptSha256": "5e4252fd8818cec5b6abb0630c9e3df5e9f6e352a34e08340a6959e0a482e411",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin image_gen.imagegen clean2D 2026-10-31",
+      "referenceRoles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/moonwood-construction-kit.png",
+          "sha256": "620ab5acaf582ea4e499a0ef7b407eb6d1accd9a03b01258c49e0f1bab205aed",
+          "role": "accepted clean2D outlined flatstyle/truealpha reference only"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/sources/d09b01b577ef95c42cee7e0ed4b12e9c6781a3f17c7d695aad3a0f690076983c.png",
+          "sha256": "d09b01b577ef95c42cee7e0ed4b12e9c6781a3f17c7d695aad3a0f690076983c",
+          "role": "exact fournature-object meanings/palette/layout target"
+        }
+      ],
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "tree",
+        "stump",
+        "sapling",
+        "flower-bed"
+      ],
+      "runtime": "/game-assets/physical-arcade/star-gallery/scenery/moonwood-grove-kit-v1.webp",
+      "reviewStatus": "All4native+packed wholeobjects directly viewed clean, requirednature contrasts retained; saved/browser review pending",
+      "frames": [
+        {
+          "id": "moonwood-tree",
+          "action": "tree",
+          "direction": "front",
+          "cell": [
+            0,
+            0,
+            800,
+            630
+          ],
+          "anchor": [
+            462,
+            574
+          ],
+          "sockets": {
+            "ground": [
+              462,
+              574
+            ],
+            "cut": [
+              431,
+              494
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              0,
+              800,
+              630
+            ],
+            "alphaBounds": [
+              141,
+              123,
+              658,
+              576
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "moonwood-stump",
+          "action": "stump",
+          "direction": "front",
+          "cell": [
+            800,
+            0,
+            1536,
+            630
+          ],
+          "anchor": [
+            428,
+            572
+          ],
+          "sockets": {
+            "ground": [
+              1228,
+              572
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              0,
+              736,
+              630
+            ],
+            "alphaBounds": [
+              932,
+              343,
+              1404,
+              576
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "moonwood-sapling",
+          "action": "sapling",
+          "direction": "front",
+          "cell": [
+            0,
+            630,
+            740,
+            1024
+          ],
+          "anchor": [
+            352,
+            358
+          ],
+          "sockets": {
+            "ground": [
+              352,
+              988
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              630,
+              740,
+              394
+            ],
+            "alphaBounds": [
+              212,
+              709,
+              527,
+              990
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        },
+        {
+          "id": "moonwood-flower-bed",
+          "action": "flower-bed",
+          "direction": "front",
+          "cell": [
+            740,
+            630,
+            1536,
+            1024
+          ],
+          "anchor": [
+            388,
+            358
+          ],
+          "sockets": {
+            "ground": [
+              1128,
+              988
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              740,
+              630,
+              796,
+              394
+            ],
+            "alphaBounds": [
+              815,
+              722,
+              1461,
+              990
+            ],
+            "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+          }
+        }
+      ],
+      "nominalHeight": 4.7,
+      "pixelsPerUnit": 95.95744680851064,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+      "attachment": "Actual ground attachment and tree-bark cut contact; live text and cutter remain separate",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "4321a6a98a77aacca5665cd585fe6076b3b12cec749675820777457342a30544",
+      "runtimeBytes": 219466,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained",
+      "productionRevision": "clean-cartoon-2026-10-31",
+      "supersedes": {
+        "id": "moonwood-grove-kit",
+        "world": "moonwood",
+        "kind": "authored-tree-cut-restoration-kit",
+        "source": "source-art/arcade/physical-worlds/star-gallery/scenery/moonwood-grove-kit-v1.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "d09b01b577ef95c42cee7e0ed4b12e9c6781a3f17c7d695aad3a0f690076983c",
+        "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/moonwood-grove-kit-v1.txt",
+        "promptSha256": "2dfe988bc1452c7053c327e2524cad61d501b5dbe8ee058fdd6efbc4b2fcffae",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+            "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+            "role": "Canonical theme material and lighting; fresh game-specific cut/regrowth objects"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/star-gallery/scenery/meadow-grove-kit-v1.png",
+            "sha256": "d5916550340872ba5e8b1f75a6e64339d4ef1e1ab48a7fdae6f404ea577e42fe",
+            "role": "Only semantic object family/layout; new species/texture/world"
+          }
+        ],
+        "alphaSamples": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0,
+          "centerGutter": 0
+        },
+        "actions": [
+          "tree",
+          "stump",
+          "sapling",
+          "flower-bed"
+        ],
+        "runtime": "/game-assets/physical-arcade/star-gallery/scenery/moonwood-grove-kit-v1.webp",
+        "reviewStatus": "Source directly inspected; actual world placement/choice plaque/cutter contact/regrowth/native acceptance PENDING",
+        "frames": [
+          {
+            "id": "moonwood-tree",
+            "action": "tree",
+            "direction": "front",
+            "cell": [
+              107,
+              0,
+              779,
+              630
+            ],
+            "anchor": [
+              320,
+              622
+            ],
+            "sockets": {
+              "ground": [
+                427,
+                622
+              ],
+              "cut": [
+                425,
+                503
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                0,
+                0,
+                800,
+                630
+              ],
+              "alphaBounds": [
+                114,
+                0,
+                772,
+                625
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "moonwood-stump",
+            "action": "stump",
+            "direction": "front",
+            "cell": [
+              840,
+              290,
+              1403,
+              625
+            ],
+            "anchor": [
+              258,
+              326
+            ],
+            "sockets": {
+              "ground": [
+                1098,
+                616
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                800,
+                0,
+                736,
+                630
+              ],
+              "alphaBounds": [
+                847,
+                297,
+                1396,
+                618
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "moonwood-sapling",
+            "action": "sapling",
+            "direction": "front",
+            "cell": [
+              225,
+              630,
+              643,
+              1024
+            ],
+            "anchor": [
+              208,
+              387
+            ],
+            "sockets": {
+              "ground": [
+                433,
+                1017
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                0,
+                630,
+                740,
+                394
+              ],
+              "alphaBounds": [
+                232,
+                633,
+                636,
+                1021
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          },
+          {
+            "id": "moonwood-flower-bed",
+            "action": "flower-bed",
+            "direction": "front",
+            "cell": [
+              765,
+              630,
+              1468,
+              1012
+            ],
+            "anchor": [
+              418,
+              370
+            ],
+            "sockets": {
+              "ground": [
+                1183,
+                1000
+              ]
+            },
+            "measurement": {
+              "semanticRegion": [
+                740,
+                630,
+                796,
+                394
+              ],
+              "alphaBounds": [
+                772,
+                636,
+                1461,
+                1005
+              ],
+              "method": "Complete semantic alpha>=8 object with 7px gutter; no opaque boundary cuts; actual opaque ground/root and inspected bark contact"
+            }
+          }
+        ],
+        "nominalHeight": 4.7,
+        "pixelsPerUnit": 134.04255319148936,
+        "registration": "registration.json",
+        "registrationSha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+        "attachment": "Actual ground attachment and tree-bark cut contact; live text and cutter remain separate",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "716b7148288d0c448982651ca6bc3b734fe5a81e6e0e734bd86f3304455f21a4",
+        "runtimeBytes": 556012,
+        "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG, prompt and source-pixel registration retained"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "originalSourceSHA": "d09b01b577ef95c42cee7e0ed4b12e9c6781a3f17c7d695aad3a0f690076983c",
+        "actualBuiltinCalls": 1,
+        "nativeAttempts": [
+          {
+            "actualBuiltinCall": 1,
+            "nativePath": "/Users/benjaminbowler/.codex/generated_images/01a18758-27fb-7e93-bb04-782411014ef9/exec-0d7b8d4e-449e-45aa-914f-bee9483d2353.png",
+            "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-moonwood-grovekit.attempt1.native.png",
+            "nativeSHA": "14b18784f6b783efe3887401ea907d9aee5999495ca979b1fb11ba84421ec1a9",
+            "dimensions": [
+              1536,
+              1024
+            ],
+            "alpha": [
+              0,
+              254
+            ],
+            "review": "pending native/full direct review"
+          }
+        ],
+        "mechanicalPackingRecipes": [
+          {
+            "frameIndex": 0,
+            "action": "tree",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-moonwood-grovekit.attempt1.native.png",
+            "nativeSHA": "14b18784f6b783efe3887401ea907d9aee5999495ca979b1fb11ba84421ec1a9",
+            "wholeObjectAlphaComponentSeed": [
+              450,
+              450
+            ],
+            "wholeObjectCrop": [
+              37,
+              11,
+              774,
+              657
+            ],
+            "historicalOpaqueHeight": 625,
+            "historicalBounds": [
+              114,
+              0,
+              772,
+              625
+            ],
+            "region": [
+              0,
+              0,
+              800,
+              630
+            ],
+            "scale": 0.7012383900928792,
+            "placement": [
+              141,
+              123,
+              517,
+              453
+            ],
+            "measuredRegistration": {
+              "action": "tree",
+              "region": [
+                0,
+                0,
+                800,
+                630
+              ],
+              "axis": 434,
+              "cell": [
+                0,
+                0,
+                800,
+                630
+              ],
+              "cut": [
+                431,
+                494
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 1,
+            "action": "stump",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-moonwood-grovekit.attempt1.native.png",
+            "nativeSHA": "14b18784f6b783efe3887401ea907d9aee5999495ca979b1fb11ba84421ec1a9",
+            "wholeObjectAlphaComponentSeed": [
+              1160,
+              500
+            ],
+            "wholeObjectCrop": [
+              824,
+              338,
+              1474,
+              659
+            ],
+            "historicalOpaqueHeight": 321,
+            "historicalBounds": [
+              847,
+              297,
+              1396,
+              618
+            ],
+            "region": [
+              800,
+              0,
+              736,
+              630
+            ],
+            "scale": 0.7258566978193146,
+            "placement": [
+              932,
+              343,
+              472,
+              233
+            ],
+            "measuredRegistration": {
+              "action": "stump",
+              "region": [
+                800,
+                0,
+                736,
+                630
+              ],
+              "axis": 1180,
+              "cell": [
+                800,
+                0,
+                1536,
+                630
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 2,
+            "action": "sapling",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-moonwood-grovekit.attempt1.native.png",
+            "nativeSHA": "14b18784f6b783efe3887401ea907d9aee5999495ca979b1fb11ba84421ec1a9",
+            "wholeObjectAlphaComponentSeed": [
+              400,
+              850
+            ],
+            "wholeObjectCrop": [
+              193,
+              667,
+              583,
+              1015
+            ],
+            "historicalOpaqueHeight": 388,
+            "historicalBounds": [
+              232,
+              633,
+              636,
+              1021
+            ],
+            "region": [
+              0,
+              630,
+              740,
+              394
+            ],
+            "scale": 0.8074712643678161,
+            "placement": [
+              212,
+              709,
+              315,
+              281
+            ],
+            "measuredRegistration": {
+              "action": "sapling",
+              "region": [
+                0,
+                630,
+                740,
+                394
+              ],
+              "axis": 371,
+              "cell": [
+                0,
+                630,
+                740,
+                1024
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          },
+          {
+            "frameIndex": 3,
+            "action": "flower-bed",
+            "nativePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_dino/physical-clean-cartoon/physical-moonwood-grovekit.attempt1.native.png",
+            "nativeSHA": "14b18784f6b783efe3887401ea907d9aee5999495ca979b1fb11ba84421ec1a9",
+            "wholeObjectAlphaComponentSeed": [
+              1130,
+              870
+            ],
+            "wholeObjectCrop": [
+              693,
+              671,
+              1500,
+              1006
+            ],
+            "historicalOpaqueHeight": 369,
+            "historicalBounds": [
+              772,
+              636,
+              1461,
+              1005
+            ],
+            "region": [
+              740,
+              630,
+              796,
+              394
+            ],
+            "scale": 0.8,
+            "placement": [
+              815,
+              722,
+              646,
+              268
+            ],
+            "measuredRegistration": {
+              "action": "flower-bed",
+              "region": [
+                740,
+                630,
+                796,
+                394
+              ],
+              "axis": 1165,
+              "cell": [
+                740,
+                630,
+                1536,
+                1024
+              ]
+            },
+            "relativeObjectHeightMethod": "Wholeobject proportional resize preserves each historical alpha-bound height ratio to fulltree, with common kit factor and8%clear semantic-region margins"
+          }
+        ],
+        "relativeScaleContract": "Historical opaque object height ratios to maturetree preserved by wholeobject proportional packing; fullsemantic-cell padding8%",
+        "pixelsPerUnit": 95.95744680851064
+      }
+    }
+  ],
+  "retainedInputs": [
+    {
+      "source": "source-art/arcade/physical-worlds/star-gallery/characters/bouncy-driver-side-v1.png",
+      "sha256": "dbebdbf437c396886e0dcf7066646122a389b1fd7c132acad0c6ca6a7f9f80d0",
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/bouncy-driver-v1.txt",
+      "role": "Non-admitted source camera comparison; side view does not satisfy rear chase camera. Remove after verified final replacement if no active consumer."
+    }
+  ],
+  "generationFailures": [
+    {
+      "prompt": "source-art/arcade/physical-worlds/star-gallery/prompts/pip-driver-rear-v1.txt",
+      "requestIds": [
+        "8aad2ebc-1414-4fba-8c43-3bde809034ae",
+        "d356464b-8578-4e32-a2a6-af410f747da9"
+      ],
+      "stage": "output",
+      "category": "other",
+      "output": null,
+      "note": "No rejected output admitted. A separate visible-upper-body source suits the actual rover occlusion and succeeded."
+    }
+  ],
+  "registration": "clean-cartoon-registration.json",
+  "registrationSha256": "77df3a9d30b1d2d3d4c32f38dc51690424fd15766707cb427d27c795ec58b67f",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/star-gallery/manifest.json",
+    "sha256": "0e0163ab04e69c432ea46588448b520a35a26d47567ee57130dcec6ef35d2500",
+    "immutable": true
+  },
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/star-gallery/registration.json",
+    "sha256": "b4a703f9515aa57b4a788bc7c72326f65fb55561ba8027c821dbe556a7bf5f99",
+    "immutable": true
+  },
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md"
+}

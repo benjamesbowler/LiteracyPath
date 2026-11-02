@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -21,6 +22,8 @@ test('Safari retained recovery uses only original visible opaque palms/soles wit
     assert.equal(atlas.runtime, original.runtime);
     for (let index = 0; index < 2; index++) {
       const frame = atlas.frames[index]; assert.deepEqual(frame.cell, original.frames[index + 6].cell); assert.deepEqual(frame.anchor, original.frames[index + 6].anchor);
+      assert.deepEqual(frame.sockets.nearHand, original.frames[index + 6].rightHandPixel);
+      assert.equal(frame.rightHandPixel, undefined, 'the named net grip cannot become a duplicate usable hand');
       assert.deepEqual(Object.keys(frame.sockets), ['nearHand', 'feet']); assert.equal(frame.action, 'retained-static-tool-grip');
       for (const point of Object.values(frame.sockets)) {
         assert(point[0] >= frame.cell[0] && point[0] < frame.cell[2] && point[1] >= frame.cell[1] && point[1] < frame.cell[3]);
@@ -59,8 +62,8 @@ test('both original-facing retained poses and actual procedural palms fit all la
 test('actual view draws canonical pending/final bodies immediately, independently preloads retained tools, and releases both owners on dispose', async t => {
   const previous = globalThis.Image, requests = [];
   globalThis.Image = class {
-    set src(value) { this.url = value; const atlas = Object.values(atlases).find(a => a.runtime === value)
-      || Object.keys(cast).map(safariRecoveryAtlas).find(a => a.runtime === value)
+    set src(value) { this.url = value; const atlas = Object.values(atlases).find(a => withRepairedImageVersion(a.runtime) === value)
+      || Object.keys(cast).map(safariRecoveryAtlas).find(a => withRepairedImageVersion(a.runtime) === value)
       || { width: 512, height: 256 };
       this.naturalWidth = atlas.width; this.naturalHeight = atlas.height; requests.push(this); }
     async decode() {}
@@ -76,7 +79,7 @@ test('actual view draws canonical pending/final bodies immediately, independentl
       assert(view.drawOperatorAndNet(ctx, world, state, 568, 234, 34));
       const initial = view.inspect(); assert.equal(initial.contact.character, hero); assert.equal(initial.contact.representation, 'procedural-art-loading');
       assert.deepEqual(initial.contact.shaft.sections[0].from, initial.contact.wrist); assert.equal(initial.recoveryDelivery[world], 'pending');
-      const retained = requests.find(image => image.url === safariRecoveryAtlas(world).runtime); assert(retained, 'preload requests the separate canonical recovery owner');
+      const retained = requests.find(image => image.url === withRepairedImageVersion(safariRecoveryAtlas(world).runtime)); assert(retained, 'preload requests the separate canonical recovery owner');
       for (const image of requests) if (image === retained) await image.onload(); else image.onerror();
       await pending;
       assert(view.drawOperatorAndNet(ctx, world, state, 568, 234, 34)); const recovery = view.inspect();

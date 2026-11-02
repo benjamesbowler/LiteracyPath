@@ -6,10 +6,21 @@ import sharp from 'sharp';
 // The retained manifest owns measured crop/foot registration. This compiler
 // converts coordinates only; it never paints over or substitutes source art.
 const root = path.resolve(import.meta.dirname, '../..');
-const manifestPath = path.join(root, 'source-art/arcade/physical-worlds/letter-leap/manifest.json');
+const manifestPath = path.join(root, 'source-art/arcade/physical-worlds/letter-leap/clean-cartoon-manifest.json');
 const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const metadataOnly = process.argv.includes('--metadata-only');
+// Old source, prompt and manifest bytes remain historical provenance. Only
+// explicitly replaced current rows are encoded; future family batches cannot
+// silently re-encode an unrelated source or a frozen accepted derivative.
+if (hash(await fs.readFile(path.join(root, manifest.historicalManifest.path))) !== manifest.historicalManifest.sha256) {
+  throw new Error('Historical Letter Leap manifest changed');
+}
+const selectedArgument = process.argv.find(value => value.startsWith('--asset-ids='));
+const selectedIds = selectedArgument ? new Set(selectedArgument.slice('--asset-ids='.length).split(',')) : null;
+if (selectedIds && [...selectedIds].some(id => !manifest.assets.some(asset => asset.id === id && asset.productionRevision))) {
+  throw new Error('Scoped Letter Leap build names an unregistered current source');
+}
 const atlases = {}, foes = {}, scenes = {};
 // Measured retained input identity, independent of the original authoring
 // checkout name. Absolute raw provenance stays unchanged in the source file.
@@ -18,6 +29,9 @@ const retainedAbsoluteReferences = new Map([
 ]);
 async function publicSceneMetadata(asset) {
   const metadata = { ...asset };
+  // Full authoring lineage stays in the checked-in source manifest.
+  delete metadata.supersedes;
+  delete metadata.generation;
   // Original authoring names and absolute reference paths stay in the retained
   // source manifest. The browser package uses today's product name and exact
   // repository-relative input references, without changing its art contract.
@@ -64,13 +78,22 @@ for (const asset of manifest.assets) {
   if (metadata.width !== asset.sourceSize[0] || metadata.height !== asset.sourceSize[1]) throw new Error('Source dimensions changed: ' + asset.id);
   const runtimePath = path.join(root, 'public', asset.runtime);
   await fs.mkdir(path.dirname(runtimePath), { recursive: true });
-  const output = metadataOnly ? await fs.readFile(runtimePath)
+  const encode = !metadataOnly && asset.productionRevision && (!selectedIds || selectedIds.has(asset.id));
+  const output = !encode ? await fs.readFile(runtimePath)
     : await sharp(source).resize(...asset.runtimeSize, { fit: 'fill' }).webp({ lossless: asset.kind !== 'horizon', quality: 92 }).toBuffer();
-  if (metadataOnly) {
+  if (!encode) {
     const runtimeInfo = await sharp(output).metadata();
     if (runtimeInfo.width !== asset.runtimeSize[0] || runtimeInfo.height !== asset.runtimeSize[1]
       || hash(output) !== asset.runtimeSha256 || hash(source) !== asset.sourceSha256) throw new Error('Metadata-only source/runtime identity changed: ' + asset.id);
-  } else await fs.writeFile(runtimePath, output);
+  } else {
+    const decoded = await sharp(output).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    if (decoded.info.width !== asset.runtimeSize[0] || decoded.info.height !== asset.runtimeSize[1]) throw new Error('Encoded delivery dimensions changed: ' + asset.id);
+    if (asset.kind !== 'horizon' && asset.runtimeSize.every((value, index) => value === asset.sourceSize[index])) {
+      const original = await sharp(source).ensureAlpha().raw().toBuffer();
+      for (let index = 3; index < original.length; index += 4) if (original[index] !== decoded.data[index]) throw new Error('Encoded silhouette changed: ' + asset.id);
+    }
+    await fs.writeFile(runtimePath, output);
+  }
   asset.sourceSha256 = hash(source);
   asset.promptSha256 = hash(prompt);
   asset.runtimeSha256 = hash(output);

@@ -4,8 +4,11 @@ import crypto from 'node:crypto';
 import sharp from 'sharp';
 
 const root=path.resolve(import.meta.dirname,'../..'),directory='source-art/arcade/physical-worlds/word-bridge';
-const configBytes=await fs.readFile(path.join(root,directory,'scenery-registration.json')),configuration=JSON.parse(configBytes);
-const manifestPath=path.join(root,directory,'scenery-manifest.json'),manifest=JSON.parse(await fs.readFile(manifestPath,'utf8'));
+// The earlier generation manifest remains immutable provenance. Current
+// clean-cartoon source and measured registration own prospective rebuilds.
+const registrationFile='scenery-clean-cartoon-registration.json';
+const configBytes=await fs.readFile(path.join(root,directory,registrationFile)),configuration=JSON.parse(configBytes);
+const manifestPath=path.join(root,directory,'scenery-clean-cartoon-manifest.json'),manifest=JSON.parse(await fs.readFile(manifestPath,'utf8'));
 const registerOnly=process.argv.includes('--register-only'),hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const atlases={},layers={};
 const compilationStart=performance.now();
@@ -60,10 +63,14 @@ for(const spec of configuration.kits){
   if(data[3]!==0)throw Error(`${spec.id}: corner alpha is not genuinely transparent`);
   asset.frames=spec.regions.map((region,index)=>semanticFrame(data,info,region,actions[index],spec));
   timed(spec.id,'semantic-alpha-crops-and-actual-surface',stageStart);stageStart=performance.now();
-  asset.registration='scenery-registration.json';asset.registrationSha256=hash(configBytes);asset.pixelsPerUnit=200;asset.nominalHeight=2.2;
+  asset.registration=registrationFile;asset.registrationSha256=hash(configBytes);asset.pixelsPerUnit=200;asset.nominalHeight=2.2;
   asset.reviewStatus='Direct source inspection and complete semantic alpha/contact registration; actual native live construction acceptance pending';
   if(!registerOnly){
-    const runtime=`/game-assets/physical-arcade/word-bridge/scenery/${spec.file}.webp`,output=await sharp(bytes).webp({quality:90,alphaQuality:100,effort:6}).toBuffer();
+    // Invisible RGB from generated cutouts is not artwork. Zero only alpha-0
+    // colour channels so raw previews cannot mistake them for a backdrop;
+    // every alpha value and every visible source pixel remain unchanged here.
+    for(let offset=0;offset<data.length;offset+=4)if(data[offset+3]===0)data[offset]=data[offset+1]=data[offset+2]=0;
+    const runtime=`/game-assets/physical-arcade/word-bridge/scenery/${spec.file}.webp`,output=await sharp(data,{raw:{width:info.width,height:info.height,channels:4}}).webp({quality:90,alphaQuality:100,effort:6}).toBuffer();
     timed(spec.id,'WebP-encode-q90-alpha100-effort6',stageStart);stageStart=performance.now();
     const decoded=await sharp(output).ensureAlpha().raw().toBuffer({resolveWithObject:true});
     if(decoded.info.width!==info.width||decoded.info.height!==info.height||decoded.data[3]!==0)throw Error(`${spec.id}: derivative dimensions/true alpha differ from registration`);
@@ -88,6 +95,7 @@ for(const spec of configuration.kits){
 }
 if(!registerOnly){
   for(const asset of manifest.assets.filter(row=>row.kind==='authored-river-worksite-background-layer')){
+    if(process.argv.includes('--kits-only')){layers[asset.world]=asset.runtime;continue;}
     const assetStart=performance.now();let stageStart=assetStart;
     const bytes=await fs.readFile(path.join(root,asset.source));if(hash(bytes)!==asset.sourceSha256)throw Error(`${asset.id}: horizon source identity changed`);
     timed(asset.id,'source-read-and-SHA',stageStart);stageStart=performance.now();
@@ -105,6 +113,6 @@ if(!registerOnly){
     '// Generated from original Word Bridge materials/river horizons by scripts/art/build-word-bridge-scenery.mjs.\n'+
     `export const WORD_BRIDGE_SCENERY = ${JSON.stringify(atlases,null,2)};\nexport const WORD_BRIDGE_HORIZONS = ${JSON.stringify(layers,null,2)};\n`);
 }
-manifest.registration='scenery-registration.json';manifest.registrationSha256=hash(configBytes);
+manifest.registration=registrationFile;manifest.registrationSha256=hash(configBytes);
 await fs.writeFile(manifestPath,JSON.stringify(manifest,null,2)+'\n');
 console.log(JSON.stringify({compiled:!registerOnly,registeredFrames:manifest.assets.reduce((sum,row)=>sum+(row.frames?.length||0),0),runtimeAcceptance:manifest.review.runtimeAcceptance}));
