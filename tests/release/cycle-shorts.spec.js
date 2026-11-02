@@ -37,8 +37,14 @@ for(const [width,height] of [[320,568],[768,1024],[1024,768],[1920,1080]])test(`
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
  await page.screenshot({path:`${out}/reader-${width}x${height}.png`});
  await page.getByRole('button',{name:/Exit full screen:/}).click();
+ await page.getByRole('button',{name:'← All Cycle Shorts',exact:true}).click();
+ await page.getByRole('button',{name:`Read Cycle 1: ${CYCLE_SHORTS[0].title}`,exact:true}).click();
+ await page.getByRole('button',{name:'Full screen',exact:true}).click();
+ const pictureTab=page.getByRole('button',{name:'Pictures',exact:true});if(await pictureTab.isVisible())await pictureTab.click();
+ expect(await page.locator('#rc-lesson-stage [aria-label="Story character"]').evaluate(el=>{const panel=el.getBoundingClientRect(),caption=el.querySelector('p').getBoundingClientRect();return caption.top>=panel.top&&caption.bottom<=panel.bottom;})).toBe(true);
+ await page.getByRole('button',{name:/Exit full screen:/}).click();
  // A fixed, authored canvas intentionally scales for the projector. Check all
- // 108 story/question views against its true content region, including longest texts.
+ // story/question views against its true content region, including longest texts.
  // All manuscripts exercise the fixed canvas at tablet size. Other viewports
  // repeat the shortest and longest representative texts against native controls.
  const manuscripts=width===1024?CYCLE_SHORTS:[CYCLE_SHORTS[0],CYCLE_SHORTS[13],CYCLE_SHORTS[22],CYCLE_SHORTS[26]];
