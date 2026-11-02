@@ -54,4 +54,4 @@ They do not establish human listening, physical-iPad or observed classroom use.
 
 The existing Linux visual-baseline workflow has a `cycle-shorts` scope. It refreshes only the six Books baselines, then verifies Books, comprehension and the Cycle Shorts flow. It runs no database setup or hosted-data writes and does not claim the unrelated whole-product device matrix passed.
 
-Visual-baseline runners are pinned to Ubuntu 24.04. The November 2026 `ubuntu-latest` runner moved to 26.04, which the locked Playwright 1.60.0 dependency installer rejects before any tests run. The pin keeps native Linux capture on a supported runtime.
+Visual-baseline runners and the shared CI browser job are pinned to Ubuntu 24.04. The November 2026 `ubuntu-latest` runner moved to 26.04, which the locked Playwright 1.60.0 dependency installer rejects before any tests run. The pin keeps native Linux capture on a supported runtime.
