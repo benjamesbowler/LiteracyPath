@@ -42,6 +42,7 @@ A dated document must never override current code.
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
 - [App illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) — bold clean cartoons, crisp outlines, flat colors/cel shading; supersedes painterly, watercolor, daubed and embossed illustration briefs.
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
+- [Cycle Shorts](guided-reading/CYCLE_SHORTS.md) — 27 Meadow Farm read-together passages and 81 questions, shared by Present endings and the Guided Reading collection.
 - [Guided Reading](guided-reading/INDEX.md)
 - [Small Steps decodable readers](guided-reading/SMALL_STEPS_CONTENT_BIBLE.md) — cumulative code, exact exception words, original character canon and production requirements
 - [Foundations expansion](guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md) — 30 cumulative decodable and 20 distinctly labeled leveled books, phonics prerequisites, teaching support and media requirements

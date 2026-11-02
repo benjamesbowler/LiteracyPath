@@ -53,11 +53,12 @@ function PagedText({text,renderText,kind='story',unpaged=false}){
 }
 
 export function StoryPicture({passage,shown,onToggle}){
- const picture=passagePicture(passage),[failed,setFailed]=useState(false);
+ const picture=passagePicture(passage.sourcePassageId?{...passage,id:passage.sourcePassageId}:passage),[failed,setFailed]=useState(false);
+ if(passage.cycleNumber&&!passage.sourcePassageId)return <section className="rc-lesson-picture" aria-label="Story character"><p>Muddy · Sunny Meadow Farm</p><img src="/images/worksheets/muddy-colouring.webp" alt="Muddy, the pig in this story"/></section>;
  return <section className="rc-lesson-picture" aria-label="Story pictures"><button aria-pressed={shown} onClick={onToggle}>{shown?'Hide pictures':'Show pictures'}</button>{shown?(picture&&!failed?<img src={picture.src} alt={picture.alt} onError={()=>setFailed(true)}/>:<div className="rc-picture-error" role="status"><p>This story picture could not load. You can read or listen with Leda.</p><button onClick={()=>{setFailed(false);}}>Try picture again</button></div>):<p>Pictures are hidden. Read or listen to the story, then show the pictures when you are ready.</p>}</section>;
 }
 
-export default function ComprehensionLesson({passage:p,mode,teacher,groupCompleted,onGroupCompleted,groupCompletionDisabled,groupCompletionSaved,q,questionIndex,selection,response,checked,reveal,showComplete,practice,highlight,audioNote,saved,pictures,onPictureToggle,onExit,onStoryAudio,onQuestionAudio,onStop,onHighlight,onRead,onSelect,onCheck,onReveal,onNext,onFinish,onReset,renderText}){
+export default function ComprehensionLesson({passage:p,mode,teacher,groupCompleted,onGroupCompleted,groupCompletionDisabled,groupCompletionSaved,q,questionIndex,selection,response,checked,reveal,showComplete,practice,highlight,audioNote,saved,pictures,onPictureToggle,onExit,onStoryAudio,onQuestionAudio,onStop,onHighlight,onRead,onSelect,onCheck,onReveal,onNext,onFinish,onReset,renderText,learningWords=null}){
  const [view,setView]=useState('read'),[support,setSupport]=useState(false),[clue,setClue]=useState(false),[statusOpen,setStatusOpen]=useState(false);
  const [compact,setCompact]=useState(()=>window.matchMedia('(max-width:959px), (max-height:649px)').matches);
  const stage=useRef(null),wasNative=useRef(false),closeRef=useRef(onExit);
@@ -92,7 +93,7 @@ export default function ComprehensionLesson({passage:p,mode,teacher,groupComplet
  const firstFocus=useRef(true);
  useLayoutEffect(()=>{if(firstFocus.current){firstFocus.current=false;return;}const target=stage.current?.querySelector(showingClue?'[data-clue-title]':showComplete?'[data-complete-title]':'[data-lesson-question-title]');if(view==='questions'||!compact)target?.focus();},[showingClue,showComplete,questionIndex,view,compact]);
  const feedback=mode==='student'?`${response?.correct?'That fits the story.':'Look back at this part. Try another answer.'} ${q.evidence.join(' ')}`:`Answer: ${q.answer}. ${q.evidence.join(' ')} Accept answers in the reader’s own words when they match the story.`;
- const supportText=`Pattern words: ${getPassagePhonicsWords(p).join(', ')}. Support words: ${p.supportWords.join(', ')||'No additional words'}. Word help: ${p.wordHelp.map(([word,meaning])=>`${word}: ${meaning}`).join('. ')}. Read new words together first. You can listen to the story for help.`;
+ const supportText=`${p.cycleNumber?'Learning words':'Pattern words'}: ${(learningWords||getPassagePhonicsWords(p)).join(', ')}. Support words: ${p.supportWords.join(', ')||'No additional words'}. Word help: ${p.wordHelp.map(([word,meaning])=>`${word}: ${meaning}`).join('. ')}. Read new words together first. You can listen to the story for help.`;
  function questionMove(index){setClue(false);setStatusOpen(false);onNext(index);}
  const nav=<div className="rc-lesson-question-nav"><button disabled={!questionIndex} onClick={()=>questionMove(questionIndex-1)}>Previous</button>{questionIndex<p.questions.length-1?<button className={mode==='student'&&response?.correct?'rc-primary':undefined} disabled={mode==='student'&&!response?.correct} onClick={()=>questionMove(questionIndex+1)}>Next</button>:mode==='student'?<button className={practice.completed?'rc-primary':undefined} disabled={!practice.completed} onClick={onFinish}>Finish</button>:null}</div>;
  return createPortal(<div ref={stage} id="rc-lesson-stage" className="rc-stage-host rc-page" data-fullscreen-lesson="" data-lesson-mode={mode}>
@@ -116,7 +117,7 @@ export default function ComprehensionLesson({passage:p,mode,teacher,groupComplet
     </section>
     </>}
    </div>
-   <div className="rc-lesson-footer">{teacher&&<label className="rc-group-check"><input type="checkbox" aria-label={`Whole group completed: ${p.title}`} checked={groupCompleted} disabled={groupCompletionDisabled} onChange={e=>onGroupCompleted(e.target.checked)}/> Whole group completed</label>}{statusIssue&&<button aria-label={statusOpen?'Back to lesson':audioFailed?'Voice help':'Saving help'} aria-expanded={statusOpen} onClick={()=>setStatusOpen(!statusOpen)}>{statusOpen?'Back':audioFailed?'Voice help':'Saving help'}</button>}<p className={`rc-lesson-status${statusIssue?' rc-sr-only':''}`} role="status">{fullStatus}</p></div>
+   <div className="rc-lesson-footer">{teacher&&onGroupCompleted&&<label className="rc-group-check"><input type="checkbox" aria-label={`Whole group completed: ${p.title}`} checked={groupCompleted} disabled={groupCompletionDisabled} onChange={e=>onGroupCompleted(e.target.checked)}/> Whole group completed</label>}{statusIssue&&<button aria-label={statusOpen?'Back to lesson':audioFailed?'Voice help':'Saving help'} aria-expanded={statusOpen} onClick={()=>setStatusOpen(!statusOpen)}>{statusOpen?'Back':audioFailed?'Voice help':'Saving help'}</button>}<p className={`rc-lesson-status${statusIssue?' rc-sr-only':''}`} role="status">{fullStatus}</p></div>
   </TeacherDialog>
  </div>,document.body);
 }

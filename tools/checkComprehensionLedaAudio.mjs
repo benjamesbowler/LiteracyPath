@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { CYCLE_SHORTS } from '../src/content/cycle-shorts/passages.js';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -9,8 +10,10 @@ import { COMPREHENSION_PASSAGES } from '../src/content/comprehension/passages.js
 import { comprehensionNarrationRecords } from './generateComprehensionLedaAudio.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const manifest = JSON.parse(await readFile(path.join(root, 'src/content/comprehension/audioManifest.generated.json'), 'utf8'));
-const records = comprehensionNarrationRecords(COMPREHENSION_PASSAGES);
+const family = process.argv.includes('--cycle-shorts') ? 'cycle-shorts' : 'comprehension';
+const passages = family === 'cycle-shorts' ? CYCLE_SHORTS : COMPREHENSION_PASSAGES;
+const manifest = JSON.parse(await readFile(path.join(root, `src/content/${family}/audioManifest.generated.json`), 'utf8'));
+const records = comprehensionNarrationRecords(passages);
 assert.equal(manifest.clips.length, records.length);
 const results = [];
 const pacingOutliers = [];
@@ -68,13 +71,13 @@ for (const record of records) {
   results.push({ audioPath: clip.audioPath, duration, rmsDb, peak, activeFraction: active / count, leadingSilence, trailingSilence, pauses, wordsPerMinute });
   if (results.length % 100 === 0) console.log(`Decoded comprehension Leda ${results.length}/${records.length}`);
 }
-const receipt = { generatedAt: new Date().toISOString(), passages: COMPREHENSION_PASSAGES.length, checkedClips: results.length,
+const receipt = { generatedAt: new Date().toISOString(), passages: passages.length, checkedClips: results.length,
   evidence: 'Full MP3 decode, source/byte hashes, complete-signal envelope, pauses, clipping and duration checks. No human listening or semantic transcription claim.', results };
-await mkdir(path.join(root, '.artifacts/comprehension'), { recursive: true });
+await mkdir(path.join(root, `.artifacts/${family}`), { recursive: true });
 if (pacingOutliers.length) {
-  await writeFile(path.join(root, '.artifacts/comprehension/leda-audio-pacing.json'), JSON.stringify(pacingOutliers, null, 2) + '\n');
+  await writeFile(path.join(root, `.artifacts/${family}/leda-audio-pacing.json`), JSON.stringify(pacingOutliers, null, 2) + '\n');
   console.log(JSON.stringify({ pacingOutliers }, null, 2));
   throw new Error(`${pacingOutliers.length} comprehension clips have inconsistent narration pace`);
 }
-await writeFile(path.join(root, '.artifacts/comprehension/leda-audio-signal.json'), JSON.stringify(receipt, null, 2) + '\n');
+await writeFile(path.join(root, `.artifacts/${family}/leda-audio-signal.json`), JSON.stringify(receipt, null, 2) + '\n');
 console.log(JSON.stringify({ passages: receipt.passages, checkedClips: receipt.checkedClips, totalSeconds: results.reduce((sum, item) => sum + item.duration, 0) }, null, 2));

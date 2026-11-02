@@ -1,3 +1,5 @@
+import {lazy,Suspense} from "react";
+const CycleShortsLibrary = lazy(()=>import("./CycleShortsLibrary.jsx"));
 import "../../styles/book-levels.css";
 import "../../styles/teacher-book-library.css";
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
@@ -553,6 +555,7 @@ export function GuidedReadingPage({
   onBack = null,
   backLabel = "Back to Teach"
 }) {
+  const [cycleShortsOpen,setCycleShortsOpen] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState(() => (books || getRuntimeGuidedReadingBooks())[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
@@ -1946,6 +1949,8 @@ export function GuidedReadingPage({
     </nav>
   ) : null;
 
+  if(cycleShortsOpen&&!readerOpen) return <Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary teacher={!isStudentMode} scope={`guided-reading:${studentId||"class"}`} onBack={()=>setCycleShortsOpen(false)}/></Suspense>;
+
   if (!selectedBook) {
     return (
       <div
@@ -2006,6 +2011,7 @@ export function GuidedReadingPage({
       role="main"
     >
       {!readerOpen && libraryBack}
+      {!readerOpen && !isStudentMode && <button type="button" className="secondary-button" onClick={()=>setCycleShortsOpen(true)}>Cycle Shorts · Sunny Meadow Farm</button>}
       {levelUp && (
         <div className="guided-levelup" role="dialog" aria-label="Shelf complete">
           <ConfettiCelebration show />

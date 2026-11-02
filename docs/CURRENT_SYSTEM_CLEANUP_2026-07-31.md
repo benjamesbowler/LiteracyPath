@@ -1652,3 +1652,16 @@ eight intermediate audio conversions and an incorrectly labeled duplicate
 recognition run were removed after retaining the accepted evidence. Correct
 recognition outputs and original media remain. Protected shelved animation roots,
 learner records and hosted data were outside this cleanup scope.
+
+## 2 November 2026 — Cycle Shorts
+
+Cycle Shorts reuses the existing comprehension manuscripts, question evidence,
+workspace and Leda generator. Its separate family adds 196 recordings and reuses
+140 existing exact recordings. The generator removed 140 redundant task-created
+copies after resolving the existing canonical paths; all 336 current clips then
+passed full decoding and source/byte/signal checks. The 34 MB task-only Leda
+source cache and superseded scratch logs were removed after verification.
+Active manuscripts, narration provenance, browser screenshots and compact QA
+receipts remain. No irreplaceable source or protected animation work was touched.
+The removed cache and temporary copies are reproducible from the checked-in
+manuscripts and current generator; all active recordings remain available.

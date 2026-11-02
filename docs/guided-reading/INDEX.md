@@ -162,3 +162,5 @@ contract; ordinary app deployments do not invalidate an active class session.
 Import receipts, contact sheets, text-revision queues, audio inventories, replacement
 manifests, and provider-specific handoff reports are retired. They must not be restored
 or used to override the live book modules.
+
+[Cycle Shorts](CYCLE_SHORTS.md) is a separate supported-reading collection in Guided Reading, with one weekly Meadow Farm passage and its questions also closing each daily Present. It does not add calibrated A–H books or reading-mastery evidence.
