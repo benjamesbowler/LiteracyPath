@@ -1,0 +1,96 @@
+.hop-stop-unit {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
+  overflow: auto;
+  padding: clamp(12px, 2vw, 24px);
+  color: #18263e;
+  background: #f4f8fc;
+  font-family: Andika, sans-serif;
+  box-sizing: border-box;
+}
+.hop-stop-unit *, .hop-stop-library-card * { box-sizing: border-box; }
+.kg-stage .kg-main > .hop-stop-unit { height: 100%; }
+.hop-stop-unit button, .hop-stop-unit a, .hop-stop-library-card button { font: inherit; }
+.hop-stop-header, .hop-stop-header-actions, .hop-stop-reader-top, .hop-stop-game-top,
+.hop-stop-reader-controls, .hop-stop-secondary-actions, .hop-stop-cue, .hop-stop-activity-choices {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hop-stop-header, .hop-stop-reader-top, .hop-stop-game-top { justify-content: space-between; }
+.hop-stop-header { margin-bottom: 16px; }
+.hop-stop-header h1 { margin: 0; font-size: clamp(26px, 4vw, 38px); line-height: 1.25; }
+.hop-stop-eyebrow { margin: 0 0 2px; color: #52637a; font-size: 14px; }
+.hop-stop-button {
+  min-height: 56px;
+  padding: 12px 20px;
+  border: 2px solid #3454c8;
+  border-radius: 12px;
+  color: #fff;
+  background: #3454c8;
+  font: 700 18px/1.35 Andika, sans-serif;
+  cursor: pointer;
+}
+.hop-stop-button-secondary { color: #2844a9; background: #fff; border-color: #9aaace; }
+.hop-stop-button:disabled { color: #657185; border-color: #bdc8d6; background: #edf1f6; cursor: default; }
+.hop-stop-unit button:focus-visible, .hop-stop-unit a:focus-visible, .hop-stop-library-card button:focus-visible {
+  outline: 3px solid #142b85;
+  outline-offset: 4px;
+}
+.hop-stop-unit [data-child-instruction] { margin: 8px 0 12px; font-size: clamp(18px, 2.1vw, 23px); line-height: 1.45; }
+.hop-stop-progress { margin: 4px 0 10px; color: #52637a; font-size: 16px; }
+.hop-stop-overview { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, 1fr); gap: 24px; align-items: center; }
+.hop-stop-overview > img { width: 100%; max-height: 64dvh; object-fit: contain; border-radius: 14px; }
+.hop-stop-activity-choices { flex-direction: column; align-items: stretch; margin-top: 18px; }
+.hop-stop-video { display: block; width: 100%; max-height: 60dvh; margin: 12px auto; aspect-ratio: 16 / 9; background: #102035; border-radius: 12px; }
+.hop-stop-secondary-actions { margin: 12px 0; }
+.hop-stop-link { display: inline-flex; align-items: center; min-height: 56px; padding: 10px 8px; color: #2844a9; text-decoration: underline; background: transparent; border: 0; cursor: pointer; }
+.hop-stop-audio-notice { display: block; min-height: 24px; font-size: 16px; line-height: 1.4; color: #52637a; }
+.hop-stop-reader-spread { margin: 0; overflow: hidden; border: 1px solid #d1dae6; border-radius: 14px; background: #fff; }
+.hop-stop-reader-spread > img { display: block; width: 100%; max-height: 52dvh; object-fit: contain; }
+.hop-stop-reader-spread figcaption { padding: 18px 24px; font-size: clamp(23px, 3vw, 34px); line-height: 1.5; text-align: center; }
+.hop-stop-reader-controls { margin: 12px 0 6px; justify-content: space-between; }
+.hop-stop-support-label { margin: 8px 0; color: #52637a; font-size: 14px; }
+.hop-stop-game-top h2 { margin: 0; font-size: clamp(22px, 3vw, 30px); }
+.hop-stop-cue { margin-bottom: 8px; }
+.hop-stop-target { font-size: 30px; padding: 2px 14px; border-radius: 8px; background: #fff3c4; }
+.hop-stop-support-note { padding: 10px 14px; margin: 8px 0; background: #e8efff; border-left: 4px solid #3454c8; border-radius: 5px; font-size: 16px; }
+.hop-stop-picture-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 12px 0; }
+.hop-stop-picture-choice { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 10px; border: 3px solid #a2b0c6; border-radius: 14px; background: #fff; color: #18263e; cursor: pointer; min-height: 150px; }
+.hop-stop-picture-choice > img { display: block; width: 100%; max-height: 36dvh; object-fit: contain; border-radius: 6px; }
+.hop-stop-picture-choice > span { font-size: 25px; font-weight: 700; }
+.hop-stop-picture-choice:disabled { cursor: default; }
+.hop-stop-picture-choice:disabled:not(.is-chosen):not(.is-retry) { border-color: #bdc8d6; }
+.hop-stop-picture-choice.is-chosen { border-color: #3454c8; background: #e8efff; }
+.hop-stop-picture-choice.is-retry { border-style: dashed; border-color: #9b5a15; }
+.hop-stop-feedback { min-height: 30px; margin: 12px 0 6px; font-size: 20px; line-height: 1.4; }
+.hop-stop-finished { padding: clamp(18px, 5vw, 50px); border-radius: 14px; border: 1px solid #c8d5e8; background: #fff; }
+.hop-stop-finished h2 { font-size: clamp(26px, 4vw, 36px); }
+.hop-stop-finished button { margin: 8px 12px 8px 0; }
+.hop-stop-picture-missing { display: grid; place-items: center; min-height: 140px; padding: 20px; background: #eef2f8; color: #52637a; border: 1px dashed #9aaace; border-radius: 10px; font-size: 18px; line-height: 1.4; text-align: center; }
+.hop-stop-library-card { display: flex; align-items: center; gap: 18px; margin: 12px 0; padding: 16px; background: #fff; border: 1px solid #bdcce4; border-radius: 14px; color: #18263e; font-family: Andika, sans-serif; }
+.hop-stop-library-card > img { width: 150px; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 8px; }
+.hop-stop-library-card > div { flex: 1; min-width: 0; }
+.hop-stop-library-picture-missing { display: grid; place-items: center; width: 150px; min-height: 84px; border-radius: 8px; background: #eef2f8; color: #52637a; }
+.hop-stop-library-card h2 { margin: 0; font-size: 23px; }
+.hop-stop-library-card p { margin: 6px 0 0; line-height: 1.4; }
+.hop-stop-preview { margin: 0; min-height: 100dvh; background: #f4f8fc; }
+@media (max-width: 700px) {
+  .hop-stop-overview { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .hop-stop-overview > img { max-height: 40dvh; }
+  .hop-stop-activity-choices { margin-top: 8px; }
+  .hop-stop-library-card { flex-wrap: wrap; gap: 12px; }
+  .hop-stop-library-card > img { width: 110px; }
+  .hop-stop-library-card > button { width: 100%; }
+  .hop-stop-reader-controls > button { flex: 1; padding: 10px; font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .hop-stop-header-actions { gap: 8px; }
+  .hop-stop-header-actions > button { padding: 10px 12px; font-size: 16px; }
+  .hop-stop-picture-choices { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .hop-stop-picture-choice > img { max-height: 30dvh; }
+  .hop-stop-reader-spread figcaption { padding: 15px; }
+}

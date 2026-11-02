@@ -44,6 +44,7 @@ A dated document must never override current code.
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Cycle Shorts](guided-reading/CYCLE_SHORTS.md) — 27 Meadow Farm read-together passages and 81 questions, shared by Present endings and the Guided Reading collection.
 - [Guided Reading](guided-reading/INDEX.md)
+- [Hop and Stop](product/HOP_AND_STOP.md) — original Bouncy and Speedy song, supported reader and unscored picture-action activity; Books entry requires the complete verified media pack.
 - [Small Steps decodable readers](guided-reading/SMALL_STEPS_CONTENT_BIBLE.md) — cumulative code, exact exception words, original character canon and production requirements
 - [Foundations expansion](guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md) — 30 cumulative decodable and 20 distinctly labeled leveled books, phonics prerequisites, teaching support and media requirements
 - [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — single public A–H book system, calibrated full-text reviews, shared metadata and verified Lexile provenance
