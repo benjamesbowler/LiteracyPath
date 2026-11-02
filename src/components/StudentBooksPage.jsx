@@ -36,6 +36,10 @@ import { BookOpenText } from "@phosphor-icons/react";
 
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../utils/guidedReading/bookTextAnalysis.js";
 import BookLevelGuide from "./guided-reading/BookLevelGuide.jsx";
+import { HopAndStopUnit } from "./action-songs/HopAndStopUnit.jsx";
+import { HopAndStopLibraryCard } from "./action-songs/HopAndStopLibraryCard.jsx";
+import { useHopAndStopPublished } from "./action-songs/useHopAndStopPublished.js";
+import { canOpenHopAndStop } from "../data/hopAndStop.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
@@ -197,6 +201,10 @@ export function StudentBooksPage({
 }) {
   const exactBookLock = lockedBookId !== null;
   const normalizedLockedBookId = exactBookLock ? String(lockedBookId || "").trim() : "";
+  const [hopAndStopOpen, setHopAndStopOpen] = useState(false);
+  const hopAndStopPublished = useHopAndStopPublished(!focusLocked && !exactBookLock && allowedBookIds === null && publicationStatus === "ready");
+  const hopAndStopAvailable = canOpenHopAndStop({ published: hopAndStopPublished, focusLocked, exactBookLock, restrictedLibrary: allowedBookIds !== null });
+  if (hopAndStopOpen && !hopAndStopAvailable) setHopAndStopOpen(false);
   const [openBookId, setOpenBookId] = useState(
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
@@ -333,6 +341,17 @@ export function StudentBooksPage({
   }
 
   if (cycleShortsOpen && !focusLocked && !exactBookLock) return <StudentGlassShell studentName={studentName} scopeKey={progressScopeKey} active="books" onNavigate={onNavigate} onHome={onHome} onGrownUps={onGrownUps}><Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary scope={`${teacherId}:${studentId}`} onBack={()=>setCycleShortsOpen(false)}/></Suspense></StudentGlassShell>;
+  if (hopAndStopOpen && hopAndStopAvailable) {
+    return <StudentGlassShell
+      studentName={studentName}
+      scopeKey={progressScopeKey}
+      active="books"
+      onNavigate={onNavigate}
+      onHome={onHome}
+      onGrownUps={onGrownUps}
+      headerActions={headerActions}
+    ><HopAndStopUnit onExit={() => setHopAndStopOpen(false)} /></StudentGlassShell>;
+  }
 
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
     const saved = bookReadingProgress(library.find(book => book.id === openBookId), guidedReadingRecords[openBookId] || {});
@@ -437,6 +456,8 @@ export function StudentBooksPage({
           </button>
 
         </div>
+
+        {hopAndStopAvailable && <HopAndStopLibraryCard onOpen={() => setHopAndStopOpen(true)} />}
 
         {(panelBook
           ? (
