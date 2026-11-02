@@ -84,3 +84,11 @@ test('new Cycle Shorts narration starts and stops in the real reader',async({pag
  await page.getByRole('button',{name:'Stop voice',exact:true}).click();
  expect(await page.evaluate(()=>[...document.querySelectorAll('audio')].every(a=>a.paused))).toBe(true);
 });
+
+
+test('Cycle Shorts full-screen word help matches the bold learning words',async({page})=>{
+ await page.goto('/preview/child-surfaces.html?surface=reading-library');await page.getByRole('button',{name:'Cycle Shorts',exact:true}).click();
+ await page.getByRole('button',{name:`Read Cycle 1: ${CYCLE_SHORTS[0].title}`,exact:true}).click();
+ await page.getByRole('button',{name:'Full screen',exact:true}).click();await page.getByRole('button',{name:'Words',exact:true}).click();
+ await expect(page.locator('#rc-lesson-stage .rc-lesson-support')).toContainText('Learning words: I, am, ant, mat.');
+});
