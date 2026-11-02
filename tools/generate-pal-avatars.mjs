@@ -24,6 +24,7 @@
 import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import { constants } from "node:fs";
 import sharp from "sharp";
+import gearAppearance from "../source-art/companions/gear-appearance.json" with { type: "json" };
 
 async function loadEnv() {
   if (process.env.ARK_API_KEY) return;
@@ -52,37 +53,22 @@ const FULL_DIR = "public/images/companions/full";
 
 // The one canonical pose. Every base uses it so gear edits stay aligned.
 const POSE = "standing upright facing the viewer, full body visible from head to feet, arms relaxed at the sides, feet planted on the ground, centered in frame with clear space above the head and below the feet";
-const STYLE = "Friendly realistic-cartoon storybook character for a children's reading app, clean gentle outlines, soft even studio lighting, plain very light warm cream background with a soft ground shadow under the feet, no other objects.";
+const STYLE = "Bold clean clear 2D cartoon character for a children's reading app, crisp continuous dark outlines, solid color fields and at most two broad cel shadows. Simplify fur and wool into smooth outlined shapes. No painterly rendering, brush daubs, grain, paper texture, embossing, fuzzy or plush materials, photorealism or 3D-like shading. Plain very light warm cream background, no other objects. Follow docs/design/ILLUSTRATION_STYLE_STANDARD.md.";
 const RULES = "No text, no letters, no numbers, no watermark, no logo, no border. Exactly ONE character.";
 
 // Canon looks from the reader series' character references.
 const PALS = [
   { id: "fluff", desc: "Fluff from the Bob and Nan books: a small very fluffy brown puppy with bright eyes and a happy open-mouth smile" },
   { id: "chips", desc: "Chips from the James and Anna books: a small white goat with big brown patches, yellow eyes, short horns, floppy ears, and a blue collar with a little blue bell" },
-  { id: "socks", desc: "Socks from the Aiden and Betty books: a small cheeky monkey with cream-white fur on the face and chest, darker brown fur on the back, black hands and feet, wearing his tiny red waistcoat" },
+  { id: "socks", desc: "GUIDE-SOCKS, the comprehension Guide explicitly retained on27October2026: a small cheeky brown monkey with round ears, a cream heart-shaped face patch and chest, black hands and feet, curled tail and buttoned red waistcoat. Distinct from HUMAN-SOCKS, the Aiden and Betty dog" },
   { id: "chompy", desc: "Chompy from the Dino Pals books: an orange baby T-Rex with tiny arms, a big round tummy, a white bib around his neck, and a sweet hungry smile" },
   { id: "muddy", desc: "Muddy from the Meadow Pals books: a cheerful pink piglet with a few playful splashes of brown mud on his cheeks and tummy" },
-  { id: "pip", desc: "Pip from the Moonwood Tales books: a young elf child with pointed ears, brown hair, green eyes, wearing a dark green tunic with a brown belt and small brown boots" }
+  { id: "pip", desc: "MOON-PIP from the original Moonwood Tales books: a young elf child with pointed ears, chestnut brown hair, green eyes, deep green tunic, olive undershirt and trousers, brown belt and brown cuffed boots" }
 ];
 
 // What each Market gear item looks like ON the character. Ids must match
 // GEAR in src/utils/hollowEconomy.js.
-const GEAR_LOOKS = {
-  "gear-meadow-crown": "a small woven crown of meadow flowers and grass sitting on top of the head",
-  "gear-explorer-pack": "a little tan canvas explorer backpack with a bedroll, worn on the back with straps over the shoulders",
-  "gear-acorn-shield": "a small round wooden shield with an acorn emblem, held in one hand at the side",
-  "gear-willow-wand": "a slender willow-branch wand with a soft glowing tip, held up in one hand",
-  "gear-trail-boots": "sturdy little brown leather hiking boots with green laces, worn on the feet",
-  "gear-wizard-hat": "a floppy midnight-blue wizard hat with tiny embroidered stars, sitting on the head",
-  "gear-starweave-scarf": "a flowing indigo scarf woven with tiny glowing stars, wrapped once around the neck with the ends hanging down",
-  "gear-moth-wings": "a pair of large soft moth wings, pale green with moon-dust patterns, attached to the back and gently spread",
-  "gear-dino-helm": "a rounded dino-skull-shaped helmet with two small horns, worn on the head",
-  "gear-bone-charm": "a simple cord necklace with a small carved white bone charm, worn around the neck",
-  "gear-raptor-wings": "a pair of feathered orange-and-teal raptor wings attached to the back, gently folded",
-  "gear-petal-hood": "a soft hood made of layered pink flower petals, worn up over the head",
-  "gear-leaf-cloak": "a short cloak of layered green leaves fastened at the neck, draped over the shoulders",
-  "gear-falcon-wings": "a pair of sleek grey-and-white falcon wings attached to the back, slightly lifted"
-};
+const GEAR_LOOKS = Object.fromEntries(gearAppearance.gear.map(item => [item.id, item.appearance]));
 
 async function exists(p) { try { await access(p, constants.F_OK); return true; } catch { return false; } }
 const sleep = ms => new Promise(r => setTimeout(r, ms));

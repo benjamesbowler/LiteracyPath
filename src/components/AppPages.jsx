@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { SpeakerHigh } from "@phosphor-icons/react";
+import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { markUsageItemReady, clearUsageItem } from "../utils/usageObservation.js";
 import { logStudentActivity } from "../utils/progressSync.js";
@@ -344,7 +345,7 @@ function AssessmentEvidenceImage({
 
   return (
     <img
-      src={src}
+      src={withRepairedImageVersion(src)}
       alt={accessibleName}
       className={className || undefined}
       data-assessment-media-kind="evidence"

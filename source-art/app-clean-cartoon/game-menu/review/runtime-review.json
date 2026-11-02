@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-11-02T13:25:47.110Z",
+  "cases": 81,
+  "uniqueRequestBindings": 81,
+  "actualResponses": 162,
+  "errors": [],
+  "viewports": [
+    "1280x900",
+    "390x844",
+    "568x320"
+  ],
+  "source": "Production GameArcadeHub from the existing child-surfaces preview, full catalogue scope; all27 actual cards scrolled and decoded normally",
+  "directVisualReview": "All81 actual card captures directly viewed at their captured dimensions, plus saved384,390 and128 for all27. Whole subjects recognizable, no clipping or prohibited finish.",
+  "proofFile": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/hub-runtime/proof.json",
+  "proofSha256": "65845882b3e613cac199aff86992fc8751ce2b92eb77fd5ba4e77f6f13d2d1d7",
+  "limits": "Local synthetic preview only; no hosted, physical device or listening claim."
+}

@@ -1,0 +1,1224 @@
+{
+  "schemaVersion": 1,
+  "sourceManifest": "source-art/app-clean-cartoon/game-menu/manifest.json",
+  "sourceManifestSha256": "47ee1a1101c0104711bd541e4319dde8d99ecdacc44e9919377f497eeb6b6d67",
+  "builder": "tools/buildGameMenuArt.mjs",
+  "builderSha256": "17ee62575647f50e7dd5cc3d8b2dd16599539702b96cd4f0f9ec1e9e81674f1b",
+  "recipe": {
+    "width": 384,
+    "height": 384,
+    "fit": "fill",
+    "kernel": "lanczos3",
+    "removeAlpha": true,
+    "format": "webp",
+    "quality": 94,
+    "effort": 6
+  },
+  "assets": [
+    {
+      "id": "rocket-run",
+      "jobId": "menu-rocket-run",
+      "path": "/images/learn-games/menu/rocket-run.webp",
+      "subject": "a blue and coral toy rocket above a cloud",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-b0f44223-1e92-4176-8ca7-fd9094225289.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/rocket-run-001.png",
+        "sha256": "8dcbc3bbda9194c0bfb186f8e719c899f28cbb0b237adb4121424b183b3bfdb3",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/rocket-run-001.txt",
+        "sha256": "5d03ebf20bcf2b5715b8a6b50885f14aaa8e3aaeb28b301a8d3b602c990096ad"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/rocket-run-previous.webp",
+          "sha256": "be71db245f67b6067fcda85ec2ffde8d57d3e82ba24d9f1177229b9f286417f8",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "be71db245f67b6067fcda85ec2ffde8d57d3e82ba24d9f1177229b9f286417f8",
+      "runtimeSha256": "9e43e8ca0f1cce8a3d03183937c20f0a92968b3f61d43fa44bf360d702773310",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "letter-leap",
+      "jobId": "menu-letter-leap",
+      "path": "/images/learn-games/menu/letter-leap.webp",
+      "subject": "two rounded stepping stones with a little golden spring and a curved coral jump trail",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-30522340-6704-449c-b755-7f60663a05be.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/letter-leap-001.png",
+        "sha256": "afe47baa097dc5abd552ed7f38e774b2eb02171fc8b671a90cbfe393ddc5a9e0",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/letter-leap-001.txt",
+        "sha256": "a8a202a68971e885a8d7f83ec5cf6c66ef9dc6a2735c3a96b10fa4701eb88344"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/letter-leap-previous.webp",
+          "sha256": "cc5e6ae4193a97823a1070e37ca67ff20591d622fdc048d86d2fe9293b3e4c2d",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "cc5e6ae4193a97823a1070e37ca67ff20591d622fdc048d86d2fe9293b3e4c2d",
+      "runtimeSha256": "ab8cdacf0b87dfc432d5431da925e7c57a69817c4021a55daa994746711147c3",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "word-climb",
+      "jobId": "menu-word-climb",
+      "path": "/images/learn-games/menu/word-climb.webp",
+      "subject": "a small leafy beanstalk with three wooden climbing platforms and a golden star at its top",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-b5410ebb-2455-4265-befc-3379823e4d40.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/word-climb-001.png",
+        "sha256": "dda2bcd8f060448d7f3b89a76c616a058cae8d2f4eb1605965d43593e1d27661",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/word-climb-001.txt",
+        "sha256": "b24e58cc5137a5ea1439119260ff2e9e3be4a017ca6b4dc7051cd982b3e70bbd"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/word-climb-previous.webp",
+          "sha256": "3d2822ad38fd0ef43b1a790969d8d0fd748e9e4dc80fea38cdd34f339e30184d",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "3d2822ad38fd0ef43b1a790969d8d0fd748e9e4dc80fea38cdd34f339e30184d",
+      "runtimeSha256": "cd202f060d9094b79bc9bc99e5e1b8b0dedccba00b51fc6259d80a8face5c18b",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "cvc-word-builder",
+      "jobId": "menu-cvc-word-builder",
+      "path": "/images/learn-games/menu/cvc-word-builder.webp",
+      "subject": "three blank rounded wooden sound tiles on a blue toy workbench, a small coral mallet",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-8bc8321f-f579-4923-89c6-366de308c430.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/cvc-word-builder-001.png",
+        "sha256": "c2acb341ec293dc0e416940f5c8ac2d7021ab5b31f39147e6d42c3d4dab09921",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/cvc-word-builder-001.txt",
+        "sha256": "4df78c27fc5bde597ac6381ac6657a1c4aaac870cf9a8820a957c5bc1a54db46"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/cvc-word-builder-previous.webp",
+          "sha256": "9b9a6cead8a8d4adb4e01294f0f2dde11b2e7fb98e7a22ceb9dedc4ba29a027b",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "9b9a6cead8a8d4adb4e01294f0f2dde11b2e7fb98e7a22ceb9dedc4ba29a027b",
+      "runtimeSha256": "a3cd966677d5e1dd714d39fca96863eca49f1a8afd81d9c705c45b2de9a37b19",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "sight-word-memory",
+      "jobId": "menu-sight-word-memory",
+      "path": "/images/learn-games/menu/sight-word-memory.webp",
+      "subject": "two overlapping rounded matching cards showing the same golden star motif, one face-down blue card",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-0b1d5486-60bb-46f1-bbff-04433d2c1286.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/sight-word-memory-001.png",
+        "sha256": "85ed7f613e90b148a383ff9befffe683fcb56b8439d2127a456a336574dce99a",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/sight-word-memory-001.txt",
+        "sha256": "ee59c51f5dc46e9902955fc9bb97a1da882c25df4c53ded10b07f3e566cd9c86"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/sight-word-memory-previous.webp",
+          "sha256": "782f4e6b6350dc5947574b24c1d6e39a8990042d567ac21841f63ee494c940ee",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "782f4e6b6350dc5947574b24c1d6e39a8990042d567ac21841f63ee494c940ee",
+      "runtimeSha256": "47af61ece5a3d0580c4a0fc0eedf67a99659d151fe7fdcdf46e59abc8f5e377e",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "blend-and-build",
+      "jobId": "menu-blend-and-build",
+      "path": "/images/learn-games/menu/blend-and-build.webp",
+      "subject": "two rounded coral and blue puzzle pieces joining into one piece above a small workbench",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-5a15c0ca-7807-4d01-834d-0b5d9342e118.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/blend-and-build-001.png",
+        "sha256": "7438e04d7d965f7275ae0276b0e1d6a8f2ca1ff0b0430c39966a80adf998db5d",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/blend-and-build-001.txt",
+        "sha256": "3af2b7e3569096dc294ad002e5cdbe05de07f93f6ab83e8dab906243a67b02fa"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/blend-and-build-previous.webp",
+          "sha256": "f3057554449d6d75b83c974bc3a888dd46c750134b0458c0b1ebc1eab24623f1",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "f3057554449d6d75b83c974bc3a888dd46c750134b0458c0b1ebc1eab24623f1",
+      "runtimeSha256": "3b3fc1071294f94b41a6bdb3d5dd9c4adad73c3cf18db9b248f111c0db3a9bf1",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "word-rescue",
+      "jobId": "menu-word-rescue",
+      "path": "/images/learn-games/menu/word-rescue.webp",
+      "subject": "a little golden flag across a gap connected by a short wooden bridge",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-478de6eb-e90c-4c53-bef6-104214e103b9.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/word-rescue-001.png",
+        "sha256": "e19fd09c9b19e631e98dddc7217d5b267c88967318c6856cb409a7a0b8ba866a",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/word-rescue-001.txt",
+        "sha256": "a2da7614a2fbd13353be3eb3162fbaee71e6a170fec72489cf907b781f6ca239"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/word-rescue-previous.webp",
+          "sha256": "969060c7cdf904277b73d05652070a8e3c04e9cb39af20b6806f8691eb2f2454",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "969060c7cdf904277b73d05652070a8e3c04e9cb39af20b6806f8691eb2f2454",
+      "runtimeSha256": "73f76818fc13ec9e77c5c6bb65e9076cb4db322a04ab771ed34c49719d1afd8f",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "sound-sort-factory",
+      "jobId": "menu-sound-sort-factory",
+      "path": "/images/learn-games/menu/sound-sort-factory.webp",
+      "subject": "a friendly small toy conveyor carrying a blank coral parcel toward two blue chutes",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-c4fe6188-00bf-4624-b5fa-494129cee844.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/sound-sort-factory-001.png",
+        "sha256": "639b7b800255b519cc0efd30d21f7ba679f6d330e3076ad8424cb5a87be36c1f",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/sound-sort-factory-001.txt",
+        "sha256": "071804c78df86214316e16db5e09bcb4a27508f788f66c8b68bdb21b30bee225"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/sound-sort-factory-previous.webp",
+          "sha256": "dff427c8e06b595741c39269ecba1a1ff620a536808bbf4a4fe799a0c1a03dbe",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "dff427c8e06b595741c39269ecba1a1ff620a536808bbf4a4fe799a0c1a03dbe",
+      "runtimeSha256": "5c49ad5f65691282968cdd895655b2569ccbea380ce9feeefe4b47455c8a9e18",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "letter-garden",
+      "jobId": "menu-letter-garden",
+      "path": "/images/learn-games/menu/letter-garden.webp",
+      "subject": "three colourful garden seed tiles, a leafy sprout and a small coral watering can",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-06c268a0-9546-4352-bcf7-2417023b220c.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/letter-garden-001.png",
+        "sha256": "8dd478772cb7efc4485ac1ed3996586db64a53acd426e40647c1281457abdeea",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/letter-garden-001.txt",
+        "sha256": "4d76356bdfb938aa535a455920ae1ba5626ec26e9e010252d2f5ddac02782698"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/letter-garden-previous.webp",
+          "sha256": "41e50970fdaa011e22949c5c82b1265a84a84fcc44fff3e2eda874d0513b19bd",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "41e50970fdaa011e22949c5c82b1265a84a84fcc44fff3e2eda874d0513b19bd",
+      "runtimeSha256": "da3229614d8eab4aee1c1ed33009924e410cabee9c9ac5897286ba97869a006d",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "pop-the-word",
+      "jobId": "menu-pop-the-word",
+      "path": "/images/learn-games/menu/pop-the-word.webp",
+      "subject": "three blue coral and golden balloons with one small starburst",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-4009aca5-2c0c-40ca-b5ae-60cce35996df.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/pop-the-word-001.png",
+        "sha256": "bd94396dc583064f16b8611f76433999ff438e5fd8ceb5ec4cbb6c92d2fecfda",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/pop-the-word-001.txt",
+        "sha256": "027530a121e605b8cd56efc4ef877cec42c2e48a1c332b8fd9e781a4046013a9"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/pop-the-word-previous.webp",
+          "sha256": "14f1f01aae52e5f7a9384d9c388998a5144bb736859e56d0698b060d9019dee9",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "14f1f01aae52e5f7a9384d9c388998a5144bb736859e56d0698b060d9019dee9",
+      "runtimeSha256": "4aabade5e16abbe940739db80035c40fbb7e3ed1dcc160cd9f63d114b4c15f33",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "word-hopscotch",
+      "jobId": "menu-word-hopscotch",
+      "path": "/images/learn-games/menu/word-hopscotch.webp",
+      "subject": "a short hopscotch path made of rounded blue coral and yellow blank squares",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-49a79015-bc2d-4ab8-9e56-d50bfd462e9b.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/word-hopscotch-001.png",
+        "sha256": "fb10615885e195c6746286ed819b31bf5a555627b88f77922da3d44916511c43",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/word-hopscotch-001.txt",
+        "sha256": "d8788a243dee66e520c071503ea1d4cb45b193c0904510a41789ff449f37c4af"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/word-hopscotch-previous.webp",
+          "sha256": "02f8d3c8850ac71b1bdaa97a76a5fc3d8616c3e89be505fc39bd099e214002a6",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "02f8d3c8850ac71b1bdaa97a76a5fc3d8616c3e89be505fc39bd099e214002a6",
+      "runtimeSha256": "dd3f451ceac733a6956a5d22f1a2c426d8be4510088916e71c036bee3ca64296",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "reading-race",
+      "jobId": "menu-reading-race",
+      "path": "/images/learn-games/menu/reading-race.webp",
+      "subject": "an open cream book with blank blue decorative lines, coral pencil and a small golden check mark",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-d95462d2-4861-4300-b7b1-e6a6a77e7b24.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/reading-race-001.png",
+        "sha256": "17798d35441fff131ca8f2228daa2e1080cf732a6766a220dae94c4bbf12c5a1",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/reading-race-001.txt",
+        "sha256": "9d6159ef387fc215bcd6b2b5d9675c161f485b9ea55fa79558e3c59df78a31ef"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/reading-race-previous.webp",
+          "sha256": "39593f64a2c30eb6b44e3d835c0aac4ede48c80bf885c535760d1ea2057d898c",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "39593f64a2c30eb6b44e3d835c0aac4ede48c80bf885c535760d1ea2057d898c",
+      "runtimeSha256": "6fef7d9abe91952360029f501da26a502eaf52c00ebebad3bd353068d8c3f710",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "sound-racer",
+      "jobId": "menu-sound-racer",
+      "path": "/images/learn-games/menu/sound-racer.webp",
+      "subject": "a rounded blue and coral go-kart on a short curved racetrack with a golden finish flag",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-3b69c6e3-0c43-40be-9ca5-f58b111cca7a.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/sound-racer-001.png",
+        "sha256": "f89d9b7f6bb3936a8a5d5116261013c39c99947ec55902ff07055b189aa6fa2b",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/sound-racer-001.txt",
+        "sha256": "28ae8438b26cf51475b3a89de441d2bddab37ba54d990ff7a10953d741d4ba18"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/sound-racer-previous.webp",
+          "sha256": "d73ac1882979d6877f1caa9bfb587ea988feae0bd3694971b94067de6bea1d5c",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "d73ac1882979d6877f1caa9bfb587ea988feae0bd3694971b94067de6bea1d5c",
+      "runtimeSha256": "0026a9e6ae9df3eff3d2d56b9d27bd3fff28a05f859387703458ac667254ec58",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "word-bridge",
+      "jobId": "menu-word-bridge",
+      "path": "/images/learn-games/menu/word-bridge.webp",
+      "subject": "an arched wooden bridge made from three blue and coral blank tile planks across a small river",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-97966bad-8188-4e7b-8f0b-53f364776bc4.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/word-bridge-001.png",
+        "sha256": "adf4bb383a2d5e0e3875b82355857a327b1b7382997cf3fe0629c8e40c2196b8",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/word-bridge-001.txt",
+        "sha256": "30bd12219496304222b8d83868eb2014df97286807ebafe92107b7cd0df6c5fa"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/word-bridge-previous.webp",
+          "sha256": "281f152d71618edcc8caab44a9f6c62752eac6056adadf94e7f0ab13d4284765",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "281f152d71618edcc8caab44a9f6c62752eac6056adadf94e7f0ab13d4284765",
+      "runtimeSha256": "cd7ab8f2eb2b18c3e8a4721df0f62ec16c899bcd4245accc004a46f6cb14b570",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "sound-beat",
+      "jobId": "menu-sound-beat",
+      "path": "/images/learn-games/menu/sound-beat.webp",
+      "subject": "a blue and coral drum pad, two golden drumsticks and two small musical-note shapes",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-dba4b671-c987-49a7-b283-39e124a2aa66.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/sound-beat-001.png",
+        "sha256": "99892ea54557d4e1e72f9965ec67fc3e0b54fbc0ef3769184c706f8105ea7ba7",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/sound-beat-001.txt",
+        "sha256": "57b77d02641accdcc727df9ffcdd543330581ffd9c15c4367360aa7875f95918"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/sound-beat-previous.webp",
+          "sha256": "02accf2c216baebbb722ce05a7f71ac45da92111f48d7a3dc4ce07ad77c05107",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "02accf2c216baebbb722ce05a7f71ac45da92111f48d7a3dc4ce07ad77c05107",
+      "runtimeSha256": "c1462c318fac0e19b3a5aa38e936c92bc8ec1cd9f9e7f792422e2f9ff24038cb",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "rhyme-pop",
+      "jobId": "menu-rhyme-pop",
+      "path": "/images/learn-games/menu/rhyme-pop.webp",
+      "subject": "two rounded matching golden balloons and one coral balloon beside a small musical-note shape",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-1d776c96-3933-4509-be4a-8637aab7e5cd.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/rhyme-pop-001.png",
+        "sha256": "3dfc616f28840ac94a0f678bda56365c67658bef68440c48940be8c3982a6090",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/rhyme-pop-001.txt",
+        "sha256": "302cf415b07a24d4a68134d66d4bbcf83b6e9c6774bae5a54950485c1980b471"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/rhyme-pop-previous.webp",
+          "sha256": "10157ad3326d9bf0f0f5d937f600f53d3d9481ef913d25b03beaa10620ff46d1",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "10157ad3326d9bf0f0f5d937f600f53d3d9481ef913d25b03beaa10620ff46d1",
+      "runtimeSha256": "d101541fc202e2af50fb224f2694470bee68a10e3546aafd9b0af11f75870dda",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "sound-safari",
+      "jobId": "menu-sound-safari",
+      "path": "/images/learn-games/menu/sound-safari.webp",
+      "subject": "a coral butterfly net and a blue explorer hat beside two leaves",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-9bad7f0c-2cdd-4c73-a781-030ff38e80c6.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/sound-safari-001.png",
+        "sha256": "cafba9bd66cb8fab9f36c4f62c846e965cb036e6bd038508faca991fe7d5a9ba",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/sound-safari-001.txt",
+        "sha256": "2598706c3f3f390733b4d1664554e733b15c8d019c0442f4d9d12becb2c55bc5"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/sound-safari-previous.webp",
+          "sha256": "ce0bdf2693f460dc3c1c2635e3b132df75cbbe23b1054575d5bac28d0c1cb333",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "ce0bdf2693f460dc3c1c2635e3b132df75cbbe23b1054575d5bac28d0c1cb333",
+      "runtimeSha256": "b417f45961bdc8105486e451eb0d2dc88259a37756a177ac808ab9d63d1b88e3",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "reel-read",
+      "jobId": "menu-reel-read",
+      "path": "/images/learn-games/menu/reel-read.webp",
+      "subject": "a small blue toy boat with a coral fishing rod catching a friendly golden fish",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-e14c712e-3d5e-4617-babc-d218a20cfd66.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/reel-read-001.png",
+        "sha256": "b0a6cc99252c615325eed9b7ce74b0878d8efce8feccc27b70a3037c5dc85931",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/reel-read-001.txt",
+        "sha256": "9941f468c6250381c22ed1dd0b481b9221c4b3cbdb60ae73bf89385aaddc82f7"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/reel-read-previous.webp",
+          "sha256": "bd4e5b8dca4bbe1f6167ae22eae756b465c1525714d6fd0dc3608ec94d41a06a",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "bd4e5b8dca4bbe1f6167ae22eae756b465c1525714d6fd0dc3608ec94d41a06a",
+      "runtimeSha256": "5437033fe4ebee7c47e0140e38f7b3f6898ff0d6198878397a23d6bb23951419",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "star-gallery",
+      "jobId": "menu-star-gallery",
+      "path": "/images/learn-games/menu/star-gallery.webp",
+      "subject": "two leafy trees, a blank blue signboard and a coral pencil beside a golden check mark",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-773b8e3a-524a-4754-ad13-d9f550b714d3.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/star-gallery-001.png",
+        "sha256": "e97e1bcc231a127a69b7276ab4e2224a6c9e76ae123b7cd5003c776e2d6752a0",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/star-gallery-001.txt",
+        "sha256": "4b7393818ceeea63a8e391007d69301d5e10c9077f8265316355df5ff48525d9"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/star-gallery-previous.webp",
+          "sha256": "3679ba5d7f0b389fd029a80d7d5d4b969534e361ed43e466c10211597a0f1c77",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "3679ba5d7f0b389fd029a80d7d5d4b969534e361ed43e466c10211597a0f1c77",
+      "runtimeSha256": "6fc184898a4d8e700d25deabe0439f88ff173115748bfabebe74df46b95bc7a8",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "sentence-express",
+      "jobId": "menu-sentence-express",
+      "path": "/images/learn-games/menu/sentence-express.webp",
+      "subject": "a small blue and coral toy steam locomotive pulling two blank golden carriages",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-b3c77492-0283-4f60-8bc1-10e27aeaa5d7.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/sentence-express-001.png",
+        "sha256": "b18001ccdf04b28b31a95aa87b26976605dba1ea8a36eded253c3f187182fc5d",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/sentence-express-001.txt",
+        "sha256": "6a8a92e9004aa007bd9bd8c6c6d32374c8f2ac74dd7db7399a0387af55da44f5"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/sentence-express-previous.webp",
+          "sha256": "dc755917e5279bf0fd03807b86877aff431143c756d4402463cb583eb4022f2a",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "dc755917e5279bf0fd03807b86877aff431143c756d4402463cb583eb4022f2a",
+      "runtimeSha256": "dda18c978371ef2da09afc05e2028d8daa768d3ee388b8681eaf4bafc0ddc156",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "grammar-grind",
+      "jobId": "menu-grammar-grind",
+      "path": "/images/learn-games/menu/grammar-grind.webp",
+      "subject": "a blue and coral skateboard on a small curved ramp with two blank golden tiles",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-25cd509a-08d3-4da1-acc8-281fa4cdd3db.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/grammar-grind-001.png",
+        "sha256": "67716becfdf256e28e06414da213d11e7058f61a5f8be7c0a3664e7ce7c9ad8a",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/grammar-grind-001.txt",
+        "sha256": "688dc3c474b46632a2100b5ad9dc67f6fd900cc0e9d9d5476c6935548cda90ef"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/grammar-grind-previous.webp",
+          "sha256": "8f604ce7cbd07779e03a20c7b1a63f3caf1159fe5480a72507ca654a0fb0ccb7",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "8f604ce7cbd07779e03a20c7b1a63f3caf1159fe5480a72507ca654a0fb0ccb7",
+      "runtimeSha256": "1def5d74249033a4dbe224ea6dcfb8ea48b5baf152c310cd8797d5ed2213e5e1",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "soundkeys",
+      "jobId": "menu-soundkeys",
+      "path": "/images/learn-games/menu/soundkeys.webp",
+      "subject": "a small rounded blue toy piano with cream keys, coral accents and two golden sound-wave shapes",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-10f8cc8e-7e8c-4065-b022-2f4a666983d3.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/soundkeys-001.png",
+        "sha256": "a53649beaf83d35b2a62efa94ff251832f46315f891547c8791eba61460c7fa2",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/soundkeys-001.txt",
+        "sha256": "5a5c3dec4b84f83710e87b3365d108759f759ea929a425d512449c1ad1b868dd"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/soundkeys-previous.webp",
+          "sha256": "12a1fe41a259f9fddbb57b951aedd655be075c7753fe1339bf48cc02f4452fd3",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "12a1fe41a259f9fddbb57b951aedd655be075c7753fe1339bf48cc02f4452fd3",
+      "runtimeSha256": "19c3e9b77b0c1016a42578737475ce1fc7f28ae141d4295f27cd934895e961de",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "drum-trail",
+      "jobId": "menu-drum-trail",
+      "path": "/images/learn-games/menu/drum-trail.webp",
+      "subject": "two small blue and coral hand drums beside three rounded golden stepping stones",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-26a9683f-3899-4ac9-8638-d6285bf0e22e.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/drum-trail-001.png",
+        "sha256": "246e1fe03aa63f8de53a0944bd3686c7297c060bf710fe5218e0e1080f71e20f",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/drum-trail-001.txt",
+        "sha256": "ce412c517c22e01d517910ace529df77552071bd85fb64c75fa5cd79d081922c"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/drum-trail-previous.webp",
+          "sha256": "cc656b0e827f2a8bfacd830609f13201c8de630b4c6b74c26be7b3ab3be47661",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "cc656b0e827f2a8bfacd830609f13201c8de630b4c6b74c26be7b3ab3be47661",
+      "runtimeSha256": "72e441996e078577e79b00a59e50f1b7b3667de595cdf530b6fc38784d7e55c6",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "lantern-lagoon",
+      "jobId": "menu-lantern-lagoon",
+      "path": "/images/learn-games/menu/lantern-lagoon.webp",
+      "subject": "a glowing golden lantern on a tiny blue wooden boat above a short still-water ripple",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-828bed6e-a907-47fa-b0d0-870ee74b124e.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/lantern-lagoon-001.png",
+        "sha256": "1600c047e122a7eaeaf7751b0b6539e0f5cf317e5da78aa1854cd0577a18bb85",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/lantern-lagoon-001.txt",
+        "sha256": "30666f0a5099941d965821785133f72d1587e4b3c4be2779f7d2a287b11b05dd"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/lantern-lagoon-previous.webp",
+          "sha256": "d9c1111e034b7963457b7001f785e99ff56fdd94ef7e6da6bfbb52f2f04633c8",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "d9c1111e034b7963457b7001f785e99ff56fdd94ef7e6da6bfbb52f2f04633c8",
+      "runtimeSha256": "e3ccd444989b158b4863aaa9a0f9f0df536df5d5e77acff6442c5d7f05909620",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "tower-tumble",
+      "jobId": "menu-tower-tumble",
+      "path": "/images/learn-games/menu/tower-tumble.webp",
+      "subject": "a small wooden scaffold tower with two ladders, a blue-and-coral padded mallet, one rolling wooden barrel and a golden star at the top",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-9ffeb258-748e-4885-8bc5-38c64ced1859.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/tower-tumble-001.png",
+        "sha256": "a08359fe10f22ee2e0844edf0799c20fbe7d076ac4e2a9a81a10b199a5eece77",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/tower-tumble-001.txt",
+        "sha256": "b9039f055b561a65f0fbea0694fae5c60916c260b8b334dc4377a79f839b44a7"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/tower-tumble-previous.webp",
+          "sha256": "6c89ab4a1b56e40f92b6744030abdb431ae0341aa19de5f13f82e9b2103c8bb2",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "6c89ab4a1b56e40f92b6744030abdb431ae0341aa19de5f13f82e9b2103c8bb2",
+      "runtimeSha256": "8fe76ad364575ee954c350bb8063c28e6704f25381f6577f8f8eb9568b51a872",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "rally-pals",
+      "jobId": "menu-rally-pals",
+      "path": "/images/learn-games/menu/rally-pals.webp",
+      "subject": "a blue tennis racket, a golden yellow tennis ball and a tiny green meadow court with a white net",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-599f34cf-e2f9-4fb7-9581-e85c139f22ab.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/rally-pals-001.png",
+        "sha256": "684a3b96d4fa07834a1edfb62535f2c20834f6c1b3fadd4546c793389667eb80",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/rally-pals-001.txt",
+        "sha256": "46c41f8e8a9f92bb1ed47111f8412b71b1d7323186453fe724d14c7d3a38b5c8"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/rally-pals-previous.webp",
+          "sha256": "4d3cc0af71548aa7edfdd19ed5ce3c89bc38e2a67d9f602df31dbba3a749b7e2",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "4d3cc0af71548aa7edfdd19ed5ce3c89bc38e2a67d9f602df31dbba3a749b7e2",
+      "runtimeSha256": "2386198d05626f8f0e50c01672904f63dfae3a9a0a71aaff9e83d91631c4726e",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    },
+    {
+      "id": "burrow-builders",
+      "jobId": "menu-burrow-builders",
+      "path": "/images/learn-games/menu/burrow-builders.webp",
+      "subject": "a charming small block-built wooden house, a blue stream crossed by a block bridge and a few colorful blank cubic building blocks",
+      "attempt": 1,
+      "generationMode": "built-in",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-5f8f46ad-abe8-4659-b475-d60ddc69987b.png",
+      "native": {
+        "file": "source-art/app-clean-cartoon/game-menu/natives/burrow-builders-001.png",
+        "sha256": "e85cf70f3e28d895567d90a0bf4dc330c5883aedce622e3b35e523efcdd3df4c",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prompt": {
+        "file": "source-art/app-clean-cartoon/game-menu/prompts/burrow-builders-001.txt",
+        "sha256": "5c3c06794d6e7838ce27c68c7d23f07e86842c7f023c61222443e8a0c1b202de"
+      },
+      "references": [
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/burrow-builders-previous.webp",
+          "sha256": "61b2dae67dbd2f411c30171d0fc6fecb57744df3690008d4dd25ed3426f6956a",
+          "role": "previous exact subject"
+        },
+        {
+          "file": "source-art/app-clean-cartoon/game-menu/references/context-style.png",
+          "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+          "role": "style only"
+        }
+      ],
+      "previousRuntimeSha256": "61b2dae67dbd2f411c30171d0fc6fecb57744df3690008d4dd25ed3426f6956a",
+      "runtimeSha256": "787098401eb4dd172c39ffff7a7ecbdaa44c12c5a16f06b2ce337abd0734e0b5",
+      "status": "accepted",
+      "fullNativeViewed": true,
+      "saved384Viewed": true,
+      "saved390Viewed": true,
+      "saved128Viewed": true,
+      "actualRuntimeViewports": [
+        "1280x900",
+        "390x844",
+        "568x320"
+      ]
+    }
+  ],
+  "runtimeReview": {
+    "reviewedAt": "2026-11-02T13:25:47.110Z",
+    "cases": 81,
+    "uniqueRequestBindings": 81,
+    "actualResponses": 162,
+    "errors": [],
+    "viewports": [
+      "1280x900",
+      "390x844",
+      "568x320"
+    ],
+    "source": "Production GameArcadeHub from the existing child-surfaces preview, full catalogue scope; all27 actual cards scrolled and decoded normally",
+    "directVisualReview": "All81 actual card captures directly viewed at their captured dimensions, plus saved384,390 and128 for all27. Whole subjects recognizable, no clipping or prohibited finish.",
+    "proofFile": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/hub-runtime/proof.json",
+    "proofSha256": "65845882b3e613cac199aff86992fc8751ce2b92eb77fd5ba4e77f6f13d2d1d7",
+    "limits": "Local synthetic preview only; no hosted, physical device or listening claim."
+  }
+}

@@ -10,6 +10,14 @@ const registrationFile='scenery-clean-cartoon-registration.json';
 const configBytes=await fs.readFile(path.join(root,directory,registrationFile)),configuration=JSON.parse(configBytes);
 const manifestPath=path.join(root,directory,'scenery-clean-cartoon-manifest.json'),manifest=JSON.parse(await fs.readFile(manifestPath,'utf8'));
 const registerOnly=process.argv.includes('--register-only'),hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+if (manifest.assets.some(asset => asset.kind === 'authored-river-worksite-background-layer' && asset.productionRevision)
+    && !process.argv.includes('--kits-only')) {
+  const { buildWordBridgeHorizons } = await import('./wordBridgeHorizonArt.mjs');
+  const index = process.argv.indexOf('--asset-ids');
+  console.log(JSON.stringify(await buildWordBridgeHorizons({ metadataOnly: process.argv.includes('--metadata-only'), registerOnly,
+    selectedIds: index < 0 ? undefined : new Set(process.argv[index + 1].split(',')) })));
+  process.exit(0);
+}
 const atlases={},layers={};
 const compilationStart=performance.now();
 const timed=(asset,stage,started)=>console.log(JSON.stringify({event:'asset-stage',asset,stage,

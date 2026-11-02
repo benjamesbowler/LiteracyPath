@@ -61,6 +61,8 @@ import {
 } from "../../tools/buildSoundSeekersV2CropReview.mjs";
 import { assertSoundSeekersV2Assets }
   from "../../tools/checkSoundSeekersV2Assets.mjs";
+import { readCurrentSoundSeekersV2Delivery, SOUND_SEEKERS_V2_CURRENT_DELIVERY }
+  from '../../tools/lib/soundSeekersV2CurrentDelivery.mjs';
 
 const REPOSITORY_ROOT = resolve(new URL("../..", import.meta.url).pathname);
 const TASK4_COMMIT = "8b0f0fcee0d6d5be33e39ded2dbf46b7323d86af";
@@ -1380,8 +1382,37 @@ test("[real-root] every v2 background is exact, deterministic, bounded, and prov
     ]);
     assert.deepEqual(asset.humanReviews, { crop: null, semantic: null });
   }
+  const current = readCurrentSoundSeekersV2Delivery({ root: REPOSITORY_ROOT });
+  assert.deepEqual(current.historical, manifest, 'Historical generation receipts stay unchanged');
+  assert.deepEqual(current.replacements.map(item => item.jobId), ['art-0676', 'art-0677']);
+  assert.equal(current.assets.flatMap(asset => asset.cropReview.profiles).length, 24);
+  for (const asset of current.assets) {
+    assert.equal(sha256Bytes(readFileSync(join(REPOSITORY_ROOT, 'public', asset.path))), asset.final.sha256);
+    if (asset.currentReplacement) assert.equal(asset.currentReplacement.originalSha256, manifest.assets.find(old => old.path === asset.path).final.sha256);
+  }
   await assertSoundSeekersV2Assets({
     root: REPOSITORY_ROOT,
     kits: SOUND_SEEKERS_BIOME_KITS
   });
+});
+
+test('current V2 delivery fails closed when replacement, original receipt or crop geometry drifts', t => {
+  const root = mkdtempSync(join(tmpdir(), 'sound-seekers-current-delivery-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const registry = JSON.parse(readFileSync(join(REPOSITORY_ROOT, SOUND_SEEKERS_V2_CURRENT_DELIVERY), 'utf8'));
+  const sources = JSON.parse(readFileSync(join(REPOSITORY_ROOT, registry.replacementManifest), 'utf8'));
+  const files = [SOUND_SEEKERS_V2_CURRENT_DELIVERY, registry.replacementManifest, 'public/game-assets/sound-seekers/v2/SOURCE.md', ...sources.assets.filter(asset => registry.replacements.some(row => row.path === asset.path)).flatMap(asset => [asset.nativeSaved, asset.promptFile])];
+  for (const file of files) { mkdirSync(dirname(join(root, file)), { recursive: true }); cpSync(join(REPOSITORY_ROOT, file), join(root, file)); }
+  assert.equal(readCurrentSoundSeekersV2Delivery({ root }).replacements.length, 2);
+  for (const mutate of [
+    value => { value.historicalSourceSha256 = '0'.repeat(64); },
+    value => { value.replacements[0].recordSha256 = '0'.repeat(64); },
+    value => { value.replacements.pop(); },
+    value => { value.cropReview[0].profiles[0].quietZone.width += 0.1; },
+    value => { value.cropReview[0].profiles[0].id = 'drift'; }
+  ]) {
+    const changed = structuredClone(registry); mutate(changed);
+    writeFileSync(join(root, SOUND_SEEKERS_V2_CURRENT_DELIVERY), JSON.stringify(changed));
+    assert.throws(() => readCurrentSoundSeekersV2Delivery({ root }));
+  }
 });

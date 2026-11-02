@@ -1,107 +1,10 @@
 // Generated from original Word Bridge materials/river horizons by scripts/art/build-word-bridge-scenery.mjs.
 export const WORD_BRIDGE_SCENERY = {
-  "dino-construction-kit": {
-    "width": 1536,
-    "height": 1024,
-    "pixelsPerUnit": 200,
-    "nominalHeight": 2.2,
-    "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-construction-kit-v1.webp",
-    "frames": [
-      {
-        "id": "dino-plank",
-        "action": "plank",
-        "direction": "front-three-quarter",
-        "cell": [
-          28,
-          62,
-          754,
-          384
-        ],
-        "anchor": [
-          625,
-          313
-        ],
-        "sockets": {
-          "ground": [
-            653,
-            375
-          ]
-        }
-      },
-      {
-        "id": "dino-workbench",
-        "action": "workbench",
-        "direction": "front-three-quarter",
-        "cell": [
-          795,
-          27,
-          1510,
-          521
-        ],
-        "anchor": [
-          520,
-          485
-        ],
-        "sockets": {
-          "ground": [
-            1315,
-            512
-          ]
-        }
-      },
-      {
-        "id": "dino-rack",
-        "action": "rack",
-        "direction": "front-three-quarter",
-        "cell": [
-          37,
-          414,
-          640,
-          997
-        ],
-        "anchor": [
-          503,
-          574
-        ],
-        "sockets": {
-          "ground": [
-            540,
-            988
-          ]
-        }
-      },
-      {
-        "id": "dino-bank",
-        "action": "bank",
-        "direction": "front-three-quarter",
-        "cell": [
-          640,
-          585,
-          1526,
-          997
-        ],
-        "anchor": [
-          450,
-          165
-        ],
-        "sockets": {
-          "ground": [
-            1321,
-            988
-          ],
-          "walkSurface": [
-            1090,
-            750
-          ]
-        }
-      }
-    ]
-  },
   "meadow-construction-kit": {
     "width": 1536,
     "height": 1024,
-    "pixelsPerUnit": 200,
     "nominalHeight": 2.2,
+    "pixelsPerUnit": 200,
     "runtime": "/game-assets/physical-arcade/word-bridge/scenery/meadow-construction-kit-v1.webp",
     "frames": [
       {
@@ -194,11 +97,108 @@ export const WORD_BRIDGE_SCENERY = {
       }
     ]
   },
+  "dino-construction-kit": {
+    "width": 1536,
+    "height": 1024,
+    "nominalHeight": 2.2,
+    "pixelsPerUnit": 200,
+    "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-construction-kit-v1.webp",
+    "frames": [
+      {
+        "id": "dino-plank",
+        "action": "plank",
+        "direction": "front-three-quarter",
+        "cell": [
+          28,
+          62,
+          754,
+          384
+        ],
+        "anchor": [
+          625,
+          313
+        ],
+        "sockets": {
+          "ground": [
+            653,
+            375
+          ]
+        }
+      },
+      {
+        "id": "dino-workbench",
+        "action": "workbench",
+        "direction": "front-three-quarter",
+        "cell": [
+          795,
+          27,
+          1510,
+          521
+        ],
+        "anchor": [
+          520,
+          485
+        ],
+        "sockets": {
+          "ground": [
+            1315,
+            512
+          ]
+        }
+      },
+      {
+        "id": "dino-rack",
+        "action": "rack",
+        "direction": "front-three-quarter",
+        "cell": [
+          37,
+          414,
+          640,
+          997
+        ],
+        "anchor": [
+          503,
+          574
+        ],
+        "sockets": {
+          "ground": [
+            540,
+            988
+          ]
+        }
+      },
+      {
+        "id": "dino-bank",
+        "action": "bank",
+        "direction": "front-three-quarter",
+        "cell": [
+          640,
+          585,
+          1526,
+          997
+        ],
+        "anchor": [
+          450,
+          165
+        ],
+        "sockets": {
+          "ground": [
+            1321,
+            988
+          ],
+          "walkSurface": [
+            1090,
+            750
+          ]
+        }
+      }
+    ]
+  },
   "moonwood-construction-kit": {
     "width": 1536,
     "height": 1024,
-    "pixelsPerUnit": 200,
     "nominalHeight": 2.2,
+    "pixelsPerUnit": 200,
     "runtime": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-construction-kit-v1.webp",
     "frames": [
       {

@@ -3,7 +3,7 @@
 // tool. An admin can override them live in the in-app Map Stops editor; those
 // overrides are stored in Supabase app_config and cached in localStorage.
 import { supabase } from "../supabaseClient.js";
-import { ADVENTURE_ATLASES, ADVENTURE_ATLAS_VIEW } from "./adventureMapAtlas.js";
+import { ADVENTURE_ATLASES, ADVENTURE_ATLAS_VIEW, ADVENTURE_ATLAS_VERSION } from "./adventureMapAtlas.js";
 
 export const MAP_WIDE_VIEW = ADVENTURE_ATLAS_VIEW;
 
@@ -13,7 +13,7 @@ export const WIDE_WORLDS = [
   { id: "moonwood", name: "Moonwood Forest", image: ADVENTURE_ATLASES.moonwood.image }
 ];
 
-// Named to match the actual painted spot each stop sits on (read off the maps),
+// Named to match the actual illustrated place each stop sits beside,
 // in stop order 1-9. Update these if the stop coordinates change.
 export const WORLD_LANDMARKS_WIDE = {
   meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard", "Wildflower Field", "Sheep Pen", "Strawberry Field", "Haystacks", "The Big Barn"],
@@ -27,10 +27,10 @@ export const DEFAULT_WIDE_MAP_POINTS = {
   moonwood: ADVENTURE_ATLASES.moonwood.points
 };
 
-// Keep old art-specific placements untouched. Applying v1 positions to the v2
-// illustration would move named places onto the wrong landmarks.
-const CACHE_KEY = "lp-map-stops-wide-v2";
-const CONFIG_KEY = "map_stops_wide_v2";
+// Keep older art-specific placements untouched. Reusing earlier coordinates
+// with a new illustration would move named places onto the wrong landmarks.
+const CACHE_KEY = `lp-map-stops-wide-v${ADVENTURE_ATLAS_VERSION}`;
+const CONFIG_KEY = `map_stops_wide_v${ADVENTURE_ATLAS_VERSION}`;
 
 function isBrowser() { return typeof window !== "undefined"; }
 

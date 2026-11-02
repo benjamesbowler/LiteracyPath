@@ -1,0 +1,1067 @@
+[
+  {
+    "jobId": "art-0616",
+    "path": "/game-assets/sound-seekers/question-art/basket-lid.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/basket-lid.png"
+    ],
+    "originalSha256": "85ff76670bb0ce28435e1e0465531138ec556f7dc0760b7e1f4b4a780b7ee1b3",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/basket-lid.png",
+    "finalSha256": "81d7840fd92a8f4a3ff88b40e7763edd74dce0b4690d1d0853c2504002318940",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0616-001.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-18034f8c-53e6-4e17-b8c3-e8c22dc6023b.png",
+    "nativeSha256": "a820372be87fb00836f5eedb8ea3de5e727ce0cef0b86a06976b5fd762357db8",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/prompts/art-0616-attempt-001.txt",
+    "promptSha256": "9387944794ffee30a12befdeac34ad3ff71208446b00280aee154dcc87912a8e",
+    "referenceImages": [],
+    "generationMode": "built-in",
+    "acceptedAttempt": 1,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/outputs/basket-lid.packing.json",
+    "packingRecipeSha256": "b236e00445482075041d715aa53ba4e82e18ac0d03e9ae9f2aa827bfc406bfb8",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "574c59fc2c6bfc9ccd5b3ddf7a68307f7d500a88619965ea0ceee48a79ae3107",
+      "row": "basket-lid"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/receipt.json",
+          "sha256": "6f65b218946d4c4f5cd8aeba53e65708feaff1a3477bf3511110ded85b6efbcb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/basket-lid.png",
+          "sha256": "ffdee36028bf6c2bf915dcd08a9b2cb1e9e212ffe05986e1a59b664f7a59176a"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-input-hashes.json",
+          "sha256": "7b1ef5470e9b19333cdd95464a390a9ea55c0fca22b5a5276a4f267413f119f6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/basket-with-lid-1o7dncm-4mm7ug.webp",
+          "sha256": "e2cddae91b7aef659298bed7b64e4ce6b1227515cee1a9fb398d0569220b25b3"
+        }
+      ],
+      "notes": "Closed rectangular picnic basket: both lids flat and fully shut, empty, rear handle leaves a clear front lid surface. ON-basket leaf visibly rests on closed lid; genuine alpha around basket and handle hole."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/visual-review.json",
+    "reviewEvidenceSha256": "2318a396556b80433fe0937374c860a42385c4c4095e8d814bf7883ca9aaa082"
+  },
+  {
+    "jobId": "art-0617",
+    "path": "/game-assets/sound-seekers/question-art/colours.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/colours.png"
+    ],
+    "originalSha256": "70bc62f373a1d68e336663b3cae8d0965965cb6cbacba8ae06ca4c0ce660bc89",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/colours.png",
+    "finalSha256": "ce4a03abe622dbe4b157452fbea1dfc4b4a107d90fd43982dab6579306536ccb",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0617-001.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-65913141-a99c-45c5-a70b-26fa52f6f2e6.png",
+    "nativeSha256": "c0d7f3d2d87d728da73ecac875aba4f1e871f88a11e856bfce0164f5aef276a8",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/prompts/art-0617-attempt-001.txt",
+    "promptSha256": "a279a1c508ac2a4592c8da19725298b81298947c7a878136410e250627a2fa94",
+    "referenceImages": [],
+    "generationMode": "built-in",
+    "acceptedAttempt": 1,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/outputs/colours.packing.json",
+    "packingRecipeSha256": "b2bf14fe4f0d76baa2555640acdf7a0147b8ad46c0fbe39917d5283af62772bb",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "574c59fc2c6bfc9ccd5b3ddf7a68307f7d500a88619965ea0ceee48a79ae3107",
+      "row": "colours"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/receipt.json",
+          "sha256": "6f65b218946d4c4f5cd8aeba53e65708feaff1a3477bf3511110ded85b6efbcb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/colours.png",
+          "sha256": "98c176d5b1f365e27e557860d86d876ce773630b70438ab6fb1dd55d1ee680c5"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-input-hashes.json",
+          "sha256": "7b1ef5470e9b19333cdd95464a390a9ea55c0fca22b5a5276a4f267413f119f6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/ribbon-bwu45c-y8lvyi.webp",
+          "sha256": "08000c35f8d1541cdce097e547c2f4c35f7f7e3ced7eeafdca7e0371c9375469"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/ribbon-1qz2or1-1gavjd3.webp",
+          "sha256": "1ca89a71e2d78dfd77108ecef1cbba83b4e92918873a61a82a232126488c06e1"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/ribbon-oa26ao-n3bd8i.webp",
+          "sha256": "3c9fb456b90864d5c5bc1057a313deacb778967bb7618589a33bcd893cc9b569"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/post-1ebweiv-i2ur7p.webp",
+          "sha256": "62997f4d13e59920260640c530f533733af8f2fba313d1e3865236449a232d4c"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bay-1j38kms-g9qucq.webp",
+          "sha256": "90f5d5353eed8a6ef28c6e14d11c0196b98f0684a6896240a3a28a2ba37e30c3"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bay-1n9mavj-syiu4n.webp",
+          "sha256": "7066f06fa1d29d4c82d25fd76514bc4578fc1ca4fe0342fe0d82d31c72ff20cc"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bay-llewno-yxdnc2.webp",
+          "sha256": "211ed8845e5008e100dfd52b8bff2cc4fc6e1d63861e796efa2504450b56bede"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/basket-1ysvmx6-158j298.webp",
+          "sha256": "d9b002888c4a5db5184cd4343482e30b1ca83a181e97ba4e8725742a019e2a72"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/paint-1xr4jhb-13fj3ub.webp",
+          "sha256": "80d96eb17d8bafcc1f6b5f818ea49a0a1dacfcde74bab5aa83a6ed33e2d1c559"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/tray-o264mw-1w3ji1a.webp",
+          "sha256": "e2f13cef52ae921c7f8bd8498e72aaf389d6d2dfc1106bfe4c040b0819f4fac5"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/tray-d7wq69-11c7l1f.webp",
+          "sha256": "4c8ec3a03c71e4ff3dc9b646920505128681fb4204d2f839eedffe8656543924"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/camp-19e6lcs-tvn7pq.webp",
+          "sha256": "f70871c13cc513b63f86a43e55e7af49fcdc594244572320dd2b1b7b8f6b996e"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/reed-19mxggm-1oyfvle.webp",
+          "sha256": "e0db4edc22511222a6c86bfb5cceba5add9045ced004befc8b2128b118bb7dcf"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/seed-w5ymd0-rwd70m.webp",
+          "sha256": "c947a46640bff8286b7200a26416c4347b1e1576c502105dfdd599a9e7beb0a5"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/gem-13lfnq4-ga6bni.webp",
+          "sha256": "271b7464108807fb4a3c87ca11222ca6c9d075cc57e2eceee98fffc957826bd8"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stair-1a5guca-3q5pv0.webp",
+          "sha256": "b1276ad673c19474856e7dcaebf6f8a48fa4b43adaa0febadd2e49231b98a3bb"
+        }
+      ],
+      "notes": "All 16 ordered cells complete. Red/blue/green bows and cubby bays unambiguous; red/blue trays same shallow form; blue post, round open basket, paint tin, tent, pale reeds, seed, purple gem and three steps readable."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/visual-review.json",
+    "reviewEvidenceSha256": "2318a396556b80433fe0937374c860a42385c4c4095e8d814bf7883ca9aaa082"
+  },
+  {
+    "jobId": "art-0618",
+    "path": "/game-assets/sound-seekers/question-art/context.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/context.png"
+    ],
+    "originalSha256": "ee420e50dd1cdadb7289fe7ae77cf0505f7cc57f04704c3ab9ae046873377361",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/context.png",
+    "finalSha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0618-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-f60ffe15-e67d-45ee-9be8-81a1cffcec3b.png",
+    "nativeSha256": "884da6f1b043f0a4e7619ce3f5336a524d814ebb264455f7d7c64ac88fb9e96a",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0618-attempt-002.txt",
+    "promptSha256": "89fba84c49a81efa242a54387ab575cb858aa6a9b73f59b69ab54c43f92d55d6",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0618-2-reference-1.png",
+        "sha256": "ee420e50dd1cdadb7289fe7ae77cf0505f7cc57f04704c3ab9ae046873377361"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0618-2-reference-2.png",
+        "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/context.packing.json",
+    "packingRecipeSha256": "ad2a9ee583545f3784631889a88a2215e581d2176b7b7e0b11fb376ea4f1f1b0",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "2538c2a7e7445cba6f35b0ad99899fa800b764b85f912a461e3c3f834d9c3513",
+      "row": "context"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0619",
+    "path": "/game-assets/sound-seekers/question-art/contrasts.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/contrasts.png"
+    ],
+    "originalSha256": "c9c702e9aea76a8035232b5ec5eb1fdd3468f24747fbe22a479309c6e243d06c",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/contrasts.png",
+    "finalSha256": "c20bb863e6aa26159b9e7b19948f110093aa91559dfc01c7be71c3fe6ba7f3cd",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0619-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-de88e403-3409-4d73-8ff8-2e8dc755b076.png",
+    "nativeSha256": "db8b7d3e533fe6064e6e259accb7918674437b7d6e5718525acc35f53b59a006",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/prompts/art-0619-attempt-002.txt",
+    "promptSha256": "955aa2450a1d80e5a122431aa48f8c7a0e404638968ae01526e4319df76199c0",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-9183d460-45d0-4c3c-b674-e44e5ef44042.png",
+        "sha256": "bb9bb22cddfdb820b4f98d313f9228165f3a3e01a1c256a56bb634633a9cb096"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/outputs/contrasts.packing.json",
+    "packingRecipeSha256": "63d8f0d236f26964c14d171dadfd9eb862b8e00d764686413e7fcd9d4a3dc59e",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "574c59fc2c6bfc9ccd5b3ddf7a68307f7d500a88619965ea0ceee48a79ae3107",
+      "row": "contrasts"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/receipt.json",
+          "sha256": "6f65b218946d4c4f5cd8aeba53e65708feaff1a3477bf3511110ded85b6efbcb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/contrasts.png",
+          "sha256": "b611092810abbea18c1cca72f6518fea7b0dfd78df6ebf59f6b5fbe024e64a9b"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-input-hashes.json",
+          "sha256": "7b1ef5470e9b19333cdd95464a390a9ea55c0fca22b5a5276a4f267413f119f6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-uddgrs-pp4270.webp",
+          "sha256": "ebbd3137ae0618eadd6a72d6a0035d59463dc8f04af32a61c0b142100d493f14"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-1wj8vnm-1rjhusk.webp",
+          "sha256": "d4c631f0095605581a85965d80550fa82dab11ea18f7f6195976cecec92ba466"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-1g1fwd-1cayy55.webp",
+          "sha256": "895963ada008bae7712a9f1af5ecd18bc5d2bcd712f184f628bf93101e41fd6c"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-1wv1gk1-1hcq94x.webp",
+          "sha256": "71acb0ccedbb2151af7a2a2d41e9ea814148fc0e593b72ab86e93fdebe80f59f"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/shell-16zcxjt-1exeljd.webp",
+          "sha256": "e8fac6bd27302e7a335e28a2915ad1ab164e026614c4b149f8435b90f9974c7b"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/shell-1ppiwwm-z2h4di.webp",
+          "sha256": "683b40f7e9d7a522c1b24d2409fde0206fc28d06d853eb9ed9a5493e31246320"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/shell-1rznnij-w0mc9t.webp",
+          "sha256": "75295df5f43cf6ca3aef9ead84490e1fa54293270e8140fdeff19acf9f6b372b"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/shell-11lno90-1s4j5ji.webp",
+          "sha256": "b64e7a4e8b8940ca0f34449fe3488cefdf65b3b771555265681bc1d43e294f6c"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-1lt1vad-nquqqx.webp",
+          "sha256": "ccd26bd308935480c99e088c91c9a281d11d58c1d7c49116e1736b846896c507"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-xft7ob-2bw3mb.webp",
+          "sha256": "e697143c22989cb4ac521c204d5f8764f2388f193004bd0cffa44c23b51a83e5"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/towel-on-rail-1o00g3t-laqmrn.webp",
+          "sha256": "486bb10786c6fa91991467463a230e470bccb1cf18a37c499e4cac56b136dc6a"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/cloth-on-rail-1ht8usy-qfl0d6.webp",
+          "sha256": "e83710a06ed86c03d3279332c5a16cbfd4db3187cc72b10a0c0b810b853d1085"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/pot-4261yf-pucedd.webp",
+          "sha256": "1c6edd00d79858d7baf6d093bf8d274d5935d5332bec80bed438539e495fa9ee"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/pot-7n0vth-ylxsop.webp",
+          "sha256": "b6d5ed4ffd63d639fb8f65c3075f1970e7909c9397ff2ff47b7abcce650cf944"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/dock-1hee05w-1ktnl42.webp",
+          "sha256": "15a0939dc884c1d415c431c3b2312a1dc7d3339efe44feb39f900429eea503b1"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/dock-1iyubzy-11alw54.webp",
+          "sha256": "b0c211d062fead8114e5735cea5b0d60bedac1e3fcb599e122e51df08c517991"
+        }
+      ],
+      "notes": "All16 contrasts inspected at native,390,128 and question size: flat/round rough stones use a few outlined pits; smooth stones have uninterrupted surfaces; round/pointed shells keep dark/cream stripes; towel/cloth physically drape on rail; EMPTY pots retain sunny versus shady cues; compass arrows UP north/DOWN south. Repaired plants in pots and fabric grain."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/visual-review.json",
+    "reviewEvidenceSha256": "2318a396556b80433fe0937374c860a42385c4c4095e8d814bf7883ca9aaa082"
+  },
+  {
+    "jobId": "art-0620",
+    "path": "/game-assets/sound-seekers/question-art/details.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/details.png"
+    ],
+    "originalSha256": "7044c3bf5bb9fd96baf6c1d424c298ce8b8646266f01052d3d0f5a58c027f518",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/details.png",
+    "finalSha256": "b7332738cd7e7652a61e26d60a63be68ffa43c7b4396cf2f40f07593a37eb60e",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0620-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-9808e3e2-be63-4f8e-a24e-c511b5064e63.png",
+    "nativeSha256": "ab25b418c6c0896cefaee8611a0dabca4203f507f4d7a6d4c359232f2a377b05",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0620-attempt-002.txt",
+    "promptSha256": "b2c127bd6c83bdfb8d8091dff7bb76a63e45787e543f7415e0502daa945ef60e",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0620-2-reference-1.png",
+        "sha256": "7044c3bf5bb9fd96baf6c1d424c298ce8b8646266f01052d3d0f5a58c027f518"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0620-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/details.packing.json",
+    "packingRecipeSha256": "80e9014d5c0985370e5466231994d85bb0289f1faa3b9d0f14d311018b3af3de",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "2538c2a7e7445cba6f35b0ad99899fa800b764b85f912a461e3c3f834d9c3513",
+      "row": "details"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0621",
+    "path": "/game-assets/sound-seekers/question-art/home.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/home.png"
+    ],
+    "originalSha256": "54fcfd936f1dd5cac7f5ea0793e9af1e4660854847bbb0ce4d5419e91b867fb2",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/home.png",
+    "finalSha256": "581464897afb7086de35741079c3186e6c6521bd9f204536d2a0c39855e8176a",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0621-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-49820188-7378-4ad9-8916-9b987e5e54e0.png",
+    "nativeSha256": "3f8efd56293575ea81d8c5e85f3b81d3117e50ac318241963391b6fb3b8fa475",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0621-attempt-002.txt",
+    "promptSha256": "c3f2a426576cf48b0feea4dfb5d531bb909cdbc365c91b98485492d4f7d4a653",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0621-2-reference-1.png",
+        "sha256": "54fcfd936f1dd5cac7f5ea0793e9af1e4660854847bbb0ce4d5419e91b867fb2"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0621-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/home.packing.json",
+    "packingRecipeSha256": "f6bf9bdc811910b05b119ac17b780fc30dc94ad4b907fee292d384de6d7ecab5",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "2538c2a7e7445cba6f35b0ad99899fa800b764b85f912a461e3c3f834d9c3513",
+      "row": "home"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0622",
+    "path": "/game-assets/sound-seekers/question-art/landscapes.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/landscapes.png"
+    ],
+    "originalSha256": "380d326395e5643f6c7d1ec65c5d133f053fba0b8a490fd03075d2a34d0657f4",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/landscapes.png",
+    "finalSha256": "4fb6150d3661b807d611af368320f9b8029f41e5e0e05f180605fc3867a8682f",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0622-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-cb724827-4297-4370-9ad8-1c94bb8f7810.png",
+    "nativeSha256": "95fcf30bd17c02a766eac85fd58b7fef0c34ab76300304c46021b34d9b1ddab2",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": false
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0622-attempt-002.txt",
+    "promptSha256": "465901c91cb523a547e775a81303710c23a80d694bfccf0cc7a9bc75ceb5c7b2",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0622-2-reference-1.png",
+        "sha256": "380d326395e5643f6c7d1ec65c5d133f053fba0b8a490fd03075d2a34d0657f4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0622-2-reference-2.png",
+        "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/landscapes.packing.json",
+    "packingRecipeSha256": "2ba48eaf471890895e38063d1f6ec2e6231f5b8d9f6e1c764f050ee687ad4a3c",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/landscape-source.json",
+      "sha256": "19caf5937f54292db50718ea3333c8953c02663c56daf2b6187c39191b43f3b4",
+      "row": "landscapes"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0623",
+    "path": "/game-assets/sound-seekers/question-art/outdoor.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/outdoor.png"
+    ],
+    "originalSha256": "1f77eb068c84879644dc36810bce66481c92dda3cd1ce75c5360b92eecf6d387",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/outdoor.png",
+    "finalSha256": "6211b84d574a705e733262a061295e1735d61cd4563351f46330c0e4ad1d11a6",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0623-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-4dda4bcc-c8af-4edf-9ba0-6ff58bdccea2.png",
+    "nativeSha256": "d2a2787c3b0877e727e57ee7fddc5af710f936e33c0e1f05747414fc6d4eafdd",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/prompts/art-0623-attempt-002.txt",
+    "promptSha256": "65c43103cb80497a605abc2f3a3ad777af7801ed3be3f48f83cf0f81ba766017",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-cdb2751e-a094-4384-ae35-5ad9dc35e1cf.png",
+        "sha256": "84a20a5ac7e4cea9479dcefcbc02672b798298ce41c4d6a01722788a58c66b09"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/outputs/outdoor.packing.json",
+    "packingRecipeSha256": "93dedda140a1adb8089b1b940388b82635dc27ddeeea762a10aff67841653c1a",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "574c59fc2c6bfc9ccd5b3ddf7a68307f7d500a88619965ea0ceee48a79ae3107",
+      "row": "outdoor"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/receipt.json",
+          "sha256": "6f65b218946d4c4f5cd8aeba53e65708feaff1a3477bf3511110ded85b6efbcb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/outdoor.png",
+          "sha256": "163bc0b5230ad1e3d70fd129326a82c5ec5a2af45e19dcfdd7da301bfd4755e0"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-input-hashes.json",
+          "sha256": "7b1ef5470e9b19333cdd95464a390a9ea55c0fca22b5a5276a4f267413f119f6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bench-k0gh4p-1qdlgib.webp",
+          "sha256": "c9a4665fd380fc214c6d7719adc7075c45d9c22fe3ced9d556e1c51959c49c34"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/berry-r8n69k-18tt4ku.webp",
+          "sha256": "5e9f0f600f3d6bd85a95f823b4d3c023593d1e02f5b33aa6a055e5a4c40c2a19"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/berry-he7fgv-14d4mdf.webp",
+          "sha256": "832329eb9e7aa0b279a8d93983b314a269e1c2021f4fd4ab6dcc86f7cbb018d1"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/ledge-1tnofmy-pmdhr2.webp",
+          "sha256": "d1c732a16b6d725a1f7da3620ef0fa8af91b1652cb543000d33731e685fe8751"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/flower-1w99c5v-1621j3p.webp",
+          "sha256": "753716824b38342419b36f86f8de38d15bf9e077458a4b3693c2ba07063333a9"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/flower-1ipa5cm-1dya136.webp",
+          "sha256": "67e0e9be04dbf77c13e6b307d5e05ed32979d5a77895fe11ffdd98ade7460f47"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/shade-1p5awom-1lb99sa.webp",
+          "sha256": "120d82177daf8eb405ed3d66d77f8b553209bec3e79bc3cac32e8c99ec0deac7"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/dock-7kiq6-7chwky.webp",
+          "sha256": "5d10f828455045732210e5a400add1b7ee2a3882ace0fe3b99b4f84a44166b4f"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/cover-1glmpi8-k25y4.webp",
+          "sha256": "2e92b47027905fedce5cfb75ab8e4e562bc237e0b59524f4f4a35fd675fbc8ba"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/boat-1lrq173-1b1cdpl.webp",
+          "sha256": "dbd27c2bcaa1407a6abfe7953045f11af408b3ac54d4705057d345f484fc8da9"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/lily-6wehhp-fsw2yp.webp",
+          "sha256": "d62c0a3d5b346fd0c47a0cec4d7bc6a61fd30e60aa58c42afea5fec593f0cede"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/post-1tv9qmz-1m7gwyx.webp",
+          "sha256": "112c72970b5e145d3fead87d3146e554a70c22ddafb40cdea2bd0a5ae298f627"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/carrot-1mdv3jq-11jk214.webp",
+          "sha256": "0baa18640b915209c3b51141ef172713ce01728b8194d10d9773e62c9d0bd002"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/apple-1ymjnt7-1tk017d.webp",
+          "sha256": "cf973adfd0e21c619f74d791a60cb0f54bdcdb41114d4f04eeddd7e3be8486ee"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/apple-1dwr0cg-10y03m8.webp",
+          "sha256": "707cb98abbc32e69c83bb3592e47e6827094bedf0adc5d61f5385c4e369c6ef9"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bread-1nxhise-1f7rj06.webp",
+          "sha256": "41226a63ecca6c658d82eadbb37c3dc1f36d7ea9bec05d56f199d5f39edeb1a2"
+        }
+      ],
+      "notes": "All16 cells complete. Bench/canopy/pier preserve open under-space, red/blue single berries and red/yellow flowers distinct, empty boat, lid, lily, post, carrot, red/green apples and ROUND bread retained. Bread repaired to flat clean golden fields with clear scoring; no crust flecks."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/visual-review.json",
+    "reviewEvidenceSha256": "2318a396556b80433fe0937374c860a42385c4c4095e8d814bf7883ca9aaa082"
+  },
+  {
+    "jobId": "art-0624",
+    "path": "/game-assets/sound-seekers/question-art/places.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/places.png"
+    ],
+    "originalSha256": "a9d53d62f0caa4a49034d30238a9f79afd79c0cc91b0e65b8ca56280027a10cc",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/places.png",
+    "finalSha256": "857faa0398d5f77ea47ef4b05ade6ef4c22e7e1605292337b118b005555f11ec",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0624-001.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-da0abe85-7c80-4fdf-a02e-4e55bc936d3c.png",
+    "nativeSha256": "e33825ddec7b2d236d3d1a06f7571e345262e736316f1f05e9fbbd734b940610",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/prompts/art-0624-attempt-001.txt",
+    "promptSha256": "7fe25e8226f157d1fad79311b1cd8cb82391c0c73abc43ce99e6c4477d4608cc",
+    "referenceImages": [],
+    "generationMode": "built-in",
+    "acceptedAttempt": 1,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/outputs/places.packing.json",
+    "packingRecipeSha256": "2e47c4eb53f84d34600ba8d34f91c52f2426d4d22b93d5b67e1db9e47ea43e77",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "574c59fc2c6bfc9ccd5b3ddf7a68307f7d500a88619965ea0ceee48a79ae3107",
+      "row": "places"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/receipt.json",
+          "sha256": "6f65b218946d4c4f5cd8aeba53e65708feaff1a3477bf3511110ded85b6efbcb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/places.png",
+          "sha256": "4330efc17395eeff46026fe8940f664136c784fe2a9e0f658599fcf2d89df4f0"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-input-hashes.json",
+          "sha256": "7b1ef5470e9b19333cdd95464a390a9ea55c0fca22b5a5276a4f267413f119f6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/shelf-la1b6v-1mjocl.webp",
+          "sha256": "5d3caeb74633654a7ff57d85e8d81d30c72894859e7d5a5128acd24b3607d416"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/barn-1tjo86c-yk5mtq.webp",
+          "sha256": "a58995c7ff54b8765678c615b9fcbb41b347160e06048f830784182b56fbde5e"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/rack-1791w6-1y2vkve.webp",
+          "sha256": "b16104d364cb1e2482ca807918d221e49414ccc9b5457242bd1a839b4206ae1b"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bridge-2vuumg-wrgfym.webp",
+          "sha256": "448cca151aead8e375d3b694fabb3c4f835268524be4fced0f11a9dc8043ba86"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/bank-mzpb4j-1snt9xz.webp",
+          "sha256": "a9aeb05212b5c9e18ab5cf27fc2241c145d0442f487bb308e1b5294cb15a1da6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/parcel-12qw840-14kjou0.webp",
+          "sha256": "139794cf96a2240564fac1775e1682a73afc11538a978aaefc689fdd7960906a"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/card-1u3wfh7-dbamw5.webp",
+          "sha256": "5b23e139197ef50a943a257bb93a8a1122a63cd191d128196cf06eac7cf8c991"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scroll-rfv8hg-1ogcf24.webp",
+          "sha256": "5f7c5a0a5d9aa431139ec2112ea4bea51c971d4a701908a5490b585cc89fc816"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/reed-gr0he9-15ngzjb.webp",
+          "sha256": "c06f7b295b59df39b45506b881632eeb3cf49ce50a001c6aab7836bb4888cff0"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/flag-xn69r7-34n9vh.webp",
+          "sha256": "fbf3279b3d70b8d8c98d74e61780b5f43e5b132082faaa7c7f3cc7de4d87ce92"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/island-1v8v39w-1t8g298.webp",
+          "sha256": "e54807e9ab27721c2de7347ae247ca18100aa10ceb38b7ca1b81de79e9e4cb3d"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/raft-109byn6-haeonk.webp",
+          "sha256": "24e74dd58db07a5775e6d16f90aa1f4200d7f69b80c1fc2a325badf895210056"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/stone-qan3vq-sc800i.webp",
+          "sha256": "403e31579a1908df2abf7e3f29f6cc798d30360752cb70388d652934f3dce6f2"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/gate-1g0826-iaxp0m.webp",
+          "sha256": "e8af196e4cc66eaf17e8f900b6274fa042595029c488f8ee02bbd65713fe5f81"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/hedge-1udzkda-heq3h6.webp",
+          "sha256": "334a0a607d1076ff5228695712c001622e4db54187990df7fa97f41730b4be3c"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/plate-1rv2vjb-stpqjh.webp",
+          "sha256": "88bea11dc89beeb6627784c19fee5e75888f64b3ec0a2899be5957e4e0b7e43b"
+        }
+      ],
+      "notes": "All16 complete: shelf brackets, barn open door, empty rack and arched bridge with under-space; bank/parcel/card/scroll/reeds, plain red course pennant no emblem, island surrounded by water, raft, stone, CLOSED gate, hedge and plate."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/visual-review.json",
+    "reviewEvidenceSha256": "2318a396556b80433fe0937374c860a42385c4c4095e8d814bf7883ca9aaa082"
+  },
+  {
+    "jobId": "art-0625",
+    "path": "/game-assets/sound-seekers/question-art/scenes.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/scenes.png"
+    ],
+    "originalSha256": "c96bda02756336bb4a0cc6d3c389cf6cf9ff3724e7cbe33fb0a521c105fbf8a4",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/scenes.png",
+    "finalSha256": "31c596bfd3d6b5795ffb2d3d22d9b361ed8a15a0ae0e9822943f648c08e23c2a",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0625-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a199a5-9e15-7521-9357-e5a8f7b90cd8/exec-d2c32655-111b-4250-a943-e4c061f29807.png",
+    "nativeSha256": "6a6fbb95a25663ff0657013f611d0b7ff8884171d1c6a742fc2f6d25a5b3d874",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/prompts/art-0625-attempt-003.txt",
+    "promptSha256": "5bfd8b8e78f61559eb3f0d5ead14e6022dc0b373766009b6eea62e9e60130cf7",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/natives/art-0625-002.png",
+        "sha256": "52f167e79a8059076feba77fc11a79495fc415728103c087f2d9e7143318542b"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/outputs/scenes.packing.json",
+    "packingRecipeSha256": "bc575b19b68ef77b257f3c89ea0d50ad3723187ac5d52783edf7e115b43cbfea",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "574c59fc2c6bfc9ccd5b3ddf7a68307f7d500a88619965ea0ceee48a79ae3107",
+      "row": "scenes"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/receipt.json",
+          "sha256": "6f65b218946d4c4f5cd8aeba53e65708feaff1a3477bf3511110ded85b6efbcb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-browser/scenes.png",
+          "sha256": "854c18df6b4d7635091b8e7bab58fad6ebcc4499e8d8d5871c10ab6c384d038e"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-input-hashes.json",
+          "sha256": "7b1ef5470e9b19333cdd95464a390a9ea55c0fca22b5a5276a4f267413f119f6"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-engine-3auzag-64h06k.webp",
+          "sha256": "bcc73952a35aa1204c0ea1e35456e7afd5409189685e2d95b491451c89db7ddc"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-carriage-rc6g80-1gekxqi.webp",
+          "sha256": "e1159ac8b3a2faa76da403c0fb2e5358b9535f07a0a465bd3f5093ae4e48d4b3"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-track-102iy5t-lpwunh.webp",
+          "sha256": "eba0e02ee27a51797cd9bba6d0a50e68fe33701388268f379b54d113a5f0718f"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-mailbox-1wyvmyi-12gruvy.webp",
+          "sha256": "55d7675bd012a4751dc2760a8f7ae6ffb90c6c358315dbaf007a394c629f8c4c"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-bubble-machine-4th5k8-1kafzp0.webp",
+          "sha256": "6acadf8a8602d086bcecb7038749ad1e24c7ea25969c18b84c823bd339fedf82"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-bubble-13igy44-v5gqbg.webp",
+          "sha256": "c55c766eb160851fe7b91ec32967d1721594f394edef2070e6c519f09bceba11"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-pop-lvj5up-1o0f8kt.webp",
+          "sha256": "fe5dd4a9876cb780b821e032433c4722b62b9cd17252edc139a82ad697dfa2cb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-bridge-frame-izus8f-1s3jo6l.webp",
+          "sha256": "1cc34268f605cd1c4b159d156f0ae065750b3f6fe12e18965a502a9f562b8674"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-stepping-stone-1w7geh0-1cfvyvi.webp",
+          "sha256": "6b8b757db423a2c950a4cd9360cb44837fe9e62b53cc1c84b2fff6b84f3997aa"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-plank-1m75xbe-1uuxyvu.webp",
+          "sha256": "838b8df1913d1303d4ea00868031c091abfc925b47dc0c8a671a5435dea587f9"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-parcel-156k1xz-3r1wln.webp",
+          "sha256": "a3e84f0a08a4c8a987ca5fd940aeaeb4afc1385160f1c93a29030402952714a2"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-berry-1pmfa7y-1khg16k.webp",
+          "sha256": "2d8cb664e036938b46e585b003c141d53ea1bc72b5037030671350a61a2e48d5"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-workshop-piece-e7dg38-11xv0j4.webp",
+          "sha256": "7233ab77ca89c94215553687f3c50713b6ed9df7a9596bc03224eea10af010d3"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-seedling-1mjcegf-1ygc8ft.webp",
+          "sha256": "f5b1536d7c3b7dd60005f921113b3b5d16036fe0114d43d364be3b9e65a02bdf"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-star-ni0w0u-ocq4fq.webp",
+          "sha256": "acd5f4a060c03b9bba510fecf093065bf31b4311bad262cf1afa3e3c213d18c1"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/context-images/scene-seeds-7368e0-5fkycm.webp",
+          "sha256": "8c00610ec19d73cbf1ff1f27f8de35a07ca00bb1db79463f1057af601edb9827"
+        }
+      ],
+      "notes": "All16 scene props preserved: RIGHT-facing teal engine, empty wagon, track, open mailbox, crank bubble machine, single bubble, pop droplets, rope bridge frame NO DECK, SMOOTH stepping stone, plank, kraft parcel, red berry, wood peg, seedling pot, star with attached cord and seeds. Repaired rough stone/material grain and nearly opaque bubble. Final saved128 bubble center alpha1, sample alpha28/5/2, readable blue rim/highlights; real background visible through interior."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/visual-review.json",
+    "reviewEvidenceSha256": "2318a396556b80433fe0937374c860a42385c4c4095e8d814bf7883ca9aaa082"
+  },
+  {
+    "jobId": "art-0626",
+    "path": "/game-assets/sound-seekers/question-art/supports.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/supports.png"
+    ],
+    "originalSha256": "0af521b9cb6f410f4d2e8c0e0fbd9417053cb34fc00207e9067226df9ed589d9",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/supports.png",
+    "finalSha256": "ab546c749a28b99ede9e769e85272990795a8d97771a89eff1b5facf458cf472",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0626-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-79b55f54-69e9-4961-9d24-c05dcd0978bf.png",
+    "nativeSha256": "9458871e0ee4c9112cf18063d2064f9eaed3e6a6f32feed6f50637dacb56e4dd",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0626-attempt-003.txt",
+    "promptSha256": "b4ae2b654b3b7d1e1fdddce647a98aea0b5ab8d75551b7a50b83fdc5963b35a3",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0626-3-reference-1.png",
+        "sha256": "0af521b9cb6f410f4d2e8c0e0fbd9417053cb34fc00207e9067226df9ed589d9"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0626-3-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/supports.packing.json",
+    "packingRecipeSha256": "b2d3ad198630a374aa901fcabb0b8b865158d96f216e44bba9b4d723099c9e83",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "2538c2a7e7445cba6f35b0ad99899fa800b764b85f912a461e3c3f834d9c3513",
+      "row": "supports"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0627",
+    "path": "/game-assets/sound-seekers/question-art/workshop.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/workshop.png"
+    ],
+    "originalSha256": "f33ff62b8cbd2e4f53f572f8b39656f390667ae5acd70d83c61b0ec3d9410855",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/workshop.png",
+    "finalSha256": "f13adf03905a2d13013a6d5ef6bda081f71eb12ac8f3fc741e8d5c7e745dad48",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0627-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-9201aa9a-d702-4cad-b192-b9c03be96a22.png",
+    "nativeSha256": "5c208184d0b82fd702052b2fcc0a21c6a89b8406d2bfb726821f38708983cbd7",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0627-attempt-003.txt",
+    "promptSha256": "39d2f7c1ee86bd1c7322dad6c16d6a471e074da59c006b845372ec6656b43557",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0627-3-reference-1.png",
+        "sha256": "f33ff62b8cbd2e4f53f572f8b39656f390667ae5acd70d83c61b0ec3d9410855"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0627-3-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/workshop.packing.json",
+    "packingRecipeSha256": "45006803700ecb5bbcea3e0ad5e38e85b4e38bef8af89bf39b166cdfa5453de5",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "2538c2a7e7445cba6f35b0ad99899fa800b764b85f912a461e3c3f834d9c3513",
+      "row": "workshop"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  }
+]

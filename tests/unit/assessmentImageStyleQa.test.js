@@ -14,6 +14,8 @@ import {
   initialSoundWordBank
 } from "../../src/content/initialSounds/initialSoundWordBank.js";
 import { isInitialSoundRuntimeEligible } from "../../src/content/initialSounds/initialSoundMediaEligibility.js";
+import { getChildWordAsset } from "../../src/data/childAssets.js";
+import { getArcadeCuePicture } from "../../src/data/arcadeCuePictures.js";
 import { findAssessmentMediaCandidates } from "../../src/data/assessmentMediaRegistry.js";
 import {
   buildMediaQaRecords,
@@ -72,6 +74,15 @@ test("clean Initial Sounds replacements remain runtime eligible", () => {
     assert.equal(item.imageUrl, imageUrl, targetWord);
     assert.equal(isInitialSoundRuntimeEligible(item), true, targetWord);
   });
+});
+
+test("current child and Arcade star pictures remain concrete and QA-allowed", () => {
+  for (const resolve of [getChildWordAsset, getArcadeCuePicture]) {
+    const picture = resolve("star");
+    assert.equal(picture.image, "/images/child-mode/blends/star.webp");
+    assert.equal(isMediaQaRuntimeAllowed(picture.image, "image"), true);
+    assert.ok(fs.existsSync(path.join(projectRoot, "public", picture.image)));
+  }
 });
 
 test("runtime Initial Sounds selection retains every assessed letter without blocked art", () => {

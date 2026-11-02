@@ -76,7 +76,7 @@ jobs:
 
   visual:
     if: github.event_name != 'workflow_dispatch' || inputs.release_only == ''
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # The full legacy-camera evidence pass now takes about ten minutes on a
     # hosted software renderer, followed by fifteen settled screenshots and the
     # MIDI permission matrix. Keep enough headroom for a slow checkout/runner so

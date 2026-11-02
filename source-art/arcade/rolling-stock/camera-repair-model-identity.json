@@ -1,0 +1,12 @@
+{
+  "sourceBeforeSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+  "sourceAfterSha256": "c82d8b58204d9d0f0cfc8b36f44ad1902c804e9c1f11f423a5e66bf0940cad79",
+  "scenes": {
+    "wagon": "75ff52824c72a4e7ad1bdc053e4497b2d4b8eedc9812a17e58629e03f2d14a4e",
+    "engine": "e955f43bf2e097e9e35fe0c62e4d3f7b0dc644b8cec16c85057274bcc106c0cd",
+    "caboose": "14ec4fbd4202d5a731d2c62f9e841df11530e50275a361a6dd167d7cd9449351"
+  },
+  "allThreeMeshTransformsGeometryAndPrincipledMaterialsUnchanged": true,
+  "baselineCommit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+  "method": "Official Blender loaded the exact baseline and current editable source, reset each scene to frame0, and compared every mesh vertex, polygon, world transform, material assignment and Principled material value in wagon/engine/caboose. All three GLBs and other two sprites also retained exact original bytes."
+}

@@ -67,17 +67,18 @@ export const LANTERN_ASSETS = Object.freeze({
     "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
   },
   "horizon": {
-    "path": "/images/arcade/lantern-lagoon/horizon.webp",
-    "sha256": "39f07730ec860e5beee3556a06e23220208512192c9bcd65952b4eb209769590",
-    "bytes": 45944,
-    "width": 1536,
-    "height": 355,
-    "alpha": false,
-    "source": "source-art/arcade/lantern-lagoon/lagoon-world.png",
-    "sourceSha256": "ae0dc1902180146563058f2da54e0df0e23370db84dcb1c4c13ea8daf68548bc",
-    "origin": "image_gen.imagegen 2026-10-01",
-    "rights": "OpenAI built-in generated project output; existing project art used as reference",
-    "derivative": "Top horizon extraction excluding bridge/actors, WebP quality86"
+      "path": "/images/arcade/lantern-lagoon/horizon.webp",
+      "sha256": "5d823509818b718735ce9b01f297827155d6798ea6e073b25765e76505421307",
+      "bytes": 72484,
+      "width": 1536,
+      "height": 355,
+      "alpha": false,
+      "source": "source-art/app-clean-cartoon/resumed-backgrounds/art-0683.png",
+      "sourceSha256": "f48fd360bc7b784a9781c28178a2a75d3164b1e62ccda3d599878ad86e19ca77",
+      "origin": "image_gen.imagegen2026-11-02",
+      "rights": "OpenAIbuilt-in generated project output; clean project material reference",
+      "derivative": "Exact native crop x0,y115,2021x467 removes whitebars/nonessential foregroundwater, retains full skyline/cottages; resize1536x355, WebPq90effort6; tools/buildCleanCartoonBackgrounds.mjs",
+      "currentManifest": "source-art/app-clean-cartoon/resumed-backgrounds/manifest.json"
   },
   "lantern": {
     "path": "/images/arcade/lantern-lagoon/lantern.webp",

@@ -1,4 +1,5 @@
 import ActivityButton from "../ActivityButton.jsx";
+import { withRepairedImageVersion } from "../../utils/repairedImageVersion.js";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { SpeakerIcon } from "../elQuest/AdventureRoundFrame.jsx";
@@ -21,7 +22,7 @@ const PictureRevision = createContext(0);
 
 function Picture({ src, word, onFailure, className = "" }) {
   const revision = useContext(PictureRevision);
-  return <img key={`${src}:${revision}`} className={`cycle-picture ${className}`} src={src} alt={word || ""} draggable="false" data-assessment-media-kind="evidence" data-assessment-media-role="picture" onError={onFailure} />;
+  return <img key={`${src}:${revision}`} className={`cycle-picture ${className}`} src={withRepairedImageVersion(src)} alt={word || ""} draggable="false" data-assessment-media-kind="evidence" data-assessment-media-role="picture" onError={onFailure} />;
 }
 
 function HearPicture({ choice, disabled, onHear }) {
@@ -227,7 +228,7 @@ function SoundSort({ round, disabled, feedbackPending, assessment, onCommit, onH
         </div>}
       </div>)}
     </div>
-    {dragPosition && createPortal(<img className="cycle-drag-picture" src={object.image} alt="" aria-hidden="true" style={{ left: dragPosition.x, top: dragPosition.y }} />, document.body)}
+    {dragPosition && createPortal(<img className="cycle-drag-picture" src={withRepairedImageVersion(object.image)} alt="" aria-hidden="true" style={{ left: dragPosition.x, top: dragPosition.y }} />, document.body)}
   </div>;
 }
 

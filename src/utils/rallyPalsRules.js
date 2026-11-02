@@ -16,12 +16,8 @@ export function consumeRallyPalsFrame(remainder, elapsed, { active = true } = {}
   const steps = Math.floor((available + 1e-10) / RALLY_PALS_SIMULATION_STEP);
   return { steps, remainder: Math.max(0, available - steps * RALLY_PALS_SIMULATION_STEP) };
 }
-// Measured original-alpha atlas frames. Each court owns its texture instances.
-export const RALLY_PALS_WORLD_ART = Object.freeze({
-  meadow:{width:1672,height:941,horizonFoot:734,frames:{tree:[145,0,578,580],club:[884,22,744,514],flowers:[16,592,820,309],crowd:[836,536,835,395]}},
-  dino:{width:1536,height:1024,horizonFoot:886,frames:{tree:[0,0,751,600],club:[751,0,785,561],flowers:[0,600,750,388],crowd:[747,558,781,444]}},
-  moonwood:{width:1536,height:1024,horizonFoot:814,frames:{tree:[122,0,596,670],club:[775,26,749,590],flowers:[36,670,735,334],crowd:[775,616,748,398]}},
-});
+// Measured clean whole-prop bounds; shared by both court renderers and Builder foliage.
+export { RALLY_PALS_WORLD_ART } from '../data/generated/rallyPalsArt.generated.js';
 export const RALLY_PALS_COURTS = Object.freeze([
   { id: 'meadow', label: 'Meadow Court', court: 0x3f8b73, surround: 0x83ac5e, sky: 0x92d0ed, accent: 0xedb65c },
   { id: 'rooftop', label: 'Rooftop Court', court: 0xbb705b, surround: 0xd6b080, sky: 0xcfe3f4, accent: 0xe1b259 },

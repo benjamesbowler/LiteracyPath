@@ -6,12 +6,17 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { canonicalVisibleText, sameSpokenWords } from "./guidedReadingAudioPipelineLib.mjs";
 import { normalizeLedaAudioText } from "../src/data/normalizeLedaAudioText.js";
+import { isVerifiedInactiveImageRetirement, INACTIVE_IMAGE_EVALUATOR } from "./lib/inactiveImageRetirement.mjs";
+import { hashGitBlobs } from "./lib/gitBlobHashes.mjs";
+import { verifyCurrentCanonicalImageReference, CANONICAL_REFERENCE_PATH } from "./lib/canonicalImageReferences.mjs";
+export { isVerifiedInactiveImageRetirement } from "./lib/inactiveImageRetirement.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const reportPath = path.join(repoRoot, ".artifacts", "audits", "media_overwrite_risk_audit.md");
 const coverManifestPath = "src/data/generated/guidedReadingCoverRenditions.generated.js";
 const retirementRegistryPath = "tools/manifests/guided-reading-book-retirements.json";
+const inactiveImageRegistryPath = "tools/manifests/inactive-image-retirements.json";
 const narrationClearancePath = "src/data/generated/guidedReadingNarrationClearance.generated.js";
 const narrationGapsPath = "src/data/generated/guidedReadingLedaGaps.generated.js";
 const narrationEnumerationPaths = new Set([
@@ -257,7 +262,7 @@ function ensureReportDirectory() {
   fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 }
 
-function renderReport({ changedEntries, deletedEntries, tempSourceEntries, nonWebpEntries, mediaEntries, warnings, failures }) {
+function renderReport({ changedEntries, deletedEntries, tempSourceEntries, nonWebpEntries, mediaEntries, warnings, failures, canonicalReferences = new Set() }) {
   const summaryRows = [
     ["Changed paths in live media roots", changedEntries.length],
     ["Changed media files", mediaEntries.length],
@@ -274,7 +279,7 @@ function renderReport({ changedEntries, deletedEntries, tempSourceEntries, nonWe
     isMediaFile(entry.path) ? "media" : "non-media/live-folder",
     [
       entry.status === "D" ? "deleted" : "",
-      isTempOrSourcePath(entry.path) ? "temp/source" : "",
+      canonicalReferences.has(entry.path) ? "verified canonical identity reference" : isTempOrSourcePath(entry.path) ? "temp/source" : "",
       isNonWebpImagePath(entry.path) ? "non-webp image" : ""
     ].filter(Boolean).join(", ") || "review"
   ]);
@@ -672,8 +677,73 @@ async function losslessReplacementPaths(entries, baseline) {
   return valid;
 }
 
+async function verifiedInactiveImageRetirements(entries, baseline, { validateAll = false } = {}) {
+  const paths = new Set(), rows = [], failures = [];
+  let registry;
+  try {
+    registry = JSON.parse(fs.readFileSync(path.join(repoRoot, inactiveImageRegistryPath), "utf8"));
+    if (registry.schemaVersion !== 1 || !Array.isArray(registry.retirements)) throw Error("Invalid inactive-image registry schema");
+    const ids = registry.retirements.map(row => row.id), images = registry.retirements.flatMap(row => (row.assets || []).map(asset => asset.oldPath));
+    if (new Set(ids).size !== ids.length || new Set(images).size !== images.length) throw Error("Duplicate inactive-image cohort or path");
+  } catch (error) { return { paths, rows, failures: [`Cannot validate inactive-image retirements: ${error.message}`] }; }
+  const selected = registry.retirements.filter(row => validateAll || entries.some(entry => entry.status === "D" && row.assets?.some(asset => `public${asset.oldPath}` === entry.path)));
+  if (!selected.length) return { paths, rows, failures };
+  let currentFingerprint;
+  try {
+    currentFingerprint = JSON.parse(execFileSync(process.execPath, [INACTIVE_IMAGE_EVALUATOR, `--registry=${inactiveImageRegistryPath}`], {
+      cwd: repoRoot, encoding: "utf8", maxBuffer: 100 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"]
+    }));
+  } catch (error) { return { paths, rows, failures: [`Current finite image caller audit failed: ${error.message}`] }; }
+  const auditedSources = new Set(currentFingerprint.sourceFiles.map(row => row.path));
+  for (const retirement of selected) {
+    try {
+      const previousHashes = {}, historicalHashes = {}, currentHashes = {}, existingPaths = [];
+      const deletedPaths = entries.filter(entry => entry.status === "D" && retirement.assets.some(asset => `public${asset.oldPath}` === entry.path)).map(entry => entry.path);
+      const blobHashes = await hashGitBlobs(repoRoot, retirement.assets.flatMap(asset => [
+        `${baseline}:public${asset.oldPath}`, `${retirement.sourceRevision}:public${asset.oldPath}`
+      ]));
+      for (const asset of retirement.assets) {
+        const publicPath = `public${asset.oldPath}`;
+        previousHashes[asset.oldPath] = blobHashes.get(`${baseline}:${publicPath}`);
+        historicalHashes[asset.oldPath] = blobHashes.get(`${retirement.sourceRevision}:${publicPath}`);
+        const currentPath = path.join(repoRoot, publicPath);
+        if (fs.existsSync(currentPath)) { existingPaths.push(publicPath); currentHashes[asset.oldPath] = digest(fs.readFileSync(currentPath)); }
+      }
+      // Existing negative-policy and audited catalogue references retain their
+      // exact pinned bytes. A caller outside that evaluated scope fails closed.
+      const escaped = retirement.assets.map(asset => asset.oldPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+      const pattern = new RegExp(escaped.join("|"), "g"), unauditedReferences = [];
+      for (const source of currentFingerprint.runtimeSources.files) {
+        if (auditedSources.has(source.path)) continue;
+        const text = fs.readFileSync(path.join(repoRoot, source.path), "utf8");
+        pattern.lastIndex = 0;
+        if (pattern.test(text)) unauditedReferences.push(source.path);
+      }
+      if (!isVerifiedInactiveImageRetirement({ retirement, previousHashes, historicalHashes, currentHashes, currentFingerprint,
+        deletedPaths, existingPaths, unauditedReferences, validateOnly: validateAll })) {
+        throw Error(`Exact bytes, current caller/source proof, policy pins, output preservation or atomic deletion differs${unauditedReferences.length ? `; unaudited references: ${unauditedReferences.join(", ")}` : ""}`);
+      }
+      if (!validateAll) for (const asset of retirement.assets) paths.add(`public${asset.oldPath}`);
+      rows.push({ id: retirement.id, kind: retirement.kind, assets: retirement.assets.length, sourceRevision: retirement.sourceRevision,
+        currentBindings: currentFingerprint.allBindings, currentEligibleOutputs: currentFingerprint.positiveBindings,
+        acceptedHistoryBranches: currentFingerprint.historicalBranches.count, sourceFiles: currentFingerprint.runtimeSources.count });
+    } catch (error) { failures.push(`Unverified inactive-image retirement ${retirement.id}: ${error.message}`); }
+  }
+  return { paths, rows, failures };
+}
+
 async function main() {
   const baseline = selectMediaBaseline();
+  if (process.argv.includes("--validate-inactive-image-retirements")) {
+    const inactive = await verifiedInactiveImageRetirements([], baseline, { validateAll: true });
+    const result = { baseline, verified: inactive.rows.length, failures: inactive.failures, rows: inactive.rows,
+      passed: inactive.failures.length === 0 && inactive.rows.length > 0, mode: "read-only-pre-deletion-inactive-image-validation" };
+    ensureReportDirectory();
+    fs.writeFileSync(path.join(repoRoot, ".artifacts", "audits", "inactive_image_retirement_validation.json"), JSON.stringify(result, null, 2) + "\n");
+    console.log(JSON.stringify(result, null, 2));
+    if (!result.passed) process.exitCode = 1;
+    return;
+  }
   if (process.argv.includes("--validate-narration-retirements")) {
     const narration = await verifiedNarrationSupersessions([], baseline, { validateAll: true });
     const result = { baseline, verified: narration.rows.length, failures: narration.failures, rows: narration.rows,
@@ -689,17 +759,25 @@ async function main() {
   const retirements = await verifiedBookRetirements(changedEntries, baseline);
   const narration = await verifiedNarrationSupersessions(changedEntries, baseline);
   const supersededCovers = await supersededCardCoverPaths(changedEntries, baseline, retirements.sourceBindings);
+  const inactiveImages = await verifiedInactiveImageRetirements(changedEntries, baseline);
+  const canonicalReferences = new Set();
+  for (const entry of changedEntries.filter(entry => entry.status === "M" && entry.path === `public${CANONICAL_REFERENCE_PATH}`)) {
+    try { if (await verifyCurrentCanonicalImageReference(repoRoot, entry)) canonicalReferences.add(entry.path); }
+    catch { /* An unreadable or changed authority retains the generic source-file rejection. */ }
+  }
   const mediaEntries = changedEntries.filter(entry => isMediaFile(entry.path));
-  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path) && !supersededCovers.has(entry.path) && !retirements.paths.has(entry.path) && !narration.paths.has(entry.path));
-  const tempSourceEntries = changedEntries.filter(entry => entry.status !== "D" && isTempOrSourcePath(entry.path));
+  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path) && !supersededCovers.has(entry.path) && !retirements.paths.has(entry.path) && !narration.paths.has(entry.path) && !inactiveImages.paths.has(entry.path));
+  const tempSourceEntries = changedEntries.filter(entry => entry.status !== "D" && isTempOrSourcePath(entry.path) && !canonicalReferences.has(entry.path));
   const nonWebpEntries = changedEntries.filter(entry => entry.status !== "D" && isNonWebpImagePath(entry.path));
 
   const warnings = [`Comparison baseline: ${baseline}${baseline !== "HEAD" ? " (pending merge: incoming tree; all worktree differences remain checked)" : ""}.`];
-  const failures = [...retirements.failures, ...narration.failures];
+  const failures = [...retirements.failures, ...narration.failures, ...inactiveImages.failures];
   for (const file of replacements) warnings.push(`Pixel-identical WebP replacement verified; old runtime reference absent: ${file}`);
   for (const file of supersededCovers) warnings.push(`Superseded card-cover delivery verified against prior/current manifests, source bytes and decoded replacement; old runtime reference absent: ${file}`);
   for (const file of retirements.paths) warnings.push(`Whole-book retirement verified against explicit old/new bindings, historical bytes, runtime, approvals and decoded replacements; old runtime reference absent: ${file}`);
   for (const file of narration.paths) warnings.push(`Narration supersession verified against historical text/page/bytes, exact current text/runtime/provenance and decoded replacement; old cue and mapping absent: ${file}`);
+  for (const row of inactiveImages.rows) warnings.push(`Inactive-image cohort ${row.id}: ${row.assets} exact historical files retired after fresh finite/current/retention/history selection proof and unchanged nonretired outputs.`);
+  for (const file of canonicalReferences) warnings.push(`Completed canonical identity reference verified against exact metadata-only uses, current approved source covers, sealed consumer code and deterministic builder bytes: ${file}`);
 
   if (changedEntries.length > 0) {
     warnings.push("Live media folder changes detected. Review before committing to avoid overwriting approved media.");
@@ -730,6 +808,8 @@ async function main() {
       supersededCardCovers: supersededCovers.size,
       retiredBookAssets: retirements.paths.size,
       retiredNarrationClips: narration.paths.size,
+      retiredInactiveImages: inactiveImages.paths.size,
+      canonicalIdentityReferences: canonicalReferences.size,
       tempSource: tempSourceEntries.length,
       nonWebpImages: nonWebpEntries.length,
       result: failures.length ? "FAIL" : "PASS"
@@ -745,7 +825,7 @@ async function main() {
       path: entry.path,
       risk: [
         entry.status === "D" ? "deleted" : "",
-        isTempOrSourcePath(entry.path) ? "temp/source" : "",
+        canonicalReferences.has(entry.path) ? "verified canonical identity reference" : isTempOrSourcePath(entry.path) ? "temp/source" : "",
         isNonWebpImagePath(entry.path) ? "non-webp image" : ""
       ].filter(Boolean).join(", ") || "review"
     })));
@@ -768,6 +848,7 @@ async function main() {
     tempSourceEntries,
     nonWebpEntries,
     mediaEntries,
+    canonicalReferences,
     warnings,
     failures
   }));

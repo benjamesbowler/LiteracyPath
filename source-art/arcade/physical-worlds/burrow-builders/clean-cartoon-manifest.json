@@ -1,0 +1,186 @@
+{
+  "version": "burrow-builders-clean-cartoon-horizons-v1",
+  "createdAt": "2026-11-02T05:32:49.264Z",
+  "generator": "image_gen.imagegen",
+  "authority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
+    "sha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a"
+  },
+  "scope": "Only3illustratedalpha horizons; preserve actual editable3Dgeometry andall5albedomaterial sources.",
+  "assets": [
+    {
+      "id": "dino-horizon-v1",
+      "jobId": "art-0638",
+      "world": "dino",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/horizons/dino-horizon-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/dino-horizon-v1.png",
+      "promptFile": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/dino-horizon-v1.prompt.txt",
+      "sourceSha256": "3a33f611342d3c38fb1c10a22b818c2dd7320adab5d7774d9e4d0dc0a481f986",
+      "promptSha256": "1b9e19c4653cc4908d3f2b9359d2a8ae805bd4b6e6b1e054874834d2f3864e67",
+      "sha256": "19c48ec30c49cc3b01c6ef4c3212a7701c1ee698ccdcc6c9659e306176bdf930",
+      "size": [
+        2048,
+        768
+      ],
+      "mode": "RGBA",
+      "bytes": 337200,
+      "sourceSize": [
+        2048,
+        768
+      ],
+      "originalSha256": "3ec0d821d603092ef3269388f137441cbdd251a4e6f1403fea000dd528c718b4",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-c5fb0a89-71a1-4bc6-868b-d61da9efbbb8.png",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "encoding": {
+        "quality": 90,
+        "effort": 6,
+        "alphaQuality": 100
+      },
+      "use": "Distant genuinealpha illustrateddepthcard behindliveeditableworld inThreeandCanvasfallback; notcompletegameplayscreenshot.",
+      "review": {
+        "nativeInspected": true,
+        "savedWebpInspected": true,
+        "display390Inspected": true,
+        "display128Inspected": true,
+        "runtimeInspected": true,
+        "status": "accepted-local",
+        "reviewedAt": "2026-11-02T05:43:55.289Z",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/builder-horizons/browser-proof.json",
+        "notes": "Full native and full saved WebP,390/128views plus18actualfull-screen game captures across3worlds andWebGL/Canvasfallback were directlyreviewed. Genuinealpha above/below distantlandscape, no oldchurch/steeple inMeadow, no UIoractors bakedinto horizon. Exact9fetchedhash/revisionbindings pass. Existing editable3Dmodels/materials preserved. Rallysharedfoliage separatelyowned andawaitingfamilyreplacement."
+      }
+    },
+    {
+      "id": "meadow-horizon-v1",
+      "jobId": "art-0639",
+      "world": "meadow",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/horizons/meadow-horizon-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/meadow-horizon-v1.png",
+      "promptFile": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/meadow-horizon-v1.prompt.txt",
+      "sourceSha256": "c6869ee95de0fbb3a74b5be3e9f2c0d5e7340e39329bf7a4020686e85748459d",
+      "promptSha256": "45c761f1a11d21dc3c63fd3a1c08fb37bddcea053e38d09bed33a637f205d831",
+      "sha256": "916d2359a780f0849f3a57d1c3d85343c3db137a09ca46f0bf50b8f15ee60d95",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "bytes": 262126,
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "originalSha256": "c8f3b607c3e6251367031ac0444241b11660824f11a2ba7210f1dcb269fcb248",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-7b5a844d-7bde-4569-9d18-67dfd413a12a.png",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "encoding": {
+        "quality": 90,
+        "effort": 6,
+        "alphaQuality": 100
+      },
+      "use": "Distant genuinealpha illustrateddepthcard behindliveeditableworld inThreeandCanvasfallback; notcompletegameplayscreenshot.",
+      "review": {
+        "nativeInspected": true,
+        "savedWebpInspected": true,
+        "display390Inspected": true,
+        "display128Inspected": true,
+        "runtimeInspected": true,
+        "status": "accepted-local",
+        "reviewedAt": "2026-11-02T05:43:55.290Z",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/builder-horizons/browser-proof.json",
+        "notes": "Full native and full saved WebP,390/128views plus18actualfull-screen game captures across3worlds andWebGL/Canvasfallback were directlyreviewed. Genuinealpha above/below distantlandscape, no oldchurch/steeple inMeadow, no UIoractors bakedinto horizon. Exact9fetchedhash/revisionbindings pass. Existing editable3Dmodels/materials preserved. Rallysharedfoliage separatelyowned andawaitingfamilyreplacement."
+      }
+    },
+    {
+      "id": "moonwood-horizon-v1",
+      "jobId": "art-0640",
+      "world": "moonwood",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/horizons/moonwood-horizon-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/moonwood-horizon-v1.png",
+      "promptFile": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon/moonwood-horizon-v1.prompt.txt",
+      "sourceSha256": "c023897307fc7c1dc1f7acc641cd1a78ea6a6d96b9d6d329e7dc29e8068e632b",
+      "promptSha256": "84957fce9d864e4d274982bd503da5c13ef80eaa9bf4cca3d1e145ca10ea3b87",
+      "sha256": "f7e66af30089136d645783d5eab095a363f8b028552ca5d57ccd44e978e76911",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGBA",
+      "bytes": 216922,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "originalSha256": "47417a880aa65e8269cca458a96bc5a1f2534783128fde0a9bc34845815358fd",
+      "nativeOriginal": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-b30d7a59-3fb7-484d-8c02-571da653246a.png",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "encoding": {
+        "quality": 90,
+        "effort": 6,
+        "alphaQuality": 100
+      },
+      "use": "Distant genuinealpha illustrateddepthcard behindliveeditableworld inThreeandCanvasfallback; notcompletegameplayscreenshot.",
+      "review": {
+        "nativeInspected": true,
+        "savedWebpInspected": true,
+        "display390Inspected": true,
+        "display128Inspected": true,
+        "runtimeInspected": true,
+        "status": "accepted-local",
+        "reviewedAt": "2026-11-02T05:43:55.290Z",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/builder-horizons/browser-proof.json",
+        "notes": "Full native and full saved WebP,390/128views plus18actualfull-screen game captures across3worlds andWebGL/Canvasfallback were directlyreviewed. Genuinealpha above/below distantlandscape, no oldchurch/steeple inMeadow, no UIoractors bakedinto horizon. Exact9fetchedhash/revisionbindings pass. Existing editable3Dmodels/materials preserved. Rallysharedfoliage separatelyowned andawaitingfamilyreplacement."
+      }
+    }
+  ],
+  "preservedMaterialInputs": [
+    {
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp",
+      "sha256": "b1f49ab9e6f7c64df6e39fcd6cc3e8fa1272099f7b48882fe062ba46d1bbe778",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/grass-albedo-v1.png",
+      "sourceSha256": "96c60a40748e808b14dfcfbcd9abd83f4d85887e208a1c7bcbddc655bd0cc0c7"
+    },
+    {
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp",
+      "sha256": "c420d7292c1f6861929c27ee4d84cd6c746a383b4744a1bc29376a4b0bcba652",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/plank-albedo-v1.png",
+      "sourceSha256": "c5e3c01e25011e5ec3d6f59d6389602eff0cbdf283c2e7bbb14229c2c0aa7e16"
+    },
+    {
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/shingle-albedo-v1.webp",
+      "sha256": "f75a5ce36e4aabbf6325459ac485b9f7d15e262649bd1bd78aac058e7e350519",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/shingle-albedo-v1.png",
+      "sourceSha256": "e6e7220bcdcc79507e5ccfeacf30b10165a396ef5d407e4018848dee4c4bf2b5"
+    },
+    {
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/soil-albedo-v1.webp",
+      "sha256": "8ad2867629b741dfecc201d6956b20954a1e77dde556eec191e4ace617c374e8",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/soil-albedo-v1.png",
+      "sourceSha256": "251242adb6c8704c8c9c58941b6e60f24f057c89f4d7845951377d3c29200a5f"
+    },
+    {
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/stone-albedo-v1.webp",
+      "sha256": "7331d93ffb3872f952b72a08ea6784331f9d8eb82cf4f43284d9bcd4fa9016be",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/stone-albedo-v1.png",
+      "sourceSha256": "7ad2b337fbeff8bde31bdfd518a723a3c8e1e16a47435424cf63e99bea870b58"
+    }
+  ]
+}

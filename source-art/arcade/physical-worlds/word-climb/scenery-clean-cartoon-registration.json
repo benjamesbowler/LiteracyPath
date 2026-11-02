@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "game": "word-climb",
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/word-climb/scenery-manifest.json",
+    "sha256": "8618704634b6e64bf2ea6bf2e6abff14af07ae22bb1aa575cb79688e58ceec88"
+  },
+  "reference": {
+    "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/references/clean-style.png",
+    "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+    "role": "Clean material style only, no historical painted input"
+  },
+  "encoding": {
+    "quality": 90,
+    "alphaQuality": 100,
+    "effort": 6
+  },
+  "assets": [
+    {
+      "world": "meadow",
+      "jobId": "art-0672",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/meadow-scenery-v2.png",
+      "sourceSha256": "690e1f206e6cb2f8a793c20d9fe058aefb776cb60c24c58f91732a8916378b98",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/meadow-scenery-v2.webp",
+      "prompt": "scenery/clean-cartoon/meadow.prompt.txt",
+      "promptSha256": "b3e2c6508eabcc81b8e4c199358bab822030beecb454b06aebda1e33fc130eaf",
+      "receipt": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/meadow.receipt.json",
+      "receiptSha256": "9cdd0e196771eb86e6a186fbfae5ceb4d6fedb3d969ea6faa2fc81a965dd81e4"
+    },
+    {
+      "world": "dino",
+      "jobId": "art-0671",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/dino-scenery-v2.png",
+      "sourceSha256": "e5d406cb67d1da5068ed35c4928e1fa4c7d50e567f648888183e2c704e98cd30",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/dino-scenery-v2.webp",
+      "prompt": "scenery/clean-cartoon/dino.prompt.txt",
+      "promptSha256": "55a9e8587006684d9d5a28bd32bea7e337a1f6f14affc703e15f6541ce7dd0de",
+      "receipt": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/dino.receipt.json",
+      "receiptSha256": "1bc6d102ad570a33d86e076bde251b6b5e9a22a0dda5b10c16aff6295faafc5d"
+    },
+    {
+      "world": "moonwood",
+      "jobId": "art-0673",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/moonwood-scenery-v3.png",
+      "sourceSha256": "a5cf5242420788df7aee1eabb1455f3958be09b4487f21852ca29b38fe09cd88",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/moonwood-scenery-v3.webp",
+      "prompt": "scenery/clean-cartoon/moonwood.prompt.txt",
+      "promptSha256": "ea4717810c0d3bf307a9a01a9508cf00f6fc976af2cebbfa9c8b33e2fe51fe93",
+      "receipt": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/moonwood.receipt.json",
+      "receiptSha256": "ce750fe8e9f665efa747d6f50e144fafe5bad70106737a23ba8acb53bf3ecded"
+    }
+  ]
+}

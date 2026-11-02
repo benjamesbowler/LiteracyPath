@@ -1,5 +1,6 @@
 // Little Literacy Guides world themes. Each child-facing surface carries a
 // data-pal-world attribute; these helpers decide which world applies.
+import { withRepairedImageVersion } from "./repairedImageVersion.js";
 import { normalizeElQuestProgress } from "./adventureMapProgress.js";
 
 export const PAL_WORLDS = {
@@ -14,9 +15,9 @@ export const PAL_WORLDS = {
     // its own pal on top without the art ending up with two of them. The
     // panorama above is NOT clean — it already has pals walking the path.
     backdrop: "/images/backdrops/activity-bg-meadow.webp",
-    emblem: "/images/pals/meadow-emblem.webp",
-    cheer: "/images/pals/meadow-cheer.webp",
-    point: "/images/pals/meadow-point.webp",
+    emblem: withRepairedImageVersion("/images/pals/meadow-emblem.webp"),
+    cheer: withRepairedImageVersion("/images/pals/meadow-cheer.webp"),
+    point: withRepairedImageVersion("/images/pals/meadow-point.webp"),
     scenes: [
       "/guided-reading/series/meadow-pals/book-01/page-001.webp",
       "/guided-reading/series/meadow-pals/book-03/page-002.webp",
@@ -39,9 +40,9 @@ export const PAL_WORLDS = {
     // its own pal on top without the art ending up with two of them. The
     // panorama above is NOT clean — it already has pals walking the path.
     backdrop: "/images/backdrops/activity-bg-dino.webp",
-    emblem: "/images/pals/dino-emblem.webp",
-    cheer: "/images/pals/dino-cheer.webp",
-    point: "/images/pals/dino-point.webp",
+    emblem: withRepairedImageVersion("/images/pals/dino-emblem.webp"),
+    cheer: withRepairedImageVersion("/images/pals/dino-cheer.webp"),
+    point: withRepairedImageVersion("/images/pals/dino-point.webp"),
     scenes: [
       "/guided-reading/series/dino-pals/book-01/page-001.webp",
       "/guided-reading/series/dino-pals/book-03/page-002.webp",
@@ -64,9 +65,9 @@ export const PAL_WORLDS = {
     // its own pal on top without the art ending up with two of them. The
     // panorama above is NOT clean — it already has pals walking the path.
     backdrop: "/images/backdrops/activity-bg-moonwood.webp",
-    emblem: "/images/pals/moonwood-emblem.webp",
-    cheer: "/images/pals/moonwood-cheer.webp",
-    point: "/images/pals/moonwood-point.webp",
+    emblem: withRepairedImageVersion("/images/pals/moonwood-emblem.webp"),
+    cheer: withRepairedImageVersion("/images/pals/moonwood-cheer.webp"),
+    point: withRepairedImageVersion("/images/pals/moonwood-point.webp"),
     scenes: [
       "/guided-reading/series/moonwood-tales/book-01/page-001.webp",
       "/guided-reading/series/moonwood-tales/book-03/page-002.webp",

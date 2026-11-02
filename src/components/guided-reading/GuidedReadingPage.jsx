@@ -1,5 +1,10 @@
+import {lazy,Suspense} from "react";
+const CycleShortsLibrary = lazy(()=>import("./CycleShortsLibrary.jsx"));
 import "../../styles/book-levels.css";
 import "../../styles/teacher-book-library.css";
+import { HopAndStopUnit } from "../action-songs/HopAndStopUnit.jsx";
+import { HopAndStopLibraryCard } from "../action-songs/HopAndStopLibraryCard.jsx";
+import { useHopAndStopPublished } from "../action-songs/useHopAndStopPublished.js";
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
@@ -553,6 +558,7 @@ export function GuidedReadingPage({
   onBack = null,
   backLabel = "Back to Teach"
 }) {
+  const [cycleShortsOpen,setCycleShortsOpen] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState(() => (books || getRuntimeGuidedReadingBooks())[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
@@ -617,6 +623,10 @@ export function GuidedReadingPage({
   const isReviewMode = mode === "adminReview";
   const activeSessionHost = getActiveGuidedReadingSessionHost(mode, sessionHost);
   const activeGroupSession = activeSessionHost?.session || null;
+  const [hopAndStopOpen, setHopAndStopOpen] = useState(false);
+  const hopAndStopPublished = useHopAndStopPublished(!isStudentMode && !isReviewMode && !activeGroupSession);
+  const hopAndStopAvailable = hopAndStopPublished && !isStudentMode && !isReviewMode && !activeGroupSession;
+  if (hopAndStopOpen && !hopAndStopAvailable) setHopAndStopOpen(false);
   const readAloudControlsEnabled = canUseGuidedReadingReadAloud(mode, sessionHost);
   const selectedBook = useMemo(() => activeGroupSession && runtimeSelectedBook?.id === activeGroupSession.book_id
     ? {
@@ -1946,6 +1956,9 @@ export function GuidedReadingPage({
     </nav>
   ) : null;
 
+  if(cycleShortsOpen&&!readerOpen) return <Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary teacher={!isStudentMode} scope={`guided-reading:${studentId||"class"}`} onBack={()=>setCycleShortsOpen(false)}/></Suspense>;
+  if (hopAndStopOpen && hopAndStopAvailable) return <HopAndStopUnit onExit={() => setHopAndStopOpen(false)} />;
+
   if (!selectedBook) {
     return (
       <div
@@ -2006,6 +2019,7 @@ export function GuidedReadingPage({
       role="main"
     >
       {!readerOpen && libraryBack}
+      {!readerOpen && !isStudentMode && <button type="button" className="secondary-button" onClick={()=>setCycleShortsOpen(true)}>Cycle Shorts · Sunny Meadow Farm</button>}
       {levelUp && (
         <div className="guided-levelup" role="dialog" aria-label="Shelf complete">
           <ConfettiCelebration show />
@@ -2109,6 +2123,7 @@ export function GuidedReadingPage({
 
       {!readerOpen && (
       <section className="guided-reading-library" aria-label="Guided reading library">
+        {hopAndStopAvailable && <HopAndStopLibraryCard onOpen={() => setHopAndStopOpen(true)} />}
         {!isStudentMode && (
           <>
             <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>

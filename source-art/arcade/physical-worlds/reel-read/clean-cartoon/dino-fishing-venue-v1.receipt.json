@@ -1,0 +1,155 @@
+{
+  "jobId": "art-0647",
+  "path": "/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0647.webp",
+  "sourceSha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+  "originalSha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0647.webp",
+  "finalSha256": "5638e8d138e113e1fc89cc9fbb791a8fe3aaa9aece5d099029555091656ce8dd",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-97010a16-0a66-4f3f-97e0-6917b1b35f69.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0647/native-001.png",
+  "nativeSha256": "5323f862daf0f735a7a48981045060cb2857dc72666636ded0a6d5461c3e6efc",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/reel-read/clean-cartoon/dino-fishing-venue-v1.prompt.txt",
+  "promptSha256": "803f51e2152e28c4af78841351eba084e5858443a4cb903b1c87159bf1b728dc",
+  "referenceImages": [],
+  "generationMode": "built-in",
+  "attempt": 1,
+  "status": "accepted-staged",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Crisp flat outlined fossil lagoon, bamboo dock and plain ammonite hut left, prehistoric ferns, distant volcano and waterfall, natural stone arch right. Open flat turquoise underwater bands keep live fish readable; outlined corners carry sparse fossils/plants. No baked mechanic, text or character. Original native, fullsaved WebP, fullfallback WebP,390/128 tiles and twelve exact actualrenderer primary/fallback desktop/phone frames directly viewed. Venue scope only; no learner/session/audio/device claim.",
+    "reviewedAt": "2026-11-02T01:55:11.544Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/reel/browser-proof.json",
+    "fullContextSha256": "9327b1671ad2399c799491f6d96710f7e099aadfbc7bb159579c2b9cbf5e3c41",
+    "notABook": true
+  },
+  "historicalNative": {
+    "jobId": "art-0647",
+    "world": "dino",
+    "source": "dino-lagoon-venue-v1.png",
+    "scene": "Upper landscape has warm sandstone cliffs, a little plain stone-and-bamboo hut with one ammonite fossil above its ordinary doorway at upper LEFT, short bamboo dock projecting from farLEFT, tall prehistoric tree ferns and broad cycads, large rounded natural stone arch atupperRIGHT, distant waterfall and faraway simple volcano silhouette. A welcoming orange-blue morning sky. No fire/lava/danger. Underwater farcorners include a few outlined gray rocks with simple ammonite spirals and sparsefern shapes.",
+    "job": {
+      "path": "/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp",
+      "sha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+      "category": "Arcade, maps, Hollow and other artwork",
+      "group": "game-assets/physical-arcade",
+      "decision": "redo",
+      "reason": "Painted/washed/textured illustration; replace with bold clean cartoon artwork.",
+      "decisionEvidence": {
+        "file": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/image-style-audit-2026-10-29/redo-images.json",
+        "sha256": "0234a35d1e663eb7fdf89646a2160593fa8f1a763ca2e4b7bc086d01552d4318",
+        "rowId": 5390
+      },
+      "runtimeBinding": {
+        "literalReferences": [
+          "src/components/learn/games/games/reelReadArtData.js"
+        ],
+        "dynamic": null,
+        "bound": true,
+        "graphEvidence": {
+          "file": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/remaining-image-audit-2026-10-30/current-reachable-modules.json",
+          "sha256": "20e23e20d6343f6ceaa1d6f6ba5f3752d20d4cc72fddb12ba232e7ccd2cd186d",
+          "moduleCount": 1499
+        }
+      },
+      "priorBaseline": true,
+      "status": "pending",
+      "sameArtworkPaths": [
+        "/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp"
+      ],
+      "jobId": "art-0647",
+      "owner": "cd_family",
+      "originalSha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+      "sourceAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0647.webp",
+      "sourceSha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    "runtimeRow": {
+      "source": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+      "sourceSha256": "551a3c9b25326ac54718bccc8de9ae567618ff5032896b11e517a7ce1d396184",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "runtimeBytes": 500434,
+      "runtimeSha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+      "assemblySignature": "4f9df7582b7230c23719a7e6c60e61be9adb51924c44936ad70256df5bb2645b",
+      "role": "empty-deep-fishing-venue",
+      "sourceWaterlineRatio": 0.51,
+      "liveWaterOwnsFishLineHook": true
+    },
+    "fallbackRow": {
+      "source": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+      "sourceSha256": "551a3c9b25326ac54718bccc8de9ae567618ff5032896b11e517a7ce1d396184",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/dino-fishing-venue-fallback-v1.webp",
+      "width": 768,
+      "height": 432,
+      "runtimeBytes": 90008,
+      "runtimeSha256": "0ac8083336b0fc2adaaf13aed08b493e239afc4292b1def0652197daf5327a0c",
+      "assemblySignature": "a9b4486619b4d30eeae2d72b0380ed2b90756d335300907455a90dafcbf15f2d",
+      "role": "independent-original-venue-fallback",
+      "sourceWaterlineRatio": 0.51
+    },
+    "canonicalSource": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+    "canonicalSourceSha": "551a3c9b25326ac54718bccc8de9ae567618ff5032896b11e517a7ce1d396184",
+    "originalNativeActuallyViewed": true,
+    "renderContract": "reelReadWorld draws venue uniformly scaled using sourceWaterlineRatio .51; no parts extracted; actor/boat/rod/fish stay live",
+    "authorities": [
+      {
+        "path": "src/components/learn/games/games/reelReadWorld.js",
+        "sha256": "dc1e2f54e424b2d0bda44b2154511533a54396dac3209e1abb2bcbf069bd55ed"
+      },
+      {
+        "path": "scripts/generate-reel-read-art.py",
+        "sha256": "9a07c1c07e021df06a33df34eb1fd633933975a2dbf533380385fb2956716861"
+      },
+      {
+        "path": "source-art/arcade/physical-worlds/reel-read/scene-kit-v1.json",
+        "sha256": "a77e2da13bdf1e1dbd84e82c0bf705442a4310600f5d55548688eba185d6a0d6"
+      },
+      {
+        "path": "docs/design/REEL_READ_IMPLEMENTATION.md",
+        "sha256": "e65b7627ece0078e932dde831dd23574d3220d44ea27055694d5a0a02556ce6a"
+      }
+    ]
+  },
+  "source": "source-art/arcade/physical-worlds/reel-read/clean-cartoon/dino-fishing-venue-v1.png",
+  "provider": {
+    "jobId": "art-0647",
+    "attempt": 1,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-97010a16-0a66-4f3f-97e0-6917b1b35f69.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-97010a16-0a66-4f3f-97e0-6917b1b35f69.png"
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+    "historicalNativeSha256": "551a3c9b25326ac54718bccc8de9ae567618ff5032896b11e517a7ce1d396184",
+    "localReceiptSha256": "a2dc7cd84915b4c595e0b21bb50d0fc295ad5624f67634644b59be15ea56432c"
+  }
+}

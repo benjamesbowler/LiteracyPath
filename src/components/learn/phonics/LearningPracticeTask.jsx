@@ -1,4 +1,5 @@
 import { phonicsTargetHint } from "../../../utils/phonicsTargetPresentation.js";
+import { withRepairedImageVersion } from "../../../utils/repairedImageVersion.js";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { LearningTeachingCard } from "../../learning/LearningTeachingCard.jsx";
 import { createLearningDwell, LEARNING_PACE } from "../../../utils/learningPace.js";
@@ -161,7 +162,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
         <p className={`learning-teaching-kicker ${!reviewing && episode.role !== "transfer" ? "is-first-turn" : ""}`}>{reviewing ? "Your saved answer" : episode.role === "transfer" ? "Try a new one" : "Your turn"}</p>
         <h2>{encoding ? task.baseWord ? `Change a letter in ${task.baseWord}.` : Array.isArray(episode.expected) ? "Build the word you hear." : "Find the word you hear." : task.prompt || task.instruction || "Choose the answer"}</h2>
         <div className="learning-practice-stimulus">
-        {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.image || task.targetWord?.image || image) && <img className="learning-teaching-picture" src={task.image || task.targetWord?.image || image} alt={encoding ? "Word picture. Listen for its name." : task.word || task.targetWord?.word || word || "Question picture"} />}
+        {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.image || task.targetWord?.image || image) && <img className="learning-teaching-picture" src={withRepairedImageVersion(task.image || task.targetWord?.image || image)} alt={encoding ? "Word picture. Listen for its name." : task.word || task.targetWord?.word || word || "Question picture"} />}
         {!encoding && (!task.hideStimulusModel || saved.delivery === "unavailable") && (task.sentence || task.passage || task.display || task.targetDisplay) && <p className="learning-teaching-passage">{task.sentence || task.passage || task.display || task.targetDisplay}</p>}
         {encoding && task.baseWord && <p className="learning-teaching-passage">{task.baseWord}</p>}
         {encodingHint && <p className="phonics-target-hint" role="status">Hint: <strong data-phonics-hint="">{encodingHint}</strong></p>}
@@ -174,7 +175,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
           const value = typeof option === "object" ? option.value ?? option.id ?? option.word ?? option.letter : option;
           const part = typeof option === "object" ? learningModelPart(option, task) : learningModelPart(value, task);
           const fallback = <button type="button" className={`learning-guided-action ${part.image ? "has-picture" : /^[a-z]$/i.test(part.label) ? "has-letter" : "has-word"}`} key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)}
-            onClick={() => choose(value)} aria-label={`Choose ${part.label}`} aria-pressed={reviewing ? String(episode.responses.at(-1)?.selected) === String(value) : undefined}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span></button>;
+            onClick={() => choose(value)} aria-label={`Choose ${part.label}`} aria-pressed={reviewing ? String(episode.responses.at(-1)?.selected) === String(value) : undefined}>{part.image && <img src={withRepairedImageVersion(part.image)} alt="" />}<span>{part.label}</span></button>;
           return renderChoiceControl ? <PracticeChoiceControl key={`${task.id}:${value}:${index}`} renderControl={renderChoiceControl} fallback={fallback}
             question={task} option={option} value={value} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)} onChoose={() => choose(value)} /> : fallback;
         })}</div>

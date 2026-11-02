@@ -1,3 +1,5 @@
+import {lazy,Suspense} from "react";
+const CycleShortsLibrary = lazy(()=>import("./guided-reading/CycleShortsLibrary.jsx"));
 import "../styles/book-levels.css";
 import "../styles/books-gallery.css";
 // BOOKS — the child's view of the reading library (phase D of the 2026-07-29
@@ -34,6 +36,10 @@ import { BookOpenText } from "@phosphor-icons/react";
 
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../utils/guidedReading/bookTextAnalysis.js";
 import BookLevelGuide from "./guided-reading/BookLevelGuide.jsx";
+import { HopAndStopUnit } from "./action-songs/HopAndStopUnit.jsx";
+import { HopAndStopLibraryCard } from "./action-songs/HopAndStopLibraryCard.jsx";
+import { useHopAndStopPublished } from "./action-songs/useHopAndStopPublished.js";
+import { canOpenHopAndStop } from "../data/hopAndStop.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
@@ -195,9 +201,14 @@ export function StudentBooksPage({
 }) {
   const exactBookLock = lockedBookId !== null;
   const normalizedLockedBookId = exactBookLock ? String(lockedBookId || "").trim() : "";
+  const [hopAndStopOpen, setHopAndStopOpen] = useState(false);
+  const hopAndStopPublished = useHopAndStopPublished(!focusLocked && !exactBookLock && allowedBookIds === null && publicationStatus === "ready");
+  const hopAndStopAvailable = canOpenHopAndStop({ published: hopAndStopPublished, focusLocked, exactBookLock, restrictedLibrary: allowedBookIds !== null });
+  if (hopAndStopOpen && !hopAndStopAvailable) setHopAndStopOpen(false);
   const [openBookId, setOpenBookId] = useState(
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
+  const [cycleShortsOpen,setCycleShortsOpen] = useState(false);
   const [speechStatus, setSpeechStatus] = useState("");
   const [showDiscovery, setShowDiscovery] = useState(false);
   const [shelfMode, setShelfMode] = useState("all");
@@ -327,6 +338,19 @@ export function StudentBooksPage({
   function hear(text) {
     const spoken = speakStudentRailLabel(text, window);
     setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
+  }
+
+  if (cycleShortsOpen && !focusLocked && !exactBookLock) return <StudentGlassShell studentName={studentName} scopeKey={progressScopeKey} active="books" onNavigate={onNavigate} onHome={onHome} onGrownUps={onGrownUps}><Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary scope={`${teacherId}:${studentId}`} onBack={()=>setCycleShortsOpen(false)}/></Suspense></StudentGlassShell>;
+  if (hopAndStopOpen && hopAndStopAvailable) {
+    return <StudentGlassShell
+      studentName={studentName}
+      scopeKey={progressScopeKey}
+      active="books"
+      onNavigate={onNavigate}
+      onHome={onHome}
+      onGrownUps={onGrownUps}
+      headerActions={headerActions}
+    ><HopAndStopUnit onExit={() => setHopAndStopOpen(false)} /></StudentGlassShell>;
   }
 
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
@@ -514,7 +538,10 @@ export function StudentBooksPage({
             </section>
           ))}
 
+        {hopAndStopAvailable && <HopAndStopLibraryCard onOpen={() => setHopAndStopOpen(true)} />}
+
         {!focusLocked && <nav className="kg-book-picture-topics" aria-label="Book pictures">
+          {!exactBookLock && <button type="button" className="kg-book-picture-topic" onClick={()=>setCycleShortsOpen(true)}><span className="kg-book-topic-cover"><img src="/images/worksheets/muddy-colouring.webp" width="40" height="40" style={{objectFit:"contain"}} alt=""/></span><strong>Cycle Shorts</strong></button>}
           {categoryPictures.map(category => <button type="button" key={category.id} className="kg-book-picture-topic" aria-pressed={bookType === category.id && collectionId === "all" && !knowledgeJourneyId}
             onClick={() => changeDiscovery(() => { setBookType(category.id); setCollectionId("all"); setKnowledgeJourneyId(""); setShelfMode("all"); })}>
             <BookCover book={category.book} className="kg-book-topic-cover" eager /><strong>{category.label}</strong>

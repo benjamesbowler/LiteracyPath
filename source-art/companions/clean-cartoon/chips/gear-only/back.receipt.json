@@ -1,0 +1,24 @@
+{
+  "input": {
+    "jobId": "companion-family-chips-outfits-back-gear-only-repair-002",
+    "character": "chips",
+    "group": "back",
+    "prompt": "Precise alpha EDIT. Remove EVERY BLUE collar oval/band from all four cells. Keep the tan backpack and its real shoulder straps; keep all three complete wing pairs. No blue collar or blue bell anywhere. Preserve EXACT1254square canvas, current 2×2 grid registration, all genuine gear shapes/positions/sizes/colors/outlines and true alpha. Do not add any character anatomy, face, hair, clothing, collar/bell/vest, props, symbols, text or background. Keep original clean bold flat cartoon style. Only remove the explicitly specified unwanted anatomy/default clothing; preserve all specified genuine accessory pixels.",
+    "refs": [
+      "/Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-009818c3-1afc-4f39-ba08-9e34955f60f7.png"
+    ],
+    "transparent": true
+  },
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb as /Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-b78d81b3-15f8-4ec6-9c30-08226134dfd1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "generatedAt": "2026-11-02T11:41:10.705Z",
+  "referenceImages": [
+    {
+      "path": "source-art/companions/clean-cartoon/chips/gear-only/back-reference-1-7dfb064ca6bd.png",
+      "sha256": "7dfb064ca6bd655ba08ffa22cbb1a1dd96c8ade4f45292c2d8095fc21c24cf18",
+      "providerInputPath": "/Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-009818c3-1afc-4f39-ba08-9e34955f60f7.png"
+    }
+  ],
+  "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-b78d81b3-15f8-4ec6-9c30-08226134dfd1.png",
+  "nativeViewed": true,
+  "acceptedAttempt": 2
+}

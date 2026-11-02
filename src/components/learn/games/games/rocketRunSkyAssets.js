@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { setTextureSrgb } from '../shared/threeShell.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 
 const alternatives = ['primary', 'independent', 'embedded'];
 
@@ -41,7 +42,7 @@ export function createRocketSkyAssets(record, { onDelivery = () => {}, ImageClas
         if (picture.naturalWidth !== metadata.width || picture.naturalHeight !== metadata.height) { finish(false); return; }
         try { await picture.decode(); finish(true); } catch { finish(false); }
       };
-      picture.src = metadata.runtime;
+      picture.src = withRepairedImageVersion(metadata.runtime);
     });
   }
   return {

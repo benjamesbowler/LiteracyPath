@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
@@ -495,7 +496,7 @@ function startGame(mount, opts) {
     asset.image.onerror = () => {
       asset.failed = true;
     };
-    asset.image.src = src;
+    asset.image.src = withRepairedImageVersion(src);
     return asset;
   }
 

@@ -1,3 +1,4 @@
+import {buildPresentCycleShorts,PRESENT_CYCLE_SHORTS_CSS} from './presentationCycleShorts.js';
 // Whole-class Present lessons and classroom resources. The same assembly owns
 // the lesson metadata and projector document.
 // Daily 15–20 minute teaching and 30-minute Friday review follow the weekday sequence. Notes are extracted
@@ -7,6 +8,7 @@ import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCy
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { childWordAssets, getChildWordAsset } from "../../data/childAssets.js";
 import { bookCharacterAsset } from "../../components/quest/bookCharacterAvatar.js";
+import { withRepairedImageVersion } from "../repairedImageVersion.js";
 import { initialSoundWordBank } from "../../content/initialSounds/initialSoundWordBank.js";
 
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
@@ -49,7 +51,7 @@ function siteOrigin() {
 }
 
 function assetUrl(path) {
-  const raw = String(path || "").trim();
+  const raw = withRepairedImageVersion(String(path || "").trim());
   if (!raw) return "";
   if (/^[a-z][a-z0-9+.-]*:/i.test(raw) || raw.startsWith("//")) return raw;
   const origin = siteOrigin();
@@ -114,7 +116,7 @@ function palImg(world, pose, cls = "") {
   const file = bookCharacterAsset({ body: CHARACTER_BODY_BY_WORLD[world.id] }, {
     pose: pose === "celebrate" ? "cheer" : pose === "think" ? "think" : "idle"
   });
-  return `<img class="p-pal ${cls}" src="${esc(assetUrl(file))}" alt="" data-hide-on-error="self"/>`;
+  return `<img class="p-pal ${cls}" src="${esc(assetUrl(withRepairedImageVersion(file)))}" alt="" data-hide-on-error="self"/>`;
 }
 function isCharacterMedia(src) {
   return src.includes('/pals/') || src.includes('/game-assets/sound-seekers/characters/');
@@ -925,6 +927,7 @@ function assembleDailySlides(cycle, world, day) {
     [...buildPresentPhonology({cycle,day,names:presentGameSchedule(cycle.cycleNumber,day),world,slide,esc,wordAudio,wordImage,shuffle:shufflePresentationChoices}),...buildPresentClassGames({cycle,day,world,slide,esc,mediaUrl:assetUrl,sentenceAudio:presentationSentenceAudio,wordAudio,shuffle:shufflePresentationChoices,focusWords:plan.newWords.length?plan.newWords:sightWordsAvailableOn(cycle,day),words:[...new Set([...sightWordsAvailableOn(cycle,day),...presentationReviewContent(cycle.id,day).words])],letters:cards.map(card=>({...card,text:displayGrapheme(card),audio:graphemeAudio(card.spelling)}))}),...(presentGameSchedule(cycle.cycleNumber,day).includes("pairs")?[sightMatchSlide(cycle,world,day)]:[]),wordBuildSlide(cycle,world,day),...(["monday","wednesday","friday"].includes(day)?[pictureMatchSlide(cycle,world,day)]:[activities.sort]),...(friday ? [wordBuildSlide(cycle,world,day,1),pictureMatchSlide(cycle,world,day,1),wordBuildSlide(cycle,world,day,2),pictureMatchSlide(cycle,world,day,2),activities.sort] : [])],
     [sentenceSlide(cycle,world,day),language(todayReading[0],'punctuation',(cycle.cycleNumber+index)%3),sentenceSlide(cycle,world,day,true),language(todayReading[1],'grammar',index),...earlierReading.flatMap((card,i)=>[sentenceSlide(cycle,world,day,false,card),...(i===1?[language(card,'punctuation',(cycle.cycleNumber+1)%3)]:i===3?[language(card,'grammar',i)]:[])]),slide(world,`<p class="p-kicker">${day === "friday" ? "Week complete" : "Today's round-up"}</p><p class="p-teacher-prompt">${day === "friday" ? "Name your favourite game. Say a sound, read a word, and explain one picture sentence." : "Say today's sounds and words. Show your teacher one thing you remember."}</p><div class="p-roundup-stimulus">${(day === "friday" ? cycle.highFrequencyWords : [...new Set([...traceCards.map(displayGrapheme),...plan.newWords])]).map(text=>`<span>${esc(text)}</span>`).join("")}</div>`,{cls:"p-daily-roundup",section:"Review",teacher:"Invite a few individual responses before finishing; supported practice is not a formal score.",meta:{target:day === "friday" ? "Weekly recap" : "Daily recap",construct:"round-up"}})]
   ];
+  groups[groups.length-1].push(...buildPresentCycleShorts({cycle,world,day,slide,esc,audioButton,shuffle:shufflePresentationChoices}));
   let elapsed = 0;
   return groups.flatMap((group,i) => { const block=plan.blocks[i],start=elapsed;elapsed+=block.minutes;return group.filter(Boolean).map((html,j)=>html.replace(/<section class="([^"]*)"/,`<section class="$1" data-lesson-block="${block.id}" data-block-label="${esc(block.label)}" data-block-minutes="${block.minutes}" data-block-start="${j === 0 ? "1" : "0"}"`).replace('</section>',`<p class="p-pacing">${start}–${elapsed} min · ${esc(block.label)}</p></section>`)); });
 }
@@ -1101,7 +1104,7 @@ export function buildCyclePresentation(cycleId, { day = "", format = "core", sta
   const manifest = manifestForSlides(cycle, slides, slideIndex, { day: dayKey, format: formatKey, reviewPolicy, deckKey, sortMode, planningBudgetMinutes, timingAllowances });
   const lessonPlan = dayKey ? { ...presentationDayPlan(cycleId, dayKey, {format: formatKey}), estimatedMinutes: manifest.timing.estimatedMinutes, timingBasis:manifest.timing.estimateBasis, responseTurns:manifest.timing.responseTurns, blocks:presentationDayPlan(cycleId,dayKey,{format:formatKey}).blocks.map(block=>{const activities=manifest.slides.filter(item=>slideIndex[item.index].block===block.id);return {...block,estimatedMinutes:Math.round((activities.reduce((sum,item)=>sum+item.responseTurns,0)*manifest.timing.responseSeconds+activities.length*manifest.timing.transitionSeconds)/6)/10,activities:activities.map(item=>item.title)};}), timeWarning: manifest.timing.estimatedMinutes > manifest.timing.budgetMinutes ? "Full review and response routines may take longer. Adjust the budget or stop at a saved slide boundary." : "This is a planning estimate; observe actual classroom time." } : null;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title>
-<style>${fontFaces()}${DECK_CSS}${PRESENT_CLASS_GAMES_CSS}${PRESENT_PHONOLOGY_CSS}</style></head>
+<style>${fontFaces()}${DECK_CSS}${PRESENT_CLASS_GAMES_CSS}${PRESENT_PHONOLOGY_CSS}${PRESENT_CYCLE_SHORTS_CSS}</style></head>
 <body data-deck-key="${esc(deckKey)}" data-session-id="${esc(sessionId)}" data-quiet="${quiet}" data-speech="${speech}" data-retrieval-mode="${esc(retrievalMode)}" data-start-index="${initial}" data-world="${world.id}">
 <div id="scaler"><div id="stage">
   <header id="rail"><span id="rail-title">${esc(railLabel)}</span><nav id="rail-sections" aria-label="Lesson sections"></nav></header>

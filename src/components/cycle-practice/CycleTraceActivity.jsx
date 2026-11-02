@@ -1,4 +1,5 @@
 import ActivityButton from "../ActivityButton.jsx";
+import { withRepairedImageVersion } from "../../utils/repairedImageVersion.js";
 import { useEffect, useRef, useState } from "react";
 import { ArrowCounterClockwise, Eye, HandTap, PencilLine, Sparkle } from "@phosphor-icons/react";
 import { CYCLE_TRACE_RULES, createCycleTraceModel, cycleTraceCompletion, evaluateCycleTrace } from "./cycleTraceRules.js";
@@ -198,7 +199,7 @@ function TraceRound({ round, grapheme, disabled = false, onCommit, supportLevel 
       data-mechanic-stage="cycle-trace" data-reduced-motion={reducedMotion ? "true" : "false"}>
       <div className="cycle-trace__workspace">
         <aside className="cycle-trace__picture-card">
-          {picture && <img key={`${picture}:${mediaRevision}`} src={picture} alt={round?.targetWord || round?.word || "Letter picture"} draggable="false" onError={onMediaFailure} />}
+          {picture && <img key={`${picture}:${mediaRevision}`} src={withRepairedImageVersion(picture)} alt={round?.targetWord || round?.word || "Letter picture"} draggable="false" onError={onMediaFailure} />}
           <span className="cycle-trace__target">{grapheme}</span>
           <div className="cycle-trace__collect" aria-hidden="true">
             <PencilLine weight="fill" /><span /><Sparkle weight="fill" />

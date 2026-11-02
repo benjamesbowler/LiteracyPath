@@ -9,6 +9,7 @@
 import { supabase } from "../supabaseClient.js";
 import { DEN_THEMES } from "../utils/denRewards.js";
 import { EXPANSIONS } from "../utils/hollowEconomy.js";
+import { HOLLOW_ARTWORK_CONTACTS, registeredHollowSpots } from "./hollowArtworkRegistration.js";
 
 // The rooms an admin can place spots on. `count` is how many spots that room
 // has; it must match the number of slots the room offers.
@@ -28,15 +29,7 @@ export const HOLLOW_ROOMS = [
 ];
 
 // [x, y] as percentages of the room image.
-export const DEFAULT_HOLLOW_SPOTS = {
-  meadow: [[31, 63], [40, 34], [48, 63], [57, 34], [66, 63], [74, 34]],
-  dino: [[20, 57], [31, 57], [43, 57], [54, 57], [65, 57], [76, 57]],
-  moonwood: [[17, 67], [28, 67], [40, 67], [51, 67], [63, 67], [74, 67]],
-  "exp-garden": [[26, 64], [43, 44], [60, 64], [76, 44]],
-  "exp-pond": [[26, 64], [43, 44], [60, 64], [76, 44]],
-  "exp-cave": [[26, 64], [43, 44], [60, 64], [76, 44]],
-  "exp-treetop": [[26, 64], [43, 44], [60, 64], [76, 44]]
-};
+export const DEFAULT_HOLLOW_SPOTS = HOLLOW_ARTWORK_CONTACTS;
 
 const CACHE_KEY = "lp-hollow-spots-v1";
 const CONFIG_KEY = "hollow_spots";
@@ -68,9 +61,7 @@ function writeCache(value) {
 
 // The spots to use for a room: admin override if present, else the defaults.
 export function hollowSpotsFor(roomId, override) {
-  const ov = override?.[roomId];
-  if (Array.isArray(ov) && ov.length) return ov;
-  return DEFAULT_HOLLOW_SPOTS[roomId] || DEFAULT_HOLLOW_SPOTS.meadow;
+  return registeredHollowSpots(roomId, override);
 }
 
 // Fetch the saved override from Supabase (cached). Always resolves; never throws.

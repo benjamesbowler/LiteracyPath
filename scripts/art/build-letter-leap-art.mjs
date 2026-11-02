@@ -80,7 +80,7 @@ for (const asset of manifest.assets) {
   await fs.mkdir(path.dirname(runtimePath), { recursive: true });
   const encode = !metadataOnly && asset.productionRevision && (!selectedIds || selectedIds.has(asset.id));
   const output = !encode ? await fs.readFile(runtimePath)
-    : await sharp(source).resize(...asset.runtimeSize, { fit: 'fill' }).webp({ lossless: asset.kind !== 'horizon', quality: 92 }).toBuffer();
+    : await sharp(source).resize(...asset.runtimeSize, { fit: 'fill' }).webp(asset.encoding || { lossless: asset.kind !== 'horizon', quality: 92 }).toBuffer();
   if (!encode) {
     const runtimeInfo = await sharp(output).metadata();
     if (runtimeInfo.width !== asset.runtimeSize[0] || runtimeInfo.height !== asset.runtimeSize[1]

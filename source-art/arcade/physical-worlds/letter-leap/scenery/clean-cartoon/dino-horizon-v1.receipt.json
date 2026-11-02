@@ -1,0 +1,112 @@
+{
+  "jobId": "art-0641",
+  "path": "/game-assets/physical-arcade/letter-leap/scenery/dino-horizon-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/letter-leap/scenery/dino-horizon-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0641.webp",
+  "sourceSha256": "fe96965d8860500757cffd3ee07f2a9f39c746a40da4ca99d9c0a4ac91b400c9",
+  "originalSha256": "fe96965d8860500757cffd3ee07f2a9f39c746a40da4ca99d9c0a4ac91b400c9",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0641.webp",
+  "finalSha256": "138778e8f519d64499dec0c6b4394c4cb26d338eb9007486414c1071c6b7b2fb",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-7d91b99c-4281-43ee-a9bd-7017c91477ec.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0641/native-002.png",
+  "nativeSha256": "3bb09d168e0f3bfca137bf6a94cd29600c136c7598ef8d3c4e72cfaa0cb064d9",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/dino-horizon-v1.prompt.txt",
+  "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/references/dino-horizon-v1-input-1.png",
+      "sha256": "6af058645f85daed52d7ed83eba843bdfb8e311262e7c9dc840c0aaef1d18125"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Distinct original letter-leap dino backdrop, bold continuous outlines and broad smooth flat fields throughout, neutral ordinary nature/structures. Exact native, full encoded WebP,390/128 and27actualfullscreenframes directlyviewed; LetterLeap also3actualmirroredjoinframes. Dino sand/fossil semantics restored where required. No gameplay/audio/learner-save/physical-device or hosted-release claim.",
+    "reviewedAt": "2026-11-02T05:48:47.911Z",
+    "display128Viewed": true,
+    "notABook": true,
+    "fullContextViewed": true,
+    "contextFiles": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen/browser-proof.json",
+        "sha256": "87c6276de4a1c9930a84b79bfb765b05a7041d0c61fae74d13d0784571717dde",
+        "frames": 27
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored/browser-proof.json",
+        "sha256": "a55c00b38a3b5b6ea884404ba3e0bdadad4816f1a8f37b6dcf06e1b9fb58bb90",
+        "frames": 3
+      }
+    ],
+    "finalRuntimeProofs": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen-final-letter/browser-proof.json",
+        "sha256": "a15930e676624e08f120ecf30d6a2ce73f90fdc5fac5865469171eb6eb12f941",
+        "frames": 9
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored-final/browser-proof.json",
+        "sha256": "a619ebbdaf739906b4e9372dcdd353dd3cbf89647de71f61b4f16563097e13c0",
+        "frames": 3
+      }
+    ]
+  },
+  "installedAt": "2026-11-02T05:48:47.916Z",
+  "source": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/dino-horizon-v1.png",
+  "provider": {
+    "jobId": "art-0641",
+    "attempt": 2,
+    "prompt": "Use case: style-transfer. Edit this OWN GENERATED emptygamebackdrop candidate. Preserve EXACT full16:9framing, scene, scenerypositions, foregroundclearing/rivergap, allordinarylandmarks andnaturalsilhouettes. Completely FLATTEN rendering to BOLD CRISP2D VECTOR CARTOON withTHICKERcontinuousBLACKoutlines, sharplyLIMITEDpalette andUNIFORM SOLID COLOR FIELDS. Main corrections: skyONEuniformsolidblue/cobaltfield, nogradient/horizonbrightening; grassclearingONEuniformgreen/teal/sandfield with atmostONElargeHARD-EDGEDcelshadow, removealleverysmallgroundpatch; riverTWOuniformcyanfields plusfewsimpleflatcurvedripplelines,noreflectionstreaks; mountainONEsolidfieldplusONElargehardshadow, nostreaks; eachsmoothrockONEfieldplusONEhardshadow, no cracks, scuffs, highlightscrapes ormaterialchips; treecanopyTWOflatgreensilhouettes maximum, eliminateeverytinyrepeatedleafspeckle/dab anddappledshade. Simplifyprehistoricforestto broadoutlinedcanopylayers, notdensepebbledleafclusters. Plainwood/birchtrunk smoothfieldswithonlynecessarystructuraloutlines, nowoodgrain. Keepsimpleplainround/cylindricalflat-yellowgardenlanterns, facelessmoon, starDOTS. Preserveordinarycottages/workcanopyonlyifpresent, noextranewbuildings,characters,animals,tools,bridge,UI,text,letters,numbers,labels,religiousarchitecture/symbolsornational/political/religiousflags. ExistingbridgeonlyifalreadyintheimageandnotcentralWordBridgeworksite; do not addone. NO painterly, daubed, pebbled, embossed, fuzzy, blended, airbrushed, glowing, gradient or3Drendered materials. Everydistantandnearshape equallycrispflat outlined.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0641/native-001.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-7d91b99c-4281-43ee-a9bd-7017c91477ec.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-7d91b99c-4281-43ee-a9bd-7017c91477ec.png"
+  },
+  "encoding": {
+    "quality": 92,
+    "alphaQuality": 100,
+    "effort": 6
+  },
+  "deliveryRecipe": {
+    "kind": "complete-current-source",
+    "resize": [
+      1672,
+      941
+    ],
+    "fit": "fill"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "prompt": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/provenance/dino-horizon-attempt-1.prompt.txt",
+      "promptSha256": "7c3076d7ba4fee0f81d433f889cfce0da7780be4fceb55af084f26647ed7f3fa",
+      "nativeSha256": "6af058645f85daed52d7ed83eba843bdfb8e311262e7c9dc840c0aaef1d18125",
+      "disposition": "retained as exact generation/input/QC lineage"
+    },
+    {
+      "attempt": 2,
+      "prompt": "source-art/arcade/physical-worlds/letter-leap/scenery/clean-cartoon/provenance/dino-horizon-attempt-2.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+      "nativeSha256": "3bb09d168e0f3bfca137bf6a94cd29600c136c7598ef8d3c4e72cfaa0cb064d9",
+      "disposition": "accepted"
+    }
+  ]
+}

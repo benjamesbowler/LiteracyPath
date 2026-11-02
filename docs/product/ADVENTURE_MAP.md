@@ -20,13 +20,22 @@ scroll area, initially placing the current stop above the floating controls.
 Touch-to-mouse hover cannot move a centered marker out from under the finger.
 Reduced motion keeps the same usable controls and artwork.
 
-`src/data/adventureMapAtlas.js` owns the version2 artwork/coordinates/details;
-`src/data/mapStops.js` shares that wide geometry with the admin map editor and
-Cycle Quest. New `map_stops_wide_v2`/`lp-map-stops-wide-v2` keys prevent older
-coordinates from being applied to the new art. No hosted configuration was
-written or progress schema changed. Existing portrait maps remain active for
-portrait Cycle Quest. Asset prompts, owned references, dimensions and hashes
-are in `docs/design/ADVENTURE_MAP_ATLAS_MANIFEST.json`.
+The decorative Guide stays beside the current placed stop. Its measured
+position avoids every numbered control, destination label and fixed map
+overlay, including after compact panning and resizing. Numbered controls
+remain above decoration. Guide placement never changes the authored route
+coordinates, landmark names, progress eligibility or continuation action.
+
+`src/data/adventureMapAtlas.js` owns the version3 artwork, coordinates and
+details. `src/data/mapStops.js` shares that geometry with the admin editor and
+Cycle Quest. Both aspect ratios show the same27place names in the same order,
+using six registered clean cartoon maps. Version3 configuration/cache keys
+prevent earlier coordinates from being applied to the new pixels. No hosted
+configuration or progress schema was changed. Current native sources, prompts,
+references, dimensions and hashes are in
+`source-art/maps/clean-cartoon/manifest.json`; rebuild with
+`node tools/buildAdventureMapArt.mjs --check`. The earlier design manifest is
+historical generation provenance only.
 
 The nine illustrated practice games in the Arcade are a separate surface;
 their current contract is `docs/design/PHONICS_PRACTICE_OVERHAUL.md`.

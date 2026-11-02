@@ -1,4 +1,6 @@
 import { burrowStructureChanged, burrowPlacementPreview, burrowThumbnailPath } from './burrowPresentation.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
+import { RALLY_PALS_WORLD_ART } from '../../../../data/generated/rallyPalsArt.generated.js';
 import { createArcadeRenderGate, arcadeDampingFactor } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -24,11 +26,8 @@ const PART_NAMES = { wood: 'Wood', stone: 'Stone', bridge: 'Bridge', roof: 'Roof
 const BURROW_ART = '/game-assets/physical-arcade/burrow-builders';
 const BURROW_ART_PATHS = Object.fromEntries(['grass', 'plank', 'stone', 'soil', 'shingle'].map(id => [id, `${BURROW_ART}/materials/${id}-albedo-v1.webp`]));
 for (const id of ['meadow', 'dino', 'moonwood']) BURROW_ART_PATHS[`${id}-horizon`] = `${BURROW_ART}/horizons/${id}-horizon-v1.webp`;
-const BURROW_FOLIAGE = {
-  meadow: { runtime: '/game-assets/physical-arcade/rally-pals/meadow-scenery-v1.webp', size: [1672, 941], tree: [145, 0, 578, 580] },
-  dino: { runtime: '/game-assets/physical-arcade/rally-pals/dino-scenery-v1.webp', size: [1536, 1024], tree: [0, 0, 751, 600] },
-  moonwood: { runtime: '/game-assets/physical-arcade/rally-pals/moonwood-scenery-v1.webp', size: [1536, 1024], tree: [122, 0, 596, 670] },
-};
+const BURROW_FOLIAGE = Object.fromEntries(Object.entries(RALLY_PALS_WORLD_ART).map(([id, art]) =>
+  [id, { runtime: art.scenery, size: [art.width, art.height], tree: art.frames.tree }]));
 for (const [id, data] of Object.entries(BURROW_FOLIAGE)) BURROW_ART_PATHS[`${id}-foliage`] = data.runtime;
 
 function loadBurrowArt(difficulty) {
@@ -37,7 +36,7 @@ function loadBurrowArt(difficulty) {
     const image = new Image(); image.decoding = 'async'; let timer;
     const finish = value => { clearTimeout(timer); image.onload = null; image.onerror = null; resolve([id, value]); };
     image.onload = () => finish(image); image.onerror = () => finish(null);
-    timer = setTimeout(() => { image.src = ''; finish(null); }, 6000); image.src = src;
+    timer = setTimeout(() => { image.src = ''; finish(null); }, 6000); image.src = withRepairedImageVersion(src);
   }))).then(entries => new Map(entries));
 }
 const iconForPart = { wood: '▰', stone: '◆', bridge: '═', roof: '⌂', window: '▦', garden: '❀', gate: '╫', bed: '▤', channel: '≈', dam: '▥' };

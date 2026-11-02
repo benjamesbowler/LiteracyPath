@@ -1,5 +1,7 @@
 import { createLearningDwell, LEARNING_PACE } from "../../utils/learningPace.js";
 import { adventureStationContinuation } from "../../policy/adventureContinuation.js";
+import { ADVENTURE_ATLASES, ADVENTURE_ATLAS_VIEW, ADVENTURE_PORTRAIT_VIEW } from "../../data/adventureMapAtlas.js";
+import { withRepairedImageVersion } from "../../utils/repairedImageVersion.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePracticeVariation.js";
 import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
@@ -67,30 +69,19 @@ const WORLD_REGIONS = [
   {
     id: "meadow",
     name: "Meadow Farm",
-    test: n => n <= 9,
-    landmarks: ["The Big Barn", "Strawberry Field", "Sheep Pen", "Duck Pond", "Carrot Patch", "Haystack Hill", "The Old Orchard", "Flower Meadow", "Farm Gate"]
+    test: n => n <= 9
   },
   {
     id: "dino",
     name: "Dinosaur Valley",
-    test: n => n >= 10 && n <= 18,
-    landmarks: ["The Mud Pits", "Green Valley", "Giant Plants", "Stomping Grounds", "Fossil Creek", "Eggshell Rocks", "Fern Forest", "Lava Lookout", "The Volcano"]
+    test: n => n >= 10 && n <= 18
   },
   {
     id: "moonwood",
     name: "Moonwood Forest",
-    test: n => n >= 19,
-    landmarks: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "The Old Oak Door", "Crystal Cave", "Owl's Lookout", "The Moon Tower"]
+    test: n => n >= 19
   }
 ];
-
-// Stop coordinates (percent of the map board) pinned to the landmarks
-// painted on each world's map artwork.
-const WORLD_MAP_POINTS = {
-  meadow: [[20, 9], [55, 12], [82, 14], [30, 33], [68, 38], [72, 53], [21, 70], [58, 78], [80, 88]],
-  dino: [[20, 10], [50, 14], [80, 20], [30, 34], [73, 40], [18, 55], [48, 61], [82, 61], [55, 86]],
-  moonwood: [[50, 8], [28, 22], [72, 30], [50, 42], [68, 49], [30, 60], [58, 68], [73, 79], [45, 88]]
-};
 
 // Horizontal (landscape) maps for laptop/projector: the journey runs left → right
 // from the entrance to the final landmark. Stops are in journey order. These
@@ -99,7 +90,7 @@ const WORLD_MAP_POINTS = {
 // (single source of truth; admin can override them live in the Map Stops editor).
 
 // Native pixel space of each map artwork (sets the SVG viewBox + board aspect).
-const MAP_VIEW = { portrait: { w: 1195, h: 1600 }, wide: { w: 2752, h: 1536 } };
+const MAP_VIEW = { portrait: ADVENTURE_PORTRAIT_VIEW, wide: ADVENTURE_ATLAS_VIEW };
 
 // A smooth (Catmull-Rom → cubic bezier) route through the landmark anchors, in the
 // map art's native pixel space (w × h). The avatar glides ALONG this curve (it
@@ -952,13 +943,31 @@ function ElSkillsQuestSession({
   const mapView = wideMap ? MAP_VIEW.wide : MAP_VIEW.portrait;
   const mapPoints = wideMap
     ? wideMapPointsFor(region.id, wideOverride)
-    : (WORLD_MAP_POINTS[region.id] || WORLD_MAP_POINTS.meadow);
-  const landmarks = (wideMap ? WORLD_LANDMARKS_WIDE[region.id] : region.landmarks)
-    || region.landmarks;
+    : ADVENTURE_ATLASES[region.id].portraitPoints;
+  // A cycle keeps the same public place when the screen orientation changes.
+  const landmarks = WORLD_LANDMARKS_WIDE[region.id] || [];
   const mapImage = wideMap
     ? WIDE_WORLDS.find(world => world.id === region.id)?.image
-    : `/images/pals/maps/${region.id}-map.webp`;
+    : ADVENTURE_ATLASES[region.id].portraitImage;
   const routeD = buildRoutePath(mapPoints, mapView.w, mapView.h);
+
+  // The complete map remains scrollable. Start with the child's next place
+  // visible even when its illustration is taller than the available frame.
+  useEffect(() => {
+    if (activeCycle || celebration) return undefined;
+    const viewport = viewportRef.current;
+    const stop = stopRefs.current[recommendedCycle?.id];
+    if (!viewport || !stop) return undefined;
+    const frame = requestAnimationFrame(() => {
+      const target = stop.getBoundingClientRect(), visible = viewport.getBoundingClientRect();
+      viewport.scrollTo({
+        left: viewport.scrollLeft + target.left + target.width / 2 - visible.left - viewport.clientWidth / 2,
+        top: viewport.scrollTop + target.top + target.height / 2 - visible.top - viewport.clientHeight * .6,
+        behavior: 'instant'
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [activeCycle, celebration, recommendedCycle?.id, mapImage, wideMap]);
 
   useEffect(() => {
     if (activeCycle || celebration || !recommendedCycle?.id) return;
@@ -1137,6 +1146,8 @@ function ElSkillsQuestSession({
                 <div
                   className="sbq-map-viewport"
                   ref={viewportRef}
+                  tabIndex={0}
+                  aria-label="Map. Scroll to explore the places."
                   data-pannable={mapZoom > 1 ? "true" : "false"}
                   onPointerDown={onPanStart}
                   onPointerMove={onPanMove}
@@ -1146,7 +1157,7 @@ function ElSkillsQuestSession({
                   <div
                     className={`sbq-mapboard${wideMap ? " wide" : ""}`}
                     style={{
-                      backgroundImage: `url(${mapImage})`,
+                      backgroundImage: `url(${withRepairedImageVersion(mapImage)})`,
                       "--map-zoom": mapZoom
                     }}
                   >
@@ -1179,7 +1190,7 @@ function ElSkillsQuestSession({
                           aria-label={cyclesComplete && isRecommended ? 'More Word Match' : `${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                           data-child-primary={isRecommended ? "" : undefined}
                           data-child-emphasis={isRecommended ? "primary" : "choice"}
-                          data-tip-position={y < 18 ? "right" : "above"}
+                          data-tip-position={y < (wideMap ? 18 : 26) ? "right" : "above"}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">
                             {cycleProgress?.stars ? "★" : cycle.cycleNumber}

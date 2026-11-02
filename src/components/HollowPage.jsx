@@ -23,6 +23,9 @@ import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 import { hollowNextAction } from "../policy/hollowNextActionPolicy.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import { hollowRoomViewBox } from "../utils/hollowRoomViewport.js";
+import { hollowDecorationAnchor, hollowDecorationBox } from "../data/hollowArtworkRegistration.js";
+import { withRepairedImageVersion } from '../utils/repairedImageVersion.js';
+import { companionFigurePlan, companionFullArtworkPath, hollowItemArtworkPath } from '../data/companionArtwork.js';
 
 // My Hollow - Rewards V2. The entry camera fills the stage with uniform art
 // scaling while keeping every saved display spot visible.
@@ -37,13 +40,17 @@ function hideOnError(event) {
 
 // These small webps render the same authored object or creature wherever it is
 // chosen or placed. The fallback is sized from the image box in pixels.
-function ItemArt({ id, stage, size = 52 }) {
+function ItemArt({ id, stage, size = 52, shelfAnchor = false }) {
   const artId = id === WELCOME_EGG.id ? "egg-bronze" : id;
   const file = stage ? `${artId}-s${stage}` : artId;
+  const anchor = shelfAnchor ? hollowDecorationAnchor(artId) : null;
   return (
     <span className="hollow-art" style={{ width: size, height: size }} aria-hidden="true">
       <span className="hollow-art-fallback" data-art-id={id} />
-      <img src={`/images/hollow/${file}.webp`} alt="" onError={hideOnError} />
+      <img key={file} src={hollowItemArtworkPath(file) || `/images/hollow/${file}.webp`} alt=""
+        style={anchor ? { transform: `translate(${(.5 - anchor.centreX) * 100}%, ${(1 - anchor.bottom) * 100}%)` } : undefined}
+        onLoad={event => { event.currentTarget.previousElementSibling.style.visibility = "hidden"; }}
+        onError={event => { event.currentTarget.previousElementSibling.style.visibility = "visible"; hideOnError(event); }} />
     </span>
   );
 }
@@ -72,10 +79,10 @@ function HollowRoomScene({ theme, spots, slots }) {
   }, [coordinates]);
   return <div ref={frameRef} className="hollow-overview">
     <svg className="hollow-home-scene" viewBox={viewBox} role="img" aria-label="Your Hollow and its saved decorations">
-      <image href={`/images/hollow/scene-${theme.id}.webp`} width="1920" height="1080" onError={event => event.currentTarget.setAttribute("href", theme.art)} />
+      <image href={withRepairedImageVersion(`/images/hollow/scene-${theme.id}.webp`)} width="1920" height="1080" onError={event => event.currentTarget.setAttribute("href", withRepairedImageVersion(theme.art))} />
       {spots.map(spot => {
         const item = findCatalogItem(slots[spot.spotId]);
-        return item ? <image key={spot.spotId} href={`/images/hollow/${item.id}.webp`} x={spot.x * 19.2 - 64} y={spot.y * 10.8 - 64} width="128" height="128" data-decoration-id={item.id}>
+        return item ? <image key={spot.spotId} href={hollowItemArtworkPath(item.id) || `/images/hollow/${item.id}.webp`} {...hollowDecorationBox(item.id, spot)} data-decoration-id={item.id}>
           <title>{item.name}</title>
         </image> : null;
       })}
@@ -121,21 +128,29 @@ const ROOM_TINTS = {
 
 const GEAR_SLOT_LABELS = { head: "Head", neck: "Neck", back: "Back", held: "Held", feet: "Feet" };
 
-/* The dress-up pal. Art comes from tools/generate-pal-avatars.mjs. Each dressed
-   image is aligned to the same base pose, so slot masks can reveal the relevant
-   part of every equipped variant at once. This keeps a pack, boots, hat, scarf,
-   and held item composable without pretending independently generated images
-   are pixel-perfect transparent layers.
-   Falls back gracefully: missing layer -> base -> portrait.
-   Idle animation runs always; tapping the pal spins it in 3D. */
+/* Whole single outfits and real alpha equipment share measured registration.
+   A held outfit supplies its correctly posed arm; other slots add only gear.
+   Missing artwork falls back to the base and then the Guide portrait. */
 export function PalFigure({ companion, equipped = {} }) {
   const [spinKey, setSpinKey] = useState(0);
-  const [baseFailed, setBaseFailed] = useState(false);
+  const [failedPrimary, setFailedPrimary] = useState("");
+  const [failedLayers, setFailedLayers] = useState({});
   if (!companion) return null;
   const gear = Object.values(equipped)
     .map(findCatalogItem)
     .filter(item => item?.slot);
-  const base = `/images/companions/full/${companion.id}.webp`;
+  const base = companionFullArtworkPath(companion.id);
+  const plan = companionFigurePlan(companion.id, gear);
+  const baseFailed = failedPrimary === plan.primary;
+  const feetLayer = plan.layers.find(item => item.slot === "feet");
+  const feetRegion = feetLayer && !failedLayers[feetLayer.src] ? plan.feetRegion : null;
+  const bodyError = event => {
+    if (!event.currentTarget.dataset.triedFull && plan.primary !== plan.primaryFull) {
+      event.currentTarget.dataset.triedFull = "true"; event.currentTarget.src = plan.primaryFull;
+    } else if (!event.currentTarget.dataset.triedBase && plan.primaryFull !== base) {
+      event.currentTarget.dataset.triedBase = "true"; event.currentTarget.src = base;
+    } else setFailedPrimary(plan.primary);
+  };
   return (
     <button
       type="button"
@@ -149,24 +164,32 @@ export function PalFigure({ companion, equipped = {} }) {
       ) : (
         <>
           <img
+            key={plan.primary}
             className="hollow-pal-layer hollow-pal-base"
-            src={base}
+            src={plan.primary}
+            style={feetRegion ? { clipPath: `inset(0 0 ${100 - feetRegion.clipTop / 10.24}% 0)` } : undefined}
             alt=""
-            onError={() => setBaseFailed(true)}
+            onError={bodyError}
           />
-          {gear.map(item => (
+          {feetRegion && [
+            { id: "left", right: 100 - feetRegion.left / 10.24, left: 0 },
+            { id: "right", right: 0, left: feetRegion.right / 10.24 }
+          ].map(piece => <img key={plan.primary + piece.id} className="hollow-pal-layer hollow-pal-base" data-body-piece={piece.id}
+            src={plan.primary} alt="" onError={bodyError}
+            style={{ clipPath: `inset(${feetRegion.clipTop / 10.24}% ${piece.right}% 0 ${piece.left}%)` }} />)}
+          {plan.layers.map(item => (
             <img
               key={item.slot}
               className={`hollow-pal-layer hollow-pal-gear hollow-pal-gear-${item.slot}`}
               data-gear={item.id}
-              src={`/images/companions/full/${companion.id}--${item.id}.webp`}
+              src={item.src}
               alt=""
-              onError={hideOnError}
+              style={failedLayers[item.src] ? { display: "none" } : undefined}
+              onError={() => setFailedLayers(previous => ({ ...previous, [item.src]: true }))}
             />
           ))}
         </>
       )}
-      <span className="hollow-pal-ground" aria-hidden="true" />
     </button>
   );
 }
@@ -382,21 +405,21 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
   const rooms = [
     {
       kind: "open", id: "main", name: "The Hollow",
-      image: `url(/images/hollow/scene-${activeTheme.id}.webp), url(${activeTheme.art})`,
+      image: `url(${withRepairedImageVersion(`/images/hollow/scene-${activeTheme.id}.webp`)}), url(${withRepairedImageVersion(activeTheme.art)})`,
       tint: null,
       spots: hollowSpotsFor(activeTheme.id, spotOverride)
         .map(([x, y], index) => ({ id: `s${index + 1}`, x, y, spotId: `s${index + 1}` }))
     },
     ...hollow.ownedExpansions.map(exp => ({
       kind: "open", id: exp.id, name: exp.name,
-      image: `url(/images/hollow/band-${exp.id.slice(4)}.webp), url(${activeTheme.art})`,
+      image: `url(${withRepairedImageVersion(`/images/hollow/band-${exp.id.slice(4)}.webp`)}), url(${withRepairedImageVersion(activeTheme.art)})`,
       tint: ROOM_TINTS[exp.id] || null,
       spots: hollowSpotsFor(exp.id, spotOverride)
         .map(([x, y], index) => ({ x, y, spotId: `${exp.id}-${index + 1}` }))
     })),
     ...(nextExpansion ? [{
       kind: "locked", id: nextExpansion.id, name: nextExpansion.name,
-      image: `url(/images/hollow/band-${nextExpansion.id.slice(4)}.webp), url(${activeTheme.art})`,
+      image: `url(${withRepairedImageVersion(`/images/hollow/band-${nextExpansion.id.slice(4)}.webp`)}), url(${withRepairedImageVersion(activeTheme.art)})`,
       expansion: nextExpansion
     }] : [])
   ];
@@ -439,7 +462,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
       return (
         <button key={spot.spotId} type="button" className="hollow-spot filled" style={style} title={`Put away ${item.name}`} onClick={() => placeItem(spot.spotId, "")}
           {...(spot.spotId === replacementSpotId ? { "data-child-primary": "", "data-child-emphasis": "primary" } : {})}>
-          <ItemArt id={item.id} size={86} />
+          <ItemArt id={item.id} size={72} shelfAnchor />
           <span className="hollow-spot-name">{item.name}</span>
           {spot.spotId === replacementSpotId && <span className="hollow-spot-next" data-child-emphasis-cue="">Make space</span>}
         </button>
@@ -539,6 +562,10 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
         <p data-child-instruction="">{instruction}</p>
         <button type="button" className="hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={24} aria-hidden="true" /></button>
         <span className="hollow-notice" role="status">{notice}</span>
+        {tab === "hollow" && decorating && <button type="button" className="hollow-buy hollow-room-shop" onClick={openMarket}
+          {...(!recommendedSpotId && !replacementSpotId && !pickingSpot ? primaryProps : {})}>
+          <span data-child-emphasis-cue={!recommendedSpotId && !replacementSpotId && !pickingSpot ? "" : undefined}>Choose a decoration</span>
+        </button>}
       </div>
       {tab === "hollow" && !decorating && <div className="hollow-entry-controls" data-child-choices="" data-welcome-gift={welcomeEggWaiting ? "" : undefined} aria-label="Things to do in your Hollow">
           {welcomeEggWaiting && <button type="button" className="hollow-buy hollow-entry-gift" {...primaryProps} onClick={() => grant(WELCOME_EGG)}>
@@ -554,32 +581,29 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
         {tab === "hollow" && !decorating && <HollowRoomScene theme={activeTheme} spots={rooms[0].spots} slots={hollow.slots} />}
 
         {tab === "hollow" && decorating && room && <div className="hollow-room-frame">
+          <div className="hollow-room-pan" tabIndex={0} role="region" aria-label="Room display shelves">
           {room.kind === "open" ? <div className="hollow-room" style={{ backgroundImage: room.image }}>
             {room.tint && <span className="hollow-room-tint" style={{ background: room.tint }} aria-hidden="true" />}
             <span className="hollow-room-name">{room.name}</span>
             {room.spots.filter(spot => hollow.slots[spot.spotId] || placeable.length > 0).map(renderSpot)}
             {renderPicker()}
-            {!recommendedSpotId && !replacementSpotId && !pickingSpot && <aside className="hollow-room-next">
-              <ItemArt id="hollow-glow-jar" size={64} />
-              <button type="button" className="hollow-buy" onClick={openMarket} {...primaryProps}><span data-child-emphasis-cue="">Choose a decoration</span></button>
-            </aside>}
-            <div className="hollow-room-tools">
-              {recommendedSpotId && <button type="button" className="hollow-back" onClick={openMarket}>Shop</button>}
-              <button type="button" className="hollow-world-button" onClick={() => setPickingWorld(v => !v)}>Change world</button>
-            </div>
-            {pickingWorld && <div className="hollow-world-pop" role="dialog" aria-label="Choose your world">
-              {DEN_THEMES.map(world => <button key={world.id} type="button" disabled={!isDenThemeUnlocked(world, treasury.gems)}
-                className={`hollow-world-thumb${activeTheme.id === world.id ? " active" : ""}`} onClick={() => chooseTheme(world)}>
-                <img src={world.art} alt="" /><span>{isDenThemeUnlocked(world, treasury.gems) ? world.name : `${world.name} · ${world.at} gems`}</span>
-              </button>)}
-              <button type="button" onClick={() => setPickingWorld(false)}>Close</button>
-            </div>}
           </div> : <div className="hollow-room locked" style={{ backgroundImage: room.image }}><div className="hollow-room-lock">
             <h2>{room.name}</h2><p>More space for your decorations.</p>
             <button type="button" className="hollow-buy" disabled={!canBuy(hollow, room.expansion.id).ok} onClick={() => buy(room.expansion.id)}>
               <CoinPrice verdict={canBuy(hollow, room.expansion.id)} price={room.expansion.price} />
             </button>
           </div></div>}
+          </div>
+          {room.kind === "open" && <div className="hollow-room-tools">
+            <button type="button" className="hollow-world-button" onClick={() => setPickingWorld(v => !v)}>Change world</button>
+          </div>}
+          {room.kind === "open" && pickingWorld && <div className="hollow-world-pop" role="dialog" aria-label="Choose your world">
+            {DEN_THEMES.map(world => <button key={world.id} type="button" disabled={!isDenThemeUnlocked(world, treasury.gems)}
+              className={`hollow-world-thumb${activeTheme.id === world.id ? " active" : ""}`} onClick={() => chooseTheme(world)}>
+              <img src={world.art} alt="" /><span>{isDenThemeUnlocked(world, treasury.gems) ? world.name : `${world.name} · ${world.at} gems`}</span>
+            </button>)}
+            <button type="button" onClick={() => setPickingWorld(false)}>Close</button>
+          </div>}
           {rooms.length > 1 && <nav className="hollow-room-navigation" aria-label="Places in your Hollow">
             <button type="button" disabled={roomIndex === 0} aria-label="Previous place" onClick={() => { setRoomIndex(i => Math.max(0, i - 1)); setPickingSpot(null); }}><ChevronGlyph direction="left" /></button>
             <span>{room.name}</span>

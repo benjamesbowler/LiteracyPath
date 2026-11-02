@@ -152,12 +152,15 @@ for (const spec of configuration.stops) {
   const frames = rows.map((body, index) => {
     if (body.left <= 0 || body.top <= 0 || body.right >= input.info.width || body.bottom >= input.info.height) throw Error(`${spec.file}/${spec.names[index]}: original silhouette touches source edge`);
     const { cell, gutter } = completeCrop(body, rows, input.info), axis = (body.left + body.right) / 2;
+    // A low fringe at one side must not drag the whole station off-screen.
+    // Keep the decorative attachment on an actual opaque body pixel in the
+    // column nearest its centre, then use that column's lowest pixel.
     const ground = body.pixels.map(point => [point % input.info.width, Math.floor(point / input.info.width)])
-      .filter(([, y]) => y === body.bottom - 1).sort((a, b) => Math.abs(a[0] - axis) - Math.abs(b[0] - axis))[0];
+      .sort((a, b) => Math.abs(a[0] - axis) - Math.abs(b[0] - axis) || b[1] - a[1])[0];
     const frame = { id: spec.names[index], action: spec.names[index], direction: 'side-three-quarter', cell,
       anchor: [ground[0] - cell[0], ground[1] - cell[1]], sockets: { ground },
       measurement: { opaqueBodyBounds: [body.left, body.top, body.right, body.bottom], gutter, foreignOpaqueCropPixels: 0,
-        method: 'Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact' } };
+        method: 'Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact' } };
     requireContacts(input, frame); return frame;
   });
   timed(spec.id, 'complete-location-crop-and-ground-validation', registrationStart);
@@ -184,7 +187,7 @@ for (const asset of manifest.assets.filter(row => row.kind === 'authored-railway
     yards[asset.world] = { runtime: asset.runtime, width: info.width, height: info.height, sourceSha256: asset.sourceSha256 };
     continue;
   }
-  const runtime = `/game-assets/physical-arcade/sentence-express/scenery/${path.basename(asset.source, '.png')}.webp`;
+  const runtime = asset.runtime || `/game-assets/physical-arcade/sentence-express/scenery/${path.basename(asset.source, '.png')}.webp`;
   const encodingStart = performance.now();
   const output = await sharp(bytes).webp({ quality: 88, effort: 6 }).toBuffer();
   timed(asset.id, 'whole-PNG-decode-and-WebP-quality88-effort6-encode', encodingStart);

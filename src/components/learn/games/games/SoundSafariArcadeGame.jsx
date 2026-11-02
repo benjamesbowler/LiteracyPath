@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { isAppleTouchDevice } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
@@ -202,7 +203,7 @@ function lowPolyShape(ctx, points, fill, stroke = "rgba(0,0,0,.38)") {
 
 function loadImage(src) {
   const image = new Image();
-  image.src = src;
+  image.src = withRepairedImageVersion(src);
   return image;
 }
 

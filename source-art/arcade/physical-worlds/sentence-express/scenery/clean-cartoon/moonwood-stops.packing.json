@@ -1,0 +1,105 @@
+{
+  "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/moonwood-stops-002.png",
+  "nativeSha256": "e742ff2b9051588c8115263e5618057904583bf644e6b59caa1513b56aa120de",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "outputSize": [
+    1536,
+    1024
+  ],
+  "sharp": "0.35.5",
+  "kernel": "lanczos3",
+  "encoder": "PNG default",
+  "generatedRasterOnly": true,
+  "method": "global-alpha160-connected-components-area3000; whole raster crops+3px; shared uniform scale; equal2x2containpack",
+  "sharedScale": 0.7026175349428209,
+  "maximumCellFraction": 0.72,
+  "cells": [
+    {
+      "index": 0,
+      "nativeRect": {
+        "left": 44,
+        "top": 9,
+        "width": 655,
+        "height": 508
+      },
+      "destRect": {
+        "left": 154,
+        "top": 77,
+        "width": 460,
+        "height": 357
+      },
+      "wholeCell": {
+        "left": 0,
+        "top": 0,
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "index": 1,
+      "nativeRect": {
+        "left": 732,
+        "top": 135,
+        "width": 787,
+        "height": 383
+      },
+      "destRect": {
+        "left": 875,
+        "top": 121,
+        "width": 553,
+        "height": 269
+      },
+      "wholeCell": {
+        "left": 768,
+        "top": 0,
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "index": 2,
+      "nativeRect": {
+        "left": 37,
+        "top": 548,
+        "width": 675,
+        "height": 453
+      },
+      "destRect": {
+        "left": 147,
+        "top": 609,
+        "width": 474,
+        "height": 318
+      },
+      "wholeCell": {
+        "left": 0,
+        "top": 512,
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "index": 3,
+      "nativeRect": {
+        "left": 752,
+        "top": 532,
+        "width": 754,
+        "height": 469
+      },
+      "destRect": {
+        "left": 887,
+        "top": 603,
+        "width": 530,
+        "height": 330
+      },
+      "wholeCell": {
+        "left": 768,
+        "top": 512,
+        "width": 768,
+        "height": 512
+      }
+    }
+  ]
+}

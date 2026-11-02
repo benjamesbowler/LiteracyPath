@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import sharp from 'sharp';
-import { WORD_BRIDGE_SCENERY } from '../../src/components/learn/games/games/wordBridgeScenery.generated.js';
+import { WORD_BRIDGE_SCENERY, WORD_BRIDGE_HORIZONS } from '../../src/components/learn/games/games/wordBridgeScenery.generated.js';
 const currentManifestPath='source-art/arcade/physical-worlds/word-bridge/scenery-clean-cartoon-manifest.json';
 const manifest=JSON.parse(await fs.readFile(currentManifestPath,'utf8'));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
@@ -22,6 +22,15 @@ test('current scenery preserves exact historical generation lineage',async()=>{
     assert.equal(hash(await fs.readFile(previous.source)),previous.sourceSha256);
     assert.notEqual(asset.source,previous.source);
     assert.equal(hash(await fs.readFile('source-art/arcade/physical-worlds/word-bridge/'+asset.prompt)),asset.promptSha256);
+    if (asset.kind === 'authored-river-worksite-background-layer') {
+      assert.equal(WORD_BRIDGE_HORIZONS[asset.world], asset.runtime);
+      assert.equal(hash(await fs.readFile(asset.source)), asset.sourceSha256);
+      const bytes = await fs.readFile('public'+asset.runtime), dimensions = await sharp(bytes).metadata();
+      assert.equal(hash(bytes), asset.runtimeSha256);
+      assert.deepEqual([dimensions.width, dimensions.height], [1672, 941]);
+      assert.equal(dimensions.hasAlpha, false);
+      continue;
+    }
     const delivered=WORD_BRIDGE_SCENERY[asset.id];
     assert.equal(delivered.runtime,asset.runtime);
     assert.deepEqual(delivered.frames,asset.frames.map(({id,action,direction,cell,anchor,sockets})=>({id,action,direction,cell,anchor,sockets})));

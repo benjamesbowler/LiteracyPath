@@ -1,4 +1,5 @@
 import { preparedClassCode } from "../policy/preparedClassEntry.js";
+import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../supabaseClient.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
@@ -101,7 +102,7 @@ function ClassCodeExample() {
 function StepHeader({ title, subtitle }) {
   return (
     <div className="student-flow-header">
-      <img src="/images/pals/poses/meadow-wave.webp" alt="" />
+      <img src={withRepairedImageVersion("/images/pals/poses/meadow-wave.webp")} alt="" />
       <div>
         <h1 data-child-title="">{title}</h1>
         {subtitle && <p data-child-instruction="">{subtitle}</p>}
@@ -164,7 +165,7 @@ function StudentLoginRecovery({ recovery, onHear }) {
       role="alert"
       aria-live="assertive"
     >
-      <img src={recovery.image} alt="" data-recovery-illustration={recovery.id} />
+      <img src={withRepairedImageVersion(recovery.image)} alt="" data-recovery-illustration={recovery.id} />
       <div>
         <h2>{recovery.title}</h2>
         <p>{recovery.detail}</p>

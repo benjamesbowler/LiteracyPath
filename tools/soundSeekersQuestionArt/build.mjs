@@ -86,6 +86,11 @@ for (const [key, rect] of Object.entries({ basket: [983,332,227,266], lantern: [
   const [left, top, width, height] = rect;
   await register(key, path.join(root, 'public/game-assets/sound-seekers/campaign/environment/puzzle-props.png'), { left, top, width, height });
 }
+// The accepted flat open/empty basket is the same semantic object as the
+// legacy external basket. Prefer its current native alpha for default IN and
+// beside scenes; the separate closed-lid source continues to support ON.
+if (!sprites.has('basket:shape=round')) throw new Error('Missing current flat open basket');
+sprites.set('basket', sprites.get('basket:shape=round'));
 for (const [id, cast] of Object.entries(CAST)) {
   const input = path.join(root, 'public', cast.sprite);
   const meta = await sharp(input).metadata();
@@ -111,7 +116,9 @@ async function layer(layers, kind, attrs, x, feet, width, { maxHeight = 280, cli
   const sprite = explicitKey ? { key: explicitKey, ...sprites.get(explicitKey) } : source(kind, attrs);
   if (!sprite.png) throw new Error(`Missing exact painted source: ${explicitKey}`);
   const dims = dimensions(sprite, width, attrs, maxHeight), cacheKey = `${sprite.key}:${dims.width}:${dims.height}`;
-  if (!scaled.has(cacheKey)) scaled.set(cacheKey, sharp(sprite.png).resize(dims.width, dims.height).png().toBuffer());
+  // These dimensions deliberately express long/short and wide/narrow teaching
+  // contrasts. Cover would silently crop the source when its aspect changes.
+  if (!scaled.has(cacheKey)) scaled.set(cacheKey, sharp(sprite.png).resize(dims.width, dims.height, { fit: 'fill' }).png().toBuffer());
   let input = await scaled.get(cacheKey), left = Math.round(x - dims.width / 2), top = Math.round(feet - dims.height);
   if (clip) {
     const offset = Math.max(0, Math.min(dims.height - 1, Math.round(clip * dims.height)));

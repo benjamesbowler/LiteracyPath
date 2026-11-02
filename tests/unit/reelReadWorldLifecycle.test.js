@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createReelReadWorld } from '../../src/components/learn/games/games/reelReadWorld.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 import { REEL_READ_ART } from '../../src/components/learn/games/games/reelReadArtData.js';
 import { reelReadStageLayout, stepReelReadFish } from '../../src/utils/reelReadMotion.js';
 import { reelReadV2Ladder } from '../../src/utils/reelReadV2Levels.js';
@@ -16,7 +17,7 @@ test('double kit failure keeps actual swimming words and source rod geometry, wi
   globalThis.Image = class {
     set src(url) {
       this.url = url;
-      const asset = Object.values(REEL_READ_ART).find(row => row.runtime === url);
+      const asset = Object.values(REEL_READ_ART).find(row => withRepairedImageVersion(row.runtime) === url);
       assert.ok(asset, 'only declared owned art is requested');
       this.naturalWidth = asset.width; this.naturalHeight = asset.height;
       requests.push(this);
@@ -86,4 +87,43 @@ test('double kit failure keeps actual swimming words and source rod geometry, wi
   const countAtDisposal = lateReports.length;
   releaseDecode(); await pending; await Promise.resolve();
   assert.equal(lateReports.length, countAtDisposal, 'a canceled asynchronous decode cannot resurrect delivery');
+});
+
+
+test('independent reduced kits preserve the complete rendered fish body size in every world', async t => {
+  const previous = { Image: globalThis.Image, window: globalThis.window };
+  t.after(() => Object.assign(globalThis, previous));
+  globalThis.window = { devicePixelRatio: 1, matchMedia: () => ({ matches: false }) };
+  for (const [difficulty, name] of [['easy', 'meadow'], ['medium', 'dino'], ['hard', 'moonwood']]) {
+    const sizes = [];
+    for (const failed of [false, true]) {
+      const calls = [];
+      globalThis.Image = class {
+        set src(url) {
+          this.url = url;
+          const asset = Object.values(REEL_READ_ART).find(row => withRepairedImageVersion(row.runtime) === url);
+          assert.ok(asset);
+          this.naturalWidth = asset.width; this.naturalHeight = asset.height;
+          queueMicrotask(() => failed && url === withRepairedImageVersion(REEL_READ_ART[`${name}-fishing-kit-v1`].runtime) ? this.onerror() : this.onload());
+        }
+        decode() { return Promise.resolve(); }
+      };
+      const ctx = new Proxy({ createLinearGradient: () => ({ addColorStop() {} }), drawImage: (...args) => calls.push(args) },
+        { get: (target, key) => target[key] ?? (() => {}) });
+      let delivery;
+      const world = createReelReadWorld({ style: {}, getContext: () => ctx }, { difficulty, onDelivery: value => { delivery = value; } });
+      for (let turn = 0; turn < 12; turn++) await Promise.resolve();
+      assert.ok(!Object.values(delivery.assets).includes('pending'));
+      world.resize(390, 650);
+      world.draw({ elapsed: 4, boatPosition: .4, facing: 'right', steering: 0, castAt: -99,
+        landedAt: -99, errorAt: -99, escapeAt: -99, fight: null, hook: null,
+        fish: [{ id: 1, slot: 0, visible: true, labelX: 170, labelY: 420, word: 'cat' }] }, 0);
+      const asset = REEL_READ_ART[`${name}-fishing-kit${failed ? '-fallback' : ''}-v1`], rect = asset.parts.fish[0];
+      const body = calls.find(args => args.length === 9 && args[0].url === withRepairedImageVersion(asset.runtime)
+        && args.slice(1, 5).every((value, index) => Math.abs(value - [rect[0], rect[1], rect[2] - rect[0], rect[3] - rect[1]][index]) < 1e-6));
+      assert.ok(body, `${name} actual selected fish body was painted`);
+      sizes.push(body.slice(7, 9)); world.dispose();
+    }
+    assert.ok(sizes[0].every((size, index) => Math.abs(size - sizes[1][index]) < .01), `${name} reduced fish retains its world dimensions`);
+  }
 });

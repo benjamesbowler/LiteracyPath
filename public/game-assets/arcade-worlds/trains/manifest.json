@@ -2,9 +2,9 @@
   "creator": "Literacy Guide",
   "license": "Project-owned",
   "source": "source-art/arcade/rolling-stock/Railway.blend",
-  "sourceSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+  "sourceSha256": "c82d8b58204d9d0f0cfc8b36f44ad1902c804e9c1f11f423a5e66bf0940cad79",
   "authoring": "tools/blender/build_arcade_rolling_stock.py",
-  "authoringSha256": "fcc5fd895edb8d01a40a285d0e2b5905f560fe226bffb6c9f13a42d8ddbdf251",
+  "authoringSha256": "06da33b014b3cbf74992a955a19a8611934d520f5a0b42faab11d707af7c51ac",
   "assets": [
     {
       "id": "wagon",
@@ -47,9 +47,38 @@
         "height": 320,
         "frames": 8,
         "columns": 4,
-        "fps": 12
+        "fps": 12,
+        "framing": {
+          "method": "whole modeled mesh bounds with four percent transparent margins",
+          "before": {
+            "location": [
+              0.0,
+              -12.0,
+              4.800000190734863
+            ],
+            "rotation": [
+              1.2778111696243286,
+              -0.0,
+              0.0
+            ],
+            "orthoScale": 4.400000095367432
+          },
+          "after": {
+            "location": [
+              0.0,
+              -11.992179870605469,
+              4.825923919677734
+            ],
+            "rotation": [
+              1.2778111696243286,
+              -0.0,
+              0.0
+            ],
+            "orthoScale": 4.827279567718506
+          }
+        }
       },
-      "sha256": "d930abee1c27fd37819288198dcd983529882362f98d767b92df1598b9cdb45c"
+      "sha256": "17f21ded4ef053f093f2ff6900d4c535aeaa0555d62d2adcdeab006d9e5e562a"
     }
   ]
 }

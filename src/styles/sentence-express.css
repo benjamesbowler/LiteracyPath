@@ -71,9 +71,9 @@
   transform-origin: 50% 80%;
   transition: height .7s ease;
 }
-.sx-meadow .sx-landscape { background-image: url('/images/learn-games/sentence-express/meadow-panorama.webp'); }
-.sx-dino .sx-landscape { background-image: url('/images/learn-games/sentence-express/dino-panorama.webp'); }
-.sx-moonwood .sx-landscape { background-image: url('/images/learn-games/sentence-express/moonwood-panorama.webp'); }
+.sx-meadow .sx-landscape { background-image: url('/images/learn-games/sentence-express/meadow-panorama.webp?v=7e818f544a27'); }
+.sx-dino .sx-landscape { background-image: url('/images/learn-games/sentence-express/dino-panorama.webp?v=0c7653c9df7e'); }
+.sx-moonwood .sx-landscape { background-image: url('/images/learn-games/sentence-express/moonwood-panorama.webp?v=ed0954230b4e'); }
 .sx-landscape::after {
   content: ''; position: absolute; inset: 65% 0 -1px;
   background: linear-gradient(transparent, var(--sx-ground));

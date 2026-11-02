@@ -1,0 +1,208 @@
+{
+  "sourceBeforeSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+  "sourceAfterSha256": "c82d8b58204d9d0f0cfc8b36f44ad1902c804e9c1f11f423a5e66bf0940cad79",
+  "meshIdentityBeforeAndAfter": "3067bd4a8b038527d80aba3a22a64c6f2435ec531093228506c06ab5c8dbe57f",
+  "framing": {
+    "method": "whole modeled mesh bounds with four percent transparent margins",
+    "before": {
+      "location": [
+        0,
+        -12,
+        4.800000190734863
+      ],
+      "rotation": [
+        1.2778111696243286,
+        0,
+        0
+      ],
+      "orthoScale": 4.400000095367432
+    },
+    "after": {
+      "location": [
+        0,
+        -11.992179870605469,
+        4.825923919677734
+      ],
+      "rotation": [
+        1.2778111696243286,
+        0,
+        0
+      ],
+      "orthoScale": 4.827279567718506
+    }
+  },
+  "projectedSourceContacts": {
+    "leftCoupler": [
+      45.99351501464844,
+      231.6892433166504
+    ],
+    "rightCoupler": [
+      466.0064697265625,
+      231.6892433166504
+    ],
+    "sole": [
+      141.4510040283203,
+      298.73626470565796
+    ],
+    "wordPanelCenter": [
+      256,
+      168.90844345092773
+    ]
+  },
+  "unchangedModelsAndOtherSprites": {
+    "caboose.glb": "e5740cb30ed8230266d9c07726c277f9121fbd39e91f76d837c113bc44c9b22f",
+    "wagon.webp": "cd000d5c3b0cd90524d1de8c512a529c5450a9eff33af4b775a88ff3f4e69b80",
+    "wagon.glb": "88a6914623b60a842745d7e750738a2ad494e01005d12a26465358997b62f4dc",
+    "engine.webp": "57131c3064444a9c6a80681ee756ba0ad94744cab1ac4dda50444293b8e10ebf",
+    "engine.glb": "917992a9ae83e461305e19d84ecca6e0f17245af57af57df3cc21717753e0fcc"
+  },
+  "frames": 8,
+  "width": 512,
+  "height": 320,
+  "measuredOpaqueSourceContacts": {
+    "leftCoupler": [
+      46,
+      232
+    ],
+    "rightCoupler": [
+      465,
+      232
+    ],
+    "sole": [
+      141,
+      301
+    ]
+  },
+  "contactAlphaThreshold": 192,
+  "contactFramesVerified": 8,
+  "visualReview": {
+    "fullEightFrameNativeViewed": true,
+    "savedSourceFrameBounds": [
+      {
+        "frame": 0,
+        "bounds": [
+          46,
+          15,
+          465,
+          302
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          46,
+          15,
+          465,
+          301
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          46,
+          15,
+          465,
+          302
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          46,
+          15,
+          465,
+          301
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          46,
+          15,
+          465,
+          302
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          46,
+          15,
+          465,
+          301
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          46,
+          15,
+          465,
+          302
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          46,
+          15,
+          465,
+          301
+        ],
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      }
+    ],
+    "actualNineGameFramesViewed": true,
+    "actualAssemblyAndSendPassed": true,
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 900
+      },
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 568,
+        "height": 320
+      }
+    ],
+    "status": "accepted-local",
+    "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/caboose/actual-game-proof.json",
+    "runtimeEvidenceSha256": "4c98db8af7c8801479e5db67f2f178595b1c94ebf1427d46880557bd1a04cee5",
+    "unchangedModelEvidence": "source-art/arcade/rolling-stock/camera-repair-model-identity.json",
+    "unchangedModelEvidenceSha256": "3a7b54b46ee93ad7e5c4617542398c142a4b98d7c09ebce58a6a38e35494c87e"
+  }
+}

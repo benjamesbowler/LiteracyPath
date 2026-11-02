@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "jobs": [
+    {
+      "id": "rhyme-v2-flock",
+      "word": "flock",
+      "path": "/images/child-mode/reviewed/arcade/flock.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/flock.webp",
+      "originalSha256": "a3c053119e6a384a68a02fe257b8fcb989e095f35dbb1f30af9d0d651a9916b9",
+      "prompt": "Edit target: the attached existing flock vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. Exactly five small friendly swallows flying together toward the right, three blue-and-white and two brown-and-cream, each with a clear beak, two wings, two eyes and forked tail. Keep all five whole, separated and readable. Cream background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-spun",
+      "word": "spun",
+      "path": "/images/child-mode/reviewed/arcade/spun.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/spun.webp",
+      "originalSha256": "06477a2a5329f223a17fce4c0c402431986c9521f6285743f363ac975ea2720c",
+      "prompt": "Edit target: the attached existing spun vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. One wooden spinning top with broad red, yellow and blue bands, one wooden handle and one fine downward point touching a simple golden tabletop. A few crisp motion arcs clearly show it spinning. No face. Cream background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-grow",
+      "word": "grow",
+      "path": "/media/vocabulary/images/grow.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/grow.webp",
+      "originalSha256": "fbec3b22193c5a191134a75f4ec0027869d70dde2b6d27bd20886dcb3b3b009d",
+      "prompt": "Edit target: the attached existing grow vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. A child with brown curly hair in blue overalls waters a raised garden bed. Show three clearly separated stages of the SAME sunflower: tiny two-leaf sprout, medium leafy stalk, tall yellow sunflower. An upward curved arrow connects the stages. A plain sun has NO face. Simple ordinary garden background. The growth sequence is the focus. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-might",
+      "word": "might",
+      "path": "/media/vocabulary/images/might.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/might.webp",
+      "originalSha256": "f459bfb8d231705d1456a0c2db3df966f8564c629d01b78554e32b5cc9e9422c",
+      "prompt": "Edit target: the attached existing might vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. A child in a green T-shirt and blue shorts braces both hands against one large gray rock in an ordinary park, demonstrating effort and strength. Balanced safe pose with feet on ground, both hands anatomically clear. Rock and effort are obvious. Simple flat foliage and grass. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-shake",
+      "word": "shake",
+      "path": "/media/vocabulary/images/shake.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/shake.webp",
+      "originalSha256": "5b364278bd5d3fdefd7a6ffe420b00cec4d6388ca54d90f601c13d2e9636c69e",
+      "prompt": "Edit target: the attached existing shake vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. An ordinary classroom music group: one teacher holds and shakes one tambourine; four children each hold ONE maraca or small tambourine and shake it, with crisp motion arcs. Everyday tops and trousers; neutral room. Instruments and action large and clearly separated. No written letters, words or religious imagery. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-show",
+      "word": "show",
+      "path": "/media/vocabulary/images/show.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/show.webp",
+      "originalSha256": "bd5ebbc1e16ab69f7670c94acf3186a39793191fa5c94cfd4caa4befa2708b39",
+      "prompt": "Edit target: the attached existing show vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. A child in a green T-shirt stands on a low classroom platform, holding up one large white drawing of a friendly orange dinosaur so three seated peers and one teacher can see it. The drawing and showing gesture are the focus. Simple ordinary classroom; background posters are geometric pictures with no text. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-share",
+      "word": "share",
+      "path": "/media/vocabulary/images/share.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/share.webp",
+      "originalSha256": "9db799769d74dcc7240bc45d8120bf34591b4f86956c3c233d51f72249ddbb34",
+      "prompt": "Edit target: the attached existing share vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. Two children sit facing each other on a plain classroom rug. One child in a green shirt offers one orange segment to the other child in a yellow shirt, who reaches to accept it. A simple open basket of oranges between them makes sharing obvious. Both children have two arms and correctly formed hands. Simple background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-stair",
+      "word": "stair",
+      "path": "/media/vocabulary/images/stair.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/stair.webp",
+      "originalSha256": "1e5198f241a36bbae7bae6aa532b4ac652a959cf09e4e6c7415d651f0e8c363f",
+      "prompt": "Edit target: the attached existing stair vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. One child in blue overalls safely climbs broad colorful ordinary indoor stairs while holding one continuous wooden handrail. Clearly visible stepped treads and connected handrail. Whole child, both feet and railing visible. Neutral simple school background. No clutter or text. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-tell",
+      "word": "tell",
+      "path": "/media/vocabulary/images/tell.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/tell.webp",
+      "originalSha256": "abf3e47f678e99c4d741e2b3a10c1642c1cf8ae29d4543ce2eb82c59d5dbb15d",
+      "prompt": "Edit target: the attached existing tell vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. Two children sit at a classroom desk facing each other. The child at left speaks while making a small open-hand talking gesture; the child at right listens attentively with both hands on the desk. Clear friendly eye contact. No speech bubbles, words or text. Simple ordinary classroom background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-well",
+      "word": "well",
+      "path": "/media/vocabulary/images/well.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/well.webp",
+      "originalSha256": "9b805820fd724e63293c598ba2157532ce78dbbed25f01fa58a873a89db6ca1d",
+      "prompt": "Edit target: the attached existing well vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. One traditional round stone water well with a simple brown wooden pitched shelter, horizontal spindle, crank, rope and ONE bucket hanging clearly above the open well mouth, plus ONE spare bucket on the ground. Clear simple working mechanism, large readable silhouettes. Plain white background, tiny simple green ground patch. No religious symbols. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration."
+    },
+    {
+      "id": "rhyme-v2-ton",
+      "word": "ton",
+      "path": "/images/child-mode/reviewed/arcade/ton.webp",
+      "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/ton.webp",
+      "originalSha256": "705026c0038cef857bf118298e08dc0f15088e55b6980f410c52a933c32c5f24",
+      "prompt": "Edit target: attached existing ton vocabulary meaning-context picture. Redraw the entire picture in bold clean clear 2D cartoon: one huge gray boulder next to one very small red toy car to suggest enormous weight. Preserve the comparative size meaning; this is an audio-led meaning context, not a literal calibrated measurement. Show one whole large rock and one whole small red car on a flat cream background and a simple flat ground shadow. Keep the same uncluttered balanced square composition. Use thick crisp continuous dark outlines, saturated flat colors, and a few simple smooth cel-shaded rock facets. NO stone texture, realistic rendering, paint daubs, paper grain, brushwork, watercolor, gouache, embossed/bevelled edges, mottling or fuzzy outlines. No labels, letters, numbers, text, flags, symbols, faces or extra objects. Whole subjects with safe margins,1024square."
+    }
+  ]
+}

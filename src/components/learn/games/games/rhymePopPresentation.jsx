@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createRhymePopEngine } from './rhymePopEngine.js';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import './RhymePopGame.css';
 
 export default function RhymePopPresentation({ difficulty = 'easy', sessionSeed = 0, journey = null, startLevel = 0,
@@ -35,7 +36,9 @@ export default function RhymePopPresentation({ difficulty = 'easy', sessionSeed 
       <div className="rp-cue" data-child-instruction>
         <button type="button" className="rp-hear" aria-label="Hear rhyme clue again" disabled={!isSoundEnabled}
           onClick={() => { engine.current?.replay(); focusPlay(); }}>
-          {hud.picture.image && <img src={hud.picture.image} alt={hud.picture.kind === 'meaning-context' ? 'Meaning scene. Hear the clue.' : 'Clue picture. Hear its name.'} />}
+          {hud.picture.image && <img src={withRepairedImageVersion(hud.picture.image)} alt={hud.picture.kind === 'meaning-context' ? 'Meaning scene. Hear the clue.' : 'Clue picture. Hear its name.'}
+            onError={event => { event.currentTarget.style.display = 'none'; }}
+            onLoad={event => { event.currentTarget.style.removeProperty('display'); }} />}
           <span>{isSoundEnabled ? 'Hear' : 'Sound off'}</span>
         </button>
         <div><div className="rp-progress" data-child-progress><strong>{hud.stage+1} / {hud.totalStages}</strong><span>Wind {hud.act+1}</span></div>

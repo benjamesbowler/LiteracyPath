@@ -1,0 +1,100 @@
+{
+  "jobId": "art-0669",
+  "path": "/game-assets/physical-arcade/word-bridge/scenery/meadow-horizon-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/word-bridge/scenery/meadow-horizon-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0669.webp",
+  "sourceSha256": "05cd1059b7998f92469c638994841da226b990aacefbe3176a2a57a6f16d3ee5",
+  "originalSha256": "05cd1059b7998f92469c638994841da226b990aacefbe3176a2a57a6f16d3ee5",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0669.webp",
+  "finalSha256": "9a79386b0d899cb3622b06bda5994e11a81561b35a98f57364f50b367725700d",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-2fcdbbac-8eea-4202-b704-61c330ce27b3.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0669/native-002.png",
+  "nativeSha256": "a36385081edc01eaba334acd3779fa063edfd9bba3953f7379658d7fc98a7982",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/meadow-horizon-v1.prompt.txt",
+  "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/references/meadow-horizon-v1-input-1.png",
+      "sha256": "f52a835c6023ecb035a163e7b0bed69911e8f51d1d42de2ba0ae5aa0e2857630"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Distinct original word-bridge meadow backdrop, bold continuous outlines and broad smooth flat fields throughout, neutral ordinary nature/structures. Exact native, full encoded WebP,390/128 and27actualfullscreenframes directlyviewed; LetterLeap also3actualmirroredjoinframes. Dino sand/fossil semantics restored where required. No gameplay/audio/learner-save/physical-device or hosted-release claim.",
+    "reviewedAt": "2026-11-02T05:48:48.289Z",
+    "display128Viewed": true,
+    "notABook": true,
+    "fullContextViewed": true,
+    "contextFiles": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen/browser-proof.json",
+        "sha256": "87c6276de4a1c9930a84b79bfb765b05a7041d0c61fae74d13d0784571717dde",
+        "frames": 27
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored/browser-proof.json",
+        "sha256": "a55c00b38a3b5b6ea884404ba3e0bdadad4816f1a8f37b6dcf06e1b9fb58bb90",
+        "frames": 3
+      }
+    ]
+  },
+  "installedAt": "2026-11-02T05:48:48.293Z",
+  "source": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/meadow-horizon-v1.png",
+  "provider": {
+    "jobId": "art-0669",
+    "attempt": 2,
+    "prompt": "Use case: style-transfer. Edit this OWN GENERATED emptygamebackdrop candidate. Preserve EXACT full16:9framing, scene, scenerypositions, foregroundclearing/rivergap, allordinarylandmarks andnaturalsilhouettes. Completely FLATTEN rendering to BOLD CRISP2D VECTOR CARTOON withTHICKERcontinuousBLACKoutlines, sharplyLIMITEDpalette andUNIFORM SOLID COLOR FIELDS. Main corrections: skyONEuniformsolidblue/cobaltfield, nogradient/horizonbrightening; grassclearingONEuniformgreen/teal/sandfield with atmostONElargeHARD-EDGEDcelshadow, removealleverysmallgroundpatch; riverTWOuniformcyanfields plusfewsimpleflatcurvedripplelines,noreflectionstreaks; mountainONEsolidfieldplusONElargehardshadow, nostreaks; eachsmoothrockONEfieldplusONEhardshadow, no cracks, scuffs, highlightscrapes ormaterialchips; treecanopyTWOflatgreensilhouettes maximum, eliminateeverytinyrepeatedleafspeckle/dab anddappledshade. Simplifyprehistoricforestto broadoutlinedcanopylayers, notdensepebbledleafclusters. Plainwood/birchtrunk smoothfieldswithonlynecessarystructuraloutlines, nowoodgrain. Keepsimpleplainround/cylindricalflat-yellowgardenlanterns, facelessmoon, starDOTS. Preserveordinarycottages/workcanopyonlyifpresent, noextranewbuildings,characters,animals,tools,bridge,UI,text,letters,numbers,labels,religiousarchitecture/symbolsornational/political/religiousflags. ExistingbridgeonlyifalreadyintheimageandnotcentralWordBridgeworksite; do not addone. NO painterly, daubed, pebbled, embossed, fuzzy, blended, airbrushed, glowing, gradient or3Drendered materials. Everydistantandnearshape equallycrispflat outlined.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0669/native-001.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-2fcdbbac-8eea-4202-b704-61c330ce27b3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-2fcdbbac-8eea-4202-b704-61c330ce27b3.png"
+  },
+  "encoding": {
+    "quality": 92,
+    "alphaQuality": 100,
+    "effort": 6
+  },
+  "deliveryRecipe": {
+    "kind": "complete-current-source",
+    "resize": [
+      1672,
+      941
+    ],
+    "fit": "fill"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/provenance/meadow-horizon-attempt-1.prompt.txt",
+      "promptSha256": "ec81c52c1729c1892399c67f3485bdd8aca4b271a43234ae1c1f69d732323550",
+      "nativeSha256": "f52a835c6023ecb035a163e7b0bed69911e8f51d1d42de2ba0ae5aa0e2857630",
+      "disposition": "retained as exact generation/input/QC lineage"
+    },
+    {
+      "attempt": 2,
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/provenance/meadow-horizon-attempt-2.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+      "nativeSha256": "a36385081edc01eaba334acd3779fa063edfd9bba3953f7379658d7fc98a7982",
+      "disposition": "accepted"
+    }
+  ]
+}

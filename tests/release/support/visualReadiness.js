@@ -1,5 +1,19 @@
 import { expect } from "@playwright/test";
 
+// A required illustration can initially have zero height while loading. The
+// visible-image scan below intentionally excludes offscreen catalogue images,
+// so readers must establish their required picture before measuring layout.
+export async function expectRequiredImageReady(page, image, state) {
+  await expect(image, `${state} has its required illustration`).toHaveCount(1);
+  await page.evaluate(() => document.fonts?.ready);
+  await expect.poll(() => image.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    return element.complete && element.naturalWidth > 0 && element.naturalHeight > 0
+      && rect.width > 0 && rect.height > 0;
+  }), { message: `${state} waits for its loaded, nonzero illustration` }).toBe(true);
+  await image.evaluate(element => element.decode());
+}
+
 export async function expectVisibleImagesReady(page, state) {
   await expect.poll(async () => page.locator("img").evaluateAll(async images => {
     const visibleImages = images.filter(image => {

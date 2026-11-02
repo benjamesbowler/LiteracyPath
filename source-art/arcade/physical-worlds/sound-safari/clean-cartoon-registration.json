@@ -1,0 +1,1676 @@
+{
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/sound-safari/manifest.json",
+    "sha256": "e23abe7792893e937291e27457c23bff50ecca91677f59baf01e26a2ad136fd9"
+  },
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/sound-safari/registration.json",
+    "sha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430"
+  },
+  "currentSources": {
+    "bouncy-operator-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/bouncy-operator-v1.png",
+      "sourceSha256": "6e1e3162b3cc52c4991c6db4494f15d81bb8fe967c01be27102aec886a63bcf4",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "frames": [
+        {
+          "id": "bouncy-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            236.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              173,
+              459
+            ],
+            "bootLeft": [
+              173,
+              459
+            ],
+            "bootRight": [
+              300,
+              454
+            ],
+            "nearHand": [
+              317,
+              303
+            ],
+            "farHand": [
+              367,
+              291
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              113,
+              82,
+              400,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            223.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              822,
+              459
+            ],
+            "bootLeft": [
+              649,
+              456
+            ],
+            "bootRight": [
+              822,
+              459
+            ],
+            "nearHand": [
+              828,
+              295
+            ],
+            "farHand": [
+              921,
+              239
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              587,
+              76,
+              950,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            250,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              174,
+              971
+            ],
+            "bootLeft": [
+              174,
+              971
+            ],
+            "bootRight": [
+              326,
+              966
+            ],
+            "nearHand": [
+              314,
+              798
+            ],
+            "farHand": [
+              392,
+              775
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              97,
+              575,
+              416,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            283,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              726,
+              971
+            ],
+            "bootLeft": [
+              726,
+              971
+            ],
+            "bootRight": [
+              864,
+              962
+            ],
+            "nearHand": [
+              838,
+              798
+            ],
+            "farHand": [
+              909,
+              787
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              599,
+              580,
+              937,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            238,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              350,
+              1483
+            ],
+            "bootLeft": [
+              126,
+              1462
+            ],
+            "bootRight": [
+              350,
+              1483
+            ],
+            "nearHand": [
+              148,
+              1285
+            ],
+            "farHand": [
+              404,
+              1275
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              78,
+              1083,
+              434,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "bouncy-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            256,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              702,
+              1483
+            ],
+            "bootLeft": [
+              702,
+              1483
+            ],
+            "bootRight": [
+              834,
+              1477
+            ],
+            "nearHand": [
+              704,
+              1192
+            ],
+            "farHand": [
+              909,
+              1181
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              599,
+              1076,
+              936,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        }
+      ],
+      "pixelsPerUnit": 179.3181818181818,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "chompy-operator": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/chompy-operator-v1.png",
+      "sourceSha256": "8e703925fbfee53cc4311db67a7b22ccd64e1770b761d2e2d3fb832c7cc1de1a",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "frames": [
+        {
+          "id": "chompy-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            259.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              181,
+              459
+            ],
+            "bootLeft": [
+              181,
+              459
+            ],
+            "bootRight": [
+              338,
+              454
+            ],
+            "nearHand": [
+              304,
+              335
+            ],
+            "farHand": [
+              385,
+              321
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              69,
+              83,
+              442,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            237.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              836,
+              459
+            ],
+            "bootLeft": [
+              663,
+              455
+            ],
+            "bootRight": [
+              836,
+              459
+            ],
+            "nearHand": [
+              851,
+              307
+            ],
+            "farHand": [
+              945,
+              268
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              575,
+              62,
+              962,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            278.5,
+            458
+          ],
+          "sockets": {
+            "feet": [
+              187,
+              970
+            ],
+            "bootLeft": [
+              187,
+              970
+            ],
+            "bootRight": [
+              370,
+              965
+            ],
+            "nearHand": [
+              328,
+              809
+            ],
+            "farHand": [
+              418,
+              801
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              79,
+              564,
+              434,
+              971
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            286.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              715,
+              971
+            ],
+            "bootLeft": [
+              715,
+              971
+            ],
+            "bootRight": [
+              882,
+              963
+            ],
+            "nearHand": [
+              812,
+              826
+            ],
+            "farHand": [
+              884,
+              803
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              595,
+              574,
+              940,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            232,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              176,
+              1483
+            ],
+            "bootLeft": [
+              176,
+              1483
+            ],
+            "bootRight": [
+              288,
+              1473
+            ],
+            "nearHand": [
+              145,
+              1258
+            ],
+            "farHand": [
+              412,
+              1317
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              61,
+              1080,
+              450,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "chompy-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            272,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              704,
+              1483
+            ],
+            "bootLeft": [
+              704,
+              1483
+            ],
+            "bootRight": [
+              864,
+              1479
+            ],
+            "nearHand": [
+              668,
+              1232
+            ],
+            "farHand": [
+              936,
+              1243
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              578,
+              1082,
+              958,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        }
+      ],
+      "pixelsPerUnit": 181.8181818181818,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "dino-critters": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/dino-critters-v1.png",
+      "sourceSha256": "a819c584adbab6ddfd2c5a67b8a632ba5a4eb740fc276593463ac3ca3dbf7054",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": [
+        {
+          "id": "triceratops-idle",
+          "species": "triceratops",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            768,
+            341
+          ],
+          "anchor": [
+            384,
+            171
+          ],
+          "sockets": {
+            "captureCenter": [
+              384,
+              171
+            ]
+          },
+          "captureRadius": 200,
+          "measurement": {
+            "opaqueBodyBounds": [
+              184,
+              36,
+              584,
+              306
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "triceratops-travel",
+          "species": "triceratops",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            768,
+            0,
+            1536,
+            341
+          ],
+          "anchor": [
+            384,
+            170.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1152,
+              170.5
+            ]
+          },
+          "captureRadius": 203,
+          "measurement": {
+            "opaqueBodyBounds": [
+              949,
+              35,
+              1355,
+              306
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "pterosaur-idle",
+          "species": "pterosaur",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            341,
+            768,
+            683
+          ],
+          "anchor": [
+            384,
+            195.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              384,
+              536.5
+            ]
+          },
+          "captureRadius": 306,
+          "measurement": {
+            "opaqueBodyBounds": [
+              78,
+              425,
+              690,
+              648
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "pterosaur-travel",
+          "species": "pterosaur",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            768,
+            341,
+            1536,
+            683
+          ],
+          "anchor": [
+            384.5,
+            184.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1152.5,
+              525.5
+            ]
+          },
+          "captureRadius": 177.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              975,
+              403,
+              1330,
+              648
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "ankylosaur-idle",
+          "species": "ankylosaur",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            683,
+            768,
+            1024
+          ],
+          "anchor": [
+            384,
+            170.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              384,
+              853.5
+            ]
+          },
+          "captureRadius": 268,
+          "measurement": {
+            "opaqueBodyBounds": [
+              116,
+              718,
+              652,
+              989
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "ankylosaur-travel",
+          "species": "ankylosaur",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            768,
+            683,
+            1536,
+            1024
+          ],
+          "anchor": [
+            384,
+            171.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1152,
+              854.5
+            ]
+          },
+          "captureRadius": 277,
+          "measurement": {
+            "opaqueBodyBounds": [
+              875,
+              720,
+              1429,
+              989
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        }
+      ],
+      "pixelsPerUnit": 200,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "meadow-critters": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/meadow-critters-v2.png",
+      "sourceSha256": "3bdebc714ff59ce7fe8d983b6c6ce285a1c97842c4edd328a050f9b09f2fd4ea",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "frames": [
+        {
+          "id": "ladybird-idle",
+          "species": "ladybird",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            256.5,
+            321
+          ],
+          "sockets": {
+            "captureCenter": [
+              256.5,
+              321
+            ]
+          },
+          "captureRadius": 193.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              63,
+              182,
+              450,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "ladybird-travel",
+          "species": "ladybird",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            256,
+            268
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              268
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              76,
+              972,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "butterfly-idle",
+          "species": "butterfly",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            256,
+            286
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              798
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              52,
+              624,
+              460,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "butterfly-travel",
+          "species": "butterfly",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            256,
+            265
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              777
+            ]
+          },
+          "captureRadius": 195,
+          "measurement": {
+            "opaqueBodyBounds": [
+              619,
+              582,
+              917,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "frog-idle",
+          "species": "frog",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            256,
+            333
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              1357
+            ]
+          },
+          "captureRadius": 152,
+          "measurement": {
+            "opaqueBodyBounds": [
+              104,
+              1230,
+              408,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "frog-travel",
+          "species": "frog",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            256,
+            317
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              1341
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              1198,
+              972,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        }
+      ],
+      "pixelsPerUnit": 200,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "moonwood-critters": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/moonwood-critters-v1.png",
+      "sourceSha256": "38843c279d9b319617c96e5fc8f03f557ac007c3a3b2968309c30c4dfb910fcd",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "frames": [
+        {
+          "id": "firefly-idle",
+          "species": "firefly",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            256,
+            278.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              278.5
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              52,
+              97,
+              460,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "firefly-travel",
+          "species": "firefly",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            256.5,
+            286.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              768.5,
+              286.5
+            ]
+          },
+          "captureRadius": 173.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              595,
+              113,
+              942,
+              460
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "owlet-idle",
+          "species": "owlet",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            256,
+            292.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              256,
+              804.5
+            ]
+          },
+          "captureRadius": 167.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              102,
+              637,
+              410,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "owlet-travel",
+          "species": "owlet",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            256,
+            273.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              768,
+              785.5
+            ]
+          },
+          "captureRadius": 204,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              599,
+              972,
+              972
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "mouse-idle",
+          "species": "mouse",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            255.5,
+            316.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              255.5,
+              1340.5
+            ]
+          },
+          "captureRadius": 174.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              81,
+              1197,
+              430,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        },
+        {
+          "id": "mouse-travel",
+          "species": "mouse",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            255.5,
+            333
+          ],
+          "sockets": {
+            "captureCenter": [
+              767.5,
+              1357
+            ]
+          },
+          "captureRadius": 203.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              564,
+              1230,
+              971,
+              1484
+            ],
+            "method": "actual complete alpha silhouette centre includingwings/tail/antennae; no invented hand orsole"
+          }
+        }
+      ],
+      "pixelsPerUnit": 200,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "pip-operator": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/pip-operator-v1.png",
+      "sourceSha256": "76c16730bc89ac4eeaa59cfcdfdcd3d10987ffff4b48e7785a73bcbb14c89c34",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "frames": [
+        {
+          "id": "pip-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "anchor": [
+            248.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              184,
+              459
+            ],
+            "bootLeft": [
+              184,
+              459
+            ],
+            "bootRight": [
+              313,
+              452
+            ],
+            "nearHand": [
+              259,
+              299
+            ],
+            "farHand": [
+              335,
+              301
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              135,
+              66,
+              378,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "anchor": [
+            234.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              828,
+              459
+            ],
+            "bootLeft": [
+              665,
+              447
+            ],
+            "bootRight": [
+              828,
+              459
+            ],
+            "nearHand": [
+              903,
+              223
+            ],
+            "farHand": [
+              841,
+              289
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              615,
+              54,
+              921,
+              460
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "anchor": [
+            262.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              195,
+              971
+            ],
+            "bootLeft": [
+              195,
+              971
+            ],
+            "bootRight": [
+              330,
+              965
+            ],
+            "nearHand": [
+              296,
+              796
+            ],
+            "farHand": [
+              337,
+              783
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              135,
+              564,
+              376,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "anchor": [
+            306,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              760,
+              971
+            ],
+            "bootLeft": [
+              760,
+              971
+            ],
+            "bootRight": [
+              876,
+              968
+            ],
+            "nearHand": [
+              833,
+              806
+            ],
+            "farHand": [
+              868,
+              786
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              621,
+              568,
+              914,
+              972
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "anchor": [
+            246,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              327,
+              1483
+            ],
+            "bootLeft": [
+              165,
+              1469
+            ],
+            "bootRight": [
+              327,
+              1483
+            ],
+            "nearHand": [
+              125,
+              1259
+            ],
+            "farHand": [
+              382,
+              1299
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              99,
+              1081,
+              413,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        },
+        {
+          "id": "pip-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "anchor": [
+            261.5,
+            459
+          ],
+          "sockets": {
+            "feet": [
+              702,
+              1483
+            ],
+            "bootLeft": [
+              702,
+              1483
+            ],
+            "bootRight": [
+              845,
+              1477
+            ],
+            "nearHand": [
+              646,
+              1228
+            ],
+            "farHand": [
+              890,
+              1216
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              616,
+              1079,
+              920,
+              1484
+            ],
+            "method": "actual native opaque palms/hoofs and independent lower3row boot soles; wholefigure retained"
+          }
+        }
+      ],
+      "pixelsPerUnit": 183.86363636363635,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "nets-v2": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/clean-cartoon/nets-v2.png",
+      "sourceSha256": "7cd8414048d0d13da71a0ea96b2ab6dc474a35569d75cf8e0988bceb9b57a1cf",
+      "sourceSize": [
+        1882,
+        836
+      ],
+      "frames": [
+        {
+          "id": "meadow-net",
+          "world": "meadow",
+          "action": "rim",
+          "cell": [
+            0,
+            0,
+            627,
+            836
+          ],
+          "anchor": [
+            314,
+            411
+          ],
+          "sockets": {
+            "captureCenter": [
+              314,
+              411
+            ],
+            "connector": [
+              314,
+              715
+            ]
+          },
+          "captureRadius": 250.1633,
+          "measurement": {
+            "method": "actual complete circular rim; genuine central alpha mesh hole and opaque short connector",
+            "nativeLandmarks": {
+              "world": "meadow",
+              "captureCenter": [
+                318,
+                374
+              ],
+              "connector": [
+                318,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        },
+        {
+          "id": "dino-net",
+          "world": "dino",
+          "action": "rim",
+          "cell": [
+            627,
+            0,
+            1255,
+            836
+          ],
+          "anchor": [
+            314,
+            411
+          ],
+          "sockets": {
+            "captureCenter": [
+              941,
+              411
+            ],
+            "connector": [
+              941,
+              715
+            ]
+          },
+          "captureRadius": 250,
+          "measurement": {
+            "method": "actual complete circular rim; genuine central alpha mesh hole and opaque short connector",
+            "nativeLandmarks": {
+              "world": "dino",
+              "captureCenter": [
+                942,
+                374
+              ],
+              "connector": [
+                942,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        },
+        {
+          "id": "moonwood-net",
+          "world": "moonwood",
+          "action": "rim",
+          "cell": [
+            1255,
+            0,
+            1882,
+            836
+          ],
+          "anchor": [
+            313,
+            411
+          ],
+          "sockets": {
+            "captureCenter": [
+              1568,
+              411
+            ],
+            "connector": [
+              1568,
+              715
+            ]
+          },
+          "captureRadius": 250.1633,
+          "measurement": {
+            "method": "actual complete circular rim; genuine central alpha mesh hole and opaque short connector",
+            "nativeLandmarks": {
+              "world": "moonwood",
+              "captureCenter": [
+                1565,
+                374
+              ],
+              "connector": [
+                1565,
+                737
+              ],
+              "outerRadius": 299
+            }
+          }
+        }
+      ],
+      "pixelsPerUnit": 227.4211818181818,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "dino-horizon": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/dino-horizon-v1.png",
+      "sourceSha256": "20bc1308fe7e735ea87f29fad503aa9bf01fc58f6df3e407adfacb7e51d2bafb",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      }
+    },
+    "meadow-horizon": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/meadow-horizon-v1.png",
+      "sourceSha256": "7326f5fbc9bae67649fc5f41f210fd2f75d03a5062ed3222629a7159eca63a96",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      }
+    },
+    "moonwood-horizon": {
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/clean-cartoon/moonwood-horizon-v1.png",
+      "sourceSha256": "7cd7ec7f428483cf3ee4665fec11b6bd2e403f3093263b790466ed3bf7f42bdb",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      }
+    }
+  }
+}

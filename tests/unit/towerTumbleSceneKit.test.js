@@ -6,10 +6,10 @@ import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 
 const root=fileURLToPath(new URL('../../',import.meta.url));
-const source=resolve(root,'source-art/arcade/physical-worlds/tower-tumble/scene-kit-v1.json');
+const source=resolve(root,'source-art/arcade/physical-worlds/tower-tumble/clean-cartoon-manifest.json');
 const manifest=JSON.parse(readFileSync(source,'utf8'));
 
-test('retained Tower scene assets match their original sources and encoded runtime provenance',()=>{
+test('current Tower scene assets match their exact native sources and encoded runtime provenance',()=>{
   assert.equal(manifest.tool,'built-in image_gen.imagegen');
   assert.equal(manifest.assets.length,5);
   for(const asset of manifest.assets){

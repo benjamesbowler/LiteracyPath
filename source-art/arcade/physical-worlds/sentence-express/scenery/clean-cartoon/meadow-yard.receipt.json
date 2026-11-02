@@ -1,0 +1,53 @@
+{
+  "jobId": "art-0656",
+  "assetId": "meadow-yard",
+  "path": "/game-assets/physical-arcade/sentence-express/scenery/meadow-yard-v1.webp",
+  "originalSha256": "dd5d4d6baac153fb0fc67b9589e4ebdb39a36bbd50acbfa97ebf31a617f419d5",
+  "sha256": "c12cb3e98554a8c108d89f53dda3d1c2d2a5c0fe30d6005a7472042816a871c6",
+  "generation": {
+    "mode": "built-in-imagegen",
+    "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/meadow-yard-002.png",
+    "nativeSha256": "097f6b7381dc2b0ea40f117841d06ecdf838b0211479f7d05d39db9d9eb5b1b3",
+    "nativeDimensions": {
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-3d8bc720-7f6a-4bbf-b227-173a276df795.png",
+    "acceptedAttempt": 2,
+    "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-yard.packing.json",
+    "packingRecipeSha256": "129f6e7eadcab5243d8bd9f7b8b68d206717e2cfb51ab614f9fcdbe882ffb49f"
+  },
+  "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-yard-v1.png",
+  "sourceSha256": "3398fb1b315131a14bf22e36c613f3a07d4e100947ea8b146928692a97e7306a",
+  "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-yard-v1.prompt.txt",
+  "promptSha256": "95ddb0b53105f5febb850c54d51d01ddfd4cd534961444ea89371d3d075dcfe0",
+  "references": [
+    {
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/95e6a21c8c2600967d3f875658e20bebd951ce80191f90fec100221c474013cb.png",
+      "sha256": "95e6a21c8c2600967d3f875658e20bebd951ce80191f90fec100221c474013cb",
+      "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+      "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+      "role": "Approved clean outlined cartoon material and graphical simplicity reference."
+    }
+  ],
+  "width": 1672,
+  "height": 941,
+  "alphaExact": null,
+  "review": {
+    "fullNativeViewed": true,
+    "fullSavedViewed": true,
+    "display390Viewed": true,
+    "display128Viewed": true,
+    "actualRendererViewed": true,
+    "acceptedAttempt": 2,
+    "notes": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
+    "gameEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sentence-express-transfer/current-browser/game-receipt.json",
+    "placementEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sentence-express-transfer/current-browser/placement-receipt.json"
+  },
+  "status": "accepted",
+  "installed": true
+}

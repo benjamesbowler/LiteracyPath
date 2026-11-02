@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "references": [
+    {
+      "kind": "approved-moonwood-cast-reference",
+      "path": "/guided-reading/reference/characters/moonwood-cast-master.webp",
+      "manifest": "source-art/app-clean-cartoon/moonwood-cast-reference.json",
+      "manifestSha256": "cfbf6d6de140655b52fef0ec6fa97bfc7950a3c5dcb0064d3bf5b632ca4a2be8",
+      "builder": "tools/buildGuidedReadingReferenceAssets.mjs",
+      "builderSha256": "b6c61a1f484b9c9629767051bb5e547fc1b4453efb9c1b77a63cdbce936b23d3",
+      "metadataUses": [
+        {
+          "path": "src/features/soundSeekers/v3/content/heroActions.json",
+          "sha256": "0b7942f94ac02a56fccd7cd1972404f0eaa8c4ba580ddb1a7e719e1048288a87",
+          "object": "pip",
+          "field": "canonicalIdentityReference"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/content/heroAnimations.json",
+          "sha256": "e83a0c5cf937bcbe562e35d82f4f72bdc91ac1b17abff5a8bc62bc6ba67249c0",
+          "object": "pip",
+          "field": "canonicalIdentityReference"
+        }
+      ],
+      "consumerPins": [
+        {
+          "path": "src/features/soundSeekers/v3/SoundSeekersCampaign.jsx",
+          "sha256": "ec56654c6b1cdb027c22cb6f3a642be43be7b0c2477c49af1647d32aa53a5381"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/render/campaignHeroes.js",
+          "sha256": "15b32a016e530efd3adb997052bb0d5a19ffa517b5b9b1090ef580e5a71cfc0a"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/render/campaignWorldScene.js",
+          "sha256": "49665928798d93aab6b2e93b40f1eebf0515dbcf1fe3e46167c4d25a1fe1f271"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/render/explorationLandscape.js",
+          "sha256": "783bf04258473620304a54873646c61fc9162fee4c470d4f1b4df9fd7deb8f9b"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/render/explorationScene.js",
+          "sha256": "5cb6029acbddca7a3d93ed2f8152badd596a474347b21124d37607caef1ca9c1"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/render/heroMotion.js",
+          "sha256": "961970fe0811026edcd99155430d035e9af6164ef9e6cd816827e2b4c0da0f23"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/render/mazeAdventureScene.js",
+          "sha256": "6546e8745a530671c3eb9acd8df8a1bbb6ed76a3263db9f2eb8f11f5c09ef2e6"
+        },
+        {
+          "path": "src/utils/repairedImageVersion.js",
+          "sha256": "45079cc21412bb5ec98a4eb3f19e21dd1aa8263c65b59611009ebbba8cfdfaa6"
+        }
+      ]
+    }
+  ]
+}

@@ -10,17 +10,17 @@
   "generated": [
     {
       "word": "flock",
-      "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: a flock of birds. Show a close, compact group of five friendly small white sheep? NO sheep: five friendly small birds flying together, all clearly birds with beaks, wings and tails, three blue swallows and two warm brown swallows, flying in the same direction, a clear coherent flock. All five complete birds inside safe margins, no isolated single dominant bird. Soft warm hand-painted children's storybook illustration with rounded forms, clean silhouettes and subtle watercolor texture, very pale cream background, no busy landscape. Must read clearly at 64 pixels accompanied by the recorded word. Absolutely no text, letters, words, numerals, labels, signage, written sound effects, watermarks or logos. Opaque square background. No additional panels or UI.",
-      "source": "source-art/arcade/cue-images/action/flock-v1.png",
-      "sourceSha256": "838c7a7310a3bafb741d167884157656981c67c8d2b9210acb7108d82baa3110",
+      "generator": "built-in image_gen",
+      "prompt": "Edit target: the attached existing flock vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. Exactly five small friendly swallows flying together toward the right, three blue-and-white and two brown-and-cream, each with a clear beak, two wings, two eyes and forked tail. Keep all five whole, separated and readable. Cream background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration.",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/flock.png",
+      "sourceSha256": "f76425968e15fe7f2f286461e7ce5d47fa7e41f2a632d9e52b7f918b52ee2bd5",
       "delivery": "/images/child-mode/reviewed/arcade/flock.webp",
       "maxDimension": 512,
       "kind": "word",
       "review": "Five complete birds flying together; no printed labels.",
       "noPrintedTargetObserved": true,
-      "deliverySha256": "a3c053119e6a384a68a02fe257b8fcb989e095f35dbb1f30af9d0d651a9916b9",
-      "bytes": 39836,
+      "deliverySha256": "1f03f80282e3a2c7f731108f06d58a4bfb951a05ab255dcfe825d8c643c921f2",
+      "bytes": 44514,
       "width": 512,
       "height": 512,
       "encoding": {
@@ -28,12 +28,37 @@
         "quality": 92,
         "effort": 4,
         "maxDimension": 512
+      },
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: a flock of birds. Show a close, compact group of five friendly small white sheep? NO sheep: five friendly small birds flying together, all clearly birds with beaks, wings and tails, three blue swallows and two warm brown swallows, flying in the same direction, a clear coherent flock. All five complete birds inside safe margins, no isolated single dominant bird. Soft warm hand-painted children's storybook illustration with rounded forms, clean silhouettes and subtle watercolor texture, very pale cream background, no busy landscape. Must read clearly at 64 pixels accompanied by the recorded word. Absolutely no text, letters, words, numerals, labels, signage, written sound effects, watermarks or logos. Opaque square background. No additional panels or UI.",
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/flock.txt",
+      "currentSourceManifest": "source-art/app-clean-cartoon/rhyme-v2-cues/manifest.json",
+      "previousDelivery": {
+        "word": "flock",
+        "generator": "built-in imagegen",
+        "prompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: a flock of birds. Show a close, compact group of five friendly small white sheep? NO sheep: five friendly small birds flying together, all clearly birds with beaks, wings and tails, three blue swallows and two warm brown swallows, flying in the same direction, a clear coherent flock. All five complete birds inside safe margins, no isolated single dominant bird. Soft warm hand-painted children's storybook illustration with rounded forms, clean silhouettes and subtle watercolor texture, very pale cream background, no busy landscape. Must read clearly at 64 pixels accompanied by the recorded word. Absolutely no text, letters, words, numerals, labels, signage, written sound effects, watermarks or logos. Opaque square background. No additional panels or UI.",
+        "source": "source-art/arcade/cue-images/action/flock-v1.png",
+        "sourceSha256": "838c7a7310a3bafb741d167884157656981c67c8d2b9210acb7108d82baa3110",
+        "delivery": "/images/child-mode/reviewed/arcade/flock.webp",
+        "maxDimension": 512,
+        "kind": "word",
+        "review": "Five complete birds flying together; no printed labels.",
+        "noPrintedTargetObserved": true,
+        "deliverySha256": "a3c053119e6a384a68a02fe257b8fcb989e095f35dbb1f30af9d0d651a9916b9",
+        "bytes": 39836,
+        "width": 512,
+        "height": 512,
+        "encoding": {
+          "format": "webp",
+          "quality": 92,
+          "effort": 4,
+          "maxDimension": 512
+        }
       }
     },
     {
       "word": "knight",
       "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. A single friendly medieval knight, full body, rounded silver helmet with visor raised to show a gentle face, plain blue tunic over armour, small red cape and a simple shield with no symbols. No horse or castle. The armoured person must be the only focal subject. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+      "prompt": "One friendly young knight in plain silver armor with an open visor, blue tunic and plain blue shield, red cape, holding a sword pointed down. No religious or national symbols. Bold clean clear 2D cartoon, crisp continuous dark outlines, flat colors and restrained smooth cel shading. No painterly rendering, watercolor, brushwork, daubs, grain, embossed edges or text. Preserve whole subjects and64pixel legibility.",
       "source": "source-art/arcade/cue-images/action/knight-v1.png",
       "sourceSha256": "40c1546186fc70a4cda17004286785aeb1009581532485529eddb891d93b4075",
       "delivery": "/images/child-mode/reviewed/arcade/knight.webp",
@@ -51,21 +76,22 @@
         "effort": 4,
         "maxDimension": 512
       },
-      "priorDeliverySha256": "9561147290b5af0159242f369ba33b3dc96c9b6d0e1a169d1e8cc832d8f80a15"
+      "priorDeliverySha256": "9561147290b5af0159242f369ba33b3dc96c9b6d0e1a169d1e8cc832d8f80a15",
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. A single friendly medieval knight, full body, rounded silver helmet with visor raised to show a gentle face, plain blue tunic over armour, small red cape and a simple shield with no symbols. No horse or castle. The armoured person must be the only focal subject. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background."
     },
     {
       "word": "spun",
-      "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. A wooden spinning top actively spinning on a small plain wooden surface, visibly angled with a soft circular motion swoosh around its base. One toy only, no person. This accompanies the recorded past-tense word 'spun'; it is meaning context, not a unique tense assessment. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
-      "source": "source-art/arcade/cue-images/action/spun-v1.png",
-      "sourceSha256": "0e40a1d3c86c02173fcbe3cf620f477a4d85abd1ec82e6842b34ddcb4b736be1",
+      "generator": "built-in image_gen",
+      "prompt": "Edit target: the attached existing spun vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. One wooden spinning top with broad red, yellow and blue bands, one wooden handle and one fine downward point touching a simple golden tabletop. A few crisp motion arcs clearly show it spinning. No face. Cream background. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration.",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/spun.png",
+      "sourceSha256": "fe03e0d11e317442971584b7e45b11fc417dae603c3edb5ed9f6adc6257e1f12",
       "delivery": "/images/child-mode/reviewed/arcade/spun.webp",
       "maxDimension": 512,
       "kind": "meaning-context",
       "review": "Spinning wooden top with circular motion cues; audio-led past-tense meaning context.",
       "noPrintedTargetObserved": true,
-      "deliverySha256": "06477a2a5329f223a17fce4c0c402431986c9521f6285743f363ac975ea2720c",
-      "bytes": 45800,
+      "deliverySha256": "d13d246c11832f85fcf3d3bd8a805fa88b5f073830aaf029d9c289100efdb2df",
+      "bytes": 21258,
       "width": 512,
       "height": 512,
       "encoding": {
@@ -73,21 +99,46 @@
         "quality": 92,
         "effort": 4,
         "maxDimension": 512
+      },
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. A wooden spinning top actively spinning on a small plain wooden surface, visibly angled with a soft circular motion swoosh around its base. One toy only, no person. This accompanies the recorded past-tense word 'spun'; it is meaning context, not a unique tense assessment. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/spun.txt",
+      "currentSourceManifest": "source-art/app-clean-cartoon/rhyme-v2-cues/manifest.json",
+      "previousDelivery": {
+        "word": "spun",
+        "generator": "built-in imagegen",
+        "prompt": "Create one original square picture cue for an early-years literacy arcade game. A wooden spinning top actively spinning on a small plain wooden surface, visibly angled with a soft circular motion swoosh around its base. One toy only, no person. This accompanies the recorded past-tense word 'spun'; it is meaning context, not a unique tense assessment. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+        "source": "source-art/arcade/cue-images/action/spun-v1.png",
+        "sourceSha256": "0e40a1d3c86c02173fcbe3cf620f477a4d85abd1ec82e6842b34ddcb4b736be1",
+        "delivery": "/images/child-mode/reviewed/arcade/spun.webp",
+        "maxDimension": 512,
+        "kind": "meaning-context",
+        "review": "Spinning wooden top with circular motion cues; audio-led past-tense meaning context.",
+        "noPrintedTargetObserved": true,
+        "deliverySha256": "06477a2a5329f223a17fce4c0c402431986c9521f6285743f363ac975ea2720c",
+        "bytes": 45800,
+        "width": 512,
+        "height": 512,
+        "encoding": {
+          "format": "webp",
+          "quality": 92,
+          "effort": 4,
+          "maxDimension": 512
+        }
       }
     },
     {
       "word": "ton",
-      "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. One large heavy rounded dark-grey stone block sitting on a pale floor, with a tiny toy car beside it to give scale. Suggest very great weight using a slight floor indentation and a broad contact shadow; no writing or numbers. It accompanies the recorded word 'ton'; do not pretend an exact weight can be seen. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
-      "source": "source-art/arcade/cue-images/action/ton-v1.png",
-      "sourceSha256": "279e5add0390643f502f49be16cec60039ab9fb02a620debb0873f8c4670eca1",
+      "generator": "built-in image_gen",
+      "prompt": "Edit target: attached existing ton vocabulary meaning-context picture. Redraw the entire picture in bold clean clear 2D cartoon: one huge gray boulder next to one very small red toy car to suggest enormous weight. Preserve the comparative size meaning; this is an audio-led meaning context, not a literal calibrated measurement. Show one whole large rock and one whole small red car on a flat cream background and a simple flat ground shadow. Keep the same uncluttered balanced square composition. Use thick crisp continuous dark outlines, saturated flat colors, and a few simple smooth cel-shaded rock facets. NO stone texture, realistic rendering, paint daubs, paper grain, brushwork, watercolor, gouache, embossed/bevelled edges, mottling or fuzzy outlines. No labels, letters, numbers, text, flags, symbols, faces or extra objects. Whole subjects with safe margins,1024square.",
+      "source": "source-art/app-clean-cartoon/rhyme-v2-cues/natives/ton.png",
+      "sourceSha256": "a85db7e0e4eb71a91d7bdd6864efcf1b15c20d092fe4e402244d4982542d4e52",
       "delivery": "/images/child-mode/reviewed/arcade/ton.webp",
       "maxDimension": 512,
       "kind": "meaning-context",
       "review": "Large stone block beside tiny toy car suggests great weight; no visible exact-weight claim or written label.",
       "noPrintedTargetObserved": true,
-      "deliverySha256": "705026c0038cef857bf118298e08dc0f15088e55b6980f410c52a933c32c5f24",
-      "bytes": 58606,
+      "deliverySha256": "fbf169b6b90c2407252a182480b155b2114f3b18fe163f1eef043197641a167f",
+      "bytes": 16034,
       "width": 512,
       "height": 512,
       "encoding": {
@@ -95,12 +146,37 @@
         "quality": 92,
         "effort": 4,
         "maxDimension": 512
-      }
+      },
+      "previousDelivery": {
+        "word": "ton",
+        "generator": "built-in imagegen",
+        "prompt": "Create one original square picture cue for an early-years literacy arcade game. One large heavy rounded dark-grey stone block sitting on a pale floor, with a tiny toy car beside it to give scale. Suggest very great weight using a slight floor indentation and a broad contact shadow; no writing or numbers. It accompanies the recorded word 'ton'; do not pretend an exact weight can be seen. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+        "source": "source-art/arcade/cue-images/action/ton-v1.png",
+        "sourceSha256": "279e5add0390643f502f49be16cec60039ab9fb02a620debb0873f8c4670eca1",
+        "delivery": "/images/child-mode/reviewed/arcade/ton.webp",
+        "maxDimension": 512,
+        "kind": "meaning-context",
+        "review": "Large stone block beside tiny toy car suggests great weight; no visible exact-weight claim or written label.",
+        "noPrintedTargetObserved": true,
+        "deliverySha256": "705026c0038cef857bf118298e08dc0f15088e55b6980f410c52a933c32c5f24",
+        "bytes": 58606,
+        "width": 512,
+        "height": 512,
+        "encoding": {
+          "format": "webp",
+          "quality": 92,
+          "effort": 4,
+          "maxDimension": 512
+        }
+      },
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. One large heavy rounded dark-grey stone block sitting on a pale floor, with a tiny toy car beside it to give scale. Suggest very great weight using a slight floor indentation and a broad contact shadow; no writing or numbers. It accompanies the recorded word 'ton'; do not pretend an exact weight can be seen. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+      "promptFile": "source-art/app-clean-cartoon/rhyme-v2-cues/prompts/ton.txt",
+      "currentSourceManifest": "source-art/app-clean-cartoon/rhyme-v2-cues/manifest.json"
     },
     {
       "word": "glow",
       "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. One small friendly firefly hovering beside a dark blue-green leaf, its abdomen emits a large warm yellow light with a clear soft halo that gently lights the leaf. Close framing: the luminous abdomen and halo dominate the simple cue. No jar or person. Sparse dusk backdrop remains pale at the edges. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background.",
+      "prompt": "One friendly firefly hovering above a large green leaf at night, its yellow abdomen glowing against a simple dark blue background. Glow may use a smooth light halo; surfaces remain flat and clean. Bold clean clear 2D cartoon, crisp continuous dark outlines, flat colors and restrained smooth cel shading. No painterly rendering, watercolor, brushwork, daubs, grain, embossed edges or text. Preserve whole subjects and64pixel legibility.",
       "source": "source-art/arcade/cue-images/action/glow-v1.png",
       "sourceSha256": "91823cd066d670b7f2fb015591f332964ffc469722fceeeb90c2a4584aa13633",
       "delivery": "/images/child-mode/reviewed/arcade/glow.webp",
@@ -118,12 +194,13 @@
         "effort": 4,
         "maxDimension": 512
       },
-      "priorDeliverySha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08"
+      "priorDeliverySha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08",
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. One small friendly firefly hovering beside a dark blue-green leaf, its abdomen emits a large warm yellow light with a clear soft halo that gently lights the leaf. Close framing: the luminous abdomen and halo dominate the simple cue. No jar or person. Sparse dusk backdrop remains pale at the edges. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background."
     },
     {
       "word": "noisy",
       "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. A cheerful child vigorously banging a metal saucepan with a wooden spoon; saucepan and spoon are clear, lifted contact gesture, a few curved vibration lines around the saucepan, child's playful energetic expression. No written sound effects. One child only, sparse cream background. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background.",
+      "prompt": "One cheerful child in a red shirt and blue overalls making a noisy rhythm by striking one metal pot with one wooden spoon. Clear motion lines, whole child on plain cream background. Bold clean clear 2D cartoon, crisp continuous dark outlines, flat colors and restrained smooth cel shading. No painterly rendering, watercolor, brushwork, daubs, grain, embossed edges or text. Preserve whole subjects and64pixel legibility.",
       "source": "source-art/arcade/cue-images/action/noisy-v1.png",
       "sourceSha256": "cb14a19a8b08a4427ffe5a8caee193892b494e73ae1081b6c7fa6db991c3578d",
       "delivery": "/images/child-mode/reviewed/arcade/noisy.webp",
@@ -141,12 +218,13 @@
         "effort": 4,
         "maxDimension": 512
       },
-      "priorDeliverySha256": "b43ad857364202c796ea82aa3685fb6f90b629536d93f5aba6b78081e6ca9a86"
+      "priorDeliverySha256": "b43ad857364202c796ea82aa3685fb6f90b629536d93f5aba6b78081e6ca9a86",
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. A cheerful child vigorously banging a metal saucepan with a wooden spoon; saucepan and spoon are clear, lifted contact gesture, a few curved vibration lines around the saucepan, child's playful energetic expression. No written sound effects. One child only, sparse cream background. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background."
     },
     {
       "word": "ancient",
       "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. One very old weathered stone Greek-style amphora with two handles, chipped rim and natural worn patina, a small remnant of old stone column beside it, sparse pale cream background. Clear old artifact, no letter carvings, no text or symbols. Meaning context for the recorded adjective, not proof of a historical date. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background.",
+      "prompt": "One old cracked terracotta vase with simple triangle decoration beside a small broken stone column fragment, both isolated on plain cream. No cultural, national or religious symbols. Bold clean clear 2D cartoon, crisp continuous dark outlines, flat colors and restrained smooth cel shading. No painterly rendering, watercolor, brushwork, daubs, grain, embossed edges or text. Preserve whole subjects and64pixel legibility.",
       "source": "source-art/arcade/cue-images/action/ancient-v1.png",
       "sourceSha256": "e3e8742dee6f6e719a92791322fbf897b8f73fa3e8fd538bebc201699821cb7f",
       "delivery": "/images/child-mode/reviewed/arcade/ancient.webp",
@@ -164,12 +242,13 @@
         "effort": 4,
         "maxDimension": 512
       },
-      "priorDeliverySha256": "fb83217337f774c1734dcf98cf351020642cca650dd6864ccfb5f39a89fe9589"
+      "priorDeliverySha256": "fb83217337f774c1734dcf98cf351020642cca650dd6864ccfb5f39a89fe9589",
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. One very old weathered stone Greek-style amphora with two handles, chipped rim and natural worn patina, a small remnant of old stone column beside it, sparse pale cream background. Clear old artifact, no letter carvings, no text or symbols. Meaning context for the recorded adjective, not proof of a historical date. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background."
     },
     {
       "word": "fragile",
       "generator": "built-in imagegen",
-      "prompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: fragile, easily broken. A thin delicate clear glass vase is held carefully by two adult hands over soft folded fabric, with tiny bright edge highlights that show its glass material and a very fine unbroken stem/neck. No cracked or broken glass. The careful grip and delicate glass are the only subjects, close framing, full vase and hands within safe margins. Warm hand-painted children's storybook illustration, clean soft outlines, subtle watercolor/pencil shading, pale cream background, sparse composition readable at64 pixels accompanied by the recorded adjective. This is meaning context, not a unique picture-identification assessment. Absolutely no text, letters, words, numerals, labels, signage, watermarks, logos, speech bubbles, written sound effects or UI. Opaque square background.",
+      "prompt": "Two careful hands gently placing one delicate clear glass vase on a folded blue cloth. Plain cream background, clear gentle support and unbroken glass. Bold clean clear 2D cartoon, crisp continuous dark outlines, flat colors and restrained smooth cel shading. No painterly rendering, watercolor, brushwork, daubs, grain, embossed edges or text. Preserve whole subjects and64pixel legibility.",
       "source": "source-art/arcade/cue-images/action/fragile-v1.png",
       "sourceSha256": "28813571e800bd8baa7730d9506dc42753491369b9051f42fae3a29146a5e728",
       "delivery": "/images/child-mode/reviewed/arcade/fragile.webp",
@@ -187,7 +266,8 @@
         "effort": 4,
         "maxDimension": 512
       },
-      "priorDeliverySha256": "1bcd462edcb896087e9c32658f7c884bdb4c3c18434bcd60804322ccefbfd709"
+      "priorDeliverySha256": "1bcd462edcb896087e9c32658f7c884bdb4c3c18434bcd60804322ccefbfd709",
+      "sourcePrompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: fragile, easily broken. A thin delicate clear glass vase is held carefully by two adult hands over soft folded fabric, with tiny bright edge highlights that show its glass material and a very fine unbroken stem/neck. No cracked or broken glass. The careful grip and delicate glass are the only subjects, close framing, full vase and hands within safe margins. Warm hand-painted children's storybook illustration, clean soft outlines, subtle watercolor/pencil shading, pale cream background, sparse composition readable at64 pixels accompanied by the recorded adjective. This is meaning context, not a unique picture-identification assessment. Absolutely no text, letters, words, numerals, labels, signage, watermarks, logos, speech bubbles, written sound effects or UI. Opaque square background."
     },
     {
       "word": "square",
@@ -329,9 +409,20 @@
       "kind": "word",
       "review": "Stone well with roof and bucket.",
       "noPrintedTargetObserved": true,
-      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
-      "sha256": "9b805820fd724e63293c598ba2157532ce78dbbed25f01fa58a873a89db6ca1d",
-      "bytes": 143086
+      "provenance": "Current clean cartoon source, prompt, receipt and deterministic encoding in source-art/app-clean-cartoon/rhyme-v2-cues/manifest.json. Historical review metadata remains historical.",
+      "sha256": "1533324ec0cef26cd20c37b5e532ecfe0929db4dfcd888d935385fa49a4a5ab8",
+      "bytes": 85852,
+      "currentSourceManifest": "source-art/app-clean-cartoon/rhyme-v2-cues/manifest.json",
+      "previousDelivery": {
+        "word": "well",
+        "delivery": "/media/vocabulary/images/well.webp",
+        "kind": "word",
+        "review": "Stone well with roof and bucket.",
+        "noPrintedTargetObserved": true,
+        "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+        "sha256": "9b805820fd724e63293c598ba2157532ce78dbbed25f01fa58a873a89db6ca1d",
+        "bytes": 143086
+      }
     },
     {
       "word": "football",

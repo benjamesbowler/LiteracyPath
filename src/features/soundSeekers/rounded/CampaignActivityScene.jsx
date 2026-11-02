@@ -1,3 +1,4 @@
+import { withRepairedImageVersion } from '../../../utils/repairedImageVersion.js';
 import { useEffect, useRef, useState } from 'react';
 import { CAST } from '../v3/content/cast.js';
 import { campaignDisplayChoices, campaignMotion } from './campaignPresentation.js';
@@ -6,10 +7,17 @@ import sceneArt from './campaignSceneArt.generated.json';
 import { projectCampaignScene } from './campaignActivitySceneState.js';
 import './campaign-activity-scene.css';
 
-function Prop({ kind, className = '' }) {
+export function CampaignStageProp({ kind, className = '' }) {
   const prop = sceneArt[kind];
-  return prop ? <img className={`campaign-stage-prop ${className}`} src={prop.source} style={{ aspectRatio: prop.aspect }} alt="" draggable="false" /> : null;
+  return prop ? <img className={`campaign-stage-prop ${className}`} src={withRepairedImageVersion(prop.source)} style={{ aspectRatio: prop.aspect }} alt="" draggable="false" /> : null;
 }
+
+const Prop = CampaignStageProp;
+const SCENE_PROP_BACKGROUNDS = Object.freeze(Object.fromEntries(
+  ['scene-stepping-stone', 'scene-bubble', 'basket', 'scene-plank', 'workbench', 'lantern'].map(kind => [
+    `--campaign-${kind}-image`, `url("${withRepairedImageVersion(sceneArt[kind].source)}")`
+  ])
+));
 
 /** The playfield consumes public choices and settled state. Aiming, dragging,
  * opening lanterns and carrying are forgiving motor actions, never responses.
@@ -87,15 +95,15 @@ export default function CampaignActivityScene({ beat, state = {}, feedback, redu
     requestAnimationFrame(() => { suppressClick.current = false; });
   }
   return <div ref={sceneRef} className="rounded-family-scene campaign-activity-scene campaign-playfield"
-    data-family={beat.familyId} data-play-action={play.action} data-layout={seed % 3} data-scene-progress={scene.progress} data-scene-total={scene.total}
+    style={SCENE_PROP_BACKGROUNDS} data-family={beat.familyId} data-play-action={play.action} data-layout={seed % 3} data-scene-progress={scene.progress} data-scene-total={scene.total}
     data-paused={paused ? 'true' : 'false'} data-reduced-motion={reducedMotion ? 'true' : 'false'} data-motion={scene.accepted ? 'accepted' : 'idle'} data-aimed-choice={aim?.id || ''}
     onPointerDown={start} onPointerMove={move} onPointerUp={finish} onPointerCancel={cancelGesture} onLostPointerCapture={cancelGesture}
     onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) cancelGesture(); }}
     onClickCapture={event => { rememberLanding(event.target.closest('[data-choice-id]')); if (suppressClick.current) { event.preventDefault(); event.stopPropagation(); } }}>
-    <img className="campaign-scene-landscape" src={campaignPlayfieldLandscape(beat)} alt="" draggable="false" />
+    <img className="campaign-scene-landscape" src={withRepairedImageVersion(campaignPlayfieldLandscape(beat))} alt="" draggable="false" />
     <div className="campaign-stage-set" aria-hidden="true"><Prop kind={play.tool} className="campaign-stage-landmark" /><Prop kind={seed % 2 ? 'hedge' : 'tree'} className="campaign-stage-edge" /></div>
-    <div className="campaign-scene-pal campaign-stage-hero" data-action-state={heroState} style={{ '--hero-x': `${heroX}%`, '--hero-lift': `${heroLift}%`, ...(scene.accepted && !assembly && landing?.id === motion.choiceId ? { bottom: landing.bottom } : {}) }} aria-hidden="true">{play.action === 'sail' && <Prop kind="raft" className="campaign-hero-raft" />}<img src={CAST.bouncy.sprite} alt="" draggable="false" />{carrying && ['deliver', 'place'].includes(play.action) && <Prop kind={sceneArt[beat.view.objectId] ? beat.view.objectId : 'scene-parcel'} className="campaign-hero-parcel" />}</div>
-    {residentId && residentId !== 'bouncy' && <div className="campaign-scene-pal campaign-stage-resident" aria-hidden="true"><img src={resident.sprite} alt="" draggable="false" /></div>}
+    <div className="campaign-scene-pal campaign-stage-hero" data-action-state={heroState} style={{ '--hero-x': `${heroX}%`, '--hero-lift': `${heroLift}%`, ...(scene.accepted && !assembly && landing?.id === motion.choiceId ? { bottom: landing.bottom } : {}) }} aria-hidden="true">{play.action === 'sail' && <Prop kind="raft" className="campaign-hero-raft" />}<img src={withRepairedImageVersion(CAST.bouncy.sprite)} alt="" draggable="false" />{carrying && ['deliver', 'place'].includes(play.action) && <Prop kind={sceneArt[beat.view.objectId] ? beat.view.objectId : 'scene-parcel'} className="campaign-hero-parcel" />}</div>
+    {residentId && residentId !== 'bouncy' && <div className="campaign-scene-pal campaign-stage-resident" aria-hidden="true"><img src={withRepairedImageVersion(resident.sprite)} alt="" draggable="false" /></div>}
     <div className="campaign-stage-content">{children}</div>
     {play.action === 'search' && beat.mechanic !== 'sound_signpost' && <div className="campaign-search-controls" role="group" aria-label="Explore the lanterns">
       {choices.map((choice, index) => <button type="button" key={choice.id} data-lantern={choice.id} aria-label={`Open lantern ${index + 1}`} aria-pressed={opened.includes(choice.id)} disabled={paused || state.done || feedback?.locked}

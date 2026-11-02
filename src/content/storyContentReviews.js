@@ -39,7 +39,8 @@ export const guidedReadingPolicyBaseline = Object.freeze({
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-10-29",
+  reviewedAt: "2026-11-02",
+  integrationReview: "Bounded review of the upstream October 30 family/community retitles, genre changes and eight-page A Morning with Friends replacement against the current Willow Street Bible and hash-bound visual/narration records. No manuscript changes were made here; unchanged titles retain their prior review, and no new human-listening observation is claimed.",
   reviewer: "Editorial and source review",
   claim: "All 295 graded books and 2,597 pages received complete manuscript review. The original 226 graded books received nine page-line corrections and one title correction. Small Steps adds 20 cumulative decodables; Next Steps adds 30 more with exact cumulative pronunciation, word-shape and exception evidence. Bright Ideas adds 19 graded leveled books; its additional shared H book and the existing Missing Sandwich book retain separate exact manuscript contracts. The new collections explicitly distinguish phonics practice from broader leveled and supported reading, with sound-letter, decoding and connected-reading teaching routines. Current illustrations and ordered sequences are enforced by their separate hash-locked visual gate; this text baseline cannot clear a media defect. Exact narration provenance and automated recognition screening remain distinct from human listening. No classroom outcome, publisher-level equivalence or direct human-listening observation is claimed. Reported defects, quarantine and media-integrity failures remain blocking."
 });
@@ -811,15 +812,31 @@ export const storyQuestPolicyReviews = Object.freeze([
   }
 ].map(review => Object.freeze(review)));
 
+export const actionSongPolicyReviews = Object.freeze([Object.freeze({
+  id: "hop-and-stop",
+  format: "song",
+  policyVersion: STORY_CONTENT_POLICY_VERSION,
+  sourceFingerprint: "72a2409792e77343968c89c33652babe7ca9cb1abe4099e876ed642d205c93f8",
+  status: "approved",
+  reviewer: "Codex editorial, direct visual and automated media review",
+  reviewedAt: "2026-11-02",
+  readingPlacement: "Read Together; supported language, without an independent decoding level",
+  pageEvidence: Object.freeze({ pages: 8, concept: "Compare hop/stop and up/down; pause for a butterfly, then resume after it clears Speedy's face." }),
+  lyricsEvidence: Object.freeze({ lines: 20, performedWordingChecked: true, humanListening: false }),
+  gameEvidence: Object.freeze({ rounds: 8, targets: Object.freeze(["hop", "stop", "up", "down"]), scored: false, learnerWrites: false }),
+  evidence: "docs/product/HOP_AND_STOP.md"
+})]);
+
 export const storyContentReviewRegistry = Object.freeze({
   policyVersion: STORY_CONTENT_POLICY_VERSION,
   guidedReadingBaseline: guidedReadingPolicyBaseline,
   guidedReadingSharedStories: guidedReadingSharedStoryReviews,
   storyQuests: storyQuestPolicyReviews,
+  actionSongs: actionSongPolicyReviews,
   futureFormats: Object.freeze({
-    animation: "No active items registered",
+    animation: "Hop and Stop is registered with its matching action-song unit",
     poem: "No active items registered",
-    song: "No active items registered",
+    song: "Registered in actionSongs",
     audioStory: "No active items registered",
     comic: "No active items registered",
     play: "No active items registered"

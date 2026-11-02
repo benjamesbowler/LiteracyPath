@@ -7,101 +7,244 @@
     "humanApproval": "UNKNOWN",
     "physicalDeviceObservation": "UNKNOWN",
     "sceneryVisualAcceptance": "PASS",
-    "sceneryAcceptanceScope": "Full generated native/alpha composites, full saved1536x1024 and390/128, all12 selected props in actual Chromium production authored-view renderer,9 actual ground/walk-surface contacts. Full authenticated game/cache and physical-device acceptance remain separate."
+    "sceneryAcceptanceScope": "Full generated native/alpha composites, full saved1536x1024 and390/128, all12 selected props in actual Chromium production authored-view renderer,9 actual ground/walk-surface contacts. Full authenticated game/cache and physical-device acceptance remain separate.",
+    "horizonScope": {
+      "status": "PASS",
+      "originals": 3,
+      "actualRuntimeProofs": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen/browser-proof.json",
+          "sha256": "87c6276de4a1c9930a84b79bfb765b05a7041d0c61fae74d13d0784571717dde",
+          "frames": 27
+        },
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored/browser-proof.json",
+          "sha256": "a55c00b38a3b5b6ea884404ba3e0bdadad4816f1a8f37b6dcf06e1b9fb58bb90",
+          "frames": 3
+        }
+      ],
+      "units": {
+        "passed": 18,
+        "failed": 0
+      },
+      "preservedOtherSourceAndRuntimeRows": true,
+      "physicalDevice": "UNKNOWN",
+      "humanListening": "UNKNOWN"
+    }
   },
   "assets": [
     {
       "id": "meadow-horizon",
       "world": "meadow",
       "kind": "authored-river-worksite-background-layer",
-      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/meadow-horizon-v1.png",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/meadow-horizon-v1.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "464b5b5b7107e5101e6bff270730ae1071fe06557c84645b06afef1bceaae823",
-      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/meadow-horizon-v1.txt",
-      "promptSha256": "d48c88065cdfda2b3417208f8a96b678e1f2c1532add24ada02fd35e3effc4a6",
+      "sourceSha256": "a36385081edc01eaba334acd3779fa063edfd9bba3953f7379658d7fc98a7982",
+      "prompt": "scenery/clean-cartoon/meadow-horizon-v1.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
       "origin": "builtin imagegen 2026-10-04",
-      "referenceRoles": [
-        {
-          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
-          "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
-          "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
-        }
-      ],
-      "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+      "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
       "runtime": "/game-assets/physical-arcade/word-bridge/scenery/meadow-horizon-v1.webp",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "05cd1059b7998f92469c638994841da226b990aacefbe3176a2a57a6f16d3ee5",
-      "runtimeBytes": 424356
+      "runtimeSha256": "9a79386b0d899cb3622b06bda5994e11a81561b35a98f57364f50b367725700d",
+      "runtimeBytes": 182552,
+      "productionRevision": "clean-cartoon-horizon-2026-11-02",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "supersedes": {
+        "id": "meadow-horizon",
+        "world": "meadow",
+        "kind": "authored-river-worksite-background-layer",
+        "source": "source-art/arcade/physical-worlds/word-bridge/scenery/meadow-horizon-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "464b5b5b7107e5101e6bff270730ae1071fe06557c84645b06afef1bceaae823",
+        "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/meadow-horizon-v1.txt",
+        "promptSha256": "d48c88065cdfda2b3417208f8a96b678e1f2c1532add24ada02fd35e3effc4a6",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+            "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+            "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
+          }
+        ],
+        "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+        "runtime": "/game-assets/physical-arcade/word-bridge/scenery/meadow-horizon-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "05cd1059b7998f92469c638994841da226b990aacefbe3176a2a57a6f16d3ee5",
+        "runtimeBytes": 424356
+      },
+      "generation": {
+        "actualBuiltinCalls": 2,
+        "selectedAttempt": 2,
+        "nativeSource": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/meadow-horizon-v1.png",
+        "nativeSha256": "a36385081edc01eaba334acd3779fa063edfd9bba3953f7379658d7fc98a7982",
+        "receipt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/meadow-horizon-v1.receipt.json",
+        "receiptSha256": "a3ba1d3533d55e041a5da122f3ae1d6b874a6a88b6230d60c4b2baff12f96b0c",
+        "acceptedAttempt": 2,
+        "acceptedNativeSHA": "a36385081edc01eaba334acd3779fa063edfd9bba3953f7379658d7fc98a7982"
+      }
     },
     {
       "id": "dino-horizon",
       "world": "dino",
       "kind": "authored-river-worksite-background-layer",
-      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/dino-horizon-v1.png",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/dino-horizon-v1.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "05716db4691f91993977c78af5630bf2eb3d8df404f7125540ceaf32c7026989",
-      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/dino-horizon-v1.txt",
-      "promptSha256": "2ba0c2f20c60846db726112dbbd74a9b9b4d9634516bdca2e9ae7ed4f3b6d558",
+      "sourceSha256": "02360020653cf61e3c60e34028f60894c47ce4bb5ed7ff8959916e762f728f5b",
+      "prompt": "scenery/clean-cartoon/dino-horizon-v1.prompt.txt",
+      "promptSha256": "e107b70ce4ff7caf45824a9f6a2a249d61004c94fa421286ac7e6a7fe5da05fd",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
       "origin": "builtin imagegen 2026-10-04",
-      "referenceRoles": [
-        {
-          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
-          "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
-          "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
-        }
-      ],
-      "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+      "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
       "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-horizon-v1.webp",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "c1234c74780c312e7b910a9fa7f59d1b36e73667f37c37f6060a62be46d6e358",
-      "runtimeBytes": 468850
+      "runtimeSha256": "ac475c49999da0ef575462d7cc6b6fbb02296d0420e690d066b9acb93dfd0624",
+      "runtimeBytes": 226644,
+      "productionRevision": "clean-cartoon-horizon-2026-11-02",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "supersedes": {
+        "id": "dino-horizon",
+        "world": "dino",
+        "kind": "authored-river-worksite-background-layer",
+        "source": "source-art/arcade/physical-worlds/word-bridge/scenery/dino-horizon-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "05716db4691f91993977c78af5630bf2eb3d8df404f7125540ceaf32c7026989",
+        "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/dino-horizon-v1.txt",
+        "promptSha256": "2ba0c2f20c60846db726112dbbd74a9b9b4d9634516bdca2e9ae7ed4f3b6d558",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+            "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+            "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
+          }
+        ],
+        "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+        "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-horizon-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "c1234c74780c312e7b910a9fa7f59d1b36e73667f37c37f6060a62be46d6e358",
+        "runtimeBytes": 468850
+      },
+      "generation": {
+        "actualBuiltinCalls": 3,
+        "selectedAttempt": 3,
+        "nativeSource": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/dino-horizon-v1.png",
+        "nativeSha256": "02360020653cf61e3c60e34028f60894c47ce4bb5ed7ff8959916e762f728f5b",
+        "receipt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/dino-horizon-v1.receipt.json",
+        "receiptSha256": "10c2b27c4e2bac7b9f2a71259bc528f3956a473498fc919d6bf1c920d84393ad",
+        "acceptedAttempt": 3,
+        "acceptedNativeSHA": "02360020653cf61e3c60e34028f60894c47ce4bb5ed7ff8959916e762f728f5b"
+      }
     },
     {
       "id": "moonwood-horizon",
       "world": "moonwood",
       "kind": "authored-river-worksite-background-layer",
-      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/moonwood-horizon-v1.png",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/moonwood-horizon-v1.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "0a3215ae0a21f10003210684738c725ad2c0d6239ffc56f348f28468b22b89d7",
-      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/moonwood-horizon-v1.txt",
-      "promptSha256": "256cd7011ed0d97dd73dd19c778418d5290126a5f68980b75189c8e73ed24842",
+      "sourceSha256": "22a2bf21c5e41de6ad369a1ee4a57b8f5c6bf2a9dc761f2b3f01eee5a751f398",
+      "prompt": "scenery/clean-cartoon/moonwood-horizon-v1.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
       "origin": "builtin imagegen 2026-10-04",
-      "referenceRoles": [
-        {
-          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
-          "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
-          "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
-        }
-      ],
-      "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+      "reviewStatus": "Native/full saved390/128 and actual fullscreen context directly reviewed; clean cartoon horizon accepted",
       "runtime": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-horizon-v1.webp",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "97ebaa03886199baf8666264f5007642e5c33e932e9912557a5a76fe65a152b2",
-      "runtimeBytes": 507384
+      "runtimeSha256": "9b6cf71cbc5f47ec9b45ddab6c731a0b51610807540326b1c75989cee6b679cb",
+      "runtimeBytes": 179260,
+      "productionRevision": "clean-cartoon-horizon-2026-11-02",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "supersedes": {
+        "id": "moonwood-horizon",
+        "world": "moonwood",
+        "kind": "authored-river-worksite-background-layer",
+        "source": "source-art/arcade/physical-worlds/word-bridge/scenery/moonwood-horizon-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "0a3215ae0a21f10003210684738c725ad2c0d6239ffc56f348f28468b22b89d7",
+        "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/moonwood-horizon-v1.txt",
+        "promptSha256": "256cd7011ed0d97dd73dd19c778418d5290126a5f68980b75189c8e73ed24842",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+            "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+            "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
+          }
+        ],
+        "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+        "runtime": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-horizon-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "97ebaa03886199baf8666264f5007642e5c33e932e9912557a5a76fe65a152b2",
+        "runtimeBytes": 507384
+      },
+      "generation": {
+        "actualBuiltinCalls": 2,
+        "selectedAttempt": 2,
+        "nativeSource": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/moonwood-horizon-v1.png",
+        "nativeSha256": "22a2bf21c5e41de6ad369a1ee4a57b8f5c6bf2a9dc761f2b3f01eee5a751f398",
+        "receipt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/moonwood-horizon-v1.receipt.json",
+        "receiptSha256": "b64ecf361997e6d883aa509029869f1ffd1e5aa8710ff1b962956c1dbb77077e",
+        "acceptedAttempt": 2,
+        "acceptedNativeSHA": "22a2bf21c5e41de6ad369a1ee4a57b8f5c6bf2a9dc761f2b3f01eee5a751f398"
+      }
     },
     {
       "id": "meadow-construction-kit",

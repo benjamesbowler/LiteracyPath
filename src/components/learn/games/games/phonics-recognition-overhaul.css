@@ -17,7 +17,7 @@
 .pr-paused *, .pr-paused *::before,.pr-paused *::after { animation-play-state:paused!important; }
 
 /* Luna's lantern clearing: the eight cards are the physical playing area. */
-.pr-memory-clearing { position:relative; flex:1; min-height:0; display:flex; align-items:center; justify-content:center; padding:66px 5% 5%; background:linear-gradient(#18263e00 45%,#18263e55),url('/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp') center / cover; }
+.pr-memory-clearing { position:relative; flex:1; min-height:0; display:flex; align-items:center; justify-content:center; padding:66px 5% 5%; background:linear-gradient(#18263e00 45%,#18263e55),url('/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp?v=be596ceb4c07') center / cover; }
 .pr-game .pr-memory-table { position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(56px,1fr)); gap:16px; padding:20px; margin:0 0 0 13%; width:min(770px,82%); height:min(88%,410px); min-height:156px; flex:none; border:5px solid #a4845c; border-radius:28px; background:linear-gradient(150deg,#3454c8,#18263e); box-shadow:0 12px 0 #604c35,0 22px 25px #18263e66,inset 0 0 0 5px #f2d4a029; }
 .pr-game .pr-memory-card { position:relative; display:grid; place-items:center; min-width:56px; min-height:56px; width:100%; height:100%; padding:8px; border:3px solid #e9d5a8; border-radius:16px; background:linear-gradient(135deg,#5478c7,#28417d); box-shadow:0 5px 0 #18263e,inset 0 0 0 3px #f7f8fa22; container-type:inline-size; }
 .pr-game .pr-card-word { position:static; inset:auto; display:block; transform:none; padding:0; border:0; box-shadow:none; background:transparent; backface-visibility:visible; color:#18263e; font-size:clamp(17px,min(32px,calc(86cqw / var(--word-fit-units))),32px); font-weight:800; }
@@ -35,7 +35,7 @@
 .pr-lantern.is-lit { background:#f2d4a0; box-shadow:0 0 25px #f2d4a066; font-weight:800; }
 
 /* Balloons have stable touch positions; movement is decorative, never a timer. */
-.pr-festival { position:relative; flex:1; min-height:0; background:linear-gradient(#f7f8fa05,#a4845c22),url('/game-assets/sound-seekers/v3/backdrops/bg-dino-valley.webp') center / cover; }
+.pr-festival { position:relative; flex:1; min-height:0; background:linear-gradient(#f7f8fa05,#a4845c22),url('/game-assets/sound-seekers/v3/backdrops/bg-dino-valley.webp?v=e30ae81976bf') center / cover; }
 .pr-bunting { position:absolute; top:8%; left:4%; right:4%; height:22px; display:flex; justify-content:space-between; border-top:3px solid #604c35; transform:rotate(-3deg); opacity:.9; }
 .pr-bunting i { border-left:13px solid transparent; border-right:13px solid transparent; border-top:25px solid #d58a64; }
 .pr-bunting i:nth-child(2n) { border-top-color:#3454c8; }
@@ -62,7 +62,7 @@
 .pr-festival-stall i { font-style:normal; color:#3454c8; }
 
 /* One visible riverside composition keeps supplies, Speedy and the bridge together. */
-.pr-riverside { position:relative; flex:1; min-height:0; overflow:hidden; background:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-pond.webp') center / cover; }
+.pr-riverside { position:relative; flex:1; min-height:0; overflow:hidden; background:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-pond.webp?v=89fff49bcbea') center / cover; }
 .pr-river-1 { background-position:65% center; }.pr-river-2 { background-position:30% center; }
 .pr-bridge-sign { position:absolute; top:12px; right:16px; z-index:3; padding:8px 14px; border:2px solid #604c35; border-radius:9px; background:#f2d4a0; color:#18263e; font-size:17px; }
 .pr-river-water { position:absolute; left:40%; right:18%; bottom:0; height:39%; background:linear-gradient(#94c4c9,#568d9c); border-top:5px solid #dfe3eb; border-radius:40% 40% 0 0; }

@@ -698,26 +698,26 @@ export const SENTENCE_EXPRESS_ATLASES = {
     "height": 941,
     "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-stops-v2.webp",
     "nominalHeight": 4.5,
-    "pixelsPerUnit": 98,
+    "pixelsPerUnit": 72,
     "frames": [
       {
         "id": "willow-halt",
         "action": "willow-halt",
         "direction": "side-three-quarter",
         "cell": [
-          35,
-          47,
-          731,
-          502
+          129,
+          66,
+          705,
+          404
         ],
         "anchor": [
-          352,
-          447
+          288,
+          325
         ],
         "sockets": {
           "ground": [
-            387,
-            494
+            417,
+            391
           ]
         }
       },
@@ -726,19 +726,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "river-bridge",
         "direction": "side-three-quarter",
         "cell": [
-          811,
-          200,
-          1646,
-          497
+          948,
+          131,
+          1560,
+          339
         ],
         "anchor": [
-          417,
-          289
+          306,
+          199
         ],
         "sockets": {
           "ground": [
-            1228,
-            489
+            1254,
+            330
           ]
         }
       },
@@ -747,19 +747,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "orchard-yard",
         "direction": "side-three-quarter",
         "cell": [
-          31,
-          543,
-          808,
-          899
+          118,
+          550,
+          716,
+          860
         ],
         "anchor": [
-          195,
-          348
+          299,
+          297
         ],
         "sockets": {
           "ground": [
-            226,
-            891
+            417,
+            847
           ]
         }
       },
@@ -768,19 +768,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "hilltop-station",
         "direction": "side-three-quarter",
         "cell": [
-          896,
-          504,
-          1650,
-          913
+          954,
+          540,
+          1554,
+          870
         ],
         "anchor": [
-          273,
-          401
+          300,
+          314
         ],
         "sockets": {
           "ground": [
-            1169,
-            905
+            1254,
+            854
           ]
         }
       }
@@ -791,26 +791,26 @@ export const SENTENCE_EXPRESS_ATLASES = {
     "height": 1024,
     "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-stops-v1.webp",
     "nominalHeight": 4.5,
-    "pixelsPerUnit": 106.66666666666667,
+    "pixelsPerUnit": 70.22222222222223,
     "frames": [
       {
         "id": "canyon-halt",
         "action": "canyon-halt",
         "direction": "side-three-quarter",
         "cell": [
-          6,
-          7,
-          743,
-          501
+          135,
+          91,
+          632,
+          421
         ],
         "anchor": [
-          195,
-          486
+          248,
+          315
         ],
         "sockets": {
           "ground": [
-            201,
-            493
+            383,
+            406
           ]
         }
       },
@@ -819,19 +819,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "fossil-bridge",
         "direction": "side-three-quarter",
         "cell": [
-          755,
-          133,
-          1536,
-          503
+          869,
+          140,
+          1433,
+          371
         ],
         "anchor": [
-          616,
-          362
+          282,
+          223
         ],
         "sockets": {
           "ground": [
-            1371,
-            495
+            1151,
+            363
           ]
         }
       },
@@ -840,19 +840,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "fern-valley",
         "direction": "side-three-quarter",
         "cell": [
-          4,
-          514,
-          772,
-          983
+          132,
+          607,
+          636,
+          928
         ],
         "anchor": [
-          384,
-          461
+          252,
+          308
         ],
         "sockets": {
           "ground": [
-            388,
-            975
+            384,
+            915
           ]
         }
       },
@@ -861,19 +861,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "red-rock-yard",
         "direction": "side-three-quarter",
         "cell": [
-          777,
-          518,
-          1525,
-          984
+          873,
+          610,
+          1431,
+          925
         ],
         "anchor": [
-          354,
-          458
+          279,
+          302
         ],
         "sockets": {
           "ground": [
-            1131,
-            976
+            1152,
+            912
           ]
         }
       }
@@ -884,26 +884,26 @@ export const SENTENCE_EXPRESS_ATLASES = {
     "height": 1024,
     "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-stops-v2.webp",
     "nominalHeight": 4.5,
-    "pixelsPerUnit": 90.44444444444444,
+    "pixelsPerUnit": 78.44444444444444,
     "frames": [
       {
         "id": "lantern-halt",
         "action": "lantern-halt",
         "direction": "side-three-quarter",
         "cell": [
-          43,
-          68,
-          684,
-          489
+          149,
+          72,
+          619,
+          439
         ],
         "anchor": [
-          320,
-          413
+          235,
+          359
         ],
         "sockets": {
           "ground": [
-            363,
-            481
+            384,
+            431
           ]
         }
       },
@@ -912,19 +912,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "moon-bridge",
         "direction": "side-three-quarter",
         "cell": [
-          737,
-          103,
-          1505,
-          503
+          870,
+          116,
+          1433,
+          395
         ],
         "anchor": [
-          414,
-          392
+          281,
+          271
         ],
         "sockets": {
           "ground": [
             1151,
-            495
+            387
           ]
         }
       },
@@ -933,19 +933,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "moss-hollow",
         "direction": "side-three-quarter",
         "cell": [
-          43,
-          542,
-          697,
-          965
+          142,
+          604,
+          626,
+          932
         ],
         "anchor": [
-          269,
-          415
+          242,
+          320
         ],
         "sockets": {
           "ground": [
-            312,
-            957
+            384,
+            924
           ]
         }
       },
@@ -954,19 +954,19 @@ export const SENTENCE_EXPRESS_ATLASES = {
         "action": "star-station",
         "direction": "side-three-quarter",
         "cell": [
-          754,
-          517,
-          1504,
-          970
+          881,
+          598,
+          1421,
+          938
         ],
         "anchor": [
-          235,
-          445
+          270,
+          332
         ],
         "sockets": {
           "ground": [
-            989,
-            962
+            1151,
+            930
           ]
         }
       }
@@ -978,18 +978,18 @@ export const SENTENCE_EXPRESS_YARDS = {
     "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-yard-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceSha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae"
+    "sourceSha256": "3398fb1b315131a14bf22e36c613f3a07d4e100947ea8b146928692a97e7306a"
   },
   "dino": {
     "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-yard-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceSha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86"
+    "sourceSha256": "40a301a895a4bc0d8c11a629fd3863e2836f746937eb1181ab11453094173836"
   },
   "moonwood": {
     "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-yard-v1.webp",
     "width": 1672,
     "height": 941,
-    "sourceSha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c"
+    "sourceSha256": "fc9d871920408bbf52fb91695a83b8bfa3e2324b8285e07915a6d251582a590f"
   }
 };

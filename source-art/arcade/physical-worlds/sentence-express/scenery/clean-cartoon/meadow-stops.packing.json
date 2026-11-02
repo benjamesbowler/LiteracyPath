@@ -1,0 +1,105 @@
+{
+  "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/meadow-stops-002.png",
+  "nativeSha256": "fd7042bc54ba77a2d694f0e0297a46bb8f68b462c9bc8b3655c2576fac5937d3",
+  "nativeSize": [
+    1672,
+    941
+  ],
+  "outputSize": [
+    1672,
+    941
+  ],
+  "sharp": "0.35.5",
+  "kernel": "lanczos3",
+  "encoder": "PNG default",
+  "generatedRasterOnly": true,
+  "method": "global-alpha160-connected-components-area3000; whole raster crops+3px; shared uniform scale; equal2x2containpack",
+  "sharedScale": 0.7148693586698337,
+  "maximumCellFraction": 0.72,
+  "cells": [
+    {
+      "index": 0,
+      "nativeRect": {
+        "left": 13,
+        "top": 14,
+        "width": 791,
+        "height": 460
+      },
+      "destRect": {
+        "left": 135,
+        "top": 70,
+        "width": 565,
+        "height": 329
+      },
+      "wholeCell": {
+        "left": 0,
+        "top": 0,
+        "width": 836,
+        "height": 470
+      }
+    },
+    {
+      "index": 1,
+      "nativeRect": {
+        "left": 819,
+        "top": 192,
+        "width": 842,
+        "height": 277
+      },
+      "destRect": {
+        "left": 953,
+        "top": 136,
+        "width": 602,
+        "height": 198
+      },
+      "wholeCell": {
+        "left": 836,
+        "top": 0,
+        "width": 836,
+        "height": 470
+      }
+    },
+    {
+      "index": 2,
+      "nativeRect": {
+        "left": 10,
+        "top": 502,
+        "width": 821,
+        "height": 419
+      },
+      "destRect": {
+        "left": 124,
+        "top": 555,
+        "width": 587,
+        "height": 300
+      },
+      "wholeCell": {
+        "left": 0,
+        "top": 470,
+        "width": 836,
+        "height": 471
+      }
+    },
+    {
+      "index": 3,
+      "nativeRect": {
+        "left": 842,
+        "top": 476,
+        "width": 827,
+        "height": 448
+      },
+      "destRect": {
+        "left": 958,
+        "top": 545,
+        "width": 591,
+        "height": 320
+      },
+      "wholeCell": {
+        "left": 836,
+        "top": 470,
+        "width": 836,
+        "height": 471
+      }
+    }
+  ]
+}

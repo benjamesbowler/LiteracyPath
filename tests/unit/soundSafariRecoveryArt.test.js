@@ -8,7 +8,7 @@ import { safariRecoveryAtlas, safariRetainedOperatorFrame, safariProceduralOpera
 import { safariAttachedNetGeometry } from '../../src/components/learn/games/games/soundSafariToolGeometry.js';
 import { createSoundSafariAuthoredView } from '../../src/components/learn/games/games/soundSafariAuthoredView.js';
 
-const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/sound-safari/manifest.json', 'utf8'));
+const manifest = JSON.parse(await fs.readFile('source-art/arcade/physical-worlds/sound-safari/clean-cartoon-manifest.json', 'utf8'));
 const atlases = Object.fromEntries(manifest.assets.filter(asset => asset.frames).map(asset => [asset.id, {
   runtime: `/unit-safari/${asset.id}.webp`, width: asset.sourceSize[0], height: asset.sourceSize[1],
   pixelsPerUnit: asset.pixelsPerUnit, nominalHeight: asset.nominalHeight, frames: asset.frames

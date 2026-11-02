@@ -431,7 +431,8 @@
 .lp-landing-tile-art {
   width: 100%;
   height: 150px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff7e7;
   display: block;
   margin-bottom: 14px;
 }
@@ -721,7 +722,7 @@
   color: #ffffff;
   background:
     linear-gradient(rgba(12, 16, 34, 0.72), rgba(12, 16, 34, 0.82)),
-    url("/images/pals/moonwood-panorama.webp") center / cover no-repeat;
+    url("/images/pals/moonwood-panorama.webp?v=4a4148311a87") center / cover no-repeat;
 }
 
 .lp-landing-final h2 {

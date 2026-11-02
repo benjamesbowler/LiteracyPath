@@ -1,0 +1,107 @@
+{
+  "jobId": "art-0668",
+  "path": "/game-assets/physical-arcade/word-bridge/scenery/dino-horizon-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/word-bridge/scenery/dino-horizon-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0668.webp",
+  "sourceSha256": "c1234c74780c312e7b910a9fa7f59d1b36e73667f37c37f6060a62be46d6e358",
+  "originalSha256": "c1234c74780c312e7b910a9fa7f59d1b36e73667f37c37f6060a62be46d6e358",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0668.webp",
+  "finalSha256": "ac475c49999da0ef575462d7cc6b6fbb02296d0420e690d066b9acb93dfd0624",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-cbd1cce6-2922-440a-80a4-cb140be5f265.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0668/native-003.png",
+  "nativeSha256": "02360020653cf61e3c60e34028f60894c47ce4bb5ed7ff8959916e762f728f5b",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/dino-horizon-v1.prompt.txt",
+  "promptSha256": "e107b70ce4ff7caf45824a9f6a2a249d61004c94fa421286ac7e6a7fe5da05fd",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/references/dino-horizon-v1-input-1.png",
+      "sha256": "9b09c8c338ee75db3c3af404ff6d65a4808b4e3071f65ed6896dc19890d46239"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 3,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Distinct original word-bridge dino backdrop, bold continuous outlines and broad smooth flat fields throughout, neutral ordinary nature/structures. Exact native, full encoded WebP,390/128 and27actualfullscreenframes directlyviewed; LetterLeap also3actualmirroredjoinframes. Dino sand/fossil semantics restored where required. No gameplay/audio/learner-save/physical-device or hosted-release claim.",
+    "reviewedAt": "2026-11-02T05:48:48.233Z",
+    "display128Viewed": true,
+    "notABook": true,
+    "fullContextViewed": true,
+    "contextFiles": [
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/fullscreen/browser-proof.json",
+        "sha256": "87c6276de4a1c9930a84b79bfb765b05a7041d0c61fae74d13d0784571717dde",
+        "frames": 27
+      },
+      {
+        "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/horizons/mirrored/browser-proof.json",
+        "sha256": "a55c00b38a3b5b6ea884404ba3e0bdadad4816f1a8f37b6dcf06e1b9fb58bb90",
+        "frames": 3
+      }
+    ]
+  },
+  "installedAt": "2026-11-02T05:48:48.237Z",
+  "source": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/dino-horizon-v1.png",
+  "provider": {
+    "jobId": "art-0668",
+    "attempt": 3,
+    "prompt": "Use case: precise-object-edit. Correct only TWO details in this OWN CLEAN CARTOON Dino riverworksite candidate. (1) The broad LEFT andRIGHT foregroundworkbank TOP SURFACES mustbe SANDY warm paleochre/tan, notgreen grass. Recolorflatgrassbanks tooneUNIFORMsolidpalesandfield withatmostONEhardedgedshadow; preserveochrebankcutfacesandgreenborderplants. NO speckles,brushmarks,groundpatches,grain,gradientorbumps. (2) Restore oneclearsimpledarkoutlinedAMMONITE SPIRAL FOSSIL on the largegray/brownrockatRIGHTnexttothecreamdinosaureggs. Drawoneflatdarkspirallineandfewradiatingsegmentlines; noengraving/roughness/embossed3Drelief. KeepEVERYTHINGELSEexact: full16:9framing, thickblackoutlines, flatlimitedpalette, unbridgedwideemptycentralriver, canopyworkshopwithlumberandropeLEFT, eggsRIGHT, waterfallRIGHTdistance, quietvolcanoRIGHT, palms/ferns andsky. Nocharacters/animals/text/UI/logos/flags/religioussymbols.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0668/native-002.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-cbd1cce6-2922-440a-80a4-cb140be5f265.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-cbd1cce6-2922-440a-80a4-cb140be5f265.png"
+  },
+  "encoding": {
+    "quality": 92,
+    "alphaQuality": 100,
+    "effort": 6
+  },
+  "deliveryRecipe": {
+    "kind": "complete-current-source",
+    "resize": [
+      1672,
+      941
+    ],
+    "fit": "fill"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/provenance/dino-horizon-attempt-1.prompt.txt",
+      "promptSha256": "d9577233d4a417732bf12b214a3fb13a2458fbdc8d8b7bdf940c1c00f5aa506a",
+      "nativeSha256": "44ee77b554981419468cea5c240ce75ca108a720a6672a2165505ffca0a5f524",
+      "disposition": "retained as exact generation/input/QC lineage"
+    },
+    {
+      "attempt": 2,
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/provenance/dino-horizon-attempt-2.prompt.txt",
+      "promptSha256": "924dabc07b1dab143ab7e69999ba6cfd1ea5ceaeb2a4b7ba857e3f7fc0260b89",
+      "nativeSha256": "9b09c8c338ee75db3c3af404ff6d65a4808b4e3071f65ed6896dc19890d46239",
+      "disposition": "retained as exact generation/input/QC lineage"
+    },
+    {
+      "attempt": 3,
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/scenery/clean-cartoon/provenance/dino-horizon-attempt-3.prompt.txt",
+      "promptSha256": "e107b70ce4ff7caf45824a9f6a2a249d61004c94fa421286ac7e6a7fe5da05fd",
+      "nativeSha256": "02360020653cf61e3c60e34028f60894c47ce4bb5ed7ff8959916e762f728f5b",
+      "disposition": "accepted"
+    }
+  ]
+}

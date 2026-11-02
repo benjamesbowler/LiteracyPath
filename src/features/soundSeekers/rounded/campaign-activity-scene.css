@@ -42,24 +42,24 @@
 .campaign-playfield .rounded-physical-choice > .rounded-prop-art { height: clamp(100px, 22vh, 185px); object-fit: contain; }
 .campaign-playfield .rounded-physical-choice .rounded-prop-figure > .rounded-prop-art { height: clamp(100px, 22vh, 185px); }
 .campaign-playfield[data-play-action=hop] .rounded-choice-pair:nth-child(even) { transform: translateY(20px); }
-.rounded-activity.rounded-activity .campaign-playfield[data-play-action=hop] .rounded-physical-choice { background: url('/game-assets/sound-seekers/question-art/props/scene-stepping-stone.webp') center/100% 100% no-repeat; border: 0; box-shadow: none; min-height: 98px; padding: 20px; }
+.rounded-activity.rounded-activity .campaign-playfield[data-play-action=hop] .rounded-physical-choice { background: var(--campaign-scene-stepping-stone-image) center/100% 100% no-repeat; border: 0; box-shadow: none; min-height: 98px; padding: 20px; }
 .campaign-playfield[data-layout='1'][data-play-action=hop] .rounded-choice-pair:nth-child(even) { transform: translateY(-16px); }
-.rounded-activity.rounded-activity .campaign-playfield[data-play-action=aim] .rounded-physical-choice { border-radius: 50%; background: url('/game-assets/sound-seekers/question-art/props/scene-bubble.webp') center/100% 100% no-repeat; border: 0; box-shadow: none; width: 132px; height: 132px; min-height: 132px; margin: auto; padding: 18px; }
+.rounded-activity.rounded-activity .campaign-playfield[data-play-action=aim] .rounded-physical-choice { border-radius: 50%; background: var(--campaign-scene-bubble-image) center/100% 100% no-repeat; border: 0; box-shadow: none; width: 132px; height: 132px; min-height: 132px; margin: auto; padding: 18px; }
 .campaign-playfield[data-play-action=aim] .rounded-choice-pair:nth-child(even) { transform: translateY(-18px); }
 .campaign-playfield[data-play-action=aim] .rounded-physical-choice.is-settled { animation: campaign-pop .55s ease; }
 .campaign-playfield[data-play-action=climb] .rounded-choice-pair:nth-child(2) { transform: translateY(-18px); }
 .campaign-playfield[data-play-action=climb] .rounded-choice-pair:nth-child(3) { transform: translateY(-36px); }
 .rounded-activity.rounded-activity .campaign-playfield[data-play-action=climb] .rounded-physical-choice { border-bottom: 9px solid var(--rounded-ui-edge); border-radius: 16px 16px 4px 4px; }
-.campaign-playfield[data-play-action=route] .rounded-physical-choice { background: url('/game-assets/sound-seekers/question-art/props/basket.webp') center/contain no-repeat !important; border: 0 !important; box-shadow: none !important; }
+.campaign-playfield[data-play-action=route] .rounded-physical-choice { background: var(--campaign-basket-image) center/contain no-repeat !important; border: 0 !important; box-shadow: none !important; }
 .campaign-playfield[data-play-action=route] .rounded-physical-choice .rounded-prop-art { visibility: hidden; }
 .campaign-playfield[data-play-action=sail] .rounded-choice-pair { border-bottom: 12px solid var(--rounded-ui-edge); border-radius: 12px; }
 .campaign-playfield[data-play-action=resolve] .rounded-physical-choice { border-radius: 6px 22px 22px 6px !important; border-left: 8px solid var(--rounded-ui-edge) !important; }
 .campaign-playfield .rounded-assembly { width: 100%; gap: 26px; }
 .campaign-playfield .rounded-built-message { width: 100%; padding: 10px; background: var(--rounded-fff9eae0); border-radius: 14px; }
 .campaign-playfield .rounded-ordered-slots { gap: 4px; width: 100%; }
-.campaign-playfield[data-play-action=build] .rounded-word-slot { background: url('/game-assets/sound-seekers/question-art/props/scene-plank.webp') center/100% 100% no-repeat; min-height: 64px; border: 0; border-radius: 6px; box-shadow: 0 4px 0 var(--rounded-5b442e50); }
+.campaign-playfield[data-play-action=build] .rounded-word-slot { background: var(--campaign-scene-plank-image) center/100% 100% no-repeat; min-height: 64px; border: 0; border-radius: 6px; box-shadow: 0 4px 0 var(--rounded-5b442e50); }
 .campaign-playfield[data-play-action=couple] .rounded-word-slot { border-radius: 12px; border-bottom: 9px solid var(--rounded-ui-edge); background: var(--rounded-ui-paper); }
-.campaign-playfield[data-play-action=change] .rounded-built-message { background: url('/game-assets/sound-seekers/question-art/props/workbench.webp') center/100% 100% no-repeat; padding: 22px 14px; }
+.campaign-playfield[data-play-action=change] .rounded-built-message { background: var(--campaign-workbench-image) center/100% 100% no-repeat; padding: 22px 14px; }
 .campaign-playfield .rounded-word-slot.is-marked { outline: 3px dashed var(--rounded-ui-ink); outline-offset: -3px; }
 .campaign-playfield .rounded-word-slot.is-filled { outline: none; }
 .rounded-activity.rounded-activity .campaign-playfield .rounded-piece { background: var(--rounded-ui-paper); border-radius: 10px; box-shadow: 0 5px 0 var(--rounded-7d644550); touch-action: none; }
@@ -112,7 +112,7 @@
 @media(prefers-reduced-motion:reduce) { .campaign-playfield * { animation: none !important; transition: none !important; } }
 
 .campaign-playfield[data-play-action=search] .rounded-choice-pair:not(.is-open) .rounded-prop-art { opacity:0; }
-.campaign-playfield[data-play-action=search] .rounded-choice-pair:not(.is-open) .rounded-physical-choice::before { content:''; position:absolute; inset:12px; background:url('/game-assets/sound-seekers/question-art/props/lantern.webp') center/contain no-repeat; }
+.campaign-playfield[data-play-action=search] .rounded-choice-pair:not(.is-open) .rounded-physical-choice::before { content:''; position:absolute; inset:12px; background:var(--campaign-lantern-image) center/contain no-repeat; }
 
 .campaign-hero-raft { position:absolute; left:-25%; bottom:-14%; width:150%; height:26%; z-index:-1; }
 .campaign-scene-pal .campaign-hero-parcel { position:absolute; right:-30%; top:42%; width:62%; height:40%; z-index:3; }

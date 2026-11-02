@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "scope": "Four current illustrated phonics evidence replacements. Canonical word/image binding unchanged.",
+  "banks": [
+    {
+      "jobId": "phonics-followup-four",
+      "kind": "phonics-evidence",
+      "source": "source-art/app-clean-cartoon/phonics-followup/phonics-followup-four.png",
+      "sourceSha256": "05243e85949a8684a135f9e6e7ea3fd4361213140bb0232d734b3b49fa48c77d",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-be6969f4-b023-4a4e-9113-154f2b7dd478.png",
+      "generationRole": "original-clean-cartoon-source-bank",
+      "referenceBindings": [],
+      "history": [],
+      "promptFile": "source-art/app-clean-cartoon/phonics-followup/phonics-followup-four.prompt.txt",
+      "promptSha256": "e997522049ac926119c264defc92350ef72911a66556c1a78b76cb4cf5b3b87b",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "measuredGutters": {
+        "ys": [
+          0,
+          632,
+          1254
+        ],
+        "xs": [
+          [
+            0,
+            629,
+            1254
+          ],
+          [
+            0,
+            580,
+            1254
+          ]
+        ],
+        "alphaThreshold": 64
+      },
+      "review": {
+        "fullNativeViewed": true,
+        "status": "accepted-native",
+        "notes": "Correct four-limbed elephant and fox, full closed lid, two anatomically correct hands demonstrating scratching an itch; clean outlined cartoon, source alpha preserved."
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "/images/child-mode/short-i/big.webp",
+      "originalSha256": "a61688f9b25eb1d4ebb4b32ee792528ab0cbde4e994517a266cddfe846af1737",
+      "width": 768,
+      "height": 768,
+      "hasAlpha": true,
+      "id": "big",
+      "jobId": "phonics-followup-four",
+      "source": "source-art/app-clean-cartoon/phonics-followup/phonics-followup-four.png",
+      "sourceSha256": "05243e85949a8684a135f9e6e7ea3fd4361213140bb0232d734b3b49fa48c77d",
+      "crop": {
+        "left": 17,
+        "top": 17,
+        "width": 604,
+        "height": 596
+      },
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "right": 629,
+        "bottom": 632
+      },
+      "alphaBounds": {
+        "x0": 25,
+        "y0": 25,
+        "x1": 612,
+        "y1": 604,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 768,
+        "height": 768,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "c1725f5f64b0a7b71b9ffc5d9250e3abd17200f26b0759789c2c4dc2cc2f6379",
+      "bytes": 100862,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/phonics-followup/present-runtime/proof.json",
+        "runtimeEvidenceSha256": "d3b1a047748ae7d5e7d8d37af1a344aa74da78f1d90789fc26685c72622d5712",
+        "note": "Four original canonical phonics pictures viewed in actual generated Present lessons at3viewports. All15word-picture frames includingunchangedclean sock and21HTTPv/SHA responses verified; source crop/meaning/whole silhouettes accepted."
+      }
+    },
+    {
+      "path": "/images/child-mode/short-i/lid.webp",
+      "originalSha256": "9b4f4f4c2af9ee9bb74f572b7231a05fe41bceacd5bf67950b77914efdf3368d",
+      "width": 768,
+      "height": 768,
+      "hasAlpha": false,
+      "id": "lid",
+      "jobId": "phonics-followup-four",
+      "source": "source-art/app-clean-cartoon/phonics-followup/phonics-followup-four.png",
+      "sourceSha256": "05243e85949a8684a135f9e6e7ea3fd4361213140bb0232d734b3b49fa48c77d",
+      "crop": {
+        "left": 638,
+        "top": 145,
+        "width": 598,
+        "height": 403
+      },
+      "cell": {
+        "left": 629,
+        "top": 0,
+        "right": 1254,
+        "bottom": 632
+      },
+      "alphaBounds": {
+        "x0": 646,
+        "y0": 153,
+        "x1": 1227,
+        "y1": 539,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 768,
+        "height": 768,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "9675ab57d6c1fb9da4d6ef6a8d987c0fa15de49b1036b6a74320b383aa0e2f26",
+      "bytes": 47272,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/phonics-followup/present-runtime/proof.json",
+        "runtimeEvidenceSha256": "d3b1a047748ae7d5e7d8d37af1a344aa74da78f1d90789fc26685c72622d5712",
+        "note": "Four original canonical phonics pictures viewed in actual generated Present lessons at3viewports. All15word-picture frames includingunchangedclean sock and21HTTPv/SHA responses verified; source crop/meaning/whole silhouettes accepted."
+      }
+    },
+    {
+      "path": "/images/child-mode/short-o/fox.webp",
+      "originalSha256": "57a4224f60d9c6c1a7e44874e9356ed4d8cac583fc0af9b78dd00332bd2b8b01",
+      "width": 768,
+      "height": 768,
+      "hasAlpha": true,
+      "id": "fox",
+      "jobId": "phonics-followup-four",
+      "source": "source-art/app-clean-cartoon/phonics-followup/phonics-followup-four.png",
+      "sourceSha256": "05243e85949a8684a135f9e6e7ea3fd4361213140bb0232d734b3b49fa48c77d",
+      "crop": {
+        "left": 77,
+        "top": 652,
+        "width": 481,
+        "height": 590
+      },
+      "cell": {
+        "left": 0,
+        "top": 632,
+        "right": 580,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 85,
+        "y0": 660,
+        "x1": 549,
+        "y1": 1233,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 768,
+        "height": 768,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "1ba341451fc9136d4ba999e10951e51b9d189be72aafe8343d534725a4350e81",
+      "bytes": 97568,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/phonics-followup/present-runtime/proof.json",
+        "runtimeEvidenceSha256": "d3b1a047748ae7d5e7d8d37af1a344aa74da78f1d90789fc26685c72622d5712",
+        "note": "Four original canonical phonics pictures viewed in actual generated Present lessons at3viewports. All15word-picture frames includingunchangedclean sock and21HTTPv/SHA responses verified; source crop/meaning/whole silhouettes accepted."
+      }
+    },
+    {
+      "path": "/media/initial-sounds/images/i/itch.webp",
+      "originalSha256": "cda942fb763fca381afa411b70c0875cf199e83d65098ce1d639733aa2cd2ce7",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": false,
+      "id": "itch",
+      "jobId": "phonics-followup-four",
+      "source": "source-art/app-clean-cartoon/phonics-followup/phonics-followup-four.png",
+      "sourceSha256": "05243e85949a8684a135f9e6e7ea3fd4361213140bb0232d734b3b49fa48c77d",
+      "crop": {
+        "left": 603,
+        "top": 705,
+        "width": 616,
+        "height": 499
+      },
+      "cell": {
+        "left": 580,
+        "top": 632,
+        "right": 1254,
+        "bottom": 1254
+      },
+      "alphaBounds": {
+        "x0": 611,
+        "y0": 713,
+        "x1": 1210,
+        "y1": 1195,
+        "threshold": 64,
+        "edgePixels": 0
+      },
+      "resize": {
+        "width": 1024,
+        "height": 1024,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "sha256": "e0b0c1d55946e6338828291aff7001293cb5b1d77b4cdf8f80df02488b12a514",
+      "bytes": 109300,
+      "review": {
+        "fullNativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "display64Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/phonics-followup/present-runtime/proof.json",
+        "runtimeEvidenceSha256": "d3b1a047748ae7d5e7d8d37af1a344aa74da78f1d90789fc26685c72622d5712",
+        "note": "Four original canonical phonics pictures viewed in actual generated Present lessons at3viewports. All15word-picture frames includingunchangedclean sock and21HTTPv/SHA responses verified; source crop/meaning/whole silhouettes accepted."
+      }
+    }
+  ]
+}

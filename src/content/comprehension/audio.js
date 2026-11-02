@@ -1,3 +1,4 @@
+import { CYCLE_SHORTS_LEDA_AUDIO } from '../cycle-shorts/audio.generated.js';
 import { COMPREHENSION_LEDA_AUDIO } from './audio.generated.js';
 import { LEDA_PRODUCTION_VOICE } from '../../data/ledaProductionVoice.js';
 
@@ -20,7 +21,7 @@ export function comprehensionAudioText(segments) {
 
 function resolve(segments) {
   const text = comprehensionAudioText(segments);
-  const path = segments.length ? COMPREHENSION_LEDA_AUDIO[text] || '' : '';
+  const path = segments.length ? COMPREHENSION_LEDA_AUDIO[text] || CYCLE_SHORTS_LEDA_AUDIO[text] || '' : '';
   return { status: path ? 'ready' : 'missing', path, text, voice: LEDA_PRODUCTION_VOICE };
 }
 
@@ -31,7 +32,7 @@ export function resolveComprehensionPassageAudio(passage) {
 export function resolveComprehensionQuestionAudio(question) {
   const segments = comprehensionQuestionAudioSegments(question);
   const parts = segments.map((text, index) => ({
-    path: COMPREHENSION_LEDA_AUDIO[text] || '',
+    path: COMPREHENSION_LEDA_AUDIO[text] || CYCLE_SHORTS_LEDA_AUDIO[text] || '',
     gapBeforeMs: index > 0 ? COMPREHENSION_AUDIO_PAUSE_MS : 0
   }));
   return { status: parts.length && parts.every(part => part.path) ? 'ready' : 'missing',

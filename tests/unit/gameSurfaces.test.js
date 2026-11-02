@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { LEARN_GAMES } from "../../src/components/learn/games/games/index.js";
 import {
@@ -49,7 +50,12 @@ test("Word Climb is published as a playable Arcade game", () => {
   assert.ok(wc, "word-climb should exist in GAME_LIST");
   assert.notEqual(wc.hidden, true, "published word-climb should not be hidden");
   assert.ok(isArcade(wc), "published word-climb should be in the arcade");
-  assert.equal(wc.menuArt, '/images/learn-games/menu/word-climb.webp');
+  assert.equal(new URL(wc.menuArt, 'https://local.test').pathname, '/images/learn-games/menu/word-climb.webp');
+  for (const game of GAME_LIST.filter(game => !game.hidden && LEARN_GAMES[game.id])) {
+    const url = new URL(game.menuArt, 'https://local.test');
+    const bytes = readFileSync(`public${url.pathname}`);
+    assert.equal(url.searchParams.get('v'), createHash('sha256').update(bytes).digest('hex').slice(0, 12), `${game.id} menu must request its current pixels`);
+  }
   const hub = readFileSync("src/components/learn/games/GameArcadeHub.jsx", "utf8");
   assert.match(hub, /src=\{game\.menuArt\}/, "all games use their consistent menu illustration");
   for (const g of GAME_LIST.filter(isArcade)) assert.ok(!g.hidden, `${g.id} arcade game marked hidden`);

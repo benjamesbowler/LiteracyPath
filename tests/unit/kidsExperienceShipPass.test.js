@@ -63,7 +63,7 @@ test("owned Beasties have a permanent picture doorway and a complete native coll
 test("Hollow touch targets keep their map position and do not lift on sticky hover", () => {
   assert.match(
     hollowCss,
-    /main\.hollow-page button\.hollow-spot:is\(:hover, :focus, :focus-visible, :active\):not\(:disabled\)\s*\{[^}]*transform:\s*translate\(-50%, -50%\)/
+    /main\.hollow-page button\.hollow-spot:is\(:hover, :focus, :focus-visible, :active\):not\(:disabled\)\s*\{[^}]*transform:\s*translate\(-50%, -100%\)/
   );
   assert.doesNotMatch(hollow, /className="hollow-room-arrow/);
   assert.doesNotMatch(

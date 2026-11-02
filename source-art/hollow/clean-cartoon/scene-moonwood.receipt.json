@@ -1,0 +1,125 @@
+{
+  "jobId": "art-0634",
+  "path": "/images/hollow/scene-moonwood.webp",
+  "sameArtworkPaths": [
+    "/images/hollow/scene-moonwood.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0634.webp",
+  "sourceSha256": "de3d6f3d093e8427eecadd969e9230e6c7c06f4f628f2e529b925a0e3dbf0553",
+  "originalSha256": "de3d6f3d093e8427eecadd969e9230e6c7c06f4f628f2e529b925a0e3dbf0553",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0634.webp",
+  "finalSha256": "a6bfc2be1cd26159c366560aefeb42589a59349948737def10c99394d973e640",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-45a4901c-e5d8-41a7-ac2c-fa30902d6818.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0634/native-003.png",
+  "nativeSha256": "fa8d11b8f582e0ab6ae1a6b3d3d16ada290534dfa226557827da266e82a4af87",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "promptFile": "source-art/hollow/clean-cartoon/scene-moonwood.prompt.txt",
+  "promptSha256": "b6d51118dfc0210e45c97bc09e07a0aca49823309a55c0a964b4970830645d5c",
+  "referenceImages": [
+    {
+      "path": "source-art/hollow/clean-cartoon/references/scene-moonwood-input-1.png",
+      "sha256": "ccd369d6a905f28e08cae292fba350aceb61ed4df385ffe1aed0d1efc33698bd"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 3,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Cleanflatoutlined rootroom withsixtealarches,fewcyanvines,2ordinarylanterns,upperrightfacelessmoonwindow,restrainedsimpleleaves/wood. Allsixsaveddecorations sit oncreamtabletops; nofrontfloororpaintedgrain. NativePNG, exactfullsavedWebP and390/128 deliverytiles directlyviewed.54actualfull/emptydesktop/phoneHome+Decorateframes and12finalHomeframes reviewed withactualcontact/hit/ownership/cachechecks. No physical-device/human-classroom/hostedacceptance claim.",
+    "reviewedAt": "2026-11-02T03:15:50.861Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/registered-v2/browser-proof.json",
+        "sha256": "2613addf9b6240cbefb364e25c5729743e763029b6299fd8cf8da73ceccbd0e4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/home-final-v2/browser-proof.json",
+        "sha256": "777b5082af798db3e7381e9631fca592e0cfed1eb0be4293207b52ba0bcbcdf5"
+      }
+    ],
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven390.png",
+    "display390Sha256": "91d15f8c13c3535445fa3249f9113dc1c1a74ea55278df6e005907a0fa105213",
+    "display128File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven128.png",
+    "display128Sha256": "57dead09ff9a93ce067894937a710f8a3d5d59c065c8e480f9b47081a321ba42",
+    "releaseRegression": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/release-regression-v2.json",
+      "sha256": "69c38988de24cf856415db7de0f8f321a97cd71b205aa10110f8dcdbdb1e1978",
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "placementRevision": "clean-cartoon-room-contacts-2026-11-02",
+  "slotContacts": [
+    [
+      12.799043062200957,
+      78.42720510095643
+    ],
+    [
+      27.990430622009573,
+      78.42720510095643
+    ],
+    [
+      43.00239234449761,
+      78.42720510095643
+    ],
+    [
+      58.01435406698564,
+      78.42720510095643
+    ],
+    [
+      72.66746411483254,
+      78.42720510095643
+    ],
+    [
+      87.32057416267942,
+      78.42720510095643
+    ]
+  ],
+  "source": "source-art/hollow/clean-cartoon/scene-moonwood.png",
+  "provider": {
+    "jobId": "art-0634",
+    "attempt": 3,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-45a4901c-e5d8-41a7-ac2c-fa30902d6818.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-45a4901c-e5d8-41a7-ac2c-fa30902d6818.png"
+  },
+  "lineage": {
+    "originalRuntime": "/images/hollow/scene-moonwood.webp",
+    "originalRuntimeSha256": "de3d6f3d093e8427eecadd969e9230e6c7c06f4f628f2e529b925a0e3dbf0553"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "nativeSha256": "4bae9bab1f78ea9d5a19f060bdb7388d90a22eed3e065fed883429c2f7878dea",
+      "promptSha256": "7d76c38aa6673d0e889e2f52d0fa9348a764a41fce040abb6697fbc400ea602d",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 2,
+      "nativeSha256": "a99f092c5b50a67a8079525f2cc55f9a882d8f2278e9abf786a5789195756f40",
+      "promptSha256": "96873b3600b968e82323f9be5d8a543aba5c7869495e3ae9469b8ca0d63943c6",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 3,
+      "nativeSha256": "fa8d11b8f582e0ab6ae1a6b3d3d16ada290534dfa226557827da266e82a4af87",
+      "promptSha256": "b6d51118dfc0210e45c97bc09e07a0aca49823309a55c0a964b4970830645d5c",
+      "disposition": "accepted"
+    }
+  ],
+  "installedAt": "2026-11-02T03:50:15.975Z"
+}

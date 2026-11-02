@@ -23,7 +23,12 @@ def digest(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--metadata-only', action='store_true')
+    parser.add_argument('--asset-ids', help='Comma-separated current registered deliveries to encode')
     args = parser.parse_args()
+    if (SOURCE / 'scene-kit-clean-cartoon.json').exists():
+        from rhymePopCleanCartoon import build_current
+        build_current(args.metadata_only, set(args.asset_ids.split(',')) if args.asset_ids else None)
+        return
     registration = json.loads((SOURCE / 'launcher-registration-v1.json').read_text())
     manifest_path = SOURCE / 'scene-kit-v1.json'
     previous = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}

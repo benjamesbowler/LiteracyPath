@@ -8,7 +8,37 @@ import { rhymeLauncherGeometry } from '../../src/utils/rhymePopMotion.js';
 import { rhymeLauncherBarrelTransform, rhymeOperatorPlacement, rhymePopStageLayout } from '../../src/components/learn/games/games/rhymePopWorld.js';
 import { registeredPalCanvasPose } from '../../src/components/learn/games/shared/registeredPalArt.js';
 
+const currentManifest = () => JSON.parse(fs.readFileSync('source-art/arcade/physical-worlds/rhyme-pop/scene-kit-clean-cartoon.json'));
+const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+
+test('current launcher source registration preserves sealed history, exact deliveries and private authoring evidence', async () => {
+  const manifest = currentManifest(), historicalBytes = fs.readFileSync(manifest.historicalManifest.path);
+  assert.equal(sha(historicalBytes), manifest.historicalManifest.sha256);
+  assert.equal(sha(fs.readFileSync(manifest.historicalRegistration.path)), manifest.historicalRegistration.sha256);
+  const registrationBytes = fs.readFileSync(manifest.registration.path);
+  assert.equal(sha(registrationBytes), manifest.registration.sha256);
+  const registration = JSON.parse(registrationBytes).currentSources, historical = JSON.parse(historicalBytes).assets;
+  for (const [name, asset] of Object.entries(manifest.assets)) {
+    const browserMetadata = Object.fromEntries(Object.entries(asset).filter(([key]) => !['packing', 'generation', 'supersedes'].includes(key)));
+    assert.deepEqual(RHYME_POP_ART[name], browserMetadata);
+    if (!asset.productionRevision) continue;
+    assert.deepEqual(asset.supersedes, historical[name]);
+    assert.equal(asset.runtime, historical[name].runtime);
+    assert.equal(sha(fs.readFileSync(asset.source)), asset.sourceSha256);
+    assert.equal(sha(fs.readFileSync(asset.prompt)), asset.promptSha256);
+    const delivered = fs.readFileSync('public' + asset.runtime), dimensions = await sharp(delivered).metadata();
+    assert.equal(sha(delivered), asset.runtimeSha256);
+    assert.deepEqual([dimensions.width, dimensions.height], [asset.width, asset.height]);
+    for (const key of ['source', 'sourceSha256', 'parts', 'frames', 'pixelsPerUnit', 'deliveryRecipe']) {
+      assert.deepEqual(asset[key] ?? null, registration[name][key] ?? null, name + '/' + key);
+    }
+    if (asset.generation.nativeSource) assert.equal(sha(fs.readFileSync(asset.generation.nativeSource)), asset.generation.acceptedNativeSHA);
+  }
+  assert.doesNotMatch(JSON.stringify(RHYME_POP_ART), /\/Users\/|Literacy(?:\s+)?Path/);
+});
+
 test('all three original launcher casts own measured opaque press contacts and distinct registered recovery/finale bodies', async () => {
+  const manifest = currentManifest();
   for (const name of ['bouncy', 'chompy', 'pip']) {
     const asset = RHYME_POP_ART[`${name}-launcher-actions-v1`];
     const data = fs.readFileSync(`public${asset.runtime}`);
@@ -16,7 +46,9 @@ test('all three original launcher casts own measured opaque press contacts and d
     const { data: rgba, info } = await sharp(data).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
     assert.deepEqual([info.width, info.height], [asset.width, asset.height]);
     assert.equal(asset.frames.length, 16); assert.equal(asset.contactFrame, 6);
-    assert.ok(asset.packing.isolatedCells && asset.packing.originalOpaqueBodyPixelsPreserved);
+    const packing = manifest.assets[`${name}-launcher-actions-v1`].packing;
+    assert.ok(packing.isolatedCells && packing.wholeGeneratedBodiesRetained);
+    assert.equal(packing.method, 'current-connected-body-proportional-registration');
     const contact = asset.frames[6].sockets[asset.anatomy];
     assert.ok(rgba[(contact[1]*info.width+contact[0])*4+3] >= 192);
     assert.notDeepEqual(asset.frames[6].cell, asset.frames[7].cell);
@@ -26,13 +58,14 @@ test('all three original launcher casts own measured opaque press contacts and d
 });
 
 test('every selectable idle, error, recoil and finale pose fits the decoded atlas and retains a valid foot anchor', () => {
+  const manifest = currentManifest();
   for (const character of ['bouncy', 'chompy', 'pip']) {
     const asset = RHYME_POP_ART[`${character}-launcher-actions-v1`];
     for (const frame of asset.frames) {
       const pose = registeredPalCanvasPose(asset, frame, { x: 120, y: 220, height: 110 });
       assert.ok(pose.source.x+pose.source.width <= asset.width);
       assert.ok(pose.source.y+pose.source.height <= asset.height);
-      assert.ok(asset.packing.frames[frame.id].completeFrameInsideTile);
+      assert.ok(manifest.assets[`${character}-launcher-actions-v1`].packing.frames[frame.id].completeFrameInsideTile);
       for (const coordinate of Object.values(pose.sockets)) assert.ok(Number.isFinite(coordinate.x) && Number.isFinite(coordinate.y));
     }
   }

@@ -1,0 +1,42 @@
+{
+  "complete": true,
+  "method": "Measured rectangular two-leg replacement only; preserve primary tail pixels in both bottom side rectangles.",
+  "feet": {
+    "fluff": {
+      "left": 385,
+      "right": 640,
+      "cropTop": 775,
+      "clipTop": 777
+    },
+    "chompy": {
+      "left": 390,
+      "right": 720,
+      "cropTop": 790,
+      "clipTop": 792
+    },
+    "pip": {
+      "left": 365,
+      "right": 670,
+      "cropTop": 760,
+      "clipTop": 762
+    },
+    "chips": {
+      "left": 389,
+      "right": 634,
+      "cropTop": 790,
+      "clipTop": 792
+    },
+    "socks": {
+      "left": 381,
+      "right": 657,
+      "cropTop": 785,
+      "clipTop": 787
+    },
+    "muddy": {
+      "left": 364,
+      "right": 675,
+      "cropTop": 790,
+      "clipTop": 792
+    }
+  }
+}

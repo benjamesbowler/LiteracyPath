@@ -1,46 +1,100 @@
 {
   "schemaVersion": 1,
   "game": "sentence-express",
-  "scope": "Three original railway-yard layers, eighteen canonical conductor poses and twelve station props, admitted after complete native Easy, Medium and Hard outings with the existing train bank, repeated-word coupling, explicit Send/readback, scoped recovery and artwork-failure checks.",
+  "scope": "Current nine-file Sentence Express artwork catalogue: three unchanged accepted conductor atlases, three whole clean cartoon railway yards and three twelve-location clean cartoon station atlases. Current originals and exact runtime paths retained separately from immutable historical sources.",
   "review": {
-    "runtimeAcceptance": "PASS_CURRENT_THREE_CONDUCTORS_LOCAL_NATIVE_SAVED_AND_CONTACT_BROWSER",
+    "runtimeAcceptance": "PASS_CURRENT_SIX_SCENERY_LOCAL_NATIVE_SAVED_AND_GAMEPLAYER",
     "humanApproval": "UNKNOWN",
     "physicalDeviceObservation": "UNKNOWN",
     "acceptanceEvidence": "docs/design/SENTENCE_EXPRESS_IMPLEMENTATION.md",
-    "scope": "Current3conductor sheets only: all18source/saved complete poses and36normal actual mirrored action presentations at132/78px plus6currentCSS/DOM full110px/compact68px modeled-stock coupler contacts directly viewed. No fullgame/cache/human/device claim; six untouched scenery sources retain separate historical contracts."
+    "scope": "Scenery six: accepted second attempts use strong whole-scene clean simplification, preserved three conductor metadata/bytes and historical source records.24current station placements and six real GamePlayer assemblies/Send, desktop1024 and phone390. Exact HTTP new bytes verified; parent cache/review metadata integration remains separate.",
+    "currentSceneryEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sentence-express-transfer/current-browser/game-receipt.json",
+    "currentPlacementEvidence": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sentence-express-transfer/current-browser/placement-receipt.json"
   },
   "assets": [
     {
       "id": "meadow-yard",
       "world": "meadow",
       "kind": "authored-railway-yard-layer",
-      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-yard-v1.png",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-yard-v1.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae",
-      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-yard-v1.txt",
-      "promptSha256": "3af8748b505de154a24fd439db6451f125fd09b3a4c9e22851c680fb1cf10718",
+      "sourceSha256": "3398fb1b315131a14bf22e36c613f3a07d4e100947ea8b146928692a97e7306a",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-yard-v1.prompt.txt",
+      "promptSha256": "95ddb0b53105f5febb850c54d51d01ddfd4cd534961444ea89371d3d075dcfe0",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
-      "origin": "builtin imagegen 2026-10-04",
+      "origin": "builtin image_gen.imagegen clean2D 2026-11-02",
       "referenceRoles": [
         {
-          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
-          "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
-          "role": "Canonical material/lighting identity only; fresh game-specific railway-yard composition"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/95e6a21c8c2600967d3f875658e20bebd951ce80191f90fec100221c474013cb.png",
+          "sha256": "95e6a21c8c2600967d3f875658e20bebd951ce80191f90fec100221c474013cb",
+          "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+          "role": "Approved clean outlined cartoon material and graphical simplicity reference."
         }
       ],
-      "reviewStatus": "Source directly inspected; native railway/Send/read-back/resume acceptance pending",
+      "reviewStatus": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
       "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-yard-v1.webp",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "dd5d4d6baac153fb0fc67b9589e4ebdb39a36bbd50acbfa97ebf31a617f419d5",
-      "runtimeBytes": 386318,
-      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+      "runtimeSha256": "c12cb3e98554a8c108d89f53dda3d1c2d2a5c0fe30d6005a7472042816a871c6",
+      "runtimeBytes": 219772,
+      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained",
+      "productionRevision": "clean-cartoon-2026-11-02",
+      "supersedes": {
+        "id": "meadow-yard",
+        "world": "meadow",
+        "kind": "authored-railway-yard-layer",
+        "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-yard-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae",
+        "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-yard-v1.txt",
+        "promptSha256": "3af8748b505de154a24fd439db6451f125fd09b3a4c9e22851c680fb1cf10718",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+            "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+            "role": "Canonical material/lighting identity only; fresh game-specific railway-yard composition"
+          }
+        ],
+        "reviewStatus": "Source directly inspected; native railway/Send/read-back/resume acceptance pending",
+        "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-yard-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "dd5d4d6baac153fb0fc67b9589e4ebdb39a36bbd50acbfa97ebf31a617f419d5",
+        "runtimeBytes": 386318,
+        "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+      },
+      "generation": {
+        "mode": "built-in-imagegen",
+        "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/meadow-yard-002.png",
+        "nativeSha256": "097f6b7381dc2b0ea40f117841d06ecdf838b0211479f7d05d39db9d9eb5b1b3",
+        "nativeDimensions": {
+          "width": 1672,
+          "height": 941,
+          "hasAlpha": false
+        },
+        "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-3d8bc720-7f6a-4bbf-b227-173a276df795.png",
+        "acceptedAttempt": 2,
+        "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-yard.packing.json",
+        "packingRecipeSha256": "129f6e7eadcab5243d8bd9f7b8b68d206717e2cfb51ab614f9fcdbe882ffb49f"
+      }
     },
     {
       "id": "bouncy-conductor",
@@ -1230,65 +1284,169 @@
       "id": "dino-yard",
       "world": "dino",
       "kind": "authored-railway-yard-layer",
-      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-yard-v1.png",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/dino-yard-v1.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86",
-      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/dino-yard-v1.txt",
-      "promptSha256": "5e636ed756ce5cfff475c218d690e553301e1dad0dc49ace326d80c9b38eee52",
+      "sourceSha256": "40a301a895a4bc0d8c11a629fd3863e2836f746937eb1181ab11453094173836",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/dino-yard-v1.prompt.txt",
+      "promptSha256": "cb57a039c69bc9c6d0cd2e334d09641a5e753622c3f57f86ef160d6d2ea65b6d",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
-      "origin": "builtin imagegen 2026-10-04",
+      "origin": "builtin image_gen.imagegen clean2D 2026-11-02",
       "referenceRoles": [
         {
-          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
-          "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
-          "role": "Canonical theme/material/light only; fresh railway-yard composition"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/f73986763d44bd5f39dfc2589953acb534a3287880fcf8c9b581c4af19335abb.png",
+          "sha256": "f73986763d44bd5f39dfc2589953acb534a3287880fcf8c9b581c4af19335abb",
+          "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+          "role": "Approved clean outlined cartoon material and graphical simplicity reference."
         }
       ],
-      "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+      "reviewStatus": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
       "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-yard-v1.webp",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "0342deabf7e2ed6c25fd3b3084a5985fb6387e4d3e6ea96b5a7660311519bc88",
-      "runtimeBytes": 520048,
-      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+      "runtimeSha256": "6ebf336c57794f5a4bb706aeab19c740cdc68522efce35e7ade572621d5a9ab1",
+      "runtimeBytes": 246588,
+      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained",
+      "productionRevision": "clean-cartoon-2026-11-02",
+      "supersedes": {
+        "id": "dino-yard",
+        "world": "dino",
+        "kind": "authored-railway-yard-layer",
+        "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-yard-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86",
+        "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/dino-yard-v1.txt",
+        "promptSha256": "5e636ed756ce5cfff475c218d690e553301e1dad0dc49ace326d80c9b38eee52",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+            "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+            "role": "Canonical theme/material/light only; fresh railway-yard composition"
+          }
+        ],
+        "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+        "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-yard-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "0342deabf7e2ed6c25fd3b3084a5985fb6387e4d3e6ea96b5a7660311519bc88",
+        "runtimeBytes": 520048,
+        "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+      },
+      "generation": {
+        "mode": "built-in-imagegen",
+        "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/dino-yard-002.png",
+        "nativeSha256": "e82aaec540c22c6d54f08d920ebfe1762efc39b8c2a57edaa0839ab6fc01608d",
+        "nativeDimensions": {
+          "width": 1672,
+          "height": 941,
+          "hasAlpha": false
+        },
+        "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-c1affb15-4aa0-48c6-be85-6a8b78948d02.png",
+        "acceptedAttempt": 2,
+        "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/dino-yard.packing.json",
+        "packingRecipeSha256": "64146094f7a6acba6e4a6c33770d3f352c45eb51a9bbb91e138836e3af666b5e"
+      }
     },
     {
       "id": "moonwood-yard",
       "world": "moonwood",
       "kind": "authored-railway-yard-layer",
-      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-yard-v1.png",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/moonwood-yard-v1.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c",
-      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-yard-v1.txt",
-      "promptSha256": "fcb61a4b2ad1666d1c887fb349ebc771b39d47e0fe625145756c9f662ff94821",
+      "sourceSha256": "fc9d871920408bbf52fb91695a83b8bfa3e2324b8285e07915a6d251582a590f",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/moonwood-yard-v1.prompt.txt",
+      "promptSha256": "02d1c30bf617c495f4d4cf341fb8a6b069abf5edd8d2f2e0a08f217cc2dba7be",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
-      "origin": "builtin imagegen 2026-10-04",
+      "origin": "builtin image_gen.imagegen clean2D 2026-11-02",
       "referenceRoles": [
         {
-          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
-          "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
-          "role": "Canonical theme/material/light only; fresh railway-yard composition"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/152e68c01ba1a90ca2cbe1ab8695dcafe735fbc20188990cae625281cbe5e40f.png",
+          "sha256": "152e68c01ba1a90ca2cbe1ab8695dcafe735fbc20188990cae625281cbe5e40f",
+          "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+          "role": "Approved clean outlined cartoon material and graphical simplicity reference."
         }
       ],
-      "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+      "reviewStatus": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
       "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-yard-v1.webp",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "21f24c9cf53368af96cae1fef72441a6514e45fa37acecb3c636dff9600816e0",
-      "runtimeBytes": 497884,
-      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+      "runtimeSha256": "84ebd4d51e8cfd20ce4b205e3f0376fe3ff2bf6b2af2e03eb4a0e3a255dbb50b",
+      "runtimeBytes": 198498,
+      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained",
+      "productionRevision": "clean-cartoon-2026-11-02",
+      "supersedes": {
+        "id": "moonwood-yard",
+        "world": "moonwood",
+        "kind": "authored-railway-yard-layer",
+        "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-yard-v1.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c",
+        "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-yard-v1.txt",
+        "promptSha256": "fcb61a4b2ad1666d1c887fb349ebc771b39d47e0fe625145756c9f662ff94821",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+            "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+            "role": "Canonical theme/material/light only; fresh railway-yard composition"
+          }
+        ],
+        "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+        "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-yard-v1.webp",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "21f24c9cf53368af96cae1fef72441a6514e45fa37acecb3c636dff9600816e0",
+        "runtimeBytes": 497884,
+        "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+      },
+      "generation": {
+        "mode": "built-in-imagegen",
+        "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/moonwood-yard-002.png",
+        "nativeSha256": "95a9906f01bd183c5afe5fed8ba569871000504688b187c1c19112a23c86f53f",
+        "nativeDimensions": {
+          "width": 1672,
+          "height": 941,
+          "hasAlpha": false
+        },
+        "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-15bc0c75-bda5-4ea4-9ab3-791d9c560547.png",
+        "acceptedAttempt": 2,
+        "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/moonwood-yard.packing.json",
+        "packingRecipeSha256": "61d2f54cfe276db055bc24a6832642b48fe1d04d14956935911135ef7729d8e5"
+      }
     },
     {
       "id": "chompy-conductor",
@@ -3690,62 +3848,62 @@
       "id": "meadow-stops",
       "world": "meadow",
       "kind": "authored-distinct-railway-stop-layer-source",
-      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v2.png",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-stops-v2.png",
       "sourceSize": [
         1672,
         941
       ],
-      "sourceSha256": "8c45dd43997c2d51ddb380a249d95ab42e3ebaf7716f9c6335f179887dafc33b",
-      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-stops-v2.txt",
-      "promptSha256": "3b774e7d9af16a28dbb2bdf5685f35de08ebab559c0e63e65e5e3eb872843994",
+      "sourceSha256": "22804f890f69ba717b6210ce9a016cafa70f7a4feb857bba9d38499eaa18632b",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-stops-v2.prompt.txt",
+      "promptSha256": "d3018b7165a67c96d159f7c7773965aeb3153e781cf784b5d39ece330b31d902",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
-      "origin": "builtin imagegen 2026-10-04",
+      "origin": "builtin image_gen.imagegen clean2D 2026-11-02",
       "referenceRoles": [
         {
-          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-yard-v1.png",
-          "sha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae",
-          "role": "Canonical world material/lighting only; new four-stop independent source objects"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/6d74b0b64de3514cd701ec73c465112ee698ce6f361f0677fdd4b2ab41a60feb.png",
+          "sha256": "6d74b0b64de3514cd701ec73c465112ee698ce6f361f0677fdd4b2ab41a60feb",
+          "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
         },
         {
-          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v1.png",
-          "sha256": "283f39f8c63088af6a23163878c2ac5ed03c867b8dc86b94e9c8392724e9af8f",
-          "role": "Required exact original edit input; whole tree and inter-location separation correction"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+          "role": "Approved clean outlined cartoon material and graphical simplicity reference."
         }
       ],
       "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-stops-v2.webp",
-      "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+      "reviewStatus": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
       "frames": [
         {
           "id": "willow-halt",
           "action": "willow-halt",
           "direction": "side-three-quarter",
           "cell": [
-            35,
-            47,
-            731,
-            502
+            129,
+            66,
+            705,
+            404
           ],
           "anchor": [
-            352,
-            447
+            288,
+            325
           ],
           "sockets": {
             "ground": [
-              387,
-              494
+              417,
+              391
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              42,
-              54,
-              724,
-              495
+              136,
+              73,
+              698,
+              397
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -3753,31 +3911,31 @@
           "action": "river-bridge",
           "direction": "side-three-quarter",
           "cell": [
-            811,
-            200,
-            1646,
-            497
+            948,
+            131,
+            1560,
+            339
           ],
           "anchor": [
-            417,
-            289
+            306,
+            199
           ],
           "sockets": {
             "ground": [
-              1228,
-              489
+              1254,
+              330
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              818,
-              207,
-              1639,
-              490
+              955,
+              138,
+              1553,
+              332
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -3785,31 +3943,31 @@
           "action": "orchard-yard",
           "direction": "side-three-quarter",
           "cell": [
-            31,
-            543,
-            808,
-            899
+            118,
+            550,
+            716,
+            860
           ],
           "anchor": [
-            195,
-            348
+            299,
+            297
           ],
           "sockets": {
             "ground": [
-              226,
-              891
+              417,
+              847
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              38,
-              550,
-              801,
-              892
+              125,
+              557,
+              709,
+              853
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -3817,101 +3975,292 @@
           "action": "hilltop-station",
           "direction": "side-three-quarter",
           "cell": [
-            896,
-            504,
-            1650,
-            913
+            954,
+            540,
+            1554,
+            870
           ],
           "anchor": [
-            273,
-            401
+            300,
+            314
           ],
           "sockets": {
             "ground": [
-              1169,
-              905
+              1254,
+              854
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              903,
-              511,
-              1643,
-              906
+              961,
+              547,
+              1547,
+              863
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         }
       ],
       "nominalHeight": 4.5,
-      "pixelsPerUnit": 98,
-      "registration": "registration.json",
-      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "pixelsPerUnit": 72,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "e9ff2cd3c313a19c26648a604a556fc785c94c1c1f4340dcfe4fb42366041bd4",
       "runtimeSize": [
         1672,
         941
       ],
-      "runtimeSha256": "193977b5d1a85286c3c1fab8da3862e3c2935bd4ca589bac89af694b811ba841",
-      "runtimeBytes": 523178,
-      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+      "runtimeSha256": "f9c6c9e6947fa5f83790e60e861b20ad8bd9cddc1222b3db50a8b093b4b2ba40",
+      "runtimeBytes": 208276,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained",
+      "productionRevision": "clean-cartoon-2026-11-02",
+      "supersedes": {
+        "id": "meadow-stops",
+        "world": "meadow",
+        "kind": "authored-distinct-railway-stop-layer-source",
+        "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v2.png",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceSha256": "8c45dd43997c2d51ddb380a249d95ab42e3ebaf7716f9c6335f179887dafc33b",
+        "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-stops-v2.txt",
+        "promptSha256": "3b774e7d9af16a28dbb2bdf5685f35de08ebab559c0e63e65e5e3eb872843994",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-yard-v1.png",
+            "sha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae",
+            "role": "Canonical world material/lighting only; new four-stop independent source objects"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v1.png",
+            "sha256": "283f39f8c63088af6a23163878c2ac5ed03c867b8dc86b94e9c8392724e9af8f",
+            "role": "Required exact original edit input; whole tree and inter-location separation correction"
+          }
+        ],
+        "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-stops-v2.webp",
+        "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+        "frames": [
+          {
+            "id": "willow-halt",
+            "action": "willow-halt",
+            "direction": "side-three-quarter",
+            "cell": [
+              35,
+              47,
+              731,
+              502
+            ],
+            "anchor": [
+              352,
+              447
+            ],
+            "sockets": {
+              "ground": [
+                387,
+                494
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                42,
+                54,
+                724,
+                495
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "river-bridge",
+            "action": "river-bridge",
+            "direction": "side-three-quarter",
+            "cell": [
+              811,
+              200,
+              1646,
+              497
+            ],
+            "anchor": [
+              417,
+              289
+            ],
+            "sockets": {
+              "ground": [
+                1228,
+                489
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                818,
+                207,
+                1639,
+                490
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "orchard-yard",
+            "action": "orchard-yard",
+            "direction": "side-three-quarter",
+            "cell": [
+              31,
+              543,
+              808,
+              899
+            ],
+            "anchor": [
+              195,
+              348
+            ],
+            "sockets": {
+              "ground": [
+                226,
+                891
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                38,
+                550,
+                801,
+                892
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "hilltop-station",
+            "action": "hilltop-station",
+            "direction": "side-three-quarter",
+            "cell": [
+              896,
+              504,
+              1650,
+              913
+            ],
+            "anchor": [
+              273,
+              401
+            ],
+            "sockets": {
+              "ground": [
+                1169,
+                905
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                903,
+                511,
+                1643,
+                906
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          }
+        ],
+        "nominalHeight": 4.5,
+        "pixelsPerUnit": 98,
+        "registration": "registration.json",
+        "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeSha256": "193977b5d1a85286c3c1fab8da3862e3c2935bd4ca589bac89af694b811ba841",
+        "runtimeBytes": 523178,
+        "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+      },
+      "generation": {
+        "mode": "built-in-imagegen",
+        "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/meadow-stops-002.png",
+        "nativeSha256": "fd7042bc54ba77a2d694f0e0297a46bb8f68b462c9bc8b3655c2576fac5937d3",
+        "nativeDimensions": {
+          "width": 1672,
+          "height": 941,
+          "hasAlpha": true
+        },
+        "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-ac7231a9-512f-410b-a7a5-fb24a44cd145.png",
+        "acceptedAttempt": 2,
+        "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/meadow-stops.packing.json",
+        "packingRecipeSha256": "893531fa27869a41d02cd99d19da5aebe81bf694de1e6ffa2848b6b01e13d97e"
+      }
     },
     {
       "id": "dino-stops",
       "world": "dino",
       "kind": "authored-distinct-railway-stop-layer-source",
-      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-stops-v1.png",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/dino-stops-v1.png",
       "sourceSize": [
         1536,
         1024
       ],
-      "sourceSha256": "ae52532c0f214d45586a8861d74d850d5e1c8c76af6675c31d1dc790e60d6060",
-      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/dino-stops-v1.txt",
-      "promptSha256": "61d96c73fb4269d61f79a83927c386375b428a9917a4548b16fd1d94c9761e45",
+      "sourceSha256": "ba09dfa73d05b4d7c7be74d62dd5bab60d25ac8801d3fcbf557e118166785261",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/dino-stops-v1.prompt.txt",
+      "promptSha256": "442a091ec71b63f907cdf6f45ff2f3c0862571edbd7c3e59a5c1ba1cf9bdddee",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
-      "origin": "builtin imagegen 2026-10-04",
+      "origin": "builtin image_gen.imagegen clean2D 2026-11-02",
       "referenceRoles": [
         {
-          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-yard-v1.png",
-          "sha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86",
-          "role": "Canonical world material/lighting only; new four-stop independent source objects"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/5330cbd3eeee5963abdb114d8f30a778b1a37fd6e0f63188b80d9bb33957c21f.png",
+          "sha256": "5330cbd3eeee5963abdb114d8f30a778b1a37fd6e0f63188b80d9bb33957c21f",
+          "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+          "role": "Approved clean outlined cartoon material and graphical simplicity reference."
         }
       ],
       "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-stops-v1.webp",
-      "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+      "reviewStatus": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
       "frames": [
         {
           "id": "canyon-halt",
           "action": "canyon-halt",
           "direction": "side-three-quarter",
           "cell": [
-            6,
-            7,
-            743,
-            501
+            135,
+            91,
+            632,
+            421
           ],
           "anchor": [
-            195,
-            486
+            248,
+            315
           ],
           "sockets": {
             "ground": [
-              201,
-              493
+              383,
+              406
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              13,
-              14,
-              736,
-              494
+              142,
+              98,
+              625,
+              414
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -3919,31 +4268,31 @@
           "action": "fossil-bridge",
           "direction": "side-three-quarter",
           "cell": [
-            755,
-            133,
-            1536,
-            503
+            869,
+            140,
+            1433,
+            371
           ],
           "anchor": [
-            616,
-            362
+            282,
+            223
           ],
           "sockets": {
             "ground": [
-              1371,
-              495
+              1151,
+              363
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              762,
-              140,
-              1531,
-              496
+              876,
+              147,
+              1426,
+              364
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -3951,31 +4300,31 @@
           "action": "fern-valley",
           "direction": "side-three-quarter",
           "cell": [
-            4,
-            514,
-            772,
-            983
+            132,
+            607,
+            636,
+            928
           ],
           "anchor": [
-            384,
-            461
+            252,
+            308
           ],
           "sockets": {
             "ground": [
-              388,
-              975
+              384,
+              915
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              11,
-              521,
-              765,
-              976
+              139,
+              614,
+              629,
+              921
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -3983,106 +4332,287 @@
           "action": "red-rock-yard",
           "direction": "side-three-quarter",
           "cell": [
-            777,
-            518,
-            1525,
-            984
+            873,
+            610,
+            1431,
+            925
           ],
           "anchor": [
-            354,
-            458
+            279,
+            302
           ],
           "sockets": {
             "ground": [
-              1131,
-              976
+              1152,
+              912
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              784,
-              525,
-              1518,
-              977
+              880,
+              617,
+              1424,
+              918
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         }
       ],
       "nominalHeight": 4.5,
-      "pixelsPerUnit": 106.66666666666667,
-      "registration": "registration.json",
-      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "pixelsPerUnit": 70.22222222222223,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "e9ff2cd3c313a19c26648a604a556fc785c94c1c1f4340dcfe4fb42366041bd4",
       "runtimeSize": [
         1536,
         1024
       ],
-      "runtimeSha256": "6c3fa9e0956d6495a843dbc077dfdd849c32572be4c52479a806d92dccfd2712",
-      "runtimeBytes": 665412,
-      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+      "runtimeSha256": "233947d9593db51e709e76308d5e1b5f0ef32a91cdb767ace7fb5110a117a1e6",
+      "runtimeBytes": 217358,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained",
+      "productionRevision": "clean-cartoon-2026-11-02",
+      "supersedes": {
+        "id": "dino-stops",
+        "world": "dino",
+        "kind": "authored-distinct-railway-stop-layer-source",
+        "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-stops-v1.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "ae52532c0f214d45586a8861d74d850d5e1c8c76af6675c31d1dc790e60d6060",
+        "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/dino-stops-v1.txt",
+        "promptSha256": "61d96c73fb4269d61f79a83927c386375b428a9917a4548b16fd1d94c9761e45",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-yard-v1.png",
+            "sha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86",
+            "role": "Canonical world material/lighting only; new four-stop independent source objects"
+          }
+        ],
+        "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-stops-v1.webp",
+        "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+        "frames": [
+          {
+            "id": "canyon-halt",
+            "action": "canyon-halt",
+            "direction": "side-three-quarter",
+            "cell": [
+              6,
+              7,
+              743,
+              501
+            ],
+            "anchor": [
+              195,
+              486
+            ],
+            "sockets": {
+              "ground": [
+                201,
+                493
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                13,
+                14,
+                736,
+                494
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "fossil-bridge",
+            "action": "fossil-bridge",
+            "direction": "side-three-quarter",
+            "cell": [
+              755,
+              133,
+              1536,
+              503
+            ],
+            "anchor": [
+              616,
+              362
+            ],
+            "sockets": {
+              "ground": [
+                1371,
+                495
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                762,
+                140,
+                1531,
+                496
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "fern-valley",
+            "action": "fern-valley",
+            "direction": "side-three-quarter",
+            "cell": [
+              4,
+              514,
+              772,
+              983
+            ],
+            "anchor": [
+              384,
+              461
+            ],
+            "sockets": {
+              "ground": [
+                388,
+                975
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                11,
+                521,
+                765,
+                976
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "red-rock-yard",
+            "action": "red-rock-yard",
+            "direction": "side-three-quarter",
+            "cell": [
+              777,
+              518,
+              1525,
+              984
+            ],
+            "anchor": [
+              354,
+              458
+            ],
+            "sockets": {
+              "ground": [
+                1131,
+                976
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                784,
+                525,
+                1518,
+                977
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          }
+        ],
+        "nominalHeight": 4.5,
+        "pixelsPerUnit": 106.66666666666667,
+        "registration": "registration.json",
+        "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "6c3fa9e0956d6495a843dbc077dfdd849c32572be4c52479a806d92dccfd2712",
+        "runtimeBytes": 665412,
+        "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+      },
+      "generation": {
+        "mode": "built-in-imagegen",
+        "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/dino-stops-002.png",
+        "nativeSha256": "a505c2436eae2698c469bdc384cc307e1b741c352fe02cece3cf5baa3ac34e2b",
+        "nativeDimensions": {
+          "width": 1536,
+          "height": 1024,
+          "hasAlpha": true
+        },
+        "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-33af80da-2bca-4092-8502-eefdfd931326.png",
+        "acceptedAttempt": 2,
+        "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/dino-stops.packing.json",
+        "packingRecipeSha256": "32e10c0fc77ab547453ce9a9ea64e2799111723a53c9f113ed2d758be23bad84"
+      }
     },
     {
       "id": "moonwood-stops",
       "world": "moonwood",
       "kind": "authored-distinct-railway-stop-layer-source",
-      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v2.png",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/moonwood-stops-v2.png",
       "sourceSize": [
         1536,
         1024
       ],
-      "sourceSha256": "591d3a50f4169a793368656b5cb9098f5407f73c8f760e72a3155522dc51f1d3",
-      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-stops-v2.txt",
-      "promptSha256": "32607f0cf9ae8a2c8a48f7a466420095d097b29d97878f5d10669a73141e2afa",
+      "sourceSha256": "66d33ea2d3dae8b94fd650e55adc010db4d88d5d6662efd78814dbdc2ac38c5d",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/moonwood-stops-v2.prompt.txt",
+      "promptSha256": "632cc14336986fbec707cb48a4e920a13190a1490b7335e922b85a8b4c20244a",
       "creator": "OpenAI builtin imagegen under LiteracyPath direction",
       "licence": "Original project-authored output; exact source and prompt retained",
-      "origin": "builtin imagegen 2026-10-04",
+      "origin": "builtin image_gen.imagegen clean2D 2026-11-02",
       "referenceRoles": [
         {
-          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-yard-v1.png",
-          "sha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c",
-          "role": "Canonical world material/lighting only; new four-stop independent source objects"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/42deebec3870577e7d47abbd147845ffd9b1e366fe6fdc7a32b5c1728abd4d47.png",
+          "sha256": "42deebec3870577e7d47abbd147845ffd9b1e366fe6fdc7a32b5c1728abd4d47",
+          "role": "Current generated attempt001 composition target only; detailed rendering explicitly superseded."
         },
         {
-          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v1.png",
-          "sha256": "bc547c90fd153cb849e7381e6157b06c90daba4d2b07d6045d7fb7172a2473f4",
-          "role": "Required exact original edit input; whole tree and inter-location separation correction"
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32",
+          "role": "Approved clean outlined cartoon material and graphical simplicity reference."
         }
       ],
       "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-stops-v2.webp",
-      "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+      "reviewStatus": "PASS: full native and whole saved WebP,390/128 actual-alpha review; all twelve current whole station props in24production-renderer placements; six real desktop/phone GamePlayer assemblies and explicit Send with exact current HTTP image bytes. Muted practice preview, no hosted/device/listening claim.",
       "frames": [
         {
           "id": "lantern-halt",
           "action": "lantern-halt",
           "direction": "side-three-quarter",
           "cell": [
-            43,
-            68,
-            684,
-            489
+            149,
+            72,
+            619,
+            439
           ],
           "anchor": [
-            320,
-            413
+            235,
+            359
           ],
           "sockets": {
             "ground": [
-              363,
-              481
+              384,
+              431
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              50,
-              75,
-              677,
-              482
+              156,
+              79,
+              612,
+              432
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -4090,31 +4620,31 @@
           "action": "moon-bridge",
           "direction": "side-three-quarter",
           "cell": [
-            737,
-            103,
-            1505,
-            503
+            870,
+            116,
+            1433,
+            395
           ],
           "anchor": [
-            414,
-            392
+            281,
+            271
           ],
           "sockets": {
             "ground": [
               1151,
-              495
+              387
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              744,
-              110,
-              1498,
-              496
+              877,
+              123,
+              1426,
+              388
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -4122,31 +4652,31 @@
           "action": "moss-hollow",
           "direction": "side-three-quarter",
           "cell": [
-            43,
-            542,
-            697,
-            965
+            142,
+            604,
+            626,
+            932
           ],
           "anchor": [
-            269,
-            415
+            242,
+            320
           ],
           "sockets": {
             "ground": [
-              312,
-              957
+              384,
+              924
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              50,
-              549,
-              690,
-              958
+              149,
+              611,
+              619,
+              925
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         },
         {
@@ -4154,45 +4684,231 @@
           "action": "star-station",
           "direction": "side-three-quarter",
           "cell": [
-            754,
-            517,
-            1504,
-            970
+            881,
+            598,
+            1421,
+            938
           ],
           "anchor": [
-            235,
-            445
+            270,
+            332
           ],
           "sockets": {
             "ground": [
-              989,
-              962
+              1151,
+              930
             ]
           },
           "measurement": {
             "opaqueBodyBounds": [
-              761,
-              524,
-              1497,
-              963
+              888,
+              605,
+              1414,
+              931
             ],
             "gutter": 7,
             "foreignOpaqueCropPixels": 0,
-            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            "method": "Complete isolated actual location alpha body; lowest actual opaque pixel nearest body centre; decorative ground attachment only, no guessed live rail/deck contact"
           }
         }
       ],
       "nominalHeight": 4.5,
-      "pixelsPerUnit": 90.44444444444444,
-      "registration": "registration.json",
-      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "pixelsPerUnit": 78.44444444444444,
+      "registration": "clean-cartoon-registration.json",
+      "registrationSha256": "e9ff2cd3c313a19c26648a604a556fc785c94c1c1f4340dcfe4fb42366041bd4",
       "runtimeSize": [
         1536,
         1024
       ],
-      "runtimeSha256": "10dd98ec9fcc3223551b907aca8646b6e7b1055e262ad651bb1b0500e87714bc",
-      "runtimeBytes": 527108,
-      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+      "runtimeSha256": "93c058ca126dd4067c3239d35287409e66ac4e980eda1c933c3fc372dc55e05d",
+      "runtimeBytes": 184094,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained",
+      "productionRevision": "clean-cartoon-2026-11-02",
+      "supersedes": {
+        "id": "moonwood-stops",
+        "world": "moonwood",
+        "kind": "authored-distinct-railway-stop-layer-source",
+        "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v2.png",
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "sourceSha256": "591d3a50f4169a793368656b5cb9098f5407f73c8f760e72a3155522dc51f1d3",
+        "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-stops-v2.txt",
+        "promptSha256": "32607f0cf9ae8a2c8a48f7a466420095d097b29d97878f5d10669a73141e2afa",
+        "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+        "licence": "Original project-authored output; exact source and prompt retained",
+        "origin": "builtin imagegen 2026-10-04",
+        "referenceRoles": [
+          {
+            "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-yard-v1.png",
+            "sha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c",
+            "role": "Canonical world material/lighting only; new four-stop independent source objects"
+          },
+          {
+            "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v1.png",
+            "sha256": "bc547c90fd153cb849e7381e6157b06c90daba4d2b07d6045d7fb7172a2473f4",
+            "role": "Required exact original edit input; whole tree and inter-location separation correction"
+          }
+        ],
+        "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-stops-v2.webp",
+        "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+        "frames": [
+          {
+            "id": "lantern-halt",
+            "action": "lantern-halt",
+            "direction": "side-three-quarter",
+            "cell": [
+              43,
+              68,
+              684,
+              489
+            ],
+            "anchor": [
+              320,
+              413
+            ],
+            "sockets": {
+              "ground": [
+                363,
+                481
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                50,
+                75,
+                677,
+                482
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "moon-bridge",
+            "action": "moon-bridge",
+            "direction": "side-three-quarter",
+            "cell": [
+              737,
+              103,
+              1505,
+              503
+            ],
+            "anchor": [
+              414,
+              392
+            ],
+            "sockets": {
+              "ground": [
+                1151,
+                495
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                744,
+                110,
+                1498,
+                496
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "moss-hollow",
+            "action": "moss-hollow",
+            "direction": "side-three-quarter",
+            "cell": [
+              43,
+              542,
+              697,
+              965
+            ],
+            "anchor": [
+              269,
+              415
+            ],
+            "sockets": {
+              "ground": [
+                312,
+                957
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                50,
+                549,
+                690,
+                958
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          },
+          {
+            "id": "star-station",
+            "action": "star-station",
+            "direction": "side-three-quarter",
+            "cell": [
+              754,
+              517,
+              1504,
+              970
+            ],
+            "anchor": [
+              235,
+              445
+            ],
+            "sockets": {
+              "ground": [
+                989,
+                962
+              ]
+            },
+            "measurement": {
+              "opaqueBodyBounds": [
+                761,
+                524,
+                1497,
+                963
+              ],
+              "gutter": 7,
+              "foreignOpaqueCropPixels": 0,
+              "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+            }
+          }
+        ],
+        "nominalHeight": 4.5,
+        "pixelsPerUnit": 90.44444444444444,
+        "registration": "registration.json",
+        "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+        "runtimeSize": [
+          1536,
+          1024
+        ],
+        "runtimeSha256": "10dd98ec9fcc3223551b907aca8646b6e7b1055e262ad651bb1b0500e87714bc",
+        "runtimeBytes": 527108,
+        "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+      },
+      "generation": {
+        "mode": "built-in-imagegen",
+        "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/moonwood-stops-002.png",
+        "nativeSha256": "e742ff2b9051588c8115263e5618057904583bf644e6b59caa1513b56aa120de",
+        "nativeDimensions": {
+          "width": 1536,
+          "height": 1024,
+          "hasAlpha": true
+        },
+        "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-7b2a983d-332f-465e-836d-2edb6c356b97.png",
+        "acceptedAttempt": 2,
+        "packingRecipe": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/moonwood-stops.packing.json",
+        "packingRecipeSha256": "8a6cc2b6dfa4ccf1f0f1d3c0579e938fbefbb9cd869493dd7897a37f6616eb01"
+      }
     }
   ],
   "retainedInputs": [

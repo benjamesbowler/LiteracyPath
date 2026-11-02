@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-02T08:03:28.394Z",
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "generation": "Built-in imagegen original production; exact prompts, clean reference bindings and immutable native paths retained.",
+  "scope": "Four active classroom replacements, four active public home tiles, three active Rally horizons, three original pending Rally scenery atlases.",
+  "assets": [
+    {
+      "jobId": "resumed-extra-classroom-camping",
+      "path": "/images/assessment/literacy-classroom/camping.webp",
+      "originalSha256": "59c470ff4d7e74185c8ede422401e92627dcc6d10f92342a949de23061148c63",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-84cbef66-62dc-4486-a6fd-0fc4f68d89b2.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-camping.png",
+      "nativeSha256": "4366cc40805d3fe62a4398b5713137a151ea9df4fa8c3dd9ac04cacc743d8e43",
+      "nativeDimensions": [
+        1312,
+        1199
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-camping.prompt.txt",
+      "promptSha256": "c9d7e83abea25b60b59f9947a3a5a5f58b6e899b23052fd8b4c9d86e0b24e6b6",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 640,
+        "height": 627,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "f5c1f0b7fbe8a8badc527cb1ebe85bb296f97b9e12e5b789080e7c26425e1fb8",
+      "bytes": 89530,
+      "width": 640,
+      "height": 627,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/classroom-failure-proof.json",
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-classroom-messy-bed",
+      "path": "/images/assessment/literacy-classroom/messy-bed.webp",
+      "originalSha256": "4c3a1885424e9b63c9e01db040df76e7cc02d0d920dcccad12dbfcebde587a6a",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-6047e59c-d84f-46d0-9697-99157709b6d6.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-messy-bed.png",
+      "nativeSha256": "2586b08110c4d2479a3d9cdca045eb830ebf84eb595ab253946c2ac7cd61f880",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-messy-bed.prompt.txt",
+      "promptSha256": "80857c23efb4cc04fd675c590b8f87dddab1bb21602838c8284a354bfeeaed44",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 640,
+        "height": 640,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "a1aea8e5e43f7c89e26c95b34163e9d5232357b4f0b4627787a4c73078b1048f",
+      "bytes": 68602,
+      "width": 640,
+      "height": 640,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/classroom-failure-proof.json",
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-classroom-sidewalk",
+      "path": "/images/assessment/literacy-classroom/sidewalk.webp",
+      "originalSha256": "b640212a901f54dfa613bcd37525cf03fa3d6d03d66af9ea4f9bca38bc4f93c6",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-2f6a4d85-0308-4f53-9e02-5b3fd0eef278.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-sidewalk.png",
+      "nativeSha256": "babf86c77f3e8bb41a60fb46ecf1315b0d1ea7ea4f26b54e42e9729a8b5e62af",
+      "nativeDimensions": [
+        1430,
+        1100
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-sidewalk.prompt.txt",
+      "promptSha256": "ed4937b9b4a49db47ea349f059c898823121d3d36857350d6547a54c40cf54ec",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 626,
+        "height": 484,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "f3d4232eb5e390b28fd27bb2b73d573eea81678106dc49e2368fdf9f78852aef",
+      "bytes": 57148,
+      "width": 626,
+      "height": 484,
+      "hasAlpha": true,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/classroom-failure-proof.json",
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-classroom-umbrella",
+      "path": "/images/assessment/literacy-classroom/umbrella.webp",
+      "originalSha256": "9b4dfefb26894b53577599ec72edeaca0aa6a075c4fa66a0ac1ba5708e378abc",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ae99ff8a-8cf0-448f-8134-1f3644aab6fb.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-umbrella.png",
+      "nativeSha256": "137324dc6d6316c2b8a7e84f2fdbd01f80a05f1b9bc16701bba7658238e6b471",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-umbrella.prompt.txt",
+      "promptSha256": "7eb747b6ec197e469023dd31caeabd67cae37704003ff3dd94c7765cc5fd89b1",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 225,
+        "height": 225,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "880a95e37b92c669c218f875908d1899ad056163eb10aded87fe59dafbcb666a",
+      "bytes": 7234,
+      "width": 225,
+      "height": 225,
+      "hasAlpha": false,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/classroom-failure-proof.json",
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-home-reading-library",
+      "path": "/images/home-sage/reading-library.webp",
+      "originalSha256": "6165dd62abffd8871e894ea134fc232a212410533a4444c8dc68a528cd650608",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-90e1a07f-2828-4fd4-9aed-dd5c91f0d02f.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-reading-library.png",
+      "nativeSha256": "796ebd6d4c6a692b99e86130b164a7466e5a2f296b126ff73b4b0c2a7959e85a",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-reading-library.prompt.txt",
+      "promptSha256": "b8fa2ffe5b543baa15252a31ec1dcceba1569a282eec7d8911cd595c79860028",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 900,
+        "height": 900,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "f00578b50943f375878e6300c7ea2cde413e51a07f0b84890c6644262e0cc9ac",
+      "bytes": 86028,
+      "width": 900,
+      "height": 900,
+      "hasAlpha": false,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-home-adventure-map",
+      "path": "/images/home-sage/adventure-map.webp",
+      "originalSha256": "46297865d7a524a50060f83f419a6c4a4f4efbd58ec601cd50c4d51f2055ccca",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-e8cbd71c-aa3b-429e-bcd1-77c0f2095b1e.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-adventure-map.png",
+      "nativeSha256": "13da4a88771d752e5dead5e302fd5efd3a80f816f28ab403ffe074fd6fd888aa",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-adventure-map.prompt.txt",
+      "promptSha256": "f6c64de919e5b230663d2653de11937e2e6c159ecb4855b3fdc58bbb4ed104dc",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 900,
+        "height": 900,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "03fc2bf34e0ed5917013a9f062cb38c9dc3ad8539027dede189827a2a808c7e9",
+      "bytes": 128082,
+      "width": 900,
+      "height": 900,
+      "hasAlpha": false,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-home-arcade",
+      "path": "/images/home-sage/arcade.webp",
+      "originalSha256": "b72fd05928e8e6e635361703aff5cf9d6bcc3f897f00c7c465f3f9b046d4623b",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-9bb56af9-d4bd-4297-92c3-dbb9393335c3.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-arcade.png",
+      "nativeSha256": "9a7d3f8aa3107d4898cae5d7cdd5bb8066301c8142cd1061eb393387193e6762",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-arcade.prompt.txt",
+      "promptSha256": "343849c0b88d0181dfa58c72f558cb7c6bf7c65e202187861051453122e9862f",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 900,
+        "height": 900,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "efa53879086cc22a225d8ea59203fccafc6a516997141f2ecdc0877edcb44e42",
+      "bytes": 63664,
+      "width": 900,
+      "height": 900,
+      "hasAlpha": false,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    },
+    {
+      "jobId": "resumed-extra-home-story-quests",
+      "path": "/images/home-sage/story-quests.webp",
+      "originalSha256": "eb0d8431204c8ee759f71750131638b17ade01af0234f738b579b08dcc491f27",
+      "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-e884e232-db3b-487e-ac47-f9a0dafa370f.png",
+      "nativeSaved": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-story-quests.png",
+      "nativeSha256": "bfb2ef0ae356abc56831d1dccbd06f1daebc874304cdd1e9da4de0ca17999112",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "promptFile": "source-art/app-clean-cartoon/closing-images/resumed-extra-home-story-quests.prompt.txt",
+      "promptSha256": "d27c3f31f04ad96b14d532b24063ec06ff2b9a68ae4aedb63cad49a8189d01bb",
+      "referenceBindings": [
+        {
+          "sourcePath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/qc/clean-woodland-material-reference.png",
+          "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32.png",
+          "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+        }
+      ],
+      "resize": {
+        "width": 900,
+        "height": 900,
+        "fit": "contain",
+        "background": "#00000000"
+      },
+      "encoding": {
+        "quality": 94,
+        "alphaQuality": 100,
+        "effort": 6
+      },
+      "outputSha256": "737986d73e513dfe7d6b92743cd9a3eaf6f7520cdad9c58af11a000ca00871ab",
+      "bytes": 123998,
+      "width": 900,
+      "height": 900,
+      "hasAlpha": false,
+      "review": {
+        "fullNativeViewed": true,
+        "nativeDecision": "accept",
+        "notes": "Whole-scene bold clean outlined cartoon; exact item semantics and full props/characters reviewed. Transparent source RGB inspected with actual alpha compositing as well as native image.",
+        "savedViewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeEvidence": ".artifacts/all-clean-cartoon-2026-10-31/root/closing-sources/browser-proof.json",
+        "missingEvidenceFailureProof": null,
+        "reviewNote": "Full native and current saved whole-composition/display boards directly reviewed. Actual current selection/byte hashes and version queries verified. Rally has54real WebGL/Canvas game frames plus18shared-foliageBuilder frames."
+      }
+    }
+  ]
+}

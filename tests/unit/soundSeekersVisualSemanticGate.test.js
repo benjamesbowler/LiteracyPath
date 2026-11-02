@@ -5,7 +5,7 @@ import path from "node:path";
 import test from "node:test";
 
 import { SOUND_SEEKERS_BIOME_KITS } from "../../src/features/soundSeekers/content/biomeKits.js";
-import { readSoundSeekersV2AssetManifest } from "../../tools/lib/soundSeekersV2AssetManifest.mjs";
+import { readCurrentSoundSeekersV2Delivery } from "../../tools/lib/soundSeekersV2CurrentDelivery.mjs";
 import {
   assertSoundSeekersVisualSemantics,
   validateSoundSeekersVisualAuthorities
@@ -13,7 +13,7 @@ import {
 import { buildSoundSeekersV2AuthoritySnapshot } from "../../tools/checkSoundSeekersV2Content.mjs";
 
 test("raster review truth stays byte-bound and disjoint from code-native DOM truth", () => {
-  const manifest = readSoundSeekersV2AssetManifest();
+  const manifest = readCurrentSoundSeekersV2Delivery();
   assert.equal(manifest.assets.length, 8);
   assert.equal(manifest.assets.flatMap(asset => asset.cropReview.profiles).length, 24);
   assert.equal(assertSoundSeekersVisualSemantics(), true);

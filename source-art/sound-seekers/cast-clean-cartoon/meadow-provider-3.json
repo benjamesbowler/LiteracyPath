@@ -1,0 +1,13 @@
+{
+  "jobId": "sound-seekers-v3-meadow-production-cast-bank",
+  "attempt": 3,
+  "input": {
+    "jobId": "sound-seekers-v3-meadow-production-cast-bank",
+    "attempt": 3,
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/cast-clean-cartoon/references/hungry-approved-cover-crop.png"
+    ],
+    "prompt": "Use case: identity-preserve. Production transparent sprite of MEADOW-HUNGRY, exactly the young cream-and-chestnut COW in this accepted clean book-reference crop. Extract and faithfully redraw ONLY that whole cow, in the SAME friendly slightlythreequarter right-facing standingpose, SAME body/head/shortleg proportions and SAME chestnut patches: creamdominant body with distinctlargechestnut rump/back/shoulderpatches, creamlegs, chestnuthead surrounding WHITEfaceblaze, plain GREEN collar, small tanhorns, darkhooves, warm BROWN eyes and one tailwithbrown tuft. Four cowlegs total; no arms/hands. Preserve horns/ears/facialexpression/markings as shown. Remove ALL surrounding scene, grass, barn, fence, trough, hay, groundshadow and sky. One complete isolated cow only, no other objects, no words orlabels. SQUARE PNG with TRUE TRANSPARENT BACKGROUND and generous clear alpha margin aroundallbodyparts. Render entirecow in bold CLEAN FLAT2Dcartoon: crisp strongcontinuousdarkoutlines, smooth uniform SOLID fields with atmostONE hard-edged celshadow perbodypart. No furtexture, hairgrain, painting, daubs, pebbled/embossed relief, gradients, airbrush, fuzzyedges, gloss or modeled3Dlighting. Do not lengthen the legs or slenderize the body. No extra accessories, bell, text, flag or symbol."
+  },
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-52fd15ed-33d3-4b5e-acd4-38d18689323b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+}

@@ -1,0 +1,125 @@
+{
+  "jobId": "art-0628",
+  "path": "/images/hollow/band-cave.webp",
+  "sameArtworkPaths": [
+    "/images/hollow/band-cave.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0628.webp",
+  "sourceSha256": "8c0aebe926870cfd826de9621d1dff5965d148bd555ca0ccc5621ff03baac37f",
+  "originalSha256": "8c0aebe926870cfd826de9621d1dff5965d148bd555ca0ccc5621ff03baac37f",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0628.webp",
+  "finalSha256": "6654c334c38ceb13f8535fd9439f8b67cf19592de98e1f144b9b7ddb012a185e",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-dcc68691-8aa9-4c78-b81b-5a687d9850f8.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0628/native-003.png",
+  "nativeSha256": "03da8dad4053710c9df6e01c01941d1f7fbbc87b2cd244195a438814bd0fd7e4",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "promptFile": "source-art/hollow/clean-cartoon/band-cave.prompt.txt",
+  "promptSha256": "892c985e1199b3ea8a01eba3d0efea3988c4466d85119f7e5bfa1439ff58d1d6",
+  "referenceImages": [
+    {
+      "path": "source-art/hollow/clean-cartoon/references/band-cave-input-1.png",
+      "sha256": "751b5383f3a77fb253c419f5a41acbf54a873ee18c468eacdf00445e03114dae"
+    },
+    {
+      "path": "source-art/hollow/clean-cartoon/references/band-cave-input-2.png",
+      "sha256": "28e0680752ca06dd7ab57b4eafa4209c7a747b9e62cbff043a4afbf83439d1fd"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 3,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Crisp outlined crystal cave, full frame flat wall/booksleft/geometricwindowright, fourupper and fourlower cream ledges, cyanpool and restrained facetedcrystals. Four saved slots use the upper platforms. Local versioned contact registry aligns actual alpha-body bottoms; no hosted override write. NativePNG, exactfullsavedWebP and390/128 deliverytiles directlyviewed.54actualfull/emptydesktop/phoneHome+Decorateframes and12finalHomeframes reviewed withactualcontact/hit/ownership/cachechecks. No physical-device/human-classroom/hostedacceptance claim.",
+    "reviewedAt": "2026-11-02T03:15:50.504Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/registered-v2/browser-proof.json",
+        "sha256": "2613addf9b6240cbefb364e25c5729743e763029b6299fd8cf8da73ceccbd0e4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/home-final-v2/browser-proof.json",
+        "sha256": "777b5082af798db3e7381e9631fca592e0cfed1eb0be4293207b52ba0bcbcdf5"
+      }
+    ],
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven390.png",
+    "display390Sha256": "91d15f8c13c3535445fa3249f9113dc1c1a74ea55278df6e005907a0fa105213",
+    "display128File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven128.png",
+    "display128Sha256": "57dead09ff9a93ce067894937a710f8a3d5d59c065c8e480f9b47081a321ba42",
+    "releaseRegression": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/release-regression-v2.json",
+      "sha256": "69c38988de24cf856415db7de0f8f321a97cd71b205aa10110f8dcdbdb1e1978",
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "placementRevision": "clean-cartoon-room-contacts-2026-11-02",
+  "slotContacts": [
+    [
+      23.983253588516746,
+      55.260361317747076
+    ],
+    [
+      41.088516746411486,
+      55.260361317747076
+    ],
+    [
+      59.0311004784689,
+      55.260361317747076
+    ],
+    [
+      76.07655502392345,
+      55.260361317747076
+    ]
+  ],
+  "source": "source-art/hollow/clean-cartoon/band-cave.png",
+  "provider": {
+    "jobId": "art-0628",
+    "attempt": 3,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-dcc68691-8aa9-4c78-b81b-5a687d9850f8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-dcc68691-8aa9-4c78-b81b-5a687d9850f8.png"
+  },
+  "lineage": {
+    "originalRuntime": "/images/hollow/band-cave.webp",
+    "originalRuntimeSha256": "8c0aebe926870cfd826de9621d1dff5965d148bd555ca0ccc5621ff03baac37f"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "nativeSha256": "28e0680752ca06dd7ab57b4eafa4209c7a747b9e62cbff043a4afbf83439d1fd",
+      "promptSha256": "b42fff49aa6d7962cbbe3c09db24ee01490ff497568253e53b97764317ccc347",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 2,
+      "disposition": "interrupted provider attempt; no saved output found, completion unknown"
+    },
+    {
+      "attempt": 3,
+      "nativeSha256": "03da8dad4053710c9df6e01c01941d1f7fbbc87b2cd244195a438814bd0fd7e4",
+      "promptSha256": "892c985e1199b3ea8a01eba3d0efea3988c4466d85119f7e5bfa1439ff58d1d6",
+      "disposition": "accepted"
+    },
+    {
+      "attempt": 4,
+      "nativeSha256": "05434aaaaa5ec60f4acc3906a338ff63b574dfb4695f69226a4dc22082845cb4",
+      "promptSha256": "76ea8389db1c0fe07feaff249fa23299ddda57afa192dc887f7f83f1cf330501",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    }
+  ],
+  "installedAt": "2026-11-02T03:50:15.971Z"
+}

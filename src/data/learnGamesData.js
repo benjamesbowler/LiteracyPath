@@ -1,3 +1,5 @@
+import {withRepairedImageVersion} from '../utils/repairedImageVersion.js';
+
 export const CVC_WORDS = {
   easy: [
     "cat", "dog", "sun", "hat", "bat", "pen", "bed", "red", "bus", "cup",
@@ -556,7 +558,7 @@ export const GAME_LIST = [
     engineModule: "src/components/learn/games/games/BurrowBuildersGame.jsx",
     assetManifest: "source-art/arcade/physical-worlds/manifest.json"
   }
-].map(game => ({ ...game, menuArt: `/images/learn-games/menu/${game.id}.webp` }));
+].map(game => ({ ...game, menuArt: withRepairedImageVersion(`/images/learn-games/menu/${game.id}.webp`) }));
 
 // Catalogue grouping is independent of Daily Challenge and saved-journey
 // eligibility. Moving a learning game between menu sections must retain saves.

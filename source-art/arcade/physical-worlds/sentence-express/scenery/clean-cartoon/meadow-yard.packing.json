@@ -1,0 +1,17 @@
+{
+  "native": "source-art/arcade/physical-worlds/sentence-express/scenery/clean-cartoon/natives/meadow-yard-002.png",
+  "nativeSha256": "097f6b7381dc2b0ea40f117841d06ecdf838b0211479f7d05d39db9d9eb5b1b3",
+  "nativeSize": [
+    1672,
+    941
+  ],
+  "outputSize": [
+    1672,
+    941
+  ],
+  "sharp": "0.35.5",
+  "kernel": "lanczos3",
+  "encoder": "PNG default",
+  "generatedRasterOnly": true,
+  "method": "whole native PNG re-encoded without resizing; opaque RGB"
+}

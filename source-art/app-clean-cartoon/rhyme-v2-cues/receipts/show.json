@@ -1,0 +1,10 @@
+{
+  "id": "rhyme-v2-show",
+  "word": "show",
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67 as /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-a70c3769-85ad-4ac2-be07-a7622b69556b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Edit target: the attached existing show vocabulary illustration. Replace its entire rendering, including its background, with the app's required bold, clean, clear 2D cartoon style. Preserve the exact meaning and semantic role; simplify incidental decoration so the focal action reads at128pixels. Use thick crisp continuous dark outlines, saturated flat colors, and at most a few smooth flat cel-shaded shapes. Every surface must be smooth. NO watercolor, gouache, paint daubs, brushwork, canvas or paper texture, grain, embossed or bevelled edges, mottled shading, gradients, fuzzy outlines or realistic material rendering. A child in a green T-shirt stands on a low classroom platform, holding up one large white drawing of a friendly orange dinosaur so three seated peers and one teacher can see it. The drawing and showing gesture are the focus. Simple ordinary classroom; background posters are geometric pictures with no text. Keep a balanced square1024x1024 composition with generous safe margins and all focal subjects whole. No captions, labels, letters, watermark, national/religious/political flags, religious buildings or religious clothing. Ordinary skin-tone variation is welcome. Produce exactly this one finished illustration.",
+  "reference": "source-art/app-clean-cartoon/rhyme-v2-cues/references/show.webp",
+  "originalSha256": "bd5ebbc1e16ab69f7670c94acf3186a39793191fa5c94cfd4caa4befa2708b39",
+  "at": "2026-11-02T15:06:06.754Z",
+  "tool": "built-in image_gen"
+}

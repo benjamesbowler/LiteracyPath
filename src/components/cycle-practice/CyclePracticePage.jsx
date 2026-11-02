@@ -13,6 +13,7 @@ import { SpeakerIcon } from "../elQuest/AdventureRoundFrame.jsx";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio, retainCueAudioSources } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { preloadQuestionImages } from "../../utils/preloadQuestionMedia.js";
+import { companionPortraitPath } from '../../data/companionArtwork.js';
 
 import "../../styles/cycle-practice.css";
 
@@ -619,7 +620,7 @@ function CyclePracticeSession({
       <main className="cycle-practice-page woodland-activity cycle-practice-page--complete">
         {headerActions}
         <section className="cycle-practice-complete-card" aria-labelledby="cycle-practice-complete-title">
-          <img className="cycle-complete-guide" src="/images/companions/pip.webp" alt="Pip celebrates your work" />
+          <img className="cycle-complete-guide" src={companionPortraitPath('pip')} alt="Pip celebrates your work" />
           <div className="cycle-complete-stars" aria-hidden="true">{[0, 1, 2].map(i => <CycleIcon name="star" key={i} />)}</div>
           <h1 id="cycle-practice-complete-title">All done!</h1>
           <p>{result.savedToTeacher ? "Your work is saved." : "Great practice!"}</p>
@@ -633,7 +634,7 @@ function CyclePracticeSession({
   if (state.pendingAttempt && !feedbackRound) return (
     <main className="cycle-practice-page woodland-activity cycle-practice-page--complete">
       {headerActions}<section className="cycle-practice-complete-card">
-        <img className="cycle-complete-guide" src="/images/companions/pip.webp" alt="Pip waits with your work" />
+        <img className="cycle-complete-guide" src={companionPortraitPath('pip')} alt="Pip waits with your work" />
         <h1>{answerPending ? "Saving…" : "Let's save your work"}</h1>
         <p role="status">{answerPending ? "One moment." : "Your answers are kept here."}</p>
         <ActivityButton type="button" className="cycle-play-button" aria-label="Retry save" disabled={answerPending} onClick={() => saveAttempt()}><CycleIcon name="retry" /></ActivityButton>
@@ -748,7 +749,7 @@ function CyclePracticeSession({
         </div>}
         {(paused || mediaFailed) && <div className="cycle-play-overlay">
           <div className="cycle-launch-card">
-            <img src="/images/companions/pip.webp" alt="Pip, your Little Literacy Guide" />
+            <img src={companionPortraitPath('pip')} alt="Pip, your Little Literacy Guide" />
             <h2>{paused ? "Take a little break" : "Let's load the pictures"}</h2>
             {paused && <><p>Your turn is saved. Practice time stops while you rest.</p><details className="cycle-practice-time"><summary>Practice time</summary><p>{formatClock(elapsedSeconds)} of {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)} active practice. The check opens after 30 active minutes and all assigned practice.</p></details></>}
             <ActivityButton type="button" className="cycle-play-button" aria-label={paused ? "Keep playing" : "Reload pictures"}

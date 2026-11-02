@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "game": "word-climb",
+  "runtimeAcceptance": "LOCAL_NATIVE_PASS",
+  "physicalDeviceObservation": "UNKNOWN",
+  "currentRegistration": "scenery-clean-cartoon-registration.json",
+  "registrationSha256": "7a79874d2e727f863ab7f1d0855edcc4f88909611774dd50f011b3737585005e",
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/word-climb/scenery-manifest.json",
+    "sha256": "8618704634b6e64bf2ea6bf2e6abff14af07ae22bb1aa575cb79688e58ceec88"
+  },
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "assets": [
+    {
+      "id": "meadow-root-canopy-summit",
+      "world": "meadow",
+      "kind": "scenery-atlas",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/meadow-scenery-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/meadow-scenery-v2.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "frames": [
+        {
+          "id": "root-landscape",
+          "rect": [
+            26,
+            71,
+            576,
+            507
+          ],
+          "opaqueBounds": [
+            27,
+            72,
+            601,
+            577
+          ],
+          "opaqueArea": 193357
+        },
+        {
+          "id": "canopy-bough",
+          "rect": [
+            649,
+            142,
+            557,
+            385
+          ],
+          "opaqueBounds": [
+            650,
+            143,
+            1205,
+            526
+          ],
+          "opaqueArea": 112911
+        },
+        {
+          "id": "summit-landscape",
+          "rect": [
+            26,
+            684,
+            573,
+            496
+          ],
+          "opaqueBounds": [
+            27,
+            685,
+            598,
+            1179
+          ],
+          "opaqueArea": 198013
+        },
+        {
+          "id": "foreground-plants",
+          "rect": [
+            644,
+            685,
+            583,
+            484
+          ],
+          "opaqueBounds": [
+            645,
+            686,
+            1226,
+            1168
+          ],
+          "opaqueArea": 189566
+        }
+      ],
+      "sourceSha256": "690e1f206e6cb2f8a793c20d9fe058aefb776cb60c24c58f91732a8916378b98",
+      "runtimeSha256": "8afe4f38074c02f7e39cde0d2cac94982df9bf882b7ced9aaff9bd60c579739e",
+      "runtimeBytes": 336472,
+      "prompt": "scenery/clean-cartoon/meadow.prompt.txt",
+      "promptSha256": "b3e2c6508eabcc81b8e4c199358bab822030beecb454b06aebda1e33fc130eaf",
+      "editInputs": [],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "origin": "Original game-owned art 2026-10-04",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "registration": "alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells",
+      "maxEdgeAlpha": 1,
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100",
+      "reviewStatus": "LOCAL_NATIVE_PASS: clean native/saved/whole-cutout390+128 and exact current Three/Canvas actual game scene reviewed; human/physical observations UNKNOWN",
+      "jobId": "art-0672",
+      "receipt": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/meadow.receipt.json",
+      "receiptSha256": "9cdd0e196771eb86e6a186fbfae5ceb4d6fedb3d969ea6faa2fc81a965dd81e4"
+    },
+    {
+      "id": "dino-root-canopy-summit",
+      "world": "dino",
+      "kind": "scenery-atlas",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/dino-scenery-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/dino-scenery-v2.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "frames": [
+        {
+          "id": "root-landscape",
+          "rect": [
+            31,
+            58,
+            561,
+            513
+          ],
+          "opaqueBounds": [
+            32,
+            59,
+            591,
+            570
+          ],
+          "opaqueArea": 208441
+        },
+        {
+          "id": "canopy-bough",
+          "rect": [
+            645,
+            74,
+            577,
+            504
+          ],
+          "opaqueBounds": [
+            646,
+            75,
+            1221,
+            577
+          ],
+          "opaqueArea": 136278
+        },
+        {
+          "id": "summit-landscape",
+          "rect": [
+            22,
+            661,
+            577,
+            537
+          ],
+          "opaqueBounds": [
+            23,
+            662,
+            598,
+            1197
+          ],
+          "opaqueArea": 206814
+        },
+        {
+          "id": "foreground-plants",
+          "rect": [
+            651,
+            686,
+            574,
+            503
+          ],
+          "opaqueBounds": [
+            652,
+            687,
+            1224,
+            1188
+          ],
+          "opaqueArea": 192225
+        }
+      ],
+      "sourceSha256": "e5d406cb67d1da5068ed35c4928e1fa4c7d50e567f648888183e2c704e98cd30",
+      "runtimeSha256": "97522751581debbad4c7204b075a981b371ba39e4eb95643d948accb0631b5aa",
+      "runtimeBytes": 412800,
+      "prompt": "scenery/clean-cartoon/dino.prompt.txt",
+      "promptSha256": "55a9e8587006684d9d5a28bd32bea7e337a1f6f14affc703e15f6541ce7dd0de",
+      "editInputs": [],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "origin": "Original game-owned art 2026-10-04",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "registration": "alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells",
+      "maxEdgeAlpha": 1,
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100",
+      "reviewStatus": "LOCAL_NATIVE_PASS: clean native/saved/whole-cutout390+128 and exact current Three/Canvas actual game scene reviewed; human/physical observations UNKNOWN",
+      "jobId": "art-0671",
+      "receipt": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/dino.receipt.json",
+      "receiptSha256": "1bc6d102ad570a33d86e076bde251b6b5e9a22a0dda5b10c16aff6295faafc5d"
+    },
+    {
+      "id": "moonwood-root-canopy-summit",
+      "world": "moonwood",
+      "kind": "scenery-atlas",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/moonwood-scenery-v3.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/moonwood-scenery-v3.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "frames": [
+        {
+          "id": "root-landscape",
+          "rect": [
+            39,
+            65,
+            553,
+            522
+          ],
+          "opaqueBounds": [
+            40,
+            66,
+            591,
+            586
+          ],
+          "opaqueArea": 211455
+        },
+        {
+          "id": "canopy-bough",
+          "rect": [
+            668,
+            161,
+            543,
+            349
+          ],
+          "opaqueBounds": [
+            669,
+            162,
+            1210,
+            509
+          ],
+          "opaqueArea": 78369
+        },
+        {
+          "id": "summit-landscape",
+          "rect": [
+            27,
+            696,
+            575,
+            479
+          ],
+          "opaqueBounds": [
+            28,
+            697,
+            601,
+            1174
+          ],
+          "opaqueArea": 221813
+        },
+        {
+          "id": "foreground-plants",
+          "rect": [
+            651,
+            702,
+            576,
+            458
+          ],
+          "opaqueBounds": [
+            652,
+            703,
+            1226,
+            1159
+          ],
+          "opaqueArea": 149214
+        }
+      ],
+      "sourceSha256": "a5cf5242420788df7aee1eabb1455f3958be09b4487f21852ca29b38fe09cd88",
+      "runtimeSha256": "c7822bb8c2e6bb7a0f2404a102f472ab7512a13cb9c0ef75360452be4fc6b7c8",
+      "runtimeBytes": 342306,
+      "prompt": "scenery/clean-cartoon/moonwood.prompt.txt",
+      "promptSha256": "ea4717810c0d3bf307a9a01a9508cf00f6fc976af2cebbfa9c8b33e2fe51fe93",
+      "editInputs": [],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "origin": "Original game-owned art 2026-10-04",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "registration": "alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells",
+      "maxEdgeAlpha": 1,
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100",
+      "reviewStatus": "LOCAL_NATIVE_PASS: clean native/saved/whole-cutout390+128 and exact current Three/Canvas actual game scene reviewed; human/physical observations UNKNOWN",
+      "jobId": "art-0673",
+      "receipt": "source-art/arcade/physical-worlds/word-climb/scenery/clean-cartoon/moonwood.receipt.json",
+      "receiptSha256": "ce750fe8e9f665efa747d6f50e144fafe5bad70106737a23ba8acb53bf3ecded"
+    }
+  ],
+  "humanApproval": "UNKNOWN",
+  "reviewedEvidence": "docs/design/WORD_CLIMB_IMPLEMENTATION.md",
+  "review": {
+    "at": "2026-11-02T09:57:35.619056+00:00",
+    "scope": "Actual current WordClimbGame at root route, all three worlds and viewports, real WebGL context-loss Canvas fallback; exact current fetched artwork bytes/revision. Native complete four-prop/crop proofs and current registered layout tests cover all root/canopy/summit/foreground source roles. No full summit outing, hosted, listening or physical-device claim.",
+    "nativeViewed": true,
+    "savedNativeViewed": true,
+    "allTwelveWholeProps390And128Viewed": true,
+    "actualRendererFrames": 18,
+    "actualRuntimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/climb-scenery-clean-cartoon/browser-proof.json",
+    "actualRuntimeProofSha256": "7f388af8dfdac392e25656a2ece3aa7735b6c4c79946bdb2d5de8500980d2897",
+    "directVisualReview": "All18actualThree/Canvasframes reviewed in fullsix-frameworldmontages; clean wholeimage art/cuelegibility/complete source cutouts confirmed. No current model/controller/placement changes."
+  }
+}

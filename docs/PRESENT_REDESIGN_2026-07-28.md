@@ -267,3 +267,7 @@ audio delivery/cancellation, palette/characters and rendered projector/tablet
 fit. Required regression, mobile-layout and audio-integrity gates also apply.
 Automated and rendered evidence is distinct from physical-device, back-row
 listening and observed classroom duration.
+
+## Cycle Shorts ending
+
+Every daily lesson now ends with its [weekly Meadow Farm short and three comprehension questions](guided-reading/CYCLE_SHORTS.md). The story and exact question evidence share one source with Guided Reading Cycle Shorts. This intentional reread supplements the varied daily picture sentences; bold sight-word emphasis respects daily introductions. Teachers read unfamiliar words and choices aloud, reveal answers deliberately and retain the complete passage while discussing each question. Participation remains unscored.

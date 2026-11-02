@@ -684,13 +684,18 @@
     },
     {
       "path": "/images/assessment/literacy-classroom/messy-bed.webp",
-      "source": "ppt/media/image11.png",
-      "sha256": "8dbae28d0567f541c93ddee605f9c2769abbcea76ac19cf2852f94f037438f41",
+      "source": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-messy-bed.png",
+      "sha256": "a1aea8e5e43f7c89e26c95b34163e9d5232357b4f0b4627787a4c73078b1048f",
       "width": 640,
       "height": 640,
-      "bytes": 74794,
-      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
-      "id": 11
+      "bytes": 68602,
+      "transform": "Built-in original clean outlined cartoon. Exact native and prompt provenance: source-art/app-clean-cartoon/closing-images/manifest.json; preserve complete composition and source alpha.",
+      "id": 11,
+      "previousSource": {
+        "source": "ppt/media/image11.png",
+        "sha256": "8dbae28d0567f541c93ddee605f9c2769abbcea76ac19cf2852f94f037438f41",
+        "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved."
+      }
     },
     {
       "path": "/images/assessment/literacy-classroom/boat-under-bridge.webp",
@@ -824,13 +829,18 @@
     },
     {
       "path": "/images/assessment/literacy-classroom/camping.webp",
-      "source": "ppt/media/image36.png",
-      "sha256": "2658201555210a072c685161495aa9ade58cdb540bddfa4a368b0665b1f457c0",
+      "source": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-camping.png",
+      "sha256": "f5c1f0b7fbe8a8badc527cb1ebe85bb296f97b9e12e5b789080e7c26425e1fb8",
       "width": 640,
       "height": 627,
-      "bytes": 25840,
-      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
-      "id": 36
+      "bytes": 89530,
+      "transform": "Built-in original clean outlined cartoon. Exact native and prompt provenance: source-art/app-clean-cartoon/closing-images/manifest.json; preserve complete composition and source alpha.",
+      "id": 36,
+      "previousSource": {
+        "source": "ppt/media/image36.png",
+        "sha256": "2658201555210a072c685161495aa9ade58cdb540bddfa4a368b0665b1f457c0",
+        "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved."
+      }
     },
     {
       "path": "/images/assessment/literacy-classroom/doing-schoolwork.webp",
@@ -974,13 +984,18 @@
     },
     {
       "path": "/images/assessment/literacy-classroom/sidewalk.webp",
-      "source": "ppt/media/image5.png",
-      "sha256": "a1b496b31626f781f7599bfa00699526bbca8db5edd42d60d951955ebf4a9184",
+      "source": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-sidewalk.png",
+      "sha256": "f3d4232eb5e390b28fd27bb2b73d573eea81678106dc49e2368fdf9f78852aef",
       "width": 626,
       "height": 484,
-      "bytes": 39594,
-      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
-      "id": 5
+      "bytes": 57148,
+      "transform": "Built-in original clean outlined cartoon. Exact native and prompt provenance: source-art/app-clean-cartoon/closing-images/manifest.json; preserve complete composition and source alpha.",
+      "id": 5,
+      "previousSource": {
+        "source": "ppt/media/image5.png",
+        "sha256": "a1b496b31626f781f7599bfa00699526bbca8db5edd42d60d951955ebf4a9184",
+        "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved."
+      }
     },
     {
       "path": "/images/assessment/literacy-classroom/pie.webp",
@@ -1074,13 +1089,18 @@
     },
     {
       "path": "/images/assessment/literacy-classroom/umbrella.webp",
-      "source": "ppt/media/image59.png",
-      "sha256": "74490c2ef476bf0af501c1ffec75657c1167c1e4856324bc73c5beb06b5a799f",
+      "source": "source-art/app-clean-cartoon/closing-images/resumed-extra-classroom-umbrella.png",
+      "sha256": "880a95e37b92c669c218f875908d1899ad056163eb10aded87fe59dafbcb666a",
       "width": 225,
       "height": 225,
-      "bytes": 6004,
-      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
-      "id": 59
+      "bytes": 7234,
+      "transform": "Built-in original clean outlined cartoon. Exact native and prompt provenance: source-art/app-clean-cartoon/closing-images/manifest.json; preserve complete composition and source alpha.",
+      "id": 59,
+      "previousSource": {
+        "source": "ppt/media/image59.png",
+        "sha256": "74490c2ef476bf0af501c1ffec75657c1167c1e4856324bc73c5beb06b5a799f",
+        "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved."
+      }
     },
     {
       "path": "/images/assessment/literacy-classroom/butter.webp",

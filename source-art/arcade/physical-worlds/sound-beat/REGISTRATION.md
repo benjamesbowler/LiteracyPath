@@ -1,13 +1,39 @@
 # Musical performance registration
 
-Atlas source pixels remain unchanged. Runtime WebP preserves original alpha. `generate-sound-beat-art.py` measures each real connected alpha body at alpha192 for bounds, adds three source pixels of crop padding, derives a foot anchor from the lowest seven opaque body rows and calculates one median pixels-per-unit scale per sheet. No guessed equal-grid body sizes enter runtime positioning.
+The current source authority is `scene-kit-clean-cartoon.json` with sealed
+`clean-cartoon-registration.json`. Historical `scene-kit-v1.json`,
+`hand-registration-v1.json` and their original PNGs remain unchanged provenance.
+The two original music-actions sheets remain source-only references.
 
-`hand-registration-v1.json` retains measured **absolute original-atlas pixel centres** of both visible hoof grips. The selected opaque brown hoof components were measured from original RGB/alpha and directly checked in `.artifacts/arcade-standard-upgrade/sound-beat-registration/*-grips.png`. Anatomical right is screen-left in these mostly frontal source poses; anatomical left is screen-right. Runtime mirroring preserves anatomical socket names and mirrors the x coordinate only. An occluded or fused grip receives no registration and its frame is excluded from musical selection. The excluded body is retained only as part of its irreplaceable original sheet; it is never substituted with a guessed socket.
+The current six complete performance atlases retain all sixteen generated
+bodies each. Mechanical packing isolates each whole connected body and its
+owned marks, uses one proportional scale per performer, adds ten-percent cell
+margins, and measures an opaque sole anchor from the lowest three body rows.
+Provider-native PNGs and exact prompts remain in `clean-cartoon/`. Runtime WebP
+quality90/method6 preserves every current source alpha byte. The current builder
+rejects changed source, prompt, registration, dimensions or delivered contacts;
+metadata-only validates without encoding or writing artwork.
 
-The active six performance sheets contain95 registered drawings: Bouncy has15 (frame6 excluded because its far grip is hidden); Woolly, Chompy, Sunny, Pip and Wren each have16. Runtime contact selection follows the final inspected drawing: anatomical right/left contacts are Bouncy0/1, Woolly1/0, Chompy0/1, Pip0/1 and Wren0/2. The two first Easy action sheets are retained original references used to author the stronger performance drawings; they are source-only and have no runtime delivery. Source prompt labels describe intended poses; runtime action names follow the inspected drawing rather than pretending generation obeyed every instruction.
+All selected grips are absolute current-atlas pixels on directly inspected
+visible hoof hands, palms or forefeet. Anatomical right is generally screen-left;
+mirroring preserves the anatomical name. Bouncy6 and Chompy5/7 have an occluded
+far grip. Their whole drawings remain retained but are explicitly excluded from
+selection, with no invented socket. The other93 drawings have both actual
+contacts. Chompy's current left preparation uses14/2/0. Sunny stays a natural
+quadruped: its actual opposite raised right forefoot is drawing12, and its left
+contact is0. It has no humanoid hand or mallet. Source labels describe requests;
+current selection follows the inspected drawing.
 
-All performer poses are tool-free. Live mallet handles start at measured grips; their separately painted heads meet authored drum membranes in the native input contact frame. Sunny remains a quadruped. Its measured sockets are named `leftForefoot` and `rightForefoot`, with direct contact drawings0 and4 respectively; it has no fabricated humanoid hand or mallet. Three other legs remain part of the actual drawing during one-forefoot action. The input timestamp controls rhythm judgement. Art loading, contact animation, scenery, accompaniment and frame timing never decide a phoneme response or award evidence.
+Each of the three drums has a measured cream membrane centre in its current
+source frame. The renderer positions that exact painted point under the live
+mallet tip or direct forefoot and retains it during compression. The separate
+round mallet head remains source art; input time alone controls rhythm judging.
+Art loading, props, animation and scenery never award a phoneme response.
 
-Reference locks: current Story Bible Part2 character records and the exact source/cast references hashed in `scene-kit-v1.json` govern identity. Bouncy retains yellow wool/red scarf/two silver coil legs/two hooves; Woolly cream wool/blue eyes/natural legs; Chompy orange dinosaur/cream bandana; Sunny golden quadruped triceratops/three horns/frill/green leaf cape; Pip brown-haired green-eyed elf/green tunic/belt/boots; Wren dark-haired witch/blue-purple star hat/robe/belt/boots. No invented Woolly scarf, bell or ribbon is used. Manual original-atlas grip/forefoot centres for all six were checked against source alpha; the encoder rejects a point outside its measured cell or opaque body.
-
-Current review boundary: source registration/alpha and three-world v3 native openings/four input lanes/portrait/short images directly inspected. Easy v2 native contact sequence was reviewed; Dino/Moonwood v3 WebMs and extracted contact sequences are retained in the ignored evidence folder. Full ten-section outings, final asset/error recovery and release remain pending. `review-v1.json` is the machine-readable current status, incorporated by the generator; human listening and physical iPad evidence remain UNKNOWN.
+The seven actor/kit originals passed native and saved390/128 review,31 focused
+checks,144 actual current renderer frames across three worlds and desktop/phone
+normal, kit-failure and reload modes, plus four existing native input/recovery
+cases. Detailed hashes and evidence are in the ignored
+`cd_dino/physical-clean-cartoon/sound-beat-resumed-accepted-receipts.json`.
+Venue replacement is independently owned. Human listening and physical-device
+observation remain UNKNOWN.

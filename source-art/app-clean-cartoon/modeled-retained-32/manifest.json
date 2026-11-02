@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-11-02T13:42:28.369Z",
+  "status": "accepted retained modeled sources",
+  "scope": "Exact thirty current Burrow thumbnail renders plus two unchanged modeled engine/wagon atlases. This is an explicit modeled-source/native review disposition, not illustrated-art approval or new full-game/physical-device proof.",
+  "originalProof": {
+    "artifact": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/modeled33/proof.json",
+    "immutableCopy": "source-art/app-clean-cartoon/modeled-retained-32/original-modeled33-proof.json",
+    "sha256": "3b71e3bb7d8e0bca6da26cb39b50b979829c5547e1e3a8e4ff87d932a884f724"
+  },
+  "currentSources": [
+    {
+      "path": "src/components/learn/games/games/burrowPartMeshes.js",
+      "sha256": "a51b37ab5b6d7a58070e85c6da3cf9fac4ad871ade556f91e5c9b0f418628fac",
+      "originalSha256": "a51b37ab5b6d7a58070e85c6da3cf9fac4ad871ade556f91e5c9b0f418628fac",
+      "changed": false,
+      "changeAuthority": null
+    },
+    {
+      "path": "tools/lib/burrowThumbnailStudio.js",
+      "sha256": "43f7eeff65d795dbcf1a52818e785ae825d9f3b075c1679a8664a0b1aadf4a8e",
+      "originalSha256": "43f7eeff65d795dbcf1a52818e785ae825d9f3b075c1679a8664a0b1aadf4a8e",
+      "changed": false,
+      "changeAuthority": null
+    },
+    {
+      "path": "public/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp",
+      "sha256": "c420d7292c1f6861929c27ee4d84cd6c746a383b4744a1bc29376a4b0bcba652",
+      "originalSha256": "c420d7292c1f6861929c27ee4d84cd6c746a383b4744a1bc29376a4b0bcba652",
+      "changed": false,
+      "changeAuthority": null
+    },
+    {
+      "path": "public/game-assets/physical-arcade/burrow-builders/materials/stone-albedo-v1.webp",
+      "sha256": "7331d93ffb3872f952b72a08ea6784331f9d8eb82cf4f43284d9bcd4fa9016be",
+      "originalSha256": "7331d93ffb3872f952b72a08ea6784331f9d8eb82cf4f43284d9bcd4fa9016be",
+      "changed": false,
+      "changeAuthority": null
+    },
+    {
+      "path": "public/game-assets/physical-arcade/burrow-builders/materials/shingle-albedo-v1.webp",
+      "sha256": "f75a5ce36e4aabbf6325459ac485b9f7d15e262649bd1bd78aac058e7e350519",
+      "originalSha256": "f75a5ce36e4aabbf6325459ac485b9f7d15e262649bd1bd78aac058e7e350519",
+      "changed": false,
+      "changeAuthority": null
+    },
+    {
+      "path": "source-art/arcade/rolling-stock/Railway.blend",
+      "sha256": "c82d8b58204d9d0f0cfc8b36f44ad1902c804e9c1f11f423a5e66bf0940cad79",
+      "originalSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+      "changed": true,
+      "changeAuthority": "source-art/arcade/rolling-stock/camera-repair-model-identity.json"
+    },
+    {
+      "path": "tools/blender/build_arcade_rolling_stock.py",
+      "sha256": "06da33b014b3cbf74992a955a19a8611934d520f5a0b42faab11d707af7c51ac",
+      "originalSha256": "fcc5fd895edb8d01a40a285d0e2b5905f560fe226bffb6c9f13a42d8ddbdf251",
+      "changed": true,
+      "changeAuthority": "source-art/arcade/rolling-stock/camera-repair-model-identity.json"
+    }
+  ],
+  "cameraDelta": {
+    "file": "source-art/arcade/rolling-stock/camera-repair-model-identity.json",
+    "sha256": "3a7b54b46ee93ad7e5c4617542398c142a4b98d7c09ebce58a6a38e35494c87e",
+    "framingFile": "source-art/arcade/rolling-stock/caboose-framing.json",
+    "framingSha256": "61d75b6fb6aa16ed428a2b8aa314aa7053f44612190e307b9221cb27ff92b811",
+    "rootHandoff": ".artifacts/all-clean-cartoon-2026-10-31/root/caboose/source-handoff.json",
+    "rootHandoffSha256": "913945696a4bd4b8764e10d5d0f688338a9d605ccdbeacc4964b0989db810379",
+    "modelOrMaterialChanges": false,
+    "note": "Only official camera framing changed in caboose scene. All3 mesh/transforms/Principled materials, all3GLBs andengine/wagon sprite bytes remain exact. Original33proof remains immutable and still records rejected oldcaboose."
+  },
+  "assets": [
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-wood-v1.png",
+      "sha256": "d6f8036657b29964ce06ed06eca2f1df2773e0ca4162dcf533f1a31b7eaa8683",
+      "reproducedSha256": "d6f8036657b29964ce06ed06eca2f1df2773e0ca4162dcf533f1a31b7eaa8683",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-stone-v1.png",
+      "sha256": "a3bccc99ee586acad67803ed65d537144209f5f8c22f15af2861ac4a616b78df",
+      "reproducedSha256": "a3bccc99ee586acad67803ed65d537144209f5f8c22f15af2861ac4a616b78df",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-bridge-v1.png",
+      "sha256": "ad5d24795fa4d1f79e3bbb2bf590440223fdd5586aa94875a28034ceb4b33100",
+      "reproducedSha256": "ad5d24795fa4d1f79e3bbb2bf590440223fdd5586aa94875a28034ceb4b33100",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-roof-v1.png",
+      "sha256": "8b40dbf6b983ac17352ceb19154dc84d4e15e7a3392323b4c6927a8f3edc2506",
+      "reproducedSha256": "8b40dbf6b983ac17352ceb19154dc84d4e15e7a3392323b4c6927a8f3edc2506",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-window-v1.png",
+      "sha256": "50a8339a2c19df7f4bde8d68531c61d236d4c2e7368c4674dac24eda031a7b50",
+      "reproducedSha256": "50a8339a2c19df7f4bde8d68531c61d236d4c2e7368c4674dac24eda031a7b50",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-garden-v1.png",
+      "sha256": "ca31b306c9d076170c4c7dbb4ea8244d20ddb5b7f4349503ca82b8d2dd0bbcab",
+      "reproducedSha256": "ca31b306c9d076170c4c7dbb4ea8244d20ddb5b7f4349503ca82b8d2dd0bbcab",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-gate-v1.png",
+      "sha256": "73dd21e5dde12c98327f50806c1cbebe4b06b6bd6b501aec75b37c68cef552c1",
+      "reproducedSha256": "73dd21e5dde12c98327f50806c1cbebe4b06b6bd6b501aec75b37c68cef552c1",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-bed-v1.png",
+      "sha256": "fab1426c18e53f4ff484fc91b70af8653d68efaae2df13b01dfa41076edde0f2",
+      "reproducedSha256": "fab1426c18e53f4ff484fc91b70af8653d68efaae2df13b01dfa41076edde0f2",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-channel-v1.png",
+      "sha256": "a488617079ed394b93ffc2ac88acdfbb4b764b258c47bc8288c641e56a152e0c",
+      "reproducedSha256": "a488617079ed394b93ffc2ac88acdfbb4b764b258c47bc8288c641e56a152e0c",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/meadow-dam-v1.png",
+      "sha256": "afd0092103af1eaa4df2441ba2976511eca6685f56d99f23ebdeadd7992d6d9e",
+      "reproducedSha256": "afd0092103af1eaa4df2441ba2976511eca6685f56d99f23ebdeadd7992d6d9e",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-wood-v1.png",
+      "sha256": "d6f8036657b29964ce06ed06eca2f1df2773e0ca4162dcf533f1a31b7eaa8683",
+      "reproducedSha256": "d6f8036657b29964ce06ed06eca2f1df2773e0ca4162dcf533f1a31b7eaa8683",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-stone-v1.png",
+      "sha256": "a3bccc99ee586acad67803ed65d537144209f5f8c22f15af2861ac4a616b78df",
+      "reproducedSha256": "a3bccc99ee586acad67803ed65d537144209f5f8c22f15af2861ac4a616b78df",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-bridge-v1.png",
+      "sha256": "ad5d24795fa4d1f79e3bbb2bf590440223fdd5586aa94875a28034ceb4b33100",
+      "reproducedSha256": "ad5d24795fa4d1f79e3bbb2bf590440223fdd5586aa94875a28034ceb4b33100",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-roof-v1.png",
+      "sha256": "1bf81ebf33e9d7a22ec354869b364d17fc47aa05cebfce642b84eb55cc54ee2c",
+      "reproducedSha256": "1bf81ebf33e9d7a22ec354869b364d17fc47aa05cebfce642b84eb55cc54ee2c",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-window-v1.png",
+      "sha256": "50a8339a2c19df7f4bde8d68531c61d236d4c2e7368c4674dac24eda031a7b50",
+      "reproducedSha256": "50a8339a2c19df7f4bde8d68531c61d236d4c2e7368c4674dac24eda031a7b50",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-garden-v1.png",
+      "sha256": "d453c40d2a852f4c88b39cd20fd29992da46a8730bd39abdd2f6a189d4489b35",
+      "reproducedSha256": "d453c40d2a852f4c88b39cd20fd29992da46a8730bd39abdd2f6a189d4489b35",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-gate-v1.png",
+      "sha256": "73dd21e5dde12c98327f50806c1cbebe4b06b6bd6b501aec75b37c68cef552c1",
+      "reproducedSha256": "73dd21e5dde12c98327f50806c1cbebe4b06b6bd6b501aec75b37c68cef552c1",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-bed-v1.png",
+      "sha256": "fab1426c18e53f4ff484fc91b70af8653d68efaae2df13b01dfa41076edde0f2",
+      "reproducedSha256": "fab1426c18e53f4ff484fc91b70af8653d68efaae2df13b01dfa41076edde0f2",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-channel-v1.png",
+      "sha256": "a488617079ed394b93ffc2ac88acdfbb4b764b258c47bc8288c641e56a152e0c",
+      "reproducedSha256": "a488617079ed394b93ffc2ac88acdfbb4b764b258c47bc8288c641e56a152e0c",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/dino-dam-v1.png",
+      "sha256": "afd0092103af1eaa4df2441ba2976511eca6685f56d99f23ebdeadd7992d6d9e",
+      "reproducedSha256": "afd0092103af1eaa4df2441ba2976511eca6685f56d99f23ebdeadd7992d6d9e",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-wood-v1.png",
+      "sha256": "d29ae893d1df32af87b1198cb8ef7ec156239dafbce0eb3800bc3fd8dacf3c85",
+      "reproducedSha256": "d29ae893d1df32af87b1198cb8ef7ec156239dafbce0eb3800bc3fd8dacf3c85",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-stone-v1.png",
+      "sha256": "a3bccc99ee586acad67803ed65d537144209f5f8c22f15af2861ac4a616b78df",
+      "reproducedSha256": "a3bccc99ee586acad67803ed65d537144209f5f8c22f15af2861ac4a616b78df",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-bridge-v1.png",
+      "sha256": "9515c9c90b3f2a9a451ede78f071770eff41a7c115661bd2dbc62a2769ae075b",
+      "reproducedSha256": "9515c9c90b3f2a9a451ede78f071770eff41a7c115661bd2dbc62a2769ae075b",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-roof-v1.png",
+      "sha256": "d9e8d461cf300f16f0581436606c4088d1add2f0282735798bb6bb0871397d71",
+      "reproducedSha256": "d9e8d461cf300f16f0581436606c4088d1add2f0282735798bb6bb0871397d71",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-window-v1.png",
+      "sha256": "b4e31a1215745fab9235731e1cfad4265d6a878e46e5c56e83e7ce8fef0fc3b0",
+      "reproducedSha256": "b4e31a1215745fab9235731e1cfad4265d6a878e46e5c56e83e7ce8fef0fc3b0",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-garden-v1.png",
+      "sha256": "a20a54466ed6aca4d0a9777a7faba9babd36eed0bc47bcd0808dfb75fc6b2d8c",
+      "reproducedSha256": "a20a54466ed6aca4d0a9777a7faba9babd36eed0bc47bcd0808dfb75fc6b2d8c",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-gate-v1.png",
+      "sha256": "719fe2e733818f177e4ffb01bda2514dc574177dc02a80d15a34b0c2dfecf446",
+      "reproducedSha256": "719fe2e733818f177e4ffb01bda2514dc574177dc02a80d15a34b0c2dfecf446",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-bed-v1.png",
+      "sha256": "fe78edc5230cf29503ab7be530e8339d1d32dd643df5baffa27828c2cc783189",
+      "reproducedSha256": "fe78edc5230cf29503ab7be530e8339d1d32dd643df5baffa27828c2cc783189",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-channel-v1.png",
+      "sha256": "a488617079ed394b93ffc2ac88acdfbb4b764b258c47bc8288c641e56a152e0c",
+      "reproducedSha256": "a488617079ed394b93ffc2ac88acdfbb4b764b258c47bc8288c641e56a152e0c",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/physical-arcade/burrow-builders/thumbnails/moonwood-dam-v1.png",
+      "sha256": "f18dd1763f35a4c820e24186c6113a5aba1b6d97e81a81f14ff2bca307e47f7f",
+      "reproducedSha256": "f18dd1763f35a4c820e24186c6113a5aba1b6d97e81a81f14ff2bca307e47f7f",
+      "exactReproduction": true,
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "actual-live-mesh-thumbnail",
+      "fullCurrentNativeViewed": true
+    },
+    {
+      "path": "/game-assets/arcade-worlds/trains/wagon.webp",
+      "sha256": "cd000d5c3b0cd90524d1de8c512a529c5450a9eff33af4b775a88ff3f4e69b80",
+      "glb": "/game-assets/arcade-worlds/trains/wagon.glb",
+      "glbSha256": "88a6914623b60a842745d7e750738a2ad494e01005d12a26465358997b62f4dc",
+      "source": "source-art/arcade/rolling-stock/Railway.blend",
+      "sourceSha256": "c82d8b58204d9d0f0cfc8b36f44ad1902c804e9c1f11f423a5e66bf0940cad79",
+      "dimensions": [
+        2048,
+        640
+      ],
+      "hasAlpha": true,
+      "registration": {
+        "url": "/game-assets/arcade-worlds/trains/wagon.webp",
+        "width": 512,
+        "height": 320,
+        "frames": 8,
+        "columns": 4,
+        "fps": 12
+      },
+      "role": "actual-Blender-eight-frame-model-render",
+      "fullCurrentNativeViewed": true,
+      "originalSourceSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+      "currentSourceIdentityAuthority": "source-art/arcade/rolling-stock/camera-repair-model-identity.json"
+    },
+    {
+      "path": "/game-assets/arcade-worlds/trains/engine.webp",
+      "sha256": "57131c3064444a9c6a80681ee756ba0ad94744cab1ac4dda50444293b8e10ebf",
+      "glb": "/game-assets/arcade-worlds/trains/engine.glb",
+      "glbSha256": "917992a9ae83e461305e19d84ecca6e0f17245af57af57df3cc21717753e0fcc",
+      "source": "source-art/arcade/rolling-stock/Railway.blend",
+      "sourceSha256": "c82d8b58204d9d0f0cfc8b36f44ad1902c804e9c1f11f423a5e66bf0940cad79",
+      "dimensions": [
+        2048,
+        640
+      ],
+      "hasAlpha": true,
+      "registration": {
+        "url": "/game-assets/arcade-worlds/trains/engine.webp",
+        "width": 512,
+        "height": 320,
+        "frames": 8,
+        "columns": 4,
+        "fps": 12
+      },
+      "role": "actual-Blender-eight-frame-model-render",
+      "fullCurrentNativeViewed": true,
+      "originalSourceSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+      "currentSourceIdentityAuthority": "source-art/arcade/rolling-stock/camera-repair-model-identity.json"
+    }
+  ],
+  "excludedRepairedCaboose": {
+    "path": "/game-assets/arcade-worlds/trains/caboose.webp",
+    "currentSha256": "17f21ded4ef053f093f2ff6900d4c535aeaa0555d62d2adcdeab006d9e5e562a",
+    "acceptanceAuthority": "source-art/arcade/rolling-stock/caboose-framing.json"
+  },
+  "errors": []
+}

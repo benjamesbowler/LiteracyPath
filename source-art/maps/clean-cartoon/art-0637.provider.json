@@ -1,0 +1,38 @@
+{
+  "input": {
+    "jobId": "art-0637",
+    "kind": "map-portrait",
+    "attempt": 3,
+    "world": "moonwood",
+    "prompt": "Use case: identity-preserve. Final production PORTRAIT adventure map, clean bold outlined 2D cartoon. Image1 is the existing PORTRAIT to refine. Image2 is the accepted WIDE MAP and the single authoritative world/landmark identity reference. Recompose image1 as a clear vertical S-shaped walking journey from TOP LEFT entrance to BOTTOM RIGHT destination. Preserve its bright flat outlined style, opaque complete rectangular scene, exact PORTRAIT aspect ratio1195:1600 (3:4). Replace/rearrange its landmarks so the same NINE places from image2 occur in EXACT journey order from top to bottom: 1. Glow Mushrooms; 2. Toadstool Path; 3. Pond Trail; 4. Moonlit Pond; 5. Firefly Hollow; 6. Crystal Cave; 7. The Great Oak; 8. Forest Edge; 9. The Moon Tower. Each of these nine places must be clearly recognizable, distinct, and appear EXACTLY ONCE. Give every place a generous visible pale-yellow path clearing directly beside it for a clickable marker. Path visits all nine sequentially without crossings, arbitrary shortcuts or disappearing behind foliage. Preserve the world visual identity and recognizable designs/colors from image2; do not invent unrelated locations. Visual place identity details in that order: large purple glow mushrooms; trail of red toadstools; wood bridges over brook beside pond; quiet blue moon pond; golden firefly clearing; blue crystal cave; old tree with door; open meadow at forest edge; small blue dome observatory tower . Strong crisp continuous dark contours, smooth flat color fields and restrained broad hard-edge shadows. No painterly texture, embossing, grain, brush daubs, 3D/plush/photo finish. No labels, text, numbers, map pins, characters, banners, religious buildings/symbols/clothes or national/political flags. No outer border or white margins. All nine landmarks entirely inside the frame with room around them. This is a real child learning app walking map, so clear simple composition and place order matter.",
+    "refs": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-map.webp",
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-atlas-v2.webp"
+    ],
+    "transparent": false,
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-map.webp",
+        "sha256": "443e278a8862dff1d49ac1b6fb0c665fa33102dd1cab3819ab1242dfd5271cb2"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-atlas-v2.webp",
+        "sha256": "be5f93542a9ed90da24f4c78bf30d81561dafb89dde3a5e1044de30aa43ed238"
+      }
+    ]
+  },
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb as /Users/benjaminbowler/.codex/generated_images/01a19b7a-7098-7453-8dd5-4b1c9c6b4fcb/exec-1ebade88-542c-48ba-8b10-6672cccfc62e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "generatedAt": "2026-11-02T11:18:33.113Z",
+  "referenceBindings": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/443e278a8862dff1d49ac1b6fb0c665fa33102dd1cab3819ab1242dfd5271cb2.webp",
+      "sha256": "443e278a8862dff1d49ac1b6fb0c665fa33102dd1cab3819ab1242dfd5271cb2",
+      "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-map.webp"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/maps/clean-cartoon/references/be5f93542a9ed90da24f4c78bf30d81561dafb89dde3a5e1044de30aa43ed238.webp",
+      "sha256": "be5f93542a9ed90da24f4c78bf30d81561dafb89dde3a5e1044de30aa43ed238",
+      "providerInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/images/pals/maps/moonwood-atlas-v2.webp"
+    }
+  ]
+}

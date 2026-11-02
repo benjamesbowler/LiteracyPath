@@ -17,6 +17,11 @@ test('Express retained wagon and caboose coupling/sole pixels remain actual opaq
       const px = x + frame % 4 * 512, py = y + Math.floor(frame / 4) * 320;
       assert.ok(data[(py * info.width + px) * 4 + 3] >= 160, `${kind}/${frame}/${name} is opaque retained geometry`);
     }
+    for (let frame = 0; frame < asset.sprite.frames; frame++) {
+      const alpha = (x, y) => data[((Math.floor(frame / 4) * 320 + y) * info.width + frame % 4 * 512 + x) * 4 + 3];
+      for (let x = 0; x < 512; x++) assert.ok(alpha(x, 0) < 160 && alpha(x, 319) < 160, `${kind}/${frame} roof and wheels remain whole`);
+      for (let y = 0; y < 320; y++) assert.ok(alpha(0, y) < 160 && alpha(511, y) < 160, `${kind}/${frame} couplers remain whole`);
+    }
   }
 });
 

@@ -57,7 +57,8 @@ export function createReelReadWorld(canvas, { difficulty, onDelivery = () => {} 
       referenceFrames:REEL_READ_ART[actionId].frames,parts,actorReady,frame});
   }
   function drawFish(kit, fish, layout, index, opacity = 1) {
-    const scale = layout.fishScale;
+    // Reduced kit cells keep the same world size as their complete source.
+    const scale = layout.fishScale * (kit ? REEL_READ_ART[`${world}-fishing-kit-v1`].width / kit.asset.width : 1);
     ctx.save(); ctx.globalAlpha = opacity;
     if(kit) {
       const rect = kit.asset.parts.fish[index%kit.asset.parts.fish.length], centre = kit.asset.parts.labelCentres[index%kit.asset.parts.labelCentres.length];

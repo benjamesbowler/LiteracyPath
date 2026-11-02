@@ -1,0 +1,15 @@
+{
+  "jobId": "art-0900",
+  "attempt": 2,
+  "input": {
+    "jobId": "art-0900",
+    "attempt": 2,
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0900/native-001.png"
+    ],
+    "transparent": false,
+    "world": "meadow",
+    "prompt": "Use case: style-transfer. Flatten this exact own-generated Tower Tumble background while preserving the complete full-frame16:9 composition, all landmark positions and exact setting. Make EVERY leaf cluster, far forest, cliff, sky, water, mountain, mushroom, flower and structure equally bold CLEAN FLAT 2D cartoon. Broad UNIFORM SOLID color fields, continuous crisp dark outlines, at most one hard-edged cel shadow per surface. Remove EVERY gradient, scattered grass dash, tiny leaf speckle, painterly dappling, rock/bark grain, granular material, atmospheric blur, fuzzy line, bloom and modeled lighting. Simplify tiny details into clear large flat outlined shapes, keeping the full scene readable at128px. Preserve the open distant central corridor for separate runtime scaffolding. No added characters, tower, scaffold, UI, label, watermark, flag or religious structure/symbol. Small ordinary low cottages remain plain if present. Do not crop or change canvas aspect."
+  },
+  "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-89e0038e-a270-4a9a-80a6-ae991462e137.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+}

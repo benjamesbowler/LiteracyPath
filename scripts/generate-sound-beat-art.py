@@ -71,6 +71,11 @@ def measured_frames(image, columns, rows, hands=None):
 
 
 def main():
+    if (SOURCE / 'scene-kit-clean-cartoon.json').exists():
+        from soundBeatCleanCartoon import build_current
+        index = sys.argv.index('--asset-ids') if '--asset-ids' in sys.argv else None
+        build_current('--metadata-only' in sys.argv, set(sys.argv[index + 1].split(',')) if index is not None else None)
+        return
     # A provenance correction can rebuild metadata without touching retained
     # pixels, measured contacts, encoding or their delivery hashes.
     if '--metadata-only' in sys.argv:

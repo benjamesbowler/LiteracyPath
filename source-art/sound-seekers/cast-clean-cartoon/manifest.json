@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "authority": "Current static CAST sprite inputs for the exact10declared paths; all39CAST IDs/scales/heroSprite selections unchanged.",
+  "builder": "tools/buildSoundSeekersCastBanks.mjs",
+  "encoding": {
+    "quality": 92,
+    "alphaQuality": 100,
+    "effort": 6
+  },
+  "banks": [
+    {
+      "id": "sound-seekers-v3-moonwood-cast-lineup",
+      "world": "moonwood",
+      "historicalSourceMissing": true,
+      "historicalName": "cast-moonwood.jpg",
+      "resolution": "New project-authored transparent native bank generated with built-inimagegen from currentworldqualifiedcanon and acceptedcleanmodels. Historicalmissingpainting is superseded, not invented or used asreference.",
+      "native": {
+        "path": "source-art/sound-seekers/cast-clean-cartoon/moonwood-bank-native.png",
+        "sha256": "1b46497780a4d525095105fd991c628bd17f52e4102da3b3ea5e722dd0439847",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      },
+      "generation": [
+        {
+          "attempt": 1,
+          "prompt": "source-art/sound-seekers/cast-clean-cartoon/moonwood-attempt-1.prompt.txt",
+          "promptSha256": "3b16ea8b957ef5bf9417c63075045d5e9abede0053c9004a50b651cd945ed79e",
+          "providerReceipt": "source-art/sound-seekers/cast-clean-cartoon/moonwood-provider-1.json",
+          "nativeSha256": "48791ec0284969c3eb5940f7f179b04f795febf516cecb208987b021bc30ac28",
+          "referenceImages": [
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/cast-clean-cartoon/references/moonwood-row-1.png",
+              "sha256": "2133c5a8b60c81d603984497b9a414c7c5a7afaed820e825af7055e79f52df2b"
+            },
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/cast-clean-cartoon/references/moonwood-row-2.png",
+              "sha256": "b051cfadd5092d9af9900c5b29ee6dcb1f6725d9a09d4cd7f1e5b15cdfcb0032"
+            },
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/cast-clean-cartoon/references/moonwood-row-3.png",
+              "sha256": "67b57a623f446e6b506ce3846494af6e3a7e0a2f197d3c70a8624e796d94b807"
+            }
+          ],
+          "status": "own candidate style refinement input"
+        },
+        {
+          "attempt": 2,
+          "prompt": "source-art/sound-seekers/cast-clean-cartoon/moonwood-attempt-2.prompt.txt",
+          "promptSha256": "d2457f2daba2d6a175a9a3d07bb7e47ecd45f06c6ce92ad79c7e37d8ee2051eb",
+          "providerReceipt": "source-art/sound-seekers/cast-clean-cartoon/moonwood-provider-2.json",
+          "nativeSha256": "1b46497780a4d525095105fd991c628bd17f52e4102da3b3ea5e722dd0439847",
+          "referenceImages": [
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/cast-banks/sound-seekers-v3-moonwood-cast-lineup-native-001.png",
+              "sha256": "48791ec0284969c3eb5940f7f179b04f795febf516cecb208987b021bc30ac28"
+            }
+          ],
+          "status": "accepted-local: full native, saved sprites and120 actual puppet placements reviewed"
+        }
+      ],
+      "sprites": [
+        {
+          "id": "pip",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/pip.webp",
+          "rect": [
+            134,
+            14,
+            198,
+            392
+          ],
+          "pad": 15,
+          "width": 277,
+          "height": 512,
+          "sha256": "f58a3a2b5674c9e7c6d153c9c36a8f049a2eb27055fa0265f509452c9ed8c171",
+          "originalSha256": "66f732eaa08e38d83c9bf23ac451fa4aef1122950ddd11e08313114cdb0e2ba1",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "wren",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/wren.webp",
+          "rect": [
+            516,
+            11,
+            224,
+            396
+          ],
+          "pad": 15,
+          "width": 305,
+          "height": 512,
+          "sha256": "ee3c59c6b09212f3104a596bb185e98472e374a788a5ca19db6b1fdb2969bb23",
+          "originalSha256": "0f492ed53e68ec253f243fe4359939a5263b6213392f3a784e5c4ed5e390e5f2",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "flint",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/flint.webp",
+          "rect": [
+            928,
+            12,
+            181,
+            395
+          ],
+          "pad": 15,
+          "width": 254,
+          "height": 512,
+          "sha256": "27ac233af341a6abcd9ee54e5c18402faa0a29365990ed29b574679e374404ed",
+          "originalSha256": "769af4493ddc6a092c493f5751484766650e26eb817fadf78e249a70564e60bb",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "spark",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/spark.webp",
+          "rect": [
+            138,
+            432,
+            192,
+            389
+          ],
+          "pad": 15,
+          "width": 271,
+          "height": 512,
+          "sha256": "92340a7f9148de6b777e60eec3229f8a5bfb9f73dc446eddd4a62794bd0085b1",
+          "originalSha256": "5ca45c3054f3ee1392b9dad545a78a9fbdd5e272bae83b9162ee9c633cf83c62",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "burrow",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/burrow.webp",
+          "rect": [
+            484,
+            438,
+            279,
+            377
+          ],
+          "pad": 15,
+          "width": 389,
+          "height": 512,
+          "sha256": "5a278f14404fa963431e48d0e0316f208b775a05a944cf7a098089ba23cb300d",
+          "originalSha256": "9d90caf0b07bccadaf8268a22f450248d89474521e01ed8dacda83199aa29ec7",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "luna",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/luna.webp",
+          "rect": [
+            887,
+            435,
+            267,
+            385
+          ],
+          "pad": 15,
+          "width": 366,
+          "height": 512,
+          "sha256": "d6dfe589dc04edbe6db2f46886255e272b0336c98cc0da8c6934d46143523a8f",
+          "originalSha256": "c55b7fb9cc8edec0efa5e263c3f0ed512462fb0182a9ee669c11cd6c8f9fa414",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "fern",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/fern.webp",
+          "rect": [
+            93,
+            841,
+            275,
+            405
+          ],
+          "pad": 16,
+          "width": 360,
+          "height": 512,
+          "sha256": "8ded70b57a90d5f85c249059e658fabd190cf10cfb1306f0a6388654f3f12d37",
+          "originalSha256": "707e52dfcec5750d93a9248a13e28dd3a8ba5724789816ed59a643f19d14a552",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "glimmer",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/glimmer.webp",
+          "rect": [
+            477,
+            846,
+            303,
+            396
+          ],
+          "pad": 15,
+          "width": 400,
+          "height": 512,
+          "sha256": "e25c7d232fdf61fb4663ff1d3ee2f28ecfec70c2ab314bd768ad9ee72d177010",
+          "originalSha256": "c0390d5309ef156ccad93142453727c873b8e67673fa4ce5dcbbcb2ccc095cd4",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        },
+        {
+          "id": "stone",
+          "path": "/game-assets/sound-seekers/v3/cast/moonwood/stone.webp",
+          "rect": [
+            865,
+            849,
+            308,
+            396
+          ],
+          "pad": 15,
+          "width": 406,
+          "height": 512,
+          "sha256": "29529330d6038e6f27d2aba99d7e378037ae7e036eac5de29e325067f057f6cb",
+          "originalSha256": "0bf11b386e483850a7b9ab4e41117c5bb32f14569896621604825aff9103e901",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        }
+      ]
+    },
+    {
+      "id": "sound-seekers-v3-meadow-production-cast-bank",
+      "world": "meadow",
+      "historicalSourceMissing": true,
+      "historicalName": "Meadow Pals production cast bank; original filename not retained in current contract",
+      "resolution": "New project-authored transparent native bank generated with built-inimagegen from currentworldqualifiedcanon and acceptedcleanmodels. Historicalmissingpainting is superseded, not invented or used asreference.",
+      "native": {
+        "path": "source-art/sound-seekers/cast-clean-cartoon/meadow-bank-native.png",
+        "sha256": "cbf4b6921a34b47a5ec6cff46c79f09374f582ace3a7fe6ddc858d6c89dc1122",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      },
+      "generation": [
+        {
+          "attempt": 1,
+          "prompt": "source-art/sound-seekers/cast-clean-cartoon/meadow-attempt-1.prompt.txt",
+          "promptSha256": "e04c0afd74d80ae90f235db3009534b79f0322d8dc595c5484ace2abf4a9f9c6",
+          "providerReceipt": "source-art/sound-seekers/cast-clean-cartoon/meadow-provider-1.json",
+          "nativeSha256": "428f6e6e644986923b684a08288e21c690cc08dc5fc8fc329f7f7f0cec129989",
+          "referenceImages": [],
+          "status": "own candidate style refinement input"
+        },
+        {
+          "attempt": 2,
+          "prompt": "source-art/sound-seekers/cast-clean-cartoon/meadow-attempt-2.prompt.txt",
+          "promptSha256": "d2457f2daba2d6a175a9a3d07bb7e47ecd45f06c6ce92ad79c7e37d8ee2051eb",
+          "providerReceipt": "source-art/sound-seekers/cast-clean-cartoon/meadow-provider-2.json",
+          "nativeSha256": "bcfddc2ca8749c43cbd7246edda9833c5cff85d8e6194fe7eb0d304e1882546b",
+          "referenceImages": [
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/cast-banks/sound-seekers-v3-meadow-production-cast-bank-native-001.png",
+              "sha256": "428f6e6e644986923b684a08288e21c690cc08dc5fc8fc329f7f7f0cec129989"
+            }
+          ],
+          "status": "own candidate style refinement input"
+        },
+        {
+          "attempt": 3,
+          "prompt": "source-art/sound-seekers/cast-clean-cartoon/meadow-attempt-3.prompt.txt",
+          "promptSha256": "c024ef205a44a09510eb24114693cfa2cd8e31872df03296c8a9048d9d6c7a10",
+          "providerReceipt": "source-art/sound-seekers/cast-clean-cartoon/meadow-provider-3.json",
+          "nativeSha256": "cbf4b6921a34b47a5ec6cff46c79f09374f582ace3a7fe6ddc858d6c89dc1122",
+          "referenceImages": [
+            {
+              "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/cast-clean-cartoon/references/hungry-approved-cover-crop.png",
+              "sha256": "8bb3e60f8d809e41132241be605c3ac1b4a661ec7026ea7ec645bbb66dd790c8"
+            }
+          ],
+          "status": "accepted-local: full native, saved sprites and120 actual puppet placements reviewed"
+        }
+      ],
+      "sprites": [
+        {
+          "id": "hungry",
+          "path": "/game-assets/sound-seekers/v3/cast/meadow/hungry.webp",
+          "rect": [
+            9,
+            89,
+            1232,
+            1056
+          ],
+          "pad": 49,
+          "width": 590,
+          "height": 512,
+          "sha256": "c59a2613c79bc96275280145c3a1f6d73facb190287f05b44bebd3e7d1dbc7df",
+          "originalSha256": "c611cc9a8535d45b3a851e11ea6ea63172e6fd41237b85652c8550d8aca36dcd",
+          "componentSelection": "largest substantial connected alpha component plus original2px antialias edge",
+          "resize": "Height512 preserving source body aspect, padded4percent oflargestbound; no art synthesis."
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted-local",
+    "nativeFullViewed": true,
+    "savedFullViewed": true,
+    "display390Viewed": true,
+    "display128Viewed": true,
+    "productionRendererCases": 120,
+    "actualScreens": 12,
+    "httpExactBodies": 20,
+    "browserErrors": [],
+    "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/cast-banks/browser-proof.json",
+    "runtimeProofSha256": "f728ebf5ac4c2440e7dd64aa8f4f851fdd50902415caeaff221106341b3aa4a5",
+    "scope": "Actual production currentCAST, preload/getImage/drawPuppet component at128px; idle/walk/celebrate and both facings at desktop/phone. Local component proof, not full campaign gameplay or physical device."
+  }
+}

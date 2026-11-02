@@ -2,143 +2,143 @@
 export const WORD_CLIMB_SCENERY = {
   "meadow": {
     "runtime": "/game-assets/physical-arcade/word-climb/scenery/meadow-scenery-v2.webp",
-    "width": 1223,
-    "height": 1286,
+    "width": 1254,
+    "height": 1254,
     "frames": [
       {
         "id": "root-landscape",
         "rect": [
-          43,
-          120,
-          599,
-          481
+          26,
+          71,
+          576,
+          507
         ],
         "opaqueBounds": [
-          44,
-          121,
-          641,
-          600
+          27,
+          72,
+          601,
+          577
         ],
-        "opaqueArea": 175702
+        "opaqueArea": 193357
       },
       {
         "id": "canopy-bough",
         "rect": [
-          651,
-          64,
-          551,
-          519
+          649,
+          142,
+          557,
+          385
         ],
         "opaqueBounds": [
-          652,
-          65,
-          1201,
-          582
+          650,
+          143,
+          1205,
+          526
         ],
-        "opaqueArea": 157207
+        "opaqueArea": 112911
       },
       {
         "id": "summit-landscape",
         "rect": [
-          39,
-          668,
-          600,
-          553
+          26,
+          684,
+          573,
+          496
         ],
         "opaqueBounds": [
-          40,
-          669,
-          638,
-          1220
+          27,
+          685,
+          598,
+          1179
         ],
-        "opaqueArea": 222845
+        "opaqueArea": 198013
       },
       {
         "id": "foreground-plants",
         "rect": [
-          682,
-          669,
-          513,
-          551
+          644,
+          685,
+          583,
+          484
         ],
         "opaqueBounds": [
-          683,
-          670,
-          1194,
-          1219
+          645,
+          686,
+          1226,
+          1168
         ],
-        "opaqueArea": 178522
+        "opaqueArea": 189566
       }
     ]
   },
   "dino": {
     "runtime": "/game-assets/physical-arcade/word-climb/scenery/dino-scenery-v2.webp",
-    "width": 1215,
-    "height": 1295,
+    "width": 1254,
+    "height": 1254,
     "frames": [
       {
         "id": "root-landscape",
         "rect": [
-          33,
-          96,
-          625,
-          524
+          31,
+          58,
+          561,
+          513
         ],
         "opaqueBounds": [
-          34,
-          97,
-          657,
-          619
+          32,
+          59,
+          591,
+          570
         ],
-        "opaqueArea": 223892
+        "opaqueArea": 208441
       },
       {
         "id": "canopy-bough",
         "rect": [
-          695,
+          645,
           74,
-          494,
-          601
+          577,
+          504
         ],
         "opaqueBounds": [
-          696,
+          646,
           75,
-          1188,
-          674
+          1221,
+          577
         ],
-        "opaqueArea": 157838
+        "opaqueArea": 136278
       },
       {
         "id": "summit-landscape",
         "rect": [
-          30,
-          685,
-          674,
-          546
+          22,
+          661,
+          577,
+          537
         ],
         "opaqueBounds": [
-          31,
-          686,
-          703,
-          1230
+          23,
+          662,
+          598,
+          1197
         ],
-        "opaqueArea": 242464
+        "opaqueArea": 206814
       },
       {
         "id": "foreground-plants",
         "rect": [
-          707,
-          696,
-          481,
-          543
+          651,
+          686,
+          574,
+          503
         ],
         "opaqueBounds": [
-          708,
-          697,
-          1187,
-          1238
+          652,
+          687,
+          1224,
+          1188
         ],
-        "opaqueArea": 173198
+        "opaqueArea": 192225
       }
     ]
   },
@@ -150,66 +150,66 @@ export const WORD_CLIMB_SCENERY = {
       {
         "id": "root-landscape",
         "rect": [
-          90,
-          96,
-          502,
-          505
+          39,
+          65,
+          553,
+          522
         ],
         "opaqueBounds": [
-          91,
-          97,
+          40,
+          66,
           591,
-          600
+          586
         ],
-        "opaqueArea": 149292
+        "opaqueArea": 211455
       },
       {
         "id": "canopy-bough",
         "rect": [
-          716,
-          124,
-          457,
-          452
+          668,
+          161,
+          543,
+          349
         ],
         "opaqueBounds": [
-          717,
-          125,
-          1172,
-          575
+          669,
+          162,
+          1210,
+          509
         ],
-        "opaqueArea": 109387
+        "opaqueArea": 78369
       },
       {
         "id": "summit-landscape",
         "rect": [
-          81,
-          675,
-          529,
-          491
+          27,
+          696,
+          575,
+          479
         ],
         "opaqueBounds": [
-          82,
-          676,
-          609,
-          1165
+          28,
+          697,
+          601,
+          1174
         ],
-        "opaqueArea": 176761
+        "opaqueArea": 221813
       },
       {
         "id": "foreground-plants",
         "rect": [
-          743,
-          687,
-          431,
-          489
+          651,
+          702,
+          576,
+          458
         ],
         "opaqueBounds": [
-          744,
-          688,
-          1173,
-          1175
+          652,
+          703,
+          1226,
+          1159
         ],
-        "opaqueArea": 141278
+        "opaqueArea": 149214
       }
     ]
   }

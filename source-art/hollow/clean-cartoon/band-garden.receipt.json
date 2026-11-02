@@ -1,0 +1,121 @@
+{
+  "jobId": "art-0629",
+  "path": "/images/hollow/band-garden.webp",
+  "sameArtworkPaths": [
+    "/images/hollow/band-garden.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0629.webp",
+  "sourceSha256": "5ac73d01a6d42f855cc997c5697bfe70149fc860802e9ac067fd15b94dc7105b",
+  "originalSha256": "5ac73d01a6d42f855cc997c5697bfe70149fc860802e9ac067fd15b94dc7105b",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0629.webp",
+  "finalSha256": "f57440ef5417f3739a2c4c7003a37faefe9461cb2e099ecf044b7e9c5d2fe147",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-72c0a420-a9d9-4058-b15a-76308d4d4422.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0629/native-004.png",
+  "nativeSha256": "9b517add3d03676ed2ef90919aed7f99fa63c9f7cfcd54ff33a5643dd39e5438",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "promptFile": "source-art/hollow/clean-cartoon/band-garden.prompt.txt",
+  "promptSha256": "c773c8e0a79ffe0411700e3fcc2c7d6f300d8302e31ff1eb5d4d1cb150593b67",
+  "referenceImages": [
+    {
+      "path": "source-art/hollow/clean-cartoon/references/band-garden-input-1.png",
+      "sha256": "bc1d90046a94acf4852ecbad8537d4aa41313a9f92718821304c34db4a2aa32e"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 4,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Bright outlined greenhouse/tree annex, ordinary plants/pots and smooth wall/wood, fourlower cubbies and eightpads. The existing mixed slot order remains bottomleft/middleshelf/bench/bottomright. Bodies sit at measured surfaces; no object placed over outerpots. NativePNG, exactfullsavedWebP and390/128 deliverytiles directlyviewed.54actualfull/emptydesktop/phoneHome+Decorateframes and12finalHomeframes reviewed withactualcontact/hit/ownership/cachechecks. No physical-device/human-classroom/hostedacceptance claim.",
+    "reviewedAt": "2026-11-02T03:15:50.567Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/registered-v2/browser-proof.json",
+        "sha256": "2613addf9b6240cbefb364e25c5729743e763029b6299fd8cf8da73ceccbd0e4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/home-final-v2/browser-proof.json",
+        "sha256": "777b5082af798db3e7381e9631fca592e0cfed1eb0be4293207b52ba0bcbcdf5"
+      }
+    ],
+    "display390File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven390.png",
+    "display390Sha256": "91d15f8c13c3535445fa3249f9113dc1c1a74ea55278df6e005907a0fa105213",
+    "display128File": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/final-seven128.png",
+    "display128Sha256": "57dead09ff9a93ce067894937a710f8a3d5d59c065c8e480f9b47081a321ba42",
+    "releaseRegression": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/hollow/release-regression-v2.json",
+      "sha256": "69c38988de24cf856415db7de0f8f321a97cd71b205aa10110f8dcdbdb1e1978",
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "placementRevision": "clean-cartoon-room-contacts-2026-11-02",
+  "slotContacts": [
+    [
+      31.100478468899524,
+      84.4845908607864
+    ],
+    [
+      43.7200956937799,
+      47.502656748140275
+    ],
+    [
+      57.35645933014354,
+      69.1817215727949
+    ],
+    [
+      73.08612440191388,
+      84.4845908607864
+    ]
+  ],
+  "source": "source-art/hollow/clean-cartoon/band-garden.png",
+  "provider": {
+    "jobId": "art-0629",
+    "attempt": 4,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-72c0a420-a9d9-4058-b15a-76308d4d4422.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-72c0a420-a9d9-4058-b15a-76308d4d4422.png"
+  },
+  "lineage": {
+    "originalRuntime": "/images/hollow/band-garden.webp",
+    "originalRuntimeSha256": "5ac73d01a6d42f855cc997c5697bfe70149fc860802e9ac067fd15b94dc7105b"
+  },
+  "attemptHistory": [
+    {
+      "attempt": 1,
+      "nativeSha256": "5de5acb85e96206de400788bce8ed6b466bb0d43a1e8d62fdaf592b56d4282c6",
+      "promptSha256": "53713b78d3afe030020821a95091e316aa7895b654ab1d13e4abcae527216bd0",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 2,
+      "disposition": "interrupted provider attempt; no saved output found, completion unknown"
+    },
+    {
+      "attempt": 3,
+      "nativeSha256": "e1194e3b336a3c3670db4ed806d4debc037845fb5298efb7023d3eb670dd4e32",
+      "promptSha256": "5b11d9274e61a0fb1fd75361d289fe2f6d016f964c88db63628a5b30b5497a53",
+      "disposition": "unaccepted candidate retained as exact generation/QC evidence"
+    },
+    {
+      "attempt": 4,
+      "nativeSha256": "9b517add3d03676ed2ef90919aed7f99fa63c9f7cfcd54ff33a5643dd39e5438",
+      "promptSha256": "c773c8e0a79ffe0411700e3fcc2c7d6f300d8302e31ff1eb5d4d1cb150593b67",
+      "disposition": "accepted"
+    }
+  ],
+  "installedAt": "2026-11-02T03:50:15.972Z"
+}

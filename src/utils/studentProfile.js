@@ -1,18 +1,20 @@
 // Student profile: the chosen Little Literacy Guide (avatar). Stored per student and
 // synced to the cloud with the rest of their progress.
 import { queueProgressSave } from "./progressSync.js";
+import { companionPortraitPath } from '../data/companionArtwork.js';
 
-// Little Literacy Guides are the stars of our own reader series - one per
-// series, so a child's guide is always a character from books they can read.
+// Little Literacy Guides use their qualified story or Guide identity. Guide
+// Socks is the monkey explicitly retained for comprehension, distinct from the
+// brown-and-white dog called Socks in the Aiden and Betty books.
 // Technical companion ids remain stable because they are already stored in
 // student profiles and referenced by generated dress-up art.
 export const COMPANIONS = [
-  { id: "fluff", name: "Fluff", series: "Bob and Nan", image: "/images/companions/fluff.webp" },
-  { id: "chips", name: "Chips", series: "James and Anna", image: "/images/companions/chips.webp" },
-  { id: "socks", name: "Socks", series: "Aiden and Betty", image: "/images/companions/socks.webp" },
-  { id: "chompy", name: "Chompy", series: "Dino Pals", image: "/images/companions/chompy.webp" },
-  { id: "muddy", name: "Muddy", series: "Meadow Pals", image: "/images/companions/muddy.webp" },
-  { id: "pip", name: "Pip", series: "Moonwood Tales", image: "/images/companions/pip.webp" }
+  { id: "fluff", name: "Fluff", series: "Bob and Nan", image: companionPortraitPath('fluff') },
+  { id: "chips", name: "Chips", series: "James and Anna", image: companionPortraitPath('chips') },
+  { id: "socks", name: "Socks", series: "Little Literacy Guides", image: companionPortraitPath('socks') },
+  { id: "chompy", name: "Chompy", series: "Dino Pals", image: companionPortraitPath('chompy') },
+  { id: "muddy", name: "Muddy", series: "Meadow Pals", image: companionPortraitPath('muddy') },
+  { id: "pip", name: "Pip", series: "Moonwood Tales", image: companionPortraitPath('pip') }
 ];
 
 export const LITTLE_LITERACY_GUIDE_CHANGE_COST = 10;

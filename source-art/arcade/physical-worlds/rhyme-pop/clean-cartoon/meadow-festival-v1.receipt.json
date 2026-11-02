@@ -1,0 +1,79 @@
+{
+  "jobId": "art-0651",
+  "path": "/game-assets/physical-arcade/rhyme-pop/meadow-festival-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/rhyme-pop/meadow-festival-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0651.webp",
+  "sourceSha256": "6d2209e5718581c3f53ae1315f9926a8d9dc9874f40065dc8945884938fb4b8d",
+  "originalSha256": "6d2209e5718581c3f53ae1315f9926a8d9dc9874f40065dc8945884938fb4b8d",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0651.webp",
+  "finalSha256": "8e953f1fa46259914f6d9170de7b082b0a7fc8af49f7e961f1ff4d5c0500e743",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-f7dff23a-ce99-43eb-b608-552d09832790.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0651/native-002.png",
+  "nativeSha256": "9b3a6bc8623b4663d5a3b450d7fb2b01857d968e0194238205e7981f2a945a3b",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/meadow-festival-v1.prompt.txt",
+  "promptSha256": "1800237cd7017bcac1455acf65dda2b828b8f30767fe76dcc8d5611441bbbdb7",
+  "referenceImages": [
+    {
+      "path": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/references/meadow-festival-v1-input-1.png",
+      "sha256": "532e3d0309041196ef99509820961bad496c2ef77acf3e746db5aaf0d640f686"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Crisp outlined meadow fair with distant wheel, tents, fence and green hills, open blue sky and empty stage. Large smooth clean color fields replace painted foliage/grain. NativePNG, exact savedfullWebP, fullfallback,390/128 deliverytiles and18actualrenderer desktop/phone/shortlandscape normal/forcedfallback frames directly reviewed. No physical-device, audio, gameplay or learner-save claim.",
+    "reviewedAt": "2026-11-02T03:56:10.292Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/rhyme/browser-proof.json",
+    "fullContextSha256": "89ee6853bb0832bfe2901fd5bfd2a1ae91e2c9144a7246d21d2f7379d21b8fa0",
+    "notABook": true
+  },
+  "installedAt": "2026-11-02T03:56:10.296Z",
+  "source": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/meadow-festival-v1.png",
+  "provider": {
+    "jobId": "art-0651",
+    "attempt": 2,
+    "prompt": "Use case: style-transfer. Edit this OWN CLEAN CANDIDATE game backdrop, preserving its exact full16:9 composition, landmark positions, empty stage, quiet central sky, theme, framing and all silhouettes. The entire illustration must be stricter FLAT2D vector-style cel art. Main correction: remove ALL smooth gradients and airbrush shading. Make sky ONE uniform solid blue/cobalt field, no horizon lightening. Every stage plank must be ONE uniform solid brown/orange field with a clean black divider, no lengthwise gradient, no streaks or grain. Remove smoothly blended lighting from distant hills, tree canopies, cliffs and water; replace with simple large uniform color shapes and at most ONE clearly HARD-EDGED cel shadow. Simplify tiny repeated marks. Preserve crisp continuous dark outlines throughout, clear friendly saturated colors. Keep the existing empty stage and open central sky and all distant game-festival landmarks exactly. For night scene lanterns are plain round/cylindrical shapes with flat yellow fields, stars are plain dots; preserve neutral nature setting. NO painterly, daubed, pebbled, embossed, fuzzy, material-textured or 3D forms. NO characters, live balloon sprites, launcher, text, labels, UI, letters, numbers, watermark, religious symbols/buildings or national/political/religious flags. Ordinary decorative triangular game pennants may stay. Fullframe crisp smooth SOLID color fields.",
+    "referencePaths": [
+      "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0651/native-001.png"
+    ],
+    "transparent_background": false,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-f7dff23a-ce99-43eb-b608-552d09832790.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-f7dff23a-ce99-43eb-b608-552d09832790.png"
+  },
+  "priorGeneration": {
+    "prompt": "source-art/arcade/physical-worlds/rhyme-pop/clean-cartoon/provenance/meadow-festival-v1-initial.prompt.txt",
+    "promptSha256": "5d861eb8b18b324cb1dc184548cc130558f85cc39b8158d9f0bbeb336e310e99",
+    "nativeSha256": "532e3d0309041196ef99509820961bad496c2ef77acf3e746db5aaf0d640f686",
+    "provider": {
+      "jobId": "art-0651",
+      "attempt": 1,
+      "prompt": "Use case: illustration-story. Asset type: COMPLETE EMPTY 16:9 wide child-friendly Rhyme Pop festival game backdrop. Create a distinct original in BOLD CLEAN FLAT 2D CARTOON with crisp continuous dark outlines, large smooth SOLID color fields, simple readable silhouettes, ONLY one restrained HARD-EDGED cel shadow per form. Full frame including distance follows this style. No material simulation, gradients, painterly daubs, gouache, watercolor, brushwork, pebbled/embossed relief, patchwork fields, canvas/paper grain, fuzz, glow, blur, woodgrain, barkgrain or photoreal reflections. COMPOSITION: eye-level view from an empty wooden stage toward a deep distant festival landscape. Bottom25% is an uninterrupted simple warm brown stage floor, sparse straight perspective plank dividers only, no grain. Its backedge runs nearly horizontal at75%height. Middle distant landscape occupies50%to75%height; upper central65%width is spacious simple open sky, no large central objects, providing quiet visual space for independent live reading balloons. Large framing trees/cliffs restricted to outer15%edges, canopy only at outeruppercorners. Ferriswheel on farLEFT around30%fromleft; small festival tents on farRIGHT. Runtime draws actor, launcher, balloons, rails and all reading labels separately, so bake none into image. MEADOW FAIR: brightblue daytime sky with a few flat rounded white clouds; leafy green trees framing both outeredges. Gentle rolling green hills and a broad empty grassy meadow receding towardcentralhorizon. Small simple wooden ferriswheel on farLEFT; small red-and-cream striped circus tent atfarRIGHT, two tiny distant ordinary festival stalls, sparse plain fencealongfieldedge. Plain triangular gamepennants tucked into outeruppercorners and ordinary cylindrical gardenlanterns atfarouteredges. Cheerful fresh green, skyblue, red, cream and warmbrown palette. Preserve full16:9 framing. Neutral everyday/fantasy nature setting, no people, characters, animals, balloon shapes, launcher/cannon, tools, UI, text, letters, numbers, labels, logos, watermark, religious buildings/clothes/symbols or national/political/religious flags. Ordinary gamepennants are plain decorative triangles only. Crisp welcoming gameart, not photo or 3Drender.",
+      "referenceImages": [],
+      "transparent_background": false,
+      "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-417d67bd-b065-4114-85c7-100246719ae8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-417d67bd-b065-4114-85c7-100246719ae8.png"
+    }
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/scenes/rhyme-festival.png",
+    "historicalSourceSha256": "67054336f5e77a3b9d2bc70caf023117b2af2f334045aa5ca2a1b72d75ba5b0d"
+  }
+}

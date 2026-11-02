@@ -44,9 +44,9 @@
 .psw-replay:disabled { opacity: .55; }
 .psw-feedback { flex: 0 0 auto; min-height: 58px; display: grid; place-items: center; margin: 0; padding: 8px 20px; font-size: clamp(15px, 1.7vw, 21px); line-height: 1.2; text-align: center; background: var(--psw-paper); border-top: 2px solid #d1bf96; z-index: 4; }
 .psw-feedback[data-feedback-kind="retry"] { border-top-style: dashed; }
-.psw-hop-clearing { flex: 1; min-height: 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 22px 24px 24px; background: linear-gradient(#ffffff05, #ffffff00 58%, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-farm.webp') center / cover; }
-.psw-land-dino .psw-hop-clearing { background-image: linear-gradient(#ffffff05, #ffffff00 58%, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-dino-valley.webp'); }
-.psw-land-moonwood .psw-hop-clearing { background-image: linear-gradient(#ffffff05, #ffffff00 58%, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp'); }
+.psw-hop-clearing { flex: 1; min-height: 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 22px 24px 24px; background: linear-gradient(#ffffff05, #ffffff00 58%, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-farm.webp?v=30c51b1d4d94') center / cover; }
+.psw-land-dino .psw-hop-clearing { background-image: linear-gradient(#ffffff05, #ffffff00 58%, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-dino-valley.webp?v=e30ae81976bf'); }
+.psw-land-moonwood .psw-hop-clearing { background-image: linear-gradient(#ffffff05, #ffffff00 58%, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp?v=be596ceb4c07'); }
 .psw-sentence-model { max-width: min(950px, 100%); border: 3px solid #9b784e; border-radius: 20px; padding: 8px 22px; background: var(--psw-paper); box-shadow: 0 5px 0 #725431, 0 10px 18px #18263e20; text-align: center; z-index: 2; }
 .psw-sentence-model small { display: block; font-size: 13px; font-weight: 700; }
 .psw-sentence-model p { margin: 3px 0; font-size: clamp(20px, 2.4vw, 32px); font-weight: 800; line-height: 1.25; }
@@ -68,7 +68,7 @@
 .psw-word-stone { flex: 1 1 0; min-width: 56px; min-height: 82px; max-width: 210px; padding: 12px; border: 3px solid #777366; border-radius: 34% 38% 27% 31%; background: linear-gradient(#fff9e7, #d9d3be); box-shadow: 0 9px 0 #777366, 0 12px 14px #18263e30; color: var(--psw-ink); font-size: clamp(21px, 2.4vw, 32px); font-weight: 900; }
 .psw-word-stone:active:not(:disabled) { transform: translateY(5px); box-shadow: 0 4px 0 #777366; }
 .psw-word-stone.is-wrong, .psw-repair-piece.is-wrong, .psw-factory-chute.is-wrong { border-style: dashed; outline: 3px solid #956448; outline-offset: 2px; }
-.psw-repair-clearing { flex: 1; min-height: 0; position: relative; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 12px; padding: 30px 24px 24px; background: linear-gradient(#18263e0a, #18263e40), url('/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp') center / cover; }
+.psw-repair-clearing { flex: 1; min-height: 0; position: relative; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 12px; padding: 30px 24px 24px; background: linear-gradient(#18263e0a, #18263e40), url('/game-assets/sound-seekers/v3/backdrops/bg-moonwood-dusk.webp?v=be596ceb4c07') center / cover; }
 .psw-repair-guide { position: absolute; left: 3%; bottom: 19%; width: 19%; max-width: 210px; height: 44%; object-fit: contain; filter: drop-shadow(0 5px 3px #18263e44); }
 .psw-sign-post { position: absolute; top: 20%; bottom: 16%; left: calc(50% - 15px); width: 30px; border: 3px solid #6f5235; border-radius: 8px; background: repeating-linear-gradient(90deg, #98754b 0 8px, #b09264 8px 11px); box-shadow: 5px 0 0 #18263e30; }
 .psw-repair-sign { position: relative; width: min(850px, 92%); min-height: 135px; padding: 18px 22px; border: 5px solid #8e693f; border-radius: 24px; background: linear-gradient(#fff9e7, #f1e3c4); box-shadow: 0 9px 0 #60452b, 0 15px 20px #18263e30; text-align: center; z-index: 2; }
@@ -83,7 +83,7 @@
 .psw-repair-piece:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 #60452b; }
 .psw-repair.is-repaired .psw-repair-sign { outline: 4px solid var(--psw-blue); outline-offset: 4px; }
 .psw-repair.is-repaired .psw-repair-gap { animation: psw-repaired .4s ease-out; }
-.psw-factory-floor { flex: 1; min-height: 0; position: relative; display: grid; grid-template-rows: minmax(145px, 1fr) minmax(125px, 1fr) 42px; align-items: center; justify-items: center; gap: 8px; padding: 16px 16px 0; background: linear-gradient(#ffffff00, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-dino-forge.webp') center / cover; }
+.psw-factory-floor { flex: 1; min-height: 0; position: relative; display: grid; grid-template-rows: minmax(145px, 1fr) minmax(125px, 1fr) 42px; align-items: center; justify-items: center; gap: 8px; padding: 16px 16px 0; background: linear-gradient(#ffffff00, #18263e20), url('/game-assets/sound-seekers/v3/backdrops/bg-dino-forge.webp?v=8c9f2f530f2f') center / cover; }
 .psw-factory-guide { position: absolute; left: 3%; bottom: 18%; width: 15%; height: 40%; object-fit: contain; z-index: 1; filter: drop-shadow(0 5px 3px #18263e44); }
 .psw-parcel-belt { position: absolute; left: 22%; right: 22%; top: 33%; height: 48px; display: flex; justify-content: space-around; border: 5px solid #777366; border-radius: 22px; background: #5c677a; box-shadow: 0 9px 0 #18263e55; }
 .psw-parcel-belt span { width: 18px; height: 38px; background: linear-gradient(90deg, #929daf, #e9edf9, #929daf); border: 2px solid #5c677a; border-radius: 6px; }

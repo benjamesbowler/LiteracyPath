@@ -1,46 +1,46 @@
-// Generated from original registered Safari sources by scripts/art/build-sound-safari-art.mjs.
+// Generated current registered Safari art; authoring receipts and sealed history remain in the source manifest.
 export const SOUND_SAFARI_ATLASES = {
   "bouncy-operator-v1": {
     "width": 1024,
     "height": 1536,
     "runtime": "/game-assets/physical-arcade/sound-safari/characters/bouncy-operator-v1.webp",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 195.45454545454544,
+    "pixelsPerUnit": 179.3181818181818,
     "frames": [
       {
         "id": "bouncy-anticipate",
         "action": "anticipate",
         "direction": "right",
         "cell": [
-          111,
-          35,
-          409,
-          479
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          142,
-          436
+          236.5,
+          459
         ],
         "sockets": {
           "feet": [
-            187,
-            471
+            173,
+            459
           ],
           "bootLeft": [
-            187,
-            471
+            173,
+            459
           ],
           "bootRight": [
-            319,
-            465
+            300,
+            454
           ],
           "nearHand": [
-            333,
-            280
+            317,
+            303
           ],
           "farHand": [
-            376,
-            277
+            367,
+            291
           ]
         }
       },
@@ -49,35 +49,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "swing",
         "direction": "right",
         "cell": [
-          597,
-          30,
-          964,
-          481
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          153,
-          443
+          223.5,
+          459
         ],
         "sockets": {
           "feet": [
-            674,
-            473
+            822,
+            459
           ],
           "bootLeft": [
-            674,
-            473
+            649,
+            456
           ],
           "bootRight": [
-            846,
-            463
+            822,
+            459
           ],
           "nearHand": [
-            867,
-            289
+            828,
+            295
           ],
           "farHand": [
-            935,
-            233
+            921,
+            239
           ]
         }
       },
@@ -86,35 +86,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "catch",
         "direction": "right",
         "cell": [
-          85,
-          508,
-          400,
-          972
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          162,
-          456
+          250,
+          459
         ],
         "sockets": {
           "feet": [
-            192,
-            964
+            174,
+            971
           ],
           "bootLeft": [
-            192,
-            964
+            174,
+            971
           ],
           "bootRight": [
-            327,
-            959
+            326,
+            966
           ],
           "nearHand": [
-            326,
-            740
+            314,
+            798
           ],
           "farHand": [
-            370,
-            744
+            392,
+            775
           ]
         }
       },
@@ -123,35 +123,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          611,
-          511,
-          934,
-          972
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          138,
-          453
+          283,
+          459
         ],
         "sockets": {
           "feet": [
-            694,
-            964
+            726,
+            971
           ],
           "bootLeft": [
-            694,
-            964
+            726,
+            971
           ],
           "bootRight": [
-            842,
-            960
+            864,
+            962
           ],
           "nearHand": [
-            848,
-            770
+            838,
+            798
           ],
           "farHand": [
-            904,
-            764
+            909,
+            787
           ]
         }
       },
@@ -160,35 +160,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "follow-through",
         "direction": "right",
         "cell": [
-          108,
-          998,
-          457,
-          1472
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          149,
-          466
+          238,
+          459
         ],
         "sockets": {
           "feet": [
-            186,
-            1464
+            350,
+            1483
           ],
           "bootLeft": [
-            186,
-            1464
+            126,
+            1462
           ],
           "bootRight": [
-            333,
-            1455
+            350,
+            1483
           ],
           "nearHand": [
-            374,
-            1249
+            148,
+            1285
           ],
           "farHand": [
-            427,
-            1230
+            404,
+            1275
           ]
         }
       },
@@ -197,37 +197,121 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "celebrate",
         "direction": "right",
         "cell": [
-          591,
-          976,
-          969,
-          1475
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          175,
-          491
+          256,
+          459
         ],
         "sockets": {
           "feet": [
-            720,
-            1467
+            702,
+            1483
           ],
           "bootLeft": [
-            720,
-            1467
+            702,
+            1483
           ],
           "bootRight": [
-            837,
-            1459
+            834,
+            1477
           ],
           "nearHand": [
-            707,
-            1174
+            704,
+            1192
           ],
           "farHand": [
-            940,
-            1120
+            909,
+            1181
           ]
         }
+      }
+    ]
+  },
+  "nets-v2": {
+    "width": 1882,
+    "height": 836,
+    "runtime": "/game-assets/physical-arcade/sound-safari/scenery/nets-v2.webp",
+    "nominalHeight": 2.2,
+    "pixelsPerUnit": 227.4211818181818,
+    "frames": [
+      {
+        "id": "meadow-net",
+        "action": "rim",
+        "cell": [
+          0,
+          0,
+          627,
+          836
+        ],
+        "anchor": [
+          314,
+          411
+        ],
+        "sockets": {
+          "captureCenter": [
+            314,
+            411
+          ],
+          "connector": [
+            314,
+            715
+          ]
+        },
+        "captureRadius": 250.1633
+      },
+      {
+        "id": "dino-net",
+        "action": "rim",
+        "cell": [
+          627,
+          0,
+          1255,
+          836
+        ],
+        "anchor": [
+          314,
+          411
+        ],
+        "sockets": {
+          "captureCenter": [
+            941,
+            411
+          ],
+          "connector": [
+            941,
+            715
+          ]
+        },
+        "captureRadius": 250
+      },
+      {
+        "id": "moonwood-net",
+        "action": "rim",
+        "cell": [
+          1255,
+          0,
+          1882,
+          836
+        ],
+        "anchor": [
+          313,
+          411
+        ],
+        "sockets": {
+          "captureCenter": [
+            1568,
+            411
+          ],
+          "connector": [
+            1568,
+            715
+          ]
+        },
+        "captureRadius": 250.1633
       }
     ]
   },
@@ -236,42 +320,42 @@ export const SOUND_SAFARI_ATLASES = {
     "height": 1536,
     "runtime": "/game-assets/physical-arcade/sound-safari/characters/chompy-operator-v1.webp",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 180.9090909090909,
+    "pixelsPerUnit": 181.8181818181818,
     "frames": [
       {
         "id": "chompy-anticipate",
         "action": "anticipate",
         "direction": "right",
         "cell": [
-          49,
-          68,
-          441,
-          480
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          198,
-          404
+          259.5,
+          459
         ],
         "sockets": {
           "feet": [
-            184,
-            472
+            181,
+            459
           ],
           "bootLeft": [
-            184,
-            472
+            181,
+            459
           ],
           "bootRight": [
-            311,
-            465
+            338,
+            454
           ],
           "nearHand": [
             304,
-            344
+            335
           ],
           "farHand": [
-            348,
-            340
+            385,
+            321
           ]
         }
       },
@@ -280,35 +364,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "swing",
         "direction": "right",
         "cell": [
-          561,
-          55,
-          984,
-          492
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          204,
-          429
+          237.5,
+          459
         ],
         "sockets": {
           "feet": [
-            659,
-            484
+            836,
+            459
           ],
           "bootLeft": [
-            659,
-            484
+            663,
+            455
           ],
           "bootRight": [
-            843,
-            474
+            836,
+            459
           ],
           "nearHand": [
-            865,
-            324
+            851,
+            307
           ],
           "farHand": [
-            925,
-            305
+            945,
+            268
           ]
         }
       },
@@ -317,35 +401,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "catch",
         "direction": "right",
         "cell": [
-          55,
-          530,
-          437,
-          981
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          209,
-          443
+          278.5,
+          458
         ],
         "sockets": {
           "feet": [
-            193,
-            973
+            187,
+            970
           ],
           "bootLeft": [
-            193,
-            973
+            187,
+            970
           ],
           "bootRight": [
-            347,
-            964
+            370,
+            965
           ],
           "nearHand": [
-            337,
-            803
+            328,
+            809
           ],
           "farHand": [
-            384,
-            799
+            418,
+            801
           ]
         }
       },
@@ -354,35 +438,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          580,
-          536,
-          961,
-          980
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          192,
-          436
+          286.5,
+          459
         ],
         "sockets": {
           "feet": [
-            738,
-            972
+            715,
+            971
           ],
           "bootLeft": [
-            738,
-            972
+            715,
+            971
           ],
           "bootRight": [
-            899,
+            882,
             963
           ],
           "nearHand": [
-            840,
-            807
+            812,
+            826
           ],
           "farHand": [
-            889,
-            772
+            884,
+            803
           ]
         }
       },
@@ -391,35 +475,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "follow-through",
         "direction": "right",
         "cell": [
-          51,
-          1021,
-          501,
-          1469
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          214,
-          440
+          232,
+          459
         ],
         "sockets": {
           "feet": [
-            175,
-            1461
+            176,
+            1483
           ],
           "bootLeft": [
-            175,
-            1461
+            176,
+            1483
           ],
           "bootRight": [
-            353,
-            1458
+            288,
+            1473
           ],
           "nearHand": [
-            389,
-            1293
+            145,
+            1258
           ],
           "farHand": [
-            424,
-            1280
+            412,
+            1317
           ]
         }
       },
@@ -428,35 +512,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "celebrate",
         "direction": "right",
         "cell": [
-          577,
-          1018,
-          987,
-          1474
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          200,
-          448
+          272,
+          459
         ],
         "sockets": {
           "feet": [
-            716,
-            1466
+            704,
+            1483
           ],
           "bootLeft": [
-            716,
-            1466
+            704,
+            1483
           ],
           "bootRight": [
-            880,
-            1457
+            864,
+            1479
           ],
           "nearHand": [
-            685,
-            1225
+            668,
+            1232
           ],
           "farHand": [
-            952,
-            1227
+            936,
+            1243
           ]
         }
       }
@@ -467,42 +551,42 @@ export const SOUND_SAFARI_ATLASES = {
     "height": 1536,
     "runtime": "/game-assets/physical-arcade/sound-safari/characters/pip-operator-v1.webp",
     "nominalHeight": 2.2,
-    "pixelsPerUnit": 219.99999999999997,
+    "pixelsPerUnit": 183.86363636363635,
     "frames": [
       {
         "id": "pip-anticipate",
         "action": "anticipate",
         "direction": "right",
         "cell": [
-          117,
-          25,
-          387,
-          523
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          135,
-          490
+          248.5,
+          459
         ],
         "sockets": {
           "feet": [
-            178,
-            515
+            184,
+            459
           ],
           "bootLeft": [
-            178,
-            515
+            184,
+            459
           ],
           "bootRight": [
-            334,
-            510
+            313,
+            452
           ],
           "nearHand": [
-            268,
-            323
+            259,
+            299
           ],
           "farHand": [
-            337,
-            322
+            335,
+            301
           ]
         }
       },
@@ -511,35 +595,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "swing",
         "direction": "right",
         "cell": [
-          563,
-          26,
-          928,
-          540
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          194,
-          506
+          234.5,
+          459
         ],
         "sockets": {
           "feet": [
-            822,
-            532
+            828,
+            459
           ],
           "bootLeft": [
-            630,
-            520
+            665,
+            447
           ],
           "bootRight": [
-            822,
-            532
+            828,
+            459
           ],
           "nearHand": [
-            897,
-            260
+            903,
+            223
           ],
           "farHand": [
-            832,
-            335
+            841,
+            289
           ]
         }
       },
@@ -548,35 +632,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "catch",
         "direction": "right",
         "cell": [
-          104,
-          523,
-          418,
-          1037
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          180,
-          506
+          262.5,
+          459
         ],
         "sockets": {
           "feet": [
-            212,
-            1029
+            195,
+            971
           ],
           "bootLeft": [
-            212,
-            1029
+            195,
+            971
           ],
           "bootRight": [
-            367,
-            1023
+            330,
+            965
           ],
           "nearHand": [
-            339,
-            812
+            296,
+            796
           ],
           "farHand": [
-            383,
-            801
+            337,
+            783
           ]
         }
       },
@@ -585,35 +669,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "recover",
         "direction": "right",
         "cell": [
-          580,
-          544,
-          936,
-          1038
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          176,
-          486
+          306,
+          459
         ],
         "sockets": {
           "feet": [
-            768,
-            1030
+            760,
+            971
           ],
           "bootLeft": [
-            768,
-            1030
+            760,
+            971
           ],
           "bootRight": [
-            891,
-            1023
+            876,
+            968
           ],
           "nearHand": [
-            842,
-            835
+            833,
+            806
           ],
           "farHand": [
-            882,
-            817
+            868,
+            786
           ]
         }
       },
@@ -622,35 +706,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "follow-through",
         "direction": "right",
         "cell": [
-          127,
-          1038,
-          447,
-          1527
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          142,
-          481
+          246,
+          459
         ],
         "sockets": {
           "feet": [
-            350,
-            1519
+            327,
+            1483
           ],
           "bootLeft": [
-            200,
-            1511
+            165,
+            1469
           ],
           "bootRight": [
-            350,
-            1519
+            327,
+            1483
           ],
           "nearHand": [
-            344,
-            1313
+            125,
+            1259
           ],
           "farHand": [
-            384,
-            1307
+            382,
+            1299
           ]
         }
       },
@@ -659,35 +743,35 @@ export const SOUND_SAFARI_ATLASES = {
         "action": "celebrate",
         "direction": "right",
         "cell": [
-          595,
-          1035,
-          944,
-          1525
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          173,
-          482
+          261.5,
+          459
         ],
         "sockets": {
           "feet": [
-            709,
-            1517
+            702,
+            1483
           ],
           "bootLeft": [
-            709,
-            1517
+            702,
+            1483
           ],
           "bootRight": [
-            869,
-            1512
+            845,
+            1477
           ],
           "nearHand": [
-            636,
-            1224
+            646,
+            1228
           ],
           "farHand": [
-            903,
-            1200
+            890,
+            1216
           ]
         }
       }
@@ -706,22 +790,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "ladybird",
         "direction": "right",
         "cell": [
-          86,
-          198,
-          452,
-          470
+          0,
+          0,
+          512,
+          512
         ],
         "anchor": [
-          183,
-          136
+          256.5,
+          321
         ],
         "sockets": {
           "captureCenter": [
-            269,
-            334
+            256.5,
+            321
           ]
         },
-        "captureRadius": 176
+        "captureRadius": 193.5
       },
       {
         "id": "ladybird-travel",
@@ -729,22 +813,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "ladybird",
         "direction": "right",
         "cell": [
-          551,
-          120,
-          992,
-          468
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          220.5,
-          174
+          256,
+          268
         ],
         "sockets": {
           "captureCenter": [
-            771.5,
-            294
+            768,
+            268
           ]
         },
-        "captureRadius": 213.5
+        "captureRadius": 204
       },
       {
         "id": "butterfly-idle",
@@ -752,22 +836,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "butterfly",
         "direction": "right",
         "cell": [
-          32,
-          589,
-          502,
-          973
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          235,
-          192
+          256,
+          286
         ],
         "sockets": {
           "captureCenter": [
-            267,
-            781
+            256,
+            798
           ]
         },
-        "captureRadius": 228
+        "captureRadius": 204
       },
       {
         "id": "butterfly-travel",
@@ -775,22 +859,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "butterfly",
         "direction": "right",
         "cell": [
-          620,
-          553,
-          967,
-          984
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          173.5,
-          215.5
+          256,
+          265
         ],
         "sockets": {
           "captureCenter": [
-            793.5,
-            768.5
+            768,
+            777
           ]
         },
-        "captureRadius": 208.5
+        "captureRadius": 195
       },
       {
         "id": "frog-idle",
@@ -798,22 +882,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "frog",
         "direction": "right",
         "cell": [
-          98,
-          1121,
-          422,
-          1401
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          162,
-          140
+          256,
+          333
         ],
         "sockets": {
           "captureCenter": [
-            260,
-            1261
+            256,
+            1357
           ]
         },
-        "captureRadius": 155
+        "captureRadius": 152
       },
       {
         "id": "frog-travel",
@@ -821,22 +905,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "frog",
         "direction": "right",
         "cell": [
-          548,
-          1086,
-          985,
-          1413
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          218.5,
-          163.5
+          256,
+          317
         ],
         "sockets": {
           "captureCenter": [
-            766.5,
-            1249.5
+            768,
+            1341
           ]
         },
-        "captureRadius": 211.5
+        "captureRadius": 204
       }
     ]
   },
@@ -853,22 +937,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "triceratops",
         "direction": "right",
         "cell": [
-          200,
-          11,
-          642,
-          338
+          0,
+          0,
+          768,
+          341
         ],
         "anchor": [
-          221,
-          163.5
+          384,
+          171
         ],
         "sockets": {
           "captureCenter": [
-            421,
-            174.5
+            384,
+            171
           ]
         },
-        "captureRadius": 214
+        "captureRadius": 200
       },
       {
         "id": "triceratops-travel",
@@ -876,22 +960,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "triceratops",
         "direction": "right",
         "cell": [
-          885,
-          11,
-          1328,
-          339
+          768,
+          0,
+          1536,
+          341
         ],
         "anchor": [
-          221.5,
-          164
+          384,
+          170.5
         ],
         "sockets": {
           "captureCenter": [
-            1106.5,
-            175
+            1152,
+            170.5
           ]
         },
-        "captureRadius": 214.5
+        "captureRadius": 203
       },
       {
         "id": "pterosaur-idle",
@@ -899,22 +983,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "pterosaur",
         "direction": "right",
         "cell": [
-          75,
-          367,
-          784,
-          662
+          0,
+          341,
+          768,
+          683
         ],
         "anchor": [
-          354.5,
-          147.5
+          384,
+          195.5
         ],
         "sockets": {
           "captureCenter": [
-            429.5,
-            514.5
+            384,
+            536.5
           ]
         },
-        "captureRadius": 347.5
+        "captureRadius": 306
       },
       {
         "id": "pterosaur-travel",
@@ -922,22 +1006,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "pterosaur",
         "direction": "right",
         "cell": [
-          916,
-          360,
-          1299,
-          679
+          768,
+          341,
+          1536,
+          683
         ],
         "anchor": [
-          191.5,
-          159.5
+          384.5,
+          184.5
         ],
         "sockets": {
           "captureCenter": [
-            1107.5,
-            519.5
+            1152.5,
+            525.5
           ]
         },
-        "captureRadius": 184.5
+        "captureRadius": 177.5
       },
       {
         "id": "ankylosaur-idle",
@@ -945,22 +1029,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "ankylosaur",
         "direction": "right",
         "cell": [
-          124,
-          681,
-          684,
-          987
+          0,
+          683,
+          768,
+          1024
         ],
         "anchor": [
-          280,
-          153
+          384,
+          170.5
         ],
         "sockets": {
           "captureCenter": [
-            404,
-            834
+            384,
+            853.5
           ]
         },
-        "captureRadius": 273
+        "captureRadius": 268
       },
       {
         "id": "ankylosaur-travel",
@@ -968,22 +1052,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "ankylosaur",
         "direction": "right",
         "cell": [
-          857,
-          688,
-          1372,
-          983
+          768,
+          683,
+          1536,
+          1024
         ],
         "anchor": [
-          257.5,
-          147.5
+          384,
+          171.5
         ],
         "sockets": {
           "captureCenter": [
-            1114.5,
-            835.5
+            1152,
+            854.5
           ]
         },
-        "captureRadius": 250.5
+        "captureRadius": 277
       }
     ]
   },
@@ -1000,22 +1084,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "firefly",
         "direction": "right",
         "cell": [
-          51,
-          72,
+          0,
+          0,
           512,
-          455
+          512
         ],
         "anchor": [
-          230.5,
-          191.5
+          256,
+          278.5
         ],
         "sockets": {
           "captureCenter": [
-            281.5,
-            263.5
+            256,
+            278.5
           ]
         },
-        "captureRadius": 223.5
+        "captureRadius": 204
       },
       {
         "id": "firefly-travel",
@@ -1023,22 +1107,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "firefly",
         "direction": "right",
         "cell": [
-          647,
-          68,
-          1011,
-          456
+          512,
+          0,
+          1024,
+          512
         ],
         "anchor": [
-          182,
-          194
+          256.5,
+          286.5
         ],
         "sockets": {
           "captureCenter": [
-            829,
-            262
+            768.5,
+            286.5
           ]
         },
-        "captureRadius": 187
+        "captureRadius": 173.5
       },
       {
         "id": "owlet-idle",
@@ -1046,22 +1130,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "owlet",
         "direction": "right",
         "cell": [
-          60,
-          608,
-          427,
-          1013
+          0,
+          512,
+          512,
+          1024
         ],
         "anchor": [
-          183.5,
-          202.5
+          256,
+          292.5
         ],
         "sockets": {
           "captureCenter": [
-            243.5,
-            810.5
+            256,
+            804.5
           ]
         },
-        "captureRadius": 195.5
+        "captureRadius": 167.5
       },
       {
         "id": "owlet-travel",
@@ -1069,22 +1153,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "owlet",
         "direction": "right",
         "cell": [
-          477,
-          509,
-          1017,
-          984
+          512,
+          512,
+          1024,
+          1024
         ],
         "anchor": [
-          270,
-          237.5
+          256,
+          273.5
         ],
         "sockets": {
           "captureCenter": [
-            747,
-            746.5
+            768,
+            785.5
           ]
         },
-        "captureRadius": 263
+        "captureRadius": 204
       },
       {
         "id": "mouse-idle",
@@ -1092,22 +1176,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "mouse",
         "direction": "right",
         "cell": [
-          34,
-          1092,
-          436,
-          1453
+          0,
+          1024,
+          512,
+          1536
         ],
         "anchor": [
-          201,
-          180.5
+          255.5,
+          316.5
         ],
         "sockets": {
           "captureCenter": [
-            235,
-            1272.5
+            255.5,
+            1340.5
           ]
         },
-        "captureRadius": 194
+        "captureRadius": 174.5
       },
       {
         "id": "mouse-travel",
@@ -1115,106 +1199,22 @@ export const SOUND_SAFARI_ATLASES = {
         "species": "mouse",
         "direction": "right",
         "cell": [
-          513,
-          1134,
-          970,
-          1442
+          512,
+          1024,
+          1024,
+          1536
         ],
         "anchor": [
-          228.5,
-          154
+          255.5,
+          333
         ],
         "sockets": {
           "captureCenter": [
-            741.5,
-            1288
+            767.5,
+            1357
           ]
         },
-        "captureRadius": 221.5
-      }
-    ]
-  },
-  "nets-v2": {
-    "width": 1882,
-    "height": 836,
-    "runtime": "/game-assets/physical-arcade/sound-safari/scenery/nets-v2.webp",
-    "nominalHeight": 2.2,
-    "pixelsPerUnit": 265.45454545454544,
-    "frames": [
-      {
-        "id": "meadow-net",
-        "action": "rim",
-        "cell": [
-          0,
-          0,
-          627,
-          836
-        ],
-        "anchor": [
-          320,
-          374
-        ],
-        "sockets": {
-          "captureCenter": [
-            320,
-            374
-          ],
-          "connector": [
-            319,
-            720
-          ]
-        },
-        "captureRadius": 292
-      },
-      {
-        "id": "dino-net",
-        "action": "rim",
-        "cell": [
-          627,
-          0,
-          1254,
-          836
-        ],
-        "anchor": [
-          316,
-          374
-        ],
-        "sockets": {
-          "captureCenter": [
-            943,
-            374
-          ],
-          "connector": [
-            943,
-            719
-          ]
-        },
-        "captureRadius": 293
-      },
-      {
-        "id": "moonwood-net",
-        "action": "rim",
-        "cell": [
-          1254,
-          0,
-          1882,
-          836
-        ],
-        "anchor": [
-          309,
-          374
-        ],
-        "sockets": {
-          "captureCenter": [
-            1563,
-            374
-          ],
-          "connector": [
-            1563,
-            721
-          ]
-        },
-        "captureRadius": 295
+        "captureRadius": 203.5
       }
     ]
   }

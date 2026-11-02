@@ -5,8 +5,57 @@ import math
 import bpy,json,hashlib,subprocess,sys
 from pathlib import Path
 from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
 ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'public/game-assets/arcade-worlds/trains';SOURCE=ROOT/'source-art/arcade/rolling-stock';REVIEW=ROOT/'.artifacts/arcade-world-upgrade/trains'
 for p in [OUT,SOURCE,REVIEW]:p.mkdir(parents=True,exist_ok=True)
+
+def fit_caboose_camera(scene):
+ """Fit the existing modeled geometry; never cut the tall cupola roof."""
+ bpy.context.view_layer.update()
+ cam=scene.camera;inverse=cam.matrix_world.inverted()
+ corners=[inverse@(o.matrix_world@Vector(v)) for o in scene.objects if o.type=='MESH' for v in o.bound_box]
+ lo=Vector((min(v.x for v in corners),min(v.y for v in corners),0));hi=Vector((max(v.x for v in corners),max(v.y for v in corners),0))
+ old={'location':list(cam.location),'rotation':list(cam.rotation_euler),'orthoScale':cam.data.ortho_scale}
+ cam.location+=cam.matrix_world.to_quaternion()@((lo+hi)/2)
+ aspect=scene.render.resolution_x/scene.render.resolution_y
+ cam.data.ortho_scale=max(hi.x-lo.x,(hi.y-lo.y)*aspect)/.92
+ bpy.context.view_layer.update()
+ return {'method':'whole modeled mesh bounds with four percent transparent margins','before':old,'after':{'location':list(cam.location),'rotation':list(cam.rotation_euler),'orthoScale':cam.data.ortho_scale}}
+
+def mesh_identity(scene):
+ values=[(o.name,list(o.matrix_world),[(tuple(v.co)) for v in o.data.vertices],[(tuple(p.vertices)) for p in o.data.polygons],[m.name for m in o.data.materials]) for o in scene.objects if o.type=='MESH']
+ # Convert matrices explicitly; geometry, transforms and material assignment
+ # must remain identical after a camera-only sprite repair.
+ values=[(name,[list(row) for row in matrix],vertices,polygons,materials) for name,matrix,vertices,polygons,materials in values]
+ return hashlib.sha256(json.dumps(values,sort_keys=True).encode()).hexdigest()
+
+def pack_train_frames(frames,destination):
+ subprocess.run(['python3','-c',"from PIL import Image;from pathlib import Path;import sys;root=Path(sys.argv[1]);im=Image.new('RGBA',(2048,640));[im.paste(Image.open(root/(str(i)+'.png')),(i%4*512,i//4*320)) for i in range(8)];im.save(sys.argv[2],quality=90,method=4)",str(frames),str(destination)],check=True)
+
+if '--reframe-caboose' in sys.argv:
+ source=SOURCE/'Railway.blend';manifest=OUT/'manifest.json';current=json.loads(manifest.read_text())
+ old_source_sha=hashlib.sha256(source.read_bytes()).hexdigest()
+ if old_source_sha!=current['sourceSha256']:raise RuntimeError('Railway source drift')
+ frozen={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.iterdir() if p.suffix=='.glb' or p.name in ['engine.webp','wagon.webp']}
+ bpy.ops.wm.open_mainfile(filepath=str(source));bpy.context.preferences.filepaths.save_version=0
+ scene=bpy.data.scenes['caboose'];bpy.context.window.scene=scene;scene.frame_set(0);bpy.context.view_layer.update();identity=mesh_identity(scene)
+ framing=fit_caboose_camera(scene);frames=REVIEW/'caboose';frames.mkdir(parents=True,exist_ok=True)
+ for i in range(8):
+  scene.frame_set(i*3);scene.render.filepath=str(frames/(str(i)+'.png'));bpy.ops.render.render(write_still=True)
+ pack_train_frames(frames,OUT/'caboose.webp');scene.frame_set(0);bpy.context.view_layer.update()
+ if mesh_identity(scene)!=identity:raise RuntimeError('Camera repair changed modeled geometry')
+ projected={}
+ for name,p in {'leftCoupler':(-1.98,-.125,.54),'rightCoupler':(1.98,-.125,.54),'sole':(-1.08,-.59,.02),'wordPanelCenter':(0,-.628,1.31)}.items():
+  v=world_to_camera_view(scene,scene.camera,Vector(p));projected[name]=[v.x*512,(1-v.y)*320]
+ bpy.ops.wm.save_as_mainfile(filepath=str(source),compress=True)
+ for name,digest in frozen.items():
+  if hashlib.sha256((OUT/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('Unrelated rolling stock changed')
+ current['sourceSha256']=hashlib.sha256(source.read_bytes()).hexdigest();current['authoringSha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+ asset=next(a for a in current['assets'] if a['id']=='caboose');asset['sha256']=hashlib.sha256((OUT/'caboose.webp').read_bytes()).hexdigest();asset['sprite']['framing']=framing
+ manifest.write_text(json.dumps(current,indent=2)+'\n')
+ (SOURCE/'caboose-framing.json').write_text(json.dumps({'sourceBeforeSha256':old_source_sha,'sourceAfterSha256':current['sourceSha256'],'meshIdentityBeforeAndAfter':identity,'framing':framing,'projectedSourceContacts':projected,'unchangedModelsAndOtherSprites':frozen,'frames':8,'width':512,'height':320},indent=2)+'\n')
+ print('CABOOSE_CAMERA_ONLY_REFRAME_COMPLETE',asset['sha256']);sys.exit(0)
+
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 
 def mat(name,c,rough=.5,metal=0):
@@ -72,6 +121,7 @@ for kind in ['wagon','engine','caboose']:
   bpy.ops.object.light_add(type='AREA',location=p);o=bpy.context.object;o.name=name;o.data.energy=power;o.data.shape='DISK';o.data.size=size;o.rotation_euler=(target-o.location).to_track_quat('-Z','Y').to_euler()
  scene.world=bpy.data.worlds.new(kind+' ambient');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[1].default_value=.35
  scene.render.engine='CYCLES';scene.cycles.samples=12;scene.render.film_transparent=True;scene.render.resolution_x=512;scene.render.resolution_y=320;scene.render.resolution_percentage=100;scene.view_settings.view_transform='AgX'
+ if kind=='caboose':fit_caboose_camera(scene)
  frames=REVIEW/kind;frames.mkdir(exist_ok=True)
  for i in range(8):
   scene.frame_set(i*3)

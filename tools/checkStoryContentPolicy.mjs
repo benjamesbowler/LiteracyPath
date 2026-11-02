@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
 import { storyQuests } from "../src/data/storyQuests.js";
+import { ACTION_SONG_CONTENT, HOP_AND_STOP_REQUIRED_MEDIA, isHopAndStopPublished } from "../src/data/hopAndStop.js";
 import { storyQuestReviewFingerprint } from "./storyQuestReviewFingerprint.mjs";
 import { getStoryQuestLedaAudioPath } from "../src/data/storyQuestLedaAudio.js";
 import { buildGuidedReadingAudioInventory } from "./guidedReadingAudioPipelineLib.mjs";
@@ -26,7 +27,8 @@ import {
   GUIDED_READING_RELEASE_READINESS,
   guidedReadingPolicyBaseline,
   guidedReadingSharedStoryReviews,
-  storyQuestPolicyReviews
+  storyQuestPolicyReviews,
+  actionSongPolicyReviews
 } from "../src/content/storyContentReviews.js";
 
 const releaseMode = process.argv.includes("--release");
@@ -367,8 +369,34 @@ for (const quest of storyQuests) {
   }
 }
 
+const actionSongReviews = new Map(actionSongPolicyReviews.map(review => [review.id, review]));
+if (actionSongReviews.size !== actionSongPolicyReviews.length) addError("duplicate action-song review registration");
+for (const unit of ACTION_SONG_CONTENT) {
+  const review = actionSongReviews.get(unit.id);
+  if (!review) { addError(`${unit.id}: unregistered action-song content`); continue; }
+  if (review.policyVersion !== STORY_CONTENT_POLICY_VERSION || review.format !== unit.format) addError(`${unit.id}: action-song policy/format mismatch`);
+  if (fingerprint(unit) !== review.sourceFingerprint) addError(`${unit.id}: reviewed action-song source fingerprint changed`);
+  if (!STORY_CONTENT_REVIEW_STATUSES.includes(review.status)) addError(`${unit.id}: invalid action-song review status`);
+  requireNonEmptyString(review.reviewer, `${unit.id}: reviewer`);
+  requireNonEmptyString(review.evidence, `${unit.id}: evidence`);
+  if (review.pageEvidence?.pages !== unit.pages.length || review.lyricsEvidence?.lines !== unit.lyrics.length) addError(`${unit.id}: incomplete manuscript/lyrics evidence`);
+  if (review.readingPlacement !== unit.readingPlacement) addError(`${unit.id}: supported reading placement changed`);
+  if (review.gameEvidence?.scored !== false || review.gameEvidence?.learnerWrites !== false) addError(`${unit.id}: game must remain unscored without learner writes`);
+  if (review.status !== "approved") { releaseBlocks.push(`${unit.id}: ${review.status}`); continue; }
+  for (const media of HOP_AND_STOP_REQUIRED_MEDIA) if (!hasNonEmptyPublicFile(media)) addError(`${unit.id}: approved media missing: ${media}`);
+  try {
+    const receipt = JSON.parse(fs.readFileSync(publicFile("/action-songs/hop-and-stop/release.json"), "utf8"));
+    if (!isHopAndStopPublished(receipt)) addError(`${unit.id}: incomplete media release receipt`);
+    for (const media of HOP_AND_STOP_REQUIRED_MEDIA) {
+      if (!hasNonEmptyPublicFile(media)) continue;
+      const currentHash = crypto.createHash("sha256").update(fs.readFileSync(publicFile(media))).digest("hex");
+      if (receipt.mediaSha256?.[media] !== currentHash) addError(`${unit.id}: reviewed media hash changed: ${media}`);
+    }
+  } catch { addError(`${unit.id}: missing or unreadable media release receipt`); }
+}
+
 console.log(`Story Content Policy ${STORY_CONTENT_POLICY_VERSION}`);
-console.log(`Registered active content: ${activeBooks.length} guided-reading books; ${storyQuests.length} Story Quests.`);
+console.log(`Registered active content: ${activeBooks.length} guided-reading books; ${storyQuests.length} Story Quests; ${ACTION_SONG_CONTENT.length} action-song units.`);
 console.log(
   `Story Quest verdicts: ${storyQuestPolicyReviews.filter(review => review.status === "approved").length} approved; ` +
   `${storyQuestPolicyReviews.filter(review => review.status !== "approved").length} not approved.`

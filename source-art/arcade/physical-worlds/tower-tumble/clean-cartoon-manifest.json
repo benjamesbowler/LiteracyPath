@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "productionRevision": "clean-cartoon-2026-11-02",
+  "styleAuthority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "assets": [
+    {
+      "id": "materials-atlas-v1",
+      "jobId": "resumed-extra-tower-flat-materials",
+      "extraScope": true,
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/materials-flat.png",
+      "sourceSha256": "2fefe04b020fb498ee26ed86f60ced468b81bf84898bb50987856fb86dea8192",
+      "sourceSHA256": "2fefe04b020fb498ee26ed86f60ced468b81bf84898bb50987856fb86dea8192",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/materials-flat.prompt.txt",
+      "promptSha256": "a42d556377b9a441aeba49c78758878deecbb180bcce41eacf33ee84641ea74d",
+      "provider": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/materials-flat.provider.json",
+      "providerSha256": "f037fb0a32673a6a26057f69564176cad70fdfc6e5b207e245915ffb94e9c5f3",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/materials-atlas-v1.webp",
+      "runtimeSHA256": "191a3802da9a62037563ec88a93423b88f6de8a2761c295898cf0dceb607665d",
+      "width": 1254,
+      "height": 1254,
+      "alpha": false,
+      "bytes": 43528,
+      "originalSha256": "7938008ee15b6f2f20e7b00f7d1e1feb818ddc7db8672c692a5c576a15a0fdf4",
+      "historicalSource": "source-art/arcade/physical-worlds/tower-tumble/materials-atlas-v1.png",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1254,
+          "height": 1254,
+          "fit": "fill"
+        }
+      },
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:35:59.851Z"
+      }
+    },
+    {
+      "jobId": "art-0899",
+      "id": "dino-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0899.png",
+      "sourceSha256": "005209560e42b61c1ffdc3958a1b0e2b452c45ccd50181171ad76e64fbde2a65",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0899.prompt.txt",
+      "promptSha256": "a09cdefa54208d9bfd8f04e14c2e696367006054a0ab90811d6a73f37ecadb2c",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/dino-landscape-v1.webp",
+      "runtimeSHA256": "92c30c5cf3789443590dbda83e73ac064ce7b6e60b567b7806d3369b0d844f01",
+      "width": 1672,
+      "height": 941,
+      "bytes": 329748,
+      "alpha": false,
+      "originalSha256": "300beb7d1659e312ab363e038e3c56456480c7c7408ec3355003661783983029",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0899.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0899/native-001.png",
+          "sha256": "a56d3500491885fd73576f5982557a9bae7bd9a280c3bd01802437e2bfe35154"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:35:59.852Z"
+      },
+      "sourceSHA256": "005209560e42b61c1ffdc3958a1b0e2b452c45ccd50181171ad76e64fbde2a65"
+    },
+    {
+      "jobId": "art-0900",
+      "id": "meadow-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0900.png",
+      "sourceSha256": "0ab12a802176e9ddb7ea1941910621bf314b0dcbf12c27d1709fce9ef27b9f0b",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0900.prompt.txt",
+      "promptSha256": "a09cdefa54208d9bfd8f04e14c2e696367006054a0ab90811d6a73f37ecadb2c",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/meadow-landscape-v1.webp",
+      "runtimeSHA256": "e16e0500475c48073de35dd8a60bfd5ddd5fa10112aed936819ea8c14e3b36db",
+      "width": 1672,
+      "height": 941,
+      "bytes": 310314,
+      "alpha": false,
+      "originalSha256": "e336bd5fe8e8f92a872f9a7f0d2c42b19eff3103216ad159f179f25a44d7698c",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0900.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0900/native-001.png",
+          "sha256": "3078a437f7dbaa9e495dd2db70da5cdace4b7de5c62269f50748ca3dae7c3868"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:35:59.978Z"
+      },
+      "sourceSHA256": "0ab12a802176e9ddb7ea1941910621bf314b0dcbf12c27d1709fce9ef27b9f0b"
+    },
+    {
+      "jobId": "art-0901",
+      "id": "moonwood-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0901.png",
+      "sourceSha256": "fbc36070b7b1a00b8e01f5d9701c8ea82d28e1b0acfc0ade432cd10b5612c745",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0901.prompt.txt",
+      "promptSha256": "a09cdefa54208d9bfd8f04e14c2e696367006054a0ab90811d6a73f37ecadb2c",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/moonwood-landscape-v1.webp",
+      "runtimeSHA256": "ae1cc623e119d0b431b9f2f3062ff076118d00ebf91c53323c50361dc4ea2421",
+      "width": 1672,
+      "height": 941,
+      "bytes": 277992,
+      "alpha": false,
+      "originalSha256": "090294355618209e48779c1411b6e7c076fc0cf3f6fa2c057f33152748e45ec2",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0901.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1672,
+          "height": 941,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0901/native-001.png",
+          "sha256": "990b2c5705790a5f29fdaebcbd204da8ee9e220571ff1a982161b1400de2bb14"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:36:00.064Z"
+      },
+      "sourceSHA256": "fbc36070b7b1a00b8e01f5d9701c8ea82d28e1b0acfc0ade432cd10b5612c745"
+    },
+    {
+      "jobId": "art-0902",
+      "id": "props-atlas-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0902.png",
+      "sourceSha256": "46b0daa7a606e9c97c7c05c6d89b1fbd972359fe18fcf66194d6ca97950acc59",
+      "prompt": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon/art-0902.prompt.txt",
+      "promptSha256": "00fd49cb64f023df75fa914ae78f1b68a2260c60df13056e3e5a3a47a49d4d09",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/props-atlas-v1.webp",
+      "runtimeSHA256": "56c1635b67c47b307630e379d516a841eb159a19d8e66989768c6e0d474e3b7e",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 360294,
+      "alpha": true,
+      "originalSha256": "2b6a77f2b8440fdcb3d111163399131fd43016d9b9e95baf1304cc7b6d3b72cc",
+      "sourceSnapshot": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0902.webp",
+      "encoding": {
+        "quality": 92,
+        "alphaQuality": 100,
+        "effort": 6,
+        "resize": {
+          "width": 1254,
+          "height": 1254,
+          "fit": "fill"
+        }
+      },
+      "selectedAttempt": 2,
+      "referenceImages": [
+        {
+          "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0902/native-001.png",
+          "sha256": "20151ff9a3378ea7e96202afe4cf61d944d2c6ff9d34cda97e15228c357b86d0"
+        }
+      ],
+      "review": {
+        "nativeViewed": true,
+        "savedViewed": true,
+        "display390Viewed": true,
+        "display128Viewed": true,
+        "runtimeViewed": true,
+        "status": "accepted-local",
+        "runtimeProof": ".artifacts/all-clean-cartoon-2026-10-31/cd_family/tower/browser-proof.json",
+        "runtimeProofSha256": "836c76e6483ad739f4833a72d2f4eff41da943f80757801089829a2419fdecfa",
+        "reviewedAt": "2026-11-02T11:36:00.149Z"
+      },
+      "sourceSHA256": "46b0daa7a606e9c97c7c05c6d89b1fbd972359fe18fcf66194d6ca97950acc59"
+    }
+  ],
+  "historicalSourceAuthority": "source-art/arcade/physical-worlds/tower-tumble/scene-kit-v1.json",
+  "materials": {
+    "stone": [
+      0,
+      0,
+      627,
+      627
+    ],
+    "timber": [
+      627,
+      0,
+      1254,
+      627
+    ],
+    "brick": [
+      0,
+      627,
+      627,
+      1254
+    ],
+    "bark": [
+      627,
+      627,
+      1254,
+      1254
+    ],
+    "blankBrickFace": [
+      142,
+      722,
+      433,
+      805
+    ]
+  },
+  "props": {
+    "beam": [
+      21,
+      210,
+      434,
+      417
+    ],
+    "ladder": [
+      433,
+      41,
+      589,
+      471
+    ],
+    "barrel": [
+      613,
+      177,
+      891,
+      457
+    ],
+    "cage": [
+      890,
+      123,
+      1249,
+      487
+    ],
+    "pulley": [
+      38,
+      487,
+      199,
+      883
+    ],
+    "bunting": [
+      218,
+      592,
+      678,
+      775
+    ],
+    "ivy": [
+      675,
+      478,
+      879,
+      917
+    ],
+    "flowers": [
+      897,
+      622,
+      1234,
+      864
+    ],
+    "rubble": [
+      19,
+      962,
+      337,
+      1200
+    ],
+    "mushrooms": [
+      356,
+      910,
+      615,
+      1194
+    ],
+    "fern": [
+      626,
+      916,
+      1008,
+      1205
+    ],
+    "lantern": [
+      1041,
+      866,
+      1193,
+      1212
+    ],
+    "leftBeamAnchor": [
+      21,
+      235,
+      170,
+      417
+    ],
+    "rightBeamAnchor": [
+      285,
+      235,
+      434,
+      417
+    ]
+  },
+  "boundsConvention": "x,y,right,bottom in current encoded atlas; exact12 independent alpha component bounds plus2px; anchor crops select actual left/right beam supports.",
+  "tool": "built-in image_gen.imagegen",
+  "sourceAuthority": "Current clean cartoon sources, measured complete prop bounds and one unchanged geometry material source. Historical scene-kit-v1.json remains immutable provenance."
+}

@@ -14,7 +14,7 @@
       "engine": "src/components/learn/games/games/TowerTumbleGame.jsx",
       "rules": "src/utils/towerTumbleRules.js",
       "session": "src/utils/towerTumbleSession.js",
-      "sceneManifest": "source-art/arcade/physical-worlds/tower-tumble/scene-kit-v1.json",
+      "sceneManifest": "source-art/arcade/physical-worlds/tower-tumble/clean-cartoon-manifest.json",
       "sceneKit": "src/components/learn/games/games/towerTumbleSceneKit.js",
       "world": "src/components/learn/games/games/towerTumbleWorld.js"
     },
@@ -23,14 +23,14 @@
       "engine": "src/components/learn/games/games/RallyPalsGame.jsx",
       "rules": "src/utils/rallyPalsRules.js",
       "session": "src/utils/rallyPalsSession.js",
-      "sceneManifest": "source-art/arcade/physical-worlds/rally-pals/manifest.json"
+      "sceneManifest": "source-art/arcade/physical-worlds/rally-pals/clean-cartoon-manifest.json"
     },
     {
       "id": "burrow-builders",
       "engine": "src/components/learn/games/games/BurrowBuildersGame.jsx",
       "rules": "src/utils/burrowBuildersRules.js",
       "session": "src/utils/burrowBuildersSession.js",
-      "sceneManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json"
+      "sceneManifest": "source-art/arcade/physical-worlds/burrow-builders/clean-cartoon-manifest.json"
     }
   ],
   "menuArtManifest": "public/images/learn-games/menu/manifest.json",

@@ -1,0 +1,3462 @@
+{
+  "historicalManifest": {
+    "path": "source-art/arcade/physical-worlds/sound-beat/scene-kit-v1.json",
+    "sha256": "975c4ec4b6e12bbb1e8ea42544b2e4a48d1390367142cefdcce693c8ad12d428"
+  },
+  "historicalRegistration": {
+    "path": "source-art/arcade/physical-worlds/sound-beat/hand-registration-v1.json",
+    "sha256": "31928b4e9e62aecd365517d6613695aeabafacfa6199f703a04521d3b0eb1592"
+  },
+  "currentSources": {
+    "bouncy-music-performance-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/bouncy-music-performance-v1.png",
+      "sourceSha256": "292fccea883b7598792e64e88eb501865af48fe5c1c7b4537fd1f6c5c7edd946",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "bounds": [
+            67,
+            43,
+            317,
+            345
+          ],
+          "anchor": [
+            131,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            183,
+            227
+          ],
+          "leftHandPixel": [
+            294,
+            158
+          ]
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            384,
+            0,
+            768,
+            384
+          ],
+          "bounds": [
+            75,
+            41,
+            310,
+            345
+          ],
+          "anchor": [
+            148,
+            344
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            514,
+            160
+          ],
+          "leftHandPixel": [
+            667,
+            225
+          ]
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            768,
+            0,
+            1152,
+            384
+          ],
+          "bounds": [
+            77,
+            41,
+            306,
+            344
+          ],
+          "anchor": [
+            118,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            884,
+            215
+          ],
+          "leftHandPixel": [
+            1048,
+            232
+          ]
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1152,
+            0,
+            1536,
+            384
+          ],
+          "bounds": [
+            77,
+            43,
+            308,
+            345
+          ],
+          "anchor": [
+            149,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1321,
+            229
+          ],
+          "leftHandPixel": [
+            1431,
+            227
+          ]
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            0,
+            384,
+            384,
+            768
+          ],
+          "bounds": [
+            76,
+            48,
+            308,
+            344
+          ],
+          "anchor": [
+            157,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            103,
+            479
+          ],
+          "leftHandPixel": [
+            281,
+            617
+          ]
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            384,
+            384,
+            768,
+            768
+          ],
+          "bounds": [
+            76,
+            50,
+            308,
+            344
+          ],
+          "anchor": [
+            157,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            502,
+            516
+          ],
+          "leftHandPixel": [
+            664,
+            607
+          ]
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            768,
+            384,
+            1152,
+            768
+          ],
+          "bounds": [
+            76,
+            50,
+            308,
+            344
+          ],
+          "anchor": [
+            146,
+            342
+          ],
+          "mirror": false,
+          "excluded": "Occluded/fused fargrip retained whole and never selected; no invented contact"
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1152,
+            384,
+            1536,
+            768
+          ],
+          "bounds": [
+            74,
+            51,
+            310,
+            344
+          ],
+          "anchor": [
+            155,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1339,
+            613
+          ],
+          "leftHandPixel": [
+            1432,
+            613
+          ]
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            0,
+            768,
+            384,
+            1152
+          ],
+          "bounds": [
+            55,
+            49,
+            329,
+            345
+          ],
+          "anchor": [
+            145,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            82,
+            957
+          ],
+          "leftHandPixel": [
+            303,
+            942
+          ]
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            384,
+            768,
+            768,
+            1152
+          ],
+          "bounds": [
+            76,
+            56,
+            308,
+            345
+          ],
+          "anchor": [
+            156,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            535,
+            1009
+          ],
+          "leftHandPixel": [
+            663,
+            1009
+          ]
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            768,
+            768,
+            1152,
+            1152
+          ],
+          "bounds": [
+            71,
+            49,
+            314,
+            344
+          ],
+          "anchor": [
+            158,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            943,
+            985
+          ],
+          "leftHandPixel": [
+            1054,
+            985
+          ]
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1152,
+            768,
+            1536,
+            1152
+          ],
+          "bounds": [
+            72,
+            53,
+            311,
+            345
+          ],
+          "anchor": [
+            156,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1319,
+            987
+          ],
+          "leftHandPixel": [
+            1435,
+            985
+          ]
+        },
+        {
+          "id": 12,
+          "row": 3,
+          "column": 0,
+          "cell": [
+            0,
+            1152,
+            384,
+            1536
+          ],
+          "bounds": [
+            76,
+            54,
+            307,
+            344
+          ],
+          "anchor": [
+            160,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            100,
+            1269
+          ],
+          "leftHandPixel": [
+            280,
+            1373
+          ]
+        },
+        {
+          "id": 13,
+          "row": 3,
+          "column": 1,
+          "cell": [
+            384,
+            1152,
+            768,
+            1536
+          ],
+          "bounds": [
+            64,
+            54,
+            321,
+            344
+          ],
+          "anchor": [
+            150,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            473,
+            1263
+          ],
+          "leftHandPixel": [
+            677,
+            1263
+          ]
+        },
+        {
+          "id": 14,
+          "row": 3,
+          "column": 2,
+          "cell": [
+            768,
+            1152,
+            1152,
+            1536
+          ],
+          "bounds": [
+            65,
+            52,
+            319,
+            345
+          ],
+          "anchor": [
+            140,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            912,
+            1374
+          ],
+          "leftHandPixel": [
+            1059,
+            1269
+          ]
+        },
+        {
+          "id": 15,
+          "row": 3,
+          "column": 3,
+          "cell": [
+            1152,
+            1152,
+            1536,
+            1536
+          ],
+          "bounds": [
+            75,
+            55,
+            308,
+            345
+          ],
+          "anchor": [
+            149,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1330,
+            1375
+          ],
+          "leftHandPixel": [
+            1431,
+            1375
+          ]
+        }
+      ],
+      "pixelsPerUnit": 133.63636363636363,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "chompy-music-performance-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/chompy-music-performance-v1.png",
+      "sourceSha256": "c316b18638a539aef66aac06ed16789997e41a10893243ba92d60c8e7a0bc6f1",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "bounds": [
+            68,
+            45,
+            316,
+            344
+          ],
+          "anchor": [
+            142,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            203,
+            242
+          ],
+          "leftHandPixel": [
+            299,
+            239
+          ]
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            384,
+            0,
+            768,
+            384
+          ],
+          "bounds": [
+            70,
+            45,
+            314,
+            345
+          ],
+          "anchor": [
+            139,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            507,
+            102
+          ],
+          "leftHandPixel": [
+            679,
+            233
+          ]
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            768,
+            0,
+            1152,
+            384
+          ],
+          "bounds": [
+            69,
+            44,
+            316,
+            345
+          ],
+          "anchor": [
+            140,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            912,
+            206
+          ],
+          "leftHandPixel": [
+            1060,
+            234
+          ]
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1152,
+            0,
+            1536,
+            384
+          ],
+          "bounds": [
+            69,
+            46,
+            316,
+            344
+          ],
+          "anchor": [
+            134,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1351,
+            241
+          ],
+          "leftHandPixel": [
+            1446,
+            231
+          ]
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            0,
+            384,
+            384,
+            768
+          ],
+          "bounds": [
+            72,
+            40,
+            312,
+            345
+          ],
+          "anchor": [
+            148,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            129,
+            459
+          ],
+          "leftHandPixel": [
+            283,
+            627
+          ]
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            384,
+            384,
+            768,
+            768
+          ],
+          "bounds": [
+            69,
+            53,
+            314,
+            345
+          ],
+          "anchor": [
+            145,
+            343
+          ],
+          "mirror": false,
+          "excluded": "Occluded/fused fargrip retained whole and never selected; no invented contact"
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            768,
+            384,
+            1152,
+            768
+          ],
+          "bounds": [
+            77,
+            50,
+            308,
+            344
+          ],
+          "anchor": [
+            145,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            904,
+            481
+          ],
+          "leftHandPixel": [
+            1045,
+            630
+          ]
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1152,
+            384,
+            1536,
+            768
+          ],
+          "bounds": [
+            70,
+            53,
+            314,
+            345
+          ],
+          "anchor": [
+            143,
+            343
+          ],
+          "mirror": false,
+          "excluded": "Occluded/fused fargrip retained whole and never selected; no invented contact"
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            0,
+            768,
+            384,
+            1152
+          ],
+          "bounds": [
+            66,
+            51,
+            317,
+            345
+          ],
+          "anchor": [
+            136,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            90,
+            964
+          ],
+          "leftHandPixel": [
+            293,
+            964
+          ]
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            384,
+            768,
+            768,
+            1152
+          ],
+          "bounds": [
+            82,
+            62,
+            303,
+            345
+          ],
+          "anchor": [
+            141,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            563,
+            1037
+          ],
+          "leftHandPixel": [
+            644,
+            1038
+          ]
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            768,
+            768,
+            1152,
+            1152
+          ],
+          "bounds": [
+            73,
+            54,
+            311,
+            345
+          ],
+          "anchor": [
+            141,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            991,
+            1006
+          ],
+          "leftHandPixel": [
+            1053,
+            999
+          ]
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1152,
+            768,
+            1536,
+            1152
+          ],
+          "bounds": [
+            73,
+            55,
+            311,
+            344
+          ],
+          "anchor": [
+            141,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1367,
+            1007
+          ],
+          "leftHandPixel": [
+            1443,
+            998
+          ]
+        },
+        {
+          "id": 12,
+          "row": 3,
+          "column": 0,
+          "cell": [
+            0,
+            1152,
+            384,
+            1536
+          ],
+          "bounds": [
+            73,
+            49,
+            312,
+            345
+          ],
+          "anchor": [
+            140,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            125,
+            1246
+          ],
+          "leftHandPixel": [
+            283,
+            1378
+          ]
+        },
+        {
+          "id": 13,
+          "row": 3,
+          "column": 1,
+          "cell": [
+            384,
+            1152,
+            768,
+            1536
+          ],
+          "bounds": [
+            67,
+            51,
+            315,
+            345
+          ],
+          "anchor": [
+            134,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            492,
+            1259
+          ],
+          "leftHandPixel": [
+            676,
+            1267
+          ]
+        },
+        {
+          "id": 14,
+          "row": 3,
+          "column": 2,
+          "cell": [
+            768,
+            1152,
+            1152,
+            1536
+          ],
+          "bounds": [
+            65,
+            52,
+            318,
+            345
+          ],
+          "anchor": [
+            133,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            972,
+            1383
+          ],
+          "leftHandPixel": [
+            1068,
+            1268
+          ]
+        },
+        {
+          "id": 15,
+          "row": 3,
+          "column": 3,
+          "cell": [
+            1152,
+            1152,
+            1536,
+            1536
+          ],
+          "bounds": [
+            73,
+            53,
+            310,
+            345
+          ],
+          "anchor": [
+            141,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1369,
+            1389
+          ],
+          "leftHandPixel": [
+            1444,
+            1383
+          ]
+        }
+      ],
+      "pixelsPerUnit": 133.63636363636363,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/instrument-kit-v1.png",
+      "sourceSha256": "12ec0140a5f3a045512e7145109430373e27bc32e547fef263067e86f265c312",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            36,
+            55,
+            326,
+            326
+          ],
+          "bounds": [
+            1,
+            1,
+            289,
+            270
+          ],
+          "anchor": [
+            236,
+            267
+          ],
+          "mirror": false,
+          "membraneCentre": [
+            176.6544,
+            96.1742
+          ]
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            500,
+            36,
+            586,
+            326
+          ],
+          "bounds": [
+            2,
+            1,
+            85,
+            289
+          ],
+          "anchor": [
+            19,
+            288
+          ],
+          "mirror": false
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            760,
+            89,
+            1050,
+            326
+          ],
+          "bounds": [
+            1,
+            1,
+            289,
+            236
+          ],
+          "anchor": [
+            264,
+            235
+          ],
+          "mirror": false
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1149,
+            36,
+            1385,
+            326
+          ],
+          "bounds": [
+            1,
+            1,
+            235,
+            289
+          ],
+          "anchor": [
+            122,
+            287
+          ],
+          "mirror": false
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            36,
+            423,
+            326,
+            688
+          ],
+          "bounds": [
+            1,
+            1,
+            289,
+            264
+          ],
+          "anchor": [
+            56,
+            261
+          ],
+          "mirror": false,
+          "membraneCentre": [
+            174.4598,
+            461.3234
+          ]
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            498,
+            398,
+            588,
+            688
+          ],
+          "bounds": [
+            1,
+            1,
+            89,
+            289
+          ],
+          "anchor": [
+            20,
+            288
+          ],
+          "mirror": false
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            760,
+            515,
+            1050,
+            688
+          ],
+          "bounds": [
+            1,
+            1,
+            289,
+            172
+          ],
+          "anchor": [
+            263,
+            171
+          ],
+          "mirror": false
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1128,
+            398,
+            1405,
+            688
+          ],
+          "bounds": [
+            1,
+            1,
+            276,
+            289
+          ],
+          "anchor": [
+            106,
+            286
+          ],
+          "mirror": false
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            36,
+            791,
+            326,
+            1050
+          ],
+          "bounds": [
+            1,
+            1,
+            289,
+            258
+          ],
+          "anchor": [
+            67,
+            255
+          ],
+          "mirror": false,
+          "membraneCentre": [
+            178.1667,
+            826.5346
+          ]
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            496,
+            760,
+            589,
+            1050
+          ],
+          "bounds": [
+            1,
+            1,
+            92,
+            289
+          ],
+          "anchor": [
+            21,
+            288
+          ],
+          "mirror": false
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            760,
+            824,
+            1050,
+            1050
+          ],
+          "bounds": [
+            1,
+            1,
+            289,
+            225
+          ],
+          "anchor": [
+            238,
+            222
+          ],
+          "mirror": false
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1160,
+            760,
+            1373,
+            1050
+          ],
+          "bounds": [
+            1,
+            1,
+            212,
+            289
+          ],
+          "anchor": [
+            139,
+            288
+          ],
+          "mirror": false
+        }
+      ],
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "pip-music-performance-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/pip-music-performance-v1.png",
+      "sourceSha256": "cf16085693e8fe3ad77294e2e58c88d30d313945ebff9f1bc642836716f34ec7",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "bounds": [
+            80,
+            41,
+            304,
+            345
+          ],
+          "anchor": [
+            238,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            113,
+            249
+          ],
+          "leftHandPixel": [
+            282,
+            105
+          ]
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            384,
+            0,
+            768,
+            384
+          ],
+          "bounds": [
+            87,
+            41,
+            297,
+            345
+          ],
+          "anchor": [
+            233,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            485,
+            129
+          ],
+          "leftHandPixel": [
+            663,
+            247
+          ]
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            768,
+            0,
+            1152,
+            384
+          ],
+          "bounds": [
+            79,
+            41,
+            305,
+            345
+          ],
+          "anchor": [
+            232,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            907,
+            233
+          ],
+          "leftHandPixel": [
+            1057,
+            139
+          ]
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1152,
+            0,
+            1536,
+            384
+          ],
+          "bounds": [
+            87,
+            40,
+            295,
+            344
+          ],
+          "anchor": [
+            232,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1279,
+            218
+          ],
+          "leftHandPixel": [
+            1415,
+            195
+          ]
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            0,
+            384,
+            384,
+            768
+          ],
+          "bounds": [
+            81,
+            49,
+            301,
+            345
+          ],
+          "anchor": [
+            244,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            110,
+            634
+          ],
+          "leftHandPixel": [
+            272,
+            473
+          ]
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            384,
+            384,
+            768,
+            768
+          ],
+          "bounds": [
+            69,
+            65,
+            316,
+            345
+          ],
+          "anchor": [
+            215,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            492,
+            604
+          ],
+          "leftHandPixel": [
+            683,
+            626
+          ]
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            768,
+            384,
+            1152,
+            768
+          ],
+          "bounds": [
+            81,
+            57,
+            303,
+            345
+          ],
+          "anchor": [
+            242,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            884,
+            636
+          ],
+          "leftHandPixel": [
+            1055,
+            488
+          ]
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1152,
+            384,
+            1536,
+            768
+          ],
+          "bounds": [
+            76,
+            59,
+            307,
+            345
+          ],
+          "anchor": [
+            224,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1278,
+            620
+          ],
+          "leftHandPixel": [
+            1443,
+            638
+          ]
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            0,
+            768,
+            384,
+            1152
+          ],
+          "bounds": [
+            74,
+            55,
+            310,
+            345
+          ],
+          "anchor": [
+            142,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            91,
+            993
+          ],
+          "leftHandPixel": [
+            294,
+            978
+          ]
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            384,
+            768,
+            768,
+            1152
+          ],
+          "bounds": [
+            86,
+            62,
+            297,
+            344
+          ],
+          "anchor": [
+            152,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            501,
+            1025
+          ],
+          "leftHandPixel": [
+            663,
+            1023
+          ]
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            768,
+            768,
+            1152,
+            1152
+          ],
+          "bounds": [
+            85,
+            56,
+            299,
+            345
+          ],
+          "anchor": [
+            141,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            930,
+            983
+          ],
+          "leftHandPixel": [
+            1029,
+            968
+          ]
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1152,
+            768,
+            1536,
+            1152
+          ],
+          "bounds": [
+            88,
+            55,
+            295,
+            345
+          ],
+          "anchor": [
+            137,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1307,
+            977
+          ],
+          "leftHandPixel": [
+            1433,
+            964
+          ]
+        },
+        {
+          "id": 12,
+          "row": 3,
+          "column": 0,
+          "cell": [
+            0,
+            1152,
+            384,
+            1536
+          ],
+          "bounds": [
+            79,
+            50,
+            304,
+            345
+          ],
+          "anchor": [
+            250,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            120,
+            1401
+          ],
+          "leftHandPixel": [
+            289,
+            1237
+          ]
+        },
+        {
+          "id": 13,
+          "row": 3,
+          "column": 1,
+          "cell": [
+            384,
+            1152,
+            768,
+            1536
+          ],
+          "bounds": [
+            82,
+            50,
+            304,
+            345
+          ],
+          "anchor": [
+            248,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            481,
+            1295
+          ],
+          "leftHandPixel": [
+            671,
+            1273
+          ]
+        },
+        {
+          "id": 14,
+          "row": 3,
+          "column": 2,
+          "cell": [
+            768,
+            1152,
+            1152,
+            1536
+          ],
+          "bounds": [
+            76,
+            50,
+            307,
+            345
+          ],
+          "anchor": [
+            243,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            900,
+            1393
+          ],
+          "leftHandPixel": [
+            1061,
+            1275
+          ]
+        },
+        {
+          "id": 15,
+          "row": 3,
+          "column": 3,
+          "cell": [
+            1152,
+            1152,
+            1536,
+            1536
+          ],
+          "bounds": [
+            91,
+            53,
+            292,
+            345
+          ],
+          "anchor": [
+            235,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1284,
+            1408
+          ],
+          "leftHandPixel": [
+            1421,
+            1404
+          ]
+        }
+      ],
+      "pixelsPerUnit": 133.4090909090909,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "sunny-music-performance-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/sunny-music-performance-v1.png",
+      "sourceSha256": "a0a0edbcfea5948525b9b512c101c9604e9f62c58c47fdd196789a4cbcb60362",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "bounds": [
+            65,
+            52,
+            319,
+            345
+          ],
+          "anchor": [
+            191,
+            343
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              174,
+              335
+            ],
+            "leftForefoot": [
+              272,
+              294
+            ]
+          }
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            384,
+            0,
+            768,
+            384
+          ],
+          "bounds": [
+            69,
+            54,
+            314,
+            345
+          ],
+          "anchor": [
+            202,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              573,
+              335
+            ],
+            "leftForefoot": [
+              663,
+              294
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            768,
+            0,
+            1152,
+            384
+          ],
+          "bounds": [
+            69,
+            57,
+            316,
+            345
+          ],
+          "anchor": [
+            184,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              953,
+              338
+            ],
+            "leftForefoot": [
+              1039,
+              319
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1152,
+            0,
+            1536,
+            384
+          ],
+          "bounds": [
+            69,
+            52,
+            315,
+            345
+          ],
+          "anchor": [
+            192,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              1346,
+              334
+            ],
+            "leftForefoot": [
+              1444,
+              293
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            0,
+            384,
+            384,
+            768
+          ],
+          "bounds": [
+            69,
+            55,
+            315,
+            345
+          ],
+          "anchor": [
+            195,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              203,
+              704
+            ],
+            "leftForefoot": [
+              256,
+              712
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            384,
+            384,
+            768,
+            768
+          ],
+          "bounds": [
+            73,
+            52,
+            311,
+            344
+          ],
+          "anchor": [
+            200,
+            343
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              580,
+              712
+            ],
+            "leftForefoot": [
+              666,
+              712
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            768,
+            384,
+            1152,
+            768
+          ],
+          "bounds": [
+            68,
+            47,
+            316,
+            344
+          ],
+          "anchor": [
+            201,
+            343
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              968,
+              714
+            ],
+            "leftForefoot": [
+              1052,
+              670
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1152,
+            384,
+            1536,
+            768
+          ],
+          "bounds": [
+            66,
+            55,
+            319,
+            345
+          ],
+          "anchor": [
+            197,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              1346,
+              716
+            ],
+            "leftForefoot": [
+              1444,
+              680
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            0,
+            768,
+            384,
+            1152
+          ],
+          "bounds": [
+            70,
+            55,
+            314,
+            345
+          ],
+          "anchor": [
+            195,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              181,
+              1104
+            ],
+            "leftForefoot": [
+              286,
+              1098
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            384,
+            768,
+            768,
+            1152
+          ],
+          "bounds": [
+            57,
+            61,
+            327,
+            345
+          ],
+          "anchor": [
+            175,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              557,
+              1101
+            ],
+            "leftForefoot": [
+              666,
+              1098
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            768,
+            768,
+            1152,
+            1152
+          ],
+          "bounds": [
+            65,
+            52,
+            317,
+            344
+          ],
+          "anchor": [
+            195,
+            343
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              943,
+              1105
+            ],
+            "leftForefoot": [
+              1045,
+              1101
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1152,
+            768,
+            1536,
+            1152
+          ],
+          "bounds": [
+            63,
+            53,
+            319,
+            345
+          ],
+          "anchor": [
+            197,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              1338,
+              1101
+            ],
+            "leftForefoot": [
+              1447,
+              1099
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "row": 3,
+          "column": 0,
+          "cell": [
+            0,
+            1152,
+            384,
+            1536
+          ],
+          "bounds": [
+            68,
+            48,
+            317,
+            345
+          ],
+          "anchor": [
+            267,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              191,
+              1448
+            ],
+            "leftForefoot": [
+              271,
+              1484
+            ]
+          }
+        },
+        {
+          "id": 13,
+          "row": 3,
+          "column": 1,
+          "cell": [
+            384,
+            1152,
+            768,
+            1536
+          ],
+          "bounds": [
+            63,
+            41,
+            321,
+            345
+          ],
+          "anchor": [
+            198,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              558,
+              1480
+            ],
+            "leftForefoot": [
+              665,
+              1479
+            ]
+          }
+        },
+        {
+          "id": 14,
+          "row": 3,
+          "column": 2,
+          "cell": [
+            768,
+            1152,
+            1152,
+            1536
+          ],
+          "bounds": [
+            67,
+            45,
+            317,
+            344
+          ],
+          "anchor": [
+            198,
+            343
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              944,
+              1480
+            ],
+            "leftForefoot": [
+              1058,
+              1417
+            ]
+          }
+        },
+        {
+          "id": 15,
+          "row": 3,
+          "column": 3,
+          "cell": [
+            1152,
+            1152,
+            1536,
+            1536
+          ],
+          "bounds": [
+            68,
+            49,
+            318,
+            345
+          ],
+          "anchor": [
+            200,
+            344
+          ],
+          "mirror": false,
+          "sockets": {
+            "rightForefoot": [
+              1339,
+              1476
+            ],
+            "leftForefoot": [
+              1441,
+              1474
+            ]
+          }
+        }
+      ],
+      "pixelsPerUnit": 132.72727272727272,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "woolly-music-performance-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/woolly-music-performance-v1.png",
+      "sourceSha256": "19eb718fa459c9f99195c4268dc145ef992dcd33c30132898a6f30740b656a0e",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "bounds": [
+            68,
+            41,
+            316,
+            345
+          ],
+          "anchor": [
+            212,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            99,
+            104
+          ],
+          "leftHandPixel": [
+            232,
+            223
+          ]
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            384,
+            0,
+            768,
+            384
+          ],
+          "bounds": [
+            67,
+            46,
+            316,
+            344
+          ],
+          "anchor": [
+            226,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            533,
+            224
+          ],
+          "leftHandPixel": [
+            636,
+            208
+          ]
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            768,
+            0,
+            1152,
+            384
+          ],
+          "bounds": [
+            64,
+            45,
+            321,
+            345
+          ],
+          "anchor": [
+            134,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            895,
+            206
+          ],
+          "leftHandPixel": [
+            1064,
+            193
+          ]
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1152,
+            0,
+            1536,
+            384
+          ],
+          "bounds": [
+            67,
+            46,
+            318,
+            344
+          ],
+          "anchor": [
+            153,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1319,
+            223
+          ],
+          "leftHandPixel": [
+            1403,
+            221
+          ]
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            0,
+            384,
+            384,
+            768
+          ],
+          "bounds": [
+            62,
+            44,
+            322,
+            345
+          ],
+          "anchor": [
+            111,
+            344
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            105,
+            458
+          ],
+          "leftHandPixel": [
+            226,
+            607
+          ]
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            384,
+            384,
+            768,
+            768
+          ],
+          "bounds": [
+            51,
+            45,
+            333,
+            345
+          ],
+          "anchor": [
+            224,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            539,
+            618
+          ],
+          "leftHandPixel": [
+            688,
+            569
+          ]
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            768,
+            384,
+            1152,
+            768
+          ],
+          "bounds": [
+            57,
+            54,
+            325,
+            345
+          ],
+          "anchor": [
+            122,
+            344
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            935,
+            619
+          ],
+          "leftHandPixel": [
+            1064,
+            473
+          ]
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1152,
+            384,
+            1536,
+            768
+          ],
+          "bounds": [
+            73,
+            54,
+            311,
+            345
+          ],
+          "anchor": [
+            141,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1249,
+            568
+          ],
+          "leftHandPixel": [
+            1374,
+            618
+          ]
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            0,
+            768,
+            384,
+            1152
+          ],
+          "bounds": [
+            52,
+            49,
+            334,
+            344
+          ],
+          "anchor": [
+            226,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            76,
+            970
+          ],
+          "leftHandPixel": [
+            309,
+            969
+          ]
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            384,
+            768,
+            768,
+            1152
+          ],
+          "bounds": [
+            61,
+            71,
+            322,
+            344
+          ],
+          "anchor": [
+            120,
+            343
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            538,
+            1018
+          ],
+          "leftHandPixel": [
+            660,
+            1011
+          ]
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            768,
+            768,
+            1152,
+            1152
+          ],
+          "bounds": [
+            68,
+            51,
+            317,
+            344
+          ],
+          "anchor": [
+            162,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            941,
+            989
+          ],
+          "leftHandPixel": [
+            1033,
+            983
+          ]
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1152,
+            768,
+            1536,
+            1152
+          ],
+          "bounds": [
+            67,
+            51,
+            316,
+            345
+          ],
+          "anchor": [
+            161,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1302,
+            994
+          ],
+          "leftHandPixel": [
+            1420,
+            980
+          ]
+        },
+        {
+          "id": 12,
+          "row": 3,
+          "column": 0,
+          "cell": [
+            0,
+            1152,
+            384,
+            1536
+          ],
+          "bounds": [
+            65,
+            52,
+            319,
+            345
+          ],
+          "anchor": [
+            232,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            97,
+            1239
+          ],
+          "leftHandPixel": [
+            253,
+            1371
+          ]
+        },
+        {
+          "id": 13,
+          "row": 3,
+          "column": 1,
+          "cell": [
+            384,
+            1152,
+            768,
+            1536
+          ],
+          "bounds": [
+            65,
+            47,
+            317,
+            345
+          ],
+          "anchor": [
+            150,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            476,
+            1240
+          ],
+          "leftHandPixel": [
+            674,
+            1239
+          ]
+        },
+        {
+          "id": 14,
+          "row": 3,
+          "column": 2,
+          "cell": [
+            768,
+            1152,
+            1152,
+            1536
+          ],
+          "bounds": [
+            60,
+            52,
+            324,
+            344
+          ],
+          "anchor": [
+            154,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            939,
+            1374
+          ],
+          "leftHandPixel": [
+            1065,
+            1239
+          ]
+        },
+        {
+          "id": 15,
+          "row": 3,
+          "column": 3,
+          "cell": [
+            1152,
+            1152,
+            1536,
+            1536
+          ],
+          "bounds": [
+            71,
+            53,
+            314,
+            345
+          ],
+          "anchor": [
+            158,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1307,
+            1390
+          ],
+          "leftHandPixel": [
+            1415,
+            1385
+          ]
+        }
+      ],
+      "pixelsPerUnit": 133.86363636363635,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "wren-music-performance-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/wren-music-performance-v1.png",
+      "sourceSha256": "683e1a327f7b1e86dd1781f95882440880064bfc7cc6368379652e004bf97e6b",
+      "frames": [
+        {
+          "id": 0,
+          "row": 0,
+          "column": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "bounds": [
+            92,
+            42,
+            294,
+            345
+          ],
+          "anchor": [
+            236,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            198,
+            235
+          ],
+          "leftHandPixel": [
+            276,
+            139
+          ]
+        },
+        {
+          "id": 1,
+          "row": 0,
+          "column": 1,
+          "cell": [
+            384,
+            0,
+            768,
+            384
+          ],
+          "bounds": [
+            95,
+            41,
+            287,
+            344
+          ],
+          "anchor": [
+            140,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            554,
+            242
+          ],
+          "leftHandPixel": [
+            645,
+            121
+          ]
+        },
+        {
+          "id": 2,
+          "row": 0,
+          "column": 2,
+          "cell": [
+            768,
+            0,
+            1152,
+            384
+          ],
+          "bounds": [
+            85,
+            40,
+            299,
+            345
+          ],
+          "anchor": [
+            250,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            866,
+            183
+          ],
+          "leftHandPixel": [
+            1051,
+            237
+          ]
+        },
+        {
+          "id": 3,
+          "row": 0,
+          "column": 3,
+          "cell": [
+            1152,
+            0,
+            1536,
+            384
+          ],
+          "bounds": [
+            101,
+            44,
+            282,
+            345
+          ],
+          "anchor": [
+            238,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1307,
+            232
+          ],
+          "leftHandPixel": [
+            1409,
+            225
+          ]
+        },
+        {
+          "id": 4,
+          "row": 1,
+          "column": 0,
+          "cell": [
+            0,
+            384,
+            384,
+            768
+          ],
+          "bounds": [
+            89,
+            54,
+            296,
+            345
+          ],
+          "anchor": [
+            135,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            106,
+            504
+          ],
+          "leftHandPixel": [
+            283,
+            628
+          ]
+        },
+        {
+          "id": 5,
+          "row": 1,
+          "column": 1,
+          "cell": [
+            384,
+            384,
+            768,
+            768
+          ],
+          "bounds": [
+            91,
+            57,
+            292,
+            344
+          ],
+          "anchor": [
+            146,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            537,
+            624
+          ],
+          "leftHandPixel": [
+            648,
+            509
+          ]
+        },
+        {
+          "id": 6,
+          "row": 1,
+          "column": 2,
+          "cell": [
+            768,
+            384,
+            1152,
+            768
+          ],
+          "bounds": [
+            88,
+            62,
+            295,
+            345
+          ],
+          "anchor": [
+            237,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            883,
+            502
+          ],
+          "leftHandPixel": [
+            1019,
+            638
+          ]
+        },
+        {
+          "id": 7,
+          "row": 1,
+          "column": 3,
+          "cell": [
+            1152,
+            384,
+            1536,
+            768
+          ],
+          "bounds": [
+            91,
+            61,
+            292,
+            345
+          ],
+          "anchor": [
+            232,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1349,
+            619
+          ],
+          "leftHandPixel": [
+            1433,
+            531
+          ]
+        },
+        {
+          "id": 8,
+          "row": 2,
+          "column": 0,
+          "cell": [
+            0,
+            768,
+            384,
+            1152
+          ],
+          "bounds": [
+            65,
+            56,
+            318,
+            344
+          ],
+          "anchor": [
+            144,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            81,
+            965
+          ],
+          "leftHandPixel": [
+            305,
+            974
+          ]
+        },
+        {
+          "id": 9,
+          "row": 2,
+          "column": 1,
+          "cell": [
+            384,
+            768,
+            768,
+            1152
+          ],
+          "bounds": [
+            99,
+            56,
+            286,
+            345
+          ],
+          "anchor": [
+            141,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            536,
+            1026
+          ],
+          "leftHandPixel": [
+            615,
+            1026
+          ]
+        },
+        {
+          "id": 10,
+          "row": 2,
+          "column": 2,
+          "cell": [
+            768,
+            768,
+            1152,
+            1152
+          ],
+          "bounds": [
+            101,
+            58,
+            284,
+            344
+          ],
+          "anchor": [
+            146,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            952,
+            997
+          ],
+          "leftHandPixel": [
+            1040,
+            997
+          ]
+        },
+        {
+          "id": 11,
+          "row": 2,
+          "column": 3,
+          "cell": [
+            1152,
+            768,
+            1536,
+            1152
+          ],
+          "bounds": [
+            89,
+            56,
+            294,
+            345
+          ],
+          "anchor": [
+            146,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1258,
+            959
+          ],
+          "leftHandPixel": [
+            1433,
+            982
+          ]
+        },
+        {
+          "id": 12,
+          "row": 3,
+          "column": 0,
+          "cell": [
+            0,
+            1152,
+            384,
+            1536
+          ],
+          "bounds": [
+            92,
+            66,
+            293,
+            345
+          ],
+          "anchor": [
+            234,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            141,
+            1365
+          ],
+          "leftHandPixel": [
+            275,
+            1243
+          ]
+        },
+        {
+          "id": 13,
+          "row": 3,
+          "column": 1,
+          "cell": [
+            384,
+            1152,
+            768,
+            1536
+          ],
+          "bounds": [
+            83,
+            66,
+            301,
+            345
+          ],
+          "anchor": [
+            144,
+            342
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            479,
+            1269
+          ],
+          "leftHandPixel": [
+            673,
+            1269
+          ]
+        },
+        {
+          "id": 14,
+          "row": 3,
+          "column": 2,
+          "cell": [
+            768,
+            1152,
+            1152,
+            1536
+          ],
+          "bounds": [
+            89,
+            65,
+            294,
+            344
+          ],
+          "anchor": [
+            243,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            874,
+            1276
+          ],
+          "leftHandPixel": [
+            1048,
+            1381
+          ]
+        },
+        {
+          "id": 15,
+          "row": 3,
+          "column": 3,
+          "cell": [
+            1152,
+            1152,
+            1536,
+            1536
+          ],
+          "bounds": [
+            103,
+            67,
+            281,
+            344
+          ],
+          "anchor": [
+            156,
+            341
+          ],
+          "mirror": false,
+          "rightHandPixel": [
+            1335,
+            1388
+          ],
+          "leftHandPixel": [
+            1413,
+            1387
+          ]
+        }
+      ],
+      "pixelsPerUnit": 130.68181818181816,
+      "deliveryRecipe": {
+        "kind": "complete-current-source"
+      }
+    },
+    "dino-concert-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.png",
+      "sourceSha256": "0977a429216301ffa4d2d1645073d7b53aa6279cd9ef0681647742e5a1a49cbc",
+      "deliveryRecipe": {
+        "kind": "complete-current-source",
+        "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/dino-concert-venue-v1.png"
+      }
+    },
+    "meadow-concert-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.png",
+      "sourceSha256": "3f7042c9e53fa77abe49c22995e703b830b64b13d7b7018a0c3d82025428c784",
+      "deliveryRecipe": {
+        "kind": "complete-current-source",
+        "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/meadow-concert-venue-v1.png"
+      }
+    },
+    "moonwood-concert-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/moonwood-concert-venue-v1.png",
+      "sourceSha256": "12893a115cb8a63b262a6903942e4e00bd9335af657bc6d12d7d79cd5531834d",
+      "deliveryRecipe": {
+        "kind": "complete-current-source",
+        "source": "source-art/arcade/physical-worlds/sound-beat/clean-cartoon/moonwood-concert-venue-v1.png"
+      }
+    }
+  },
+  "currentPoseSelection": {
+    "bouncy": {
+      "contact": {
+        "rightHand": 0,
+        "leftHand": 1
+      },
+      "ready": 3,
+      "preparation": {
+        "rightHand": [
+          2,
+          5,
+          4
+        ],
+        "leftHand": [
+          14,
+          0,
+          0
+        ]
+      },
+      "recovery": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "finale": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "woolly": {
+      "contact": {
+        "rightHand": 1,
+        "leftHand": 0
+      },
+      "ready": 3,
+      "preparation": {
+        "rightHand": [
+          7,
+          0,
+          4
+        ],
+        "leftHand": [
+          5,
+          1,
+          6
+        ]
+      },
+      "recovery": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "finale": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "chompy": {
+      "contact": {
+        "rightHand": 0,
+        "leftHand": 1
+      },
+      "ready": 3,
+      "preparation": {
+        "rightHand": [
+          2,
+          6,
+          4
+        ],
+        "leftHand": [
+          14,
+          2,
+          0
+        ]
+      },
+      "recovery": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "finale": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "sunny": {
+      "direct": true,
+      "contact": {
+        "rightForefoot": 12,
+        "leftForefoot": 0
+      },
+      "ready": 3,
+      "preparation": {
+        "rightForefoot": [
+          7,
+          2,
+          12
+        ],
+        "leftForefoot": [
+          5,
+          7,
+          6
+        ]
+      },
+      "recovery": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "finale": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "pip": {
+      "contact": {
+        "rightHand": 0,
+        "leftHand": 1
+      },
+      "ready": 3,
+      "preparation": {
+        "rightHand": [
+          2,
+          5,
+          1
+        ],
+        "leftHand": [
+          7,
+          6,
+          0
+        ]
+      },
+      "recovery": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "finale": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "wren": {
+      "contact": {
+        "rightHand": 0,
+        "leftHand": 2
+      },
+      "ready": 3,
+      "preparation": {
+        "rightHand": [
+          5,
+          6,
+          4
+        ],
+        "leftHand": [
+          7,
+          1,
+          0
+        ]
+      },
+      "recovery": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "finale": [
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  },
+  "anatomicalReview": "All current selected visible hands/forefeet measured;3hidden-fargrip bodies retained/unselected; Sunny opposite forefoot uses actual raised12, not requested old4"
+}

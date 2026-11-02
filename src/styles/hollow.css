@@ -116,7 +116,7 @@
 
 .hollow-spot {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100%);
   display: flex; flex-direction: column; align-items: center; gap: 5px;
   border: none; background: transparent; cursor: pointer; padding: 0;
   font-weight: 800;
@@ -125,7 +125,7 @@
 /* Placement coordinates depend on this transform. Generic button hover/focus
    resets must never replace it, including Safari's sticky touch-hover state. */
 main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):not(:disabled) {
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100%);
 }
 .hollow-spot.empty {
   width: 64px; height: 64px; border-radius: 50%;
@@ -585,7 +585,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   margin: 0 auto;
   padding: 0;
   border: none;
-  background: none;
+  background: #fff8e8;
   cursor: pointer;
   perspective: 700px;
   animation: hw-pal-idle 3.4s ease-in-out infinite;
@@ -600,59 +600,18 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   pointer-events: none;
 }
 .hollow-pal-base { z-index: 1; }
-.hollow-pal-gear {
-  z-index: 2;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-}
-.hollow-pal-gear-back {
-  -webkit-mask-image: radial-gradient(ellipse 56% 54% at 40% 48%, #000 68%, transparent 86%);
-  mask-image: radial-gradient(ellipse 56% 54% at 40% 48%, #000 68%, transparent 86%);
-}
-.hollow-pal-gear-feet {
-  z-index: 3;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 50%, #000 64%);
-  mask-image: linear-gradient(to bottom, transparent 50%, #000 64%);
-}
-.hollow-pal-gear-neck {
-  z-index: 4;
-  -webkit-mask-image: radial-gradient(ellipse 48% 28% at 50% 48%, #000 52%, transparent 76%);
-  mask-image: radial-gradient(ellipse 48% 28% at 50% 48%, #000 52%, transparent 76%);
-}
-.hollow-pal-gear-head {
-  z-index: 5;
-  -webkit-mask-image: radial-gradient(ellipse 46% 30% at 50% 23%, #000 72%, transparent 96%);
-  mask-image: radial-gradient(ellipse 46% 30% at 50% 23%, #000 72%, transparent 96%);
-}
-.hollow-pal-gear-held {
-  z-index: 6;
-  -webkit-mask-image: radial-gradient(ellipse 45% 58% at 70% 62%, #000 48%, transparent 72%);
-  mask-image: radial-gradient(ellipse 45% 58% at 70% 62%, #000 48%, transparent 72%);
-}
-.hollow-pal-ground {
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  bottom: 2%;
-  height: 7%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(40, 28, 8, 0.28), transparent 70%);
-  z-index: 0;
-  animation: hw-pal-shadow 3.4s ease-in-out infinite;
-}
+.hollow-pal-gear { z-index: 2; }
+.hollow-pal-gear-back { z-index: 0; }
+.hollow-pal-gear-pack-front { z-index: 2; }
+.hollow-pal-gear-feet { z-index: 3; }
+.hollow-pal-gear-neck { z-index: 4; }
+.hollow-pal-gear-head { z-index: 5; }
+.hollow-pal-gear-held { z-index: 6; }
 .hollow-pal-figure.spin { animation: hw-pal-spin 0.9s cubic-bezier(0.3, 0.6, 0.3, 1); }
-.hollow-pal-figure.spin .hollow-pal-ground { animation: none; }
 @keyframes hw-pal-idle {
   0%, 100% { transform: translateY(0) rotate(-0.6deg) scale(1); }
   30% { transform: translateY(-7px) rotate(0.4deg) scale(1.005, 0.995); }
   60% { transform: translateY(-2px) rotate(0.8deg) scale(0.997, 1.004); }
-}
-@keyframes hw-pal-shadow {
-  0%, 100% { transform: scaleX(1); opacity: 1; }
-  30% { transform: scaleX(0.9); opacity: 0.75; }
-  60% { transform: scaleX(0.97); opacity: 0.9; }
 }
 @keyframes hw-pal-spin {
   0% { transform: rotateY(0deg) scale(1); }
@@ -742,9 +701,17 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
 .kg-stage .hollow-simple .hollow-beastie-actions p { margin: 0 0 12px; }
 .kg-stage .hollow-simple .hollow-meter > span { background: #3454C8; }
 .kg-stage .hollow-simple .hollow-room { border-radius: 0; }
+.kg-stage .hollow-simple .hollow-room-frame { display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.kg-stage .hollow-simple .hollow-room-pan { display: flex; min-width: 0; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+.kg-stage .hollow-simple .hollow-room-pan:focus-visible { outline: 3px solid #3454C8; outline-offset: -3px; }
+.kg-stage .hollow-simple .hollow-room { min-width: 780px; min-height: 100%; }
+.kg-stage .hollow-simple .hollow-spot.filled { width: 72px; height: 72px; }
+.kg-stage .hollow-simple .hollow-spot.filled .hollow-spot-name { position: absolute; top: calc(100% + 5px); max-width: 96px; white-space: normal; }
+.kg-stage .hollow-simple .hollow-room-shop { min-height: 56px; margin-left: auto; font-size: 16px; }
 .kg-stage .hollow-simple .hollow-room-tools { display: flex; position: absolute; top: 16px; right: 16px; gap: 12px; }
 .kg-stage .hollow-simple .hollow-room-navigation { display: flex; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); align-items: center; gap: 16px; padding: 6px; background: #FFFFFF; border-radius: 14px; }
 .kg-stage .hollow-simple .hollow-room-navigation button { display: flex; align-items: center; justify-content: center; width: 56px; padding: 10px; }
+.kg-stage .hollow-simple .hollow-room-navigation { position: static; transform: none; justify-self: center; margin: 4px; }
 .kg-stage .hollow-simple .hollow-room-next { top: 45%; bottom: auto; left: 50%; transform: translate(-50%, -50%); box-shadow: none; }
 .kg-stage .hollow-simple .hollow-spot.empty { width: 64px; height: 64px; opacity: 1; background: #FFFFFF; color: #3454C8; border: 2px solid #929DAF; text-shadow: none; box-shadow: none; }
 .kg-stage .hollow-simple .hollow-spot.empty.recommended { width: 72px; height: 72px; background: #3454C8; color: #FFFFFF; border: 3px solid #FFFFFF; outline: 2px solid #3454C8; animation: none; box-shadow: none; }
@@ -806,4 +773,12 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .kg-stage .hollow-simple .hollow-shelf-tabs { display: flex; flex-wrap: wrap; }
   .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Preserve a usable room canvas in short landscape windows. The normal page
+   scrolls vertically while the room retains its existing horizontal pan. */
+@media (max-height: 560px) {
+  .kg-stage .hollow-page.hollow-simple[data-hollow-view="room"] { overflow-y: auto; overscroll-behavior: contain; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-stage { flex: 0 0 480px; min-height: 480px; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-frame { min-height: 480px; }
 }

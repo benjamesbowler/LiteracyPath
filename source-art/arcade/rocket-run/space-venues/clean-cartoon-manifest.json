@@ -1,0 +1,104 @@
+{
+  "version": "rocket-run-clean-cartoon-skies-2026-11-02",
+  "authority": "docs/design/ILLUSTRATION_STYLE_STANDARD.md",
+  "generator": "image_gen.imagegen",
+  "scope": "Three distinct illustrated distant skies only; preserved model,flight,route artwork and actualthreeDsource",
+  "activity": "Retainedcourierproductionpreview only; currentlegacyRocketRun product unchanged",
+  "historicalManifest": {
+    "path": "source-art/arcade/rocket-run/space-venues/source-manifest.json",
+    "sha256": "5bb497001c2dda6e56d844e4ceaf82d9359f14bfa31045d6e4b4cf59b61281ba"
+  },
+  "encoding": {
+    "primary": {
+      "width": 1280,
+      "height": 720,
+      "quality": 85,
+      "method": 4
+    },
+    "independent": {
+      "width": 720,
+      "height": 405,
+      "quality": 84,
+      "method": 4
+    },
+    "embedded": {
+      "width": 320,
+      "height": 180,
+      "quality": 83,
+      "method": 4
+    }
+  },
+  "assets": [
+    {
+      "world": "meadow",
+      "jobId": "rocket-sky-clean-meadow-2026-11-02",
+      "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.png",
+      "sourceSha256": "3110a364e1409701995f159d1502edb200fae3e48dc65c90948c8efa5de80db7",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "prompt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.prompt.txt",
+      "promptSha256": "48678ab583da77e34901410e659dca3b5999d5dd678e68683c141d55c9c287c4",
+      "receipt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/meadow-distant-sky-v1.receipt.json",
+      "receiptSha256": "f299b538770730ddf28068ebcd73a455275f7e5f22ba8145c2494c825f9101ce",
+      "historicalSource": {
+        "path": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1.png",
+        "sha256": "d828a23c1ed02f48f757e0f8e5b1f851493bb2b2e33c236f38e14ede13cd451a"
+      }
+    },
+    {
+      "world": "dino",
+      "jobId": "rocket-sky-clean-dino-2026-11-02",
+      "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.png",
+      "sourceSha256": "e606f6e0c7a49582602966db6fdcf8cc630757612162126f1efa69001918c764",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "prompt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.prompt.txt",
+      "promptSha256": "6033073a92a31119c4b92c5ad19535364ffd729e6228f8427000a55676d937f6",
+      "receipt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/dino-distant-sky-v1.receipt.json",
+      "receiptSha256": "31aeddbc6ebc54bd6b5976adfe12dac2f1190b5227b79aa43ac6f53f0736e59f",
+      "historicalSource": {
+        "path": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1.png",
+        "sha256": "e9fd75570b73bad269ac47e3a602f3731a45d64a2f1adbcc64699b600320ce97"
+      }
+    },
+    {
+      "world": "moonwood",
+      "jobId": "rocket-sky-clean-moonwood-2026-11-02",
+      "source": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.png",
+      "sourceSha256": "23a812453d6ebd3e0e3e59800345b0713ac51fcbf5a92c4399f9457ef8d3dee9",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "prompt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.prompt.txt",
+      "promptSha256": "beaba4b2eabd6974dd8d5354bde9b30a797c70d2780ab334b5b734bd2d17c10e",
+      "receipt": "source-art/arcade/rocket-run/space-venues/clean-cartoon/moonwood-distant-sky-v1.receipt.json",
+      "receiptSha256": "fa3f8f9baf375ab4a85a027b5fb0622ca97d5f1aabbc226ef873963a9ea8aaa1",
+      "historicalSource": {
+        "path": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1.png",
+        "sha256": "ef0092c63f00c7786c493ca4c43f948d5fe0cab5e2018e9b2fddba2cafeb14d3"
+      }
+    }
+  ],
+  "review": {
+    "at": "2026-11-02T09:57:35.619056+00:00",
+    "status": "ACCEPTED_RETAINED_PREVIEW_ONLY",
+    "nativeViewed": true,
+    "savedAllNineVariants390And128Viewed": true,
+    "normalIndependentEmbeddedCurrentRevisionCases": 27,
+    "actualCorrectCatchCases": 6,
+    "currentSourceAndDeliveryProof": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/rocket-sky-clean-cartoon/native-results.json",
+      "sha256": "5c325348a4d7b015a71c4f41e118ad6fa6fc6ea5ea75f2d73ddb3217b1b75344"
+    },
+    "actualGameplayProof": {
+      "path": ".artifacts/all-clean-cartoon-2026-10-31/cd_dino/rocket-sky-clean-cartoon/gameplay-native-results.json",
+      "sha256": "66811bbc56d30372794a881bf8579ae280a49ec7fe20daf22892f268207557de"
+    },
+    "boundary": "Retained RocketRunPresentation courier production preview only; live restored three-lane RocketRunGame is a separate unchanged registry leaf. Existing missing Supabase frontend env diagnostic and deliberately aborted primary/independent/model requests are reported separately; no auth/hosted/listening or physical-device claim."
+  }
+}

@@ -13,6 +13,17 @@ const manifestPath = path.join(root, directory, 'manifest.json');
 const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
 const registerOnly = process.argv.includes('--register-only');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+if (await fs.stat(path.join(root, directory, 'clean-cartoon-manifest.json')).then(() => true, error => {
+  if (error.code !== 'ENOENT') throw error;
+  return false;
+})) {
+  const { buildSoundSafariCleanCartoon } = await import('./soundSafariCleanCartoon.mjs');
+  const index = process.argv.indexOf('--asset-ids');
+  const result = await buildSoundSafariCleanCartoon({ metadataOnly: process.argv.includes('--metadata-only'), registerOnly,
+    selectedIds: index < 0 ? undefined : new Set(process.argv[index + 1].split(',')) });
+  console.log(JSON.stringify(result));
+  process.exit(0);
+}
 const atlases = {};
 const compilationStart = performance.now();
 const timed = (asset, stage, start) => console.log(JSON.stringify({ event: 'asset-stage', asset, stage,

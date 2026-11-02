@@ -1,4 +1,5 @@
-import manifest from '../../../../../source-art/arcade/physical-worlds/tower-tumble/scene-kit-v1.json';
+import manifest from '../../../../../source-art/arcade/physical-worlds/tower-tumble/clean-cartoon-manifest.json';
+import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { preloadPhysicalPalArt, drawPhysicalPalArt } from '../shared/physicalPalArt.js';
 
 // Original source artwork and measured atlas rectangles have one authoring
@@ -21,7 +22,7 @@ function decodeImage(url) {
       try { await image.decode(); } catch { /* Loaded browsers without decode still work. */ }
       finish(image.naturalWidth ? image : null);
     };
-    image.onerror = () => finish(null); image.src = url;
+    image.onerror = () => finish(null); image.src = withRepairedImageVersion(url);
   }));
   return decodedImages.get(url);
 }

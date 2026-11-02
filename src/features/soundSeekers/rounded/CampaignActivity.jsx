@@ -1,4 +1,5 @@
 import { soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
+import { withRepairedImageVersion } from '../../../utils/repairedImageVersion.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CAST } from '../v3/content/cast.js';
 import { campaignQuestionImage } from './campaignQuestionArt.js';
@@ -18,7 +19,7 @@ function PaintedQuestionImage({ descriptor, delivered = false, revision = 0, fai
   const imageRef = useRef(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
-  const source = campaignQuestionImage(descriptor);
+  const source = withRepairedImageVersion(campaignQuestionImage(descriptor));
   useEffect(() => {
     if (imageRef.current?.complete && imageRef.current.naturalWidth) onMediaState?.(failureId, true);
   }, [source, revision, failureId, onMediaState]);
@@ -172,7 +173,7 @@ export default function CampaignActivity({
   return <section style={soundSeekersRoundedCssVariables()} className="rounded-activity" data-mechanic={beat.mechanic} data-family={beat.familyId} data-paused={paused ? 'true' : 'false'} data-reduced-motion={reducedMotion ? 'true' : 'false'} aria-label={family.title}>
     <header className="rounded-activity-header">
       <div className="rounded-activity-heading">
-        {resident && <img className="rounded-resident-portrait" src={resident.sprite} alt={resident.name} />}
+        {resident && <img className="rounded-resident-portrait" src={withRepairedImageVersion(resident.sprite)} alt={resident.name} />}
         <div><h2>{family.title}</h2><p className={supportText ? 'rounded-written-support' : undefined} role={supportText ? 'status' : undefined} data-child-instruction="">{supportText || campaignInstructionText(beat)}</p></div>
       </div>
       <button type="button" className="rounded-replay" onClick={onReplay} aria-label="Hear the instruction again" data-speaking={speaking ? 'true' : 'false'}><Speaker /></button>

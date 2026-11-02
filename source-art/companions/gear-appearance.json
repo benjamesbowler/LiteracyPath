@@ -1,0 +1,75 @@
+{
+  "authority": "src/utils/hollowEconomy.js GEAR owns IDs and slots; this file owns appearance only.",
+  "gear": [
+    {
+      "id": "gear-meadow-crown",
+      "slot": "head",
+      "appearance": "a small woven crown of meadow flowers and grass sitting on top of the head"
+    },
+    {
+      "id": "gear-explorer-pack",
+      "slot": "back",
+      "appearance": "a little tan canvas explorer backpack with a bedroll, worn on the back with straps over the shoulders"
+    },
+    {
+      "id": "gear-acorn-shield",
+      "slot": "held",
+      "appearance": "a small round wooden shield with an acorn emblem, held in one hand at the side"
+    },
+    {
+      "id": "gear-willow-wand",
+      "slot": "held",
+      "appearance": "a slender willow-branch wand with a soft glowing tip, held up in one hand"
+    },
+    {
+      "id": "gear-trail-boots",
+      "slot": "feet",
+      "appearance": "sturdy little brown leather hiking boots with green laces, worn on the feet"
+    },
+    {
+      "id": "gear-wizard-hat",
+      "slot": "head",
+      "appearance": "a floppy midnight-blue wizard hat with tiny embroidered stars, sitting on the head"
+    },
+    {
+      "id": "gear-starweave-scarf",
+      "slot": "neck",
+      "appearance": "a flowing indigo scarf woven with tiny glowing stars, wrapped once around the neck with the ends hanging down"
+    },
+    {
+      "id": "gear-moth-wings",
+      "slot": "back",
+      "appearance": "a pair of large soft moth wings, pale green with moon-dust patterns, attached to the back and gently spread"
+    },
+    {
+      "id": "gear-dino-helm",
+      "slot": "head",
+      "appearance": "a rounded dino-skull-shaped helmet with two small horns, worn on the head"
+    },
+    {
+      "id": "gear-bone-charm",
+      "slot": "neck",
+      "appearance": "a simple cord necklace with a small carved white bone charm, worn around the neck"
+    },
+    {
+      "id": "gear-raptor-wings",
+      "slot": "back",
+      "appearance": "a pair of feathered orange-and-teal raptor wings attached to the back, gently folded"
+    },
+    {
+      "id": "gear-petal-hood",
+      "slot": "head",
+      "appearance": "a soft hood made of layered pink flower petals, worn up over the head"
+    },
+    {
+      "id": "gear-leaf-cloak",
+      "slot": "neck",
+      "appearance": "a short cloak of layered green leaves fastened at the neck, draped over the shoulders"
+    },
+    {
+      "id": "gear-falcon-wings",
+      "slot": "back",
+      "appearance": "a pair of sleek grey-and-white falcon wings attached to the back, slightly lifted"
+    }
+  ]
+}

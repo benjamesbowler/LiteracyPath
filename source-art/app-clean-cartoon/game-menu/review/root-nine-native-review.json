@@ -1,0 +1,87 @@
+{
+  "at": "2026-11-02T13:10:03.388Z",
+  "reviewedBy": "root-direct-full-native",
+  "rows": [
+    {
+      "id": "star-gallery",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/star-gallery-001.png",
+      "nativeSha256": "e97e1bcc231a127a69b7276ab4e2224a6c9e76ae123b7cd5003c776e2d6752a0",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "two leafy trees, a blank blue signboard and a coral pencil beside a golden check mark",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "sentence-express",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/sentence-express-001.png",
+      "nativeSha256": "b18001ccdf04b28b31a95aa87b26976605dba1ea8a36eded253c3f187182fc5d",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a small blue and coral toy steam locomotive pulling two blank golden carriages",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "grammar-grind",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/grammar-grind-001.png",
+      "nativeSha256": "67716becfdf256e28e06414da213d11e7058f61a5f8be7c0a3664e7ce7c9ad8a",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a blue and coral skateboard on a small curved ramp with two blank golden tiles",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "soundkeys",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/soundkeys-001.png",
+      "nativeSha256": "a53649beaf83d35b2a62efa94ff251832f46315f891547c8791eba61460c7fa2",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a small rounded blue toy piano with cream keys, coral accents and two golden sound-wave shapes",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "drum-trail",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/drum-trail-001.png",
+      "nativeSha256": "246e1fe03aa63f8de53a0944bd3686c7297c060bf710fe5218e0e1080f71e20f",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "two small blue and coral hand drums beside three rounded golden stepping stones",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "lantern-lagoon",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/lantern-lagoon-001.png",
+      "nativeSha256": "1600c047e122a7eaeaf7751b0b6539e0f5cf317e5da78aa1854cd0577a18bb85",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a glowing golden lantern on a tiny blue wooden boat above a short still-water ripple",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "tower-tumble",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/tower-tumble-001.png",
+      "nativeSha256": "a08359fe10f22ee2e0844edf0799c20fbe7d076ac4e2a9a81a10b199a5eece77",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a small wooden scaffold tower with two ladders, a blue-and-coral padded mallet, one rolling wooden barrel and a golden star at the top",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "rally-pals",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/rally-pals-001.png",
+      "nativeSha256": "684a3b96d4fa07834a1edfb62535f2c20834f6c1b3fadd4546c793389667eb80",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a blue tennis racket, a golden yellow tennis ball and a tiny green meadow court with a white net",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    },
+    {
+      "id": "burrow-builders",
+      "native": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/game-menu-refresh/natives/burrow-builders-001.png",
+      "nativeSha256": "e85cf70f3e28d895567d90a0bf4dc330c5883aedce622e3b35e523efcdd3df4c",
+      "fullNativeViewed": true,
+      "decision": "accept",
+      "semantics": "a charming small block-built wooden house, a blue stream crossed by a block bridge and a few colorful blank cubic building blocks",
+      "notes": "Compared exact native with original384 reference. Whole subject, intended object counts/relationships/palette preserved; bold continuous outlines and simple broad cel fields, no grain/emboss/daubs/fuzzy textures. Neutral settings; no religious/national/political imagery. Whole icons clear and complete with opaque cream/light-blue halo."
+    }
+  ]
+}

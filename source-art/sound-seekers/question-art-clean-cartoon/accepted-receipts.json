@@ -1,0 +1,758 @@
+[
+  {
+    "jobId": "art-0616",
+    "path": "/game-assets/sound-seekers/question-art/basket-lid.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/basket-lid.png"
+    ],
+    "originalSha256": "81d7840fd92a8f4a3ff88b40e7763edd74dce0b4690d1d0853c2504002318940",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/basket-lid.png",
+    "finalSha256": "84bb0db62da1d057fa73a0b12f91a496b4dba9ea523b1c9c156bf3bcfcadedca",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0616-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-c1d85f01-355d-4d1b-a420-2675a6b3c145.png",
+    "nativeSha256": "c67d49d5a05aa99f8c4706175cb390c5ed80f6f0740832002e39f12e655e9501",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0616-attempt-002.txt",
+    "promptSha256": "fd5576b3c0480884b55d7617934942d82b1154e19db3f600b9c7ad9b9e11f2e1",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0616-2-reference-1.png",
+        "sha256": "81d7840fd92a8f4a3ff88b40e7763edd74dce0b4690d1d0853c2504002318940"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0616-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/basket-lid.packing.json",
+    "packingRecipeSha256": "0f140b11de4fdee58ea9b6b58265482d6074f2e64b1a84f16686e9aaf1ac5f56",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "basket-lid"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/context-browser/receipt.json",
+          "sha256": "6adbf19985f2000336f24d6023616fd828214d304157b81770f2a6d1883f0055"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+          "sha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+    "reviewEvidenceSha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+  },
+  {
+    "jobId": "art-0617",
+    "path": "/game-assets/sound-seekers/question-art/colours.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/colours.png"
+    ],
+    "originalSha256": "ce4a03abe622dbe4b157452fbea1dfc4b4a107d90fd43982dab6579306536ccb",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/colours.png",
+    "finalSha256": "9b536f537ce579691b861d0aac4f75d2a3bc6c08bb59b1bceb305fd1493179c1",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0617-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-83f4688e-743e-4df3-9b0c-66c11ffc4a01.png",
+    "nativeSha256": "c4ac3d37d98b7360d1b29acdecf0b49081ad81308f6be1ce6cec8eec85d7ff1f",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0617-attempt-002.txt",
+    "promptSha256": "067f050ba085eaf8bd71c409730ceb5ae503372fc53067269b664b9aa3a28207",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0617-2-reference-1.png",
+        "sha256": "ce4a03abe622dbe4b157452fbea1dfc4b4a107d90fd43982dab6579306536ccb"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0617-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/colours.packing.json",
+    "packingRecipeSha256": "93b867364ac95ef4aec2cb9899a2d3237139d018cd87a0d32f8c0f7f9c2d5422",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "colours"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/context-browser/receipt.json",
+          "sha256": "6adbf19985f2000336f24d6023616fd828214d304157b81770f2a6d1883f0055"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+          "sha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+    "reviewEvidenceSha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+  },
+  {
+    "jobId": "art-0618",
+    "path": "/game-assets/sound-seekers/question-art/context.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/context.png"
+    ],
+    "originalSha256": "ee420e50dd1cdadb7289fe7ae77cf0505f7cc57f04704c3ab9ae046873377361",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/context.png",
+    "finalSha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0618-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-f60ffe15-e67d-45ee-9be8-81a1cffcec3b.png",
+    "nativeSha256": "884da6f1b043f0a4e7619ce3f5336a524d814ebb264455f7d7c64ac88fb9e96a",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0618-attempt-002.txt",
+    "promptSha256": "89fba84c49a81efa242a54387ab575cb858aa6a9b73f59b69ab54c43f92d55d6",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0618-2-reference-1.png",
+        "sha256": "ee420e50dd1cdadb7289fe7ae77cf0505f7cc57f04704c3ab9ae046873377361"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0618-2-reference-2.png",
+        "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/context.packing.json",
+    "packingRecipeSha256": "ad2a9ee583545f3784631889a88a2215e581d2176b7b7e0b11fb376ea4f1f1b0",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "context"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0619",
+    "path": "/game-assets/sound-seekers/question-art/contrasts.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/contrasts.png"
+    ],
+    "originalSha256": "c20bb863e6aa26159b9e7b19948f110093aa91559dfc01c7be71c3fe6ba7f3cd",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/contrasts.png",
+    "finalSha256": "434cd6d26c8a42e1609582fd2efa216550e12a579cf51e13519853cb4db86ea2",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0619-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-23c661ac-20d4-459e-802b-0957f4053a42.png",
+    "nativeSha256": "952c8b25fd99af8f0cabc1245a121b3c4bb578c764b39cf06f2aa086aa2960af",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0619-attempt-003.txt",
+    "promptSha256": "e687f7a9a5d496b84a935b7b7581e1da021535d3c946231633890549afb2b7e1",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0619-3-reference-1.png",
+        "sha256": "c20bb863e6aa26159b9e7b19948f110093aa91559dfc01c7be71c3fe6ba7f3cd"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0619-3-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/contrasts.packing.json",
+    "packingRecipeSha256": "b6c725b076f30471582164e6d26766973a87d265156195b4b676f55e295853d1",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "contrasts"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/context-browser/receipt.json",
+          "sha256": "6adbf19985f2000336f24d6023616fd828214d304157b81770f2a6d1883f0055"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+          "sha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+    "reviewEvidenceSha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+  },
+  {
+    "jobId": "art-0620",
+    "path": "/game-assets/sound-seekers/question-art/details.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/details.png"
+    ],
+    "originalSha256": "7044c3bf5bb9fd96baf6c1d424c298ce8b8646266f01052d3d0f5a58c027f518",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/details.png",
+    "finalSha256": "b7332738cd7e7652a61e26d60a63be68ffa43c7b4396cf2f40f07593a37eb60e",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0620-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-9808e3e2-be63-4f8e-a24e-c511b5064e63.png",
+    "nativeSha256": "ab25b418c6c0896cefaee8611a0dabca4203f507f4d7a6d4c359232f2a377b05",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0620-attempt-002.txt",
+    "promptSha256": "b2c127bd6c83bdfb8d8091dff7bb76a63e45787e543f7415e0502daa945ef60e",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0620-2-reference-1.png",
+        "sha256": "7044c3bf5bb9fd96baf6c1d424c298ce8b8646266f01052d3d0f5a58c027f518"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0620-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/details.packing.json",
+    "packingRecipeSha256": "80e9014d5c0985370e5466231994d85bb0289f1faa3b9d0f14d311018b3af3de",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "details"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0621",
+    "path": "/game-assets/sound-seekers/question-art/home.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/home.png"
+    ],
+    "originalSha256": "54fcfd936f1dd5cac7f5ea0793e9af1e4660854847bbb0ce4d5419e91b867fb2",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/home.png",
+    "finalSha256": "581464897afb7086de35741079c3186e6c6521bd9f204536d2a0c39855e8176a",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0621-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-49820188-7378-4ad9-8916-9b987e5e54e0.png",
+    "nativeSha256": "3f8efd56293575ea81d8c5e85f3b81d3117e50ac318241963391b6fb3b8fa475",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0621-attempt-002.txt",
+    "promptSha256": "c3f2a426576cf48b0feea4dfb5d531bb909cdbc365c91b98485492d4f7d4a653",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0621-2-reference-1.png",
+        "sha256": "54fcfd936f1dd5cac7f5ea0793e9af1e4660854847bbb0ce4d5419e91b867fb2"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0621-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/home.packing.json",
+    "packingRecipeSha256": "f6bf9bdc811910b05b119ac17b780fc30dc94ad4b907fee292d384de6d7ecab5",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "home"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0622",
+    "path": "/game-assets/sound-seekers/question-art/landscapes.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/landscapes.png"
+    ],
+    "originalSha256": "380d326395e5643f6c7d1ec65c5d133f053fba0b8a490fd03075d2a34d0657f4",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/landscapes.png",
+    "finalSha256": "4fb6150d3661b807d611af368320f9b8029f41e5e0e05f180605fc3867a8682f",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0622-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-cb724827-4297-4370-9ad8-1c94bb8f7810.png",
+    "nativeSha256": "95fcf30bd17c02a766eac85fd58b7fef0c34ab76300304c46021b34d9b1ddab2",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": false
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0622-attempt-002.txt",
+    "promptSha256": "465901c91cb523a547e775a81303710c23a80d694bfccf0cc7a9bc75ceb5c7b2",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0622-2-reference-1.png",
+        "sha256": "380d326395e5643f6c7d1ec65c5d133f053fba0b8a490fd03075d2a34d0657f4"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0622-2-reference-2.png",
+        "sha256": "fd444a5db41b48518dd2b76fc8a24e2dfcf81b26e998f5b7c5c5321e8f10cb32"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/landscapes.packing.json",
+    "packingRecipeSha256": "2ba48eaf471890895e38063d1f6ec2e6231f5b8d9f6e1c764f050ee687ad4a3c",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/landscape-source.json",
+      "sha256": "19caf5937f54292db50718ea3333c8953c02663c56daf2b6187c39191b43f3b4",
+      "row": "landscapes"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0623",
+    "path": "/game-assets/sound-seekers/question-art/outdoor.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/outdoor.png"
+    ],
+    "originalSha256": "6211b84d574a705e733262a061295e1735d61cd4563351f46330c0e4ad1d11a6",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/outdoor.png",
+    "finalSha256": "ce622f1115f926736b8f6bb37a28f262dbe4d504fe1c10e0e13d3110458567f1",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0623-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-793396db-f324-45d0-b673-f7445a0f8800.png",
+    "nativeSha256": "ace929c052120703f0e76017d8fa2f47c9186422cafcce4dcffa4a3763e43c3c",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0623-attempt-003.txt",
+    "promptSha256": "8c56fc7ce61cf1e7def6ef193d66534b574bd59b01b012d4898200af22a0ca75",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0623-3-reference-1.png",
+        "sha256": "6211b84d574a705e733262a061295e1735d61cd4563351f46330c0e4ad1d11a6"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0623-3-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/outdoor.packing.json",
+    "packingRecipeSha256": "19f4a71dde74891dd31f49e9e71651973d8e96b4d6eb46d9ceb9a0790f8f0239",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "outdoor"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/context-browser/receipt.json",
+          "sha256": "6adbf19985f2000336f24d6023616fd828214d304157b81770f2a6d1883f0055"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+          "sha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+    "reviewEvidenceSha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+  },
+  {
+    "jobId": "art-0624",
+    "path": "/game-assets/sound-seekers/question-art/places.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/places.png"
+    ],
+    "originalSha256": "857faa0398d5f77ea47ef4b05ade6ef4c22e7e1605292337b118b005555f11ec",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/places.png",
+    "finalSha256": "e4fa8962b50b0b10bc70054420ff051bdd9bbdf2dd536da00a7bb1527cc401f5",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0624-002.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-3a52973f-2a12-4d5c-afd6-4f97472adf47.png",
+    "nativeSha256": "c4c024714bf4ee2cc7d7d3da1ca93328cc35ddefbb18a85ffdeac19891a6c5af",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0624-attempt-002.txt",
+    "promptSha256": "b59c6ca48c0840276e69006be812e19f53ac602b4237c3f549d7727b2e68f300",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0624-2-reference-1.png",
+        "sha256": "857faa0398d5f77ea47ef4b05ade6ef4c22e7e1605292337b118b005555f11ec"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0624-2-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 2,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/places.packing.json",
+    "packingRecipeSha256": "44e779dcd2862328a3e81b8879a42b3cae9e97fb0125772b8782c864ecfbf797",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "places"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/context-browser/receipt.json",
+          "sha256": "6adbf19985f2000336f24d6023616fd828214d304157b81770f2a6d1883f0055"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+          "sha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+    "reviewEvidenceSha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+  },
+  {
+    "jobId": "art-0625",
+    "path": "/game-assets/sound-seekers/question-art/scenes.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/scenes.png"
+    ],
+    "originalSha256": "31c596bfd3d6b5795ffb2d3d22d9b361ed8a15a0ae0e9822943f648c08e23c2a",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/scenes.png",
+    "finalSha256": "a2b3bb27207633324e3a21b3e01636b08cb5edb09066c4d5836b1a66b60de36c",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0625-004.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-24a717cf-0565-4abb-9c06-4ae7015d69a8.png",
+    "nativeSha256": "352ee80b5432709d5f0a6101a5eed93c0659ce4492cb009b3953d659db5dd0b5",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0625-attempt-004.txt",
+    "promptSha256": "d342e394762d49f8c8361b4b1d5a14d5faee115eb62028b63900f04c96ab4805",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0625-4-reference-1.png",
+        "sha256": "31c596bfd3d6b5795ffb2d3d22d9b361ed8a15a0ae0e9822943f648c08e23c2a"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0625-4-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 4,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/scenes.packing.json",
+    "packingRecipeSha256": "c9aeeb0e38cc62c5bf454037f61679463cc8d0c47e187f65963f546e91e11025",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "scenes"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/context-browser/receipt.json",
+          "sha256": "6adbf19985f2000336f24d6023616fd828214d304157b81770f2a6d1883f0055"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+          "sha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-final-five/visual-review.json",
+    "reviewEvidenceSha256": "0a22efef16c864ba2f843888be639db24c748f0f43e2ffc6d9fa45928396fa06"
+  },
+  {
+    "jobId": "art-0626",
+    "path": "/game-assets/sound-seekers/question-art/supports.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/supports.png"
+    ],
+    "originalSha256": "0af521b9cb6f410f4d2e8c0e0fbd9417053cb34fc00207e9067226df9ed589d9",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/supports.png",
+    "finalSha256": "ab546c749a28b99ede9e769e85272990795a8d97771a89eff1b5facf458cf472",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0626-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-79b55f54-69e9-4961-9d24-c05dcd0978bf.png",
+    "nativeSha256": "9458871e0ee4c9112cf18063d2064f9eaed3e6a6f32feed6f50637dacb56e4dd",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0626-attempt-003.txt",
+    "promptSha256": "b4ae2b654b3b7d1e1fdddce647a98aea0b5ab8d75551b7a50b83fdc5963b35a3",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0626-3-reference-1.png",
+        "sha256": "0af521b9cb6f410f4d2e8c0e0fbd9417053cb34fc00207e9067226df9ed589d9"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0626-3-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/supports.packing.json",
+    "packingRecipeSha256": "b2d3ad198630a374aa901fcabb0b8b865158d96f216e44bba9b4d723099c9e83",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "supports"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  },
+  {
+    "jobId": "art-0627",
+    "path": "/game-assets/sound-seekers/question-art/workshop.png",
+    "sameArtworkPaths": [
+      "/game-assets/sound-seekers/question-art/workshop.png"
+    ],
+    "originalSha256": "f33ff62b8cbd2e4f53f572f8b39656f390667ae5acd70d83c61b0ec3d9410855",
+    "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/question-art/workshop.png",
+    "finalSha256": "f13adf03905a2d13013a6d5ef6bda081f71eb12ac8f3fc741e8d5c7e745dad48",
+    "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/natives/art-0627-003.png",
+    "providerNative": "/Users/benjaminbowler/.codex/generated_images/01a19b7b-2846-7802-a3a8-0f49f533dfd3/exec-9201aa9a-d702-4cad-b192-b9c03be96a22.png",
+    "nativeSha256": "5c208184d0b82fd702052b2fcc0a21c6a89b8406d2bfb726821f38708983cbd7",
+    "nativeDimensions": {
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true
+    },
+    "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/prompts/art-0627-attempt-003.txt",
+    "promptSha256": "39d2f7c1ee86bd1c7322dad6c16d6a471e074da59c006b845372ec6656b43557",
+    "referenceImages": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0627-3-reference-1.png",
+        "sha256": "f33ff62b8cbd2e4f53f572f8b39656f390667ae5acd70d83c61b0ec3d9410855"
+      },
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/references/art-0627-3-reference-2.png",
+        "sha256": "f0bb97d58b55abe01ac93758d3cf64b92d0e0fceafc0af8c30c04dcedfa4938a"
+      }
+    ],
+    "generationMode": "built-in",
+    "acceptedAttempt": 3,
+    "packingRecipe": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/question-art-clean-cartoon/recipes/workshop.packing.json",
+    "packingRecipeSha256": "45006803700ecb5bbcea3e0ad5e38e85b4e38bef8af89bf39b166cdfa5453de5",
+    "currentManifest": {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/tools/soundSeekersQuestionArt/sources.json",
+      "sha256": "18a398f7db24e58945cc730868707b12a92b8d72cfe0d3cb9f4e0a7f07e1618a",
+      "row": "workshop"
+    },
+    "actualReview": {
+      "nativePNGViewed": true,
+      "savedFullImageViewed": true,
+      "display390Viewed": true,
+      "display128Viewed": true,
+      "fullContextViewed": true,
+      "syntheticLocalOnly": true,
+      "contextFiles": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/context-browser/receipt.json",
+          "sha256": "4d30c12ff7dff2c9a52ce09fc319b4dd8b27f0782c83396f8295326c4e0b3f31"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+          "sha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+        }
+      ],
+      "notes": "Whole-bank refinement directly reviewed: large flat fields, crisp outlines, no grain/raised material; all exact objects/states/cell order and required alpha/under gaps preserved. Plain course pennants only; neutral imagery. Official fit:fill compositor preserves intentional dimension variants; final production derivatives remain family-owned."
+    },
+    "status": "accepted",
+    "installed": true,
+    "scope": "source-original; cd_family retains full production derivative rebuild",
+    "reviewEvidenceFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/question-art-transfer/style-refinement-006/visual-review.json",
+    "reviewEvidenceSha256": "aa239ad9cb55fb1dc6326e889582e58707b201e5a8e9ddbbad336932b3fea662"
+  }
+]

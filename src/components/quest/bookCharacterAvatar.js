@@ -74,7 +74,7 @@ const MOOD_ASSET = Object.freeze({
   brave: "mood-brave"
 });
 
-// These are complete, character-specific paintings. Accessories are never
+// These are complete, character-specific illustrations. Accessories are never
 // positioned as independent DOM/Phaser layers: a scarf must wrap behind the
 // neck, a wand must be held by the hand, and wings must sit behind the body.
 // The old generic overlays could not provide that occlusion and looked pasted
@@ -171,7 +171,7 @@ export function bookCharacterOutfit(creature = {}) {
 }
 
 // Kept as a compatibility export for the runtime. Character colour is now
-// painted artwork, never a Phaser/CSS tint.
+// authored illustration, never a Phaser/CSS tint.
 export function bookCharacterTint() {
   return null;
 }

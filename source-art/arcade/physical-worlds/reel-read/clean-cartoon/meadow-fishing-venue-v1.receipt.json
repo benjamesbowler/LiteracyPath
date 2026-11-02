@@ -1,0 +1,155 @@
+{
+  "jobId": "art-0648",
+  "path": "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp",
+  "sameArtworkPaths": [
+    "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0648.webp",
+  "sourceSha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+  "originalSha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/outputs/art-0648.webp",
+  "finalSha256": "07a3b035f4b2fd2112edbfa957837e3cf9a8fa0c2a37fd065edd1db15b71221a",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-23ede152-7cb5-4161-a043-e0f865acf440.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0648/native-001.png",
+  "nativeSha256": "aa6624f5fef38052116b60dc752efb1c2ce478cfdd7e6ec4e85191f8f332aebf",
+  "nativeDimensions": {
+    "width": 1672,
+    "height": 940,
+    "hasAlpha": false
+  },
+  "dimensions": {
+    "width": 1672,
+    "height": 941
+  },
+  "promptFile": "source-art/arcade/physical-worlds/reel-read/clean-cartoon/meadow-fishing-venue-v1.prompt.txt",
+  "promptSha256": "3a232a4b9494557c8afac06616a2c29d4028fdbfdf86eef554e6c010bbff009e",
+  "referenceImages": [],
+  "generationMode": "built-in",
+  "attempt": 1,
+  "status": "accepted-staged",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": null,
+    "notes": "Crisp outlined ordinary cottage left, fence/hills/trees, watermill and waterfall right. Flat turquoise surface/underwater bands and sparse corner plants/rocks preserve the open swimming plane. No painted grain, daubs, embossed relief, baked fish or UI. Original native, fullsaved WebP, fullfallback WebP,390/128 tiles and twelve exact actualrenderer primary/fallback desktop/phone frames directly viewed. Venue scope only; no learner/session/audio/device claim.",
+    "reviewedAt": "2026-11-02T01:55:11.596Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "fullContextFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/reel/browser-proof.json",
+    "fullContextSha256": "9327b1671ad2399c799491f6d96710f7e099aadfbc7bb159579c2b9cbf5e3c41",
+    "notABook": true
+  },
+  "historicalNative": {
+    "jobId": "art-0648",
+    "world": "meadow",
+    "source": "meadow-pond-venue-v1.png",
+    "scene": "Upper landscape has ordinary small cream timber cottage with red tile roof at upperLEFT, big leafy trees and rolling greenhills, plain fence along distant bank, simple watermill with dark brown wheel and short waterfall atupperRIGHT. Small wooden dock projects from farLEFT. Bright daytimeblue sky with rounded flat white clouds. Underwater farcorners include a few smooth outlined gray rocks, reeds and a few greenlily pads/white and pink waterlilies near outer wateredge.",
+    "job": {
+      "path": "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp",
+      "sha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+      "category": "Arcade, maps, Hollow and other artwork",
+      "group": "game-assets/physical-arcade",
+      "decision": "redo",
+      "reason": "Painted/washed/textured illustration; replace with bold clean cartoon artwork.",
+      "decisionEvidence": {
+        "file": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/image-style-audit-2026-10-29/redo-images.json",
+        "sha256": "0234a35d1e663eb7fdf89646a2160593fa8f1a763ca2e4b7bc086d01552d4318",
+        "rowId": 5394
+      },
+      "runtimeBinding": {
+        "literalReferences": [
+          "src/components/learn/games/games/reelReadArtData.js"
+        ],
+        "dynamic": null,
+        "bound": true,
+        "graphEvidence": {
+          "file": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/remaining-image-audit-2026-10-30/current-reachable-modules.json",
+          "sha256": "20e23e20d6343f6ceaa1d6f6ba5f3752d20d4cc72fddb12ba232e7ccd2cd186d",
+          "moduleCount": 1499
+        }
+      },
+      "priorBaseline": true,
+      "status": "pending",
+      "sameArtworkPaths": [
+        "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp"
+      ],
+      "jobId": "art-0648",
+      "owner": "cd_family",
+      "originalSha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+      "sourceAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp",
+      "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0648.webp",
+      "sourceSha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    "runtimeRow": {
+      "source": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+      "sourceSha256": "71a3ab8dffef64f463cf987bdc7ee8f4aac7626d52ca43e879b1212851123a6b",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "runtimeBytes": 463940,
+      "runtimeSha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+      "assemblySignature": "ecd84c4278c25cc4e598e9136f28d0e8a8c9f21a58072adb7bcbd03c7e478f2a",
+      "role": "empty-deep-fishing-venue",
+      "sourceWaterlineRatio": 0.51,
+      "liveWaterOwnsFishLineHook": true
+    },
+    "fallbackRow": {
+      "source": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+      "sourceSha256": "71a3ab8dffef64f463cf987bdc7ee8f4aac7626d52ca43e879b1212851123a6b",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-fallback-v1.webp",
+      "width": 768,
+      "height": 432,
+      "runtimeBytes": 93690,
+      "runtimeSha256": "9ee7a067a463bcc05c45ab6f95dd5779ab015f15566d6ec7f3bcd7ea0812e72c",
+      "assemblySignature": "c9b9b5c0d2da9f30d4538286020c53b67536a99e86b418ba6e26599ec8bf4106",
+      "role": "independent-original-venue-fallback",
+      "sourceWaterlineRatio": 0.51
+    },
+    "canonicalSource": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+    "canonicalSourceSha": "71a3ab8dffef64f463cf987bdc7ee8f4aac7626d52ca43e879b1212851123a6b",
+    "originalNativeActuallyViewed": true,
+    "renderContract": "reelReadWorld draws venue uniformly scaled using sourceWaterlineRatio .51; no parts extracted; actor/boat/rod/fish stay live",
+    "authorities": [
+      {
+        "path": "src/components/learn/games/games/reelReadWorld.js",
+        "sha256": "dc1e2f54e424b2d0bda44b2154511533a54396dac3209e1abb2bcbf069bd55ed"
+      },
+      {
+        "path": "scripts/generate-reel-read-art.py",
+        "sha256": "9a07c1c07e021df06a33df34eb1fd633933975a2dbf533380385fb2956716861"
+      },
+      {
+        "path": "source-art/arcade/physical-worlds/reel-read/scene-kit-v1.json",
+        "sha256": "a77e2da13bdf1e1dbd84e82c0bf705442a4310600f5d55548688eba185d6a0d6"
+      },
+      {
+        "path": "docs/design/REEL_READ_IMPLEMENTATION.md",
+        "sha256": "e65b7627ece0078e932dde831dd23574d3220d44ea27055694d5a0a02556ce6a"
+      }
+    ]
+  },
+  "source": "source-art/arcade/physical-worlds/reel-read/clean-cartoon/meadow-fishing-venue-v1.png",
+  "provider": {
+    "jobId": "art-0648",
+    "attempt": 1,
+    "output_hint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0 as /Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-23ede152-7cb5-4161-a043-e0f865acf440.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-23ede152-7cb5-4161-a043-e0f865acf440.png"
+  },
+  "lineage": {
+    "historicalSource": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+    "historicalNativeSha256": "71a3ab8dffef64f463cf987bdc7ee8f4aac7626d52ca43e879b1212851123a6b",
+    "localReceiptSha256": "0542e1f6311b11cf1a8da8cf0c0c7b6b9479ef0a5ede21cb32abeb773c99527b"
+  }
+}

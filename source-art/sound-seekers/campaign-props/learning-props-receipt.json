@@ -1,0 +1,55 @@
+{
+  "jobId": "art-0674",
+  "path": "/game-assets/sound-seekers/campaign/environment/learning-props.png",
+  "sameArtworkPaths": [
+    "/game-assets/sound-seekers/campaign/environment/learning-props.png"
+  ],
+  "sourceSnapshot": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/sources/art-0674.png",
+  "sourceSha256": "72b28530555f58d74cbc2b280b3f0bcb399fcfb8fc860d9a370883217d03032b",
+  "originalSha256": "72b28530555f58d74cbc2b280b3f0bcb399fcfb8fc860d9a370883217d03032b",
+  "finalAbsolute": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/public/game-assets/sound-seekers/campaign/environment/learning-props.png",
+  "finalSha256": "01d90f6254448077f208397d9a0aa08d012e72a48ae23cfb0e2901e2ea054a88",
+  "nativeSource": "/Users/benjaminbowler/.codex/generated_images/01a199d2-092f-75f0-b785-b79bc65ff6f0/exec-25ca5c38-09bc-4a21-b0e6-5eca3d10761a.png",
+  "immutableNative": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/generations/art-0674/native-002.png",
+  "nativeSha256": "04df31aa181057f32b05a94693c307a8b2ac51029e1924b2e656ddda10ec4bdb",
+  "nativeDimensions": {
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true
+  },
+  "dimensions": {
+    "width": 1312,
+    "height": 1199,
+    "hasAlpha": true
+  },
+  "promptFile": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/campaign-props/learning-props-attempt-2.prompt.txt",
+  "promptSha256": "e99140cc697d1669c240ab84709abde32e8f614ac0da93c5430d0c7609233e43",
+  "referenceImages": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/source-art/sound-seekers/campaign-props/learning-props-reference-1.png",
+      "sha256": "5409b0d97ed5bd54a73a81e459ccfbe79deec5c550c77cd9a7fe6df78ae7f409"
+    }
+  ],
+  "generationMode": "built-in",
+  "attempt": 2,
+  "status": "installed",
+  "actualReview": {
+    "nativePNGViewed": true,
+    "savedFullImageViewed": true,
+    "display390Viewed": true,
+    "fullBookSequenceViewed": false,
+    "notes": "All16 complete meanings in each atlas, exact native and complete saved source390/128 directly viewed. All32 actual production drawLearningSprite/drawPuzzleSprite calls reviewed at128px on desktop and390phone,64 cases, no clipped alpha and consistent visible-bottom anchors. Native whole components mechanically raster-packed into original semantic crop rectangles; overlapping foreign fragments excluded by registered alpha-component mask; true holes/open surfaces preserved.",
+    "reviewedAt": "2026-11-02T07:01:03.370Z",
+    "display128Viewed": true,
+    "fullContextViewed": true,
+    "notABook": true,
+    "contextFiles": [
+      {
+        "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/cd_family/campaign-props/browser-proof.json",
+        "sha256": "769cad2195cbca419a85b0fe2087cffe0e9fb0ad4829e352ea8295c5e17648a1"
+      }
+    ],
+    "packingManifest": "source-art/sound-seekers/campaign-props/manifest.json"
+  },
+  "installedAt": "2026-11-02T07:01:03.387Z"
+}

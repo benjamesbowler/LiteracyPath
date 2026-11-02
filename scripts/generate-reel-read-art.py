@@ -7,6 +7,8 @@ import argparse
 import hashlib
 import json
 import statistics
+import subprocess
+import platform
 from pathlib import Path
 from PIL import Image
 from soundkeysArtPacking import pack_actions, isolate_body
@@ -124,7 +126,25 @@ def assemble_kit(image, original_parts):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--metadata-only', action='store_true')
+    parser.add_argument('--asset-ids')
     args = parser.parse_args()
+    if (SOURCE / 'scene-kit-clean-cartoon.json').exists():
+        if (SOURCE / 'clean-cartoon-registration.json').exists():
+            from reelReadCleanCartoon import build_current
+            build_current(args.metadata_only, set(args.asset_ids.split(',')) if args.asset_ids else None)
+            return
+        node_command = ['node']
+        if (platform.system() == 'Darwin' and platform.machine() == 'x86_64'
+                and (ROOT / 'node_modules/@img/sharp-darwin-arm64').exists()
+                and not (ROOT / 'node_modules/@img/sharp-darwin-x64').exists()):
+            node_command = ['/usr/bin/arch', '-arm64', 'node']
+        command = node_command + [str(ROOT / 'tools/reelReadVenueArt.mjs')]
+        if not args.metadata_only:
+            command.append('--write')
+        if args.asset_ids:
+            command += ['--asset-ids', args.asset_ids]
+        subprocess.run(command, cwd=ROOT, check=True)
+        return
     registration = json.loads((SOURCE / 'fishing-registration-v1.json').read_text())
     manifest_path = SOURCE / 'scene-kit-v1.json'
     previous = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}

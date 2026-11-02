@@ -61,7 +61,9 @@ test('measured visible crown hits the underside before the obsolete 46-unit cont
 test('solid crate sides and a low ceiling cannot be walked or landed through', () => {
   const block = { x: 542, y: 286, w: 44, h: 40, broken: false };
   const previous = { x: 503, y: 329, h: 46, w: 32, vy: 0, face: 1, onGround: true, vx: 2, anim: 0 };
-  const current = { ...previous, x: 516 };
+  const initialContact = letterLeapHeadContact('meadow', previous, 76);
+  previous.x += block.x - initialContact.right - 4;
+  const current = { ...previous, x: previous.x + 13 };
   const before = letterLeapHeadContact('meadow', previous, 76);
   const after = letterLeapHeadContact('meadow', current, 76);
   const response = letterLeapBlockContact(current, previous, block, after, before);
@@ -104,6 +106,19 @@ test('retained original sources and delivered derivatives match independently re
       const { data, info } = await sharp(source).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
       for (const frame of asset.frames) for (const point of Object.values(frame.measurement.headContactSource)) {
         assert.ok(data[(point[1] * info.width + point[0]) * info.channels + 3] >= 160, `${asset.id}/${frame.id}: contact is an actual opaque source pixel`);
+      }
+      if (asset.productionRevision) {
+        const native = await fs.readFile(asset.generation.nativeSource);
+        assert.equal(crypto.createHash('sha256').update(native).digest('hex'), asset.generation.acceptedNativeSHA);
+        assert.equal(asset.generation.actualBuiltinCalls, 1);
+        assert.equal(asset.generation.packingRecipes.length, asset.frames.length);
+        for (const frame of asset.frames) {
+          const [x, y, width, height] = frame.rect, [left, top, right, bottom] = frame.measurement.bodyBounds;
+          assert.ok(left >= x + width * .08 && right <= x + width * .92, `${asset.id}/${frame.id}: complete ears, hands and tails stay inside horizontal gutters`);
+          assert.ok(top >= y + height * .08 && bottom <= y + height * .92, `${asset.id}/${frame.id}: complete crown and soles stay inside vertical gutters`);
+          const [footX, footY] = frame.measurement.soleContactSource;
+          assert.ok(data[(footY * info.width + footX) * info.channels + 3] >= 160, `${asset.id}/${frame.id}: sole is an actual opaque source pixel`);
+        }
       }
     }
     if (asset.kind === 'foe' && asset.productionRevision) {
