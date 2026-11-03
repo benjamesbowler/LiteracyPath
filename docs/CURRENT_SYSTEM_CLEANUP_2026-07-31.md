@@ -1,5 +1,17 @@
 # Current system cleanup — 31 July 2026
 
+## Present comprehension pictures — 3 November 2026
+
+Cycle Shorts now resolves 22 new story-specific comics and the five existing
+unchanged comprehension scenes through one shared, source-text-checked accessor.
+The character-only fallback is removed from this collection; its Muddy portrait
+remains an active worksheet and character reference and is retained. The existing
+Cycle Shorts guide owns the picture workflow and links the exact prompt and
+hash provenance. No passage, question, recording or hosted data is changed.
+Task-created build, dependency and browser scratch is disposable after the
+scoped changes and verification evidence have been preserved. Protected animation
+roots and other chats' work remain outside this cleanup.
+
 ## A–B clean cartoon illustrations — 29 October 2026
 
 The full current App A–B working catalogue audit covered 82 books and 726

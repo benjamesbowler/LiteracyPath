@@ -3,8 +3,8 @@
 There is one Sunny Meadow Farm supported-reading passage per teaching cycle,
 with three unscored, four-choice comprehension questions and exact sentence
 evidence. Each of the 135 weekday Present decks ends with the same week's
-complete story followed by its three questions. The passage remains visible
-beside each question; the teacher reads the choices and deliberately reveals
+complete story followed by its three questions. The story-specific picture and
+complete passage remain visible with each question; the teacher reads the choices and deliberately reveals
 answers/evidence after discussion. Rereading the same short across the week
 is intentional. The added ending uses the existing reading block; actual
 classroom duration remains unmeasured.
@@ -21,9 +21,12 @@ A–H catalogue books or synchronized class sessions.
 Five existing passage/question sets are reused unchanged: `muddy-pot-lid`
 (cycle 14), `muddy-tub-boats` (19), `muddy-ten-eggs` (20), `muddy-ring` (23) and
 `muddy-mat` (25). Their existing story scenes are reused only with the same
-complete text. Twenty-two new passages fill curriculum gaps; they show the
-approved Muddy character portrait, explicitly as character identification,
-without implying that a reused picture depicts an unshown event. All remain
+complete text. Twenty-two new passages fill curriculum gaps; each has its own clean cartoon
+three-panel comic showing the story’s events. Present shows the same picture
+on the reading slide and all three question slides. Guided Reading uses the
+same source-text-checked picture resolver, replacing the old character-only
+portrait. Pictures provide supported ESL comprehension, not independent decoding
+evidence. A failed image offers retry while the complete text remains available. All remain
 in Sunny Meadow Farm; no Dino or Moonwood cast is introduced.
 
 The first five stories have 15–24 words; later stories remain under 50 words.
@@ -55,3 +58,12 @@ They do not establish human listening, physical-iPad or observed classroom use.
 The existing Linux visual-baseline workflow has a `cycle-shorts` scope. It refreshes only the six Books baselines, then verifies Books, comprehension and the Cycle Shorts flow. It runs no database setup or hosted-data writes and does not claim the unrelated whole-product device matrix passed.
 
 Visual-baseline runners and the shared CI browser job are pinned to Ubuntu 24.04. The November 2026 `ubuntu-latest` runner moved to 26.04, which the locked Playwright 1.60.0 dependency installer rejects before any tests run. The pin keeps native Linux capture on a supported runtime.
+
+`tools/authoring/cycleShortPictures.mjs` owns exact scene panels and generation
+prompts. `docs/content/cycle-short-images/provenance.json` records source and
+accepted asset hashes, character reference, tool and actual visual inspection.
+`tools/generateCycleShortPictures.mjs <sources.json>` encodes accepted built-in
+image outputs and derives lean runtime metadata; `--check` decodes all 22 new
+comics and rejects stale text, prompts, references or bytes. Existing reused
+passages keep their comprehension picture provenance. New story pictures are
+stored under `/images/comprehension/cycle-shorts/`.
