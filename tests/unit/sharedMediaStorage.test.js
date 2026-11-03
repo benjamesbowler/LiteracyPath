@@ -3,189 +3,146 @@ import test from 'node:test';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import { createHash } from 'node:crypto';
-import { sharedMediaSettings, sharedMediaVercelConfig } from '../../tools/lib/sharedMediaConfig.mjs';
-import { planSharedMedia, publishSharedMedia, MAX_BUCKET_BYTES } from '../../tools/lib/sharedMediaPublisher.mjs';
-import { createMediaHandler } from '../../infra/shared-media/worker.mjs';
-import { parseRange, shardForPath, validMediaPath, browserCachePolicy } from '../../infra/shared-media/protocol.mjs';
+import { COHORTS, MAX_ASSET_BYTES, MAX_COHORT_FILES, MANIFEST_PATH, mediaCohort, validateRelease } from '../../infra/shared-media/protocol.mjs';
+import { planSharedMedia, stageSharedMedia, stripPublishedMedia, verifyPublishedMedia, sha256 } from '../../tools/lib/sharedMediaPublisher.mjs';
+import { sharedMediaVercelConfig } from '../../tools/lib/sharedMediaConfig.mjs';
 
-const snapshot = 'a'.repeat(40);
-const otherSnapshot = 'b'.repeat(40);
-const md5 = body => createHash('md5').update(body).digest('hex');
-
-function memoryStore() {
-  const data = new Map();
-  return {
-    data,
-    list: async () => [...data].map(([key, body]) => ({ key, size: body.length, etag: md5(body) })),
-    getText: async key => data.has(key) ? data.get(key).toString() : null,
-    putIfAbsent: async object => {
-      const body = object.file ? await fs.readFile(object.file) : Buffer.from(object.body);
-      if (!data.has(object.key)) data.set(object.key, body);
-      const stored = data.get(object.key);
-      return { size: stored.length, etag: md5(stored) };
-    },
-    bucket: {
-      async get(key, options) {
-        const body = data.get(key);
-        if (!body) return null;
-        const bytes = options?.range ? body.subarray(options.range.offset, options.range.offset + options.range.length) : body;
-        return { body: new Blob([bytes]).stream(), json: async () => JSON.parse(body.toString()) };
-      }
-    }
-  };
-}
+const paths = [
+  '/audio/production/en-US/isolated_word/cat.mp3',
+  '/audio/production/en-US/instruction/cue.mp3',
+  '/audio/production/en-US/guided_page/story.mp3',
+  '/images/assessment/cat.webp'
+];
 
 async function fixture(run) {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'shared-media-'));
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'free-media-'));
   const distRoot = path.join(root, 'dist');
   const publicRoot = path.join(root, 'public');
   async function write(relative, body) {
-    for (const base of [distRoot, publicRoot]) {
-      const file = path.join(base, relative);
+    for (const directory of [distRoot, publicRoot]) {
+      const file = path.join(directory, relative);
       await fs.mkdir(path.dirname(file), { recursive: true });
       await fs.writeFile(file, body);
     }
   }
   try {
-    await write('audio/cue.mp3', '0123456789');
-    await write('action-songs/hop-and-stop/hop-and-stop.mp4', '0123456789');
-    await write('images/assessment/cue.webp', 'image bytes');
-    await write('index.html', '<html>local app</html>');
-    await run({ root, distRoot, publicRoot, write, store: memoryStore() });
+    for (const [index, pathname] of paths.entries()) await write(pathname, `media ${index}`);
+    await write('/index.html', '<html>app</html>');
+    await run({ root, distRoot, publicRoot, write });
   } finally { await fs.rm(root, { recursive: true, force: true }); }
 }
 
-test('media config preserves same-origin browser URLs and pins each deployment snapshot', () => {
-  const base = { rewrites: [{ source: '/parent', destination: '/parent.html' }], headers: [{ source: '/(.*)', headers: [{ key: 'CSP', value: "default-src 'self'" }] }] };
-  assert.deepEqual(sharedMediaVercelConfig(base, {}), base);
-  const config = sharedMediaVercelConfig(base, { SHARED_MEDIA_ORIGIN: 'https://media.example.com', VERCEL_GIT_COMMIT_SHA: snapshot });
-  const audio = config.routes.find(rule => rule.dest?.includes('/audio/'));
-  assert.equal(audio.dest, `https://media.example.com/v1/${snapshot}/audio/$1`);
-  assert.ok(config.routes.some(rule => rule.src && new RegExp(rule.src).test('/action-songs/hop-and-stop/hop-and-stop.mp4')));
-  assert.ok(audio.transforms.some(rule => rule.type === 'request.headers' && rule.target.key === 'authorization' && rule.args === ''));
-  assert.ok(audio.transforms.some(rule => rule.type === 'request.headers' && rule.target.key === 'cookie' && rule.args === ''));
+function publication(plan) {
+  const release = { schemaVersion: 2, provider: 'cloudflare-static-free', enabled: true, cohorts: {} };
+  for (const cohort of COHORTS) release.cohorts[cohort] = {
+    origin: `https://12345678-literacy-media-${cohort}.example.workers.dev`,
+    manifestSha256: plan.cohorts[cohort].manifestSha256, files: plan.cohorts[cohort].files.length
+  };
+  return { release, fetchImpl: async url => {
+    const parsed = new URL(url);
+    const cohort = COHORTS.find(name => parsed.hostname.startsWith(`12345678-literacy-media-${name}.`));
+    if (parsed.pathname === MANIFEST_PATH) return new Response(plan.cohorts[cohort].body);
+    const file = plan.files.find(file => file.pathname === decodeURIComponent(parsed.pathname) && file.cohort === cohort);
+    return file ? new Response(await fs.readFile(file.file)) : new Response('Not found', { status: 404 });
+  } };
+}
+
+test('free-only receipts require immutable native asset versions and reject paid/R2 providers', () => {
+  assert.equal(validateRelease({ enabled: false }), false);
+  assert.throws(() => validateRelease({ enabled: true, schemaVersion: 1, provider: 'r2' }), /free static/);
+  const release = { enabled: true, schemaVersion: 2, provider: 'cloudflare-static-free', cohorts: {} };
+  for (const cohort of COHORTS) release.cohorts[cohort] = { origin: `https://12345678-literacy-media-${cohort}.example.workers.dev`, manifestSha256: 'a'.repeat(64), files: 1 };
+  assert.equal(validateRelease(release), true);
+  for (const origin of ['http://12345678-literacy-media-words.example.workers.dev', 'https://literacy-media-words.example.workers.dev', 'https://user:secret@12345678-literacy-media-words.example.workers.dev', 'https://12345678-literacy-media-words.example.workers.dev/path', 'https://media.example.com']) {
+    assert.throws(() => validateRelease({ ...release, cohorts: { ...release.cohorts, words: { ...release.cohorts.words, origin } } }), /immutable/);
+  }
+  release.cohorts.words.files = MAX_COHORT_FILES + 1;
+  assert.throws(() => validateRelease(release), /receipt/);
+});
+
+test('Vercel checks local media first and retains headers, routes and private-header stripping', async () => fixture(async f => {
+  const plan = await planSharedMedia(f);
+  const { release } = publication(plan);
+  const base = { headers: [{ source: '/(.*)', headers: [{ key: 'CSP', value: "default-src 'self'" }] }], rewrites: [{ source: '/parent', destination: '/parent.html' }] };
+  assert.deepEqual(sharedMediaVercelConfig(base, { enabled: false }), base);
+  const config = sharedMediaVercelConfig(base, release);
+  const filesystem = config.routes.findIndex(route => route.handle === 'filesystem');
   assert.deepEqual(config.routes[0].headers, { CSP: "default-src 'self'" });
-  assert.ok(config.routes[0].continue);
-  assert.ok(config.routes.indexOf(audio) < config.routes.findIndex(rule => rule.handle === 'filesystem'));
+  for (const pathname of paths) {
+    const route = config.routes.find(route => route.dest?.startsWith('https:') && new RegExp(route.src).test(pathname));
+    assert.ok(config.routes.indexOf(route) > filesystem);
+    assert.equal(pathname.replace(new RegExp(route.src), route.dest), release.cohorts[mediaCohort(pathname)].origin + pathname);
+    for (const key of ['cookie', 'authorization', 'x-forwarded-for']) assert.ok(route.transforms.some(transform => transform.target.key === key && transform.args === ''));
+  }
   assert.equal(config.routes.at(-1).dest, '/parent.html');
   assert.equal(config.headers, undefined);
   assert.equal(config.rewrites, undefined);
-  for (const origin of ['http://media.example.com', 'https://user:password@media.example.com', 'https://media.example.com/path', 'https://127.0.0.1', 'https://media.example.com?token=x']) {
-    assert.throws(() => sharedMediaSettings({ SHARED_MEDIA_ORIGIN: origin, SHARED_MEDIA_SNAPSHOT: snapshot }));
+}));
+
+test('planner and staging preserve source, use bounded static-only collections and keep large video local', async () => fixture(async f => {
+  const video = '/action-songs/hop-and-stop/hop-and-stop.mp4';
+  await f.write(video, 'native movie');
+  await fs.truncate(path.join(f.distRoot, video), MAX_ASSET_BYTES + 1);
+  const plan = await planSharedMedia(f);
+  assert.equal(plan.files.length, 4);
+  assert.equal(plan.retained[0].pathname, video);
+  const staging = path.join(f.root, 'stage');
+  await stageSharedMedia(plan, staging);
+  for (const file of plan.files) {
+    assert.equal(await fs.readFile(path.join(staging, file.cohort, 'assets', file.pathname), 'utf8'), await fs.readFile(path.join(f.publicRoot, file.pathname), 'utf8'));
   }
-  assert.throws(() => sharedMediaSettings({ SHARED_MEDIA_ORIGIN: 'https://media.example.com' }), /exact 40-character/);
-  assert.equal(sharedMediaSettings({ SHARED_MEDIA_ORIGIN: 'https://media.example.com', VERCEL_GIT_COMMIT_SHA: snapshot, SHARED_MEDIA_SNAPSHOT: otherSnapshot }).snapshot, snapshot);
-});
-
-test('verified publication deduplicates content, preserves sources and strips only generated media', async () => fixture(async f => {
-  const plan = await planSharedMedia({ ...f, snapshot });
-  assert.equal(plan.release.files, 3);
-  assert.equal(plan.release.uniqueObjects, 2);
-  const result = await publishSharedMedia(plan, f.store, { stripOutput: true });
-  assert.equal(result.uploaded, 2);
-  assert.equal(await fs.readFile(path.join(f.publicRoot, 'audio/cue.mp3'), 'utf8'), '0123456789');
-  assert.equal(await fs.readFile(path.join(f.distRoot, 'index.html'), 'utf8'), '<html>local app</html>');
-  await assert.rejects(fs.stat(path.join(f.distRoot, 'audio')), { code: 'ENOENT' });
-  assert.equal(JSON.parse(await fs.readFile(path.join(f.distRoot, 'shared-media-release.json'), 'utf8')).snapshot, snapshot);
+  assert.equal(await fs.readFile(path.join(f.publicRoot, video), 'utf8'), 'native movie');
+  const catalog = await fs.readFile(path.join(staging, 'words/assets', MANIFEST_PATH), 'utf8');
+  assert.equal(sha256(catalog), plan.cohorts.words.manifestSha256);
 }));
 
-test('new releases reuse old media without overwriting rollback snapshots', async () => fixture(async f => {
-  const first = await planSharedMedia({ ...f, snapshot });
-  await publishSharedMedia(first, f.store);
-  const oldMarker = f.store.data.get(first.marker.key).toString();
-  await f.write('images/assessment/cue.webp', 'a replacement image');
-  const changed = await planSharedMedia({ ...f, snapshot });
-  await assert.rejects(publishSharedMedia(changed, f.store), /immutable snapshot/);
-  const second = await planSharedMedia({ ...f, snapshot: otherSnapshot });
-  const result = await publishSharedMedia(second, f.store);
-  assert.equal(result.uploaded, 1);
-  assert.equal(result.reused, 1);
-  assert.equal(f.store.data.get(first.marker.key).toString(), oldMarker);
-  const handler = createMediaHandler();
-  const oldResponse = await handler(new Request(`https://worker.example/v1/${snapshot}/images/assessment/cue.webp`), { MEDIA: f.store.bucket });
-  assert.equal(await oldResponse.text(), 'image bytes');
+test('build removes only byte-matched published copies and keeps new/changed media usable locally', async () => fixture(async f => {
+  const first = await planSharedMedia(f);
+  const published = publication(first);
+  await f.write(paths[0], 'new version of the word');
+  await f.write('/images/new.webp', 'new picture');
+  const current = await planSharedMedia(f);
+  const result = await stripPublishedMedia(current, published.release, published.fetchImpl);
+  assert.equal(result.stripped, 3);
+  assert.equal(result.local, 2);
+  assert.equal(await fs.readFile(path.join(f.distRoot, paths[0]), 'utf8'), 'new version of the word');
+  assert.equal(await fs.readFile(path.join(f.distRoot, 'images/new.webp'), 'utf8'), 'new picture');
+  for (const pathname of paths.slice(1)) await assert.rejects(fs.stat(path.join(f.distRoot, pathname)), { code: 'ENOENT' });
+  for (const pathname of paths) assert.ok((await fs.stat(path.join(f.publicRoot, pathname))).isFile());
 }));
 
-test('quota, transfer failure and checksum mismatch fail before deployment media removal', async () => fixture(async f => {
-  const plan = await planSharedMedia({ ...f, snapshot });
-  await assert.rejects(publishSharedMedia(plan, { ...f.store, list: async () => [{ key: 'existing', size: MAX_BUCKET_BYTES, etag: 'unused' }] }, { stripOutput: true }), /safety budget/);
-  assert.equal(f.store.data.size, 0);
-  await assert.rejects(publishSharedMedia(plan, { ...f.store, putIfAbsent: async () => { throw new Error('network down'); } }, { stripOutput: true }), /network down/);
-  await assert.rejects(publishSharedMedia(plan, { ...f.store, putIfAbsent: async object => ({ size: object.size, etag: 'wrong' }) }, { stripOutput: true }), /checksum mismatch/);
-  assert.equal(await fs.readFile(path.join(f.distRoot, 'audio/cue.mp3'), 'utf8'), '0123456789');
-  assert.equal(f.store.data.has(plan.marker.key), false);
+test('missing, tampered or cross-collection catalogs fail before any removal', async () => fixture(async f => {
+  const plan = await planSharedMedia(f);
+  const { release } = publication(plan);
+  await assert.rejects(stripPublishedMedia(plan, release, async () => new Response('offline', { status: 503 })), /unavailable/);
+  await assert.rejects(stripPublishedMedia(plan, release, async () => new Response('{}')), /checksum/);
+  const wrong = JSON.stringify({ schemaVersion: 2, cohort: 'words', files: { '/images/cat.webp': { sha256: 'a'.repeat(64), size: 1 } } });
+  const invalid = structuredClone(release);
+  invalid.cohorts.words.manifestSha256 = sha256(wrong);
+  await assert.rejects(stripPublishedMedia(plan, invalid, async () => new Response(wrong)), /Invalid public|Invalid pinned/);
+  for (const pathname of paths) assert.ok((await fs.stat(path.join(f.distRoot, pathname))).isFile());
 }));
 
-test('manifest readback corruption and changed output keep generated media intact', async () => fixture(async f => {
-  const plan = await planSharedMedia({ ...f, snapshot });
-  const corrupt = { ...f.store, getText: async key => key.endsWith('/release.json') ? null : 'wrong contents' };
-  await assert.rejects(publishSharedMedia(plan, corrupt, { stripOutput: true }), /readback mismatch/);
-  assert.equal(f.store.data.has(plan.marker.key), false);
-  const plan2 = await planSharedMedia({ ...f, snapshot: otherSnapshot });
-  await fs.writeFile(path.join(f.distRoot, 'action-songs/hop-and-stop/hop-and-stop.mp4'), 'changed duplicate');
-  await assert.rejects(publishSharedMedia(plan2, f.store, { stripOutput: true }), /changed/);
-  assert.equal(await fs.readFile(path.join(f.distRoot, 'audio/cue.mp3'), 'utf8'), '0123456789');
+test('changed output and source overlap fail safely before deleting media', async () => fixture(async f => {
+  await assert.rejects(planSharedMedia({ distRoot: f.publicRoot, publicRoot: f.publicRoot }), /separate/);
+  const plan = await planSharedMedia(f);
+  const { release, fetchImpl } = publication(plan);
+  await fs.writeFile(path.join(f.distRoot, paths[2]), 'changed after hash');
+  await assert.rejects(stripPublishedMedia(plan, release, fetchImpl), /changed/);
+  await assert.rejects(stageSharedMedia(plan, f.distRoot), /separate/);
+  assert.ok((await fs.stat(path.join(f.distRoot, paths[0]))).isFile());
 }));
 
-test('source overlap and media symlinks are rejected', async () => fixture(async f => {
-  await assert.rejects(planSharedMedia({ distRoot: f.publicRoot, publicRoot: f.publicRoot, snapshot }), /separate/);
-  await fs.symlink(path.join(f.publicRoot, 'audio/cue.mp3'), path.join(f.distRoot, 'audio/link.mp3'));
-  await assert.rejects(planSharedMedia({ ...f, snapshot }), /symlinks/);
+test('symlink media cannot escape source/output boundaries', async () => fixture(async f => {
+  await fs.symlink(path.join(f.publicRoot, paths[0]), path.join(f.distRoot, 'audio/link.mp3'));
+  await assert.rejects(planSharedMedia(f), /symlinks/);
 }));
 
-test('Worker serves full audio, HEAD and precise video ranges with immutable validators', async () => fixture(async f => {
-  const plan = await planSharedMedia({ ...f, snapshot });
-  await publishSharedMedia(plan, f.store);
-  const handler = createMediaHandler();
-  const base = `https://worker.example/v1/${snapshot}/action-songs/hop-and-stop/hop-and-stop.mp4`;
-  const get = headers => handler(new Request(base, { headers }), { MEDIA: f.store.bucket });
-  const full = await get();
-  const etag = full.headers.get('etag');
-  assert.equal(full.headers.get('content-type'), 'video/mp4');
-  assert.equal(full.headers.get('cache-control'), 'public, max-age=0, must-revalidate');
-  assert.equal(await full.text(), '0123456789');
-  const head = await handler(new Request(base, { method: 'HEAD', headers: { range: 'bytes=0-1' } }), { MEDIA: f.store.bucket });
-  assert.equal(head.status, 200);
-  assert.equal(head.headers.get('content-length'), '10');
-  assert.equal(await head.text(), '');
-  for (const [range, expected, contentRange] of [['bytes=0-1', '01', 'bytes 0-1/10'], ['bytes=7-', '789', 'bytes 7-9/10'], ['bytes=-3', '789', 'bytes 7-9/10'], ['bytes=7-999', '789', 'bytes 7-9/10']]) {
-    const response = await get({ range });
-    assert.equal(response.status, 206);
-    assert.equal(response.headers.get('content-range'), contentRange);
-    assert.equal(await response.text(), expected);
-  }
-  const invalid = await get({ range: 'bytes=99-' });
-  assert.equal(invalid.status, 416);
-  assert.equal(invalid.headers.get('content-range'), 'bytes */10');
-  const conditional = await get({ 'if-none-match': etag });
-  assert.equal(conditional.status, 304);
-  assert.equal(await conditional.text(), '');
-  assert.equal((await get({ 'if-match': '"different"', 'if-none-match': etag })).status, 412);
-  assert.equal((await get({ range: 'bytes=0-1', 'if-range': '"old"' })).status, 200);
-  assert.equal((await get({ range: 'bytes=0-1', 'if-range': etag })).status, 206);
+test('every published asset is independently byte-verified; corrupted cloud content blocks activation', async () => fixture(async f => {
+  const plan = await planSharedMedia(f);
+  const { release, fetchImpl } = publication(plan);
+  assert.equal((await verifyPublishedMedia(plan, release, { fetchImpl })).verified, 4);
+  const corrupted = async url => url.endsWith(MANIFEST_PATH) ? fetchImpl(url) : new Response('corrupt');
+  await assert.rejects(verifyPublishedMedia(plan, release, { fetchImpl: corrupted }), /differ|size/);
+  assert.ok((await fs.stat(path.join(f.distRoot, paths[0]))).isFile());
 }));
-
-test('Worker refuses writes, unknown snapshots and unpublished paths without exposing bucket details', async () => fixture(async f => {
-  const plan = await planSharedMedia({ ...f, snapshot });
-  await publishSharedMedia(plan, f.store);
-  const handler = createMediaHandler();
-  for (const pathname of ['/private/secret', '/images/assessment/missing.webp']) {
-    const result = await handler(new Request(`https://worker.example/v1/${snapshot}${pathname}`), { MEDIA: f.store.bucket });
-    assert.equal(result.status, 404);
-  }
-  assert.equal((await handler(new Request(`https://worker.example/v1/${snapshot}/audio/cue.mp3`, { method: 'PUT', body: 'bad' }), { MEDIA: f.store.bucket })).status, 405);
-  const response = await handler(new Request(`https://worker.example/v1/${snapshot}/audio/cue.mp3`), { MEDIA: { get: async () => { throw new Error('secret account details'); } } });
-  assert.equal(response.status, 503);
-  assert.doesNotMatch(await response.text(), /secret/);
-}));
-
-test('path and byte-range edge cases are bounded', async () => {
-  assert.equal(validMediaPath('/audio/a.mp3'), true);
-  for (const value of ['/audio//a', '/audio/../secret', '/private/file', '/audio/a\\b', '/audio/']) assert.equal(validMediaPath(value), false);
-  assert.equal(parseRange('bytes=0-0,2-2', 10), false);
-  assert.equal(parseRange('bytes=-0', 10), false);
-  assert.equal(parseRange('bytes=0-', 0), false);
-  assert.equal((await shardForPath('/audio/a.mp3')).length, 2);
-  assert.equal(browserCachePolicy('/images/assessment/a.webp'), 'public, max-age=0, must-revalidate');
-});

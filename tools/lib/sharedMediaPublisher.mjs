@@ -1,151 +1,151 @@
 import { createHash } from 'node:crypto';
-import { createReadStream } from 'node:fs';
+import { createReadStream, constants } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {
-  MEDIA_ROOTS, PROTOCOL_VERSION, SNAPSHOT_PATTERN, mediaType,
-  objectKey, shardForPath, shardKey, validMediaPath
-} from '../../infra/shared-media/protocol.mjs';
+import { COHORTS, MEDIA_ROOTS, MAX_ASSET_BYTES, MAX_COHORT_FILES, MANIFEST_PATH,
+  HASH_PATTERN, STATIC_HEADERS, mediaCohort, validateRelease } from '../../infra/shared-media/protocol.mjs';
 
-export const MAX_BUCKET_BYTES = 8_000_000_000; // Leave headroom below R2's 10 GB free allowance.
-const MAX_SINGLE_OBJECT_BYTES = 100_000_000;
-const hash = (algorithm, value) => createHash(algorithm).update(value).digest('hex');
-const stableSignature = stat => [stat.ino, stat.size, stat.mtimeMs, stat.ctimeMs].join(':');
+export const sha256 = value => createHash('sha256').update(value).digest('hex');
+const signature = stat => [stat.ino, stat.size, stat.mtimeMs, stat.ctimeMs].join(':');
 
-async function fileHashes(file) {
-  const sha256 = createHash('sha256');
-  const md5 = createHash('md5');
-  for await (const chunk of createReadStream(file)) { sha256.update(chunk); md5.update(chunk); }
-  return { sha256: sha256.digest('hex'), md5: md5.digest('hex') };
+export async function hashFile(file) {
+  const hash = createHash('sha256');
+  for await (const bytes of createReadStream(file)) hash.update(bytes);
+  return hash.digest('hex');
 }
 
-async function mediaFiles(root) {
+export async function planSharedMedia({ distRoot, publicRoot }) {
+  const dist = await fs.realpath(distRoot);
+  const source = await fs.realpath(publicRoot);
+  if (dist === source || dist.startsWith(source + path.sep) || source.startsWith(dist + path.sep)) {
+    throw new Error('Media output must be separate from source assets');
+  }
   const files = [];
+  const retained = [];
   async function visit(directory) {
     for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
       const file = path.join(directory, entry.name);
-      if (entry.isSymbolicLink()) throw new Error(`Shared media cannot contain symlinks: ${file}`);
+      if (entry.isSymbolicLink()) throw new Error('Shared media cannot contain symlinks');
       if (entry.isDirectory()) await visit(file);
-      else if (entry.isFile()) files.push(file);
+      else if (entry.isFile()) {
+        const pathname = '/' + path.relative(dist, file).split(path.sep).join('/');
+        const cohort = mediaCohort(pathname);
+        const stat = await fs.stat(file);
+        if (stat.size > MAX_ASSET_BYTES) { retained.push({ pathname, size: stat.size, reason: 'Above Free static asset size limit' }); continue; }
+        const hash = await hashFile(file);
+        if (signature(await fs.stat(file)) !== signature(stat)) throw new Error('Media changed during planning');
+        files.push({ pathname, cohort, file, size: stat.size, sha256: hash, signature: signature(stat) });
+      }
     }
   }
-  for (const name of MEDIA_ROOTS) {
-    const directory = path.join(root, name);
+  for (const root of MEDIA_ROOTS) {
+    const directory = path.join(dist, root);
     const stat = await fs.lstat(directory).catch(error => error.code === 'ENOENT' ? null : Promise.reject(error));
     if (!stat) continue;
-    if (!stat.isDirectory() || stat.isSymbolicLink()) throw new Error(`Invalid media directory: ${directory}`);
+    if (stat.isSymbolicLink() || !stat.isDirectory()) throw new Error('Invalid media output directory');
     await visit(directory);
   }
-  return files.sort();
+  files.sort((a, b) => a.pathname < b.pathname ? -1 : 1);
+  const cohorts = Object.fromEntries(COHORTS.map(cohort => {
+    const members = files.filter(file => file.cohort === cohort);
+    if (members.length > MAX_COHORT_FILES) throw new Error(`${cohort} exceeds the Free static file budget; no uploads or upgrade performed`);
+    const catalog = { schemaVersion: 2, cohort, files: Object.fromEntries(members.map(file => [file.pathname, { sha256: file.sha256, size: file.size }])) };
+    const body = JSON.stringify(catalog);
+    if (Buffer.byteLength(body) > MAX_ASSET_BYTES) throw new Error('Media catalog exceeds the Free asset size limit');
+    return [cohort, { files: members, body, manifestSha256: sha256(body), bytes: members.reduce((n, file) => n + file.size, 0) }];
+  }));
+  return { distRoot: dist, files, retained, cohorts, bytes: files.reduce((n, file) => n + file.size, 0) };
 }
 
-export async function planSharedMedia({ distRoot, publicRoot, snapshot }) {
-  if (!SNAPSHOT_PATTERN.test(snapshot || '')) throw new Error('Invalid media snapshot');
-  const dist = await fs.realpath(distRoot);
-  const source = await fs.realpath(publicRoot);
-  const nested = (a, b) => a === b || b.startsWith(a + path.sep);
-  if (nested(dist, source) || nested(source, dist)) throw new Error('Media output must be separate from source assets');
-  const files = [];
-  const sourceFiles = [];
-  const objects = new Map();
-  const shards = new Map();
-  for (const file of await mediaFiles(dist)) {
-    const pathname = '/' + path.relative(dist, file).split(path.sep).join('/');
-    if (!validMediaPath(pathname)) throw new Error(`Unsupported media path: ${pathname}`);
-    const stat = await fs.stat(file);
-    if (stat.size > MAX_SINGLE_OBJECT_BYTES) throw new Error(`Media exceeds verified single-object upload limit: ${pathname}`);
-    const hashes = await fileHashes(file);
-    if (stableSignature(await fs.stat(file)) !== stableSignature(stat)) throw new Error(`Media changed during planning: ${pathname}`);
-    const entry = { sha256: hashes.sha256, size: stat.size, contentType: mediaType(pathname) };
-    const shard = await shardForPath(pathname);
-    if (!shards.has(shard)) shards.set(shard, {});
-    shards.get(shard)[pathname] = entry;
-    const key = objectKey(hashes.sha256);
-    objects.set(key, { key, file, size: stat.size, md5: hashes.md5, signature: stableSignature(stat) });
-    files.push({ pathname, ...entry });
-    sourceFiles.push({ file, signature: stableSignature(stat) });
+export async function stageSharedMedia(plan, directory) {
+  const requested = path.resolve(directory);
+  const staging = path.join(await fs.realpath(path.dirname(requested)), path.basename(requested));
+  if (staging === plan.distRoot || staging.startsWith(plan.distRoot + path.sep)
+    || plan.distRoot.startsWith(staging + path.sep)) throw new Error('Staging must be separate from deployment output');
+  await fs.mkdir(staging, { recursive: false });
+  for (const cohort of COHORTS) {
+    const root = path.join(staging, cohort, 'assets');
+    for (const file of plan.cohorts[cohort].files) {
+      if (signature(await fs.stat(file.file)) !== file.signature) throw new Error('Media changed before staging');
+      const destination = path.join(root, file.pathname.slice(1));
+      await fs.mkdir(path.dirname(destination), { recursive: true });
+      await fs.copyFile(file.file, destination, constants.COPYFILE_FICLONE);
+      if (await hashFile(destination) !== file.sha256) throw new Error('Media staging checksum mismatch');
+    }
+    await fs.mkdir(path.join(root, '_shared-media'), { recursive: true });
+    await fs.writeFile(path.join(root, MANIFEST_PATH.slice(1)), plan.cohorts[cohort].body);
+    await fs.writeFile(path.join(root, '_headers'), STATIC_HEADERS);
   }
-  if (!files.length) throw new Error('Refusing an empty shared-media snapshot');
-  const manifestShards = [...shards].sort(([a], [b]) => a < b ? -1 : 1).map(([shard, entries]) => {
-    const body = JSON.stringify({ schemaVersion: PROTOCOL_VERSION, snapshot, entries });
-    return { key: shardKey(snapshot, shard), body, sha256: hash('sha256', body), md5: hash('md5', body), size: Buffer.byteLength(body) };
-  });
-  const release = {
-    schemaVersion: PROTOCOL_VERSION, snapshot,
-    files: files.length, logicalBytes: files.reduce((total, file) => total + file.size, 0),
-    uniqueObjects: objects.size, uniqueBytes: [...objects.values()].reduce((total, object) => total + object.size, 0),
-    shards: Object.fromEntries(manifestShards.map(shard => [shard.key.split('/').at(-1), shard.sha256]))
-  };
-  const body = JSON.stringify(release);
-  return { distRoot: dist, snapshot, files, sourceFiles, objects: [...objects.values()], shards: manifestShards,
-    release, marker: { key: `snapshots/${snapshot}/release.json`, body, md5: hash('md5', body), size: Buffer.byteLength(body) } };
 }
 
-async function parallel(items, count, run) {
+export async function fetchCatalogs(release, fetchImpl = fetch) {
+  if (!validateRelease(release)) return null;
+  const catalogs = {};
+  for (const cohort of COHORTS) {
+    const receipt = release.cohorts[cohort];
+    const response = await fetchImpl(receipt.origin + MANIFEST_PATH, { redirect: 'error', signal: AbortSignal.timeout(45_000) });
+    if (!response.ok) throw new Error(`Pinned ${cohort} media catalog unavailable; deployment copies retained`);
+    const body = await response.text();
+    if (sha256(body) !== receipt.manifestSha256) throw new Error('Pinned media catalog checksum mismatch; deployment copies retained');
+    const catalog = JSON.parse(body);
+    if (catalog.schemaVersion !== 2 || catalog.cohort !== cohort || !catalog.files
+      || Object.keys(catalog.files).length !== receipt.files) throw new Error('Invalid pinned media catalog');
+    for (const [pathname, entry] of Object.entries(catalog.files)) {
+      if (mediaCohort(pathname) !== cohort || !HASH_PATTERN.test(entry.sha256)
+        || !Number.isSafeInteger(entry.size) || entry.size < 0 || entry.size > MAX_ASSET_BYTES) throw new Error('Invalid pinned media entry');
+    }
+    catalogs[cohort] = catalog.files;
+  }
+  return catalogs;
+}
+
+export async function stripPublishedMedia(plan, release, fetchImpl = fetch) {
+  const catalogs = await fetchCatalogs(release, fetchImpl);
+  if (!catalogs) return { stripped: 0, bytes: 0, local: plan.files.length + plan.retained.length };
+  const matches = plan.files.filter(file => {
+    const entry = catalogs[file.cohort][file.pathname];
+    return Object.hasOwn(catalogs[file.cohort], file.pathname) && entry.sha256 === file.sha256 && entry.size === file.size;
+  });
+  // Check the entire removal set before deleting any generated deployment copy.
+  for (const file of matches) if (signature(await fs.stat(file.file)) !== file.signature) throw new Error('Media changed before pruning');
+  for (const file of matches) await fs.unlink(file.file);
+  const result = { stripped: matches.length, bytes: matches.reduce((n, file) => n + file.size, 0),
+    local: plan.files.length + plan.retained.length - matches.length };
+  await fs.writeFile(path.join(plan.distRoot, 'shared-media-release.json'), JSON.stringify({ ...release, verification: result }));
+  return result;
+}
+
+export async function verifyPublishedMedia(plan, release, { fetchImpl = fetch, onProgress = () => {} } = {}) {
+  const catalogs = await fetchCatalogs(release, fetchImpl);
+  if (!catalogs) throw new Error('Cannot verify disabled media');
   let next = 0;
+  let verified = 0;
   let failed;
-  const results = await Promise.allSettled(Array.from({ length: Math.min(count, items.length) }, async () => {
-    while (!failed && next < items.length) {
-      const item = items[next++];
-      try { await run(item); } catch (error) { failed = error; throw error; }
+  await Promise.all(Array.from({ length: 12 }, async () => {
+    while (!failed && next < plan.files.length) {
+      const file = plan.files[next++];
+      try {
+        if (catalogs[file.cohort][file.pathname]?.sha256 !== file.sha256) throw new Error('Publication catalog differs from source');
+        let failure;
+        for (let attempt = 0; attempt < 3; attempt += 1) {
+          try {
+            const encodedPath = file.pathname.split('/').map(encodeURIComponent).join('/');
+            const response = await fetchImpl(release.cohorts[file.cohort].origin + encodedPath, { redirect: 'error', signal: AbortSignal.timeout(60_000) });
+            if (!response.ok || !response.body) throw new Error(`Media download returned ${response.status}`);
+            const hash = createHash('sha256');
+            let size = 0;
+            for await (const bytes of response.body) { size += bytes.length; if (size > file.size) throw new Error('Media size mismatch'); hash.update(bytes); }
+            if (size !== file.size || hash.digest('hex') !== file.sha256) throw new Error(`Served bytes differ: ${file.pathname}`);
+            failure = null;
+            break;
+          } catch (error) { failure = error; }
+        }
+        if (failure) throw failure;
+        verified += 1;
+        if (verified % 500 === 0) onProgress({ verified, total: plan.files.length });
+      } catch (error) { failed = error; }
     }
   }));
-  const rejected = results.find(result => result.status === 'rejected');
-  if (rejected) throw rejected.reason;
-}
-
-function matches(remote, local) {
-  return remote && remote.size === local.size && remote.etag.replaceAll('"', '') === local.md5;
-}
-
-export async function publishSharedMedia(plan, store, { stripOutput = false, onProgress = () => {} } = {}) {
-  // List the entire dedicated bucket, including old snapshots, before any write.
-  const existing = await store.list();
-  const entries = new Map(existing.map(object => [object.key, object]));
-  const writes = [...plan.objects, ...plan.shards, plan.marker];
-  const projectedBytes = existing.reduce((total, object) => total + object.size, 0)
-    + writes.filter(object => !entries.has(object.key)).reduce((total, object) => total + object.size, 0);
-  if (projectedBytes > MAX_BUCKET_BYTES) throw new Error('Shared media would exceed the 8 GB free-tier safety budget; no objects uploaded');
-  const prior = await store.getText(plan.marker.key);
-  if (prior !== null && prior !== plan.marker.body) throw new Error('An immutable snapshot already exists with different media; use a new source commit');
-
-  let uploaded = 0;
-  let reused = 0;
-  await parallel(plan.objects, 12, async object => {
-    if (stableSignature(await fs.stat(object.file)) !== object.signature) throw new Error(`Media changed after planning: ${object.file}`);
-    const remote = entries.get(object.key);
-    if (remote) {
-      if (!matches(remote, object)) throw new Error(`Stored content hash has inconsistent bytes: ${object.key}`);
-      reused += 1;
-    } else {
-      const response = await store.putIfAbsent(object);
-      if (!matches(response, object)) throw new Error(`Storage checksum mismatch: ${object.key}`);
-      uploaded += 1;
-    }
-    if ((uploaded + reused) % 1000 === 0) onProgress({ uploaded, reused, total: plan.objects.length });
-  });
-  for (const shard of plan.shards) {
-    const remote = entries.get(shard.key);
-    if (remote && !matches(remote, shard)) throw new Error(`Immutable manifest shard differs: ${shard.key}`);
-    if (!remote && !matches(await store.putIfAbsent(shard), shard)) throw new Error('Manifest shard checksum mismatch');
-    if (await store.getText(shard.key) !== shard.body) throw new Error('Manifest shard readback mismatch');
-  }
-  // A fresh strongly consistent listing verifies the checksum/size of every
-  // object and shard before publishing the release marker or stripping output.
-  const confirmed = new Map((await store.list()).map(object => [object.key, object]));
-  for (const object of [...plan.objects, ...plan.shards]) {
-    if (!matches(confirmed.get(object.key), object)) throw new Error(`Media verification failed: ${object.key}`);
-  }
-  if (prior === null && !matches(await store.putIfAbsent(plan.marker), plan.marker)) throw new Error('Release marker checksum mismatch');
-  if (await store.getText(plan.marker.key) !== plan.marker.body) throw new Error('Release marker readback mismatch');
-  // Source assets are untouched. Only generated deployment copies are removed,
-  // and only after the entire snapshot has been published and verified.
-  if (stripOutput) {
-    for (const object of plan.sourceFiles) {
-      if (stableSignature(await fs.stat(object.file)) !== object.signature) throw new Error('Media changed before output pruning');
-    }
-    for (const root of MEDIA_ROOTS) await fs.rm(path.join(plan.distRoot, root), { recursive: true, force: true });
-    await fs.writeFile(path.join(plan.distRoot, 'shared-media-release.json'), JSON.stringify(plan.release));
-  }
-  return { ...plan.release, uploaded, reused, projectedBucketBytes: projectedBytes, outputStripped: stripOutput };
+  if (failed) throw failed;
+  return { verified, bytes: plan.bytes };
 }

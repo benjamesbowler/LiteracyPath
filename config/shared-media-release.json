@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 2,
+  "provider": "cloudflare-static-free",
+  "enabled": false,
+  "cohorts": {}
+}

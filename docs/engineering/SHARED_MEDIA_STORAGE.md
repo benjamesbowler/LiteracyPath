@@ -1,90 +1,71 @@
-# Shared public media storage
+# Shared public media: free static hosting
 
-Status: implemented on `infra/shared-media-storage`; activation is blocked on
-Cloudflare sign-in and R2 activation. No cloud resources or uploads have been
-created. With `SHARED_MEDIA_ORIGIN` unset, builds retain original Vercel media.
+The user requires **zero spend**, not a billable service with a free allowance.
+Do not activate R2, upgrade a plan, add paid bindings or accept usage-based billing.
+The earlier R2 implementation is superseded and remains recoverable in Git.
 
-## Delivery contract
+Status: free-only implementation in preparation on `infra/shared-media-storage`.
+`config/shared-media-release.json` stays disabled until publication and hosted
+verification. Production delivery is unchanged while disabled.
 
-Images, audio and video retain existing same-origin URLs. `vercel.mjs` loads
-canonical security/routing rules from `config/vercel-base.json` and adds external
-rewrites only when activated. Rewrites clear cookies, authorization and client
-address headers before forwarding public media. Browser CSP and offline paths
-stay intact. Covered roots are defined once in `infra/shared-media/protocol.mjs`.
+## Hosting and limits
 
-The private R2 Standard bucket stores content once by SHA-256. Immutable manifest
-shards map each exact Git commit's paths to content. Every deployment pins its
-own snapshot, preserving rollback media. The Worker exposes GET/HEAD only,
-supports native byte ranges and validators, and has no administration endpoint.
-Public `r2.dev` access is unnecessary.
+[Cloudflare static assets](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/)
+have no storage charge and free unlimited static requests. This deployment has
+**no Worker script**, R2, KV, D1 or other metered binding. Keep Workers Free;
+limits must fail without an upgrade or charge.
 
-After Vite and offline-manifest generation, the postbuild publisher verifies
-size/MD5, manifest readback and a fresh complete bucket listing before stripping
-generated deployment copies. Missing secrets, upload failure, inconsistent bytes
-or a conflicting immutable snapshot fail the build. `public/` and native
-song/animation sources are untouched.
+The publisher uses four collections: isolated words, assessment/instruction
+speech, story recordings and other public media. Each stays below 19,000 files,
+leaving headroom under the [20,000-file Free limit](https://developers.cloudflare.com/workers/platform/limits/).
+Files above 25 MiB remain on Vercel, including the recent Hop and Stop MP4.
+The current build externalizes about 3.76 GB; canonical source assets are retained.
 
-## Free allowance
+## Publication and ongoing builds
 
-[R2 Standard pricing](https://developers.cloudflare.com/r2/pricing/) includes
-10 GB-month storage, 1 million Class A and 10 million Class B operations monthly,
-with free internet egress. The November 3 build has about 3.77 GB of unique media;
-unchanged content is reused across releases. Keep the Worker on its
-[Free plan](https://developers.cloudflare.com/workers/platform/pricing/)
-(100,000 requests/day), without automatic upgrades.
+Existing browser URLs stay on literacy.guide. `vercel.mjs` keeps canonical base
+headers and routes from `config/vercel-base.json`, checks the local filesystem
+first, then forwards public media to immutable Cloudflare version origins.
+Cookies, authorization and client-address headers are cleared for forwarding.
+Browser CSP, media controls and offline-cache URLs stay unchanged.
 
-The publisher refuses a dedicated bucket projected above 8,000,000,000 bytes,
-including retained snapshots. This is headroom, **not an account-wide billing
-cap**. Other buckets, operations and external writes also count. Check actual
-account-wide usage before activation. R2 activation can require checkout/payment
-details and can bill overages; the user must complete account/legal/billing steps.
+Each collection includes a source hash/size catalog. Publication stages clones
+of final build media, deploys assets-only Workers, pins their exact public version
+URLs, then downloads and SHA-256 verifies **every** served file. No source or
+deployment copy is removed during publication. It produces an ignored candidate;
+it does not automatically activate routing or modify Production.
 
-## Activate
+To publish or refresh media, with authorized local Wrangler access:
 
-1. Obtain the user's signed-in Cloudflare account and activated R2 subscription.
-   Check Standard storage and Workers Free; do not select paid add-ons.
-2. Create dedicated bucket `literacy-guide-media`, bind it as `MEDIA` using
-   `infra/shared-media/wrangler.jsonc`, then deploy the Worker with
-   `npx wrangler deploy --config infra/shared-media/wrangler.jsonc`.
-   Keep observability disabled. Record the real account ID and Worker origin.
-3. Store bucket-scoped R2 Object Read/Write credentials in server-side Vercel
-   environment variables: `R2_ACCOUNT_ID`, `R2_BUCKET_NAME`, `R2_ACCESS_KEY_ID`,
-   `R2_SECRET_ACCESS_KEY`, plus `SHARED_MEDIA_ORIGIN=https://<worker>.workers.dev`.
-   Never use `VITE_` prefixes, commit keys or paste them into chats/reports.
-4. Enable Preview first. Git builds use `VERCEL_GIT_COMMIT_SHA`; local/prebuilt
-   builds must supply the exact source SHA as `SHARED_MEDIA_SNAPSHOT` to both
-   config evaluation and build. Run the full build; do not deploy stripped output
-   until the upload and verification have succeeded.
-5. Exercise a READY hosted preview: source hashes, actual images/audio, the
-   complete 27-file Hop and Stop pack, Cycle Shorts, HEAD/range/304, complete
-   native video playback and seeking, reader page recordings, all reader pages
-   and game rounds, offline loading, CSP and security/cache headers. Verify
-   actual Vercel rewrites do not forward cookies or authorization. Local fixture
-   success does not establish hosted proxy or R2 behavior.
-6. After preview proof and normal protected-branch checks, set the same server
-   variables in Production and release. Verify live media and storage resources;
-   retain the preceding working deployment. Vercel's rolling storage metric will
-   not reset immediately.
+```sh
+SHARED_MEDIA_PREPARE=1 npm run build
+npm run shared-media:plan
+CLOUDFLARE_ACCOUNT_ID=<account-id> npm run shared-media:publish
+```
 
-`shared-media-release.json` in the generated deployment describes its snapshot.
-After a normal build, `SHARED_MEDIA_SNAPSHOT=<sha> npm run shared-media:plan`
-produces the source inventory without cloud writes.
+Review `.artifacts/shared-media-free/verified-candidate.json`, place the verified
+receipt in `config/shared-media-release.json`, then build and test a READY Vercel
+preview. Check served hashes, actual pictures/audio, video playback and seeking,
+reader/page audio, game rounds, offline loading, security/cache headers and
+actual removal of private request headers. Verify live only after preview proof
+and normal protected-branch checks. Retain the preceding working deployment.
 
-## Rollback and maintenance
+Regular builds require **no Cloudflare credential in Vercel**. Postbuild fetches
+all four pinned catalogs and verifies their checked-in digests before pruning.
+Only identical published files are removed from generated `dist`. New, changed
+or oversized files remain local and work through filesystem precedence. Refresh
+shared media when new local copies become material; never strip unverified files.
+A failed catalog/hash check stops the build before removal.
 
-Restore a verified preceding Vercel deployment. Its media snapshot remains
-available; the pre-migration deployment still includes its original local media.
-To disable storage for a new build, unset `SHARED_MEDIA_ORIGIN` and rebuild.
-Never remove routing from already stripped prebuilt output.
+## Rollback and cleanup
 
-Remote deletion is never automatic. Preserve every object referenced by retained
-deployment snapshots. Reaching the safety budget requires maintenance, not an
-automatic upgrade or deletion of rollback media.
+Old deployments keep their own pinned immutable media versions. Never delete a
+retained version or disable its Version URL while a retained deployment uses it.
+To disable shared hosting for a new release, disable the receipt and rebuild;
+do not change routing on already stripped prebuilt output.
 
-`node --test tests/unit/sharedMediaStorage.test.js` covers transfer/checksum
-failure, reuse, rollback snapshots and HTTP range semantics. The local fixture
-tool `tools/serveSharedMediaPreview.mjs --prepare` creates disposable APFS clones
-from `dist` with `SHARED_MEDIA_SNAPSHOT=<source-sha>`, verifies and strips output.
-Running it without `--prepare` serves that fixture on loopback port 5187 through
-the actual Worker. Build the existing song/child preview entries for browser
-tests. This is a filesystem substitute, not cloud proof. Stop it before cleanup.
+Run `node --test tests/unit/sharedMediaStorage.test.js` for free-only receipt,
+routing precedence, source/staging boundaries, exact-byte verification and
+failure-safety checks. Remove task-created staging clones and full builds after
+compact proof is retained. Keep native song/animation work and protected shelves
+untouched. Vercel's historical storage metric will not clear immediately.
