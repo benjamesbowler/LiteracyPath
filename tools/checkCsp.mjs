@@ -8,10 +8,10 @@ import { chromium } from "@playwright/test";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distRoot = path.join(repoRoot, "dist");
-const vercelConfig = JSON.parse(fs.readFileSync(path.join(repoRoot, "vercel.json"), "utf8"));
+const vercelConfig = JSON.parse(fs.readFileSync(path.join(repoRoot, "config/vercel-base.json"), "utf8"));
 
 const globalHeaderRule = vercelConfig.headers.find(rule => rule.source === "/(.*)");
-assert.ok(globalHeaderRule, "vercel.json must define global security headers");
+assert.ok(globalHeaderRule, "config/vercel-base.json must define global security headers");
 
 const globalHeaders = Object.fromEntries(
   globalHeaderRule.headers.map(header => [header.key, header.value])

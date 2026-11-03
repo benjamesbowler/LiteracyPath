@@ -51,6 +51,7 @@ LP Assets/
 /dist_stuck_*/
 /_DELETE_ME_*/
 .vercel
+.wrangler/
 
 # Local scratch and dev artefacts. Nothing under .artifacts/ is tracked; it holds the
 # guided-reading image factory (~174MB), story-quest backups and proof sheets, and

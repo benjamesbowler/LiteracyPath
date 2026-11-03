@@ -19,6 +19,12 @@ Phonics app extension/
 public_domain_books/
 
 # Test + tooling output
+.artifacts/
+.wrangler/
+.env*
+**/.artifacts/
+**/.wrangler/
+**/.env*
 test-results/
 playwright-report/
 # The production security gate needs these tests. Keep parent directories

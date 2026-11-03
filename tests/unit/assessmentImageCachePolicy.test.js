@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const vercelConfig = JSON.parse(
-  readFileSync(new URL("../../vercel.json", import.meta.url), "utf8")
+  readFileSync(new URL("../../config/vercel-base.json", import.meta.url), "utf8")
 );
 
 test("assessment images always revalidate in the browser", () => {

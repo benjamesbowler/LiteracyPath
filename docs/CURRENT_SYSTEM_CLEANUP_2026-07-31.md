@@ -1,5 +1,16 @@
 # Current system cleanup — 31 July 2026
 
+## Shared media storage preparation — 3 November 2026
+
+Replaced the unactivated R2 draft with strictly free static asset publication
+after the user required zero spend. Removed superseded R2 Worker/server/S3
+tooling; recovery remains in Git checkpoint `4a51ffae8`. Source assets, games,
+recent song/video and protected native animation remain untouched. Only
+byte-matched published deployment copies may be stripped; new, changed and
+oversized media remain local. Task staging and full builds are disposable after
+compact proof is retained. No hosted source media is deleted automatically.
+See [the operating reference](engineering/SHARED_MEDIA_STORAGE.md).
+
 ## Present comprehension pictures — 3 November 2026
 
 Cycle Shorts now resolves 22 new story-specific comics and the five existing
