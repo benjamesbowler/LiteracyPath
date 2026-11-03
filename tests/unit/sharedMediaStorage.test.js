@@ -72,7 +72,9 @@ test('Vercel checks local media first and retains headers, routes and private-he
     const route = config.routes.find(route => route.dest?.startsWith('https:') && new RegExp(route.src).test(pathname));
     assert.ok(config.routes.indexOf(route) > filesystem);
     assert.equal(pathname.replace(new RegExp(route.src), route.dest), release.cohorts[mediaCohort(pathname)].origin + pathname);
-    for (const key of ['cookie', 'authorization', 'x-forwarded-for']) assert.ok(route.transforms.some(transform => transform.target.key === key && transform.args === ''));
+    for (const key of ['cookie', 'authorization', 'x-vercel-protection-bypass', 'x-forwarded-for', 'x-real-ip', 'forwarded', 'true-client-ip']) {
+      assert.ok(route.transforms.some(transform => transform.target.key === key && transform.op === 'delete' && !('args' in transform)));
+    }
   }
   assert.equal(config.routes.at(-1).dest, '/parent.html');
   assert.equal(config.headers, undefined);
@@ -123,6 +125,17 @@ test('missing, tampered or cross-collection catalogs fail before any removal', a
   for (const pathname of paths) assert.ok((await fs.stat(path.join(f.distRoot, pathname))).isFile());
 }));
 
+test('the recent song pack remains local even when identical verified copies exist in shared hosting', async () => fixture(async f => {
+  const song = '/action-songs/hop-and-stop/audio/page-01.mp3';
+  await f.write(song, 'recent song page recording');
+  const plan = await planSharedMedia(f);
+  const { release, fetchImpl } = publication(plan);
+  const result = await stripPublishedMedia(plan, release, fetchImpl);
+  assert.equal(result.stripped, 4);
+  assert.equal(result.local, 1);
+  assert.equal(await fs.readFile(path.join(f.distRoot, song), 'utf8'), 'recent song page recording');
+}));
+
 test('changed output and source overlap fail safely before deleting media', async () => fixture(async f => {
   await assert.rejects(planSharedMedia({ distRoot: f.publicRoot, publicRoot: f.publicRoot }), /separate/);
   const plan = await planSharedMedia(f);
@@ -142,6 +155,7 @@ test('every published asset is independently byte-verified; corrupted cloud cont
   const plan = await planSharedMedia(f);
   const { release, fetchImpl } = publication(plan);
   assert.equal((await verifyPublishedMedia(plan, release, { fetchImpl })).verified, 4);
+  await assert.rejects(verifyPublishedMedia(plan, release, { fetchImpl, concurrency: 0 }), /concurrency/);
   const corrupted = async url => url.endsWith(MANIFEST_PATH) ? fetchImpl(url) : new Response('corrupt');
   await assert.rejects(verifyPublishedMedia(plan, release, { fetchImpl: corrupted }), /differ|size/);
   assert.ok((await fs.stat(path.join(f.distRoot, paths[0]))).isFile());

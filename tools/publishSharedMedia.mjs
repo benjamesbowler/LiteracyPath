@@ -11,12 +11,14 @@ const summary = { files: plan.files.length, bytes: plan.bytes, local: plan.retai
   cohorts: Object.fromEntries(COHORTS.map(cohort => [cohort, { files: plan.cohorts[cohort].files.length, bytes: plan.cohorts[cohort].bytes }])) };
 console.log('[free static media]', JSON.stringify(summary));
 
-if (process.argv.includes('--publish')) {
+const verifyOnly = process.argv.includes('--verify-only');
+if (process.argv.includes('--publish') || verifyOnly) {
   const account = process.env.CLOUDFLARE_ACCOUNT_ID;
-  if (!/^[a-f0-9]{32}$/.test(account || '')) throw new Error('CLOUDFLARE_ACCOUNT_ID is required; no deployment performed');
+  if (!verifyOnly && !/^[a-f0-9]{32}$/.test(account || '')) throw new Error('CLOUDFLARE_ACCOUNT_ID is required; no deployment performed');
   const reports = path.join(root, '.artifacts/shared-media-free');
   await fs.mkdir(reports, { recursive: true });
   const resume = process.argv.find(value => value.startsWith('--resume='))?.slice('--resume='.length);
+  if (verifyOnly && !resume) throw new Error('Verification-only requires an existing publication staging directory');
   const staging = resume ? await fs.realpath(resume) : path.join(reports, `publish-${Date.now()}`);
   if (resume) {
     if (path.dirname(staging) !== await fs.realpath(reports) || !/^publish-\d+$/.test(path.basename(staging))) throw new Error('Invalid publication staging directory');
@@ -26,8 +28,9 @@ if (process.argv.includes('--publish')) {
       await fs.writeFile(path.join(staging, cohort, 'assets/_headers'), STATIC_HEADERS);
     }
   } else await stageSharedMedia(plan, staging);
-  const receipt = { schemaVersion: 2, provider: 'cloudflare-static-free', enabled: true, cohorts: {} };
-  for (const cohort of COHORTS) {
+  const receipt = verifyOnly ? JSON.parse(await fs.readFile(path.join(staging, 'candidate.json'), 'utf8'))
+    : { schemaVersion: 2, provider: 'cloudflare-static-free', enabled: true, cohorts: {} };
+  for (const cohort of verifyOnly ? [] : COHORTS) {
     const name = `literacy-media-${cohort}`;
     // Assets-only deployments never enable an R2, KV, D1 or paid compute service.
     const config = { name, account_id: account, compatibility_date: '2026-11-03',
@@ -53,7 +56,8 @@ if (process.argv.includes('--publish')) {
       bytes: plan.cohorts[cohort].bytes };
     await fs.writeFile(path.join(staging, 'candidate.json'), JSON.stringify(receipt, null, 2));
   }
-  const verification = await verifyPublishedMedia(plan, receipt, { onProgress: row => console.log('[served bytes]', JSON.stringify(row)) });
+  const verification = await verifyPublishedMedia(plan, receipt, { concurrency: 64,
+    onProgress: row => console.log('[served bytes]', JSON.stringify(row)) });
   await fs.writeFile(path.join(reports, 'verified-candidate.json'), JSON.stringify(receipt, null, 2));
   await fs.writeFile(path.join(reports, 'verification.json'), JSON.stringify({ ...summary, ...verification, staging }, null, 2));
   console.log(`Verified every served file. Candidate: ${path.join(reports, 'verified-candidate.json')}. Review and test this pinned receipt before activating it in config/shared-media-release.json.`);

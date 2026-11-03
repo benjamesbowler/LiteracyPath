@@ -14,7 +14,7 @@ export function sharedMediaVercelConfig(base, release) {
   const mediaRoutes = COHORTS.map((cohort, index) => ({
     src: patterns[index], dest: `${release.cohorts[cohort].origin}$1`,
     transforms: ['cookie', 'authorization', 'x-vercel-protection-bypass', 'x-forwarded-for', 'x-real-ip', 'forwarded', 'true-client-ip']
-      .map(key => ({ type: 'request.headers', op: 'set', target: { key }, args: '' }))
+      .map(key => ({ type: 'request.headers', op: 'delete', target: { key } }))
   }));
   const config = structuredClone(base);
   for (const name of ['headers', 'rewrites', 'redirects', 'cleanUrls', 'trailingSlash']) delete config[name];

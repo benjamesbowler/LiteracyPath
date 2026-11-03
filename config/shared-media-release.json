@@ -1,6 +1,31 @@
 {
   "schemaVersion": 2,
   "provider": "cloudflare-static-free",
-  "enabled": false,
-  "cohorts": {}
+  "enabled": true,
+  "cohorts": {
+    "words": {
+      "origin": "https://c37e2261-literacy-media-words.benjamesbowler.workers.dev",
+      "manifestSha256": "b76149531049d57ef70243ecda993ee359d9aa599066c9855366df0acf756b69",
+      "files": 13865,
+      "bytes": 359332291
+    },
+    "speech": {
+      "origin": "https://599dbc5b-literacy-media-speech.benjamesbowler.workers.dev",
+      "manifestSha256": "d22cf89e19274db1f503484d35a8142d4be46b44ca4463ce50348c64be3dd2a9",
+      "files": 14403,
+      "bytes": 922389728
+    },
+    "stories": {
+      "origin": "https://7318e6b2-literacy-media-stories.benjamesbowler.workers.dev",
+      "manifestSha256": "81cedb7e281f4df9b60a8fcc8b49f293cf81412523bc1a7c9631a5254fa66ddc",
+      "files": 13202,
+      "bytes": 476963914
+    },
+    "art": {
+      "origin": "https://e00ba331-literacy-media-art.benjamesbowler.workers.dev",
+      "manifestSha256": "ce37ccfb5b7b9bdd0c6dc0a5c82a1924a878d25158d78ba04e4f8c4e78662d51",
+      "files": 18708,
+      "bytes": 1997949598
+    }
+  }
 }

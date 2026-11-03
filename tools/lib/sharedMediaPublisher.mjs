@@ -103,6 +103,8 @@ export async function stripPublishedMedia(plan, release, fetchImpl = fetch) {
   const catalogs = await fetchCatalogs(release, fetchImpl);
   if (!catalogs) return { stripped: 0, bytes: 0, local: plan.files.length + plan.retained.length };
   const matches = plan.files.filter(file => {
+    // Preserve the recent song/video pack's existing native media delivery.
+    if (file.pathname.startsWith('/action-songs/')) return false;
     const entry = catalogs[file.cohort][file.pathname];
     return Object.hasOwn(catalogs[file.cohort], file.pathname) && entry.sha256 === file.sha256 && entry.size === file.size;
   });
@@ -115,13 +117,14 @@ export async function stripPublishedMedia(plan, release, fetchImpl = fetch) {
   return result;
 }
 
-export async function verifyPublishedMedia(plan, release, { fetchImpl = fetch, onProgress = () => {} } = {}) {
+export async function verifyPublishedMedia(plan, release, { fetchImpl = fetch, onProgress = () => {}, concurrency = 12 } = {}) {
+  if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 64) throw new Error('Invalid verification concurrency');
   const catalogs = await fetchCatalogs(release, fetchImpl);
   if (!catalogs) throw new Error('Cannot verify disabled media');
   let next = 0;
   let verified = 0;
   let failed;
-  await Promise.all(Array.from({ length: 12 }, async () => {
+  await Promise.all(Array.from({ length: Math.min(concurrency, plan.files.length) }, async () => {
     while (!failed && next < plan.files.length) {
       const file = plan.files[next++];
       try {

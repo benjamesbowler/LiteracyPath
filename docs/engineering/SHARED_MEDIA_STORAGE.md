@@ -4,9 +4,14 @@ The user requires **zero spend**, not a billable service with a free allowance.
 Do not activate R2, upgrade a plan, add paid bindings or accept usage-based billing.
 The earlier R2 implementation is superseded and remains recoverable in Git.
 
-Status: free-only implementation in preparation on `infra/shared-media-storage`.
-`config/shared-media-release.json` stays disabled until publication and hosted
-verification. Production delivery is unchanged while disabled.
+The checked-in release pins four published, verified collections. All 60,178
+served files passed full-byte verification before activation. A READY Vercel
+preview verified all recent song assets, all 27 Cycle Shorts pictures, all four
+collections, private-header removal, conditional caching and native video ranges.
+Chrome playback reached the end of the full video and replayed after seeking;
+the eight-page reader, page/game audio controls and all eight game rounds worked.
+Phone-width rendering and the real Books publication receipt were also checked.
+These are browser and HTTP checks, not physical-device or human-listening proof.
 
 ## Hosting and limits
 
@@ -18,8 +23,9 @@ limits must fail without an upgrade or charge.
 The publisher uses four collections: isolated words, assessment/instruction
 speech, story recordings and other public media. Each stays below 19,000 files,
 leaving headroom under the [20,000-file Free limit](https://developers.cloudflare.com/workers/platform/limits/).
-Files above 25 MiB remain on Vercel, including the recent Hop and Stop MP4.
-The current build externalizes about 3.76 GB; canonical source assets are retained.
+Files above 25 MiB remain on Vercel. The complete recent Hop and Stop pack also
+stays local, preserving its existing video, audio and reader delivery. The bulk
+library externalizes about 3.75 GB; canonical source assets are retained.
 
 ## Publication and ongoing builds
 
