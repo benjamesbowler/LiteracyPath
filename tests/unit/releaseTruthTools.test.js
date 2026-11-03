@@ -287,7 +287,7 @@ test("CSP release gate is enforced by deployment headers and hostile browser pro
     "utf8"
   ));
   const vercelConfig = JSON.parse(readFileSync(
-    new URL("../../vercel.json", import.meta.url),
+    new URL("../../config/vercel-base.json", import.meta.url),
     "utf8"
   ));
   const cspCheck = readFileSync(
@@ -312,7 +312,7 @@ test("CSP release gate is enforced by deployment headers and hostile browser pro
 
 test("SoundKeys direct routes use the metadata-specific app shell", () => {
   const vercelConfig = JSON.parse(readFileSync(
-    new URL("../../vercel.json", import.meta.url),
+    new URL("../../config/vercel-base.json", import.meta.url),
     "utf8"
   ));
   for (const route of ["/soundkeys", "/soundkeys/"]) {

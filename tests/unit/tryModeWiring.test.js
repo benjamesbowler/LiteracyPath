@@ -145,7 +145,7 @@ test("no font is fetched from Google, and the CSP would not allow it", () => {
 
   // Belt and braces: even if a link came back, the CSP now refuses it, so the
   // regression is visible in the browser console rather than silent.
-  const vercel = readFileSync(new URL("../../vercel.json", import.meta.url), "utf8");
+  const vercel = readFileSync(new URL("../../config/vercel-base.json", import.meta.url), "utf8");
   assert.ok(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(vercel),
     "the CSP still permits Google font domains");
 

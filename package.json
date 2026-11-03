@@ -245,7 +245,9 @@
     "generate:comprehension-pictures": "node tools/generateComprehensionPictures.mjs",
     "check:comprehension-pictures": "node tools/generateComprehensionPictures.mjs --check && node tools/checkComprehensionPictures.mjs",
     "check:guided-reading-decodable-scope": "node tools/checkGuidedReadingDecodableScope.mjs",
-    "check:guided-reading-reader": "playwright test --config playwright.guided-reading.config.js"
+    "check:guided-reading-reader": "playwright test --config playwright.guided-reading.config.js",
+    "postbuild": "node tools/publishSharedMedia.mjs",
+    "shared-media:plan": "node tools/publishSharedMedia.mjs --plan"
   },
   "dependencies": {
     "@fontsource/andika": "^5.3.0",
@@ -282,6 +284,7 @@
     "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "3.1161.0",
     "@axe-core/playwright": "^4.12.1",
     "@babel/parser": "^7.29.7",
     "@electric-sql/pglite": "^0.5.4",
@@ -292,6 +295,7 @@
     "@types/howler": "^2.2.13",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vercel/routing-utils": "6.6.1",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -299,7 +303,8 @@
     "espree": "^11.2.0",
     "globals": "^17.6.0",
     "sharp": "^0.35.5",
-    "vite": "^8.1.6"
+    "vite": "^8.1.6",
+    "wrangler": "4.156.2"
   },
   "overrides": {
     "exceljs": {
@@ -309,6 +314,9 @@
     },
     "brace-expansion": "5.0.12",
     "nanoid": "3.3.18",
-    "postcss": "8.5.23"
+    "postcss": "8.5.23",
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    }
   }
 }

@@ -1,5 +1,15 @@
 # Current system cleanup — 31 July 2026
 
+## Shared media storage preparation — 3 November 2026
+
+Added opt-in, verified R2 publication and pinned same-origin media routing.
+Generated deployment media is removed only after complete upload verification;
+canonical public assets, games, recent song/video and protected native animation
+sources remain untouched. Local verification fixtures and preview builds are
+reproducible and removed after compact proof is retained. No hosted media has
+been deleted or switched; Cloudflare sign-in/R2 activation remains required.
+See [the operating reference](engineering/SHARED_MEDIA_STORAGE.md).
+
 ## Present comprehension pictures — 3 November 2026
 
 Cycle Shorts now resolves 22 new story-specific comics and the five existing
