@@ -3,8 +3,8 @@
 export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "meadow-pals-01-muddy-has-a-bath": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Muddy need to wash twice before supper?",
-      listenFor: "Listen for the first bath turning brown while Muddy stays muddy."
+      prompt: "Why does Muddy need clean water for another wash?",
+      listenFor: "His first bathwater turns brown. He needs fresh water to get clean before eating."
     }),
     visual: Object.freeze({
       page: 5,
@@ -377,12 +377,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-35-gigglys-round-wheel": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does a round wood slice make Giggly's cart roll smoothly again?",
+      prompt: "Why does a round slice of wood make Giggly's cart roll smoothly again?",
       listenFor: "A useful comparison names the broken wheel's flat gap and the replacement's complete curve."
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "Where is Giggly placing the round wood slice on the cart?",
+      prompt: "Where is Giggly placing the round slice of wood on the cart?",
       lookFor: "Locate the smooth circular slice lined up with the empty axle."
     })
   }),
@@ -609,12 +609,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "moonwood-tales-c-21": Object.freeze({
     oral: Object.freeze({
       prompt: "What is really causing the scratching behind Hollow Oak's root wall?",
-      listenFor: "Listen for Twig searching a crowded collection for spectacles already resting on her head."
+      listenFor: "Listen for Twig searching a crowded collection for glasses already resting on her head."
     }),
     visual: Object.freeze({
       page: 9,
-      prompt: "Where does Fern finally spot the spectacles Twig has been seeking?",
-      lookFor: "Find the spectacles above Twig's ears as her hand reaches toward them."
+      prompt: "Where does Fern find Twig's glasses?",
+      lookFor: "Find the glasses above Twig's ears as her hand reaches toward them."
     })
   }),
   "moonwood-tales-c-22": Object.freeze({

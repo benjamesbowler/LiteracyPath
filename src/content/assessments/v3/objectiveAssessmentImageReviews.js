@@ -83,7 +83,7 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "net": "26bbab10e8b2e0ce06d5ca92ca39f88639f71f4688f739e0dd7b0f22263e1626",
   "nose": "7ae0d5377e90cd2149232b49378a596a77c79eaab126c7b4a00b830fcaecad8d",
   "nut": "52163e522d2514c99d45db8867786639058ffbcea52473e35278982efa34e2a2",
-  "octopus": "ba0ea7b33ca3786949c4e6f433adce275d0ba12c868ce29a1b31429665dd3ddc",
+  "octopus": "a4c4fa9317ce2068e14946e402a07569df0550b3621d4bd6205501d2f69926b2",
   "orange": "414b2b384d59c850e82d2cb8f4cabc803ac4422be0b20629c0c82345eec3c26a",
   "pan": "c1bbad3faf189496c0a1dee6cb299fdcbf35483b8f0745e3b94a9d60b104be32",
   "pen": "60985708cdff39f68f870b60c911e4e608bee0203777e7868835d3acd224829a",
@@ -270,6 +270,18 @@ const REJECTED_WORDS = Object.freeze({
 const criterion = (failedCriteria, name, approval) =>
   failedCriteria.includes(name) ? "rejected" : approval;
 
+// Agent visual evidence applies only to this repaired bitmap. Existing cohort
+// dates, versions and validity decisions for every other word remain unchanged.
+const octopusLogicRepairReview = Object.freeze({
+  reviewedAt: "2026-11-05",
+  reviewVersion: "objective-word-direct-agent-review-2026-11-05-octopus-v8",
+  reviewMode: "direct-agent-native-pixel-review",
+  reviewer: "codex-agent-visual-inspection",
+  sourceSheet: "app-image-logic-audit-2026-11-05-shard-1",
+  sourceReceipt: ".artifacts/app-image-logic-audit/shard-1/repairs.json#1385",
+  reviewNote: "Codex agent directly inspected the generated full-size preview and installed 768x768 WebP. One isolated octopus has exactly eight distinct curled arm tips, four on each side, with no ninth central appendage. Whole referent and padding retained; no competing props, writing or symbol cues. This records agent visual inspection, not human or child testing."
+});
+
 const approvedReview = targetWord => ({
   path: `/images/assessment/objective-words/${targetWord}.webp`,
   targetWord,
@@ -293,7 +305,8 @@ const approvedReview = targetWord => ({
   reviewNote: STYLE_REPAIRS.has(targetWord) ? "Directly inspected isolated flat cartoon replacement; complete recognizable subject, no photoreal shading, competing props, text or labels." : CROP_REMEDIATION_WORDS.has(targetWord)
     ? "Regenerated as one complete isolated referent after rejecting crop-contaminated legacy pixels; no adjacent panel, competing scene, or inferred relationship."
     : "One direct referent; no adjacent-panel crop, competing scene, or inferred relationship.",
-  ...cleanCartoonRepairReview(targetWord)
+  ...cleanCartoonRepairReview(targetWord),
+  ...(targetWord === "octopus" ? octopusLogicRepairReview : {})
 });
 
 const rejectedReview = (targetWord, rejection) => ({

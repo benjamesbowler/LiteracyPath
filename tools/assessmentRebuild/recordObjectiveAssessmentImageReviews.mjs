@@ -43,7 +43,8 @@ const expectedApprovedFields = Object.freeze({
 const acceptedReviewDates = new Set(["2026-08-31", "2026-09-01", "2026-09-22", "2026-10-31"]);
 const acceptedReviewModes = new Set([
   "direct-contact-sheet-and-individual-pixel-review",
-  "direct-native-and-saved-size-pixel-review"
+  "direct-native-and-saved-size-pixel-review",
+  "direct-agent-native-pixel-review"
 ]);
 
 const fail = message => {
@@ -74,7 +75,17 @@ for (const assetPath of reviewPaths) {
   if (!review.targetWord || assetPath !== `/images/assessment/objective-words/${review.targetWord}.webp`) {
     fail(`${assetPath} records the wrong target word`);
   }
-  if (!acceptedReviewDates.has(review.reviewedAt)) {
+  const isAgentReview = review.reviewMode === "direct-agent-native-pixel-review";
+  const exactOctopusRepair = isAgentReview
+    && assetPath === "/images/assessment/objective-words/octopus.webp"
+    && review.reviewedAt === "2026-11-05"
+    && review.reviewVersion === "objective-word-direct-agent-review-2026-11-05-octopus-v8"
+    && review.reviewer === "codex-agent-visual-inspection"
+    && review.sourceSheet === "app-image-logic-audit-2026-11-05-shard-1"
+    && review.sourceReceipt === ".artifacts/app-image-logic-audit/shard-1/repairs.json#1385";
+  if (isAgentReview && !exactOctopusRepair) fail(`${assetPath} has no exact agent visual-review receipt`);
+  if (review.reviewVersion && !exactOctopusRepair) fail(`${assetPath} has an unrecognized individual review version`);
+  if (!acceptedReviewDates.has(review.reviewedAt) && !exactOctopusRepair) {
     fail(`${assetPath} has no current direct-review date`);
   }
   if (!acceptedReviewModes.has(review.reviewMode)) {
@@ -130,8 +141,9 @@ for (const assetPath of reviewPaths) {
     height: metadata.height,
     visualReview: "approved",
     reviewedAt: review.reviewedAt,
-    reviewVersion: OBJECTIVE_ASSESSMENT_IMAGE_REVIEW_VERSION,
+    reviewVersion: review.reviewVersion || OBJECTIVE_ASSESSMENT_IMAGE_REVIEW_VERSION,
     reviewMode: review.reviewMode,
+    ...(review.reviewer ? { reviewer: review.reviewer } : {}),
     cropReview: review.cropReview,
     nameabilityReview: review.nameabilityReview,
     objectivityReview: review.objectivityReview,

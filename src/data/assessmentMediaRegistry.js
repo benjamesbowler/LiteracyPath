@@ -167,7 +167,11 @@ function makeAvailability({
   sourceManifest,
   releaseApproved = false
 }) {
-  const qaAllowed = isMediaQaRuntimeAllowed(path, mediaType);
+  // Raw import manifests are also indexed here. Honor the resolved catalogue's
+  // meaning exclusions so they cannot restore an ambiguous picture fallback.
+  const wordImageAllowed = mediaType !== "image" ||
+    getChildWordAsset(word)?.qaStatus !== "excluded_ambiguous_word";
+  const qaAllowed = wordImageAllowed && isMediaQaRuntimeAllowed(path, mediaType);
   const approvedAudio = mediaType === "audio" ? getApprovedAudioPath(word, path) : path;
   const deprecated = mediaType === "audio" ? isDeprecatedAudioPath(path) : false;
   const available = Boolean(

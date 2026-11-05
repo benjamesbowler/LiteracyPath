@@ -115,7 +115,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::11": {
-    "displayedText": "At supper, Aiden held up a fry. \"I'm going to draw the whole trip. Even the rain!\" Betty laughed.",
+    "displayedText": "At dinner, Aiden held up a fry. \"I'm going to draw the whole trip. Even the rain!\" Betty laughed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::12": {
@@ -1715,7 +1715,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-01-chompys-big-lunch::3": {
-    "displayedText": "He munches leaves. The rumble stays.",
+    "displayedText": "He munches leaves. His tummy still rumbles.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-01-chompys-big-lunch::4": {
@@ -2063,7 +2063,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-11-shys-secret-gift::7": {
-    "displayedText": "Cheeky watches after supper, then falls asleep.",
+    "displayedText": "Cheeky watches after dinner, then falls asleep.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-11-shys-secret-gift::8": {
@@ -2803,7 +2803,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-30-dozy-stops-the-melon::3": {
-    "displayedText": "Dozy has a stretch. The melon bumps his pillow.",
+    "displayedText": "Dozy stretches. The melon bumps his pillow.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-30-dozy-stops-the-melon::4": {
@@ -3159,7 +3159,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-11-pets-we-love::7": {
-    "displayedText": "Good pet care fits the animal.",
+    "displayedText": "Different pets need different care.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-12-shapes-everywhere::1": {
@@ -3939,7 +3939,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-14-the-tree::3": {
-    "displayedText": "The trunk holds the tree.",
+    "displayedText": "The trunk holds up the branches.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-14-the-tree::4": {
@@ -5475,7 +5475,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::2": {
-    "displayedText": "Supper starts soon.",
+    "displayedText": "It is time to eat.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::3": {
@@ -5491,19 +5491,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::6": {
-    "displayedText": "Muddy is still muddy.",
+    "displayedText": "Muddy needs clean water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::7": {
-    "displayedText": "He washes once more.",
+    "displayedText": "He washes again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::8": {
-    "displayedText": "Muddy stays out of mud.",
+    "displayedText": "Muddy walks past the mud.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::9": {
-    "displayedText": "Muddy stays clean for supper.",
+    "displayedText": "Muddy is clean. Time to eat!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::1": {
@@ -5751,7 +5751,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-08-tiny-is-very-small::9": {
-    "displayedText": "Tiny brings the key. All cheer!",
+    "displayedText": "Tiny brings the key. They cheer!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::1": {
@@ -5847,7 +5847,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::5": {
-    "displayedText": "Brave tries there again.",
+    "displayedText": "Brave tries the steep side again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::6": {
@@ -6027,7 +6027,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::6": {
-    "displayedText": "Mud lands all round.",
+    "displayedText": "Mud lands all around.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::7": {
@@ -6115,7 +6115,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::9": {
-    "displayedText": "Friends frown. Noisy waits till dawn.",
+    "displayedText": "They frown. Noisy waits for dawn.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure::1": {
@@ -6199,7 +6199,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck::2": {
-    "displayedText": "Loose wool catches Grumpy's horn.",
+    "displayedText": "Wool catches on Grumpy's horn.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck::3": {
@@ -6223,7 +6223,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck::8": {
-    "displayedText": "Tiny frees the lock of wool.",
+    "displayedText": "Tiny pulls the wool free.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck::9": {
@@ -6455,7 +6455,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::4": {
-    "displayedText": "Woolly runs for the loose wool.",
+    "displayedText": "Woolly chases the loose wool.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::5": {
@@ -6535,7 +6535,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::8": {
-    "displayedText": "Cuddly taps her tidy ball.",
+    "displayedText": "Cuddly pats her ball of yarn.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::1": {
@@ -6607,7 +6607,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::2": {
-    "displayedText": "Brave wants the beetle safe.",
+    "displayedText": "Brave wants to help the beetle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::3": {
@@ -6627,7 +6627,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::7": {
-    "displayedText": "Out walks the beetle.",
+    "displayedText": "The beetle walks out.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::8": {
@@ -6647,7 +6647,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::4": {
-    "displayedText": "He drags lunch into shade again.",
+    "displayedText": "Grumpy drags lunch into the shade.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::5": {
@@ -6655,7 +6655,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::6": {
-    "displayedText": "The trunk is still in shade.",
+    "displayedText": "The trunk is in the shade.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::7": {
@@ -6687,7 +6687,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::6": {
-    "displayedText": "A round wood slice fits.",
+    "displayedText": "A round slice of wood fits.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::7": {
@@ -6983,7 +6983,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-06::9": {
-    "displayedText": "Flint checked each present landmark and followed the changing route through one long loop. Near sunset, the new marks finally led him back to Hollow Oak.",
+    "displayedText": "Flint checked each landmark against his new map and followed the changing route through one long loop. Near sunset, the new marks finally led him back to Hollow Oak.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::1": {
@@ -7391,7 +7391,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::1": {
-    "displayedText": "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root.",
+    "displayedText": "Behind the Memory Room, Burrow found a narrow tunnel. An old stone wall blocked the way, marked with one deeply carved root.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::10": {
@@ -7559,11 +7559,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::4": {
-    "displayedText": "She hurried to Stone and asked for his broad hand and careful strength. Stone followed her to the bank, though his worried eyes stayed on the sparkling water.",
+    "displayedText": "She hurried to Stone and asked him to move a rock. Stone followed her to the bank, though his worried eyes stayed on the sparkling water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::5": {
-    "displayedText": "Stone crouched beside the stream and reached toward the fish. Then he pulled back. 'I want to help,' he admitted, 'but I really dislike getting wet.'",
+    "displayedText": "Stone crouched beside the stream and reached toward the fish. Then he pulled back. 'I want to help,' he said, 'but I don't like getting wet.'",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::6": {
@@ -7579,7 +7579,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::9": {
-    "displayedText": "Stone pushed the loose rock with steady strength. Mud released with a wet sucking sound, the rock turned aside, and the fish darted into open water.",
+    "displayedText": "Stone pushed the loose rock. The mud made a wet sucking sound, the rock rolled aside, and the fish darted into open water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::1": {
@@ -7683,11 +7683,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::10": {
-    "displayedText": "Twig slipped the spectacles onto her nose and returned to sorting acorns. With the lenses in place, she could finally see which acorns belonged in each basket.",
+    "displayedText": "Twig slipped the glasses onto her nose and returned to sorting acorns. With the lenses in place, she could finally see which acorns belonged in each basket.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::11": {
-    "displayedText": "Fern stepped back into Hollow Oak's main room with Twig beside her. \"We found the spectacles,\" she said. Pip hurried to make room at the little table.",
+    "displayedText": "Fern stepped back into Hollow Oak's main room with Twig beside her. \"We found the glasses,\" she said. Pip hurried to make room at the little table.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::12": {
@@ -7719,11 +7719,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::8": {
-    "displayedText": "The creature introduced herself as Twig. She had searched for her spectacles for three days and asked Fern to check the crowded shelves.",
+    "displayedText": "The creature introduced herself as Twig. She had searched for her glasses for three days and asked Fern to check the crowded shelves.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::9": {
-    "displayedText": "Fern looked around, then noticed the spectacles resting on Twig's head. 'They are above your ears,' she said gently. Twig reached up and laughed.",
+    "displayedText": "Fern looked around, then noticed the glasses resting on Twig's head. 'They are above your ears,' she said gently. Twig reached up and laughed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::1": {
@@ -8887,11 +8887,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-20::5": {
-    "displayedText": "I get a red bit. Dad and I fit it.",
+    "displayedText": "I get a red bit. Dad and I fit it in.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-20::6": {
-    "displayedText": "Dad and I fit more of the map.",
+    "displayedText": "Dad and I fit in more bits.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-20::7": {
@@ -8979,7 +8979,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-23::6": {
-    "displayedText": "The top is fast. Dad and I clap.",
+    "displayedText": "I spin the top fast. Dad and I clap.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-23::7": {
@@ -9071,7 +9071,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-26::8": {
-    "displayedText": "Dot and I go. I honk, and Dot does.",
+    "displayedText": "Dot and I go. Dot and I honk.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "next-steps-27::1": {

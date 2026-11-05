@@ -39,15 +39,20 @@ export const CHILD_ACTIVITY_FORMATS = {
 };
 
 export const childImageAssets = Object.fromEntries(
-  Object.entries(childWordAssets).map(([word, asset]) => [
-    word,
-    {
+  Object.entries(childWordAssets)
+    .filter(([word]) => {
+      const resolved = getChildWordAsset(word);
+      return resolved?.image || resolved?.fallbackImage;
+    })
+    .map(([word, asset]) => [
       word,
-      image: asset.image || asset.fallbackImage,
-      fallbackImage: asset.fallbackImage,
-      alt: asset.alt
-    }
-  ])
+      {
+        word,
+        image: asset.image || asset.fallbackImage,
+        fallbackImage: asset.fallbackImage,
+        alt: asset.alt
+      }
+    ])
 );
 
 const introQuestions = [

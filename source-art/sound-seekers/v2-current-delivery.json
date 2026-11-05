@@ -2,19 +2,19 @@
   "schemaVersion": 1,
   "historicalSourceSha256": "40e803b9dbf2eca37359edac1bf97647e3e6cb5a4fc21e4fe057ad2a721bbae4",
   "replacementManifest": "source-art/app-clean-cartoon/resumed-backgrounds/manifest.json",
-  "replacementManifestSha256": "f7c1567c3a1111c2e2a85dc2f9b37d9344a1e54f52c22dd150a4af9448ad4fea",
+  "replacementManifestSha256": "bf0ba09a3a4d0b921b8937ed1d05f0ab6647c7e808c278c412132c91e75ef579",
   "replacements": [
     {
       "chapterId": "fossil-canyon",
       "path": "/game-assets/sound-seekers/v2/biomes/fossil-canyon/background.webp",
       "jobId": "art-0676",
-      "recordSha256": "724df6c0876374083349d223e2cf5f5ff82dcb5d07b1825c57434473ea9cfe40"
+      "recordSha256": "b9f88ece4772e97be87899d85f18da3ab404db04b516484eb27e92a04663b5cf"
     },
     {
       "chapterId": "lantern-forest",
       "path": "/game-assets/sound-seekers/v2/biomes/lantern-forest/background.webp",
       "jobId": "art-0677",
-      "recordSha256": "d570dad8d99d91223b343cfc08a21495a9ff9908acd5dd2a3fe653ff1895250e"
+      "recordSha256": "77e8ce3f408fd535b72a76320048f9ef46db0f529c643f71b4e2c59159512424"
     }
   ],
   "cropReview": [

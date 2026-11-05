@@ -19,16 +19,16 @@ test("original Moonwood references preserve Stone's giant scale instead of the r
   }
 });
 
-test("expansion Stone retains the separate rocky model at the same giant scale", () => {
+test("expansion Stone preserves the original smooth giant identity and scale", () => {
   const stoneBooks = expansionBooks.filter(book => book.characterReference.stone);
   assert.ok(stoneBooks.length > 0);
   for (const book of stoneBooks) {
     const description = book.characterReference.stone;
     assert.match(description, /two to three times Pip's height/i, book.id);
-    assert.match(description, /rough gr[ae]y stone skin/i, book.id);
-    assert.match(description, /mossy shoulders/i, book.id);
-    assert.match(description, /bare rocky torso/i, book.id);
-    assert.doesNotMatch(description, /smooth|tan sleeveless tunic/i, book.id);
+    assert.match(description, /smooth pale-gr[ae]y stone giant/i, book.id);
+    assert.match(description, /orange sleeveless tunic/i, book.id);
+    assert.match(description, /rope belt/i, book.id);
+    assert.doesNotMatch(description, /rough gr[ae]y stone skin|bare rocky torso/i, book.id);
   }
 });
 

@@ -107,7 +107,7 @@ test("every approved objective image retains the exact reviewed pixels and stric
     assert.equal(decision.complexityReview, "approved-single-focus", assetPath);
     assert.equal(decision.styleReview, "approved-clear-professional-2d-raster", assetPath);
     assert.equal(decision.textReview, "approved-no-text-or-symbol-cue", assetPath);
-    assert.equal(decision.reviewVersion, SOURCE_REVIEW_VERSION, assetPath);
+    assert.equal(decision.reviewVersion, OBJECTIVE_ASSESSMENT_IMAGE_REVIEWS[assetPath].reviewVersion || SOURCE_REVIEW_VERSION, assetPath);
     assert.equal(decision.grain, false, assetPath);
     assert.equal(decision.paperOrCanvasTexture, false, assetPath);
     assert.equal(decision.embossed, false, assetPath);
@@ -116,6 +116,21 @@ test("every approved objective image retains the exact reviewed pixels and stric
     assert.equal(decision.photoreal, false, assetPath);
     assert.equal(decision.painterly, false, assetPath);
   });
+});
+
+test("the eight-arm Octopus repair records exact agent visual evidence without relabelling other reviews", () => {
+  const assetPath = `${objectivePrefix}octopus.webp`;
+  const decision = OBJECTIVE_ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath];
+  assert.deepEqual(Object.values(OBJECTIVE_ASSESSMENT_IMAGE_REVIEWS)
+    .filter(review => review.reviewVersion).map(review => review.targetWord), ["octopus"]);
+  assert.equal(decision.reviewedAt, "2026-11-05");
+  assert.equal(decision.reviewVersion, "objective-word-direct-agent-review-2026-11-05-octopus-v8");
+  assert.equal(decision.reviewMode, "direct-agent-native-pixel-review");
+  assert.equal(decision.reviewer, "codex-agent-visual-inspection");
+  assert.equal(decision.sourceReceipt, ".artifacts/app-image-logic-audit/shard-1/repairs.json#1385");
+  assert.equal(decision.sha256, "a4c4fa9317ce2068e14946e402a07569df0550b3621d4bd6205501d2f69926b2");
+  assert.match(decision.reviewNote, /exactly eight distinct curled arm tips, four on each side/);
+  assert.match(decision.reviewNote, /not human or child testing/);
 });
 
 test("the composite style authority contains the base and objective decisions without replacement", () => {

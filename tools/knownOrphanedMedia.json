@@ -1,7 +1,7 @@
 {
   "_comment": "PNGs under public/images and public/guided-reading with no literal path reference anywhere in src/ or public JSON manifests outside generated audit/review catalogs, as of 2026-09-03. Converting them to webp wouldn't speed up anything for a real user since nothing fetches them - they're most likely leftovers from an old asset migration (see .audit-tmp/png-orphaned-strict.txt for how this list was built). Safe to `git rm` after a final human check; excluded here so the media-size gate doesn't fail on dead weight it can't act on automatically.",
   "generatedAt": "2026-09-03",
-  "count": 151,
+  "count": 150,
   "paths": [
     "public/guided-reading/covers/gr-b-10-cover.png",
     "public/guided-reading/covers/gr-d-20-cover.png",
@@ -19,7 +19,6 @@
     "public/guided-reading/pages/gr-d-20-page-6.png",
     "public/guided-reading/reference/characters/dino-expansion-cast-master.png",
     "public/guided-reading/reference/characters/meadow-expansion-cast-master.png",
-    "public/guided-reading/reference/characters/moonwood-expansion-cast-master.png",
     "public/images/child-mode/minimal-pairs/bad.png",
     "public/images/child-mode/minimal-pairs/bid.png",
     "public/images/child-mode/minimal-pairs/bud.png",

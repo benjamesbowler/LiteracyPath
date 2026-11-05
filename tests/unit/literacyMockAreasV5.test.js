@@ -8,6 +8,7 @@ import { literacyMockAreaState } from '../../src/utils/literacyMockAreaPlanner.j
 import { buildLiteracyMockReport } from '../../src/utils/literacyMockReport.js';
 import { literacyMockWorkingSummary } from '../../src/utils/literacyMockWorkingSummary.js';
 import { canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
+import { resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
 const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v5'}),byId=new Map(bank.map(q=>[q.id,q]));
 const response=(q,ok,flags={})=>({questionId:q.id,itemSnapshot:q.itemSnapshot,skillId:q.skillId,domainId:q.domainId,level:q.level,responseStatus:'answered',evidenceType:'independent',isCorrect:ok,...flags});
 
@@ -42,7 +43,7 @@ test('entry and first steps are genuinely simple tasks in every area with exact 
  }
  for(const q of bank.filter(q=>q.foundationBand!==undefined)){
   assert.ok(q.mediaReady);assert.ok(!q.tutorialOnly);
-  for(const path of [...q.requiredAudioPaths,...q.requiredImagePaths])assert.ok(fs.existsSync(new URL(`../../public${path.split('#')[0]}`,import.meta.url)),path);
+  for(const path of [...q.requiredAudioPaths,...q.requiredImagePaths])assert.ok(fs.existsSync(new URL(`../../public${resolveLiteracyMockImagePath(path).split(/[?#]/)[0]}`,import.meta.url)),path);
   if(q.skillId==='picture_word_reading'){assert.equal(q.passage,'');assert.equal(q.requiredAudioCues.length,1);assert.ok(q.requiredAudioCues.every(c=>c.role==='instruction'));}
   if(q.skillId==='picture_vocabulary')assert.equal(q.hideWrittenLabels,true);
  }

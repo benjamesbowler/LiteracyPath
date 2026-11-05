@@ -4,6 +4,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import { decodableTextTokens } from "../../src/utils/guidedReading/decodableScope.js";
+import { GUIDED_READING_LEDA_GAPS } from "../../src/data/generated/guidedReadingLedaGaps.generated.js";
 
 test("a series audio run includes only its visible pages and words and leaves mappings untouched in dry-run", () => {
   const prefix = "gr-a-26";
@@ -28,4 +29,24 @@ test("an empty or unknown series selection cannot fall back to generating the wh
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /Expected --book-prefix|selection contains no books/u);
   }
+});
+
+test("a complete repair run can retain unrelated existing narration and vocabulary mappings", () => {
+  const source = "src/data/generated/guidedReadingLedaGaps.generated.js";
+  const before = readFileSync(source, "utf8");
+  const result = JSON.parse(execFileSync(process.execPath, [
+    "tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--preserve-existing"
+  ], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
+  assert.equal(result.preservesExistingMappings, true);
+  const generationKeys = {
+    guided_page: new Set(result.pageGenerationInventory.map(row => row.normalizedLookupText)),
+    isolated_word: new Set(result.wordGenerationInventory.map(row => row.normalizedLookupText))
+  };
+  const unrelated = ["guided_page", "isolated_word"].flatMap(role =>
+    Object.entries(GUIDED_READING_LEDA_GAPS[role])
+      .filter(([key]) => !generationKeys[role].has(key))
+      .map(([lookupText, publicPath]) => ({ role, lookupText, publicPath }))
+  );
+  assert.deepEqual(result.preservedMappingInventory, unrelated);
+  assert.equal(readFileSync(source, "utf8"), before);
 });

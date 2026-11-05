@@ -21,8 +21,9 @@ test('all fifty titles and ordered manuscripts match the independently frozen re
   assert.equal(next.reduce((sum, book) => sum + book.pages.length, 0), 220);
   assert.equal(bright.reduce((sum, book) => sum + book.pages.length, 0), 220);
   const readingText = books.map(book => ({id: book.id, title: book.title, pages: book.pages.map(page => page.text)}));
-  // Taken from all three SHA-verified source manuscripts in the independent text freeze.
-  assert.equal(createHash('sha256').update(JSON.stringify(readingText)).digest('hex'), 'e55be4a1abcd87071fb78990487fc9c335bf307b8fa289ef622e3e9b109ac49e');
+  // Full-manuscript review on 2026-11-05 revised only Next Steps 20, 23 and 26
+  // for natural everyday phrasing; the other 47 title/page sequences are unchanged.
+  assert.equal(createHash('sha256').update(JSON.stringify(readingText)).digest('hex'), '5fa5607d1903cebd7fedf8e2a5465591f6a0724db5a5a9d10f365fbcb15c0fd1');
   for (const book of books) {
     assert.equal(fingerprintBookReadingText(book), book.reviewedTextFingerprint, book.id);
     assert.equal(createHash('sha256').update(JSON.stringify(book.pages.map(page => page.text))).digest('hex'), book.reviewedManuscriptSha256, book.id);

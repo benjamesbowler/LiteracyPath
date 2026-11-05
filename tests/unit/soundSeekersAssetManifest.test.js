@@ -1401,7 +1401,7 @@ test('current V2 delivery fails closed when replacement, original receipt or cro
   t.after(() => rmSync(root, { recursive: true, force: true }));
   const registry = JSON.parse(readFileSync(join(REPOSITORY_ROOT, SOUND_SEEKERS_V2_CURRENT_DELIVERY), 'utf8'));
   const sources = JSON.parse(readFileSync(join(REPOSITORY_ROOT, registry.replacementManifest), 'utf8'));
-  const files = [SOUND_SEEKERS_V2_CURRENT_DELIVERY, registry.replacementManifest, 'public/game-assets/sound-seekers/v2/SOURCE.md', ...sources.assets.filter(asset => registry.replacements.some(row => row.path === asset.path)).flatMap(asset => [asset.nativeSaved, asset.promptFile])];
+  const files = [SOUND_SEEKERS_V2_CURRENT_DELIVERY, registry.replacementManifest, 'public/game-assets/sound-seekers/v2/SOURCE.md', ...sources.assets.filter(asset => registry.replacements.some(row => row.path === asset.path)).flatMap(asset => [asset.nativeSaved, asset.promptFile, asset.sourceReceipt])];
   for (const file of files) { mkdirSync(dirname(join(root, file)), { recursive: true }); cpSync(join(REPOSITORY_ROOT, file), join(root, file)); }
   assert.equal(readCurrentSoundSeekersV2Delivery({ root }).replacements.length, 2);
   for (const mutate of [
@@ -1415,4 +1415,8 @@ test('current V2 delivery fails closed when replacement, original receipt or cro
     writeFileSync(join(root, SOUND_SEEKERS_V2_CURRENT_DELIVERY), JSON.stringify(changed));
     assert.throws(() => readCurrentSoundSeekersV2Delivery({ root }));
   }
+  writeFileSync(join(root, SOUND_SEEKERS_V2_CURRENT_DELIVERY), JSON.stringify(registry));
+  const receipt = sources.assets.find(asset => asset.path === registry.replacements[0].path).sourceReceipt;
+  writeFileSync(join(root, receipt), readFileSync(join(root, receipt), 'utf8') + '\n');
+  assert.throws(() => readCurrentSoundSeekersV2Delivery({ root }), /source\/provenance drifted/);
 });

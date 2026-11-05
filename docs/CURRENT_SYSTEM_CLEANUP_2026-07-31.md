@@ -1706,3 +1706,36 @@ animation roots were checked and unaffected.
 Removed exactly 1,292 unused public image files (233,620,380 bytes) after strict per-cohort source, Git, current-caller, retention and historical-resume checks. All 95,066 image bindings and all 15 historical assessment branches remain unchanged. The original bytes are recoverable from `fa9bd4b00eb5ae128c85ab652f4ca9e4baeb6263`; the exact paths, hashes and deletion receipts are under `.artifacts/all-clean-cartoon-2026-10-31/resume-2026-11-02/inactive-retirement/`. Historical admin QA evidence and review rows remain available.
 
 Four superseded physical-menu source files were removed after the complete 27-image authority and original reference transfer were verified; recovery remains in checkpoint `28d8b1f04`. Fourteen temporary encodings/superseded QC boards were removed after current canonical deliveries and final reviews were verified. Five temporary Playwright ZIP containers were removed only after every content file was extracted and hash-verified into its adjacent `trace-contents` directory; the indexed transfer receipt preserves their provenance. Necessary source natives, prompts, correction and regression evidence remain. Protected shelved animation roots were checked and unaffected.
+
+## Guided Reading continuity repair — 5 November 2026
+
+Removed only `public/guided-reading/reference/characters/moonwood-expansion-cast-master.png`
+after verifying it had no active consumer and was listed only as an orphan. Its
+alternate cast conflicted with the current original-cast authority and was a
+source of continuity drift. The original approved references remain in use;
+the removed draft is recoverable from Git at `7cbe337836d0b77324439cad58535d1375247c47`.
+No other orphan entry or protected animation root was changed. Task-created
+rejected audio takes are removed only after exact current mappings and manifests
+confirm they are unreferenced; compact review evidence remains in ignored artifacts.
+
+The accompanying app-wide logic review retired exactly 60 unused preposition
+placeholder SVGs and five obsolete administrative thumbnails, together with
+208 unused QA rows and the unreachable placeholder author module. Exact cohort
+manifests and fresh finite consumer checks retain the three meaningful live
+preposition illustrations. Three corrected images moved to adjacent WebPs:
+two administrative thumbnails (39 QA path/ID updates only) and the coat fallback.
+The WebPs retain the repaired pixels, dimensions and alpha; the old PNG/SVG
+deliveries are removed after their current references reach zero. Six old cover
+cards were removed after their current replacement cards and bindings were
+verified. These tracked originals remain recoverable from the starting Git
+revision above.
+
+Removed 209 ignored, untracked WAV intermediates (56,829,676 bytes) after every
+bound MP3 decoded with real signal and retained its exact hash. They had no
+semantic or provenance binding; regenerated existence indexes omit them. Their
+raw bytes are intentionally not archived or Git-restorable. Also removed five
+superseded task-generated speech takes, one unreferenced failed-browser trace
+ZIP and two temporary provenance-recovery files. Current MP3s, native image
+originals, durable recovered receipts and necessary final review evidence remain.
+Scoped receipts are under `.artifacts/book-language-continuity/` and
+`.artifacts/app-image-logic-audit/`; protected shelved animation roots were untouched.

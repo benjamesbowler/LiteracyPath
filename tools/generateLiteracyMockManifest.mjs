@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS, literacyMockSkillsForVersion } from '../src/data/literacyMockBank.js';
+import { resolveLiteracyMockImagePath } from '../src/data/literacyMockImageDelivery.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MIRRORED_SNAPSHOT_FIELDS = ['id', 'skillId', 'domainId', 'level', 'format', 'choices', 'answer', 'answerMode', 'requiredAudioPaths'];
@@ -85,7 +86,8 @@ export async function createLiteracyMockManifest({ requireAllMedia = true, conte
   const bank = authored.filter(item => item.mediaReady);
   for (const item of bank) {
     for (const asset of [...item.requiredAudioPaths, ...item.requiredImagePaths]) {
-      if (!asset.startsWith('/') || asset.includes('..') || !fs.existsSync(path.join(root, 'public', asset.split('#')[0]))) {
+      const deliveredPath = resolveLiteracyMockImagePath(asset).split(/[?#]/)[0];
+      if (!asset.startsWith('/') || asset.includes('..') || !fs.existsSync(path.join(root, 'public', deliveredPath))) {
         throw new Error(`Missing or invalid mock media: ${item.id}: ${asset}`);
       }
     }

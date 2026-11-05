@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "role": "Recovered built-in generation provenance; original worktree-local receipt is unavailable",
+  "recoveredAt": "2026-11-05",
+  "jobId": "art-0676",
+  "path": "/game-assets/sound-seekers/v2/biomes/fossil-canyon/background.webp",
+  "originalReceipt": {
+    "path": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0676.json",
+    "sha256": "e37dd24ebe4792231f6a64154058414ad00785cc54dfccb9ba862a6be1e8c949",
+    "rawBytesRetained": false
+  },
+  "archivedToolOutput": {
+    "sessionId": "01a184d6-04a3-73c2-b7b1-8d513471ce67",
+    "callId": "call_2b1cfe34d84e419da08cb9fa123d4c03",
+    "type": "custom_tool_call_output",
+    "outputHint": "Generated images are saved to /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67 as /Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ed9783a4-5889-49d4-8813-924cd11fa51f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  "native": {
+    "path": "source-art/app-clean-cartoon/resumed-backgrounds/art-0676.png",
+    "originalToolPath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-ed9783a4-5889-49d4-8813-924cd11fa51f.png",
+    "sha256": "cfbb21c289a2d644c58f6eca5552dc4c133c73692be53fe0320dd1591710ef5d",
+    "width": 1672,
+    "height": 941
+  },
+  "prompt": {
+    "path": "source-art/app-clean-cartoon/resumed-backgrounds/art-0676.prompt.txt",
+    "sha256": "7c976704e9fdbdc5b7a87c91ac0434b6696cbe9ed6da61e12d52033f72f2123c"
+  },
+  "referenceBindings": [
+    {
+      "sourcePath": "/Users/benjaminbowler/.codex/generated_images/01a184d6-04a3-73c2-b7b1-8d513471ce67/exec-0f5fca19-f9ed-4cd0-a62b-f6c41c3217c4.png",
+      "frozenPath": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/references/badc21a492429a271e3b5fe1870615f56715b7b01e0af9f6fcf02333ff905198.png",
+      "sha256": "badc21a492429a271e3b5fe1870615f56715b7b01e0af9f6fcf02333ff905198"
+    }
+  ],
+  "note": "Current native PNG, original generated PNG and frozen prompt hash verified. Exact provider output hint recovered from archived tool response. This record does not claim to reproduce the unavailable JSON receipt bytes; their prior digest remains above. No pixels, generation result, crop, review observation or original historical V2 receipt changed."
+}

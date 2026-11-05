@@ -879,6 +879,16 @@ Use these rules:
 - Use the words that character would actually choose. Child dialogue is usually shorter,
   less formal and less complete than narration. Use contractions when the reading band
   allows them.
+- Use familiar everyday U.S. English across every collection, with particular care for
+  public App levels A–C and children learning English. Prefer *time to eat* or *dinner*
+  to an unfamiliar regional meal word such as *supper*, and *glasses* to *spectacles*.
+  Replace formal, old-fashioned or compressed wording when it adds no useful meaning.
+  Keep necessary articles, prepositions and natural verb phrases; shorten the idea
+  instead of dropping grammar to meet a page limit. Apply the same edit to teacher
+  discussion questions. Keep useful story, science and world-specific vocabulary when
+  the action, context or an explicit explanation supports it. For decodable books,
+  preserve the taught code and exact exception/word records; ordinary wording never
+  licenses an untaught spelling.
 - Give different characters different rhythms, favorite words and ways of avoiding a
   question. If a line can move to another character unchanged, rewrite it.
 - Vary sentence length and openings within the level limits. Reject a run of sentences with

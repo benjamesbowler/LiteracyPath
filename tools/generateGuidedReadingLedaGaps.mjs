@@ -31,6 +31,9 @@ const voiceName = "en-US-Chirp3-HD-Leda";
 const endpoint = "https://texttospeech.googleapis.com/v1/text:synthesize";
 const dryRun = process.argv.includes("--dry-run");
 const includeInventory = dryRun || process.argv.includes("--inventory");
+// A complete repair run may also encounter draft or shared vocabulary outside
+// the current live corpus. Retain those unrelated mappings when requested.
+const preserveExistingMappings = process.argv.includes("--preserve-existing");
 // A visible-line repair can synthesize one exact page without generating
 // unrelated corpus or isolated-word gaps. Preserve existing mappings below.
 const pageTextIndex = process.argv.indexOf("--page-text");
@@ -100,8 +103,8 @@ const auditoryReplacementWords = new Set([
   "few", "fin", "fit", "flicks", "foam", "germs", "glove", "grade",
   "grip", "hens", "her", "hooted", "hum", "licked", "lid", "lifts",
   "mirrored", "misses", "mist", "mover", "mrs", "nap", "neck", "patted",
-  "peeked", "picked", "pollination", "potting", "rub", "scales", "scowls",
-  "screen", "script", "scrubs", "seam", "sighs", "species", "spinnerets",
+  "peeked", "picked", "plip", "pollination", "potting", "rub", "scales", "scowls",
+  "screen", "script", "scrubs", "seam", "sighs", "speck", "specks", "species", "spinnerets",
   "spirals", "spills", "spreading", "steel", "sticky", "stood", "stored",
   "sturdy", "swallowed", "tapped", "tart", "thanked", "thing", "think",
   "tooth", "tugged", "vet", "wake", "whale", "wood", "wool", "worn",
@@ -378,11 +381,12 @@ for (const record of dryRun ? [] : records) {
   await unlink(record.wavPath);
 }
 
+const retainExistingMappings = preserveExistingMappings || requestedLevel || requestedPageText || requestedBookPrefix;
 const maps = Object.fromEntries(
   ["guided_page", "isolated_word"].map(role => [
     role,
     Object.fromEntries([
-      ...(requestedLevel || requestedPageText || requestedBookPrefix ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
+      ...(retainExistingMappings ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
       ...records
         .filter(record => record.role === role)
         .sort((left, right) =>
@@ -441,7 +445,15 @@ const result = {
   wordClips: records.filter(record => record.role === "isolated_word").length,
   missingFiles: missingRecords.length,
   generatedModule: dryRun ? null : path.relative(repositoryRoot, generatedModulePath),
+  preservesExistingMappings: Boolean(retainExistingMappings),
   ...(includeInventory ? {
+    preservedMappingInventory: ["guided_page", "isolated_word"].flatMap(role => {
+      const generatedKeys = new Set(records.filter(record => record.role === role)
+        .map(record => record.normalizedLookupText));
+      return Object.entries(GUIDED_READING_LEDA_GAPS[role] || {})
+        .filter(([key, audioPath]) => !generatedKeys.has(key) && maps[role][key] === audioPath)
+        .map(([lookupText, publicPath]) => ({ role, lookupText, publicPath }));
+    }),
     pageGenerationInventory: records
       .filter(record => record.role === "guided_page")
       .map(record => ({

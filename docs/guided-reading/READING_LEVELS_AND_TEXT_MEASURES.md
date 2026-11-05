@@ -14,7 +14,7 @@ available for listening irrespective of independent reading demands.
 The 29 October 2026 cross-collection audit read all 247 then-working books,
 compared neighboring levels and reconciled 37 assignments. The integrated
 catalogue adds the independently reviewed fifty-book Foundations expansion and
-now contains **297 books, 2,621 reading pages and 29,804 word tokens** under the
+now contains **297 books, 2,621 reading pages and 29,810 word tokens** under the
 conventions below. Its current distribution is **A23, B86, C63, D56, E15, F36,
 G16 and H2**. Current counts come from the runtime and generated analysis.
 

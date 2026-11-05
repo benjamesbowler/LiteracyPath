@@ -10898,11 +10898,6 @@ const MANUSCRIPTS = deepFreeze([
         "reason": "Whole-word ore represents /ɔɹ/. Explicit HFW first introduced in Cycle 18."
       },
       {
-        "word": "of",
-        "cycle": 4,
-        "reason": "Unstressed o is schwa and f represents /v/. Explicit HFW first introduced in Cycle 4."
-      },
-      {
         "word": "says",
         "cycle": 16,
         "reason": "Whole-word ay represents /ɛ/ and final s represents /z/. Explicit HFW first introduced in Cycle 16."
@@ -11137,6 +11132,20 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Pronoun uses its whole-word long-vowel pronunciation. Explicit HFW first introduced in Cycle 1."
       },
       {
+        "word": "in",
+        "graphemes": [
+          "i",
+          "n"
+        ],
+        "sounds": [
+          "ɪ",
+          "n"
+        ],
+        "firstCycle": 3,
+        "type": "regular",
+        "note": "Reviewed U.S. /ɪn/: short i and n are taught in Cycle 3; the VC shape needs no supplemental blending lesson."
+      },
+      {
         "word": "it",
         "graphemes": [
           "i",
@@ -11227,20 +11236,6 @@ const MANUSCRIPTS = deepFreeze([
         "firstCycle": 5,
         "type": "regular",
         "note": "Reviewed U.S. pronunciation using only these taught correspondences; any adjacent consonants additionally require the book’s named blending lessons. Final s is /s/ only when written in this record."
-      },
-      {
-        "word": "of",
-        "graphemes": [
-          "o",
-          "f"
-        ],
-        "sounds": [
-          "ə",
-          "v"
-        ],
-        "firstCycle": 4,
-        "type": "exception",
-        "note": "Unstressed o is schwa and f represents /v/. Explicit HFW first introduced in Cycle 4."
       },
       {
         "word": "on",
@@ -11439,7 +11434,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 5,
-        "text": "I get a red bit.\nDad and I fit it.",
+        "text": "I get a red bit.\nDad and I fit it in.",
         "imageBrief": "Clean, clear, bright cartoon picture-book illustration with strong clear outlines and flat colors. Use the current clean Small Steps cast master. No painted, embossed, patchy, gouache, canvas or paper texture; no lettering inside the image. Sam selects the correct neighboring piece from the table. He and Dad place it against the first piece so the red path joins.",
         "imageAlt": "Sam and Dad join two map pieces along the red path.",
         "state": {
@@ -11452,7 +11447,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 6,
-        "text": "Dad and I fit more of the map.",
+        "text": "Dad and I fit in more bits.",
         "imageBrief": "Clean, clear, bright cartoon picture-book illustration with strong clear outlines and flat colors. Use the current clean Small Steps cast master. No painted, embossed, patchy, gouache, canvas or paper texture; no lettering inside the image. Sam and Dad connect the remaining two pieces to the joined pair. All four large pieces are now arranged into the complete rectangle.",
         "imageAlt": "Sam and Dad fit all four pieces into the map.",
         "state": {
@@ -11501,7 +11496,14 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "The red line meets at the shared edge instead of ending at a mismatched place."
       }
     },
-    "levelRationale": "B: simple present-tense actions and a visible matching strategy, with one short invitation to play again.",
+    "levelRationale": "B: short present-tense actions and a visible red-path matching strategy lead from pieces that do not fit to a completed map and one invitation to play again. Fit it in/fit in more bits keep natural grammar within the existing line/page profile; decoding scope is judged separately.",
+    "levelDimensionObservations": {
+      "syntax": "Short present-tense statements and one brief quoted invitation; the phrasal verb fit in names the matching action.",
+      "vocabulary": "Map, cut, bits, red path, fit and mix stay concrete; in uses regular Cycle 3 code.",
+      "knowledge": "Matching path ends helps join puzzle pieces; the pieces can be mixed for another turn.",
+      "progression": "Cut and mix, try mismatched pieces, inspect the red path, fit matching bits and repeat the game.",
+      "inference": "Connect the aligned red path with choosing fitting pieces; no hidden step supplies the solution."
+    },
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "x",
@@ -11530,8 +11532,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What helped Sam choose the right puzzle piece? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedTextFingerprint": "fnv1a64:1cfeb952d92d7f97",
-    "reviewedManuscriptSha256": "424a8c1dca824b01de47c4344b9b4b354df72dc70e5187cf9a6298f64a9766ff",
+    "reviewedAt": "2026-11-05",
+    "reviewedTextFingerprint": "fnv1a64:65e8861cf89a0f35",
+    "reviewedManuscriptSha256": "901b5c24d99a806c09b900e7c67f99179790c146d2c4a263edc55ca90070510b",
     "type": "fiction",
     "readingBandProfile": "standard",
     "readingMode": "decodable",
@@ -13352,7 +13355,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 6,
-        "text": "The top is fast. Dad and I clap.",
+        "text": "I spin the top fast. Dad and I clap.",
         "imageBrief": "Clean, clear, bright cartoon picture-book illustration with strong clear outlines and flat colors. Use the current clean Small Steps cast master. No painted, embossed, patchy, gouache, canvas or paper texture; no lettering inside the image. The top spins upright on the lid with a clear motion arc. Dot and Dad clap while keeping hands away from it.",
         "imageAlt": "Dot and Dad clap beside the spinning top.",
         "state": {
@@ -13388,7 +13391,14 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "The rug has raised tufts; the lid is smooth and flat."
       }
     },
-    "levelRationale": "B: two attempts establish the problem; an explicit surface contrast leads to one visible change and repeatable outcome.",
+    "levelRationale": "B: two rug attempts establish a spinning problem; an explicit uneven/flat surface contrast leads to a lid and a visible repeatable spin. I spin the top fast states the outcome naturally with this manuscript’s already reviewed words; phonics prerequisites remain separate.",
+    "levelDimensionObservations": {
+      "syntax": "Short present-tense clauses repeat top, rug, spin and stop, with brief dialogue at the end.",
+      "vocabulary": "Top, rug, flat, lid, spin and fast form a small concrete action/material set.",
+      "knowledge": "The top stops on the rug; a flat lid provides a different spinning surface.",
+      "progression": "Repeated stopping prompts a surface check, a flat-lid change, a successful spin and another spin for Dad.",
+      "inference": "Connect the rug/lid contrast with the changed outcome."
+    },
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "s",
@@ -13417,8 +13427,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: Why did Dot change the surface under the top? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedTextFingerprint": "fnv1a64:6fe40a92a7b66188",
-    "reviewedManuscriptSha256": "9cde0fabdc29af20ff9a9f9e9ce196230cc6346b7b3c8df5f14dad006bbe403d",
+    "reviewedAt": "2026-11-05",
+    "reviewedTextFingerprint": "fnv1a64:4f1f6f553d74ec09",
+    "reviewedManuscriptSha256": "961bab28fa3ddf02d155d13a32816fd489b3300642ea46050154edd830beef26",
     "type": "fiction",
     "readingBandProfile": "standard",
     "readingMode": "decodable",
@@ -15459,7 +15470,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 8,
-        "text": "Dot and I go.\nI honk, and Dot does.",
+        "text": "Dot and I go.\nDot and I honk.",
         "imageBrief": "Clean, clear, bright cartoon picture-book illustration with strong clear outlines and flat colors. Use the current clean Small Steps cast master. No painted, embossed, patchy, gouache, canvas or paper texture; no lettering inside the image. The children are on opposite sides after passing: Dot inside near the hut, Sam just outside. They smile, press their toy horns and wave to one another.",
         "imageAlt": "Sam and Dot press the horns on their toy vehicles on opposite sides of the open gate.",
         "state": {
@@ -15482,7 +15493,14 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "Beside the hut; the gateway is clear for Dot’s bus."
       }
     },
-    "levelRationale": "B: one familiar spatial problem, one unhelpful attempt and one practical turn-taking solution in present tense.",
+    "levelRationale": "B: one narrow-gap problem, unhelpful honking and an explicit turn-taking solution unfold in short present-tense clauses. The final Dot and I honk uses ordinary complete wording; the gap and movement demands remain the same.",
+    "levelDimensionObservations": {
+      "syntax": "Short present-tense statements, one brief quoted direction and a repeated Dot and I subject.",
+      "vocabulary": "Van, bus, gap, fit, hut and honk form a small concrete pretend-play set.",
+      "knowledge": "Two wide vehicles cannot use the narrow gap together; one can wait while the other passes.",
+      "progression": "Both reach the gap, honking fails, one moves aside, each passes in turn and both honk.",
+      "inference": "Connect moving aside with making space; the order is directly shown."
+    },
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "nk",
@@ -15511,8 +15529,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What helped both vehicles get through? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedTextFingerprint": "fnv1a64:87b7732caf40543e",
-    "reviewedManuscriptSha256": "a07b28050f13b24d20a08cb08c1cf3758364bb45839a0a91a8364e2a5296479f",
+    "reviewedAt": "2026-11-05",
+    "reviewedTextFingerprint": "fnv1a64:0b84368fc78260e9",
+    "reviewedManuscriptSha256": "7511bb5511746d6095897ea0cbd0a42a7f4dea2c38950f6a441d316259dacc44",
     "type": "fiction",
     "readingBandProfile": "standard",
     "readingMode": "decodable",
@@ -18427,7 +18446,7 @@ export const GUIDED_READING_NEXT_STEPS_BOOKS = Object.freeze(MANUSCRIPTS.map(row
     id: row.id + ":v1", version: "2026-10-29.1", afterCycle: row.afterCycle,
     focus: row.focus, practiceWords: row.practiceWords, exceptions: row.exceptions, wordRecords: row.wordRecords,
     additionalPrerequisites: row.additionalPrerequisites,
-    reviewedTextFingerprint: row.reviewedTextFingerprint, reviewedAt: "2026-10-29",
+    reviewedTextFingerprint: row.reviewedTextFingerprint, reviewedAt: row.reviewedAt || "2026-10-29",
     reviewMethod: "Independent complete-manuscript, title, pronunciation and cumulative-code review",
     wordShape: "VC/CVC; named supplemental lessons permit final, initial and combined consonant blends cumulatively. Only explicitly reviewed correspondences, chunks and exact whole-word exceptions are permitted."
   });
@@ -18456,7 +18475,8 @@ export const GUIDED_READING_NEXT_STEPS_METADATA = deepFreeze(Object.fromEntries(
 
 export const GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS = deepFreeze(Object.fromEntries(
   GUIDED_READING_NEXT_STEPS_BOOKS.map(book => [book.id, {
-    appReadingLevel: book.appLevel, rationale: book.levelRationale, reviewedAt: "2026-10-29",
+    appReadingLevel: book.appLevel, rationale: book.levelRationale, reviewedAt: book.reviewedAt || "2026-10-29",
+    ...(book.levelDimensionObservations ? { dimensionObservations: book.levelDimensionObservations } : {}),
     reviewMethod: "codex-full-manuscript-editorial-review", reviewedTextFingerprint: book.reviewedTextFingerprint
   }])
 ));

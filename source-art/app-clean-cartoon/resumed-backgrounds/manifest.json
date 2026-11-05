@@ -23,8 +23,8 @@
           "sha256": "badc21a492429a271e3b5fe1870615f56715b7b01e0af9f6fcf02333ff905198"
         }
       ],
-      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0676.json",
-      "sourceReceiptSha256": "e37dd24ebe4792231f6a64154058414ad00785cc54dfccb9ba862a6be1e8c949",
+      "sourceReceipt": "source-art/app-clean-cartoon/resumed-backgrounds/recovered-generation-receipts/art-0676.json",
+      "sourceReceiptSha256": "001a0f0b20b7d1b99d913f7106f80ae85eb799b28170d25152834b0aa4dfe009",
       "crop": null,
       "cropReason": null,
       "resize": {
@@ -76,8 +76,8 @@
           "sha256": "6aa11182566fa2991a912b17ff6492e0f1f8c635ddc621fca96e24ca3568bb95"
         }
       ],
-      "sourceReceipt": "/Users/benjaminbowler/Projects/LiteracyPath-level-a-clean-cartoon/.artifacts/all-clean-cartoon-2026-10-31/root/family-reserved/generation-receipts/art-0677.json",
-      "sourceReceiptSha256": "f479dbb5c066d867e8f730e762a88de7ff3e7a4ffa264db407fa6d7986f9460f",
+      "sourceReceipt": "source-art/app-clean-cartoon/resumed-backgrounds/recovered-generation-receipts/art-0677.json",
+      "sourceReceiptSha256": "fbb6ff29c247aca817a4ff1723970b36cf3d00ae5a99561074d4b1b92875a0ba",
       "crop": null,
       "cropReason": null,
       "resize": {

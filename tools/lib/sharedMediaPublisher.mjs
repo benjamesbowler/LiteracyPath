@@ -14,7 +14,7 @@ export async function hashFile(file) {
   return hash.digest('hex');
 }
 
-export async function planSharedMedia({ distRoot, publicRoot }) {
+async function scanSharedMedia({ distRoot, publicRoot }) {
   const dist = await fs.realpath(distRoot);
   const source = await fs.realpath(publicRoot);
   if (dist === source || dist.startsWith(source + path.sep) || source.startsWith(dist + path.sep)) {
@@ -46,18 +46,46 @@ export async function planSharedMedia({ distRoot, publicRoot }) {
     await visit(directory);
   }
   files.sort((a, b) => a.pathname < b.pathname ? -1 : 1);
-  const cohorts = Object.fromEntries(COHORTS.map(cohort => {
+  return { distRoot: dist, files, retained, bytes: files.reduce((n, file) => n + file.size, 0) };
+}
+
+function publicationCohorts(files) {
+  return Object.fromEntries(COHORTS.map(cohort => {
     const members = files.filter(file => file.cohort === cohort);
     if (members.length > MAX_COHORT_FILES) throw new Error(`${cohort} exceeds the Free static file budget; no uploads or upgrade performed`);
+    if (members.some(file => file.size > MAX_ASSET_BYTES)) throw new Error('Media exceeds the Free static asset size limit');
     const catalog = { schemaVersion: 2, cohort, files: Object.fromEntries(members.map(file => [file.pathname, { sha256: file.sha256, size: file.size }])) };
     const body = JSON.stringify(catalog);
     if (Buffer.byteLength(body) > MAX_ASSET_BYTES) throw new Error('Media catalog exceeds the Free asset size limit');
     return [cohort, { files: members, body, manifestSha256: sha256(body), bytes: members.reduce((n, file) => n + file.size, 0) }];
   }));
-  return { distRoot: dist, files, retained, cohorts, bytes: files.reduce((n, file) => n + file.size, 0) };
+}
+
+export async function planSharedMedia(options) {
+  const inventory = await scanSharedMedia(options);
+  return { ...inventory, cohorts: publicationCohorts(inventory.files) };
+}
+
+// A deployment may contain more local files than a Free publication can host.
+// Pruning only compares these bytes with an already pinned remote catalog; it
+// creates no publication catalogs and grants no staging/upload capability.
+export async function planSharedMediaPruning(options) {
+  return scanSharedMedia(options);
+}
+
+function assertPublicationPlan(plan) {
+  // Recheck the actual file inventory at every publication boundary. Neither
+  // a pruning inventory nor an attached stale catalog may bypass Free limits.
+  const current = publicationCohorts(plan.files);
+  if (COHORTS.some(cohort => plan.cohorts?.[cohort]?.body !== current[cohort].body
+    || plan.cohorts[cohort].manifestSha256 !== current[cohort].manifestSha256)) {
+    throw new Error('A current publication plan is required for shared media staging or verification');
+  }
+  return current;
 }
 
 export async function stageSharedMedia(plan, directory) {
+  const cohorts = assertPublicationPlan(plan);
   const requested = path.resolve(directory);
   const staging = path.join(await fs.realpath(path.dirname(requested)), path.basename(requested));
   if (staging === plan.distRoot || staging.startsWith(plan.distRoot + path.sep)
@@ -65,7 +93,7 @@ export async function stageSharedMedia(plan, directory) {
   await fs.mkdir(staging, { recursive: false });
   for (const cohort of COHORTS) {
     const root = path.join(staging, cohort, 'assets');
-    for (const file of plan.cohorts[cohort].files) {
+    for (const file of cohorts[cohort].files) {
       if (signature(await fs.stat(file.file)) !== file.signature) throw new Error('Media changed before staging');
       const destination = path.join(root, file.pathname.slice(1));
       await fs.mkdir(path.dirname(destination), { recursive: true });
@@ -73,7 +101,7 @@ export async function stageSharedMedia(plan, directory) {
       if (await hashFile(destination) !== file.sha256) throw new Error('Media staging checksum mismatch');
     }
     await fs.mkdir(path.join(root, '_shared-media'), { recursive: true });
-    await fs.writeFile(path.join(root, MANIFEST_PATH.slice(1)), plan.cohorts[cohort].body);
+    await fs.writeFile(path.join(root, MANIFEST_PATH.slice(1)), cohorts[cohort].body);
     await fs.writeFile(path.join(root, '_headers'), STATIC_HEADERS);
   }
 }
@@ -118,6 +146,7 @@ export async function stripPublishedMedia(plan, release, fetchImpl = fetch) {
 }
 
 export async function verifyPublishedMedia(plan, release, { fetchImpl = fetch, onProgress = () => {}, concurrency = 12 } = {}) {
+  assertPublicationPlan(plan);
   if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 64) throw new Error('Invalid verification concurrency');
   const catalogs = await fetchCatalogs(release, fetchImpl);
   if (!catalogs) throw new Error('Cannot verify disabled media');
