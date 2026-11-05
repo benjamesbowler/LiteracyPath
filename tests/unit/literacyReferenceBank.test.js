@@ -14,6 +14,21 @@ import { shuffleLearningQuestionChoices } from '../../src/utils/answerPositionSh
 import { getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
 
 const bank = loadLiteracyReferenceBank();
+test('friendly word-count sentences keep exact keys and distractor explanations', () => {
+  for (const row of authored.filter(item => item.family === 'word_count')) {
+    const count = row.stimulus.trim().split(/\s+/).length;
+    assert.equal(row.answer, String(count), row.id);
+    assert.ok(row.options.includes(String(count)), row.id);
+    assert.equal(new Set(row.options).size, row.options.length);
+    for (const option of row.options.filter(value => value !== row.answer)) {
+      assert.match(row.distractorRationales[option], new RegExp(`has ${count} space-separated words`));
+    }
+    assert.match(row.explanation, new RegExp(`has ${count} words`));
+  }
+  assert.equal(authored.find(item => item.id === 'words-2').stimulus, 'I like to play with my friends.');
+  assert.equal(authored.find(item => item.id === 'words-3').stimulus, 'Would you like some ice cream with me?');
+  assert.ok(authored.every(item => !/really want to cry|make me feel very angry|gets him in trouble|star student/i.test(JSON.stringify(item))));
+});
 test('source coverage accounts for all 64 slides and both blank tasks', () => {
   assert.equal(manifest.coverage.length,64);
   assert.equal(bank.length,148);

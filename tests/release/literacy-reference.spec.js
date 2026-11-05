@@ -10,6 +10,8 @@ test.afterEach(async({page})=>expect(page.__referenceErrors).toEqual([]));
 test('choose-all keeps the complete exact set editable until one immutable submission',async({page})=>{
   await page.goto(url+'?item=tools');
   await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toHaveCSS('background-color','rgb(35, 90, 176)');
+  expect(await page.locator('.map-multi-select-option').allTextContents()).toEqual(expect.arrayContaining(['hammer','wrench','saw','cat','pizza']));
   await page.getByRole('button',{name:'Select pizza',exact:true}).click();
   await expect(page.getByRole('button',{name:'Select pizza',exact:true})).toHaveAttribute('aria-pressed','true');
   await page.getByRole('button',{name:'Select pizza',exact:true}).click();
@@ -42,7 +44,7 @@ test('dictated spelling hides the target and scores the complete built word',asy
 });
 test('printed passage and its replay control are both present',async({page})=>{
   await page.goto(url+'?item=passage-habit');
-  await expect(page.locator('.passage')).toContainText('Carlos has a habit.');
+  await expect(page.locator('.passage')).toContainText('Carlos has a habit of checking the time.');
   // A missing recording cannot be relabelled as independent delivered audio.
   await expect(page.getByRole('button',{name:'Listen to passage',exact:true})).toBeVisible();
 });
@@ -68,6 +70,7 @@ for(const size of [{width:320,height:568},{width:568,height:320},{width:768,heig
   test(`multi-select controls remain reachable at ${size.width}x${size.height}`,async({page},info)=>{
     await page.setViewportSize(size);await page.goto(url+'?item=long-a');
     await expect(page.locator('.map-multi-select-option')).toHaveCount(6);
+    await expect(page.locator('.map-multi-select-card .assessment-audio-button > span')).toHaveCount(0);
     await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeVisible();
     const widths=await page.locator('.map-multi-select-card').evaluateAll(cards=>cards.map(card=>({card:card.clientWidth,button:card.querySelector('.map-multi-select-option').offsetWidth})));
     expect(widths.every(row=>Math.abs(row.card-row.button)<=2)).toBe(true);

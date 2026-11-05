@@ -160,3 +160,23 @@
 /* A deliberately spoken option must not resemble an unloaded picture. */
 .literacy-mock .is-spoken-choice .literacy-mock-answer-number{align-self:center;display:grid;place-items:center;width:64px;height:64px;font-size:32px;font-weight:700;padding:0}
 .literacy-mock-spoken-label{font-size:16px;line-height:1.4;color:#42545f}
+
+/* Answer pads remain distinct against the white response area. */
+.literacy-mock .literacy-mock-choice {
+  border: 2px solid #526AA6;
+  border-radius: 18px;
+  background: #EEF3FF;
+  box-shadow: 0 5px 0 #B8C8ED;
+}
+.literacy-mock .literacy-mock-choice[aria-pressed="true"] {
+  border-color: #2449B0;
+  background: #DCE7FF;
+  box-shadow: inset 0 0 0 2px #2449B0, 0 2px 0 #A5B8EC;
+}
+.literacy-mock .literacy-mock-choice:focus-visible {
+  outline: 3px solid #18263E;
+  outline-offset: 4px;
+}
+@media (hover: hover) {
+  .literacy-mock .literacy-mock-choice:hover:not(:disabled) { border-color: #2449B0; }
+}
