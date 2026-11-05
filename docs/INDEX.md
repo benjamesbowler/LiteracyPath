@@ -43,6 +43,7 @@ A dated document must never override current code.
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
 - [App illustration style standard](design/ILLUSTRATION_STYLE_STANDARD.md) — bold clean cartoons, crisp outlines, flat colors/cel shading; supersedes painterly, watercolor, daubed and embossed illustration briefs.
 - [Clean cartoon artwork completion](design/CLEAN_CARTOON_REFRESH_CHECKPOINT.md) — completed images, current source authorities, exact review/retention scope and release boundaries.
+- [Book language and image logic review](design/IMAGE_LOGIC_AND_BOOK_LANGUAGE_REVIEW_2026-11-05.md) — complete runtime book and app-image coverage, physical logic repairs, exact review evidence and acceptance limits.
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Cycle Shorts](guided-reading/CYCLE_SHORTS.md) — 27 illustrated Meadow Farm read-together passages and 81 questions, shared by Present endings and the Guided Reading collection.
 - [Guided Reading](guided-reading/INDEX.md)

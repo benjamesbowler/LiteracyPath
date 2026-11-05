@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { upgradeFoundationChoicesV11 } from '../../src/data/literacyMockFourChoiceFoundationsV11.js';
+import { resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
 
 const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v10', includeUnavailable: true });
 const inScope = item => ['sound_awareness', 'phonics', 'print'].includes(item.domainId) || item.adaptiveAreaBand < 2;
@@ -19,7 +20,7 @@ test('every active foundation single-answer item has four distinct answers witho
     assert.equal(next.canonicalItemId, item.canonicalItemId);
     if (next !== item) { changed++; assert.equal(next.id, `${item.id}.v11`); }
     for (const path of next.requiredAudioPaths || []) assert.ok(existsSync(`public${path}`), `${item.id}: ${path}`);
-    for (const path of next.requiredImagePaths || []) assert.ok(existsSync(`public${path.split('#')[0]}`), `${item.id}: ${path}`);
+    for (const path of next.requiredImagePaths || []) assert.ok(existsSync(`public${resolveLiteracyMockImagePath(path).split(/[?#]/)[0]}`), `${item.id}: ${path}`);
     const usesChoiceAudio = item.requiredAudioCues?.some(c => c.role === 'choice');
     if (usesChoiceAudio) for (const choice of next.choices) {
       assert.ok(choice.audioPath, `${item.id}: ${choice.label}`);

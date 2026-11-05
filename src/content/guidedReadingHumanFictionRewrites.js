@@ -133,7 +133,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
     storySpine: "James and Anna want to help Grandma gather food and care for the farm animals.",
     failedAttempt: "Their two-way chase cannot return escaped Percy to his pen.",
-    resolution: "Grandma shuts Percy's gate, Anna stops Chips and the gathered eggs become supper.",
+    resolution: "Grandma shuts Percy's gate, Anna stops Chips and Grandma cooks the gathered eggs for dinner.",
     pages: [
       "James, Anna, and Chips arrive at Grandma’s sunny farm.",
       "Grandma has eggs to gather and animals to feed.",
@@ -297,7 +297,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Rain rattled the window. Aiden slumped over the board game. Betty drew their route: beach, harbor, then lighthouse.",
       "The rain stopped. Betty led them along her route. At the lighthouse, Aiden counted all 147 steps.",
       "From the top, they traced their route below. “There’s the beach!” said Betty. Aiden found the tiny harbor.",
-      "At supper, Aiden held up a fry. “I’m going to draw the whole trip. Even the rain!” Betty laughed.",
+      "At dinner, Aiden held up a fry. “I’m going to draw the whole trip. Even the rain!” Betty laughed.",
       "Betty turned one smooth white pebble in her fingers. “This one is coming home,” she said.",
       "On the drive home, Betty held her pebble. “Your map got us there,” Aiden said. “Can I keep it?”"
     ]

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "kind": "obsolete-administrative-assessment-thumbnail",
+  "assets": [
+    {
+      "index": 494,
+      "path": "/images/assessment/blends/square.webp",
+      "sha256": "08dc5026325c2c95a9fd8baa5d4cd92a7eab6816772c0a3989080cc7c509cc39",
+      "reason": "Cube represented square; obsolete administrative thumbnail only."
+    },
+    {
+      "index": 527,
+      "path": "/images/assessment/digraphs/neck.webp",
+      "sha256": "78a8b6ba6748ddcc2c46291f85d285b085676a03df82c9d48d57b550e651a0e3",
+      "reason": "Neck completely hidden by scarf; obsolete administrative thumbnail only."
+    },
+    {
+      "index": 853,
+      "path": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+      "sha256": "6431833771a5ebb169663824536ed7589585fb814cbaa6c466e2789d4a22f0c0",
+      "reason": "Both pictured bears are artificial toys, failing real versus fake contrast; obsolete administrative thumbnail only."
+    },
+    {
+      "index": 866,
+      "path": "/images/assessment/language/variants/homophones-homonyms/cent-sent-scent-01.webp",
+      "sha256": "1a100969b9608468d3b5b8f1c0b1f21e0c90e8cbfb5aa86de56956d78b1b7907",
+      "reason": "Flag-bearing stamp, lettering and unrelated stale homophone QA pairing; obsolete administrative thumbnail only."
+    },
+    {
+      "index": 896,
+      "path": "/images/assessment/language/variants/plurals/church-churches-01.webp",
+      "sha256": "b014dcd0bc1214ec6fe735fd3884bd97fb5bd487d07cfaf135c14d70f4820606",
+      "reason": "Church plural source conflicts with current neutral subject policy; obsolete administrative thumbnail only."
+    }
+  ]
+}

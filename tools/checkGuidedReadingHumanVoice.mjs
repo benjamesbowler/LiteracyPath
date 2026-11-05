@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { GUIDED_READING_DISCUSSION_PROMPTS } from "../src/data/guidedReadingDiscussionPrompts.js";
 
 const levelArgumentIndex = process.argv.findIndex(argument => argument === "--level");
 const requestedLevel = process.argv
@@ -175,6 +176,21 @@ const usSpellingFindings = guidedReadingBooks
     );
   });
 
+// Explicit product wording decision. This narrow guard catches a known regression;
+// ordinary vocabulary and whole-book naturalness still require editorial review.
+const everydayWordingFindings = guidedReadingBooks
+  .filter(book => book.active !== false)
+  .flatMap(book => [
+    ...CHILD_FACING_BOOK_FIELDS.flatMap(field => collectStrings(book[field])),
+    ...(book.pages || []).filter(page => page.active !== false)
+      .flatMap(page => CHILD_FACING_PAGE_FIELDS.flatMap(field => collectStrings(page[field]))),
+    ...collectStrings(GUIDED_READING_DISCUSSION_PROMPTS[book.id])
+  ].filter(text => /\bsupper\b/i.test(text)).map(text => ({
+    bookId: book.id,
+    issue: "use everyday meal language such as time to eat or dinner",
+    text
+  })));
+
 const summary = {
   activeFictionBooks: guidedReadingBooks.filter(
     book => book.active !== false && book.type === "fiction"
@@ -185,8 +201,9 @@ const summary = {
   usSpellingLevel: requestedLevel || "all",
   genericVoiceFindings: findings.length,
   usSpellingFindings: usSpellingFindings.length,
-  findings: [...findings, ...usSpellingFindings]
+  everydayWordingFindings: everydayWordingFindings.length,
+  findings: [...findings, ...usSpellingFindings, ...everydayWordingFindings]
 };
 
 console.log(JSON.stringify(summary, null, 2));
-if (findings.length || usSpellingFindings.length) process.exitCode = 1;
+if (findings.length || usSpellingFindings.length || everydayWordingFindings.length) process.exitCode = 1;

@@ -82,13 +82,13 @@ const SERIES = Object.freeze({
     style: `${CLEAN_CARTOON_ILLUSTRATION_STYLE} Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage`,
     characterReference: Object.freeze({
       pip: "MOON-PIP — small brown-haired woodland boy in green with pointed ears; quick, curious and observant.",
-      stone: "MOON-STONE — very large gray stone giant with rough gray stone skin, mossy shoulders, a bare rocky torso, a leaf waist wrap and broad hands, always two to three times Pip's height; slow, literal and gentle.",
+      stone: "MOON-STONE — original very large smooth pale-gray stone giant in an orange sleeveless tunic with rope belt and broad hands, always two to three times Pip's height; slow, literal and gentle. Match the original Moonwood cast identity sheet; no craggy guardian, mossy shoulders or leaf skirt.",
       fern: "MOON-FERN — tall green fern sprite with fixed leaf-body silhouette; calm, musical and attentive to living things.",
-      wren: "MOON-WREN — small dark-haired child witch in fixed blue-purple pointed hat and robe; inventive, eager and bookish.",
-      luna: "MOON-LUNA — owl with cream facial disc, brown-gray feathers and real wing anatomy; observant, ethical and patient.",
-      burrow: "MOON-BURROW — brown mole with round glasses and digging paws; maps appear only while carried or shown.",
+      wren: "MOON-WREN — small curly brown-haired child witch with green eyes, original plain navy pointed hat with brown band and dark navy robe with sewn taupe patches; inventive, eager and bookish. No blue eyes or gold-star formalwear.",
+      luna: "MOON-LUNA — original slate/navy-gray owl with cream facial disc and chest, golden eyes and real wing anatomy; observant, ethical and patient. Match the original Moonwood cast identity sheet; no brown-owl replacement or added glasses.",
+      burrow: "MOON-BURROW — small rounded brown mole with peach muzzle, round gold glasses, orange waistcoat over cream sleeves and digging paws; maps appear only while carried or shown. Match the original Moonwood cast identity sheet; no long brown coat or tools vest.",
       flint: "MOON-FLINT — red-brown-haired woodland boy in practical brown explorer clothes; lantern light is stateful.",
-      glimmer: "MOON-GLIMMER — young dragon with purple-blue scales, gold highlights, small wings and teal eyes; cinnamon warmth follows stated safety rules.",
+      glimmer: "MOON-GLIMMER — original lavender-purple young dragon with teal belly and eyes, purple wing membranes and short cream spikes; cinnamon warmth follows stated safety rules. Match the original Moonwood cast identity sheet; no cream belly or pink wings.",
       spark: "MOON-SPARK — junior wizard with bright red hair, freckles, red-gold robe and oversized wand; spells are tested and rule-bound."
     })
   })
@@ -258,7 +258,7 @@ const books = [
       ["Woolly wants to make a cloud.", "Woolly studies a clean low wooden board with a simple cloud shape laid in loose shed wool."],
       ["She gathers tufts of soft wool.", "Woolly gathers only loose shed wool into a small neat pile; her coat remains full."],
       ["Whoosh! Wind blows it all off.", "A breeze lifts the loose wool pieces away from the bare board in different directions."],
-      ["Woolly runs for the loose wool.", "Woolly trots after the last drifting pieces beside the barn."],
+      ["Woolly chases the loose wool.", "Woolly trots after the last drifting pieces beside the barn."],
       ["Muddy spreads mud on the board.", "Muddy uses one hoof to spread a thin even mud layer over the same board."],
       ["Woolly pats the wool down.", "Woolly presses the recovered wool pieces into a clear cloud silhouette on wet mud."],
       ["The sun dries the wet mud.", "Warm sunshine dries the board while every wool piece remains fixed in place."],
@@ -288,7 +288,7 @@ const books = [
   {
     world: "meadow", bookNumber: 30, id: "meadow-pals-30-cuddlys-yarn-ball", title: "Cuddly's Yarn Ball",
     theme: "untangling yarn by following it backward", cast: ["cuddly"], canonIds: ["MEADOW-CUDDLY"], location: "the big oak's low roots beside the flower meadow",
-    storyPromise: "Cuddly must roll a loose red yarn strand before supper, but pulling it tightens three hidden knots.",
+    storyPromise: "Cuddly must roll a loose red yarn strand before dinner, but pulling it tightens three hidden knots.",
     storySpine: "Cuddly pulls tangled yarn and worsens its knots, then follows the strand backward and frees each loop before rolling it.",
     failedAttempt: "Pulling the far end cinches three loops around separate oak roots.", turningPoint: "Cuddly stops pulling and traces the strand from the free end.",
     resolution: "Reversing through each loop releases the yarn into one round ball.", landing: "Cuddly gives the tidy ball one satisfied cat-paw tap.",
@@ -302,7 +302,7 @@ const books = [
       ["Cuddly follows the yarn back.", "Cuddly walks along the yarn from its free end toward the nearest root."],
       ["She frees each loop.", "Cuddly lifts the last of three loosened loops safely over its root."],
       ["Cuddly rolls yarn into a ball.", "Cuddly rolls the fully free red strand into one neat round ball."],
-      ["Cuddly taps her tidy ball.", "Cuddly gives the finished yarn ball one playful paw tap beside clear untangled roots."]
+      ["Cuddly pats her ball of yarn.", "Cuddly gives the finished yarn ball one playful paw tap beside clear untangled roots."]
     ]
   },
   {
@@ -356,12 +356,12 @@ const books = [
     targetSkills: ["animal-behavior", "care"], sightWords: ["a", "the", "it", "one", "he", "through"],
     pages: [
       ["A beetle waits on the path.", "One small shiny ordinary beetle stands in the center of a broad farm path."],
-      ["Brave wants the beetle safe.", "Small yellow chick Brave studies the beetle and the flower meadow across the path."],
+      ["Brave wants to help the beetle.", "Small yellow chick Brave studies the beetle and the flower meadow across the path."],
       ["Brave taps the beetle.", "Brave gives the beetle shell one very gentle beak nudge."],
       ["The beetle stops and stays still.", "The beetle stands completely still after Brave's tap while Brave looks concerned."],
       ["Brave builds a leaf tunnel.", "Brave arches overlapping green leaves into a shaded tunnel across the path."],
       ["He waits by the far end.", "Brave sits clear of the tunnel entrance and patiently watches."],
-      ["Out walks the beetle.", "The uncurled beetle walks through the shaded leaf tunnel toward flowers."],
+      ["The beetle walks out.", "The uncurled beetle walks through the shaded leaf tunnel toward flowers."],
       ["It gets to the flowers!", "The beetle reaches the flower edge while Brave remains safely beside the path."]
     ]
   },
@@ -378,9 +378,9 @@ const books = [
       ["Grumpy puts lunch in the shade.", "Grumpy places one closed lunch basket in the big oak's cool morning shadow."],
       ["He marks the shady edge.", "Grumpy marks the edge of the oak's shade with one pale stone."],
       ["The sun warms his lunch.", "The oak shadow has moved beyond the basket and warm light touches its lid."],
-      ["He drags lunch into shade again.", "Grumpy pulls the same basket into the shadow's new position."],
+      ["Grumpy drags lunch into the shade.", "Grumpy pulls the same basket into the shadow's new position."],
       ["Soon the shade moves again.", "The shadow edge moves past a second time while Grumpy watches closely."],
-      ["The trunk is still in shade.", "Grumpy pauses beside the shaded trunk; the stone marks lie beyond the moving edge of shade."],
+      ["The trunk is in the shade.", "Grumpy pauses beside the shaded trunk; the stone marks lie beyond the moving edge of shade."],
       ["Grumpy pulls lunch beside the trunk.", "Grumpy pulls his closed basket close to the trunk, away from the outer stone marks."],
       ["Grumpy eats in the cool shade.", "Grumpy rests beside his open lunch basket in the cool shade close to the trunk."]
     ]
@@ -400,7 +400,7 @@ const books = [
       ["Giggly pulls even faster.", "Giggly increases speed while the damaged wheel jolts the cart more sharply."],
       ["Flowers bounce onto soft grass.", "All eight pots tumble safely onto grass without breaking while the cart stops."],
       ["Giggly stops. What went wrong?", "Giggly pauses beside the broken wheel and studies its flat edge."],
-      ["A round wood slice fits.", "Giggly aligns one smooth round wood slice on the empty axle."],
+      ["A round slice of wood fits.", "Giggly aligns one smooth round wood slice on the empty axle."],
       ["Giggly puts the flowers back.", "The repaired round wheel turns smoothly with all eight pots upright again."],
       ["All eight flowers arrive!", "Giggly arrives at the red barn with eight intact flowers and the round wheel visible."]
     ]
@@ -598,7 +598,7 @@ const books = [
     pages: [
       ["Dozy guards one round melon for lunch.", "Dozy stands beside one large round melon on the upper meadow with his blue pillow."],
       ["He props it against his blue pillow.", "The melon rests against the clearly visible blue pillow on sloped grass."],
-      ["Dozy has a stretch. The melon bumps his pillow.", "Dozy stretches gently as the melon begins pushing the pillow downhill."],
+      ["Dozy stretches. The melon bumps his pillow.", "Dozy stretches gently as the melon begins pushing the pillow downhill."],
       ["Bump, bump! Both roll down the long meadow.", "The round melon and blue pillow roll together down a broad safe grassy slope."],
       ["Zippy tries to stop the melon. His tap sends it faster!", "Zippy reaches the melon and accidentally taps it faster while his scarf streams behind."],
       ["The pillow catches in a dip. Dozy scrambles after it.", "Dozy takes a calm diagonal route toward a visible narrow dip below the rolling objects."],

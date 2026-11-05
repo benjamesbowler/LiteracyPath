@@ -7,7 +7,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { resolveReviewedGuidedReadingAudioRepair } from "../../tools/guidedReadingAudioRepairLib.mjs";
 import { GUIDED_READING_AUDIO_REPAIRS } from "../../tools/guidedReadingAudioRepairRegistry.mjs";
-import { getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
+import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
 
 const voice = "en-US-Chirp3-HD-Leda";
 const record = { role: "isolated_word", lookupText: "stood", spokenText: "Stood." };
@@ -25,6 +25,23 @@ test("the reviewed published repair resolves to its exact content-addressed byte
   assert.equal(inventory.preflightPassed, true);
   assert.equal(inventory.wordGenerationInventory.find(row => row.normalizedLookupText === "stood").publicPath, resolved);
   assert.equal(readFileSync(map, "utf8"), before);
+});
+
+test("the splash-word pronunciation repair resolves to its exact Leda bytes", () => {
+  const repair = GUIDED_READING_AUDIO_REPAIRS["isolated_word:plip"];
+  const resolved = resolveReviewedGuidedReadingAudioRepair({ role: "isolated_word", lookupText: "Plip", spokenText: "Plip." }, voice, process.cwd());
+  assert.equal(resolved, repair.audioPath);
+  assert.equal(getGuidedReadingWordProductionAudioPath("Plip"), resolved);
+  assert.equal(sha256(readFileSync(path.join("public", resolved))), repair.audioSha256);
+  assert.equal(repair.pronunciation, "plɪp");
+});
+
+test("the Woolly page preserves the pronunciation repair through its runtime resolver", () => {
+  const text = "Woolly chases the loose wool.";
+  const repair = GUIDED_READING_AUDIO_REPAIRS["guided_page:woolly chases the loose wool"];
+  assert.equal(resolveReviewedGuidedReadingAudioRepair({ role: "guided_page", lookupText: text }, voice, process.cwd()), repair.audioPath);
+  assert.equal(getGuidedReadingPageAudioPath({ text }), repair.audioPath);
+  assert.equal(sha256(readFileSync(path.join("public", repair.audioPath))), repair.audioSha256);
 });
 
 test("repair aliases reject changed role, lookup, voice, spoken text, file bytes and missing files", () => {

@@ -193,20 +193,20 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   }),
 
   "meadow-pals-01-muddy-has-a-bath": fictionReview({
-    canonIds: ["MEADOW-MUDDY", "MEADOW-SPLASHY"],
-    storySpine: "Muddy must get clean for supper.",
+    canonIds: ["MEADOW-MUDDY", "MEADOW-CLUCKY"],
+    storySpine: "Muddy needs to wash before he eats.",
     failedAttempt: "His first bath becomes muddy too.",
-    resolution: "Muddy washes again and stays clean for supper.",
+    resolution: "Fresh water lets Muddy wash again. He walks past the mud and is clean when it is time to eat.",
     pages: [
       "Muddy rolls in the mud.",
-      "Supper starts soon.",
+      "It is time to eat.",
       "Muddy needs a bath.",
       "Muddy jumps into the bath.",
       "The water turns brown.",
-      "Muddy is still muddy.",
-      "He washes once more.",
-      "Muddy stays out of mud.",
-      "Muddy stays clean for supper."
+      "Muddy needs clean water.",
+      "He washes again.",
+      "Muddy walks past the mud.",
+      "Muddy is clean. Time to eat!"
     ]
   }),
   "meadow-pals-02-woolly-cant-sleep": fictionReview({
@@ -324,7 +324,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Tiny is small enough.",
       "Tiny crawls inside.",
       "Tiny finds the key.",
-      "Tiny brings the key. All cheer!"
+      "Tiny brings the key. They cheer!"
     ]
   }),
   "meadow-pals-09-shy-comes-out-to-play": fictionReview({
@@ -371,7 +371,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Brave wants to climb up.",
       "Brave climbs the steep side.",
       "Brave falls into straw.",
-      "Brave tries there again.",
+      "Brave tries the steep side again.",
       "Brave falls again.",
       "Brave finds a lower step.",
       "Brave reaches the top!",
@@ -458,7 +458,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "They make a mud pool.",
       "They both jump in.",
       "Mud flies up.",
-      "Mud lands all round.",
+      "Mud lands all around.",
       "Mud hits Grumpy. He frowns.",
       "They wash Grumpy clean.",
       "Grumpy grins and walks with them."
@@ -496,7 +496,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Noisy calls once more.",
       "Sleepy peeks with one eye.",
       "The sky is still dark.",
-      "Friends frown. Noisy waits till dawn."
+      "They frown. Noisy waits for dawn."
     ]
   }),
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure": fictionReview({
@@ -541,13 +541,13 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     resolution: "They stop, Tiny frees the lock of wool, and they leave space.",
     pages: [
       "Woolly and Grumpy are stuck.",
-      "Loose wool catches Grumpy's horn.",
+      "Wool catches on Grumpy's horn.",
       "They pull too hard.",
       "They both move left.",
       "They both move right.",
       "The knot gets tighter.",
       "They stop moving.",
-      "Tiny frees the lock of wool.",
+      "Tiny pulls the wool free.",
       "Now they leave space between them."
     ]
   }),
@@ -1076,7 +1076,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Rabbits need hay, shelter, company, and room.",
       "Fish need the right food and clean water.",
       "Hamsters need space to dig and explore.",
-      "Good pet care fits the animal."
+      "Different pets need different care."
     ]
   }),
   "first-facts-a-12-shapes-everywhere": nonfictionReview({
@@ -1643,7 +1643,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "The tree grows tall.",
       "Roots grow under the ground.",
-      "The trunk holds the tree.",
+      "The trunk holds up the branches.",
       "Branches reach toward the sky.",
       "Green leaves catch sunlight.",
       "Red apples grow on branches.",

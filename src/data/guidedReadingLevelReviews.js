@@ -517,17 +517,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "first-facts-level-a-14-the-tree": {
     "appReadingLevel": "C",
-    "rationale": "Roots under ground, trunk support, branches reaching and leaves catching sunlight connect named parts into one apple tree; syntax varies while the final integration is explicit.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Roots below ground, a trunk holding up branches, leaves catching sunlight and apples on branches connect named parts into one tree. Varied functional/spatial verbs and the final whole-tree synthesis retain C despite very short clauses.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:473119f50aa76929",
+    "reviewedTextFingerprint": "fnv1a64:9d7fa0a3e09ae22c",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short varied declaratives with spatial and functional verbs.",
-      "vocabulary": "Roots, trunk, branches and sunlight.",
-      "knowledge": "Plant parts have different locations/functions in one organism.",
-      "progression": "Parts are introduced before the whole-tree synthesis.",
-      "inference": "Low to moderate part-whole connection."
+      "syntax": "Short varied declaratives include the natural holds up verb phrase and spatial relationships.",
+      "vocabulary": "Roots, trunk, branches, sunlight and apples name parts and functions.",
+      "knowledge": "Tree parts have different places and functions within one living whole.",
+      "progression": "The whole tree opens the text; roots, trunk, branches, leaves and apples lead to a whole-tree close.",
+      "inference": "Connect the named parts with their contribution to the same tree; the conclusion is explicit."
     }
   },
   "first-facts-level-a-15-baby-animals": {
@@ -772,17 +772,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "first-facts-a-11-pets-we-love": {
     "appReadingLevel": "C",
-    "rationale": "Dogs' exercise and regular care, rabbits' company and room, and hamsters' digging/exploration extend coordinated needs lists; the final care-fits-animal principle compares them explicitly.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Dogs’ exercise and regular care, rabbits’ company and room, and hamsters’ digging/exploration extend coordinated needs lists. Different pets need different care states the final comparison plainly, while the multiple needs and animal distinctions retain C.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:c63a711956c9a786",
+    "reviewedTextFingerprint": "fnv1a64:61a1174cad574411",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Repeated need clauses with multi-item lists and a generalizing close.",
-      "vocabulary": "Exercise, regular care, shelter, company and explore.",
-      "knowledge": "Care routines differ between animal kinds.",
-      "progression": "Several need lists lead to a stated matching principle.",
-      "inference": "Low; differences and conclusion are given."
+      "syntax": "Repeated need clauses contain multi-item lists and a direct comparing close.",
+      "vocabulary": "Exercise, regular care, shelter, company and explore extend familiar pet nouns.",
+      "knowledge": "Different animals require different care routines and spaces.",
+      "progression": "Animal-specific need lists lead to the explicit different-pets/different-care conclusion.",
+      "inference": "Low; examples and the comparison are stated, though the reader relates several lists."
     }
   },
   "first-facts-a-12-shapes-everywhere": {
@@ -1477,17 +1477,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "ab-c-03": {
     "appReadingLevel": "F",
-    "rationale": "A longer trip follows a route through weather changes and a lighthouse; descriptive compounds, distance/time shifts and a map payoff add complexity.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Thirteen past-tense scenes follow a seaside trip through weather changes, a mapped route and a lighthouse climb. Descriptive compounds, distance/time shifts, contrasting interests and the final request for Betty’s map retain F; dinner is an ordinary meal marker.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:95307ed6c289cf6b",
+    "reviewedTextFingerprint": "fnv1a64:eb5f6187d8604164",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "A longer trip follows a route through weather changes and a lighthouse; descriptive compounds, distance/time shifts and a map payoff add complexity.",
-      "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "syntax": "Sustained past-tense prose combines short dialogue, longer clauses, numerical detail and changes in time/place.",
+      "vocabulary": "Brochure, coast, dune, tide-pool creatures, boogie board, harbor, lighthouse and field notebook sustain broader situational language.",
+      "knowledge": "A seaside holiday includes changing weather, routes, observational notes and remembered objects.",
+      "progression": "Different interests meet in Betty’s planned route after rain; viewing the route from the lighthouse leads to drawing and keeping the map.",
+      "inference": "Connect the lighthouse view, plans to draw the trip, the kept pebble and Aiden’s final request for the map."
     }
   },
   "ab-c-04": {
@@ -1597,16 +1597,16 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "dino-pals-01-chompys-big-lunch": {
     "appReadingLevel": "C",
-    "rationale": "paired eating-and-rumbling sentences, a shared basket and the final quiet-tummy callback require varied short language and linking the food to a satisfied appetite; this exceeds a small repeated B action frame.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Paired eating-and-rumbling sentences, shared food, short dialogue and a quiet-tummy bedtime callback require varied language and linking food with a satisfied appetite. His tummy still rumbles makes the continuing problem clear while retaining C.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:a88f20671ad3953b",
+    "reviewedTextFingerprint": "fnv1a64:b8487ff98c873f4d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Paired simple sentences, direct speech and a final fragment vary the page shapes.",
-      "vocabulary": "gobbles, munches, rumble and half extend familiar food words.",
-      "knowledge": "Hunger, shared portions and becoming full are concrete familiar concepts.",
-      "progression": "Several foods fail to quiet the rumble before shared lunch succeeds; bedtime closes the sequence.",
+      "vocabulary": "Gobbles, munches, tummy, rumbles, half and empty extend familiar food language.",
+      "knowledge": "Hunger, shared portions and becoming full are familiar concrete concepts.",
+      "progression": "Berries and leaves fail to quiet the tummy before a shared lunch succeeds; the bedtime check closes the sequence.",
       "inference": "Connect the absent final rumble with having eaten enough."
     }
   },
@@ -1747,17 +1747,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "dino-pals-11-shys-secret-gift": {
     "appReadingLevel": "D",
-    "rationale": "the repeated gifts support a mystery, but readers must connect noisy searches, Sunny's silent wait, two small feet and Shy's reply, then recognise the reciprocal gifts as a response to the discovered giver.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Repeated gifts establish a mystery, but the reader links noisy searches, Cheeky’s failed watch after dinner, Sunny’s quiet wait, two small feet and Shy’s reply. The next-morning returned gifts require interpreting a reciprocal response, retaining D.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:bc0f000f3e539b82",
+    "reviewedTextFingerprint": "fnv1a64:7d0ec5d66dc4be1d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Varied short narration and dialogue follow repeated finds sentences.",
-      "vocabulary": "hidden giver, silently, bracelet and fern carry the search and gift evidence.",
-      "knowledge": "A giver may leave gifts unseen; others can reciprocate appreciation.",
-      "progression": "Three gifts establish a pattern; failed watches precede a quiet observation, reveal and next-morning response.",
-      "inference": "Use the feet and conversation to identify the hidden giver and interpret the final returned gifts."
+      "syntax": "Varied short narration and dialogue follow repeated gift-finding clauses and a time shift after dinner.",
+      "vocabulary": "Hidden giver, silently, bracelet, fern and dinner carry the search and gift evidence.",
+      "knowledge": "A giver may leave gifts unseen; others can return appreciation through gifts.",
+      "progression": "Three gifts establish the pattern; failed watches precede a quiet observation, reveal and next-morning response.",
+      "inference": "Use the feet and conversation to identify the giver, then interpret the returned gifts."
     }
   },
   "dino-pals-12-fancys-bad-day": {
@@ -1897,17 +1897,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-01-muddy-has-a-bath": {
     "appReadingLevel": "A",
-    "rationale": "Muddy/mud/bath recur in very short familiar present-tense clauses, and brown water, another wash and staying clean make the outcome direct. Supper supplies a concrete purpose without a new conceptual explanation.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Muddy, mud, bath and water recur in clauses of at most six words. Time to eat gives a familiar purpose, brown water leads directly to fresh water and another wash, and the clean-to-eat ending closes one concrete sequence without dialogue or an unstated rule.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:22f1e1f017af82c4",
+    "reviewedTextFingerprint": "fnv1a64:c7db1b4fea397f43",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Mostly single short subject/verb clauses with repeated Muddy openings and one pronoun.",
-      "vocabulary": "mud, bath, water, washes, clean and supper form a small familiar set.",
-      "knowledge": "Washing removes mud before eating; no specialist background is required.",
-      "progression": "Muddy gets muddy, washes again and stays clean for supper.",
-      "inference": "Only the direct connection between mud, washing and clean is needed."
+      "syntax": "Very short present-tense clauses repeat Muddy; he refers to the same protagonist. The final two short sentences stay within one six-word line.",
+      "vocabulary": "Mud, bath, water, washes, clean and eat form a small familiar action set; again marks a repeated wash.",
+      "knowledge": "Mud dirties bathwater; fresh water permits another wash before eating.",
+      "progression": "Muddy gets muddy, needs a bath, sees brown water, needs clean water, washes again and walks past the mud before eating.",
+      "inference": "The cause and repair are directly named; the reader connects the clean ending to the second wash."
     }
   },
   "meadow-pals-02-woolly-cant-sleep": {
@@ -2002,17 +2002,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-08-tiny-is-very-small": {
     "appReadingLevel": "A",
-    "rationale": "key/log/hole/small recur through a tightly supported retrieval, and repeated Tiny actions explicitly show the small character succeeding where larger reaching fails. The size relation remains one concrete, visible contrast.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Key, log, hole and small recur through a short retrieval, while repeated Tiny actions show the small character succeeding after larger reaching fails. The final they cheer refers to the already introduced onlookers; one visible size contrast sustains A.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:4912024e914e0a96",
+    "reviewedTextFingerprint": "fnv1a64:321d54d73469f25d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Very short clauses use repeated reach/key and Tiny action frames; one final cheer is paired.",
-      "vocabulary": "key, log, hole, small, reach and crawls form a narrow concrete set.",
-      "knowledge": "A small body can fit a small opening that a larger limb cannot reach through.",
-      "progression": "Failed reaching establishes one obstacle; Tiny enters, finds and retrieves the key.",
-      "inference": "Read small enough in relation to the already named small hole."
+      "syntax": "Very short reach/key and Tiny action clauses; the last page pairs retrieval with a simple pronoun-led cheer.",
+      "vocabulary": "Key, log, hole, small, reach and crawls form a narrow concrete set.",
+      "knowledge": "A small body can fit an opening that larger limbs cannot reach through.",
+      "progression": "Failed reaching establishes the obstacle; Tiny enters, finds and brings back the key.",
+      "inference": "Read small enough against the named small hole and connect they with the onlookers."
     }
   },
   "meadow-pals-09-shy-comes-out-to-play": {
@@ -2047,17 +2047,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-11-brave-climbs-the-hay-bale": {
     "appReadingLevel": "A",
-    "rationale": "Brave repeatedly climbs, falls and tries again in very short clauses, then finds a lower step and reaches the top. The single clearly stated climbing solution outweighs incidental descriptive words such as steep.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Brave climbs, falls and repeats the same steep-side attempt in clauses of at most six words, then finds a lower step and reaches the top. Repeating the steep side makes the failure explicit; the one concrete climbing solution retains A.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:95bb9f7337aff3f5",
+    "reviewedTextFingerprint": "fnv1a64:3bc3f76ef01dc6d0",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short single clauses repeatedly begin with Brave; falls/again reinforces predictability.",
-      "vocabulary": "hay bale, straw, steep, lower and top are concrete, with repeated climb/fall support.",
+      "syntax": "Short present-tense clauses repeatedly name Brave; the steep side and again make the repeated attempt predictable.",
+      "vocabulary": "Hay bale, straw, steep, lower and top are concrete and supported by repeated climb/fall actions.",
       "knowledge": "A lower step can make a high place easier to reach.",
-      "progression": "Two failed climbs are followed by one lower-step success and the same route down.",
-      "inference": "Connect the lower step with reaching the top; the return path is explicitly the same."
+      "progression": "Two failed steep climbs precede a lower-step success and a return by the same route.",
+      "inference": "Connect the lower step with reaching the top; the route down is explicitly the same."
     }
   },
   "meadow-pals-12-hungry-eats-everything": {
@@ -2122,17 +2122,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess": {
     "appReadingLevel": "A",
-    "rationale": "mud repeats through making and jumping into one pool, and short clauses directly name the splash, Grumpy's frown, washing and grin. Two protagonists share one concrete consequence and repair.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Mud repeats through making and jumping into one pool; short clauses name mud landing all around, Grumpy’s frown, washing and his grin. The two protagonists share one concrete consequence and repair within A-length language.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:ce288eb435fd2cc2",
+    "reviewedTextFingerprint": "fnv1a64:f5cbf83c9d17aa2d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "Very short declaratives repeat mud and use they for the established pair.",
-      "vocabulary": "mud, pail, pool, jump, wash and clean form a narrow concrete action set.",
-      "knowledge": "Mud splashes nearby objects and can be washed off.",
-      "progression": "They make one pool, splash Grumpy, wash him and leave together.",
-      "inference": "Connect the frown to the mud and the grin to the explicitly named wash."
+      "vocabulary": "Mud, pail, pool, jump, around, wash and clean form a narrow concrete action set.",
+      "knowledge": "Jumping in mud can splash a nearby friend; washing removes the mud.",
+      "progression": "They make one pool, splash Grumpy, wash him clean and leave together.",
+      "inference": "Connect the frown with the mud and the grin with the named wash."
     }
   },
   "meadow-pals-17-bouncy-and-speedy-have-a-race": {
@@ -2152,17 +2152,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-18-noisy-wakes-everyone-up": {
     "appReadingLevel": "B",
-    "rationale": "repeated dark sky and loud calls support the early wake-up sequence, while too soon, till dawn and friends' frowns require linking time of day to Noisy's decision to wait.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Repeated dark sky and loud calls support the wake-up sequence. Too soon, the friends’ frowns and waiting for dawn require one simple link between time of day and Noisy’s changed action, retaining B despite the short print.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:eee916205f93ee1c",
+    "reviewedTextFingerprint": "fnv1a64:7a6112e632fa9977",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short clauses vary actor and include a final two-sentence reaction/wait pair.",
-      "vocabulary": "too soon, peeks, still dark and dawn extend familiar sleep/day language.",
-      "knowledge": "Calling everyone awake before daylight can be unwelcome; dawn supplies a later time.",
+      "syntax": "Short clauses vary actor; the final they frown/Noisy waits pair connects a reaction to the response.",
+      "vocabulary": "Too soon, peeks, still dark and dawn extend familiar sleep/day language.",
+      "knowledge": "Calling everyone awake before daylight can be unwelcome; dawn is later.",
       "progression": "Noisy calls twice before daylight, sees the response and waits for dawn.",
-      "inference": "Connect darkness and frowning friends with the corrected timing."
+      "inference": "Connect the dark sky and friends’ frowns with waiting for a later time."
     }
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure": {
@@ -2197,17 +2197,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck": {
     "appReadingLevel": "B",
-    "rationale": "repeated left/right moves support the wool-and-horn problem, while tighter and lock of wool require a concrete physical link between pulling, worsening the knot and stopping before help.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Repeated left/right actions show wool snagged on a horn becoming a tighter knot. Catches on and pulls the wool free clarify the physical action without removing the B demand of linking movement, worsening, stopping and help.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:def4f1a4ac720455",
+    "reviewedTextFingerprint": "fnv1a64:ffb6559b8f6c0121",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short single clauses repeat they/both and left/right actions.",
-      "vocabulary": "horn, loose wool, knot, tighter and lock of wool extend familiar stuck/pull language.",
-      "knowledge": "Pulling tangled wool can tighten it; stopping gives a helper room to free it.",
-      "progression": "Wool catches, pulling and side moves worsen it, then stopping permits release.",
-      "inference": "Link movement with the tighter knot and final space with avoiding another tangle."
+      "syntax": "Short present-tense clauses repeat they/both and left/right, with natural catches on and pulls free verb phrases.",
+      "vocabulary": "Wool, horn, knot, tighter, pull and free form a concrete entanglement set.",
+      "knowledge": "Moving while wool is caught can tighten a knot; stopping lets a helper free it.",
+      "progression": "Wool catches on a horn, pulling and side moves worsen it, then stopping permits Tiny to free it.",
+      "inference": "Link motion with the tighter knot and final space with avoiding another tangle."
     }
   },
   "meadow-pals-22-sleepys-big-dream": {
@@ -2352,18 +2352,18 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-06": {
     "appReadingLevel": "G",
-    "rationale": "Flint’s accurate map becomes misleading because the paths change after he records them. Dating a new map, preserving the earlier one under YESTERDAY and beginning an atlas require the reader to separate a representation’s historical truth from its usefulness for the present journey.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Flint’s accurate map becomes misleading when the paths change. Checking landmarks against his new map clarifies the repair without simplifying the G relationship between a historical record, a present route, dated updates and a growing atlas.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:2505f96e8e6b908e",
+    "reviewedTextFingerprint": "fnv1a64:7480107d5dc4c6a0",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Temporal, purpose and concessive clauses contrast past accuracy with present mismatch.",
-      "vocabulary": "Parchment, quill, symbol, landmark, mismatch and atlas carry substantial unfamiliar word demands.",
-      "knowledge": "Maps represent places at a time; changed terrain does not make the past record meaningless.",
-      "progression": "A confident complete map fails, then becomes one dated record in an ongoing method.",
-      "inference": "Understand both maps can be accurate for different times and why updates remain necessary.",
-      "sustainedReading": "Twelve paragraphs revisit the same representational problem through several days and outcomes."
+      "syntax": "Temporal, purpose and concessive clauses contrast earlier accuracy with present mismatch and repeated updates.",
+      "vocabulary": "Parchment, quill, symbol, landmark, mismatch and atlas retain substantial world and map vocabulary.",
+      "knowledge": "A map records places at a time; changed terrain does not erase the earlier record’s meaning.",
+      "progression": "A confident complete map fails; Flint compares landmarks with a new dated map and keeps both as an ongoing method.",
+      "inference": "Understand how maps can be accurate at different times and why the changing paths still require updates.",
+      "sustainedReading": "Twelve paragraphs revisit a representation problem across several days, a failed journey and later reuse."
     }
   },
   "moonwood-tales-c-07": {
@@ -2496,18 +2496,18 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-15": {
     "appReadingLevel": "G",
-    "rationale": "Burrow cannot initially read the carved trees in order. Luna’s root hint and the changing tree sizes identify the beginning, after which the rabbit’s acorn and doorway explain Hollow Oak’s history. Burrow’s final comparison with his own tunnel requires transferring that long time-scale relationship to the present.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A narrow tunnel behind the Memory Room leads to carved trees Burrow cannot order. Luna’s root hint and tree sizes reveal a beginning; the rabbit’s acorn and doorway explain Hollow Oak’s history. Burrow’s final comparison transfers the long time-scale relationship to his own tunnel, retaining G.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:662d2db5db65b96c",
+    "reviewedTextFingerprint": "fnv1a64:71cbec04beb24d02",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Some/others contrasts, reported past events and before/after relationships structure the embedded history.",
-      "vocabulary": "Gallery, carved, ceiling, waistcoat, raised, acorn and doorway extend descriptive vocabulary.",
-      "knowledge": "A pictorial sequence can encode chronology, tree growth and the survival of an old entrance.",
-      "progression": "An unreadable historical display becomes an ordered origin story and then a personal comparison.",
-      "inference": "Use size and root clues to order images, then connect the ancient doorway with Burrow’s work.",
-      "sustainedReading": "Twelve paragraphs move between present investigation, depicted past and an inferred future possibility."
+      "syntax": "Some/others contrasts and reported past events structure an embedded history within the present investigation.",
+      "vocabulary": "Gallery, carved, ceiling, waistcoat, raised, acorn and doorway extend concrete descriptive vocabulary.",
+      "knowledge": "A picture sequence can encode time, tree growth and an old doorway surviving within a growing oak.",
+      "progression": "A blocked tunnel opens to an unreadable display, becomes an ordered origin story and ends in a personal comparison.",
+      "inference": "Use tree size and root clues to order pictures, then connect the old doorway with Burrow’s current work.",
+      "sustainedReading": "Twelve paragraphs move between the investigation, depicted past and a possible future for Burrow’s doorway."
     }
   },
   "moonwood-tales-c-16": {
@@ -2544,18 +2544,18 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-18": {
     "appReadingLevel": "F",
-    "rationale": "A current presses the trapped fish tighter, so Stone must identify the movable rock and overcome his reluctance to enter the water. The reader integrates force, rock position and emotional restraint; Stone’s wet but relaxed close requires a modest inference about changed priorities.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A failed current presses the fish tighter, so Stone inspects the rocks and helps despite not liking wet hands. Direct dialogue and concrete pushing language clarify the events, while force, rock position and the wet-but-relaxed close still combine physical and emotional relationships at F.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:cbc319e3f2239587",
+    "reviewedTextFingerprint": "fnv1a64:9643fd5f6b574bdd",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Instead of, though, although and while clauses connect mechanical failure with conflicting feelings.",
-      "vocabulary": "Shallows, desperately, injuries, current, loose, released and arc broaden physical vocabulary.",
-      "knowledge": "The direction of a force and a rock’s support determine whether a trapped animal can move.",
-      "progression": "A failed water attempt leads to a second helper, inspection, precise movement and release.",
+      "syntax": "Instead of, though, although and while clauses connect a failed mechanical attempt with conflicting feelings and a precise repair.",
+      "vocabulary": "Shallows, desperately, injuries, current, loose, sucking sound and arc broaden physical vocabulary; don’t like keeps the character’s dialogue ordinary.",
+      "knowledge": "Force direction and a rock’s support affect whether the fish can escape.",
+      "progression": "A failed water attempt leads to a helper, inspection, loose-rock movement and release, followed by a splash and response.",
       "inference": "Connect the loose mud and rock movement; read Stone’s relaxed shoulders after the unwanted splash.",
-      "sustainedReading": "Twelve paragraphs combine a physical solution and a continuing fear/help conflict."
+      "sustainedReading": "Twelve paragraphs combine a physical solution with a continuing reluctance/help conflict."
     }
   },
   "moonwood-tales-c-19": {
@@ -2592,18 +2592,18 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-21": {
     "appReadingLevel": "F",
-    "rationale": "An unseen scratching source leads several friends through a room search to Twig’s hidden home. The spectacles-on-head discovery resolves the second problem directly, while her collecting and sorting explain the room’s objects. Richer atmosphere and vocabulary sustain the read without an extended hidden mechanism.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "An unseen scratching source leads several friends through a room search to Twig’s hidden home. Glasses resting on her head resolve the second problem directly, while collecting and sorting explain the room. Familiar glasses replaces spectacles without removing the twelve-paragraph descriptive and causal demands that retain F.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:2977ea7ef0ebccf2",
+    "reviewedTextFingerprint": "fnv1a64:182c3f1b775469be",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "While, where, followed by and temporal clauses vary suspenseful description and discovery.",
-      "vocabulary": "Muttering, tangled, spectacles, lenses, collected and neighbors broaden otherwise familiar domestic language.",
-      "knowledge": "Searching can overlook a visible object; lenses help the owner distinguish small items.",
-      "progression": "An unknown sound prompts a doorway search, then a new neighbor’s small problem is resolved.",
-      "inference": "Recognize the spectacles joke and connect the crowded collection with the difficulty finding them.",
-      "sustainedReading": "Twelve paragraphs sustain atmosphere and two plainly resolved discoveries."
+      "vocabulary": "Muttering, tangled, collected, glasses, lenses and neighbors broaden familiar domestic language.",
+      "knowledge": "A searcher may overlook a visible object; glasses help distinguish small items while sorting.",
+      "progression": "An unknown sound prompts a doorway search, then the new neighbor’s missing-glasses problem is resolved.",
+      "inference": "Recognize the glasses-on-head joke and connect the crowded collection with difficulty finding them.",
+      "sustainedReading": "Twelve paragraphs sustain atmosphere, several participants and two directly resolved discoveries."
     }
   },
   "moonwood-tales-c-22": {
@@ -2702,17 +2702,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-28-woollys-wool-cloud": {
     "appReadingLevel": "B",
-    "rationale": "repeated wool words and short collection/patting/drying actions show how a blown-away cloud craft is fixed. Tufts and board add concrete vocabulary, while mud supplies one visibly sequenced holding solution.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Repeated wool words and short chasing, patting and drying actions show a blown-away cloud craft being repaired. Tufts and board broaden concrete vocabulary; mud supplies one plainly sequenced holding solution at B.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:24eb8a3dcdd4ce6a",
+    "reviewedTextFingerprint": "fnv1a64:1fc896c4d963427c",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short clauses include a sound-effect pair and repeat named-character/wool actions.",
-      "vocabulary": "tufts, loose wool, spreads, board and stays put extend a small craft set.",
-      "knowledge": "Wool can blow away; wet mud can hold it to a board as it dries.",
-      "progression": "Wind undoes the craft, Woolly retrieves wool, Muddy adds mud and the dried craft stays.",
-      "inference": "Connect mud under the wool and drying with the stated stable result."
+      "syntax": "Short clauses include a sound-effect pair and repeated named-character/wool actions; chases directly names retrieval.",
+      "vocabulary": "Tufts, loose wool, chases, spreads, board and stays put extend a small craft set.",
+      "knowledge": "Wind can scatter wool; wet mud can hold wool on a board as it dries.",
+      "progression": "Wind undoes the craft, Woolly chases the wool, Muddy adds mud and the dried craft stays in place.",
+      "inference": "Connect mud under the wool and drying with the final stable cloud."
     }
   },
   "meadow-pals-29-shys-pond-rings": {
@@ -2732,16 +2732,16 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-30-cuddlys-yarn-ball": {
     "appReadingLevel": "B",
-    "rationale": "yarn repeats through pulling, tight knots, following back and freeing loops before rolling a ball. Strand/knots/loop broaden concrete vocabulary, and the reversed approach remains one short physical problem/solution.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Yarn repeats through pulling, tight knots, following back and freeing loops before rolling a ball. The concrete strand/knots/loop words and changed physical approach sustain B; the final ball of yarn makes the outcome explicit.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:e34fd93d2faad4d1",
+    "reviewedTextFingerprint": "fnv1a64:def37e436cdcaf20",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short single clauses repeatedly name Cuddly or she, with familiar action complements.",
-      "vocabulary": "yarn, strand, knots, loop, rolls and tidy form a concrete textile set.",
-      "knowledge": "Pulling tangled yarn can tighten knots; loosening loops permits winding.",
-      "progression": "A harder pull fails, tracing backward and freeing loops allow the desired ball.",
+      "syntax": "Short clauses repeatedly name Cuddly or she; the ending uses an ordinary noun phrase, her ball of yarn.",
+      "vocabulary": "Yarn, strand, knots, loop, rolls and pats form a concrete textile/action set.",
+      "knowledge": "Pulling tangled yarn can tighten knots; loosening loops permits winding a ball.",
+      "progression": "Hard pulling fails; following the yarn back and freeing loops allow the desired ball, which Cuddly pats.",
       "inference": "Connect the changed action with releasing rather than tightening the knots."
     }
   },
@@ -2777,47 +2777,47 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "meadow-pals-33-braves-beetle-bridge": {
     "appReadingLevel": "B",
-    "rationale": "short beetle/Brave clauses contrast an unhelpful tap with a leaf tunnel and waiting. Far end and out add one spatial relationship, while the safe arrival is explicitly stated.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "Short beetle/Brave clauses contrast an unhelpful tap with building a leaf tunnel and waiting. Ordinary wants to help and the beetle walks out retain the B spatial and cause/result demands without an inverted sentence.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:378761974270dacd",
+    "reviewedTextFingerprint": "fnv1a64:ef48a73062b092f6",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short single clauses repeat beetle and Brave/he; a final inverted out walks adds small variation.",
-      "vocabulary": "beetle, safe, tunnel, far end and flowers form a modest concrete nature set.",
-      "knowledge": "A small insect may stop when disturbed and use a covered route.",
-      "progression": "Tapping stops the beetle, so Brave builds a tunnel and waits for it to reach flowers.",
-      "inference": "Connect waiting and the tunnel with the beetle's subsequent safe movement."
+      "syntax": "Short subject-verb clauses repeat beetle and Brave/he; an infinitive states the goal and walks out names the result.",
+      "vocabulary": "Beetle, help, tunnel, far end, out and flowers form a modest concrete nature set.",
+      "knowledge": "An insect may stop when disturbed, then use a covered route when left alone.",
+      "progression": "Tapping stops the beetle; Brave builds a tunnel and waits as it walks out toward the flowers.",
+      "inference": "Connect the changed approach and waiting with the beetle’s movement through the tunnel."
     }
   },
   "meadow-pals-34-grumpys-sun-clock": {
     "appReadingLevel": "C",
-    "rationale": "the reader must compare a marked shady edge that shifts twice with a trunk that remains shaded, then understand why moving lunch beside the trunk solves the problem. This temporal/spatial comparison exceeds one B action/result.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "The reader compares a marked shady edge that shifts twice with the tree trunk remaining in shade, then connects the final lunch position with staying cool. Natural in the shade phrases clarify the language while the sustained time/space comparison retains C.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:a9313255525f27c5",
+    "reviewedTextFingerprint": "fnv1a64:4a749317957000a4",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short clauses use again/soon/still to compare changing and stable conditions across pages.",
-      "vocabulary": "shade, shady edge, marks, warms, trunk and cool carry the spatial heat contrast.",
-      "knowledge": "Shade can move as sunlight changes; an object's position can stay protected.",
-      "progression": "Two temporary moves fail before Grumpy notices persistent shade at the trunk.",
-      "inference": "Connect the repeated shifting edge with choosing a consistently shaded location."
+      "syntax": "Short clauses use soon/again and repeated shade phrases to compare changing and stable positions across pages.",
+      "vocabulary": "Shade, shady edge, marks, warms, trunk and cool carry the heat/position contrast.",
+      "knowledge": "Shade can shift as sunlight changes; a different position may remain protected.",
+      "progression": "Moving lunch back into temporary shade fails before Grumpy notices the shaded trunk and moves lunch beside it.",
+      "inference": "Connect repeated shifting shade with choosing the final location rather than simply repeating the first move."
     }
   },
   "meadow-pals-35-gigglys-round-wheel": {
     "appReadingLevel": "B",
-    "rationale": "the broken wheel and scattered flowers make the problem explicit, and a fitting round wood slice plus reloaded flowers show a concrete repair. A diagnostic question adds variation without a sustained explanation.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "The broken wheel and scattered flowers make the problem explicit; a round slice of wood that fits and reloaded flowers show a concrete repair. One diagnostic question and the causal turn retain B without a sustained technical explanation.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:e5198a8233d3ab92",
+    "reviewedTextFingerprint": "fnv1a64:1ffb8a912493c24d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short clauses include a sound effect, one question and paired stopping/reflection.",
-      "vocabulary": "cart, wheel, thumps, wood slice, fits and arrive extend a familiar delivery set.",
-      "knowledge": "A round replacement can restore a cart wheel's function.",
-      "progression": "Pulling a broken cart faster worsens the spill; stopping, fitting a slice and reloading complete delivery.",
-      "inference": "Infer that the fitting round slice replaces the broken wheel, using the immediately established fault."
+      "syntax": "Short clauses include a sound effect, one question and paired stopping/reflection; slice of wood is an ordinary noun phrase.",
+      "vocabulary": "Cart, wheel, thumps, slice of wood, fits and arrive extend a familiar delivery set.",
+      "knowledge": "A round replacement can restore a cart wheel’s function.",
+      "progression": "Pulling the broken cart faster worsens the spill; stopping, fitting the slice and reloading complete the delivery.",
+      "inference": "Link the fitting round slice with the immediately established broken wheel."
     }
   },
   "dino-pals-21-fancys-moonleaf-arch": {
@@ -2957,17 +2957,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "dino-pals-30-dozy-stops-the-melon": {
     "appReadingLevel": "C",
-    "rationale": "the rolling melon and pillow produce a failed tap, a pillow caught in a dip and Dozy's changed catching plan. Paired events and directional vocabulary sustain a short physical cause chain above B.",
-    "reviewedAt": "2026-10-29",
+    "rationale": "A rolling melon and pillow produce a failed tap, a pillow caught in a dip and Dozy’s changed catching plan. Dozy stretches directly names the initiating action; paired events and the directional cause chain retain C.",
+    "reviewedAt": "2026-11-05",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:1a66d96a2e4a0a3f",
+    "reviewedTextFingerprint": "fnv1a64:fa9f8cda1883104e",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Short paired actions include a contracted causal result and sound-effect repetition.",
-      "vocabulary": "props, guards, scrambles, dip, across and catches extend the rolling-object vocabulary.",
-      "knowledge": "A hollow can stop a rolling object and a spread pillow can cushion a landing.",
-      "progression": "A prop dislodges, both objects roll, a tap worsens speed, and the caught pillow becomes a trap.",
-      "inference": "Connect the pillow stopping in the dip with Dozy's plan for the still-moving melon."
+      "syntax": "Short paired actions include a contracted causal result and repeated bump sounds.",
+      "vocabulary": "Guards, props, stretches, scrambles, dip and across extend rolling-object language.",
+      "knowledge": "A dip can stop a rolling object and a spread pillow can cushion a landing.",
+      "progression": "A stretch dislodges the melon and pillow, a tap speeds the melon, and the stopped pillow becomes the catching surface.",
+      "inference": "Connect the pillow stopping in the dip with Dozy’s plan for the moving melon."
     }
   },
   "moonwood-tales-c-26": {

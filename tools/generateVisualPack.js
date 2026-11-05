@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import fs from "fs";
 import OpenAI from "openai";
+import sharp from "sharp";
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ const jobs = [
   ["vocabulary/dock.png", "wooden dock beside calm water"],
   ["vocabulary/friends.png", "two children smiling and playing together"],
   ["vocabulary/barn.png", "red barn on a friendly farm"],
-  ["vocabulary/cake.png", "slice of chocolate cake on a plate"],
+  ["vocabulary/cake.webp", "slice of chocolate cake on a plate"],
   ["vocabulary/book.png", "open picture book on a desk"],
 
   // Prepositions
@@ -99,7 +100,10 @@ async function generateOne(path, description, index, total) {
     quality: "low"
   });
 
-  const buffer = Buffer.from(result.data[0].b64_json, "base64");
+  const generated = Buffer.from(result.data[0].b64_json, "base64");
+  const buffer = path.endsWith(".webp")
+    ? await sharp(generated).webp({ lossless: true }).toBuffer()
+    : generated;
   fs.writeFileSync(fullPath, buffer);
 
   console.log(`[${index}/${total}] Saved: ${path}`);

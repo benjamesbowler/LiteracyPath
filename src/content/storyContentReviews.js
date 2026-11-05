@@ -35,12 +35,12 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 295,
-  sourceFingerprint: "de99f228f3ba09fa858293dbb7624f130f7e1412bbb54b93cf20016727ee1576",
+  sourceFingerprint: "8667a3070d8423118346e911cdd54a90440d703b4a60a617f05748b6804df7d8",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-11-02",
-  integrationReview: "Bounded review of the upstream October 30 family/community retitles, genre changes and eight-page A Morning with Friends replacement against the current Willow Street Bible and hash-bound visual/narration records. No manuscript changes were made here; unchanged titles retain their prior review, and no new human-listening observation is claimed.",
+  reviewedAt: "2026-11-05",
+  integrationReview: "Complete ordered manuscript and illustration review of all 297 runtime books and 2,621 pages, plus all covers. Revised 37 pages across 24 books for natural everyday language; fixed bath/material state, prop/count/scale continuity and original-cast identity; exact-current-text Google Leda recordings and refreshed phonics/level/image evidence accompany the edits. Automated speech recognition and signal checks are distinct from human listening; no classroom or physical-device observation is claimed.",
   reviewer: "Editorial and source review",
   claim: "All 295 graded books and 2,597 pages received complete manuscript review. The original 226 graded books received nine page-line corrections and one title correction. Small Steps adds 20 cumulative decodables; Next Steps adds 30 more with exact cumulative pronunciation, word-shape and exception evidence. Bright Ideas adds 19 graded leveled books; its additional shared H book and the existing Missing Sandwich book retain separate exact manuscript contracts. The new collections explicitly distinguish phonics practice from broader leveled and supported reading, with sound-letter, decoding and connected-reading teaching routines. Current illustrations and ordered sequences are enforced by their separate hash-locked visual gate; this text baseline cannot clear a media defect. Exact narration provenance and automated recognition screening remain distinct from human listening. No classroom outcome, publisher-level equivalence or direct human-listening observation is claimed. Reported defects, quarantine and media-integrity failures remain blocking."
 });

@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { COHORTS, MAX_ASSET_BYTES, MAX_COHORT_FILES, MANIFEST_PATH, mediaCohort, validateRelease } from '../../infra/shared-media/protocol.mjs';
-import { planSharedMedia, stageSharedMedia, stripPublishedMedia, verifyPublishedMedia, sha256 } from '../../tools/lib/sharedMediaPublisher.mjs';
+import { planSharedMedia, planSharedMediaPruning, stageSharedMedia, stripPublishedMedia, verifyPublishedMedia, sha256 } from '../../tools/lib/sharedMediaPublisher.mjs';
 import { sharedMediaVercelConfig } from '../../tools/lib/sharedMediaConfig.mjs';
 
 const paths = [
@@ -88,6 +88,10 @@ test('planner and staging preserve source, use bounded static-only collections a
   const plan = await planSharedMedia(f);
   assert.equal(plan.files.length, 4);
   assert.equal(plan.retained[0].pathname, video);
+  const pruning = await planSharedMediaPruning(f);
+  await assert.rejects(stageSharedMedia(pruning, path.join(f.root, 'not-a-publication')), /publication plan/);
+  await assert.rejects(stageSharedMedia({ ...plan, files: [...plan.files,
+    { ...plan.retained[0], cohort: 'art', file: path.join(f.distRoot, video) }] }, path.join(f.root, 'oversize-stage')), /Free static asset size limit/);
   const staging = path.join(f.root, 'stage');
   await stageSharedMedia(plan, staging);
   for (const file of plan.files) {
@@ -110,6 +114,39 @@ test('build removes only byte-matched published copies and keeps new/changed med
   assert.equal(await fs.readFile(path.join(f.distRoot, paths[0]), 'utf8'), 'new version of the word');
   assert.equal(await fs.readFile(path.join(f.distRoot, 'images/new.webp'), 'utf8'), 'new picture');
   for (const pathname of paths.slice(1)) await assert.rejects(fs.stat(path.join(f.distRoot, pathname)), { code: 'ENOENT' });
+  for (const pathname of paths) assert.ok((await fs.stat(path.join(f.publicRoot, pathname))).isFile());
+}));
+
+test('local overflow may be pruned against pinned catalogs but cannot be staged or published', async () => fixture(async f => {
+  const original = await planSharedMedia(f);
+  const published = publication(original);
+  await f.write(paths[0], 'changed local word');
+  const overflow = path.join(f.distRoot, 'images/overflow');
+  await fs.mkdir(overflow, { recursive: true });
+  // One existing art file plus these files crosses the real Free limit.
+  // Bounded writes keep the regression independent of process fd limits.
+  const names = Array.from({ length: MAX_COHORT_FILES }, (_, index) => `local-${index}.webp`);
+  for (let start = 0; start < names.length; start += 64) {
+    await Promise.all(names.slice(start, start + 64).map(name => fs.writeFile(path.join(overflow, name), name)));
+  }
+  await assert.rejects(planSharedMedia(f), /art exceeds the Free static file budget/);
+  const pruning = await planSharedMediaPruning(f);
+  assert.equal(pruning.files.length, MAX_COHORT_FILES + paths.length);
+  assert.equal(pruning.cohorts, undefined, 'A prune inventory is not a publication catalog');
+  const staging = path.join(f.root, 'overflow-stage');
+  await assert.rejects(stageSharedMedia(pruning, staging), /Free static file budget/);
+  // Adding an old catalog must not bypass the stage/verification boundary.
+  const forged = { ...pruning, cohorts: original.cohorts };
+  await assert.rejects(stageSharedMedia(forged, staging), /Free static file budget/);
+  await assert.rejects(verifyPublishedMedia(forged, published.release, { fetchImpl: published.fetchImpl }), /Free static file budget/);
+  await assert.rejects(fs.stat(staging), { code: 'ENOENT' });
+  await assert.rejects(stripPublishedMedia(pruning, published.release, async () => new Response('{}')), /checksum/);
+  for (const pathname of paths) assert.ok((await fs.stat(path.join(f.distRoot, pathname))).isFile());
+  const result = await stripPublishedMedia(pruning, published.release, published.fetchImpl);
+  assert.equal(result.stripped, 3);
+  assert.equal(result.local, MAX_COHORT_FILES + 1);
+  assert.equal(await fs.readFile(path.join(f.distRoot, paths[0]), 'utf8'), 'changed local word');
+  assert.deepEqual((await fs.readdir(overflow)).sort(), names.sort());
   for (const pathname of paths) assert.ok((await fs.stat(path.join(f.publicRoot, pathname))).isFile());
 }));
 

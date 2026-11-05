@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "kind": "reviewed-app-image-retirements",
+  "sourceRevision": "7cbe337836d0b77324439cad58535d1375247c47",
+  "authorities": [
+    {
+      "path": "tools/lib/reviewedAppImageRetirements.mjs",
+      "sha256": "d0fbb99110a15d9adb732206be0143416656a7a72db64af4d804e22b66d2372e"
+    },
+    {
+      "path": "tools/lib/appVisualSourceGraph.mjs",
+      "sha256": "50fdebd4d4c780d40e8ac9efbd5b86fa4cc56735b7f264c083261ea448605a21"
+    },
+    {
+      "path": "tools/auditFiniteImageBindings.mjs",
+      "sha256": "a33ef1c8a82c1701a27f40123a8312d3afe64eb006ce9f12576fbd0720dd9530"
+    },
+    {
+      "path": "src/policy/literacyItemEligibility.js",
+      "sha256": "c1d72ab6d69ae2c0715d1a5a7aeebf41cd5716d05206661750c75e2212be51d6"
+    },
+    {
+      "path": "src/policy/literacyMockVersions.js",
+      "sha256": "04934f854e1df2e56925ba2690c94d63a35d559252fc896eb278f6b470a0bcc2"
+    },
+    {
+      "path": "src/data/assessmentImageStyleBlocklist.js",
+      "sha256": "68a8ffc4049cbb9aea78eba5c5bf13a9ea601687b5cf59922ee2bd4b5b3515af"
+    }
+  ],
+  "questionDomainKinds": [
+    "accepted-historical-map:literacy-mock-v10:mixed=false",
+    "accepted-historical-map:literacy-mock-v10:mixed=true",
+    "accepted-historical-map:literacy-mock-v11:mixed=false",
+    "accepted-historical-map:literacy-mock-v11:mixed=true",
+    "accepted-historical-map:literacy-mock-v12:mixed=false",
+    "accepted-historical-map:literacy-mock-v12:mixed=true",
+    "accepted-historical-map:literacy-mock-v1:mixed=false",
+    "accepted-historical-map:literacy-mock-v2:mixed=false",
+    "accepted-historical-map:literacy-mock-v3:mixed=false",
+    "accepted-historical-map:literacy-mock-v4:mixed=false",
+    "accepted-historical-map:literacy-mock-v5:mixed=false",
+    "accepted-historical-map:literacy-mock-v6:mixed=false",
+    "accepted-historical-map:literacy-mock-v7:mixed=false",
+    "accepted-historical-map:literacy-mock-v8:mixed=false",
+    "accepted-historical-map:literacy-mock-v9:mixed=false",
+    "assessment-preview-all-classroom-reference-IDs",
+    "current-formal:adjectives:retention=false",
+    "current-formal:adjectives:retention=true",
+    "current-formal:antonyms_synonyms:retention=false",
+    "current-formal:antonyms_synonyms:retention=true",
+    "current-formal:blends:retention=false",
+    "current-formal:blends:retention=true",
+    "current-formal:cause_effect:retention=false",
+    "current-formal:cause_effect:retention=true",
+    "current-formal:context_clues:retention=false",
+    "current-formal:context_clues:retention=true",
+    "current-formal:cvc_short_vowels:retention=false",
+    "current-formal:cvc_short_vowels:retention=true",
+    "current-formal:digraphs:retention=false",
+    "current-formal:digraphs:retention=true",
+    "current-formal:final_sounds:retention=false",
+    "current-formal:final_sounds:retention=true",
+    "current-formal:hfw_1_25:retention=false",
+    "current-formal:hfw_1_25:retention=true",
+    "current-formal:hfw_26_50:retention=false",
+    "current-formal:hfw_26_50:retention=true",
+    "current-formal:hfw_51_75:retention=false",
+    "current-formal:hfw_51_75:retention=true",
+    "current-formal:hfw_76_100:retention=false",
+    "current-formal:hfw_76_100:retention=true",
+    "current-formal:homophones:retention=false",
+    "current-formal:homophones:retention=true",
+    "current-formal:inference:retention=false",
+    "current-formal:inference:retention=true",
+    "current-formal:initial_sounds:retention=false",
+    "current-formal:initial_sounds:retention=true",
+    "current-formal:key_details:retention=false",
+    "current-formal:key_details:retention=true",
+    "current-formal:long_vowels:retention=false",
+    "current-formal:long_vowels:retention=true",
+    "current-formal:main_idea:retention=false",
+    "current-formal:main_idea:retention=true",
+    "current-formal:nouns:retention=false",
+    "current-formal:nouns:retention=true",
+    "current-formal:plurals:retention=false",
+    "current-formal:plurals:retention=true",
+    "current-formal:prefix_suffix:retention=false",
+    "current-formal:prefix_suffix:retention=true",
+    "current-formal:prepositions:retention=false",
+    "current-formal:prepositions:retention=true",
+    "current-formal:r_controlled:retention=false",
+    "current-formal:r_controlled:retention=true",
+    "current-formal:rhyming:retention=false",
+    "current-formal:rhyming:retention=true",
+    "current-formal:sentence_comprehension:retention=false",
+    "current-formal:sentence_comprehension:retention=true",
+    "current-formal:sequencing:retention=false",
+    "current-formal:sequencing:retention=true",
+    "current-formal:short_vowel_discrimination:retention=false",
+    "current-formal:short_vowel_discrimination:retention=true",
+    "current-formal:theme:retention=false",
+    "current-formal:theme:retention=true",
+    "current-formal:verbs:retention=false",
+    "current-formal:verbs:retention=true",
+    "current-formal:vowel_teams:retention=false",
+    "current-formal:vowel_teams:retention=true",
+    "current-practice-including-reference",
+    "saved-practice-including-retired-offerings"
+  ],
+  "cohorts": [
+    {
+      "id": "obsolete-preposition-placeholders",
+      "kind": "obsolete-administrative-thumbnails",
+      "assetCount": 60,
+      "evidence": {
+        "path": "tools/manifests/retired-preposition-placeholder-scenes.json",
+        "sha256": "ff320e3edba530c0a127aebf11648ac901bc7497e431e4a58b8d8733000ea43c"
+      },
+      "assets": [
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/above-01-star-tree.svg",
+          "sha256": "b3225559db0d4710e8b16539dfe3d2e84e871afe92129691619d5bb873af5a7c"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/above-02-lamp-table.svg",
+          "sha256": "147c07c2a7d34db433df51f9803e9618988d014dbe77e56213c14ca40ea1c907"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/above-03-balloon-child.svg",
+          "sha256": "7d14dd5562ecacc987b10ad0a0f43718910c5dc6724df76e31fbb73f215ea4df"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/across-01-bridge-river.svg",
+          "sha256": "41461d08fd543563a89189136b77ef23f788745929399e59b044ee3a02454759"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/across-02-road-field.svg",
+          "sha256": "3c75e82b13c878b02bb8276134c2a37bf1944758d401b5bc06601d2958b5a041"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/across-03-line-page.svg",
+          "sha256": "904688c4d869cb128079a6cac8b36be781152bfca15779b69f9dfe562feb3a75"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/against-01-ladder-wall.svg",
+          "sha256": "d2ecf976f059d46a8042788b343abc021824ea3410927f43a8717b2d9ca9909b"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/against-02-bike-fence.svg",
+          "sha256": "4dd61ff48f5c6f5b847f1b50279896f29424b8fd794b006c0679d5be0d7788b2"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/against-03-pillow-chair.svg",
+          "sha256": "7968dd2e3876e0990fb12bb9d500adf3c48817e6ae1eef974d0cc7d00de049c2"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/around-01-scarf-neck.svg",
+          "sha256": "4ee359cc8e2207f1d11eb563a63a770e391faf8ab55fb6df8ba518fe23936c16"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/around-02-fence-garden.svg",
+          "sha256": "acdd71fa69da3868b78e4439dacb6120ab45206e482bde418c1069219b9230dd"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/around-03-path-pond.svg",
+          "sha256": "1c02f96965387fc0a60603cea3c27885e6e2c9d9a4c2a3fe5908326b3432b42a"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/behind-01-cat-sofa.svg",
+          "sha256": "51008176acd76479f045617ac6be57152ac042ed82d0932a0e7cc8e09cc6b39b"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/behind-02-sun-cloud.svg",
+          "sha256": "abfa6bbc466fba7fbf767439b524ec6114678ef1a55446c50f66961d41d64173"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/behind-03-child-curtain.svg",
+          "sha256": "5fecd62251e07112daa5dd77f6f2ca82cb5e5c7b058e93c691d9f24911f29936"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/below-01-ball-shelf.svg",
+          "sha256": "d4c497869e647a2f6254950045165c8f1a43562ade4b561a8ae7c7bb0e2eef02"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/below-02-fish-boat.svg",
+          "sha256": "f7bb42ca54cedf60264456a735cad17f85aceb190e9722121c8df9bb6781d51c"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/below-03-rug-table.svg",
+          "sha256": "6ab97181b9bc3e6fd92a48359a8fbaa9ae7fa21217c3152fd7dd2fe23ed6c2e8"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/beside-01-lamp-bed.svg",
+          "sha256": "281cb4f1cbd5b8e00b8583b223188ed8d3325f6cae9655fc278a0a67e8b9ebf8"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/beside-02-dog-child.svg",
+          "sha256": "d727022659963d4169fb8d147ec0728d49247570c6a5c3473c86534c6d74e4ce"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/beside-03-cup-plate.svg",
+          "sha256": "7711955248a15806b546292c6fe2dfc2e7ffb6c13bd0a26c0075c07b30c8a97e"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/between-01-ball-box-chair.svg",
+          "sha256": "0ee7781c4a4bb8dfac020ab6b396c66c2fe4ae4253ef24cd6768a036a2f7da1b"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/between-02-child-trees.svg",
+          "sha256": "866b41a530c78f236ee84073d085889d7fbcd5381b6ccc604a6a6fe32c3c1773"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/between-03-book-pencil-cup.svg",
+          "sha256": "e257b56585aaf1652841dd5f5085de81ed7ec2573adf2687b5969f0e640eb4b1"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/in-01-toy-box.svg",
+          "sha256": "d81cf58ee05b33e536ab66ee711a2b9e70db17450ddd49353cbcbcb0477ba215"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/in-02-fish-bowl.svg",
+          "sha256": "26b8087a271e75e085d71aa62add2bc02bfc23e27eecc30dd82daacff0d26bd5"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/in-03-pencil-cup.svg",
+          "sha256": "ed857a1ee428ceea398c5d14935e1e1838ff1aed5cfacff61c3626548ebf7df7"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/in-front-of-01-dog-house.svg",
+          "sha256": "a3dfeaaa5ff957295c76bdf8ad0a5baa6722e601463fd3ebed5e1a660fc6d5cb"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/in-front-of-02-child-board.svg",
+          "sha256": "38b542156616310ac06a920b00f2f653624d3d42c15c6a88fbe4151b7f75336b"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/in-front-of-03-flower-fence.svg",
+          "sha256": "659d2dea41c3b80ea8d473091d3f78e7e54d5c49e7ef02c3223d96ece74d8ee8"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/inside-01-goat-barn.svg",
+          "sha256": "ff779a3f0036ecf61f823c339cefcaebf3d07774db07d004c893db8fbb70b6b4"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/inside-02-toy-basket.svg",
+          "sha256": "2a2deaa30d165104f43483ac1f74f05f0f7c89f6ba0fd070742ca684d9a9b4f9"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/inside-03-cat-tent.svg",
+          "sha256": "89f662b8bc9333e3c57cb8f0b0b0ca066f194c6ea1af24671c73412a6ebed9b4"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/into-01-ball-basket.svg",
+          "sha256": "b21ba3eade035d9ca1b39fe236a3de556e70a462dfe04e034d33a5b22cb180b3"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/into-02-child-room.svg",
+          "sha256": "c3ef64d33060f9658e1fbbd23048e59bef985bb3338bbe1d0ffebe07f3724057"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/into-03-letter-mailbox.svg",
+          "sha256": "2f1a5829720b7d9b134e30b1e44d6d73534c675de813ab487288e8df91884d09"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/near-01-shoes-door.svg",
+          "sha256": "0a20662919b31a8d97fa8308641fa44c14ecf812e5d6d13af3d412e21ddc34b0"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/near-02-cup-plate.svg",
+          "sha256": "eea89f20fd706b2ae7d57d84581e9a79c39e54c3afa2bb73182ea1963c4d0c22"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/near-03-bird-nest.svg",
+          "sha256": "2464a615b1172a799079985660c671ce3c9db5822957a6490c62018efa3ba192"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/next-to-01-pencil-book.svg",
+          "sha256": "20e560561c3f5ba830b6a57cb442bec704c33ba0a927893c8c0686723056b419"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/next-to-02-cup-bowl.svg",
+          "sha256": "b08d9461b1b24840b87c7e6c510e5ab869ff439c6ad45c95aab0e4295d8ab46c"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/next-to-03-chair-desk.svg",
+          "sha256": "4d9ca72c3f31c86727659db5aa1249f3de97d0ddca3fc5477b180398f83f62fa"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/on-01-cat-mat.svg",
+          "sha256": "3d7c7ba0967eb6af607e69c4ae8d5598be6b084d0ac6cc3cfe2108c808e3abcf"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/on-02-book-shelf.svg",
+          "sha256": "37862a59367604708f74602018665899db803229276bf1317d166250c5328df9"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/on-03-hat-head.svg",
+          "sha256": "97aae265e5af3d2a945a390a95b5619b7ad9ab22065af4aa65175b6424a2ff49"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/out-of-01-bird-cage.svg",
+          "sha256": "ed0309a69d654641e28ff5810f240ce393464db38119f4e49175cce9148cf9a0"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/out-of-02-toy-box.svg",
+          "sha256": "ec11fcfc654f2baf2deca204737093895871b2668a28267f8cb0fee8093581e2"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/out-of-03-child-tent.svg",
+          "sha256": "995b63675977ea636e4552fa204086dba5442b45c422c8dc04bf8e49eefbb726"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/outside-01-dog-house.svg",
+          "sha256": "e257ecbc731a8de594ed43731f1dc516b2563fa909770d939b367fa51dec93ca"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/outside-02-duck-pond.svg",
+          "sha256": "62849176add6eb1972cb13b7289c91694b09f9870fb609fee7d5110e3f7a3855"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/outside-03-backpack-classroom.svg",
+          "sha256": "d466478a5ebca2b7734aa09af6cf5bc02369c61ec8edd613265ac8b82c8b1d9c"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/over-01-bird-tree.svg",
+          "sha256": "e336ac53c9ab569ba5de2683443dd91fe621d33f60e5937e96da5ac1e3966913"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/over-02-kite-house.svg",
+          "sha256": "708351b2067c7d462ee4c811522b5eb016fba0ec8f2448a3903a28e90faf6807"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/over-03-plane-clouds.svg",
+          "sha256": "beddad8b6e49e894399282097e189a6e87540b4cbbd406383db54728ba0477c3"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/through-01-train-tunnel.svg",
+          "sha256": "3c76b1632508047c3f28a929a8c06e798759bbb6c185e9b21a855faea3043bf2"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/through-02-child-doorway.svg",
+          "sha256": "c15d3d8468410e22da46f3112f3c1a412030d910b49b3e027b3b18d783b11685"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/through-03-water-pipe.svg",
+          "sha256": "4f8af8fc860fe22e2d44665dce77ea69a21ee2263d9c137cd0e6c374b6a9077a"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/under-01-ball-table.svg",
+          "sha256": "63da9069359635246ec2086b00c4aa5a3bc96819a9063034bfd9ad3e96b90b3a"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/under-02-dog-chair.svg",
+          "sha256": "5de52576bde5b3b5378fd7e111227224d590c2e0ca6449d23c914587f187a926"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/prepositions/under-03-shoe-bed.svg",
+          "sha256": "cd2caa14fa10e793b9e8ad3e51751c1fa585db927efce7195ffbb553c5964cd2"
+        }
+      ]
+    },
+    {
+      "id": "obsolete-assessment-thumbnails",
+      "kind": "obsolete-administrative-thumbnails",
+      "assetCount": 5,
+      "evidence": {
+        "path": "tools/manifests/retired-obsolete-assessment-thumbnails.json",
+        "sha256": "28bb80d49e77869b806c5d8b61401567620e3d6890c8793b06796025ffc3b3c8"
+      },
+      "assets": [
+        {
+          "oldPath": "/images/assessment/blends/square.webp",
+          "sha256": "08dc5026325c2c95a9fd8baa5d4cd92a7eab6816772c0a3989080cc7c509cc39"
+        },
+        {
+          "oldPath": "/images/assessment/digraphs/neck.webp",
+          "sha256": "78a8b6ba6748ddcc2c46291f85d285b085676a03df82c9d48d57b550e651a0e3"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+          "sha256": "6431833771a5ebb169663824536ed7589585fb814cbaa6c466e2789d4a22f0c0"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/homophones-homonyms/cent-sent-scent-01.webp",
+          "sha256": "1a100969b9608468d3b5b8f1c0b1f21e0c90e8cbfb5aa86de56956d78b1b7907"
+        },
+        {
+          "oldPath": "/images/assessment/language/variants/plurals/church-churches-01.webp",
+          "sha256": "b014dcd0bc1214ec6fe735fd3884bd97fb5bd487d07cfaf135c14d70f4820606"
+        }
+      ]
+    },
+    {
+      "id": "reviewed-format-migrations",
+      "kind": "reviewed-format-migration",
+      "assetCount": 3,
+      "assets": [
+        {
+          "oldPath": "/images/child-mode/minimal-pairs/cut.png",
+          "sha256": "cf51c38c6686e5e84a5c4688dc971ca6ea803d49b87fe5e66fc16491e18e154c",
+          "newPath": "/images/child-mode/minimal-pairs/cut.webp",
+          "newSha256": "2c49d139b785b6c601cdd21774b093039ce224b4afb124ea9120ad96bc624215",
+          "width": 1024,
+          "height": 1024,
+          "hasAlpha": false
+        },
+        {
+          "oldPath": "/images/vocabulary/cake.png",
+          "sha256": "1f9416e156068ddd5e4940eb7de7637f2096e507bd8a4cf559962630bedbc32e",
+          "newPath": "/images/vocabulary/cake.webp",
+          "newSha256": "56ef4b1378e4a2383788bcce65a2738c4306738feee981a958b34fc10b4c8583",
+          "width": 1024,
+          "height": 1024,
+          "hasAlpha": false
+        },
+        {
+          "oldPath": "/images/vowels/coat.svg",
+          "sha256": "9a6d91ecec6442997b542242ca7e3c7225961ef60aa107a9647375bcec9b4a99",
+          "newPath": "/images/vowels/coat.webp",
+          "newSha256": "0a4dc36567947b35bbf657528c0fbc505c8422e3839a8c7151403df3f644d484",
+          "width": 240,
+          "height": 240,
+          "hasAlpha": true
+        }
+      ]
+    },
+    {
+      "id": "orphan-moonwood-expansion-reference",
+      "kind": "orphaned-moonwood-author-reference",
+      "assetCount": 1,
+      "assets": [
+        {
+          "oldPath": "/guided-reading/reference/characters/moonwood-expansion-cast-master.png",
+          "sha256": "59a637e83fbd54007d67957d64a535bfafc9b075bfb4a49e310d4753ff1c922b"
+        }
+      ]
+    }
+  ]
+}

@@ -92,7 +92,7 @@
     },
     {
       "path": "src/content/assessments/v3/assessmentImageStyleDecisions.generated.js",
-      "sha256": "464604805e0f9514359a2f425fb517789a5f793182a07b5642d183d452ba304f"
+      "sha256": "820b0e246823ef011032a9c96a822b20b704e8ff65a64ee9af090eec12051ef7"
     },
     {
       "path": "src/content/assessments/v3/assessmentImageStyleDecisions.js",
@@ -100,7 +100,7 @@
     },
     {
       "path": "src/content/assessments/v3/objectiveAssessmentImageStyleDecisions.generated.js",
-      "sha256": "594870dab342967eb17578ea5f93dc831f0d42fdc3595a976c982d821fc0a595"
+      "sha256": "f9db4419750533c45c6418d296e113144d375d8d008eef284e4b8b7cef939778"
     },
     {
       "path": "src/content/initialSounds/initialSoundWordBank.js",
@@ -108,7 +108,7 @@
     },
     {
       "path": "src/data/childAssets.js",
-      "sha256": "a9bc24195eb93dad4d40f0ff049fedbceae9267f2bb9d81eab27bd8683abd411"
+      "sha256": "dd029ad38e55ca75b5447986250295bc81920463837cf9ee3e3141a5e1814321"
     },
     {
       "path": "src/data/childWordMediaManifest.js",
@@ -128,7 +128,7 @@
     },
     {
       "path": "src/data/generated/mediaQaReviewItems.generated.js",
-      "sha256": "ac7c8bd778f9e807b5e59eff2fb9a2eb0bed588739ed7d0ebb2d3c6c5478f57c"
+      "sha256": "f1cb0a2c5357456b4bc1ee0efb72efca4af6014dc32f683cd7f05e89434bd597"
     },
     {
       "path": "src/data/generated/vocabularyRuntime.generated.js",

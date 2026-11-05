@@ -127,16 +127,30 @@ async function layer(layers, kind, attrs, x, feet, width, { maxHeight = 280, cli
   }
   const m = await sharp(input).metadata();
   if (left < 0 || top < 0 || left + m.width > WIDTH || top + m.height > HEIGHT) throw new Error(`Clipped illustration ${sprite.key}: ${left},${top},${m.width},${m.height}`);
-  layers.push({ input, left, top });
+  layers.push({ input, left, top, kind: kind || explicitKey, key: sprite.key, width: m.width, height: m.height, clip });
   return { x, feet, top: feet - dims.height, ...dims };
 }
 
 const SURFACE = { rail:.15, stool:.12, shelf:.13, bed:.37, seat:.60, bench:.58, rack:.52, bridge:.57, dock:.30, raft:.33, cart:.38, ledge:.22, stair:.20, ladder:.20, gate:.18, tree:.48, root:.30, post:.12, rock:.17, stone:.17, tray:.63, basket:.60, nest:.58, boat:.62, pot:.33, bay:.76 };
 const FRONT = { tray:.66, basket:.62, nest:.57, boat:.69, pot:.42, bay:.82 };
 const container = new Set(Object.keys(FRONT));
+// Lighting sources include their sun/leaf canopy in the trimmed frame. Their
+// pot mouth is therefore lower than the mouth in the plain pot source.
+const POT_MOUTH = { plain: { surface: .17, front: .30, depth: .15, x: 0 }, sunny: { surface: .50, front: .53, depth: .05, x: .10 }, shady: { surface: .50, front: .53, depth: .05, x: .10 } };
 
 async function relationScene(layers, kind, attrs, landmark, relation, x = 240, width = 285) {
   let ref = typeof landmark === 'string' ? { kind: landmark } : landmark;
+  // IN the sun/shade describes an environment, not a container surface.
+  if (relation === 'in' && ['sun', 'shade'].includes(ref.kind)) {
+    if (ref.kind === 'sun') {
+      await layer(layers, 'sun', {}, 378, 118, 90, { maxHeight: 90 });
+      return layer(layers, kind, attrs, x, 337, 232, { maxHeight: 255 });
+    }
+    await layer(layers, 'shade', ref, x, 353, 285, { maxHeight: 275 });
+    const object = await layer(layers, kind, attrs, x - 12, 325, 118, { maxHeight: 115 });
+    await layer(layers, 'shade', ref, x, 353, 285, { maxHeight: 275, clip: .55 });
+    return object;
+  }
   if(relation==='on'&&ref.kind==='shelf'&&attrs.elevation) ref={...ref,elevation:attrs.elevation};
   if(kind==='shelf'&&attrs.elevation&&relation==='beside'){
     await layer(layers,'',{},240,381,421,{explicitKey:'wall-floor',maxHeight:350});
@@ -158,11 +172,18 @@ async function relationScene(layers, kind, attrs, landmark, relation, x = 240, w
   if (ref.kind === 'shelf') feet = relation === 'above' ? 300 : relation === 'on' ? 267 : 226;
   if(ref.elevation){await layer(layers,'',{},240,381,421,{explicitKey:'wall-floor',maxHeight:350}); feet=ref.elevation==='high'?212:ref.elevation==='middle'?286:353;}
   const host = await layer(layers, ref.kind, ref, hostX, feet, hostWidth, { explicitKey: special, maxHeight: ['above','below'].includes(relation) ? 125 : 275 });
-  const surface = host.top + host.height * (special === 'basket-with-lid' ? .40 : SURFACE[ref.kind] || .24);
+  const mouth = ref.kind === 'pot' ? POT_MOUTH[ref.lighting || 'plain'] : null;
+  const surface = host.top + host.height * (mouth?.surface ?? (special === 'basket-with-lid' ? .40 : ref.kind === 'lever' ? .035 : SURFACE[ref.kind] || .24));
   let objectX = beside ? 369 : x, objectFeet = 353, objectWidth = beside ? 132 : 133;
   if (relation === 'on') objectFeet = surface + 3;
+  if (relation === 'on' && ref.kind === 'lever') { objectX = host.x + host.width * .38; objectWidth = 70; }
   if (special === 'basket-with-lid') { objectX = x - host.width * .18; objectWidth = Math.min(96, host.width * .35); }
   if (relation === 'in') { objectFeet = surface + host.height * .19; objectWidth = Math.min(140, host.width * .45); }
+  if (relation === 'in' && mouth) {
+    objectX = host.x + host.width * mouth.x;
+    objectFeet = surface + host.height * mouth.depth;
+    objectWidth = Math.min(kind === 'seed' ? 52 : 100, host.width * .36);
+  }
   if (relation === 'above') { objectFeet = host.top - 20; objectWidth = 106; }
   if (relation === 'below') { objectFeet = 366; objectWidth = 98; }
   if (relation === 'under') {
@@ -170,6 +191,7 @@ async function relationScene(layers, kind, attrs, landmark, relation, x = 240, w
     if (ref.kind === 'tree') objectX = x + 62;
     if (ref.kind === 'lantern') objectX = x + 42;
     if (ref.kind === 'pillow') objectX = x - 44;
+    if (ref.kind === 'bridge') { objectX = x + host.width * .06; objectFeet = feet - 4; objectWidth = 70; }
   }
   if (relation === 'behind') { objectX = x + 80; objectFeet = host.top + host.height * .57; objectWidth = 136; }
   if (relation === 'behind') {
@@ -178,13 +200,22 @@ async function relationScene(layers, kind, attrs, landmark, relation, x = 240, w
     return layer(layers, ref.kind, ref, hostX, feet, hostWidth, { maxHeight: 275 });
   }
   const count=attrs.count||1;
+  const objectMaxHeight = relation === 'under' ? (ref.kind === 'bridge' ? 52 : 86)
+    : relation === 'in' && mouth ? (kind === 'seed' ? 40 : 120)
+      : relation === 'on' ? Math.min(112, Math.max(42, (surface - 20) / 1.55)) : 140;
+  if (relation === 'in' && mouth && kind !== 'seed') {
+    const dims = dimensions(source(kind, attrs), attrs.count ? 48 : objectWidth, attrs, objectMaxHeight);
+    // Half-recess a tall cup and a short moss tuft by their own height. A
+    // fixed pot-depth offset hid short contents almost completely.
+    objectFeet = host.top + host.height * mouth.front + dims.height * .45;
+  }
   let object;
-  for(let index=0;index<count;index++) object=await layer(layers, kind, { ...attrs, elevation: undefined }, objectX+(index-(count-1)/2)*56, objectFeet, attrs.count?48:objectWidth, { maxHeight: relation === 'under' ? 86 : relation === 'on' ? Math.min(112, Math.max(42, (surface - 20) / 1.55)) : 140 });
-  if (relation === 'in' && FRONT[ref.kind]) await layer(layers, ref.kind, ref, hostX, feet, hostWidth, { clip: FRONT[ref.kind], maxHeight: 275 });
+  for(let index=0;index<count;index++) object=await layer(layers, kind, { ...attrs, elevation: undefined }, objectX+(index-(count-1)/2)*56, objectFeet, attrs.count?48:objectWidth, { maxHeight: objectMaxHeight });
+  if (relation === 'in' && FRONT[ref.kind]) await layer(layers, ref.kind, ref, hostX, feet, hostWidth, { clip: mouth?.front ?? FRONT[ref.kind], maxHeight: 275 });
   return object;
 }
 
-async function render(descriptor) {
+export async function renderQuestionArt(descriptor, { write = true } = {}) {
   const layers = [], a = descriptor.appearance || {}, kind = descriptor.kind;
   const attributes = Object.fromEntries(Object.entries(a).filter(([key]) => !['kind','relation','landmark','scenery','residentId'].includes(key)));
   if (a.relation && a.landmark) {
@@ -195,7 +226,7 @@ async function render(descriptor) {
       const host = await relationScene(layers, kind, attributes, ref, a.relation);
       // A destination can itself be above/below/beside another landmark.
       // Preserve that real destination instead of replacing it by the carrier.
-      if (descriptor.destination && descriptor.carriedKind) await layer(layers, descriptor.carriedKind, {}, host.x, host.top+host.height*(SURFACE[kind]||.72), 70, { maxHeight: Math.min(65,host.top-15) });
+      if (descriptor.destination && descriptor.carriedKind && descriptor.carriedKind !== kind) await layer(layers, descriptor.carriedKind, {}, host.x, host.top+host.height*(SURFACE[kind]||.72), 70, { maxHeight: Math.min(65,host.top-15) });
     }
   } else if (a.ordinal) {
     for (let index = 0; index < 2; index++) await layer(layers, kind, {}, 129 + index * 222, 336, 194, { maxHeight: 182 });
@@ -204,8 +235,11 @@ async function render(descriptor) {
     if (a.elevation) await layer(layers, '', {}, 240, 381, 421, { explicitKey:'wall-floor', maxHeight:350 });
     for (const scenery of a.scenery || []) await layer(layers, scenery.kind === 'tree' ? 'tree-under' : scenery.kind, {}, scenery.kind === 'sun' ? 378 : scenery.kind === 'pond' ? 346 : 225, scenery.kind === 'sun' ? 118 : 350, scenery.kind === 'sun' ? 90 : scenery.kind === 'pond' ? 240 : 320, { maxHeight:305 });
     const count = a.count || 1, width = a.count ? 117 : 232;
-    const feet = a.elevation ? {high:164,middle:256,low:347}[a.elevation] : 337;
-    for (let index = 0; index < count; index++) await layer(layers, kind, attributes, 240 + (index - (count-1)/2) * 135, feet, width, { maxHeight:a.elevation ? 122 : 255 });
+    // Posts share a floor; high/low is their physical height. Wall shelves
+    // retain their bracketed elevated positions instead of floating posts.
+    const groundedPost = kind === 'post' && a.elevation;
+    const feet = groundedPost ? 347 : a.elevation ? {high:164,middle:256,low:347}[a.elevation] : 337;
+    for (let index = 0; index < count; index++) await layer(layers, kind, attributes, 240 + (index - (count-1)/2) * 135, feet, groundedPost ? 140 : width, { maxHeight:groundedPost ? {high:260,middle:180,low:100}[a.elevation] : a.elevation ? 122 : 255 });
     if (descriptor.destination && descriptor.carriedKind) {
       if (container.has(kind) && !a.scenery) {
         layers.pop();
@@ -214,11 +248,19 @@ async function render(descriptor) {
     }
   }
   const owner = descriptor.residentId || a.residentId || a.landmark?.residentId;
-  if (owner) await layer(layers, `pal-${owner}`, {}, 405, 133, 82, { maxHeight: 108 });
+  if (owner) {
+    layers.push({input:Buffer.from('<svg width="104" height="128"><rect x="2" y="2" width="100" height="124" rx="16" fill="#fff9e9" stroke="#866843" stroke-width="3"/></svg>'),left:353,top:17,kind:'owner-badge'});
+    await layer(layers, `pal-${owner}`, {}, 405, 133, 82, { maxHeight: 108 });
+  }
   if (a.worldId) await layer(layers, {meadow:'flower',dino:'fern',moonwood:'lantern'}[a.worldId], {}, 405, 139, 78, {maxHeight:105});
   if (a.accessory) await layer(layers, a.accessory.kind, a.accessory, 280, 283, 80, {maxHeight:77});
   const file = path.join(root, 'public', campaignQuestionImage(descriptor));
-  await sharp({ create: { width: WIDTH, height: HEIGHT, channels: 4, background: clear } }).composite(layers).webp({quality:88,alphaQuality:100}).toFile(file);
+  if (write) await sharp({ create: { width: WIDTH, height: HEIGHT, channels: 4, background: clear } }).composite(layers.map(({input,left,top})=>({input,left,top}))).webp({quality:88,alphaQuality:100}).toFile(file);
+  return layers.map(layer => {
+    const placement = { ...layer };
+    delete placement.input;
+    return placement;
+  });
 }
 
 export function collectQuestionArtDescriptors() {
@@ -235,6 +277,7 @@ export function collectQuestionArtDescriptors() {
   return [...descriptors.values()];
 }
 
+async function build() {
 await fs.mkdir(outputRoot,{recursive:true});
 const sceneRoot=path.join(sourceRoot,'props');
 await fs.mkdir(sceneRoot,{recursive:true});
@@ -261,10 +304,13 @@ let cursor=0;
 await Promise.all(Array.from({length:4},async()=>{
   while(cursor<descriptors.length){
     const descriptor=descriptors[cursor++];
-    try {await render(descriptor);} catch(error) {failures.push(`${descriptor.label || descriptor.kind}: ${error.message}`);}
+    try {await renderQuestionArt(descriptor);} catch(error) {failures.push(`${descriptor.label || descriptor.kind}: ${error.message}`);}
   }
 }));
 if(failures.length) throw new Error(`${failures.length} unresolved scene images:\n${[...new Set(failures)].join('\n')}`);
 // Remove only generated files no longer selected by the current question corpus.
 for(const file of await fs.readdir(outputRoot))if(file.endsWith('.webp')&&!collisions.has(`/images/sound-seekers/questions/${file}`))await fs.unlink(path.join(outputRoot,file));
 console.log(`Rendered ${descriptors.length} exact question images from ${sprites.size} painted sources.`);
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await build();

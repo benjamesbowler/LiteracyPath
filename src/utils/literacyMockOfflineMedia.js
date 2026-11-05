@@ -1,5 +1,6 @@
 import { readMockAssetBlob } from './mockAssetDownload.js';
 import { withRepairedImageVersion } from './repairedImageVersion.js';
+import { resolveLiteracyMockImagePath } from '../data/literacyMockImageDelivery.js';
 
 const CACHE_NAME = 'lp-mock-public-media-v1';
 export const MOCK_OFFLINE_MEDIA_MAX_ASSETS = 768;
@@ -28,7 +29,7 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
     // Caller/allow-list identities stay canonical. A repaired image may only
     // reuse the cache entry for its current reviewed revision, never old art
     // retained under the canonical key by an earlier publication.
-    const transportPath = withRepairedImageVersion(path);
+    const transportPath = withRepairedImageVersion(resolveLiteracyMockImagePath(path));
     try {
       return await Promise.race([(async () => {
         let response = await cache.match(transportPath);
@@ -127,9 +128,9 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
         try {
           const objectUrl=createObjectURL(blobs.get(key));
           urls.set(key,{objectUrl,source:`${objectUrl}#${encodeURIComponent(key)}`});
-        } catch { return path; } // Playback/image receipts still gate the exact source.
+        } catch { return resolveLiteracyMockImagePath(path); } // Playback/image receipts still gate the exact source.
       }
-      return urls.get(key)?.source || path;
+      return urls.get(key)?.source || resolveLiteracyMockImagePath(path);
     }, dispose,
   };
 }

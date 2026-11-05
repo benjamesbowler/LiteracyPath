@@ -184,14 +184,14 @@ image as well as the complete book sequence.
 | Canon ID | Fixed identity and appearance | Personality and story engine | Never do |
 |---|---|---|---|
 | `MOON-PIP` | Small brown-haired woodland boy; pointed ears where present in approved model; green clothing; much smaller than Stone | Quick, curious and observant; listens closely and notices small evidence | Add wings or cheek marks from retired art, make him physically huge, or let him know unexplained facts |
-| `MOON-STONE` | Very large grey stone giant; broad hands; approximately 2–3 times Pip’s height | Slow, literal, gentle and powerful; size creates both help and difficulty | Use him as a mindless guard, change scale per page, or make loudness his only trait |
+| `MOON-STONE` | Very large smooth pale-gray stone giant with broad hands and the original orange sleeveless tunic/rope belt; approximately 2–3 times Pip’s height | Slow, literal, gentle and powerful; size creates both help and difficulty | Replace him with a craggy mossy guardian or leaf skirt, change scale per page, or make loudness his only trait |
 | `MOON-FERN` | Tall green fern/plant sprite; leaf body and fixed botanical silhouette | Calm, musical, grounded and attentive to living things | Change plant species, make every solution a vague song, or add unexplained wizard powers |
-| `MOON-WREN` | Small dark-haired child witch; blue/purple pointed hat and robe; books/cauldron only when required | Inventive, eager, bookish and prone to rushing an experiment | Turn mistakes into incompetence, change costume every page, or solve a problem with an unseeded spell |
-| `MOON-LUNA` | Owl with fixed cream facial disc, brown/grey feathers and wing anatomy | Observant, ethical and patient; notices what belongs to whom | Give human hands, change feather palette, or make her an all-knowing moral narrator |
-| `MOON-BURROW` | Brown mole with round glasses; digging paws; map is a story-state prop | Practical, curious and map-minded; may act before checking | Change into a bear, lose glasses without a beat, or make maps magically answer every question |
+| `MOON-WREN` | Small child witch with curly brown hair and green eyes; original plain navy pointed hat with brown band and dark navy robe with sewn taupe patches; books/cauldron only when required | Inventive, eager, bookish and prone to rushing an experiment | Change her eyes to blue, replace the patched robe with gold-star formalwear, change costume every page, or solve a problem with an unseeded spell |
+| `MOON-LUNA` | Original slate/navy-gray owl with cream facial disc and chest, golden eyes and natural wing anatomy | Observant, ethical and patient; notices what belongs to whom | Replace her with a brown owl, add glasses without a story beat, give human hands, or make her an all-knowing moral narrator |
+| `MOON-BURROW` | Small rounded brown mole with peach muzzle, round gold glasses, orange waistcoat over cream sleeves and short digging paws; map is a story-state prop | Practical, curious and map-minded; may act before checking | Replace his outfit with a long brown coat or a tools vest, change into a bear, lose glasses without a beat, or make maps magically answer every question |
 | `MOON-DEWDROP` | Water spirit; use the approved final body design only | Quiet, perceptive and water-attuned; listens before acting | Mix the retired round-blob and nymph designs in one story, describe anatomy the art has not locked, or use her as generic glow decoration |
 | `MOON-FLINT` | Red/brown-haired woodland boy in practical brown explorer clothes; lantern is stateful | Action-first, brave and sometimes too forceful; can recognise and repair his own mistake | Make the lantern permanently lit, change age/body proportions, or state a moral in his dialogue |
-| `MOON-GLIMMER` | Young dragon; purple-blue scales, gold highlights, small wings, teal eyes; cinnamon-warm breath | Earnest and excitable; fire or warmth always obeys a stated safety rule | Change scale palette, use fire without consequences, or make warmth solve unrelated problems |
+| `MOON-GLIMMER` | Original lavender-purple young dragon with teal belly and eyes, purple wing membranes and short cream spikes; cinnamon-warm breath | Earnest and excitable; fire or warmth always obeys a stated safety rule | Replace the teal belly with cream or the purple wings with pink, use fire without consequences, or make warmth solve unrelated problems |
 | `MOON-SPARK` | Junior wizard; bright red hair, freckles, red-and-gold robe, oversized wand, floating gold sparkles | Confident experimenter who can test, fail, revise and explain a rule through action | Make every spell work first time or use sparkles as meaningless decoration |
 
 Moonwood may include a one-story creature or guardian only when the manuscript defines its
@@ -331,6 +331,14 @@ The art must not contradict the words. The words must not describe an action, ch
 object absent from the image.
 
 ### 5.3 Sequence continuity sheet
+
+Track recurring props and changing materials page by page. Lock a prop's physical
+dimensions relative to the characters, shape, color and position; a new camera
+angle must not turn a bath into a small bowl. Record the water, dirt, damage,
+contents and carried-object state before and after each action. Clear water
+cannot become muddy before contact, and dirty water cannot become clear again
+without a visible empty/refill or rinse. Review neighboring pages together after
+each replacement, including the step that causes a state change.
 
 Before generating page 1, create one locked sheet containing:
 

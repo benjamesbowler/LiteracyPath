@@ -92,7 +92,7 @@ const TASKS = [
   { path: "/images/child-mode/initial-sounds/star.png", word: "star", subject: "a star" },
   { path: "/images/child-mode/initial-sounds/thin.png", word: "thin", subject: "a thin" },
   { path: "/images/child-mode/initial-sounds/umbrella.png", word: "umbrella", subject: "a umbrella" },
-  { path: "/images/child-mode/minimal-pairs/cut.png", word: "cut", subject: "a cut" },
+  { path: "/images/child-mode/minimal-pairs/cut.webp", word: "cut", subject: "a cut" },
   { path: "/images/child-mode/plurals/brushes.png", word: "brushes", subject: "a brushes" },
   { path: "/images/child-mode/plurals/dishes.png", word: "dishes", subject: "a dishes" },
   { path: "/images/child-mode/r-controlled/bird.png", word: "bird", subject: "a bird" },

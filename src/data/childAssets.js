@@ -34,13 +34,30 @@ function childModeWordAsset({ word, folder, audio = true, alt = "" }) {
 
 const blockedAssessmentImageAssetNotes = {
   churches: "The church picture conflicts with the owner's neutral-content policy and is blocked from child-facing image use. Audio is preserved.",
-  bid: "The current bid image shows a flower/bud and is blocked from active image-backed assessment use until a correct replacement is QA-approved. Clean audio is preserved.",
+  bid: "Bidding needs an explanatory auction context, so picture-only choices remain excluded. The legacy flower has been replaced by a coherent auction scene; clean word audio is preserved.",
   bud: "The current bud image is visually ambiguous and is blocked from active assessment use until a clear unopened flower bud replacement is QA-approved. Clean audio is preserved.",
   nut: "The current nut image looks like an acorn and is blocked from active assessment use. Audio is preserved."
 };
 
+// These existing illustrations do not communicate the named meaning. Retain
+// the words and recordings for text/audio work, but never offer them as
+// independently nameable picture choices (including Learn's image override).
+const ambiguousWordImageNotes = {
+  pun: "The laughing-mask illustration does not depict a pun. Use this word only with text or audio, not as a picture choice.",
+  son: "An isolated boy does not establish the family relationship son. Use this word only with text or audio, not as a picture choice.",
+  uncle: "An isolated man does not establish the family relationship uncle. Use this word only with text or audio, not as a picture choice."
+};
 
 function blockAssessmentImageIfNeeded(key, asset, { allowBlockedAssessmentImage = false } = {}) {
+  if (asset && Object.hasOwn(ambiguousWordImageNotes, key)) {
+    return {
+      ...asset,
+      image: "",
+      fallbackImage: "",
+      qaStatus: "excluded_ambiguous_word",
+      qaNotes: ambiguousWordImageNotes[key]
+    };
+  }
   if (!asset || !Object.hasOwn(blockedAssessmentImageAssetNotes, key)) return asset;
   if (allowBlockedAssessmentImage) return asset;
   return {
@@ -191,7 +208,7 @@ export const childWordAssets = {
     word: "coat",
     image: "/images/child-mode/vowels/coat.webp",
     audio: "/audio/child-mode/words/coat.mp3",
-    fallbackImage: "/images/vowels/coat.svg",
+    fallbackImage: "/images/vowels/coat.webp",
     alt: "A coat"
   }),
   cot: childModeWordAsset({

@@ -57,3 +57,27 @@ or regenerate the existing pixels.
 Before accepting replacement art, inspect both the subject and the background
 at full size and at its app display size. Reject the prohibited finish even if
 the file decodes and the prompt used the correct words.
+
+## Physical logic and teaching meaning
+
+Review the whole depicted situation, not only the focal object's style. People
+must be doing an ordinary, coherent action in a suitable setting: a child eating
+breakfast belongs at a meal table, not at a lesson desk surrounded by classmates
+doing written work. Do not invent unrelated background activity to fill space.
+
+Account for every carried object and contact. One child using one spoon must not
+also have a second unexplained spoon in the bowl. Reject duplicate utensils,
+floating/fused props, impossible grips, extra limbs, broken object geometry,
+unexplained count changes and pseudo-writing. Check fingers and hands at native
+size when a hand performs the teaching action.
+
+For a word or assessment cue, show the actual represented object or action: a
+crown alone is not a king, a stethoscope alone is not a vet, and a cat cannot stand
+for cut. Preserve exact counts, spatial relationships, target meaning and any
+necessary scientific or safety evidence. A visually attractive but incorrect
+cue must be replaced. A valid fantasy or game mechanic needs its established
+story/game context; that does not excuse accidental impossible details.
+
+Record the exact reviewed bytes and intended meaning. Automated file/hash checks
+support this review; they do not prove semantic correctness or a subjective
+percentage of image quality.

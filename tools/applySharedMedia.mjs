@@ -2,13 +2,13 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import release from '../config/shared-media-release.json' with { type: 'json' };
-import { planSharedMedia, stripPublishedMedia } from './lib/sharedMediaPublisher.mjs';
+import { planSharedMediaPruning, stripPublishedMedia } from './lib/sharedMediaPublisher.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 if (!release.enabled || process.env.SHARED_MEDIA_PREPARE === '1') {
   console.log('[shared-media] Full local deployment media retained. No metered storage is enabled.');
 } else {
-  const plan = await planSharedMedia({ distRoot: path.join(root, 'dist'), publicRoot: path.join(root, 'public') });
+  const plan = await planSharedMediaPruning({ distRoot: path.join(root, 'dist'), publicRoot: path.join(root, 'public') });
   const result = await stripPublishedMedia(plan, release);
   await fs.mkdir(path.join(root, '.artifacts/shared-media'), { recursive: true });
   await fs.writeFile(path.join(root, '.artifacts/shared-media/build.json'), JSON.stringify(result, null, 2));
