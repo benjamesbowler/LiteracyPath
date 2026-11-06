@@ -118,9 +118,11 @@ a single correct or incorrect answer holds the current step. Answer assistance
 and familiar questions never establish promotion evidence. Every change is at
 most one adjacent step, and only unseen questions can change.
 
-Current pupil sessions offer **up to 15, 25 or 40 answers**. Apply forward
-migration `20261106055449_literacy_mock_question_limits.sql` before publishing
-the shorter-launch client. It keeps immutable V12 items and prior sessions intact.
+Current pupil sessions offer **up to 15, 25 or 40 answers**. Forward migration
+`20261106055449_literacy_mock_question_limits.sql` enables these limits and keeps
+immutable V12 items and prior sessions intact. Production applied this source
+on 6 November 2026 as hosted migration `20261106072503_literacy_mock_question_limits`;
+preserve that source-to-hosted mapping rather than replaying the migration.
 The full historical 124-answer route remains resumable; its complete all-correct
 path uses **108** and its all-incorrect path uses **16**. A repeated higher-step failure
 must be followed by a fresh easier question before an adjacent boundary is
