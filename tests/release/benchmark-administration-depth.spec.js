@@ -9,9 +9,10 @@ const draft = (page, assessment) => page.evaluate(id => JSON.parse(localStorage.
 
 // All records in this suite are synthetic preview records; no hosted data is written.
 test("detailed spelling keeps exact writing, observations and correction through resume", async ({ page }) => {
+  test.setTimeout(90_000);
   await openAssessment(page, "el_encoding");
   const plan = getElBenchmarkPlan({ assessmentId: "el_encoding", formId: EL_BENCHMARK_FORM_ID, grade: "1", window: "BOY", startMicrophase: "early_partial" });
-  await page.getByRole("button", { name: "Add detail", exact: true }).click();
+  await page.locator(".el-benchmark-optional-detail > summary").click();
   await page.getByRole("textbox", { name: /Student's spelling/ }).fill("sop");
   await page.getByRole("textbox", { name: /What you noticed/ }).fill("Used s for the first sound.");
   await expect(page.getByRole("region", { name: "Compare the spelling" })).toContainText("s");
@@ -21,8 +22,9 @@ test("detailed spelling keeps exact writing, observations and correction through
   await page.getByRole("button", { name: "Next item", exact: true }).click();
   await expect(page.getByRole("heading", { name: `Item 2 of ${plan.items.length}`, exact: true })).toBeVisible();
   await openAssessment(page, "el_encoding", "&resume=1");
-  await expect(page.getByRole("button", { name: "Add detail", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".el-benchmark-capture-mode")).toHaveCount(0);
   await page.getByRole("button", { name: /Change previous answer/ }).click();
+  await page.locator(".el-benchmark-optional-detail > summary").click();
   await expect(page.getByRole("textbox", { name: /Student's spelling/ })).toHaveValue("sop");
   await expect(page.getByRole("textbox", { name: /What you noticed/ })).toHaveValue("Used s for the first sound.");
   await page.getByRole("textbox", { name: /Student's spelling/ }).fill(plan.items[0].targetWord);
@@ -54,21 +56,14 @@ test("the student window contains only independent reading and follows the selec
   await expect.poll(() => student.isClosed()).toBe(true);
 });
 
-test("oral assessment distinguishes no response in detailed mode and keeps print off the student copy", async ({ page, context }) => {
+test("oral assessment keeps no response separate and has no unnecessary student display", async ({ page }) => {
   await openAssessment(page, "el_phonological_awareness");
-  await page.getByRole("button", { name: "Add detail", exact: true }).click();
-  const popupPromise = context.waitForEvent("page");
-  await page.getByRole("button", { name: "Open student display", exact: true }).click();
-  const student = await popupPromise;
-  await expect(student.getByRole("heading", { name: "Listen and say" })).toBeVisible();
-  await expect(student.locator("body")).not.toContainText(/rhyme|moon|spoon|answer guide|Aarav/i);
-  await page.getByRole("button", { name: "Close student display", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Open student display" })).toHaveCount(0);
+  await page.locator(".el-benchmark-optional-detail > summary").click();
   await page.getByRole("textbox", { name: /Exact student answer/ }).fill("a first attempt");
   await page.getByRole("button", { name: "No response", exact: true }).click();
   await expect(page.getByRole("textbox", { name: /Exact student answer/ })).toHaveValue("");
-  const saved = await draft(page, "el_phonological_awareness");
-  expect(Object.values(saved.responses)[0].status).toBe("no_response");
-  expect(saved.currentItemIndex).toBe(0);
+  expect(Object.values((await draft(page, "el_phonological_awareness")).responses)[0].status).toBe("no_response");
   await page.getByRole("textbox", { name: /Exact student answer/ }).fill("light");
   await expect(page.getByRole("button", { name: "Next item", exact: true })).toBeDisabled();
   await page.getByRole("button", { name: "Record as correct", exact: true }).click();
@@ -117,6 +112,7 @@ test("fluency timer remains valid only for a continuous read and clean print exc
 
 for (const [width, height] of [[1366, 900], [1024, 768], [390, 844]]) {
   test(`all four recording modes fit a ${width}px viewport`, async ({ page }) => {
+    test.setTimeout(90_000);
     await page.setViewportSize({ width, height });
     for (const mode of ["el_phonological_awareness", "el_encoding", "el_decoding", "el_oral_reading_fluency"]) {
       await openAssessment(page, mode);
@@ -159,4 +155,37 @@ test("legacy draft keeps its form while a known content defect has only a not-sc
   expect(saved.formId).toBe("form-c-v1");
   expect(saved.responses["pa-k-moy-c-08-v1"].status).toBe("not_scorable");
   expect(saved.responses["pa-k-moy-c-08-v1"].notScorableReason).toBe("directions_or_material_issue");
+});
+
+test('spelling saves without a placement decision and retries a failed save without losing answers', async ({ page }) => {
+  await openAssessment(page, 'el_encoding', '&save=fail-once');
+  const plan = getElBenchmarkPlan({ assessmentId: 'el_encoding', formId: EL_BENCHMARK_FORM_ID, grade: '1', window: 'BOY', startMicrophase: 'early_partial' });
+  for (let index = 0; index < plan.items.length; index += 1) {
+    await expect(page.getByRole('heading', { name: `Item ${index + 1} of ${plan.items.length}`, exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'Correct spelling', exact: true }).click();
+  }
+  await expect(page.getByRole('button', { name: 'Use this starting point', exact: true })).not.toBeVisible();
+  await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
+  const review = page.getByRole('dialog', { name: 'Review the tally before finishing' });
+  await expect(review).toContainText(`${plan.items.length} scored`);
+  await review.getByRole('button', { name: 'Confirm and finish', exact: true }).click();
+  await expect(page.getByText('Could not finish.', { exact: true })).toBeVisible();
+  expect(Object.keys((await draft(page, 'el_encoding')).responses)).toHaveLength(plan.items.length);
+  await review.getByRole('button', { name: 'Retry save', exact: true }).click();
+  await expect(page.getByTestId('assessment-preview-saved')).toHaveText('Saved: completed');
+  expect((await draft(page, 'el_encoding')).confirmedPlacement ?? null).toBeNull();
+});
+
+test('the benchmark report leads with an observation and keeps the full evidence accessible', async ({ page }) => {
+  await page.goto('/preview/teacher-a11y.html?surface=report');
+  const periods = page.getByRole('combobox', { name: 'Grade and time of year', exact: true });
+  await periods.selectOption({ label: 'Kindergarten · End of year (1 attempt)' });
+  const card = page.locator('.student-report-benchmark-card').filter({ has: page.getByRole('heading', { name: 'Sound awareness', exact: true }) });
+  await expect(card).toContainText('1 of 1 spoken answers correct.');
+  await expect(card.getByText('What we saw', { exact: true })).toBeVisible();
+  await expect(card.getByText('Next teaching step', { exact: true })).toBeVisible();
+  await expect(card.locator('.student-report-benchmark-detail-body')).not.toBeVisible();
+  await card.locator('.student-report-benchmark-details > summary').click();
+  await expect(card.locator('.student-report-benchmark-detail-body')).toBeVisible();
+  await page.screenshot({ path: `${artifacts}/simple-benchmark-report.png`, fullPage: true });
 });

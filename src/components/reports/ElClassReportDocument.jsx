@@ -1,3 +1,4 @@
+import { BENCHMARK_REPORT_LABELS } from "../../data/benchmarkObservationSummary.js";
 import { displayBenchmarkScopeLabel } from "../../data/elBenchmarkReportScope.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 
@@ -70,26 +71,15 @@ function elDomainMetricRows(summary = {}) {
 
 function elStudentDomainSummary(profile = {}) {
   if (!profile.hasSavedEvidence) return "Not checked";
-  const parts = [profile.administrationStatusLabel || "Result recorded"];
   const metrics = profile.metrics || {};
-  if (profile.domainKey === "phonologicalAwareness") {
-    parts.push(`accuracy ${percentage(metrics.accuracyRate)}`);
-  } else if (profile.domainKey === "encoding") {
-    parts.push(`exact spelling ${percentage(metrics.exactSpellingRate)}`);
-  } else if (profile.domainKey === "decoding") {
-    parts.push(`accuracy ${percentage(metrics.accuracyRate)}`);
-    parts.push(`automaticity ${percentage(metrics.automaticityRate)}`);
-  } else {
-    parts.push(`${decimal(metrics.wcpm)} correct words/min`);
-    parts.push(`accuracy ${percentage(metrics.accuracyRate)}`);
-  }
+  const fallback = profile.domainKey === "encoding"
+    ? `Correct spelling ${percentage(metrics.exactSpellingRate)}`
+    : profile.domainKey === "oralReadingFluency"
+      ? `${decimal(metrics.wcpm)} correct words/min · Accuracy ${percentage(metrics.accuracyRate)}`
+      : `Accuracy ${percentage(metrics.accuracyRate)}`;
+  const parts = [profile.administrationStatusLabel || "Result recorded", profile.observationSummary || fallback];
   const confirmedStage = readingStageLabel(profile.confirmedPlacement);
-  const suggestedStage = readingStageLabel(profile.candidatePlacement);
-  if (confirmedStage) {
-    parts.push(TEACHER_COPY.formalEl.confirmedReadingStage(confirmedStage));
-  } else if (suggestedStage) {
-    parts.push(TEACHER_COPY.formalEl.suggestedReadingStage(suggestedStage));
-  }
+  if (confirmedStage) parts.push(TEACHER_COPY.formalEl.confirmedReadingStage(confirmedStage));
   return parts.join(" · ");
 }
 
@@ -177,7 +167,7 @@ export function ElClassReportDocument({ report }) {
             <tbody>
               {domainSummaries.map(summary => (
                 <tr key={summary.domainKey}>
-                  <th scope="row">{summary.domainLabel}</th>
+                  <th scope="row">{BENCHMARK_REPORT_LABELS[summary.domainKey] || summary.domainLabel}</th>
                   <td>{summary.studentsWithSavedEvidence} of {summary.totalStudents}</td>
                   <td>{summary.studentsWithScoredEvidence} of {summary.totalStudents}</td>
                   <td>
@@ -207,7 +197,7 @@ export function ElClassReportDocument({ report }) {
               <tr>
                 <th scope="col">Student</th>
                 {domainSummaries.map(summary => (
-                  <th key={summary.domainKey} scope="col">{summary.domainLabel}</th>
+                  <th key={summary.domainKey} scope="col">{BENCHMARK_REPORT_LABELS[summary.domainKey] || summary.domainLabel}</th>
                 ))}
               </tr>
             </thead>

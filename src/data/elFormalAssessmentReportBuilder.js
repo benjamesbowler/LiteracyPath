@@ -1,3 +1,4 @@
+import { benchmarkObservationSummary } from "./benchmarkObservationSummary.js";
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
 import {
   benchmarkDomainForRecord,
@@ -1219,7 +1220,10 @@ function buildClassBenchmarkEvidence(individualReports = [], classStudents = [],
   const classBenchmarkMatrix = individualReports.map(({ student, report }) => {
     const cells = Object.fromEntries((report.individualBenchmarkProfile || []).map(profile => [
       profile.domainKey,
-      cloneValue(profile, {})
+      {
+        ...cloneValue(profile, {}),
+        observationSummary: benchmarkObservationSummary(profile, (report.individualBenchmarkDetails || []).find(detail => detail.attemptId === profile.latestAttemptId))
+      }
     ]));
     return {
       studentId: getStudentId(student),

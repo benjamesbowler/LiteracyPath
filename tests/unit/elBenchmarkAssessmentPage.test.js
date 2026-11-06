@@ -260,6 +260,7 @@ test("D-005 gives every benchmark item a large task heading and exact teacher di
 
   representativeSessions.forEach(session => {
     const html = renderAssessment(session);
+    if (session.assessmentId === EL_BENCHMARK_IDS.ENCODING) return;
     const instruction = html.match(/<section class="el-benchmark-item-instruction" aria-label="Teacher instruction">([\s\S]*?)<\/section>/)?.[1] || "";
     assert.match(instruction, /<strong>[^<]{3,}<\/strong>/);
     assert.match(instruction, /<p>[^<]{20,}<\/p>/);
@@ -284,10 +285,9 @@ test("D-005 gives every benchmark item a large task heading and exact teacher di
     grade: "K",
     window: "BOY"
   });
-  assert.match(encodingHtml, /<strong>Dictated spelling<\/strong>/);
-  assert.ok(encodingHtml.includes(
-    `Dictate aloud — word, sentence, word. The student writes only “${encodingPlan.items[0].targetWord}” on paper.`
-  ));
+  assert.ok(encodingHtml.includes(encodingPlan.items[0].teacherSay));
+  assert.match(encodingHtml, /Keep this screen facing you/);
+  assert.doesNotMatch(encodingHtml, /Dictate aloud — word, sentence, word/);
   assert.match(assessmentPageStyles, /\.el-benchmark-item-instruction strong\s*\{[\s\S]*?font-size: clamp\(18px,/);
   assert.match(assessmentPageStyles, /\.el-benchmark-item-instruction p\s*\{[\s\S]*?font-size: clamp\(17px,/);
 });
@@ -384,7 +384,7 @@ test("terminal assessment snapshots can be retried but never downgraded to a dra
   assert.equal(discontinued.discontinuedAt, "2026-07-22T12:00:00.000Z");
 });
 
-test("rhyme recognition is a teacher-only two-word cue with large Yes, No, and Other controls", () => {
+test("rhyme recognition is a teacher-only two-word cue with large Yes and No controls", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
     formId: "form-a-v2",
@@ -402,17 +402,17 @@ test("rhyme recognition is a teacher-only two-word cue with large Yes, No, and O
   assert.match(html, /class="el-benchmark-rhyme-pair" aria-label="Teacher words: moon and spoon"/);
   assert.match(html, /<span>moon<\/span><small>and<\/small><span>spoon<\/span>/);
   assert.match(html, /Teacher screen — say both words aloud\. Do not show the print to the student\./);
-  assert.match(html, /class="el-benchmark-quick-grid choices-3"/);
+  assert.match(html, /class="el-benchmark-quick-grid choices-2"/);
   assert.match(html, /class="el-benchmark-quick-button tone-positive"[^>]*>[\s\S]*?<span>Yes<\/span>/);
   assert.match(html, /class="el-benchmark-quick-button tone-negative"[^>]*>[\s\S]*?<span>No<\/span>/);
-  assert.match(html, /class="el-benchmark-quick-button tone-neutral"[^>]*>[\s\S]*?<span>Other<\/span>/);
+  assert.doesNotMatch(html, /<span>Other<\/span>/);
   assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no answer, or add what they said<\/summary>/);
   assert.match(html, /<button class="el-benchmark-button secondary" type="button">No response<\/button>/);
   assert.doesNotMatch(html, /aria-label="Teacher prompt"/);
   assert.equal(countText(html, item.teacherSay), 1, "the exact oral question must appear once in the teacher instruction");
 });
 
-test("open PA tasks keep normal scoring to three choices and place No response under Other", () => {
+test("open PA tasks keep normal scoring to two choices and place No response under Other", () => {
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
     currentItemIndex: 0,
     grade: "K",
@@ -423,7 +423,7 @@ test("open PA tasks keep normal scoring to three choices and place No response u
   assert.match(html, /Was the spoken answer correct\?/);
   assert.match(html, /<span>Correct<\/span>/);
   assert.match(html, /<span>Not yet<\/span>/);
-  assert.match(html, /<span>Other<\/span>/);
+  assert.doesNotMatch(html, /<span>Other<\/span>/);
   assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no answer, or add what they said<\/summary>/);
   assert.match(html, />No response<\/button>/);
   assert.doesNotMatch(html, /Incorrect or no response/);
@@ -533,7 +533,7 @@ test("blank detail is complete only when it carries a coherent quick teacher jud
 });
 
 test("quick outcomes auto-advance only after the resulting item is complete", () => {
-  assert.match(assessmentPageSource, /onQuickScore=\{patch => updateCurrentResponse\(patch, \{ advance: session\.captureDetail !== true \}\)\}/);
+  assert.match(assessmentPageSource, /onQuickScore=\{patch => updateCurrentResponse\(patch, \{ advance: !detailed \}\)\}/);
   assert.match(assessmentPageSource, /const nextIndex = options\.advance &&\s+isResponseComplete\(kind, nextResponse, currentItem\)/);
   assert.match(assessmentPageSource, /kind !== ASSESSMENT_KINDS\.FLUENCY/);
   assert.match(assessmentPageSource, /currentBand\?\.indexes\.includes\(currentIndex \+ 1\)/);
@@ -886,8 +886,8 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
   assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Use this starting point"), /disabled/);
   assert.match(suggestedHtml, /Choose a different starting point/);
   assert.doesNotMatch(suggestedHtml, /Why are you choosing a different starting point\?/);
-  assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Choose starting point"), /disabled/);
-  assert.match(suggestedHtml, /One final step: choose the student’s next starting point/);
+  assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Finish assessment"), /disabled/);
+  assert.match(suggestedHtml, /Choose a next starting point \(optional\)/);
 
   const acceptedHtml = renderAssessment({
     ...defaultSession,
@@ -916,7 +916,7 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
   const unreasonedHtml = renderAssessment(deviationSession);
   assert.match(unreasonedHtml, /Why are you choosing a different starting point\?/);
   assert.match(buttonOpeningTag(unreasonedHtml, "Save starting point"), /disabled/);
-  assert.doesNotMatch(buttonOpeningTag(unreasonedHtml, "Choose starting point"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(unreasonedHtml, "Finish assessment"), /disabled/);
 
   const reasonedHtml = renderAssessment({
     ...deviationSession,
@@ -1011,7 +1011,7 @@ test("Decoding permits the exact adjacent ceiling suggestion but rejects unrelat
     placementSource: "teacher_confirmation"
   });
   assert.match(invalidHtml, /saved starting point is outside this assessment/i);
-  assert.doesNotMatch(buttonOpeningTag(invalidHtml, "Choose starting point"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(invalidHtml, "Finish assessment"), /disabled/);
 });
 
 test("ORF error and self-correction counters start at zero and remain live during timing", () => {
@@ -1700,7 +1700,7 @@ test("a confirmed Decoding finish marks later items unadministered, never wrong"
   }));
   assert.match(unconfirmedHtml, /Suggested starting point/);
   assert.doesNotMatch(buttonOpeningTag(unconfirmedHtml, "Use this starting point"), /disabled/);
-  assert.doesNotMatch(buttonOpeningTag(unconfirmedHtml, "Choose starting point"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(unconfirmedHtml, "Finish assessment"), /disabled/);
 
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
     confirmedPlacement: teacherConfirmedPlacement(firstBandId),
@@ -1723,23 +1723,22 @@ test("the discontinue form still requires a note only when Other is selected", (
   assert.equal(isDiscontinueEvidenceComplete("other", "Documented context"), true);
 });
 
-test("detailed capture is opt-in, stays on the item, and exposes saved observations", () => {
-  const session = makeSession(EL_BENCHMARK_IDS.ENCODING);
-  const quick = renderAssessment(session);
-  assert.match(quick, /aria-pressed="true"[^>]*>Quick marks/);
-  assert.doesNotMatch(quick, />Next item<\/button>/);
-  const detailed = renderAssessment({ ...session, captureDetail: true });
-  assert.match(detailed, /aria-pressed="true"[^>]*>Add detail/);
-  assert.match(detailed, /el-benchmark-optional-detail" open/);
-  assert.match(buttonOpeningTag(detailed, "Next item"), /disabled/);
-  assert.match(detailed, /What you noticed/);
+test("there is one recording flow, with per-item notes and no mode switch", () => {
+  const session = makeSession(EL_BENCHMARK_IDS.ENCODING, { formId: "form-a-v3" });
+  for (const captureDetail of [false, true]) {
+    const html = renderAssessment({ ...session, captureDetail });
+    assert.doesNotMatch(html, /el-benchmark-capture-mode|>Quick marks<|>Add detail</);
+    assert.match(html, /Other or add spelling detail/);
+    assert.match(html, /Student&#x27;s spelling/);
+    assert.match(html, /What you noticed/);
+  }
 });
 
 test("new benchmark forms expose unscored practice and private scoring guidance", () => {
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, { formId: "form-a-v3" }));
   assert.match(html, /What to listen for/);
   assert.match(html, /Two letters work together/);
-  assert.match(html, /Open student display/);
+  assert.doesNotMatch(html, /Open student display/);
   assert.match(html, /Find an item or response/);
 });
 

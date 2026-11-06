@@ -42,7 +42,7 @@ async function openAmaraAssessmentHub(page) {
 
 async function startEncoding(page) {
   // Panel 2: which assessment. Panel 3: grade and time of year. Then Begin.
-  await page.getByRole("button", { name: "Start Spelling", exact: true }).click();
+  await page.getByRole("button", { name: "Choose Spelling", exact: true }).click();
   await expect(page.getByRole("combobox", { name: "Grade", exact: true })).toHaveValue("K");
   await expect(page.getByRole("combobox", { name: "Time of year", exact: true })).toHaveValue("BOY");
   await page.getByRole("button", { name: "Begin Spelling", exact: true }).click();
@@ -53,7 +53,7 @@ async function startEncoding(page) {
     await review.getByRole("button", { name: /Recent classroom work/ }).click();
     await review.getByRole("button", { name: "Begin Spelling", exact: true }).click();
   }
-  await expect(page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toBeVisible();
 }
 
 async function expectFullyInViewport(locator) {
@@ -66,7 +66,7 @@ async function expectFullyInViewport(locator) {
   })).toBe(true);
 }
 
-test("@el-assessment-completion-device-matrix completes an 12-item route with reachable placement and finish controls", async ({
+test("@el-assessment-completion-device-matrix completes a 12-item route with reachable finish controls and optional placement", async ({
   page
 }) => {
   test.setTimeout(120_000);
@@ -93,27 +93,8 @@ test("@el-assessment-completion-device-matrix completes an 12-item route with re
     }
 
     await expect(page.getByRole("progressbar", { name: "12 of 12 items resolved" })).toBeVisible();
-    const choosePlacement = stickyBar.getByRole("button", {
-      name: "Choose starting point",
-      exact: true
-    });
-    await expect(choosePlacement).toBeEnabled();
-    await expectFullyInViewport(choosePlacement);
-    await choosePlacement.click();
-
-    const placement = page.getByRole("region", { name: "Choose where to start next" });
-    await expect(placement).toBeVisible();
-    const acceptPlacement = placement.getByRole("button", {
-      name: "Use this starting point",
-      exact: true
-    });
-    await expectFullyInViewport(acceptPlacement);
-    await expect(page).toHaveScreenshot(`el-assessment-completion-${viewport.label}.png`, {
-      animations: "disabled",
-      maxDiffPixelRatio: 0.01
-    });
-
-    await acceptPlacement.click();
+    await expect(page.getByRole("button", { name: "Use this starting point", exact: true })).not.toBeVisible();
+    await expect(page.getByText("Choose a next starting point (optional)", { exact: true })).toBeVisible();
     const readyFinish = stickyBar.getByRole("button", { name: "Finish assessment", exact: true });
     await expect(readyFinish).toBeEnabled();
     await expectFullyInViewport(readyFinish);

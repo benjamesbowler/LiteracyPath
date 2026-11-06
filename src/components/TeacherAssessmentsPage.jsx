@@ -100,8 +100,22 @@ function assessmentMeta(entry) {
     case ASSESSMENT_START_POINT_KINDS.NONE:
       return `${minutes} · ${entry.startPoint.summary || "Full set"}`;
     default:
-      return `${minutes} · Grade and time of year needed`;
+      return `${minutes} · Teacher-led`;
   }
+}
+
+function AssessmentStartGuide({ entry }) {
+  const benchmark = entry.starter === ASSESSMENT_STARTERS.EL_BENCHMARK;
+  const Container = benchmark ? "details" : "section";
+  return (
+    <Container className="assessment-start-guide" aria-label={entry.guide.label}>
+      {benchmark && <summary>How to run this assessment</summary>}
+      <h4>{entry.guide.label}</h4>
+      <p>{entry.guide.prepare}</p>
+      <ol>{entry.guide.steps.map(step => <li key={step}>{step}</li>)}</ol>
+      <p className="assessment-start-guide-evidence">{entry.guide.evidence}</p>
+    </Container>
+  );
 }
 
 function comparableSkillName(value = "") {
@@ -1070,17 +1084,10 @@ export function TeacherAssessmentsPage({
               <div className="teacher-assess-panel-body">
                 <p className="teacher-assess-chosen">{checkAnswer}</p>
                 <p className="teacher-assess-note">{entry.administration}</p>
-                {entry.startPoint.help && (
+                {entry.starter !== ASSESSMENT_STARTERS.EL_BENCHMARK && entry.startPoint.help && (
                   <p className="teacher-assess-note">{entry.startPoint.help}</p>
                 )}
-                {entry.guide && (
-                  <section className="assessment-start-guide" aria-label={entry.guide.label}>
-                    <h4>{entry.guide.label}</h4>
-                    <p>{entry.guide.prepare}</p>
-                    <ol>{entry.guide.steps.map(step => <li key={step}>{step}</li>)}</ol>
-                    <p className="assessment-start-guide-evidence">{entry.guide.evidence}</p>
-                  </section>
-                )}
+                {entry.guide && <AssessmentStartGuide entry={entry} />}
 
                 {entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL && (
                   <label className="teacher-assess-field">
@@ -1115,6 +1122,8 @@ export function TeacherAssessmentsPage({
                       </select>
                     </label>
                     {needsBand && (
+                      <details className="teacher-assess-field">
+                      <summary>Change the starting word group</summary>
                       <label className="teacher-assess-field">
                         <span>Word group it starts on</span>
                         <select
@@ -1130,6 +1139,7 @@ export function TeacherAssessmentsPage({
                         </select>
                         <small>{elStartPoint.bandNote}</small>
                       </label>
+                      </details>
                     )}
                   </div>
                 )}
