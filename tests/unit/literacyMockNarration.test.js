@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { literacyMockNarrationCues, wholeClassMockQuestionPrompt } from '../../src/utils/literacyMockNarration.js';
+import { literacyMockNarrationCues, literacyMockLetterReference, wholeClassMockQuestionPrompt } from '../../src/utils/literacyMockNarration.js';
 import { LITERACY_MOCK_RUNTIME_V11 as bank } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
 import { wholeClassMockPool } from '../../src/components/teacher/wholeClassPracticeModel.js';
 
@@ -20,6 +20,14 @@ test('silent reading content is never turned into an oral answer clue',()=>{
   requiredAudioCues:[{role:'instruction',text:'Where did the hen sit?',path:'/instruction.mp3'}]};
  assert.deepEqual(literacyMockNarrationCues(item,[{id:'a',label:'on a log',audioPath:'/unapproved-choice.mp3'}]).map(cue=>cue.text),[
   'Read the passage in the box. Then answer this question.','Where did the hen sit?']);
+});
+
+test('a case-matching letter never gains a generic passage instruction',()=>{
+ const item={skillId:'letter_knowledge',modality:'reading',passage:'k',displayPassageDuringResponse:true,
+  requiredAudioCues:[{role:'instruction',text:'Tap the matching letter.',path:'/instruction.mp3'}]};
+ assert.equal(literacyMockLetterReference(item),true);
+ assert.deepEqual(literacyMockNarrationCues(item,[]),item.requiredAudioCues);
+ assert.equal(literacyMockLetterReference({...item,passage:'Kate is here.'}),false);
 });
 
 test('every available class question has a complete authored narration including phonemes',()=>{

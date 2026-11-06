@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-06",
+  "reviewedBy": "codex-direct-visual-audit",
+  "scope": {
+    "contentVersion": "literacy-mock-v12",
+    "availableItems": 12590,
+    "uniqueDeliveredImageUrisReviewed": 689,
+    "atlasCellsIncluded": 23,
+    "method": "Direct model visual review of 23 indexed contact sheets at 190x170px; changed deliveries inspected at 200px and native size. No claim of classroom or physical-device observation.",
+    "finalDistinctDeliveredImageUris": 682
+  },
+  "deliveryPolicy": "src/data/literacyMockImageDelivery.js preserves published identities. Existing source files and immutable item snapshots are unchanged.",
+  "repairs": [
+    {
+      "word": "log",
+      "canonical": "/images/assessment/rhyming/variants/og/log-02.webp",
+      "delivery": "/images/assessment/literacy-classroom/log.webp",
+      "sha256": "f554b0fe4454ba2e12c41e468fbb5e61e5ff3d48f68baa93c7d0b69c9965bc56",
+      "reason": "Dense forest competed with and concealed the named log."
+    },
+    {
+      "word": "hand",
+      "canonical": "/images/assessment/blends/hand.webp",
+      "delivery": "/media/initial-sounds/images/h/hand.webp",
+      "sha256": "6367377b48038e6fbeeae1551724342a15a49091948bdbf52f4f0fd725519c30",
+      "reason": "Whole child and classroom competed with the named hand."
+    },
+    {
+      "word": "chair",
+      "canonical": "/images/assessment/digraphs/chair.webp",
+      "delivery": "/images/child-mode/digraphs/chair.webp",
+      "sha256": "6e04401f334369ab7089892b7800aa1f294aa447633e917a41c22192a3f16790",
+      "reason": "Furnished room photograph made the chair a small competing object."
+    },
+    {
+      "word": "tail",
+      "canonical": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+      "delivery": "/images/assessment/literacy-mock/clarity/tail-v1.webp",
+      "sha256": "cb0fd7ad5ecf3c0ef81dc89ed68d8e3b8fa68736a8b71c3c74c786cde2bba9d7",
+      "reason": "A larger storybook competed with a cropped dog tail."
+    },
+    {
+      "word": "peg",
+      "canonical": "/images/assessment/rhyming/variants/eg/peg-02.webp",
+      "delivery": "/images/assessment/generated/phonics-quality/peg.webp",
+      "sha256": "e9bad7b777a95755d0458ea61622c63564dcfcb40b2da725bc105895b61d342f",
+      "reason": "Clothesline and garden made the pegs too small."
+    },
+    {
+      "word": "fin",
+      "canonical": "/images/assessment/literacy-mock/capacity/foundation-fin.webp",
+      "delivery": "/images/child-mode/vocabulary/fin.webp",
+      "sha256": "1416ccb88565be94b24fa7c9a265528ca60f0596df8a86b139c941ed4af86770",
+      "reason": "Whole fish did not isolate its fin."
+    },
+    {
+      "word": "red",
+      "canonical": "/images/child-mode/initial-sounds/red.webp",
+      "delivery": "/images/child-mode/vocabulary/red.webp",
+      "sha256": "256bb8b9bd52af27d504fc26e8e64842fd3017b809293ef24f1556887b19ddd2",
+      "reason": "Apple picture could cue apple rather than the color."
+    },
+    {
+      "word": "sat",
+      "canonical": "/images/child-mode/reviewed/sat.webp",
+      "delivery": "/images/child-mode/short-i/sit.webp",
+      "sha256": "2074df4350bb55df1dc8101679752041bc8faca037988452287f93b99c170e67",
+      "reason": "Classroom clutter dominated the seated action."
+    },
+    {
+      "word": "dug",
+      "canonical": "/images/child-mode/vocabulary/dug.webp",
+      "delivery": "/images/assessment/literacy-mock/capacity/foundation-dig.webp",
+      "sha256": "dd3d9f21cb09a561ad5f60717e623e670bc15a87267fdcee414eeb008ab48a77",
+      "reason": "Spade alone did not depict digging."
+    },
+    {
+      "word": "eat",
+      "canonical": "/media/vocabulary/images/eat.webp",
+      "delivery": "/images/assessment/literacy-mock/clarity/eat-v1.webp",
+      "sha256": "a03dc22419a0f3e216016ba7737e1252997be54e95c6496acee0f29e35c9249c",
+      "reason": "Eating at a lesson desk among classmates was distracting and incoherent."
+    },
+    {
+      "word": "point",
+      "canonical": "/media/vocabulary/images/point.webp",
+      "delivery": "/images/assessment/literacy-mock/capacity/foundation-point.webp",
+      "sha256": "046def9beddd26b901ae05bfd8e90e4563d7c5f20236dabf79dedd91c2e9c8ee",
+      "reason": "Map, stool and classroom competed with the pointing gesture."
+    }
+  ],
+  "generated": [
+    {
+      "word": "tail",
+      "source": "source-art/assessment/literacy-mock/clarity-2026-11-06/tail-source.png",
+      "sourceSha256": "7013e976d0851f7de5036f50793322740dca63d5d685834e722426a9fbda15b5",
+      "delivery": "/images/assessment/literacy-mock/clarity/tail-v1.webp",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: scientific-educational. Asset type: Kindergarten literacy assessment word picture for TAIL. Primary request: a single extremely clear clean 2D cartoon illustration of a brown dog's tail still naturally attached to the dog's rear. Composition: square, close-up of the rear quarter of a brown dog, torso entering from left edge, two rear legs at bottom left, the large naturally curved tail occupies the middle and right. Add one simple bold blue arrow in the otherwise empty upper right, pointing directly to the tail, so a young child recognizes that the intended word is tail rather than dog. Style: crisp dark brown continuous outlines, flat clean warm-brown and tan colors, very few smooth cel-shaded shapes, no realistic fur marks, no textures, no paint or grain. Scene/backdrop: plain white background, no furniture, book, scenery, people or extra objects. No text, letters, captions, logos or watermark. The tail and arrow must be fully visible with generous safe margins. Target legibility at 160 by 160 pixels."
+    },
+    {
+      "word": "eat",
+      "source": "source-art/assessment/literacy-mock/clarity-2026-11-06/eat-source.png",
+      "sourceSha256": "12a122c6607eb23362336bc5b4ba2a8acbf64695b4f64958e18d78dba75cf0eb",
+      "delivery": "/images/assessment/literacy-mock/clarity/eat-v1.webp",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: scientific-educational. Asset type: Kindergarten literacy assessment picture of the action EAT. Primary request: one young child clearly eating a spoonful of soup at an ordinary meal table. Composition: square, close clear view of the child's smiling face, upper body, both hands, one white soup bowl and the edge of the table. The child's right hand holds exactly one spoon up to the slightly open mouth; a small amount of soup is visibly in that spoon. The other hand rests naturally on the table, away from the bowl. Show the action of eating, rather than food preparation. Style: bold clean outlined 2D cartoon, crisp continuous dark outlines, flat clean warm colors, a few simple smooth cel-shaded shapes, ordinary blue T-shirt. Plain white background; the table, bowl, child and single spoon are the only objects. No classroom, lesson desks, classmates, text, labels, logos, textures, brushwork, paint daubs, grain, gradients, duplicate utensils, floating objects, extra fingers or extra limbs. Keep all action evidence fully inside generous margins. Must remain unmistakable at 160x160 pixels."
+    }
+  ],
+  "recipe": {
+    "source": "Selected built-in image generation PNG; retained as current reproduction/provenance input.",
+    "delivery": "sharp(source).resize(768,768,{fit:\"contain\",background:\"#fff\"}).webp({quality:88})",
+    "review": "Native generated PNG, final WebP, and 200px comparison reviewed directly."
+  },
+  "evidence": ".artifacts/mock-image-clarity/"
+}

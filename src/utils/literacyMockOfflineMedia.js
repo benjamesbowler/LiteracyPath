@@ -102,6 +102,20 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
   }
   signal?.addEventListener('abort', dispose, {once:true});
   if (signal?.aborted) dispose();
+  const resolve = path => {
+      const key=path.split('#')[0];
+      if (!urls.has(key) && blobs.has(key)) {
+        try {
+          const objectUrl=createObjectURL(blobs.get(key));
+          urls.set(key,{objectUrl,source:`${objectUrl}#${encodeURIComponent(key)}`});
+        } catch { return resolveLiteracyMockImagePath(path); } // Playback/image receipts still gate the exact source.
+      }
+      return urls.get(key)?.source || resolveLiteracyMockImagePath(path);
+  };
+  // Audio preparation reads retained bytes directly. Fetching a blob URL is
+  // disallowed by the production connect-src policy. Image callers still use
+  // the ordinary source URL from this same resolver.
+  resolve.readBlob = path => disposed ? null : blobs.get(path.split('#')[0]);
   return {
     get bytes() { return bytes; }, get assets() { return blobs.size; },
     has: requested => !disposed && requested.every(path => blobs.has(path.split('#')[0])),
@@ -122,16 +136,7 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
       });
       drain(); await Promise.all(waiting);
     },
-    resolve:path => {
-      const key=path.split('#')[0];
-      if (!urls.has(key) && blobs.has(key)) {
-        try {
-          const objectUrl=createObjectURL(blobs.get(key));
-          urls.set(key,{objectUrl,source:`${objectUrl}#${encodeURIComponent(key)}`});
-        } catch { return resolveLiteracyMockImagePath(path); } // Playback/image receipts still gate the exact source.
-      }
-      return urls.get(key)?.source || resolveLiteracyMockImagePath(path);
-    }, dispose,
+    resolve, dispose,
   };
 }
 

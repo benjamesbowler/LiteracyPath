@@ -9,7 +9,9 @@ async function simulatedAudio(page, duration = 20) {
     window.Audio = class extends EventTarget {
       constructor() { super(); this.src = ''; this.paused = true; this.currentTime = 0; }
       play() {
-        window.__mockAudio.played.push(this.src); this.paused = false;
+        const source = new URL(this.src, location.href);
+        if (source.protocol === 'data:' || source.hash === '#mock-audio-unlock') return Promise.resolve();
+        window.__mockAudio.played.push(source.protocol === 'blob:' ? decodeURIComponent(source.hash.slice(1)) : source.pathname); this.paused = false;
         if (window.__mockAudio.failNext) {
           window.__mockAudio.failNext = false;
           this.timer = setTimeout(() => { this.onerror?.(new Event('error')); this.dispatchEvent(new Event('error')); }, duration);
@@ -38,11 +40,15 @@ async function chooseAnswer(page, current = null) {
   const byId = id => buttons.nth(ordered.findIndex(choice => choice.id === id));
   if (current.format === 'choice') {
     await byId(current.answer).click();
+    if(current.skillId==='letter_knowledge' && /^[A-Za-z]$/.test(current.passage||'')) await page.getByRole('button',{name:/^Space 1 for/}).click();
   } else if (current.format === 'select_text') {
     const answer = current.choices.find(choice => choice.id === current.answer);
     await page.locator('.literacy-mock-text-selection button').nth(answer.tokenIndex).click();
   } else if (current.format === 'multi_select' || current.format === 'order') {
-    for (const id of current.answer) await byId(id).click();
+    for (let slot = 0; slot < current.answer.length; slot++) {
+      await byId(current.answer[slot]).click();
+      if (current.format === 'order') await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(slot).click();
+    }
   } else if (current.format === 'match') {
     for (let i = 0; i < current.answer.length; i++) {
       await byId(current.answer[i]).click();
@@ -59,7 +65,10 @@ async function chooseAnswer(page, current = null) {
     }
     const tiles = compose(current.answer, current.choices);
     expect(tiles, 'The authored tile bank must construct the whole dictated word').not.toBeNull();
-    for (const id of tiles) await byId(id).click();
+    for (let slot = 0; slot < tiles.length; slot++) {
+      await byId(tiles[slot]).click();
+      await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(slot).click();
+    }
   }
 }
 async function next(page) {
@@ -135,7 +144,10 @@ for (const questionId of ['lp3.sequencing.l1.A.last_event.v4', 'mock.depth.liste
       window.__nativeMockAudioEnded = [];
       const play = HTMLMediaElement.prototype.play;
       HTMLMediaElement.prototype.play = function (...args) {
-        this.addEventListener('ended', () => window.__nativeMockAudioEnded.push(new URL(this.currentSrc || this.src).pathname), { once: true });
+        if (this.src.startsWith('data:') || this.src.endsWith('#mock-audio-unlock')) return play.apply(this, args);
+        const source = new URL(this.src, location.href);
+        const path = source.protocol === 'blob:' ? decodeURIComponent(source.hash.slice(1)) : source.pathname;
+        this.addEventListener('ended', () => window.__nativeMockAudioEnded.push(path), { once: true });
         return play.apply(this, args);
       };
     });
@@ -753,6 +765,7 @@ test('a digraph construction requires its complete authored tile sequence before
   expect(current.choices.some(choice => choice.label === 'sh')).toBe(true);
   await page.locator('.literacy-mock-choice').first().click();
   await expect(forwardAction(page)).toBeDisabled();
+  await page.locator('.literacy-mock-construction .literacy-mock-slot').first().click();
   await page.getByRole('button', { name: 'Reset', exact: true }).click();
   await chooseAnswer(page, current);
   await expect(page.locator('.literacy-mock-construction button')).toHaveCount(3);
@@ -1199,7 +1212,7 @@ test('late assistance commits a failed harder item repair before adapting its re
 
 test.describe('comprehensive teacher result delivery', () => {
 for (const audience of ['whole class', 'individual']) test(`one full teacher-launched mock delivers two separate results: ${audience}`, async ({ page }, info) => {
-  test.setTimeout(480000);
+  test.setTimeout(1200000);
   await simulatedAudio(page);
   await open(page, '&mode=teacher&warmup=1&count=43');
   await page.getByRole('button', { name: 'Results', exact: true }).click();

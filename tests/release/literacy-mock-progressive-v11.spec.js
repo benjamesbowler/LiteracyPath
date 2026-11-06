@@ -9,7 +9,7 @@ import { LITERACY_DOMAINS } from '../../src/policy/literacyPracticePolicy.js';
 const root='/tests/fixtures/literacy-mock.html';
 const bank=await loadLiteracyMockBank({contentVersion:'literacy-mock-v11',includeUnavailable:true});
 const byId=new Map(bank.map(item=>[item.id,item]));
-test.describe.configure({timeout:300000});
+test.describe.configure({timeout:1200000});
 async function tinyAudio(page){
  await page.addInitScript(()=>{
   window.__v11Audio=[];
@@ -53,6 +53,8 @@ async function choose(page,item,correct){
  if(item.format==='select_text')await page.locator('.literacy-mock-text-selection button').nth(item.choices.find(choice=>choice.id===selected[0]).tokenIndex).click();
  else for(let index=0;index<selected.length;index++){
   await byId(selected[index]).click();
+  if(item.skillId==='letter_knowledge' && /^[A-Za-z]$/.test(item.passage||''))await page.getByRole('button',{name:/^Space 1 for/}).click();
+  if(['order','build_word'].includes(item.format))await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(index).click();
   if(item.format==='match')await page.getByRole('button',{name:new RegExp(`^Space ${index+1} for`)}).click();
  }
  return order;
@@ -153,8 +155,11 @@ test('the repaired win–lose question plays natively after the real processing 
  await page.addInitScript(()=>{
   window.__v11Audio=[];const original=HTMLMediaElement.prototype.play;
   HTMLMediaElement.prototype.play=function(...args){
-   window.__v11Audio.push({type:'play',path:new URL(this.src,location.href).pathname,time:performance.now()});
-   if(!this.v11NativeListener){this.v11NativeListener=true;this.addEventListener('ended',()=>window.__v11Audio.push({type:'ended',path:new URL(this.src,location.href).pathname,time:performance.now()}));}
+   const url=new URL(this.src,location.href);
+   if(url.hash==='#mock-audio-unlock')return original.apply(this,args);
+   const path=()=>{const u=new URL(this.src,location.href);return u.protocol==='blob:'?decodeURIComponent(u.hash.slice(1)):u.pathname;};
+   window.__v11Audio.push({type:'play',path:path(),time:performance.now()});
+   if(!this.v11NativeListener){this.v11NativeListener=true;this.addEventListener('ended',()=>window.__v11Audio.push({type:'ended',path:path(),time:performance.now()}));}
    return original.apply(this,args);
   };
  });

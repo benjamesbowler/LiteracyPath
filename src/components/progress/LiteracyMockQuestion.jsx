@@ -8,12 +8,13 @@ import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmen
 import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
 import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMockRuntimeAudio.generated.js';
 import { LiteracyMockPassage } from './LiteracyMockPassage.jsx';
-import { literacyMockNarrationCues, wholeClassMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
+import { literacyMockNarrationCues, literacyMockLetterReference, wholeClassMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
 
 export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false }) {
   const choices = useMemo(() => mockChoices(item, seed), [item, seed]);
-  const showPassage = Boolean(item.passage && item.displayPassageDuringResponse && item.format !== 'select_text');
-  const readingInstructionPath = item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
+  const letterReference = literacyMockLetterReference(item);
+  const showPassage = Boolean(!letterReference && item.passage && item.displayPassageDuringResponse && item.format !== 'select_text');
+  const readingInstructionPath = !letterReference && item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
     ? MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage : null;
   const audioCues = useMemo(() => literacyMockNarrationCues(item,choices), [item, choices]);
   const draftKey = `lp-mock-selection:${seed}:${item.id}`;
@@ -51,14 +52,14 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
   function choose(id) {
     if (disabled) return;
     if (item.format === 'multi_select') setSelection(value => value.includes(id) ? value.filter(x => x !== id) : value.length < item.selectCount ? [...value, id] : value);
-    else if (item.format === 'match') setPicked(value => value === id ? '' : id);
-    else if (['order', 'build_word'].includes(item.format)) setSelection(value => value.includes(id) ? value.filter(x => x !== id) : value.length < constructionLength ? [...value, id] : value);
+    else if (letterReference || ['match', 'order', 'build_word'].includes(item.format)) setPicked(value => value === id ? '' : id);
     else setSelection([id]);
   }
   function place(slot, id = picked) {
-    if (!id || disabled) return;
+    if (!id || disabled || !choices.some(choice => choice.id === id)) return;
     setSelection(previous => {
-      const next = Array.from({ length: item.matchTargets.length }, (_, i) => previous[i] === id ? '' : previous[i] || '');
+      const length = letterReference ? 1 : item.format === 'match' ? item.matchTargets.length : constructionLength;
+      const next = Array.from({ length }, (_, i) => previous[i] === id ? '' : previous[i] || '');
       next[slot] = id; return next;
     }); setPicked('');
   }
@@ -66,8 +67,12 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
     if (disabled) return;
     event.preventDefault(); const id = event.dataTransfer.getData('text/plain');
     if (!choices.some(choice => choice.id === id)) return;
-    if (item.format === 'match') place(slot, id);
-    else setSelection(value => { const next = value.filter(x => x !== id); if (next.length >= constructionLength) return value; next.splice(slot, 0, id); return next; });
+    place(slot, id);
+  }
+  function activateSlot(slot) {
+    if (disabled) return;
+    if (picked) place(slot);
+    else setSelection(value => value.map((id, i) => i === slot ? '' : id));
   }
   function submit(responseStatus = 'answered') {
     if (disabled || blockPendingHelp && helpRequest?.status === 'pending' || (responseStatus === 'answered' && (!ready || mediaFailed || !mockResponseComplete(item, selection)))) return;
@@ -80,9 +85,9 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       ])] } : {}) });
   }
   const choiceButton = (choice, number) => <div className={`literacy-mock-option${audio.activePath && audio.activePath === choice.audioPath ? ' is-speaking' : ''}`} key={choice.id}>
-    <button type="button" className={`literacy-mock-choice${choice.image ? ' has-picture' : item.hideWrittenLabels ? ' is-spoken-choice' : ''}`} aria-label={item.hideWrittenLabels ? `Answer ${number + 1}` : undefined}
-      aria-pressed={selection.includes(choice.id) || picked === choice.id} disabled={disabled}
-      draggable={['match', 'order', 'build_word'].includes(item.format)} onDragStart={event => event.dataTransfer.setData('text/plain', choice.id)}
+    <button type="button" className={`literacy-mock-choice${choice.image ? ' has-picture' : item.hideWrittenLabels ? ' is-spoken-choice' : ''}${placement && selection.includes(choice.id) ? ' is-placed' : ''}`} aria-label={item.hideWrittenLabels ? `Answer ${number + 1}` : undefined}
+      aria-pressed={placement ? picked === choice.id : selection.includes(choice.id)} disabled={disabled || placement && selection.includes(choice.id)}
+      draggable={placement} onDragStart={event => { event.dataTransfer.setData('text/plain', choice.id); event.dataTransfer.effectAllowed = 'move'; setPicked(choice.id); }} onDragEnd={() => setPicked('')}
       onClick={() => choose(choice.id)}>
       {choice.image && picture(choice.image, choice.imageAlt)}
       {!item.hideWrittenLabels && <span>{choice.label}</span>}
@@ -92,9 +97,11 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
     {choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}
   </div>;
   const constructed = ['order', 'build_word'].includes(item.format);
+  const placement = letterReference || constructed || item.format === 'match';
+  const pickedChoice = choices.find(choice => choice.id === picked);
   const modelChoices = (Array.isArray(item.answer) ? item.answer : [item.answer]).map(id => item.choices.find(choice => choice.id === id)).filter(Boolean);
   return <>
-    <section className={`literacy-mock-question question-${item.format}${showPassage ? ' has-passage' : ''}${item.image && !demonstration ? ' has-stimulus' : ''}${demonstration ? ' is-demonstration' : ''}`} aria-label={`Question ${index + 1}`}>
+    <section className={`literacy-mock-question question-${item.format}${showPassage ? ' has-passage' : ''}${letterReference ? ' has-letter-reference' : ''}${item.image && !demonstration ? ' has-stimulus' : ''}${demonstration ? ' is-demonstration' : ''}${picked ? ' is-carrying' : ''}`} aria-label={`Question ${index + 1}`} onKeyDown={event => { if (event.key === 'Escape') setPicked(''); }}>
       {demonstration && <aside className="literacy-mock-demonstration" aria-label="Worked example">
         <strong>Button practice · copy the example</strong>
         <div className="literacy-mock-model">{item.format === 'build_word' ? <span>{item.answer}</span> : modelChoices.map((choice, n) => <span key={choice.id}>
@@ -116,28 +123,34 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       </div>
       {item.image && !demonstration && <div className="literacy-mock-stimulus">{picture(item.image, item.imageAlt, 'stimulus')}</div>}
       <div className={`literacy-mock-responses format-${item.format}`} role="group" aria-label="Answer choices" data-child-choices>
-        {item.format !== 'select_text' && <p className="literacy-mock-region-label">{item.format === 'multi_select' ? `Choose ${item.selectCount} answers` : constructed || item.format === 'match' ? 'Build your answer' : 'Choose your answer'}</p>}
+        {item.format !== 'select_text' && <p className="literacy-mock-region-label">{item.format === 'multi_select' ? `Choose ${item.selectCount} answers` : placement ? 'Build your answer' : 'Choose your answer'}</p>}
         {onMechanicReminder && <button type="button" className="literacy-mock-reminder" disabled={disabled} onClick={onMechanicReminder}>Practice the buttons</button>}
         {item.format === 'multi_select' && <p className="literacy-mock-selection-count" role="status">Choose {item.selectCount}. {selection.length} of {item.selectCount} selected.</p>}
         {item.format === 'select_text' ? <div className="literacy-mock-text-selection-box" role="region" aria-label="Passage"><p className="literacy-mock-region-label">Read this</p><p className="literacy-mock-text-selection">{[...item.choices].sort((a, b) => a.tokenIndex - b.tokenIndex).map(choice => <button type="button" key={choice.id} aria-pressed={selection.includes(choice.id)} disabled={disabled} onClick={() => choose(choice.id)}>{choice.label}</button>)}</p></div> : <>
+          {letterReference && <>
+            <p className="literacy-mock-mechanic">Choose the matching letter. Then choose the blank.</p>
+            <section className="literacy-mock-letter-reference" aria-label="Letter to match"><span className="literacy-mock-reference-glyph">{item.passage}</span>
+              <button type="button" disabled={disabled} className="literacy-mock-slot" aria-label={`Space 1 for ${item.passage}${selection[0] ? `: ${choices.find(choice => choice.id === selection[0])?.label}` : ', empty'}`} onClick={() => activateSlot(0)} onDragOver={event => event.preventDefault()} onDrop={event => drop(event,0)}>{selection[0] ? choices.find(choice => choice.id === selection[0])?.label : <span className="literacy-mock-drop-label" aria-hidden="true">Place here</span>}</button>
+            </section>
+          </>}
           {item.format === 'match' && <>
-            <p className="literacy-mock-mechanic">Tap a tile, then its space. You can also drag it.</p>
+            <p className="literacy-mock-mechanic">Choose a tile. Then choose its box. You can also drag it.</p>
             <div className="literacy-mock-match-targets">{item.matchTargets.map((target, i) => <div key={target.id || i}>
-              <span>{target.image ? picture(target.image, target.label) : target.label}</span>
+              <span className="literacy-mock-match-label">{target.image ? picture(target.image, target.label) : target.label}</span>
               <button type="button" disabled={disabled} className="literacy-mock-slot" aria-label={`Space ${i + 1} for ${target.label}${selection[i] ? `: ${choices.find(x => x.id === selection[i])?.label}` : ', empty'}`}
-                onClick={() => picked ? place(i) : setSelection(value => value.map((id, n) => n === i ? '' : id))} onDragOver={event => event.preventDefault()} onDrop={event => drop(event, i)}>
-                {selection[i] ? choices.find(x => x.id === selection[i])?.label : <span aria-hidden="true">＋</span>}
+                onClick={() => activateSlot(i)} onDragOver={event => event.preventDefault()} onDrop={event => drop(event, i)}>
+                {selection[i] ? choices.find(x => x.id === selection[i])?.image ? picture(choices.find(x => x.id === selection[i]).image, choices.find(x => x.id === selection[i]).imageAlt) : choices.find(x => x.id === selection[i])?.label : <span className="literacy-mock-drop-label" aria-hidden="true">Place here</span>}
               </button></div>)}</div>
           </>}
           {constructed && <>
-            <p className="literacy-mock-mechanic">Tap the tiles in order. Tap a placed tile to take it back.</p>
-            <div className="literacy-mock-construction" role="group" aria-label="Your answer" onDragOver={event => event.preventDefault()} onDrop={event => drop(event, selection.length)}>
-              {Array.from({ length: constructionLength }, (_, i) => { const id = selection[i]; return id ? <button key={i} type="button" disabled={disabled} draggable onDragStart={event => event.dataTransfer.setData('text/plain', id)}
-                onDragOver={event => event.preventDefault()} onDrop={event => { event.stopPropagation(); drop(event, i); }} onClick={() => choose(id)} aria-label={`Remove ${choices.find(x => x.id === id)?.label}`}>{choices.find(x => x.id === id)?.label}</button>
-                : <span className="literacy-mock-empty-slot" key={i} aria-label={`Space ${i + 1}, empty`} onDragOver={event => event.preventDefault()} onDrop={event => { event.stopPropagation(); drop(event, i); }}>＋</span>; })}
+            <p className="literacy-mock-mechanic">Choose a tile. Then choose a box. Tap a placed tile to return it.</p>
+            <div className="literacy-mock-construction" role="group" aria-label="Your answer">
+              {Array.from({ length: constructionLength }, (_, i) => { const id = selection[i]; return <button key={i} type="button" className="literacy-mock-slot" disabled={disabled} draggable={Boolean(id)} onDragStart={event => { event.dataTransfer.setData('text/plain', id); event.dataTransfer.effectAllowed = 'move'; setPicked(id); }} onDragEnd={() => setPicked('')}
+                onDragOver={event => event.preventDefault()} onDrop={event => drop(event, i)} onClick={() => activateSlot(i)} aria-label={`Space ${i + 1}${id ? `: ${choices.find(x => x.id === id)?.label}` : ', empty'}`}>{id ? choices.find(x => x.id === id)?.label : <span className="literacy-mock-drop-label" aria-hidden="true">Place here</span>}</button>; })}
             </div>
           </>}
-          <div className="literacy-mock-choice-bank">{choices.map(choiceButton)}</div>
+          {placement && <p className="literacy-mock-pickup-status" role="status">{pickedChoice ? `${pickedChoice.label} selected. Choose a box.` : 'Choose a tile below.'}</p>}
+          <div className="literacy-mock-choice-bank" role={placement ? 'group' : undefined} aria-label={placement ? 'Tiles to place' : undefined}>{choices.map(choiceButton)}</div>
         </>}
       </div>
       <div className="literacy-mock-access" aria-live="polite">

@@ -17,3 +17,12 @@ test('repeated letters occupy separate spaces and extra distractors do not exten
   assert.equal(mockResponseComplete(item, ['t0', 't1', 't2', 't3', 't4']), false);
   assert.equal(mockResponseComplete(item, ['t4', 't3', 't2', 't1']), true); // completeness is not correctness
 });
+
+test('placing a tile into a later box cannot complete a construction with empty boxes', () => {
+  const item = build('fish', ['f', 'i', 'sh']);
+  assert.equal(mockResponseComplete(item, ['', '', 't2']), false);
+  assert.equal(mockResponseComplete(item, ['t0', '', 't2']), false);
+  assert.equal(mockResponseComplete({ format:'order', sequenceLength:3 }, ['a', '', 'c']), false);
+  assert.equal(mockResponseComplete(item, ['t0', 't1', 't2']), true);
+  assert.equal(mockResponseComplete({ format:'choice' }, ['']), false, 'Returning a letter from its blank clears the answer');
+});

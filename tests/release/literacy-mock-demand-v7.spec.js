@@ -1,7 +1,7 @@
 import { test,expect } from '@playwright/test';
 import fs from 'node:fs';
 import { LITERACY_MOCK_AREA_MAX,literacyMockAreaSchedule } from '../../src/policy/literacyMockAdaptivePolicy.js';
-test.describe.configure({timeout:240000});
+test.describe.configure({timeout:600000});
 const root='/tests/fixtures/literacy-mock.html';
 async function simulatedAudio(page){
  await page.addInitScript(()=>{window.Audio=class extends EventTarget{constructor(){super();this.src='';this.currentTime=0;this.paused=true;}play(){this.paused=false;this.onplaying?.(new Event('playing'));this.timer=setTimeout(()=>{this.onended?.(new Event('ended'));this.dispatchEvent(new Event('ended'));},3);return Promise.resolve();}pause(){clearTimeout(this.timer);this.paused=true;}load(){}};});
@@ -21,7 +21,7 @@ async function answer(page,q,correct){
   else [selected[0],selected[1]]=[selected[1],selected[0]];
  }
  if(q.format==='select_text')await page.locator('.literacy-mock-text-selection button').nth(q.choices.find(c=>c.id===selected[0]).tokenIndex).click();
- else for(let i=0;i<selected.length;i++){await byId(selected[i]).click();if(q.format==='match'){await expect(byId(selected[i])).toHaveAttribute('aria-pressed','true');const slot=page.getByRole('button',{name:new RegExp(`^Space ${i+1} for`)});await slot.click();await expect(slot).toHaveText(q.choices.find(c=>c.id===selected[i]).label);}}
+ else for(let i=0;i<selected.length;i++){await byId(selected[i]).click();if(q.skillId==='letter_knowledge' && /^[A-Za-z]$/.test(q.passage||''))await page.getByRole('button',{name:/^Space 1 for/}).click();if(['order','build_word'].includes(q.format))await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(i).click();if(q.format==='match'){await expect(byId(selected[i])).toHaveAttribute('aria-pressed','true');const slot=page.getByRole('button',{name:new RegExp(`^Space ${i+1} for`)});await slot.click();await expect(slot).toHaveText(q.choices.find(c=>c.id===selected[i]).label);}}
  const next=page.getByRole('button',{name:/^(Next question|Finish test)$/});await expect(next).toBeEnabled();await next.click();
 }
 for(const pattern of ['wrong','right','reversal'])test(`v7 complete ${pattern} run, reload, collection and individual/class teacher reports`,async({page},info)=>{

@@ -356,7 +356,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         // Persist a same-level content/media repair before evaluating later
         // assistance. Neither kind of invalid evidence changes task demand.
         const repairNeeded = !sameLiteracyMockPlan(replacement.plan, run.plan);
-        if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
+        if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures, itemCount: mock.item_count });
       }
     } catch (failure) { if (hasWithdrawnQuestions) contentUnavailable = true; else if (failure.code === 'mock_fresh_capacity') capacityUnavailable = true; else mediaUnavailable = true; }
     }

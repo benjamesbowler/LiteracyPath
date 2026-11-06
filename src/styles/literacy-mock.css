@@ -33,7 +33,6 @@
   .literacy-mock-access{min-height:32px;margin:8px 0}
 }
 
-.literacy-mock-empty-slot{display:inline-flex;align-items:center;justify-content:center;min-width:58px;min-height:58px;padding:10px;border:2px dashed #8899a5;border-radius:2px;color:#596d7a;font-size:26px}
 .literacy-mock-selection-count{font-size:18px;font-weight:600;margin:0 0 16px;color:#163b4e}
 @media(min-width:701px){
   .question-build_word{display:grid;grid-template-columns:minmax(180px,1fr) minmax(360px,2fr);gap:12px 28px;align-content:start;align-items:center}
@@ -179,4 +178,59 @@
 }
 @media (hover: hover) {
   .literacy-mock .literacy-mock-choice:hover:not(:disabled) { border-color: #2449B0; }
+}
+
+/* The public K–2 practice player uses a white canvas, grey gutters, radio
+   choices and a turquoise tile toolbar with underlined destination spaces. */
+.literacy-mock-canvas,
+.whole-class-practice .literacy-mock-canvas { max-width:1000px; }
+.literacy-mock .literacy-mock-choice-bank { border:1px solid #d5d9dc; padding:10px; gap:8px; background:white; }
+.literacy-mock .format-choice .literacy-mock-choice,
+.literacy-mock .format-multi_select .literacy-mock-choice { position:relative; border:1px solid transparent; border-radius:0; background:white; box-shadow:none; padding-left:44px; }
+.literacy-mock .format-choice .literacy-mock-choice::before,
+.literacy-mock .format-multi_select .literacy-mock-choice::before { content:''; position:absolute; left:12px; top:calc(50% - 10px); width:20px; height:20px; border:1px solid #234b65; border-radius:50%; background:white; }
+.literacy-mock .format-multi_select .literacy-mock-choice::before { border-radius:1px; }
+.literacy-mock .format-choice .literacy-mock-choice[aria-pressed=true],
+.literacy-mock .format-multi_select .literacy-mock-choice[aria-pressed=true] { border-color:#234b65; background:#e4e4e4; box-shadow:0 3px 0 #234b65; }
+.literacy-mock .format-choice .literacy-mock-choice[aria-pressed=true]::before,
+.literacy-mock .format-multi_select .literacy-mock-choice[aria-pressed=true]::before { background:radial-gradient(circle,#234b65 0 5px,white 6px); }
+.literacy-mock .literacy-mock-next { border:1px solid #479aaa; border-radius:2px; background:#59bbce; color:#183f50; box-shadow:none; }
+.whole-class-practice .literacy-mock-stem p { font:400 clamp(24px,2vw,30px)/1.4 Arial,sans-serif; }
+
+/* The same pickup/place operation works by mouse drag, touch or keyboard. */
+.literacy-mock-match-targets { display:flex; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:20px 28px; padding:12px; margin:0; border:1px solid #d5d9dc; border-bottom:0; }
+.literacy-mock-match-targets > div { display:flex; align-items:center; gap:8px; font-size:36px; }
+.literacy-mock-match-label { display:flex; align-items:center; justify-content:center; min-height:60px; }
+.literacy-mock .literacy-mock-slot,
+.literacy-mock .literacy-mock-construction .literacy-mock-slot { display:flex; align-items:center; justify-content:center; min-width:68px; min-height:68px; padding:8px; border:0; border-bottom:2px solid #2b6688; border-radius:0; background:white; color:#17212b; font:inherit; font-size:32px!important; cursor:pointer; }
+.literacy-mock .literacy-mock-slot img { max-height:100px; max-width:100%; object-fit:contain; }
+.literacy-mock .literacy-mock-construction { justify-content:center; gap:12px; padding:18px 10px; border:1px solid #d5d9dc; border-bottom:0; margin:0; background:white; }
+.literacy-mock .literacy-mock-construction .literacy-mock-slot { flex:1 1 68px; max-width:240px; }
+.literacy-mock-drop-label { font-size:0; }
+.literacy-mock-pickup-status { min-height:24px; flex-shrink:0; margin:6px 0 10px; font:16px/1.4 Arial,sans-serif; color:#244961; }
+.literacy-mock .format-match .literacy-mock-choice-bank,
+.literacy-mock .format-build_word .literacy-mock-choice-bank,
+.literacy-mock .format-order .literacy-mock-choice-bank,
+.literacy-mock .has-letter-reference .literacy-mock-choice-bank { display:flex; justify-content:space-around; flex-wrap:wrap; flex:0 1 auto; border:1px solid #479aaa; background:#59bbce; border-radius:0; padding:10px; max-width:none; }
+.literacy-mock .format-match .literacy-mock-option,
+.literacy-mock .format-build_word .literacy-mock-option,
+.literacy-mock .format-order .literacy-mock-option,
+.literacy-mock .has-letter-reference .literacy-mock-option { display:flex; flex:1; min-width:64px; }
+.literacy-mock .literacy-mock-choice[draggable=true],
+.literacy-mock .has-letter-reference .literacy-mock-choice { cursor:grab; border:1px solid transparent; border-radius:0; padding:8px; min-width:64px; min-height:64px; background:transparent; box-shadow:none; font-size:32px!important; }
+.literacy-mock .has-letter-reference .literacy-mock-choice::before { display:none; }
+.literacy-mock .literacy-mock-choice[draggable=true][aria-pressed=true] { border-color:#234b65; background:white; box-shadow:0 2px 5px #627580; }
+.literacy-mock .literacy-mock-choice.is-placed { opacity:0; box-shadow:none; }
+.literacy-mock .is-carrying .literacy-mock-slot { outline:2px dashed #17699a; outline-offset:3px; background:#edf7fd; cursor:copy; }
+.literacy-mock .literacy-mock-slot:focus-visible { outline:3px solid #18263e; outline-offset:3px; }
+
+/* Case matching is an inline target and blank, never a passage. The authored
+   choice IDs and scalar scoring stay intact when placed into this one blank. */
+.literacy-mock-letter-reference { display:flex; align-items:center; gap:12px; align-self:flex-start; padding:16px 12px; }
+.literacy-mock-reference-glyph { font:normal 72px/1.1 'Andika',Arial,sans-serif; color:#121a20; }
+.literacy-mock .has-letter-reference .literacy-mock-slot { min-width:90px; min-height:90px; font-size:64px!important; }
+@media (max-width:700px) {
+  .literacy-mock .literacy-mock-construction { flex-wrap:wrap; gap:10px; }
+  .literacy-mock .literacy-mock-construction .literacy-mock-slot { min-width:56px; min-height:60px; }
+  .literacy-mock-match-targets { gap:14px 20px; }
 }
