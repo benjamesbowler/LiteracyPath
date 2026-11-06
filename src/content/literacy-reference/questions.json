@@ -3395,7 +3395,7 @@
       "eating a lot of food",
       "having a lot to do",
       "digging one big den",
-      "getting very fat"
+      "resting in a den"
     ],
     "explanation": "The next sentence explains busy: the bear has a lot to do.",
     "origin": "supplied_adaptation",
@@ -3405,7 +3405,7 @@
     "distractorRationales": {
       "eating a lot of food": "Selects one job the bear does rather than the meaning of busy.",
       "digging one big den": "Selects an invented digging detail rather than having several jobs.",
-      "getting very fat": "Selects a result of eating rather than having many things to do."
+      "resting in a den": "Selects a resting activity rather than the meaning of having a lot to do."
     }
   },
   {
