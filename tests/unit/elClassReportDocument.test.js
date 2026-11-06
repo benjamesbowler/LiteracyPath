@@ -109,11 +109,12 @@ test("the printable EL class document contains its selected period and actual EL
   assert.match(html, /Formal EL assessment record/);
   assert.match(html, /Willow Class/);
   assert.match(html, /Grade 1 · Middle of year/);
-  assert.match(html, /Phonological and Phonemic Awareness/);
-  assert.match(html, /Decoding and Automaticity/);
+  assert.match(html, /Sound awareness/);
+  assert.match(html, /Word reading/);
   assert.match(html, /Aarav/);
-  assert.match(html, /accuracy 75%/);
-  assert.match(html, /Suggested reading stage: 4 \(not yet confirmed\)/);
+  assert.match(html, /Accuracy 75%/);
+  assert.match(html, /Read correctly 80% · Read straight away 60%/);
+  assert.doesNotMatch(html, /Suggested reading stage: 4/);
   assert.match(html, /Aisha/);
   assert.match(html, /Not checked/);
   assert.match(html, /Grade and time of year/);
@@ -125,6 +126,14 @@ test("the printable EL class document contains its selected period and actual EL
     /\b(?:EL route|included attempts?|candidate microphases?|assessment routes?|provisional microphase|teacher-confirmed microphase)\b/i
   );
   assert.doesNotMatch(html, /undefined|null%|NaN%/i);
+});
+
+test("current class snapshots lead with the saved observation count", () => {
+  const current = structuredClone(report);
+  current.formalAssessments.classBenchmarkMatrix[0].cells.decoding.observationSummary = "7 of 8 words read correctly; 4 read straight away.";
+  const html = renderToStaticMarkup(React.createElement(ElClassReportDocument, { report: current }));
+  assert.match(html, /7 of 8 words read correctly; 4 read straight away/);
+  assert.doesNotMatch(html, /Read correctly 80% · Read straight away 60%/);
 });
 
 test("the EL print action exposes the EL target only while the print snapshot is taken", () => {

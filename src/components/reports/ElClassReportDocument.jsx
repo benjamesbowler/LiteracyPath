@@ -76,7 +76,9 @@ function elStudentDomainSummary(profile = {}) {
     ? `Correct spelling ${percentage(metrics.exactSpellingRate)}`
     : profile.domainKey === "oralReadingFluency"
       ? `${decimal(metrics.wcpm)} correct words/min · Accuracy ${percentage(metrics.accuracyRate)}`
-      : `Accuracy ${percentage(metrics.accuracyRate)}`;
+      : profile.domainKey === "decoding"
+        ? `Read correctly ${percentage(metrics.accuracyRate)} · Read straight away ${percentage(metrics.automaticityRate)}`
+        : `Accuracy ${percentage(metrics.accuracyRate)}`;
   const parts = [profile.administrationStatusLabel || "Result recorded", profile.observationSummary || fallback];
   const confirmedStage = readingStageLabel(profile.confirmedPlacement);
   if (confirmedStage) parts.push(TEACHER_COPY.formalEl.confirmedReadingStage(confirmedStage));
