@@ -1,7 +1,8 @@
 # LiteracyPath EL-aligned benchmark assessment suite
 
 Date: 2026-07-21
-Current content and administration revision: 2026-09-28
+Current content revision: 2026-09-28
+Current administration interface revision: 2026-11-06
 Source reviewed: `Skills-Block-Benchmark-Assessments-Overview.pdf` (six pages)
 Implementation status: original LiteracyPath instruments aligned to the overview; not official EL Education assessment forms
 
@@ -15,9 +16,11 @@ The overview defines five benchmark evidence areas: Letter Identification, Phono
 - Teachers can show a clean pupil stimulus while keeping response controls and scoring guidance private. Pattern examples are revealed only during the word-reading task; oral sound-awareness prompts and dictated spellings never appear in the pupil display.
 - The benchmark content authority is `src/data/elBenchmarkAssessmentCatalog.js`, composed with `elBenchmarkParallelFormContent.js` and `elBenchmarkContentDepth.js`. Current forms are A v3 and B/C v2. Sound-awareness forms contain 10–14 tasks by route; spelling forms contain 12 words. Decoding retains eight items per band and its existing stop rule.
 - The updated parallel forms correct construct/feature mismatches and provide more varied oral tasks, expanded spelling-pattern sampling, and revised early reading passages. They remain provisional and are not psychometrically equated.
-- Quick capture records a teacher's observation without inventing a transcript. Detailed capture keeps the current item open for the actual response, error detail and observations. Exact spelling comparison is a visual aid; it does not decide whether a spelling is phonologically plausible.
+- One recording flow shows the current task and its two or three normal outcomes. Choosing an outcome saves and advances; opening an item’s optional detail keeps it open for transcription and observations until Next item. No recording-mode choice is required. Exact spelling comparison is a visual aid; it does not decide whether a spelling is phonologically plausible.
 - Manual diagnostic outcomes distinguish correct, not yet, no response, not scorable and not assessed. A not-yet response retains the student's actual words; a not-scorable response requires an explanation. Neither not assessed nor not scorable enters the accuracy denominator.
 - Fluency provides a clean reader window and printable passage. Optional meaning discussion is unscored and follows a full passage read; it never affects WCPM, accuracy, stop decisions or placement. Continuous one-minute timing and early-finish rules are unchanged.
+- Completion requires a deliberate tally review, but never requires a placement decision. An optional teacher-confirmed starting point retains its existing evidence/rationale checks; an invalid restored confirmation is cleared when saving. Unconfirmed suggestions never become confirmed placements.
+- Reports lead with observed counts and one next teaching step. Rates, placement context, all recommendations and exact responses remain in expandable answer details. Class matrices retain a plain observation for each latest domain attempt.
 - Reports retain actual responses and observations and provide teaching suggestions grounded in the administered evidence. Small samples are observations, not new mastery or normed classifications.
 - New benchmark drafts freeze their exact plan. `elBenchmarkLegacyContent.js` contains frozen content solely to reconstruct pre-revision drafts with exact old form IDs; it is not selectable as new content. Completed results replay their saved evidence without consulting either content bank. Scoring and routing policy have one current implementation.
 

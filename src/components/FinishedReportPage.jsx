@@ -1,3 +1,4 @@
+import { benchmarkObservationSummary, BENCHMARK_REPORT_LABELS } from "../data/benchmarkObservationSummary.js";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { buildStudentReportingWorkspaceModel } from "../data/studentReportingWorkspaceModel.js";
@@ -552,6 +553,12 @@ function formatBenchmarkNarrative(value) {
   return teacherResultText(value);
 }
 
+function BenchmarkNextStep({ detail }) {
+  if (!detail || detail.performanceSuppressed) return null;
+  const next = benchmarkEvidenceArray(detail.recommendations).map(formatBenchmarkNarrative).filter(Boolean)[0];
+  return <p className="student-report-benchmark-next-step"><strong>Next teaching step</strong><br />{next || "Review the saved answers and choose the next classroom task."}</p>;
+}
+
 function BenchmarkTeacherGuidance({ detail = {} }) {
   const evidence = detail && typeof detail === "object" ? detail : {};
   const recommendations = benchmarkEvidenceArray(evidence.recommendations).map(formatBenchmarkNarrative).filter(Boolean);
@@ -751,7 +758,7 @@ function ElBenchmarkEvidenceSection({ report }) {
         return (
           <article className={`student-report-benchmark-card ${domain.hasSavedEvidence ? "has-evidence" : "no-evidence"}`} key={domain.assessmentId}>
             <div className="student-report-benchmark-heading">
-              <h3>{domain.domainLabel}</h3>
+              <h3>{BENCHMARK_REPORT_LABELS[domain.domainKey] || domain.domainLabel}</h3>
               <span>{teacherResultText(domain.administrationStatusLabel)}</span>
             </div>
             {domain.hasSavedEvidence ? (
@@ -761,38 +768,40 @@ function ElBenchmarkEvidenceSection({ report }) {
                   {domain.benchmarkWindow ? ` · ${teacherResultText(domain.benchmarkWindow)}` : ""}
                   {domain.latestDate ? ` · ${new Date(domain.latestDate).toLocaleDateString()}` : ""}
                 </small>
-                <dl>
-                  {benchmarkMetricRows(domain).map(([label, value, definitionId]) => (
-                    <div key={label}>
-                      <dt>{label}</dt>
-                      <dd>
-                        {definitionId
-                          ? (
-                            <MetricFigure
-                              dateRange={`The saved ${domain.grade || "ungraded"} ${teacherResultText(domain.benchmarkWindow) || "assessment"} period shown on this card.`}
-                              denominator="Scored questions in this assessment area."
-                              metricId={definitionId}
-                              minimumEvidence="At least one scored question; unscored assessments display Not scored."
-                              updatedAt={domain.latestAt || domain.latestDate || detail?.updatedAt || detail?.completedAt}
-                            >
-                              {value}
-                            </MetricFigure>
-                          )
-                          : value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-                {placementLabel && <p className="student-report-provisional-placement">{placementLabel}</p>}
-                {descriptiveInterpretation && (
-                  <p className="student-report-benchmark-interpretation">{teacherResultText(descriptiveInterpretation)}</p>
-                )}
-                <BenchmarkTeacherGuidance detail={detail} />
+                <p className="student-report-benchmark-observation"><strong>What we saw</strong><br />{benchmarkObservationSummary(domain, detail)}</p>
+                <BenchmarkNextStep detail={detail} />
                 <details className="student-report-benchmark-details">
                   <summary>
                     View answer details ({countPhrase(detail?.itemDetails?.length || 0, "question")})
                   </summary>
                   <div className="student-report-benchmark-detail-body">
+                    <dl>
+                      {benchmarkMetricRows(domain).map(([label, value, definitionId]) => (
+                        <div key={label}>
+                          <dt>{label}</dt>
+                          <dd>
+                            {definitionId
+                              ? (
+                                <MetricFigure
+                                  dateRange={`The saved ${domain.grade || "ungraded"} ${teacherResultText(domain.benchmarkWindow) || "assessment"} period shown on this card.`}
+                                  denominator="Scored questions in this assessment area."
+                                  metricId={definitionId}
+                                  minimumEvidence="At least one scored question; unscored assessments display Not scored."
+                                  updatedAt={domain.latestAt || domain.latestDate || detail?.updatedAt || detail?.completedAt}
+                                >
+                                  {value}
+                                </MetricFigure>
+                              )
+                              : value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                    {placementLabel && <p className="student-report-provisional-placement">{placementLabel}</p>}
+                    {descriptiveInterpretation && (
+                      <p className="student-report-benchmark-interpretation">{teacherResultText(descriptiveInterpretation)}</p>
+                    )}
+                    <BenchmarkTeacherGuidance detail={detail} />
                     <BenchmarkPrerequisiteReview detail={detail} />
                     <BenchmarkDetail detail={detail} />
                     <BenchmarkItemEvidenceTable detail={detail} />
@@ -1389,23 +1398,7 @@ export function FinishedReportPage({
                   })}
                   options={benchmarkScopeOptions}
                 />
-                <div className="lg-report-assessment-grid">
-                  {elAssessments.slice(2).map(assessment => (
-                    <article className="lg-report-assessment-card" key={assessment.assessmentId}>
-                      <div>
-                        <span>Assessment {assessment.number}</span>
-                        <h3>{assessment.title}</h3>
-                      </div>
-                      <strong>{teacherResultText(assessment.resultLabel) || "Not checked"}</strong>
-                      <p>{teacherResultText(assessment.interpretation) || "No results have been recorded."}</p>
-                      {assessment.latestAt && <small>Latest: {new Date(assessment.latestAt).toLocaleDateString()}</small>}
-                    </article>
-                  ))}
-                </div>
-                <details className="lg-report-technical-details">
-                  <summary>View questions, answers and notes</summary>
-                  <ElBenchmarkEvidenceSection report={elBenchmarkReport} />
-                </details>
+                <ElBenchmarkEvidenceSection report={elBenchmarkReport} />
               </ReportSection>
             </div>
           )}

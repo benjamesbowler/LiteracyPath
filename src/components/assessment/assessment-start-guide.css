@@ -16,3 +16,11 @@
 @media (forced-colors: active) {
   .assessment-start-guide { border: 1px solid CanvasText; }
 }
+
+.assessment-start-guide > summary,
+.teacher-assess-field > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

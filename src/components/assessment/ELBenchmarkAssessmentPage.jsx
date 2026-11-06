@@ -1,3 +1,4 @@
+import { BENCHMARK_ASSESSMENT_LABELS } from "../../data/benchmarkObservationSummary.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   EL_BENCHMARK_ERROR_TAGS,
@@ -715,13 +716,13 @@ function getRhymeRecognitionPair(item = {}) {
   return match ? [match[1].trim(), match[2].trim()] : [];
 }
 
-function OptionalDetail({ children, label = "Other or add detail", open = false }) {
+function OptionalDetail({ children, label = "Other or add detail", open = false, onOpenChange }) {
   const [userOpen, setUserOpen] = useState(false);
 
   return (
     <details
       className="el-benchmark-optional-detail"
-      onToggle={event => setUserOpen(event.currentTarget.open)}
+      onToggle={event => { setUserOpen(event.currentTarget.open); onOpenChange?.(event.currentTarget.open); }}
       open={open || userOpen}
     >
       <summary>{label}</summary>
@@ -805,12 +806,9 @@ function ExactResponseField({ value = "", onChange, label = "Exact student answe
   );
 }
 
-function PhonologicalAwarenessPanel({ item, response, onResponseChange, onQuickScore, detailed }) {
+function PhonologicalAwarenessPanel({ item, response, onResponseChange, onQuickScore, onDetailChange }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
-  );
-  const [showOther, setShowOther] = useState(
-    response.status === "no_response" || response.status === "not_scorable"
   );
   const [otherResponse, setOtherResponse] = useState(response.responseText || "");
   const expectedAnswers = toArray(item.expectedAnswers || item.acceptedAnswers);
@@ -871,26 +869,20 @@ function PhonologicalAwarenessPanel({ item, response, onResponseChange, onQuickS
       <QuickOutcomeButtons
         legend={isRhymeRecognition ? "What did the student answer?" : "Was the spoken answer correct?"}
         onChoose={value => {
-          if (value === "other") {
-            setShowOther(true);
-            return;
-          }
           if (isRhymeRecognition) recordRhymeChoice(value);
           else recordJudgment(value === "correct", otherResponse);
         }}
         options={isRhymeRecognition ? [
           { value: "yes", label: "Yes", symbol: "✓", tone: "positive" },
-          { value: "no", label: "No", symbol: "×", tone: "negative" },
-          { value: "other", label: "Other", symbol: "…", tone: "neutral" }
+          { value: "no", label: "No", symbol: "×", tone: "negative" }
         ] : [
           { value: "correct", label: "Correct", symbol: "✓", tone: "positive" },
-          { value: "incorrect", label: "Not yet", symbol: "×", tone: "negative" },
-          { value: "other", label: "Other", symbol: "…", tone: "neutral" }
+          { value: "incorrect", label: "Not yet", symbol: "×", tone: "negative" }
         ]}
         value={currentValue}
       />
 
-      <OptionalDetail label="Other, no answer, or add what they said" open={detailed || showOther || showNotScorableReason}>
+      <OptionalDetail label="Other, no answer, or add what they said" onOpenChange={onDetailChange} open={response.status === "no_response" || response.status === "not_scorable" || showNotScorableReason}>
         <aside className="el-benchmark-scoring-reference" aria-label="Teacher scoring reference">
           <span>Teacher answer guide</span>
           <strong>{expectedAnswers.join(" or ") || "Use teacher judgment"}</strong>
@@ -984,7 +976,7 @@ function PhonologicalAwarenessPanel({ item, response, onResponseChange, onQuickS
   );
 }
 
-function EncodingPanel({ item, response, onResponseChange, onQuickScore, detailed }) {
+function EncodingPanel({ item, response, onResponseChange, onQuickScore, onDetailChange }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
   );
@@ -1038,7 +1030,7 @@ function EncodingPanel({ item, response, onResponseChange, onQuickScore, detaile
         value={currentValue}
       />
 
-      <OptionalDetail label="Other or add spelling detail" open={detailed || showNotScorableReason || response.status === "no_response"}>
+      <OptionalDetail label="Other or add spelling detail" onOpenChange={onDetailChange} open={showNotScorableReason || response.status === "no_response"}>
         <div className="el-benchmark-answer-guide" aria-label="Teacher spelling guide">
           <div>
             <span>Correct spelling</span>
@@ -1227,7 +1219,7 @@ function getDecodingEvaluationPatch(value, response = {}, notScorableEvidence = 
   };
 }
 
-function DecodingPanel({ item, response, onResponseChange, onQuickScore, detailed }) {
+function DecodingPanel({ item, response, onResponseChange, onQuickScore, onDetailChange }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
   );
@@ -1278,7 +1270,7 @@ function DecodingPanel({ item, response, onResponseChange, onQuickScore, detaile
         value={evaluation}
       />
 
-      <OptionalDetail label="Other or add reading detail" open={detailed || showNotScorableReason || ["self_corrected", "no_response", "not_scorable"].includes(evaluation)}>
+      <OptionalDetail label="Other or add reading detail" onOpenChange={onDetailChange} open={showNotScorableReason || ["self_corrected", "no_response", "not_scorable"].includes(evaluation)}>
         <div className="el-benchmark-button-row el-benchmark-other-outcomes">
           <button className="el-benchmark-button secondary" onClick={() => recordEvaluation("self_corrected")} type="button">
             Self-corrected
@@ -2099,6 +2091,7 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
 
 function ItemPanel({
   detailed,
+  onDetailChange,
   kind,
   plan,
   item,
@@ -2142,7 +2135,6 @@ function ItemPanel({
     <article className={`el-benchmark-item-card${detailed ? " has-detail" : ""}`} data-assessment-kind={kind}>
       <header className="el-benchmark-item-header">
         <div>
-          <span>{routeLabel}</span>
           <h2 ref={headingRef} tabIndex="-1">
             {isFluency ? "Record the one-minute read" : `Item ${itemNumber} of ${itemCount}`}
           </h2>
@@ -2151,10 +2143,10 @@ function ItemPanel({
 
       {kind === ASSESSMENT_KINDS.ENCODING && <ProtectedEncodingPrompt item={item} />}
 
-      <section className="el-benchmark-item-instruction" aria-label="Teacher instruction">
+      {kind !== ASSESSMENT_KINDS.ENCODING && <section className="el-benchmark-item-instruction" aria-label="Teacher instruction">
         <strong>{taskHeading}</strong>
         <p>{teacherDirective}</p>
-      </section>
+      </section>}
 
       {kind === ASSESSMENT_KINDS.DECODING && (
         <div className="el-benchmark-word-display woodland-reading-stimulus" aria-label={`Word to read: ${decodingWord}`}>
@@ -2162,11 +2154,9 @@ function ItemPanel({
         </div>
       )}
 
-      <ItemGuidance item={item} />
-
       {kind === ASSESSMENT_KINDS.PHONOLOGICAL_AWARENESS && (
         <PhonologicalAwarenessPanel
-          detailed={detailed}
+          onDetailChange={onDetailChange}
           item={item}
           onResponseChange={onResponseChange}
           onQuickScore={onQuickScore}
@@ -2175,7 +2165,7 @@ function ItemPanel({
       )}
       {kind === ASSESSMENT_KINDS.ENCODING && (
         <EncodingPanel
-          detailed={detailed}
+          onDetailChange={onDetailChange}
           item={item}
           onResponseChange={onResponseChange}
           onQuickScore={onQuickScore}
@@ -2184,7 +2174,7 @@ function ItemPanel({
       )}
       {kind === ASSESSMENT_KINDS.DECODING && (
         <DecodingPanel
-          detailed={detailed}
+          onDetailChange={onDetailChange}
           item={item}
           onResponseChange={onResponseChange}
           onQuickScore={onQuickScore}
@@ -2200,6 +2190,7 @@ function ItemPanel({
           response={response}
         />
       )}
+      <ItemGuidance item={item} />
     </article>
   );
 }
@@ -3090,8 +3081,9 @@ export function ELBenchmarkAssessmentPage({
     !confirmedPlacementOutsideAllowedRange &&
     (!confirmedPlacementNeedsRationale || String(session.confirmedPlacement?.overrideReason || "").trim())
   );
-  const canCompleteAssessment = allItemsComplete && placementConfirmed;
-  const needsPlacementConfirmation = allItemsComplete && requiresPlacementConfirmation && !placementConfirmed;
+  const canCompleteAssessment = allItemsComplete;
+  const [itemDetail, setItemDetail] = useState({ itemId: "", open: false });
+  const detailed = itemDetail.itemId === currentItemId && itemDetail.open;
   const completionIsSaving = completionState.status === "saving";
   const terminalSessionStatus = getTerminalSessionStatus(session);
   const routeNavigationLockMessage = kind === ASSESSMENT_KINDS.FLUENCY
@@ -3350,13 +3342,6 @@ export function ELBenchmarkAssessmentPage({
     }));
   };
 
-  const focusPlacementStep = () => {
-    const panel = placementPanelRef.current;
-    if (!panel) return;
-    panel.scrollIntoView?.({ block: "center" });
-    panel.focus?.({ preventScroll: true });
-  };
-
   const completeAssessment = async () => {
     if (
       timerIsRunning ||
@@ -3371,7 +3356,8 @@ export function ELBenchmarkAssessmentPage({
       status: "completed",
       administrationStatus: "completed",
       completedAt: now,
-      updatedAt: now
+      updatedAt: now,
+      ...(!placementConfirmed ? { confirmedPlacement: null, placementSource: "", placementConfirmedAt: "" } : {})
     }));
     try {
       const result = typeof onComplete === "function"
@@ -3811,7 +3797,7 @@ export function ELBenchmarkAssessmentPage({
       <header className="el-benchmark-topbar">
         <div className="el-benchmark-title-block">
           <div>
-            <h1 id="el-benchmark-page-title">{teacherGuidanceText(plan.title || "EL-aligned assessment")}</h1>
+            <h1 id="el-benchmark-page-title">{BENCHMARK_ASSESSMENT_LABELS[session.assessmentId || plan.assessmentId] || teacherGuidanceText(plan.title || "Assessment")}</h1>
           </div>
           <p>{getStudentName(session)} · {formatGrade(session.grade)} · {formatWindow(session.window)}</p>
         </div>
@@ -3845,8 +3831,6 @@ export function ELBenchmarkAssessmentPage({
                   ? "Saving the completed assessment. Keep this page open."
                   : canCompleteAssessment
                     ? "Everything is ready to save."
-                    : needsPlacementConfirmation
-                      ? "One final step: choose the student’s next starting point."
                       : resolvedItems.length === items.length
                         ? "Review the suggested next step below."
                         : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
@@ -3870,57 +3854,31 @@ export function ELBenchmarkAssessmentPage({
             aria-busy={completionIsSaving ? "true" : undefined}
             aria-describedby="el-benchmark-completion-status"
             className="el-benchmark-button primary"
-            disabled={timerIsRunning || completionIsSaving || (!canCompleteAssessment && !needsPlacementConfirmation)}
-            onClick={() => {
-              if (needsPlacementConfirmation) {
-                focusPlacementStep();
-                return;
-              }
-              openFinishConfirmation();
-            }}
+            disabled={timerIsRunning || completionIsSaving || !canCompleteAssessment}
+            onClick={openFinishConfirmation}
             type="button"
           >
             {completionIsSaving
               ? "Finishing..."
               : completionState.status === "error"
                 ? "Retry finish"
-                : needsPlacementConfirmation
-                  ? "Choose starting point"
                   : "Finish assessment"}
           </button>
         </div>
       </header>
 
+      <LegacyFormNotice formId={plan.formId} />
       <div className="el-benchmark-workspace">
-        <div className="el-benchmark-administration-tools">
-          <LegacyFormNotice formId={plan.formId} />
-          <StudentDisplay kind={kind} item={currentItem} timing={timerIsRunning} />
-          {kind !== ASSESSMENT_KINDS.FLUENCY && <fieldset className="el-benchmark-capture-mode">
-            <legend>{RUNNER_COPY.captureLabel}</legend>
-            <div>{[{ value: false, label: RUNNER_COPY.quick }, { value: true, label: RUNNER_COPY.detail }].map(option => <button aria-pressed={Boolean(session.captureDetail) === option.value} key={option.label} onClick={() => emitSession(makeSessionSnapshot({ captureDetail: option.value }))} type="button">{option.label}</button>)}</div>
-            <details className="el-benchmark-tool-help"><summary>{RUNNER_COPY.captureHelp}</summary><p>{session.captureDetail ? RUNNER_COPY.detailHelp : RUNNER_COPY.quickHelp}</p></details>
-          </fieldset>}
-          <PreparationGuide plan={plan} />
-        </div>
-        <details className="el-benchmark-review-drawer">
-          <summary>Review answers or instructions</summary>
-          <RouteSummary
-            currentIndex={currentIndex}
-            isItemNavigationAllowed={isItemNavigationAllowed}
-            items={items}
-            kind={kind}
-            navigationLocked={timerIsRunning}
-            navigationLockMessage={routeNavigationLockMessage}
-            onSelectItem={selectItem}
-            plan={plan}
-            responses={responses}
-            session={session}
-          />
-        </details>
+        {[ASSESSMENT_KINDS.DECODING, ASSESSMENT_KINDS.FLUENCY].includes(kind) && (
+          <div className="el-benchmark-administration-tools">
+            <StudentDisplay kind={kind} item={currentItem} timing={timerIsRunning} />
+          </div>
+        )}
 
         <section className="el-benchmark-work-area">
           <ItemPanel
-            detailed={session.captureDetail === true}
+            detailed={detailed}
+            onDetailChange={open => setItemDetail({ itemId: currentItemId, open })}
             item={currentItem}
             itemCount={items.length}
             itemNumber={currentIndex + 1}
@@ -3928,7 +3886,7 @@ export function ELBenchmarkAssessmentPage({
             kind={kind}
             onAccuracyDecision={recordFluencyAccuracyAndRoute}
             onResponseChange={updateCurrentResponse}
-            onQuickScore={patch => updateCurrentResponse(patch, { advance: session.captureDetail !== true })}
+            onQuickScore={patch => updateCurrentResponse(patch, { advance: !detailed })}
             plan={plan}
             response={currentResponse}
           />
@@ -3966,7 +3924,7 @@ export function ELBenchmarkAssessmentPage({
           )}
 
           <nav className="el-benchmark-item-actions" aria-label="Item navigation">
-            {session.captureDetail && kind !== ASSESSMENT_KINDS.FLUENCY && currentIndex < items.length - 1 && isItemNavigationAllowed(currentIndex + 1) && <button className="el-benchmark-button primary" disabled={!isResponseComplete(kind, currentResponse, currentItem)} onClick={() => selectItem(currentIndex + 1)} type="button">{RUNNER_COPY.next}</button>}
+            {detailed && kind !== ASSESSMENT_KINDS.FLUENCY && currentIndex < items.length - 1 && isItemNavigationAllowed(currentIndex + 1) && <button className="el-benchmark-button primary" disabled={!isResponseComplete(kind, currentResponse, currentItem)} onClick={() => selectItem(currentIndex + 1)} type="button">{RUNNER_COPY.next}</button>}
             <button
               className="el-benchmark-button secondary"
               disabled={currentIndex === 0 || timerIsRunning}
@@ -3982,23 +3940,26 @@ export function ELBenchmarkAssessmentPage({
                   ? "More detail is needed here."
                   : kind === ASSESSMENT_KINDS.FLUENCY
                     ? "Complete the read above."
-                    : session.captureDetail ? RUNNER_COPY.recordOutcome : "Choose one answer above — it saves and moves on."}
+                    : detailed ? RUNNER_COPY.recordOutcome : "Choose one answer above — it saves and moves on."}
             </p>
           </nav>
 
           {requiresPlacementConfirmation && allItemsComplete && (
-            <PlacementConfirmationPanel
-              administrationRange={plan.route?.administrationRange}
-              allowedMicrophases={placementAllowedMicrophases}
-              assessmentKind={kind}
-              confirmedPlacement={session.confirmedPlacement}
-              defaultMicrophase={defaultPlacementMicrophase}
-              key={`${kind}-${placementPreview?.candidatePlacement?.candidateMicrophase || "teacher-select"}-${confirmedPlacementMicrophase || "unconfirmed"}-${session.confirmedPlacement?.confirmedAt || "new"}`}
-              onConfirm={confirmPlacement}
-              normalRangeMicrophases={placementRangeMicrophases}
-              panelRef={placementPanelRef}
-              preview={placementPreview}
-            />
+            <details className="el-benchmark-optional-detail">
+              <summary>Choose a next starting point (optional)</summary>
+              <PlacementConfirmationPanel
+                administrationRange={plan.route?.administrationRange}
+                allowedMicrophases={placementAllowedMicrophases}
+                assessmentKind={kind}
+                confirmedPlacement={session.confirmedPlacement}
+                defaultMicrophase={defaultPlacementMicrophase}
+                key={`${kind}-${placementPreview?.candidatePlacement?.candidateMicrophase || "teacher-select"}-${confirmedPlacementMicrophase || "unconfirmed"}-${session.confirmedPlacement?.confirmedAt || "new"}`}
+                onConfirm={confirmPlacement}
+                normalRangeMicrophases={placementRangeMicrophases}
+                panelRef={placementPanelRef}
+                preview={placementPreview}
+              />
+            </details>
           )}
 
           {showFinishConfirmation && canCompleteAssessment && (
@@ -4014,6 +3975,23 @@ export function ELBenchmarkAssessmentPage({
             />
           )}
         </section>
+        <details className="el-benchmark-review-drawer">
+          <summary>Review answers or instructions</summary>
+          <PreparationGuide plan={plan} />
+          <RouteSummary
+            currentIndex={currentIndex}
+            isItemNavigationAllowed={isItemNavigationAllowed}
+            items={items}
+            kind={kind}
+            navigationLocked={timerIsRunning}
+            navigationLockMessage={routeNavigationLockMessage}
+            onSelectItem={selectItem}
+            plan={plan}
+            responses={responses}
+            session={session}
+          />
+        </details>
+
       </div>
 
       {showDiscontinue && (

@@ -48,16 +48,9 @@ async function startEncoding(page) {
     await review.getByRole("button", { name: /Recent classroom work/ }).click();
     await review.getByRole("button", { name: "Begin Spelling", exact: true }).click();
   }
-  await expect(page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toBeVisible();
 }
 
-async function acceptPlacement(page) {
-  const stickyBar = page.locator(".el-benchmark-topbar");
-  await stickyBar.getByRole("button", { name: "Choose starting point", exact: true }).click();
-  await page.getByRole("region", { name: "Choose where to start next" })
-    .getByRole("button", { name: "Use this starting point", exact: true })
-    .click();
-}
 
 test("@el-assessment-route-resume @el-assessment-final-review restores the item and confirms a corrected final tap", async ({
   page
@@ -76,7 +69,7 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await expect(page).toHaveURL(/#teacher\/checks\/el-benchmark\?.*item=4/);
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toBeVisible({
     timeout: 20_000
   });
   await expect(page.getByRole("heading", { name: "Item 4 of 12", exact: true })).toBeVisible();
@@ -87,7 +80,6 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
     await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
   }
   await page.getByRole("button", { name: "Not yet", exact: true }).click();
-  await acceptPlacement(page);
 
   await page.locator(".el-benchmark-topbar")
     .getByRole("button", { name: "Finish assessment", exact: true })
@@ -98,7 +90,6 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await expect(page.getByRole("heading", { name: "Item 12 of 12", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
 
-  await acceptPlacement(page);
   await page.locator(".el-benchmark-topbar")
     .getByRole("button", { name: "Finish assessment", exact: true })
     .click();

@@ -1,3 +1,4 @@
+import { BENCHMARK_ASSESSMENT_LABELS as BENCHMARK_LABELS } from "./benchmarkObservationSummary.js";
 /**
  * ONE LIST OF EVERY CHECK A TEACHER CAN START.
  *
@@ -56,22 +57,17 @@ export const ASSESSMENT_TIME_OF_YEAR_OPTIONS = Object.freeze([
   Object.freeze({ value: "EOY", label: "End of year" })
 ]);
 
-const BENCHMARK_LABELS = Object.freeze({
-  [EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS]: "Sound awareness",
-  [EL_BENCHMARK_IDS.ENCODING]: "Spelling",
-  [EL_BENCHMARK_IDS.DECODING]: "Word reading",
-  [EL_BENCHMARK_IDS.ORAL_READING_FLUENCY]: "Reading fluency"
-});
+
 
 const BENCHMARK_DESCRIPTIONS = Object.freeze({
   [EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS]:
-    "Tells you how well the student hears and plays with the sounds inside spoken words.",
+    "Listen to spoken words and answer aloud.",
   [EL_BENCHMARK_IDS.ENCODING]:
-    "Tells you which letter patterns the student can already write down from a spoken word.",
+    "Hear a word and write it on paper.",
   [EL_BENCHMARK_IDS.DECODING]:
-    "Tells you which word patterns the student reads accurately, and which ones they read without stopping to work them out.",
+    "Read one word at a time.",
   [EL_BENCHMARK_IDS.ORAL_READING_FLUENCY]:
-    "Tells you how smoothly and accurately the student reads a short passage aloud."
+    "Read a short passage aloud for one minute."
 });
 
 const BENCHMARK_ADMINISTRATION = Object.freeze({
