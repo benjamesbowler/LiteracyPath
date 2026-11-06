@@ -87,6 +87,7 @@ Every scored question must satisfy all of these:
 ## 7. Stem and instruction rules
 
 - Put the full task in the stem; a child should understand the task before looking at options.
+- Incidental sentence examples use friendly, familiar situations such as playing with friends or sharing a snack. Word counting and punctuation do not need first-person distress, blame, insults or threats. Emotion vocabulary retains a clear, supportive context when feelings are the actual teaching target.
 - Use positive wording. Negative stems are allowed only when negation is the intended age-appropriate comparison, the learner is Band B or above, and **NOT/EXCEPT** is visibly and audibly emphasized. Never use a negative stem in Level 1.
 - Use one verb: “Tap,” “Choose,” “Build,” “Put,” “Read,” or “Listen.”
 - Do not say “Wait for it to flash” unless the tested interface deterministically flashes and the event is verified by a browser test.

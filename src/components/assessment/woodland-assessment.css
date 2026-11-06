@@ -113,10 +113,10 @@
   min-height: 112px !important;
   padding: clamp(10px, 1.5vw, 20px) !important;
   gap: 8px;
-  border: 2px solid var(--wa-edge) !important;
+  border: 2px solid #526AA6 !important;
   border-radius: 20px !important;
   color: var(--wa-ink) !important;
-  background: var(--wa-cream) !important;
+  background: #EEF3FF !important;
   box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #18263E20;
   font-family: inherit;
   font-size: clamp(22px, 2.8vw, 36px);
@@ -134,7 +134,12 @@
 .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button) strong { font-weight: 650; font-size: clamp(18px, 2vw, 26px); }
 .woodland-assessment .letter-options .ixl-answer-button strong { font-size: clamp(36px, 5vw, 58px); }
 .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card)[data-pressed='true'] { transform: none; box-shadow: 0 3px 0 var(--wa-shadow); }
-.woodland-assessment :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card).selected > button:first-child { border-color: #5C677A !important; background: #E9EDF9 !important; }
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card)[aria-pressed='true'],
+.woodland-assessment :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card).selected > button:first-child {
+  border-color: #2449B0 !important;
+  background: #DCE7FF !important;
+  box-shadow: inset 0 0 0 2px #2449B0, 0 3px 0 #A5B8EC;
+}
 .woodland-assessment :is(.visual-assessment-card, .initial-sound-card).selected > button:first-child::after { content: '✓'; position: absolute; top: -8px; right: -4px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #3454C8; color: #fff9e8; font-size: 20px; }
 .woodland-assessment .assessment-audio-button {
   position: static;

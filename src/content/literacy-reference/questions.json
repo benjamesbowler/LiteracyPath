@@ -5,20 +5,20 @@
     "family": "word_count",
     "sourceSlide": 2,
     "prompt": "How many words are in this sentence?",
-    "stimulus": "I really want to cry!",
-    "answer": "5",
+    "stimulus": "I like to play with my friends.",
+    "answer": "7",
     "options": [
-      "4",
-      "5",
-      "6"
+      "6",
+      "7",
+      "8"
     ],
-    "explanation": "The sentence has 5 words. Spaces separate the words.",
+    "explanation": "The sentence has 7 words. Spaces separate the words.",
     "origin": "supplied_adaptation",
     "level": 1,
     "demand": 2,
     "distractorRationales": {
-      "4": "Omits a whole word; the sentence has 5 space-separated words.",
-      "6": "Counts a word twice or splits it; the sentence has 5 space-separated words."
+      "6": "Omits a whole word; the sentence has 7 space-separated words.",
+      "8": "Counts a word twice or splits it; the sentence has 7 space-separated words."
     }
   },
   {
@@ -52,20 +52,20 @@
     "family": "word_count",
     "sourceSlide": 3,
     "prompt": "How many words are in this sentence?",
-    "stimulus": "You make me feel very angry.",
-    "answer": "6",
+    "stimulus": "Would you like some ice cream with me?",
+    "answer": "8",
     "options": [
-      "5",
-      "6",
-      "7"
+      "7",
+      "8",
+      "9"
     ],
-    "explanation": "The sentence has 6 words. Spaces separate the words.",
+    "explanation": "The sentence has 8 words. Spaces separate the words.",
     "origin": "supplied_adaptation",
     "level": 1,
     "demand": 2,
     "distractorRationales": {
-      "5": "Omits a whole word; the sentence has 6 space-separated words.",
-      "7": "Counts a word twice or splits it; the sentence has 6 space-separated words."
+      "7": "Omits a whole word; the sentence has 8 space-separated words.",
+      "9": "Counts a word twice or splits it; the sentence has 8 space-separated words."
     }
   },
   {
@@ -777,7 +777,7 @@
     "family": "multiple_meaning",
     "sourceSlide": 22,
     "prompt": "Which word fits both blanks?",
-    "stimulus": "We saw a ___ in the sky.\nNellie is a ___ student.",
+    "stimulus": "We saw a ___ in the sky.\nNellie is the ___ of the school play.",
     "answer": "star",
     "options": [
       "bird",
@@ -3307,16 +3307,16 @@
     "skillId": "context_clues",
     "family": "passage_context_meaning",
     "sourceSlide": 53,
-    "prompt": "What does Carlos’s habit of being late mean?",
-    "stimulus": "Carlos has a habit. He has a habit of being late. He is late for school. He is late for soccer. He is late for dinner. Carlos does not like being late. Sometimes, being late gets him in trouble. So, he thinks of a plan. It is a plan to not be late. Carlos brings his watch to Mom. He asks for help. They set an alarm on his watch. Carlos does not want to be late again!",
-    "answer": "He is often late.",
+    "prompt": "What does Carlos’s habit of checking the time mean?",
+    "stimulus": "Carlos has a habit of checking the time. He checks his watch before school. He checks it before soccer. He checks it before dinner. Mom helps him set an alarm. The alarm reminds Carlos when it is time to leave.",
+    "answer": "He often checks the time.",
     "options": [
-      "He dislikes being late.",
-      "He is often late.",
-      "He has an alarm.",
-      "He asks for help."
+      "He dislikes his watch.",
+      "He often checks the time.",
+      "He checks it only once.",
+      "He asks for a new watch."
     ],
-    "explanation": "A habit is something someone does regularly.",
+    "explanation": "A habit is something you do often. Carlos checks the time before different activities.",
     "origin": "supplied_adaptation",
     "level": 2,
     "demand": 4,
@@ -3324,9 +3324,9 @@
     "image": 74,
     "imageAlt": "A child looking at an alarm clock",
     "distractorRationales": {
-      "He dislikes being late.": "Selects Carlos’s feeling about the habit rather than the repeated action.",
-      "He has an alarm.": "Selects the solution rather than the repeated late arrivals.",
-      "He asks for help.": "Selects one action to change the habit rather than its meaning."
+      "He dislikes his watch.": "Confuses a habit with a feeling about an object.",
+      "He checks it only once.": "Misses the repeated checking before different activities.",
+      "He asks for a new watch.": "Confuses a habit with asking for something."
     }
   },
   {
@@ -3489,7 +3489,7 @@
     "family": "passage_context_meaning",
     "sourceSlide": 61,
     "prompt": "What does approaches mean in this passage?",
-    "stimulus": "Giraffes are tall. This helps them eat. They can reach leaves on tall trees. It also helps them stay safe. Giraffes can see a long way. They rest and drink in groups. Some of them watch for signs of danger. They can see if a lion approaches. They   tell the others. They all run. The lion will not get near them! Zebras sometimes travel with giraffes. The giraffes keep them safe.",
+    "stimulus": "Giraffes are tall. They can reach leaves on tall trees. Their height also helps them see a long way. Giraffes rest and drink in groups. Some watch for danger. If a lion approaches, they can see it from far away. They move away together.",
     "answer": "moves near",
     "options": [
       "talks to",
@@ -3568,24 +3568,24 @@
     "skillId": "key_details",
     "family": "passage_evidence",
     "sourceSlide": 64,
-    "prompt": "Which sentence shows the alligator caring for her eggs?",
-    "stimulus": "Look at that big alligator! She has long teeth and a strong tail. She looks scary, but she is really a good mother. She lays her eggs in the summer. Then she stays with them until they hatch. Her babies can stay near her for a long time.",
-    "answer": "She stays with them until they hatch.",
+    "prompt": "What does the alligator do while waiting for her eggs to hatch?",
+    "stimulus": "An alligator has a strong tail and long teeth. She lays eggs in a nest. She stays near the nest until the eggs hatch. After they hatch, her babies can stay near her for a long time.",
+    "answer": "She stays near the nest.",
     "options": [
-      "Look at that big alligator!",
-      "She lays her eggs in summer.",
-      "She has long teeth and a strong tail.",
-      "She stays with them until they hatch."
+      "She swims away from the nest.",
+      "She carries food to the eggs.",
+      "She moves the eggs each day.",
+      "She stays near the nest."
     ],
-    "explanation": "Staying with the eggs helps protect them until they hatch.",
+    "explanation": "The passage says she stays near the nest until the eggs hatch.",
     "origin": "supplied_adaptation",
     "level": 1,
     "demand": 3,
     "adaptation": "Editorial corrections retain the target concept and complete passage.",
     "distractorRationales": {
-      "Look at that big alligator!": "Selects an observation of size rather than egg protection.",
-      "She lays her eggs in summer.": "Selects egg laying rather than the later action protecting the eggs.",
-      "She has long teeth and a strong tail.": "Selects body features rather than care for the eggs."
+      "She swims away from the nest.": "Reverses the stated action of staying near the nest.",
+      "She carries food to the eggs.": "Adds an action that the passage does not describe.",
+      "She moves the eggs each day.": "Adds an action that the passage does not describe."
     }
   },
   {

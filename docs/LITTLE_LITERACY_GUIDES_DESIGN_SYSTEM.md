@@ -58,6 +58,12 @@ compact progress label replaces the decorative forty-dot row. See
 Touch, mouse and keyboard use the same learning action, including while an
 instruction is playing. Preserve cancellation and duplicate-tap protection.
 
+Answer pads use a pale-blue fill, a clearly contrasting blue outline and a
+raised shadow against the activity panel. Selection adds a stronger outline
+and inset ring. Printed answer buttons show only the actual answer or
+distractor, including a number when that number is the answer; do not add an
+option-position prefix. Picture choices do not need visible position badges.
+
 The shared presentation does not own curriculum, scoring or persistence.
 Practice retains its supported retry and existing session depth; independent
 assessment records the first response without revealing a key or coaching

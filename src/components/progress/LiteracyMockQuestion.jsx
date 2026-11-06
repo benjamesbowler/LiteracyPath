@@ -86,7 +86,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       onClick={() => choose(choice.id)}>
       {choice.image && picture(choice.image, choice.imageAlt)}
       {!item.hideWrittenLabels && <span>{choice.label}</span>}
-      {item.hideWrittenLabels && <span className="literacy-mock-answer-number">{number + 1}</span>}
+      {item.hideWrittenLabels && !choice.image && <span className="literacy-mock-answer-number">{number + 1}</span>}
       {item.hideWrittenLabels && !choice.image && <span className="literacy-mock-spoken-label" aria-hidden="true">Spoken answer</span>}
     </button>
     {choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}

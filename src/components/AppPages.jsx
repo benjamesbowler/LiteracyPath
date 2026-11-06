@@ -464,17 +464,17 @@ function MapMultiSelectQuestion({ currentQuestion, answerQuestion, speakText, on
           <ActivityButton type="button" className="assessment-answer-card map-multi-select-option wa-choice" disabled={pending}
             aria-pressed={selected.includes(value)} aria-label={`Select ${currentQuestion.hideWrittenLabels ? `picture ${index + 1}` : label}`} onClick={() => toggle(value)}>
             {image && <AssessmentEvidenceImage src={image} alt={option.alt} label={label} role="choice" currentQuestion={currentQuestion} onEvidenceImageError={onEvidenceImageError} />}
-            <span>{currentQuestion.hideWrittenLabels ? `Picture ${index + 1}` : label}</span>
+            {!currentQuestion.hideWrittenLabels && <span>{label}</span>}
           </ActivityButton>
           {oral && <AssessmentAudioButton text={label} audioPath={option.audio || currentQuestion.choiceAudioPaths?.[value]} speakText={speakText}
-            label={`Hear picture ${index + 1}`} displayLabel={`Hear ${index + 1}`} audioRole="choice" showDisabled />}
+            label={`Hear picture ${index + 1}`} audioRole="choice" showDisabled />}
         </div>;
       })}
     </div>
     <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Answer ready…">
       {`${selected.length}${requestedCount ? ` of ${requestedCount}` : ""} selected. Tap again to change your choices.`}
     </AssessmentConstructionStatus>
-    <ActivityButton type="button" className="assessment-answer-card map-multi-select-submit wa-choice" data-child-primary={currentQuestion.requireExplicitSubmit ? "" : undefined} disabled={pending || !selected.length || Boolean(requestedCount && selected.length !== requestedCount)}
+    <ActivityButton type="button" className="map-multi-select-submit" data-child-primary={currentQuestion.requireExplicitSubmit ? "" : undefined} disabled={pending || !selected.length || Boolean(requestedCount && selected.length !== requestedCount)}
       onClick={() => { if (selected.length && !pending) complete([...selected]); }}>{currentQuestion.practiceAdministration === "rehearsal" ? "Next" : "Check answer"}</ActivityButton>
   </div>;
 }

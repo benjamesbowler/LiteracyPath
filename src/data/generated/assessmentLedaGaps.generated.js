@@ -13936,7 +13936,9 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "rule. which printed word matches the recording": "/audio/production/en-US/assessment_prompt/rule-which-printed-word-matches-the-recording-1c4f762c65.mp3",
     "tune. which printed word matches the recording": "/audio/production/en-US/assessment_prompt/tune-which-printed-word-matches-the-recording-2a0b15601f.mp3",
     "use. which vowel pattern completes the word": "/audio/production/en-US/assessment_prompt/use-which-vowel-pattern-completes-the-word-c45a3cb838.mp3",
-    "set. which printed word matches the recording": "/audio/production/en-US/assessment_prompt/set-which-printed-word-matches-the-recording-b56b6c95ed.mp3"
+    "set. which printed word matches the recording": "/audio/production/en-US/assessment_prompt/set-which-printed-word-matches-the-recording-b56b6c95ed.mp3",
+    "what does carlos's habit of checking the time mean": "/audio/production/en-US/assessment_prompt/what-does-carlos-s-habit-of-checking-the-time-mean-8c6e383cbe.mp3",
+    "what does the alligator do while waiting for her eggs to hatch": "/audio/production/en-US/assessment_prompt/what-does-the-alligator-do-while-waiting-for-her-eggs-to-hatch-a352a4592e.mp3"
   },
   "assessment_passage": {
     "the classroom clock stopped during reading. ella noticed that both hands stayed on twelve. mr. reed changed the battery after lunch. the clock began ticking again before home time": "/audio/production/en-US/assessment_passage/the-classroom-clock-stopped-during-reading-ella-noticed-that-both-hands-st-121f8bb5fe.mp3",
@@ -16524,7 +16526,13 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "there were two tables of lanterns. no lantern on the left table was lit. all the lanterns on the right table were lit": "/audio/production/en-US/assessment_passage/there-were-two-tables-of-lanterns-no-lantern-on-the-left-table-was-lit-all-e3bfd8f431.mp3",
     "until the soil dried, rosa did not water the pot. she watered it as soon as it was dry": "/audio/production/en-US/assessment_passage/until-the-soil-dried-rosa-did-not-water-the-pot-she-watered-it-as-soon-as--5b89b52d1c.mp3",
     "zara pushed the same puzzle piece harder each time it would not fit. the cardboard began to bend. she stopped pushing, turned the piece, and found the position that matched the gap": "/audio/production/en-US/assessment_passage/zara-pushed-the-same-puzzle-piece-harder-each-time-it-would-not-fit-the-ca-97f69345da.mp3",
-    "zara pushed the same puzzle piece harder each time it would not fit. the cardboard began to bend. she stopped pushing, turned the piece, and found the position that matched the gap. hugo pulled both ends of a knotted ribbon to free it. the knot grew tighter. he loosened one small loop with his fingers instead. the ribbon came free without another hard pull": "/audio/production/en-US/assessment_passage/zara-pushed-the-same-puzzle-piece-harder-each-time-it-would-not-fit-the-ca-95f5ffb6ae.mp3"
+    "zara pushed the same puzzle piece harder each time it would not fit. the cardboard began to bend. she stopped pushing, turned the piece, and found the position that matched the gap. hugo pulled both ends of a knotted ribbon to free it. the knot grew tighter. he loosened one small loop with his fingers instead. the ribbon came free without another hard pull": "/audio/production/en-US/assessment_passage/zara-pushed-the-same-puzzle-piece-harder-each-time-it-would-not-fit-the-ca-95f5ffb6ae.mp3",
+    "an alligator has a strong tail and long teeth. she lays eggs in a nest. she stays near the nest until the eggs hatch. after they hatch, her babies can stay near her for a long time": "/audio/production/en-US/assessment_passage/an-alligator-has-a-strong-tail-and-long-teeth-she-lays-eggs-in-a-nest-she--720242ed7e.mp3",
+    "carlos has a habit of checking the time. he checks his watch before school. he checks it before soccer. he checks it before dinner. mom helps him set an alarm. the alarm reminds carlos when it is time to leave": "/audio/production/en-US/assessment_passage/carlos-has-a-habit-of-checking-the-time-he-checks-his-watch-before-school--6a90ae7314.mp3",
+    "giraffes are tall. they can reach leaves on tall trees. their height also helps them see a long way. giraffes rest and drink in groups. some watch for danger. if a lion approaches, they can see it from far away. they move away together": "/audio/production/en-US/assessment_passage/giraffes-are-tall-they-can-reach-leaves-on-tall-trees-their-height-also-he-313c78bf02.mp3",
+    "i like to play with my friends": "/audio/production/en-US/assessment_passage/i-like-to-play-with-my-friends-cd32cee804.mp3",
+    "we saw a ___ in the sky. nellie is the ___ of the school play": "/audio/production/en-US/assessment_passage/we-saw-a-in-the-sky-nellie-is-the-of-the-school-play-1f5321980e.mp3",
+    "would you like some ice cream with me": "/audio/production/en-US/assessment_passage/would-you-like-some-ice-cream-with-me-7fbfd2d06f.mp3"
   },
   "supplemental": {
     "... a list before we shop": "/audio/production/en-US/supplemental/a-list-before-we-shop-764329831b.mp3",
