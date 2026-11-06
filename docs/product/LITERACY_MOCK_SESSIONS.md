@@ -16,8 +16,11 @@ source and evidence contracts for historical learning and rehearsal records.
 ## Current beginner vocabulary publication — V12, 28 October 2026
 
 New learner sittings and teacher class practice use V12. It retains V11's
-eight areas, independent progression, four choices, two-second narration pause,
-124-answer bound and media limits. First steps and Starter additionally require
+eight areas, independent progression, four choices and media limits. The current
+launch controls offer **15, 25 or 40 questions** in both class practice and pupil
+tests (25 by default). Pupil choices are maximums: areas already confirmed may
+finish early, and reaching the limit never confirms an unfinished boundary.
+Historical 124-answer sessions remain resumable. First steps and Starter additionally require
 reviewed familiar vocabulary in targets, prompts, answer choices and recordings.
 A simple operation or short spelling alone does not make a word beginner-friendly.
 
@@ -55,7 +58,7 @@ one adjacent step; an incorrect answer moves it down one, within its actual
 bank limits. This short, unscored teaching route is separate from the repeated
 observations required for individual learner sittings. In mixed practice, the
 first eight questions introduce the eight areas; successful areas return at
-Starter from question nine, so the default 12-question round can get harder.
+Starter from question nine, so each offered round can get harder.
 The current area and authored step are visible beside each practice question.
 Answer reveal, retries, skips and revisiting a shown card cannot promote it;
 previously shown cards and their choices stay stable. Teachers may still select
@@ -65,6 +68,15 @@ or assessment result. Step names describe authored tasks, not calibrated scores.
 Whole-class MAP practice uses **recorded narration**. The question, spoken
 target, listening passage or blending sounds play automatically, followed by
 the authored spoken answer choices after the two-second processing pause.
+Every subsequent spoken answer is separated by **1.5 seconds**. The player
+loads and decodes the current question's complete recording queue before
+narration, removes outer silence locally at playback and keeps short onset/end
+guards (15/30 ms at a −60 dB threshold). Internal pauses and original recording
+files remain intact. Retained pupil audio is read directly from the device cache
+without fetching local blob URLs, preserving the production connection policy.
+Delivery receipts retain their authored paths and require
+the prepared recording's native `ended` event. Preparation, replay and pauses
+cancel on question change, page hiding, stop or leaving the surface.
 Question and answer speakers allow replay. There is no teacher reading script.
 Sound-comparison and rhyme questions retain the actual reference word in the
 visible text, such as “Which word has the same starting sound as web?”
@@ -72,6 +84,28 @@ Independent reading passages and printed decoding choices retain their authored
 silent conditions. Checking waits for required recordings to finish and pictures
 to load; failed required media can be retried or skipped without promotion.
 Class practice remains unscored and records no learner assessment results.
+
+### MAP-style response controls
+
+The question, visual stimulus, answer area and bottom navigation remain
+separate. A case-comparison letter is a clear inline target with an underlined destination,
+never a passage or paginated reading box. Its answer tiles move from a turquoise
+toolbar into that destination while retaining their original scored choice IDs. Matching, word construction and
+ordering use a separate turquoise tile toolbar and underlined destination spaces. A learner
+chooses a tile, then chooses its box; mouse drag-and-drop performs the same
+placement. Keyboard Enter/Space use those same controls. Escape cancels pickup;
+tapping a placed tile returns it to the toolbar. Replacing a placed tile returns
+the displaced tile, and empty boxes cannot count as a complete response.
+
+The white canvas, grey gutters, two-column picture choices with radio markers,
+grey selected state, underlined matching spaces, turquoise source toolbar and
+bottom Reset/Next layout follow the current public
+[K–2 Reading practice player](https://practice.mapnwea.org/#/practice-landing),
+reviewed through NWEA's public `grow` practice login on 6 November 2026.
+This interaction also follows NWEA's public description of toolbar-to-container
+[drag-and-drop/click-and-click construction](https://www.nwea.org/uploads/MAP-Growth-Technical-Report-2025.pdf),
+section 4.5. Original Literacy Guide content and independent branding remain;
+the implementation does not claim to reproduce inaccessible production pixels.
 
 ### Learner sittings
 
@@ -84,8 +118,11 @@ a single correct or incorrect answer holds the current step. Answer assistance
 and familiar questions never establish promotion evidence. Every change is at
 most one adjacent step, and only unseen questions can change.
 
-The longer sitting allows **124 answers at most**. A complete all-correct path
-uses **108**; an all-incorrect path uses **16**. A repeated higher-step failure
+Current pupil sessions offer **up to 15, 25 or 40 answers**. Apply forward
+migration `20261106055449_literacy_mock_question_limits.sql` before publishing
+the shorter-launch client. It keeps immutable V12 items and prior sessions intact.
+The full historical 124-answer route remains resumable; its complete all-correct
+path uses **108** and its all-incorrect path uses **16**. A repeated higher-step failure
 must be followed by a fresh easier question before an adjacent boundary is
 confirmed. Budget, finite-letter and missing-independent-evidence stops remain
 **unconfirmed**. Teacher reports retain actual planned/received answers,
@@ -101,7 +138,9 @@ success thresholds in that same area. The exact prompts, correct answers and
 all alternatives are subject to the current question contracts.
 
 After question/stimulus narration ends, automatic answer-option narration waits
-**2 seconds**. Replay, question change, pause, hiding the page and leaving the
+**2 seconds**, with **1.5 seconds between subsequent spoken choices**. Recordings
+are preloaded and their outer silence is trimmed locally before playback.
+Replay, question change, pause, hiding the page and leaving the
 surface cancel any pending old narration. Print-recognition choices remain
 silent so audio cannot reveal the reading answer.
 

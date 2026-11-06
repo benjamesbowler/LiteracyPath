@@ -344,8 +344,8 @@ function contingentLiteracyMockOptions(slots, pending, candidates, seed) {
 }
 
 /** Change only unoffered slots using independent evidence in that same task. */
-export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], { resetUnsupported = false, exposures = [] } = {}) {
-  if(bank.some(q=>['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(q.contentVersion)))return adaptLiteracyMockBoundaryPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
+export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], { resetUnsupported = false, exposures = [], itemCount } = {}) {
+  if(bank.some(q=>['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(q.contentVersion)))return adaptLiteracyMockBoundaryPlan(bank,plan,responses,mediaFailures,presentations,{exposures,itemCount});
   if(bank.some(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(q.contentVersion)))return adaptLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
   const byId = validateHistory(bank, plan, responses);
   const recent = new Map();

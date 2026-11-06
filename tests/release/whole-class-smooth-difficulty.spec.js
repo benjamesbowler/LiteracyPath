@@ -21,6 +21,8 @@ async function answerClassQuestion(page,item,index,correct) {
     } else await expect(page.locator('.literacy-mock-choice')).toHaveText(choices.map(choice=>choice.label));
     for(let slot=0;slot<chosen.length;slot++) {
       await page.locator('.literacy-mock-choice').nth(choices.findIndex(choice=>choice.id===chosen[slot])).click();
+      if(item.skillId==='letter_knowledge' && /^[A-Za-z]$/.test(item.passage||''))await page.getByRole('button',{name:/^Space 1 for/}).click();
+      if(['order','build_word'].includes(item.format))await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(slot).click();
       if(item.format==='match') await page.locator('.literacy-mock-slot').nth(slot).click();
     }
   }
@@ -59,8 +61,8 @@ test('class practice follows a gradual curve through checked answers and keeps r
 });
 
 for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed class practice: ${outcome}`,async({page},info)=>{
-  test.setTimeout(360000);
-  const count=outcome==='reversal'?24:12;
+  test.setTimeout(600000);
+  const count=outcome==='reversal'?40:15;
   await page.addInitScript(()=>Object.defineProperty(crypto,'randomUUID',{value:()=> 'smooth-class-browser'}));
   const writes=[];
   page.on('request',request=>{if(request.method()==='POST' && /rpc|rest\/v1/.test(request.url()))writes.push(request.url());});
@@ -68,7 +70,7 @@ for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed cl
   await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
   await expect(page.getByRole('combobox',{name:'Area',exact:true})).toHaveValue('all');
   await expect(page.getByRole('combobox',{name:'Practice step',exact:true})).toHaveValue('adaptive');
-  if(count===24) await page.getByRole('combobox',{name:'Questions',exact:true}).selectOption('24');
+  await page.getByRole('combobox',{name:'Questions',exact:true}).selectOption(String(count));
   await page.getByRole('button',{name:'Start class practice',exact:true}).click();
   let session=createWholeClassMockSession(bank,{seed,count});
   const shown=[];
@@ -85,8 +87,8 @@ for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed cl
     await page.getByRole('button',{name:'Next question',exact:true}).click();
   }
   await expect(page.getByText('End of these questions. Choose more practice when the class is ready.',{exact:true})).toBeVisible();
-  expect(shown.map(row=>row.band)).toEqual(outcome==='correct'?[...Array(8).fill(0),...Array(4).fill(1)]
-    :outcome==='incorrect'?Array(12).fill(0):[...Array(8).fill(0),...Array(8).fill(1),...Array(8).fill(0)]);
+  expect(shown.map(row=>row.band)).toEqual(outcome==='correct'?[...Array(8).fill(0),...Array(7).fill(1)]
+    :outcome==='incorrect'?Array(15).fill(0):[...Array(8).fill(0),...Array(8).fill(1),...Array(24).fill(0)]);
   expect(writes).toEqual([]);
   await info.attach('actual-questions-and-demand',{body:JSON.stringify(shown,null,2),contentType:'application/json'});
 });
@@ -97,10 +99,13 @@ test('individual learner recordings retain the two-second processing pause',asyn
     window.nativeMockAudio=[];
     const original=HTMLMediaElement.prototype.play;
     HTMLMediaElement.prototype.play=function(...args){
-      window.nativeMockAudio.push({type:'play',path:new URL(this.src,location.href).pathname,time:performance.now()});
+      const url=new URL(this.src,location.href);
+      if(url.protocol==='data:' || url.hash==='#mock-audio-unlock')return original.apply(this,args);
+      const source=()=>{const u=new URL(this.src,location.href);return u.protocol==='blob:'?decodeURIComponent(u.hash.slice(1)):u.pathname;};
+      window.nativeMockAudio.push({type:'play',path:source(),time:performance.now()});
       if(!this.processingAuditListener){
         this.processingAuditListener=true;
-        this.addEventListener('ended',()=>window.nativeMockAudio.push({type:'ended',path:new URL(this.src,location.href).pathname,time:performance.now()}));
+        this.addEventListener('ended',()=>window.nativeMockAudio.push({type:'ended',path:source(),time:performance.now()}));
       }
       return original.apply(this,args);
     };

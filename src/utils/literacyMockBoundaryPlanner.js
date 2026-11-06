@@ -5,6 +5,7 @@ import { LITERACY_MOCK_AREA_MAX } from '../policy/literacyMockAdaptivePolicy.js'
 import { literacyMockBoundaryState as literacyMockBoundaryStateV9, literacyMockBoundarySchedule as literacyMockBoundaryScheduleV9, literacyMockBoundaryLimits,literacyMockBoundaryPlaceholderBand } from '../policy/literacyMockBoundaryPolicy.js';
 import { sameLiteracyMockTask } from './literacyMockConditions.js';
 import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
+import { literacyMockQuestionLimit } from '../policy/literacyMockQuestionLimit.js';
 
 const capacityError = message => Object.assign(new Error(message), { code: 'mock_fresh_capacity' });
 const boundaryVersions = new Set(['literacy-mock-v9', 'literacy-mock-v10', 'literacy-mock-v11','literacy-mock-v12']);
@@ -97,8 +98,9 @@ function offlinePool(candidates, plan, byId) {
 export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, itemCount, seed, exposures = [], onOfflineItems } = {}) {
   const version = bank.find(item => boundaryVersions.has(item.contentVersion))?.contentVersion;
   const {maximum, areaVersion} = literacyMockBoundaryLimits(version);
-  if (!sessionId || !studentId || (itemCount !== undefined && itemCount !== maximum)) throw new Error(`A boundary plan needs a session, learner and the bounded ${maximum}-question maximum.`);
-  const schedule = literacyMockBoundaryScheduleV9([], {bank}), planSeed = seed || `${sessionId}:${studentId}:${areaVersion}`;
+  if (!sessionId || !studentId) throw new Error('A boundary plan needs a session and learner.');
+  const limit = literacyMockQuestionLimit(version, itemCount, maximum);
+  const schedule = literacyMockBoundaryScheduleV9([], {bank}).slice(0, limit), planSeed = seed || `${sessionId}:${studentId}:${areaVersion}`;
   const candidates = fresh(entryOwnership(usable(bank)), exposures), ordinals = {};
   const options = schedule.map((domain, index) => {
     const demand = literacyMockBoundaryPlaceholderBand(version,domain, ordinals[domain] = (ordinals[domain] || 0) + 1);
@@ -111,10 +113,12 @@ export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, ite
   return plan;
 }
 
-export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failures = [], presentations = [], { exposures = [] } = {}) {
+export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failures = [], presentations = [], { exposures = [], itemCount } = {}) {
   const byId = new Map(bank.map(item => [item.id, item]));
+  const version = bank[0]?.contentVersion;
+  const limit = literacyMockQuestionLimit(version, itemCount, literacyMockBoundaryLimits(version).maximum);
   if (responses.length > plan.itemIds.length || responses.some((row, index) => row.questionId !== plan.itemIds[index])
-    || plan.itemIds.some(id => !byId.has(id)) || plan.itemIds.length > literacyMockBoundaryLimits(bank[0]?.contentVersion).maximum) throw new Error('Invalid adaptive boundary history.');
+    || plan.itemIds.some(id => !byId.has(id)) || plan.itemIds.length > limit) throw new Error('Invalid adaptive boundary history.');
   const shown = new Set(presentations.map(row => row.questionId)), failed = blocked(failures);
   if (plan.itemIds.some((id, index) => index > responses.length && shown.has(id))) throw new Error('Invalid adaptive boundary presentation history.');
   const current = byId.get(plan.itemIds[responses.length]);
@@ -123,7 +127,7 @@ export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failur
   // a reserved unscored slot only while building future placeholders; its real
   // answer will recompute the state and can restore unused bounded slots.
   const reservedRows = frozenCurrent ? [...responses, { questionId: current.id, responseStatus: 'skipped', evidenceType: 'unscored', isCorrect: null }] : responses;
-  const schedule = literacyMockBoundaryScheduleV9(reservedRows, { bank: byId });
+  const schedule = literacyMockBoundaryScheduleV9(reservedRows, { bank: byId }).slice(0, limit);
   const states = literacyMockBoundaryStateV9(responses, { bank: byId });
   const prefix = plan.itemIds.slice(0, responses.length + (frozenCurrent ? 1 : 0));
   const frozen = prefix.map(id => byId.get(id));

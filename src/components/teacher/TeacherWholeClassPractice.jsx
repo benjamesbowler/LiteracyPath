@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
 import { TeacherPageHeader, TeacherPageShell } from './ui/TeacherPrimitives.jsx';
 import { teacherCycleOptions } from './teacherCycleReference.js';
 import { elSkillsBlockCycles } from '../../data/elSkillsBlockCycles.js';
@@ -105,7 +106,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
   const [activity, setActivity] = useState('all');
   const [area, setArea] = useState('all');
   const [band, setBand] = useState('adaptive');
-  const [count, setCount] = useState('12');
+  const [count, setCount] = useState(kind === 'cycles' ? '12' : '25');
   const [bank, setBank] = useState([]);
   const [load, setLoad] = useState(cycles ? 'ready' : 'loading');
   const [session, setSession] = useState(null);
@@ -171,7 +172,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
           <label>Practice step<select value={band} disabled={load !== 'ready'} onChange={event => setBand(event.target.value)}>
             <option value="adaptive">Start easy · adapt gradually</option>{bands.map(value => <option key={value} value={value}>{LITERACY_MOCK_BAND_NAMES[value]}</option>)}</select></label>
           {band === 'adaptive' && <p>Each area starts easy. A first-try correct answer moves that area up one step; an incorrect answer moves it down. Mixed practice returns to each area after eight questions.</p>}</>}
-      <label>Questions<select value={count} onChange={event => setCount(event.target.value)}><option value="12">Up to 12 questions</option><option value="24">Up to 24 questions</option><option value="all">All available questions</option></select></label>
+      <label>Questions<select value={count} onChange={event => setCount(event.target.value)}>{(cycles ? [12,24] : LITERACY_MOCK_SHORT_ITEM_COUNTS).map(value => <option key={value} value={value}>{value} questions</option>)}{cycles && <option value="all">All available questions</option>}</select></label>
       {load === 'loading' && <p role="status">Loading practice questions…</p>}
       {load === 'failed' && <p role="alert">Questions could not load. Reload Teach, then open class practice again. <button type="button" onClick={() => window.location.reload()}>Reload Teach</button></p>}
       <button type="button" className="lp-button lp-button-primary" disabled={load !== 'ready'} onClick={start}>Start class practice</button>

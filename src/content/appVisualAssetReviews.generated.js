@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 11066,
+    "imageCount": 11068,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -26663,6 +26663,18 @@ export const appVisualAssetReview = {
       "sha256": "fbc036e249ef52969cd0cfc4d695ff1a9eaa0caf4522abd58dad16e462af384c",
       "status": "approved",
       "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/clarity/eat-v1.webp",
+      "sha256": "a03dc22419a0f3e216016ba7737e1252997be54e95c6496acee0f29e35c9249c",
+      "status": "approved",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/clarity/tail-v1.webp",
+      "sha256": "cb0fd7ad5ecf3c0ef81dc89ed68d8e3b8fa68736a8b71c3c74c786cde2bba9d7",
+      "status": "approved",
+      "reviewedAt": "2026-11-06"
     },
     {
       "path": "/images/assessment/literacy-mock/object-atlas-v1.webp",

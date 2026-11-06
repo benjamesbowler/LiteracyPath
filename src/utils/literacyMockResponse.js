@@ -24,9 +24,9 @@ export function mockConstructionLength(item) {
   return Number.isFinite(length) && length > 0 ? length : item.choices.length;
 }
 export function mockResponseComplete(item, selection) {
-  if (['choice', 'select_text'].includes(item.format)) return selection.length === 1;
+  if (['choice', 'select_text'].includes(item.format)) return selection.length === 1 && Boolean(selection[0]);
   if (item.format === 'multi_select') return selection.length === item.selectCount;
   if (item.format === 'match') return selection.length === item.matchTargets.length && selection.every(Boolean);
-  if (['order', 'build_word'].includes(item.format)) return selection.length === mockConstructionLength(item);
+  if (['order', 'build_word'].includes(item.format)) return selection.length === mockConstructionLength(item) && selection.every(Boolean);
   return false;
 }

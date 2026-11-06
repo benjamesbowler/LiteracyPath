@@ -19,12 +19,13 @@ test.before(async () => {
 });
 test.after(async () => { await vite?.close(); });
 
-test("teacher preparation exposes one full mock for the class or selected children", () => {
+test("teacher preparation exposes real 15, 25 and 40 question adaptive budgets", () => {
   const html = renderToStaticMarkup(React.createElement(panel, { classId: "c", students: [{ id: "s", name: "Alex" }], initialStudentIds: ["s"] }));
   assert.match(html, /teacher-product-page literacy-mock-teacher/);
-  assert.match(html, /Full adaptive test · up to 124 questions/);
+  assert.match(html, /Adaptive test · up to 25 questions/);
+  for (const count of [15,25,40]) assert.match(html, new RegExp(`value="${count}"[^>]*>Up to ${count} questions`));
   assert.match(html, /All eight literacy areas, starting with the simplest tasks/);
-  assert.match(html, /Repeated observations can finish an area early/);
+  assert.match(html, /areas without enough observations remain unconfirmed/);
   assert.doesNotMatch(html, /Short mock|Timed sample|Assessment length/);
   assert.match(html, /Adaptive Literacy Test/);
   assert.match(html, /Results save automatically/);

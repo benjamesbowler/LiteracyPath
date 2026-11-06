@@ -159,3 +159,14 @@ for(const contentVersion of ['literacy-mock-v10','literacy-mock-v11','literacy-m
  assert.equal(accepted.bytes,48*1024*1024);accepted.dispose();
  await assert.rejects(()=>prepareMockOfflineMedia(assetPaths(13),cached),/exceeds/);
 });
+
+test('the audio resolver exposes only retained original bytes and releases that access on disposal',async()=>{
+ const env=environment(),path='/audio/a.mp3';
+ const media=await createMockOfflineMedia([path],env.options);
+ assert.equal(media.resolve.readBlob(path),undefined);
+ await media.ensure([path]);
+ assert.deepEqual([...new Uint8Array(await media.resolve.readBlob(path).arrayBuffer())],[1,2,3]);
+ assert.equal(media.resolve.readBlob('/audio/not-authorized.mp3'),undefined);
+ assert.equal(env.revoked.length,0,'Reading bytes does not allocate an unnecessary object URL');
+ media.dispose();assert.equal(media.resolve.readBlob(path),null);
+});

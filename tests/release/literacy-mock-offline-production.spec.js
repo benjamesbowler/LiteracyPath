@@ -2,7 +2,7 @@ import { expect,test } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
-test.describe.configure({timeout:180000});
+test.describe.configure({timeout:600000});
 test.skip(process.env.LP_MOCK_PRODUCTION_PROOF!=='1','Run against the temporary production offline-proof build.');
 async function simulatedAudio(page, duration = 20) {
   await page.addInitScript(({ duration }) => {
@@ -10,7 +10,9 @@ async function simulatedAudio(page, duration = 20) {
     window.Audio = class extends EventTarget {
       constructor() { super(); this.src = ''; this.paused = true; this.currentTime = 0; }
       play() {
-        window.__mockAudio.played.push(this.src); this.paused = false;
+        const source = new URL(this.src, location.href);
+        if (source.protocol === 'data:' || source.hash === '#mock-audio-unlock') return Promise.resolve();
+        window.__mockAudio.played.push(source.protocol === 'blob:' ? decodeURIComponent(source.hash.slice(1)) : source.pathname); this.paused = false;
         if (window.__mockAudio.failNext) {
           window.__mockAudio.failNext = false;
           this.timer = setTimeout(() => { this.onerror?.(new Event('error')); this.dispatchEvent(new Event('error')); }, duration);
@@ -32,11 +34,15 @@ async function chooseAnswer(page, current = null, choiceOrder = null) {
   const byId = id => buttons.nth(ordered.findIndex(choice => choice.id === id));
   if (current.format === 'choice') {
     await byId(current.answer).click();
+    if(current.skillId==='letter_knowledge' && /^[A-Za-z]$/.test(current.passage||'')) await page.getByRole('button',{name:/^Space 1 for/}).click();
   } else if (current.format === 'select_text') {
     const answer = current.choices.find(choice => choice.id === current.answer);
     await page.locator('.literacy-mock-text-selection button').nth(answer.tokenIndex).click();
   } else if (current.format === 'multi_select' || current.format === 'order') {
-    for (const id of current.answer) await byId(id).click();
+    for (let slot = 0; slot < current.answer.length; slot++) {
+      await byId(current.answer[slot]).click();
+      if (current.format === 'order') await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(slot).click();
+    }
   } else if (current.format === 'match') {
     for (let i = 0; i < current.answer.length; i++) {
       await byId(current.answer[i]).click();
@@ -53,7 +59,10 @@ async function chooseAnswer(page, current = null, choiceOrder = null) {
     }
     const tiles = compose(current.answer, current.choices);
     expect(tiles, 'The authored tile bank must construct the whole dictated word').not.toBeNull();
-    for (const id of tiles) await byId(id).click();
+    for (let slot = 0; slot < tiles.length; slot++) {
+      await byId(tiles[slot]).click();
+      await page.locator('.literacy-mock-construction .literacy-mock-slot').nth(slot).click();
+    }
   }
 }
 

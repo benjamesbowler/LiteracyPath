@@ -4,6 +4,7 @@ import { LITERACY_MOCK_V9_AREA_VERSION } from '../policy/literacyMockBoundaryV9.
 import { LITERACY_DOMAINS } from '../policy/literacyPracticePolicy.js';
 import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS_IDS } from '../policy/learningPolicy.js';
 import { literacyMockTaskKey } from './literacyMockConditions.js';
+import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../policy/literacyMockQuestionLimit.js';
 
 const levelName = level => level === 1 ? 'Foundation' : level === 2 ? 'Challenge' : `Task level ${level}`;
 const accuracy = responses => {
@@ -20,8 +21,10 @@ export function literacyMockWorkingSummary(pupil, { domains=null, now=Date.now()
     || source.some(row=>row.itemSnapshot?.adaptiveAreaVersion===LITERACY_MOCK_V9_AREA_VERSION);
   const areaAdaptive=pupil?.areaAdaptive===true || boundaryAdaptive;
   const boundaryStates=boundaryAdaptive ? literacyMockBoundaryStateV9(source,{contentVersion:pupil?.contentVersion}) : null;
+  const sessionLimitReached = pupil?.run?.status === 'completed' && LITERACY_MOCK_SHORT_ITEM_COUNTS.includes(pupil?.maximumPlanned)
+    && pupil?.run?.responses?.length >= pupil.maximumPlanned;
   const boundaryAreas=boundaryStates ? Object.entries(boundaryStates).filter(([id])=>!domains || domains.includes(id))
-    .map(([id,state])=>boundaryObservation(id,state,independent.filter(row=>row.domainId===id))) : [];
+    .map(([id,state])=>boundaryObservation(id,sessionLimitReached && !state.stopReason ? {...state,stopReason:'session_question_limit'} : state,independent.filter(row=>row.domainId===id))) : [];
   const levels=areaAdaptive ? areaDemandRows(independent,domains?.length!==1) : [...new Set(independent.map(row=>Number(row.level)))].filter(Number.isFinite).sort((a,b)=>a-b).map(level=>{
     const rows=independent.filter(row=>Number(row.level)===level), current=recent.filter(row=>Number(row.level)===level);
     const currentAccuracy=accuracy(current);
@@ -90,6 +93,10 @@ function boundaryObservation(domainId,state,independent) {
     case 'budget_limit':
       label='Question limit reached — uncertain';
       detail='The area used its question budget before a repeated stopping pattern was observed. Recheck the sampled tasks with different examples.';
+      break;
+    case 'session_question_limit':
+      label='Question limit reached — uncertain';
+      detail='The chosen sitting length ended before this area met its repeated-observation stopping rule. Its boundary remains unconfirmed. Recheck the sampled tasks with fresh examples.';
       break;
     case 'independent_followup_needed':
       label='Independent follow-up needed';

@@ -50,7 +50,7 @@ export function createMockOutbox({ studentId, sessionId, run, mock, focusSession
 }
 
 /** A local projection is never a server receipt or teacher-visible result. */
-export function projectMockMutation(run, request, { item, isCorrect, occurredAt = new Date().toISOString() } = {}) {
+export function projectMockMutation(run, request, { item, isCorrect, itemCount, occurredAt = new Date().toISOString() } = {}) {
   const next = clone(run);
   if (request.type === 'event') {
     if (!item || request.questionId !== item.id || !['presented','help_requested','help_cancelled'].includes(request.event)) throw new Error('Invalid local event');
@@ -75,7 +75,7 @@ export function projectMockMutation(run, request, { item, isCorrect, occurredAt 
   if (request.plan) {
     const variable = ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(next.contentVersion);
     if (request.plan.seed !== next.plan.seed || !Array.isArray(request.plan.itemIds)
-      || (variable ? request.plan.itemIds.length < next.responses.length || request.plan.itemIds.length > literacyMockBoundaryLimits(next.contentVersion).maximum
+      || (variable ? request.plan.itemIds.length < next.responses.length || request.plan.itemIds.length > (itemCount ?? literacyMockBoundaryLimits(next.contentVersion).maximum)
         || next.status === 'completed' && request.plan.itemIds.length !== next.plan.itemIds.length : request.plan.itemIds.length !== next.plan.itemIds.length)
       || next.responses.some((value,index) => request.plan.itemIds[index] !== value.questionId)
       || variable && (next.presentations || []).some(value => {
@@ -112,7 +112,7 @@ export function projectMockMutation(run, request, { item, isCorrect, occurredAt 
 export function appendMockOutbox(value, request, projectionOptions, storage) {
   if (!value || value.requests.length >= MOCK_OUTBOX_REQUEST_LIMIT || !request.requestId
     || value.requests.some(row => row.requestId === request.requestId)) throw new Error('Invalid device queue request');
-  const run = projectMockMutation(value.run,request,projectionOptions);
+  const run = projectMockMutation(value.run,request,{...projectionOptions,itemCount:value.mock.item_count});
   const next = { ...value, run, requests:[...value.requests,clone(request)] };
   if (!writeMockOutbox(next,storage)) throw Object.assign(new Error('The iPad could not save this answer.'),{ code:'device_storage_failed' });
   return next;

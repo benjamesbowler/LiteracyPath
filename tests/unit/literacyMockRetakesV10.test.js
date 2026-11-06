@@ -12,6 +12,7 @@ import { progressCheckAudioPath } from '../../src/utils/progressCheckAudio.js';
 import { mockConstructionLength } from '../../src/utils/literacyMockResponse.js';
 import { mockOfflineMediaPaths, prepareMockOfflineMedia } from '../../src/utils/literacyMockOfflineMedia.js';
 import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
+import { resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
 
 const publication = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v10', includeUnavailable: true });
 const bank = publication.filter(item => item.mediaReady);
@@ -56,7 +57,9 @@ test('every V10 deliverable media path retains real local bytes through the actu
       createObjectURL: () => `blob:v10-local-${++created}`, revokeObjectURL: url => { revoked.push(url); },
     };
     const online = await prepareMockOfflineMedia(batch, options);
-    assert.equal(online.assets, batch.length); assert.deepEqual(new Set(fetched), new Set(batch.map(withRepairedImageVersion)));
+    assert.equal(online.assets, batch.length);
+    const transports = batch.map(path => withRepairedImageVersion(resolveLiteracyMockImagePath(path)));
+    assert.deepEqual(new Set(fetched), new Set(transports));
     assert.equal(created,0,'Preparation retains bytes without allocating a live URL for every future question.');
     for(const path of batch)assert.match(online.resolve(path),/^blob:v10-local-/);
     totalBytes += online.bytes; online.dispose(); assert.equal(revoked.length, batch.length);

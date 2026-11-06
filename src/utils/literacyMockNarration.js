@@ -3,8 +3,11 @@ import { PROGRESS_CHECK_INSTRUCTIONS } from '../data/progressCheckInstructions.j
 
 // Recorded question, stimulus and shuffled answer narration share one sequence.
 // Only authored spoken cues belong here: silent printed choices stay silent.
+export function literacyMockLetterReference(item) {
+  return item.skillId === 'letter_knowledge' && /^[A-Za-z]$/.test(item.passage || '');
+}
 export function literacyMockNarrationCues(item, choices) {
-  const reading=item.modality==='reading' && item.passage && item.displayPassageDuringResponse;
+  const reading=!literacyMockLetterReference(item) && item.modality==='reading' && item.passage && item.displayPassageDuringResponse;
   return [
     ...(reading ? [{role:'layout_instruction',text:PROGRESS_CHECK_INSTRUCTIONS.readPassage,path:MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage}] : []),
     ...item.requiredAudioCues.filter(cue=>cue.role!=='choice'),

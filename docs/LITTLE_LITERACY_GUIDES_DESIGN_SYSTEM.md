@@ -63,6 +63,12 @@ raised shadow against the activity panel. Selection adds a stronger outline
 and inset ring. Printed answer buttons show only the actual answer or
 distractor, including a number when that number is the answer; do not add an
 option-position prefix. Picture choices do not need visible position badges.
+The Mock MAP renderer follows the owner's 6 November 2026 request for the current
+public NWEA K–2 practice template: white radio-choice areas with grey selection,
+inline underlined matching destinations and a turquoise tile toolbar. This
+scoped exception and its pickup/place behavior are defined in
+[the Mock session standard](product/LITERACY_MOCK_SESSIONS.md); other activity
+pads retain the shared raised blue presentation.
 
 The shared presentation does not own curriculum, scoring or persistence.
 Practice retains its supported retry and existing session depth; independent
