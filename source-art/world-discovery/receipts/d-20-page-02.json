@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:11.669Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6caf4e10-d2a4-4409-ac34-a567c20cfffe.png",
+  "sourceSha256": "20893062c8d3e3134c346b4e18dd8181e21cd54a1d4a4f4f472caa611f7a4cb6",
+  "output": "public/guided-reading/world-discovery/d-20/page-02.webp",
+  "outputSha256": "1c597702fdb2c1382814448e1c95db590b7389a6bad546b75f752d88cd5c03a3",
+  "width": 1676,
+  "height": 939,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a1f41683-d2ec-4f7d-9710-ce74a531b0c9.png",
+      "sha256": "3f059592ff2e7dbbeef19ae11c4054458aeee54006a496b1f28632a15b80300c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "1c597702fdb2c1382814448e1c95db590b7389a6bad546b75f752d88cd5c03a3",
+    "note": "Native PNG and final WebP directly inspected at full image size. Gate view preserves unshielded bulb glare and darker path; upper window fully visible."
+  }
+}

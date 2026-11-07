@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-b-14",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:47:55.607Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-21e1d307-ed1b-4151-9d2d-18dda5b6c91d.png",
+  "sourceSha256": "5b605a27e263911f199ddc5072eef7888a78e2ddd6f0a2d2f28b75762cd1f022",
+  "output": "public/guided-reading/world-discovery/b-14/page-07.webp",
+  "outputSha256": "4daaf537f3c30bc51bf6a70461d42d121f745840313b48ed64c554c9eadc159c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This attached image is the edit target. Preserve the entire illustrated action, every prop and its exact color, every clip and cord attachment, cast appearance, faces, gestures, clothing, complete seated lower bodies, chair seats, bent knees and ordinary child-sized table geometry. Make a modest framing adjustment: move the camera back about 18 percent and center the whole existing scene, leaving at least 12 percent of the image height as continuous ordinary floor below the lowest shoe. Keep full heads/hands and all essential props safely inside the edges. Extend the SAME connected room naturally to all four image edges. No mat, frame, vignette, pale border, inset, floating furniture or abrupt floor cutoff. Do not add or remove any person or object. Preserve natural child proportions and physical contact, same clean flat cartoon style. True 1536x1024 landscape 3:2, full bleed. No text. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3216afd9-a525-4e88-afba-318e7a009546.png",
+      "sha256": "871a57bfe2861233559a0174a165e791c20af9f8c790b3dba4b58013c1eb12fb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b8de296c41d55d00ee5879ef13a1160b88b652467fbcf9569c7d721c76f8b571",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
+    "method": "codex-direct-image-inspection",
+    "sha256": "4daaf537f3c30bc51bf6a70461d42d121f745840313b48ed64c554c9eadc159c",
+    "outputSha256": "4daaf537f3c30bc51bf6a70461d42d121f745840313b48ed64c554c9eadc159c",
+    "note": "Cart red and paper blue linked by two clips/one cord; separate cup stays red. Kit hand contacts cart clip; normal complete seated bodies and child-height furniture with generous margins.",
+    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+  }
+}

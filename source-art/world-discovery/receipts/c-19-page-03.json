@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:20.621Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9f003ab8-b647-4c8a-8ec6-31f09118f2cd.png",
+  "sourceSha256": "0b098af2b92f0b8a912fa4c3febfca8c054864a722d27f434e9113f6e8b58603",
+  "output": "public/guided-reading/world-discovery/c-19/page-03.webp",
+  "outputSha256": "5b21ffb1db8fa65420c4c65d5717af83106c85005c52f7e5142d2e5abf99994a",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Edit this physically coherent classroom scene. Keep natural full standing bodies and ordinary waist-high table. WIDEN camera by20% and reduce whole people/table group to85% so all heads/shoes/table legs comfortably12% inside frame; extend surrounding room/floor. EXACT STATE CORRECTION: Preserve exact existing state: empty salt scoop left, full beige sand scoop right, clear salt solution blueleft, plain water greenright, empty dish. Only widen framing as directed. No other changes. Clean crisp flat2D, no texture or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-5607ba1f-deca-453d-8a6b-4f49b8a01bb7.png",
+      "sha256": "39bf62d88596751fac30f44d027b98a70d746c511c2ad3ebe38927687d8b91ae"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.559826+00:00",
+    "sha256": "5b21ffb1db8fa65420c4c65d5717af83106c85005c52f7e5142d2e5abf99994a",
+    "note": "Native source and final WebP directly viewed. Blue solution clear with no grains, green cup still untouched, sand scoop full; ordinary furniture and natural poses."
+  }
+}

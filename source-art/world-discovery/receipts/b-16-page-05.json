@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-16",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:58.522Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f56cd7b4-a0ba-42a1-a1b7-ec55b86ec7bd.png",
+  "sourceSha256": "89deed167b017ac4504ef1fd38c49e21051600d319db7ee3ca13a2308ae485f4",
+  "output": "public/guided-reading/world-discovery/b-16/page-05.webp",
+  "outputSha256": "0c5de7591762c767823652c554fb1b70106bd63435cf1f36ef91860507f5c742",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the NEAR SIDE suspension linkage of this exact rover illustration. Preserve all six wheels, current three near wheel positions/heights, white rover body, camera mast, ground, middle near wheel ON gray rock, rear near wheel on level ground left, and front near wheel on level ground right before shallow dip. This is a rocker-bogie mechanism: one main rigid rocker attaches to the chassis at its large central pivot and extends forward/right toward the front wheel hub; its rear/left end attaches to a smaller bogie pivot between the rear and middle wheels. From that smaller bogie pivot, a single rigid two-ended bogie branches down-left to rear wheel hub AND down-right to middle wheel hub. The middle wheel must be connected to the SMALLER LEFT bogie pivot, not directly to the large chassis pivot. Remove the erroneous short direct chassis-to-middle strut and redraw the clean visible right branch from smaller bogie pivot to middle wheel. Remove the unexplained extra circular joint halfway along the rigid front rocker arm, keeping only true pivot/hub joints. Keep rods rigid and straight, anatomically mechanical, no elastic bends or new independent telescoping legs. Preserve wide safe margins and exact scene. Landscape 3:2 1536x1024, clean flat 2D, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c05a1599-c032-497f-b192-712ab53a3634.png",
+      "sha256": "bcff42ce84b8b668c39df3647a99f7215670c0a60178692d0dfc508bc287acec"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "377d044665ae51065f17714a8a0e9ef0b5107aab580ad7c7d62c50640eb3adae",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "0c5de7591762c767823652c554fb1b70106bd63435cf1f36ef91860507f5c742",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Middle near wheel now on rock; rear before and front beyond on level ground. Corrected smaller bogie pivot links rear and middle; main rigid rocker links body to front wheel. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "0c5de7591762c767823652c554fb1b70106bd63435cf1f36ef91860507f5c742",
+    "note": "Middle near wheel now on rock; rear before and front beyond on level ground. Corrected smaller bogie pivot links rear and middle; main rigid rocker links body to front wheel. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  }
+}

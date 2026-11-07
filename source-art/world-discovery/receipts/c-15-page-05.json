@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:35:39.818Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b4fd69c5-fc0f-40cb-9b4d-13d83fbe0f8f.png",
+  "sourceSha256": "f64ce6b7654e731b936c09b718630551196f263d70d2a61737de350f4938bfc7",
+  "output": "public/guided-reading/world-discovery/c-15/page-05.webp",
+  "outputSha256": "d2cef574e36a17966a9e9254f0fc9077c1bfe71148189e323f3c3a75fc180b4e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit framing only. Pull the camera back by 30 percent, retaining the same geology and exact molten/cooled state. Keep the ENTIRE lava tongue and all cutaway faces within the central 76% of the image, at least 12% from every edge. Extend the surrounding brown ground and distant sky/ridge naturally to every edge, full bleed with NO border or inset card. Do not change the glowing crack, crust thickness, rock shape or existing cutaway; do not add a cutaway where absent. Preserve the original clean 2D flat cartoon style and ridge notch.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-fc07141e-caa8-4b30-a0ce-7059da07b28f.png",
+      "sha256": "e22c8321cda63cf408549c67b0d9e971387ba4703fe15336b3c8bd3b951e705d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:40:01.349781+00:00",
+    "sha256": "d2cef574e36a17966a9e9254f0fc9077c1bfe71148189e323f3c3a75fc180b4e",
+    "note": "Native and final WebP directly inspected. Continuous natural ground, coherent lava tongue and anchored ridge; correct exterior versus authored cutaway, cooling state, glowing fissure where required, and safe focal margins."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "bookId": "world-discovery-b-11",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:55:52.757Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-543f69da-3689-46fd-b584-4ea7b3ca500b.png",
+  "sourceSha256": "03eb21f4cefc6f48f37af9e2b143686cb001ec41abce6e40ec1b91280c2cd3fc",
+  "output": "public/guided-reading/world-discovery/b-11/page-08.webp",
+  "outputSha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit supplied image 1 only; images 2\u20133 are fixed character/book references. Preserve every character pose, expression, hand contact, exact block count and road state, red truck position and scene composition relationships. Widen the view by about 15 percent, extending the existing floor and wall naturally, so both children's ENTIRE shoes/hair/hands and all story props are at least 8 percent away from every canvas edge. Specifically no shoe should lie near the left or right edge. No white border or framed inset: still one full-bleed 3:2 landscape classroom scene. Keep clean flat color fills and crisp outlines, no grain/noise or added texture. Do not add/remove/move blocks relative to one another, do not change the gap or its filled state, do not add extra people or writing. The source image is otherwise correct.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3543c801-a87f-4e14-9095-9c1d34d9c493.png",
+      "sha256": "72d682ca6caa872302146a11cb5f150267ac1b1f929be94514175fa82116de83"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-11-reference.webp",
+      "sha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T10:56:20.745Z",
+    "outputSha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc",
+    "scope": "direct final WebP and full ordered sequence review; production-author review, not independent approval",
+    "notes": "Eight connected road blocks including the final turn, no loose block or gap. Kit pushes the red truck on the road surface; Zoe watches and chair is empty. Wide framing and clean flat color preserved. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc",
+    "note": "Eight connected road blocks including the final turn, no loose block or gap. Kit pushes the red truck on the road surface; Zoe watches and chair is empty. Wide framing and clean flat color preserved. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending."
+  }
+}

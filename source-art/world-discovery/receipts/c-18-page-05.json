@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-18",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:19.616Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-83f1e848-8946-463b-a1c2-ab0cb3ab203e.png",
+  "sourceSha256": "e441533d5482f8ed8e0ebaa083a54ed127d4467702feecbeae5b6e4928727639",
+  "output": "public/guided-reading/world-discovery/c-18/page-05.webp",
+  "outputSha256": "2a03f3db47cee883b69f09e8bf1edaa9c923e3f559cb28901be7c874c10f3187",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Shell from the Start; World Discovery; nonfiction.\nSetting: Brown garden snail, Cornu aspersum, in a damp garden bed beside a curved stone and broad low leaves. One focal individual followed through time; thin pale hatchling shell becomes larger and patterned. Natural shell coiling and two long eye tentacles plus two shorter sensory tentacles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): A soil hole containing a partly concealed clutch of round pale eggs; One focal egg that darkens then opens; One focal snail and its continuous attached growing shell; One curved gray stone beside low leaves\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): It does not leave that shell to find a larger one. The shell remains part of its growing body.\nRequired illustration: Close side view of the juvenile shows continuous attachment between soft body and shell as it moves over a leaf; no other shells present. Continuity: One body and attached shell; no hermit-crab exchange, costume-like shell or detached snail.\nExact current state: One body and attached shell; no hermit-crab exchange, costume-like shell or detached snail.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL COMPOSITION CHECK: one physically coherent whole scene. Natural anatomy, connected limbs and supports, correct relative scale. Camera WIDE enough that all focal animals, heads, hands, key objects and finite lava/comet features are fully within central76% of frame with at least12% clear space at every edge. Background land/water may continue beyond frame. Reference includes stages not visible now: exact page state takes priority. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-18-reference.webp",
+      "sha256": "0baa44091b65c46ab22d7cd37d3bfd9425508f03505be301d227a0d3233e33de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "a5baed023b30274069b9ad8723cfa5315a96ed0c89206a01044e4c6894b37e69",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:24:52.775952+00:00",
+    "sha256": "2a03f3db47cee883b69f09e8bf1edaa9c923e3f559cb28901be7c874c10f3187",
+    "note": "Native source and actual final WebP directly viewed. Young snail crawls on broad leaf with same attached shell; no discarded or replacement shell. Focal subjects safely inset; no obvious malformed geometry."
+  }
+}

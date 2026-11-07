@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-15",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:40:01.306Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-fb2eb7f4-5141-489f-ab4d-51a5d1924f3d.png",
+  "sourceSha256": "871a28246e403949b6e1fdef228e0ed84b6938cc4bf6dd963b44b5b665b94344",
+  "output": "public/guided-reading/world-discovery/e-15/page-09.webp",
+  "outputSha256": "8a642a5598040bc90ab22e5debe08aefe61444991130aa44a98a378e405af4bd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "CRITICAL PAGE COMPOSITION, priority over reference-board layout: Close foreground bedrock with parallel grooves; river and valley beyond. EXACTSTATE: Natural grooves, not painted stripes; no claim every scratch everywhere is glacial.\nNO humans, silhouettes, structures, animals or characters. Bold flat contour shapes, no painted texture. The same distinctive notch in LEFT ridge and same valley topography throughout. Present valley a broad rounded U floor, tiny river; historical ice glacier broad thick solid ice fills low valley, no river floating atop it. Ice flow always DOWNVALLEY, even when the melting front retreats UPVALLEY. Only arrows/cutaways explicitly authorized for this exact page. Native1536x1024 landscape3:2. Keep all essential learning geometry inset13 percent; natural landscape may bleed to edges.\nThe reference board is a design library only; do not copy all its subjects into a final scene. Compose ONE final image for only the exact moment above.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Valley Shaped by Ice; World Discovery; nonfiction.\nSetting: One unnamed formerly glaciated mountain valley. No humans or buildings. Present summer view has a broad U-shaped cross-section, steep sides, rounded lower corners and modest stream at bottom. All historical views retain a distinctive notch in the left ridge. Reconstruction is illustrative, not a named valley's measured chronology.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Fixed mountain ridges with left-ridge notch; Valley glacier shown only in past, occupying much of valley; Rock fragments embedded in ice base; scratched exposed bedrock after retreat; Small present river winding on broad valley floor\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): On bare rock, long scratches give another clue. Stones carried by the old glacier once scraped along these lines.\nRequired illustration: Close foreground bedrock with parallel grooves; river and valley beyond.\nExact current state: Natural grooves, not painted stripes; no claim every scratch everywhere is glacial.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-15-reference.webp",
+      "sha256": "915416f894352e6395172bb1b0c12a6f3c9b80ef82b1d386678d8a9c471cd83a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "16a7c6f6331a2d7475f6d162d1b3ec8fa604576c62daa8e80c957a07954611e6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:50:28.748189+00:00",
+    "sha256": "8a642a5598040bc90ab22e5debe08aefe61444991130aa44a98a378e405af4bd",
+    "note": "Generated source and installed WebP inspected. Close exposed bedrock has parallel scratches, with narrow river and broad valley beyond. Marks are on solid rock, no floating layers.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

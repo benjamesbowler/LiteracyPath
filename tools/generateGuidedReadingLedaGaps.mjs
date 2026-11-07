@@ -318,7 +318,12 @@ const records = [
   );
   const generatedPublicPath = `/audio/production/en-US/${record.role}/${id}.mp3`;
   const reviewedRepairPath = resolveReviewedGuidedReadingAudioRepair(record, voiceName, repositoryRoot);
-  const publicPath = reviewedRepairPath || (record.auditoryReplacement
+  // An isolated addition must not replace a current shared word take merely
+  // because that word belongs to the older auditory-repair list. Dedicated
+  // repair runs retain their existing selection behavior.
+  const preservedDraftPath = manuscriptFile && preserveExistingMappings
+    ? GUIDED_READING_LEDA_GAPS[record.role]?.[normalizedLookupText] : null;
+  const publicPath = preservedDraftPath || reviewedRepairPath || (record.auditoryReplacement
     ? generatedPublicPath
     : GUIDED_READING_LEDA_GAPS[record.role]?.[normalizedLookupText] || generatedPublicPath);
   const mp3Path = path.join(repositoryRoot, "public", publicPath.replace(/^\/+/, ""));

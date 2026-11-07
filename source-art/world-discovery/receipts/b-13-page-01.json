@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:39:38.968Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-34f7a85e-d230-48b9-8bfb-8d869fe058ec.png",
+  "sourceSha256": "a32b52b6850a4b3a109e20b0d1d0a97c6465f1ba246a8a90fa937a175a029ffb",
+  "output": "public/guided-reading/world-discovery/b-13/page-01.webp",
+  "outputSha256": "c37b0af24cfe3fde1f32d56860affdc524f43dc5c19528fbe01be03b589276a1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is EXACT edit target. Other references preserve identity only, never add props or poses from board. Repair framing ONLY: pull camera back so original whole scene becomes70percent of current size centered, extending existing street/house/sky/ground geometry naturally. Every essential head, complete visible shoe, hand, single focal cream envelope with green-star stamp and tray must be at least13percent inside image edges. Preserve exact action, expression, number of letters, hands and body pose, clothing, mailbox/door/van design, existing envelope ruled address lines without any text. Keep any cancellation lines currently present, and do not add any to unstamped stages. Do not alter exact one green-star stamp or red-truck drawing. No new characters, no words, no panel, no flat-colored outpaint rectangles or disconnected ground geometry. Clean flat2D cartoon at full1536x1024. Maintain intentional over-shoulder close view: Kit back of head/shoulder may continue beyond left/bottom frame, natural forearms connected to shoulders; the full focal envelope/red-truck picture and pencil-holding hand comfortably inside central70percent. Extend wood tabletop naturally, no need show full child or introduce furniture legs. Keep pencil tip writing on envelope, no visible invented address letters. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/b13-framing-de/page-01-before.webp",
+      "sha256": "9a0bb6f7813cbd19664a2be60008204148e5e2555cdfa4590da546c86784fe27"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-13-reference.webp",
+      "sha256": "41ecdc68f758e5b144b9dcd90529d798c0e5aa34f4499a6c6702b7319aeef4ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:40:53.327Z",
+    "sha256": "c37b0af24cfe3fde1f32d56860affdc524f43dc5c19528fbe01be03b589276a1",
+    "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Over-shoulder writing view retained with naturally connected arms. Full envelope, green star, pencil and partially inserted truck picture comfortably inset; plain continuous wood tabletop and no invented address letters.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3486a3808eda05309d21676d92e26fa9eb7cf70366f2eddeda727a485d5c5b3a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

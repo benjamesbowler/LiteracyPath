@@ -1,0 +1,45 @@
+{
+  "bookId": "world-discovery-c-11",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:24:33.388Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-744ad9b4-5eae-41c4-86f0-55f798dbc87e.png",
+  "sourceSha256": "bacf02bd24c508ba069f18eaa31181a6126addf31f328c87b262953c2e79aff6",
+  "output": "public/guided-reading/world-discovery/c-11/page-06.webp",
+  "outputSha256": "b8cc19127fdb50400bb4e4b18225b228fbf6b237fdbf85902b858d9652c1b9db",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Way to Remember; World Discovery; fiction.\nSetting: Home kitchen opening onto a small enclosed garden. Ordinary daylight. Picnic spot beneath one small tree; no street crossing, public travel or unaccompanied hazardous activity.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue folded picnic mat; Two yellow cups stacked together; One red ball; One card bearing simple pictures of mat, two cups and ball, with no words; One low garden table and one tree\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): \u201cMat, cups, ball.\u201d Kit points to the cups and ball. \u201cThe mat!\u201d He runs back to the shelf.\nRequired illustration: Kit points at the two present objects, then turns toward the shelf visible through the door, where the blue mat still lies. Continuity: Spoken list is used to check, not assumed to cure all forgetting; missing object identified.\nExact current state: Spoken list is used to check, not assumed to cure all forgetting; missing object identified.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nProduction clarity: one coherent appealing natural scene, ordinary child-scale furniture and adult proportions where relevant. Essential people and all focal props entirely at least 10 percent inside all four image edges; preserve readable medium-wide composition on 3:2 canvas. Natural hands with correct fingers and contact, no intersecting chair/body/table geometry, no giant room-enclosing shelves. References show multiple designs and times: use ONLY current scene inventory. Preserve the established room geometry and fixed prop locations across pages. Do not insert future completed states.\nInventory invariant: exactly ONE blue folding mat, exactly TWO yellow cups, exactly ONE red ball, ONE picture card (its little drawings are not extra physical props). Home shelf left of door; low round table right of door; tree in garden. Before page7 the physical blue mat remains folded on INDOOR shelf. Never place a second mat or extra cup in garden. Picture card begins on round table; Zoe carries it only once specified. Avoid unnecessary chairs.\nThird reference is actual accepted opening scene: preserve the room geography and furniture dimensions and its generous medium-wide framing, while changing to EXACT current-page state. Do not repeat its initial prop inventory. Full shoes must be visibly on FLOOR, never perched on chairs, unless explicitly seated naturally. Use normal standing, kneeling or sitting posture without furniture/limb intersection. The picture card's drawings show blue mat LEFT, TWO SEPARATE yellow cups side by side CENTER, red ball RIGHT. No garden table in the doorway; round table indoors at right. Before p7 mat stays on shelf even if offscreen; cups+ball already outside.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-11-reference.webp",
+      "sha256": "9ff580565cfc10e0435e69b7e34157c624aa6dfe1a31d3d0fbd00f44aa0dccde"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-11/page-01.webp",
+      "sha256": "b2f335e627ef3e6f56ff6ecee516b672d4867c0ddc4638a9f50a960cccfb8c53"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "82dbb69f8fe710729f42f271778bf6297f32a6982af7892f5c8b5cb78fb54c8e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "b8cc19127fdb50400bb4e4b18225b228fbf6b237fdbf85902b858d9652c1b9db",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Kit points to outdoor cups and ball and turns toward missing mat; natural grounded stride.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "b8cc19127fdb50400bb4e4b18225b228fbf6b237fdbf85902b858d9652c1b9db",
+    "note": "Kit points to outdoor cups and ball and turns toward missing mat; natural grounded stride."
+  }
+}

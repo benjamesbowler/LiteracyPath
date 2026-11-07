@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:16:44.963Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-54d5c1d9-0dca-4a74-b376-f3b432e1393f.png",
+  "sourceSha256": "751428573d9f3115b01cb12173a0c3fb6479e3b2c67a5cfbdabb80e1a4ede657",
+  "output": "public/guided-reading/world-discovery/b-18/page-02.webp",
+  "outputSha256": "63ad95f1fb2b09b8557f016f0d14c547b6945d242f4b5456545e4a2f0209fa37",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only camera framing of this image. Preserve exactly one young wingless grasshopper at soil surface, its six legs and two antennae, one top opened egg plus six intact eggs in single soil pod. Widen same scene reducing focal pod and nymph together to 75% current size, central composition with at least12% outer margins; whole pod bottom must be no lower than87% height. Natural soil/grass background extension, no border. Do not change insect stage, egg count or any colors. Landscape3:2 1536x1024, clean flat 2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7e0aca2a-e83d-476b-a13e-be7a28491818.png",
+      "sha256": "3d2612d7cc03cd6bfe68aad761e8f2d404a8c0848a33dfb9fdcad7aee4cb04bd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.392323+00:00",
+    "outputSha256": "63ad95f1fb2b09b8557f016f0d14c547b6945d242f4b5456545e4a2f0209fa37",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "One small wingless nymph at soil surface; same single pod has one opened top egg and six intact eggs. Grass/roots coherent and generous framing. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "63ad95f1fb2b09b8557f016f0d14c547b6945d242f4b5456545e4a2f0209fa37",
+    "note": "One small wingless nymph at soil surface; same single pod has one opened top egg and six intact eggs. Grass/roots coherent and generous framing. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

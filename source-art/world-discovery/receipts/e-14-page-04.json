@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:18.117Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3ccc3448-d349-4e37-b53d-99b18e2fe1c7.png",
+  "sourceSha256": "f5a3046685dc345ef5513f5a78fc4e185a91d2bdc0fccafbab5a6ecfca0b3313",
+  "output": "public/guided-reading/world-discovery/e-14/page-04.webp",
+  "outputSha256": "9523d7352f7b2a8ed62c02338842c6059030e40f16fa51c28b975ae1f8794345",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Preserve all current actions, visible and invisible objects, colors, expressions, and the exact number of people and props.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f16e5b88-9bb6-4f07-8ea1-5db0cd7f1259.png",
+      "sha256": "bdbd557fb0be673d5cf45a11d6caf0a0cbb5f9afcedc642c5bf4ca8e01ed90f4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "9523d7352f7b2a8ed62c02338842c6059030e40f16fa51c28b975ae1f8794345",
+    "method": "codex-direct-image-inspection",
+    "note": "Zoe arrives to apparently empty tan tabletop; invisible boat/tray have no revealing outlines or shadows. Kit proud, Zoe surprised, natural hands and room scale."
+  }
+}

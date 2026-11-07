@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:12:28.058Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-4db7de3e-27f2-4687-8fac-fad51af2e152.png",
+  "sourceSha256": "68a391b945468bf18f65089387c7f3c0f42d50cf287336d17944c5a6f55f5029",
+  "output": "public/guided-reading/world-discovery/b-17/page-02.webp",
+  "outputSha256": "b04372bfc996e1dfa24345a89a0d2e24db9d115f0ac66e48d373aab6eed8ac86",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact accurate six-legged insect, all SIX foot contacts, branch, colors and intact leaf. Only widen/recenter the view by about18 percent so BOTH antenna tips and the ENTIRE target leaf at upper-right are at least12 percent inside all edges. Preserve the natural overhead camera and every leg attachment unchanged. One continuous landscape3:2 1536x1024 illustration; no frame, border, inset or added insects. Keep all body/leaf content, clean flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7fe858d4-d44a-4b3e-a115-2c315b0eb3f8.png",
+      "sha256": "7c47945ad42992a57f8b3e4474b34159a9513b60da6b391d3c3551a23e8cfb58"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.378859+00:00",
+    "outputSha256": "b04372bfc996e1dfa24345a89a0d2e24db9d115f0ac66e48d373aab6eed8ac86",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Clear overhead reveal: all SIX separate legs in three matched thoracic pairs visibly contact real wood; two antennae distinct; no limb from abdomen. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "b04372bfc996e1dfa24345a89a0d2e24db9d115f0ac66e48d373aab6eed8ac86",
+    "note": "Clear overhead reveal: all SIX separate legs in three matched thoracic pairs visibly contact real wood; two antennae distinct; no limb from abdomen. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

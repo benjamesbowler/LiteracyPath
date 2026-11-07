@@ -4,9 +4,11 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { checkRegisteredWorldDiscoveryCohorts } from "./registerWorldDiscoveryCohorts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outFile = path.join(root, "src", "data", "generated", "guidedReadingBookIndex.generated.js");
+await checkRegisteredWorldDiscoveryCohorts();
 
 const { getRuntimeGuidedReadingBooks } = await import(path.join(root, "src/utils/guidedReading/runtimeBooks.js"));
 const { getGuidedReadingBookMetadata } = await import(path.join(root, "src/data/guidedReadingBookMetadata.js"));

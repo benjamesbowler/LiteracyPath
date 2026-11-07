@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:27:23.229Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-76d886a8-a6e6-4de9-b9d6-3f79a5bc5b65.png",
+  "sourceSha256": "8c7355c7157e360139c4e651b81d07be17ac620e544e1eef5a010fc34dc0ec20",
+  "output": "public/guided-reading/world-discovery/a-18/page-05.webp",
+  "outputSha256": "a89b36da845e6449285d1018de02f5a1587090ae27c391e0e3aed711a495ea43",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Two specific continuity corrections to this exact female monarch scene. FIRST: its wings already expanded in previous page, so show FULL LENGTH, full-size wings gently overlapping in side view with a continuous smooth contour, not crumpled or bunched/scalloped. Wings hang down to about the lower tip position of the empty chrysalis, with the long abdomen naturally visible behind. Preserve female orange-black pattern with white edge spots, no male scent patches. SECOND: extend the brown horizontal twig continuously off BOTH LEFT and RIGHT frame edges, as a branch attached to a plant outside view; remove rounded disconnected floating branch ends. Preserve TWO clubbed antennae, TWO near-side thorax-originating legs gripping twig, all other legs naturally hidden/reduced; do not add any head-to-twig filament. Preserve empty chrysalis, two fixed leaves and whole coneflower. Entire butterfly and flower head with ALL petal tips at least10% inside edges; make flower slightly smaller/recenter if needed. Crisp flat2D, no words, full-bleed.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9e50c16a-52cd-4b02-99ba-057da550f9f2.png",
+      "sha256": "26098fbe989be1de654ce65192f2848aacd2e3b21cfecc41e69019a3ffc30ab0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:31:05.409978+00:00",
+    "sha256": "a89b36da845e6449285d1018de02f5a1587090ae27c391e0e3aed711a495ea43",
+    "note": "Full expanded smooth overlapping wings no longer revert to crumpled stage; branch continues beyond both edges, natural two-leg thoracic grip, exactly two antennae and complete flower. Native source and final installed WebP directly viewed."
+  }
+}

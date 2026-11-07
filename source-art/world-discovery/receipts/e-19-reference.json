@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-19",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:34:10.004Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f5f737ee-6d7c-4967-a4c3-785f24143bf0.png",
+  "sourceSha256": "64a29b3ff3aa5c4a2f7236a218564704d502f3dc6dba0e0da840aa5fab5da0cd",
+  "output": "source-art/world-discovery/e-19-reference.webp",
+  "outputSha256": "f6e5cbd0ec61297abf697bbe87b4df098719e59f29b4317a0c9070f51a396a61",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image for a finished children's book. Keep the canonical character and six shape-design views at upper/right portions of this reference board. Remove the large lower-left FULL-BODY CHILDREN AND COFFEE-HEIGHT TABLE action vignette entirely. Replace it with a simple isolated TOP-DOWN view of the blank 2x2 white sorting board and the plain yellow tray, separate and NOT a finished story moment; four equal cells divided by exactly one horizontal/one vertical black line, no pieces or labels on it. Replace the small classroom key at lower right with just an ordinary window and waist-high small classroom table with thin apron and four long legs, no children. Do not include any physically distorted furniture. Preserve separate six shape model views and canonical cast. White reference-board background, no text. Preserve all other accepted scene elements, clean bold dark outlines and flat colors, natural credible scale and perspective. No words, letters, numbers or extra panels. Keep full 3:2 composition with essentials safely inside image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/jobs/e-19-reference-before-geometry-replacement.webp",
+      "sha256": "296433680181614c74497a077564e286dfb0516ef3b625d6e92af317af9ea85c",
+      "originalGenerationPath": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-19-reference.webp"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "bf9908186dace628eff2f5577d9e6aa898be70cf15b531959ece95e5b49ac18a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "f6e5cbd0ec61297abf697bbe87b4df098719e59f29b4317a0c9070f51a396a61",
+    "method": "codex-direct-image-inspection",
+    "note": "Inspected isolated canonical cast and six distinct shape designs, blank 2x2 board, yellow tray and ordinary classroom window/table key. Removed misleading full-body low-table scene; no premature labels or story events."
+  }
+}

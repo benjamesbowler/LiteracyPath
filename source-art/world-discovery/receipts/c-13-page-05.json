@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-13",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:00:39.939Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e753de2c-e48e-46b3-a109-e849441ca9c1.png",
+  "sourceSha256": "908d0462cc0721c30d4679826371c4231b43aabbefb54c98a402f758acc61f45",
+  "output": "public/guided-reading/world-discovery/c-13/page-05.webp",
+  "outputSha256": "644c2b97236f62ee8869c894d94362c284e4aa778d4aa6528551e273e2e868d3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Remove ONLY the premature visiting boy and his cream-shirt adult at the left. This page occurs BEFORE they arrive. The grower woman with long black braid, rust shirt and navy trousers is the ONLY person in the entire scene. Preserve her natural crouch placing the ONE empty green crate beneath the wood market table, three carrot bunches on tabletop, gray van and morning empty market setting. Reconstruct ordinary unobstructed paving where the two visitors were. Preserve all scale, framing, shadows and full-bleed flat cartoon style. No extra people anywhere.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-09a3e9ae-9e7c-4e2b-95eb-88bc8a81185b.png",
+      "sha256": "7116ce9c9de2e2c622f7cbb9b68b4e737bf4ff7ffc9819ae6c24934b4924c9bf"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "4e0d3da242a5b7a5dd7710516fc3f8beed47f7f4d3047c056857788ed0c8d56d",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "644c2b97236f62ee8869c894d94362c284e4aa778d4aa6528551e273e2e868d3",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Only grower present; natural crouch places now empty crate beneath table holding three carrot bunches.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "644c2b97236f62ee8869c894d94362c284e4aa778d4aa6528551e273e2e868d3",
+    "note": "Only grower present; natural crouch places now empty crate beneath table holding three carrot bunches."
+  }
+}

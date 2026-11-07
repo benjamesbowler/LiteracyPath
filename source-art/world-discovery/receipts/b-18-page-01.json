@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:30:11.938Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-4e6cdf49-d8dc-4d1c-8717-33f7ed3ee0f1.png",
+  "sourceSha256": "c2ee238254a64afdcd7eda7d89357d661488817c60072592c1c437005946ef37",
+  "output": "public/guided-reading/world-discovery/b-18/page-01.webp",
+  "outputSha256": "ece2388efa8954fde85f42a78e6e7a399372dc95fa5030c30589788a05a25b09",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this grasshopper egg-page illustration. Keep one single coherent natural soil cutaway under a grassy field, exactly one pod with the existing seven eggs. All eggs must be smooth and INTACT with NO cracks; remove the crack on top egg. Remove bite notches from all grass leaves so their edges are intact at this opening egg stage. No animals or shed skins. Widen the same scene so the ENTIRE pod sits within the central70% of canvas height, at least12% above bottom edge and below top edge, with natural soil/root/grass extension. The pod must not touch or nearly touch the bottom. Preserve field, soil structure and clean flat style; no diagrams or borders. Landscape3:2 1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1c8c5f73-aafa-4965-9bd6-003988b77745.png",
+      "sha256": "fb9f73939d5f194fd395ed23f8447a654a04f27e9d80aa8b76cacdd22b0dbd45"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.391176+00:00",
+    "outputSha256": "ece2388efa8954fde85f42a78e6e7a399372dc95fa5030c30589788a05a25b09",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "One natural soil cutaway with a seven-egg pod, all intact; no premature animal, pod safely framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "ece2388efa8954fde85f42a78e6e7a399372dc95fa5030c30589788a05a25b09",
+    "note": "One natural soil cutaway with a seven-egg pod, all intact; no premature animal, pod safely framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

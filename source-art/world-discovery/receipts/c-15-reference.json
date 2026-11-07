@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:26:35.495Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1a0efc28-1669-4cd7-addc-61904aa6f39b.png",
+  "sourceSha256": "12ef00cbb0819b69ea4ea0e305d443a99295c0a9f80f82866b6cbe757c0d5dc1",
+  "output": "source-art/world-discovery/c-15-reference.webp",
+  "outputSha256": "b47028213eceff223304bc28bd6685c16b467673c93575e587d1ec373b07a7c7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Remove EVERY human character from this reference sheet (the upper-left adult turnarounds and lower-left adults). Replace those regions with plain white space. Keep the lava/rock views and location unchanged, except remove the bottom-right orange cutaway view since this reference establishes initial solid-state geology only. No humans anywhere. No text. Preserve crisp clear flat cartoon style, all unchanged geometry and palette. This is a production reference board, not a story page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1d98befe-fc1c-4210-b1da-ad62766e9952.png",
+      "sha256": "e9283de0f7b4b129c856c1915c205575e75289fde9100916a55c452bf721cb84"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:27:22.647966+00:00",
+    "sha256": "b47028213eceff223304bc28bd6685c16b467673c93575e587d1ec373b07a7c7",
+    "note": "Bare ridge and rope-folded basalt design; unintended human models removed. Initial solid-state reference. Native source and installed WebP directly inspected."
+  }
+}

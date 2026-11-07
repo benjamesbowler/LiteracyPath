@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-15",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:06:33.478Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-fce5278d-ecb5-4115-a0b2-5082807acd35.png",
+  "sourceSha256": "bbcbca7c5890f2cef2a145626dd534aa59f4e8d6ab8f973a0700623c8bdc81e6",
+  "output": "source-art/world-discovery/a-15-reference.webp",
+  "outputSha256": "1cc34648bda0c59c36c95637e9dab1cc36c39414f35ac7dad344e20a2e9c06bb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact World Discovery production reference board. Remove EVERY human figure from this reference board, including both children and all their turnarounds/scale views. This is a nature-only book with NO humans, NO animals. Replace the lower-left human panels with generous clean white space containing two useful simple beach-location views of the same fixed white clam half-shell at mid-beach and the gray smooth pebble farther inland to its left. Preserve the headland on the right horizon and gentle shallow water below the shell in the opening state. Convert every landscape, shell and stone to a clean bold 2D children's-cartoon style with crisp dark contours, flat solid fills and at most one clean cel shadow per surface. Remove grain, speckled/noisy surface texture, painterly watercolor and overly shaded water. Water should be simple turquoise and pale blue flat shapes with sparse clean white foam curves. Do not add later waves touching the shell in the reference. No labels, captions or new props. Keep all useful correct design references and avoid inventing new story events.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-52dbe118-ab0b-460d-9226-aae63e8d381c.png",
+      "sha256": "0b5fee7ba9c0b9fb44fb45b45aac12fc2a1a865f20dec511d03616531e5bfad1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d9d7bc1e63ba268c6619636e83aa0e179164ba37690573bce9cac8ab0d8d423f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:07:43.557422+00:00",
+    "sha256": "1cc34648bda0c59c36c95637e9dab1cc36c39414f35ac7dad344e20a2e9c06bb",
+    "note": "Directly viewed native repair and final WebP. No humans remain. White clam half-shell at mid-beach, gray pebble inland left and right-horizon headland establish stable geography; opening water stays seaward of shell. Clear flat turquoise water and sand contours replace painterly texture. Design views identify one shell and one pebble, not multiple page objects."
+  }
+}

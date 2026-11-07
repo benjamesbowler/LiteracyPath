@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-19",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:18:34.251Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ba2449b1-2650-4f1e-88a9-1ce9ec2cf5f2.png",
+  "sourceSha256": "96bd09cbee36b456ce6617a2b3b186a8d379c0ef5d0a98f195864d2a5234172b",
+  "output": "public/guided-reading/world-discovery/d-19/page-07.webp",
+  "outputSha256": "579a7df81e444480397ad7592714a53438f2fac7ccfb04244461cecd763a7432",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is the edit target. Scale the ENTIRE group of dishes and food down to 75 percent of its present size, centered on this same cream tabletop. Complete plate rims must lie between x=200 and x=1336 on 1536-pixel canvas. Add plain cream tabletop around all sides. Preserve exact food counts and configuration; page 9 stays strictly overhead. No other changes.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Fruit or Seed?; World Discovery; nonfiction.\nSetting: Close observational views on a cream tabletop and two clearly separate real plants in a garden. No characters, cutting tools or handling instructions. Exactly one tomato and one pea pod, opened for comparison in prepared stages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One ripe red tomato with green calyx; prepared halves show seeds in gel chambers; One pea pod containing exactly six green peas; Two cream dishes, left for tomato and right for pea pod; Natural tomato flower and pea flower shown only on their respective plants\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The whole pod is not one giant seed. Its long wall holds several separate seeds together.\nRequired illustration: Close-up of pod wall and five seated peas, with sixth resting on same dish.\nExact current state: No imaginary seed inside every pea drawn at full size; actual part-whole relation clear.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7d495a3b-b09f-4e7e-83e5-d7b581e4bf3f.png",
+      "sha256": "8302dedad8dfcbc9b8831601ce91509071fe0441d873c92e682d5ecc39b6347c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-19-reference.webp",
+      "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5c15eed33ab40058de6f45806a97ecf61c792ceb5e2fd959ace3b9cb0ecb9825",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:19:26.984739+00:00",
+    "sha256": "579a7df81e444480397ad7592714a53438f2fac7ccfb04244461cecd763a7432",
+    "note": "Generated source and installed WebP inspected. Single close dish with five peas in pod plus one loose seed beside it; pod wall surrounds remaining seeds, coherent tabletop and generous margins.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

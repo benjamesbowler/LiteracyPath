@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:07.610Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-08697514-b81c-4a55-8bf0-10bee406107c.png",
+  "sourceSha256": "79211d9d13652fb56de1c6a544b593748ec698771c7869ac1007bdd91ccddc4d",
+  "output": "public/guided-reading/world-discovery/e-20/page-07.webp",
+  "outputSha256": "f9bc832981e37f65e3818572d712c33bc07c0deccc6711214ba414cc1c860168",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e2994527-c2a5-4e7e-81b3-4741b04a49ce.png",
+      "sha256": "f1497486bf7e03558eaf3e254456f78f2d0488eeba8d1f6f3c5a31ac7b0a1af8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "f9bc832981e37f65e3818572d712c33bc07c0deccc6711214ba414cc1c860168",
+    "method": "codex-direct-image-inspection",
+    "note": "Actual corrected no-bee scene: mature fading heads retained, gardener examines without cutting, mower parked away. Full natural bodies and patch markers inside safe margins."
+  }
+}

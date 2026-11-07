@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:20.862Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-eafc30df-25d9-44b1-b0bf-ad79b43a8303.png",
+  "sourceSha256": "88e0d322bd8ebbb65bc76ef3bdb1885b9688c8e2e8bf8170e6b3a21e012da7b2",
+  "output": "public/guided-reading/world-discovery/c-19/page-06.webp",
+  "outputSha256": "70480cb514f933c160effa0f229786028dd48807c0306dab59c912ce7b3cbf4f",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Edit this physically coherent classroom scene. Keep natural full standing bodies and ordinary waist-high table. WIDEN camera by20% and reduce whole people/table group to85% so all heads/shoes/table legs comfortably12% inside frame; extend surrounding room/floor. EXACT STATE CORRECTION: Add the missing layer of beige settled sand INSIDE bottom of GREEN-MAT cup on RIGHT. Preserve blueleft clear remaining solution and dry dish of white salt crystals. Both scoops EMPTY. Show table at normal height with physically connected legs, no stump legs. No people. No other changes. Clean crisp flat2D, no texture or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-58bee15b-b14e-40ea-b62b-e19a2e4548ea.png",
+      "sha256": "f0379d7fce4c4a8c144bdfa72cb912bfcca83ea085407a44227578b9f435534c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.560590+00:00",
+    "sha256": "70480cb514f933c160effa0f229786028dd48807c0306dab59c912ce7b3cbf4f",
+    "note": "Native source and final WebP directly viewed. Dry dish shows scattered salt crystals, blue cup has reduced remainder, green cup retains sediment; ordinary supported table."
+  }
+}

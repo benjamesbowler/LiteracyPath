@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:12.217Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ae8b24a3-ddbb-42ec-812d-77e00c723e34.png",
+  "sourceSha256": "846f8aa7adf54e589f6cad5662b98661732226055be72f092e89264fbb6db39d",
+  "output": "public/guided-reading/world-discovery/d-20/page-06.webp",
+  "outputSha256": "7e74c17159c4fbcfef8d79c88d4725f4e2205cded4e8739e75be854c39465783",
+  "width": 1672,
+  "height": 941,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels. The opaque shield must direct the warm beam straight downward onto the stoop and narrow path. Remove the bright yellow/golden illumination on the hedge entirely: ALL hedge leaves remain dark cool forest green in ambient dusk, matching surrounding shrubbery. Upper window exterior stays dark/unlit. Keep a modest warm pool on the pathway and restrained wall bounce below the fixture; no upward beam.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e25edcad-e527-43a9-9c7a-37a7dd6a3a96.png",
+      "sha256": "76a63951ab4ab879e4ce88e2d35014afbf3b2633f7f41746a76689e4a5644566"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "7e74c17159c4fbcfef8d79c88d4725f4e2205cded4e8739e75be854c39465783",
+    "note": "Native PNG and final WebP directly inspected at full image size. Same architecture and cast; useful path illumination with dark hedge/window."
+  }
+}

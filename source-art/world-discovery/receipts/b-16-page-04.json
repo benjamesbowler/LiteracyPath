@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-16",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:58.299Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e99f4a06-eea6-4915-9578-64c2c6fc16c2.png",
+  "sourceSha256": "57a060bfd39f5b948d0985a87a3765a30325d57ad25ed0b970ef32e2d63a4f61",
+  "output": "public/guided-reading/world-discovery/b-16/page-04.webp",
+  "outputSha256": "d816773f5a963dc7935a0b8ae3c54acce051e87438a6e9acc828fbee431e006d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY to widen its camera framing. Landscape 3:2 1536x1024. Reduce the existing focal composition to about 78% of its current size and center it, naturally extending the same background, with no border. Every essential extremity must sit at least 12% inside every edge; widest focal bounds should lie in the central 72% of the canvas. The ENTIRE rover, all its wheels, the gray focal rock and the ENTIRE shallow dip are essential and need wide margins; the far right edge of the dip must be at most 86% of width and leftmost focal wheel/rock at least 12%. Preserve exactly current wheel positions, six-wheel total with natural far-side occlusion, correct rigid rocker-bogie connections, camera mast, all wheel-to-ground/rock contacts and passed/ahead obstacle state. Do not add or remove anything. Keep the exact clean bold flat 2D style, colors and content, no text or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-121a13bd-5280-4a0b-affe-205b7907b6e0.png",
+      "sha256": "3f827453c73c814fca9e568e4d3a4c69cec093bc3fecdd501b16d3cc06e20549"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "377d044665ae51065f17714a8a0e9ef0b5107aab580ad7c7d62c50640eb3adae",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "d816773f5a963dc7935a0b8ae3c54acce051e87438a6e9acc828fbee431e006d",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Same front-wheel-on-rock state with legible rigid links and pivot joints; no new wheel, natural far-side occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "d816773f5a963dc7935a0b8ae3c54acce051e87438a6e9acc828fbee431e006d",
+    "note": "Same front-wheel-on-rock state with legible rigid links and pivot joints; no new wheel, natural far-side occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  }
+}

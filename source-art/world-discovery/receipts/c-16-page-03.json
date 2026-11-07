@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-16",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:19.382Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-54929295-1c30-437e-bb2f-7c122e2d4d8a.png",
+  "sourceSha256": "aa141c9bd511be6342e30269024fe81b0d19887f05fabec3212e41a9aea3ef04",
+  "output": "public/guided-reading/world-discovery/c-16/page-03.webp",
+  "outputSha256": "f08a2a808b8ae17801927f1291492a9d148a0fd67d69a72089e9cb506dfd5799",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull camera back30% so WHOLE Sun disk on left AND ENTIRE finite comet dust tail on right fit INSIDE central76% of canvas. Tail fades to background BEFORE right12% margin. Extend dark space with sparse stars around subject. Keep exactly one two-lobed dark icy nucleus, one pale gently curved dust tail away from Sun. Preserve natural selective scientific diagram and current physical state, no added particles beyond current. No flames or labels. Clean2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a195d3f5-2e99-4c6d-83ab-bc6998d299b5.png",
+      "sha256": "571ac697a26c0157568c7bbae516153ea794ea28f6f4c4e1b7e04a8a1dc226cc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2b1a07e62b53565047cbf98050cb4c434d8188b1bd6253ef1af827c13dc4e3d7",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.553291+00:00",
+    "sha256": "f08a2a808b8ae17801927f1291492a9d148a0fd67d69a72089e9cb506dfd5799",
+    "note": "Native source and final WebP directly viewed. Nearer Sun warms nucleus, released gas/dust and diffuse rightward tail visible."
+  }
+}

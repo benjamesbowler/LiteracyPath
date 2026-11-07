@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:05.871Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-183ccedd-df65-435b-b26b-70c1e81ceaa7.png",
+  "sourceSha256": "113aa9a7943e91db8e6e852cb38250ce04e1018e064ab0d24336a13808975e71",
+  "output": "public/guided-reading/world-discovery/a-14/page-07.webp",
+  "outputSha256": "32f1aead54775dae26ca5197c78686a830bdf0484eac30921cd76531baafcea1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct wheel count and fitting position. REMOVE the EXTRA MIDDLE yellow wheel currently under Kit's hand, leaving uninterrupted red sidepanel there. There must be only TWO wheel positions on the wagon's near long side: rearLEFT and frontRIGHT. Move Kit's fitting hand to press the RIGHT FRONT wheel onto its axle, with his other hand steadying red bed. Keep attachedLEFTrear wheel and RIGHTfrontreplacement identical size. Two far-side wheels mayoccludeunderbed. FOURsmallwheels total, not five; no middle axle. Giant wheel persists RIGHT of table; bothpaper sheets aregone; tableonly2crayons.  Pull camera BACK25percent and center whole coherent scene with Kit's head/hands/shoes, wagonhandle, allwheelsandimportantprops atleast10percentinsideeveryedge. Wide landscape3:2, no croporborder. Preserve crispflat2Dstyle, correct anatomy, no added text/newobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c0ac89ea-76af-4822-bb01-e94d664b7a38.png",
+      "sha256": "a86c38f350605d0d96ed929a9b2e266a4a25b98cae83ac9794a4f0358d4d5b58"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.767873+00:00",
+    "sha256": "32f1aead54775dae26ca5197c78686a830bdf0484eac30921cd76531baafcea1",
+    "note": "Native PNG and installed WebP directly inspected. Only near-rear and near-front wheel positions; Kit presses correct-size front wheel while steadying bed; no middle wheel. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

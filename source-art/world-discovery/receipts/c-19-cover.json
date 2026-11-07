@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:35:41.355Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7aa866d3-5012-4538-b5a3-495bb5e64ffa.png",
+  "sourceSha256": "1d9c5f35a8f1347971322b198aab552582378dd8a879572d7b8653c4dc72f7c3",
+  "output": "public/guided-reading/world-discovery/c-19/cover.webp",
+  "outputSha256": "020bf676527ca83c924f2e4889500c098d485ff9ef561e803c2032c32334fffd",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Local edit ONLY the contents of the two white measuring scoops on the table: REMOVE the white pointed mounds completely. Both scoops have already been used and must now be visibly EMPTY with deep gray shaded CONCAVE bowl interiors, smooth elliptical upper rims, no grains, no mound, no pile. There are two empty scoops and two metal spoons total. Keep the three people, table, cups, water levels, settled sand, and dish with recovered salt crystals exactly unchanged. No new props or scene changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6569e271-8e40-4847-8b9a-57723c8d3baa.png",
+      "sha256": "13ebfb75b086a81f416d6cd45cdabc14164d114022f472b2d8b2b06a96125f19"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:40:01.358640+00:00",
+    "sha256": "020bf676527ca83c924f2e4889500c098d485ff9ef561e803c2032c32334fffd",
+    "note": "Native and final WebP directly inspected. Ordinary supported table and grounded standing figures, coherent hand contact; two cups, two empty scoops, two spoons. Cover scoops truly empty; p5 sand cup rests on green mat on table while Zoe pours other cup at sill; p7 held cup one-third full and dish small scattering of crystals."
+  }
+}

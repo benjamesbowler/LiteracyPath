@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-18",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:05.323Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7b4c17a3-b38a-40e9-ab63-f10f8980c52f.png",
+  "sourceSha256": "28ec4360fac39f3fb1f539842aabe143ac1e0785d4067cfea6e03657c429f6f4",
+  "output": "public/guided-reading/world-discovery/c-18/page-01.webp",
+  "outputSha256": "40e6b2563fc394003ba3046e3ac0f8bc06c628ae5ea3c8f6d7f8b10904aa016f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this illustration by REMOVING the whole large snail at the left. This page shows ONLY the pale intact eggs in the soil hole beside the curved gray stone, beneath green leaves. Fill its former location naturally with soil and continuation of the stone/leaf setting. Preserve all egg shapes and central soil hole, all eggs closed and no embryos visible yet. One natural continuous scene, no text or diagrams, crisp clean flat 2D cartoon. No adult snail, no hatchling, no animal outside the eggs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ba50cb22-2413-4c7d-a53d-365840233313.png",
+      "sha256": "18dcb912009aa6cae3425e5d23fbacd8fd4c44d7c91dd494c5c6decbfa695a75"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "a5baed023b30274069b9ad8723cfa5315a96ed0c89206a01044e4c6894b37e69",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:24:52.772573+00:00",
+    "sha256": "40e6b2563fc394003ba3046e3ac0f8bc06c628ae5ea3c8f6d7f8b10904aa016f",
+    "note": "Native source and actual final WebP directly viewed. Only pale eggs in sheltered soil hole; no premature adult or hatchling. Focal subjects safely inset; no obvious malformed geometry."
+  }
+}

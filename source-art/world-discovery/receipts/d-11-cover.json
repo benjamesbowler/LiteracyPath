@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:22:49.061Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9d7492c9-2d94-42c0-a650-f9e9dec427cd.png",
+  "sourceSha256": "6fb3e995ddc706058b0c276c8495e032d567f26c7aa2baff2efb72a622d23c4d",
+  "output": "public/guided-reading/world-discovery/d-11/cover.webp",
+  "outputSha256": "5feeef6734a811845c437d955ac9b16fe2b800dc31285f815c5e0d3b6695491d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY one wardrobe correction: the girl's visible lower legs beneath the table must be covered by PLUM OVERALL TROUSERS, with rolled plum cuffs just above her white sneakers. NO bare brown calves and NO white socks. Preserve exact current framing, natural leg lengths, feet, chairs, table, faces, hands, drawings, cloud, splash, paper sun, crayons and everything else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7612b342-7691-49db-ad58-0f8351a4659c.png",
+      "sha256": "00833c3adda48b83f8ace47197cf2e310266f0ab5fb4f107f8b225dfeaf4eedf"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "sha256": "5feeef6734a811845c437d955ac9b16fe2b800dc31285f815c5e0d3b6695491d",
+    "note": "Generated source and installed WebP inspected. Both children hold their own drawings with natural grips, feet and chairs visible. Rain drawing has a small gray cloud, raised right splash and three droplets; opaque sun disk is larger than the cloud. Zoe keeps plum trousers.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

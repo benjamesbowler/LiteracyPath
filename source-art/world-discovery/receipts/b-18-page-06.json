@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:16:45.765Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0c6f87e2-eb09-470b-ba4c-1f3b7113d0b0.png",
+  "sourceSha256": "4f542c130c768e53690fb33db6aa74d31908e7196a156f2b7dd64f0ab8da83fb",
+  "output": "public/guided-reading/world-discovery/b-18/page-06.webp",
+  "outputSha256": "e65a5cbbea900ea753a3f763073eeeced9a5f21b1c7ad81817435021fab9884f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact grasshopper illustration to widen camera framing only and make the old cast skin visibly empty. Landscape3:2 1536x1024. Reduce entire focal live animal and old skin together to75% current size, centered with every antenna, wing tip and hanging empty leg tip at least12% inside all edges. Extend the natural grassy background, no border. Preserve one live newly molted adult with four naturally overlapping lengthened wings, six legs gripping grass stem and two antennae; make a visible open SPLIT down the old skin's back below, showing a hollow interior so it cannot be mistaken for a second live grasshopper. Preserve exact body scale/contacts/current pose/stage and clean flat 2D colors, no new animals or props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-60746233-5a70-4487-bcfb-22d3855c43ee.png",
+      "sha256": "5f1e3c00a66082d38ad91c5501bec2b2271fa3bb93008f4bed50c5fb3fdcff1a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.396547+00:00",
+    "outputSha256": "e65a5cbbea900ea753a3f763073eeeced9a5f21b1c7ad81817435021fab9884f",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Adult clings to upright grass with newly lengthened soft overlapping wings; hollow empty case below, no flight yet, physical contacts coherent. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "e65a5cbbea900ea753a3f763073eeeced9a5f21b1c7ad81817435021fab9884f",
+    "note": "Adult clings to upright grass with newly lengthened soft overlapping wings; hollow empty case below, no flight yet, physical contacts coherent. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

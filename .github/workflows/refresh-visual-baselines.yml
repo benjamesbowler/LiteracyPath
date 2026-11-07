@@ -273,11 +273,11 @@ jobs:
           )
           if [[ "${{ inputs.verify_only }}" != "true" ]]; then
             npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1 --update-snapshots=all
-            npx playwright test tests/release/student-device-matrix.spec.js --grep 'fullscreen transitions|skills-practice' --project=desktop --workers=1 --update-snapshots=all
+            npx playwright test tests/release/student-device-matrix.spec.js --grep 'fullscreen transitions|skills-practice|reading-library' --project=desktop --workers=1 --update-snapshots=all
             npx playwright test tests/release/student-emphasis-budget.spec.js --grep skills-practice --project=desktop --workers=1 --update-snapshots=all
           fi
           npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
-          npx playwright test tests/release/student-device-matrix.spec.js --grep 'fullscreen transitions|skills-practice' --project=desktop --workers=1
+          npx playwright test tests/release/student-device-matrix.spec.js --grep 'fullscreen transitions|skills-practice|reading-library' --project=desktop --workers=1
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep skills-practice --project=desktop --workers=1
       - name: Verify complete interface source regression
         if: inputs.scope == 'hollow-blue-ui'

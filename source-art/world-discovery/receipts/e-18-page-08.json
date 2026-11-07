@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:34:10.193Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-65ea632c-599f-4d34-b948-9f9ae822d09e.png",
+  "sourceSha256": "10c4319bf40d33b4939092028be1b4888f6a55fbaf92c08a049b7c85120e8afa",
+  "output": "public/guided-reading/world-discovery/e-18/page-08.webp",
+  "outputSha256": "a62bb6958263e81c4f39bec87dc69de570ec7f5ea035ae3c1f905f13a3a3dac6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image for a finished children's book. Widen this autumn flight image about 15 percent so the WHOLE large foreground butterfly, including its upper-left forewing tip, fits comfortably within the sky with at least 100 pixels clear sky from every image edge. Its wing is currently clipped against the top border. Keep natural wing/anatomy proportions, other butterflies, autumn trees and meadow; no extra stages/maps. Preserve all other accepted scene elements, clean bold dark outlines and flat colors, natural credible scale and perspective. No words, letters, numbers or extra panels. Keep full 3:2 composition with essentials safely inside image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2f6af6ff-f81b-4f8b-b964-fc707b27ed32.png",
+      "sha256": "bbeb079172aa85987612bf14f1f7355f95498cf9b60baad412e6b4189411ce71"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "a62bb6958263e81c4f39bec87dc69de570ec7f5ea035ae3c1f905f13a3a3dac6",
+    "method": "codex-direct-image-inspection",
+    "note": "Inspected corrected complete autumn flight composition. Foreground monarch wings fit with clear sky margin, distant new migrants and autumn deciduous setting; natural wing/antenna/body proportions, no map or prior-stage props."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "bookId": "world-discovery-a-19",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:46:25.661Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ef006249-ae1e-417d-bb80-ee8f220bf961.png",
+  "sourceSha256": "91d46fc121b66eff3559f3539482071dc18171dc3b13fa0bc3269085a47e3b1d",
+  "output": "source-art/world-discovery/a-19-reference.webp",
+  "outputSha256": "6956a1fc961788124712c02e6594f9cbb7426e14cc7834bb4679ad2f2a150987",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a NEW finished 3:2 picture-book scene using this corrected reference for Zoe, NORMAL waist-high classroom activity table, objects and room. Make the final composition 20% WIDER than reference, all essential head/shoes/table legs/objects at least12% inside frame. NATURAL PHYSICAL GEOMETRY FIRST: table has four ordinary long legs, thin top/apron at child's waist; Zoe stands on floor behind it with her TWO plum trouser legs and TWO white shoes visibly continuing below tabletop between table legs. No low coffee table, no missing lower body, no floating child, no oversized objects. Same six-year-old deep brown Zoe, two black puff buns, yellow tee/plum overalls/white shoes; two hands only, believable joints and reach. Gentle elevated front three-quarter view, clear tabletop and real floor contact. Clean crisp flat2D cartoon, no grain or writing. Exactly FOUR small objects: rough rounded red brick, smooth silver spoon, rough brown bark, smooth gray oval pebble. Exactly TWO circular mats teal LEFT and yellow RIGHT.  EXACT CURRENT SCENE: Model-setting scene. Four objects unsorted in a row before two EMPTY mats. Zoe relaxed standing hands on rear table edge. Do not reuse another page's sorting state. ONE coherent scene, no panels, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0b8cb004-e122-477b-b2f8-9f774c23166e.png",
+      "sha256": "1641101dbef985c58b634e3ede0af6498fc81e57b37305a21e624fc84846ab91"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:06:31.969Z",
+    "sha256": "6956a1fc961788124712c02e6594f9cbb7426e14cc7834bb4679ad2f2a150987",
+    "note": "Rebuilt full standing Zoe with two trouser legs/white shoes and ordinary waist-height four-legged table; two empty mats and four initial objects; natural scale/contact. Native and final WebP directly inspected."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+      "currentSha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

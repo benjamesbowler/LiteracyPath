@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:00:59.169Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3ca5c290-6223-4b8c-9d21-38a40307c3e3.png",
+  "sourceSha256": "b63c30ba555468365644983e665568e631b7a597899dbab7f2bc9338f5241aeb",
+  "output": "source-art/world-discovery/d-13-reference.webp",
+  "outputSha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "EDIT FIRST IMAGE, a production reference board. Retain locked Kit, specified adult with cane, the yellow housing and black circular button with integral raised white arrow, orange hand and white walk symbol designs. REBUILD ONLY the location/design orientation to remove perspective ambiguity: elevated three-quarter view shows one crosswalk running horizontally LEFT TO RIGHT from left sidewalk to right sidewalk. The road runs bottom to top, perpendicular to crossing. Near button pole on LEFT sidewalk; button face is clearly visible toward viewer, with its white arrow pointing horizontally RIGHT, parallel to crosswalk toward far curb. Far pedestrian signal stands on RIGHT sidewalk facing these people. One car is fully visible stopped below the crossing behind its line. Initial location key has orange hand, both people entirely on left sidewalk, cane tip there. No diagonal/upward crossing, no arrow pointing toward sky or along traffic. Keep reference sheet style clean flat, no text. \n\nFROZEN SCENE CONTRACT:\nUse case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: A Signal You Can Hear; World Discovery; nonfiction.\nSetting: World Discovery ordinary US street corner in daylight. WD-KIT is with one unnamed adult: medium-brown skin, short black curls, pale gray shirt, navy pants and white mobility cane. Adult is about 1.7 times Kit's height. One straight crosswalk and one accessible signal system; no national symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Near-corner yellow push-button box with one black circular vibrating push-button face bearing a high-contrast raised arrow aligned parallel to the crosswalk; speaker grille in the housing above; Opposite pedestrian display: orange raised hand before crossing, white walking figure during walk interval; White cane with red lower section; Marked white crosswalk; near and far curb ramps\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: No pedestrian in road; adult's cane tip on sidewalk; vehicle stopped short of crosswalk.. For orientation, the opening location/action is: Kit and the adult wait entirely behind the near curb; orange hand illuminated across the road.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-13-reference-92a010a5be16.webp",
+      "sha256": "92a010a5be166cdf13bb99247dd10bd9300ebf42f74339219e66bd57c49c6177"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:02:07.909810+00:00",
+    "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7",
+    "note": "Generated source and installed WebP inspected. Kit and cane-using adult retained; location key now has horizontal left-to-right crosswalk, perpendicular road and integral right-pointing button arrow parallel to crossing. Orange hand marks initial waiting state. This is a design reference, not a final page.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

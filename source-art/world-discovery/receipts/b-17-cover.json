@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:16:44.505Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ea84a63f-a4ec-4bdd-9201-9c31d7394141.png",
+  "sourceSha256": "c22607b30267aa4c97c9f3b9f8ae35d5246dfb474bb17c3a39d146fda31823c5",
+  "output": "public/guided-reading/world-discovery/b-17/cover.webp",
+  "outputSha256": "ea564be03cc00e82ce6af04f5dac0ba70a41cb1150681826b833e7bba192f8f1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the supporting branch in this exact illustration, keep the insect's SIX LEGS, body, antennae, colors and positions absolutely unchanged. Its two upper/far-side front and middle feet currently end in empty sky. Make the SAME main brown branch wider across its upper/far side so its continuous TOP SURFACE reaches under ALL SIX feet. The far branch edge should run just beyond those two hovering far feet so they visibly REST/GRIP real wood, not float. Preserve forked tree structure and natural taper. Do not add extra legs, insect copies, tiny arbitrary twig stubs or hands. Keep an adjacent smaller real twig/leaf for twiglike comparison, target leaf intact ahead of head. Preserve the natural elevated view, full body safe margins and clean flat 2D style. Landscape3:2 1536x1024, no panels/text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a2a2ba4a-100f-47db-b8a1-788cc0243257.png",
+      "sha256": "e90f04ccd3225fffb367e4bd738e5d9655debb82d46184fd44cccaa4f5a37d18"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.376611+00:00",
+    "outputSha256": "ea564be03cc00e82ce6af04f5dac0ba70a41cb1150681826b833e7bba192f8f1",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "One wingless walkingstick with three thoracic leg pairs and two long antennae supported on branch; intact leaf ahead and twiglike brown body. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "ea564be03cc00e82ce6af04f5dac0ba70a41cb1150681826b833e7bba192f8f1",
+    "note": "One wingless walkingstick with three thoracic leg pairs and two long antennae supported on branch; intact leaf ahead and twiglike brown body. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

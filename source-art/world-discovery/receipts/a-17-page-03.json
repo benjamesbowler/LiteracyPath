@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-a-17",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:10:57.805Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0232d38c-2d57-49b7-8cf8-1a7bd46702bb.png",
+  "sourceSha256": "2ae8d491b93ed0d08dec417d15b34c5c30dc6ddcd959b02d4e873f2b8a910924",
+  "output": "public/guided-reading/world-discovery/a-17/page-03.webp",
+  "outputSha256": "e3d40548362b0d2d1b7153fb4bcc31ae470c185bfee4402c075addcf52ff70d0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the hermit crab's mouth in every view in this image. REMOVE both long pale ivory downward tusks/fangs below its face. Crabs have NO mammal teeth. Replace with SMALL unobtrusive orange mouthparts immediately beneath eyes, short local tips about ONE QUARTER old tusk length and small dark mouth shadow. Match the second reference's corrected mouth. Preserve all other anatomy, exact shell occupancy, action, claws, contacts, composition and framing of FIRST input. Preserve TWO eye stalks, TWO long antennae and TWO tiny central antennules. No new limbs, no white teeth, no fangs, no human smile. Crisp flat 2D cartoon. Second image is mouth correction reference ONLY; never copy its page action or shell state.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/a-17-page-03-993624ae7606.webp",
+      "sha256": "993624ae7606b0082f664977947cd5677e96b3575c90430fbab00bbeb46ac8d6"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-94e236ab-24a1-4a4f-887e-bbcb712a494e.png",
+      "sha256": "2df89ffaddae8d66bf7d09d51b83d533e78a17b90968e05f2b607caa8d264dc2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "47a2ac0dba4c3aabf6bd74b426f209997efbb13a31e1d559ce11516761cce6a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:15:29.994356+00:00",
+    "sha256": "e3d40548362b0d2d1b7153fb4bcc31ae470c185bfee4402c075addcf52ff70d0",
+    "note": "Direct native and final WebP inspection after mouth anatomy correction: no ivory tusks or mammal teeth; small orange mouthparts, eye stalks/antennae, claws, ground contact and same shell-occupancy sequence preserved. Whole scene inspected for plausibility. Producer check; independent recheck pending."
+  }
+}

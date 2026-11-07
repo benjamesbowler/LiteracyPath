@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:57:38.464Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3423cd75-c32c-482e-909d-19fe6219a58f.png",
+  "sourceSha256": "58526f99e65d8dfcab1f7edbf666ebd98401bfe3d5133e3dda86393ba8125de5",
+  "output": "public/guided-reading/world-discovery/a-20/page-06.webp",
+  "outputSha256": "ba9e00413ed2978b71af4467d47932ee6c0a5694fae0be77efafc65da195ee5c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera BACK25 percent and RECENTER this exact intact2D composition. All human head/hair tops and every focal tabletop object must be at least10 percent inside every edge, including the lower tin, sorting mats and objects, plate or glass as present. Extend matching background/table around scene. Keep every other object count, grouping, pose, color and state identical. No extra props or characters, no border, no labels or text. Bold crisp continuous outlines, clean flat cel style, landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-fcab3a7b-f0d2-4b85-8303-fc8a953d1b2b.png",
+      "sha256": "8ae9bd0c0c5e27f9f540e6c02d86f4a6f3ba05675fb9dd49b1ae9d3a7c694de1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:00:04.178204+00:00",
+    "sha256": "ba9e00413ed2978b71af4467d47932ee6c0a5694fae0be77efafc65da195ee5c",
+    "note": "Native PNG and installed WebP directly inspected. Kit points to six uneaten tin crackers, crumb plate remains; no pressure from adult. Coherent anatomy and object contact, clean flat illustration, intact focal shapes with room around them, no unwanted lettering."
+  }
+}

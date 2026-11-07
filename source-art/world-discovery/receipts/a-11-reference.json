@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-11",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:34:07.917Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-cf96f4cd-84c9-4abd-9353-18c9f404d2f0.png",
+  "sourceSha256": "c8ac337b5c4b89ee3d759e67b153f09d4206e96b149b8d664c194840d9d65cec",
+  "output": "source-art/world-discovery/a-11-reference.webp",
+  "outputSha256": "0ac32f3214d7c0b0db9598658f84d7aa1e056288f234b23fbb4c4f0fac01e9c8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Zoe Picks Her Snack; World Discovery; fiction.\nSetting: A shaded picnic table at home during snack time. Kit sits left and Zoe right. Both remain in their locked costumes.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One shallow cream serving basket with separate breadstick and ripe pear sections; Kit’s blue plate and Zoe’s plum plate; Two whole breadsticks initially: one for Kit; Zoe breaks the second into a short tasting piece and a longer remainder, both retained on her plate after tasting; Two pear wedges for Zoe, one first taste and one later choice\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Both plates empty; all food still in basket.. For orientation, the opening location/action is: Zoe looks into the cream basket between the two plates. Both children have clean empty hands; the breadsticks and pear wedges are visible in separate basket sections.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c1fb0467841cc8cf22bf43c54d947245bc32081245a6691a748a57092cbe585",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T10:34:55.342319+00:00",
+    "sha256": "0ac32f3214d7c0b0db9598658f84d7aa1e056288f234b23fbb4c4f0fac01e9c8",
+    "note": "Directly viewed native source and installed WebP. Kit and Zoe retain locked clothes, facial/hair identity and equal scale; cream divided basket, two breadsticks/two pear wedges and empty blue/plum plates establish opening. Distinct props shown from useful angles; ordinary shaded patio table consistent. Reference variants are design views, not additional scene objects."
+  }
+}

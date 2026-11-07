@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-15",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:37:25.500Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c3fcb71e-3c21-43e0-a6dc-a4669fc8ea8a.png",
+  "sourceSha256": "904153dfa1dced6e0694d74648019984507e56378786239806eab513159f8e0b",
+  "output": "public/guided-reading/world-discovery/a-15/page-06.webp",
+  "outputSha256": "6a39edbfc2091acc635573ad1825a5014f596a60a0d41c1e9c80e18e8a70a7b8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact beach illustration with ONLY two precise corrections. The wave has retreated seaward: REMOVE the entire blue/white water patch entering along the bottom edge and lower right foreground, replacing it with the continuous damp brown beach sand. There must be only ONE shoreline, the existing receded water edge BEHIND and ABOVE the white shell, running from upper left toward right middle. All space BELOW the shell down to bottom edge is sand, never water. Keep the shell at exactly the same location and same orientation, but restore its partly embedded base: three small rounded warm-brown sand mounds hug its lower edge, matching the established shell anchored in sand. Do not move or enlarge shell, pebble, headland, clouds or horizon. Gray pebble remains dry inland left, entire shell exposed on damp brown sand. No people, text, arrows, inset, or other objects. Crisp clean 2D flat shapes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-72299a4c-f5e7-471b-ade5-6e244aa2f13b.png",
+      "sha256": "e3fbf67b2fd2eab37b873a7dd9c7cde630c10325ce2b26c27b7897921ef845b0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d9d7bc1e63ba268c6619636e83aa0e179164ba37690573bce9cac8ab0d8d423f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:38:10.720Z",
+    "sha256": "6a39edbfc2091acc635573ad1825a5014f596a60a0d41c1e9c80e18e8a70a7b8",
+    "note": "Direct native and installed WebP sequence review: fixed embedded white shell and dry gray pebble; one continuous water edge advances, surrounds shell, retreats over damp sand and returns; no shell movement or tide claim. Page6 repaired to remove foreground water and restore anchored shell base. All focal landmarks clear with safe margins."
+  }
+}

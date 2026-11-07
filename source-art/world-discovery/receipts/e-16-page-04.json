@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:03.755Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f4029d17-d82d-4cee-8601-58b9195c348d.png",
+  "sourceSha256": "9355b57c31b3573174ca4918e3ef0820f3e7e2fb3f1c2e1c2363e248f29031ee",
+  "output": "public/guided-reading/world-discovery/e-16/page-04.webp",
+  "outputSha256": "573faa1e19898631fe51b71d6a9f5619cb869da55f093a2e290cf73904e85864",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image for a finished children's book. CRITICAL physical repair: Kit foreground left must stand IN FRONT OF the table, not emerge through a hole in its surface. Continue his teal shirt and full torso naturally DOWNWARD all the way past the bottom image edge; delete the unnatural horizontal cut across his torso at y885. His shirt naturally occludes the left foreground tabletop down to the bottom edge. Move his whole head and torso about 90 pixels RIGHT so all hair is at least 10 percent from left edge. Move Zoe about 60 pixels LEFT so both hair buns are 10 percent inside right edge. Preserve the exact low eye-height camera, horizontal row of three card centers at about y560, distinct three pedestal feet depths, perspective diminishing circle sizes, natural hands, classroom. NO floor or legs become visible. The visible table surface continues to bottom edge to the RIGHT of foreground Kit; foreground Kit shirt continues to bottom edge on LEFT. No holes, no pasted floating torso, no border. Preserve all other accepted scene elements, clean bold dark outlines and flat colors, natural credible scale and perspective. No words, letters, numbers or extra panels. Keep full 3:2 composition with essentials safely inside image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7443077a-76da-4d90-bb8b-634e979b5bea.png",
+      "sha256": "344d8e9074b554e69e401bb0e8db56e2708d98a8c1b452ea52f7d1b419313015"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "573faa1e19898631fe51b71d6a9f5619cb869da55f093a2e290cf73904e85864",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly inspected final low eye-height end view: three yellow centers in an almost-horizontal row, separate feet at distinct depths, no strings. Complete heads inside about ten-percent margins. Foreground Kit torso continues naturally off bottom in front of tabletop; no pasted torso, floor or false missing lower body. Zoe natural arms across table."
+  }
+}

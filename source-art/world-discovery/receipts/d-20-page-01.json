@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:11.530Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4892b990-ea69-4a2d-8f31-94b16580b702.png",
+  "sourceSha256": "4308f5aa7d38011b63be935201edfbc0bba292d4481255147fb34c94b40abf8b",
+  "output": "public/guided-reading/world-discovery/d-20/page-01.webp",
+  "outputSha256": "e9375a08a75782dd634f91189b5e5ad0f65c25a1be4ab909a130fec65744c473",
+  "width": 1667,
+  "height": 944,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e8b44385-9c42-45f3-8486-c58139386c87.png",
+      "sha256": "7e51dd5e4fba6dd6325adf76e8043ef21de0effe0453c4f85fe8b58b123cc09a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "e9375a08a75782dd634f91189b5e5ad0f65c25a1be4ab909a130fec65744c473",
+    "note": "Native PNG and final WebP directly inspected at full image size. One bare bulb spills onto upper window and hedge; coherent house/stoop proportions and natural people."
+  }
+}

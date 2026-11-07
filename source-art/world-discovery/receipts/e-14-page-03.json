@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:17.999Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e91b4ccc-8071-4730-a016-9fe3476ab2fb.png",
+  "sourceSha256": "71f0c74e715b8c2a7ef2628a1bf71f85969dab0fe92114abfd577f127f9ac31e",
+  "output": "public/guided-reading/world-discovery/e-14/page-03.webp",
+  "outputSha256": "652b2238143e99de05b5c9972f364e8c804eced50736befdbcb101ba673347c2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make only this precise small correction to the supplied image: Change only the brush bristle TIPS to wet PURPLE paint as they touch the last tiny yellow spot on the TRAY front-left rim. It must read as purple paint covering yellow, not yellow paint being added. Do not move the brush or paint the boat. The entire boat hull/sail/mast and almost all tray are purple as now. Preserve all existing safe framing, broad margins, natural hands and arm contacts, upper-body crop with no floor, one pot/cup/brush/cloth, canonical identity and flat 2D style. Full1536x1024 3:2. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-37310883-c8b9-46ef-a988-0f665de36ea2.png",
+      "sha256": "6b06aa6586469438e1175cbd76fe9e1b023b0e1aa520e76636e35ff2cbf3a2a1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "652b2238143e99de05b5c9972f364e8c804eced50736befdbcb101ba673347c2",
+    "method": "codex-direct-image-inspection",
+    "note": "Kit alone finishes purple tray at front-left rim with purple bristle tips. Entire boat and tray wet-purple, no premature disappearance or yellow paint applied."
+  }
+}

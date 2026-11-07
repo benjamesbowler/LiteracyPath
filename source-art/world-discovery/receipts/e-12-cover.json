@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-12",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:37.263Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d7c7f2b8-1117-4656-8727-96229b7f5935.png",
+  "sourceSha256": "02ca758584fb97058e3b23ab97b90ebc00540a569a26994983f874e07bbbf1e2",
+  "output": "public/guided-reading/world-discovery/e-12/cover.webp",
+  "outputSha256": "e3ea5900411405c35d64ad9875ff14c9be00c1854f0613c340e8ffb8e1a4c3cc",
+  "width": 1697,
+  "height": 927,
+  "prompt": "Edit the exact illustration only to widen its framing naturally by 22 percent. Keep the complete children and the entire focal puzzle comfortably inset: top of both children's hair and bottom of both shoes must be at least 12 percent from the canvas edge. The whole table with continuous supporting legs should fit naturally, with bench and blue cushion behind. Preserve every exact action and puzzle detail: Kit is offering one rectangular white-sail-tip tile to Zoe; the table has exactly THREE rows by FOUR columns of rectangular tiles, eleven assembled with ONE empty top-row third-column gap. ONE red boat on blue water, white sail, empty tan box. Preserve natural attached hands and equal child height, locked teal shirt/mustard shorts and yellow shirt/plum long overalls. Preserve crisp outlined flat 2D cartoon, no added texture, no floating legs or detached props. Extend the actual room and floor seamlessly, not a border or blank strip. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-61f10945-2a23-4e5c-8a9e-b7b6b905cb2c.png",
+      "sha256": "f7f0544a0da7ea62163bf45a743c3c679ba92ffb620f1e07684d823b0f6afd36"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:20:34.618509+00:00",
+    "sha256": "e3ea5900411405c35d64ad9875ff14c9be00c1854f0613c340e8ffb8e1a4c3cc",
+    "note": "Producer directly inspected native and final encoded WebP. Kit offers single sail-tip tile beside eleven-tile boat puzzle and matching top-row third-column gap; stable low table/bench, coherent hands and feet."
+  }
+}

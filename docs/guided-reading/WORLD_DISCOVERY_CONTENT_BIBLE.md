@@ -1,10 +1,14 @@
 # World Discovery
 
-Status: complete collection registered in the app library; current text and
-media fingerprints are enforced by the release checks below.
+Status: both fifty-book cohorts are registered, for 100 books. Current text and
+media fingerprints are enforced by the release checks below. The original
+fifty-book source and media remain immutable. Registration and publication are
+separate: full app, release and live-deployment verification remain required. The
+[cohort registration contract](WORLD_DISCOVERY_COHORT_REGISTRATION.md) owns
+expansion paths, immutable-original checks and activation mechanics.
 
-The requested collection has fifty original books: ten each at public App levels
-A, B, C, D and E. Each level contains identity, relationships, community, fantasy,
+The collection has 100 original books: twenty each at public App levels
+A, B, C, D and E. Each ten-book cohort contains identity, relationships, community, fantasy,
 geography, space, animals, life cycles, classification and caring for our world.
 Fantasy is explicitly fiction. Information books use connected inquiries and
 checked factual sources. These are predictable/levelled readers, not cumulative
@@ -25,8 +29,10 @@ Each book has its own
 cover and a distinct illustration for every page. Full sequences require visual
 review against their text before publication. Generated media is not approval.
 
-IDs are `world-discovery-a-01` through `world-discovery-e-10`. The two digits
-refer to the ten strands in the order above. Image paths are
+Original IDs are `world-discovery-a-01` through `world-discovery-e-10`.
+Expansion IDs run from 11 through 20 in each public band, forming one additional
+ten-strand cohort. The final digit cycle refers to the ten strands above;
+every book still needs a distinct original story or connected inquiry. Image paths are
 `/guided-reading/world-discovery/a-01/cover.webp` and `page-01.webp`, etc.
 
 Use 8 pages for A–C and 10 pages for D–E unless an editorial need requires a
@@ -64,7 +70,8 @@ problem. Name the rule and persistent prop state in the manuscript metadata.
 
 ## Required per-book source fields
 
-Each JSON array entry contains `id`, `number` (1–10), `title`, `topic`, `type`
+Each JSON array entry contains `id`, `number` (1–10 for the original set;
+11–20 for the declared expansion cohort), `title`, `topic`, `type`
 (`fiction` or `nonfiction`), `appLevel`, `level`, `readingBandProfile`,
 `readingMode`, `interestAge`, `storyBibleReview`, `setting`, `props`,
 `coverBrief`, `pages`, `discussion`, `levelRationale`, and `languagePrep`.
@@ -77,14 +84,19 @@ URLs and supported claims. Any science in fiction also needs checked sources.
 Each page has `pageNumber`, exact final `text`, `imageBrief`, `imageAlt`,
 `pageDescription`, `state`, `embeddedImageText` (normally empty). Briefs describe
 one specific moment, exact subjects/counts/relationships and changing state;
-they must not simply repeat prose. The production pipeline adds common style
+they must not simply repeat prose. Optional `imageLayout` is `scene` (the default),
+`integrated-diagram` or `comparison-diagram`. A diagram declaration permits only
+the explanatory cutaway, inset, views or stages explicitly specified in its
+brief; it never permits a contact sheet or unrequested panels. Only the exact
+nonempty `embeddedImageText` may appear as lettering; otherwise art contains no
+text. References and covers always contain no text. The production pipeline adds common style
 and cast references. Discussion has `oral: {prompt, listenFor}` and
 `visual: {page, prompt, lookFor}`. No scored quizzes. `languagePrep` contains a
 few `{word, meaning}` entries for oral support, never a decoding claim.
 
 ## Acceptance
 
-Complete all fifty manuscripts, independently check factual claims and levels,
+Complete all fifty manuscripts in each declared cohort, independently check factual claims and levels,
 inspect every final cover/page in sequence, generate exact page/title/missing
 word Leda audio and verify its integrity, register current fingerprints and
 reviews, exercise the collection in the app, pass applicable checks, and publish
@@ -93,24 +105,36 @@ accurately; do not claim human listening, classroom or physical-device checks.
 
 ## Current implementation and evidence
 
-The fifty books contain 440 reading pages and fifty covers, with fifty separate
+The 100 books contain 880 reading pages and 100 covers, with 100 separate
 library-card renditions. World Discovery is a named child-library collection;
-public App levels A–E each contain ten of its books. Teacher browsing, preview,
+public App levels A–E each contain twenty of its books. Teacher browsing, preview,
 class reading, word help and oral/visual discussion use the existing reader.
 
 `source-art/world-discovery` retains the locked cast, per-book reference boards,
 individual generation/inspection receipts, card review and narration review.
 Every cover and page received direct image/sequence inspection; reported anatomy,
 prop and scene-continuity defects were repaired and independently rechecked.
-There are 490 new page/title clips and 136 new word clips, using Google Leda;
+The original cohort has 490 new page/title clips and 136 new word clips, using Google Leda;
 existing approved word audio is reused. Full decode, signal and independent
 recognition checks are documented separately from browser playback. Six
 explicit-phoneme clips retain documented recognition ambiguities in
 `narration-review.json`; this is not a claim of human listening.
 
-Run `npm run check:world-discovery` for the exact fifty-book release contract
+The second cohort uses the canonical sources and complete-book reviews in
+`src/content/world-discovery/cohorts/11-20/`. Its 490 final illustrations received
+independent full-sequence review after repairs to physical geometry, anatomy,
+scene state and framing; all fifty final card renditions were inspected separately.
+Its narration inventory contains 1,017 screened clips (490 page/title and 527 word)
+and 705 exact prior-cohort reuses. Contextual pronunciations retain exact book/page
+bindings. The isolated word `lends` retains a documented recognition ambiguity;
+the report preserves the failed negative acoustic control and makes no certified
+auditory-identity or human-listening claim. Reported defects remain blocking.
+
+Run `npm run check:world-discovery` for the exact currently registered release contract
 and `npm run test:world-discovery` for all pages, narration, word help,
 completion, library order, public-level filters, classroom controls and the
 current device profiles. Canonical story, level, narration and app-visual
 checks remain required. Task-specific rendered, regression and live-deployment
 evidence is retained under ignored `.artifacts/world-discovery/`.
+Expansion production and verification evidence belongs under
+`.artifacts/world-discovery-expansion/`; original evidence is retained unchanged.

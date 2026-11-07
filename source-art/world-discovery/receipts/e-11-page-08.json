@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:17.261Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-75d7ebde-ec65-4f4f-be77-341b5a1c95ba.png",
+  "sourceSha256": "9d903e4f9e0116311ac86f5096e810508769ea7381a2d5f984cdaeb124852ed6",
+  "output": "public/guided-reading/world-discovery/e-11/page-08.webp",
+  "outputSha256": "108b1c918f27427751f5a4a952a56d8400bd5f39ff1d5bcb9f9b8d8591ce6bc8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back to scale ENTIRE scene group to80percent centered; extend same plain floor and walls. Complete child heads, feet, hands and essential drawing/props must have at least13percent margin. Make all legs of the blue classroom chairs BLUE, the same blue as each chair back; preserve natural connected chair geometry and seated child proportions. Keep table legs orange wood. Keep smiling pool drawing and its bubbles INSIDE BLUE WATER exactly as now, and preserve folded paper/private folder/new public drawing state. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-0f14243c-a5e6-4ff9-b67f-7fa2db6fc08a.png",
+      "sha256": "1183133856fe2837c74ad82cf8001366b1e7f88a62a9aa92133b89e9101e448b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-11-reference.webp",
+      "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:18:08.955842+00:00",
+    "sha256": "108b1c918f27427751f5a4a952a56d8400bd5f39ff1d5bcb9f9b8d8591ce6bc8",
+    "note": "Generated source and installed WebP inspected. Only public smiling swimmer on uncreased new sheet; brown crayon in hand, blue in tray, original concealed face down.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

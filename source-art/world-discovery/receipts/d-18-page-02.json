@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:43.573Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e4af63a6-b1f0-4450-80ef-446c64330094.png",
+  "sourceSha256": "509bbbdf13d29a3f621eaa50c27b1d793d66c0100f28832a657035b9c565c12b",
+  "output": "public/guided-reading/world-discovery/d-18/page-02.webp",
+  "outputSha256": "b656b0f8d03d6b9989ac70282e228ab971c9861e8d363917d2241d7d77d2798b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Pull camera back to70percent whole-scene scale, keeping all existing elements together centered. Extend underwater water/sand naturally. Entire crab with every limb, stone and explanatory inset must lie within central70percent,15percent borders.  Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2b0951b7-e4db-4495-ac45-0d444f554682.png",
+      "sha256": "be845547b7ceb842bddd80925e67ee35ffda81bc571249640afe2c59cea374ba"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.839Z",
+    "sha256": "b656b0f8d03d6b9989ac70282e228ab971c9861e8d363917d2241d7d77d2798b",
+    "note": "Generated native and installed full WebP directly inspected. Exactly one small connected sectional inset shows old hard layer and thin soft layer beneath; main animal remains intact with ten attached limbs. No injury or whole-body transparency.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

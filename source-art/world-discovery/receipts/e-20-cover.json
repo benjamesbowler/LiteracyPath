@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:06.346Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e71b25e0-fa1d-4b0f-9835-429631b7f4a6.png",
+  "sourceSha256": "e438d48f5d68de0430034cff9db647e7dee1d03b84ce64841bdd242596f28bc0",
+  "output": "public/guided-reading/world-discovery/e-20/cover.webp",
+  "outputSha256": "59cc742ad1d93904b0aeaa4c83560dc0b985ee65d383782e9e148a3b8d7055d5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/cover-before.webp",
+      "sha256": "555dc239f29fd351ac177a14c6e6aa248a4c34761551f59be6f3970fcd2398e4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "59cc742ad1d93904b0aeaa4c83560dc0b985ee65d383782e9e148a3b8d7055d5",
+    "method": "codex-direct-image-inspection",
+    "note": "Widened whole meadow scene has natural walking children, credible kneeling gardener and plant contact; two markers and retained patch remain clear. Full people, flower heads and markers safely inside frame."
+  }
+}

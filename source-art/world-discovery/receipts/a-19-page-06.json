@@ -1,0 +1,50 @@
+{
+  "bookId": "world-discovery-a-19",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:43:28.290Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-00b50cbd-5c4a-4c30-bae1-5b160bc78386.png",
+  "sourceSha256": "c1576ca9020f9f0385d3c415b4dff34741f960c7f8712c170cfc43f58ca7710b",
+  "output": "public/guided-reading/world-discovery/a-19/page-06.webp",
+  "outputSha256": "072b3c4f8c1bd39387dcdc1c92ed7d946ac731f2b57243642cd69f3d62e89844",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this physically coherent classroom illustration. FIRST dramatically PULL CAMERA BACK by35%: REDUCE entire Zoe-and-table arrangement to about70% its current size within same 3:2 frame, extend plain room/floor around. Whole Zoe head/shoes AND ALL table legs must lie between y=140 and y=870 on1024height; nothing essential within outer12%. Preserve normal waist-high table, four long legs, TWO visible plum trouser legs/white shoes, natural standing posture and hand contact. Do not shorten table legs or hide lower body. Keep same four ordinary objects, two circular mats, room and clothes. EXACT SORTING STATE OVERRIDE: TWO completed groups: brick AND bark ON teal LEFT mat; spoon AND gray pebble ON yellow RIGHT mat. Exactly these four objects, none outside the mats. Zoe touches gray pebble with right hand, left hand relaxed at table edge. Crisp flat2D cartoon no grain/text. Only fix framing and specified object positions; no duplicates.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-71cb847c-dada-4984-ac15-6ce54b2b9cac.png",
+      "sha256": "445b809b3f4e6595128f6437fbe33ddf4983fd03c96b9ccdc0418525ddbc4c1c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:06:31.973Z",
+    "sha256": "072b3c4f8c1bd39387dcdc1c92ed7d946ac731f2b57243642cd69f3d62e89844",
+    "note": "Pebble joins spoon on yellow; brick/bark remain teal; full standing body and normal child-height table."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+      "currentSha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

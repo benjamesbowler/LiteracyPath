@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:04.714Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-eeb78951-4b81-485b-94a9-266b0d701926.png",
+  "sourceSha256": "204ff64f6327c97017b7e148d4fbdd8465d00ba8a5c7173bc98861a53c4e8672",
+  "output": "public/guided-reading/world-discovery/c-15/cover.webp",
+  "outputSha256": "25328349fd2d1417e38202cdd3521b7939d969dff69815ee77e0d2ffb749ea34",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull camera back 30%, making the whole lava flow feature 25% smaller inside the same 3:2 frame. Extend continuous natural ground around it, keep whole lava flow including its rightmost rounded leading edge at least12% inside edges. Preserve geological states: coherent low basaltic lava flow with thin dark cooling crust and central orange-red opening. Gray ridge at left distant horizon. No fire, no people, no diagram labels, no cutaway slice. Crisp flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-447dac46-e789-4ea9-bbf0-a0c065154f96.png",
+      "sha256": "0521483c5c84a63ebd9dfe8eed17e3ee53acc6144e9563d3ee1c3b0a681aeda6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.548281+00:00",
+    "sha256": "25328349fd2d1417e38202cdd3521b7939d969dff69815ee77e0d2ffb749ea34",
+    "note": "Native source and final WebP directly viewed. Cooled ropy exterior with one hot glowing crack, consistent ridge and whole flow safely inset."
+  }
+}

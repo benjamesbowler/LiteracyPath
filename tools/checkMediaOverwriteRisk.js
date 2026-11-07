@@ -10,6 +10,7 @@ import { isVerifiedInactiveImageRetirement, INACTIVE_IMAGE_EVALUATOR } from "./l
 import { hashGitBlobs } from "./lib/gitBlobHashes.mjs";
 import { verifyCurrentCanonicalImageReference, CANONICAL_REFERENCE_PATH } from "./lib/canonicalImageReferences.mjs";
 import { verifyReviewedAppImageRetirements } from "./lib/reviewedAppImageRetirements.mjs";
+import { verifyReviewedWordAudioRetirements } from "./lib/reviewedWordAudioRetirements.mjs";
 export { isVerifiedInactiveImageRetirement } from "./lib/inactiveImageRetirement.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -756,6 +757,18 @@ async function main() {
     return;
   }
   const changedEntries = collectChangedPaths(baseline);
+  if (process.argv.includes("--validate-word-audio-retirements")) {
+    const words = await verifyReviewedWordAudioRetirements(repoRoot, changedEntries, baseline, {
+      meaningfulReferences: narrationSourceReferences, decodes: isDecodableNarrationAudio, validateAll: true
+    });
+    const result = { baseline, verified: words.paths.size, rows: words.rows, failures: words.failures,
+      passed: words.failures.length === 0 && words.paths.size > 0 };
+    ensureReportDirectory();
+    fs.writeFileSync(path.join(repoRoot, ".artifacts", "audits", "word_audio_retirement_validation.json"), JSON.stringify(result, null, 2) + "\n");
+    console.log(JSON.stringify(result, null, 2));
+    if (!result.passed) process.exitCode = 1;
+    return;
+  }
   if (process.argv.includes("--validate-reviewed-image-retirements")) {
     const reviewed = await verifyReviewedAppImageRetirements(repoRoot, changedEntries, baseline);
     const result = { baseline, verifiedAssets: reviewed.paths.size, rows: reviewed.rows, failures: reviewed.failures,
@@ -769,6 +782,9 @@ async function main() {
   const replacements = await losslessReplacementPaths(changedEntries, baseline);
   const retirements = await verifiedBookRetirements(changedEntries, baseline);
   const narration = await verifiedNarrationSupersessions(changedEntries, baseline);
+  const wordAudio = await verifyReviewedWordAudioRetirements(repoRoot, changedEntries, baseline, {
+    meaningfulReferences: narrationSourceReferences, decodes: isDecodableNarrationAudio
+  });
   const supersededCovers = await supersededCardCoverPaths(changedEntries, baseline, retirements.sourceBindings);
   const inactiveImages = await verifiedInactiveImageRetirements(changedEntries, baseline);
   const reviewedImages = await verifyReviewedAppImageRetirements(repoRoot, changedEntries, baseline);
@@ -778,16 +794,17 @@ async function main() {
     catch { /* An unreadable or changed authority retains the generic source-file rejection. */ }
   }
   const mediaEntries = changedEntries.filter(entry => isMediaFile(entry.path));
-  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path) && !supersededCovers.has(entry.path) && !retirements.paths.has(entry.path) && !narration.paths.has(entry.path) && !inactiveImages.paths.has(entry.path) && !reviewedImages.paths.has(entry.path));
+  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path) && !supersededCovers.has(entry.path) && !retirements.paths.has(entry.path) && !narration.paths.has(entry.path) && !wordAudio.paths.has(entry.path) && !inactiveImages.paths.has(entry.path) && !reviewedImages.paths.has(entry.path));
   const tempSourceEntries = changedEntries.filter(entry => entry.status !== "D" && isTempOrSourcePath(entry.path) && !canonicalReferences.has(entry.path));
   const nonWebpEntries = changedEntries.filter(entry => entry.status !== "D" && isNonWebpImagePath(entry.path));
 
   const warnings = [`Comparison baseline: ${baseline}${baseline !== "HEAD" ? " (pending merge: incoming tree; all worktree differences remain checked)" : ""}.`];
-  const failures = [...retirements.failures, ...narration.failures, ...inactiveImages.failures, ...reviewedImages.failures];
+  const failures = [...retirements.failures, ...narration.failures, ...wordAudio.failures, ...inactiveImages.failures, ...reviewedImages.failures];
   for (const file of replacements) warnings.push(`Pixel-identical WebP replacement verified; old runtime reference absent: ${file}`);
   for (const file of supersededCovers) warnings.push(`Superseded card-cover delivery verified against prior/current manifests, source bytes and decoded replacement; old runtime reference absent: ${file}`);
   for (const file of retirements.paths) warnings.push(`Whole-book retirement verified against explicit old/new bindings, historical bytes, runtime, approvals and decoded replacements; old runtime reference absent: ${file}`);
   for (const file of narration.paths) warnings.push(`Narration supersession verified against historical text/page/bytes, exact current text/runtime/provenance and decoded replacement; old cue and mapping absent: ${file}`);
+  for (const file of wordAudio.paths) warnings.push(`Unpublished isolated-word supersession verified against exact old/recovery bytes, approved same-meaning context, current resolver and decoded replacement; old live references absent: ${file}`);
   for (const row of inactiveImages.rows) warnings.push(`Inactive-image cohort ${row.id}: ${row.assets} exact historical files retired after fresh finite/current/retention/history selection proof and unchanged nonretired outputs.`);
   for (const row of reviewedImages.rows) warnings.push(`Reviewed-image retirement ${row.id}: ${row.assets} exact files verified against historical bytes, current source graph, fresh finite selection and current replacement approvals.`);
   for (const file of canonicalReferences) warnings.push(`Completed canonical identity reference verified against exact metadata-only uses, current approved source covers, sealed consumer code and deterministic builder bytes: ${file}`);
@@ -821,6 +838,7 @@ async function main() {
       supersededCardCovers: supersededCovers.size,
       retiredBookAssets: retirements.paths.size,
       retiredNarrationClips: narration.paths.size,
+      retiredWordClips: wordAudio.paths.size,
       retiredInactiveImages: inactiveImages.paths.size,
       retiredReviewedImages: reviewedImages.paths.size,
       canonicalIdentityReferences: canonicalReferences.size,

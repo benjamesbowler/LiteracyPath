@@ -1,0 +1,45 @@
+{
+  "bookId": "world-discovery-c-14",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:15.380Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-dfe39d1c-c8fb-4bd6-8c77-02cf67528783.png",
+  "sourceSha256": "322d5f08daec844419310dce558814e3d5ee553a550a7a5a6a04fc618d532dfe",
+  "output": "public/guided-reading/world-discovery/c-14/page-07.webp",
+  "outputSha256": "f4eb7b324f45ce088add447851431662e7663b7e5d0ec6655c223b5179a325bd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Arrow Bookmark; World Discovery; fiction.\nSetting: Classroom table. Explicit single magic rule: one plain red bookmark follows the direction of each pencil arrow beneath it and stops on blank paper. Adjacent arrows touch so it can pass directly from one to the next. Arrows four and five initially point toward one another, making a short back-and-forth. It has no face, limbs or speech and cannot jump a blank gap. Ordinary erasing changes the route.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One red rectangular bookmark with a rounded top and no writing; One long white paper strip lying flat across the table into an open book; One gray pencil and pink eraser; One open animal picture book with unlettered pictures; Six adjacent touching pencil arrows on a continuous strip; fifth initially points back toward fourth; the last arrow reaches the blank open-book page\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The bookmark slides past the repaired place and onto Kit\u2019s page. This time, it does not come back.\nRequired illustration: Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip\u2019s end. Kit holds his hands away. Continuity: The last drawn arrow ends directly at blank book page; moving onto that blank paper stops the bookmark under the original rule.\nExact current state: The last drawn arrow ends directly at blank book page; moving onto that blank paper stops the bookmark under the original rule.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nProduction clarity: one coherent appealing natural scene, ordinary child-scale furniture and adult proportions where relevant. Essential people and all focal props entirely at least 10 percent inside all four image edges; preserve readable medium-wide composition on 3:2 canvas. Natural hands with correct fingers and contact, no intersecting chair/body/table geometry, no giant room-enclosing shelves. References show multiple designs and times: use ONLY current scene inventory. Preserve the established room geometry and fixed prop locations across pages. Do not insert future completed states.\nFantasy mechanics must remain legible: exactly one red faceless rounded bookmark. For six-arrow route, arrowheads ordered RIGHT RIGHT RIGHT RIGHT LEFT RIGHT until repaired; draw continuously connected gray shafts/tips with NO white gap. Opposing fourth and fifth heads touch, making a LOCAL trap; never send bookmark back to start. Final arrow ends at blank page, where bookmark stops. After repair all six point right. Do not copy reference sheet layout or show an extra bookmark/pencil. Exact printed page state overrides reference.\nUse actual cover third reference for ordinary room layout, generous zoomed-out safe framing, ONEtable, TWObluechairs and ONEopen blue animal book at RIGHT. Normalize table legs to ordinary GRAY metal legs. Single book spread: blank LEFT destination page, small lionRIGHT. Never two books or extra stacked spreads. Children sit naturally with full lower legs/feet visible under chairs/table (Kit MUSTARD SHORTS/golden shins/white socks/NAVY sneakers, Zoe plum trousers/WHITE sneakers). Six arrowheads ONLY on ONE UNBROKEN continuous gray shaft along strip: p4/p5 order R,R,R,R,L,R with fourth/fifth tips touching/overlapping locally, no blank gaps anywhere; red bookmark in LOCAL trap at4/5. p6/p7 after repair SIX RIGHTward heads along continuous line, no seventh residual head. p6bookmark stays earlier on strip; p7redbookmark on blank left page where finalarrowends. p8same ONEbookclosed, redtipatupperedge, six-rightarrowstripREMOVEDinZoehand. Always ONE gray pencil and ONE separate pink eraser max. Allheads, fullfeet, wholepaper/book/focalprops at least10% inside everyedge; same natural proportions, no floating torsos or impossible chair intersections.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-14-reference.webp",
+      "sha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-82e5de5e-3e31-4289-bfcc-aa4746400150.png",
+      "sha256": "128a1dcf70aebd67bfee5ef3c3ce451c4c80c37b5e98a9f5225ad04d589c5910"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6bf0214e4c9b70fd3e14b3805b6b47eaa35e1740a8d7791544e2a7f80254b40",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "f4eb7b324f45ce088add447851431662e7663b7e5d0ec6655c223b5179a325bd",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Six rightward heads reach blank left book page; one bookmark rests there; Kit's hands stay away, natural seating/contact.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "f4eb7b324f45ce088add447851431662e7663b7e5d0ec6655c223b5179a325bd",
+    "note": "Six rightward heads reach blank left book page; one bookmark rests there; Kit's hands stay away, natural seating/contact."
+  }
+}

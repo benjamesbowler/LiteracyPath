@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:56:34.210Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-57fc14e0-4cce-453a-93d4-650a975ae81e.png",
+  "sourceSha256": "e500d48636e969600dbddd704c8a7abb3f4be30ef6e94cba1fdce4dd084cc196",
+  "output": "public/guided-reading/world-discovery/d-11/page-09.webp",
+  "outputSha256": "65bb32b21b1523ca6a6c42bcd3d14b397385ec44fa506bba35f09281eb573e1b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the FIRST image. Change only the lavender tiled floor to plain lavender floor, removing all grid lines. Preserve every other element.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: I Pick the Rain; World Discovery; fiction.\nSetting: World Discovery. WD-KIT and WD-ZOE retain their locked cast-v1 clothing, proportions and equal height. One ordinary classroom art table and low display ledge in steady afternoon light. Both make pictures of a remembered favorite day; the room itself is dry. Memories appear only as drawings on paper, not as changes of clothing or setting.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Zoe's cream drawing sheet: two purple boots above one blue puddle, then one gray cloud and blue rain strokes; no drawn person needed; Kit's separate cream drawing sheet: orange ball on green grass under one yellow sun; One loose yellow paper sun disk with short cut rays, large enough to cover Zoe's small drawn cloud; it is never glued; Gray and blue crayons in a yellow tray; two plain display clips\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): Kit holds up his sunny picture. Zoe holds up her rainy one. Neither asks the other to change it.\nRequired illustration: Both hold their separate finished pictures at equal height and look across at each other's sheet.\nExact current state: Kit's sun and ball picture unchanged; Zoe's rain picture complete.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-11-page-09-0b0a31868861.webp",
+      "sha256": "0b0a31868861e80707c2cfe05c1a9b54b9c923f1ffb73cb4744d3a7f496e2309"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-11-reference.webp",
+      "sha256": "568bc7258fe9bd07e83c58a24fa3d7cd3e5fb1c57026b4ac0825902874c267de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:05:16.295308+00:00",
+    "sha256": "65bb32b21b1523ca6a6c42bcd3d14b397385ec44fa506bba35f09281eb573e1b",
+    "note": "Generated source and installed WebP inspected. Floor plain lavender, no tile grid; both distinct drawings held naturally, raised splash and rain visible, sun piece rests separately on table.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

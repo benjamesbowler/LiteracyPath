@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:19:59.585Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2337dc6e-cd68-4433-9466-124413f5cd50.png",
+  "sourceSha256": "deb8ca412a3aaf5f05f72e35b56b61796fb1bbbd08405b219d28428665dab7f8",
+  "output": "public/guided-reading/world-discovery/a-12/page-05.webp",
+  "outputSha256": "da39b0cd5e5a3d14560cd4fbde54df0105a61bcfbb473445028c87c49a527de1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use this exact preceding page as the spatial reference to create the NEXT distinct illustration. Kit stays stationary at his SAME right-hand position on the path AFTER the bench, with the swings farther ahead to his RIGHT. Raise his nearer arm into a gentle open-hand WAVE directed back toward Zoe. Move Zoe FORWARD from the LEFT toward him, so she is now JUST PAST THE BENCH and the gap is narrower (about one child stride). Zoe's body and feet face RIGHT toward Kit; Kit's head and waving hand look LEFT toward her. The blue gate remains BEHIND ZOE at far left, not next to Kit. Do NOT swap their locations, reverse walking direction or return Kit to the gate. Preserve all clothes, locked faces, one path, bench, two yellow swings and fenced setting. Full landscape 3:2, all faces/hands/feet at least 8% inside edges, crisp flat cartoon, no lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-68ce141b-a5f3-4fdc-acb4-f4f8aad64ae2.png",
+      "sha256": "b0e46a926605cc1a88c17c9b68fae2039fcedc7820b1f20142eea5f59965db93"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:22:08.845Z",
+    "sha256": "da39b0cd5e5a3d14560cd4fbde54df0105a61bcfbb473445028c87c49a527de1",
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Kit remains stopped at same spot and waves; Zoe has passed the bench and narrowed the gap; gate stays behind Zoe and swings beyond Kit. Locked cast, crisp cel style, essential subject margins and no text verified."
+  }
+}

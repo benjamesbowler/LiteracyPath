@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:30:08.159Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ea9dcbca-e9f8-43e9-a2de-c7be29acf9b3.png",
+  "sourceSha256": "d064f54a45cf8315c43d4df71d0b8c68443a72fdfd95192227180c7a38c5adca",
+  "output": "public/guided-reading/world-discovery/b-20/page-03.webp",
+  "outputSha256": "6ed2e6620c1302759de9c20e088ac01804e0af321e3c18b0701dfc7aee7543b1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this exact two-child/sink scene and all current details. Move camera back slightly about 15 percent, keeping a LANDSCAPE 3:2 canvas (not panoramic), so complete shoes and all plant leaves have comfortable 10 percent clear margin. Add ordinary room wall/floor around intact scene. Keep cup almost empty with only a few drops at bottom, one falling drip, closed faucet, Kit and Zoe naturally watching, no adult/tools. No other change, no text/panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9fa2dcae-dbb7-4cde-b035-b661539ebf27.png",
+      "sha256": "bc13132d0cde9d441814825c744261b3682e4dd6157832f608112f424acc6db6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.190605+00:00",
+    "outputSha256": "6ed2e6620c1302759de9c20e088ac01804e0af321e3c18b0701dfc7aee7543b1",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Cup under one drip has only a few drops at bottom; two children watch hands away. One plant left sill, ordinary cabinet/desk proportions.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "6ed2e6620c1302759de9c20e088ac01804e0af321e3c18b0701dfc7aee7543b1",
+    "note": "Cup under one drip has only a few drops at bottom; two children watch hands away. One plant left sill, ordinary cabinet/desk proportions."
+  }
+}

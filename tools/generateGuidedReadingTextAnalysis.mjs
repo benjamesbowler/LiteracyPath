@@ -7,9 +7,11 @@ import { GUIDED_READING_LEVEL_REVIEWS } from "../src/data/guidedReadingLevelRevi
 import { GUIDED_READING_LEXILE_MEASURES } from "../src/data/guidedReadingLexileMeasures.js";
 import { APP_READING_LEVELS, validateLexileReceipt } from "../src/utils/guidedReading/bookTextAnalysis.js";
 import { computeBookTextMetrics, fingerprintBookReadingText, serializeBookReadingText } from "../src/utils/guidedReading/textMetrics.js";
+import { checkRegisteredWorldDiscoveryCohorts } from "./registerWorldDiscoveryCohorts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const target = path.join(root, "src/data/generated/guidedReadingTextAnalysis.generated.js");
+await checkRegisteredWorldDiscoveryCohorts();
 const books = getRuntimeGuidedReadingBooks();
 const ids = new Set(books.map(book => book.id));
 for (const id of Object.keys(GUIDED_READING_LEVEL_REVIEWS)) {

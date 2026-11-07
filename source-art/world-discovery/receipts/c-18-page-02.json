@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-18",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:05.472Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e3c80f41-541b-407e-9c8f-76420f8cd931.png",
+  "sourceSha256": "b821bfa1188adb6aa8223fe941f98210ca7ae96171289de99d192bfd2ede8aca",
+  "output": "public/guided-reading/world-discovery/c-18/page-02.webp",
+  "outputSha256": "8e9ae9ad04e3ef2a1f954a28361c3cb20d8e1ac7169cec5be0ea2316ff4635bf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Shell from the Start; World Discovery; nonfiction.\nSetting: Brown garden snail, Cornu aspersum, in a damp garden bed beside a curved stone and broad low leaves. One focal individual followed through time; thin pale hatchling shell becomes larger and patterned. Natural shell coiling and two long eye tentacles plus two shorter sensory tentacles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): A soil hole containing a partly concealed clutch of round pale eggs; One focal egg that darkens then opens; One focal snail and its continuous attached growing shell; One curved gray stone beside low leaves\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Inside each egg, a young snail grows. These eggs are darker now, close to hatching.\nRequired illustration: Later close view of the same soil hole: eggs have slightly darker translucent shells and one faint curled embryo silhouette is visible through the focal egg. Continuity: Time has passed; no fully exposed naked snail inside an opened egg yet.\nExact current state: Time has passed; no fully exposed naked snail inside an opened egg yet.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nNO humans. Exactly TWO long eye-tentacles plus TWO short sensory tentacles lower at mouth; no extra horns, limbs or human smile. Each visible snail body has exactly ONE permanently attached spiral shell. Initial eggs pale, focal hatchling pale small shell, later juvenile larger shell, adult brown patterned shell only on pages6/7. Match stone/leaf location. All essential whole subjects12% inside frame.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-18-reference.webp",
+      "sha256": "0baa44091b65c46ab22d7cd37d3bfd9425508f03505be301d227a0d3233e33de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "a5baed023b30274069b9ad8723cfa5315a96ed0c89206a01044e4c6894b37e69",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:24:52.773351+00:00",
+    "sha256": "8e9ae9ad04e3ef2a1f954a28361c3cb20d8e1ac7169cec5be0ea2316ff4635bf",
+    "note": "Native source and actual final WebP directly viewed. Darker intact eggs with faint developed embryos; no detached shells. Focal subjects safely inset; no obvious malformed geometry."
+  }
+}

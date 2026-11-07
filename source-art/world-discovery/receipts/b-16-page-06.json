@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-16",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:58.739Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-106ad5a7-f468-4b3c-bb0d-67d9ef2ebf3a.png",
+  "sourceSha256": "38876aa2dc561bd6b6b4d20aece779502c21efdcc7ea87f4593ebd4e927c1ea8",
+  "output": "public/guided-reading/world-discovery/b-16/page-06.webp",
+  "outputSha256": "78f8a953685f05e38c941fc788f4b3c2280bb72a35ac8621eb03f6d44adc20bb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Wheels for Mars; World Discovery; nonfiction.\nSetting: Illustrative surface sequence on Mars, not a claim about a named historic drive. One Perseverance-type six-wheeled rover with white instrument body, gray camera mast, black and gray wheels and visible jointed suspension; dusty rust-red ground under a pale tan sky. No astronauts, plants, faces or flags.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One rover with exactly six wheels, three on each side; Jointed rocker-bogie suspension, not six independent telescoping legs; One low rounded gray rock, less than half wheel height; A shallow dip just beyond the rock\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The back wheel follows.\nThe front wheel dips down.\nRequired illustration: Near rear wheel crosses the rock while the near front wheel enters the shallow dip beyond; middle wheel is on the ground between. Continuity: Three wheel heights differ; natural articulated support keeps all near tires touching terrain.\nExact current state: Three wheel heights differ; natural articulated support keeps all near tires touching terrain.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nMANDATORY WIDE COMPOSITION: landscape3:2,1536x1024. Focal subject and all essential props occupy only the CENTRAL SIXTY-FIVE PERCENT of image width and CENTRAL SEVENTY-FIVE PERCENT of height, surrounded by generous simple setting. Absolutely NO essential extremity touches outer10% frame area. Wide view with whole shape, not zoomed-in crop. Use the same clean flat colors and broad cel shapes; no grain, stipple, mottling or painterly material texture. No people/animals. \nExact current state override: Near-side view faces RIGHT: REAR near wheel at LEFT is ON the fixed low gray rock. MIDDLE wheel in CENTER contacts ordinary ground beyond rock. FRONT wheel at RIGHT sits LOWER inside the shallow dip. Three differing wheel heights, every tire physically contacts its assigned terrain, rigid suspension pivots accordingly. Exactly three near wheels, no extra. Show exactly SIX wheels total, THREE each side. Near-side order is rearLEFT-middleCENTER-frontRIGHT. Far-side wheels may be occluded, never additional near-side wheels. Low obstacle smaller than half wheel height. Gray/white rover body and camera mast consistent with inspected reference. Reference initial ground state does not override page-specific wheel positions.\nThe second image is a successfully WIDE-FRAMED finished scene. Keep similarly generous space surrounding the WHOLE focal subject (even slightly wider is fine), while drawing this page's NEW action/current state exactly. The second reference's tide/wheel state is NOT the current page state; change it as this page requires. No close cropped rendition.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-16-reference.webp",
+      "sha256": "9a05760d26b78a21ac29ca3a5dd1af85c2cf5cdaac018a6630bbbc91f1fa4344"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-16/page-01.webp",
+      "sha256": "27d75167ff3cb08afe77d2cd0481de168d728d950d2c510c54112e809358b3db"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "377d044665ae51065f17714a8a0e9ef0b5107aab580ad7c7d62c50640eb3adae",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "78f8a953685f05e38c941fc788f4b3c2280bb72a35ac8621eb03f6d44adc20bb",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Rear near wheel on rock, middle on ground beyond and front lowered into shallow dip; rigid joints preserve three distinct wheel heights. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "78f8a953685f05e38c941fc788f4b3c2280bb72a35ac8621eb03f6d44adc20bb",
+    "note": "Rear near wheel on rock, middle on ground beyond and front lowered into shallow dip; rigid joints preserve three distinct wheel heights. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  }
+}

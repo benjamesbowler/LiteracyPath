@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:20:21.735Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c1d14510-93fe-4d2b-af02-12f0a564f95a.png",
+  "sourceSha256": "0bc770706c067b607f622c5d39049c4dd04f6f3e83d143b7564d667249ef0f8c",
+  "output": "source-art/world-discovery/b-20-reference.webp",
+  "outputSha256": "77e1137b432f6118d61c2cd0c3d507affac59cb21f714546f69b83d9351fb280",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this exact production reference board's plumbing only in the lower-left open-cabinet setting study. The yellow shutoff is incorrectly attached to the large gray sink drain. Replace that impossible connection with an ordinary under-sink arrangement: one gray drain pipe bends through a U/P-trap to the wall, with NO valve on the drain. Separately, a thin copper/silver water SUPPLY line runs upward from a small brass shutoff valve on the back wall to the base of the faucet. The shutoff must visibly be on the thin supply line, never on drain. Clear separation between gray drain and narrow water-supply pipe. Keep every child, adult, clothing, tool, faucet/cup/washer design, other views and room structure unchanged. Adult has short dark wavy hair and green shirt and is the female grown-up described by the manuscript, without changing outfit or proportions. No labels or diagrams. Clean flat2D landscape3:2 reference board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b7a9f40f-e7ee-40c9-84a5-7f8393fcab15.png",
+      "sha256": "3e54065cc1fa984b411aac90e12e4a00f92b319dde47ce6839b9db2fe2f1ba5c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:23:50.906708+00:00",
+    "outputSha256": "77e1137b432f6118d61c2cd0c3d507affac59cb21f714546f69b83d9351fb280",
+    "scope": "Direct final reference WebP production review, not finished-page or independent approval",
+    "notes": "Reference board inspected: locked child cast and taller green-shirt adult, compression faucet, yellow cup, washer pair and wrench. Corrected plumbing visibly separates gray U/P-trap drain from narrow supply line with brass shutoff. Sink/room physically plausible.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "77e1137b432f6118d61c2cd0c3d507affac59cb21f714546f69b83d9351fb280",
+    "note": "Reference board inspected: locked child cast and taller green-shirt adult, compression faucet, yellow cup, washer pair and wrench. Corrected plumbing visibly separates gray U/P-trap drain from narrow supply line with brass shutoff. Sink/room physically plausible."
+  }
+}

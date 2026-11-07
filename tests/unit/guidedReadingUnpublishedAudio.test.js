@@ -6,6 +6,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { findUnpublishedAudioCollisions, parseUnpublishedAudioManuscript } from "../../tools/guidedReadingUnpublishedAudioLib.mjs";
+import { GUIDED_READING_LEDA_GAPS } from "../../src/data/generated/guidedReadingLedaGaps.generated.js";
 
 const book = { id: "draft-01", title: "A Cat", level: "A", pages: [{ text: "A cat can sit." }] };
 const parse = (books, options = {}) => {
@@ -61,16 +62,21 @@ test("unpublished generator rejects a live-map punctuation collision without mod
       "--manuscript-sha256", createHash("sha256").update(source).digest("hex")];
   }
   try {
-    const collision = spawnSync(process.execPath, args("I am a cat?"), { encoding: "utf8" });
+    const collision = spawnSync(process.execPath, args("I am a cat?"), { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
     assert.equal(collision.status, 1);
     const failed = JSON.parse(collision.stdout);
     assert.equal(failed.preflightPassed, false);
     assert.equal(failed.unresolvedNormalizedCollisions, 1);
     assert.deepEqual(failed.normalizedCollisionInventory[0].exactTexts, ["I am a cat.", "I am a cat?"]);
-    const reused = JSON.parse(execFileSync(process.execPath, args("I am a cat."), { encoding: "utf8" }));
+    const reused = JSON.parse(execFileSync(process.execPath, args("I am a cat."), { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
     assert.equal(reused.preflightPassed, true);
     assert.equal(reused.activeBooks, 1);
     assert.equal(reused.pageGenerationInventory[0].fileExists, true);
+    const preserved = JSON.parse(execFileSync(process.execPath, [...args("Her bird can hop."), "--preserve-existing"], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
+    const her = preserved.wordGenerationInventory.find(row => row.normalizedLookupText === "her");
+    assert.ok(her, "the shared auditory-repair word participates in the draft inventory");
+    assert.equal(her.publicPath, GUIDED_READING_LEDA_GAPS.isolated_word.her);
+    assert.equal(her.fileExists, true);
     assert.equal(readFileSync(mapping, "utf8"), before);
   } finally {
     rmSync(directory, { recursive: true, force: true });

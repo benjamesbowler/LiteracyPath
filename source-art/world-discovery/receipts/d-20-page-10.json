@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:12.754Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d4a8e3a3-3b93-4532-b99a-484ab36ac633.png",
+  "sourceSha256": "1e6c66bae625b4fbd3aea82c3a7a08d9a53d5a959bfd7b070288fffffcfa4f16",
+  "output": "public/guided-reading/world-discovery/d-20/page-10.webp",
+  "outputSha256": "6bc9b97099299b3e0dc39cb24668edce36e914c0cb49003846e95dfb9590e725",
+  "width": 1672,
+  "height": 941,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels. REMOVE both people entirely; the porch and path are EMPTY because the family has gone inside. Keep door closed and the upstairs window softly lit from INSIDE only. The shield stays on and lamp remains completely off: dark lower opening, no glow or beam, path and hedge dark cool ambient night.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3d2e071a-13fa-4540-acc5-9920a956a291.png",
+      "sha256": "054eac87675a7842350d89714d8508d356c56941634e07272933e1119a39f84e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "6bc9b97099299b3e0dc39cb24668edce36e914c0cb49003846e95dfb9590e725",
+    "note": "Native PNG and final WebP directly inspected at full image size. Empty stoop, shield retained, lamp has no glow/halo; muted bronze underside and warm interior upstairs window."
+  }
+}

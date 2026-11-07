@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-16",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:19.298Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2c3fc9f4-bf34-4c57-93aa-3f083fa9bd88.png",
+  "sourceSha256": "7c30283929c8e4f6dec98d372b6cce30ca88cedb3436ec96c0b330b35d4ab2ff",
+  "output": "public/guided-reading/world-discovery/c-16/page-02.webp",
+  "outputSha256": "d6980df61eb797ec148c233926d33ec48a32a9797b3e3a071fa4ff01912aefb5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this EARLIER FAR-FROM-SUN comet diagram. Make the Sun a tiny distant disk, less than one quarter current diameter, at x=240 y=470, entirely inside picture. Remove ALL glowing white halo, gas and dust cloud around nucleus: this is an inactive FROZEN comet with NO coma or tail. Preserve the same two-lobed dark nucleus and bounded cutaway of dusty solid ice. No liquid or fire. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f9be9c1a-bb82-4c94-8ffc-11be0669c348.png",
+      "sha256": "e52ab50fc9c66f19604e13aee9d95f361b72c3857e289779d489e9fe0d7285be"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2b1a07e62b53565047cbf98050cb4c434d8188b1bd6253ef1af827c13dc4e3d7",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.553026+00:00",
+    "sha256": "d6980df61eb797ec148c233926d33ec48a32a9797b3e3a071fa4ff01912aefb5",
+    "note": "Native source and final WebP directly viewed. Far tiny Sun at left, frozen nucleus with authored ice/dust interior cutaway and no coma or tail."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-14",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:14.446Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b60fc247-7836-4fd8-a836-c0ccf97d10c5.png",
+  "sourceSha256": "5987552be32ca3c01ea77ed70c7e5b3d20b5183117e02308d3f9010c696abd88",
+  "output": "public/guided-reading/world-discovery/c-14/page-03.webp",
+  "outputSha256": "cc18e40dfa3489ad1c59bc56eea4195512c7a832c4aa482ec7d549dc92744947",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change ONLY the tiny blank breaks in the horizontal gray pencil path. Join every arrow shaft tip-to-tail into ONE uninterrupted solid gray horizontal line. Fill the tiny white breaks between the first, second and third right-pointing arrows, and any later break. Preserve exactly SIX existing arrowheads R,R,R,R,L,R and their directions/positions. Red bookmark remains at local fourth/fifth opposed-arrow trap. No extra arrowheads. All people, clothes, furniture, book, pencil, eraser, background and framing unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9fa502c6-2855-431c-bd27-1a322b77d848.png",
+      "sha256": "67d44a067300169f3f3f82952dd6a4e667dd51c1bfddc18f460f53e87de6e566"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6bf0214e4c9b70fd3e14b3805b6b47eaa35e1740a8d7791544e2a7f80254b40",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "cc18e40dfa3489ad1c59bc56eea4195512c7a832c4aa482ec7d549dc92744947",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "One bookmark reverses locally at fourth/fifth, motion marks to right imply leftward slide; earlier arrows unchanged.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "cc18e40dfa3489ad1c59bc56eea4195512c7a832c4aa482ec7d549dc92744947",
+    "note": "One bookmark reverses locally at fourth/fifth, motion marks to right imply leftward slide; earlier arrows unchanged."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:50:04.747Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5140f022-ce9b-427d-9899-809318ddfa53.png",
+  "sourceSha256": "ded448993c62306de647621e73a63152715ffbd5e4a93309502ce58596751639",
+  "output": "public/guided-reading/world-discovery/c-12/page-02.webp",
+  "outputSha256": "6ab350097abb5613c596780e6af93cfcf5ae9281112b2087ba852b7897dc9050",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve the exact illustration's cast, anatomy, current object counts, colors, design, natural physical contacts and ordinary room perspective. Widen the same scene on a LANDSCAPE 3:2 canvas by about 22 percent, retaining readable human scale, with all people and focal props at least 10 percent inside every edge. Reveal additional neutral wall/floor at sides and below. The leftmost focal object must move to at least 12 percent inside left edge; rightmost focal object at least 12 percent inside right edge. No decorative border and no tiny distant dollhouse room. Do not add extra props or people. Keep tall blue pot/saucer and watering can on LEFT window table; small yellow pot and ONE loose red ribbon RIGHT shelf; parcel UNTIED on front craft table. Preserve coherent table/chair legs, hands and body proportions. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5057e500-21c4-4589-b097-ece2f9c51efe.png",
+      "sha256": "5214543ce9ee6d6413abf3259660709df5ac615d2b13b6443f5285d87cbd4f9e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "6ab350097abb5613c596780e6af93cfcf5ae9281112b2087ba852b7897dc9050",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Kit tips watering can by its handle at wrong blue pot; plant remains supported; ribbon still beside yellow pot.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "6ab350097abb5613c596780e6af93cfcf5ae9281112b2087ba852b7897dc9050",
+    "note": "Kit tips watering can by its handle at wrong blue pot; plant remains supported; ribbon still beside yellow pot."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:57.657Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1cd3ed87-f670-4309-8be2-ddc17de557d6.png",
+  "sourceSha256": "832a8cc22a29b943d76305051b87f69b2419a2f2991d1d3c6f2bf90137b0bb14",
+  "output": "public/guided-reading/world-discovery/b-15/page-08.webp",
+  "outputSha256": "ed96001836aed83594280e99710a8206ba712c0b310726ac4fcf52ecd402ef2e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Pool Left Behind; World Discovery; nonfiction.\nSetting: One temperate rocky shore over several hours. View from seaward toward a low rock shelf with a deep oval hollow, a white vein in its left rim and one dark upright boulder behind. No children or animals are required; not a series of different pools.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One oval rock hollow with a continuous rim; One white mineral vein in left rim; One dark boulder behind the pool; Sea water with a believable changing level\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): Sea in, sea out.\nThe rock dip keeps a pool.\nRequired illustration: A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind. Continuity: Return to covered state clarifies why the hollow will retain water at a later low tide; no diagram duplicating several times in one image.\nExact current state: Return to covered state clarifies why the hollow will retain water at a later low tide; no diagram duplicating several times in one image.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nMANDATORY WIDE COMPOSITION: landscape3:2,1536x1024. Focal subject and all essential props occupy only the CENTRAL SIXTY-FIVE PERCENT of image width and CENTRAL SEVENTY-FIVE PERCENT of height, surrounded by generous simple setting. Absolutely NO essential extremity touches outer10% frame area. Wide view with whole shape, not zoomed-in crop. Use the same clean flat colors and broad cel shapes; no grain, stipple, mottling or painterly material texture. No people/animals. \nExact current state override: Returned HIGH TIDE: entire oval hollow AND every portion of its surrounding rim submerged beneath ONE connected clear turquoise sea surface. Submerged rock bowl/left white vein clearly visible through the water. Only upper boulder protrudes, same position behind/right. No separate exposed pool. Final closer but safely framed view; no multiple times shown. Natural hollow in one continuous bedrock shelf, not a built stone ring. Its full outer oval and white mineral vein stay in frame. Same dark boulder behind, no changing shape or scale. Reference board is DESIGN ONLY, obey current tide state.\nThe second image is a successfully WIDE-FRAMED finished scene. Keep similarly generous space surrounding the WHOLE focal subject (even slightly wider is fine), while drawing this page's NEW action/current state exactly. The second reference's tide/wheel state is NOT the current page state; change it as this page requires. No close cropped rendition.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-15-reference.webp",
+      "sha256": "41d36078c35ebc6677a8fcc277067181c5eefcd3a99b63fcd8b7e36e592971e8"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-15/page-01.webp",
+      "sha256": "aeb11040f9f05697ed96d18796f64e7156404569bc249ddbc97abe0e3110f98d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "ed96001836aed83594280e99710a8206ba712c0b310726ac4fcf52ecd402ef2e",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "High tide reconnects entire water surface; hollow and rim under clear water again, same vein and boulder; no extra pool or objects. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "ed96001836aed83594280e99710a8206ba712c0b310726ac4fcf52ecd402ef2e",
+    "note": "High tide reconnects entire water surface; hollow and rim under clear water again, same vein and boulder; no extra pool or objects. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

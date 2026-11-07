@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-12",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:38.766Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-cece256a-ef14-49d4-8279-a7fec5f7a3ac.png",
+  "sourceSha256": "5df2d6f507d987d4d5898d1cf76c4b3b88b3bcedbbc096541c9b6db4b942d61c",
+  "output": "public/guided-reading/world-discovery/e-12/page-09.webp",
+  "outputSha256": "319e2a8112ce4bd8157ddaa76565df161b1289ccdf0bbdb31697a6fc58699105",
+  "width": 1699,
+  "height": 926,
+  "prompt": "Edit this exact children's book illustration. Correct the physically nonsensical upright tile balancing on Kit's palm. Lay the ONE tile FACE UP and HORIZONTALLY FLAT across his open level palm, like a coaster resting on a hand. We should see the tile in shallow perspective as a foreshortened parallelogram. His fingers extend under and support it. It MUST NOT stand vertically on a thin edge, float, or appear attached to his fingertips. Preserve rest of this composition and twelve-piece inventory, with missing top row third-column gap. Keep both whole children/puzzle well inside edges. Preserve clean crisp flat 2D cartoon appearance with no texture, same cast, plausible furniture, and exact page state. No text, labels, border or diagram overlays.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1c36e275-4e54-4a33-b47b-2c197553e0fd.png",
+      "sha256": "35e98c7abfdd844280605d8b4f5ce25f2b1c6d4886f3f62218fd547ac62c37aa"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:20:34.618509+00:00",
+    "sha256": "319e2a8112ce4bd8157ddaa76565df161b1289ccdf0bbdb31697a6fc58699105",
+    "note": "Producer directly inspected native and final encoded WebP. Retrieved single tile lies flat and physically supported on Kit's open palm; Zoe receives it."
+  }
+}

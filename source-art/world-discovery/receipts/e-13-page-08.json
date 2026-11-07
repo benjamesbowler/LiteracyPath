@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-e-13",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:20:59.460Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6a498be2-1dd7-4267-86a3-4ea14c43bae7.png",
+  "sourceSha256": "7dd4282f11e2239901f8476abb47e1a1137a7afea22741b9b09d7c54bae3d807",
+  "output": "public/guided-reading/world-discovery/e-13/page-08.webp",
+  "outputSha256": "add8abde405dec0f7e757d3c0c60148bc7d92ac2d96e227aceee7643758cec84",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is edit target; others preserve exact cast/prop identity only. Fix ONLY the right-side background wall: extend the existing tan masonry wall and its roofline continuously through RIGHT CANVAS EDGE. It is a real continuous school wall, NOT a freestanding thin stage-flat clipped in midair. Preserve the existing blue doorway exactly, surrounding school interior behind it, natural wall-ground contact and appropriate continuous wall shadow. Do not move any people, tree, bench, four-post pale-GREEN canopy or other object. Ensure canopy has exactly FOUR clearly connected corner posts; any rear-right post may be partly occluded naturally but its top-to-roof attachment and bottom foot must remain coherent.  Keep other states/counts/expressions/actions unchanged. Natural human anatomy and plausible spatial geometry. Clean flat colors/contours. No text or labels. Full landscape1536by1024, 3:2; no border or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-4596b9e2-a2e3-4e5c-9407-43fc711aa29b.png",
+      "sha256": "c163949e29647022b9ce342180cc5acba13cd219e50eabcd18180f11e2a3b392"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-13-reference.webp",
+      "sha256": "1ff85e1d8c26582ee71a3d2353ac884f620bb9edb47c79070c056bd547c4027a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:41:38.555697+00:00",
+    "sha256": "add8abde405dec0f7e757d3c0c60148bc7d92ac2d96e227aceee7643758cec84",
+    "note": "Generated source and installed WebP inspected. Children inspect bench shade before sitting; natural bent poses and coherent post occlusion; doorway route unobstructed.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+      "currentSha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

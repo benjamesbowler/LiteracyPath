@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-12",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:51:39.820Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-93db3370-dc36-459b-a11f-977c631f5565.png",
+  "sourceSha256": "a505171ce31d3988dc8f4113d03d61be47aaa4f59fdc962d2bcfd0a916c14086",
+  "output": "source-art/world-discovery/d-12-reference.webp",
+  "outputSha256": "1cd6360fb292d1ea1cb85006253ef939991a29f50099cb968b7a5f40e842d11b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production reference board, preserving clean outlined flat cartoon style and all isolated designs. Repair ONLY the large middle classroom vignette: Zoe must walk on the ROOM FLOOR behind the craft table toward the tape shelf, never on the tabletop. Keep her head and upper torso in the same right-side region; the foreground tabletop naturally occludes her legs below its far edge. Her body is behind the table, coherent perspective with the bookshelf and Kit, not tiny and not standing on furniture. Also remove the duplicate tape dispenser from the large vignette's tabletop; retain the single dispenser on the shelf she is approaching. Preserve the isolated dispenser turnaround views elsewhere on the board. Preserve Kit, the house with open roof viewing hole and red paper bed, its blue door, roof patch, reinforcement strips, yellow tray, all character poses elsewhere, and location key. No text or other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-bb3869bf-613c-464b-8be4-fd11a6a9f6e3.png",
+      "sha256": "dac436b16169fd2015134b9d7d4dd68cb4c8cbdcad4090fa4b26c1b018681b48"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "50af3f290ad84fa9841a41698c0d7d05032492bd97f356ff26d34397d56cd037",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T10:52:12.578608+00:00",
+    "sha256": "1cd6360fb292d1ea1cb85006253ef939991a29f50099cb968b7a5f40e842d11b",
+    "note": "Directly inspected generated source and installed WebP. Locked cast, tan house with intact rectangular roof viewing opening, visible red folded-paper bed, blue door, patch and two narrow strips coherent. Repaired Zoe/table perspective: she walks behind table with legs naturally occluded, not on furniture. Removed duplicate scene tape dispenser; single shelf dispenser awaits retrieval. Prop turnarounds and room key remain clean.",
+    "limits": "Direct agent image inspection; no classroom or physical-device observation."
+  }
+}

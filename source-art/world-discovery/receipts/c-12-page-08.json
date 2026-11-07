@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:00:39.600Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-448b9452-6603-43c2-8a27-5d566ad9fa30.png",
+  "sourceSha256": "4e1792e0fe099b76b486b892f5f0347da808b6300fff366447bc460ab93bb43a",
+  "output": "public/guided-reading/world-discovery/c-12/page-08.webp",
+  "outputSha256": "8ae1df53dbd8159a544a7e911db9d2a5dc70ae1d85de225b002b8f41e6c987fc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Widen this exact scene by 20 percent on landscape 3:2. Keep both complete children including all shoes, bow/parcel, plant pots and focal objects at least 10 percent inside edges. Preserve the same normal child-size table, three blue chairs, two-loop red bow on ONE parcel and natural hand contact. No extra ribbon by yellow pot. Extend ordinary continuous wall/floor full bleed, no inset or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d7db411d-f7de-46dc-9fb0-ecc443a29962.png",
+      "sha256": "4a7fef31fb7aca2aab78633d078308abf34cc69efe3657f96eff4f7e00110b48"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "8ae1df53dbd8159a544a7e911db9d2a5dc70ae1d85de225b002b8f41e6c987fc",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "One two-loop bow on parcel; Zoe holds center and Kit pulls loop, normal hand contact; both pots remain fixed.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "8ae1df53dbd8159a544a7e911db9d2a5dc70ae1d85de225b002b8f41e6c987fc",
+    "note": "One two-loop bow on parcel; Zoe holds center and Kit pulls loop, normal hand contact; both pots remain fixed."
+  }
+}

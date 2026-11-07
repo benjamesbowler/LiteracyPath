@@ -14525,8 +14525,8 @@
       }
     ],
     "graph": {
-      "count": 1530,
-      "sha256": "5b1d6affd617967fe22293a86f6d7844a839e71e5baa32265aa9916576d419f3",
+      "count": 1544,
+      "sha256": "ce3a2d66ddc1b7579a833fa9365fbb9cb068475a66f663f9b55196027066de26",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -15235,6 +15235,7 @@
         "src/content/cycle-shorts/passages.js",
         "src/content/cycle-shorts/pictures.generated.js",
         "src/content/cycle-shorts/pictures.js",
+        "src/content/guidedReadingContextualWordAudio.json",
         "src/content/guidedReadingHumanFictionRewrites.js",
         "src/content/guidedReadingIllustrationDescriptions.js",
         "src/content/guidedReadingStoryBibleRewrites.js",
@@ -15251,11 +15252,20 @@
         "src/content/literacy-reference/source-manifest.json",
         "src/content/transfer/transferContextPolicy.js",
         "src/content/transfer/transferMissionRegistry.js",
+        "src/content/world-discovery/cohorts.json",
+        "src/content/world-discovery/cohorts/11-20/level-a.json",
+        "src/content/world-discovery/cohorts/11-20/level-b.json",
+        "src/content/world-discovery/cohorts/11-20/level-c.json",
+        "src/content/world-discovery/cohorts/11-20/level-d.json",
+        "src/content/world-discovery/cohorts/11-20/level-e.json",
+        "src/content/world-discovery/cohorts/11-20/reviews.json",
         "src/content/world-discovery/level-a.json",
         "src/content/world-discovery/level-b.json",
         "src/content/world-discovery/level-c.json",
         "src/content/world-discovery/level-d.json",
         "src/content/world-discovery/level-e.json",
+        "src/content/world-discovery/registrations/01-10.json",
+        "src/content/world-discovery/registrations/11-20.json",
         "src/content/world-discovery/reviews.json",
         "src/copy/benchmarkRunnerCopy.js",
         "src/copy/childCopy.js",
@@ -15375,12 +15385,14 @@
         "src/data/generated/studentNavigationAudio.generated.js",
         "src/data/generated/studentSupportAudio.generated.js",
         "src/data/generated/vocabularyRuntime.generated.js",
+        "src/data/generated/worldDiscoveryCohorts.generated.js",
         "src/data/guardianPortalApi.js",
         "src/data/guidedReadingBookMetadata.js",
         "src/data/guidedReadingBooks.js",
         "src/data/guidedReadingBridgeBooks.js",
         "src/data/guidedReadingBridgeBooks.manifest.js",
         "src/data/guidedReadingBrightIdeasBooks.js",
+        "src/data/guidedReadingContextualWordAudio.js",
         "src/data/guidedReadingDiscussionPrompts.core.js",
         "src/data/guidedReadingDiscussionPrompts.js",
         "src/data/guidedReadingDiscussionPrompts.science.js",
@@ -15590,6 +15602,8 @@
         "src/data/v3/banks/vowel_teams.v3.generated.js",
         "src/data/v3/v3Registry.js",
         "src/data/vocabularyAudioPreferences.js",
+        "src/data/worldDiscoveryBookAdapter.js",
+        "src/data/worldDiscoveryCohortContract.js",
         "src/features/soundSeekers/SoundSeekersRoute.jsx",
         "src/features/soundSeekers/WoodlandChapter.jsx",
         "src/features/soundSeekers/content/connectedTextRecords.js",
@@ -16060,23 +16074,23 @@
         "src/utils/workshopObjects.js"
       ],
       "edges": {
-        "count": 3641,
-        "sha256": "41e45b462f5e4f3b399fdb9695773e4c9e59049dc4a1e8de56549b747883f970"
+        "count": 3658,
+        "sha256": "b4dea7229f39ac51197130676eb07a42a38f9f8dc4e1c684b413fc35d70f89ab"
       },
       "issues": [],
       "dynamic": []
     },
     "runtimeBooks": {
-      "count": 3408,
-      "sha256": "33192f342de249f9cc919d1d582b9436a1b8eb062d20d103b9048fdca8b5cb74",
-      "books": 347,
+      "count": 3898,
+      "sha256": "bab2416232c60093b40f8e2447fa087f92067236af0e48e6ce3c85a8594650f1",
+      "books": 397,
       "bindings": {
-        "count": 347,
-        "sha256": "e7891b72833f88792af9e0f56489e13bafe434e923c6ff7ffd5d8b29bc508298"
+        "count": 397,
+        "sha256": "c70fe0355ac55bd0ce0652dfbaa103667ebdfca7d85378a932ce9f4d6ea52df4"
       },
       "publicIndexBindings": {
-        "count": 347,
-        "sha256": "598d4659ef5d431a40f3a8d3f63d9a90d71199138eeea83563983fbabe449fdc"
+        "count": 397,
+        "sha256": "6b6686a53918c45e388a10399b770a36ad6797395dab5d2c52477e61bc9cc7fa"
       }
     },
     "dynamicArtworkLoaders": {
@@ -16323,7 +16337,7 @@
       },
       "coverage": {
         "count": 65,
-        "sha256": "b999e356d57d6931a4ba891a7fb44971eff822bf3699b89b97aab841db590ed8",
+        "sha256": "73d742c6bbbb21bc13ff8ff7044579944d58e27d4a5c4e3af7ca6e18e8efc864",
         "surfaces": [
           "Admin Media QA historical and current review thumbnails",
           "Adventure exact picture pools/foils/compounds; LETTER_EXAMPLES sound-only and HFW matching text-only",
@@ -16345,7 +16359,7 @@
           "Growing Garden all forward/reverse targets",
           "Legacy Arcade Practice family root and every FAMILY_OBJECTS candidate rendered by PhonicsPlayConstruction",
           "Letter Leap all shared finite CVC_WORDS",
-          "MAP all accepted V1\u2013V12 historical/current resume",
+          "MAP all accepted V1–V12 historical/current resume",
           "Phonics Alphabet",
           "Present",
           "Rally complete BANKS word column",
@@ -16610,8 +16624,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1712,
-      "sha256": "19f1ae2e0c8bc266a6f7a358d4f5c52889684185e64e542e89ef2ce0f919f78b",
+      "count": 1726,
+      "sha256": "510da0da8af51d0c1ce8a68e3a84d7c5e405acf000c660eafc76bdbde4a0bf61",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -17319,7 +17333,7 @@
         },
         {
           "path": "src/components/guided-reading/GuidedReadingPage.jsx",
-          "sha256": "98f4bcc4cf5742326b378cf5a2ed4dddfcfec1157196c30603a55fefdd63a657"
+          "sha256": "e0e84034ad265ab7675d4d9eb543707886abba93868077aa9ca5826e8567984a"
         },
         {
           "path": "src/components/guided-reading/guidedReadingTransport.css",
@@ -19007,7 +19021,7 @@
         },
         {
           "path": "src/content/appVisualAssetReviews.generated.js",
-          "sha256": "7c5f3e420fd54b9c0f428465d18d078aad358fab19f449809837511bfe81616a"
+          "sha256": "d098ac8eb58479451d7d93a2233bfc9c63d5d9ec733f7311b7f7f9deb27d938a"
         },
         {
           "path": "src/content/assessments/curriculumReleaseBoard.generated.js",
@@ -19146,6 +19160,10 @@
           "sha256": "e3f548e56d8953484613d46076862b89af8270cffcf90e7a10251ea4e96a641f"
         },
         {
+          "path": "src/content/guidedReadingContextualWordAudio.json",
+          "sha256": "d5519db58a3c2edd9c8e22125be93550e5d7cf23ddf15e0a1e3aad13b4207f7b"
+        },
+        {
           "path": "src/content/guidedReadingHumanFictionRewrites.js",
           "sha256": "686e5a9b46aa86009c91ffa3473a69b034ab77c22a130fd5ff0ec68f98fa65f3"
         },
@@ -19223,7 +19241,7 @@
         },
         {
           "path": "src/content/storyContentReviews.js",
-          "sha256": "a90635ca10b8d0c18e89d4271e5a1642cf8df4837b6a1ed15fedeb980a0b5752"
+          "sha256": "4ca56bf3e66d8388b35ddc76eaa166383b5f0107da30b7975f48350a52e8a4d4"
         },
         {
           "path": "src/content/storyQuestNarrationManifest.generated.json",
@@ -19240,6 +19258,34 @@
         {
           "path": "src/content/transfer/transferMissionReviews.js",
           "sha256": "1c9b3a92206325c4c38ae12197b12437ff393b7ea90af94c012cd496284fbd61"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts.json",
+          "sha256": "4883117efc3d6187a026bc183aed5a1d3b0157249e1eaee796893ad9ab36b033"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+          "sha256": "7647a05130985ac8d29a46b93bd348d21aca4de2deb0d583c1fa4062b347ff35"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+          "sha256": "6cbd10d0f9e17e4d455e56ecdc88e3c29bffbbfa3d2cee84378ced568ea84a97"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+          "sha256": "9c7e9fe56d9f7daa8ceead07861921ba8f06964f3a1b3efa00db47dc065c7a10"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+          "sha256": "a95a1e42ea64e6689e83b666ad83c6de00d33e990225faf62840a70dd64227ca"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+          "sha256": "5620c62c9b5094274cf3084a7c9a06d1d03a032476929f34728f84cad63f2678"
+        },
+        {
+          "path": "src/content/world-discovery/cohorts/11-20/reviews.json",
+          "sha256": "0a2f2395db9929bc1889e1fc8def1b6788fcee75cb3685506419a488e6dcf666"
         },
         {
           "path": "src/content/world-discovery/level-a.json",
@@ -19260,6 +19306,14 @@
         {
           "path": "src/content/world-discovery/level-e.json",
           "sha256": "f931673c0359d2226f84fc44cd0194d56187d5f7a018150471a39fb9ee3cd344"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/01-10.json",
+          "sha256": "d230dda70fa5d70e6ff7a276322d0d915adaeb201c1ad19b698bd93e4a6126c6"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/11-20.json",
+          "sha256": "bcafc045e821c1231a0e73b4dd9f96a6273377cd0e062ba0ef356e72376422b8"
         },
         {
           "path": "src/content/world-discovery/reviews.json",
@@ -19631,19 +19685,19 @@
         },
         {
           "path": "src/data/generated/audioFilePaths.generated.js",
-          "sha256": "3caade23ab5d58b95c4fb792bf481f518b3e9cebe130181b962740e888995a53"
+          "sha256": "a8e66bc6fa8e0d63756d86be1b4a1fe9699cc7ba2c7c7218f3a68fcf96bdb2a6"
         },
         {
           "path": "src/data/generated/audioGuidedReadingPaths.generated.js",
-          "sha256": "8f30ac2099c7edfbcbad61fe258f7f2c04956dc20317840e1bea9a751ea8f55e"
+          "sha256": "7675c71697b1c754e61d6177e17826bd48e9e455cb5543988f18f37712eba4ee"
         },
         {
           "path": "src/data/generated/audioPhonemePaths.generated.js",
-          "sha256": "193288ec1c32020964f7147aad4e3b6787d2283ca51fc940e031dfdfffb06db5"
+          "sha256": "389a8dfe21772d36954f8d0b0ac60d3147e3561ad28168c45dc894e02a62f82d"
         },
         {
           "path": "src/data/generated/audioQuestPaths.generated.js",
-          "sha256": "25697a6682a42656050b1782b6c8e0eda9435118bc9f9b970294e426b4113be7"
+          "sha256": "a59f1dd377b771185d2e2aa5dd69f0da2af77050cbcf357c6c152abf69088a6b"
         },
         {
           "path": "src/data/generated/cyclePracticeInstructionAudio.generated.js",
@@ -19651,11 +19705,11 @@
         },
         {
           "path": "src/data/generated/guidedReadingBookIndex.generated.js",
-          "sha256": "a1065ac05c93ecf5d3ddb268871642df21b1c1ff8e9e81605a5605fc4c6a5b66"
+          "sha256": "6d2e19961e567e773989471eae2a320b40134f5460b3e3a42022451c59e5c728"
         },
         {
           "path": "src/data/generated/guidedReadingCoverRenditions.generated.js",
-          "sha256": "027e835475dce0697f3ab1aa4e5a28a9878d9d2e3b331f307e82787e645dbbcc"
+          "sha256": "0690bd79d63c933d0d6dd55a05bf5120e814713350041d239a03b49b2476d683"
         },
         {
           "path": "src/data/generated/guidedReadingImageRevisions.generated.js",
@@ -19663,19 +19717,19 @@
         },
         {
           "path": "src/data/generated/guidedReadingLedaGaps.generated.js",
-          "sha256": "f7b97f85c1ff5c6ef78f1f7ef3bb8eaab0f3dc481c7a88e640c001badb5fe794"
+          "sha256": "f96a35826a18bf7a9cfa8cd69b312c9cdd83ee3701df117aae70c1fa339f89e9"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationClearance.generated.js",
-          "sha256": "a2c700ceb6d67be889898f230e50543eb271b268ad70dbc61ccfaf9988646429"
+          "sha256": "432cea1a0db85a967ef84f1abfd284c3c22580d35eb38b2882cebc896997c7fb"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationProvenance.generated.js",
-          "sha256": "43838ee0bdfaaa36db2aed4e206f19dc9dbf3f0fbe83cfb687a84a95ba333953"
+          "sha256": "b4a8253ad13912c7bea769bb0671c5988aa522081d61409736466ccb02f41e09"
         },
         {
           "path": "src/data/generated/guidedReadingTextAnalysis.generated.js",
-          "sha256": "af77e1d0d51dae860fb23f3aa4b0d5741bfe686df12511e1b98257089d7107a3"
+          "sha256": "44f9ccc3f20ec80caad112ee89353431d2ac1848a0319217f8eb3b3374ab41dd"
         },
         {
           "path": "src/data/generated/hfwCuratedSentences.generated.js",
@@ -19798,6 +19852,10 @@
           "sha256": "a9b75f9762c423ec539d5d1e6fdb44b43cbd78b9d08fa35a6158a2fa2d773300"
         },
         {
+          "path": "src/data/generated/worldDiscoveryCohorts.generated.js",
+          "sha256": "b435452b68a9c2039d751c754f0ddea15093c41cbc965335f01e49e74a82fc53"
+        },
+        {
           "path": "src/data/guardianPortalApi.js",
           "sha256": "70b3919d32d3a0f1f85c32dda8a73f27b4fa4a742eb4ce0f9df48518b30314f8"
         },
@@ -19820,6 +19878,10 @@
         {
           "path": "src/data/guidedReadingBrightIdeasBooks.js",
           "sha256": "04eb827fab5c496cafd81e67da9ca9680a3938d87f4beeba43fe9c4cac829362"
+        },
+        {
+          "path": "src/data/guidedReadingContextualWordAudio.js",
+          "sha256": "b71793bafa4fccc89f0477014aa766625295be85b9b82502f6ca4502da412625"
         },
         {
           "path": "src/data/guidedReadingDiscussionPrompts.core.js",
@@ -19883,7 +19945,7 @@
         },
         {
           "path": "src/data/guidedReadingWorldDiscoveryBooks.js",
-          "sha256": "c01c43dd5f5ca4e73a0be9b0d39e5394e9182aef6aabfa30e81eb4e6edb77eaf"
+          "sha256": "d2ee8b4de470433d2ba5f537c1b18ed4f15e32601fa78e471c70a8ff74704366"
         },
         {
           "path": "src/data/guidedReadingWorldExpansionBooks.js",
@@ -20423,7 +20485,7 @@
         },
         {
           "path": "src/data/productCatalogFacts.js",
-          "sha256": "3d5080ffb86b93a52dfbee0713850896a3ea936e92ca9e4f8a9230f6b51a1481"
+          "sha256": "464cc663832e07c5da56fbb22fe01fe8ee6dc3dfd83ca760766acee1d18dc908"
         },
         {
           "path": "src/data/progressCheckInstructions.js",
@@ -20487,7 +20549,7 @@
         },
         {
           "path": "src/data/readingSession.js",
-          "sha256": "a813bbe8451158b11b89b70f22ede2cbe998160edec2439ecd230783f8a32f16"
+          "sha256": "797bad7380226dcf630afa28f724c7cc6c8fd7b140ab7e4a557c51f30bd8d3ed"
         },
         {
           "path": "src/data/readingSessionCore.js",
@@ -20543,7 +20605,7 @@
         },
         {
           "path": "src/data/sourceOfTruthRegistry.js",
-          "sha256": "82782c80bc6e447d3f0c8c2fb901ae98b77aee15d4f47e4dddb80bdd3bd80fbc"
+          "sha256": "985a80cb3babc02d5ec83947844d3913be18727af2aa976cfc1dc43a03a53b0c"
         },
         {
           "path": "src/data/storyQuestLedaAudio.js",
@@ -20760,6 +20822,14 @@
         {
           "path": "src/data/vocabularyMediaLexicon.js",
           "sha256": "e5ec9d2a7b60c169451cb4d10e7d1ac02877456fb3b569634010001d2ef3c5d1"
+        },
+        {
+          "path": "src/data/worldDiscoveryBookAdapter.js",
+          "sha256": "d0e9b1760613c62d80e5d0269662c8427500f6205aeb58e1ae95a24fcc16efb7"
+        },
+        {
+          "path": "src/data/worldDiscoveryCohortContract.js",
+          "sha256": "56c4fc50243718c21832f0f2cc6d4cd86a8b7afa2d8a99853b28e8a56475f7b7"
         },
         {
           "path": "src/engagement-sync-preview.jsx",
@@ -22643,7 +22713,7 @@
         },
         {
           "path": "src/utils/guidedReading/readAloudPolicy.js",
-          "sha256": "69d78e842721d86ee12ab6ca874016dec710782f7ca10baa6ac5f70a9b68fd98"
+          "sha256": "e2f8ef8dd2680f4c961cec84b8b0772ef1f11861a59fabbc2b605acc154c6750"
         },
         {
           "path": "src/utils/guidedReading/recommendationExplanation.js",
@@ -23227,7 +23297,7 @@
         },
         {
           "path": "src/utils/soundBeatTracks.js",
-          "sha256": "6edd59dc51be68bf2d8d2e199368013d084c5b9451b7f806bc833effa0a51546"
+          "sha256": "1dd863945cffd376e74cebe80c87a518608cc4871f4bafb407c9a0ebcb568393"
         },
         {
           "path": "src/utils/soundKeysSession.js",

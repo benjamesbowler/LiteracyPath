@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:26:36.380Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9f01da70-c391-4e6d-bde3-64301c3a526c.png",
+  "sourceSha256": "6e56e23ba6705820d44368821449d08d85f4c18248d4c72853ea17d833df257a",
+  "output": "source-art/world-discovery/c-20-reference.webp",
+  "outputSha256": "494f3a5abe1e805bbee2bcaf8fa4c74cc212d509552450e4ca59cca1f1dde599",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the three enlarged woodlouse anatomy views in the horizontal white strip across the middle. Natural Porcellio scaber woodlouse has SEVEN pairs of walking legs on SEVEN broad thoracic segments, followed by several smaller tapering abdominal segments at rear. Redraw clearly with exactly SEVEN walking legs visible on each side in dorsal view, exactly SEVEN near-side walking legs in side/three-quarter view; far legs may be occluded. Two segmented long antennae originate at head, two short rear uropods are NOT extra legs. Natural tiny eyes at sides of head, no human face. Currently too many walking legs. Keep all children, log, fern, wrapper, bag and location images unchanged. No text. Preserve crisp clear flat cartoon style, all unchanged geometry and palette. This is a production reference board, not a story page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7e4ce4a6-a4d2-4fea-9b8a-0d8634d8cf4f.png",
+      "sha256": "27fb68694395deff10d5d503a336af61cd15429313c9ecf670fbd808f8e10215"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:27:22.654064+00:00",
+    "sha256": "494f3a5abe1e805bbee2bcaf8fa4c74cc212d509552450e4ca59cca1f1dde599",
+    "note": "Short moss-top log beside path, fern and one wrapper; seven near-side walking legs in corrected woodlouse views, two front antennae; no animal handling. Native source and installed WebP directly inspected."
+  }
+}

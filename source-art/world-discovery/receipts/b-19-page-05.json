@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:48:46.089Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-fcdb4be0-f3aa-4580-b1ad-144d6ab2d50c.png",
+  "sourceSha256": "85d6e001df80a9952beeb3b08f47d096671427a0efdbe094a7618fc5ba464304",
+  "output": "public/guided-reading/world-discovery/b-19/page-05.webp",
+  "outputSha256": "6a168ce6f90a4e65f82a97d03b115485034461065e64583de832dc353845fb3b",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Use case: precise-object-edit. Correct only the BACKGROUND room continuity to match second reference: window over low cabinet and plant on LEFT behind Kit; pinboard on RIGHT behind Zoe/screen; plain lavender-gray floor. Do not change foreground, children, furniture scale, wide framing, hands, props, exact card/clear/wax sorting positions or count, single off flashlight, single red toy car or white screen. Retain two blue chairs, no additional chair. Clean flat 2D, solid colors, no written words or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-af022622-f995-4e04-a26f-b810b23e58d2.png",
+      "sha256": "b5ec09f4d934a586ab9841206a62f11ed5cf48b9b93b1a2927b6ee8e1e37aab1"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3a4797a6-799b-44f4-970e-5bad7fd290c4.png",
+      "sha256": "f123b837fc4b763f898c0bd28d63c0c7ab09ef398359b8ed931243362564a2b4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:11:10.575455+00:00",
+    "outputSha256": "6a168ce6f90a4e65f82a97d03b115485034461065e64583de832dc353845fb3b",
+    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
+    "notes": "Zoe places card in separate group; clear/wax together right; flashlight off; consistent background room restored. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "6a168ce6f90a4e65f82a97d03b115485034461065e64583de832dc353845fb3b",
+    "note": "Zoe places card in separate group; clear/wax together right; flashlight off; consistent background room restored. Independent QA pending."
+  }
+}

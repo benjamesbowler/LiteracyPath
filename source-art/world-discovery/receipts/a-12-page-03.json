@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:10:40.021Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d9bba3d2-a62f-4451-a687-445e5887f572.png",
+  "sourceSha256": "ebaddf23722f1d37bfcbc9512a4369beba394a16359df487b7013fdc7a2a51a8",
+  "output": "public/guided-reading/world-discovery/a-12/page-03.webp",
+  "outputSha256": "02c1f5a003ad5fd0481274aee56a57f0c6a6bfee9560fec880cd522b8f99ee60",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact World Discovery illustration. Correct the path geography and Kit's position. There must be ONE SINGLE unbranched curved path from the blue gate at back left, past Zoe beside the bench, through Kit's foreground bend, then curving onward toward the two swings at back right. Remove the branch that currently exits the lower-right foreground; replace it with green grass. Place Kit on the visible bend with his feet oriented along that continuing route toward the swings, while his head looks back at Zoe. Zoe remains several child strides behind beside the bench. Keep Kit fully visible at least 10% inside all edges, reducing his foreground scale slightly if necessary. Preserve the gap, cast, wardrobe, bench, gate, exactly two swings, clean 2D style. No duplicate people or new props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-853ab0c7-1cbf-4a99-ae01-b84059cbcade.png",
+      "sha256": "78f09decf460ea892f070f29e45aba4c5aa0d00607b2fb3bdf70ab3285e67d4c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:22:08.845Z",
+    "sha256": "02c1f5a003ad5fd0481274aee56a57f0c6a6bfee9560fec880cd522b8f99ee60",
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Kit looks back from bend; Zoe remains behind by bench; single curved path stays continuous. Locked cast, crisp cel style, essential subject margins and no text verified."
+  }
+}

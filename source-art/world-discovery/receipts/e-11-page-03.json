@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:16.588Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a36daabb-9fac-4214-b101-978c7d4efc91.png",
+  "sourceSha256": "26d0415babfc4e21b398bb7e5485065c554fc76637ca1a259444676b5217968f",
+  "output": "public/guided-reading/world-discovery/e-11/page-03.webp",
+  "outputSha256": "db0b4af113f58018ed8a5442cac527408ed1da666999ab6a4d243537b01f06f6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is the edit target. Use corrected book reference's simple swimming drawing. In EVERY happy swimmer drawing, the child's mouth is AT the blue waterline, with three tiny BLUE outlined bubbles UNDER the water beside the mouth. No bubbles in the air, wand, straw or soap. Keep original worried poolside figure unchanged whenever visible. Widen composition by 25% so all complete heads, hands, feet and focal paper/folder/tray are within central 74% of canvas. Keep ordinary believable table/chair geometry and natural seating. Preserve all exact story state. \nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Part I Keep; World Discovery; fiction.\nSetting: World Discovery classroom art corner. Kit and Zoe keep locked cast-v1 designs and equal height. No flashback or pool scene: swimming appears only in Zoe's simple drawings. One table and low display ledge; steady daylight.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Original cream sheet split by an unprinted center crease: left half shows a small figure frowning beside a blue pool, right half shows a smiling figure making a bubble in the water; One new cream half-sheet, initially blank, later showing only a smiling swimmer blowing bubbles; Zoe's plain plum folder with two inside pockets; blue and brown crayons in a yellow tray; One plain display clip fixed to the low ledge\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): She folds the worried half behind the happy half. Kit reaches for the clip. \u201cWe can hang it here.\u201d\nRequired illustration: Zoe folds left half backward along center crease; Kit gestures toward the ledge's clip.\nExact current state: Only happy half faces viewer; no tear or cut.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ef71d824-1681-41dc-b4c8-9f3992d68456.png",
+      "sha256": "f029f2fc678fcf5efdd0733116bb46357f3801d7cd9993bc479547d7ef66beb9"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-11-reference.webp",
+      "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:18:08.952120+00:00",
+    "sha256": "db0b4af113f58018ed8a5442cac527408ed1da666999ab6a4d243537b01f06f6",
+    "note": "Generated source and installed WebP inspected. Original folded at crease with only happy half visible; Kit points at empty ledge clip.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

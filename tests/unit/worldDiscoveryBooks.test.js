@@ -4,15 +4,18 @@ import { validateWorldDiscoveryDrafts, validateWorldDiscoveryReviews, validateWo
 import { fingerprintBookReadingText } from "../../src/utils/guidedReading/textMetrics.js";
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import { BOOK_COLLECTIONS, bookCollectionId, buildBookShelves } from "../../src/policy/childLibraryPolicy.js";
+import cohorts from "../../src/content/world-discovery/cohorts.json" with { type: "json" };
 
-test("the library exposes fifty World Discovery books, ten in each reviewed A–E band", () => {
+test("the library exposes exactly the declared registered World Discovery cohorts", () => {
   const books = getRuntimeGuidedReadingBooks().filter(book => book.seriesId === "world-discovery");
-  assert.equal(books.length, 50);
-  assert.equal(books.reduce((count, book) => count + book.pages.length, 0), 440);
+  const active = cohorts.cohorts.filter(cohort => cohort.active);
+  const expectedBooks = active.reduce((count, cohort) => count + cohort.expectedBooks, 0);
+  assert.equal(books.length, expectedBooks);
+  assert.equal(books.reduce((count, book) => count + book.pages.length, 0), active.reduce((count, cohort) => count + cohort.expectedPages, 0));
   assert.ok(books.every(book => book.appReadingLevelStatus === "current" && bookCollectionId(book) === "world-discovery"));
-  for (const level of "ABCDE") assert.equal(books.filter(book => book.appReadingLevel === level).length, 10);
+  for (const level of "ABCDE") assert.equal(books.filter(book => book.appReadingLevel === level).length, active.length * 10);
   assert.equal(BOOK_COLLECTIONS.filter(row => row.id === "world-discovery").length, 1);
-  const shelf = buildBookShelves({ books: [...books].reverse(), mode: "all", slots: 50 })[0];
+  const shelf = buildBookShelves({ books: [...books].reverse(), mode: "all", slots: expectedBooks })[0];
   assert.deepEqual(shelf.books.map(row => row.book.id), books.map(book => book.id));
 });
 

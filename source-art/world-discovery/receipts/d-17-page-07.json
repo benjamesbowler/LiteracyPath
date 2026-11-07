@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-17",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:38:47.016Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c69978c9-638e-4462-a02b-31d12012fd77.png",
+  "sourceSha256": "648362186f0848422cb0fd5f2bf2c5071fc5e3d1bce8ca7f0b8667d8628eb84c",
+  "output": "public/guided-reading/world-discovery/d-17/page-07.webp",
+  "outputSha256": "f6bad28958ec1774742187f627a01517af0d9c6f7069e2293f6929325add23ba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "NO humans or human silhouettes. Exactly ONE living Greta oto. Correct four wings, FOUR long developed legs plus TWO short reduced forelegs folded near thorax, TWO antennae. Clearly transparent wing cells reveal actual leaf or flower behind them; opaque body and brown veins/borders never transparent. Clean flat shapes. Essential complete butterfly and teaching detail inset12%. \nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Windows in a Wing; World Discovery; nonfiction.\nSetting: Natural Greta oto glasswing butterfly resting and changing perch in a Central American tropical garden. Clean close observation; no human handling, no microscope dissection and no suggestion that its whole body is transparent.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One adult Greta oto: four wings, slender dark body, two antennae; narrow brown wing borders, dark veins and small pale forewing markings; four developed walking legs and a reduced front pair held near the thorax, not six equally long walking legs; Green leaf behind a clear forewing region; Pale pink flower at the next natural perch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The patch looks pale instead of green. The wing has not turned into a flower; we are seeing what lies behind it.\nRequired illustration: Close side view repeats previous wing position with pale petal visible through clear area.\nExact current state: Opaque brown border remains brown; no active pigment-changing effect.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-17-reference.webp",
+      "sha256": "7a9a696fa92b74f29ef7470fded7ff03cea9392894f62669ed832f8d01572c3e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5a5aae0dc62bd937436aec09507f77a06724c9f49054941f6eb9d4d63203ac1b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:49:27.672Z",
+    "sha256": "f6bad28958ec1774742187f627a01517af0d9c6f7069e2293f6929325add23ba",
+    "note": "Generated source and installed WebP inspected. Pale pink petal is visible through clear wing regions; opaque brown edge stays unchanged. Correct visible developed legs and antennae with natural flower contact, no pigment-changing glow.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

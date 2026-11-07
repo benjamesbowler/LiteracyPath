@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:22:44.397Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5e096e8a-1b3a-4ed4-ae18-bcc3bcd655ca.png",
+  "sourceSha256": "1475a5d795996511f93f65934a29886ef6b288c0665a01ae39caefb5a75e26dd",
+  "output": "public/guided-reading/world-discovery/b-15/page-07.webp",
+  "outputSha256": "457f20dd0de25fd530019088972b9483636426ecdff323ad2c8d90719e7bedde",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the first image only, keeping the same tide level and water-over-low-far-rim action. Correct natural geology: this pool is a hollow in a CONTINUOUS SOLID ROCK SHELF, not a ring floating separately in deep water. In the clear water immediately OUTSIDE and BELOW the oval ring, draw the same connected bedrock shelf visible underwater, tinted blue-green, extending around the ring in all directions and toward the base of the boulder. Use the second image ONLY as a design reference for this connected submerged bedrock texture/structure. The top of the HIGH near/front and left rim must stay tan-brown exposed ABOVE water, while the lower far rim is under the broad shallow incoming water sheet. Keep current small white froth, white mineral vein on left, boulder behind/right, wide framing and every current object position. No new islands or objects, no hole or drain, no white background. Underwater shelf should be naturally continuous and not a man-made construction. Landscape 3:2 1536x1024, bold clean flat 2D with crisp outlines, no grain or painted texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3abf1213-2c49-4e4e-a9df-f5d873498cd9.png",
+      "sha256": "3838125a7681055b67e7b594f6ec73f76ff6abcbd7dfb0a7ef5eb98b24a762f9"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-15/page-08.webp",
+      "sha256": "ed96001836aed83594280e99710a8206ba712c0b310726ac4fcf52ecd402ef2e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "457f20dd0de25fd530019088972b9483636426ecdff323ad2c8d90719e7bedde",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Broad incoming water sheet crosses submerged low far lip; high near/left rim remains exposed; connected submerged bedrock visible around pool and toward boulder after targeted geology correction. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "457f20dd0de25fd530019088972b9483636426ecdff323ad2c8d90719e7bedde",
+    "note": "Broad incoming water sheet crosses submerged low far lip; high near/left rim remains exposed; connected submerged bedrock visible around pool and toward boulder after targeted geology correction. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-e-15",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:40:00.259Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2371d010-0c77-4fc9-8c72-6e06413578d5.png",
+  "sourceSha256": "46870387f56d94bb906cbff172e0c8811fa85660b4ca9f44b0edcf30ccdf8ba8",
+  "output": "public/guided-reading/world-discovery/e-15/page-03.webp",
+  "outputSha256": "ed78c1fa84bfcb4f9bf30d6114bf4130b71d0c9cf7fa5c7fadaf0e860f823156",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is the edit target. Remove the entire unrequested lower-right valley cross-section inset. Keep ONE wide historical glacier view and ONE flow arrow along the valley DOWNHILL from distant mountains toward foreground. No arrow across the valley. Preserve fixed notched ridge and glacier against both valley sides.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Valley Shaped by Ice; World Discovery; nonfiction.\nSetting: One unnamed formerly glaciated mountain valley. No humans or buildings. Present summer view has a broad U-shaped cross-section, steep sides, rounded lower corners and modest stream at bottom. All historical views retain a distinctive notch in the left ridge. Reconstruction is illustrative, not a named valley's measured chronology.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Fixed mountain ridges with left-ridge notch; Valley glacier shown only in past, occupying much of valley; Rock fragments embedded in ice base; scratched exposed bedrock after retreat; Small present river winding on broad valley floor\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 3. Printed prose (NOT text to put in art): This mass of ice was a glacier. Although it looked still, it slowly flowed down the valley.\nRequired illustration: Elevated side view follows continuous glacier down valley slope; one subtle downslope arrow.\nExact current state: Arrow illustrates direction; no fast waves or liquid river substituted for ice.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9f06dc7d-a514-42ad-a5c8-76a742073b54.png",
+      "sha256": "e2779fa77e04c55172a02708b3a458e6520b2800cadddf3fac073da3cea6e807"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-15-reference.webp",
+      "sha256": "915416f894352e6395172bb1b0c12a6f3c9b80ef82b1d386678d8a9c471cd83a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "16a7c6f6331a2d7475f6d162d1b3ec8fa604576c62daa8e80c957a07954611e6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:50:28.742839+00:00",
+    "sha256": "ed78c1fa84bfcb4f9bf30d6114bf4130b71d0c9cf7fa5c7fadaf0e860f823156",
+    "note": "Generated source and installed WebP inspected. One continuous glacier flows downslope with one arrow; no split valley or detached ice panel. Same notched ridge and natural valley geometry.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

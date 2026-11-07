@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:51.508Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-75132fab-bd3a-4746-9fcd-6a6c90639130.png",
+  "sourceSha256": "6ecc9de386a00da944334ae775bf61d9873c0f38e63a9fb59a1796b06107910d",
+  "output": "public/guided-reading/world-discovery/d-13/page-01.webp",
+  "outputSha256": "ddebbda21cfa376fc8800849d9a23aba2be0549aa599516ff29bae8e76413ff8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Move ONLY the blue car from foreground to the road BEHIND the crosswalk, facing viewer with entire front bumper at least one car length before the far edge of crossing. It is stopped SHORT of crossing. Foreground road empty. Keep orange hand, people fully waiting behind curb, cane contact, buildings and signal unchanged. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-eda407be-ab65-4cb1-840a-99f27bef78cc.png",
+      "sha256": "c4c25049e49e9945685da8e4c143155979bbbe0f8f9a1286511710616871cfa6"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-13-reference.webp",
+      "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:05:07.030Z",
+    "sha256": "ddebbda21cfa376fc8800849d9a23aba2be0549aa599516ff29bae8e76413ff8",
+    "note": "Native and installed WebP inspected. Blue car is now behind the crosswalk, stopped short with clear gap. Both people wait fully behind near curb, white cane has ground contact, orange hand and integral right-pointing button arrow retained. Natural street and human scale; entire focal subjects comfortably inset.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

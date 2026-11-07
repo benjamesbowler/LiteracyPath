@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-19",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:23:51.983Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-55fa3ef9-0f3a-46c3-b7bc-acce4c99c315.png",
+  "sourceSha256": "1303f138150d61e540a257a3da1a343e907f4e80a0c2ea18106795ea968774e1",
+  "output": "public/guided-reading/world-discovery/d-19/page-05.webp",
+  "outputSha256": "0afb66fde8184e1fe39d4cff6f43eb2bf3573a0979de41919f81f107b78da4ea",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is current composition, remaining reference only for designs. RECOMPOSE entirely as a close observation of ONE PEA PLANT BRANCH only: one white pea flower and ONE fully closed opaque green pod on DIFFERENT stalks connected at nodes. Rounded pea leaflets and curl tendril. Natural garden behind. NO tabletop, NO dishes, NO tomato plant or tomato fruit, NO opened pod or loose peas.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Fruit or Seed?; World Discovery; nonfiction.\nSetting: Close observational views on a cream tabletop and two clearly separate real plants in a garden. No characters, cutting tools or handling instructions. Exactly one tomato and one pea pod, opened for comparison in prepared stages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One ripe red tomato with green calyx; prepared halves show seeds in gel chambers; One pea pod containing exactly six green peas; Two cream dishes, left for tomato and right for pea pod; Natural tomato flower and pea flower shown only on their respective plants\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The pod grew from a flower too. It is the fruit around those seeds, though it looks unlike the tomato.\nRequired illustration: Pea plant with white pea flower and separate green pod; both anatomically attached at nodes.\nExact current state: Do not draw peas exposed in a closed growing pod; no tomato leaves on pea plant.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-087071be-40ce-487d-96ca-92cb2556c633.png",
+      "sha256": "968ef3379f58bb9ffcd79803de267c8ad25ee8d2c130552eac513b559118013b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-19-reference.webp",
+      "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5c15eed33ab40058de6f45806a97ecf61c792ceb5e2fd959ace3b9cb0ecb9825",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:50:08.815017+00:00",
+    "sha256": "0afb66fde8184e1fe39d4cff6f43eb2bf3573a0979de41919f81f107b78da4ea",
+    "note": "Generated source and installed WebP inspected. Single pea plant with rounded leaflets and tendril; white flower and closed green pod on coherent separate stalks; no tomato branch or prepared food.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

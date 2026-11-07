@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:44:45.402Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3bc02c87-7a5f-473f-97ec-3b860cedcaa0.png",
+  "sourceSha256": "48e5e98b9d00ec9e21b6f28e36cee8fcd7e493f0155f62a456acdadb719731d3",
+  "output": "source-art/world-discovery/d-11-reference.webp",
+  "outputSha256": "568bc7258fe9bd07e83c58a24fa3d7cd3e5fb1c57026b4ac0825902874c267de",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit first supplied production reference sheet. In EVERY depiction of Zoe's paper drawing, keep the same two purple boots and blue puddle but add one unmistakable tall curving blue splash rising at the RIGHT of the boots to about boot-top height, plus two small separate blue droplets above that splash. It is still a flat drawing ON PAPER, not real classroom water. Keep upper sky blank on these opening-state drawings: no cloud or rain yet. The blue splash design must be identical in all drawing replicas and become the recurring memory clue. Keep Kit's separate drawing, two crayons, one loose opaque paper sun, cast, props and reference-board layout unchanged. No extra hands or objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-11-reference-a5508c246750.webp",
+      "sha256": "a5508c24675036e200e11ece9d1b21545954898a3c682022c1c047de7fbd6c4f"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:51:35.240947+00:00",
+    "sha256": "568bc7258fe9bd07e83c58a24fa3d7cd3e5fb1c57026b4ac0825902874c267de",
+    "note": "Inspected generated source and installed WebP: opening sheet has two purple boots, one blue puddle with a distinct tall curved right-side splash and three droplets; upper sky blank. Separate Kit sun/ball picture, loose paper sun, exactly gray and blue crayons, locked cast.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

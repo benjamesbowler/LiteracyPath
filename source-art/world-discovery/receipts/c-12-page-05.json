@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:24:34.180Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b5b6fb41-1cc8-4f54-bfe4-090c8e515e59.png",
+  "sourceSha256": "5f2bcfa3cd0ab7681b01263e0be38793b867c6bf5aa8bf4c834fad34cc959c8a",
+  "output": "public/guided-reading/world-discovery/c-12/page-05.webp",
+  "outputSha256": "d39b9b599c2dc60b1bdfed75783f24120ca77dcb0740584e816dd3331ae738ea",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this exact scene, poses, inventory, natural floor contact, and composition. Restore the three ordinary small BLUE plastic classroom chairs that surround this same front craft table in the supplied second continuity reference. Two chairs stand on viewer side left/right of table, third on far side, all on floor and spatially separate from the children. Do not put any feet onto seats or intersect any body with furniture. Use normal consistent furniture scale/perspective. No other changes. Keep one UNTIED parcel, one loose ribbon beside yellow pot, blue pot and watering can on window table.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a524dc91-dbf9-4427-b84f-7bb3973b1afc.png",
+      "sha256": "087c52709ae311d78271bbf7f165084de38015106215ac976eb87999a85849cc"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5411d17a-bc38-4a6e-a23e-e7efe707121e.png",
+      "sha256": "c37373cb0c8c6bcb07c107de89e7657f30a79015b462e2cd0206a8b77bcd34b6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "d39b9b599c2dc60b1bdfed75783f24120ca77dcb0740584e816dd3331ae738ea",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Zoe's finger selects yellow pot; Kit's empty palms ask; ribbon stays there and parcel remains untied.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "d39b9b599c2dc60b1bdfed75783f24120ca77dcb0740584e816dd3331ae738ea",
+    "note": "Zoe's finger selects yellow pot; Kit's empty palms ask; ribbon stays there and parcel remains untied."
+  }
+}

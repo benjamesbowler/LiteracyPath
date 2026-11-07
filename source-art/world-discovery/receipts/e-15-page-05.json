@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-15",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:40:00.562Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-00ea90e4-7671-4754-8109-f47923cdcc70.png",
+  "sourceSha256": "c752f231cde80eb7bacc57bbd2d14d20417484fbe89478f71dbd82393a8e30e8",
+  "output": "public/guided-reading/world-discovery/e-15/page-05.webp",
+  "outputSha256": "c1f7eea7bcbed7a7dcf16d4b905daa22dd9a6370c0526094505bad800ec094a8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Valley Shaped by Ice; World Discovery; nonfiction.\nSetting: One unnamed formerly glaciated mountain valley. No humans or buildings. Present summer view has a broad U-shaped cross-section, steep sides, rounded lower corners and modest stream at bottom. All historical views retain a distinctive notch in the left ridge. Reconstruction is illustrative, not a named valley's measured chronology.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Fixed mountain ridges with left-ridge notch; Valley glacier shown only in past, occupying much of valley; Rock fragments embedded in ice base; scratched exposed bedrock after retreat; Small present river winding on broad valley floor\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 5. Printed prose (NOT text to put in art): The moving ice also wore at the valley's sides. Over a long time, the valley became wider and deeper.\nRequired illustration: Wide historical cross-section shows glacier against floor and lower walls; same ridge notch above.\nExact current state: No instant collapse or exact rate; thick ice occupies valley.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nCOMPOSITION AND PHYSICAL COHERENCE REQUIREMENTS:\nCreate a NEW single integrated cross-section using reference only for style/notched ridge; DO NOT repeat any existing landscape plus inset layout. Show ONLY ONE broad U-shaped valley cross-section facing viewer. Thick glacier ice fills the U between sloping rock walls, directly touching the lower walls and broad rounded rock floor. Clearly render ice/rock contact at the main central cross-section; same distinctive notch in left ridge above. No circular inset, no rectangular inset, no duplicate glacier elsewhere, no arrow, no river on ice. Main explanatory U-cross-section completely within central74percent. Ordinary ridge/sky background may reach edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-15-reference.webp",
+      "sha256": "915416f894352e6395172bb1b0c12a6f3c9b80ef82b1d386678d8a9c471cd83a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "16a7c6f6331a2d7475f6d162d1b3ec8fa604576c62daa8e80c957a07954611e6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:50:28.744427+00:00",
+    "sha256": "c1f7eea7bcbed7a7dcf16d4b905daa22dd9a6370c0526094505bad800ec094a8",
+    "note": "Generated source and installed WebP inspected. Single integrated U-shaped cross-section shows thick ice contacting rounded floor and lower walls; no extra inset. Same left ridge notch remains.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

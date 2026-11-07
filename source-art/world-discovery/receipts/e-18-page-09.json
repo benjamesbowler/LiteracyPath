@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:05.859Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f5100d3f-f5dd-4061-9300-79882e11c875.png",
+  "sourceSha256": "3edd85fb98e6e31ef70a435a9aeda8f6a955ce1a319f91bb9fbeb8f2eb0017b7",
+  "output": "public/guided-reading/world-discovery/e-18/page-09.webp",
+  "outputSha256": "93a54daef709b4a079368dae4ad9e8c204399db7bafb1ec56900b38e58c07346",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact scene by about25percent, uniformly reducing the existing focal butterflies, host plant and any authored map/comparison panels to sit safely inside central80percent of1536x1024canvas. Extend same matching environment around composition. ALL foreground wing tips, antennae, feet, primary egg/chrysalis/larva/flower subjects and FULL map/panel borders must have at least10percent margin from every outsideedge. Preserve EXACT counts, same poses, four functional walking legs and reduced front pair, antennae, wing patterns, exact egg/larva/chrysalis/adult stages, and season. Retain geographic map and route arrow EXACTLY only if present in this input; no extra maps/arrows/panels. Preserve flower contact and natural relative scale; no giant butterflies or detached bodies. No new animals, people or props. Keep crisp bold flat2Dcartoon, full3:2landscape, no crop/border and no words/labels/numbers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e18-margin-sources/page-09-before.webp",
+      "sha256": "87d7394875124d4585a0e61e71c6428275a59647ff5da5c59ea9e6b15b71f0ce"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "93a54daef709b4a079368dae4ad9e8c204399db7bafb1ec56900b38e58c07346",
+    "method": "codex-direct-image-inspection",
+    "note": "New winter generation clustered naturally on fir; complete lowest focal wings and southbound map inside safe margins."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-17",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:46:26.458Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-0162f4b3-3935-42ef-bd35-8f3f5e8de90c.png",
+  "sourceSha256": "e35ab9b7067b9dde1c5dabbf5b985be037aaf65ebe5ea05f025c186ffbac112a",
+  "output": "public/guided-reading/world-discovery/d-17/page-05.webp",
+  "outputSha256": "d8d812efc4ab5476630b31af60f3ed854357486862a7978f410c14bf4943e116",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is edit target. DELETE ONLY the short dark extra appendage projecting diagonally DOWN-LEFT from the VERY TIP of the segmented abdomen onto the leaf. It is at approximately (570,700) in the image. Repaint that tiny area as uninterrupted green leaf. The four legitimate long legs attached under the thorax at image center-right MUST remain. An abdomen tip has NO legs or tail. Keep everything else, including the magnified scales inset, completely unchanged.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Windows in a Wing; World Discovery; nonfiction.\nSetting: Natural Greta oto glasswing butterfly resting and changing perch in a Central American tropical garden. Clean close observation; no human handling, no microscope dissection and no suggestion that its whole body is transparent.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One adult Greta oto: four wings, slender dark body, two antennae; narrow brown wing borders, dark veins and small pale forewing markings; four developed walking legs and a reduced front pair held near the thorax, not six equally long walking legs; Green leaf behind a clear forewing region; Pale pink flower at the next natural perch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 5. Printed prose (NOT text to put in art): The brown border is easier to see. It has many tiny scales, packed more closely than in the clear area.\nRequired illustration: One magnified circular inset linked to the real wing edge contrasts broad overlapping brown scales on the opaque border with sparse slender bristle-like scales on the transparent membrane. Keep the continuous wing membrane visible beneath the sparse structures; do not turn the clear region into a hole.\nExact current state: Inset explanatory and not giant real flakes; no need to show nanostructures.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a58cad02-8b80-4a42-bae3-fcfd56b1dbcd.png",
+      "sha256": "a3426055d92b20323514b36dcc4505757f950bc1411844ad83224faed61ee3f2"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-17-reference.webp",
+      "sha256": "7a9a696fa92b74f29ef7470fded7ff03cea9392894f62669ed832f8d01572c3e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5a5aae0dc62bd937436aec09507f77a06724c9f49054941f6eb9d4d63203ac1b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:50:08.809843+00:00",
+    "sha256": "d8d812efc4ab5476630b31af60f3ed854357486862a7978f410c14bf4943e116",
+    "note": "Generated source and installed WebP inspected. Four developed legs attach to thorax, two reduced forelegs folded; abdomen tip has no appendage. Linked magnification contrasts dense overlapping border scales with sparse narrow membrane scales, whole flower and inset comfortably framed.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

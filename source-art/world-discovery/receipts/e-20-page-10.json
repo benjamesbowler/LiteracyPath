@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:08.414Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a9e6bc4a-b617-41f0-b10f-654aefde4bf4.png",
+  "sourceSha256": "15bd5be98bcf866cf103506a658dc3da6348aeca608af7ecde81c6ecb5c5b579",
+  "output": "public/guided-reading/world-discovery/e-20/page-10.webp",
+  "outputSha256": "63f16332afd2577d533624c9dcdd0954ff1f1e2e7f2c2cbf6a0f4dbb2a26dee5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/page-10-before.webp",
+      "sha256": "9a8e96313363e98441e23cf932ad9a1cc84b92ec0bb8f27ad39bbc4c1b9ab5c7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "63f16332afd2577d533624c9dcdd0954ff1f1e2e7f2c2cbf6a0f4dbb2a26dee5",
+    "method": "codex-direct-image-inspection",
+    "note": "Maintained route beside retained mostly brown seed heads, two markers visible, children walking naturally and gardener inspecting. No peak-summer reset; broad essential margins."
+  }
+}

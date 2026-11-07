@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:26:59.533Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a89f8104-a6af-434d-8a69-afcdf90fc9c2.png",
+  "sourceSha256": "5bc516836e6a7b1dcf5ef5fb891390acba71119d46c89abe36e10fc4d4916123",
+  "output": "public/guided-reading/world-discovery/d-18/page-06.webp",
+  "outputSha256": "181dc72d976313be5b8126e511206a41669937376cafe77f92a88e81ffc83a07",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit ONLY the indicated tiny detail in this exact image; leave composition, complete wide margins, flat2Dstyle, stone, grass, water, single empty pale covering and all other anatomy unchanged. Scale ONLY the complete living crab on LEFT down to90percent of its current size about its center. It must stay modestly larger than discarded shell: green carapace1.25times pale shell width, not1.4or1.6. Preserve its exactTENlimbs and2eyes. The empty covering keeps dull pale EMPTY eyecaps, remove bright pupils if any.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8fdf737f-bd91-42f3-8ed5-f00368105cd0.png",
+      "sha256": "157fdc7d8343cf94a54729f24c63c7dbef5d2e586fb5da2eae411ad413161a04"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.841Z",
+    "sha256": "181dc72d976313be5b8126e511206a41669937376cafe77f92a88e81ffc83a07",
+    "note": "Generated native and installed full WebP directly inspected. Living crab only modestly larger than discarded covering, naturally underwater; no balloon inflation. Full ten-limb pattern, separate hollow coat and surrounding water retained.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:29:39.558Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f7861b76-72d1-49e4-a0b4-5736c1ee4161.png",
+  "sourceSha256": "17b63c9e4104ec412963d4420cf77b18c361c16deb140131a62513e80fec7115",
+  "output": "source-art/world-discovery/e-11-reference.webp",
+  "outputSha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the FIRST reference board only. Preserve cast models, palette, folder, tray, clip, room, crease and worried left drawing. Correct EVERY small happy swimming drawing consistently: smiling child lowers mouth into the blue pool water, with three tiny outlined blue bubble circles UNDER the blue water surface right beside the mouth; eyes and top of head remain above water. NO bubbles floating in air; no wand, no straw or soap. The head may tilt forward toward water while keeping a small visible smile curve. Keep all other board content unchanged.\nUse case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Part I Keep; World Discovery; fiction.\nSetting: World Discovery classroom art corner. Kit and Zoe keep locked cast-v1 designs and equal height. No flashback or pool scene: swimming appears only in Zoe's simple drawings. One table and low display ledge; steady daylight.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Original cream sheet split by an unprinted center crease: left half shows a small figure frowning beside a blue pool, right half shows a smiling figure making a bubble in the water; One new cream half-sheet, initially blank, later showing only a smiling swimmer blowing bubbles; Zoe's plain plum folder with two inside pockets; blue and brown crayons in a yellow tray; One plain display clip fixed to the low ledge\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Both halves already drawn; no actual pool or changed character clothes.. For orientation, the opening location/action is: Zoe looks at her original two-part drawing: worried figure beside pool on left, happy bubble-blowing figure in water on right.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/e-11-reference-5df61c21b700.webp",
+      "sha256": "5df61c21b700f0bc07659f206734bd4deb0daf089676224e3f9e8e280a0870e2"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:50:08.816170+00:00",
+    "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05",
+    "note": "Generated source and installed WebP inspected. Locked cast, two-part creased original, half-sheet, plum folder, two crayons/tray, clip and room key. Happy swimmer mouth is at water surface and small bubbles are below it, without soap wand or air bubbles; worried drawing remains separate.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

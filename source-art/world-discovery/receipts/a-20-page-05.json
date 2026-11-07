@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:57:37.769Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-245a1dd6-2351-4821-a8a8-5ffdb9547ab6.png",
+  "sourceSha256": "8036726f6b8283e1638db88f22f99d380ba46b783feb0787cf7bf74aa74db67f",
+  "output": "public/guided-reading/world-discovery/a-20/page-05.webp",
+  "outputSha256": "65be8c753630d257316fc1b71b1f97c4754badf78fd97cd19fa92daf0472dcf1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera BACK25 percent and RECENTER this exact intact2D composition. All human head/hair tops and every focal tabletop object must be at least10 percent inside every edge, including the lower tin, sorting mats and objects, plate or glass as present. Extend matching background/table around scene. Keep every other object count, grouping, pose, color and state identical. No extra props or characters, no border, no labels or text. Bold crisp continuous outlines, clean flat cel style, landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3a5fdb7c-69d9-4630-9e36-0f17fece8c87.png",
+      "sha256": "f06260f8f5c5e1bf6128a70594a4220aef03d2c3a9d46144888d4c70f30dee66"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:00:04.177203+00:00",
+    "sha256": "65be8c753630d257316fc1b71b1f97c4754badf78fd97cd19fa92daf0472dcf1",
+    "note": "Native PNG and installed WebP directly inspected. Second portion eaten; plate crumbs only, six remain, Kit relaxed and stopping. Coherent anatomy and object contact, clean flat illustration, intact focal shapes with room around them, no unwanted lettering."
+  }
+}

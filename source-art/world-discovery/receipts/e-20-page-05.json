@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:07.344Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e14ee9a9-9e60-4670-897c-b550ed1213c5.png",
+  "sourceSha256": "0d9b00ecc9673bebbaf7f9e255d576b8ae2783b51c88e44d505bf6619cac2b8c",
+  "output": "public/guided-reading/world-discovery/e-20/page-05.webp",
+  "outputSha256": "f7a8c31585a368ad57b3a35e49a79e5d7ab95836fa5d69abb1c574efbf829d76",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/page-05-before.webp",
+      "sha256": "63eed2b6f8428f008ba25b3fd31aba77070671656a953704ecef9b3861ac885d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "f7a8c31585a368ad57b3a35e49a79e5d7ab95836fa5d69abb1c574efbf829d76",
+    "method": "codex-direct-image-inspection",
+    "note": "Children lean naturally from maintained route without touching stems or bee; mower stationary behind. Full feet, people, blooms and two markers comfortably framed."
+  }
+}

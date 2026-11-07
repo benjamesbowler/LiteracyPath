@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:10:58.457Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ed554038-b338-439e-8599-89ac36417728.png",
+  "sourceSha256": "3f5820108e2d217652104d6d2c982ddcaaaf4012d5c7ae89b42b77727df0f7cd",
+  "output": "public/guided-reading/world-discovery/a-20/page-08.webp",
+  "outputSha256": "3430a207a7941ee8fe14497b8eef4dd65fc140a02283994411ed1f7e840ef54b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Small cleanup of this physically coherent pantry illustration: replace BOTH clear food jars on UPPER shelf with simple CLOSED OPAQUE cream storage canisters, no visible crackers/pretzels or any other food. Preserve solid opaque cabinet back, ordinary shelf depth/hinges, blue closed tin on middle shelf, natural adult hand/green sleeve, separate dining table in background OUTSIDE the cabinet. Keep cream crumbed plate and glass visible in background. No other change, no open-frame cabinet or see-through room. Clean flat2D cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9284b4ce-7523-4c55-b4b2-30d39fa8438f.png",
+      "sha256": "952c14507dbb65e144817a4c3fdef15639f0bcac3fd48e57e909dc099299b11a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:15:29.994356+00:00",
+    "sha256": "3430a207a7941ee8fe14497b8eef4dd65fc140a02283994411ed1f7e840ef54b",
+    "note": "Direct native and final WebP inspection: ordinary opaque-backed pantry with attached shelves, hinges, normal cupboard depth; closed blue tin physically supported on shelf, natural adult hand/green forearm contact. Separate distant dining table is outside cabinet, used plate/glass visible. No portal-like frame or impossible full body. Extra visible snack jars replaced with closed opaque canisters. Producer check; independent final recheck pending."
+  }
+}

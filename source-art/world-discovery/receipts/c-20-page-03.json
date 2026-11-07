@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:05:47.865Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-4a71c3f1-a3f0-4e4c-b9e7-3cedc04f7e1b.png",
+  "sourceSha256": "7878da64e87216f7c77fbf2c5ae2b5cfc149e07adbb184a96ed9000c61d5bda8",
+  "output": "public/guided-reading/world-discovery/c-20/page-03.webp",
+  "outputSha256": "12048ff4951b10495a2f39d70a01902ca1cbe53f28c38b82ba544a1895b5557d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: style-transfer. RESTYLE the FIRST image as a crisp clean flat2Dchildren cartoon, matching the SECOND illustration stylistically. Preserve EXACT firstimage composition and spatial arrangement: one end of log held by one golden child hand at upperright, damp shadedsoil below, exactlyTHREE tiny gray woodlice grouped underlogleft/middle, brown deadleaves, brightpathright and fern. Do not enlarge animals or change grip/scale. Replace all photographic/bokeh texture with clearly drawn graphic forms and consistent dark outlines: bark as large simple flatbrown outlined shapes, soil as flatbrown ground with sparse outlined pebbles, leaves as clearflat outlined shapes, plants crisp and sharp. Water as few small flatcel-shaded teardrops, NO realistic specular droplets, NO glossy photographic reflections. All parts sharp, NO depth-of-field blur, NO gradients/textural grain/no photorealism/no gouache. Natural samecomposition, full3:2landscape1536x1024. No extra subjects, no lettering, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/c20-producer/page-03-before-style.webp",
+      "sha256": "58733ede6f42a0e0a7a5a5c29dbd89e2514a61455db0053ac7ef7b7377377297"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-20/page-02.webp",
+      "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "12048ff4951b10495a2f39d70a01902ca1cbe53f28c38b82ba544a1895b5557d",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly inspected restyled native: crisp outlined flat bark, leaves, soil and water replace prior photographic texture/bokeh; three tiny natural woodlice remain beneath shaded log, supporting golden hand at right, clear bright path outside; composition, scale and current state preserved."
+  }
+}

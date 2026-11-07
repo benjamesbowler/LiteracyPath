@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:20:21.452Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a47ea20f-6e0d-4eea-9ed7-cc213a5995d4.png",
+  "sourceSha256": "d6a44df15b6cb8e3b10ce167429b3836a5cb04833874f213678c543731e6c3de",
+  "output": "source-art/world-discovery/b-19-reference.webp",
+  "outputSha256": "11d5b042d7ba11402e5ec49602ed2f42089e1dd33e8bb7278dbd5f9e33077d31",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Refine this production reference sheet. Keep Kit and Zoe exactly unchanged. Change the red toy car consistently in ALL its views and the small setting study to a longer red station-wagon-style toy car, still an ordinary red CAR with four wheels, not a bus or truck. Its body length must be about3.5 times the width of ONE square sample sheet, so three adjacent equal squares with small gaps can cover three different portions of the SAME real car in later scenes. Make the three clear-plastic/wax-paper/brown-card samples all exactly equal small square dimensions; keep their distinct material appearance. Update their relative size in the setting study so the long car could stand behind all three squares side-by-side. Children/table/flashlight/screen location unchanged. No words/numbers. Clean flat2D landscape3:2. This is a design board, preserve separated study layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-76a10ce3-e35d-423d-946c-8e9af58aa07d.png",
+      "sha256": "9b4285c7686705ff17a64ac8fb1dddd99fc1b58ec319a9063ba342ca2edd6e82"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:23:50.905396+00:00",
+    "outputSha256": "11d5b042d7ba11402e5ec49602ed2f42089e1dd33e8bb7278dbd5f9e33077d31",
+    "scope": "Direct final reference WebP production review, not finished-page or independent approval",
+    "notes": "Reference board inspected: locked cast, one blue flashlight design, three equal clear/translucent/opaque square samples, elongated red station-wagon toy, upright white screen and ordinary child classroom table. Car/sheet relative size corrected for three portion comparison.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "11d5b042d7ba11402e5ec49602ed2f42089e1dd33e8bb7278dbd5f9e33077d31",
+    "note": "Reference board inspected: locked cast, one blue flashlight design, three equal clear/translucent/opaque square samples, elongated red station-wagon toy, upright white screen and ordinary child classroom table. Car/sheet relative size corrected for three portion comparison."
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "8c6079d9dfa623a6820f5bef32a320867980883d",
+  "evidence": "Published original fifty at PR32 merge; this fixed preservation fixture is not an approval mechanism for new or changed content.",
+  "snapshot": {
+    "sourceFiles": {
+      "src/content/world-discovery/level-a.json": "4c230a8e8932aa399ab55e0a10a7aaa112f0bb773eb391101f06e3e5bf024b22",
+      "src/content/world-discovery/level-b.json": "0c434726938e62f0cd3adb550c3ea9929e06996dd4fa3d54dea5eb6dfe422146",
+      "src/content/world-discovery/level-c.json": "ebf55cd224eba3cba7b9b2391c7ecb8951aecd7ce9346941a3f4b799e385bf25",
+      "src/content/world-discovery/level-d.json": "049fbbf575db07f500fb266f8c646bcf41997b4d16f445526fc1eed22deeaf26",
+      "src/content/world-discovery/level-e.json": "f931673c0359d2226f84fc44cd0194d56187d5f7a018150471a39fb9ee3cd344",
+      "src/content/world-discovery/reviews.json": "49622e9c63ee35706c7ad178884ce502818e1451965f8699e0a20f31c47e1a96"
+    },
+    "runtimeOrder": [
+      "world-discovery-a-01",
+      "world-discovery-a-02",
+      "world-discovery-a-03",
+      "world-discovery-a-04",
+      "world-discovery-a-05",
+      "world-discovery-a-06",
+      "world-discovery-a-07",
+      "world-discovery-a-08",
+      "world-discovery-a-09",
+      "world-discovery-a-10",
+      "world-discovery-b-01",
+      "world-discovery-b-02",
+      "world-discovery-b-03",
+      "world-discovery-b-04",
+      "world-discovery-b-05",
+      "world-discovery-b-06",
+      "world-discovery-b-07",
+      "world-discovery-b-08",
+      "world-discovery-b-09",
+      "world-discovery-b-10",
+      "world-discovery-c-01",
+      "world-discovery-c-02",
+      "world-discovery-c-03",
+      "world-discovery-c-04",
+      "world-discovery-c-05",
+      "world-discovery-c-06",
+      "world-discovery-c-07",
+      "world-discovery-c-08",
+      "world-discovery-c-09",
+      "world-discovery-c-10",
+      "world-discovery-d-01",
+      "world-discovery-d-02",
+      "world-discovery-d-03",
+      "world-discovery-d-04",
+      "world-discovery-d-05",
+      "world-discovery-d-06",
+      "world-discovery-d-07",
+      "world-discovery-d-08",
+      "world-discovery-d-09",
+      "world-discovery-d-10",
+      "world-discovery-e-01",
+      "world-discovery-e-02",
+      "world-discovery-e-03",
+      "world-discovery-e-04",
+      "world-discovery-e-05",
+      "world-discovery-e-06",
+      "world-discovery-e-07",
+      "world-discovery-e-08",
+      "world-discovery-e-09",
+      "world-discovery-e-10"
+    ],
+    "runtimeBindings": {
+      "world-discovery-a-01": "d2ee33af27adb4b01a59c630f790702420ba0abc557ce21ff0cdb826f27a29ed",
+      "world-discovery-a-02": "0906f9ecee5ff9ee757e018d99862fbb7298333a0a109ce72ce785a312c041ea",
+      "world-discovery-a-03": "8d9c8356432f1fa17c9bf5bfb1fd0d667b8db4c04e587e85bea2423b9135d192",
+      "world-discovery-a-04": "b9e0a98de2ecb80708ae78297ed54dc35d99328293fdbcf9435aa1e7076192f4",
+      "world-discovery-a-05": "05343f8e32fc943b82290c405b38c19b8093ea0359c107323dfdcdd8521b39bf",
+      "world-discovery-a-06": "4910eeb40ae610c5724f4d4eb64499755bdc5047bb9fea18845ba5c863c86798",
+      "world-discovery-a-07": "542ab633d46c41759d4d09ed1cecc4a965fc88ee9e3c595290fecb8de49dfc2e",
+      "world-discovery-a-08": "a8bd4dda7c6cd08d07a336e5ff886e4d71bedeeb59fc690aa7535726dd37dc56",
+      "world-discovery-a-09": "74d66c9d1b7d2f63a36a7000f114033b1d0eba7946d4b6618f57650e91dface8",
+      "world-discovery-a-10": "0d57fd5f20c7100fa4dadb10d2cd38270d90f7dfa2861f32e2109deca9adc1c7",
+      "world-discovery-b-01": "3148661e983f926da022476c1b0cfe3f90cce12103ac4bff735335c1f03873b3",
+      "world-discovery-b-02": "fe1b928b4ff9f3c9626f9e4d905c256e7d1c34a6b226a7fd2af8ccdfdfe2eaf9",
+      "world-discovery-b-03": "f339995987768fbdf326d3a7b47f14efd2426a9d72ad077469e2f52ab0c18ffa",
+      "world-discovery-b-04": "a51757ae4c9a5f8fd84bf91536eca9c6a5807ef157591b6b81bf736904709d9e",
+      "world-discovery-b-05": "0b1ac3fac6cd2f49a5022a3fef17796935ecff7f6e223662a20ee0bbc9a796a3",
+      "world-discovery-b-06": "24def800b2ff0a1b0d9ca4748e6cc83f6e7c305e596b89003c54e146cd0bd276",
+      "world-discovery-b-07": "cbf55761e90a889cc99e69baa05efcd75273084e7ef6b975c93349a5f1bcac71",
+      "world-discovery-b-08": "881f9a1a80094b158402038c680600ef614bcea640cbbfdf9c99a55a5074b5d7",
+      "world-discovery-b-09": "55029bb4c06fc3591eb3f418d209bbf9a2255ecaa734f57c99933484f4dbd3ce",
+      "world-discovery-b-10": "21d85d4be4036ece724edcb5d232724a78a1b9355b138d31c89261e8ee6f0836",
+      "world-discovery-c-01": "2280ca74693a74cf73758ee718356ef2d09289acaddf61ba0aa0f5d118f75ffc",
+      "world-discovery-c-02": "41885772f4a1f4d6ed31bb1164e376afdc69abf6d4330e3114a16b0864bd1d7b",
+      "world-discovery-c-03": "3a8a2bab581ec5a664a4c060eed54d05e16c517f71f65cdd2c976f01bd60fbc9",
+      "world-discovery-c-04": "bdb6d77ffeb25ce58a07d18a5f430b6d2115ae65b5d787ca1f43fd8de1ca1c8b",
+      "world-discovery-c-05": "124f211de518ab0ecee2151d337c507eb95718b5492d0d62ac2644961c12df94",
+      "world-discovery-c-06": "ba58a676e01640493cf6f8f72c6bff1eac8a82ac0a90129e03279d15a9a39af6",
+      "world-discovery-c-07": "ecfedb552178b8a38aab5a75e87f206b66a7851de17d84c7a0c9f889aae1230f",
+      "world-discovery-c-08": "c5ff7e0c27d6e3364cec732d751380ca83d1b7f9e3076ba269229194f6d7df99",
+      "world-discovery-c-09": "99aad3774b55dd4effa58c2232990853524481b817fe918934809995e210d646",
+      "world-discovery-c-10": "e751e7f411c716e8e60d8faca86610aca68f97aec79d315ab55082d61a23ac54",
+      "world-discovery-d-01": "3c0c2f4871a47ef1839903801fcb58b2ea4929f7ff1103da03bd9967470f7369",
+      "world-discovery-d-02": "69471bc781ec8399d8f8c7ea56cb269551e43d5806904f184c1da438cb553f1b",
+      "world-discovery-d-03": "b62ff0069175cf30b64143e8a684283037648ed3528e6dbf1311cc80cdc7bfbb",
+      "world-discovery-d-04": "a86e1b70541ff31df6a6799be164bed0bbcf0446f3ea17026d9d416a1c39e6eb",
+      "world-discovery-d-05": "4f65180357da3c937f3cc6317edb155c5069692b70c921aa21295af565e4f828",
+      "world-discovery-d-06": "9811c74f9b5af706eda16ead028bdbb6108ccacc614a3432743342f7d9c75441",
+      "world-discovery-d-07": "0861556f8ddf092d34218f2edeb4544dc74cfad83ff45ed95c9b21c531d4e04d",
+      "world-discovery-d-08": "98c56f56dee88552405755178bcc5f879137e3c2e75337be01d6f7d9b36a81ce",
+      "world-discovery-d-09": "a88a22efc3776a3fb44a8e9c9704b2954466a0b8bcc8476a532970257c285e64",
+      "world-discovery-d-10": "e8dd336e9487edf4f1b4fc05bb98e7a9904d13f6d27d07e704f03182ce3c8095",
+      "world-discovery-e-01": "fc5b7a09cff71780adb4fe5512adf6d7336ab31bf7bc1419d515a39adb69b628",
+      "world-discovery-e-02": "896226e4cbe76048e89b78f3e7d843f52e776a64c0447b73c8df334b9682edb5",
+      "world-discovery-e-03": "1482851a6dc18472fc1b30f37bf260da8f95b7adb99fa07ab5ecf48f646f9ab0",
+      "world-discovery-e-04": "780529ea42ec27cf5c93de0c4241b8adf99f6b7848921d1a7ce828da0fc68993",
+      "world-discovery-e-05": "13cc43f296d615feab251c8d2ba11c7144ee6b8c21ba2c40e64587034c13466e",
+      "world-discovery-e-06": "03e329beb843ca8bd3da2741a07dcb3b106901069ce869af3b09518a18ca0fb4",
+      "world-discovery-e-07": "398adb67fea39a932632b406c4895044fe71f2db08ca950be1ae012c08418d92",
+      "world-discovery-e-08": "30e30717636ecb5f1fa1b91f67fc080c68486f1fcca244b76b27ada8cd6b5392",
+      "world-discovery-e-09": "9127dd1ddb13a01ba8e81553ff5c62fe3b943dc3c2cfda356915f40b278e014f",
+      "world-discovery-e-10": "68c66f6f1ea86eb5f618cacb1f1429c980c8c10f85dffedabfbcc9894729e000"
+    },
+    "assets": {
+      "illustrations": {
+        "count": 490,
+        "pathAndByteManifestSha256": "45ee6c600d5a65e236a61309e99ac355453fede3862e7b3d16787371989a8a2d"
+      },
+      "cards": {
+        "count": 50,
+        "pathAndByteManifestSha256": "69359eb448265584c12f4bf1e5c2f6395954e13b3c73b558b8270d6e069abe0d"
+      },
+      "pageAudio": {
+        "count": 490,
+        "pathAndByteManifestSha256": "26a41e5ed7b344f72e41dae68efa0d439d0016c97d8ac859f9fbd5e7c19c7bd1"
+      },
+      "wordAudio": {
+        "count": 1252,
+        "pathAndByteManifestSha256": "2996f7bbfa85cb11fbac80a32c817fe396cbd4adcee8a7a1127aa21d018057af"
+      },
+      "references": {
+        "count": 51,
+        "pathAndByteManifestSha256": "3df9b37f3a36846ed047d96438af131851bfc3e8da081f19d2b1cdad76c4f4c0"
+      },
+      "receipts": {
+        "count": 540,
+        "pathAndByteManifestSha256": "89ab52b992c67164c531ea65f085417e7c2752e0c077c4a7da5b0ff5c6f34744"
+      },
+      "productionReviews": {
+        "count": 2,
+        "pathAndByteManifestSha256": "83f484fd1d69340bf8367b9ca24b36dc4032f03de9488967c50570b120dc9426"
+      }
+    },
+    "sharedReviewRows": {
+      "covers": {
+        "count": 50,
+        "sha256": "d0ee9ebb061a95cf0ebb83a47e05f3e077b4e5f4017960bccb6ba32703c17689"
+      },
+      "narrationClearance": {
+        "count": 440,
+        "sha256": "6542998bb8157d2eb5d6c2c795afe0db71deca1145c7d1dbdcd838e6eadc2887"
+      },
+      "appVisual": {
+        "count": 540,
+        "sha256": "e05674ee75006d9aa462f92632df03306cd6da17cd7d5fc846477fc6815e36a3"
+      },
+      "pageAlignment": {
+        "count": 440,
+        "sha256": "34823c4987e7c768548d2ce8b2a1fbab46cc1723bfbc9be537aae6fa834b4c4c"
+      }
+    }
+  }
+}

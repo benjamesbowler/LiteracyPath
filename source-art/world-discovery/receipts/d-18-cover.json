@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:25:12.343Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-274ebc19-2aec-4eed-836b-67d684040e9c.png",
+  "sourceSha256": "a9b9449c13545f76e2cb0263fd1fb43d2ffd0c276fa111bd3164d6bb61cfc5e1",
+  "output": "public/guided-reading/world-discovery/d-18/cover.webp",
+  "outputSha256": "d82f947ad1c2321c2f352c0f1f0c1af5f989d3ee412e9a78beb55a36215e7384",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, second is identity only. Pull camera BACK so ENTIRE scene becomes70percent of current size, centered, extending natural underwater sand and water. Keep every focal limb tip, stone and food at least15percent from every edge. Preserve exact scene relationships, all natural attached anatomy, dull EMPTY eyecaps and clear empty REAR split of discarded covering; exactly one living crab and one discarded covering, not two animals. No text or additional diagram. Clean flat2D cartoon full1536x1024. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a864510d-d122-4bb0-9cd0-63f868480114.png",
+      "sha256": "9d80eab1a1097bdb0573321b234a95ad066a3bceb6ed7b6f75e07f25281fc9ce"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.837Z",
+    "sha256": "d82f947ad1c2321c2f352c0f1f0c1af5f989d3ee412e9a78beb55a36215e7384",
+    "note": "Generated native and installed full WebP directly inspected. One living olive-blue crab and one pale hollow discarded covering beside stone, wide safe framing. Distinct rear opening and dull empty eyecaps make the covering different from a second animal.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:27:23.090Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f07a0cf3-9e54-441b-be0f-1e49054e4a68.png",
+  "sourceSha256": "595817c8292a033f33e8fd5841d717e091b5d8eca20e5990b06c29cd38fe2aee",
+  "output": "public/guided-reading/world-discovery/a-14/page-04.webp",
+  "outputSha256": "711bc582845c330b61db179b2dfb68e14dee1f25b79d52763e1fcafdc89ed4d1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact scene and its coherent rigid straight red wagon. Pull camera back25% to place Kit's entire shoes, the entire wagon and its handle comfortably12% inside every edge. Maintain natural continuous floor/wall background, not an inset. Make the attached SMALL yellow wagon wheels about30% smaller in diameter, so the huge separate wheel is about FOUR times their diameter; attached small wheels remain round and all have same size. Keep giant wheel upper edge bumping beneath rigid front bed, center hole lower than bare stub, Kit kneeling at front RIGHT holding giant wheel. Keep rear attached wheel LEFT, other far wheels naturally occluded. No new objects or limbs. One sheet and exactly two crayons remain on table. Clean flat2D, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f89b07c5-a81e-4222-babf-e88de672ea13.png",
+      "sha256": "85a6fd4f843290624f69758c66cf6ba5e0940c036a025ddb6d2325b7b5d6eb1c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:31:05.409978+00:00",
+    "sha256": "711bc582845c330b61db179b2dfb68e14dee1f25b79d52763e1fcafdc89ed4d1",
+    "note": "Red wagon bed remains rigid and straight; Kit kneels at front right, holds giant wheel with hole below bare stub and upper edge obstructed by bed; rear wheel and far-side wheels naturally occluded; one sheet/two crayons remain; natural limbs and generous margins. Native source and final installed WebP directly viewed."
+  }
+}

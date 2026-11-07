@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:20:00.074Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-88b256fa-face-4a9f-a779-2c7b506865e1.png",
+  "sourceSha256": "75a742792d22e497726532fcd8e4b50eb62af648d01eed7445b5b23dc25832b0",
+  "output": "public/guided-reading/world-discovery/a-12/page-07.webp",
+  "outputSha256": "62f1d3af1007086c5d9975304c896522510ae97fbadd83f10e29da904b3b2cc0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Recompose this exact illustration for a LATER moment. Kit and Zoe have already passed the bench and reunited at the bend. Put BOTH children side by side near CENTER-RIGHT on the path AFTER the wooden bench, heading toward the two swings ahead on the RIGHT. The bench must clearly be BEHIND them at LEFT, and the blue gate smaller in far-left background. Show a SIDE VIEW of both children taking SMALL SLOW MATCHED STEPS: knees gently bent, feet close together, no long striding or running. Kit glances warmly toward Zoe while matching her pace. Equal standing height; do not pull or hold each other. Preserve cast colors, one unbranched curved path, exactly two yellow swing seats, fence and daylight. Make a distinct page composition, not the opening gate scene. Keep children and shoes in a generous safe inset. Bold clean flat 2D, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b6e3c14b-c85a-41f7-bccf-4485369d21ff.png",
+      "sha256": "263aa912795d6aa23cd6864b5e42b5d6e0d0b527e07cb75c5e3171557377388d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:22:08.846Z",
+    "sha256": "62f1d3af1007086c5d9975304c896522510ae97fbadd83f10e29da904b3b2cc0",
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Both take short matched steps side by side beyond bench toward swings; no reset to gate. Locked cast, crisp cel style, essential subject margins and no text verified."
+  }
+}

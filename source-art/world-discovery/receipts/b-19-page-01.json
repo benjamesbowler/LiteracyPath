@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:34:14.235Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3a4797a6-799b-44f4-970e-5bad7fd290c4.png",
+  "sourceSha256": "f123b837fc4b763f898c0bd28d63c0c7ab09ef398359b8ed931243362564a2b4",
+  "output": "public/guided-reading/world-discovery/b-19/page-01.webp",
+  "outputSha256": "5964f9d39b2d02f7b10370c4e63183aa41059b171025805e39bc11624475d4ab",
+  "width": 1717,
+  "height": 916,
+  "prompt": "Use case: precise-object-edit. Edit this existing children's-book illustration. Widen and recenter the SAME intact scene by about 25 percent: the entire two children, all hair and shoes, the tabletop experiment and screen must sit within the central 76 percent of the canvas, leaving at least 10 percent clear room around essential content on every edge. Extend the ordinary classroom background naturally with continuous walls and floor, same normal scale. Do not add props or characters. Preserve every current pose, hand and finger, correct body anatomy, furniture contact, the three equal samples, single long red toy station wagon, single blue flashlight, white screen, and their exact states and relative arrangement. All three equal samples stay flat on tabletop. Flashlight remains OFF, screen has no spot. Maintain clean flat 2D illustration, solid colors and crisp outlines; no texture, no written words, no labels, no inset panels. The change is framing only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bf8db4bb-9f4b-4dc8-b95e-489368e9962f.png",
+      "sha256": "a786af7ed020627aa1e9b3189ef6a7617d5d76505aa42e4dfdaf35d06ce4a306"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:11:10.572438+00:00",
+    "outputSha256": "5964f9d39b2d02f7b10370c4e63183aa41059b171025805e39bc11624475d4ab",
+    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
+    "notes": "Three equal samples flat, flashlight off and blank screen, one car aside; child hand contact and room scale coherent. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "5964f9d39b2d02f7b10370c4e63183aa41059b171025805e39bc11624475d4ab",
+    "note": "Three equal samples flat, flashlight off and blank screen, one car aside; child hand contact and room scale coherent. Independent QA pending."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-19",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:56:34.499Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e494011a-d9bd-4e3c-94af-107c32f4b537.png",
+  "sourceSha256": "64ece4634a53fc47f935f04919a73391799973db99b6d650349a9693cf0f0e8d",
+  "output": "public/guided-reading/world-discovery/d-19/page-06.webp",
+  "outputSha256": "72fc32bdaf68a7e93c3f0340d28f8e266864bf9d5f6a4790ccdfeb1aad7cceaf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the FIRST image. Keep the exact fruit, pea counts, open/closed states and authorized explanatory inset if present, but replace the ENTIRE background with a clean flat cream TABLETOP filling the whole canvas edge to edge. This is a close still-life view of dishes on a real table, not dishes on the garden ground. No table edges are visible because they are beyond the image; no furniture legs needed in this tabletop-only crop. REMOVE all garden plants, grass, soil, shrubs, trees, fence, Sun and sky from this food-comparison image. Keep complete dishes and all food comfortably inside the central 74% of canvas, at least 13% from each edge. Preserve true overhead view for page 9; preserve single right dish for page 7. Natural dish contact shadows. Landscape 3:2. Do not add people or hands.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Fruit or Seed?; World Discovery; nonfiction.\nSetting: Close observational views on a cream tabletop and two clearly separate real plants in a garden. No characters, cutting tools or handling instructions. Exactly one tomato and one pea pod, opened for comparison in prepared stages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One ripe red tomato with green calyx; prepared halves show seeds in gel chambers; One pea pod containing exactly six green peas; Two cream dishes, left for tomato and right for pea pod; Natural tomato flower and pea flower shown only on their respective plants\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 6. Printed prose (NOT text to put in art): A pea and its pod have different jobs. The seed holds a tiny new plant; the pod surrounds the seeds.\nRequired illustration: One pea lifted beside its opened pod, which now holds five; simple pea cross-section inset shows embryo.\nExact current state: Total six peas accounted for; inset is the same single pea, not an extra real specimen.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5a09c3cd-c07e-4647-8ed7-29856a7ab5c7.png",
+      "sha256": "5de352e8a49f54b89abd412d134f47771a4204305073e70a9f9c36ba08dde64e"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-19-reference.webp",
+      "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5c15eed33ab40058de6f45806a97ecf61c792ceb5e2fd959ace3b9cb0ecb9825",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:19:26.984289+00:00",
+    "sha256": "72fc32bdaf68a7e93c3f0340d28f8e266864bf9d5f6a4790ccdfeb1aad7cceaf",
+    "note": "Generated source and installed WebP inspected. Exactly five peas inside pod plus one loose; connected inset explains a tiny embryo within the loose seed. Two tomato halves remain; no rooted plant or soil appears on worktop.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

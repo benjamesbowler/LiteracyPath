@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-16",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:35:40.304Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-290eaee0-ca90-46c9-9912-5bf447ace669.png",
+  "sourceSha256": "bcf7f02573a70f6b4ff4cbdeb4cb4bdcb8eeeb84fc7f943a2052df702e707f83",
+  "output": "public/guided-reading/world-discovery/c-16/page-06.webp",
+  "outputSha256": "85580695c50b67288352ff25b69358f7cd77ac7850e86f07ba6de469f7aea4ca",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make one local framing correction only: move the existing yellow Sun horizontally RIGHT so its center is at x=255 of the 1536-pixel-wide canvas. Keep its current size, vertical position, color and glow. Erase its previous position back to the same dark space. The Sun must remain on the LEFT of the comet. Do not alter the comet nucleus, coma, tail, tail length, dust particles or any other content. No duplicate Sun, no text, no border. This is an educational stylized close-up; preserve the exact current scene and clean flat 2D appearance.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-211de832-aa85-4f33-ac28-30ccf547f61d.png",
+      "sha256": "6018cc8d3b1e8f6e92b48af06d88e50eb44794fb1a276931da4d64e32abfed3f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2b1a07e62b53565047cbf98050cb4c434d8188b1bd6253ef1af827c13dc4e3d7",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:40:01.352946+00:00",
+    "sha256": "85580695c50b67288352ff25b69358f7cd77ac7850e86f07ba6de469f7aea4ca",
+    "note": "Native and final WebP directly inspected. Same two-lobed nucleus; Sun left and dust tail away to right, coherent near/far solar size and fading versus summary state; entire Sun and tail safely framed. No invented orbit strings or props."
+  }
+}

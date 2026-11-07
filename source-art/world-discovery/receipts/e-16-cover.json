@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:03.240Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a8f627c4-1287-476c-88c3-4a2f51d5d27a.png",
+  "sourceSha256": "88b4cdaf2f4be5c182404a655009a9ee868f91e10cf13f59f10ce72fb2dc7a29",
+  "output": "public/guided-reading/world-discovery/e-16/cover.webp",
+  "outputSha256": "7223dea6158b2974b8a712b3b4932e671f061b7f3a451bc11b17edf77ec2e2db",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce the complete existing children, model/table/mats OR outdoor sky scene OR authored diagram/panel composition to fit its essentials inside the central80percent of the final1536x1024canvas. Extend matching room/garden/sky/background naturally. ALL shoes, hair, fingers, viewing mats, model cards, table feet, and full borders of existing authored inset/comparison panels must be at least10percent inside each edge. Preserve the same three cards, their exact near/middle/far positions and equal stand designs, and same body poses. Retain a real ordinary waist-high table with full long legs and complete human legs when floor is visible. For intentional closeups keep lower bodies and floor ENTIRELY out of view. Do not invent table geometry while widening. Preserve authored diagram/counts only where already present; no extra panels, symbols, physical strings or text. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e16-margin-sources/cover-before.webp",
+      "sha256": "7e28cb90d86938070d44759648a641ed9c60833c03fc3f96e5f52c8e44620f2f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "7223dea6158b2974b8a712b3b4932e671f061b7f3a451bc11b17edf77ec2e2db",
+    "method": "codex-direct-image-inspection",
+    "note": "Widened whole classroom: complete children, floor mats and four long table legs remain coherent and comfortably framed; three stand depths retained."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-a-16",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:28:35.558Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0a67d320-07a3-45c5-b119-c50eb02bb67c.png",
+  "sourceSha256": "32ab84d50cb562bf490e76e441aee7157f1a456f877106b2bc64a986312cefc3",
+  "output": "public/guided-reading/world-discovery/a-16/page-03.webp",
+  "outputSha256": "40197e1f7500420ace8e3d450b724086296dcbf557b386bdcc8861be232e5fa5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Streak in the Sky; World Discovery; nonfiction.\nSetting: A clear night sky above a low dark hill, with a middle explanatory close view high above Earth. No humans, rockets or dramatic impact.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Fixed sparse star pattern in opening and closing landscape views; One tiny irregular dark gray meteoroid in explanatory views; Earth’s curved blue atmospheric rim shown only in explanatory views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): That streak is a meteor.\nRequired illustration: Closer landscape framing emphasizes the same slender streak with a small bright leading point, retaining the hill edge and distant stars for context. Do not draw an enormous visible rock from the ground.\nExact current state: Same brief event; no new or second meteor.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nThe last input is the accepted opening sky. Keep the EXACT same five white star locations and bottom hill silhouette. Add only the specific meteor stage required by this scene; stars must never disappear, fall, or change position.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-16-reference.webp",
+      "sha256": "52bcd415aba2be2c815158fb1795db0b53df70bc036f4ae2378e7974193ff2a4"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-16/page-01.webp",
+      "sha256": "56b2d292cca70c1a500cfe43c444a59626c05654cf1dadc01a15e46212b72d46"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "126a86d727a4fbd584169dab1d6ef064db535c9d000cb409c753cc3fb4a02d0b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:38:10.724Z",
+    "sha256": "40197e1f7500420ace8e3d450b724086296dcbf557b386bdcc8861be232e5fa5",
+    "note": "Direct native and installed WebP sequence review: five stars stay fixed in ground views; brief white-gold meteor appears then fades; explanatory small rock is inside the blue atmospheric glow above Earth, heats at its leading edge and becomes a tiny consumed streak; no star falls, rocket, impact, or fire in remote space. Essential event remains clear and inset."
+  }
+}

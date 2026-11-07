@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-e-12",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:40:51.861Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e76d181c-2863-452b-b943-fa05197430fb.png",
+  "sourceSha256": "1f767a9bfb1e809c8311a4525582952c44561e74c13e2f908b86e0219f9ffa06",
+  "output": "source-art/world-discovery/e-12-reference.webp",
+  "outputSha256": "ec24e25bb5632ae3d982156652ce59c53366e20c2ea49a77bb50a49a32878850",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is target. Make ONLY the tile seams visible in the bottom-left puzzle. Draw three thin straight vertical black seam lines at25%,50%,75% of the puzzle rectangle width, continuing through ALL picture colors including WHITE SAIL. Existing two horizontal seam lines at1/3 and2/3 height remain. This reveals exactly3ROWSx4COLUMNS=12 rectangular tile positions. The top-row third-column missing gap stays COMPLETELY TAN blank. Do not cover the gap with sail. The black mast at62.5percent width must be changed to a THIN BROWN mast so it is distinct from black tile seams. Preserve sail geometry, red hull, separate loose white-peak tile, blue cushion, humans, furniture, room key and everything else unchanged. No labels/text. Landscape1536x1024 model board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-57bad963-fed5-4cfe-ac63-7f125ef18026.png",
+      "sha256": "f676c9945b240cd0a2ed08d2735fa01e8169d255f4cf9e6fd0ebe516fd00356c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:41:38.558273+00:00",
+    "sha256": "ec24e25bb5632ae3d982156652ce59c53366e20c2ea49a77bb50a49a32878850",
+    "note": "Generated source and installed WebP inspected. Blue cushion on ordinary slatted bench; red boat on blue water, three by four tile positions, blank tan top-row third-column gap and one separate white sail-peak tile. Normal equal-height cast and table construction.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

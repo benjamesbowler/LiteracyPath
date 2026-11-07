@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:54.222Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dc9737c2-bf4f-4972-9322-10df10ecf4f1.png",
+  "sourceSha256": "305f4d4d135de8d2949e4d855a9a7dc9ca9418c6841ffc10dfc1be0be719db57",
+  "output": "public/guided-reading/world-discovery/d-16/page-04.webp",
+  "outputSha256": "c0d33c41c50d875ef59a0ce06f003c11ddf07d4e3263e496ba33604870b6fa18",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "RECOMPOSE the supplied diagram with a MAJOR ZOOM OUT. Every diagram element must become about TWO THIRDS its current size and fit together within the CENTER of the 1536x1024 canvas. The entire diagram from LEFTMOST SUN FLAME to RIGHTMOST SHADOW TIP/MOON must span only x=250 to x=1280. Leave broad empty background bands at BOTH SIDES, minimum 250 pixels each. This visible empty margin is mandatory. Do NOT retain the current oversized Sun or current edge positions. Keep diagram relationships perfectly intact, just move the whole grouped composition inward and make it smaller. Sun remains largest, Earth smaller, Moon smallest. Keep Moon partly entering shadow FROM BELOW: upper part inside continuous cone is dark, lower part outside is bright; preserve the one upward arrow. Preserve the exact background style and flat clean bold 2D shapes. No new elements, labels, frames or border. Native 1536x1024 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2373eab2-ca1b-4152-a6c2-ff837c52dfae.png",
+      "sha256": "6856febcc3fdd19171b886bded5e04b6b0bd252ccf5cd62ff998af39ab6f8a4d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "c0d33c41c50d875ef59a0ce06f003c11ddf07d4e3263e496ba33604870b6fa18",
+    "method": "codex-direct-image-inspection",
+    "note": "One Moon enters central shadow from below. Upper portion overlapped by cone is dark; lower portion remains pale; one upward arrow. Complete centered diagram."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-11",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:39:34.752Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bbe68e78-7b91-4297-b400-f817d9a6b49a.png",
+  "sourceSha256": "ed2d4bb205a8274d49d4c7e77c143fc91e936e2f2ff73e8ca5f3cf43a7e0a769",
+  "output": "source-art/world-discovery/b-11-reference.webp",
+  "outputSha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the supplied World Discovery production reference board. Preserve its clean flat cartoon style, exact Kit/Zoe identities/clothes/equal standing height, red truck design, tan block shape, green rug and classroom/window/shelf design. Make ONLY these two corrections. (1) In the large upper-left classroom vignette there must be exactly EIGHT tan blocks total: four in the connected road, one carried by Kit, and three loose blocks on the rug. Remove the rightmost of the four loose foreground blocks; do not remove the block in his hands. The separate small object diagram below may retain four connected plus four loose blocks because it has no carried block. (2) This book uses one low wooden CHAIR with a plain vertical backrest, not a backless bench. Replace every instance/turnaround of the low wooden seat with the same low four-legged wooden chair with a plain simple backrest; preserve relative seat height. A child later leans against this backrest. No text, no other changes. This remains a reference board, not a final page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c86d6d5b-4aa2-4e4a-a71f-807e72dafced.png",
+      "sha256": "84d237e409a55550c9b566db4bf3f5838afb6071effd04a7da0b43885cc9d187"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T10:39:34.847Z",
+    "outputSha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087",
+    "scope": "direct reference-board inspection",
+    "notes": "Directly viewed edited native reference. Opening vignette now has four connected blocks, three loose on rug and one held by Kit, total eight. Wooden seat now has a backrest in every design view, matching later resting action. Cast identities/equal height, red pickup truck, green rug and classroom palette remain consistent. No finished road state.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087",
+    "note": "Directly viewed edited native reference. Opening vignette now has four connected blocks, three loose on rug and one held by Kit, total eight. Wooden seat now has a backrest in every design view, matching later resting action. Cast identities/equal height, red pickup truck, green rug and classroom palette remain consistent. No finished road state."
+  }
+}

@@ -10758,6 +10758,326 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "Her old box is a bed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "world-discovery-a-11::1": {
+    "displayedText": "Zoe wants a snack.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::2": {
+    "displayedText": "Kit picks a crunchy breadstick.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::3": {
+    "displayedText": "Zoe breaks off a piece.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::4": {
+    "displayedText": "She tries one crunchy bite.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::5": {
+    "displayedText": "Zoe wants a soft bite.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::6": {
+    "displayedText": "She tries a pear slice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::7": {
+    "displayedText": "Zoe picks another pear slice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-11::8": {
+    "displayedText": "Zoe takes a juicy bite.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::1": {
+    "displayedText": "Kit and Zoe walk to play.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::2": {
+    "displayedText": "Kit runs ahead of Zoe.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::3": {
+    "displayedText": "Zoe walks far behind.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::4": {
+    "displayedText": "Kit looks back and stops.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::5": {
+    "displayedText": "He waits and waves to Zoe.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::6": {
+    "displayedText": "Zoe catches up with Kit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::7": {
+    "displayedText": "Kit takes small slow steps.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-12::8": {
+    "displayedText": "They reach the swings together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::1": {
+    "displayedText": "Two sidewalks line our street.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::2": {
+    "displayedText": "Our crossing joins the sidewalks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::3": {
+    "displayedText": "The bright hand says wait.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::4": {
+    "displayedText": "We wait beside our grown-up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::5": {
+    "displayedText": "The walking sign lights up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::6": {
+    "displayedText": "We all check for cars.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::7": {
+    "displayedText": "We cross beside our grown-up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-13::8": {
+    "displayedText": "We reach the other sidewalk.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::1": {
+    "displayedText": "Kit's wagon needs a wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::2": {
+    "displayedText": "Kit draws one big wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::3": {
+    "displayedText": "His folded drawing becomes real.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::4": {
+    "displayedText": "The huge wheel does not fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::5": {
+    "displayedText": "Kit draws a small wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::6": {
+    "displayedText": "He folds the drawing again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::7": {
+    "displayedText": "Kit fits the little wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-14::8": {
+    "displayedText": "Now the wagon rolls.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::1": {
+    "displayedText": "The sand meets the sea.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::2": {
+    "displayedText": "A wave rolls toward shore.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::3": {
+    "displayedText": "Water runs up the sand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::4": {
+    "displayedText": "It reaches the little shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::5": {
+    "displayedText": "The water slips back down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::6": {
+    "displayedText": "The shell stays on wet sand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::7": {
+    "displayedText": "Here comes the next wave.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-15::8": {
+    "displayedText": "The sea's edge moves again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::1": {
+    "displayedText": "Stars shine in the dark.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::2": {
+    "displayedText": "One bright streak flashes past.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::3": {
+    "displayedText": "That streak is a meteor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::4": {
+    "displayedText": "A space rock enters Earth's air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::5": {
+    "displayedText": "Air heats the speeding rock.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::6": {
+    "displayedText": "The tiny rock burns up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::7": {
+    "displayedText": "The bright streak fades away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-16::8": {
+    "displayedText": "The stars still shine above.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::1": {
+    "displayedText": "This crab needs a bigger shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::2": {
+    "displayedText": "The old shell is too small.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::3": {
+    "displayedText": "It finds a small empty shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::4": {
+    "displayedText": "That shell is too small too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::5": {
+    "displayedText": "Here is a bigger empty shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::6": {
+    "displayedText": "The crab feels inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::7": {
+    "displayedText": "It moves into the bigger shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-17::8": {
+    "displayedText": "This shell fits the crab.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::1": {
+    "displayedText": "A butterfly leaves its chrysalis.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::2": {
+    "displayedText": "Its soft wings cannot lift it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::3": {
+    "displayedText": "The folded wings stretch down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::4": {
+    "displayedText": "The wings grow wide.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::5": {
+    "displayedText": "The butterfly hangs very still.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::6": {
+    "displayedText": "Its wings become firm.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::7": {
+    "displayedText": "Now the wings can beat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-18::8": {
+    "displayedText": "The butterfly flies to a flower.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::1": {
+    "displayedText": "We sort these four things.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::2": {
+    "displayedText": "This brick feels rough.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::3": {
+    "displayedText": "This spoon feels smooth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::4": {
+    "displayedText": "We make two small groups.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::5": {
+    "displayedText": "The bark feels rough too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::6": {
+    "displayedText": "The pebble feels smooth too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::7": {
+    "displayedText": "Different shapes share a group.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-19::8": {
+    "displayedText": "We sort by feel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::1": {
+    "displayedText": "Kit takes two crackers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::2": {
+    "displayedText": "He eats his little snack.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::3": {
+    "displayedText": "Kit still feels hungry.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::4": {
+    "displayedText": "He takes two more crackers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::5": {
+    "displayedText": "Now Kit feels full.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::6": {
+    "displayedText": "The tin still holds more.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::7": {
+    "displayedText": "Our grown-up shuts the tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-20::8": {
+    "displayedText": "The crackers wait for snack time.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "world-discovery-b-01::1": {
     "displayedText": "I want to close my own bag.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -11078,6 +11398,326 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "He lifts the bag. All three blocks stay in.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "world-discovery-b-11::1": {
+    "displayedText": "Kit wants a long road for his truck.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::2": {
+    "displayedText": "He carries more blocks. His arms feel tired.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::3": {
+    "displayedText": "Kit picks up another block. It slips onto the rug.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::4": {
+    "displayedText": "\"I need a break,\" says Kit. He sits down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::5": {
+    "displayedText": "Zoe adds one block. Kit watches from his seat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::6": {
+    "displayedText": "Kit rests a little longer. The last gap stays open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::7": {
+    "displayedText": "Kit gets up. \"I want to put that one in.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-11::8": {
+    "displayedText": "He fills the gap. His truck rolls all the way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::1": {
+    "displayedText": "Zoe saves a cracker for her cheese. She gets a cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::2": {
+    "displayedText": "Kit sees the cracker. He eats it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::3": {
+    "displayedText": "Zoe comes back. \"My cheese has no cracker now.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::4": {
+    "displayedText": "Kit offers a crumb. Zoe shakes her head.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::5": {
+    "displayedText": "Kit opens his box. One whole cracker is still inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::6": {
+    "displayedText": "\"Would you like mine?\" asks Kit. \"Yes,\" says Zoe.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::7": {
+    "displayedText": "Kit puts his cracker on her plate.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-12::8": {
+    "displayedText": "Zoe puts the cheese on top. This bite has a cracker.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::1": {
+    "displayedText": "Kit puts a picture in an envelope. He writes Zoe's address.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::2": {
+    "displayedText": "He seals the flap. The letter goes into the mailbox.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::3": {
+    "displayedText": "A worker collects the mail. Kit's letter joins the other letters.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::4": {
+    "displayedText": "A machine reads the address. The letters go into groups.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::5": {
+    "displayedText": "A van carries this group to Zoe's area.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::6": {
+    "displayedText": "Here is Zoe's street. The carrier checks each address.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::7": {
+    "displayedText": "The carrier puts the letter through Zoe's door.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-13::8": {
+    "displayedText": "Zoe opens it. Kit's small picture has come a long way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::1": {
+    "displayedText": "The magic clips swap colors. A red cup. A blue cart.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::2": {
+    "displayedText": "Kit clips both. His cart turns red. Her cup turns blue.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::3": {
+    "displayedText": "Zoe reaches for her cup. \"That is not my red cup!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::4": {
+    "displayedText": "Kit swaps them back. Zoe takes her red cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::5": {
+    "displayedText": "Kit still wants a red cart. He finds red paper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::6": {
+    "displayedText": "\"May I use this?\" Zoe slides the paper over.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::7": {
+    "displayedText": "Kit clips the blue cart and red paper. Their colors swap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-14::8": {
+    "displayedText": "Kit rolls his red cart. Zoe's red cup stays red.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::1": {
+    "displayedText": "Sea water covers a dip in rock.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::2": {
+    "displayedText": "Slowly, the sea falls. The rock begins to show.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::3": {
+    "displayedText": "More rock shows. Water stays in the deep dip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::4": {
+    "displayedText": "The sea is lower now. The pool is still here.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::5": {
+    "displayedText": "Rock holds the water around the sides.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::6": {
+    "displayedText": "The sea starts to rise again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::7": {
+    "displayedText": "Water spills over the rim. The pool joins the sea.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-15::8": {
+    "displayedText": "Sea in, sea out. The rock dip keeps a pool.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::1": {
+    "displayedText": "This robot rolls across Mars. It has six wheels.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::2": {
+    "displayedText": "Rocks lie ahead. There is no smooth road.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::3": {
+    "displayedText": "The front wheel climbs the small rock.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::4": {
+    "displayedText": "The wheel supports bend at their joints.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::5": {
+    "displayedText": "Now the middle wheel rolls over the rock.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::6": {
+    "displayedText": "The back wheel follows. The front wheel dips down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::7": {
+    "displayedText": "The wheels come back onto level ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-16::8": {
+    "displayedText": "The wheels rise and fall. Joints help the rover cross rough ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::1": {
+    "displayedText": "Is that a twig on the stem?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::2": {
+    "displayedText": "Look again. Six legs grip the plant.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::3": {
+    "displayedText": "A stick insect hides among twigs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::4": {
+    "displayedText": "Its long brown body looks like a twig.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::5": {
+    "displayedText": "Still legs are hard to spot among twigs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::6": {
+    "displayedText": "One leg lifts. The insect takes a slow step.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::7": {
+    "displayedText": "It reaches a leaf and takes a bite.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-17::8": {
+    "displayedText": "Its shape helps it hide. Its moving legs help us find it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::1": {
+    "displayedText": "Grasshopper eggs lie in the soil.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::2": {
+    "displayedText": "A small hopper comes out. It has no long wings.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::3": {
+    "displayedText": "It eats leaves. Its body grows.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::4": {
+    "displayedText": "Its tight outer skin splits. The grasshopper pulls free.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::5": {
+    "displayedText": "It grows and sheds its skin again. Small wing pads grow.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::6": {
+    "displayedText": "After the last shed, long wings open and become firm.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::7": {
+    "displayedText": "Now the grown grasshopper can fly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-18::8": {
+    "displayedText": "The little hopper grows wings in stages. Now it can hop and fly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::1": {
+    "displayedText": "Can light get through these three sheets?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::2": {
+    "displayedText": "Kit shines a flashlight through clear plastic. The wall stays bright.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::3": {
+    "displayedText": "Zoe holds up wax paper. A soft glow shows through.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::4": {
+    "displayedText": "Now she holds thick card. A dark patch covers the wall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::5": {
+    "displayedText": "Zoe puts the card in one group. It blocks the light.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::6": {
+    "displayedText": "The plastic and wax paper go together. Both let light through.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::7": {
+    "displayedText": "Kit looks through both. One gives a clear view. One blurs it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-19::8": {
+    "displayedText": "Two groups become three. Clear view, blurred view, no view.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::1": {
+    "displayedText": "Zoe turns the faucet off. A drop still falls.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::2": {
+    "displayedText": "Kit tries the handle. Drip. It still leaks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::3": {
+    "displayedText": "Zoe puts a cup below it. Drip, drip, drip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::4": {
+    "displayedText": "The cup is half full. Zoe shows the leak to a grown-up.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::5": {
+    "displayedText": "The grown-up shuts off the water. She fits a new part.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::6": {
+    "displayedText": "She turns the water back on. Kit tests the faucet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::7": {
+    "displayedText": "He closes it. They wait. No drops fall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-20::8": {
+    "displayedText": "Zoe waters a plant with the saved water. The cup stays empty.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "world-discovery-c-01::1": {
     "displayedText": "Kit wants to put on a puppet show. He builds a little stage from blocks.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -11396,6 +12036,326 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "world-discovery-c-10::8": {
     "displayedText": "The plant grows new leaves. Compost from old scraps helps its soil hold water and nutrients.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::1": {
+    "displayedText": "Kit wants a picnic under the tree. He will bring the mat, two cups, and their red ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::2": {
+    "displayedText": "Zoe draws the three things. Kit studies her picture, leaves it on the table, and goes inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::3": {
+    "displayedText": "He brings the cups and ball. Zoe points at the grass. \"What will we sit on?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::4": {
+    "displayedText": "Kit shuts his eyes to picture the card. He opens them again. \"I keep losing one bit.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::5": {
+    "displayedText": "He taps three fingers. \"Mat, cups, ball.\" Then he says it again, with a little beat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::6": {
+    "displayedText": "\"Mat, cups, ball.\" Kit points to the cups and ball. \"The mat!\" He runs back to the shelf.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::7": {
+    "displayedText": "He carries the mat outside and spreads it flat. \"Mat, cups, ball,\" he says, checking each one.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-11::8": {
+    "displayedText": "Zoe sits at one end. Kit puts down the cups, then rolls the ball to her. Nothing is missing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::1": {
+    "displayedText": "Kit folds the paper around their parcel. \"Where is the ribbon?\" Zoe points across the room. \"By the pot.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::2": {
+    "displayedText": "Kit looks beside the tall blue pot at the window. There is a watering can, but no ribbon.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::3": {
+    "displayedText": "\"I cannot find it,\" he calls. Zoe raises her voice. \"It is by the pot!\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::4": {
+    "displayedText": "Kit looks under the blue pot's tray. Still no ribbon. He puts the tray back and stops searching.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::5": {
+    "displayedText": "\"Which pot?\" he asks. Zoe looks at the window, then points to the shelf. \"The small yellow one.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::6": {
+    "displayedText": "\"The yellow pot on the shelf?\" \"Yes.\" Kit walks past the window and reaches beside the little pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::7": {
+    "displayedText": "His hand closes around the red ribbon. He carries it to Zoe, keeping the long end off the floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-12::8": {
+    "displayedText": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::1": {
+    "displayedText": "Before the market opens, one table stands empty. What must happen before carrots can fill it?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::2": {
+    "displayedText": "At a nearby farm, a grower pulls carrots from the soil. She gathers them in a green crate.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::3": {
+    "displayedText": "The full crate goes into her van. She takes the carrots to the market with the other growers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::4": {
+    "displayedText": "The worker holds the gate open and points out a space. The grower carries the crate to her table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::5": {
+    "displayedText": "The grower lifts carrots onto the stand. She keeps the empty crate underneath for the trip home.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::6": {
+    "displayedText": "Kit arrives with a grown-up. He points to a bunch of carrots and asks the grower about them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::7": {
+    "displayedText": "The grown-up pays. The grower passes the carrots across, and Kit puts them in their cloth bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-13::8": {
+    "displayedText": "The table was empty before the growers came. Growing, carrying, and setting out the food made this market ready.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::1": {
+    "displayedText": "Zoe's red bookmark is magic. It slides along pencil arrows, but blank paper makes it stop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::2": {
+    "displayedText": "Kit wants it to find his page by itself. He draws an arrow path across a long strip of paper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::3": {
+    "displayedText": "The bookmark turns back at one arrow. Then it slides forward again, still far from Kit's page.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::4": {
+    "displayedText": "Kit picks it up and starts again. The bookmark reaches that patch and turns back, just as before.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::5": {
+    "displayedText": "\"Let's follow the points,\" Zoe says. Kit traces the arrows. One point sends his finger the wrong way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::6": {
+    "displayedText": "He rubs out that arrow and draws it toward the book. The paper now gives one clear route.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::7": {
+    "displayedText": "The bookmark slides past the repaired place and onto Kit's page. This time, it does not come back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-14::8": {
+    "displayedText": "Zoe pulls the arrow strip away. Kit closes the book. A red tip waits exactly where his reading stopped.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::1": {
+    "displayedText": "Dark rock covers this old lava flow. It once moved. How did flowing lava become solid ground?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::2": {
+    "displayedText": "During an eruption, hot melted rock reaches the surface. We call it lava.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::3": {
+    "displayedText": "The lava spreads over the ground. Its outside loses heat to the cooler air and ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::4": {
+    "displayedText": "A thin solid crust forms outside. Under that dark crust, hotter lava can still flow.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::5": {
+    "displayedText": "Here, the crust cracks. Bright lava shows through the gap. A dark top does not mean a cool inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::6": {
+    "displayedText": "As more heat escapes, the solid layer grows thicker. The hot middle cools more slowly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::7": {
+    "displayedText": "Much later, the whole flow becomes solid rock. Thick flows can take years to reach this stage.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-15::8": {
+    "displayedText": "The rock keeps the shape of the old flow. Melted rock spread here, then cooling made it solid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::1": {
+    "displayedText": "A comet has a long pale tail. Is that tail part of a solid body?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::2": {
+    "displayedText": "Far from the Sun, the comet is a small frozen body with dust trapped in its ice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::3": {
+    "displayedText": "Nearer the Sun, the ice warms. Gas escapes and carries some of the dust away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::4": {
+    "displayedText": "The loose dust spreads away from the small center. It is no longer trapped in solid ice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::5": {
+    "displayedText": "The dust reflects sunlight. We see a pale tail, even though the dust pieces are tiny.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::6": {
+    "displayedText": "The solid center is much smaller than the tail. Most of that long shape is scattered dust.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::7": {
+    "displayedText": "Farther from the Sun, less dust escapes. The visible tail grows faint as the comet moves away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-16::8": {
+    "displayedText": "The long tail is not a solid piece of the comet. It is loose dust, lit by the Sun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::1": {
+    "displayedText": "A sea otter finds a clam on the seabed. Food lies inside, behind a hard shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::2": {
+    "displayedText": "The otter takes the clam and a flat stone. It swims back up through the kelp.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::3": {
+    "displayedText": "At the surface, it rolls onto its back. The clam rests on its chest above the water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::4": {
+    "displayedText": "The otter sets the stone on its chest. It holds the clam above the flat surface.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::5": {
+    "displayedText": "Tap! The clam hits the stone, but its shell stays closed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::6": {
+    "displayedText": "The otter strikes again. A crack opens in the hard shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::7": {
+    "displayedText": "Its paws pull the broken shell apart. Now it can reach the food inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-17::8": {
+    "displayedText": "The stone stays outside the otter's body, but it helps the otter get food. The stone is a tool.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::1": {
+    "displayedText": "Small round eggs lie in a hole in the soil. A garden snail laid them here.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::2": {
+    "displayedText": "Inside each egg, a young snail grows. These eggs are darker now, close to hatching.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::3": {
+    "displayedText": "A tiny snail pushes out. It already carries a small shell on its back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::4": {
+    "displayedText": "The young snail eats soft leaves. Its body grows, and its shell grows with it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::5": {
+    "displayedText": "It does not leave that shell to find a larger one. The shell remains part of its growing body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::6": {
+    "displayedText": "Many months pass. The snail becomes much larger, with a broad, patterned shell.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::7": {
+    "displayedText": "When this snail is grown and has mated, it can lay eggs in another soil hole.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-18::8": {
+    "displayedText": "A new snail begins in an egg with its own shell. One body and its shell grow together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::1": {
+    "displayedText": "Salt and sand both look like tiny grains. Kit puts a small scoop of each beside two cups of water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::2": {
+    "displayedText": "Zoe tips salt into the first cup and stirs. The white grains become harder to see.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::3": {
+    "displayedText": "Soon, the water looks clear. \"Has the salt gone?\" Kit asks. They leave that cup on its blue mat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::4": {
+    "displayedText": "Kit stirs sand into the other cup. Grains swirl, then sink into a layer when he stops.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::5": {
+    "displayedText": "Zoe pours a little clear salt water into a dish. They leave it by the window for several days.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::6": {
+    "displayedText": "The water slowly dries away. Small white salt crystals appear on the dish. The salt was still there.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::7": {
+    "displayedText": "Salt can spread through water without visible grains. Sand stays in grains, even after stirring.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-19::8": {
+    "displayedText": "Both began as grains. The water test puts them in different groups: dissolves and does not dissolve.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::1": {
+    "displayedText": "This fallen log lies beside the path. Kit lifts one end to clear the ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::2": {
+    "displayedText": "Underneath, the soil is dark and damp. Tiny gray woodlice hurry into the shade.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::3": {
+    "displayedText": "Woodlice lose water easily. Cool, damp spaces help them stay moist.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::4": {
+    "displayedText": "They feed on dead plant pieces. Some are nibbling the soft wood and fallen leaves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::5": {
+    "displayedText": "Zoe points to the busy patch. Moving the log would take away its cover.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::6": {
+    "displayedText": "Kit lowers the log gently into its old place. He keeps its damp side against the soil.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::7": {
+    "displayedText": "They move a discarded wrapper from the path instead. The log stays beside the fern.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-20::8": {
+    "displayedText": "The path is clear. Beneath the log, shade and damp shelter remain for the small animals living there.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-01::1": {
@@ -11798,6 +12758,406 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "The light uses energy from the Sun, but its parts still need materials and care. Using less light saves energy, too.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "world-discovery-d-11::1": {
+    "displayedText": "Zoe draws her best day: purple boots splashing in a puddle. Kit draws a ball beneath a bright sun.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::10": {
+    "displayedText": "They clip both pictures to the ledge. Zoe points to the biggest splash. \"That is why I picked this day.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::2": {
+    "displayedText": "When Zoe adds a rain cloud, Kit looks up. \"My best day had sunshine. Would yours look better with a sun?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::3": {
+    "displayedText": "He holds out a yellow paper sun. Zoe lays it over her cloud and puts down the blue crayon.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::4": {
+    "displayedText": "The picture is bright now, but Zoe frowns. Without the rain, her puddle seems like the wrong part of the day.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::5": {
+    "displayedText": "She remembers the splash reaching her knees. That was the part she had wanted to draw.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::6": {
+    "displayedText": "Zoe lifts the paper sun. \"I liked the rain,\" she says. \"It made a puddle big enough to jump in.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::7": {
+    "displayedText": "\"But you got wet,\" says Kit. Zoe grins. \"My boots got wet. I wanted one more jump.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::8": {
+    "displayedText": "She draws blue rain below the cloud. Now the boots, the splashes, and the sky belong in the same picture.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-11::9": {
+    "displayedText": "Kit holds up his sunny picture. Zoe holds up her rainy one. Neither asks the other to change it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::1": {
+    "displayedText": "Zoe leaves her little house on the table while she gets tape. Kit spots a hole in its roof.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::10": {
+    "displayedText": "Kit slides the bed into view. They lean over the opening together. This time, both can see inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::2": {
+    "displayedText": "\"I can fix that,\" he says. He lays a cardboard patch over the hole and presses tape along its edges.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::3": {
+    "displayedText": "Zoe comes back and bends over the roof. \"Now I can't see the bed!\" she says.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::4": {
+    "displayedText": "\"I thought it was broken.\" Kit pulls at the patch. A piece of the roof tears up with it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::5": {
+    "displayedText": "Zoe catches his hand. \"Wait. I made that opening so we could look inside.\" Kit lets go.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::6": {
+    "displayedText": "He looks at the torn edge. \"What do you want to keep?\" Zoe points around the hole. \"All this space.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::7": {
+    "displayedText": "Together they ease off the last tape. Kit holds the roof still while Zoe slips a strip beneath the tear.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::8": {
+    "displayedText": "She tapes the strip in place. Kit presses the bent edge flat, leaving the opening clear.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-12::9": {
+    "displayedText": "\"Anything else?\" he asks. Zoe looks through the roof. \"Move the bed a little. It's hiding behind the wall.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::1": {
+    "displayedText": "At this corner, Kit watches the orange hand across the street. Beside him, an adult listens near the crossing button.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::10": {
+    "displayedText": "On the far sidewalk, Kit looks back. That little box had more than one way to say the same thing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::2": {
+    "displayedText": "A quiet sound helps the adult find the button. That sound does not mean it is time to cross.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::3": {
+    "displayedText": "The adult presses the button. A raised arrow on its surface points along the crossing they want to use.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::4": {
+    "displayedText": "Kit can see the arrow. The adult can feel its shape without needing to see the mark.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::5": {
+    "displayedText": "They wait. Pressing the button does not make the cars stop at once.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::6": {
+    "displayedText": "Now the white walking figure appears. A faster ticking sound comes from the button beside them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::7": {
+    "displayedText": "The arrow vibrates too. The adult feels it under a fingertip while Kit watches the walking figure.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::8": {
+    "displayedText": "The light, sound, and movement give the walk message in different ways. They do not move the traffic themselves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-13::9": {
+    "displayedText": "The adult checks the traffic before they cross together. Kit stays beside the tapping cane.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::1": {
+    "displayedText": "Zoe draws a silver circle. \"Stand here,\" she says. \"It lends you a giant shadow that copies your shape.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::10": {
+    "displayedText": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::2": {
+    "displayedText": "Kit steps inside. A huge shadow rises on the wall, though there is no lamp behind him.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::3": {
+    "displayedText": "He lifts one hand. The shadow lifts one hand. He spreads his fingers, and its huge fingers spread too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::4": {
+    "displayedText": "\"Wave the fan!\" Zoe says. The little red fan rests on a chair beside the shadow's hand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::5": {
+    "displayedText": "Kit closes his fingers around the air. On the wall, the shadow's fist passes right through the fan.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::6": {
+    "displayedText": "He tries again, more slowly. The fan stays still. \"Your hand is flat,\" Zoe tells the shadow.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::7": {
+    "displayedText": "Kit looks at his own empty fingers. \"It's copying me,\" he says. \"I need something to hold.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::8": {
+    "displayedText": "Zoe brings him the real fan. When Kit holds it up, a dark fan grows above the giant hand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-14::9": {
+    "displayedText": "Kit sweeps his arm. The tiny red fan waves, and its enormous shadow sails across the wall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::1": {
+    "displayedText": "This sandy hill is a dune. Beside a dark rock, its steep edge seems to stand still.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::10": {
+    "displayedText": "A hill can travel one grain at a time. Here, the wind keeps moving sand toward the dune's steep side.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::2": {
+    "displayedText": "Look closer on a windy day. Loose grains roll and hop along the ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::3": {
+    "displayedText": "When one hopping grain lands, it can knock other grains loose. Soon more sand is moving.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::4": {
+    "displayedText": "The wind carries sand up the dune's gentle side. Grain after grain reaches the top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::5": {
+    "displayedText": "Sand gathers beyond the top. When too much piles there, some slips down the steep side.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::6": {
+    "displayedText": "The sliding sand settles at the bottom. The steep edge now reaches a little farther forward.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::7": {
+    "displayedText": "Meanwhile, wind keeps taking grains from the other side. The hill changes as sand leaves one place and fills another.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::8": {
+    "displayedText": "After many windy days, compare the dune with the rock. Its steep edge is farther away than before.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-15::9": {
+    "displayedText": "The rock did not walk, and the dune did not jump. Thousands of small movements changed the hill's position.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::1": {
+    "displayedText": "The full Moon rises bright and round. Later, a dark curved edge begins to cover its face.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::10": {
+    "displayedText": "Nothing took a bite out of the Moon. Earth briefly stood in the way of its sunlight.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::2": {
+    "displayedText": "The Moon shines because sunlight reaches it and reflects toward Earth. What could block that sunlight?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::3": {
+    "displayedText": "Tonight, Earth is between the Sun and Moon. Our planet casts a long shadow behind it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::4": {
+    "displayedText": "As the Moon moves into that shadow, less direct sunlight reaches its surface. The dark patch spreads.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::5": {
+    "displayedText": "Soon the whole Moon is inside the darkest part. It may look rusty red instead of disappearing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::6": {
+    "displayedText": "Some sunlight passes through the air around Earth. This filtered light can still reach the Moon.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::7": {
+    "displayedText": "The Moon keeps moving. After a while, a bright edge appears as it begins to leave the shadow.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::8": {
+    "displayedText": "More of its face returns to sunlight. At last, the round Moon shines brightly again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-16::9": {
+    "displayedText": "This change happens over hours. The Moon's usual phases change across many nights as it travels around Earth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::1": {
+    "displayedText": "A butterfly rests beside a green leaf. Part of its wing seems to be missing. Can you see the leaf through it?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::10": {
+    "displayedText": "Look back at the leaf. What seemed missing was there all along: a wing that lets much of the light through.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::2": {
+    "displayedText": "This is a glasswing butterfly. The clear patch is a real part of its wing, not an empty hole.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::3": {
+    "displayedText": "Light passes through that thin surface. Light from the green leaf can still reach our eyes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::4": {
+    "displayedText": "Follow the dark lines across the clear patch. These veins help support the wing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::5": {
+    "displayedText": "The brown border is easier to see. It has many tiny scales, packed more closely than in the clear area.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::6": {
+    "displayedText": "Now the butterfly lands beside a pale flower. Look at the same clear patch against this new background.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::7": {
+    "displayedText": "The patch looks pale instead of green. The wing has not turned into a flower; we are seeing what lies behind it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::8": {
+    "displayedText": "Its dark body and wing edges still stand out. Clear wings do not make the whole butterfly disappear.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-17::9": {
+    "displayedText": "When the wings lift, their thin surfaces move together. Each clear patch belongs to a complete wing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::1": {
+    "displayedText": "A young blue crab grows inside a hard covering. That covering protects it, but it cannot stretch enough as the crab grows.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::10": {
+    "displayedText": "The empty shape cannot follow. A crab did not become two crabs; one crab left its old covering behind.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::2": {
+    "displayedText": "Under the old covering, a new one begins to form. For now, the new covering is soft.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::3": {
+    "displayedText": "Soon the old shell opens along the back. The crab starts pulling its body away from the hard outer layer.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::4": {
+    "displayedText": "It backs out, drawing its legs and claws free. The old covering stays behind on the estuary floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::5": {
+    "displayedText": "Now two crab shapes lie beside the stone. One is a living crab. The other is an empty covering.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::6": {
+    "displayedText": "The soft crab takes in water, which helps its new covering expand. There is more room for its growing body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::7": {
+    "displayedText": "While the covering is soft, the crab is easier to hurt. It stays sheltered among the grass.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::8": {
+    "displayedText": "Its new covering hardens. The soft stage does not last for the rest of the crab's life.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-18::9": {
+    "displayedText": "The crab moves out to find food. As this young crab keeps growing, it will need to shed again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::1": {
+    "displayedText": "A red tomato and a green pea pod sit on the table. Which one is a fruit?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::10": {
+    "displayedText": "Both dishes hold fruit and seeds. The pod belongs with the tomato, even though its seeds look very different.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::2": {
+    "displayedText": "Open the tomato and look inside. Small seeds sit in soft, wet pockets beneath the skin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::3": {
+    "displayedText": "The tomato grew from a flower. As the fruit developed, its seeds grew inside it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::4": {
+    "displayedText": "Now look inside the pea pod. Six round peas lie in a row. Each pea is a seed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::5": {
+    "displayedText": "The pod grew from a flower too. It is the fruit around those seeds, though it looks unlike the tomato.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::6": {
+    "displayedText": "A pea and its pod have different jobs. The seed holds a tiny new plant; the pod surrounds the seeds.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::7": {
+    "displayedText": "The whole pod is not one giant seed. Its long wall holds several separate seeds together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::8": {
+    "displayedText": "The tomato has seeds too, but they are smaller and surrounded by soft flesh. Fruits need not look alike.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-19::9": {
+    "displayedText": "Point to a seed in each dish. Then point to the fruit that grew around those seeds.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::1": {
+    "displayedText": "This porch lamp helps people see the path. But its bare bulb also sends light toward the window and hedge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::10": {
+    "displayedText": "The lamp is ready for the next visitor. For now, the path, hedge, and window share the night.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::2": {
+    "displayedText": "From the gate, the bright bulb is easy to spot. The darker path below is harder to see beside its glare.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::3": {
+    "displayedText": "Does the light need to reach every place? The path needs light. The upstairs window does not.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::4": {
+    "displayedText": "The adult turns the power off before fitting a shield above the bulb. Zoe watches from the doorway.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::5": {
+    "displayedText": "When the lamp comes on again, the shield blocks light from shining straight upward.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::6": {
+    "displayedText": "More of the useful light falls onto the path. The hedge and window no longer catch the same bright spill.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::7": {
+    "displayedText": "A lamp can also be brighter than a place needs. This path needs enough light to show its edges.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::8": {
+    "displayedText": "Light sent into the sky can make stars harder to see. A shield helps keep this lamp's light closer to home.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-20::9": {
+    "displayedText": "Later, when nobody needs the path, the timer turns the lamp off. The porch grows dark again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "world-discovery-e-01::1": {
     "displayedText": "\"Kit can build our stage,\" Zoe says. Kit reaches for the cardboard, but his eyes stay on the orange fox puppet.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -12196,6 +13556,406 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "world-discovery-e-10::9": {
     "displayedText": "The next morning, they lift the straw and check again. The soil is damp, so the watering can stays by the gate.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::1": {
+    "displayedText": "Zoe draws the day she learned to blow bubbles in the pool. At first, she had been afraid of the water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::10": {
+    "displayedText": "When Kit clips it up, Zoe shows him the bubbles. Her first drawing is still hers, safely inside the folder.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::2": {
+    "displayedText": "Now she wants everyone to see the bubbles, but she does not want to show the worried picture beside them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::3": {
+    "displayedText": "She folds the worried half behind the happy half. Kit reaches for the clip. \"We can hang it here.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::4": {
+    "displayedText": "As she lifts the drawing, the folded half swings open. Zoe pulls it back before Kit can hang it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::5": {
+    "displayedText": "\"Maybe I should keep it all,\" she says. She lowers the sheet, though her finger still rests on the bubbles.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::6": {
+    "displayedText": "Kit puts down his hand. \"Which part do you want us to see?\" Zoe points to the swimmer in the water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::7": {
+    "displayedText": "\"This part. The other part is for me.\" She takes a fresh sheet and draws the bubbles again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::8": {
+    "displayedText": "The new swimmer has a wide smile. This time, there is no other picture waiting to unfold behind it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-11::9": {
+    "displayedText": "Zoe slips the first drawing into her folder. Then she holds out the new one for Kit to hang.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::1": {
+    "displayedText": "Only one piece is missing from the boat. Kit holds it behind his back, waiting for Zoe to notice the gap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::10": {
+    "displayedText": "Zoe fits the sail into the gap. Kit waits while she presses it flat. This surprise is over; the boat is whole.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::2": {
+    "displayedText": "While she checks the box, he slips the piece behind the blue cushion. He plans to surprise her in a moment.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::3": {
+    "displayedText": "Zoe pulls the cushion onto her lap. A small tap sounds behind the bench, but Kit is looking at her face.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::4": {
+    "displayedText": "He checks the bench. Nothing. Instead of explaining, he looks in the box again, although he knows it is empty.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::5": {
+    "displayedText": "Zoe searches under the table. Kit watches her crawl past the bench. The joke no longer feels like a joke.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::6": {
+    "displayedText": "\"I hid it,\" he says. \"Behind the cushion. Then I lost it.\" Zoe sits back. \"Why didn't you tell me?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::7": {
+    "displayedText": "\"I wanted a surprise. I'm sorry.\" Kit moves beside the bench. \"It made a sound when you lifted the cushion.\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::8": {
+    "displayedText": "They look behind the bench together. A white corner lies against the wall, just beyond Kit's fingers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-12::9": {
+    "displayedText": "Kit reaches from the other side and lifts out the piece. He gives it to Zoe instead of hiding it again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::1": {
+    "displayedText": "At lunchtime, the courtyard bench stands in the sun. Kit and Zoe want a cooler place where their class can sit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::10": {
+    "displayedText": "Their plan has room for sitting and room for passing through. It works at the time the class needs it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::2": {
+    "displayedText": "A young tree grows nearby, but its small patch of shade cannot cover the bench yet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::3": {
+    "displayedText": "The caretaker asks them to help choose a place for shade. They draw the doorway, the bench, and the tree.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::4": {
+    "displayedText": "Next morning, a long shadow lies beside the wall. Kit points to it. \"Could we move the bench there?\"",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::5": {
+    "displayedText": "When they return at lunchtime, that shadow has shrunk. The space Kit chose is sunny when the class needs to sit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::6": {
+    "displayedText": "They mark a new place on their plan. It must fit the bench without blocking the way through the doorway.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::7": {
+    "displayedText": "The caretaker takes their plan to the school. Later, workers put up a shade cover beside the young tree.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::8": {
+    "displayedText": "At lunchtime, the bench now stands beneath the cover. The children check where its shade falls before sitting down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-13::9": {
+    "displayedText": "The tree will need time to grow a wider crown. The cover gives shade while the school cares for it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::1": {
+    "displayedText": "Kit's paint hides things when dry. He wipes a hidden corner clean with a wet cloth. Yellow shows again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::10": {
+    "displayedText": "When the tray is clean too, Kit sets the boat inside. \"My surprise took a little finding,\" he says.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::2": {
+    "displayedText": "He wants Zoe to see his boat disappear. He paints its blue hull, red sail, and little mast.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::3": {
+    "displayedText": "The yellow tray looks too plain beside it. Kit paints that too, spreading purple right up to the rim.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::4": {
+    "displayedText": "When Zoe arrives, the paint is dry. The boat has vanished from sight, and so has the tray beneath it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::5": {
+    "displayedText": "Kit reaches for the boat, but his hand brushes its sail. Something bumps against a rim he cannot see.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::6": {
+    "displayedText": "He stops reaching. If he guesses again, the boat might slide farther. Zoe points to the damp cloth beside the cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::7": {
+    "displayedText": "Kit remembers the yellow corner he wiped. He wets the cloth and gently draws it across the hidden tray.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::8": {
+    "displayedText": "A yellow edge appears. He follows it until the cloth touches something higher. A strip of blue shows through.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-14::9": {
+    "displayedText": "Now he can hold the boat still while he wipes it clean. Zoe steadies the tray by its visible edge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::1": {
+    "displayedText": "A small river winds through this mountain valley. The valley is so wide that the river leaves most of its floor untouched.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::10": {
+    "displayedText": "The river still changes the valley, but it did not make this wide space alone. The missing ice left its work behind.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::2": {
+    "displayedText": "What shaped all that space? Long ago, thick ice filled much of the valley, from its floor high up its sides.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::3": {
+    "displayedText": "This mass of ice was a glacier. Although it looked still, it slowly flowed down the valley.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::4": {
+    "displayedText": "Rock caught in the bottom of the moving ice scraped against the valley floor. It left scratches in the hard stone.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::5": {
+    "displayedText": "The moving ice also wore at the valley's sides. Over a long time, the valley became wider and deeper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::6": {
+    "displayedText": "Later, more ice melted at the glacier's front than arrived from higher up. The end of the glacier grew shorter.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::7": {
+    "displayedText": "As the ice shrank back, it uncovered the broad valley it had helped shape. A river could flow along the bottom.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::8": {
+    "displayedText": "Today, the ice is gone from this valley. Its steep sides curve into a wide floor, like the bottom of a U.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-15::9": {
+    "displayedText": "On bare rock, long scratches give another clue. Stones carried by the old glacier once scraped along these lines.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::1": {
+    "displayedText": "Three bright stars seem close together in the sky. From Earth, we see a pattern, but we cannot see its depth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::10": {
+    "displayedText": "The stars can share a pattern without sharing one small place. What looks close depends on where we are looking from.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::2": {
+    "displayedText": "Some stars in a pattern are much farther away than others. Kit and Zoe make a small model to explore that idea.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::3": {
+    "displayedText": "Zoe sets one model star near Kit, one farther back, and one near the far end of the table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::4": {
+    "displayedText": "From his end, Kit sees all three in a row. Their places look connected, although the spaces between them are different.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::5": {
+    "displayedText": "Zoe walks to the side. From here, she can see how far the stars stretch along the table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::6": {
+    "displayedText": "Kit joins her. The same three stars look much farther apart. They were never fixed to one flat picture.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::7": {
+    "displayedText": "Real stars are vastly farther away than these cards. Walking across our yard does not give us this side view of them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::8": {
+    "displayedText": "We would need a view from far across space to see the pattern from a very different angle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-16::9": {
+    "displayedText": "People join star patterns in their minds to make constellations. The lines help us find shapes; they are not strings in space.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::1": {
+    "displayedText": "The mud looks almost empty, but small animals live on it and inside it. Two shorebirds have come to find a meal.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::10": {
+    "displayedText": "A long bill is useful for reaching in. A sharp look can help at the surface. This muddy place holds both opportunities.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::2": {
+    "displayedText": "This plover takes a few quick steps, then stops. Its short, strong bill stays above the mud while it looks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::3": {
+    "displayedText": "A tiny crab moves nearby. The plover darts forward and picks it from the surface before it reaches a hole.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::4": {
+    "displayedText": "The other bird is a dowitcher. Its bill is much longer than the plover's, and it searches in a wetter patch.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::5": {
+    "displayedText": "It pushes its bill into the soft mud, lifts it, and probes again. Much of its searching happens out of sight.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::6": {
+    "displayedText": "Below the surface, its bill can reach buried food. A worm does not have to come into view first.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::7": {
+    "displayedText": "The plover often searches by watching. The dowitcher often probes. Their different actions help them find food in the same place.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::8": {
+    "displayedText": "But these are not two fixed menus. A plover can pull out a worm, and a dowitcher can pick up surface food.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-17::9": {
+    "displayedText": "Even when a worm stays hidden, the dowitcher's probing marks show where its bill has been.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::1": {
+    "displayedText": "Each autumn, monarch butterflies from eastern North America fly south. Many reach mountain forests in Mexico, where they spend the winter.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::10": {
+    "displayedText": "No single butterfly made the whole yearly journey. Like a relay, the journey continued while one generation gave way to the next.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::2": {
+    "displayedText": "They gather on fir trees, wings folded close. These travelers will wait through winter before beginning the journey north.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::3": {
+    "displayedText": "When spring brings warmer days, the butterflies leave the forest. They fly north, stopping to feed as they go.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::4": {
+    "displayedText": "Along the way, females lay eggs on milkweed. The butterflies that began this trip will not travel the whole route north.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::5": {
+    "displayedText": "Their young grow into new butterflies. These are the next generation: the children of the butterflies that left the winter forest.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::6": {
+    "displayedText": "Some of these new butterflies keep moving north and lay eggs. Later generations continue as milkweed grows in more northern places.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::7": {
+    "displayedText": "By late summer, many earlier travelers are gone. Their descendants feed in meadows far from the winter forest.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::8": {
+    "displayedText": "Then a new generation begins the long flight south. These butterflies have never visited the forest they are heading toward.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-18::9": {
+    "displayedText": "They gather in Mexico as the earlier travelers did. The route has come around again, but the butterflies have changed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::1": {
+    "displayedText": "Kit sorts four shapes by color. The red ones sit together, and the blue ones make a second group.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::10": {
+    "displayedText": "Sharing a space does not mean every piece is the same. It means they give the same answers to these two questions.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::2": {
+    "displayedText": "Zoe wants to find the round shapes together too. But each color group holds one round shape and one square.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::3": {
+    "displayedText": "They sort by shape instead. Now the circles are together, but the red pieces have become separated again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::4": {
+    "displayedText": "Can one board show both things? They draw four spaces, with red above not red and round beside not round.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::5": {
+    "displayedText": "The red circle belongs in the top left space. It is red, and it is round: both answers fit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::6": {
+    "displayedText": "The red square goes beside it. It matches the red row, but it does not belong in the round column.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::7": {
+    "displayedText": "The blue circle fits below the red circle. The blue square fits beside it: neither red nor round, but still sorted.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::8": {
+    "displayedText": "Zoe brings a small red circle and a red triangle. Their sizes and shapes differ, but the same two questions still work.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-19::9": {
+    "displayedText": "The small circle joins the large one. The triangle joins the red square, because neither of those red shapes is round.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::1": {
+    "displayedText": "Beside the school path, tall stems carry tight green buds. The gardener has come to cut the grass around them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::10": {
+    "displayedText": "One place can hold a clear way through and a patch left to grow. Keeping both takes more than cutting everything alike.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::2": {
+    "displayedText": "If the whole patch is cut now, those buds will go with the stems. They will not open into flowers there.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::3": {
+    "displayedText": "Zoe points to the buds. The gardener leaves this patch standing and cuts a route beside it, where people need to walk.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::4": {
+    "displayedText": "Weeks later, yellow flowers open above the grass. A small bee lands on a dark center and begins to feed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::5": {
+    "displayedText": "The short route lets Kit and Zoe come close without pushing through the flowers. They watch from its edge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::6": {
+    "displayedText": "After flowering, some petals fall. The dark heads remain, and seeds develop where the tiny flowers in each center had been.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::7": {
+    "displayedText": "The patch looks less bright now. Cutting every stem would remove these seed heads before many seeds could fall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::8": {
+    "displayedText": "The gardener lets this part finish making seeds. Some ripe seeds drop into the spaces beneath the old stems.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-20::9": {
+    "displayedText": "The path still needs care, and the patch does too. The gardener checks what is growing before planning the next cut.",
     "voice": "en-US-Chirp3-HD-Leda"
   }
 });

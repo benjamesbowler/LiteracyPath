@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:30:44.889Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6f4c1191-b448-4760-9441-890b1ce7f9be.png",
+  "sourceSha256": "8bb058456781a9b7ae21d0ae7fb3b9acdd5c7f8c32e84fdf243feef5705848bb",
+  "output": "source-art/world-discovery/e-14-reference.webp",
+  "outputSha256": "46652507b8508e82c3e9976574fe3c3cc909639777203471bae957ed5e4a000d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "REFERENCE INITIAL STATE ONLY. Do not show invisible floating outlines or later magic accident. Lock one small BLUE wooden boat with RED triangular sail and BLUNT tan mast, yellow shallow tray, one purple crescent-icon pot, one broad brush, one water cup and white cloth. Model Kit/Zoe as exact cast. Keep flat clean style and simple clear prop geometry. \nUse case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Vanishing Paint; World Discovery; fiction.\nSetting: World Discovery craft room, same afternoon. Kit and Zoe retain locked designs. Low tan table against plain wall, purple paint pot, water cup and cloth; no real chemical or ordinary paint explanation. Entire story explicitly fictional magic.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One small blue wooden toy boat with red triangular sail, blunt mast and flat base; One shallow rectangular yellow tray with raised rim, large enough to hold toy boat; One purple magic-paint pot with a crescent icon but no lettering, one broad brush; One water cup and one white cloth, visible from opening; tan table stays unpainted\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Seed both rules concretely: dry painted corner was invisible, now damp and revealed; tray otherwise unpainted.. For orientation, the opening location/action is: Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "46652507b8508e82c3e9976574fe3c3cc909639777203471bae957ed5e4a000d",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly reopened production design board: canonical Kit/Zoe, single blue boat/red sail/tan mast, yellow rectangular tray, purple pot, brush, cup and cloth. Later named cast in board does not imply opening page presence."
+  }
+}

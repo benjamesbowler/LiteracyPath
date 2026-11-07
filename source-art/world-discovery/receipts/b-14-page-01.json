@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-b-14",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:47:54.209Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7442fb32-8a6e-4e6f-b372-b1f389cc0e5c.png",
+  "sourceSha256": "84a896f05ee0439ab80aedcea2ba8fd767e78112c6ab60975501b06853bed65b",
+  "output": "public/guided-reading/world-discovery/b-14/page-01.webp",
+  "outputSha256": "e97b9978cf88111bd9b862e8067c1fe8646f6c2d47428197633ce40d2d32dcbc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This attached image is the edit target. Preserve the entire illustrated action, every prop and its exact color, every clip and cord attachment, cast appearance, faces, gestures, clothing, complete seated lower bodies, chair seats, bent knees and ordinary child-sized table geometry. Make a modest framing adjustment: move the camera back about 18 percent and center the whole existing scene, leaving at least 12 percent of the image height as continuous ordinary floor below the lowest shoe. Keep full heads/hands and all essential props safely inside the edges. Extend the SAME connected room naturally to all four image edges. No mat, frame, vignette, pale border, inset, floating furniture or abrupt floor cutoff. Do not add or remove any person or object. Preserve natural child proportions and physical contact, same clean flat cartoon style. True 1536x1024 landscape 3:2, full bleed. No text. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c35b36b7-43e2-4943-b02f-09bf7e0062e6.png",
+      "sha256": "57b95358e18929d517548128bf2d96bcdf4b4bed0d322e4c2130d12838525661"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b8de296c41d55d00ee5879ef13a1160b88b652467fbcf9569c7d721c76f8b571",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
+    "method": "codex-direct-image-inspection",
+    "sha256": "e97b9978cf88111bd9b862e8067c1fe8646f6c2d47428197633ce40d2d32dcbc",
+    "outputSha256": "e97b9978cf88111bd9b862e8067c1fe8646f6c2d47428197633ce40d2d32dcbc",
+    "note": "Kit holds two free clips with the green cord; cup red, cart blue, paper red. Natural complete seated children at child-height wood table; full shoes are comfortably inside frame.",
+    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+  }
+}

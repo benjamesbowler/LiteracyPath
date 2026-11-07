@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:24:33.923Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-138ef649-2d66-4cf0-b71c-a7ba5d4911b5.png",
+  "sourceSha256": "16395231e77c956cd191e702fb51274a2d2e166a2f60304da78f6d5269acf7dc",
+  "output": "public/guided-reading/world-discovery/c-12/page-04.webp",
+  "outputSha256": "684ca7bcb132bcbb2f0179ca9c640988cd440cba26d8c27c175d716d6fdf8210",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this exact scene, poses, inventory, natural floor contact, and composition. Restore the three ordinary small BLUE plastic classroom chairs that surround this same front craft table in the supplied second continuity reference. Two chairs stand on viewer side left/right of table, third on far side, all on floor and spatially separate from the children. Do not put any feet onto seats or intersect any body with furniture. Use normal consistent furniture scale/perspective. No other changes. Keep one UNTIED parcel, one loose ribbon beside yellow pot, blue pot and watering can on window table.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1c2fe3ef-0443-44cb-b5e6-84b374a1ec2c.png",
+      "sha256": "6d360908e9dcb88dcdedd4fa3496454ee113e00495c5ae7e6fa3e2660ea89dca"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5411d17a-bc38-4a6e-a23e-e7efe707121e.png",
+      "sha256": "c37373cb0c8c6bcb07c107de89e7657f30a79015b462e2cd0206a8b77bcd34b6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "684ca7bcb132bcbb2f0179ca9c640988cd440cba26d8c27c175d716d6fdf8210",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Hands at stable tray edge mark return after search; plant supported; three chairs and one untied parcel.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "684ca7bcb132bcbb2f0179ca9c640988cd440cba26d8c27c175d716d6fdf8210",
+    "note": "Hands at stable tray edge mark return after search; plant supported; three chairs and one untied parcel."
+  }
+}

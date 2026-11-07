@@ -1,0 +1,2415 @@
+{
+  "method": "codex-independent-full-book-image-review",
+  "books": {
+    "world-discovery-b-11": {
+      "reviewedAt": "2026-11-07T10:57:22.225720+00:00",
+      "reviewer": "root, independent of media producer author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Directly viewed all nine final WebPs in reading order. Four road blocks plus one carried and three loose on page1; six plus two loose on pages2\u20134; Zoe positions seventh turn block on page5; one block-sized gap before that turn and one loose eighth remain on pages6\u20137; page8 has eight connected blocks and no loose pieces. Tired arms, dropped block, self-chosen seated rest, relaxed return and truck completion are visible. Cast identity, chair back, green rug, red truck and clear hand contact remain readable with safe foreground margins. Cover is a separate calm pause scene.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-11/cover.webp",
+          "sha256": "abb9adf5ef206db5987963440ff65a198d4813d1e86343bef566b9a6b51604e1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-01.webp",
+          "sha256": "97113acfb7eaef2be751d5347fe84abb64fa53a62955e3585a1faf0ae5a8d34d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-02.webp",
+          "sha256": "5032a92d2034e0ab51262a5a133ddd1328517565c625937e664a7382dee4dfcf"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-03.webp",
+          "sha256": "5a681524fc483dc1c9af50041e8639e90a3676048b94f4a58427efb098c1e112"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-04.webp",
+          "sha256": "cab3ea78752baea84fb3eaa9611ee1b0289fbed873f927b8e655d5674ff13445"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-05.webp",
+          "sha256": "49e006e85640697e7c8022a5df1075bdc6c3dc87a98222a0a1418e46d1b13fab"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-06.webp",
+          "sha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-07.webp",
+          "sha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-11/page-08.webp",
+          "sha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc"
+        }
+      ]
+    },
+    "world-discovery-a-12": {
+      "reviewedAt": "2026-11-07T15:35:49.007Z",
+      "reviewer": "independent integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/independent-a12-holistic-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-12/cover.webp",
+          "sha256": "19f98354d4e8fc14759f331f19bd8ae15de0db39341b49fabbbe6087d231256b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-01.webp",
+          "sha256": "f3660eb0d694697be3e8bfdd5e858991c7b90c4f403f0275d4d9c0eefe65e986"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-02.webp",
+          "sha256": "f52e1c84f5a5cc311feb40a36ee8c9df6f86252277fbf2265eefa9b8eb8e3820"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-03.webp",
+          "sha256": "02c1f5a003ad5fd0481274aee56a57f0c6a6bfee9560fec880cd522b8f99ee60"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-04.webp",
+          "sha256": "1bb8c89d5734154120751502adbf6698e225f6a048c83875bcd19459c41eca4b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-05.webp",
+          "sha256": "da39b0cd5e5a3d14560cd4fbde54df0105a61bcfbb473445028c87c49a527de1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-06.webp",
+          "sha256": "c062caf10c768bbdcf04469725fd9ed094341237ceea14ef40a77be8a8a89dbe"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-07.webp",
+          "sha256": "62f1d3af1007086c5d9975304c896522510ae97fbadd83f10e29da904b3b2cc0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-12/page-08.webp",
+          "sha256": "37d16072276cd4bcbecf099d188c53bceb173247c8738962bff7a83d5b77b8f1"
+        }
+      ]
+    },
+    "world-discovery-a-15": {
+      "reviewedAt": "2026-11-07T11:56:41.331247+00:00",
+      "reviewer": "author_d_e, independent of media producer root",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct full-image inspection of cover and all 8 pages in narrative order against current canonical manuscript. No material visual or sequence defect found in these exact reviewed files. cover: Thin water edge touches the embedded white shell; separate gray pebble remains inland and dry. Low surf and headland establish coast. page-01: One embedded shell and inland-left pebble on dry/damp sand; sea boundary remains beyond shell. page-02: Low breaking wave advances toward shell, with unchanged inland-left pebble and right headland. page-03: Shallow sheet extends up the beach to just beyond shell; coherent connected shoreline and no displaced landmarks. page-04: Clear shallow swash reaches and surrounds base of embedded shell; pebble stays dry inland. page-05: Thin seaward-draining water exposes wet sand around shell without transporting it. page-06: Water receded beyond fully exposed fixed shell; darker wet sand distinct from pebble's drier patch. page-07: A new low wave and shallow wash return toward same shell; headland and pebble retained. page-08: Second curved wash reaches shell along different boundary; no movement of shell/pebble or assertion of tidal rise.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-15/cover.webp",
+          "sha256": "998b7202265f13524597ca9c692740e45ac6e59bc7b34893de7cfb8e26a91a77"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-01.webp",
+          "sha256": "76991e39830f42addd2013119088db8497c47a655310f81695e544737d57e9c4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-02.webp",
+          "sha256": "c1c6bc49e1f2eadf14f65ce9103d74eccd87d43418242acae976f508187d07cd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-03.webp",
+          "sha256": "fff07176d479c468e5b59d1dbea187040a2b050fae3a6cb6f9b8d89456dcb136"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-04.webp",
+          "sha256": "06e8848eea56e8e57d0ffaee2d756d189badecbfe35f7d68dfa3afe74cb8853b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-05.webp",
+          "sha256": "0bc840786912ad1895358d250eac1a1bcdaefd1de3da2e7a6d3bfa51ff77221a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-06.webp",
+          "sha256": "6a39edbfc2091acc635573ad1825a5014f596a60a0d41c1e9c80e18e8a70a7b8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-07.webp",
+          "sha256": "5d945cb9cb3ecbc5bff07707d4b3f7d2dbc9b3d0b7c9bd3118cb8640ae6b5deb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-15/page-08.webp",
+          "sha256": "eee7d813459a7f7f1ddfb0418b1627e91e262a3e90618d628ba85236e0d13cf5"
+        }
+      ]
+    },
+    "world-discovery-a-16": {
+      "reviewedAt": "2026-11-07T11:56:41.334669+00:00",
+      "reviewer": "author_d_e, independent of media producer root",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct full-image inspection of cover and all 8 pages in narrative order against current canonical manuscript. No material visual or sequence defect found in these exact reviewed files. cover: One slender white-gold meteor streak, five separate star points and low hill; no rock, falling-star shape or impact. page-01: Five fixed star points over the low hill; no meteor. page-02: One short narrow streak added between original stars; original star pattern and hill preserved. page-03: Same event shown as slender light with bright leading point, not a large visible rock. page-04: One small dark gray rock at outer blue atmospheric fringe above curved Earth, explanatory view distinct from ground view. page-05: Leading rock surface and nearby air glow within blue atmospheric fringe; minute particles trail while ground stays distant. page-06: Solid rock nearly gone; small luminous trail and minute fading particles in upper air, without impact or crater. page-07: Original hill and five-star arrangement restored with only faint remaining glow. page-08: Opening hill and five-star pattern retained; meteor completely gone, no missing star.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-16/cover.webp",
+          "sha256": "bc9945f8cc11155375483953f809b2ed2db54de2ca1b1c451641e474c15cb4c3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-01.webp",
+          "sha256": "56b2d292cca70c1a500cfe43c444a59626c05654cf1dadc01a15e46212b72d46"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-02.webp",
+          "sha256": "15e79927913fd6aa04b5556a90c8e92e82dcacd7bbe8cb93b5fa90b879b0f466"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-03.webp",
+          "sha256": "40197e1f7500420ace8e3d450b724086296dcbf557b386bdcc8861be232e5fa5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-04.webp",
+          "sha256": "5511fa236a6d4779ae1121b679934a56971503b070dede26cc6a6705d938c17d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-05.webp",
+          "sha256": "739330b60d2bff629c18949b191f100b9c6c2d93c9a0d595dcbc284a3d98d2b1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-06.webp",
+          "sha256": "743d5d3f6e8ff7aa9c701425144ef5111be3f6edb6f089388a58b2a9a7b7a579"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-07.webp",
+          "sha256": "c51f97a3d7cc4da96ba78c12cd0627d1d60efb7ebaf145370a2b2b00e85a6fbf"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-16/page-08.webp",
+          "sha256": "26ee5f22d12bd971dfc7de56443babf653b6b702ba75064753c0204e88b59869"
+        }
+      ]
+    },
+    "world-discovery-a-14": {
+      "reviewedAt": "2026-11-07T12:36:17.117365+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct final WebP inspection of all nine images against full frozen prose and image state, in sequence; no media edits or release approval. Repaired current files passed narrow rechecks; prior findings retained as resolved in task review record. Fresh root holistic review also passed; evidence .artifacts/world-discovery-expansion/a14-fresh-holistic-review.json.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-14/cover.webp",
+          "sha256": "a0c84504661c9143ba8f0b95e1b7fde3dd3aef0c2f738896b96bf81d7f26f7c4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-01.webp",
+          "sha256": "a67e883f28069d2b670f18231d4b7bf15133a1be07a123f9f4bdce207c6070ad"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-02.webp",
+          "sha256": "5caf8df49628bb2577488171f65ad67857c274d4327303217f8d6ef30a86e72c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-03.webp",
+          "sha256": "b015cff5edd8238a57ef44da1d287c603787c586dc306a715f33532592e9a5a2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-04.webp",
+          "sha256": "711bc582845c330b61db179b2dfb68e14dee1f25b79d52763e1fcafdc89ed4d1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-05.webp",
+          "sha256": "04b43f0ba71f8c3395d1f58e758dbcad2eecb869b625cc41f294051342381194"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-06.webp",
+          "sha256": "064d24d8ee8e47977bcaf1d95efee9b7d23f6cff2f11b065372e4efc3cfd7c2b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-07.webp",
+          "sha256": "32f1aead54775dae26ca5197c78686a830bdf0484eac30921cd76531baafcea1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-14/page-08.webp",
+          "sha256": "cad4ae0c02c241b899213ffc10ab484111d362f2be9dba539a384fd6f4f6ff2e"
+        }
+      ]
+    },
+    "world-discovery-a-18": {
+      "reviewedAt": "2026-11-07T12:36:17.117365+00:00",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct full-image inspection of cover and all 8 pages in narrative order against current canonical manuscript. Repaired current files passed narrow rechecks; prior findings retained as resolved in task review record.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-18/cover.webp",
+          "sha256": "f950a6cde557625e9d89b9378bad01ab2b031249879b2d938ec3a7d49ef37dc3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-01.webp",
+          "sha256": "a208a5ca99f016ec14375e3ae9df60cbb53955daf8a46abda77510fbee059f33"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-02.webp",
+          "sha256": "683e0e825224d3166e9f48777173fdf7c160aff772d7aece16f5e841e1a52ea3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-03.webp",
+          "sha256": "5770095109ca2f71d812af3c764e3ede949fd0aeebf3995df1fcd53df05d23b8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-04.webp",
+          "sha256": "bb1d22985f4954dccd72142d7fd8b524a008da11015f008c8bd1d68c06e7991f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-05.webp",
+          "sha256": "a89b36da845e6449285d1018de02f5a1587090ae27c391e0e3aed711a495ea43"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-06.webp",
+          "sha256": "95315deb19422c8ece364bdf5835e5269bceeac739667a2f22b7cfd6b9ae76bb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-07.webp",
+          "sha256": "5993a27341f26561aecebfc2e37f45f90d5609d58c634dadddf46b95647e977c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-18/page-08.webp",
+          "sha256": "3f789c8717c30a94285d294503931dab85c11cfb41c2ecad01d0af4f5ae190ae"
+        }
+      ]
+    },
+    "world-discovery-b-15": {
+      "reviewedAt": "2026-11-07T12:36:17.117365+00:00",
+      "reviewer": "root independent of author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Direct inspection of all nine final WebPs in order against frozen manuscript. Checked physical geometry, subject count, contacts, scientific state, continuity, style and essential margins. Continuous bedrock hollow, stable white vein and boulder, isolated low-tide pool. High tide covers the rim in one connected sea. Falling tide exposes the higher rim first. Entire rim emerges and retains water. Sea recedes farther; same hollow remains filled. Closer view shows water below continuous rim. Rising sea approaches still-exposed rim. Returning sea enters across lower back rim; front rim remains exposed. Returned high tide covers rim again; separately generated closing frame verified.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-15/cover.webp",
+          "sha256": "20e4edd67948adb4f41b8c314d3b4c78d0bc754d224aca1611632625e460e39b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-01.webp",
+          "sha256": "aeb11040f9f05697ed96d18796f64e7156404569bc249ddbc97abe0e3110f98d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-02.webp",
+          "sha256": "11b1002a784bbb7d8e5110b1f344f8d9331a2115ff0de19b7a77040033d66a8f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-03.webp",
+          "sha256": "7f1d11f29de72ee1aef836a0978cc928dbe89f5205cd8ff65c978801d6da8750"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-04.webp",
+          "sha256": "4a37785670a86c11d7242cf6f3de29ff813fedc02f85d5232f343894934ca7f4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-05.webp",
+          "sha256": "34b8cde726dff71bd33d562b75be328ff9aa48226e56dc5ad8097e1e3e3edd37"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-06.webp",
+          "sha256": "6a691e1a291c1412f1883232b3f61eb291da001a86902a8f083e34b73c364b6b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-07.webp",
+          "sha256": "457f20dd0de25fd530019088972b9483636426ecdff323ad2c8d90719e7bedde"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-15/page-08.webp",
+          "sha256": "ed96001836aed83594280e99710a8206ba712c0b310726ac4fcf52ecd402ef2e"
+        }
+      ]
+    },
+    "world-discovery-b-16": {
+      "reviewedAt": "2026-11-07T12:36:17.117365+00:00",
+      "reviewer": "root independent of author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Direct inspection of all nine final WebPs in order against frozen manuscript. Checked physical geometry, subject count, contacts, scientific state, continuity, style and essential margins. Front wheel on low rock; coherent articulated rover and natural far-wheel occlusion. Six wheel positions discernible, obstacle ahead. Three near wheels precede low rock and shallow dip. Front wheel raised, others grounded, rigid supports rotate at joints. Same front-on-rock moment; support geometry legible. Middle wheel on fixed rock; front ahead and rear behind. Rear wheel on rock and front in dip; three-height suspension. All wheels beyond rock and dip on flatter ground. Wider closing view preserves rover and crossed terrain.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-16/cover.webp",
+          "sha256": "e33477dd1fc9fd14cdfb839e176dfce94682f05b6f67f5c79257edc3d2142692"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-01.webp",
+          "sha256": "27d75167ff3cb08afe77d2cd0481de168d728d950d2c510c54112e809358b3db"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-02.webp",
+          "sha256": "972613a247404c18b354c05a5e2ad3cbfd0333b4bd033113aeca9a56eb71af13"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-03.webp",
+          "sha256": "3059c23518abf572280c9b164936715a18eb9941306a8aaf3a4c6c53b07aeca6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-04.webp",
+          "sha256": "d816773f5a963dc7935a0b8ae3c54acce051e87438a6e9acc828fbee431e006d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-05.webp",
+          "sha256": "0c5de7591762c767823652c554fb1b70106bd63435cf1f36ef91860507f5c742"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-06.webp",
+          "sha256": "78f8a953685f05e38c941fc788f4b3c2280bb72a35ac8621eb03f6d44adc20bb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-07.webp",
+          "sha256": "d870310a3c4a011657c3c7cbe03380bd7107430b7cba5c6315837f828f50fc68"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-16/page-08.webp",
+          "sha256": "b38d432693ba78b18f97c76ca11bc580cb56af87ea2204d5bb712cf35439af95"
+        }
+      ]
+    },
+    "world-discovery-b-18": {
+      "reviewedAt": "2026-11-07T15:27:51.417148+00:00",
+      "reviewer": "root independent of author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Direct final WebP inspection of all nine images against frozen manuscript, stage progression, natural whole-scene scale, anatomy with occlusion, support/contact, style and margins. Winged adult and empty split casing, natural grass support. Seven eggs in one bounded soil pod, no premature insect. One wingless nymph above opened focal egg; six intact eggs remain. Wingless nymph feeding at leaf notch, natural limb contacts. Pale live nymph emerges from visibly split empty casing, no long wings. Larger nymph with short wing pads; empty casing remains distinct. Final shed, adult gripping stem with soft lengthened overlapping wing pairs. One airborne adult with two narrow forewings and two broader hindwings, legs naturally tucked. Adult rests with long folded wings and retained feeding notch.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-18/cover.webp",
+          "sha256": "f0abe85a9e3e5d6969703f62a15c5501625b0111ea538fba150b370f3da783bc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-01.webp",
+          "sha256": "ece2388efa8954fde85f42a78e6e7a399372dc95fa5030c30589788a05a25b09"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-02.webp",
+          "sha256": "63ad95f1fb2b09b8557f016f0d14c547b6945d242f4b5456545e4a2f0209fa37"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-03.webp",
+          "sha256": "538b280d3f07538f0f720172b577de0a9f2c957534a470d64a7c959a168bb1ed"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-04.webp",
+          "sha256": "9c35de9c1612b7e2387d00eb991ce5ac31b448a1b9ca8d5611012cbabf1e7588"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-05.webp",
+          "sha256": "d35d8e58d519cb5885c9ee3543c953e6084d73b632fa2fde5d6ee062cba7a971"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-06.webp",
+          "sha256": "e65a5cbbea900ea753a3f763073eeeced9a5f21b1c7ad81817435021fab9884f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-07.webp",
+          "sha256": "dd7094a20520163878bef14c0149fa880c0a7a700bcdf35c300f26619f189c68"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-18/page-08.webp",
+          "sha256": "460d351afdb53534da6ddcc6e877db668fcd546e6d3f944ebe0e71af4d437060"
+        }
+      ]
+    },
+    "world-discovery-a-17": {
+      "reviewedAt": "2026-11-07T15:44:58.894533+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/a17-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-17/cover.webp",
+          "sha256": "6ee3c614c59d50efd74714eeddb28feb279775996ccb4b316b0af43ed8d80e3b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-01.webp",
+          "sha256": "3e3ffe47a0dc4d778a04c6042df00aa0f0a03699b473af9294141219fac7541b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-02.webp",
+          "sha256": "1351977954c696061ec611c704c27ff9c8baf51f75607ceab200950ebd3aaeef"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-03.webp",
+          "sha256": "e3d40548362b0d2d1b7153fb4bcc31ae470c185bfee4402c075addcf52ff70d0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-04.webp",
+          "sha256": "894f60003abc498e5fb9f6b9403f26c3ef840e1b5a89fbbbaa57387ddbcf5121"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-05.webp",
+          "sha256": "c37c39d56aebd72bf52ad96c04712b6de632aa356271b7db363b91aabaa8f29c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-06.webp",
+          "sha256": "c7b1486f0f4dadf1c3c061e1847b5da37e1f562c8469451799869b9a76382e43"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-07.webp",
+          "sha256": "db038c160dcea2b629b3f7a254faa4f9e72605bceff25b8e251b118cb94874be"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-17/page-08.webp",
+          "sha256": "3038f9749f52e8f48b35ac06e192ccedd1d4c78acf904a8a98a86894c289ab62"
+        }
+      ]
+    },
+    "world-discovery-d-12": {
+      "reviewedAt": "2026-11-07T15:02:50.779029+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/d12-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-12/cover.webp",
+          "sha256": "7dc435eb4817639bcd6bfb2e6b408a433e33090a2980bf602fbcce4551c49000"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-01.webp",
+          "sha256": "003e649340de3a5ae870b83b8d4da597f8827a1feb55060e57e370fba2077056"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-02.webp",
+          "sha256": "ddacca12f6796d2b8e605de52729e534032ab557a1abe21ee91372bb5a6e655e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-03.webp",
+          "sha256": "083f9bd45cab55b196e7856cb1c39f510e7c24c606daf71806aa65b0b989177b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-04.webp",
+          "sha256": "3e08e1ce6a0fa3bca8eae482e103e0d701c926e6208ea065446b1880a59ac0eb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-05.webp",
+          "sha256": "e256e2304d4a970f445762d51fa42396db3cee7b7e906c69060adbd9d3f3e4d8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-06.webp",
+          "sha256": "3c4a6cc3ab46efb5db3a21f397dcc988aa1cd364ad5042d0c25b1c3416ee189e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-07.webp",
+          "sha256": "2d4d9470887dd23b2b06856a8af8cc0c6520fdb39f121ec7f0bfb03825fe3e22"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-08.webp",
+          "sha256": "724518f7a17810915e7cd0e6e647be31af106d78e01a8605a095deaeac3abf95"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-09.webp",
+          "sha256": "d5b737dccc1c880e0af41edd84562ce193c08477815da6ff4effef280aa1e50b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-12/page-10.webp",
+          "sha256": "9c5654c4450614814c027262bec128dda72e0b060dfc5dd5e3cb2f4ecb7b29b3"
+        }
+      ]
+    },
+    "world-discovery-b-17": {
+      "reviewedAt": "2026-11-07T16:02:50.098Z",
+      "reviewer": "independent root (not producer)",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/b17-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-17/cover.webp",
+          "sha256": "ea564be03cc00e82ce6af04f5dac0ba70a41cb1150681826b833e7bba192f8f1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-01.webp",
+          "sha256": "d6d3d291ce421668a9ba16d6a8d52b21290e930b935fc6eed4d603734bb75e39"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-02.webp",
+          "sha256": "b04372bfc996e1dfa24345a89a0d2e24db9d115f0ac66e48d373aab6eed8ac86"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-03.webp",
+          "sha256": "f3ccba550db9acf3f3b39fcbf593aeaed8a0b26b2bd95dd30cd47b206f4d96e2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-04.webp",
+          "sha256": "72efc02d464e12596e08016a9637ab7046f51bc4e7a1b22ff17a054c840284ad"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-05.webp",
+          "sha256": "a260687b9cf235ca7c37d5b20e5145e502f84c43190e29dfdd7a0a44f372d9bd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-06.webp",
+          "sha256": "57ad2efab98e3c3b5764c3a522e5277d1a0346c5e00302fdb02a5775d763ec2b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-07.webp",
+          "sha256": "7500c511f30d1f37f647b25d3105197ce76426877dbeaba204cc54baebfd3197"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-17/page-08.webp",
+          "sha256": "86a8ed1216bc1d593297ec67aeef1e9305c84d8c634b1e6f3174bc3bda4ec660"
+        }
+      ]
+    },
+    "world-discovery-a-19": {
+      "reviewedAt": "2026-11-07T16:17:05.029836+00:00",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct full-image inspection of all nine rebuilt actual WebPs against the full current manuscript, with fresh whole-scene scale, furniture, pose, anatomy, contact, grouping, continuity and margin checks. All nine current assets pass this independent review. Prior floating/low table and body-support concerns are resolved by the rebuilt ordinary standing activity. Report: .artifacts/world-discovery-expansion/a19-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-19/cover.webp",
+          "sha256": "6aca1718bfd4930eede88b23d03332e9558c4e731641f6b45aa9dfe5f406bae9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-01.webp",
+          "sha256": "5db9833b39e53c49bda033971a861686b5c2354a218908dc9475d99a2d926d02"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-02.webp",
+          "sha256": "efae55ae7ec6fee4d6b5ca7d4a36e5c42d9fd39d35aafb6e74be240e2a1c7605"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-03.webp",
+          "sha256": "db1dfcbef6f517fb5c08d667f43e2bb0e2ea1ad146ed6a84734dbedb788af099"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-04.webp",
+          "sha256": "8b8dda10d5e2462b1478be6ac2c98b6f00bdd57ef35a292c36f3ea3d033438b9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-05.webp",
+          "sha256": "5687deea6e018c7320ba0fbf3fad7affd57d92121e64eb9ba047e5890a4b3b84"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-06.webp",
+          "sha256": "072b3c4f8c1bd39387dcdc1c92ed7d946ac731f2b57243642cd69f3d62e89844"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-07.webp",
+          "sha256": "f220e4fefa24bc6f3eefd00465dc8a8a879c729cfffee973bd7b9fa32ccc3a65"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-19/page-08.webp",
+          "sha256": "881abae5fe5c2df10791dbb2d0efc4df41c1a382f760dc6a39556c5b7a5de873"
+        }
+      ]
+    },
+    "world-discovery-a-20": {
+      "reviewedAt": "2026-11-07T16:15:43.473255+00:00",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Fresh independent full-image inspection of all nine actual WebPs for whole-scene physical plausibility, scale, poses, hands, contact and story state following user-reported scene defects; four final table-support replacements individually rechecked against the full sequence. All nine current assets pass this independent visual review. Earlier oversized open-backed pantry and unsupported table findings are resolved in the current exact-hash files. Report: .artifacts/world-discovery-expansion/a20-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-20/cover.webp",
+          "sha256": "f495fc99d2e717d5e99ed70ba56bf6b9096075a5dd12a4db12e0e6ec9f9b01eb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-01.webp",
+          "sha256": "c69f97f963874f8fca64a1c7b2c2541c2420df1d303498c5098615890f499e91"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-02.webp",
+          "sha256": "a30df3d62aca1d34e2fb749ab0ac9da999fc65060ff8183ab4d9f60d1fb8aa02"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-03.webp",
+          "sha256": "cd8d260b207d0d751552de289fc405964c157f5bd4b9c07ae7897b6a55425e95"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-04.webp",
+          "sha256": "03feccc18a0aebcd52f46e02e8c73683bd79b4c5b42434d2b704088bcfbda8af"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-05.webp",
+          "sha256": "65be8c753630d257316fc1b71b1f97c4754badf78fd97cd19fa92daf0472dcf1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-06.webp",
+          "sha256": "ba9e00413ed2978b71af4467d47932ee6c0a5694fae0be77efafc65da195ee5c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-07.webp",
+          "sha256": "3873af13f2a79ad633ad55a52fa4ed5b89b13ef2e1e9908ed0a825f3f73692ac"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-20/page-08.webp",
+          "sha256": "3430a207a7941ee8fe14497b8eef4dd65fc140a02283994411ed1f7e840ef54b"
+        }
+      ]
+    },
+    "world-discovery-d-11": {
+      "reviewedAt": "2026-11-07T16:12:44.979582+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct full-size current final WebPs, complete ordered manuscript/state and whole-scene plausibility; no media mutations or release approval. Complete eleven-image sequence independently accepted after full review and four-slot narrow recheck. Cloud occlusion, identifying splash, room continuity, natural scale/pose/contact all coherent. No open material finding. Report: .artifacts/world-discovery-expansion/d11-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-11/cover.webp",
+          "sha256": "5feeef6734a811845c437d955ac9b16fe2b800dc31285f815c5e0d3b6695491d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-01.webp",
+          "sha256": "a47623162facffaed5c1ef9015a84f80d2cdb5070c2699319afa615cbfbeb6c2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-02.webp",
+          "sha256": "2b301d09e7d5270c02292b7f7392beea6526fef856281b1ac61a93cb1d75bb9e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-03.webp",
+          "sha256": "63e695d1024b850d567948a776ac5720878b1db4050974cd3b0c314845efff40"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-04.webp",
+          "sha256": "a425dea13a6107f19dcce28d1ad9e07b5e2da8fc704d6b69f6b4a53ed59145bf"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-05.webp",
+          "sha256": "c7763159a9c419d492d2475584e064974ff096857fdbce357e5a219b6847a13a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-06.webp",
+          "sha256": "bd6b935508920622e1c53a30f3d1b20e20c1208080e944d567b558e4d9e709f6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-07.webp",
+          "sha256": "ce27fd9b68a1dd14280bbe44fded2790939386ec1c1ffc000237c843f0e776eb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-08.webp",
+          "sha256": "6cd522eb38dc6960de533e0bc826883ac5e0050a07f4059255901608970e954a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-09.webp",
+          "sha256": "65bb32b21b1523ca6a6c42bcd3d14b397385ec44fa506bba35f09281eb573e1b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-11/page-10.webp",
+          "sha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e"
+        }
+      ]
+    },
+    "world-discovery-b-19": {
+      "reviewedAt": "2026-11-07T16:30:27.817925+00:00",
+      "reviewer": "root, independent of producer author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Direct full-size actual WebP inspection of all nine images against complete current manuscript and sequential scene states. Accepted: three material behaviors, ordinary classroom geometry, natural child poses and hands, single-car comparison and safe focal margins. No open material visual finding. Report: .artifacts/world-discovery-expansion/b19-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-19/cover.webp",
+          "sha256": "bdf38696ba9e66ba1cf50cfd43219ca792d19adce765cbadc85cbb32d50ceb30"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-01.webp",
+          "sha256": "5964f9d39b2d02f7b10370c4e63183aa41059b171025805e39bc11624475d4ab"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-02.webp",
+          "sha256": "7d6025fe30fe6950f9646c02f0284bc02055a465df806f4fbd4f7e8ef865e9ec"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-03.webp",
+          "sha256": "fd2e9ea05c4779d179949093a662eb2e16b0a43ffa59d4fbcb8e13089f5053f3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-04.webp",
+          "sha256": "8edc87c76715b3d3bb3b9161d5eda66861c11bcbaf6cce3e84ee46794f3d42af"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-05.webp",
+          "sha256": "6a168ce6f90a4e65f82a97d03b115485034461065e64583de832dc353845fb3b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-06.webp",
+          "sha256": "dc83aeb24e66beb8c9b8f65cc359937413daad685b230b60c3584321ad8fde20"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-07.webp",
+          "sha256": "287fbbe792581c3a83339af76ee36de1d214975701f1f51f2509a0421b2eb881"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-19/page-08.webp",
+          "sha256": "cf28923d9fa085841a8b7220d3a28aa0f6087ae46a726a3928b7beb21da47928"
+        }
+      ]
+    },
+    "world-discovery-c-18": {
+      "reviewedAt": "2026-11-07T16:31:44.737956+00:00",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct full-image inspection of all nine current installed WebPs against the complete current manuscript; anatomy, lifecycle sequence, shell attachment, relative scale, habitat and whole-scene coherence checked. All nine current assets pass this independent visual review; no material scene, anatomical or sequence issue found. Report: .artifacts/world-discovery-expansion/c18-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-18/cover.webp",
+          "sha256": "68741289c85b45962a6085b96971df5fd39368c892bcf0cc6c43ba08a737b3af"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-01.webp",
+          "sha256": "40e6b2563fc394003ba3046e3ac0f8bc06c628ae5ea3c8f6d7f8b10904aa016f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-02.webp",
+          "sha256": "8e9ae9ad04e3ef2a1f954a28361c3cb20d8e1ac7169cec5be0ea2316ff4635bf"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-03.webp",
+          "sha256": "19714f430ba4c30bbdf08b5c426c0be776ebc6336afde45e5799f3c58afd27dc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-04.webp",
+          "sha256": "56e8809245403a0789a15b3a488352d2c2adeb90c3a10c89d3289b2fb44d8160"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-05.webp",
+          "sha256": "2a03f3db47cee883b69f09e8bf1edaa9c923e3f559cb28901be7c874c10f3187"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-06.webp",
+          "sha256": "ee3176c9a166acc6d49696147615ea6a2523755e2454ba78bfb8023c9c733182"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-07.webp",
+          "sha256": "4a2c01062223e0db01f10f08e31fa478703650354d65a9cd0a05ab48a52500c6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-18/page-08.webp",
+          "sha256": "688959e230a40ecd5c7d142eb2672614cb4120462ecd5ad104d37def56b09943"
+        }
+      ]
+    },
+    "world-discovery-a-11": {
+      "reviewedAt": "2026-11-07T16:41:53.488Z",
+      "reviewer": "integration_preflight and author_d_e; root consolidated",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/independent-a11-holistic-review.json; full sequence reviewed, p6/p8 bite continuity repaired and independently rechecked.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-11/cover.webp",
+          "sha256": "7ddffe582c996bba6f61f329cc54cae7f9ed856876e6d79da45cf98da5701a60"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-01.webp",
+          "sha256": "13fdc435ab71671426f75159217a9142e6208538ec330bb89bfe8e523291f9fb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-02.webp",
+          "sha256": "0f435e65d739959082d39bfb734b3a81c68b41ac42900fa4411c7fb6a040d09c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-03.webp",
+          "sha256": "3a203dd5ddfc9160b1776ee1e7b37b8da3dca1c37d005cb380d5090b8064c3d8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-04.webp",
+          "sha256": "9184351b8ee2870ef0da5d9ec16ac67d80908d5ab3507f43ba4b12525b0dfdeb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-05.webp",
+          "sha256": "f2ec124c500e3284e2e7274dae8be3276a38e828e543ab231bd5a433c7db9f01"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-06.webp",
+          "sha256": "1b2fd9c0220ce2b5eab62be865ee0a7a747445100fe1b29fb67fe99794ebb116"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-07.webp",
+          "sha256": "b9f3118d07dfbd4ea22e23ff1e0dcc9f54ae193f442afd53686d6323da596670"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-11/page-08.webp",
+          "sha256": "6b65b0c6589d3d6a681ec4e87e3e0d0a84266abf2106d560837aeec5692daba1"
+        }
+      ]
+    },
+    "world-discovery-b-20": {
+      "reviewedAt": "2026-11-07T16:49:33.280986+00:00",
+      "reviewer": "root",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/b20-independent-visual-review.json; Direct ordered full-size final WebP inspection of all nine images against canonical text and authored states. Ordinary classroom sink/cabinet, coherent anatomy and prop contact, slow drip accumulation, washer replacement only by adult with supply off, normal test stream then dry closed spout, saved water used on plant, empty cup. Focal framing safe.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-20/cover.webp",
+          "sha256": "1d7cc122fccc64a171c0c1870aa27d96bb21fcdc1871cfc9d305f9f674d8551d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-01.webp",
+          "sha256": "3cdb1cffdaa5b002e9e53bda5d6f7deef059f093fc59ad0be99713337f809e0c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-02.webp",
+          "sha256": "7790f8c2a0644946ad08a9d872162f2715f02926b7faaef7415e9fc832ddacce"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-03.webp",
+          "sha256": "6ed2e6620c1302759de9c20e088ac01804e0af321e3c18b0701dfc7aee7543b1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-04.webp",
+          "sha256": "5a56d0cc836817a12de24a6402117f0f887d0b3d94fc0d20fa342f354f613725"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-05.webp",
+          "sha256": "ca912d8cc982d4cc30fe9236100582a85b611d8c00dff2588d45989d6ff743c9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-06.webp",
+          "sha256": "b2942e1b4e4856e4c1e20c80b7b9903d2aedcdaef1c03c94bf05eb616528c584"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-07.webp",
+          "sha256": "1ac0adf0cb225199b9ae6cab1ef9876f70dce08379affb73cc98db74fe1234a3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-20/page-08.webp",
+          "sha256": "092e161a5d53d71ad92c99534a7476a6c263695a84cc359b0c4a719c1299b29c"
+        }
+      ]
+    },
+    "world-discovery-c-17": {
+      "reviewedAt": "2026-11-07T16:53:08.415624+00:00",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/c17-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-17/cover.webp",
+          "sha256": "acb27d8b9593b0eb0244a69ee7f31e47fcc2881d1dac5ab3381ed1f07ef68368"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-01.webp",
+          "sha256": "07e22fd290fff27eb802cca1162af75d995e77eeacc092b9b0ba506ca7eba5d8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-02.webp",
+          "sha256": "66e136cc777a258a8623965151b7dcd1130e8c5ced1e543463b9028601feeae2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-03.webp",
+          "sha256": "94a55f2af3331d024adfdaa450dd8b5a6b7898f70c39ce578a91efb06fe909f3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-04.webp",
+          "sha256": "61b0ff5f7d58ef22c2548369a73cada6b16439682322ebba4d5bda7326968e60"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-05.webp",
+          "sha256": "6348f9f1e022274d346636d46911ca2b144cff6734aaf0483b53e0b4a21903f5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-06.webp",
+          "sha256": "69fe379061c9e0434d14df9e55519f922279633ba5e02c6a4a9c66e364432b31"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-07.webp",
+          "sha256": "393f20d6a75c6240ad750560281476554c6ae66bbbe8e6eb2fb3d6654b7f1d78"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-17/page-08.webp",
+          "sha256": "29ad75e2ba02b4fd52d444bb499210fb7f2f1e9bd64f9229d9090a6ada66ef20"
+        }
+      ]
+    },
+    "world-discovery-c-19": {
+      "reviewedAt": "2026-11-07T16:55:07.616591+00:00",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/c19-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-19/cover.webp",
+          "sha256": "020bf676527ca83c924f2e4889500c098d485ff9ef561e803c2032c32334fffd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-01.webp",
+          "sha256": "d6047e43149a3537a9501054035ec0d4350538a4708b6c1ba1fc258bf1743fae"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-02.webp",
+          "sha256": "d91084f5a49dcc9f43ffb236c5028162e1916fe628c8cb1a263bfb97d44476ac"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-03.webp",
+          "sha256": "5b21ffb1db8fa65420c4c65d5717af83106c85005c52f7e5142d2e5abf99994a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-04.webp",
+          "sha256": "da9624c075650ec21de52e5955ad5eddb1ec20670a1c72792a9ce443e54cb83b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-05.webp",
+          "sha256": "43f0edbd859c102efdcd1d84f0f638d3e3bbb67653aeee5d078946f8ca6bc8f9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-06.webp",
+          "sha256": "70480cb514f933c160effa0f229786028dd48807c0306dab59c912ce7b3cbf4f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-07.webp",
+          "sha256": "a989e3d3d0ae485340b0c915097c90942d0e962e4d26e76fe6cbffba1ba6efa5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-19/page-08.webp",
+          "sha256": "1ec7b7853a20bc618725be0fa2c22cfdef0aedaf3293f86d4efdee4d295dc301"
+        }
+      ]
+    },
+    "world-discovery-c-20": {
+      "reviewedAt": "2026-11-07T17:12:41.993Z",
+      "reviewer": "root",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Direct ordered full-size final WebP inspection of all nine images against canonical text and authored states. Tiny woodlice in whole scenes; leg/segment detail in authored close-ups, coherent log handling and damp shade, moss-up restored cover, wrapper removed once and does not return; safe focal framing. No impossible objects or scene geometry. Root directly re-inspected replacement page 3: crisp flat outlined bark, soil and foliage; same three tiny woodlice, supported raised log, damp shaded setting and coherent hand contact. Previous style finding resolved.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-20/cover.webp",
+          "sha256": "f6aa3ca68647a90b50b0e81163f7ea3ddadf87506ecdd361723073d1046de5a5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-01.webp",
+          "sha256": "8a395a336b60dd145da5232e97779ae751d5cec96e0f10c2a08a12bfb4b89808"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-02.webp",
+          "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-03.webp",
+          "sha256": "12048ff4951b10495a2f39d70a01902ca1cbe53f28c38b82ba544a1895b5557d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-04.webp",
+          "sha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-05.webp",
+          "sha256": "fc796df4efb03b8d2fa4c932e71a6e01851a061ca1a064849581824a8af6d069"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-06.webp",
+          "sha256": "fb591cfed437f018e19ad4277a10f3f5edf1ea79b9c92c86ca7dfcc8392d6d3c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-07.webp",
+          "sha256": "c112f9315ac6623a0d0045b6b67a00299d90add9692cf5cbf9194723500a6e32"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-20/page-08.webp",
+          "sha256": "dd6daaa898c705b4a8103f7ee0296a0c54330310f86b59ff1f30c59b51295150"
+        }
+      ]
+    },
+    "world-discovery-d-17": {
+      "reviewedAt": "2026-11-07T17:08:17.417414+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct final full-size WebP review of cover and all ten pages against complete ordered manuscript, scientific depiction, anatomy, safe area and holistic scene plausibility. No media edits or release approval.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-17/cover.webp",
+          "sha256": "4db4328fae45ae3c6488d3854381dcbfae66e87a406f77adadc16dc2b9a39526"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-01.webp",
+          "sha256": "479ab16366b0652062b16dc904afccabd57a93b8278706647c37c46bd176291c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-02.webp",
+          "sha256": "302037d46e7cceec884f5901d9876ef2b6ab37c8801b6fb02e5961ec6dcdb6ab"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-03.webp",
+          "sha256": "b9dd2e50177152edf0dd0df418c00497db4dafcba36094398b96602c2ab43588"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-04.webp",
+          "sha256": "0452c37cb5484d382e4e15ed57303635548b6de3382ce369228e382e8d8af9a2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-05.webp",
+          "sha256": "d8d812efc4ab5476630b31af60f3ed854357486862a7978f410c14bf4943e116"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-06.webp",
+          "sha256": "3a2b68c9f16a84bd253df095e50d98f1534a0c2cb240f10c8bf68add56839f92"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-07.webp",
+          "sha256": "f6bad28958ec1774742187f627a01517af0d9c6f7069e2293f6929325add23ba"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-08.webp",
+          "sha256": "eb3005f27d2f17626bfeecd91321a575efdaf718ed50da11f3534f51cb8297c3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-09.webp",
+          "sha256": "e6a16279969af8debc8897ca3d0406727fa76f17a8d07255edccb87bd3b1edd9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-17/page-10.webp",
+          "sha256": "df935fdd0fa5fc45b8516e5ae7a164e27d7207757c7ad96199415c6644cb5ced"
+        }
+      ]
+    },
+    "world-discovery-c-15": {
+      "reviewedAt": "2026-11-07T17:20:50.225Z",
+      "reviewer": "integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent full-book direct final image review and direct correction recheck; resolved observations in .artifacts/world-discovery-expansion/independent-c15-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-15/cover.webp",
+          "sha256": "25328349fd2d1417e38202cdd3521b7939d969dff69815ee77e0d2ffb749ea34"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-01.webp",
+          "sha256": "f24cdb5c33491fa9ac10f88585a9e6cdd03f4e39c75a02415a42052dad0396d4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-02.webp",
+          "sha256": "3ae636b41a397694a96c1ea1b17a17d13af582923efcc42a73f458344702aede"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-03.webp",
+          "sha256": "b546dc9b26832a2f542851d696dc3932907246bd7c1b806fec1f7cc5e258eaa6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-04.webp",
+          "sha256": "dcd47ae4db1e52fcefebb2f72d6305f03f2ef881074bf28b80e122f029673a6d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-05.webp",
+          "sha256": "d2cef574e36a17966a9e9254f0fc9077c1bfe71148189e323f3c3a75fc180b4e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-06.webp",
+          "sha256": "28bd7f522995d408e052b4b45912a7e7fb6cbf8a17d6f0ebeeea9bb109cde033"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-07.webp",
+          "sha256": "410a6eddddf3d5daaefa1a61d7be78a951b6e9fb24102fb6b89ca4b816caa968"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-15/page-08.webp",
+          "sha256": "1dc30035befcb0487f6d2d099e3769ba2fcd00726c8f90cb1f9194b8226e5e52"
+        }
+      ]
+    },
+    "world-discovery-c-16": {
+      "reviewedAt": "2026-11-07T17:20:50.229Z",
+      "reviewer": "integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent full-book direct final image review and direct correction recheck; resolved observations in .artifacts/world-discovery-expansion/independent-c16-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-16/cover.webp",
+          "sha256": "aaf2597e3a942fbeed516e36fb7b51c63032a492e9329f914a17c88dfcce8173"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-01.webp",
+          "sha256": "5696067966bf90a139f7fd6ccf81c449cf9f013c06455be311b726e89fc51f35"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-02.webp",
+          "sha256": "d6980df61eb797ec148c233926d33ec48a32a9797b3e3a071fa4ff01912aefb5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-03.webp",
+          "sha256": "f08a2a808b8ae17801927f1291492a9d148a0fd67d69a72089e9cb506dfd5799"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-04.webp",
+          "sha256": "c03afa362069d0988e6a9c97b3326308b50704efde28494fe7bf12e8a08f03d1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-05.webp",
+          "sha256": "a25da5994a02b5b26bf7f834ab70e2c622649fc926f3a61a79314094d0ea388e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-06.webp",
+          "sha256": "85580695c50b67288352ff25b69358f7cd77ac7850e86f07ba6de469f7aea4ca"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-07.webp",
+          "sha256": "3646b4b4861f05da2e1cc0255254ebff10746d4069e9593e63aee1c1d29b2279"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-16/page-08.webp",
+          "sha256": "24e02b3470e1668cb46ccee0f4497b77aced16fe9d27b55f7dbd7d706639f7c5"
+        }
+      ]
+    },
+    "world-discovery-e-17": {
+      "reviewedAt": "2026-11-07T17:19:47.362145+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct current full-size final WebPs and complete ordered frozen prose/state; anatomical, physical-scene and framing review. No media edits or release approval.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-17/cover.webp",
+          "sha256": "3dc76af6a22f57966f03e6950a9f74c778dedc19c042dfb00b2e940430847fe1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-01.webp",
+          "sha256": "1080c5ac3126428025813f7fdaee1f72ccd1592f40a308a753c6e11fc1e9c153"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-02.webp",
+          "sha256": "5f423683207830cbfb3560aacdff2ef25a6c23603f22fd8c670bd319aa92ebb3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-03.webp",
+          "sha256": "6450ef8978f7b455d7b7a9c382bf1aeded99ee270eaf6eab2c1b3e250c439461"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-04.webp",
+          "sha256": "aef4ec022e39609a09432abc38568faa4408714d8ce7290911d5bcd06726cb1f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-05.webp",
+          "sha256": "d4e5e40858cc06837fedcea175d81caf8c4b2fc61cadc5b9c4cfe74332016704"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-06.webp",
+          "sha256": "737cd35c587c7b9cb143dce8d0ee7bd23a3331d3eff4fd114476a86278622a5b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-07.webp",
+          "sha256": "4d94119bd3e64cc76d8f6397255199af73e6d2e5844eae2ecd42743cc9cbce46"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-08.webp",
+          "sha256": "ff6ac3a282ee3aca9a145bf9e3a3c394e405803841b4403d1c852a6e40a4bd80"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-09.webp",
+          "sha256": "f472d196637a7ddc2b7851fddaf35ac996437f01e4273bcec4dd2d0911b8c0bc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-17/page-10.webp",
+          "sha256": "a61ce157019ef87814f199da3b5e6531b84bbc8f485cedb81059012530f7c3aa"
+        }
+      ]
+    },
+    "world-discovery-a-13": {
+      "reviewedAt": "2026-11-07T17:26:23.505Z",
+      "reviewer": "author_b_c; root; integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct final WebP review of all nine images against full frozen prose and state sequence; no media mutation or release approval. Root fresh holistic full-book review and separate independent corrected p4 geometry recheck completed.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/a-13/cover.webp",
+          "sha256": "5f85e7cf0ab8a29174be50f1f8e02b10e1186666429ba45d4b11197f616d28d9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-01.webp",
+          "sha256": "f69ed82a905a96e7c747cce8853a79090b0d8a13431d9c127e5e47f4d631dbb8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-02.webp",
+          "sha256": "ddb81404730d1fb98143e78407f563c98c2063b1d8b70f45d87a43ffedcbfece"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-03.webp",
+          "sha256": "4fc3bd6c88ae9bd0029a4396489e7327b1c5fb95fff5e4c7f4ac14792cd72203"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-04.webp",
+          "sha256": "a52cc7e433a6ead60158a2db911dba4819cd0596dc3ffeee0f1771466e6a5d10"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-05.webp",
+          "sha256": "6203da49317e8bfb2d557a6ccfd00028fd365cdaf91d3bfb48f36064f015abcd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-06.webp",
+          "sha256": "b6dd35534fce15c8114a9b7e85c12a478f860fedea34dd6f52372972355fd29a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-07.webp",
+          "sha256": "a9a22fde79e2924b9d238c867339f7b0e8e9324464d39c0ff9a43aedfc637949"
+        },
+        {
+          "path": "/guided-reading/world-discovery/a-13/page-08.webp",
+          "sha256": "0f4f8c5add8c083616f73c6c49f06b6901d2a001dcbbd70f103c22614ec6f25d"
+        }
+      ]
+    },
+    "world-discovery-e-16": {
+      "reviewedAt": "2026-11-07T17:32:32.357Z",
+      "reviewer": "root",
+      "score": 3,
+      "openDefects": [],
+      "evidence": " Reopened all eleven installed replacement WebPs. Safe focal margins, normal supported table and coherent anatomy retained. Page4 now a low over-shoulder end view with near-horizontal card centers and compressed depth. All three fixed stands remain distinct; side views disclose depths; conceptual panels remain bounded and separate from real sky.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-16/cover.webp",
+          "sha256": "7223dea6158b2974b8a712b3b4932e671f061b7f3a451bc11b17edf77ec2e2db"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-01.webp",
+          "sha256": "15eda1c425202fa38c2044d9734005a378741d939d6113a05e1ff13ea7aed198"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-02.webp",
+          "sha256": "4757ed7fe104a9c4c3b18f0cc4bbc758d4101de01ee655ef7553dc45a53ba655"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-03.webp",
+          "sha256": "8f138bad46fba830a2a6060409a90b6fec66eadf1e738736e64ba9ea1503c8d0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-04.webp",
+          "sha256": "573faa1e19898631fe51b71d6a9f5619cb869da55f093a2e290cf73904e85864"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-05.webp",
+          "sha256": "62f6d3cb2bcd94242d7fe27fe673f5f94297d3ee1cbf5e956393a16d48b31614"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-06.webp",
+          "sha256": "d69762fe989dfce1a29870768a067b726afbfe5ad17f93f648695f68a3725408"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-07.webp",
+          "sha256": "2d67ea9c06d8fe1b0f1c8e719f03698d4628cd0d0365cdf18a37b5dc8e342fb6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-08.webp",
+          "sha256": "74fb1e03df0c000064cd930b3246a10d9963073c3ca2b9601cb9e6bbf60e0f16"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-09.webp",
+          "sha256": "f5454caf6d1be8cef7920865f50114f6457b8355d089fa1a34b1c8f8ba697302"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-16/page-10.webp",
+          "sha256": "6c995f5aec98a274d52db6a16ee58c32769306ece38c35ee558a5d4109d22541"
+        }
+      ]
+    },
+    "world-discovery-e-20": {
+      "reviewedAt": "2026-11-07T17:32:32.365Z",
+      "reviewer": "root",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Direct full-size inspection of all eleven final WebPs in canonical reading order against every printed page and authored state. Reopened nine changed final WebPs; retained accepted unchanged page2/page6 hashes. All focal people, plants and markers now comfortably framed. Seasonal buds-bloom-maturing-dry sequence and continuous grass route retained; safe mower separation; p7/p9 unwanted bees removed, natural plant scale and coherent anatomy.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-20/cover.webp",
+          "sha256": "59cc742ad1d93904b0aeaa4c83560dc0b985ee65d383782e9e148a3b8d7055d5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-01.webp",
+          "sha256": "e1445e4e973bd2f315d07731a7c60bf90886a89578614cf6a1009bf93e559781"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-02.webp",
+          "sha256": "e7386a5996e845bdf2c572e55c0d3830c7c42a94d0ae8a04ef474f8fbf7886c2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-03.webp",
+          "sha256": "47bfada1e057bc389f2cd3047203ee7db9395a02d3f8d410ace77ab151d23455"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-04.webp",
+          "sha256": "918c9b48643623264621f70aa3de44d06e37ff8fe49acc330e4770f9a440982c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-05.webp",
+          "sha256": "f7a8c31585a368ad57b3a35e49a79e5d7ab95836fa5d69abb1c574efbf829d76"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-06.webp",
+          "sha256": "e594d9a7da50dea88b91f90585ed4a67eac1fb87687d72bb98953aaa111c8ff9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-07.webp",
+          "sha256": "f9bc832981e37f65e3818572d712c33bc07c0deccc6711214ba414cc1c860168"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-08.webp",
+          "sha256": "858806f75e0c66fc80ec32aa56db2b08b1949ca5fa5ff8de5e9fd05676106885"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-09.webp",
+          "sha256": "3508b38b3cd82cb7db49f68f07216443025ea08494e2744f2ec327c38bf66407"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-20/page-10.webp",
+          "sha256": "63f16332afd2577d533624c9dcdd0954ff1f1e2e7f2c2cbf6a0f4dbb2a26dee5"
+        }
+      ]
+    },
+    "world-discovery-e-18": {
+      "reviewedAt": "2026-11-07T17:26:09.319731+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/e18-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-18/cover.webp",
+          "sha256": "421c4574afd17333c5db4e0a3e04bbdbd662ea9f52c35920c423148c721beb76"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-01.webp",
+          "sha256": "310abef36eb8f1835239f10c9543a066fc0413846d04a8f8692aa67742429089"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-02.webp",
+          "sha256": "c726dd6fb09fdb6772d41f853b4ebd50efd385fe03da7e99e9ab74181f20e7b8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-03.webp",
+          "sha256": "4c3ccd2d7e229bf755464db94b309d2172f7d4d97ba88126d175baf691985c61"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-04.webp",
+          "sha256": "3c6e29d1af4138a615cd6e0b56096666d369e5e823284a8f5ce70f0443c6c06d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-05.webp",
+          "sha256": "3c21af3b2914b8e64de8201037873414af933649dee632be321b292534a057f3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-06.webp",
+          "sha256": "ee0f2daa2c6b7770b0f4f6638a5f0a65ced488edf102a03a52634bee6299876f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-07.webp",
+          "sha256": "bf421a06c1a1985bb3d421db67f099336d9018d62cfd8b32fe0a1d1b66e74d8e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-08.webp",
+          "sha256": "a62bb6958263e81c4f39bec87dc69de570ec7f5ea035ae3c1f905f13a3a3dac6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-09.webp",
+          "sha256": "93a54daef709b4a079368dae4ad9e8c204399db7bafb1ec56900b38e58c07346"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-18/page-10.webp",
+          "sha256": "ec91e3fa9fa70ae123f677e6a04cca285ce8835b7de80fcc2de610e7d607e84f"
+        }
+      ]
+    },
+    "world-discovery-d-19": {
+      "reviewedAt": "2026-11-07T17:34:30.605735+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/d19-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-19/cover.webp",
+          "sha256": "03b84f94c21283f990a0d88e6034165a0ee0824212800d1bbb48fc482863857b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-01.webp",
+          "sha256": "8e5c73618989ea58f13f685631f5b5e7a987bbb59f230b86e71c55ae18be36e1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-02.webp",
+          "sha256": "d103572da390aba255317246b7896a111e42f557433ad3f49f0c9d0e3ab64cd7"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-03.webp",
+          "sha256": "6e9c26112033f221e93158c913d138486c8f2027d127af150efe6fec074b440b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-04.webp",
+          "sha256": "cb8162f912a6210b5b4b4ce796df6786a1c458ee61a6c0f7d269dc23a0b642e0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-05.webp",
+          "sha256": "0afb66fde8184e1fe39d4cff6f43eb2bf3573a0979de41919f81f107b78da4ea"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-06.webp",
+          "sha256": "72fc32bdaf68a7e93c3f0340d28f8e266864bf9d5f6a4790ccdfeb1aad7cceaf"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-07.webp",
+          "sha256": "579a7df81e444480397ad7592714a53438f2fac7ccfb04244461cecd763a7432"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-08.webp",
+          "sha256": "c5e2f8942c781f1bfdd77e097ade4375b0b26148acc253d181b262a283817262"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-09.webp",
+          "sha256": "c0bda71e06346bc15b801c6f59610d5dd5c1584d541b92615577485c686ee1f4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-19/page-10.webp",
+          "sha256": "b2ea53e965b29ae324133387462a01298f2d4357f882289bd10a6be2d592769e"
+        }
+      ]
+    },
+    "world-discovery-e-15": {
+      "reviewedAt": "2026-11-07T17:44:29.878114+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/e15-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-15/cover.webp",
+          "sha256": "9fa95b55390ff929cb21093d4571730a88f4d26ecd2e1649573c18f283a8442f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-01.webp",
+          "sha256": "cdd8693c647a2cb507c2f33145f4699049a93ad2aee05fa210b8b3d37ce8a480"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-02.webp",
+          "sha256": "8a5758adcb307a9e060f429125b675cf74d0be56f89debe2e97e4fc27332706b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-03.webp",
+          "sha256": "ed78c1fa84bfcb4f9bf30d6114bf4130b71d0c9cf7fa5c7fadaf0e860f823156"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-04.webp",
+          "sha256": "f842aef65483f0b4ed0ed31e7bfdb02ff815f6ae4bd44d97fa3d9f31abafc23a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-05.webp",
+          "sha256": "c1f7eea7bcbed7a7dcf16d4b905daa22dd9a6370c0526094505bad800ec094a8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-06.webp",
+          "sha256": "818901340925d48c9986a073df08b97cac0ec498c8661ce6d62a4c865431da33"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-07.webp",
+          "sha256": "55d798641fa1e7f1b890aca68acd6631cc26ba1e4c631237e740d683321d386a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-08.webp",
+          "sha256": "f6143be9ebeaa597a39f9b9d4bf6b7aa3054770392279358b63eae2292b23024"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-09.webp",
+          "sha256": "8a642a5598040bc90ab22e5debe08aefe61444991130aa44a98a378e405af4bd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-15/page-10.webp",
+          "sha256": "cc67e98012e09ecfb7c1d8cfbd152bfc12de09cb287249b1ff15f0df3dcccf04"
+        }
+      ]
+    },
+    "world-discovery-e-11": {
+      "reviewedAt": "2026-11-07T17:55:29.625599+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/e11-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-11/cover.webp",
+          "sha256": "6e4439c24d13aea7531e2f909d0eb4b46823e3181943e8ae2c9c07c1641b8aad"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-01.webp",
+          "sha256": "35de55745d70cfa42b41a02c300e8b5bf30a188639d7c53801a632c73d54cf4f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-02.webp",
+          "sha256": "e6c51877c43b7042d3a4c2b91a0e513bf90ab9bf67dfd1af65c39443cf3c9c5f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-03.webp",
+          "sha256": "db0b4af113f58018ed8a5442cac527408ed1da666999ab6a4d243537b01f06f6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-04.webp",
+          "sha256": "2bcf6799501118b3abdf5c7249570707b987f6d2c6efd6e676fc185bed7ac926"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-05.webp",
+          "sha256": "a11180458c89e0c80bd1cd277c8cd74ac1dda992179d737484ed1b851bd0634a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-06.webp",
+          "sha256": "ad14b0e074560ccc8a75752672dd1449ce24f3cd058594e9e0d13aa245bc98e0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-07.webp",
+          "sha256": "6a7a349a0a679b2f3e05b9c116dc81b78f499f12097724937413c4e2f7bc35f6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-08.webp",
+          "sha256": "108b1c918f27427751f5a4a952a56d8400bd5f39ff1d5bcb9f9b8d8591ce6bc8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-09.webp",
+          "sha256": "7a45fc195882c0b727bf25169465b771a7da2d7eea0502d105f474cd030815bc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-11/page-10.webp",
+          "sha256": "91c55190f73cb301ed4a6d208592d2c2ecd954f968e3d98bbe9c132fb693d8fe"
+        }
+      ]
+    },
+    "world-discovery-e-19": {
+      "reviewedAt": "2026-11-07T17:53:59.161Z",
+      "reviewer": "author_d_e",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/e19-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-19/cover.webp",
+          "sha256": "469acfcbed4bce7e40fca9ff4bf98e3c840d7c675eb8636e11ad362dd73cf761"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-01.webp",
+          "sha256": "1d9abc50ac26b5e085cb04b39cbc90a6ba05e64ed3553a6258b5d9c7bf2d5688"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-02.webp",
+          "sha256": "2e534d82aee07d169ea3f83d6f0a0ff0408a45eb12f9846f7ab33191fc872a0e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-03.webp",
+          "sha256": "9d7a35fd4b83f59fb1bed8437aa8423b23890a8d2f71f01d0f0a122fc678e687"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-04.webp",
+          "sha256": "81aa553e461c8907a9ffe73062846c3b98c4128d465f232da735c92b17e6254f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-05.webp",
+          "sha256": "34f948f1236533786bfbd725b86a1c0ab4d005aaac990f3f6cd2a82625365b9e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-06.webp",
+          "sha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-07.webp",
+          "sha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-08.webp",
+          "sha256": "a0c763aef329f4113db84568dd4178d85902b66d2f722aad91b1a17f9dc42a67"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-09.webp",
+          "sha256": "5c3ee5fc0f32343051a56287e61c808af6fcb16922ba0849399cbe5f36759742"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-19/page-10.webp",
+          "sha256": "81f5322a391609a21059bdd8e9ee73be40e28d0d70c2e018b7e305af7722aed9"
+        }
+      ]
+    },
+    "world-discovery-e-13": {
+      "reviewedAt": "2026-11-07T18:02:13.516333+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": ".artifacts/world-discovery-expansion/e13-independent-visual-review.json",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-13/cover.webp",
+          "sha256": "4e15e734a53463f5151efa4d71763cd233e90a352dcbae3b9180437aa6746e49"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-01.webp",
+          "sha256": "75fda26a9849001d6b14285d71cf766f401a2b55fea6b10f28f29b9d2fc29f94"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-02.webp",
+          "sha256": "1a5f13e8f285e586ea55874c6252c683628ef430303371f4298c518c4326bd31"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-03.webp",
+          "sha256": "66b8937e138d1a7412da3afa8f59a6f14fa59aa56e33b3c0e68c8ba431ec2669"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-04.webp",
+          "sha256": "b5f918eb0aca4929eeeac974c8e4eb0c140142809cd2b056ad2b22d355693a93"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-05.webp",
+          "sha256": "09d72bc93c3655fa86d12adefa38b304b8a9c684be7f7610ea02af4fc7f12a92"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-06.webp",
+          "sha256": "e256e11eecf221b310a5a09b7ad9affa7eb9ff6aedf31e9f39f998c3db36e46e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-07.webp",
+          "sha256": "03ec55d6d8ca1b3ff07b21ebedc9861c499576d53cb9be2827638df372e9ee94"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-08.webp",
+          "sha256": "add8abde405dec0f7e757d3c0c60148bc7d92ac2d96e227aceee7643758cec84"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-09.webp",
+          "sha256": "0e598ee778f14ba43621dea7f50a28f4bdfcf70aa40f4a28e13e687a03b96698"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-13/page-10.webp",
+          "sha256": "f813f71d67714cd2c9f53a75575ca3b70596c50ac8e3a659d167a40627d1a3e3"
+        }
+      ]
+    },
+    "world-discovery-d-16": {
+      "reviewedAt": "2026-11-07T18:15:33.180634+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All eleven encoded illustrations independently inspected against current manuscript, with physical composition, science sequence, shadow/light geometry, stable lunar markings and essential margins checked.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-16/cover.webp",
+          "sha256": "a26536327af6b3d03bcf363aeb8fbdcd8a08e1f8dae8f8458cacf463b86f0c18"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-01.webp",
+          "sha256": "0464bc9c0f1d26c8df613a6325923ec1ffab88baddff00b1ba591c3fe6bb4d62"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-02.webp",
+          "sha256": "e44e5b8b4182140eb883aa3de42148d40e67c04f66aacca85abebbe9c19c76e9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-03.webp",
+          "sha256": "0a353bd2f5592ff076a271b61e4a65655b20be4ccc5705c6217e59c827489197"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-04.webp",
+          "sha256": "c0d33c41c50d875ef59a0ce06f003c11ddf07d4e3263e496ba33604870b6fa18"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-05.webp",
+          "sha256": "71ecf6d4273fe40b634e8847bfd02a9061512f9be6b673abd6abd8eb79f19624"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-06.webp",
+          "sha256": "21bc1c86e6b47dda572f68510d0c3a32bbf34f67716f6c863857e747ce485cad"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-07.webp",
+          "sha256": "7f89f6911ea64be691c6f25bde87e6a413976f83ab0fd060f2e502284abb1c20"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-08.webp",
+          "sha256": "6942db63dafc224379f6055df8a7ffaeb398ebe0eb352facfd7c78bd9e334f0e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-09.webp",
+          "sha256": "298ae4861f5262711d16a5c186275bf363ac83c6a5296cf3936be78ebb134841"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-16/page-10.webp",
+          "sha256": "0a5504363869441fa621f75c7d39443a0e332cb07395f736bf41b2d57960661b"
+        }
+      ]
+    },
+    "world-discovery-e-14": {
+      "reviewedAt": "2026-11-07T18:18:29.539049+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. Wiping reveals hull with natural cloth contact, stable tray/boat/cup/pot; chest-up camera is coherent. Cloth physically wipes tray corner revealing yellow; complete boat remains visible and unpainted. Hull, sail and mast coated purple; brush touches mast/sail, yellow tray still unpainted. Brush finishes tray rim; both boat and tray purple, tools outside tray and table unpainted. Boat and tray invisible with no ghost outline or shadow; visible tools and two children remain. Raised hand after contact, concerned faces, no material explosion or duplicate boat. Zoe points directly at cloth; Kit withdraws, invisible objects unchanged. Small revealed yellow corner under cloth, rest of tray and boat remain invisible. Continuous revealed yellow near rim reaches blue hull strip at right; sail still invisible. Kit grips solid hull while wiping sail; Zoe steadies yellow rim; small purple patch remains. Boat and tray fully restored, closed pot and purple-stained cloth beside cup; all essential props comfortably inset.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-14/cover.webp",
+          "sha256": "f22c9ff64ada206d2b14e3b95a8f7c105368a686df3182356856400938adf7b3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-01.webp",
+          "sha256": "7b6a11136a0c4e7b26470a66a10a0d1e360278938a25f62bcbd035ee507e1003"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-02.webp",
+          "sha256": "3c14ee9f228e53897ea28c315da2de37518cf12c61fd1b0894fd97e89f01f7fd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-03.webp",
+          "sha256": "652b2238143e99de05b5c9972f364e8c804eced50736befdbcb101ba673347c2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-04.webp",
+          "sha256": "9523d7352f7b2a8ed62c02338842c6059030e40f16fa51c28b975ae1f8794345"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-05.webp",
+          "sha256": "2eb96e4d040a7f1e2818bb2a17e45e3a845f5ac9473d9e3e7e9b13327c546c7c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-06.webp",
+          "sha256": "8ac189aeefd8853b7a0210fa084c194873b57148de2d438839af10ccc56a24f3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-07.webp",
+          "sha256": "c42e81939e62e795613a535adf7e6bfa870b148e2ea66a2aecf20ff5ec3869b3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-08.webp",
+          "sha256": "792330b7efdba6a3502673951828a0a794f5ce0ed58fecb7cedb7cc1c1613052"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-09.webp",
+          "sha256": "a6d3c39b6c0239ee76106d0620f2b27b86760d2ce4859d3bef531a47e4aaaf0c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-14/page-10.webp",
+          "sha256": "d5bde33b8ded157ad042f464703fedca3e9daa9ba1c71fe15ae8f57451ee4b12"
+        }
+      ]
+    },
+    "world-discovery-d-20": {
+      "reviewedAt": "2026-11-07T18:16:37.261918+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Independent direct inspection of all eleven final WebPs against full frozen prose, state and cover brief; natural scene geometry/proportions/contact, optics relationships, on/off continuity, cast, style and focal framing. No imagery/manuscript/central approval edits. Shielded porch light falls downward onto the step/path; hedge and upper window remain dark. Ordinary house/door/child-adult proportions and grounded poses. One bare bulb spills upward onto window trim and sideways onto hedge while path remains lit. Same house, no second light source. Gate viewpoint retains bright bare bulb with restrained glow and comparatively darker path; light falloff legible, no dazzling full-frame white bloom. Zoe points to path and adult looks toward upper window receiving spill; natural fingers/limbs and supported feet. Lamp dark while adult fits opaque shield at reachable height; no exposed wiring, no ladder, Zoe stands clear. Both hands contact fixture naturally. Opaque top and sides remove direct upward spill; one downward pool reaches path, neighboring hedge/window subdued. Opening scene comparison preserves fixture/house, direction change makes path distinct while hedge/window no longer brightly lit. People look down toward safely visible path edges; modest downward light cone, normal outdoor scale and no floating geometry. One downward fixture with dark sky and faint distant town glow; no instant new-star or city-blackout visual claim. Empty porch, lamp fully off, path/hedge dark; no person attempting to walk on unlit path. Closed door and consistent fixture. Lamp remains off with muted bronze underside and no halo; warm upstairs window reads as interior light. Dark path/hedge, no outdoor spill.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-20/cover.webp",
+          "sha256": "3936fc2ef83571a5f08bebd546c4e244ff3847dd6a4d42dfb74da6ffcff10d64"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-01.webp",
+          "sha256": "e9375a08a75782dd634f91189b5e5ad0f65c25a1be4ab909a130fec65744c473"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-02.webp",
+          "sha256": "1c597702fdb2c1382814448e1c95db590b7389a6bad546b75f752d88cd5c03a3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-03.webp",
+          "sha256": "3cee8a1953a10b457ac848374fc517165d12dfcdae45efd35aa7973740897c22"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-04.webp",
+          "sha256": "2ed3b0778104dc362059e9805a7b6de3199d663b34ee3c9a70cde603869bac97"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-05.webp",
+          "sha256": "f9d36bcb4626e4d3f340ac2e424f1f82dc1a027aca7faf476d8993aedf4b0bba"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-06.webp",
+          "sha256": "7e74c17159c4fbcfef8d79c88d4725f4e2205cded4e8739e75be854c39465783"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-07.webp",
+          "sha256": "e80a4867c7cd4d65572070d9a4f8908f44707ce22ca9be83bccb233675c81b64"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-08.webp",
+          "sha256": "a69c083b8920946b22c773ff74ad0092679d8dbc21a5de6ea4eb5697eb911571"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-09.webp",
+          "sha256": "c3f39db20a273259d54bf7dff84ec06b04aa0bdd57671ac4ef71108263320e03"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-20/page-10.webp",
+          "sha256": "6bc9b97099299b3e0dc39cb24668edce36e914c0cb49003846e95dfb9590e725"
+        }
+      ]
+    },
+    "world-discovery-d-15": {
+      "reviewedAt": "2026-11-07T18:22:39.877113+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. Sparse grains climb gentle left side and cascade down steep right side; one fixed notched foreground rock. Unmoving initial dune silhouette with gentle left and steep right side, stable dark foreground rock. Small ground-level grains show short rightward hops; no oversized living grains. Clearly linked magnified inset shows collision and onward grain motion; irregular grains without faces. Short arrows carry grains up gentle left slope only. Small accumulation beyond crest slips downhill on right; whole dune is not floating or jumping. Fresh sediment extends right foot incrementally; rock remains left and uncovered. Two distinct arrows explain upwind transport and downslope deposition, consistent left-to-right direction. Dotted former profile lies left of new crest and steep edge; single real dune and stable foreground rock. Small continued grain hops, stable dune orientation and foreground rock. Final broad view preserves slope directions, sparse grain flow and stationary rock; unclipped focal scene.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-15/cover.webp",
+          "sha256": "520173b0f5d561e5269aaa2187f8206feaca422ee12ee75ada966bd334666d33"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-01.webp",
+          "sha256": "0c839257725953cac385fc0af52fe632dc0fb28a8f6d4b8ab5a29f983048a5dd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-02.webp",
+          "sha256": "4e4b0817d499b697cc8f44bde2a6035135bb276f6f365827baa6154099941f7c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-03.webp",
+          "sha256": "edebca6873f33194a12ba55b3bacfac9c5b4fc4cd414bfeaec6aabdc439adf5f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-04.webp",
+          "sha256": "75e36b91522b5fcfb27908f63f60d4ba980c8fbcc5d8a2c689689188c9f52747"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-05.webp",
+          "sha256": "da290518f1c7b8f8883f3e575f30fbfd8d634de6bbf1d2f88f2de24b2efe296f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-06.webp",
+          "sha256": "92d04d9056708627ad917a219b85a3c81eb21342e8414767aa70156982c7eb16"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-07.webp",
+          "sha256": "5e23bc90789e5f95c389d946635e390f42f3f30184872f826e12e19852522675"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-08.webp",
+          "sha256": "78bfacd6c97918961a37214a7e8528b5f179113c96f1f2240f9e185bb1aa1748"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-09.webp",
+          "sha256": "0cbc46c8cb23a308934b5d4ab4a421f731a386023294b24dd2961be4b0d5b5c2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-15/page-10.webp",
+          "sha256": "d7e3e002a27b550c251c678c8b43ff25961717d1c64080cc4fc721c7d8a92206"
+        }
+      ]
+    },
+    "world-discovery-d-13": {
+      "reviewer": "root-independent",
+      "reviewedAt": "2026-11-07T18:22:40.008170+00:00",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All eleven encoded illustrations directly reviewed against current manuscript, complete scene sequence and traffic-state logic. Both behind curb, adult touches integral arrow pointing along crossing; single walk display, cane grounded. Car now correctly occupies road before crossing, pedestrians remain on pavement at orange hand; integral arrow aligns with crossing. Locator sound arcs originate at speaker, orange hand remains, pedestrians wait on pavement. Finger contacts black button with integral raised rightward arrow matching crossing direction. Adult fingertips feel same arrow, Kit watches, orange hand remains. Car passes across stripes while orange hand displayed; adult and Kit stay on sidewalk. Corrected oblique red signal face points toward approaching driver; stopped car behind line, white walk active across crossing, adult and Kit wait with feet on curb. Finger touches vibrating button, marks localized to button, walking figure across street. Adult listens before stepping out, Kit stays at curb, walk active. Both walk within marked crossing, cane ahead, car behind stop line. Both reached far sidewalk and look back at original box; no physical handling.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-13/cover.webp",
+          "sha256": "056af5fe900d75272ad252120dba2aeb0c763c4708c06598c6b37e3af4cd4f98"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-01.webp",
+          "sha256": "ddebbda21cfa376fc8800849d9a23aba2be0549aa599516ff29bae8e76413ff8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-02.webp",
+          "sha256": "8cbe503a8228c4da21231369121931a49b6ba09f836c0b47cee880bf22474b09"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-03.webp",
+          "sha256": "5144c37e7e1befb7ab0c31a17155ee660ee66a8382d39b32a46a18dc64ee809a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-04.webp",
+          "sha256": "6e2dab53b1d2b888add5e5b1fba55ed8f078d7782e74c2aa18cc5f07c57a35a1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-05.webp",
+          "sha256": "801219ed6a5c2ddf37685ca21a52ce7f5ec3a42fb937ffbc239aa8bb32fa36dc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-06.webp",
+          "sha256": "60731afd375c4c42fc3c3345b7879ff3916e1883d633c82919ebd7b21138fe29"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-07.webp",
+          "sha256": "1623c2f7ad320a0a2544fbcee22b72dfc978215f9d6336bde9c6e55f98ad674d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-08.webp",
+          "sha256": "494206c8b27d32b75f98ea29b1fd5333e527a0cd5bb9bff70e5d7f2eb2163e69"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-09.webp",
+          "sha256": "714bf9df4ed60078c1b4caa055c6a0d5be558838aed6903824d5e4863f7010cc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-13/page-10.webp",
+          "sha256": "1600f30776cbf06a283dc869b41eb1bc38d6fa07d47ecdbb9f5da58f8730f223"
+        }
+      ]
+    },
+    "world-discovery-d-14": {
+      "reviewedAt": "2026-11-07T18:26:48.227801+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. Kit in circle holds red fan; same raised-hand fan silhouette is flat on wall. Zoe stands clear; ordinary chair/room. Zoe chalk touches circle while Kit waits outside; fan rests on chair, wall blank. One giant flat silhouette copies lowered arms; no lamp, second creature or detached shadow. Raised right hand has five fingers and matching flat silhouette; fan remains on chair. Zoe points directly at chair fan; Kit empty raised hand and matching silhouette remain separate from real fan. Empty fist silhouette overlaps wall behind unchanged red fan; no physical displacement. Repeated empty fist and untouched fan; Zoe crouches and addresses flat shadow. Thoughtful chin/empty-hand pose copied by silhouette; fan remains on chair. Zoe passes single short fan handle to Kit; chair empty, one matching dark fan shadow first appears. Kit waves one red fan while single giant silhouette copies; Zoe stays outside swing. Kit and silhouette bow with lowered fan; Zoe waves both hands; unbroken chalk circle and stable ordinary room.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-14/cover.webp",
+          "sha256": "0fdce792d5316cc4f729d65075e25514722df405467a45edb46a873f368763d9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-01.webp",
+          "sha256": "932215d7c23b69de702bf14b7d8a15e1493e491460bf78e1d61bd9e540353712"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-02.webp",
+          "sha256": "68283f557934e477196bd57dd6de5a9703ec02ee3c4b7452bd9ad6f2113aa6c8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-03.webp",
+          "sha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-04.webp",
+          "sha256": "bdd9eca1d58b28464658804499018463443d12d6f05b0febf9da89d68c2678b6"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-05.webp",
+          "sha256": "9ef0fc7978b5f8f5478bc1a46e50d0af7bec8e8fcf2ae1be00875cb97a1e7929"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-06.webp",
+          "sha256": "5d7113f4b8ce9bc8add262699c54e46eff2ec28b28b2f5901dbab6004474ee33"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-07.webp",
+          "sha256": "b7f98deb49dcf158dacf3e6b0f8d2824d8c89e6b902cbc7b8d4a88973a12a95a"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-08.webp",
+          "sha256": "4ee67149e6787a6b2f9523fad56cb862d1c47826d879f045fd7bf9306359ae44"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-09.webp",
+          "sha256": "282714899d05f643df5ea07c14011d2e13197488bab7e208af5db8d661e93bd8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-14/page-10.webp",
+          "sha256": "b969b075ab01fa418b171b6704edd05401ffc87ff702f15efcb453ec7668cb3f"
+        }
+      ]
+    },
+    "world-discovery-c-11": {
+      "reviewedAt": "2026-11-07T18:25:48.573Z",
+      "reviewer": "integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All nine current final WebPs directly opened and reviewed sequentially against the complete frozen prose, image briefs, state and cover contract. Reviewed whole-scene scale and perspective, natural human anatomy, object contact, state progression, cast and key prop continuity before evaluating framing. Essential people and teaching clues are safely inside the image; incidental background vegetation, architecture and peripheral furniture edges are not treated as focal subjects. Cover: Kit uses a three-finger check beside all three item types and Zoe\u2019s unlettered picture card; natural standing anatomy and believable kitchen/garden scale. Page 1: All items remain on the indoor shelf, blank card at the child-size table; Zoe\u2019s lower legs and feet remain visible and physically connected. Page 2: Completed picture card depicts mat, two cups and ball; Kit turns toward the shelf. Furniture and human contact are coherent. Page 3: Two cups and the ball are outdoors while the folded blue mat remains indoors. Kit kneels naturally; Zoe points to the bare picnic spot. Page 4: No object transfer; Kit pauses while Zoe holds the card low. Children, doorway and shelf align physically. Page 5: Kit taps fingers; two stacked cup rims and ball remain outside, mat indoors. Card has been lowered to the table; this does not supply the answer prematurely. Page 6: Kit identifies the missing mat while pointing to present items and turning to the shelf. Lower bodies remain anatomically coherent. Page 7: Both children naturally kneel at the spread blue mat; the two cups and one ball stay beside it without duplicates. Page 8: Children sit opposite each other on the mat; two cups are clear of the ball\u2019s rolling line. Hands, knees, feet and ball contact are plausible. Nonblocking peripheral observations: []",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-11/cover.webp",
+          "sha256": "5b707dabc7d95b551477feda422bd16b91534e848f551d9b4d5b947115b3dc18"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-01.webp",
+          "sha256": "b2f335e627ef3e6f56ff6ecee516b672d4867c0ddc4638a9f50a960cccfb8c53"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-02.webp",
+          "sha256": "bfbe4001c3f5af2e0e9096dcdc58d6d23853293145a315d629a13acca2ba7fe8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-03.webp",
+          "sha256": "2bc25ff3d5260178e1dd2bcefb91b807c7bf13d8a222aa13e70c16f458bf51fb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-04.webp",
+          "sha256": "f711aa6cf087c66b53c0c312a32ed090e76638f5a5ad29da1391a2eda92239ba"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-05.webp",
+          "sha256": "6729d9f581f7205c023f1ef5942a1e7c6ad1ce25cbc811dbd9d0d268d0652005"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-06.webp",
+          "sha256": "b8cc19127fdb50400bb4e4b18225b228fbf6b237fdbf85902b858d9652c1b9db"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-07.webp",
+          "sha256": "9569cf4ee48f056f261a416da9a6f71a1126f724d8f9fe8dfaf6cb8a96278478"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-11/page-08.webp",
+          "sha256": "ae54fdd9c6051e7c866220e2a5ef5e0faf2c85d1ddcd8836e3de5e242522476f"
+        }
+      ]
+    },
+    "world-discovery-c-12": {
+      "reviewedAt": "2026-11-07T18:25:48.579Z",
+      "reviewer": "integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All nine current final WebPs directly opened and reviewed sequentially against the complete frozen prose, image briefs, state and cover contract. Reviewed whole-scene scale and perspective, natural human anatomy, object contact, state progression, cast and key prop continuity before evaluating framing. Essential people and teaching clues are safely inside the image; incidental background vegetation, architecture and peripheral furniture edges are not treated as focal subjects. Cover: Both distinct pots and the single red ribbon beside the yellow one are visible; the parcel is untied. Full bodies and craft-table/chair scale are believable. Page 1: Kit holds the paper parcel while Zoe gestures generally; the ribbon remains by the yellow shelf pot, with no premature tie. Page 2: Kit searches the blue window pot and raises the watering can by its handle. The ribbon remains by the other pot; bending anatomy is coherent. Page 3: Repeated vague direction changes no object state. Children\u2019s hands and feet remain natural and supported. Page 4: Kit handles the tray edge at the blue pot without tipping the plant. The wrong-place search remains unproductive. Page 5: Zoe points specifically to the small yellow pot; Kit\u2019s question gesture and all original prop positions are clear. Page 6: Kit walks past the blue pot toward the still-uncollected ribbon beside the yellow pot. Natural stride and floor contact; parcel remains untied. Page 7: Kit gathers the single ribbon off the floor in both hands; the shelf is now empty of ribbon and Zoe steadies the untied parcel. Page 8: Zoe holds the center while Kit pulls the red bow, with exactly two visible loops. Pots remain distinct and in their background locations; children\u2019s legs and table contact are plausible. Nonblocking peripheral observations: []",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-12/cover.webp",
+          "sha256": "263fc63340271deceb56d86427ac44d9057fc89be5c5f548a24a23ec90c5d7eb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-01.webp",
+          "sha256": "2b73aeb6f2d0b9bbeffccea44b769d302dd80e6b71101187a67c6220d957326b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-02.webp",
+          "sha256": "6ab350097abb5613c596780e6af93cfcf5ae9281112b2087ba852b7897dc9050"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-03.webp",
+          "sha256": "c126d705b30cb28162bb7860cef66ab8a2d2ce1261bf279e2d5969b1850dfe0d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-04.webp",
+          "sha256": "684ca7bcb132bcbb2f0179ca9c640988cd440cba26d8c27c175d716d6fdf8210"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-05.webp",
+          "sha256": "d39b9b599c2dc60b1bdfed75783f24120ca77dcb0740584e816dd3331ae738ea"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-06.webp",
+          "sha256": "6768a0a9d60d8c0d6f631796312c535495689ea3fa7c4116ce51b0c9e8c1aafb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-07.webp",
+          "sha256": "12c3a5a93f58a1a7af8af5b6ebf2087f1109fa410be7c8204647a157570ee0a7"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-12/page-08.webp",
+          "sha256": "8ae1df53dbd8159a544a7e911db9d2a5dc70ae1d85de225b002b8f41e6c987fc"
+        }
+      ]
+    },
+    "world-discovery-c-13": {
+      "reviewedAt": "2026-11-07T18:25:48.582Z",
+      "reviewer": "integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All nine current final WebPs directly opened and reviewed sequentially against the complete frozen prose, image briefs, state and cover contract. Reviewed whole-scene scale and perspective, natural human anatomy, object contact, state progression, cast and key prop continuity before evaluating framing. Essential people and teaching clues are safely inside the image; incidental background vegetation, architecture and peripheral furniture edges are not treated as focal subjects. Cover: Grower sets out carrot bunches; Kit and his adult approach, with the distinctive empty braced crate underneath. Human and stall scale, feet and object contact are coherent. Page 1: Worker opens the gate beside the still-empty table; no crop or crate arrives prematurely. Gate hinges and hands have credible contact. Page 2: Grower naturally kneels in a carrot row and places harvested carrots into the same green braced crate; crop and hand scale are plausible. Page 3: Grower slides the full crate onto the gray van\u2019s load floor, with grounded stance and no floating crate. Other vehicles are distant context. Page 4: Worker holds the gate and points toward the empty table; grower carries the same loaded crate with both arms. Physical sequence and human anatomy are coherent. Page 5: Carrots are now on the stall; grower crouches to put the empty crate underneath. Its pale brace and the retained empty state are clear. Page 6: Kit points to a bunch before a transaction; adult still holds the shopping bag and the empty crate remains under the table. Complete lower bodies are plausible. Page 7: Adult pays while Kit lowers one bunch into the cloth bag; two bunches remain on the stand. The small payment, hand contacts and natural bend are legible. Page 8: Kit carries the purchased carrots in the bag beside his adult; two bunches and the empty crate remain. Working market echoes the opening empty stall without asserting universal market practice. Nonblocking peripheral observations: [\"Page 4 far tabletop tip is approximately 7% from the right edge. The complete table is visible, while both people and the carried crate have safe margins; this peripheral furniture tip does not crop or obscure the teaching action.\"]",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-13/cover.webp",
+          "sha256": "8594a04a4fc98ca0d7a577a887d5a243ddfedd1fa923159b09ae5709b56f0b70"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-01.webp",
+          "sha256": "791c6eb65c2581ea41f9c528eb35db7c61c999ff9c34afe58474b88eac3aea3f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-02.webp",
+          "sha256": "00da668bf6690698c583a2d8e6f909040a9c3b816417c2a32d2cb0354701e957"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-03.webp",
+          "sha256": "3c501613715cacd1ae458d7460f5f2d19b3c330563f2b04d182d5b070a3b8f44"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-04.webp",
+          "sha256": "76ae286dd25152cec2f236333f3a49ddae2674744b8fdd1173519af8aeedc5ca"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-05.webp",
+          "sha256": "644c2b97236f62ee8869c894d94362c284e4aa778d4aa6528551e273e2e868d3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-06.webp",
+          "sha256": "73445290bf43139ca74386aeebc96ffd1333dd4bbeab45d0e94bbb197ca6b6c7"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-07.webp",
+          "sha256": "8a3a10ca48c82d33d1c60df39c7057097e0e3350a9e5c18dfe319891f7ea0336"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-13/page-08.webp",
+          "sha256": "101ad3ebf7942e94375be1b0c6a2dec0910fd9b27a8ddc289bbd51f9bbb9160f"
+        }
+      ]
+    },
+    "world-discovery-c-14": {
+      "reviewedAt": "2026-11-07T18:25:48.586Z",
+      "reviewer": "integration_preflight",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All nine current final WebPs directly opened and reviewed sequentially against the complete frozen prose, image briefs, state and cover contract. Reviewed whole-scene scale and perspective, natural human anatomy, object contact, state progression, cast and key prop continuity before evaluating framing. Essential people and teaching clues are safely inside the image; incidental background vegetation, architecture and peripheral furniture edges are not treated as focal subjects. Cover: Six connected arrowheads are visible: four rightward, fifth leftward, last rightward. Bookmark waits by the trap; open animal book and children\u2019s hands/feet are coherent. Page 1: Single arrow ends at a red unlettered bookmark with blank paper ahead. No face, limbs or additional magic effects; seated anatomy and furniture are credible. Page 2: Six arrowheads share an uninterrupted line into the book; fourth/right and fifth/left meet. Kit draws while the bookmark remains at the start. Page 3: Bookmark is at the local opposing-arrow section, with small motion lines indicating reversal; it has not returned to the distant start or reached the book. Page 4: Same local trap after the failed restart; Kit\u2019s hand remains toward the starting end, Zoe steadies the book. Wider composition retains readable cause and state. Page 5: Kit\u2019s finger identifies the fifth left-pointing arrow and Zoe indicates the destination book. All other arrows continue toward it; exact teaching clue is visible. Page 6: Fifth arrow now points right, matching the other five, with Kit\u2019s eraser at that position. Continuous line remains, no competing left arrow or gap. Page 7: Bookmark has reached the blank book page; all six arrows point toward it. Kit\u2019s hands are away, and no unseeded magic or new objects appear. Page 8: Closed book has the red rounded tip marking the upper edge; Zoe holds the removed strip with six rightward arrows. Natural hand contact and coherent end state. Nonblocking peripheral observations: [\"Page 7 lower table feet are approximately 6% from the bottom. Children, all arrows, bookmark and book have safe margins; the complete peripheral table legs remain visible.\"]",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/c-14/cover.webp",
+          "sha256": "c9224b13f4971cb6989b1b56577a07feb8e17072feb0fc4131ae9da6c896a3c5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-01.webp",
+          "sha256": "f9ca63feb6aeceb56864e085016433aa9608112fd88b1359904e566672677e64"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-02.webp",
+          "sha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-03.webp",
+          "sha256": "cc18e40dfa3489ad1c59bc56eea4195512c7a832c4aa482ec7d549dc92744947"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-04.webp",
+          "sha256": "898f4c494ddc2751f0d88891a0b3b14ab7687e7ddf38e9ca515a4d41ee1666bf"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-05.webp",
+          "sha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-06.webp",
+          "sha256": "f815840d51f19937f0c15f5b9f51222c750557b4f7749126fd3fd36dba6fbdb3"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-07.webp",
+          "sha256": "f4eb7b324f45ce088add447851431662e7663b7e5d0ec6655c223b5179a325bd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/c-14/page-08.webp",
+          "sha256": "4addacc20c43d3978205d309e9e5ebf8df94e92cd939ccc4571a706717872b48"
+        }
+      ]
+    },
+    "world-discovery-d-18": {
+      "reviewedAt": "2026-11-07T18:34:12.587297+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. One larger living olive-blue crab and one smaller empty molt with a hollow rear opening rest on a coherent estuary floor; complete anatomy, ground contact and safe framing. A single firm young crab has two claws, six walking legs and two rear paddles; no discarded coat appears prematurely. A small linked sectional inset shows a thin new layer beneath the old back covering; it reads as an explanatory detail, not an injury or a transparent animal. The old coat opens along the rear edge. The paler new layer is visible through the shallow opening, with coherent limb attachment and ordinary occlusion. The new body withdraws backward through the rear opening of its old coat. Freed rear paddles and walking limbs follow the body; the old front claws remain aligned with the exuvia. One soft living crab sits beside its empty coat at comparable size. The coat has a hollow rear opening and unfilled eyestalks, distinct from a second living animal. The new crab is modestly expanded beside the smaller old coat; the comparison has no cartoon ballooning or invented water apparatus. The pale soft crab shelters naturally among eelgrass with sensible partial occlusion. Its old coat remains by the stone behind it. The same sheltered crab now has a firmer olive-blue covering. Shelter, stone and old coat persist without duplicated living crabs. The firmer living crab walks toward a small open shell on the floor. Its limbs attach coherently, far limbs have natural body occlusion, and the empty coat remains by the stone. The final comparison shows one larger living crab with two claws, six narrow walking legs and two rear paddles, and a smaller empty coat with a rear opening. Both are complete, well inset and grounded.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/d-18/cover.webp",
+          "sha256": "d82f947ad1c2321c2f352c0f1f0c1af5f989d3ee412e9a78beb55a36215e7384"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-01.webp",
+          "sha256": "0d5e8c0aeba53998d703138ed89b1dde1c4ba29e0675084d5aed55b485a0af19"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-02.webp",
+          "sha256": "b656b0f8d03d6b9989ac70282e228ab971c9861e8d363917d2241d7d77d2798b"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-03.webp",
+          "sha256": "49296abf0c5c9061d53db7012172865ccfaa1616a903bc9be40d822d470d36da"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-04.webp",
+          "sha256": "ebbe3044fc6da4005b7dc5ee44baec79e55e5eee7171c0e9e3cbae647586dddb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-05.webp",
+          "sha256": "30a360a91bfd28434232d38bb76789e4226b1758e26b50ef3f0bfe6b036609cb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-06.webp",
+          "sha256": "181dc72d976313be5b8126e511206a41669937376cafe77f92a88e81ffc83a07"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-07.webp",
+          "sha256": "e9715bf299853a3554075d4dca36d1c7c20df571aa94747ed1591f7e233ea8b1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-08.webp",
+          "sha256": "3cede2033047f01dcc7b35eeb8679bdfdaab51a0e9cc29f2eaf208c10cf71788"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-09.webp",
+          "sha256": "3f9e724e48649b47fb0e7d7c32728dfca9f191aeeb466bb5bed933337213a826"
+        },
+        {
+          "path": "/guided-reading/world-discovery/d-18/page-10.webp",
+          "sha256": "4e6c875b9d2f78061ee3ba64d2c763ac857d82031697cf18cbb56c93a0179160"
+        }
+      ]
+    },
+    "world-discovery-b-12": {
+      "reviewedAt": "2026-11-07T18:40:25.114853+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. Kit presents one whole cracker in his open yellow box while Zoe points at the plate with cheese and crumbs. Both sit naturally behind a coherent table; the missing base is clear. Zoe reaches toward the purple cup on the shelf. Her plate still holds one whole cracker and the separate cheese; Kit has a closed box. Visible legs, chairs and floor contact are physically coherent. Kit has finished the cracker from the plate, leaving cheese and crumbs. His own box remains closed while Zoe holds the cup at the shelf. Standing and seated bodies have supported feet and natural occlusion. Zoe returns with the purple cup and looks at her plate of cheese and crumbs. Both children have complete seated bodies beneath a normal-height table; no replacement cracker appears. Kit pinches one tiny crumb while Zoe shakes her head; cheese and remaining crumbs stay on the plate and the yellow box remains closed. Close framing keeps all story cues clear. The yellow box opens to reveal exactly one whole cracker. Cheese and crumbs remain on Zoe\u2019s plate; fingers grip the lid and box naturally. Kit supports and offers the open box with its single cracker still inside. Zoe accepts before transfer; plate still has cheese and crumbs, with no duplicate whole cracker. Kit transfers that single whole cracker to the plate next to the cheese. The open box is empty, both seated bodies and chairs are coherent, and the hand/food contact is clear. Zoe holds the cracker with the cheese visibly on top. Only crumbs remain on her plate and the yellow box stays empty; the missing base is restored without new food appearing.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-12/cover.webp",
+          "sha256": "f50116354f194703d3f6fc2c9f3cf21e99687e17285b4bd953736c37986fc971"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-01.webp",
+          "sha256": "cce24309b4d9c238de463e1d4d67a031aa0b687f689f772e742f166a9f395752"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-02.webp",
+          "sha256": "905d98e7e5d69b0217ba9541d6e66a2a5841be7e0b735506d4a2bb7fe3f75d21"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-03.webp",
+          "sha256": "1328491a94164b9caeb9ae955c3efd5aed841d92442351ce5623b321070c1ac0"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-04.webp",
+          "sha256": "00a86ccb4202ec22fe6a69a09b911275ac3dbdc229de36cf11a602b30d740cc4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-05.webp",
+          "sha256": "71c4140ca121f9065a1d59e1fd7c24948342db371c96c5b382f5d993b46371c7"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-06.webp",
+          "sha256": "4f6175ea79ada4801c8e68c601f00a1cca7e156fb781b1f02d547e504ee9102c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-07.webp",
+          "sha256": "fd81fac96ad07021ff29b4b70dcb00d231edc8de0630ad510aadea3d52cffb82"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-12/page-08.webp",
+          "sha256": "a7d8d1e5f93d0e252433d8db2331979b9cbad55efe7c060e77c322a8b30b2f72"
+        }
+      ]
+    },
+    "world-discovery-e-12": {
+      "reviewedAt": "2026-11-07T18:39:38.720196+00:00",
+      "reviewer": "author_b_c",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "All11 ordered final covers/pages compared against full frozen prose/state, cast/anatomy/count/contact, ordinary room geometry, and framing. No imagery or manuscript edits. Cover: one missing top-row-third tile and one held piece, two children grounded naturally at child-height low table; ordinary bench behind. P1: Kit conceals one sail tile behind back while Zoe checks gap. Eleven placed tiles and empty box; natural standing reach. P2: one tile slips behind blue cushion, no duplicate; Zoe checks empty box with coherent hands. Bench remains supported and usable. P3: one falling tile below bench near rear floor/baseboard; cushion forward on Zoe lap, Kit looks at her. Bench/body geometry natural. P4: empty-box search, Zoe holds cushion, puzzle still missing same one tile. Both kneeling poses supported naturally. P5: Zoe crawls naturally below low table without body intersection, Kit sits cross-legged, cushion back on bench. Same gap and empty box. P6: confession gesture points toward bench, seated Zoe attends; feet/knees/arms natural, same puzzle gap. P7: Kit kneels and indicates lower bench region; Zoe approaches on knees; no trapped anatomy or moved furniture; puzzle unchanged. P8: tile lies upright against wall beyond Kit fingertips, both look through accessible bench side; no extra tile or crushed head. P9: single recovered tile rests flat on Kit open palm, offered toward Zoe; same one gap and empty box. Hands/legs coherent. P10: Zoe presses matching top-third tile into complete 3x4 twelve-tile boat; Kit hands openly resting; cushion and ordinary furniture retained.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/e-12/cover.webp",
+          "sha256": "e3ea5900411405c35d64ad9875ff14c9be00c1854f0613c340e8ffb8e1a4c3cc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-01.webp",
+          "sha256": "da1ae2a9f4d575506f4c5902d20306381db6c23fbed79ea7077517a2605a21ee"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-02.webp",
+          "sha256": "8dff70e02b5e1761b83c2a1a0458e316c75d1f81debc18543ee9c0121a6124d9"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-03.webp",
+          "sha256": "8c21b7d0f6222a5780f8c8d8cec5b8a8eced8320b7eb6dca46c65343acc44475"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-04.webp",
+          "sha256": "a4dcf62f061f166140b5cdbebfb8002114c882f4ddb1617a2ab213d74437723f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-05.webp",
+          "sha256": "144f594ee692b26fb4ced907ec4ef7cdc51d636e53cc7706ccba572949e2e5a4"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-06.webp",
+          "sha256": "31fa11df1501ce0acb90aa06bdd875ac3c7c05d4a056c68ff369d92e198787ad"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-07.webp",
+          "sha256": "2e7c6d6bdb068f6f1552fb77450d6ecaed66a68fee3f85fc23daa3f31b3d93bb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-08.webp",
+          "sha256": "f77aa43d0fa6d3cd6d8ef59cd5d2676ae7af628328d3bec72a2c16fa52ca3331"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-09.webp",
+          "sha256": "319e2a8112ce4bd8157ddaa76565df161b1289ccdf0bbdb31697a6fc58699105"
+        },
+        {
+          "path": "/guided-reading/world-discovery/e-12/page-10.webp",
+          "sha256": "0c308778937f96b0b5f3bf3b3b35e7fa9c4aa08ee0ba1db732a4b011fac7cba6"
+        }
+      ]
+    },
+    "world-discovery-b-13": {
+      "reviewedAt": "2026-11-07T18:42:43.709556+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. The carrier and Zoe meet at an ordinary blue doorway with natural adult/child scale, complete grounded feet and ample surrounding space. One cream envelope has its green stamp and cancellation marks. The over-shoulder view keeps Kit\u2019s head, pencil, hands and the whole envelope clear. The red truck picture enters its open pocket; address area is blank while writing begins, with no invented words. One sealed cream letter enters the blue collection-box slot. Kit\u2019s complete body and feet are inset; the box has coherent front, sides and ground supports. The worker kneels naturally at the open collection box and transfers the one focal stamped letter to a gray tray with other mail. Hands, knees, tray and hinges are physically coherent. A simplified sorting-machine view shows the focal canceled letter entering two directed output routes and grouped trays. Letter, reader and branching action are legible; background machine edges extend outside the frame naturally. The worker loads an open gray tray into an ordinary van. The stamped letter is still visible and the separate lid rests beside the tray; both updated descriptions match this scene. The carrier walks toward Zoe\u2019s blue door carrying one stack with the focal letter in front. Body, shoes and letter are safely framed, with no duplicated focal envelope. The carrier\u2019s hand feeds the same single letter into the door slot. Arm, hand, letter edge and slot contact are coherent; close framing leaves the complete teaching action visible. Zoe holds the opened red-truck picture; the separate opened envelope retains its stamp and cancellation marks on the table. Hands, paper fold, seated body and room perspective are coherent.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-13/cover.webp",
+          "sha256": "c6c0aa0eaff723b6feb6a5d72016b0c88c88da6a2a5cc35b8afc3da5ff09b2c5"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-01.webp",
+          "sha256": "c37b0af24cfe3fde1f32d56860affdc524f43dc5c19528fbe01be03b589276a1"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-02.webp",
+          "sha256": "29a69d628569c16f7640bbf96f86474cd6cdea557938a4af88d8797de0cd23fb"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-03.webp",
+          "sha256": "6320b182bdc50dbeb4ff1132422b776f6138f71934b17b2a5d40302f40cecdf2"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-04.webp",
+          "sha256": "28202bde43d4d8bf38406987a532853742076b468ac7732d04ef50e889540122"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-05.webp",
+          "sha256": "983958b79b0dcbb81ff162169e3f530a2a1cd82aec90756a62d43b284c7d3652"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-06.webp",
+          "sha256": "a49b9546510fea4855a802d4c757b493011cba4840a3e36ab578c5a35e11a61d"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-07.webp",
+          "sha256": "b9dd17bcc47ffa0864c74235d1560c3ed65985973fed051f54df3bc70cf8b765"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-13/page-08.webp",
+          "sha256": "9c80db652e877fe438df05005c0c165b3e6867254bc2be3f59e417d414452eff"
+        }
+      ]
+    },
+    "world-discovery-b-14": {
+      "reviewedAt": "2026-11-07T18:50:23.749770+00:00",
+      "reviewer": "root-independent",
+      "score": 3,
+      "openDefects": [],
+      "evidence": "Every final encoded illustration independently inspected against full manuscript and ordered sequence for physical plausibility, action/contact, exact state, continuity, cast, style and essential framing. Kit prepares to clip blue cart and red paper while Zoe holds a separate red cup. Both children have complete seated lower bodies on supported chairs; a normal-height table and open floor make the scene physically coherent. Two free silver clips share one green cord. The cup is red, the cart blue and the paper red before any swap; hands grip the clips naturally. Complete bodies, seats, chair legs and table support are visible. The clips now join a red cart and blue cup after the first swap; the unused sheet stays red. Kit leans forward naturally with legs and feet visible beneath a supported table. Zoe reaches toward the blue cup while the red cart remains attached through the same two clips and green cord. Her surprise, hand position and complete seated anatomy are clear. Zoe holds the restored red cup; cart is blue, paper red and both clips lie free. Nothing is duplicated, and the children sit naturally on complete chairs. Kit considers the blue cart and red sheet while Zoe keeps her red cup apart. Two unused clips and their green cord rest on the table; both full bodies and furniture supports are coherent. Zoe slides the red paper toward Kit while holding her red cup separately. Kit points, the cart remains blue and clips remain free; hand/paper contact and seated anatomy are natural. The joined clips grip the now red cart and blue paper, leaving the cup red and separate. One cord connects exactly two clips; full legs, chairs and table support remain clear. Kit rolls the red cart while Zoe drinks from her red cup. The blue paper and free connected clips retain the final state, with natural hand contact and visible seated legs.",
+      "assets": [
+        {
+          "path": "/guided-reading/world-discovery/b-14/cover.webp",
+          "sha256": "3a60d926c92ad41cb7fb06929c90d557b20c42e920617f61aea30ecf688ad170"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-01.webp",
+          "sha256": "e97b9978cf88111bd9b862e8067c1fe8646f6c2d47428197633ce40d2d32dcbc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-02.webp",
+          "sha256": "d5094358af25bb54d1fee6958cf451bc2f7458d66f5441882c17fca6f78ee0d8"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-03.webp",
+          "sha256": "490e6fdd3d15c1db6a69097325a113bb871f8de84fb04956306cfab917605bbc"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-04.webp",
+          "sha256": "70bf85b2432aa5a082d280604102cdc7d90eb43285d6fe82d176f55ddff8871f"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-05.webp",
+          "sha256": "3cda0512051ba5a3de517d6264ea1aad2f51336f252b16df4692e2c563e995fd"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-06.webp",
+          "sha256": "520cdd5ef7aedf16a9f089c406e495f63a1c094dd6bc7aecb7f237916d6f855e"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-07.webp",
+          "sha256": "4daaf537f3c30bc51bf6a70461d42d121f745840313b48ed64c554c9eadc159c"
+        },
+        {
+          "path": "/guided-reading/world-discovery/b-14/page-08.webp",
+          "sha256": "fe3a9d71e01826cdcf736edc389a756232836a9d2941741ea039d8ed6a933434"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-12",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:22:49.301Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-36f680ab-a1c5-454d-9ae6-83366ef88987.png",
+  "sourceSha256": "4e8f4765b68d9ff0bf6fb8c2cae55518071097885381b61d428f60639ae055c5",
+  "output": "public/guided-reading/world-discovery/d-12/cover.webp",
+  "outputSha256": "7dc435eb4817639bcd6bfb2e6b408a433e33090a2980bf602fbcce4551c49000",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Two tiny corrections only. The girl's visible lower legs beneath the table must be PLUM OVERALL TROUSERS with rolled plum cuffs just above her white sneakers, no bare brown calves or white socks; preserve leg lengths and feet. The SINGLE unused narrow strip on the table just right of the dispenser must be TAN CARDBOARD, same cardboard color as house/patch, not white tape. Keep exactly one unused narrow strip. Preserve house/open roof, near-left tape repair, red bed, broad patch INSIDE yellow tray, hands, bodies, furniture and framing unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-20983914-5f67-4f7a-8ca2-3424983dd27e.png",
+      "sha256": "b302aca825a9c4a61c203e9bf69142f24e3eeabceabc08121fbb40d22a136738"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "50af3f290ad84fa9841a41698c0d7d05032492bd97f356ff26d34397d56cd037",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "sha256": "7dc435eb4817639bcd6bfb2e6b408a433e33090a2980bf602fbcce4551c49000",
+    "note": "Generated source and installed WebP inspected. Near-left roof-edge repair matches page sequence; large center opening stays clear and red bed remains accessible. Detached patch is in yellow tray, one unused tan strip beside it. Natural standing bodies, four hands contacting the model and full plum trousers.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

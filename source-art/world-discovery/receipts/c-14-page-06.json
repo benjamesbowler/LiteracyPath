@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-14",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:00:38.781Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-513023d5-0117-4b0e-a443-8f9804fc5085.png",
+  "sourceSha256": "28af3b97c789198124add2f41308d27b8c1cb471373a60745a1ab2bc71da1046",
+  "output": "public/guided-reading/world-discovery/c-14/page-06.webp",
+  "outputSha256": "f815840d51f19937f0c15f5b9f51222c750557b4f7749126fd3fd36dba6fbdb3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Widen this exact composition by 25 percent on a landscape 3:2 canvas. Full shoes, hair, book and strip at least 10 percent inside edges. Preserve exactly SIX RIGHTWARD arrowheads along one unbroken gray shaft, completed fifth-arrow correction, ONE red bookmark and Kit holding the pink eraser. Natural seated body connections, gray table legs unchanged. Extend continuous full-bleed room, no border or rectangular vignette.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-af1c2552-2cee-404b-ba06-541df2f07ad6.png",
+      "sha256": "3b9ca785d0adac102e818a077cfa7f205b8fe56795d6a00688cf684ed55a1691"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6bf0214e4c9b70fd3e14b3805b6b47eaa35e1740a8d7791544e2a7f80254b40",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "f815840d51f19937f0c15f5b9f51222c750557b4f7749126fd3fd36dba6fbdb3",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Exactly six rightward heads after fifth is repaired; eraser held over repaired place, one separate pencil, bookmark remains on strip.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "f815840d51f19937f0c15f5b9f51222c750557b4f7749126fd3fd36dba6fbdb3",
+    "note": "Exactly six rightward heads after fifth is repaired; eraser held over repaired place, one separate pencil, bookmark remains on strip."
+  }
+}

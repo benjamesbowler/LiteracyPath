@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:43.424Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c91e9089-0140-4694-8a72-2c072429aa53.png",
+  "sourceSha256": "c16a02801990d8a10b1166476314326b5fd357cd6a7cdf448c980a233320c79c",
+  "output": "public/guided-reading/world-discovery/d-18/page-01.webp",
+  "outputSha256": "0d5e8c0aeba53998d703138ed89b1dde1c4ba29e0675084d5aed55b485a0af19",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Pull camera back to70percent whole-scene scale, keeping all existing elements together centered. Extend underwater water/sand naturally. Entire crab with every limb, stone and explanatory inset must lie within central70percent,15percent borders.  Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-36f40a12-8b5f-4b05-bb41-44eb1132e569.png",
+      "sha256": "25778709a955b38cd521dd6f506a46bfe558500d7b8697c0f387bb477120cea5"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.838Z",
+    "sha256": "0d5e8c0aeba53998d703138ed89b1dde1c4ba29e0675084d5aed55b485a0af19",
+    "note": "Generated native and installed full WebP directly inspected. Firm olive carapace and exactly two claws, six pointed walking legs and two rear paddles, all attached. Two eyestalks; natural underwater sand/grass/stone habitat.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

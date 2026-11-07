@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-15",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:51.071Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e40c53d4-df27-492e-8181-75b9f2775ebb.png",
+  "sourceSha256": "ee646f2ecefaed705bcf9fb6df5fa40bf0ea36300e30d97b9cd2352a44a4a893",
+  "output": "public/guided-reading/world-discovery/d-15/page-07.webp",
+  "outputSha256": "5e23bc90789e5f95c389d946635e390f42f3f30184872f826e12e19852522675",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Pull camera back 20percent: scale full dune plus fixed foreground rock together to80percent of current size around image center. Extend featureless sand/sky. BOTH ends of complete dune at least12percent from left/right edges; foreground rock left edge at least13percent from left and bottom edge at most83percent down. Preserve all explanatory marks and exact one dune silhouette, no new insets. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-91bb99b4-c45e-482c-b10f-c2d79e38c018.png",
+      "sha256": "2fd71eb1aba7d0ccd642e40c0bc52b2c0ea859485c5239a777e05be858629517"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-15-reference.webp",
+      "sha256": "8d824634e20522ba4b50694165eb1911fdabf99464f5263c3af089ab8cbe609c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "39b696f4defa16bcfb1cfc77b4fc3b026064c13a880a6bb1c34df05c4e8ad4c1",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:05:07.030Z",
+    "sha256": "5e23bc90789e5f95c389d946635e390f42f3f30184872f826e12e19852522675",
+    "note": "Generated native and installed full WebP directly inspected. Exactly two directional arrows link removal up left slope and deposition down right slope. Whole scene is coherent, core explanatory content complete and clear.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

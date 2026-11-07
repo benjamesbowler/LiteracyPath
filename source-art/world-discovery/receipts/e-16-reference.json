@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:34:09.866Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-daf34f77-4b2d-49cc-b947-39c80534cbe5.png",
+  "sourceSha256": "37f5ccd1d299e39a17c7815441c742bdc70cd789927e339abe8af24ce32d6592",
+  "output": "source-art/world-discovery/e-16-reference.webp",
+  "outputSha256": "c4946f4d0d0f84feded42a78cf977fb915d3baa7d473845045b0948a92a61aae",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image for a finished children's book. Completely redraw the reference board as separated simple production design references, NOT narrative panels. Keep canonical Kit and Zoe as two ordinary equal-height standing full-body figures on left, unchanged outfits and skin, just one pose each. At right show ONE accurate 3/4 orthographic view of a normal waist-high wooden classroom table: thin tabletop/apron, FOUR LONG straight legs, table height about half a standing child's full height, not coffee-table legs. The table is about 1.6 child heights long and 0.6 child height wide. Show exactly three identical yellow circular cards on equal gray stems and round bases, at near/middle/far depths with slight lateral offsets on this table. Blue mat on FLOOR at near short end, green mat on FLOOR beside right long side. No child leaning or hands on table. One small separate dusk-sky location key with three bright stars; one small plain empty classroom palette key. No other tables, no future scenes, no letters/numbers/dimension marks. White sheet background and clean dark outlines/flat colors. Physical geometry and believable relative scale take priority over filling the board. Preserve all other accepted scene elements, clean bold dark outlines and flat colors, natural credible scale and perspective. No words, letters, numbers or extra panels. Keep full 3:2 composition with essentials safely inside image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/jobs/e-16-reference-before-geometry-replacement.webp",
+      "sha256": "20c4947e151f8aac9f40a815acde85df832c41038fbc8fd8d5b8835c85961ec3",
+      "originalGenerationPath": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-16-reference.webp"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "c4946f4d0d0f84feded42a78cf977fb915d3baa7d473845045b0948a92a61aae",
+    "method": "codex-direct-image-inspection",
+    "note": "Inspected whole reference: equal-height canonical children, isolated credible long table with thin apron/four long legs, three identical circle stands and two floor viewing mats. Reference is design only; model scene geometry must be independently checked."
+  }
+}

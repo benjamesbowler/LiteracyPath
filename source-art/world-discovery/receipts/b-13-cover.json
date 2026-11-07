@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:39:40.024Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-36d1288b-4af3-465e-a77b-e5e5e5ff7a5b.png",
+  "sourceSha256": "601ea436dce9238bb0ecf7720ec0201f6e481bd58f3ed9bddbd6e862deea07cd",
+  "output": "public/guided-reading/world-discovery/b-13/cover.webp",
+  "outputSha256": "c6c0aa0eaff723b6feb6a5d72016b0c88c88da6a2a5cc35b8afc3da5ff09b2c5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this EXACT scene, natural full body carrier and Zoe on doorstep, same single letter/stamp/cancellation state, hands and proportions. Pull camera back an additional20percent so ALL complete people, head and shoes, envelope and whole doorstep are comfortably in central70percent. Carrier black shoes must be at least15percent above bottom edge. Extend real coherent continuous grass/path/house/sky naturally all around, no flat blank rectangle or unnatural patch. Keep house geometry and supported poses unchanged. Flat2D children illustration1536x1024, no text, no extra object.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7b187deb-f934-40d7-9af5-8e355b1f7af5.png",
+      "sha256": "b14fc7cc8fe14db7aa939c9e210ed7ab2caa1122a443650366075b1a9d275a0b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:40:53.327Z",
+    "sha256": "c6c0aa0eaff723b6feb6a5d72016b0c88c88da6a2a5cc35b8afc3da5ff09b2c5",
+    "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Whole carrier and Zoe naturally supported at path/doorstep with coherent scale and ample margins. Same single stamped cream envelope passes between them; no floating hands or outpaint blocks.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

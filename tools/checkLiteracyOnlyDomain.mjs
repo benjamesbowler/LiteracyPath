@@ -12,6 +12,8 @@ const TEXT_EXTENSION = /\.(?:c?js|mjs|jsx|ts|tsx|json|md|html|css|csv|sql|py|tom
 const RETIRED_CONTENT = /\b(?:maths?|mathematics|mathematical(?:ly)?|numeracy)\b|shapes_and_math/i;
 const RETIRED_PATH = /(?:^|[/_.-])(?:maths?|mathematics|numeracy)(?:$|[/_.-])/i;
 const FIRST_PARTY_PATH = /^(?:src|public|docs|tools|tests|supabase\/migrations)\//;
+const WORLD_DISCOVERY_MANUSCRIPT = /^src\/content\/world-discovery\/(?:cohorts\/\d{2}-\d{2}\/)?level-[a-e]\.json$/;
+const CLASSIFICATION_SOURCE_URL = "https://nrich.maths.org/problems/carroll-diagrams";
 
 function trackedAndUntrackedFiles(root) {
   return execFileSync(
@@ -33,6 +35,32 @@ function withoutProgrammingPrimitives(content, relativePath = "") {
     .replace(/\bMath\\\.[A-Za-z_$][\w$]*/g, "")
     .replace(/\bPhaser\.Math\b/g, "")
     .replace(/node_modules\/phaser\/src\/math\//g, "");
+}
+
+function withoutCanonicalScienceSourceUrl(content, relativePath) {
+  if (!WORLD_DISCOVERY_MANUSCRIPT.test(relativePath)) return content;
+  let books;
+  try {
+    books = JSON.parse(content);
+  } catch {
+    return content;
+  }
+  if (!Array.isArray(books)) return content;
+  let changed = false;
+  for (const book of books) {
+    if (!/^world-discovery-[a-e]-\d{2}$/.test(book?.id)) continue;
+    const sources = book.storyBibleReview?.scienceSources;
+    if (!Array.isArray(sources)) continue;
+    for (const source of sources) {
+      // This exact reference supports classification in a reading book. Mask
+      // only its URL in the scan copy; sibling prose and other URLs still fail.
+      if (source?.url === CLASSIFICATION_SOURCE_URL) {
+        source.url = "";
+        changed = true;
+      }
+    }
+  }
+  return changed ? JSON.stringify(books, null, 2) : content;
 }
 
 function tombstoneIssues(content) {
@@ -61,7 +89,10 @@ export function validateLiteracyOnlyDomain({ root = repoRoot, files } = {}) {
     }
     if (RETIRED_PATH.test(normalized)) issues.push(`${normalized}: retired domain term remains in its path`);
     if (!TEXT_EXTENSION.test(normalized)) continue;
-    const content = withoutProgrammingPrimitives(fs.readFileSync(absolutePath, "utf8"), normalized);
+    const content = withoutProgrammingPrimitives(
+      withoutCanonicalScienceSourceUrl(fs.readFileSync(absolutePath, "utf8"), normalized),
+      normalized
+    );
     const match = RETIRED_CONTENT.exec(content);
     if (match) {
       const line = content.slice(0, match.index).split("\n").length;

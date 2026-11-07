@@ -1,0 +1,1327 @@
+[
+  {
+    "id": "world-discovery-a-11",
+    "number": 11,
+    "title": "Zoe Picks Her Snack",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants a snack and first tries the crunchy food Kit chooses; she notices she wants a softer bite and chooses pear for herself.",
+      "failedAttempt": "Following Kit’s choice gives Zoe a crunchy bite when she wants something soft.",
+      "resolution": "Zoe tries a pear slice and independently chooses another slice with the texture she wants."
+    },
+    "setting": "A shaded picnic table at home during snack time. Kit sits left and Zoe right. Both remain in their locked costumes.",
+    "props": [
+      "One shallow cream serving basket with separate breadstick and ripe pear sections",
+      "Kit’s blue plate and Zoe’s plum plate",
+      "Two whole breadsticks initially: one for Kit; Zoe breaks the second into a short tasting piece and a longer remainder, both retained on her plate after tasting",
+      "Two pear wedges for Zoe, one first taste and one later choice"
+    ],
+    "coverBrief": "Zoe reaches for a pear wedge from the divided serving basket while Kit holds his breadstick. Separate blue and plum plates make their different choices clear. Ordinary relaxed snack scene; no writing.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe wants a snack.",
+        "imageBrief": "Zoe looks into the cream basket between the two plates. Both children have clean empty hands; the breadsticks and pear wedges are visible in separate basket sections.",
+        "imageAlt": "Zoe looks at the snacks in the basket.",
+        "pageDescription": "Zoe looks at the snacks in the basket.",
+        "state": "Both plates empty; all food still in basket.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit picks a crunchy breadstick.",
+        "imageBrief": "Kit takes one long breadstick in his right hand over his blue plate. Zoe watches the breadstick; her plum plate remains empty. Keep pear wedges untouched.",
+        "imageAlt": "Kit chooses a breadstick.",
+        "pageDescription": "Kit chooses a breadstick.",
+        "state": "Kit holds one whole breadstick; Zoe has not chosen.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe breaks off a piece.",
+        "imageBrief": "Zoe breaks a small end from a second breadstick over her plum plate. Show two hands, one short piece and the remaining longer section. Kit keeps his own breadstick.",
+        "imageAlt": "Zoe breaks a small piece of breadstick.",
+        "pageDescription": "Zoe breaks a small piece of breadstick.",
+        "state": "Zoe’s longer breadstick section lies on her plate; short piece in hand.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "She tries one crunchy bite.",
+        "imageBrief": "Zoe takes a small bite from her short breadstick piece, looking thoughtful rather than disgusted. The longer section stays on her plate. Kit eats his separate breadstick.",
+        "imageAlt": "Zoe tastes the crunchy breadstick.",
+        "pageDescription": "Zoe tastes the crunchy breadstick.",
+        "state": "A bite is missing from Zoe’s small piece; longer section unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe wants a soft bite.",
+        "imageBrief": "Zoe places her bitten piece beside the longer section on her plum plate and looks at the ripe pear wedges. Show her open hand poised toward the pear section, without a thought bubble.",
+        "imageAlt": "Zoe looks toward the soft pear slices.",
+        "pageDescription": "Zoe looks toward the soft pear slices.",
+        "state": "Both bread pieces remain on Zoe’s plate; no pear taken yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "She tries a pear slice.",
+        "imageBrief": "Zoe lifts one pear wedge and takes a small bite. Pale juicy flesh and green skin distinguish it from the breadstick. Her bread pieces remain visible on the plum plate.",
+        "imageAlt": "Zoe tastes a pear slice.",
+        "pageDescription": "Zoe tastes a pear slice.",
+        "state": "First pear wedge has one bite; bread pieces remain.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Zoe picks another pear slice.",
+        "imageBrief": "Zoe has finished her first small wedge and reaches into the pear section for a second wedge. Kit still has his own breadstick. Do not return bitten food to the basket.",
+        "imageAlt": "Zoe chooses a second pear slice.",
+        "pageDescription": "Zoe chooses a second pear slice.",
+        "state": "First small pear wedge eaten; second wedge selected; bread remains on plum plate.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe takes a juicy bite.",
+        "imageBrief": "Zoe bites the second pear wedge with a relaxed satisfied expression. Kit enjoys his separate breadstick beside her. The bread pieces on Zoe’s plate remain; avoid an empty-plate reward or pressure to finish.",
+        "imageAlt": "Zoe enjoys the pear slice she chose.",
+        "pageDescription": "Zoe enjoys the pear slice she chose.",
+        "state": "Zoe’s chosen pear is partly eaten; her unused bread is still on her plate.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Zoe try the pear?",
+        "listenFor": "She wanted a soft bite after trying the crunchy breadstick. Her choice can differ from Kit’s."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What did each child choose?",
+        "lookFor": "Zoe has a pear wedge; Kit has a breadstick. Their plates and choices are different."
+      }
+    },
+    "levelRationale": "Eight single present-tense clauses of four to six words. Repeated Zoe/she plus picks/tries/takes makes the preference change explicit; food and action are directly visible. No dialogue or implied moral.",
+    "languagePrep": [
+      {
+        "word": "crunchy",
+        "meaning": "firm and crisp when you bite it"
+      },
+      {
+        "word": "slice",
+        "meaning": "a thin piece cut from something"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-12",
+    "number": 12,
+    "title": "Kit Slows Down",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit and Zoe set out to the swings together; Kit runs ahead, notices that Zoe is left behind, waits, and changes his pace so they arrive together.",
+      "failedAttempt": "Kit’s fast dash separates him from the friend he wanted to play with.",
+      "resolution": "After waiting, Kit takes smaller slower steps beside Zoe and reaches the swings with her."
+    },
+    "setting": "A fenced school playground in daylight. One curved path runs from a blue gate past a low bench to two empty swings. No roadway.",
+    "props": [
+      "Blue playground gate at the start",
+      "Low wooden bench midway",
+      "Two empty yellow swing seats at the destination",
+      "Kit and Zoe carry nothing"
+    ],
+    "coverBrief": "Kit and Zoe walk side by side toward two empty yellow swings. Kit has deliberately shortened his stride. The curved path and blue gate are visible behind them.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit and Zoe walk to play.",
+        "imageBrief": "Kit and Zoe enter through the blue playground gate together. The same path leads visibly toward two yellow swings in the distance. Their bodies and feet face the destination.",
+        "imageAlt": "Kit and Zoe start toward the swings.",
+        "pageDescription": "Kit and Zoe start toward the swings.",
+        "state": "Children side by side at gate; swings ahead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit runs ahead of Zoe.",
+        "imageBrief": "Kit runs forward along the fenced path, arms naturally bent. Zoe continues walking behind him. Show an increasing gap, not a chase or race; both remain on the path.",
+        "imageAlt": "Kit runs ahead while Zoe walks.",
+        "pageDescription": "Kit runs ahead while Zoe walks.",
+        "state": "Kit passes the bench; Zoe approaches it; empty swings ahead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe walks far behind.",
+        "imageBrief": "View from near Kit looking back along the same path: Zoe is beside the bench, several child strides away. Kit is foreground near the next bend. Keep both in focus.",
+        "imageAlt": "Zoe is several steps behind Kit.",
+        "pageDescription": "Zoe is several steps behind Kit.",
+        "state": "Gap remains; no new destination or obstacle.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit looks back and stops.",
+        "imageBrief": "Kit stands still with both feet on the path and turns his head toward Zoe by the bench. His open posture shows noticing her; no pointing blame or exaggerated distress.",
+        "imageAlt": "Kit stops and looks back at Zoe.",
+        "pageDescription": "Kit stops and looks back at Zoe.",
+        "state": "Kit stationary; Zoe still walking toward him.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "He waits and waves to Zoe.",
+        "imageBrief": "Kit remains at the same path bend and gives Zoe a small open-hand wave. Zoe has moved past the bench and is approaching. Yellow swings stay beyond Kit.",
+        "imageAlt": "Kit waits and waves to Zoe.",
+        "pageDescription": "Kit waits and waves to Zoe.",
+        "state": "Kit’s location unchanged; the gap narrows.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe catches up with Kit.",
+        "imageBrief": "Zoe reaches Kit at the bend. Both stand together, facing the swings. The bench is now behind them and the blue gate is farther away.",
+        "imageAlt": "Zoe reaches Kit on the path.",
+        "pageDescription": "Zoe reaches Kit on the path.",
+        "state": "Children reunited at bend; no running by Zoe required.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit takes small slow steps.",
+        "imageBrief": "Side view of the children moving together with short matched strides. Kit looks toward Zoe, then the swings; neither pulls the other. Their spacing remains comfortable.",
+        "imageAlt": "Kit walks slowly beside Zoe.",
+        "pageDescription": "Kit walks slowly beside Zoe.",
+        "state": "Both advance together from bend; matched pace.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "They reach the swings together.",
+        "imageBrief": "Kit and Zoe stand beside the two empty yellow swings, each placing a hand on one chain of their own swing. The path and bench remain behind them. Their shared play destination is reached.",
+        "imageAlt": "Both children arrive at the swings.",
+        "pageDescription": "Both children arrive at the swings.",
+        "state": "Both at destination; each has access to one swing.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Kit change after he waited?",
+        "listenFor": "He took small slow steps so Zoe could walk beside him."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "Where is Zoe compared with Kit?",
+        "lookFor": "Zoe is farther back by the bench; Kit is nearer the bend."
+      }
+    },
+    "levelRationale": "Eight simple present-tense lines, each at most six words. The physical gap, wait, reunion and changed stride make the social cause and repair visible without inference-heavy dialogue.",
+    "languagePrep": [
+      {
+        "word": "ahead",
+        "meaning": "farther along the way"
+      },
+      {
+        "word": "catches up",
+        "meaning": "reaches someone who was ahead"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-13",
+    "number": 13,
+    "title": "Across Our Street",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How does this crossing help people reach the other sidewalk?",
+      "progression": "Two separated sidewalks → Marked crossing connects their route → Steady hand signal means wait → Children wait with a grown-up → White walking symbol changes the signal → Check for traffic before stepping out → Walk together while continuing to look → Reach the other sidewalk.",
+      "synthesis": "The marked route, signal and checking grown-up work together during one complete crossing; a signal alone does not guarantee safety.",
+      "scienceSources": [
+        {
+          "title": "NHTSA: Pedestrian Safety",
+          "url": "https://www.nhtsa.gov/road-safety/pedestrian-safety",
+          "claim": "Children under ten cross with adult guidance; wait for the walking signal, check traffic, walk across, and keep looking."
+        },
+        {
+          "title": "NHTSA: Child Pedestrian Safety Curriculum",
+          "url": "https://www.nhtsa.gov/node/6306",
+          "claim": "The US pedestrian WALK symbol is a white walking person; pedestrian signals supplement checking traffic."
+        }
+      ]
+    },
+    "setting": "One ordinary US-style signal-controlled neighborhood crossing in daylight. Two sidewalks, curb ramps and a straight marked crosswalk; no flags, readable street names or national landmarks.",
+    "props": [
+      "One pedestrian signal on the far-side pole, steady orange raised hand then steady white walking figure",
+      "Two stopped cars behind their stop lines once crossing begins",
+      "One unnamed grown-up: medium-brown skin, short curly dark hair, coral shirt, navy pants, brown shoes; approximately 1.7 times the children’s height"
+    ],
+    "coverBrief": "Kit and Zoe stand safely on the near sidewalk beside their grown-up, looking across the marked crosswalk to the opposite sidewalk. Far-side orange hand signal visible. No child stands in the road.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Two sidewalks line our street.",
+        "imageBrief": "Wide elevated view of two sidewalks separated by the street. Kit, Zoe and the grown-up are well behind the near curb. Establish one crosswalk and far-side signal pole for the entire sequence.",
+        "imageAlt": "Two sidewalks run beside the street.",
+        "pageDescription": "Two sidewalks run beside the street.",
+        "state": "Group on near sidewalk; no crossing begun.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Our crossing joins the sidewalks.",
+        "imageBrief": "Lower diagonal view clearly follows the white crosswalk bars between the two curb ramps. The group approaches the near ramp but remains on the sidewalk. Show far-side orange hand signal.",
+        "imageAlt": "A marked crossing runs between the sidewalks.",
+        "pageDescription": "A marked crossing runs between the sidewalks.",
+        "state": "Group reaches near crossing; hand signal steady.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bright hand says wait.",
+        "imageBrief": "Composition emphasizes the orange raised-hand pedestrian icon on the far-side pole, with the waiting group visible below across the road. Use a hand pictogram, no letters or invented countdown.",
+        "imageAlt": "An orange hand shines on the signal.",
+        "pageDescription": "An orange hand shines on the signal.",
+        "state": "Steady orange hand; children and adult stay behind curb.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "We wait beside our grown-up.",
+        "imageBrief": "Closer view of the adult between Kit and Zoe, holding one child’s hand in each hand. Everyone waits behind the curb and watches the road. Cars remain in their lanes, away from the crosswalk.",
+        "imageAlt": "Kit and Zoe wait with their grown-up.",
+        "pageDescription": "Kit and Zoe wait with their grown-up.",
+        "state": "Three people waiting; adult holds both children’s hands.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The walking sign lights up.",
+        "imageBrief": "The same far-side pedestrian signal now shows a steady white walking figure. The group remains on the sidewalk; show both cars fully stopped behind their stop lines before anyone moves.",
+        "imageAlt": "The white walking figure lights up.",
+        "pageDescription": "The white walking figure lights up.",
+        "state": "Signal changed; group still checks from curb; cars stopped.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "We all check for cars.",
+        "imageBrief": "Adult and children look along the road while remaining at the curb. One car is visible fully stopped behind its line in each direction. No motion arrows or suggestion that the icon alone makes crossing safe.",
+        "imageAlt": "The group checks the road before crossing.",
+        "pageDescription": "The group checks the road before crossing.",
+        "state": "Adult keeps both hands held; cars stopped; group still on curb.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "We cross beside our grown-up.",
+        "imageBrief": "Adult walks between Kit and Zoe along the marked crossing, holding their hands and still checking the road. All feet are within the crossing. Cars remain stopped behind the lines.",
+        "imageAlt": "The children walk across with their grown-up.",
+        "pageDescription": "The children walk across with their grown-up.",
+        "state": "One continuous crossing underway; signal still white walking figure.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "We reach the other sidewalk.",
+        "imageBrief": "All three people are now completely on the far sidewalk beyond the curb ramp, hands still held. The same crosswalk, stopped cars and near-side starting point are visible behind them.",
+        "imageAlt": "Everyone reaches the opposite sidewalk.",
+        "pageDescription": "Everyone reaches the opposite sidewalk.",
+        "state": "Crossing complete; all feet off roadway.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did the group do before crossing?",
+        "listenFor": "They waited with a grown-up, watched for the walking signal, and checked that traffic had stopped."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where are the children while they check?",
+        "lookFor": "They are still on the sidewalk beside their grown-up, before stepping into the crossing."
+      }
+    },
+    "levelRationale": "Eight concrete present-tense lines of five or six words. One crossing unfolds in visible sequence; repeated we/our anchors the shared community route. The grown-up and traffic checks are explicit.",
+    "languagePrep": [
+      {
+        "word": "sidewalk",
+        "meaning": "a path for people beside a road"
+      },
+      {
+        "word": "crossing",
+        "meaning": "a marked place to go across a road"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-14",
+    "number": 14,
+    "title": "The Paper Wheel",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "storySpine": "Kit needs one replacement wheel for his wagon. Folding a drawing makes the drawn object real at its drawn size, but his first wheel is too big. He draws and folds a smaller wheel that fits.",
+      "failedAttempt": "The first drawn wheel becomes real at its huge drawn size and bumps against the wagon bed instead of fitting the axle.",
+      "resolution": "Kit repeats the established folding rule with a correctly sized drawing, fits the small wheel, and rolls the repaired wagon.",
+      "magicRule": "Folding one complete drawing turns that sheet into the pictured object at its drawn size and color. The sheet is consumed. Existing objects persist; the rule does not resize or erase them."
+    },
+    "setting": "A bright indoor play corner with a low pale wood art table and a cream wall. One red toy wagon waits on the floor. Kit remains in his locked costume.",
+    "props": [
+      "One red toy wagon with a blue pull handle, three attached small yellow wheels and one exposed front axle stub",
+      "Two separate large square cream drawing sheets; each disappears only when its folded drawing becomes a real wheel",
+      "One yellow and one black crayon",
+      "First wheel: huge yellow disk with central hole, four times the diameter of the wagon’s small wheels",
+      "Second wheel: small yellow disk with central hole, matching the three original wheels; simple push-fit toy hub"
+    ],
+    "coverBrief": "Kit kneels beside his red wagon and holds a small yellow replacement wheel. A comically huge yellow wheel leans against the wall behind him. Two crayons lie on the low table. Show four wheels total on/for the wagon plus the separate huge wheel, no duplicate wagon.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit’s wagon needs a wheel.",
+        "imageBrief": "Kit crouches beside the stationary wagon and studies its exposed near front axle stub. Three small yellow wheels remain attached; angle the wagon so the missing wheel is unambiguous. Two blank sheets and crayons are on the low table.",
+        "imageAlt": "Kit looks at his wagon’s missing wheel.",
+        "pageDescription": "Kit looks at his wagon’s missing wheel.",
+        "state": "Wagon has three attached wheels and one bare stub; both sheets blank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit draws one big wheel.",
+        "imageBrief": "Kit draws one large yellow circular wheel with a black outline and central hole on the first cream sheet. The drawing nearly fills the sheet and is visibly much larger than the wagon wheels below.",
+        "imageAlt": "Kit draws a very large wheel.",
+        "pageDescription": "Kit draws a very large wheel.",
+        "state": "First sheet has complete large wheel drawing; second sheet blank; wagon unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "His folded drawing becomes real.",
+        "imageBrief": "Show one magical transformation at the fold between Kit’s hands: the folded first sheet becomes the huge solid yellow wheel. Use a few crisp flat sparkle marks, not a second duplicate wheel. The sheet itself is disappearing into the object.",
+        "imageAlt": "The folded drawing becomes a huge wheel.",
+        "pageDescription": "The folded drawing becomes a huge wheel.",
+        "state": "First sheet consumed; one huge wheel exists; second sheet still blank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The huge wheel does not fit.",
+        "imageBrief": "Kit holds the huge wheel at the wagon’s exposed axle. Its upper rim hits the red wagon bed, preventing its central hole from meeting the stub. Three original small wheels remain attached; no forced or broken axle.",
+        "imageAlt": "The huge wheel bumps against the wagon.",
+        "pageDescription": "The huge wheel bumps against the wagon.",
+        "state": "Huge wheel separate and unusable; wagon still missing one wheel.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit draws a small wheel.",
+        "imageBrief": "The huge wheel now leans against the cream wall. Kit uses the second sheet to draw a small yellow wheel matching the visible original wagon wheels. First sheet must not return.",
+        "imageAlt": "Kit draws a smaller wheel.",
+        "pageDescription": "Kit draws a smaller wheel.",
+        "state": "Second drawing complete; huge wheel against wall; wagon unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "He folds the drawing again.",
+        "imageBrief": "Kit folds the second sheet between his hands; a small solid yellow wheel begins to replace the paper at the fold, using the same crisp sparkle cue as page three. Huge wheel remains by the wall.",
+        "imageAlt": "Kit folds his small wheel drawing.",
+        "pageDescription": "Kit folds his small wheel drawing.",
+        "state": "Second sheet is being consumed; one small replacement forms; huge wheel persists.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit fits the little wheel.",
+        "imageBrief": "Kit presses the small replacement wheel onto the near front axle with one hand while steadying the red wagon bed with the other. Match its size, yellow color and simple hub to the original three wheels.",
+        "imageAlt": "Kit puts the small wheel on the wagon.",
+        "pageDescription": "Kit puts the small wheel on the wagon.",
+        "state": "Four small wheels now attached; both paper sheets consumed; huge wheel still by wall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Now the wagon rolls.",
+        "imageBrief": "Kit walks forward pulling the blue handle, and the repaired red wagon rolls on its four matching small wheels. Keep the huge unused yellow wheel leaning against the wall as the visible result of the first attempt.",
+        "imageAlt": "Kit pulls his repaired wagon.",
+        "pageDescription": "Kit pulls his repaired wagon.",
+        "state": "Repair works; four attached small wheels; one separate huge wheel remains.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit draw another wheel?",
+        "listenFor": "The first wheel was too big to fit; his second drawing made a smaller wheel."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where is the first wheel now?",
+        "lookFor": "The huge wheel still leans against the wall while the wagon uses the smaller replacement."
+      }
+    },
+    "levelRationale": "Eight single present-tense clauses of four to six words. Big/small and fit/not fit are directly pictured. The folding rule appears before its successful reuse; no dialogue or complex explanation is required.",
+    "languagePrep": [
+      {
+        "word": "folds",
+        "meaning": "bends one part of the paper over another"
+      },
+      {
+        "word": "fits",
+        "meaning": "is the right size for a place"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-15",
+    "number": 15,
+    "title": "Where Sand Meets Sea",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Does the wet edge of the sea stay in one place as waves arrive?",
+      "progression": "Locate sand and sea → Watch an approaching wave → Follow its water up the sand → Use a shell as a fixed landmark → Watch the water return seaward → Compare the exposed wet sand → Notice the next wave → Recognize the moving edge.",
+      "synthesis": "The edge shifts up and down the beach during successive waves; this short sequence describes waves, not the much slower tidal cycle.",
+      "scienceSources": [
+        {
+          "title": "NOAA National Weather Service: Rip Current Science — swash and backwash",
+          "url": "https://www.weather.gov/safety/ripcurrent-science",
+          "claim": "Wave uprush moves water up the shore and backwash returns it seaward; the swash zone becomes wet and exposed repeatedly. This book depicts one gentle example, not tides or universal shell stability."
+        }
+      ]
+    },
+    "setting": "A gently sloping sandy beach in calm daylight. One low wave breaks offshore and sends shallow water up the sand. No people, storm surf or animals.",
+    "props": [
+      "One small white empty clam half-shell partly embedded at mid-beach",
+      "One rounded gray pebble farther up the beach and to the left",
+      "Fixed distant low headland on the right horizon"
+    ],
+    "coverBrief": "A thin curved edge of shallow turquoise seawater reaches a small white clam shell on golden sand. A dry gray pebble lies farther up the beach. Show a low incoming wave beyond, not an enormous surf wall.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The sand meets the sea.",
+        "imageBrief": "Wide view establishes the sloping beach, white shell near the water and gray pebble farther inland. The low headland is on the right horizon. Distinguish dry pale sand from darker damp sand with clean flat color.",
+        "imageAlt": "Sand slopes down to the sea.",
+        "pageDescription": "Sand slopes down to the sea.",
+        "state": "Water below the shell; shell and pebble fixed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A wave rolls toward shore.",
+        "imageBrief": "Same beach geography, closer to the water. A small low wave approaches and begins to spill; the white shell remains above the water edge and the gray pebble remains inland left.",
+        "imageAlt": "A small wave approaches the sand.",
+        "pageDescription": "A small wave approaches the sand.",
+        "state": "Wave approaching; shell still exposed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Water runs up the sand.",
+        "imageBrief": "Show a thin sheet of water spreading inland across darker sand after the low wave breaks. Its advancing curved edge is just below the white shell; no arrows or labels.",
+        "imageAlt": "Shallow water spreads over the sand.",
+        "pageDescription": "Shallow water spreads over the sand.",
+        "state": "Water advancing toward shell; pebble remains dry.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It reaches the little shell.",
+        "imageBrief": "Close low view of shallow clear water touching and flowing around the embedded white shell. Keep shell shape and location unchanged; gray pebble remains above the waterline in the background.",
+        "imageAlt": "The water reaches the white shell.",
+        "pageDescription": "The water reaches the white shell.",
+        "state": "Shell touched by shallow water; pebble dry.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The water slips back down.",
+        "imageBrief": "Same view now shows the thin water sheet draining seaward, exposing the upper edge of the shell and leaving darker wet sand. The shell remains partly embedded and does not float.",
+        "imageAlt": "Water moves back toward the sea.",
+        "pageDescription": "Water moves back toward the sea.",
+        "state": "Water retreating; shell stays in place.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The shell stays on wet sand.",
+        "imageBrief": "The white shell is fully exposed on darker wet sand, with the water edge lower down the beach. The gray pebble remains in its original drier patch; no changed tide or sudden weather.",
+        "imageAlt": "The shell rests on newly wet sand.",
+        "pageDescription": "The shell rests on newly wet sand.",
+        "state": "One wave wash complete; shell exposed; water below it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Here comes the next wave.",
+        "imageBrief": "Return to a wider view with the next low wave approaching. Preserve shell, pebble and headland positions. A thin new swash starts below the shell; do not imply every wave reaches identical height.",
+        "imageAlt": "Another low wave comes toward shore.",
+        "pageDescription": "Another low wave comes toward shore.",
+        "state": "Second wave begins to approach the fixed landmarks.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The sea’s edge moves again.",
+        "imageBrief": "Show the second shallow wash advancing along a slightly different curved edge near the white shell. Fixed shell and pebble make the changed water boundary visible. No claim that this is a rising tide.",
+        "imageAlt": "The moving water edge reaches the sand again.",
+        "pageDescription": "The moving water edge reaches the sand again.",
+        "state": "A new wave shifts the water boundary; landmarks unchanged.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moves back down the beach?",
+        "listenFor": "The water from the wave; the shell in this example stays on the wet sand."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "How can you see where the water went?",
+        "lookFor": "The darker wet sand surrounds the shell above the current water edge."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses of five or six words. Repeated water/sand/shell and a fixed visual landmark support the ordered wave observation. No technical wave or tide vocabulary is required in the reading text.",
+    "languagePrep": [
+      {
+        "word": "shore",
+        "meaning": "the edge of land beside water"
+      },
+      {
+        "word": "wave",
+        "meaning": "a moving rise in the surface of water"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-16",
+    "number": 16,
+    "title": "A Streak in the Sky",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What makes a brief bright streak appear among the stars?",
+      "progression": "Notice the star field → Observe a brief streak → Name that light a meteor → Look more closely at the small space rock entering air → Connect fast entry with heating → Follow this tiny rock as it burns away → See the streak fade → Return to the unchanged distant stars.",
+      "synthesis": "The meteor is a brief light from a small rock entering Earth’s air, not a star leaving the sky; this illustrated tiny rock burns up rather than reaching the ground.",
+      "scienceSources": [
+        {
+          "title": "NASA: Basics of Space Flight — Chapter 1, The Solar System",
+          "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter1-3/",
+          "claim": "Fast meteoroid entry compresses and heats air, producing glow and transferring heat to the object; small objects can burn up. The meteor is the observed light."
+        },
+        {
+          "title": "NASA: The Atmosphere After Dark",
+          "url": "https://science.nasa.gov/sun/the-atmosphere-after-dark/",
+          "claim": "Small space particles heat and burn as they enter the atmosphere; sufficiently large particles produce visible streaks."
+        }
+      ]
+    },
+    "setting": "A clear night sky above a low dark hill, with a middle explanatory close view high above Earth. No humans, rockets or dramatic impact.",
+    "props": [
+      "Fixed sparse star pattern in opening and closing landscape views",
+      "One tiny irregular dark gray meteoroid in explanatory views",
+      "Earth’s curved blue atmospheric rim shown only in explanatory views"
+    ],
+    "coverBrief": "A slender white-gold meteor streak crosses a clear navy night sky above a low hill. Small distant stars remain separate points. No cartoon star falling, large flaming asteroid or ground impact.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Stars shine in the dark.",
+        "imageBrief": "Landscape view with a low hill at the bottom and sparse fixed white star points above. Keep the sky uncluttered and establish the exact hill silhouette for the closing view.",
+        "imageAlt": "Small stars shine above a dark hill.",
+        "pageDescription": "Small stars shine above a dark hill.",
+        "state": "No meteor yet; distant star pattern fixed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "One bright streak flashes past.",
+        "imageBrief": "Same landscape and stars. Add one narrow short-lived white-gold streak diagonally across an empty area of sky, leaving every original star in place. No star shape at its tip.",
+        "imageAlt": "A bright streak crosses the starry sky.",
+        "pageDescription": "A bright streak crosses the starry sky.",
+        "state": "One meteor light appears; stars remain.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "That streak is a meteor.",
+        "imageBrief": "Closer landscape framing emphasizes the same slender streak with a small bright leading point, retaining the hill edge and distant stars for context. Do not draw an enormous visible rock from the ground.",
+        "imageAlt": "The meteor makes a brief bright line.",
+        "pageDescription": "The meteor makes a brief bright line.",
+        "state": "Same brief event; no new or second meteor.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "A space rock enters Earth’s air.",
+        "imageBrief": "Explanatory close view above Earth’s curved thin blue atmospheric rim: one small irregular gray rock moves into the air from dark space. Enlarge the rock for explanation without suggesting a planet-size object; no scale labels.",
+        "imageAlt": "A small space rock enters the air above Earth.",
+        "pageDescription": "A small space rock enters the air above Earth.",
+        "state": "Explanatory earlier moment of the same event; rock initially dark.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Air heats the speeding rock.",
+        "imageBrief": "Continue the close view with the same tiny rock lower in the upper atmosphere. Its leading surface and the compressed air around it glow white-gold; keep the atmosphere thin and the ground far below.",
+        "imageAlt": "The fast-moving rock and nearby air glow.",
+        "pageDescription": "The fast-moving rock and nearby air glow.",
+        "state": "Tiny rock heating and losing material; no flame in empty space.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The tiny rock burns up.",
+        "imageBrief": "The tiny rock has nearly disappeared into a small bright trail high in the air. Show a few minute fading particles, no chunk reaching the ground, explosion cloud or crater.",
+        "imageAlt": "The tiny rock breaks down high in the air.",
+        "pageDescription": "The tiny rock breaks down high in the air.",
+        "state": "This small example is consumed in the atmosphere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The bright streak fades away.",
+        "imageBrief": "Return to the original hill and star pattern. Show only a very faint short remaining glow where the streak was, with no rock, fire or falling star reaching the hill.",
+        "imageAlt": "The meteor’s light fades above the hill.",
+        "pageDescription": "The meteor’s light fades above the hill.",
+        "state": "Event ending; hill and stars unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The stars still shine above.",
+        "imageBrief": "Match the opening night landscape and fixed star positions. The streak is completely gone; stars remain points above the same low hill. No newly missing star.",
+        "imageAlt": "The stars remain after the meteor fades.",
+        "pageDescription": "The stars remain after the meteor fades.",
+        "state": "Meteor gone; original star field remains.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Was the bright streak a star falling?",
+        "listenFor": "No. It came from a small space rock entering Earth’s air; the distant stars stayed in the sky."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What is still in the sky?",
+        "lookFor": "The stars remain, but the meteor’s brief streak has gone."
+      }
+    },
+    "levelRationale": "Eight single clauses of five or six words with concrete verbs shine/flashes/enters/heats/fades. Meteor is the one supported topic word. The return to the same star field makes the distinction visible.",
+    "languagePrep": [
+      {
+        "word": "meteor",
+        "meaning": "the bright light made when a small space rock enters Earth’s air"
+      },
+      {
+        "word": "streak",
+        "meaning": "a long thin mark or flash"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-17",
+    "number": 17,
+    "title": "A Shell That Fits",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a growing hermit crab find a shell that fits?",
+      "progression": "A growing crab needs more room → Its current shell is too small → It encounters another small empty shell → That shell also fails to fit → A larger empty shell is available → The crab inspects the opening → It transfers into the larger shell → The new shell shelters its abdomen.",
+      "synthesis": "The crab changes borrowed snail shells as it grows; it does not grow the shell itself, and a merely different shell need not be a better fit.",
+      "scienceSources": [
+        {
+          "title": "MarLIN: Bernhard’s hermit crab (Pagurus bernhardus)",
+          "url": "https://www.marlin.ac.uk/species/detail/1169",
+          "claim": "Pagurus bernhardus is reddish and has a substantially larger right claw; it occupies suitable snail shells, including whelks, on rocky and sandy seabeds."
+        },
+        {
+          "title": "Monterey Bay Aquarium: Hermit crab",
+          "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/hermit-crab",
+          "claim": "Pagurus hermit crabs shelter a soft abdomen in discarded snail shells, move to larger shells as they grow, and have ten legs: claws, two walking pairs and two shell-gripping pairs."
+        },
+        {
+          "title": "Yorkshire Wildlife Trust: Hermit crab",
+          "url": "https://www.ywt.org.uk/wildlife-explorer/marine/crustaceans/hermit-crab",
+          "claim": "The common hermit crab Pagurus bernhardus moves into larger shells as it grows; the right pincer is larger than the left."
+        },
+        {
+          "title": "Svenja Tidau, University of Plymouth: Driven to distraction? Shell assessment ethogram",
+          "url": "https://researchportal.plymouth.ac.uk/files/38445830/2019Tidau10547016PhD.pdf",
+          "claim": "The shell-assessment ethogram documents claw contact and insertion into an empty shell opening before the crab transfers its abdomen into the new shell."
+        }
+      ]
+    },
+    "setting": "One shallow underwater rocky-sand habitat on a temperate northeast Atlantic coast. One common hermit crab, Pagurus bernhardus, remains underwater throughout.",
+    "props": [
+      "One reddish-brown Pagurus bernhardus with larger right claw, two eyestalks, two long antennae and two shorter antennules, two pairs of visible walking legs; rear two leg pairs stay hidden holding the shell",
+      "Old occupied brown whelk shell with one pale band",
+      "One too-small empty gray shell",
+      "One suitable larger empty cream whelk shell",
+      "One flat slate-colored stone and short green seaweed tuft remain fixed"
+    ],
+    "coverBrief": "The same reddish-brown hermit crab looks out from a suitable cream whelk shell underwater. Its empty old brown shell rests nearby; larger right claw and four walking legs visible, rear gripping legs hidden. No smiling human face.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This crab needs a bigger shell.",
+        "imageBrief": "Introduce the hermit crab wearing its small brown shell near the slate stone. Its front body protrudes farther than a comfortably withdrawn position; keep the soft abdomen inside. Empty gray and cream shells are farther ahead.",
+        "imageAlt": "A hermit crab wears a small brown shell.",
+        "pageDescription": "A hermit crab wears a small brown shell.",
+        "state": "Brown shell occupied; gray and cream shells empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The old shell is too small.",
+        "imageBrief": "Close side view shows the crab trying to draw back, with claws still outside the narrow brown opening. Do not show injury, squeezed organs or a shell cracking like an egg.",
+        "imageAlt": "The crab cannot tuck far into its old shell.",
+        "pageDescription": "The crab cannot tuck far into its old shell.",
+        "state": "Old shell still occupied and intact; cramped fit visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "It finds a small empty shell.",
+        "imageBrief": "The crab approaches the gray empty shell beside the slate stone while still wearing the brown shell. Its opening faces the crab and viewer, clearly empty; no snail or second crab inside.",
+        "imageAlt": "The crab finds an empty gray shell.",
+        "pageDescription": "The crab finds an empty gray shell.",
+        "state": "Crab remains in brown shell; gray shell inspected externally.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "That shell is too small too.",
+        "imageBrief": "Show the crab’s larger right claw beside the gray shell opening to make its small size clear. The crab does not leave its current shell for this unsuitable one. Cream shell remains farther along.",
+        "imageAlt": "The gray shell is also too small.",
+        "pageDescription": "The gray shell is also too small.",
+        "state": "Gray shell rejected; crab still wears brown shell.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Here is a bigger empty shell.",
+        "imageBrief": "Crab reaches the cream whelk shell. Its empty opening is visibly wider than the brown and gray openings, but not absurdly oversized. Keep the slate stone and gray shell behind.",
+        "imageAlt": "A larger cream shell lies ahead.",
+        "pageDescription": "A larger cream shell lies ahead.",
+        "state": "Cream shell empty; crab in brown shell beside it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The crab feels inside.",
+        "imageBrief": "Crab remains inside the brown shell while its smaller claw probes the cream shell opening. Its larger right claw steadies the rim. Show natural crustacean joints, two eyestalks and no extra arms.",
+        "imageAlt": "The crab checks the empty shell’s opening.",
+        "pageDescription": "The crab checks the empty shell’s opening.",
+        "state": "Inspection before transfer; only one crab; new shell empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "It moves into the bigger shell.",
+        "imageBrief": "Show one crab completing its transfer into the cream shell, with its soft abdomen now mostly hidden inside. The old brown shell is empty immediately behind; no duplicated head or body between shells.",
+        "imageAlt": "The crab moves into the cream shell.",
+        "pageDescription": "The crab moves into the cream shell.",
+        "state": "Cream shell becomes occupied; brown shell now empty; gray shell remains empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "This shell fits the crab.",
+        "imageBrief": "Crab rests securely in the cream shell with front legs and claws comfortably near the opening. Empty brown and gray shells remain behind. Maintain larger right claw, two eyestalks and four visible walking legs.",
+        "imageAlt": "The crab settles into its larger shell.",
+        "pageDescription": "The crab settles into its larger shell.",
+        "state": "Successful fit; one occupied cream shell and two empty shells.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did the crab leave its old shell?",
+        "listenFor": "It needed more room as it grew; it found and checked a larger empty shell."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which shell has the crab now?",
+        "lookFor": "The larger cream shell. The brown and gray shells behind it are empty."
+      }
+    },
+    "levelRationale": "Eight concrete present-tense lines of five or six words. Repeated shell/crab plus small/bigger/empty/inside provides explicit comparison and sequence. The scientific name is confined to production metadata.",
+    "languagePrep": [
+      {
+        "word": "hermit crab",
+        "meaning": "a crab that shelters its soft abdomen in an empty snail shell"
+      },
+      {
+        "word": "empty",
+        "meaning": "with nothing inside"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-18",
+    "number": 18,
+    "title": "Wings Ready to Fly",
+    "topic": "life-cycles",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why does a newly emerged butterfly wait before its first flight?",
+      "progression": "Adult emerges from chrysalis → Soft folded wings cannot yet support flight → Folded wings begin to lengthen → Wings expand → Butterfly stays hanging → Wings firm → Wing movement becomes possible → Adult makes its first flight toward nectar.",
+      "synthesis": "Emergence is followed by wing expansion and firming before flight; this book closely observes that one life-stage transition, rather than retelling the full egg-to-adult cycle.",
+      "scienceSources": [
+        {
+          "title": "Florida Museum: A monarch metamorphosis",
+          "url": "https://www.floridamuseum.ufl.edu/exhibits/blog/monarch-metamorphosis-video/",
+          "claim": "After emerging, a monarch pumps body fluid into its wings so they expand and harden before first flight."
+        },
+        {
+          "title": "Smithsonian Gardens: About Butterflies",
+          "url": "https://gardens.si.edu/learn/for-educators/cultivating-habitat/butterfly-gardening/about-butterflies/",
+          "claim": "Adult butterfly wings take shape and harden after emergence before feeding and flight activities."
+        }
+      ]
+    },
+    "setting": "A garden with one monarch chrysalis hanging beneath a horizontal twig and a purple nectar flower nearby. One female monarch, Danaus plexippus, develops through the sequence.",
+    "props": [
+      "One hanging chrysalis shell, initially split and later empty, with a small gold rim detail",
+      "One horizontal brown twig with two fixed green leaves",
+      "Female monarch: orange and black patterned wings without male hindwing scent spots; four wings, two antennae, two eyes, six legs including the reduced foreleg pair",
+      "One purple coneflower lower right in later wide views"
+    ],
+    "coverBrief": "One female monarch hangs beneath the twig beside its empty chrysalis, with full-sized orange and black wings now extended and firm. Purple coneflower nearby. Anatomically accurate butterfly, no human face or extra antennae.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A butterfly leaves its chrysalis.",
+        "imageBrief": "Close view of the female monarch finishing emergence from a split chrysalis under the twig. Its orange-black wings are small and crumpled beside a fuller abdomen. Show one butterfly, not a caterpillar exiting.",
+        "imageAlt": "A butterfly emerges with small folded wings.",
+        "pageDescription": "A butterfly emerges with small folded wings.",
+        "state": "Chrysalis split; adult emerging; wings not expanded.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Its soft wings cannot lift it.",
+        "imageBrief": "The monarch hangs from the twig beside the now empty chrysalis. Wings remain soft and folded close to its body; feet grip the twig. Do not show falling, injury or flight motion.",
+        "imageAlt": "The butterfly hangs with soft folded wings.",
+        "pageDescription": "The butterfly hangs with soft folded wings.",
+        "state": "Adult fully outside; empty chrysalis persists; wings crumpled.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The folded wings stretch down.",
+        "imageBrief": "Close side view of the same hanging monarch shows its crumpled wings lengthening downward but still folded into narrow soft shapes. Their orange and black pattern is beginning to open. Keep the twig and empty chrysalis in the same positions; one natural scene, no diagram, arrows or inset.",
+        "imageAlt": "The butterfly’s folded wings begin to lengthen.",
+        "pageDescription": "The butterfly’s folded wings begin to lengthen.",
+        "state": "Wing expansion begins; wings longer but still narrow and folded; butterfly continues hanging.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The wings grow wide.",
+        "imageBrief": "Show the monarch hanging in the same orientation with orange-black wings visibly expanded to full outline. Pattern regions enlarge coherently; abdomen is slimmer. Wings are still soft and downward, not already in flight.",
+        "imageAlt": "The butterfly’s wings expand.",
+        "pageDescription": "The butterfly’s wings expand.",
+        "state": "Wings fully extended in size but still firming; empty chrysalis unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The butterfly hangs very still.",
+        "imageBrief": "Slightly wider composition shows the butterfly hanging beside its empty chrysalis, wings held down without blur. The purple flower is visible lower right, beyond reach. Use calm daylight, no stopwatch or time jump labels.",
+        "imageAlt": "The butterfly stays on the twig.",
+        "pageDescription": "The butterfly stays on the twig.",
+        "state": "Wings remain full-sized; waiting phase before flight.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Its wings become firm.",
+        "imageBrief": "Closer side view of the same monarch with crisp fully shaped wings held steadily together above and behind the body. Keep four wings anatomically overlapping, two antennae and reduced forelegs correctly placed.",
+        "imageAlt": "The wings now hold their full shape.",
+        "pageDescription": "The wings now hold their full shape.",
+        "state": "Wings firm; butterfly still grips twig; no new chrysalis.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Now the wings can beat.",
+        "imageBrief": "The monarch opens its firm wings and begins the first wingbeat while releasing the twig. Show one body and one set of four wings; subtle short motion lines only, no duplicate ghost butterfly.",
+        "imageAlt": "The butterfly begins to beat its wings.",
+        "pageDescription": "The butterfly begins to beat its wings.",
+        "state": "First takeoff starts; empty chrysalis remains attached above.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The butterfly flies to a flower.",
+        "imageBrief": "Wide view of the same female monarch arriving at the purple coneflower, wings firm and spread. Twig with empty chrysalis remains behind. A coiled or naturally extending proboscis is correct; no human tongue.",
+        "imageAlt": "The butterfly reaches the purple flower.",
+        "pageDescription": "The butterfly reaches the purple flower.",
+        "state": "Adult capable of flight; empty chrysalis left on twig.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did the butterfly hang still before flying?",
+        "listenFor": "Its wings needed to expand and become firm after it came out of the chrysalis."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "How have the wings changed?",
+        "lookFor": "They are much larger and less folded than when the butterfly first emerged."
+      }
+    },
+    "levelRationale": "Eight single present-tense lines of four to six words. One closely pictured change proceeds from soft to firm wings. Butterfly/chrysalis/folded are supported orally and visually; no full-cycle terminology list or abstract timescale.",
+    "languagePrep": [
+      {
+        "word": "chrysalis",
+        "meaning": "the case in which a caterpillar changes into a butterfly"
+      },
+      {
+        "word": "folded",
+        "meaning": "bent together instead of spread out"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-19",
+    "number": 19,
+    "title": "Sort by Feel",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can things with different shapes belong in the same group?",
+      "progression": "Introduce four contrasting objects → Inspect rough brick surface → Inspect smooth spoon surface → Start two groups using those examples → Add rough bark to the brick → Add smooth pebble to the spoon → Compare different shapes within each group → Name surface feel as the grouping rule.",
+      "synthesis": "For these selected samples, rough or smooth surface feel determines the groups even when shapes and materials differ; the book does not claim all bricks, bark, spoons or pebbles share one texture.",
+      "scienceSources": [
+        {
+          "title": "NGSS: Structure and Properties of Matter",
+          "url": "https://www.nextgenscience.org/topic-arrangement/2structure-and-properties-matter",
+          "claim": "Observable properties such as texture can be used to group materials; different materials can share properties. These four samples are specific examples, not a claim about every member of a material category."
+        }
+      ]
+    },
+    "setting": "A low classroom investigation table in daylight. Zoe inspects four clean adult-selected objects with no sharp edges. Neutral cream tabletop and two plain circular sorting mats.",
+    "props": [
+      "One small red brick with a visibly rough dimpled surface and rounded safe edges",
+      "One smooth silver metal spoon",
+      "One clean rough brown bark piece without splinters",
+      "One smooth oval gray pebble",
+      "One teal circular mat left and one yellow circular mat right; no text labels"
+    ],
+    "coverBrief": "Zoe lightly touches the rough brick and smooth pebble beside two sorting mats. Rough brick and bark belong together; smooth spoon and pebble belong together. Make object surfaces clear through crisp contour marks, not grainy art texture.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "We sort these four things.",
+        "imageBrief": "Show all four objects separately in a row on the tabletop: rough red brick, smooth silver spoon, rough brown bark, smooth gray pebble. Zoe stands behind the table; two empty mats sit farther back.",
+        "imageAlt": "Four different objects wait on the table.",
+        "pageDescription": "Four different objects wait on the table.",
+        "state": "All four unsorted; both mats empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "This brick feels rough.",
+        "imageBrief": "Zoe lightly runs two fingertips across the rough red brick’s dimpled top. Other three objects remain in their original row positions. Use clean dark dots and shallow grooves only on the brick surface.",
+        "imageAlt": "Zoe feels the rough brick.",
+        "pageDescription": "Zoe feels the rough brick.",
+        "state": "Brick inspected; no object moved to mats yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "This spoon feels smooth.",
+        "imageBrief": "Zoe slides a fingertip along the smooth back of the silver spoon. Keep its simple clean reflected highlight, not rough marks. Brick, bark and pebble remain nearby.",
+        "imageAlt": "Zoe feels the smooth spoon.",
+        "pageDescription": "Zoe feels the smooth spoon.",
+        "state": "Spoon inspected; mats still empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "We make two small groups.",
+        "imageBrief": "Zoe places the rough brick on the left teal mat and the smooth spoon on the right yellow mat. Bark and pebble remain between the mats awaiting inspection. No printed labels or color-based claim.",
+        "imageAlt": "The brick and spoon start two groups.",
+        "pageDescription": "The brick and spoon start two groups.",
+        "state": "Left mat brick; right mat spoon; bark and pebble unsorted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The bark feels rough too.",
+        "imageBrief": "Zoe touches the bark’s safe ridged surface and places it beside the brick on the teal mat. Keep the gray pebble alone outside both mats. Brick and bark clearly differ in shape.",
+        "imageAlt": "The rough bark joins the brick.",
+        "pageDescription": "The rough bark joins the brick.",
+        "state": "Left mat brick and bark; right mat spoon; pebble unsorted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The pebble feels smooth too.",
+        "imageBrief": "Zoe touches the smooth oval pebble and sets it beside the spoon on the yellow mat. All four objects are now grouped. Pebble surface has a clean flat highlight, no rough dots.",
+        "imageAlt": "The smooth pebble joins the spoon.",
+        "pageDescription": "The smooth pebble joins the spoon.",
+        "state": "Left mat brick and bark; right mat spoon and pebble.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Different shapes share a group.",
+        "imageBrief": "Overhead view makes the grouping exact: rectangular brick with irregular bark left, long spoon with oval pebble right. Zoe points at the two differently shaped objects on the right mat without moving them.",
+        "imageAlt": "Each group contains different shapes.",
+        "pageDescription": "Each group contains different shapes.",
+        "state": "Both completed groups unchanged; shape contrasts visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "We sort by feel.",
+        "imageBrief": "Zoe gently checks the rough bark with one hand and the smooth pebble with the other, looking at both completed groups. Preserve exactly four objects and two mats; no labels or additional samples.",
+        "imageAlt": "Zoe compares the rough and smooth groups.",
+        "pageDescription": "Zoe compares the rough and smooth groups.",
+        "state": "Grouping rule confirmed by touch; no objects change groups.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why do the spoon and pebble share a group?",
+        "listenFor": "Both selected objects feel smooth even though their shapes and materials differ."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Find the spoon and pebble. How are their shapes different?",
+        "lookFor": "The long spoon and oval pebble have different shapes but share the yellow mat."
+      }
+    },
+    "levelRationale": "Eight single clauses of four to six words. Repeated feels rough/smooth and explicit groups support classification by one concrete property. The two-property contrast is pictured, not dependent on reading a chart.",
+    "languagePrep": [
+      {
+        "word": "rough",
+        "meaning": "bumpy or uneven to touch"
+      },
+      {
+        "word": "smooth",
+        "meaning": "even to touch without bumps"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-20",
+    "number": 20,
+    "title": "A Little First",
+    "topic": "caring for our world",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can Kit take enough snack now and keep the rest for later?",
+      "progression": "Serve a small initial portion → Eat that portion → Notice hunger remains → Take more from the shared supply → Stop when comfortably full → Notice untouched food remains in its container → Close the container → Keep the untouched food available for a later snack.",
+      "synthesis": "Starting with a little and taking more as wanted leaves untouched food available for later; the example respects hunger and fullness and never requires finishing an unwanted portion.",
+      "scienceSources": [
+        {
+          "title": "US EPA: Toolkit for Reducing Wasted Food and Packaging",
+          "url": "https://www.epa.gov/sites/default/files/2015-09/documents/toolkt_training.pdf",
+          "claim": "Preparing or serving food in smaller portions is one source-reduction strategy for limiting wasted food. The two-cracker portions here are an illustrative individual choice, not dietary advice."
+        }
+      ]
+    },
+    "setting": "A home snack table in daylight with Kit and one unnamed grown-up. The scene follows one ordinary snack, not a nutrition or weight lesson.",
+    "props": [
+      "One round blue tin with a fitted blue lid and ten plain small square crackers initially inside",
+      "One small cream plate for Kit",
+      "One clear water glass",
+      "One unnamed grown-up with light brown skin, short dark hair, green shirt and navy pants"
+    ],
+    "coverBrief": "Kit puts two small square crackers on his cream plate while the open blue tin still holds more. An adult sits beside him, relaxed. No counting labels, diet symbols, rewards or pressure to eat.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit takes two crackers.",
+        "imageBrief": "Kit transfers exactly two small crackers from the open blue tin to his cream plate. Eight remain visibly in the tin, stacked neatly. Blue lid lies beside it; water glass untouched.",
+        "imageAlt": "Kit puts two crackers on his plate.",
+        "pageDescription": "Kit puts two crackers on his plate.",
+        "state": "Plate two crackers; tin eight; lid off.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "He eats his little snack.",
+        "imageBrief": "Kit eats the second of his two crackers; the first is already eaten. Show one partly eaten cracker in his hand and a few crumbs on the cream plate. Eight untouched crackers remain in the tin.",
+        "imageAlt": "Kit eats the crackers he took.",
+        "pageDescription": "Kit eats the crackers he took.",
+        "state": "Initial portion nearly eaten; tin remains eight.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit still feels hungry.",
+        "imageBrief": "Kit’s plate is now empty except for crumbs. He looks toward the open tin and reaches an open hand toward it. Adult remains relaxed and does not signal refusal or demand.",
+        "imageAlt": "Kit looks toward the tin for more.",
+        "pageDescription": "Kit looks toward the tin for more.",
+        "state": "First two eaten; Kit wants more; tin eight.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "He takes two more crackers.",
+        "imageBrief": "Kit transfers two more crackers onto his cream plate. Six remain in the blue tin. Maintain the same cracker size and plate; no giant heap, reward gesture or measuring scale.",
+        "imageAlt": "Kit takes another small portion.",
+        "pageDescription": "Kit takes another small portion.",
+        "state": "Plate two new crackers; tin six; lid off.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now Kit feels full.",
+        "imageBrief": "Kit has eaten his second small portion and rests his hands comfortably away from the open tin. Plate has only crumbs; six untouched crackers remain. Adult accepts his stopped reach without praise for an empty plate.",
+        "imageAlt": "Kit is ready to stop eating.",
+        "pageDescription": "Kit is ready to stop eating.",
+        "state": "Four crackers eaten in total; six still untouched in tin.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The tin still holds more.",
+        "imageBrief": "Close view of the open blue tin with exactly six untouched crackers. Kit’s crumbed plate remains beside it. Do not return bitten food or crumbs to the tin.",
+        "imageAlt": "Untouched crackers remain in the tin.",
+        "pageDescription": "Untouched crackers remain in the tin.",
+        "state": "Six crackers available for later; none transferred back.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Our grown-up shuts the tin.",
+        "imageBrief": "The adult lowers the fitted blue lid onto the tin while Kit sits nearby. All six remaining crackers are inside, separate from the used plate. No food goes into a bin.",
+        "imageAlt": "The grown-up closes the cracker tin.",
+        "pageDescription": "The grown-up closes the cracker tin.",
+        "state": "Tin closed around six untouched crackers; used plate separate.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The crackers wait for snack time.",
+        "imageBrief": "The closed blue tin rests on a clean pantry shelf; the grown-up’s hand has just set it down. Kit’s used plate stays on the table in the background. This is storage for a later snack, not a new portion demanded now.",
+        "imageAlt": "The closed tin is kept for another snack.",
+        "pageDescription": "The closed tin is kept for another snack.",
+        "state": "Remaining food stored in closed tin for later; snack has ended.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Kit do when he still felt hungry?",
+        "listenFor": "He took more. When he felt full, the untouched crackers stayed in the tin for later."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Which food can be saved for later?",
+        "lookFor": "The untouched crackers still inside the blue tin, separate from Kit’s used plate."
+      }
+    },
+    "levelRationale": "Eight explicit present-tense lines of four to six words. Takes/eats/more/still recur in a concrete portion-and-storage sequence. Counting is visible support; the book gives no required portion size or clean-plate rule.",
+    "languagePrep": [
+      {
+        "word": "full",
+        "meaning": "feeling that you have had enough to eat"
+      },
+      {
+        "word": "tin",
+        "meaning": "a metal container with a lid"
+      }
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:08:01.689Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3fda9f36-eedd-45cf-b50e-9a3296f371ea.png",
+  "sourceSha256": "6be3f9ae331260a0f1c6680b3bd4b2f811ac9417bb62d33739aedcc0fa4a0193",
+  "output": "public/guided-reading/world-discovery/c-12/cover.webp",
+  "outputSha256": "263fc63340271deceb56d86427ac44d9057fc89be5c5f548a24a23ec90c5d7eb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Restore one small matching BLUE child chair behind the craft table at its FAR CENTER between the children. Its blue back is visible above table, its seat/legs may be naturally occluded by tabletop. Keep the current two side chairs unchanged; exactly three chairs total. No changes to people, poses, two pots, ribbon, parcel, furniture scale or framing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3c41f7e6-5865-4da5-acb5-0508bc766e47.png",
+      "sha256": "233d756b33ea276e57a8db45050d4ca26cfa4fe9316bbd2d318152d76482b141"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "263fc63340271deceb56d86427ac44d9057fc89be5c5f548a24a23ec90c5d7eb",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Two distinct pots visible with ribbon beside yellow shelf pot; untied parcel; three ordinary blue chairs and grounded natural children.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "263fc63340271deceb56d86427ac44d9057fc89be5c5f548a24a23ec90c5d7eb",
+    "note": "Two distinct pots visible with ribbon beside yellow shelf pot; untied parcel; three ordinary blue chairs and grounded natural children."
+  }
+}

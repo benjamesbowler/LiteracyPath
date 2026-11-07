@@ -7,6 +7,7 @@ import {
 import { segmentWord } from "./graphemeSegments.js";
 import { starRubric } from "./starRubric.js";
 import { hasWordAudio } from "./questAudio.js";
+import { getChildWordAsset } from "../data/childAssets.js";
 import { replayShuffle } from "./gameReplay.js";
 import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
@@ -23,7 +24,11 @@ function section(values, index, count) {
 }
 
 function syllableItems(parts) {
-  return parts.filter(beats => hasWordAudio(beats.join(""))).map(beats => ({
+  // Recordings added for another surface must not introduce pictureless cues.
+  return parts.filter(beats => {
+    const word = beats.join("");
+    return hasWordAudio(word) && getChildWordAsset(word)?.image;
+  }).map(beats => ({
     unit: "syllables",
     word: beats.join(""),
     beats,

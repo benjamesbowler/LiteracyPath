@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-17",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:03.885Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-207a5217-66c7-483f-8605-1c01d045cb40.png",
+  "sourceSha256": "e519c5aa0b882e10a5ba4ae252ca5a0abb1bbc39ac9e50081c90e6ce6ff7be2c",
+  "output": "public/guided-reading/world-discovery/c-17/cover.webp",
+  "outputSha256": "acb27d8b9593b0eb0244a69ee7f31e47fcc2881d1dac5ab3381ed1f07ef68368",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact scene for wider framing. Pull camera back 35 percent, keeping 3:2 landscape. Entire otter including whiskers, feet and tail must be within CENTRAL SIXTY-FIVE PERCENT of canvas width and CENTRAL SEVENTY PERCENT of height, with generous surrounding water/kelp. Preserve otter anatomy exactly: two forepaws, two webbed hind feet, ONE tail. Preserve exact current action and positions of the ONE clam and ONE gray stone. Natural paws gripping props, no floating objects. Do not alter developmental/action state. Flat crisp clean 2D cartoon, broad smooth cel colors; no grain/mottled shading. No text or panels. Do not crop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f948695f-945b-47e0-bed9-c83a4907f5ca.png",
+      "sha256": "ab4b76d55a542d98253fd63cd51bba559a6ae1c141e6ac5fb238b956c84f3512"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ce9930b3ff66e06b9f3b14afeef5752a734ade78568d649a597715f1f9606e13",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.554398+00:00",
+    "sha256": "acb27d8b9593b0eb0244a69ee7f31e47fcc2881d1dac5ab3381ed1f07ef68368",
+    "note": "Native source and final WebP directly viewed. Supine sea otter at surface with stone supported on chest, closed clam held in two forepaws; two webbed hindfeet and tail."
+  }
+}

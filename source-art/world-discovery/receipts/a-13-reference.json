@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:12:45.848Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7f80c144-04d4-4b20-ac0a-a7255333e3d2.png",
+  "sourceSha256": "3105bfbce38fc8e7d20b9caa57ad2b2d795157f48ce1737cffdc1e141191a0b9",
+  "output": "source-art/world-discovery/a-13-reference.webp",
+  "outputSha256": "45d9335f8fcb9bc0bb5a5742ee671437dc5dce9d30697a2c68c989d98e929c23",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the road scene in the bottom-left of this exact reference board. Correct it to US RIGHT-HAND traffic, preserving one lane in each direction and the vertical crosswalk. Move the BLUE car to the NEAR lane (below the double yellow centerline), LEFT of the crosswalk, facing RIGHT and stopped behind its stop line BEFORE the crosswalk. Move the RED car to the FAR lane (above the double yellow centerline), RIGHT of the crosswalk, facing LEFT and stopped behind its stop line BEFORE the crosswalk. Thus both cars approach the crossing in opposite directions, each on the driver's right side of the road. Exactly TWO cars total in that vignette. Neither car overlaps the crosswalk or centerline. Preserve the safely waiting group on near sidewalk, the far-side orange hand signal, all other board panels and precise cast/prop design. No lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-432050e4-0216-43cf-a199-e86b9a14ec26.png",
+      "sha256": "8d2a0f3f28c60be05775f5975667ca2fe42e78c230f33c564c73c13ab00fd7c1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:13:05.087430+00:00",
+    "sha256": "45d9335f8fcb9bc0bb5a5742ee671437dc5dce9d30697a2c68c989d98e929c23",
+    "note": "Root directly inspected final native and installed WebP. Cast and coral-shirt adult are consistent. Corrected US right-hand traffic: blue near-lane car left of crossing faces right; red far-lane car right of crossing faces left, both before crossing. Group stays behind near curb. One crosswalk, curb ramps and far-side orange-hand signal establish location; separate walking-figure icon is the later signal design."
+  }
+}

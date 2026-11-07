@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:06.609Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-45249400-c7f8-411f-b32f-f731f45bc64a.png",
+  "sourceSha256": "2289a322605507dbe6653bf8d33c4c3f0b253725a5208156afce0b4cddc62980",
+  "output": "public/guided-reading/world-discovery/e-20/page-01.webp",
+  "outputSha256": "e1445e4e973bd2f315d07731a7c60bf90886a89578614cf6a1009bf93e559781",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/page-01-before.webp",
+      "sha256": "23967aeb91e5cfe467750b5bba52af17d529f12e146901ad19d3e9de6c75ec0e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "e1445e4e973bd2f315d07731a7c60bf90886a89578614cf6a1009bf93e559781",
+    "method": "codex-direct-image-inspection",
+    "note": "Widened early green-bud patch with stationary reel mower and children clear of blades. Natural adult/child proportions, full grounded feet, complete markers and safe margins."
+  }
+}

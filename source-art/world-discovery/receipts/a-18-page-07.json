@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:03:12.432Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-38ab9381-42a7-4b79-bbec-c6edffd35af9.png",
+  "sourceSha256": "8486091d11b0da54568b36a47ca0f817801ef25ffef8c4b780a7661abd09219e",
+  "output": "public/guided-reading/world-discovery/a-18/page-07.webp",
+  "outputSha256": "5993a27341f26561aecebfc2e37f45f90d5609d58c634dadddf46b95647e977c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Widen composition20percent to keep whole butterfly, all wing tips, complete empty chrysalis, and COMPLETE pink flower head including every petal safely10percent inside image edges. Preserve the exact wing development stage and pose. Correct flying butterfly anatomy: REMOVE BOTH long tail-like appendages attached to the END of the abdomen. The tapered abdomen ends plainly. Four developed legs originate ONLY from THORAX (black white-dotted middle body between head and abdomen); draw these short and naturally folded close underneath thorax, far legs may hide behind wings. Two tiny reduced forelegs folded against thorax. NO leg from abdomen or head. Retain exactly two clubbed antennae from head, four wings, first flapping airborne action after releasing twig, female monarch with no black scent spots. Keep all original locations and object count, two antennae, two leaves, one flower, one empty case, one butterfly. Same clean crisp flat2D art, full-bleed3:2, no border, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-5e60d976-f58d-446c-a870-33df732df626.png",
+      "sha256": "148251b51fac1d4d7dcd15626c4aa1816140dde265059e96f3785dbbee396477"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.100642+00:00",
+    "sha256": "5993a27341f26561aecebfc2e37f45f90d5609d58c634dadddf46b95647e977c",
+    "note": "One first wingbeat with four wings and two antennae; legs naturally occluded below thorax, no spurious abdominal tail legs; twig released. Native generation and installed WebP directly inspected."
+  }
+}

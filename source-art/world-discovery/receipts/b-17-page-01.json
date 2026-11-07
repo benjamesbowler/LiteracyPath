@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:16:44.735Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6e22c230-15e1-49b6-b154-31f2d150f313.png",
+  "sourceSha256": "40e7ab77fdad238fca736542b4d89b561ed51eb957c577ea1f000a5d36084eb7",
+  "output": "public/guided-reading/world-discovery/b-17/page-01.webp",
+  "outputSha256": "d6d3d291ce421668a9ba16d6a8d52b21290e930b935fc6eed4d603734bb75e39",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact scene and six-legged insect, but widen the camera view by about 18 percent so the ENTIRE insect including both long antennae and the ENTIRE single intact target leaf ahead of its head are at least 12 percent inside all image edges. Recenter this continuous branch scene, not a border or inset. The target leaf's right tip must be comfortably inside the canvas. Also make the far/front foot touch the upper wood surface by subtly widening the SAME supporting branch just beneath that foot; do not add a twig stub or change the SIX leg count. Keep exactly three leg pairs on thorax, long legless segmented abdomen, two antennae, no wings, natural anatomy, colors and all other story content. No extra insects or humans. Clean flat 2D, continuous dark outlines, landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-156624eb-74e0-4bfa-b7ef-6ed7b9a45711.png",
+      "sha256": "b9b08b3b572d1d8990ae75d12b516a699236209086f8a740ca4f475fab5bd4a6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.378021+00:00",
+    "outputSha256": "d6d3d291ce421668a9ba16d6a8d52b21290e930b935fc6eed4d603734bb75e39",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Opening twiglike disguise among forked branches; six-leg plan, long legless segmented abdomen and two antennae; entire target leaf framed. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "d6d3d291ce421668a9ba16d6a8d52b21290e930b935fc6eed4d603734bb75e39",
+    "note": "Opening twiglike disguise among forked branches; six-leg plan, long legless segmented abdomen and two antennae; entire target leaf framed. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

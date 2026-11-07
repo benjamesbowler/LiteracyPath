@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-17",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:09:50.087Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-fa612897-a33b-438d-afa2-999be593759c.png",
+  "sourceSha256": "9525d9cd79abdb725c370e89b8ca02495e5ae733ef9b5aafad2522194a4d4e46",
+  "output": "public/guided-reading/world-discovery/d-17/page-01.webp",
+  "outputSha256": "479ab16366b0652062b16dc904afccabd57a93b8278706647c37c46bd176291c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is exact edit target. Widen the camera substantially: scale the whole butterfly and its immediate teaching perch down to fit CENTRAL 74 percent of the 3:2 canvas. Extend the same natural background around all sides. Keep complete butterfly, antennae, wing tips and the whole focal leaf/flower with at least 12 percent clear breathing space on all edges. Preserve exact teaching meaning, transparent wing regions, opaque borders/veins, pose and natural contact. Do not alter butterfly anatomy, leaf/petal visibility, pose or action. \nORIGINAL SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Windows in a Wing; World Discovery; nonfiction.\nSetting: Natural Greta oto glasswing butterfly resting and changing perch in a Central American tropical garden. Clean close observation; no human handling, no microscope dissection and no suggestion that its whole body is transparent.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One adult Greta oto: four wings, slender dark body, two antennae; narrow brown wing borders, dark veins and small pale forewing markings; four developed walking legs and a reduced front pair held near the thorax, not six equally long walking legs; Green leaf behind a clear forewing region; Pale pink flower at the next natural perch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): A butterfly rests beside a green leaf. Part of its wing seems to be missing. Can you see the leaf through it?\nRequired illustration: Close side view of one Greta oto resting on stem in front of leaf, clear forewing region aligned with leaf.\nExact current state: Four wings overlap naturally; one clear region visibly transmits leaf background.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ffe68c23-ead5-4c1a-b170-e584e1e5d931.png",
+      "sha256": "f1a4a151f1b430baa5c096232a85889aca222086b035e35f9a70459cea2d66fa"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-17-reference.webp",
+      "sha256": "7a9a696fa92b74f29ef7470fded7ff03cea9392894f62669ed832f8d01572c3e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5a5aae0dc62bd937436aec09507f77a06724c9f49054941f6eb9d4d63203ac1b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:11:45.873Z",
+    "sha256": "479ab16366b0652062b16dc904afccabd57a93b8278706647c37c46bd176291c",
+    "note": "Generated source and installed WebP inspected. Green leaf visibly continues behind the clear wing cells; dark body, edges and veins remain opaque. Four developed thoracic legs, two antennae, supported stem, full subject with generous surrounding garden.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

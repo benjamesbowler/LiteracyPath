@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-e-13",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:20:59.846Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9406803b-9f7e-4ad5-9b76-80e3106a3015.png",
+  "sourceSha256": "1356079b13741f1cdbcb83930ed753a0483dd6d725da46bfc4c91b821544530c",
+  "output": "public/guided-reading/world-discovery/e-13/page-10.webp",
+  "outputSha256": "f813f71d67714cd2c9f53a75575ca3b70596c50ac8e3a659d167a40627d1a3e3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is edit target; others preserve exact cast/prop identity only. Fix ONLY the right-side background wall: extend the existing tan masonry wall and its roofline continuously through RIGHT CANVAS EDGE. It is a real continuous school wall, NOT a freestanding thin stage-flat clipped in midair. Preserve the existing blue doorway exactly, surrounding school interior behind it, natural wall-ground contact and appropriate continuous wall shadow. Do not move any people, tree, bench, four-post pale-GREEN canopy or other object.  Keep other states/counts/expressions/actions unchanged. Natural human anatomy and plausible spatial geometry. Clean flat colors/contours. No text or labels. Full landscape1536by1024, 3:2; no border or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-71ca83d8-ee65-46e5-ba48-cc5c9a5aea36.png",
+      "sha256": "05067ae1cbb63c48a6e204daec44c53ca8f6d581e1bb4f782d42b0ea1b0752a3"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-13-reference.webp",
+      "sha256": "1ff85e1d8c26582ee71a3d2353ac884f620bb9edb47c79070c056bd547c4027a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:41:38.557464+00:00",
+    "sha256": "f813f71d67714cd2c9f53a75575ca3b70596c50ac8e3a659d167a40627d1a3e3",
+    "note": "Generated source and installed WebP inspected. Children sit naturally under completed four-post canopy; caretaker passes along clear route.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+      "currentSha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

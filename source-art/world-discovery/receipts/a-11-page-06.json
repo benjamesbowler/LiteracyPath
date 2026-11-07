@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-a-11",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:31:23.067Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-330c9d14-c4e4-42b0-9665-563dde660428.png",
+  "sourceSha256": "54392a281d68b9c760bad4c42bd4902131bcb5f0edbc328142bfad5d7bd10f7d",
+  "output": "public/guided-reading/world-discovery/a-11/page-06.webp",
+  "outputSha256": "1b2fd9c0220ce2b5eab62be865ee0a7a747445100fe1b29fb67fe99794ebb116",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is the exact page 6 illustration to edit; second is page 5 continuity reference. Change ONLY the LONGER breadstick remainder on the RIGHT of the purple plate in the first image: extend this longer remainder RIGHTWARDS so it becomes about 210 pixels long at full1536width, approximately HALF of the 420px-wide purple plate. Keep its left exposed crumb end at the same position x1145 y825, extend its rounded intact right end toward x1350 y780 within the plate, keeping the same diagonal and same thickness. It should match the untouched long remainder in the second reference; no one has eaten it. Leave the smaller BITTEN short piece on the LEFT completely unchanged, including its concave bite. Preserve every other pixel/feature of the FIRST image: Kit, Zoe, pear first bite, exactly one pear in basket, faces, hands, purple plate, other bread, table, chairs, garden and composition. No crop, zoom, new object or lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/a11-bread-correction/page-06-before-long-remainder.webp",
+      "sha256": "fa946a23635eaae8d20aa3b35fbe38c9f43cbb929fc6b5d2285f2b679d26690a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-11/page-05.webp",
+      "sha256": "f2ec124c500e3284e2e7274dae8be3276a38e828e543ab231bd5a433c7db9f01"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "0c1fb0467841cc8cf22bf43c54d947245bc32081245a6691a748a57092cbe585",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "1b2fd9c0220ce2b5eab62be865ee0a7a747445100fe1b29fb67fe99794ebb116",
+    "method": "codex-direct-image-inspection",
+    "note": "Direct full native inspection: long untouched remainder restored to about half the purple plate width, continuous with p5/p8; smaller left fragment retains concave pale-crumb bite. First pear bite, exactly one remaining basket pear, natural seated bodies and hands, table and garden remain intact."
+  }
+}

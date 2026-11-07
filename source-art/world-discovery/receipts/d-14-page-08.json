@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-14",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:44.221Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c5b4b919-2847-429e-b476-a27800b3f741.png",
+  "sourceSha256": "839a9477d64006198c93299eb0c6cc91a7714194c1115b808b7d8745eaea4ed8",
+  "output": "public/guided-reading/world-discovery/d-14/page-08.webp",
+  "outputSha256": "4ee67149e6787a6b2f9523fad56cb862d1c47826d879f045fd7bf9306359ae44",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Move ONLY Zoe to Kit RIGHT beside his raised fan hand, outside circle. Her left fingers lightly touch bottom of the single tan fan handle as she passes it into Kit RIGHT gripping hand. Exactly ONE fan. Kit and shadow pose unchanged, chair empty. Distinct two natural hands on same handle, no shoulder touch. Whole figures at least13percent inset. Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/d14-hand24/page-08-before.webp",
+      "sha256": "ca3e33cabe45510038ca9004d55c7f3c0dc59c7a6a194f063892af5b5831dc54"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-14-reference.webp",
+      "sha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "297cf219fe94bbfb4925c9430d5e879923aa397b5629d8d7462a1af1994bb69c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.870Z",
+    "sha256": "4ee67149e6787a6b2f9523fad56cb862d1c47826d879f045fd7bf9306359ae44",
+    "note": "Generated native and installed full WebP directly inspected. Zoe stands right of Kit outside circle, her fingertips touch bottom of single handle held in Kit right hand. Exactly one fan, distinct natural hands, matching fan shadow and empty chair.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

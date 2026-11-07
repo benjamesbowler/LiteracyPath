@@ -8,6 +8,7 @@ import path from "node:path";
 import { resolveReviewedGuidedReadingAudioRepair } from "../../tools/guidedReadingAudioRepairLib.mjs";
 import { GUIDED_READING_AUDIO_REPAIRS } from "../../tools/guidedReadingAudioRepairRegistry.mjs";
 import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
+import { wordSrc } from "../../src/utils/questAudio.js";
 
 const voice = "en-US-Chirp3-HD-Leda";
 const record = { role: "isolated_word", lookupText: "stood", spokenText: "Stood." };
@@ -21,7 +22,7 @@ test("the reviewed published repair resolves to its exact content-addressed byte
   assert.equal(sha256(readFileSync(path.join("public", resolved))), repair.audioSha256);
   const map = "src/data/generated/guidedReadingLedaGaps.generated.js";
   const before = readFileSync(map, "utf8");
-  const inventory = JSON.parse(execFileSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", "bright-ideas-14"], { encoding: "utf8" }));
+  const inventory = JSON.parse(execFileSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", "bright-ideas-14"], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
   assert.equal(inventory.preflightPassed, true);
   assert.equal(inventory.wordGenerationInventory.find(row => row.normalizedLookupText === "stood").publicPath, resolved);
   assert.equal(readFileSync(map, "utf8"), before);
@@ -34,6 +35,34 @@ test("the splash-word pronunciation repair resolves to its exact Leda bytes", ()
   assert.equal(getGuidedReadingWordProductionAudioPath("Plip"), resolved);
   assert.equal(sha256(readFileSync(path.join("public", resolved))), repair.audioSha256);
   assert.equal(repair.pronunciation, "plɪp");
+});
+
+test("superseded World Discovery word takes cannot return through default lookup or regeneration", () => {
+  const words = ["bows", "glacier", "lends", "mated", "nor", "patterned", "scratches", "speeding"];
+  const contexts = JSON.parse(readFileSync("src/content/guidedReadingContextualWordAudio.json", "utf8")).entries;
+  const review = JSON.parse(readFileSync("source-art/world-discovery/cohorts/11-20/narration-review.json", "utf8"));
+  const mapPath = "src/data/generated/guidedReadingLedaGaps.generated.js";
+  const before = readFileSync(mapPath, "utf8");
+  const inventory = JSON.parse(execFileSync(process.execPath, [
+    "tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", "world-discovery-", "--preserve-existing"
+  ], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
+  assert.equal(inventory.preflightPassed, true);
+  for (const word of words) {
+    const context = contexts.find(row => row.word === word);
+    const repair = GUIDED_READING_AUDIO_REPAIRS[`isolated_word:${word}`];
+    assert.ok(repair, `${word}: the reviewed take needs a durable generator repair`);
+    assert.equal(repair.audioPath, context.audioPath);
+    assert.equal(repair.audioSha256, context.audioSha256);
+    assert.equal(resolveReviewedGuidedReadingAudioRepair({ role: "isolated_word", lookupText: word }, voice, process.cwd()), context.audioPath);
+    assert.equal(getGuidedReadingWordProductionAudioPath(word), context.audioPath);
+    assert.equal(wordSrc(word), context.audioPath);
+    assert.equal(inventory.wordGenerationInventory.find(row => row.normalizedLookupText === word).publicPath, context.audioPath);
+    assert.equal(sha256(readFileSync(path.join("public", context.audioPath))), context.audioSha256);
+    assert.equal(repair.reviewEvidence, review.results.find(row => row.audioPath === context.audioPath).reviewNote);
+  }
+  assert.equal(GUIDED_READING_AUDIO_REPAIRS["isolated_word:bows"].pronunciations[0].pronunciation, "baʊz");
+  assert.match(GUIDED_READING_AUDIO_REPAIRS["isolated_word:lends"].reviewEvidence, /contrast is NOT validated/);
+  assert.equal(readFileSync(mapPath, "utf8"), before, "dry-run regeneration cannot modify mappings");
 });
 
 test("the Woolly page preserves the pronunciation repair through its runtime resolver", () => {

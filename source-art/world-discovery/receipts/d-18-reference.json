@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:25:13.253Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3bb34377-b68f-4577-af1c-1ca9ea60bf29.png",
+  "sourceSha256": "932fdc4dab80373adf191dc3bf1edf12ec516518b18cdbd47babafcbb519b57f",
+  "output": "source-art/world-discovery/d-18-reference.webp",
+  "outputSha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "EDIT FIRST IMAGE. Change ONLY the finish: remove painted/grainy texture on crab shell, water, sand, eelgrass and rock. Use clean flat color regions with crisp contours and restrained cel shading. Preserve anatomy exactly: two claws, six narrow walking legs and two rear oval paddles total ten limbs, two eyestalks, natural feelers; no additional appendages. Preserve one young live crab in opening location, three eelgrass clumps and flat gray stone, no empty molt yet. No humans.\nThis remains a wordless production reference board, not a final page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-fee84158-670e-4d2f-b5d3-d670f8ab8c10.png",
+      "sha256": "fc47254b1000de938e8273568ce5926c4f4a17e68aee505e86b35bb15683cd17"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:28:49.085Z",
+    "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9",
+    "note": "Generated source and installed WebP inspected. Blue crab front and dorsal reference views show two claws, six walking legs and two rear paddles; two eyes and antennae, flat underwater habitat; no humans or future empty molt.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

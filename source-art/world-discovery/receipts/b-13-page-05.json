@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:39:39.449Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f2cf0e35-faf4-4f49-9465-b157f8075d9d.png",
+  "sourceSha256": "e15b3b64783426768320bffef1894a3e7b1c3f512a31acfe16864386fab35f3a",
+  "output": "public/guided-reading/world-discovery/b-13/page-05.webp",
+  "outputSha256": "983958b79b0dcbb81ff162169e3f530a2a1cd82aec90756a62d43b284c7d3652",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is EXACT edit target. Other references preserve identity only, never add props or poses from board. Repair framing ONLY: pull camera back so original whole scene becomes70percent of current size centered, extending existing street/house/sky/ground geometry naturally. Every essential head, complete visible shoe, hand, single focal cream envelope with green-star stamp and tray must be at least13percent inside image edges. Preserve exact action, expression, number of letters, hands and body pose, clothing, mailbox/door/van design, existing envelope ruled address lines without any text. Keep any cancellation lines currently present, and do not add any to unstamped stages. Do not alter exact one green-star stamp or red-truck drawing. No new characters, no words, no panel, no flat-colored outpaint rectangles or disconnected ground geometry. Clean flat2D cartoon at full1536x1024. Keep tray visibly supported while being pushed into van, separate lid inside van at right. Full worker head and shoes inset13percent; van body can naturally continue beyond right edge. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/b13-framing-de/page-05-before.webp",
+      "sha256": "afa74a5cc0deb5572ebf07b3c8ff839060a0b3c242f2cb29d40aa250376886ca"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-13-reference.webp",
+      "sha256": "41ecdc68f758e5b144b9dcd90529d798c0e5aa34f4499a6c6702b7319aeef4ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:40:53.328Z",
+    "sha256": "983958b79b0dcbb81ff162169e3f530a2a1cd82aec90756a62d43b284c7d3652",
+    "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Full worker head/shoes inset, open loaded tray remains supported at van rear; separate lid visibly rests inside. One focal green-star letter and other mail preserved; coherent van, floor and natural lifting pose.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3486a3808eda05309d21676d92e26fa9eb7cf70366f2eddeda727a485d5c5b3a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:04.548Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-5fd6676a-d204-4ac6-87d8-a7af19d410f8.png",
+  "sourceSha256": "f5b93dce3bb40de38f421a98f677f6ef9fe4d6b78b27138defa066ebbe4cca0e",
+  "output": "public/guided-reading/world-discovery/a-13/page-02.webp",
+  "outputSha256": "ddb81404730d1fb98143e78407f563c98c2063b1d8b70f45d87a43ffedcbfece",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the colors/design of the TWO distant houses in this exact street-crossing illustration to restore continuity. The house LEFT of the central tall tree must be PALE ORANGE/PEACH siding with white trim and two blue-glass windows, matching the established left house. The house RIGHT of the central tall tree, behind/near the signal pole, must be BLUE siding with white trim and two blue-glass windows, matching the established right house. Do not move the houses, tree, signal, road, crosswalk, people, vehicles or any other object. No changes to framing or pose. Preserve both cars stopped in correct opposing lanes, orange raised-hand signal, people fully on near sidewalk. This is a background-house continuity correction only. No writing, logos, labels or borders. Same crisp flat2D style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7c94dab7-419a-47fe-a435-3d8c3176ac04.png",
+      "sha256": "7d91557f9ff1e62238fa16563b7fe8049c580b2048582457878a97b389e21d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.749430+00:00",
+    "sha256": "ddb81404730d1fb98143e78407f563c98c2063b1d8b70f45d87a43ffedcbfece",
+    "note": "Native PNG and installed WebP directly inspected. Waiting at curb; orange-left blue-right houses and orange hand signal retained. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

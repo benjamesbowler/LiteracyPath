@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:26:59.681Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-d1bdc50b-aedb-474b-b1c8-02229f14931d.png",
+  "sourceSha256": "5725f000788a4195a9e22e623a80994e47d1a7352716349565f807d5c5fbbc9f",
+  "output": "public/guided-reading/world-discovery/d-18/page-09.webp",
+  "outputSha256": "3f9e724e48649b47fb0e7d7c32728dfca9f191aeeb466bb5bed933337213a826",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit ONLY the indicated tiny detail in this exact image; leave composition, complete wide margins, flat2Dstyle, stone, grass, water, single empty pale covering and all other anatomy unchanged. The living crab has an EXTRA fourth narrow walking leg on its NEAR LEFT side. Remove ONLY the innermost narrow pointed leg whose tip is closest to the food and just left of the large nearer claw (currently extends toward x460,y756 in1536x1024 image). Fill that tiny gap with continuous sand, leaving the other THREE narrow legs on that near side and the claw/rear paddle unchanged. Keep far-side limbs naturally occluded by body; do not add limbs. Crab exactly2claws+6narrowlegs+2paddles in total, with far legs partly occluded.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-37e73b5c-37d1-4a40-aed5-6592682dd0dd.png",
+      "sha256": "87d444e2bb9cee2798ad70532acecc159b403c895e6d95f6f39d14c72a6d205f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.843Z",
+    "sha256": "3f9e724e48649b47fb0e7d7c32728dfca9f191aeeb466bb5bed933337213a826",
+    "note": "Generated native and installed full WebP directly inspected. Firm crab approaches a small natural bivalve food item; three narrow walking legs on near side after extra-leg repair, far limbs naturally occluded. Empty covering remains by stone.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

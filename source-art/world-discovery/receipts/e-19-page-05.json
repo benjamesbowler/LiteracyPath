@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-19",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:15:15.578Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-cdb21e18-618c-47dc-bca0-8a5feb2f883f.png",
+  "sourceSha256": "7a185b2ab9278356d408ea12087c7eb455709cd94661ca5d1ec1bafd1f01e072",
+  "output": "public/guided-reading/world-discovery/e-19/page-05.webp",
+  "outputSha256": "34f948f1236533786bfbd725b86a1c0ab4d005aaac990f3f6cd2a82625365b9e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make a surgical correction ONLY at the bottom ends of the illustrated arms. Every arm and colored sleeve must CONTINUE UNBROKEN all the way off the BOTTOM IMAGE EDGE. Currently some arm/sleeve ends stop abruptly on the wooden tabletop, making disconnected floating arms. Extend each cut-short arm/sleeve down to the image edge, with coherent natural taper, and remove any tabletop gap below it. Do not move or change any hand, fingers, grid, shape, label, tray or other part of this image. Keep exact counts and colors. This is an intentional top-down close-up; people are outside the bottom frame and ONLY their continuous forearms/hands enter the image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-09199434-6785-448d-a7ee-1bd8cc997fe9.png",
+      "sha256": "0f36f331a68046bc5d2a7e61a68d5befe1ce46bc5907834b2349ef8f84eb320f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bf9908186dace628eff2f5577d9e6aa898be70cf15b531959ece95e5b49ac18a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:17:37.173Z",
+    "sha256": "34f948f1236533786bfbd725b86a1c0ab4d005aaac990f3f6cd2a82625365b9e",
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+  }
+}

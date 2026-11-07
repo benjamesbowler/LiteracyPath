@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:57:40.974Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1d3d1e98-1ef9-4bb4-afc1-c3f52a7dd572.png",
+  "sourceSha256": "6ff1fc94b47c416f89b379cd2012395d989aa1a73e7a209d1683b1029373f616",
+  "output": "public/guided-reading/world-discovery/a-18/page-02.webp",
+  "outputSha256": "683e0e825224d3166e9f48777173fdf7c160aff772d7aece16f5e841e1a52ea3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back25 percent and recenter this exact intact butterfly scene. The ENTIRE butterfly, all wing tips and antennae, the entire empty chrysalis, and the ENTIRE coneflower head including all petals must fit with at least10 percent margin inside every frame edge. Currently rightmost petals and some attachmentpoints are too close/cut off. Extend same clean sky/foliage around the scene; continuous twig may exitframe naturally but its central attachment area must be inset. Preserve same wing development state and pose, no added wings/legs/antennae. Preserve all relative locations. Full-bleed landscape3:2, crisp flat2D, no border or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e23d840a-b17e-4526-a4e8-1cf7c55ebdb2.png",
+      "sha256": "8739609c1f23858676faa08bd33dd63506821f27b665ffa9d1415ffdcc2d540d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.094919+00:00",
+    "sha256": "683e0e825224d3166e9f48777173fdf7c160aff772d7aece16f5e841e1a52ea3",
+    "note": "Soft folded wings, two thoracic legs gripping twig; empty case and whole flower retained. Native generation and installed WebP directly inspected."
+  }
+}

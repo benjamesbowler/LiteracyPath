@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:39:39.301Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5fa15879-75fb-4be5-a21d-f2650638c739.png",
+  "sourceSha256": "f458a2d99a77ad5bddab7df2d801c249bc374aa52049a586b0b1aec44419973e",
+  "output": "public/guided-reading/world-discovery/b-13/page-03.webp",
+  "outputSha256": "6320b182bdc50dbeb4ff1132422b776f6138f71934b17b2a5d40302f40cecdf2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is EXACT edit target. Other references preserve identity only, never add props or poses from board. Repair framing ONLY: pull camera back so original whole scene becomes70percent of current size centered, extending existing street/house/sky/ground geometry naturally. Every essential head, complete visible shoe, hand, single focal cream envelope with green-star stamp and tray must be at least13percent inside image edges. Preserve exact action, expression, number of letters, hands and body pose, clothing, mailbox/door/van design, existing envelope ruled address lines without any text. Keep any cancellation lines currently present, and do not add any to unstamped stages. Do not alter exact one green-star stamp or red-truck drawing. No new characters, no words, no panel, no flat-colored outpaint rectangles or disconnected ground geometry. Clean flat2D cartoon at full1536x1024. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/b13-framing-de/page-03-before.webp",
+      "sha256": "9ccdde652bc4ac4397cc38a0a0ce2e3ed2e0861f3f9ecbe4cb3bc15e4b1204f2"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-13-reference.webp",
+      "sha256": "41ecdc68f758e5b144b9dcd90529d798c0e5aa34f4499a6c6702b7319aeef4ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:40:53.328Z",
+    "sha256": "6320b182bdc50dbeb4ff1132422b776f6138f71934b17b2a5d40302f40cecdf2",
+    "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Full kneeling worker, gray tray and blue service door complete within margins. One focal cream letter held above other colored envelopes; natural knee, foot and tray-hand contacts.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3486a3808eda05309d21676d92e26fa9eb7cf70366f2eddeda727a485d5c5b3a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

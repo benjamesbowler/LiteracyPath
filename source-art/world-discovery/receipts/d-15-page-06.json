@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-15",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:50.986Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b457560b-80cb-4a4f-9acb-24f26a4edee6.png",
+  "sourceSha256": "bbd62fc4beebedc9b8f2dc1dc158b5cc326bd52c5467bf56fb0cfd1a2bbe8102",
+  "output": "public/guided-reading/world-discovery/d-15/page-06.webp",
+  "outputSha256": "92d04d9056708627ad917a219b85a3c81eb21342e8414767aa70156982c7eb16",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Pull camera back 20percent: scale full dune plus fixed foreground rock together to80percent of current size around image center. Extend featureless sand/sky. BOTH ends of complete dune at least12percent from left/right edges; foreground rock left edge at least13percent from left and bottom edge at most83percent down. Preserve all explanatory marks and exact one dune silhouette, no new insets. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b7cef4a2-12ed-403d-b14b-37254e2b6163.png",
+      "sha256": "ddadd2add71e0efa5c711cf28a8185a828cb1d0baf257474f3042d66c2659bb6"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-15-reference.webp",
+      "sha256": "8d824634e20522ba4b50694165eb1911fdabf99464f5263c3af089ab8cbe609c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "39b696f4defa16bcfb1cfc77b4fc3b026064c13a880a6bb1c34df05c4e8ad4c1",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:05:07.030Z",
+    "sha256": "92d04d9056708627ad917a219b85a3c81eb21342e8414767aa70156982c7eb16",
+    "note": "Generated native and installed full WebP directly inspected. Fresh modest deposit at right foot; rock remains foreground left, coherent landform. Whole scene is coherent, core explanatory content complete and clear.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

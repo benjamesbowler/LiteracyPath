@@ -5,12 +5,17 @@ import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath 
 import { appReadingLevelLabel } from '../../src/utils/guidedReading/bookTextAnalysis.js';
 import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from '../../src/policy/studentDeviceMatrix.js';
 import { expectPrintedWordsVisible } from './helpers/guidedReadingGeometry.js';
+import cohortManifest from '../../src/content/world-discovery/cohorts.json' with { type: 'json' };
+import { GUIDED_READING_CONTEXTUAL_WORD_AUDIO } from '../../src/data/guidedReadingContextualWordAudio.js';
 
 const words = text => String(text).match(/[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*(?:-[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*)*/g) || [];
 const portrait = STUDENT_DEVICE_PROFILES.find(profile => profile.id === 'tablet-portrait');
 const selectedIds = process.env.LP_WORLD_DISCOVERY_BOOK_IDS?.split(',').filter(Boolean);
 if (selectedIds?.some(id => !books.some(book => book.id === id))) throw Error('Unknown LP_WORLD_DISCOVERY_BOOK_IDS value');
 const selected = selectedIds ? books.filter(book => selectedIds.includes(book.id)) : books;
+const activeCohorts = cohortManifest.cohorts.filter(cohort => cohort.active);
+const expectedBooks = activeCohorts.reduce((total, cohort) => total + cohort.expectedBooks, 0);
+const expectedPerLevel = activeCohorts.length * 10;
 
 function observeRealAudio() {
   window.__worldDiscoveryAudio = [];
@@ -48,11 +53,11 @@ async function expectPage(reader, book, index) {
   }
 }
 
-test('all fifty books are in the real runtime with ten current public levels A–E', () => {
+test('all declared registered books are in the real runtime at current public levels A–E', () => {
   const live = getRuntimeGuidedReadingBooks().filter(book => book.seriesId === 'world-discovery');
-  expect(live).toHaveLength(50);
+  expect(live).toHaveLength(expectedBooks);
   for (const level of ['A', 'B', 'C', 'D', 'E']) {
-    expect(live.filter(book => book.appReadingLevel === level && book.appReadingLevelStatus === 'current')).toHaveLength(10);
+    expect(live.filter(book => book.appReadingLevel === level && book.appReadingLevelStatus === 'current')).toHaveLength(expectedPerLevel);
   }
   for (const book of books) expect(live.find(row => row.id === book.id)?.pages.map(page => page.text)).toEqual(book.pages.map(page => page.text));
 });
@@ -71,10 +76,16 @@ for (const book of selected) test(`${book.id} every page, real narration, word h
     await page.evaluate(() => { window.__worldDiscoveryAudio = []; });
     await reader.getByRole('button', { name: 'Hear this page', exact: true }).click();
     await expectAudioStarted(page, getGuidedReadingPageAudioPath(readingPage));
-    const word = words(readingPage.text).at(-1);
-    await page.evaluate(() => { window.__worldDiscoveryAudio = []; });
-    await reader.getByRole('button', { name: `Get reading help for ${word}`, exact: true }).last().click();
-    await expectAudioStarted(page, getGuidedReadingWordProductionAudioPath(word));
+    const pageWords = words(readingPage.text);
+    const contextualWords = GUIDED_READING_CONTEXTUAL_WORD_AUDIO
+      .filter(row => row.bookId === book.id && row.pageNumber === readingPage.pageNumber)
+      .map(row => pageWords.find(word => word.toLowerCase() === row.word));
+    for (const word of new Set([pageWords.at(-1), ...contextualWords])) {
+      expect(word).toBeTruthy();
+      await page.evaluate(() => { window.__worldDiscoveryAudio = []; });
+      await reader.getByRole('button', { name: `Get reading help for ${word}`, exact: true }).last().click();
+      await expectAudioStarted(page, getGuidedReadingWordProductionAudioPath(word, { bookId: book.id, page: readingPage }));
+    }
     await expectPrintedWordsVisible(reader);
     await page.screenshot({ path: info.outputPath(`page-${String(index + 1).padStart(2, '0')}.png`) });
     if (index === 0) {
@@ -107,18 +118,18 @@ for (const viewport of STUDENT_DEVICE_PROFILES.filter(profile => profile.id !== 
   }
 }
 
-test('World Discovery child library has fifty ordered covers and ten per public shelf', async ({ page }, info) => {
+test('World Discovery child library has every declared ordered cover and public shelf', async ({ page }, info) => {
   await page.setViewportSize({ width: portrait.width, height: portrait.height });
   await page.goto('/preview/child-surfaces.html?surface=reading-library');
   await page.getByRole('button', { name: 'Find a book', exact: true }).click();
   await page.getByLabel('Friends or topic', { exact: true }).selectOption('world-discovery');
   await page.getByRole('button', { name: 'Back to shelf', exact: true }).click();
   const cards = page.locator("button[data-book-id^='world-discovery-']");
-  await expect(cards).toHaveCount(50);
+  await expect(cards).toHaveCount(expectedBooks);
   expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(books.map(book => book.id));
   for (const level of ['A', 'B', 'C', 'D', 'E']) {
     await page.getByRole('navigation', { name: 'Book levels' }).getByRole('button', { name: appReadingLevelLabel(level), exact: true }).click();
-    await expect(cards).toHaveCount(10);
+    await expect(cards).toHaveCount(expectedPerLevel);
     expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(books.filter(book => book.appLevel === level).map(book => book.id));
     for (const card of await cards.all()) {
       await card.scrollIntoViewIfNeeded();
@@ -130,8 +141,8 @@ test('World Discovery child library has fifty ordered covers and ten per public 
   }
 });
 
-for (const level of ['A', 'B', 'C', 'D', 'E']) test(`${level} class preview, real audio and audience actions`, async ({ page }, info) => {
-  const book = books.find(row => row.appLevel === level);
+for (const cohort of activeCohorts) for (const level of ['A', 'B', 'C', 'D', 'E']) test(`${cohort.id} ${level} class preview, real audio and audience actions`, async ({ page }, info) => {
+  const book = books.find(row => row.appLevel === level && row.number === cohort.firstNumber);
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.addInitScript(observeRealAudio);
   await page.goto(`/preview/guided-reading-preview.html?book=${book.id}&mode=class&audience-actions&assignment`);

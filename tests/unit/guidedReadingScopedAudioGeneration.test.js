@@ -10,7 +10,7 @@ test("a series audio run includes only its visible pages and words and leaves ma
   const prefix = "gr-a-26";
   const source = "src/data/generated/guidedReadingLedaGaps.generated.js";
   const before = readFileSync(source, "utf8");
-  const result = JSON.parse(execFileSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", prefix], { encoding: "utf8" }));
+  const result = JSON.parse(execFileSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", prefix], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
   const book = getRuntimeGuidedReadingBooks().find(row => row.id === prefix);
   const text = new Set(book.pages.map(page => page.text));
   const words = new Set(book.pages.flatMap(page => decodableTextTokens(page.text)));
@@ -25,7 +25,7 @@ test("a series audio run includes only its visible pages and words and leaves ma
 
 test("an empty or unknown series selection cannot fall back to generating the whole library", () => {
   for (const args of [["--book-prefix"], ["--book-prefix", "--dry-run"], ["--book-prefix", "not-a-real-series-"]]) {
-    const result = spawnSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", ...args], { encoding: "utf8" });
+    const result = spawnSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", ...args], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /Expected --book-prefix|selection contains no books/u);
   }

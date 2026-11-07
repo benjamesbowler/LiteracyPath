@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-13",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:14.825Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-cb575980-b225-4cdf-ae6c-91477816f434.png",
+  "sourceSha256": "db95ae0da861922f88bb0dafb8bcf8c8bf5e540d3fc861d444824a8a0dade3d8",
+  "output": "public/guided-reading/world-discovery/c-13/page-07.webp",
+  "outputSha256": "8a3a10ca48c82d33d1c60df39c7057097e0e3350a9e5c18dfe319891f7ea0336",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Zoom whole intact market scene OUT20 percent so full Kit shoes, cloth bag, adult shoes, grower/table/crate and canopy are at least10 percent inside all four edges. Add continuous market surroundings, no border. Preserve transaction: adult pays grower; Kit lowers ONE purchased carrot bunch into ONE cloth bag; exactly TWO remaining carrot bunches tabletop; EMPTY green crate beneath. Same people, supported poses and natural scales.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-17c866c5-a9a3-433b-bb8b-875ab37af590.png",
+      "sha256": "47d1038abe6e6dfebbaa561a3cf81f7a3ae841840119e7f8a2bac12b8b017414"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "4e0d3da242a5b7a5dd7710516fc3f8beed47f7f4d3047c056857788ed0c8d56d",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "8a3a10ca48c82d33d1c60df39c7057097e0e3350a9e5c18dfe319891f7ea0336",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Payment and one bunch transfer into Kit-held bag; two bunches remain; hands and bag support plausible.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "8a3a10ca48c82d33d1c60df39c7057097e0e3350a9e5c18dfe319891f7ea0336",
+    "note": "Payment and one bunch transfer into Kit-held bag; two bunches remain; hands and bag support plausible."
+  }
+}

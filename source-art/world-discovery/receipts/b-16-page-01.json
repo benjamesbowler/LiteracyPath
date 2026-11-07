@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-16",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:58:30.238Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7b94496a-b234-4700-9e1e-7b527d943ef8.png",
+  "sourceSha256": "14478426ad5b54a34e304d3b82cabd077342de3e07949a617b6e401784e2ca0c",
+  "output": "public/guided-reading/world-discovery/b-16/page-01.webp",
+  "outputSha256": "27d75167ff3cb08afe77d2cd0481de168d728d950d2c510c54112e809358b3db",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY for framing. Pull camera back about20%, keeping3:2 landscape1536x1024. The entire rover PLUS obstacle and dip fit within the central75% width and height, leaving broad plain red ground on both sides and below; all wheels and full shallow dip at least10% inside frame. Preserve all SIX wheel positions exactly (three near, three far), all on ground BEFORE the low gray rock and shallow dip. Preserve rigid rocker-bogie joints, white body/gray mast, shape/pose and camera angle. No new wheel or object. Bold clean flat 2D cartoon, crisp outlines, no grain/mottling/paint texture, no labels/text/logos/humans/animals, no border. Preserve science and all subject states.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9d407aa3-fea0-4a1e-b671-d51c471f92cd.png",
+      "sha256": "4a280ffccf51c99acc6b158091b2d20f7b0ad3851fbceb75d19283d0d1f9a7fd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "377d044665ae51065f17714a8a0e9ef0b5107aab580ad7c7d62c50640eb3adae",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "27d75167ff3cb08afe77d2cd0481de168d728d950d2c510c54112e809358b3db",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Six wheel positions visible, all before low gray rock and shallow dip, white body and camera mast coherent. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "27d75167ff3cb08afe77d2cd0481de168d728d950d2c510c54112e809358b3db",
+    "note": "Six wheel positions visible, all before low gray rock and shallow dip, white body and camera mast coherent. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  }
+}

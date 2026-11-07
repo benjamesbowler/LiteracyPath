@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:54.413Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6f21cee8-9248-4513-9c42-913e2e0d26a0.png",
+  "sourceSha256": "fc56abaa6039a1b3b7d21886cc3f71bee0c686d917f84a49e51017ec12c4b30c",
+  "output": "public/guided-reading/world-discovery/d-16/page-10.webp",
+  "outputSha256": "0a5504363869441fa621f75c7d39443a0e332cb07395f736bf41b2d57960661b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Widen the scene about twenty percent, move the complete small inset inward to TWELVE PERCENT left margin and complete main Moon to TWELVE PERCENT top/right margins. Inset stays at most one third canvas width, with a DIM gray-copper Moon inside the shadow; main Moon stays bright full. Preserve exact mare orientation and quiet rooftop. No other change. Flat crisp 2D cartoon, no texture or text. Full 1536x1024 3:2, no crop, no border, no extra objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-b9b93ba3-eaad-4b42-8931-53357de69238.png",
+      "sha256": "6a4377dcce1ba2a3655936f3e2c0702cc85986a665f4b5c57c7daa097d0448cf"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "0a5504363869441fa621f75c7d39443a0e332cb07395f736bf41b2d57960661b",
+    "method": "codex-direct-image-inspection",
+    "note": "Bright full Moon above rooftop plus small inset of prior Sun-Earth-dim Moon shadow geometry. Main Moon and inset both safely framed; no white Moon in umbra."
+  }
+}

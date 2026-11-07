@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:12.624Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d67da743-2c67-4f48-9f1d-47404ba9b710.png",
+  "sourceSha256": "785edb2b62a10be43f5da59f4d8b016f8c235f26d7ec16c0e97a1eb2e8ae37e3",
+  "output": "public/guided-reading/world-discovery/d-20/page-09.webp",
+  "outputSha256": "c3f39db20a273259d54bf7dff84ec06b04aa0bdd57671ac4ef71108263320e03",
+  "width": 1672,
+  "height": 941,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels. The fitted opaque bronze top-and-side SHIELD must still be present around the bulb, identical to the second reference. The light is OFF: dark lower opening, no bright bulb, no beam or warm pool. Darken ALL hedge leaves to cool dark forest green. Empty porch, closed door, no people.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-0638aa50-057d-486a-8520-c9b35f3f292a.png",
+      "sha256": "a1efe9511ce0996194bf11dcd8df7738eb7f86ec9c697b4c273abbbafbc6fdae"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e25edcad-e527-43a9-9c7a-37a7dd6a3a96.png",
+      "sha256": "76a63951ab4ab879e4ce88e2d35014afbf3b2633f7f41746a76689e4a5644566"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "c3f39db20a273259d54bf7dff84ec06b04aa0bdd57671ac4ef71108263320e03",
+    "note": "Native PNG and final WebP directly inspected at full image size. Empty stoop, installed shield retained, black underside and no halo, lamp off."
+  }
+}

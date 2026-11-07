@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-e-13",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:48.306Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6f53b789-b9d4-4623-b468-68d6310c67cb.png",
+  "sourceSha256": "85a778ee9d9fc7f39822bca9044b41371b0a285a25954f2c51c09145ed7fd424",
+  "output": "public/guided-reading/world-discovery/e-13/page-02.webp",
+  "outputSha256": "1a5f13e8f285e586ea55874c6252c683628ef430303371f4298c518c4326bd31",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is exact edit target. Change ONLY the small foreground sapling ground SHADOW. Erase current crown shadow to UPPER-RIGHT of trunk, restoring paving. Draw one small crown-and-trunk shadow cast LOWER-LEFT from base, parallel to all three people shadows: from trunk base at x285 y740 toward x220 y755. Keep small crown shadow entirely away from bench. Same flat dark-lavender shadow color. Preserve entire tree, people, bench, continuous building, doorway and every other shape/color exactly unchanged. Clean flat cartoon, no new labels, no other edits.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e13-p2-shadow/before.webp",
+      "sha256": "a0a07e4d6fb2ef57d4024488fd16f093825825e918ba1b299f9a39c388997711"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-13-reference.webp",
+      "sha256": "1ff85e1d8c26582ee71a3d2353ac884f620bb9edb47c79070c056bd547c4027a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:58:37.054Z",
+    "sha256": "1a5f13e8f285e586ea55874c6252c683628ef430303371f4298c518c4326bd31",
+    "note": "Native and installed WebP inspected. Small sapling crown shadow now extends leftward away from bench in the same direction as the three human shadows. Tree, three people, sunlit bench, continuous wall and doorway remain unchanged; natural grounded scale and contact preserved.",
+    "limits": "Agent direct visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+      "currentSha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

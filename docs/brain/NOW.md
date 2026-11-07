@@ -69,11 +69,16 @@ human-listening observations remain unknown under the existing beta policy.
 
 ## Book shelves, Skills trail and admin usage
 
-The integrated Guided Reading catalogue contains 347 books and 3,061 pages:
+The integrated Guided Reading catalogue contains 397 books and 3,501 pages:
 the original 227, 20 [Small Steps](../guided-reading/SMALL_STEPS_CONTENT_BIBLE.md),
 30 cumulative Next Steps decodables, 20 broader Bright Ideas leveled readers,
-and 50 [World Discovery](../guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md)
-books, ten per public App level A–E. World Discovery owns its complete
+and 100 [World Discovery](../guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md)
+books, twenty per public App level A–E in two registered fifty-book cohorts.
+The original cohort remains immutable; the second cohort's complete-book
+image review, audio screening, browser and release evidence lives in
+`.artifacts/world-discovery-expansion/`. Registration is separate from hosted
+publication, which is established by its exact deployment and live evidence.
+World Discovery owns its complete
 manuscripts, scene/state ledgers, factual sources, exact media reviews and
 Leda narration; it makes a predictable/levelled reading claim.
 The [Foundations Expansion Bible](../guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md)

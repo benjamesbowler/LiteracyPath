@@ -1,0 +1,50 @@
+{
+  "bookId": "world-discovery-a-19",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:46:25.798Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e056a572-6677-49e0-be01-0c03c8668786.png",
+  "sourceSha256": "211663d7df8e1e848ff6e83a09282efb05eb14c93af0303564e92b5638c923b2",
+  "output": "public/guided-reading/world-discovery/a-19/page-07.webp",
+  "outputSha256": "f220e4fefa24bc6f3eefd00465dc8a8a879c729cfffee973bd7b9fa32ccc3a65",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a NEW finished 3:2 picture-book scene using this corrected reference for Zoe, NORMAL waist-high classroom activity table, objects and room. Make the final composition 20% WIDER than reference, all essential head/shoes/table legs/objects at least12% inside frame. NATURAL PHYSICAL GEOMETRY FIRST: table has four ordinary long legs, thin top/apron at child's waist; Zoe stands on floor behind it with her TWO plum trouser legs and TWO white shoes visibly continuing below tabletop between table legs. No low coffee table, no missing lower body, no floating child, no oversized objects. Same six-year-old deep brown Zoe, two black puff buns, yellow tee/plum overalls/white shoes; two hands only, believable joints and reach. Gentle elevated front three-quarter view, clear tabletop and real floor contact. Clean crisp flat2D cartoon, no grain or writing. Exactly FOUR small objects: rough rounded red brick, smooth silver spoon, rough brown bark, smooth gray oval pebble. Exactly TWO circular mats teal LEFT and yellow RIGHT. CAMERA OVERRIDE FOR THIS PAGE: TRUE straight-down OVERHEAD view showing only tabletop and Zoe's TWO hands entering naturally from its top edge; no head, body, legs or room needed. Four objects on mats and pointing hand comfortably in central70% image. EXACT CURRENT SCENE: Overhead view makes the grouping exact: rectangular brick with irregular bark left, long spoon with oval pebble right. Zoe points at the two differently shaped objects on the right mat without moving them. Do not reuse another page's sorting state. ONE coherent scene, no panels, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0b8cb004-e122-477b-b2f8-9f774c23166e.png",
+      "sha256": "1641101dbef985c58b634e3ede0af6498fc81e57b37305a21e624fc84846ab91"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:06:31.973Z",
+    "sha256": "f220e4fefa24bc6f3eefd00465dc8a8a879c729cfffee973bd7b9fa32ccc3a65",
+    "note": "Intentional tabletop and hands close view; four physical objects in correct two groups, stable table surface and ordinary pointing finger; no displaced full body implied."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+      "currentSha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

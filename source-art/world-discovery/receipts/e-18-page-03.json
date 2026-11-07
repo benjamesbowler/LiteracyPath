@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:05.177Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-73d20b18-0ff2-4996-ae56-629be0b36c66.png",
+  "sourceSha256": "51e18dc85fcd9442da148a8739a19aafecbb1049c3d270057b6746a7f8763aad",
+  "output": "public/guided-reading/world-discovery/e-18/page-03.webp",
+  "outputSha256": "4c3ccd2d7e229bf755464db94b309d2172f7d4d97ba88126d175baf691985c61",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact scene by about25percent, uniformly reducing the existing focal butterflies, host plant and any authored map/comparison panels to sit safely inside central80percent of1536x1024canvas. Extend same matching environment around composition. ALL foreground wing tips, antennae, feet, primary egg/chrysalis/larva/flower subjects and FULL map/panel borders must have at least10percent margin from every outsideedge. Preserve EXACT counts, same poses, four functional walking legs and reduced front pair, antennae, wing patterns, exact egg/larva/chrysalis/adult stages, and season. Retain geographic map and route arrow EXACTLY only if present in this input; no extra maps/arrows/panels. Preserve flower contact and natural relative scale; no giant butterflies or detached bodies. No new animals, people or props. Keep crisp bold flat2Dcartoon, full3:2landscape, no crop/border and no words/labels/numbers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e18-margin-sources/page-03-before.webp",
+      "sha256": "1945d974e494b4dd1b7b7f0179a789b04c50b897eb926e92f5cd957261ce0e4a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "4c3ccd2d7e229bf755464db94b309d2172f7d4d97ba88126d175baf691985c61",
+    "method": "codex-direct-image-inspection",
+    "note": "Widened spring feeding scene; full wings and fine walking legs at flower contact, no humanlike anatomy or framing cutoff."
+  }
+}

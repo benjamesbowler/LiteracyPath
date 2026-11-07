@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:30:12.195Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-aee1a9bd-92fe-4deb-93d7-a989c5f5a613.png",
+  "sourceSha256": "fe0e020e9ec7ce15ed10148ff9579781d3a7409f6ff64e1e93a67c5185d3e6b7",
+  "output": "public/guided-reading/world-discovery/b-18/page-03.webp",
+  "outputSha256": "538b280d3f07538f0f720172b577de0a9f2c957534a470d64a7c959a168bb1ed",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Ready for Wings; World Discovery; nonfiction.\nSetting: One illustrative two-striped grasshopper, Melanoplus bivittatus, across its egg, nymph and adult stages in a grassy field. Six legs, large rear jumping legs, two antennae, brown-green body with two pale lengthwise stripes; no butterfly chrysalis or caterpillar body.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Soil egg pod shown in a natural cutaway; One focal young grasshopper and its successive stages, never duplicate individuals in one scene; Grass blades with feeding notches; Empty shed outer skins distinct from live animals\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): It eats leaves.\nIts body grows.\nRequired illustration: Back at the field surface, the nymph feeds along a grass blade edge, leaving a small notch. Continuity: Back to young nymph stage; body remains wingless and smaller than final adult.\nExact current state: Back to young nymph stage; body remains wingless and smaller than final adult.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT INVENTORY: ONE small young wingless grasshopper NYMPH, NOT the adult on the design board. No long wings and no wing pads yet. Same green-brown two-striped body, two short antennae, six legs in three thoracic pairs: four slender walking legs and two enlarged hind jumping legs. Natural small lateral compound eyes/mouth, no human face. No second live insect or old skin. One nymph at field surface, its mouth touching the edge of ONE grass blade with a single new small feeding notch. No soil cutaway or visible eggs. All other blade edges intact. Feet naturally grip supporting grass; wings absent. Landscape3:2 1536x1024, focal animal, pod if present, and relevant leaf completely inside central70% width and central75% height with12% margins. Clean flat 2D outlines/colors, no texture. Reference is isolated design studies only, NOT multiple animals to copy.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-18-reference.webp",
+      "sha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.393382+00:00",
+    "outputSha256": "538b280d3f07538f0f720172b577de0a9f2c957534a470d64a7c959a168bb1ed",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "One wingless nymph feeds at a visible fresh grass-edge notch; no adult wings, natural mouth contact and six-leg plan with far-side occlusion. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "538b280d3f07538f0f720172b577de0a9f2c957534a470d64a7c959a168bb1ed",
+    "note": "One wingless nymph feeds at a visible fresh grass-edge notch; no adult wings, natural mouth contact and six-leg plan with far-side occlusion. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

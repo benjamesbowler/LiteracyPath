@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:39:41.912Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6109aea1-8b66-4e4f-93da-e777731c3e23.png",
+  "sourceSha256": "b0a9043167ff11401e100ba9448d228baea51b7c9c274672bd8c69f469c5bca3",
+  "output": "public/guided-reading/world-discovery/b-20/page-05.webp",
+  "outputSha256": "ca912d8cc982d4cc30fe9236100582a85b611d8c00dff2588d45989d6ff743c9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this exact image's whole scene and all people/props/contacts/water states. Only adjust canvas/framing to landscape 3:2, revealing a little more floor below and wall above, so the complete shoe soles sit at least 10 percent above the bottom edge. Preserve existing relative scale and positions, normal child/adult/sink proportions. Do not make a distant tiny scene; do not widen into a panoramic strip. No new objects, furniture, people, writing, water, cup or plant. Preserve adult holding removed silver handle with brass stem; new small black washer held against BOTTOM of stem, old washer and single wrench on cloth, supply off and faucet dry, children stand back.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/b-20-page-05-bb9cd3fe2f09.webp",
+      "sha256": "bb9cd3fe2f0981ec8cd6301f165d758c5cfcea89a19d5ab9c1b93002fa9cd64a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.192376+00:00",
+    "outputSha256": "ca912d8cc982d4cc30fe9236100582a85b611d8c00dff2588d45989d6ff743c9",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Supply off and body dry; adult holds removed handle/brass stem and small new black washer against stem bottom. Matching old washer plus one wrench on cloth. Children stand back. Final widened WebP inspected; natural anatomy/contact.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "ca912d8cc982d4cc30fe9236100582a85b611d8c00dff2588d45989d6ff743c9",
+    "note": "Supply off and body dry; adult holds removed handle/brass stem and small new black washer against stem bottom. Matching old washer plus one wrench on cloth. Children stand back. Final widened WebP inspected; natural anatomy/contact."
+  }
+}

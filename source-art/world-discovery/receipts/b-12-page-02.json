@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-12",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:31:07.442Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-31121e72-62dc-48fa-973c-dfa8969937cb.png",
+  "sourceSha256": "ae13bd0d03bd9d3c13e623fcaccbc3cc2e1112d95d80aaa8315ba0cd19d4c733",
+  "output": "public/guided-reading/world-discovery/b-12/page-02.webp",
+  "outputSha256": "905d98e7e5d69b0217ba9541d6e66a2a5841be7e0b735506d4a2bb7fe3f75d21",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this actual image, preserving 1536 by 1024 3:2 format and exact flat cartoon style. Correct ONLY the blue window in the upper right: it currently ends at a vertical cut without its right frame. Draw its complete matching blue right vertical frame and sill end, making a coherent ordinary rectangular window set into the cream wall. Preserve all children, clothes, poses, hands, food, cups, closed box, furniture, floor and wide safe margins EXACTLY. No other change. No text, no panel, no new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ffd394e6-8f15-4ae4-bd0e-4f3f8adb9814.png",
+      "sha256": "d21d1905ef2759bda9f0b7fefeaa99fabe2621418e487e83c78a6c845a693342"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5e63c46809f84999637e01cb64322b71f1f6277058029d50f4641f16cf0de34f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:38:30.530031+00:00",
+    "outputSha256": "905d98e7e5d69b0217ba9541d6e66a2a5841be7e0b735506d4a2bb7fe3f75d21",
+    "scope": "Production-author direct native and installed final WebP inspection, full ordered prose/state and whole-scene rereview. Independent QA pending.",
+    "notes": "Kit mouth crumb, plate cheese/crumbs and closed box; Zoe stands naturally with complete legs holding purple cup.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "905d98e7e5d69b0217ba9541d6e66a2a5841be7e0b735506d4a2bb7fe3f75d21",
+    "note": "Kit mouth crumb, plate cheese/crumbs and closed box; Zoe stands naturally with complete legs holding purple cup."
+  }
+}

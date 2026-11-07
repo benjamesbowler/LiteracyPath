@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:04.996Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-855bbd8a-7999-452c-ac2c-77909e52bfa5.png",
+  "sourceSha256": "f0ba5f796f3822f15251ede5233379b7d607e0331fb63e405d848fb34a352d48",
+  "output": "public/guided-reading/world-discovery/c-15/page-04.webp",
+  "outputSha256": "dcd47ae4db1e52fcefebb2f72d6305f03f2ef881074bf28b80e122f029673a6d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull camera back30% so ENTIRE thin-crust lava cross-section lies at least12% inside all four edges. Extend natural surrounding ground. Preserve intentional one bounded geological cutaway exposing orange-red molten interior beneath thin solid dark-gray surface; exactly one continuous flow cross-section, no inset, no arrows, no labels. Crisp flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-166ff891-8dee-43a6-adcb-8274fa811f38.png",
+      "sha256": "569167520d3b25de6dd8460db5dce8dffa83557ea063006d1fdabdfe902d0398"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.552066+00:00",
+    "sha256": "dcd47ae4db1e52fcefebb2f72d6305f03f2ef881074bf28b80e122f029673a6d",
+    "note": "Native source and final WebP directly viewed. Single integrated authored cutaway reveals thin crust around hot interior; no extra inset."
+  }
+}

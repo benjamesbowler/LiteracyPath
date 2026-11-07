@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:04.710Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4c6048a6-357f-492b-8c7e-24e162bb705a.png",
+  "sourceSha256": "43f52b1ec108b006e52f2ca4ba08ac9915506d427e629e6f17cd1259c9d23334",
+  "output": "public/guided-reading/world-discovery/a-13/page-05.webp",
+  "outputSha256": "6203da49317e8bfb2d557a6ccfd00028fd365cdaf91d3bfb48f36064f015abcd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull camera BACK25percent and recenter the intact crossing scene, preserving exact road/car directions and sidewalk locations. WHOLE stopped BLUEcar atnearLEFTfacingRIGHT, WHOLE stopped REDcar atfarRIGHTfacingLEFT, all three complete humans, and essential whitewalking signal must lie at least10percent inside all image edges. Extend same neighborhood scenery around edges. Do not move vehicles into crossing; both frontbumperstaysbehindownstopline. Do not alter any other people/location/state. Page5/6 group remains fully on NEARsidewalk;page8group fully on FARsidewalk. No newcars or people, no text,borderorlabels. Crisp clean flat2D landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-39d4392c-8a94-4cd3-87f4-11c269bd5f8c.png",
+      "sha256": "cf731ac001f050179958daf3d3d42950ee803cdefea885e1875d85c2cd349c85"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.754578+00:00",
+    "sha256": "6203da49317e8bfb2d557a6ccfd00028fd365cdaf91d3bfb48f36064f015abcd",
+    "note": "Native PNG and installed WebP directly inspected. White walk symbol appears; group still at near curb holding hands. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

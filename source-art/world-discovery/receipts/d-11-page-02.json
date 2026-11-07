@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:41:01.585Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-57ab4b65-8ef1-4696-b301-2ce0e62ed043.png",
+  "sourceSha256": "7383fa917f9f354782683f9e4f0004bc3277d0637422b2f0c7a9f0f4b471a74b",
+  "output": "public/guided-reading/world-discovery/d-11/page-02.webp",
+  "outputSha256": "2b301d09e7d5270c02292b7f7392beea6526fef856281b1ac61a93cb1d75bb9e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Two small corrections only: remove the GRAY crayon from the yellow tray, leaving exactly ONE BLUE crayon there; keep the gray crayon in Zoe's hand. Shrink the drawn gray cloud to HALF current width and height, so it is only one purple boot wide. Keep it in the same sky position. No rain. Keep the splash and every other detail and framing unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7ac386d9-80b7-48bb-96bd-0e5f368b7317.png",
+      "sha256": "e81bc27460afdb2c9d089d043513d21a7c6f3f991c16f3cb8a4c74d949e088af"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "sha256": "2b301d09e7d5270c02292b7f7392beea6526fef856281b1ac61a93cb1d75bb9e",
+    "note": "Generated source and installed WebP inspected. One gray crayon draws the small cloud; blue stays in tray. Raised splash remains, no rain yet. Small cloud can be fully covered by opaque sun disk.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

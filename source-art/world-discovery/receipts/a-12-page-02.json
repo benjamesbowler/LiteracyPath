@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:03:17.395Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-11122b47-1007-4f22-88ab-9f8d3a5c4a20.png",
+  "sourceSha256": "a3dd9c1e8af571658061c10dbf825cc4700c506c2685c265d1b530166b8076cb",
+  "output": "public/guided-reading/world-discovery/a-12/page-02.webp",
+  "outputSha256": "f52e1c84f5a5cc311feb40a36ee8c9df6f86252277fbf2265eefa9b8eb8e3820",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Kit Slows Down; World Discovery; fiction.\nSetting: A fenced school playground in daylight. One curved path runs from a blue gate past a low bench to two empty swings. No roadway.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Blue playground gate at the start; Low wooden bench midway; Two empty yellow swing seats at the destination; Kit and Zoe carry nothing\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Kit runs ahead of Zoe.\nRequired illustration: Kit runs forward along the fenced path, arms naturally bent. Zoe continues walking behind him. Show an increasing gap, not a chase or race; both remain on the path.\nExact current state: Kit passes the bench; Zoe approaches it; empty swings ahead.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-12-reference.webp",
+      "sha256": "96aa5a358c31f2cfaf97e5c6123cd1f23dbab74394cc6aaff1b6d729cee98e70"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:22:08.844Z",
+    "sha256": "f52e1c84f5a5cc311feb40a36ee8c9df6f86252277fbf2265eefa9b8eb8e3820",
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Kit runs ahead of Zoe, beyond the bench; separated positions make ahead/behind visible. Locked cast, crisp cel style, essential subject margins and no text verified."
+  }
+}

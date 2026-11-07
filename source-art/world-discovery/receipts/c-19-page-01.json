@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:20.365Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-15c8b885-f032-439e-a78e-fb00ed81ba95.png",
+  "sourceSha256": "ba05c2526df7c828b46797c2115fc49980781081b5b1a5d52b68f76a889fde2a",
+  "output": "public/guided-reading/world-discovery/c-19/page-01.webp",
+  "outputSha256": "d6047e43149a3537a9501054035ec0d4350538a4708b6c1ba1fc258bf1743fae",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create NEW landscape3:2 crisp flat2D children's illustration. Reference locks ONLY cast, ordinary table proportions and room designs, NOT object state. MUST match this new exact scene: Kit left sets two small measuring scoops beside two half-filled clear water cups. LEFT BLUE mat holds one water cup; one level white salt scoop beside it. RIGHT GREEN mat one water cup; one level beige sand scoop beside it. Both cups plain water with equal water level, no grains inside yet. ONE EMPTY shallow white dish at center. Exactly two spoons resting, one each side. Three standing full figures, teacher middle Zoe right. Camera at least25% WIDER than reference, all heads, shoes, table legs and focal objects at least12% inside each edge. Real physically plausible geometry and hand support. No grain, no text, no labels. Both children same6year height, adult1.4times taller.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c378b193-2432-475d-8a28-cd026f3477ba.png",
+      "sha256": "cbf2b0fd107f01106d3b28c7ba7de0169996cce9c60deb2d7045ca92f89a9ff9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.558704+00:00",
+    "sha256": "d6047e43149a3537a9501054035ec0d4350538a4708b6c1ba1fc258bf1743fae",
+    "note": "Native source and final WebP directly viewed. Equal half-filled cups, separate full salt and sand scoops, two spoons and empty dish; normal standing people and supported waist table."
+  }
+}

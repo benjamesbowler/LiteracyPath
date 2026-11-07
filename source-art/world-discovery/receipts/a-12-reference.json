@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:58:02.393Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-243bee17-9784-4348-92a7-2a0b07bbb63f.png",
+  "sourceSha256": "cb9f1254f4a26393906acbd195f480b73bd97f078a303c010a963782398bc7be",
+  "output": "source-art/world-discovery/a-12-reference.webp",
+  "outputSha256": "96aa5a358c31f2cfaf97e5c6123cd1f23dbab74394cc6aaff1b6d729cee98e70",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Kit Slows Down; World Discovery; fiction.\nSetting: A fenced school playground in daylight. One curved path runs from a blue gate past a low bench to two empty swings. No roadway.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Blue playground gate at the start; Low wooden bench midway; Two empty yellow swing seats at the destination; Kit and Zoe carry nothing\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Children side by side at gate; swings ahead.. For orientation, the opening location/action is: Kit and Zoe enter through the blue playground gate together. The same path leads visibly toward two yellow swings in the distance. Their bodies and feet face the destination.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T10:58:15.653828+00:00",
+    "sha256": "96aa5a358c31f2cfaf97e5c6123cd1f23dbab74394cc6aaff1b6d729cee98e70",
+    "note": "Directly inspected native and installed WebP. Locked Kit and Zoe identities and equal scale; blue gate, single curved path, low bench midway and two yellow empty swings have useful separated design views plus coherent fenced daylight location. Reference design views are not duplicate objects for finished scenes; no later story beat appears."
+  }
+}

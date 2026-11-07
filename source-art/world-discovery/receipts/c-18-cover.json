@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-18",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:05.160Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-396df98a-7db2-46c9-a542-4c76a5ceedc9.png",
+  "sourceSha256": "a6b44501d81e7adc6bf8c84b41aa133b6063c035386c1202ba46eee9905ef737",
+  "output": "public/guided-reading/world-discovery/c-18/cover.webp",
+  "outputSha256": "68741289c85b45962a6085b96971df5fd39368c892bcf0cc6c43ba08a737b3af",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Shell from the Start; World Discovery; nonfiction.\nSetting: Brown garden snail, Cornu aspersum, in a damp garden bed beside a curved stone and broad low leaves. One focal individual followed through time; thin pale hatchling shell becomes larger and patterned. Natural shell coiling and two long eye tentacles plus two shorter sensory tentacles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): A soil hole containing a partly concealed clutch of round pale eggs; One focal egg that darkens then opens; One focal snail and its continuous attached growing shell; One curved gray stone beside low leaves\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: A tiny garden snail with a pale attached spiral shell emerges beside its opened egg under a leaf. An ordinary soil hole and curved gray stone establish scale; no empty replacement shells.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nNO humans. Exactly TWO long eye-tentacles plus TWO short sensory tentacles lower at mouth; no extra horns, limbs or human smile. Each visible snail body has exactly ONE permanently attached spiral shell. Initial eggs pale, focal hatchling pale small shell, later juvenile larger shell, adult brown patterned shell only on pages6/7. Match stone/leaf location. All essential whole subjects12% inside frame.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-18-reference.webp",
+      "sha256": "0baa44091b65c46ab22d7cd37d3bfd9425508f03505be301d227a0d3233e33de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "a5baed023b30274069b9ad8723cfa5315a96ed0c89206a01044e4c6894b37e69",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:24:52.771141+00:00",
+    "sha256": "68741289c85b45962a6085b96971df5fd39368c892bcf0cc6c43ba08a737b3af",
+    "note": "Native source and actual final WebP directly viewed. Hatchling has attached pale spiral shell beside an opened egg; two long eye and two short sensory tentacles, continuous foot, soil and leaf setting. Focal subjects safely inset; no obvious malformed geometry."
+  }
+}

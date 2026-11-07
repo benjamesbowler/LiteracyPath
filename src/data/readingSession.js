@@ -19,7 +19,7 @@ export function readingSessionMediaUrls(book, pageNumbers = []) {
     .flatMap(page => [
       withRepairedGuidedReadingImageVersion(page.image),
       getGuidedReadingPageAudioPath(page),
-      ...(page.words || []).map(word => getGuidedReadingWordProductionAudioPath(word))
+      ...(page.words || []).map(word => getGuidedReadingWordProductionAudioPath(word, { bookId: book.id, page }))
     ])
     .map(value => String(value || ""))
     .filter(Boolean);

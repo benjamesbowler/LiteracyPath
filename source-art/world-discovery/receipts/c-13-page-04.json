@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-c-13",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:13.368Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0acb55ec-950d-4d12-824d-0ffc29f31049.png",
+  "sourceSha256": "0bff6da504f547dcff103e21bfbfbc2ee8d4f8aa7c145aa2faada80da33b2632",
+  "output": "public/guided-reading/world-discovery/c-13/page-04.webp",
+  "outputSha256": "76ae286dd25152cec2f236333f3a49ddae2674744b8fdd1173519af8aeedc5ca",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Before the Market Opens; World Discovery; nonfiction.\nSetting: One illustrative local farmers market and nearby carrot farm. Grower sells her own crop directly. Grower: brown skin, dark braid, rust-colored work shirt and navy trousers. Market worker: light-medium skin, short gray hair, teal vest. Kit\u2019s accompanying adult: deep brown skin, short black hair, plain cream shirt and dark trousers. No named brands, prices, logos or cultural markers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One green wooden produce crate with a pale diagonal brace on one side; Fresh carrots with green tops; One plain gray van; One simple wooden stall table; One cloth shopping bag carried by Kit\u2019s adult\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The worker holds the gate open and points out a space. The grower carries the crate to her table.\nRequired illustration: The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through. Continuity: Gate was opened for setup and remains open; table is the one shown in page 1.\nExact current state: Gate was opened for setup and remains open; table is the one shown in page 1.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nProduction clarity: one coherent appealing natural scene, ordinary child-scale furniture and adult proportions where relevant. Essential people and all focal props entirely at least 10 percent inside all four image edges; preserve readable medium-wide composition on 3:2 canvas. Natural hands with correct fingers and contact, no intersecting chair/body/table geometry, no giant room-enclosing shelves. References show multiple designs and times: use ONLY current scene inventory. Preserve the established room geometry and fixed prop locations across pages. Do not insert future completed states.\nUse only specific current-scene people; no Zoe. Kit does not visit farm and appears at market only when exact brief requires. The crate is one GREEN wooden crate with pale diagonal brace; full at farm/van/arrival, EMPTY under market table after unloading. Ordinary stall table/van proportions and safe human lifting/contact. Do not clone crate, carrot bunch, people or van.\nThird and fourth images give ONLY designs/market setting. Follow CURRENT exact cast: p4 ONLY gray-haired teal-vest worker and rust-shirt braided grower; p5 ONLY grower; p6\u20138 Kit, his deep-brown cream-shirt adult, and grower. NO ZOE anywhere. NO premature customers in p4/p5. Table is child-waist/adult-hip height, normal stable four-legged market stall, no giant furniture. Same green crate with cream diagonal brace; p4 FULLcarrots in hands, tableEMPTY; p5\u20138 crate EMPTY beneath table and carrotbunches tabletop. Exactlyone crate, no extra crop/stock. All full people, feet, table, crate and any focal van completely at least10% inside image edges. Maintain ordinary supported object contact.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-13-reference.webp",
+      "sha256": "8bcefc02855a8b79b8a68aa091dfa9d481bb351fb95bd094d0b04a54ce83ed34"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-94882598-7d52-41e8-b598-3e842a4de6f0.png",
+      "sha256": "9d65db358bced91fc903e733fb2d8fd5fc26f1c4fa7d7a2fe1e4662439b5d2e0"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-08ffa3fa-67d0-421d-9139-050beb15737c.png",
+      "sha256": "787fb6548326e5918fe19b635e5ba60f8506da86e0ae05b8fb7ec87bb4ae532c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "4e0d3da242a5b7a5dd7710516fc3f8beed47f7f4d3047c056857788ed0c8d56d",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "76ae286dd25152cec2f236333f3a49ddae2674744b8fdd1173519af8aeedc5ca",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Worker holds hinged open gate, grower carries full crate toward empty familiar table; no customers yet.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "76ae286dd25152cec2f236333f3a49ddae2674744b8fdd1173519af8aeedc5ca",
+    "note": "Worker holds hinged open gate, grower carries full crate toward empty familiar table; no customers yet."
+  }
+}

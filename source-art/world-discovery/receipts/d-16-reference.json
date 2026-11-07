@@ -1,0 +1,43 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:44:44.942Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-92cf6646-8a46-4905-b0e4-575455e48632.png",
+  "sourceSha256": "6a27fdf781ca059aa3d4edf437560f9a02bdccd87ec7bbd7b06f4b7f376da83b",
+  "output": "source-art/world-discovery/d-16-reference.webp",
+  "outputSha256": "2d9af4afe93fbc412ed445413df45324430e90ecf0e0138e1a3acddf470e9288",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Simplify this scientific reference sheet. Keep ONE large circular full Moon design, ONE large circular Earth design and ONE large circular Sun design, with clean consistent mare/continent pattern and flat cel colors. REMOVE all redundant angled/side/three-quarter turnarounds and bottom repeated planet groups entirely; fill their spaces with clean white background and rearrange remaining three master subjects cleanly. No elliptical or thin-disk silhouettes anywhere: each celestial body is a sphere seen as a perfect CIRCLE. Keep the single Sun-left Earth-middle Moon-right eclipse geometry and the night rooftop location key. Preserve tapered Earth shadow, dim Moon within it, and circular full Moon with small shadow at lower-left in rooftop key. No labels or humans.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-893d35bb-91b9-4472-8723-9f3e0679936b.png",
+      "sha256": "88323e4c99d3015a0a0d3aea189a99a024bd17478e7bf9fc386cd8955aaf19cb"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f32def44-2c21-4356-9f96-e42c438cf6f7.png",
+      "sha256": "ea9a985113f6a24d041feb3397719c30e198d34c6ef8d93471330c0cd69b1e49"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "2d9af4afe93fbc412ed445413df45324430e90ecf0e0138e1a3acddf470e9288",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly reopened production design board: circular Sun/Earth/Moon, consistent mare design and quiet rooftop key. Board is an internal design reference, not a story page."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3b2c4dea75c51e4d37e985ca7a33c3eec5ed9c5ab1efaeac674e0b993764d222",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Current full-level source binding after unrelated book metadata and D16 p7 leading-rim correction; this asset exact prompt/native preserved. Reopened current output against current complete book sequence."
+}

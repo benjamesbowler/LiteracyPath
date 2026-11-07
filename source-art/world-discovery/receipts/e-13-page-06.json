@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-e-13",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:20:59.104Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6534b7c6-6f26-4444-a40f-6ac5121c4979.png",
+  "sourceSha256": "7903ec466f178f6bd706cf3215918fe5d5efac5738124fa268c2fdbf09b37b0a",
+  "output": "public/guided-reading/world-discovery/e-13/page-06.webp",
+  "outputSha256": "e256e11eecf221b310a5a09b7ad9affa7eb9ff6aedf31e9f39f998c3db36e46e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull the camera back substantially, scaling the ENTIRE scene group to 72 percent centered, and extend the background naturally. Keep complete young tree, bench, every person, canopy roof and posts within central74percent (13percent clear margin all four edges). The young tree MUST stay small with its present small canopy.  Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-867a754b-07f8-468c-8388-c5de68e00689.png",
+      "sha256": "b8a57479e33c58f2df14ed9faa1f8c5593a5498ea6dc643717ff01bfe547515d"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-13-reference.webp",
+      "sha256": "1ff85e1d8c26582ee71a3d2353ac884f620bb9edb47c79070c056bd547c4027a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:41:38.553746+00:00",
+    "sha256": "e256e11eecf221b310a5a09b7ad9affa7eb9ff6aedf31e9f39f998c3db36e46e",
+    "note": "Generated source and installed WebP inspected. Plan marks west bench and keeps northeast doorway route clear; both hands support clipboard.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+      "currentSha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

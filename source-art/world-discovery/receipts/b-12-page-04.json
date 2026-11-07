@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-12",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:37:50.436Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-42e7efe0-e45c-4988-86ef-63b51843d0be.png",
+  "sourceSha256": "a9b34dcc59150560e529354606724ab75418151162ba7528dc41b0a363652ec7",
+  "output": "public/guided-reading/world-discovery/b-12/page-04.webp",
+  "outputSha256": "00a86ccb4202ec22fe6a69a09b911275ac3dbdc229de36cf11a602b30d740cc4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep this exact 1536x1024 flat cartoon scene, moment, pose, expressions, shelf cups, cheese, crumbs, purple cup and CLOSED yellow box. Pull the camera back just 12 percent so all focal objects including the entire closed box have at least 10 percent clear space from all image edges. Preserve Kit pinching ONE tiny crumb and Zoe shaking her head. Exact closed-box/cheese/crumb state stays unchanged. Extend plain cream wall above. The foreground wooden tabletop continues naturally to the bottom edge and its sides meet the left/right image edges; its front edge remains OUTSIDE the image below the bottom, so lower bodies are naturally occluded. No floating furniture, artificial fading, borders, panels, vignette or new props. Keep normal child proportions and deep brown Zoe skin.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/repair-inputs/b-12-page-04-06ebae95ec4b.webp",
+      "sha256": "06ebae95ec4ba0e2be915fd907a1a88d668bcfda684dcb7ec9b65463d24b8b86"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5e63c46809f84999637e01cb64322b71f1f6277058029d50f4641f16cf0de34f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:38:30.530031+00:00",
+    "outputSha256": "00a86ccb4202ec22fe6a69a09b911275ac3dbdc229de36cf11a602b30d740cc4",
+    "scope": "Production-author direct native and installed final WebP inspection, full ordered prose/state and whole-scene rereview. Independent QA pending.",
+    "notes": "Kit pinches one crumb, Zoe shakes head; closed box safely framed; tabletop naturally continues off lower frame, ordinary occlusion.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "00a86ccb4202ec22fe6a69a09b911275ac3dbdc229de36cf11a602b30d740cc4",
+    "note": "Kit pinches one crumb, Zoe shakes head; closed box safely framed; tabletop naturally continues off lower frame, ordinary occlusion."
+  }
+}

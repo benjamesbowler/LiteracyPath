@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:43:38.788Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-713fd382-5c25-46b1-946b-dbc3912a3193.png",
+  "sourceSha256": "9f2e9f09e8528eb1af85dd2a55faa3717ab84acb8a8db291f34b6fbfb1f67323",
+  "output": "source-art/world-discovery/a-18-reference.webp",
+  "outputSha256": "03f1928ac2ba8824e957e2f09e978e2d48dd510836b1a91d4cf2f521360e77aa",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precisely correct this monarch butterfly production reference sheet. In the LARGE MAIN VIEW AT LEFT, remove the extra LEFT-curving black clubbed filament which arcs from the head toward the open chrysalis upper-right edge. It is an erroneous THIRD antenna. Keep ONLY the TWO drooping clubbed antennae on the right, both rooted separately at the head. Leave the two clearly segmented long GRIPPING LEGS touching the case completely intact; those are lower and are not antennae. Check every other pose on the sheet: each butterfly has EXACTLY TWO clubbed antennae, never three; remove any third filament. Keep all other anatomy, especially TWO tiny folded forelegs close to the thorax and FOUR developed walking legs, with far-side legs occluded where natural. Keep the female monarch wing pattern without male scent patches. Preserve the exact model-sheet composition, crumpled-versus-expanded wing poses, transparent chrysalis, twig, flower, and clean flat 2D style. No text. The only correction is eliminating extra antennae.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-91e8f0a5-d90b-4a35-8771-90f714ff7afd.png",
+      "sha256": "13864bc5ca2f3b11a0030b607c72b965c44f890ac95bcb6cd3bd9111899a3f17"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:44:03.578Z",
+    "sha256": "03f1928ac2ba8824e957e2f09e978e2d48dd510836b1a91d4cf2f521360e77aa",
+    "note": "Direct native and installed WebP review: corrected three-antenna defect, all emergence poses now exactly two clubbed antennae; two tiny forelegs folded at thorax, developed legs grip and far legs naturally occlude; female wings without male scent patches, crumpled-to-expanded states distinct. Earlier whole-animal approval superseded by this corrected output."
+  }
+}

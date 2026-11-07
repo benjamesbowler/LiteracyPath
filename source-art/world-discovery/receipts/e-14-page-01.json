@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:17.764Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6a918bea-e2c4-4858-880f-8d7502a2260f.png",
+  "sourceSha256": "c33b8f43018c3198d00caffb124fe1fa13b084f4a2831f54005226d7f4d0e84a",
+  "output": "public/guided-reading/world-discovery/e-14/page-01.webp",
+  "outputSha256": "7b6a11136a0c4e7b26470a66a10a0d1e360278938a25f62bcbd035ee507e1003",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make only this precise small correction to the supplied image: Increase only the blue toy boat, red sail and tan mast together by about forty percent, so the blue hull is about ONE THIRD of the yellow tray width, matching the later toy. Keep its position inside tray and every other object and child unchanged. This is a modest toy not a giant boat. Preserve all existing safe framing, broad margins, natural hands and arm contacts, upper-body crop with no floor, one pot/cup/brush/cloth, canonical identity and flat 2D style. Full1536x1024 3:2. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-5362281d-faaf-47a5-bb43-dedf94c89a5f.png",
+      "sha256": "1b584b4cc19f1330f9c3edbadc4b458a0a08abcfa1e7ffbfcbdd0acccde72c5c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "7b6a11136a0c4e7b26470a66a10a0d1e360278938a25f62bcbd035ee507e1003",
+    "method": "codex-direct-image-inspection",
+    "note": "Kit alone wipes known small tray corner. Clean yellow is revealed, rest tray unpainted. Small blue boat/red sail/tan mast stays visible at consistent toy scale; natural cloth contact and safe framing."
+  }
+}

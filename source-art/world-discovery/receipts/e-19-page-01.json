@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-19",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:15:15.042Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0c54b1aa-9d46-4ce6-8852-f6136c98bdab.png",
+  "sourceSha256": "e5023dffa84b609d67f3125a7cf2b2bcfea5cc4a3f864fccfbee672352d3bcdd",
+  "output": "public/guided-reading/world-discovery/e-19/page-01.webp",
+  "outputSha256": "1d9abc50ac26b5e085cb04b39cbc90a6ba05e64ed3553a6258b5d9c7bf2d5688",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit framing only for this exact finished educational illustration. Pull the camera back about 25 percent and naturally extend the classroom or tabletop to the image edges. Keep the entire teaching board, yellow tray, every shape, all visible heads and every complete hand at least 10 percent inside the image edges. For overhead close-ups, forearms may enter from the bottom naturally; do not add detached hands. Preserve all existing functional words EXACTLY where present: round, not round, red, not red. Preserve exactly the same shape count, color, positions, waiting-tray state, natural poses and object contact. Ordinary supported furniture; never make giant floating furniture or an impossible room. No new shapes, words, borders or panels. Flat clear 2D cartoon, landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e19-root-repair/page-01-before-eec44e1361ce6e5db07809eebf4c2804edb224c746373099d868117c1e88afc6.webp",
+      "sha256": "eec44e1361ce6e5db07809eebf4c2804edb224c746373099d868117c1e88afc6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bf9908186dace628eff2f5577d9e6aa898be70cf15b531959ece95e5b49ac18a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:17:37.171Z",
+    "sha256": "1d9abc50ac26b5e085cb04b39cbc90a6ba05e64ed3553a6258b5d9c7bf2d5688",
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:19:53.245Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-536be63c-d48c-4045-8a13-6eaafe274d9e.png",
+  "sourceSha256": "0eee3aefa223a2d45fae8211601bae97a28123832a201fc9373262cc7bcba646",
+  "output": "public/guided-reading/world-discovery/a-13/page-07.webp",
+  "outputSha256": "a9a22fde79e2924b9d238c867339f7b0e8e9324464d39c0ff9a43aedfc637949",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the LEFT and RIGHT ends of the road and sidewalks in this exact picture. The street must continue HORIZONTALLY off BOTH frame edges as an ordinary continuous real street, with the sidewalks parallel above and below. Remove the blurry soft vignette where the black asphalt currently fades into grass at x5% and95%. Extend the crisp charcoal asphalt, double yellow lane line, curb and paving straight to both edges. No floating isolated piece of road. Keep all central road geometry, crossing stripes, cars, family, houses, signal, poses and positions EXACTLY unchanged. Do not zoom, shrink or move anything. Crisp flat2D, no words.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-8a6eecd5-0fd9-430f-8adc-11c45646e484.png",
+      "sha256": "9aa11af42ffd462dc899f81fd926a33df4f7437d55f032f0de6dbcfc5c3a9b51"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:31:05.409978+00:00",
+    "sha256": "a9a22fde79e2924b9d238c867339f7b0e8e9324464d39c0ff9a43aedfc637949",
+    "note": "Wider composition preserves family holding hands and walking away toward far curb, correctly stopped opposite-direction cars, houses and white walk signal; road/sidewalks continue naturally off frame. Native source and final installed WebP directly viewed."
+  }
+}

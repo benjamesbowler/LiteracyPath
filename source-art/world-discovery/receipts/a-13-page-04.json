@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:15:14.751Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-61a08df6-660c-400b-a677-2b063d70fbc3.png",
+  "sourceSha256": "a373f9fac2238c28210ef220e529c29ade92b539b9d0aa38dfb8d6c56a104490",
+  "output": "public/guided-reading/world-discovery/a-13/page-04.webp",
+  "outputSha256": "a52cc7e433a6ead60158a2db911dba4819cd0596dc3ffeee0f1771466e6a5d10",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the painted crosswalk markings on the road. Preserve the waiting adult between both children, held hands, their safe position behind the curb, car, houses and everything else exactly. The ROAD runs from the foreground toward the top center. The CROSSWALK must go ACROSS the road from left sidewalk toward right sidewalk. Remove the current stack of five horizontal white rungs that makes a crossing run ALONG the road. Replace them in the same road area with a single row of five LONGITUDINAL white bars: each bar is parallel to the yellow road centerline and vehicle direction, and the bars sit side by side across the road width. They form a broad continuous pedestrian crossing from left curb to right curb. Apply consistent ground perspective. Stop line in front of blue car remains separate and car stays behind it. Do not change people, hands, faces, anatomy or setting; no additional cars, symbols or text. Same clean flat 2D style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/a13-crossing-correction/page-04-before-30b1074ccfaf8a9d47d71c0038161685a3e25a15fd014ab9e793ea6850cb5b9b.webp",
+      "sha256": "30b1074ccfaf8a9d47d71c0038161685a3e25a15fd014ab9e793ea6850cb5b9b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:17:37.168Z",
+    "sha256": "a52cc7e433a6ead60158a2db911dba4819cd0596dc3ffeee0f1771466e6a5d10",
+    "note": "Directly inspected generated native and installed full-size WebP. Crosswalk bars now align with car travel and span the road; held hands, waiting position, stopped car and coherent physical scene preserved."
+  }
+}

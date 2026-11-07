@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:16:45.219Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c04bbf39-bc80-4b20-9889-90ab24e5afb1.png",
+  "sourceSha256": "771d740a70fd16192039fd62eb6ca2211076feb32908ca6d90b354754ad9ec35",
+  "output": "public/guided-reading/world-discovery/b-18/page-04.webp",
+  "outputSha256": "9c35de9c1612b7e2387d00eb991ce5ac31b448a1b9ca8d5611012cbabf1e7588",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact grasshopper illustration to widen camera framing only. Landscape3:2 1536x1024. Reduce entire focal live animal and old skin together to75% current size, centered with every antenna, wing tip and hanging empty leg tip at least12% inside all edges. Extend the natural grassy background, no border. Preserve one live PALE WINGLESS nymph pulling free of its split old skin; no wings, six legs, two antennae, soft abdomen emerging from split old covering. Preserve exact body scale/contacts/current pose/stage and clean flat 2D colors, no new animals or props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-42b7f92c-68b0-4b8e-9e49-09c5c4d5724d.png",
+      "sha256": "7d8a5fb20a44ca7d7dc30e25fd6482da8d8bca0faa5c4afe0ac6aea0f3544337"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.394435+00:00",
+    "outputSha256": "9c35de9c1612b7e2387d00eb991ce5ac31b448a1b9ca8d5611012cbabf1e7588",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Pale wingless nymph emerges from one hollow split old skin while gripping grass; old case reads empty, all body/antenna/case tips framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "9c35de9c1612b7e2387d00eb991ce5ac31b448a1b9ca8d5611012cbabf1e7588",
+    "note": "Pale wingless nymph emerges from one hollow split old skin while gripping grass; old case reads empty, all body/antenna/case tips framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

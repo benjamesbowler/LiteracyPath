@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:07.096Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3c980b9a-135b-48ba-b342-893b9550c1e8.png",
+  "sourceSha256": "53aa84774a9091d9254db5750520e6589db69ea071c5e7d8aaf22cb0af806c17",
+  "output": "public/guided-reading/world-discovery/e-20/page-04.webp",
+  "outputSha256": "918c9b48643623264621f70aa3de44d06e37ff8fe49acc330e4770f9a440982c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/page-04-before.webp",
+      "sha256": "dfa77f44c8b4e6a83f7731eae1ef6777bfaa91d70e8db85e52df606a49914e5b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "918c9b48643623264621f70aa3de44d06e37ff8fe49acc330e4770f9a440982c",
+    "method": "codex-direct-image-inspection",
+    "note": "One small natural bee feeds on raised dark flower disk, yellow rays complete within safe margins; attached legs/wings/antennae and botanical scale coherent."
+  }
+}

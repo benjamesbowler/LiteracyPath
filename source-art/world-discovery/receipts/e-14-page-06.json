@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:18.348Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-80b2c2e2-cf86-4bdd-ba51-964806d61c8b.png",
+  "sourceSha256": "e6465b0fe74c5303275527c2ceeca424796ca0a57daad727feb0d083b81cbaac",
+  "output": "public/guided-reading/world-discovery/e-14/page-06.webp",
+  "outputSha256": "8ac189aeefd8853b7a0210fa084c194873b57148de2d438839af10ccc56a24f3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Preserve all current actions, visible and invisible objects, colors, expressions, and the exact number of people and props.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-9e551a1f-a742-4499-a090-4bb12c941ea3.png",
+      "sha256": "8938844f9f152d0676d71d8b4dd02cfc909ca07d4fc7fd4b1afa9fcaf8c57bf1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "8ac189aeefd8853b7a0210fa084c194873b57148de2d438839af10ccc56a24f3",
+    "method": "codex-direct-image-inspection",
+    "note": "Kit withdraws hand; Zoe points naturally to the damp cloth beside cup. Empty table region remains consistent with invisible objects."
+  }
+}

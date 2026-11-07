@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-12",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:25:15.458Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-cb7e36ab-6390-45e6-a566-b350f54f3b64.png",
+  "sourceSha256": "9d8e0da1bc22b89c633b8a62dbca1868b97ae71a6a0aea8cc02caf07526c78ef",
+  "output": "public/guided-reading/world-discovery/d-12/page-06.webp",
+  "outputSha256": "3c4a6cc3ab46efb5db3a21f397dcc988aa1cd364ad5042d0c25b1c3416ee189e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration only to widen the camera framing. Preserve all existing character identities, expressions, hands/actions, roof tear and repair state, patch and strip counts, tape, bed and background. Scale the whole focal group proportionally to about 80 percent of its present size and center it vertically: on a 1536 by 1024 image, all hair, hands, house, tray and loose props, and any visible shoe soles must fit between y=125 and y=890, and x=155 to x=1380. Continue the same room naturally into the newly visible area. No solid border or frame, no additional props or people, no stretching or crop. Keep bold clean flat cartoon style. The current frame's exact action and objects are already correct; do not change them.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-12-page-06-fc63177124d1.webp",
+      "sha256": "fc63177124d1834e79fac61ab0abc468d0d947fae19a04db5448617feb56418a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "50af3f290ad84fa9841a41698c0d7d05032492bd97f356ff26d34397d56cd037",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:28:49.096Z",
+    "sha256": "3c4a6cc3ab46efb5db3a21f397dcc988aa1cd364ad5042d0c25b1c3416ee189e",
+    "note": "Generated source and installed WebP inspected. Kit holds lifted patch while Zoe indicates opening, localized tear and red bed; two unused strips and empty tray, natural arm/hand contact.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

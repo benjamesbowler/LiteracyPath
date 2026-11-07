@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:56:33.791Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8f3930cd-00db-4ca8-94ec-f3bee3295a07.png",
+  "sourceSha256": "545e891b14bd684ad8de2d69662859f0d20a89875111b4980517177ff3e987fd",
+  "output": "public/guided-reading/world-discovery/d-11/page-04.webp",
+  "outputSha256": "a425dea13a6107f19dcce28d1ad9e07b5e2da8fc704d6b69f6b4a53ed59145bf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the FIRST image. Change only the table's gray metal tubular legs to straight orange wooden legs matching the tabletop. Preserve every person, drawing, prop, shadow and position.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: I Pick the Rain; World Discovery; fiction.\nSetting: World Discovery. WD-KIT and WD-ZOE retain their locked cast-v1 clothing, proportions and equal height. One ordinary classroom art table and low display ledge in steady afternoon light. Both make pictures of a remembered favorite day; the room itself is dry. Memories appear only as drawings on paper, not as changes of clothing or setting.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Zoe's cream drawing sheet: two purple boots above one blue puddle, then one gray cloud and blue rain strokes; no drawn person needed; Kit's separate cream drawing sheet: orange ball on green grass under one yellow sun; One loose yellow paper sun disk with short cut rays, large enough to cover Zoe's small drawn cloud; it is never glued; Gray and blue crayons in a yellow tray; two plain display clips\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The picture is bright now, but Zoe frowns. Without the rain, her puddle seems like the wrong part of the day.\nRequired illustration: Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.\nExact current state: Do not erase puddle or add rain; her changed expression carries the hesitation.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-11-page-04-3ba2a2947ce4.webp",
+      "sha256": "3ba2a2947ce4234b78147a2ee10af82868eadc79bad77633b9112a23ddda084c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-11-reference.webp",
+      "sha256": "568bc7258fe9bd07e83c58a24fa3d7cd3e5fb1c57026b4ac0825902874c267de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:05:16.292170+00:00",
+    "sha256": "a425dea13a6107f19dcce28d1ad9e07b5e2da8fc704d6b69f6b4a53ed59145bf",
+    "note": "Generated source and installed WebP inspected. Table now has orange wood legs; seated scale, paper/sun coverage and hand contact unchanged.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

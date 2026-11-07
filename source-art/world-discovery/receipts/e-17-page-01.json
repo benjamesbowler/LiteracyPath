@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-17",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:55:36.534Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ae1ea5e3-426d-4c78-bbab-0dcac158e216.png",
+  "sourceSha256": "4e4967bf40ed1ea19d281daa28264f9793bd20810714bdebe4f8470b17ba39aa",
+  "output": "public/guided-reading/world-discovery/e-17/page-01.webp",
+  "outputSha256": "1080c5ac3126428025813f7fdaee1f72ccd1592f40a308a753c6e11fc1e9c153",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN the exact existing picture by about25percent, as if moving the camera back. Uniformly reduce the complete existing bird scene and any authored inset to occupy the central80percent of the final1536x1024canvas. Extend the same natural mudflat, water and sky around the scene. All tails, bills, feet, prey, and the COMPLETE border of any existing scientific inset must sit at least10percent inside EACH edge. In particular the near-left plover tail must be well away from leftedge. Preserve every bird exactly: current poses, plumage, two natural legs/toes, relative bird sizes, bill length/angle, ground contact, and exact prey/no-prey state. Do not add any animal, crab, extra prey, arrows, diagrams or words. Preserve the existing inset only if this input has one, without adding any new inset. Keep believable physical scene and clean bold flat2Dstyle. NO crop, no new panel, no white border. Onefull3:2landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e17-margin-sources/page-01-before.webp",
+      "sha256": "c5c8b418716d4aed12b3214887cb7a576a3a1283bed5c16cbf983e66e83b9ccd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "df43078e5def7fdb3437d0a2b0d7ca5612af6acac693787b371f6d084213bfa9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "1080c5ac3126428025813f7fdaee1f72ccd1592f40a308a753c6e11fc1e9c153",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly viewed completed margin-edit native in full: all focal tails, bills, feet and current prey safely inside >10% outer margins; p6 complete authored cutaway also inset safely. Natural plover/dowitcher anatomy, exact feeding/probing/no-prey state and wet-ground contact preserved; no new animals or props."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:26:36.156Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6296f467-a2ef-4d0d-a128-27ff846a2548.png",
+  "sourceSha256": "a864138250c23a6965ea3fdeffda0e34264be1323c4994d6d9c48a835903dc54",
+  "output": "source-art/world-discovery/c-19-reference.webp",
+  "outputSha256": "288f3c3a1143617a0a0f1571cea87ae03d9b0a01830a913e413201023052a786",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Gone or Still There?; World Discovery; nonfiction.\nSetting: Classroom investigation table. Equal clear water in two sturdy transparent cups; small salt quantity well below saturation. An adult-supervised demonstration, no tasting or heating. Later observation over days on an indoor sunny sill.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One clear cup on a blue mat for salt water; One clear cup on a green mat for sand water; Equal amounts of water and one small level scoop of each solid; Two separate stirring spoons; One shallow white dish for a little salt solution; Dry white table salt and clean coarse beige sand\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Samples still dry and separate; same water amount; salt quantity small enough to dissolve completely.. For orientation, the opening location/action is: Two equal water-filled cups stand on their blue and green mats. A small white salt pile and a small beige sand pile lie in separate scoops beside the matching cups. Continuity: Samples still dry and separate; same water amount; salt quantity small enough to dissolve completely.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nReference emphasis: lock table geometry BLUE mat LEFT, GREEN mat RIGHT; two equal clear cylindrical sturdy cups each half-full of clear water initially; separate small white salt scoop LEFT, beige coarse sand scoop RIGHT; TWO small stirring spoons lying flat separately. Empty shallow white dish set back center. Adult supervision: an unnamed adult with medium brown skin, short dark hair, plain coral sweater and navy pants appears as small supplementary model, not an extra child. Kit and Zoe same height, locked cast identity. No crystals yet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:27:22.652735+00:00",
+    "sha256": "288f3c3a1143617a0a0f1571cea87ae03d9b0a01830a913e413201023052a786",
+    "note": "Locked equal-height cast, adult supervisor, blue-left/green-right water cups, separate salt/sand scoops and two spoons; empty dish. Native source and installed WebP directly inspected."
+  }
+}

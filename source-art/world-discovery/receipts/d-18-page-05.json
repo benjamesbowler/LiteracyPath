@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:25:12.479Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f46f68d5-f91d-4276-8621-43e6f7cfe12f.png",
+  "sourceSha256": "21712a387c8d56f9b48524963f673895089e047e8416ec28da7bd508aeef8bde",
+  "output": "public/guided-reading/world-discovery/d-18/page-05.webp",
+  "outputSha256": "30a360a91bfd28434232d38bb76789e4226b1758e26b50ef3f0bfe6b036609cb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, second is identity only. Pull camera BACK so ENTIRE scene becomes70percent of current size, centered, extending natural underwater sand and water. Keep every focal limb tip, stone and food at least15percent from every edge. Preserve exact scene relationships, all natural attached anatomy, dull EMPTY eyecaps and clear empty REAR split of discarded covering; exactly one living crab and one discarded covering, not two animals. No text or additional diagram. Clean flat2D cartoon full1536x1024. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-06e27652-8d7b-43bd-91f0-c225b7d9e89a.png",
+      "sha256": "b709bf86f4054757e4fab1bf75cbf1ea2473efafe29363f1f36310a9b2e66bca"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.840Z",
+    "sha256": "30a360a91bfd28434232d38bb76789e4226b1758e26b50ef3f0bfe6b036609cb",
+    "note": "Generated native and installed full WebP directly inspected. Newly emerged soft crab and one complete hollow covering are similarly sized before expansion. Rear opening and empty eyecaps identify old covering; full subjects and stone widely inset.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-14",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:49.845Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6301c052-1149-47dd-8e6d-68a2b6a78389.png",
+  "sourceSha256": "8dd574fd923f20f431bfbad0e026e2639e6b71ae1addda3f46474b56ee650f84",
+  "output": "public/guided-reading/world-discovery/d-14/page-05.webp",
+  "outputSha256": "9ef0fc7978b5f8f5478bc1a46e50d0af7bec8e8fcf2ae1be00875cb97a1e7929",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Pull camera back substantially: shrink the ENTIRE composition of both children, full giant wall shadow, floor circle, blue chair, fan, cabinet and window to 70 PERCENT of current size, centered. Extend plain lavender floor and peach walls naturally on all four sides. Entire giant shadow including hair and fan must be at least15percent BELOW top; full circle15percent ABOVE bottom; full chair15percent fromright. Keep exact existing body poses. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5b5b550c-16c1-4dc3-9f26-39bbca796d29.png",
+      "sha256": "f7bdb5e2ef65b9211d3e674fc9a4498c8d26ebe3cae9f4d4ed6c918128fe0b99"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-14-reference.webp",
+      "sha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "297cf219fe94bbfb4925c9430d5e879923aa397b5629d8d7462a1af1994bb69c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.869Z",
+    "sha256": "9ef0fc7978b5f8f5478bc1a46e50d0af7bec8e8fcf2ae1be00875cb97a1e7929",
+    "note": "Generated native and installed full WebP directly inspected. Kit closes empty fist; shadow hand overlaps fan on chair without actually lifting it. Real fan stays supported by seat.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

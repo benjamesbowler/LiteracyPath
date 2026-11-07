@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:53:07.845Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-fcb3de45-10a6-4f74-a5d7-f94c192e1ab6.png",
+  "sourceSha256": "d82eea64a7b894a92d461f747eb1e0b60d2db5d48e2057d7f0b8eecb3e1558f9",
+  "output": "public/guided-reading/world-discovery/a-20/page-03.webp",
+  "outputSha256": "cd8d260b207d0d751552de289fc405964c157f5bd4b9c07ae7897b6a55425e95",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "This is a precise framing edit of an approved children's 2D book picture. Pull the camera BACK25 percent and RECENTER the intact scene. All human hair/head tops and every focal tabletop object including dish/tin/food or four sorting items must lie at least10 percent inside ALL frame edges. Current heads and lower objects are too close. Extend the same plain wall/table/background to the frame. Keep EXACTLY the same visible people, poses, hand contacts, object quantities, arrangement, colors and story state. Do not add or remove any object. Do not redraw a different moment. No border, inset, labels or text. Preserve original landscape3:2 format and bold clean flat cel style. Count all food pieces or sorting items before and after: they must be identical.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-016ee442-95ea-4113-a64d-1e7aa5d0499b.png",
+      "sha256": "badde372bb2543748b25bbf49b4f880c3a56cae3b23f95ed2f5060c2e4c1d5dd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:00:04.175287+00:00",
+    "sha256": "cd8d260b207d0d751552de289fc405964c157f5bd4b9c07ae7897b6a55425e95",
+    "note": "Native PNG and installed WebP directly inspected. Empty crumb plate, open reaching hand; eight in tin, adult relaxed. Coherent anatomy and object contact, clean flat illustration, intact focal shapes with room around them, no unwanted lettering."
+  }
+}

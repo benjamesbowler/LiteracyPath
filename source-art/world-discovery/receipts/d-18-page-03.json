@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:43.714Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-25d9cbff-6616-4c1e-aa23-b933bee3d60d.png",
+  "sourceSha256": "31f2d382597f50019926c75d12accb6a88c98a891ece5e511d1a4a11432f2b8a",
+  "output": "public/guided-reading/world-discovery/d-18/page-03.webp",
+  "outputSha256": "49296abf0c5c9061d53db7012172865ccfaa1616a903bc9be40d822d470d36da",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Pull camera back to70percent whole-scene scale, keeping all existing elements together centered. Extend underwater water/sand naturally. Entire crab with every limb, stone and explanatory inset must lie within central70percent,15percent borders. Remove the huge segmented pointed lobster-like tail protruding from rear. Blue crab has NO extended shrimp abdomen. Replace with only a narrow smooth pale green rounded rear-body edge just beginning to emerge from shallow transverse rear seam beneath carapace. Preserve original roof of carapace, front-attached, raised slightly ONLY at rear.  Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3f42d706-7e85-46a2-a41a-8bc06d186387.png",
+      "sha256": "fd54ee856ebc195db9e8ab5a8c06350edfd2709d2ea9044c84ffabd41eca8185"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.839Z",
+    "sha256": "49296abf0c5c9061d53db7012172865ccfaa1616a903bc9be40d822d470d36da",
+    "note": "Generated native and installed full WebP directly inspected. Rear three-quarter carapace opens across shallow transverse rear seam, with only a narrow smooth new-body edge visible. No lobster tail, longitudinal split or detached shell lid.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

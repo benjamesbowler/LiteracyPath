@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:30:08.647Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1e55a0c5-fd75-4816-aa53-5e8a1d463dd4.png",
+  "sourceSha256": "a7192f461c239b92dda67378070175f5c7101af4d0c789c1db978f863ed8d58c",
+  "output": "public/guided-reading/world-discovery/b-20/page-06.webp",
+  "outputSha256": "b2942e1b4e4856e4c1e20c80b7b9903d2aedcdaef1c03c94bf05eb616528c584",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact finished illustration only to widen the framing slightly, about 18 percent. Keep a LANDSCAPE 3:2 canvas, not a panoramic strip. Preserve exact people, poses, anatomy, object contact, sink cabinet, plumbing, water/cup state, colors and physical scale. Show a little more ordinary wall above and floor below so every full shoe sole and head and essential prop has at least 10 percent breathing room inside the frame. The scene should remain close and readable, not a tiny distant room. Do not add furniture, props, people, extra water, a second plant, or writing. Keep the adult hand on the brass shutoff on a separate thin supply pipe; the gray P-trap remains distinct. Kit tests the fully reassembled tap with one normal stream. Half-full cup aside.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1003a266-7bb6-47d4-a966-875c8741a118.png",
+      "sha256": "4ad32b0794e8615f36521e4ffae6fd222b1be2e078f15f137b77121474c8f7bc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.193270+00:00",
+    "outputSha256": "b2942e1b4e4856e4c1e20c80b7b9903d2aedcdaef1c03c94bf05eb616528c584",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Tap reassembled; Kit tests normal stream while adult opens separate thin supply-line brass valve. Gray P-trap distinct from supply. Half-full caught cup aside; correct under-sink pipe relationships and natural crouch.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "b2942e1b4e4856e4c1e20c80b7b9903d2aedcdaef1c03c94bf05eb616528c584",
+    "note": "Tap reassembled; Kit tests normal stream while adult opens separate thin supply-line brass valve. Gray P-trap distinct from supply. Half-full caught cup aside; correct under-sink pipe relationships and natural crouch."
+  }
+}

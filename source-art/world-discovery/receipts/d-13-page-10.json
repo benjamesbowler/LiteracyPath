@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:16.039Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-4ed11317-cf16-4ea8-8011-dd46033936b8.png",
+  "sourceSha256": "68da7e301ff874b637e351f4658028f0fc793522de5c4451198b5cfd27af9bb1",
+  "output": "public/guided-reading/world-discovery/d-13/page-10.webp",
+  "outputSha256": "1600f30776cbf06a283dc869b41eb1bc38d6fa07d47ecdbb9f5da58f8730f223",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back substantially, scale complete crossing scene to72percent centered and extend surrounding sidewalks/buildings/road. Entire people from hair to shoes, car, both signals, cane tip and crossing button must be INSIDE central74percent, with13percent clear space from all edges. Do not merely move a person. Keep left/right crossing geometry and right-pointing raised arrow integral to black circular moving button. Preserve exact current traffic and pedestrian signal state otherwise. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-0e04e43b-b000-483b-9583-616dab4bd9a6.png",
+      "sha256": "35fa6e09ae75319e7daa56e7d077962499afc60baf276ce53b7c7bb5ac6b3fc9"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-13-reference.webp",
+      "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.866Z",
+    "sha256": "1600f30776cbf06a283dc869b41eb1bc38d6fa07d47ecdbb9f5da58f8730f223",
+    "note": "Generated native and installed full WebP directly inspected. Both stand safely on far sidewalk looking back toward near button; cane touches ground. Crosswalk and opposite corners make completed movement legible.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

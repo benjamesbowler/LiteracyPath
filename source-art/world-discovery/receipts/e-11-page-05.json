@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:16.872Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-1058c12d-d8c1-44f8-a7ac-1c09de0cdd98.png",
+  "sourceSha256": "35454c55e1721ebbfc5baa876fbeac7a67e0d5aa26e96425feaefd0533bbdf02",
+  "output": "public/guided-reading/world-discovery/e-11/page-05.webp",
+  "outputSha256": "a11180458c89e0c80bd1cd277c8cd74ac1dda992179d737484ed1b851bd0634a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back to scale ENTIRE scene group to80percent centered; extend same plain floor and walls. Complete child heads, feet, hands and essential drawing/props must have at least13percent margin. Make all legs of the blue classroom chairs BLUE, the same blue as each chair back; preserve natural connected chair geometry and seated child proportions. Keep table legs orange wood. Keep smiling pool drawing and its bubbles INSIDE BLUE WATER exactly as now, and preserve folded paper/private folder/new public drawing state. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b31bda37-c280-47e1-b420-19c4411b00b1.png",
+      "sha256": "c71776b277e4c9c46a5c6627613b995c675dca4511e67d73429cf4f75153241a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-11-reference.webp",
+      "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:18:08.953823+00:00",
+    "sha256": "a11180458c89e0c80bd1cd277c8cd74ac1dda992179d737484ed1b851bd0634a",
+    "note": "Generated source and installed WebP inspected. Original held low, finger at happy bubble half and gaze toward empty clip; no unwanted publication.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

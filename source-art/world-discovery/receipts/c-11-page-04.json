@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-11",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:24:32.799Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8ae842ff-72e5-4f5b-b057-b07f20d1fa69.png",
+  "sourceSha256": "738d41879f2569c874869192d9562443f2105fe0b01f2c92c0e0194557b252f3",
+  "output": "public/guided-reading/world-discovery/c-11/page-04.webp",
+  "outputSha256": "f711aa6cf087c66b53c0c312a32ed090e76638f5a5ad29da1391a2eda92239ba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Make ONLY this inventory correction to this otherwise unchanged scene: remove the TWO physical yellow cups and ONE red ball from the indoor left shelf. Put those same two cups, nested as a pair, and that same single red ball on the garden grass under the tree beyond the doorway. Leave ONE folded blue mat alone on indoor shelf. Do not change either child, lowered picture card, furniture, door, room or framing. The card drawings are unchanged small pictures, not physical duplicates. No physical cups or ball indoors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9d2fe60f-0b28-4a69-a6b1-71a4dcf08f27.png",
+      "sha256": "6698a74c33482f9ae050f6572ea7eae87b0421b53b4502aea9e4944397b801c6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "82dbb69f8fe710729f42f271778bf6297f32a6982af7892f5c8b5cb78fb54c8e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "f711aa6cf087c66b53c0c312a32ed090e76638f5a5ad29da1391a2eda92239ba",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Kit's uncertain face and chin touch, Zoe's lowered card; moved objects remain outdoors and mat inside.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "f711aa6cf087c66b53c0c312a32ed090e76638f5a5ad29da1391a2eda92239ba",
+    "note": "Kit's uncertain face and chin touch, Zoe's lowered card; moved objects remain outdoors and mat inside."
+  }
+}

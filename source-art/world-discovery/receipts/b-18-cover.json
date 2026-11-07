@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:27:16.497Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9c90b2f8-17f2-4db6-96cb-a7b573914c53.png",
+  "sourceSha256": "2b77b7691c88880ddde706bd0980e3bb03a25e99d39dcc990a5be01f74e0d724",
+  "output": "public/guided-reading/world-discovery/b-18/cover.webp",
+  "outputSha256": "f0abe85a9e3e5d6969703f62a15c5501625b0111ea538fba150b370f3da783bc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Ready for Wings; World Discovery; nonfiction.\nSetting: One illustrative two-striped grasshopper, Melanoplus bivittatus, across its egg, nymph and adult stages in a grassy field. Six legs, large rear jumping legs, two antennae, brown-green body with two pale lengthwise stripes; no butterfly chrysalis or caterpillar body.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Soil egg pod shown in a natural cutaway; One focal young grasshopper and its successive stages, never duplicate individuals in one scene; Grass blades with feeding notches; Empty shed outer skins distinct from live animals\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: One grown grasshopper with long folded wings rests on a grass blade; an empty shed skin clings lower on the stem. No second live juvenile or diagram collage.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL FRAMING LOCK: Landscape3:2 1536x1024. All focal subjects and their full antenna/leg/leaf tips must stay in central72% width and central76% height, with at least12% margin from every edge. Natural background continues to edges; no white border. Use clean flat colors, crisp dark outlines, no painterly grain, realistic physical support/contact, appealing coherent composition. Reference is DESIGN ONLY; make exactly ONE continuous full-page scene, no model sheet or duplicate views.\nSCENE INVENTORY: exactly ONE live ADULT two-striped grasshopper with two long folded forewings covering broad folded hindwings, six legs (four thin front/middle, two enlarged hind jumping legs), two short antennae. All six anatomically present with natural far-side occlusion. One EMPTY hollow translucent pale shed skin lower on the stem, visibly lifeless split shell, not another living insect. No soil cutaway or eggs visible on this cover. Grass stem physically supports feet, no hovering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-18-reference.webp",
+      "sha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.388109+00:00",
+    "outputSha256": "f0abe85a9e3e5d6969703f62a15c5501625b0111ea538fba150b370f3da783bc",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Single striped adult with long folded wings supported on grass; one pale split empty exuvia below, no second live insect. Natural close-view scale and generous animal margins. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "f0abe85a9e3e5d6969703f62a15c5501625b0111ea538fba150b370f3da783bc",
+    "note": "Single striped adult with long folded wings supported on grass; one pale split empty exuvia below, no second live insect. Natural close-view scale and generous animal margins. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

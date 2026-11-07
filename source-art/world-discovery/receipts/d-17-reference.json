@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-17",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:25:12.980Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ada7815e-6cff-4a8c-b6aa-730e707333ac.png",
+  "sourceSha256": "df579c06745dfca39c76bb6c1dc9aa405f609b1f8be9a1e9e650ec7cd1aa5e7b",
+  "output": "source-art/world-discovery/d-17-reference.webp",
+  "outputSha256": "7a9a696fa92b74f29ef7470fded7ff03cea9392894f62669ed832f8d01572c3e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "EDIT FIRST IMAGE. Change ONLY the finish: remove all grain, stipple, painterly shading and patchy leaf/garden texture throughout. Render every leaf, wing membrane, body, background plant and ground as crisp outlined shapes with smooth flat colors and at most two cel shade shapes. Preserve EXACT butterfly anatomy, clear membranes showing leaf behind, opaque narrow borders/veins/pale forewing patches. Four developed walking legs plus reduced front pair folded at thorax; two antennae; four wings. No humans.\nThis remains a wordless production reference board, not a final page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-152eee53-86c3-4060-bfec-46981cf5134e.png",
+      "sha256": "167a3a3aba24548339ef9211a22c8bc6c23f914285c9f7117a9d26f1fef558a1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5a5aae0dc62bd937436aec09507f77a06724c9f49054941f6eb9d4d63203ac1b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:28:49.083Z",
+    "sha256": "7a9a696fa92b74f29ef7470fded7ff03cea9392894f62669ed832f8d01572c3e",
+    "note": "Generated source and installed WebP inspected. Clearwing reference shows four wings, opaque brown borders/veins, pale forewing bands, translucent central patches with leaf visible behind; four developed legs and folded reduced forelegs, two antennae; clean flat habitat.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

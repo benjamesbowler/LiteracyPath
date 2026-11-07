@@ -1,0 +1,59 @@
+{
+  "bookId": "world-discovery-e-13",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:20:58.698Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-42899cf0-c23f-445a-b152-8eef6d9652c2.png",
+  "sourceSha256": "e7408973b1202c5241303f8b47ab4a2e5a77cad273ff9a5d879aa642b8b58e79",
+  "output": "public/guided-reading/world-discovery/e-13/page-04.webp",
+  "outputSha256": "b5f918eb0aca4929eeeac974c8e4eb0c140142809cd2b056ad2b22d355693a93",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is edit target; others preserve exact cast/prop identity only. Correct ONLY pointing pose/placement: move Kit to RIGHT OF THE CARETAKER, on the edge of the broad dark wall-shadow patch. He bends slightly and points his extended right index finger DOWN into the nearby shadow on paving. Finger tip must be unobstructed and clearly aimed at empty DARK PAVING; NO PERSON between fingertip and target. Caretaker remains center and Zoe remains left. Preserve broad morning shadow, sunlit west bench, tiny tree, wall and door, natural grounded feet, child scale and safe margins. Keep other states/counts/expressions/actions unchanged. Natural human anatomy and plausible spatial geometry. Clean flat colors/contours. No text or labels. Full landscape1536by1024, 3:2; no border or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ebdfd398-6507-41cf-91fa-a87e34186362.png",
+      "sha256": "b6afd50d85501d3f07b20181a6a2b6e273309efd600a301fe30944d6a82ef796"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-13-reference.webp",
+      "sha256": "1ff85e1d8c26582ee71a3d2353ac884f620bb9edb47c79070c056bd547c4027a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:41:38.551498+00:00",
+    "sha256": "b5f918eb0aca4929eeeac974c8e4eb0c140142809cd2b056ad2b22d355693a93",
+    "note": "Generated source and installed WebP inspected. Kit points down to broad morning wall shadow, empty dark paving beyond fingertip; bench remains west.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "bbaee79bdaefb2bde827a7c535888eefb64391b8ea01ed60d81342b17874e041",
+      "currentSha256": "73ba84af79123895343e667ac2a5d031bc866a70c7c8c6bc3a82a60d1bd26b7e",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

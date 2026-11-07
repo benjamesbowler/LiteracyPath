@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:48:45.616Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f0624e65-78d3-46fb-a1e0-ee2107f470b3.png",
+  "sourceSha256": "cdc3937d99700cc2a3274ecf1e3196c3f8e0f3fe335ed779f2ce05562230f714",
+  "output": "public/guided-reading/world-discovery/b-19/page-03.webp",
+  "outputSha256": "fd2e9ea05c4779d179949093a662eb2e16b0a43ffa59d4fbcb8e13089f5053f3",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Use case: precise-object-edit. Widen and recenter this same intact illustration by 20 percent, all children hair and entire shoes and experimental props at least 10 percent inside every canvas edge. Extend the ordinary classroom and floor naturally at normal real scale. Preserve the exact body poses, faces, natural hand/foot contact, experiment objects and states. Keep Zoe holding one wax paper vertically between Kit's blue flashlight and the white screen, diffuse soft glow transmitted; the clear plastic and card remain flat aside. Single long red car aside. Preserve normal table geometry. Crisp flat 2D solid colors, no lettering, no extra people or objects, no extra panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-006531a8-10a5-413a-bc23-52e7ecae0981.png",
+      "sha256": "3f7c5920f2c77eff4d29ea190d2c75757cb026ad4a85df0d8704eff67d992b24"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:11:10.573961+00:00",
+    "outputSha256": "fd2e9ea05c4779d179949093a662eb2e16b0a43ffa59d4fbcb8e13089f5053f3",
+    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
+    "notes": "Zoe holds wax paper in same beam; soft diffuse glow transmitted, unused plastic/card aside; natural grip. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "fd2e9ea05c4779d179949093a662eb2e16b0a43ffa59d4fbcb8e13089f5053f3",
+    "note": "Zoe holds wax paper in same beam; soft diffuse glow transmitted, unused plastic/card aside; natural grip. Independent QA pending."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-18",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:26:35.979Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1f7ab082-b3ea-430e-a602-ce6d5ebd5065.png",
+  "sourceSha256": "6518766ffd9722efa8bf2874b2323cc0cdd2b21efbb0ec02239c85edf9b79d31",
+  "output": "source-art/world-discovery/c-18-reference.webp",
+  "outputSha256": "0baa44091b65c46ab22d7cd37d3bfd9425508f03505be301d227a0d3233e33de",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Remove the kneeling human and the tiny snail beside her at bottom-left; replace that whole isolated region with plain white space. Preserve all main snail anatomical views with TWO eye tentacles and TWO shorter lower tentacles, and preserve both egg/stone/leaf location keys exactly. No human anywhere. No text. Preserve crisp clear flat cartoon style, all unchanged geometry and palette. This is a production reference board, not a story page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1f2c9c6f-6eff-484a-be73-49f9c922b707.png",
+      "sha256": "8866235fc920d95303a97b315e0375b5274b23f21b0ea9457afe1fde95cd44bf"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "a5baed023b30274069b9ad8723cfa5315a96ed0c89206a01044e4c6894b37e69",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:27:22.651689+00:00",
+    "sha256": "0baa44091b65c46ab22d7cd37d3bfd9425508f03505be301d227a0d3233e33de",
+    "note": "Attached spiral shell, two eye tentacles and two lower sensory tentacles; egg nest beside gray stone; stray human removed. Native source and installed WebP directly inspected."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-16",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:58.088Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-90a1aa99-2159-422e-8c54-2b3694ace7dc.png",
+  "sourceSha256": "5f91d9610b7eb030dad38bc90853f8370f181032f0e10363338dcfa537557361",
+  "output": "public/guided-reading/world-discovery/b-16/page-03.webp",
+  "outputSha256": "3059c23518abf572280c9b164936715a18eb9941306a8aaf3a4c6c53b07aeca6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY to widen its camera framing. Landscape 3:2 1536x1024. Reduce the existing focal composition to about 78% of its current size and center it, naturally extending the same background, with no border. Every essential extremity must sit at least 12% inside every edge; widest focal bounds should lie in the central 72% of the canvas. The ENTIRE rover, all its wheels, the gray focal rock and the ENTIRE shallow dip are essential and need wide margins; the far right edge of the dip must be at most 86% of width and leftmost focal wheel/rock at least 12%. Preserve exactly current wheel positions, six-wheel total with natural far-side occlusion, correct rigid rocker-bogie connections, camera mast, all wheel-to-ground/rock contacts and passed/ahead obstacle state. Do not add or remove anything. Keep the exact clean bold flat 2D style, colors and content, no text or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6cb63746-9105-4da8-887d-1ca186f9d2bd.png",
+      "sha256": "799cc53dc062e1452dc4a6f21965351c12e7a25af3bf0c33e82bab4653cf3152"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "377d044665ae51065f17714a8a0e9ef0b5107aab580ad7c7d62c50640eb3adae",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "3059c23518abf572280c9b164936715a18eb9941306a8aaf3a4c6c53b07aeca6",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Near front wheel on rock, middle and rear grounded before; all essential obstacle geometry inside margins. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "3059c23518abf572280c9b164936715a18eb9941306a8aaf3a4c6c53b07aeca6",
+    "note": "Near front wheel on rock, middle and rear grounded before; all essential obstacle geometry inside margins. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  }
+}

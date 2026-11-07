@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-17",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:04.409Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-92968084-fc4b-42e2-845b-4891710cb382.png",
+  "sourceSha256": "8fcd71a913b40672a929d1c20846c07c923c9b87fb6e3f125d56db6a72fd76a3",
+  "output": "public/guided-reading/world-discovery/c-17/page-03.webp",
+  "outputSha256": "94a55f2af3331d024adfdaa450dd8b5a6b7898f70c39ce578a91efb06fe909f3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact scene for wider framing. Pull camera back 35 percent, keeping 3:2 landscape. Entire otter including whiskers, feet and tail must be within CENTRAL SIXTY-FIVE PERCENT of canvas width and CENTRAL SEVENTY PERCENT of height, with generous surrounding water/kelp. Preserve otter anatomy exactly: two forepaws, two webbed hind feet, ONE tail. Preserve exact current action and positions of the ONE clam and ONE gray stone. Natural paws gripping props, no floating objects. Do not alter developmental/action state. Flat crisp clean 2D cartoon, broad smooth cel colors; no grain/mottled shading. No text or panels. Do not crop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e7c2799a-0f11-4243-8be1-94a32052aade.png",
+      "sha256": "f2b77dc8fdeb6bb7bab2303b2508844d221e15527f66dfb9170c6ee8e19c8a06"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ce9930b3ff66e06b9f3b14afeef5752a734ade78568d649a597715f1f9606e13",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.557413+00:00",
+    "sha256": "94a55f2af3331d024adfdaa450dd8b5a6b7898f70c39ce578a91efb06fe909f3",
+    "note": "Native source and final WebP directly viewed. Supine at surface with clam resting on chest while one paw positions stone; both supported."
+  }
+}

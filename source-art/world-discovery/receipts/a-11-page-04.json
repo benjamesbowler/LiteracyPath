@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-11",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:58:01.510Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1797989c-d18a-4160-a3e4-411c5e878bf7.png",
+  "sourceSha256": "dddb36e44d9a1d9801049e6ad1f9080cbc8e1de899d65493fc9fdb181ec42eee",
+  "output": "public/guided-reading/world-discovery/a-11/page-04.webp",
+  "outputSha256": "9184351b8ee2870ef0da5d9ec16ac67d80908d5ab3507f43ba4b12525b0dfdeb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact children's book illustration. Correct only the following food continuity details: Remove BOTH pear slices from Zoe\u2019s plum plate completely. Her plum plate holds ONLY one long breadstick remainder with a broken pale crumb edge at its left end. Keep her small bitten bread piece in her hand and Kit\u2019s own stick in his hand. The basket has exactly TWO untouched pear wedges in its right compartment and an EMPTY left compartment. Preserve the children's precise faces, two normal arms/hands each, poses, clothing, picnic scene, framing and clean 2D flat cel-shaded style. No lettering, no new objects, no other food. Do not duplicate food to illustrate before/after.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-5bfe4b38-2f05-44e4-b2b0-4b5ebae4fb79.png",
+      "sha256": "64cf7bb61a86de31d666e25c203623e08a55614bcac9dcf7bc777203f8dc0430"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c1fb0467841cc8cf22bf43c54d947245bc32081245a6691a748a57092cbe585",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:00:59.871591+00:00",
+    "sha256": "9184351b8ee2870ef0da5d9ec16ac67d80908d5ab3507f43ba4b12525b0dfdeb",
+    "note": "Root directly inspected the native result and final installed WebP in full reading sequence. Zoe tastes her short piece with a thoughtful face, longer remainder alone on her plum plate; Kit eats his own stick. Two pear wedges remain untouched in basket; repaired premature fruit removed. Locked cast, clean outlines, readable food and hand contact checked."
+  }
+}

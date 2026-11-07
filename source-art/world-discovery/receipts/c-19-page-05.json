@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:35:41.484Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ebe7cac8-0365-42c4-a959-6f450892a25d.png",
+  "sourceSha256": "ec3f2ebb3f09261b3eb52ec834b7644ec1ace6e5de3732bfb98a8dc39443fb53",
+  "output": "public/guided-reading/world-discovery/c-19/page-05.webp",
+  "outputSha256": "43f0edbd859c102efdcd1d84f0f638d3e3bbb67653aeee5d078946f8ca6bc8f9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Fix the physically misplaced cup and framing. The green-mat sand cup is incorrectly on the FLOOR beside Zoe. MOVE this SAME CUP onto the center of the GREEN MAT on the foreground TABLE, with its base physically resting on the mat. Preserve the cup's half-filled water and settled sand layer; no duplicate cup remains on the floor. Zoe still pours the only other cup into the dish on the windowsill, and the blue mat remains empty. Keep 3 people, two empty scoops, two spoons. Pull camera back 20% so whole table legs have at least 10% clear floor beneath and all people fit inside safe margins. Natural full-bleed continuous room. No new objects. Restore a landscape 3:2 canvas by extending room naturally if needed, without distorting people.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f5ef5ce9-70a5-4cde-bad2-21679f2d5d3e.png",
+      "sha256": "cadbbf813fc3c058fb9e1f76824e87a2fabc3672a6b85be001decee1cb73cb92"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:40:01.359460+00:00",
+    "sha256": "43f0edbd859c102efdcd1d84f0f638d3e3bbb67653aeee5d078946f8ca6bc8f9",
+    "note": "Native and final WebP directly inspected. Ordinary supported table and grounded standing figures, coherent hand contact; two cups, two empty scoops, two spoons. Cover scoops truly empty; p5 sand cup rests on green mat on table while Zoe pours other cup at sill; p7 held cup one-third full and dish small scattering of crystals."
+  }
+}

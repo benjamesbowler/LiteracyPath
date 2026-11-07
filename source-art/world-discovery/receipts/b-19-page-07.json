@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:06:34.325Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e17b0465-df0b-41fd-a24f-7a0c3fb73b3d.png",
+  "sourceSha256": "588960acdf51fb343bb7d366d05f79c9c3d0eb4a4b9a38ae3f8d1a33c1848a98",
+  "output": "public/guided-reading/world-discovery/b-19/page-07.webp",
+  "outputSha256": "287fbbe792581c3a83339af76ee36de1d214975701f1f51f2509a0421b2eb881",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Recompose the experiment to fix the physical sightline: Kit is on the NEAR side of the table, leaning down with his eyes level with the two upright sheets, facing through them toward the one long red car on the FAR side. Show Kit from rear three-quarter left, preserving his identity, teal shirt/yellow shorts; his full head, whole body and shoes visible, natural balanced crouch or kneel on floor. Zoe stands on far side, watches. Camera sees sheets and car at slight angle from near side too: clear sheet shows front of one continuous car sharply, wax paper blurs its rear portion. Exactly two upright sheets, one brown card lying flat aside. One off flashlight and white screen aside. No duplicate car. Sheets can rest in small neutral holders, hands natural, no glare over faces. The key is Kit is on the opposite side of the sheets from the car. Plain ordinary classroom with window left, board right, same table/chairs. Use a generous WIDE composition with substantial empty room around complete focal subjects. Place all essential hair tops below 16 percent canvas height and all shoe soles above 82 percent canvas height; at least 14 percent margin left/right too. Do NOT crop full shoes, heads, samples or car. Extend plain lavender-gray floor below feet, not just sideways. Normal appealing child proportions and real furniture scale, no giant or distorted furniture. No lettering, no panels, no extra people.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7052587b-f520-4004-a113-ffa6400476a8.png",
+      "sha256": "6d3233801e24901af75209ab818f1cd03d5be46c04fb95e711f94905bb642a83"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:11:10.576282+00:00",
+    "outputSha256": "287fbbe792581c3a83339af76ee36de1d214975701f1f51f2509a0421b2eb881",
+    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
+    "notes": "Kit on near side kneels at sheet height looking through clear/wax toward one continuous car behind; sharp and blurred portions distinct; natural knees/feet and normal table scale. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "287fbbe792581c3a83339af76ee36de1d214975701f1f51f2509a0421b2eb881",
+    "note": "Kit on near side kneels at sheet height looking through clear/wax toward one continuous car behind; sharp and blurred portions distinct; natural knees/feet and normal table scale. Independent QA pending."
+  }
+}
