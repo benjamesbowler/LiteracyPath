@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-04",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:42:23.534Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-79d2fef6-2202-4ed9-9b8e-0a9d268dfdfc.png",
+  "sourceSha256": "556b099dae2454098beffe8e180c1a0ce97f9430b26c085fed77edb8cd3c5908",
+  "output": "source-art/world-discovery/a-04-reference.webp",
+  "outputSha256": "bdbb18f5fefc32215cd81a3115da174dc389dbfc85a4683b7ddd33b35444f506",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Only correct the sock orientation in the three bag-mouth demonstrations, including the large bedroom scene. The bag grips the CLOSED TOE TIP of the sock; the open CUFF with single BLUE STRIPE sticks out AWAY from the mouth and is available for Kit to pull. A sock has one closed rounded toe and one open cuff. Preserve all other designs, colors, body scale, bedroom, props, Kit and white board layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-66424bbf-5a1a-4eeb-9a48-df966cbb06bd.png",
+      "sha256": "b0646914e39eb897a0b36f34d688e2cca4cf2629ddbf1a1244d3a5e404bd3c33"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "bdbb18f5fefc32215cd81a3115da174dc389dbfc85a4683b7ddd33b35444f506",
+    "note": "Directly viewed Kit, green drawstring living bag with two eyes/toothless mouth and no limbs, white blue-cuff sock, bun on blue plate, bedroom/rug. Reference props used only when page requires them; footwear and bun timing separately checked in final sequence.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

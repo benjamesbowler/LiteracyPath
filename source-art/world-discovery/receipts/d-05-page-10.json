@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-05",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:43.369Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-154c2c37-b3d7-4569-9515-cf2260471da6.png",
+  "sourceSha256": "b252e8c460f7c10b1c7c3ffc9bd02963db575eccc165fe4917a279e0489b2f17",
+  "output": "public/guided-reading/world-discovery/d-05/page-10.webp",
+  "outputSha256": "0e06df1a2b29826c1b80627cadf5f8f800c5db6e6de4fab684e84e0cf19c0501",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create final page by editing this overhead tray scene. Preserve same wide blue tray with continuous LEFT mainland and RIGHT round lobe. ONE yellow toy now stands on LEFT mainland beside the connection, NOT on right lobe. Zoe's ONE deep-brown child hand enters from BOTTOM edge and presses the short original clay strip back into place, restoring SAME narrow dry above-water neck between left mainland and right lobe. Brown clay strip seamlessly touches both sides, water around only three sides of lobe. ONE blunt wooden stick remains outside tray lower right. No extra clay scrap outside tray after replacing strip. No heads, bodies, other hands, new toys or tools. Crisp flat outlined cartoon, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7e43045c-8e08-4c39-9838-22c3d41931ad.png",
+      "sha256": "9646dd2d564f6dd8bdc875e358da01a8fd64be491be112effca2dafd92a24a2b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:43.466741+00:00",
+    "sha256": "0e06df1a2b29826c1b80627cadf5f8f800c5db6e6de4fab684e84e0cf19c0501",
+    "note": "Direct inspection: Zoe's near-side hand presses restored dry neck; left mainland joins right lobe again, toy remains mainland, stick outside and no spare clay. Sequence returns correctly from real examples to same model."
+  }
+}

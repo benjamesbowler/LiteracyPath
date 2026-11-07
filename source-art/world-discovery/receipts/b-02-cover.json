@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-02",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:03:31.024Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7f0bfada-f74d-43ce-81f0-0335ec61fd8c.png",
+  "sourceSha256": "854270e6dae796e3c6524763d53300eeefed8af58b90390737a5a215d86a1e78",
+  "output": "public/guided-reading/world-discovery/b-02/cover.webp",
+  "outputSha256": "413171344af61c2dc7be79702f10e940d7bf6cc44306f5233718760485cffd83",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Turn on the Drum; World Discovery; fiction.\nSetting: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Kit listens with hands on knees as Zoe taps her red drum. His blue drum is still between his knees.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTAGING: Kit LEFT, Zoe RIGHT, equal size. Two separate low wooden stools, each child seated with drum BETWEEN knees reaching floor; thighs and knees visible each side of drum to show hand positions clearly. Kit's drum BLUE, Zoe's drum RED, cream skins/dark bottom rims. Exactly TWO drums total, NO instruments on shelves. Both children wear same clothes/shoes, Zoe full-length plum overall trousers, deep brown skin throughout. Zoe (RIGHT) plays RED drum: one palm on skin, other raised a little. Kit (LEFT) listens and both his hands rest flat on his KNEES to either side of his BLUE drum, neither hand touches drum. Eyes toward Zoe. Both feet on floor, same size children.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-02-reference.webp",
+      "sha256": "d16091b12d1d9fbfcfca29ea4a5241ef65a34f95f4ffd9e0a4bc19d6c1a72a4f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "413171344af61c2dc7be79702f10e940d7bf6cc44306f5233718760485cffd83",
+    "note": "Kit listens with both hands on knees while Zoe plays red drum; Kit blue drum still, two stools and instruments.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

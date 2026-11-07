@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-06",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:25:22.167Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-18897dc5-f76d-42cd-b578-410ccd27c876.png",
+  "sourceSha256": "6d66988097508db70f0078fe6f41c9dc7c01b32e0ff293995ea5d6717ee3d59b",
+  "output": "public/guided-reading/world-discovery/a-06/page-07.webp",
+  "outputSha256": "f0293a283be2f6ef2a933827235a448aa35c4d50db6d181ddbe4e4c99604517c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Shrink ONLY the right-lit half-Moon to HALF its current height, about 30\u201335 pixels tall. Keep its exact sky position and phase, straight left edge/curved right edge. Keep the cloud entirely to its RIGHT and separate. Preserve everything else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d3f8703f-e3ef-4614-9d74-247c542767dd.png",
+      "sha256": "ab2bfe03d992a72f062d164a9218fce3b8c4013aefc0ed69dc6489c0953e702b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "f0293a283be2f6ef2a933827235a448aa35c4d50db6d181ddbe4e4c99604517c",
+    "note": "Small right-lit half-Moon fully clear, cloud entirely right; hands lowered.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

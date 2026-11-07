@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:07:59.947Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-eb4fe0cd-dfc0-46d3-b0bc-967e0dca56e3.png",
+  "sourceSha256": "4543e09795eb1ffea3afa399312e19c0a6b576c58848252a3d2e269577974c48",
+  "output": "public/guided-reading/world-discovery/e-02/page-06.webp",
+  "outputSha256": "c4267566007b87092f013ca5795a79f753649eb1af8c22afb99e4699194928e0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Preserve everything. Add one small round red pencil-drawn ball immediately beside the curled sleeping dog's nose on the THIRD panel/page which Zoe points at. This ball was found and remains beside the resting dog. Keep clean flat cartoon illustration. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-95d9de11-9230-4283-adf6-9d6cebe25483.png",
+      "sha256": "6f66af16af633d4afc9efcccfa358a1eba0832c634d38109d64ad569b3a3cfcf"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-02-reference.webp",
+      "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.227Z",
+    "sha256": "c4267566007b87092f013ca5795a79f753649eb1af8c22afb99e4699194928e0",
+    "note": "Zoe points curled sleepy dog; corrected redball beside nose, Kit attends to her intendedrest.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

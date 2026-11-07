@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.892Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-84613e5f-ce6b-4ce1-a9d5-237b41874279.png",
+  "sourceSha256": "2d5997fc4936903d73056b18c179e25db7e8eb0915882c9bfa49e3825934d95d",
+  "output": "public/guided-reading/world-discovery/b-01/page-03.webp",
+  "outputSha256": "604f3907c84f6af53ba64bcaf148e5486172cb062623100daf703fe6f08322df",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: I Can Button It; World Discovery; fiction.\nSetting: World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): I turn the button on its edge.\nRequired illustration: World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit pinches the first button sideways so its thin edge faces the slit. Exact state: One hand turns the button; one holds fabric.\nExact current state: One hand turns the button; one holds fabric.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nMECHANICAL CONTINUITY: Only Kit. One small GREEN flexible satchel with exactly THREE yellow disk buttons permanently sewn to BODY front, left/middle/right horizontal row. Long flexible flap attached at BACK TOP has three vertical slit holes to go over body buttons; lowered flap covers entire front almost to base. NO extra buttons, yellow fasteners or decorations. Buttons do not disappear or multiply. Only CURRENT stage below visible. Close view on Kit's lap and hands. One thumb/index finger pinch FIRST leftmost yellow button turned EDGE-ON, its thin edge lined up with first vertical buttonhole in green flap held by other hand. Disk appears thin side profile, not full front circle. It is STILL OUTSIDE/BEHIND hole, not passed through. The other two buttons remain open and exposed on body. All buttons remain sewn to same bag, not detached.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-01-reference.webp",
+      "sha256": "e06bbaf8a3191e61549746ec1be834ab04e77fbda386f314e04bbbe277d5caa1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "604f3907c84f6af53ba64bcaf148e5486172cb062623100daf703fe6f08322df",
+    "note": "Kit rotates the first button edge-on near the corresponding left hole; all three remain unfastened.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

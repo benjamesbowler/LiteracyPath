@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-03",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:51:25.533Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7b73a01c-af43-48be-83c2-cde78efe6ca0.png",
+  "sourceSha256": "ea723d010396d6fe690d3c8cb3e3f4f2d0facc00ba637f8efa6f5a4e676ce8e5",
+  "output": "public/guided-reading/world-discovery/a-03/page-07.webp",
+  "outputSha256": "2f2748cc5bbe84b9eb48d481a10e9ac8a2bb72cb67df83dad56da0b5ec9efdb8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Repair the provided landscape story illustration, keeping its locked character identity/clothes, crisp dark outlines and flat clean cartoon style. Preserve foreground exactly: Kit blue globe book, Zoe green elephant, auburn-haired child orange volcano, bob-haired child lifting purple Saturn from the EMPTY cart, four books total. Change the background location to INSIDE their classroom: a few low pale-wood school desks with blue chairs and bright windows behind the rug, small single shelf/globe at back, no dense floor-to-ceiling library shelves or door opening into another classroom. Their delivery has arrived in classroom. No other featured books anywhere.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7a17e1d5-5b8a-499c-9bc5-a28595c82300.png",
+      "sha256": "21b2ca79408d30cea70d53dfc811533929e5982b849742361cfa8d4a845e6930"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "2f2748cc5bbe84b9eb48d481a10e9ac8a2bb72cb67df83dad56da0b5ec9efdb8",
+    "note": "Arrived classroom: each child has exactly one designated book; purple lifted last, cart empty; no duplicate featured books.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

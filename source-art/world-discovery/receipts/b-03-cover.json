@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-03",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:49.028Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b09b4bb5-22c2-4ac9-b17f-8ca72f577675.png",
+  "sourceSha256": "f7f3ab1a3aa623e0ac2b9ab658033b68f76575987fa852281a18aceda8cc3480",
+  "output": "public/guided-reading/world-discovery/b-03/cover.webp",
+  "outputSha256": "6a7a428208beeb7b2b1c03855107fc1aef390e56bbbaada51bc3c3514db6d8a3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Back to the Library; World Discovery; fiction.\nSetting: Neighborhood public library, warm wooden shelves and low desk, a round low reading table with blue chairs, sunny afternoon.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Kit hands the green fox book across a low library desk while Zoe waits beside him with her own plain card; warm open shelves behind them.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT SCENE: Inside library at low returns desk. Kit places ONE green orange-fox book on counter toward gray-haired adult worker; Zoe waits beside Kit holding ONE small cream card with blue circle. No other handled book. Warm shelves and low table behind.\nBook design consistent: GREEN hard cover with centered orange fox front, plain green back and small barcode patch, no written title or pages of text. Kit teal/mustard/navy, Zoe yellow/plum full-length overalls/white, equal height. Worker only if specified: adult light brown skin, short gray hair, blue shirt, charcoal pants; never a child.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-03-reference.webp",
+      "sha256": "2bd7f33589cb2c5478829a521616a98310638afcf6b728c4283df9dc33aa9b73"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6a7a428208beeb7b2b1c03855107fc1aef390e56bbbaada51bc3c3514db6d8a3",
+    "note": "Dedicated library cover: Kit returns the single green fox book across desk while Zoe holds her borrowing card; consistent adult worker.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

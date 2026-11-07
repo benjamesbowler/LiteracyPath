@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-01",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:19:26.737Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b6a6033f-7640-42c9-9e93-06da6a48b493.png",
+  "sourceSha256": "40347884e8b30e87b4ad221ba71f3fc13e556dea0fd6cb89d0d32e478395cec6",
+  "output": "public/guided-reading/world-discovery/a-01/page-03.webp",
+  "outputSha256": "136a908b95bcee3fdebefbaffb85b55c726d6f24bcd2202123e31e38e47a822a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets. Preserve exact reference identity and clothing.\nBook: Zoe Draws Zoe; World Discovery; fiction.\nSetting: A bright art corner at home, morning, low pale wood table and a fixed oval tabletop mirror.\nLocked recurring subjects/props: One oval teal-framed mirror; One cream portrait sheet; Four crayons: brown, black, yellow and plum; Zoe remains in her locked costume\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout.\nPage 3. Printed prose (NOT text to put in art): She adds two brown eyes.\nRequired illustration: Show Zoe adding two brown eyes inside the same face outline, looking between paper and mirror. No extra eyes or finished hair in the drawing.\nExact current state: Face outline plus exactly two eyes.\nDo not add later events or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-01-reference.webp",
+      "sha256": "0b0f3ecc793ac0cf17c738e2e73233840a4243156b255f1bfe0144f9b3f94cf6"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "136a908b95bcee3fdebefbaffb85b55c726d6f24bcd2202123e31e38e47a822a",
+    "note": "Two eyes on otherwise unfinished face; no hair/clothing/mouth yet.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

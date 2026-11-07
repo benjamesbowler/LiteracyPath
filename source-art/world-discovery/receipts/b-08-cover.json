@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:58:48.736Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-02e61666-f3bd-4e67-b415-75bdd099f3e2.png",
+  "sourceSha256": "734bcaa0bb75836819ab4b4b9a31152a7e6c217bb9ba2e58a1337e3073d7d4a2",
+  "output": "public/guided-reading/world-discovery/b-08/cover.webp",
+  "outputSha256": "6a06a78af6401e419d0b1e24d1cca884c7c3d2435122694cd307f20e78cc5fdb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise picture-book illustration correction. Add the missing rear leg on the RIGHT side so the beetle has exactly SIX clearly visible legs, three left and three right; keep all SEVEN spots and two antennae unchanged. Change ALL soft/blurry background leaves into simple crisp dark-outlined flat-green shapes, with perfectly clean flat pale-blue spaces between them. ZERO depth-of-field blur, soft focus, photographic texture, paint grain or stippling anywhere. Keep the main foreground leaf, main animal/eggs, framing and composition unchanged except stated correction. Entire image must be crisp flat clean 2D cartoon. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6214500f-c721-450c-8188-2f27941328c4.png",
+      "sha256": "c05293d0ea120a78cdf1866178625231e4daf25dca54c1161e20abe10fe57486"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:58:50.021101+00:00",
+    "sha256": "6a06a78af6401e419d0b1e24d1cca884c7c3d2435122694cd307f20e78cc5fdb",
+    "note": "Adult corrected to six visible legs and seven spots; two antennae and egg cluster; all background leaves crisp and flat."
+  }
+}

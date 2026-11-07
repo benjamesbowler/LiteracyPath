@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:12:04.104Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dcdb625e-5057-4c6b-bd13-4fde06a2f3b8.png",
+  "sourceSha256": "0fcff90a01e68ace902c927c77708c464bbae8d8b7d02adc394961d5133264cc",
+  "output": "public/guided-reading/world-discovery/e-08/page-02.webp",
+  "outputSha256": "f5e8ada0e9e12bf674a3d82a624fa96b7f6da9c90c54365bc71bfd988a5b8ba5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Frog Changes Its Way of Life; World Discovery; nonfiction.\nSetting: A temperate pond edge through the common frog (Rana temporaria) life cycle. Natural brown mottled frogs; spring egg clumps and later seasonal changes.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Jelly-like egg clump with dark centers; Common frog tadpole; Developing hind then front legs; Shrinking tail; Brown mottled froglet and adult\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Its life began inside an egg. Common frog eggs lie in soft clumps of jelly near the water’s surface.\nRequired illustration: Close pond view shows a clump of translucent jelly eggs with dark embryos among water plants. Exact continuity: Species-specific clump, not toad strings; no hard chicken shells.\nExact current state: Species-specific clump, not toad strings; no hard chicken shells.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: ONLY a loose CLUMP of jelly eggs, each dark round embryo inside translucent jelly, among water plants at water surface. Not a string and not hard shells. No frog or tadpole.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-08-reference.webp",
+      "sha256": "6a9e45f7d7666a174cb27a0d7741a136b572bfed10b8582ac031ac458a50af92"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:12:05.458Z",
+    "sha256": "f5e8ada0e9e12bf674a3d82a624fa96b7f6da9c90c54365bc71bfd988a5b8ba5",
+    "note": "Clump of translucent jelly with dark embryos at pond surface; no toad strings or hard shells.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:54:41.143Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-5ee54d36-0eb6-4477-a608-cbefc7d462dc.png",
+  "sourceSha256": "bef890cfe460f3751239b94b3258fe51ea6024098582134cc74bb6dd42a6e60d",
+  "output": "public/guided-reading/world-discovery/e-01/page-08.webp",
+  "outputSha256": "103d798172b6a23ae24e8ca1fde067e2df9894ddfdae6c38fb0c608aad57d04d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the attached existing finished picture-book illustration, preserve the exact landscape framing, clean bold dark outlines and flat cel colors. Correct ONLY Zoe’s exposed skin colors. Zoe is the deep-brown-skinned girl on the RIGHT in yellow shirt and plum overalls. The forearm operating the WHITE RABBIT puppet must exactly match Zoe’s own deep brown face/other arm color, including correct cel shadow. Her extended pointing LEFT hand and index fingertip must also all be consistent deep brown, with no golden fingertip. Kit, on the LEFT operating the ORANGE FOX, keeps his golden skin unchanged. Preserve the white rabbit, its small brown-painted paw, its precise pose, scenery panel and den, stage, both children, clothes, background, and all other colors and geometry unchanged. No words, labels, watermark or additional props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-01/page-08.webp",
+      "sha256": "776e7e350f08d517c98c37d74fc0bfb1af541e1d2863026e4fddc5118ccf60c5"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:54:41.145Z",
+    "sha256": "103d798172b6a23ae24e8ca1fde067e2df9894ddfdae6c38fb0c608aad57d04d",
+    "note": "Independent audit correction: white-rabbit operating forearm now matches Zoe deep brown skin. Kit golden skin and fox, puppet design, den scenery and composition preserved; page 8 pointing hand remains Zoe brown with small light highlight.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

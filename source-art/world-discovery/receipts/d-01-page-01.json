@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-d-01",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:49.896Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-80ac2907-95ca-40bf-a6a4-29154cab9e65.png",
+  "sourceSha256": "028861376833054f8bdf91a9e4347c10fd4c6e9538ddca5d0c43eb98c6a9f965",
+  "output": "public/guided-reading/world-discovery/d-01/page-01.webp",
+  "outputSha256": "2c69850dffb166150677dcbb78ce2d5d77b682ea20acc63a7e39873a8274de7b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Box That Would Not Shut; World Discovery; fiction.\nSetting: Kit\u2019s bedroom in afternoon daylight, low oak table, blue shelf and a small orange lidded box. Zoe visits throughout.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange box with hinged lid; Blue wooden toy train with four blue wheels and one short chimney; it fits in the box with the sock, but not with the kite stacked on top; Tiny white baby sock; Small folded red paper kite; White drawing card; Blue drawing pencil\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Kit brings his orange box to the table. Tomorrow he will show his class some things that matter to him.\nRequired illustration: Kit sets a small closed orange box on the low table while Zoe pulls up a chair. Exact continuity: Box closed; all keepsakes still inside except new red kite on table.\nExact current state: Box closed; all keepsakes still inside except new red kite on table.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. The real blue toy train has TWO axles, FOUR wheels total, exactly TWO visible near wheels in side view, never three near wheels. Box interior is slightly taller than the train, which fits fully below the lid when alone; consistent scale across pages. NO drawing card, pencil or train drawing yet. No toy duplicates on shelves. Only CLOSED orange box and folded red kite on tabletop, no visible train or sock.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-01-reference.webp",
+      "sha256": "6bcaafb2e61cdd7e75c0270c71d61bc0e362d52bd579028d9b6efd9af0553bce"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "2c69850dffb166150677dcbb78ce2d5d77b682ea20acc63a7e39873a8274de7b",
+    "note": "Direct inspection: Kit sets closed orange box on table, Zoe pulls chair, only red folded kite outside; consistent bedroom/cast.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-05",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:38:40.561Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f1f41598-51ef-447b-a655-8b9395151b06.png",
+  "sourceSha256": "5e37b18bb01fdfe5026d898a6872564cc7e859d5e0a7b186dba5c02ed3df4704",
+  "output": "public/guided-reading/world-discovery/e-05/page-02.webp",
+  "outputSha256": "e1fab7b2cd0378c8589e74229ddc21060a7bc300a8a1488d6f1516b5ea90cfc2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The River Moves the Bank; World Discovery; nonfiction.\nSetting: One gently winding river in a grassy valley over months, with a steep outer bank and low inner sandbar. A solitary broad tree remains beyond the outer bank as a position reference.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Winding river bend; Steep outer bank; Inner sandbar; Loose grains and pebbles; Distant tree as fixed landmark\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Moving water can loosen soil and carry it away. That wearing away is called erosion. Watch the outside of the bend.\nRequired illustration: Close view shows water at base of outer bank carrying a little loosened brown soil downstream. Exact continuity: No explosive landslide; small erosion at water contact; tree remains inland.\nExact current state: No explosive landslide; small erosion at water contact; tree remains inland.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. CROP CLOSE to OUTER BANK WATERLINE, notanotherwidevalley. Smallbrownsoil grains beingcarriedoff rightbankbase into water. Treemay beoutsidecrop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-05-reference.webp",
+      "sha256": "09b317f78aa80a24ac4d9b06d85ef930e8e214d72c61a7d5e39a0a354c3cb990"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:44:36.444Z",
+    "sha256": "e1fab7b2cd0378c8589e74229ddc21060a7bc300a8a1488d6f1516b5ea90cfc2",
+    "note": "Local water-contact erosion notch and soilplume atouterbank; no largelandslide/humans.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

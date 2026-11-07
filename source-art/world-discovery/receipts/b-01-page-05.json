@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.796Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-dae1ffab-0e19-4129-b98a-6fd37ded538c.png",
+  "sourceSha256": "15a06d10f5214f2bed0aea19f63698608830f8bb446cee7969d1927229c35ac3",
+  "output": "public/guided-reading/world-discovery/b-01/page-05.webp",
+  "outputSha256": "de6283f3837e407bb3656b1fa5b500e2362660d5c7afc41abcf1ab664553a67e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: I Can Button It; World Discovery; fiction.\nSetting: World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): I pull the button the\nrest of the way.\nRequired illustration: World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit draws the first button fully through and lets it lie flat on top of the flap. Exact state: First button fastened; two remain open.\nExact current state: First button fastened; two remain open.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nMECHANICAL CONTINUITY: Only Kit. One small GREEN flexible satchel with exactly THREE yellow disk buttons permanently sewn to BODY front, left/middle/right horizontal row. Long flexible flap attached at BACK TOP has three vertical slit holes to go over body buttons; lowered flap covers entire front almost to base. NO extra buttons, yellow fasteners or decorations. Buttons do not disappear or multiply. Only CURRENT stage below visible. Close view on Kit's hands and bag. FIRST leftmost yellow button now fully THROUGH its hole and FLAT ON OUTER SURFACE OF LOWERED LEFT FLAP, first securely fastened. Kit's fingertips release that button. Middle and right part of soft flap still lifted enough to reveal TWO EMPTY holes and the two still-unfastened yellow buttons on front body. Total3buttons, no extras. Lower edge of fastened flap is BELOW first button.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-01-reference.webp",
+      "sha256": "e06bbaf8a3191e61549746ec1be834ab04e77fbda386f314e04bbbe277d5caa1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "de6283f3837e407bb3656b1fa5b500e2362660d5c7afc41abcf1ab664553a67e",
+    "note": "First button lies flat fastened on the lowered left flap; remaining two holes and buttons remain open.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

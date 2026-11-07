@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:07:59.309Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-39e6332d-fa48-4d61-aaeb-c2d79b675ff4.png",
+  "sourceSha256": "d457ce3a3807519c022bb6146fcf289fd9e60f2c99097734f0b5e863651e02ed",
+  "output": "public/guided-reading/world-discovery/e-02/page-05.webp",
+  "outputSha256": "4a5fd12b84924c9609f2e296f7a8fc9fbcc1edc922a5fd285b52bab5128babaa",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only; preserve children disagreement poses and clean style. Fix two loose ending sheets in foreground: BOTH must lie flat fully supported ON the tan tabletop, not floating off edge. Left loose sheet shows brown floppy-eared dog sitting DIRECTLY ON a round red ball, ball under rear. Right loose sheet shows same brown dog curled asleep with red ball beside nose. One dog and one ball per sheet. Remove unrelated blue bed from left loose sheet. Book stays between children. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e9f24be4-1837-438d-bb0f-4221fcf17eff.png",
+      "sha256": "44fcdd1f415ef302e12e56acc51981358ee6c81a2bec5bea360a91228876a98c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-02-reference.webp",
+      "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.226Z",
+    "sha256": "4a5fd12b84924c9609f2e296f7a8fc9fbcc1edc922a5fd285b52bab5128babaa",
+    "note": "Corrected exactly two alternative endings flaton tabletop, comicdog seatedonball and curledrestingdog besideball; disagreement visible.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

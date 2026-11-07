@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:44.614Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f6d6ef05-4ab9-469c-b5fb-7ba120f1f30a.png",
+  "sourceSha256": "4fe450e80b5ed0822fd2ed0aaa2e99f1889c4078a8f6b876aac6443ab9552143",
+  "output": "public/guided-reading/world-discovery/e-02/page-10.webp",
+  "outputSha256": "0c51980f92be9d292c0a1351a8e43097df64dade533c14766c00a1941d540095",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Keep children leaning together, Zoe nudging Kit and Kit turning page, room and style. Replace all drawings in open booklet with the FINISHED STORY: leftmost visible drawing brown floppy-eared dog POPPING UP from blue oval bed, surprised eyes, raised paws; next visible drawing red ball rolling AWAY from blue bed; last turning page shows same brown dog curled ASLEEP INSIDE blue bed with red ball beside bed OUTSIDE. No isolated reference poses. On two loose sheets to right show old alternatives: one dog sitting ON red ball; one curled dog resting beside ball. No text. Same brown/blue/red pencil drawings on paper only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3408c194-2230-4839-a52a-49f35aa6a55d.png",
+      "sha256": "6f2325633cb03b07163f9acf7c2e92577a44d061cb644ca33789a31233ac933f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.228Z",
+    "sha256": "0c51980f92be9d292c0a1351a8e43097df64dade533c14766c00a1941d540095",
+    "note": "Corrected finishedsequence in book and oldtwoendings setaside intact; Zoe nudges Kit during reread.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

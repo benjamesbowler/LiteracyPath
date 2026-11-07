@@ -1,0 +1,1423 @@
+[
+  {
+    "id": "world-discovery-c-01",
+    "number": 1,
+    "title": "A Show for Two",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants a puppet show but dislikes his dog drawing; Zoe has a lively dog drawing but a collapsing paper stage, so Kit uses his building skill and Zoe uses her drawing to make one working show.",
+      "failedAttempt": "Kit’s stick-legged dog does not look how he wants; Zoe’s unsupported folded paper stage flattens.",
+      "resolution": "Kit supports Zoe’s scenery with his block stage, Zoe offers her paper dog, and both bring the puppet to life.",
+      "identityScope": "Personal interests and complementary growing skills, without presenting them as fixed abilities or gender traits."
+    },
+    "setting": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits.",
+    "props": [
+      "A stage made from six chunky tan blocks",
+      "One white paper scene with two green trees",
+      "One rectangular card with Kit’s simple stick-legged dog drawing",
+      "One dog-shaped paper puppet with floppy brown ears, attached to one wide craft stick; its red collar is added on page six",
+      "One red crayon",
+      "One plain gray drawing pencil for Kit’s first dog sketch"
+    ],
+    "coverBrief": "Kit moves a floppy-eared paper dog above the tan block stage while Zoe makes a playful barking face at the side. The green-tree paper backdrop stands firmly against the blocks; no words.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit wants to put on a puppet show. He builds a little stage from blocks.",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit assembles six chunky tan blocks into a low puppet stage on the table; Zoe sits nearby with paper. Exact state: Stage upright; no puppet or scenery on it yet.",
+        "imageAlt": "Kit assembles six chunky tan blocks into a low puppet stage on the table; Zoe sits nearby with paper.",
+        "pageDescription": "Kit assembles six chunky tan blocks into a low puppet stage on the table; Zoe sits nearby with paper.",
+        "state": "Stage upright; no puppet or scenery on it yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "He draws a dog for the show. Its legs look more like sticks.",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit studies his rectangular card with a simple dog body and four thin straight legs; pencil rests beside it. Exact state: Kit’s first drawing remains separate from Zoe’s puppet.",
+        "imageAlt": "Kit studies his rectangular card with a simple dog body and four thin straight legs; pencil rests beside it.",
+        "pageDescription": "Kit studies his rectangular card with a simple dog body and four thin straight legs; pencil rests beside it.",
+        "state": "Kit’s first drawing remains separate from Zoe’s puppet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe has drawn a dog with floppy ears. Her paper stage keeps falling flat.",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Zoe’s dog-shaped paper puppet lies beside her while her green-tree backdrop lies folded forward onto the tabletop. Exact state: Her dog drawing ready but collar not yet added; paper backdrop lacks support.",
+        "imageAlt": "Zoe’s dog-shaped paper puppet lies beside her while her green-tree backdrop lies folded forward onto the tabletop.",
+        "pageDescription": "Zoe’s dog-shaped paper puppet lies beside her while her green-tree backdrop lies folded forward onto the tabletop.",
+        "state": "Her dog drawing ready but collar not yet added; paper backdrop lacks support.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit studies her folded paper. “It needs something stiff behind it.”",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit holds the limp scenery paper upright with one hand and looks at his block stage behind it. Exact state: Paper only held, not yet supported; blocks remain assembled.",
+        "imageAlt": "Kit holds the limp scenery paper upright with one hand and looks at his block stage behind it.",
+        "pageDescription": "Kit holds the limp scenery paper upright with one hand and looks at his block stage behind it.",
+        "state": "Paper only held, not yet supported; blocks remain assembled.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "He props the paper against his block stage. This time it stays up.",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit rests the green-tree paper scenery against the upright rear blocks and takes his hands away. Exact state: Backdrop now stable; same six-block stage, no invisible supports.",
+        "imageAlt": "Kit rests the green-tree paper scenery against the upright rear blocks and takes his hands away.",
+        "pageDescription": "Kit rests the green-tree paper scenery against the upright rear blocks and takes his hands away.",
+        "state": "Backdrop now stable; same six-block stage, no invisible supports.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe adds a red collar to her dog. “Would you like to use this?”",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Zoe offers the wide craft-stick handle of her dog puppet to Kit; its freshly drawn red collar is visible and the red crayon rests beside her. Exact state: One puppet with floppy ears and finished red collar; Kit’s first card stays flat on table.",
+        "imageAlt": "Zoe offers the wide craft-stick handle of her dog puppet to Kit; its freshly drawn red collar is visible and the red crayon rests beside her.",
+        "pageDescription": "Zoe offers the wide craft-stick handle of her dog puppet to Kit; its freshly drawn red collar is visible and the red crayon rests beside her.",
+        "state": "One puppet with floppy ears and finished red collar; Kit’s first card stays flat on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit moves the dog above the stage. Zoe makes it bark from the side.",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit holds the craft stick behind the low stage so the dog puppet rises above it; Zoe makes a playful barking mouth beside him. Exact state: Paper puppet moved by Kit, not magically alive; backdrop steady.",
+        "imageAlt": "Kit holds the craft stick behind the low stage so the dog puppet rises above it; Zoe makes a playful barking mouth beside him.",
+        "pageDescription": "Kit holds the craft stick behind the low stage so the dog puppet rises above it; Zoe makes a playful barking mouth beside him.",
+        "state": "Paper puppet moved by Kit, not magically alive; backdrop steady.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Woof!” The paper dog takes a bow. Kit laughs, and Zoe barks again.",
+        "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit tilts the stick so the paper dog bends forward above the stage; Zoe leans toward it with a playful expression. Exact state: Joint show working; deliberate puppet movement and two different contributions visible.",
+        "imageAlt": "Kit tilts the stick so the paper dog bends forward above the stage; Zoe leans toward it with a playful expression.",
+        "pageDescription": "Kit tilts the stick so the paper dog bends forward above the stage; Zoe leans toward it with a playful expression.",
+        "state": "Joint show working; deliberate puppet movement and two different contributions visible.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did Kit and Zoe each help the show work?",
+        "listenFor": "Kit built a firm support; Zoe drew the dog and made its bark. Both changed or added something useful."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What keeps Zoe’s paper scene standing?",
+        "lookFor": "The firm block stage behind the paper."
+      }
+    },
+    "levelRationale": "C pairs related sentences, includes concise dialogue and links two visible failed attempts to complementary actions. No hidden inference or abstract claim about talent is needed.",
+    "languagePrep": [
+      {
+        "word": "puppet",
+        "meaning": "a figure someone moves to tell a story"
+      },
+      {
+        "word": "props",
+        "meaning": "holds something in place with support"
+      },
+      {
+        "word": "stiff",
+        "meaning": "firm rather than floppy"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-02",
+    "number": 2,
+    "title": "The Rolling Game",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants Kit to play her throwing game, but repeated misses make him stop; she listens and changes it to rolling, and Kit adjusts his own attempt until they can keep playing together.",
+      "failedAttempt": "Telling Kit to try harder does not help him land his ball inside the hoop.",
+      "resolution": "Zoe offers a different way to play, Kit chooses to join and tries from closer, and they begin another shared round."
+    },
+    "setting": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads.",
+    "props": [
+      "One yellow hoop lying flat on grass",
+      "One red soft ball for Zoe",
+      "One blue soft ball for Kit"
+    ],
+    "coverBrief": "Kit and Zoe kneel on the grass beside two soft balls resting together inside a flat yellow hoop. Their faces and body language show an active shared game, not a formal prize moment.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe sets a hoop on the grass. “Throw your ball into the circle,” she tells Kit.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Zoe places a yellow hoop flat on the grass; she holds a red ball while Kit holds a blue ball. Exact state: Hoop empty; one ball per child.",
+        "imageAlt": "Zoe places a yellow hoop flat on the grass; she holds a red ball while Kit holds a blue ball.",
+        "pageDescription": "Zoe places a yellow hoop flat on the grass; she holds a red ball while Kit holds a blue ball.",
+        "state": "Hoop empty; one ball per child.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe’s ball lands inside. Kit’s ball drops short of the hoop.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Red ball rests inside the hoop; blue ball lies between Kit’s feet and the near edge of the hoop. Exact state: First attempt: Kit misses short; both balls remain visible.",
+        "imageAlt": "Red ball rests inside the hoop; blue ball lies between Kit’s feet and the near edge of the hoop.",
+        "pageDescription": "Red ball rests inside the hoop; blue ball lies between Kit’s feet and the near edge of the hoop.",
+        "state": "First attempt: Kit misses short; both balls remain visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Try harder!” Zoe calls. Kit throws again. His ball flies past the hoop.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Kit’s blue ball lands beyond the far edge of the hoop while Zoe watches; her red ball remains inside. Exact state: Kit retrieved and threw the same ball; second attempt overshoots.",
+        "imageAlt": "Kit’s blue ball lands beyond the far edge of the hoop while Zoe watches; her red ball remains inside.",
+        "pageDescription": "Kit’s blue ball lands beyond the far edge of the hoop while Zoe watches; her red ball remains inside.",
+        "state": "Kit retrieved and threw the same ball; second attempt overshoots.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit lowers his arm. “I don’t want to throw anymore.” Zoe picks up both balls.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Kit stands with arms lowered and turns slightly away; Zoe gathers one red and one blue ball from the grass. Exact state: Game paused; Zoe holds both balls; hoop empty again.",
+        "imageAlt": "Kit stands with arms lowered and turns slightly away; Zoe gathers one red and one blue ball from the grass.",
+        "pageDescription": "Kit stands with arms lowered and turns slightly away; Zoe gathers one red and one blue ball from the grass.",
+        "state": "Game paused; Zoe holds both balls; hoop empty again.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "She rolls the red ball along the ground. It stops inside the hoop.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Zoe kneels and finishes a low rolling motion; red ball has stopped within the hoop, blue ball beside her. Exact state: New way demonstrated on ground; no throw or airborne ball.",
+        "imageAlt": "Zoe kneels and finishes a low rolling motion; red ball has stopped within the hoop, blue ball beside her.",
+        "pageDescription": "Zoe kneels and finishes a low rolling motion; red ball has stopped within the hoop, blue ball beside her.",
+        "state": "New way demonstrated on ground; no throw or airborne ball.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“We could roll them,” says Zoe. Kit kneels beside her and takes his blue ball.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Kit kneels next to Zoe and reaches for the blue ball beside her; red ball remains in the hoop. Exact state: Kit chooses to return; rolling invitation rather than a command.",
+        "imageAlt": "Kit kneels next to Zoe and reaches for the blue ball beside her; red ball remains in the hoop.",
+        "pageDescription": "Kit kneels next to Zoe and reaches for the blue ball beside her; red ball remains in the hoop.",
+        "state": "Kit chooses to return; rolling invitation rather than a command.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "His first roll goes wide. Kit fetches his ball and tries from a little closer.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Kit kneels at a closer starting point with the recovered blue ball, aimed toward the hoop. Exact state: Wide miss has been retrieved; one blue ball only; red stays inside.",
+        "imageAlt": "Kit kneels at a closer starting point with the recovered blue ball, aimed toward the hoop.",
+        "pageDescription": "Kit kneels at a closer starting point with the recovered blue ball, aimed toward the hoop.",
+        "state": "Wide miss has been retrieved; one blue ball only; red stays inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The blue ball stops beside Zoe’s red ball. “Let’s roll again,” says Kit.",
+        "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Both balls lie together inside the yellow hoop; Kit looks toward Zoe with one open hand ready for another turn. Exact state: Changed game succeeds; both are engaged; no winner/loser label.",
+        "imageAlt": "Both balls lie together inside the yellow hoop; Kit looks toward Zoe with one open hand ready for another turn.",
+        "pageDescription": "Both balls lie together inside the yellow hoop; Kit looks toward Zoe with one open hand ready for another turn.",
+        "state": "Changed game succeeds; both are engaged; no winner/loser label.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What changed after Kit said he wanted to stop?",
+        "listenFor": "Zoe listened and offered rolling; Kit chose to join and moved closer for his next try."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where did Kit’s blue ball stop?",
+        "lookFor": "Inside the yellow hoop, beside Zoe’s red ball."
+      }
+    },
+    "levelRationale": "C uses varied short sentences, compact dialogue and an explicit adjustment to another child’s response. It asks for a small supported motive link while keeping action and prop state clear.",
+    "languagePrep": [
+      {
+        "word": "hoop",
+        "meaning": "a large ring"
+      },
+      {
+        "word": "roll",
+        "meaning": "move along the ground by turning over"
+      },
+      {
+        "word": "closer",
+        "meaning": "not as far away"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-03",
+    "number": 3,
+    "title": "A Way Up",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a wheeled cart reach a model library above a step?",
+      "progression": "Test a blocked vertical step, a steep short ramp and a gentler longer ramp reaching the same height.",
+      "synthesis": "A ramp provides a continuous rolling route, and a gentler slope reduces the required uphill push under comparable conditions.",
+      "scienceSources": [
+        {
+          "title": "UC San Diego: Simple Machines",
+          "url": "https://koslover.ucsd.edu/YSC/simplemachines_worksheet_student.pdf",
+          "evidence": "An inclined plane trades a longer path for lower force to raise the same load.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Concord Consortium: Forces and Motion Teacher Guide",
+          "url": "https://guides.itsi.concord.org/forces-and-motion-teacher-guide.html",
+          "evidence": "A gentler slope requires less force for comparable surface/load conditions; friction matters. The book uses two smooth boards and the same cart.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "A small model demonstration, not a building design or claim that a toy slope meets accessibility rules."
+    },
+    "setting": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model.",
+    "props": [
+      "One red four-wheeled toy cart carrying one blue book-shaped block",
+      "One cream model library on a fixed 4-centimeter-high platform",
+      "One smooth short tan ramp and one smooth longer tan ramp with the same width and surface"
+    ],
+    "coverBrief": "Kit rolls the red book cart along a long gentle ramp to the cream model library. The unused short ramp lies beside the model; both ramp widths fit all four wheels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A small cart must reach the model library. A step stands in the way.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. The red cart with one blue book block sits at the foot of the model library’s raised platform; Kit and Zoe examine the step. Exact state: Cart below platform; no ramp installed.",
+        "imageAlt": "The red cart with one blue book block sits at the foot of the model library’s raised platform; Kit and Zoe examine the step.",
+        "pageDescription": "The red cart with one blue book block sits at the foot of the model library’s raised platform; Kit and Zoe examine the step.",
+        "state": "Cart below platform; no ramp installed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit pushes the cart at the step. Its wheels stop against the tall edge.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Kit pushes the cart gently so its front wheels meet the vertical platform face. Exact state: Wheels blocked; platform and cart stay same size.",
+        "imageAlt": "Kit pushes the cart gently so its front wheels meet the vertical platform face.",
+        "pageDescription": "Kit pushes the cart gently so its front wheels meet the vertical platform face.",
+        "state": "Wheels blocked; platform and cart stay same size.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe rests a short board against the step. The board makes a ramp.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Zoe places the short smooth board with one end on the table and the other firmly on the platform. Exact state: Short ramp stable and wide enough for all four wheels; cart waits below.",
+        "imageAlt": "Zoe places the short smooth board with one end on the table and the other firmly on the platform.",
+        "pageDescription": "Zoe places the short smooth board with one end on the table and the other firmly on the platform.",
+        "state": "Short ramp stable and wide enough for all four wheels; cart waits below.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit pushes the cart up the ramp. The steep slope feels hard to climb.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Kit leans his fingers against the cart at the middle of the short steep ramp; Zoe steadies the model base, not the moving cart. Exact state: Same cart and load; no unsupported bridge gap.",
+        "imageAlt": "Kit leans his fingers against the cart at the middle of the short steep ramp; Zoe steadies the model base, not the moving cart.",
+        "pageDescription": "Kit leans his fingers against the cart at the middle of the short steep ramp; Zoe steadies the model base, not the moving cart.",
+        "state": "Same cart and load; no unsupported bridge gap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "They keep the same step but choose a longer board. The new slope is gentler.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby. Exact state: Height, cart, load and surface unchanged; only ramp length/slope differ.",
+        "imageAlt": "The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby.",
+        "pageDescription": "The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby.",
+        "state": "Height, cart, load and surface unchanged; only ramp length/slope differ.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit tries again. This time, a smaller push moves the cart up.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Kit guides the red cart along the longer shallow ramp with a relaxed hand; Zoe watches the wheels. Exact state: All wheels on ramp; same blue load remains in cart.",
+        "imageAlt": "Kit guides the red cart along the longer shallow ramp with a relaxed hand; Zoe watches the wheels.",
+        "pageDescription": "Kit guides the red cart along the longer shallow ramp with a relaxed hand; Zoe watches the wheels.",
+        "state": "All wheels on ramp; same blue load remains in cart.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The cart reaches the library door. Its wheels stayed on the ramp all the way.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. The cart rests on the library platform beside its doorway; the long ramp remains connected behind it. Exact state: Model doorway reached; no lifted or teleported cart.",
+        "imageAlt": "The cart rests on the library platform beside its doorway; the long ramp remains connected behind it.",
+        "pageDescription": "The cart rests on the library platform beside its doorway; the long ramp remains connected behind it.",
+        "state": "Model doorway reached; no lifted or teleported cart.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The cart cannot roll up the tall step. The gentle ramp gives it a rolling route.",
+        "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door. Exact state: Opening barrier and successful route appear together; unused short ramp remains on table.",
+        "imageAlt": "Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door.",
+        "pageDescription": "Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door.",
+        "state": "Opening barrier and successful route appear together; unused short ramp remains on table.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What made the second ramp easier for Kit to use?",
+        "listenFor": "It reached the same height over a longer distance, making a gentler slope. The cart and load stayed the same."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What stayed the same in both tries?",
+        "lookFor": "The platform height, cart and book load; the longer board changes slope."
+      }
+    },
+    "levelRationale": "C supports new ramp/slope vocabulary with direct comparison and explicitly linked test steps. Paired sentences explain one relationship without adding measurement or hidden mechanical concepts.",
+    "languagePrep": [
+      {
+        "word": "ramp",
+        "meaning": "a sloping surface that joins two heights"
+      },
+      {
+        "word": "gentler",
+        "meaning": "less steep here"
+      },
+      {
+        "word": "model",
+        "meaning": "a small version used to show something"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-04",
+    "number": 4,
+    "title": "The Stretchy Bridge",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants to park his toy truck across a cloth river, but Zoe’s magic bridge is too short; extending it blocks the garage and shrinking it too early strands the truck, so they sequence the crossing before moving the empty bridge.",
+      "failedAttempt": "Zoe shortens the bridge while Kit’s truck is on it, withdrawing its far end from the bank.",
+      "resolution": "She restores the bridge, waits until the truck is off, then shortens and moves it so Kit can park.",
+      "magicRule": "The toy bridge stretches lengthwise when Zoe says long and shrinks when she says short; its near end remains where it was placed. Its width and strength do not change. The toy truck has no magic."
+    },
+    "setting": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river.",
+    "props": [
+      "One teal wooden-looking magic toy bridge with low side rails",
+      "One yellow four-wheeled toy truck",
+      "One red toy garage with hinged door",
+      "One fixed blue cloth river and two flat tan cardboard banks"
+    ],
+    "coverBrief": "Zoe holds a small teal bridge beside a red toy garage while Kit parks a yellow truck inside. The blue cloth river is clearly a tabletop pretend landscape, not real water.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe’s toy bridge is magic. “Long” makes it stretch. “Short” makes it shrink.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Zoe holds the teal toy bridge beside Kit’s tabletop river and garage, ready to demonstrate; it is currently short. Exact state: One bridge; initial short length; width and rails fixed.",
+        "imageAlt": "Zoe holds the teal toy bridge beside Kit’s tabletop river and garage, ready to demonstrate; it is currently short.",
+        "pageDescription": "Zoe holds the teal toy bridge beside Kit’s tabletop river and garage, ready to demonstrate; it is currently short.",
+        "state": "One bridge; initial short length; width and rails fixed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit wants to park across the blue cloth river. The bridge does not reach the other bank.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Kit sets his yellow truck at the near bank; the short bridge reaches only partway across the flat blue cloth. Exact state: Near end grounded; far end falls short; truck not on bridge.",
+        "imageAlt": "Kit sets his yellow truck at the near bank; the short bridge reaches only partway across the flat blue cloth.",
+        "pageDescription": "Kit sets his yellow truck at the near bank; the short bridge reaches only partway across the flat blue cloth.",
+        "state": "Near end grounded; far end falls short; truck not on bridge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Long!” Zoe says. Both ends now rest on the banks. Kit starts the truck across.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. The lengthened bridge spans the cloth river with both ends supported; Kit rolls the truck onto the near end. Exact state: Far tip extends across the far bank to the garage doorway, blocking its outward door swing.",
+        "imageAlt": "The lengthened bridge spans the cloth river with both ends supported; Kit rolls the truck onto the near end.",
+        "pageDescription": "The lengthened bridge spans the cloth river with both ends supported; Kit rolls the truck onto the near end.",
+        "state": "Far tip extends across the far bank to the garage doorway, blocking its outward door swing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "One end blocks Zoe’s toy garage. “Short!” she calls. The bridge slides away from the far bank.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Zoe gestures toward the blocked red garage door as the bridge shortens; truck is near its withdrawing far end. Exact state: Bridge near end remains fixed; far end pulls back; garage door still shut.",
+        "imageAlt": "Zoe gestures toward the blocked red garage door as the bridge shortens; truck is near its withdrawing far end.",
+        "pageDescription": "Zoe gestures toward the blocked red garage door as the bridge shortens; truck is near its withdrawing far end.",
+        "state": "Bridge near end remains fixed; far end pulls back; garage door still shut.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The truck tilts at the edge. Kit holds it still. “I haven’t crossed yet!”",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Kit keeps one hand on the truck as its front wheels reach the unsupported far edge of the shortened bridge. Exact state: Toy truck held safely above flat cloth; no real river or child danger.",
+        "imageAlt": "Kit keeps one hand on the truck as its front wheels reach the unsupported far edge of the shortened bridge.",
+        "pageDescription": "Kit keeps one hand on the truck as its front wheels reach the unsupported far edge of the shortened bridge.",
+        "state": "Toy truck held safely above flat cloth; no real river or child danger.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe says “long” again. The bridge reaches the bank, and Kit rolls the truck off.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Restored bridge meets the far bank; Kit guides the truck until all four wheels are on tan cardboard beside the garage. Exact state: Truck fully off bridge before any further change.",
+        "imageAlt": "Restored bridge meets the far bank; Kit guides the truck until all four wheels are on tan cardboard beside the garage.",
+        "pageDescription": "Restored bridge meets the far bank; Kit guides the truck until all four wheels are on tan cardboard beside the garage.",
+        "state": "Truck fully off bridge before any further change.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit parks beside the garage. Zoe shortens the empty bridge and moves it away from the door.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Truck waits on the far bank while Zoe lifts the shortened empty bridge clear of the garage door swing. Exact state: Bridge empty and small; doorway unblocked; truck not yet inside.",
+        "imageAlt": "Truck waits on the far bank while Zoe lifts the shortened empty bridge clear of the garage door swing.",
+        "pageDescription": "Truck waits on the far bank while Zoe lifts the shortened empty bridge clear of the garage door swing.",
+        "state": "Bridge empty and small; doorway unblocked; truck not yet inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The truck fits inside the garage. Kit closes the door with one finger.",
+        "imageBrief": "World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Kit closes the red garage door after parking the yellow truck inside; Zoe holds the little teal bridge beside it. Exact state: Opening parking goal fulfilled; bridge no longer blocks door; no extra magic.",
+        "imageAlt": "Kit closes the red garage door after parking the yellow truck inside; Zoe holds the little teal bridge beside it.",
+        "pageDescription": "Kit closes the red garage door after parking the yellow truck inside; Zoe holds the little teal bridge beside it.",
+        "state": "Opening parking goal fulfilled; bridge no longer blocks door; no extra magic.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Zoe need to wait before making the bridge short?",
+        "listenFor": "The truck had to get off first; shortening early left it without support."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "How can the garage door close now?",
+        "lookFor": "The truck is inside and Zoe has moved the short bridge out of the door’s way."
+      }
+    },
+    "levelRationale": "C combines a clearly stated two-part magic rule with several linked actions and short dialogue. The visible consequence and repair support a simple timing inference without introducing new magic at the ending.",
+    "languagePrep": [
+      {
+        "word": "bridge",
+        "meaning": "a way across a gap"
+      },
+      {
+        "word": "stretches",
+        "meaning": "becomes longer"
+      },
+      {
+        "word": "shrinks",
+        "meaning": "becomes smaller"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-05",
+    "number": 5,
+    "title": "Follow the Park Map",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can a small map help someone find a real place?",
+      "progression": "Match picture symbols to landmarks, align the map, trace a route and verify its destination.",
+      "synthesis": "The map’s small pictures and paths represent a connected route through the real park.",
+      "scienceSources": [
+        {
+          "title": "National Geographic Education: Community Map",
+          "url": "https://education.nationalgeographic.org/resource/community-map/",
+          "evidence": "Maps represent places, and familiar picture symbols help early learners connect mapped objects and real landmarks.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Archives: Analyze a Map",
+          "url": "https://www.archives.gov/education/lessons/worksheets/analyze-a-map-novice",
+          "evidence": "Map readers inspect symbols, represented places and the map’s purpose.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "An invented small park with consistent picture symbols; not directions to an actual location or a scaled survey."
+    },
+    "setting": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads.",
+    "props": [
+      "One square paper park map with pictorial gate, bench, tree, pond and flowerbed connected by the exact established paths",
+      "One real brown bench",
+      "One real tall green tree",
+      "One curved pond"
+    ],
+    "coverBrief": "Kit holds the simple park map near the real pond; its blue kidney-shaped pond symbol matches the water beyond. The map has purposeful picture symbols and paths, no words or pseudo-writing.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit wants to find the pond in the park. He looks at the path map.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit stands just inside the entrance gate and opens the square park map; the path begins ahead of him. Exact state: Map and real park share the locked route; no pond in immediate foreground.",
+        "imageAlt": "Kit stands just inside the entrance gate and opens the square park map; the path begins ahead of him.",
+        "pageDescription": "Kit stands just inside the entrance gate and opens the square park map; the path begins ahead of him.",
+        "state": "Map and real park share the locked route; no pond in immediate foreground.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A blue shape stands for the pond. A small gate picture shows the entrance.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Close view of Kit’s map clearly shows the blue kidney-shaped pond at top-right and brown gate picture at bottom-center. Exact state: Other established landmarks and fork remain in their fixed positions; no text.",
+        "imageAlt": "Close view of Kit’s map clearly shows the blue kidney-shaped pond at top-right and brown gate picture at bottom-center.",
+        "pageDescription": "Close view of Kit’s map clearly shows the blue kidney-shaped pond at top-right and brown gate picture at bottom-center.",
+        "state": "Other established landmarks and fork remain in their fixed positions; no text.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit finds the gate beside him. He turns the map to face the same way.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit stands at the real gate and rotates the paper so its gate edge is nearest him and its main path points ahead. Exact state: Map aligned to the real path; no invented compass or arrows.",
+        "imageAlt": "Kit stands at the real gate and rotates the paper so its gate edge is nearest him and its main path points ahead.",
+        "pageDescription": "Kit stands at the real gate and rotates the paper so its gate edge is nearest him and its main path points ahead.",
+        "state": "Map aligned to the real path; no invented compass or arrows.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The map shows a path from the gate to a bench. Kit follows that path.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit walks along the straight park path toward the single brown bench, holding the map low. Exact state: Gate behind; bench and fork ahead; pond still beyond right turn.",
+        "imageAlt": "Kit walks along the straight park path toward the single brown bench, holding the map low.",
+        "pageDescription": "Kit walks along the straight park path toward the single brown bench, holding the map low.",
+        "state": "Gate behind; bench and fork ahead; pond still beyond right turn.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "At the bench, two paths split. Only one path on the map leads to the pond.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit stands beside the brown bench at the fork and compares its two branches with the paper map. Exact state: Left branch flowerbed, right branch tree and pond; landmarks unchanged.",
+        "imageAlt": "Kit stands beside the brown bench at the fork and compares its two branches with the paper map.",
+        "pageDescription": "Kit stands beside the brown bench at the fork and compares its two branches with the paper map.",
+        "state": "Left branch flowerbed, right branch tree and pond; landmarks unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit traces that path with a finger. He takes the turn beside the tall tree.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit points along the map’s right branch while standing at the turn beside the real tall tree. Exact state: Chosen route is consistent; left flowerbed route not taken.",
+        "imageAlt": "Kit points along the map’s right branch while standing at the turn beside the real tall tree.",
+        "pageDescription": "Kit points along the map’s right branch while standing at the turn beside the real tall tree.",
+        "state": "Chosen route is consistent; left flowerbed route not taken.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The pond comes into view. Its curved edge matches the blue shape on the map.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit reaches the pond edge from the tree-side path and holds the map so the real and drawn curved shapes are visible. Exact state: Destination matches; safe path set back from water.",
+        "imageAlt": "Kit reaches the pond edge from the tree-side path and holds the map so the real and drawn curved shapes are visible.",
+        "pageDescription": "Kit reaches the pond edge from the tree-side path and holds the map so the real and drawn curved shapes are visible.",
+        "state": "Destination matches; safe path set back from water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit looks back at his route. Gate, bench, tree, pond: the small map helped him find a real place.",
+        "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. High angled view behind Kit shows the pond, tree-side path, bench fork and distant gate in connected order; map rests in his hands. Exact state: All landmarks preserve their relative positions; no new shortcut or branch.",
+        "imageAlt": "High angled view behind Kit shows the pond, tree-side path, bench fork and distant gate in connected order; map rests in his hands.",
+        "pageDescription": "High angled view behind Kit shows the pond, tree-side path, bench fork and distant gate in connected order; map rests in his hands.",
+        "state": "All landmarks preserve their relative positions; no new shortcut or branch.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did Kit use the map at the fork?",
+        "listenFor": "He matched the bench and paths, then traced the branch that led past the tree to the pond."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Find the picture that matches the real pond.",
+        "lookFor": "The blue curved pond shape; location and path connection match the real park."
+      }
+    },
+    "levelRationale": "C has paired observations, varied sentence shapes and an explicit representation-to-place comparison. Familiar landmarks support map and route vocabulary, with no cardinal-direction or scale burden.",
+    "languagePrep": [
+      {
+        "word": "map",
+        "meaning": "a small picture that shows where places are"
+      },
+      {
+        "word": "route",
+        "meaning": "the way taken from one place to another"
+      },
+      {
+        "word": "stands for",
+        "meaning": "represents or shows something else"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-06",
+    "number": 6,
+    "title": "Where Does Daylight Go?",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Why does one place on Earth move from day to night?",
+      "progression": "Begin with fading daylight, introduce a spinning Earth and use a fixed flashlight and marked ball to model changing illumination.",
+      "synthesis": "Turning the globe changes which place faces the light; the light does not need to circle it to make day and night.",
+      "scienceSources": [
+        {
+          "title": "NASA: What Is Earth? Grades K–4",
+          "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth-grades-k-4/",
+          "evidence": "Earth spins; places facing the Sun have day and places facing away have night.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "ESA Kids: Day, Night and the Seasons",
+          "url": "https://kids.esa.int/lessons_day_night_and_the_seasons/",
+          "evidence": "Earth’s rotation causes day/night; this book models rotation only, not orbital seasons.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "Flashlight and ball are a simple light model, not correct Sun/Earth scale or distance. A red dot identifies an illustrative mid-latitude home, not a real city."
+    },
+    "setting": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center.",
+    "props": [
+      "One plain blue-green globe-like ball",
+      "One removable small red dot on its surface",
+      "One yellow flashlight held steadily by Kit"
+    ],
+    "coverBrief": "Zoe turns the blue-green ball so its single red dot lies at the boundary between the lit and dark halves; Kit holds the flashlight still at the left. Beam ends on the ball; no labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe watches daylight fade outside. Where does the bright sunshine go?",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Zoe looks through the classroom window at a dimming playground under early evening sky. Exact state: Natural Earth viewpoint; no Moon needed to cause darkness.",
+        "imageAlt": "Zoe looks through the classroom window at a dimming playground under early evening sky.",
+        "pageDescription": "Zoe looks through the classroom window at a dimming playground under early evening sky.",
+        "state": "Natural Earth viewpoint; no Moon needed to cause darkness.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Earth is round, and it spins. The Sun lights the side facing it.",
+        "imageBrief": "One clear standalone space illustration of Earth, separate from the classroom model shown on later pages. A round blue-green Earth floats in space, with the left hemisphere sunlit and the right hemisphere dark; sunlight comes from off-screen left. Exact state: Illuminated and dark halves meet across the visible surface; no Moon shadow, orbit line, classroom, children or flashlight.",
+        "imageAlt": "A round blue-green Earth floats in space, with the left hemisphere sunlit and the right hemisphere dark; sunlight comes from off-screen left.",
+        "pageDescription": "A round blue-green Earth floats in space, with the left hemisphere sunlit and the right hemisphere dark; sunlight comes from off-screen left.",
+        "state": "Illuminated and dark halves meet across the visible surface; no Moon shadow, orbit line, classroom, children or flashlight.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe puts a dot on a ball. The dot stands for her home on Earth.",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Back at the table, Zoe presses one small red dot onto the blue-green ball while Kit holds a switched-off flashlight. Exact state: Model explicitly a ball; single dot attached; light off.",
+        "imageAlt": "Back at the table, Zoe presses one small red dot onto the blue-green ball while Kit holds a switched-off flashlight.",
+        "pageDescription": "Back at the table, Zoe presses one small red dot onto the blue-green ball while Kit holds a switched-off flashlight.",
+        "state": "Model explicitly a ball; single dot attached; light off.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit holds a flashlight still. Its light falls on one side of the ball.",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Kit shines the yellow flashlight from left onto the ball; Zoe holds it with the red dot on the bright side. Exact state: Flashlight fixed; same ball and dot; far side dark.",
+        "imageAlt": "Kit shines the yellow flashlight from left onto the ball; Zoe holds it with the red dot on the bright side.",
+        "pageDescription": "Kit shines the yellow flashlight from left onto the ball; Zoe holds it with the red dot on the bright side.",
+        "state": "Flashlight fixed; same ball and dot; far side dark.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe turns the ball slowly. Her dot moves away from the light and into darkness.",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Zoe rotates the ball in place until the red dot is visible near the right dark side. Exact state: Ball turns; flashlight remains at left; dot stays attached to same place.",
+        "imageAlt": "Zoe rotates the ball in place until the red dot is visible near the right dark side.",
+        "pageDescription": "Zoe rotates the ball in place until the red dot is visible near the right dark side.",
+        "state": "Ball turns; flashlight remains at left; dot stays attached to same place.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "That is like night at Zoe’s home. Other places still face the Sun.",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. The model’s red dot sits on the dark side while the opposite hemisphere remains lit; children observe the two sides. Exact state: No second dot; both light and dark portions visible at once.",
+        "imageAlt": "The model’s red dot sits on the dark side while the opposite hemisphere remains lit; children observe the two sides.",
+        "pageDescription": "The model’s red dot sits on the dark side while the opposite hemisphere remains lit; children observe the two sides.",
+        "state": "No second dot; both light and dark portions visible at once.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "She keeps turning. The dot comes back into the light, like morning.",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Zoe continues the same rotation until the dot reaches the lit edge again; Kit keeps the flashlight in its original position. Exact state: Rotation consistent; new illumination from turning, not moving the lamp.",
+        "imageAlt": "Zoe continues the same rotation until the dot reaches the lit edge again; Kit keeps the flashlight in its original position.",
+        "pageDescription": "Zoe continues the same rotation until the dot reaches the lit edge again; Kit keeps the flashlight in its original position.",
+        "state": "Rotation consistent; new illumination from turning, not moving the lamp.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The light did not circle the ball. The turning ball changed which side was bright.",
+        "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Final broad view shows Kit’s steady flashlight and Zoe holding the ball with the dot bright again. Exact state: Model position unchanged apart from rotation; both children can compare the fixed light and turning ball.",
+        "imageAlt": "Final broad view shows Kit’s steady flashlight and Zoe holding the ball with the dot bright again.",
+        "pageDescription": "Final broad view shows Kit’s steady flashlight and Zoe holding the ball with the dot bright again.",
+        "state": "Model position unchanged apart from rotation; both children can compare the fixed light and turning ball.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moved in the model to make night and morning at the dot?",
+        "listenFor": "The ball turned while the flashlight stayed still; the dot moved into darkness and back into light."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Is the red home dot on the bright side or the dark side?",
+        "lookFor": "The red dot is on the dark side of the ball, away from the flashlight."
+      }
+    },
+    "levelRationale": "C gives an observable model, paired short explanations and explicit like/stands-for comparisons. The simple causal link is stated rather than inferred from an unseen astronomical process.",
+    "languagePrep": [
+      {
+        "word": "spins",
+        "meaning": "turns around itself"
+      },
+      {
+        "word": "facing",
+        "meaning": "turned toward something"
+      },
+      {
+        "word": "model",
+        "meaning": "something used to show how another thing works"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-07",
+    "number": 7,
+    "title": "A Dam Is Not a Home",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Is a beaver’s dam the same thing as its home?",
+      "progression": "Follow branch placement into a dam, its effect on the pond, then distinguish the lodge and its underwater entry/dry chamber.",
+      "synthesis": "The dam holds back water; the separate lodge provides a protected living space in that pond.",
+      "scienceSources": [
+        {
+          "title": "National Park Service: Build a Beaver Dam",
+          "url": "https://home.nps.gov/articles/buildabeaverdam.htm",
+          "evidence": "Dams slow water and make ponds; lodges are separate homes with underwater entrances and dry living areas. Some water passes a dam.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "One typical pond-building North American beaver example; not a claim that every beaver builds a dam or uses a freestanding lodge."
+    },
+    "setting": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond.",
+    "props": [
+      "One beaver",
+      "Branch-and-mud dam across downstream outlet",
+      "Separate stick-and-mud lodge in pond",
+      "Underwater lodge entrance and raised dry inner chamber"
+    ],
+    "coverBrief": "Natural beaver swims in its pond between a branch dam in the near foreground and a separate domed lodge behind it. Clearly two structures, no labels or doors.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A beaver carries a branch across the stream. Is it building a home?",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. One beaver carries a manageable branch in its mouth through shallow stream water toward a low branch barrier. Exact state: Natural mouth carry; no human hands or tools.",
+        "imageAlt": "One beaver carries a manageable branch in its mouth through shallow stream water toward a low branch barrier.",
+        "pageDescription": "One beaver carries a manageable branch in its mouth through shallow stream water toward a low branch barrier.",
+        "state": "Natural mouth carry; no human hands or tools.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "It pushes the branch into a dam. Mud fills some of the gaps.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. The beaver braces the branch into the cross-stream dam where sticks and mud slow the flow. Exact state: Dam spans channel; no roof, bed or interior room.",
+        "imageAlt": "The beaver braces the branch into the cross-stream dam where sticks and mud slow the flow.",
+        "pageDescription": "The beaver braces the branch into the cross-stream dam where sticks and mud slow the flow.",
+        "state": "Dam spans channel; no roof, bed or interior room.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The dam slows the flowing water. A pond grows deeper behind it.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Wide side view shows deeper pooled water upstream of the dam and shallower flowing water downstream. Exact state: Water level difference physically coherent; no total watertight wall.",
+        "imageAlt": "Wide side view shows deeper pooled water upstream of the dam and shallower flowing water downstream.",
+        "pageDescription": "Wide side view shows deeper pooled water upstream of the dam and shallower flowing water downstream.",
+        "state": "Water level difference physically coherent; no total watertight wall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The beaver’s home is a lodge in the pond. The dam and lodge are different.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. The beaver swims toward a separate domed stick lodge in the pond; the lower dam is visible farther downstream. Exact state: Two distinct structures; lodge not built into the dam.",
+        "imageAlt": "The beaver swims toward a separate domed stick lodge in the pond; the lower dam is visible farther downstream.",
+        "pageDescription": "The beaver swims toward a separate domed stick lodge in the pond; the lower dam is visible farther downstream.",
+        "state": "Two distinct structures; lodge not built into the dam.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "An opening lies under the water. The beaver swims through it and up a short tunnel.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. A purposeful lodge cutaway shows the beaver passing through a submerged opening and rising along an inner tunnel. Exact state: No wooden door; tunnel leads upward above the waterline.",
+        "imageAlt": "A purposeful lodge cutaway shows the beaver passing through a submerged opening and rising along an inner tunnel.",
+        "pageDescription": "A purposeful lodge cutaway shows the beaver passing through a submerged opening and rising along an inner tunnel.",
+        "state": "No wooden door; tunnel leads upward above the waterline.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Inside, a dry room sits above the water. The beaver rests there.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Cutaway shows the beaver curled in the dry upper chamber, with water only in the low entrance tunnel. Exact state: Chamber floor above pond level; beaver not sleeping underwater.",
+        "imageAlt": "Cutaway shows the beaver curled in the dry upper chamber, with water only in the low entrance tunnel.",
+        "pageDescription": "Cutaway shows the beaver curled in the dry upper chamber, with water only in the low entrance tunnel.",
+        "state": "Chamber floor above pond level; beaver not sleeping underwater.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Outside, water still trickles through the dam. The pond covers the lodge’s opening.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Waterline view shows a small downstream trickle at the dam and the lodge entrance submerged in the deeper upstream pond. Exact state: Some flow continues; lodge entrance underwater, chamber remains above it.",
+        "imageAlt": "Waterline view shows a small downstream trickle at the dam and the lodge entrance submerged in the deeper upstream pond.",
+        "pageDescription": "Waterline view shows a small downstream trickle at the dam and the lodge entrance submerged in the deeper upstream pond.",
+        "state": "Some flow continues; lodge entrance underwater, chamber remains above it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The dam holds back water. The lodge shelters the beaver. The two structures have different jobs.",
+        "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Final wide cutaway composition shows the separate dam slowing water and beaver resting in its lodge’s dry chamber. Exact state: One coherent pond cross-section; both functions visible without labels or arrows.",
+        "imageAlt": "Final wide cutaway composition shows the separate dam slowing water and beaver resting in its lodge’s dry chamber.",
+        "pageDescription": "Final wide cutaway composition shows the separate dam slowing water and beaver resting in its lodge’s dry chamber.",
+        "state": "One coherent pond cross-section; both functions visible without labels or arrows.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What is the difference between the dam and the lodge?",
+        "listenFor": "The dam slows water and makes the pond; the lodge is the beaver’s home with a dry room."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where is the dry room compared with the water?",
+        "lookFor": "Above the pond’s waterline; the entrance tunnel goes below it."
+      }
+    },
+    "levelRationale": "C supports two new concrete terms through an explicit contrast and a stepwise cause. Short paired sentences make the underwater entrance/dry room relationship clear without specialist ecosystem vocabulary.",
+    "languagePrep": [
+      {
+        "word": "dam",
+        "meaning": "a barrier that holds back some water"
+      },
+      {
+        "word": "lodge",
+        "meaning": "a beaver’s home"
+      },
+      {
+        "word": "shelters",
+        "meaning": "gives a protected place to stay"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-08",
+    "number": 8,
+    "title": "From Pond to Sky",
+    "topic": "life cycles",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a water-living young dragonfly become a flying adult?",
+      "progression": "Connect an adult to its egg and aquatic nymph, follow feeding and molts, then climb, emergence and wing expansion before the next generation.",
+      "synthesis": "The same kind of animal grows in water and later flies, then eggs begin the water stage again.",
+      "scienceSources": [
+        {
+          "title": "Natural History Museum: Dragonflies, the Ultimate Hunters",
+          "url": "https://www.nhm.ac.uk/discover/dragonflies-the-ultimate-hunters.html",
+          "evidence": "Dragonflies begin as eggs, live as aquatic nymphs, molt repeatedly and emerge directly as adults without a pupa.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Park Service: Species Spotlight, Dragonflies",
+          "url": "https://www.nps.gov/articles/species-spotlight-dragonflies.htm",
+          "evidence": "Mature nymphs climb out, split their skin and emerge; adult bodies/wings expand and harden over hours.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Australian Museum: Dragonfly Life Cycle",
+          "url": "https://australian.museum/learn/teachers/learning/dragonfly-life-cycle/",
+          "evidence": "Adult dragonflies have two pairs of wings and three pairs of legs; aquatic larvae are predators.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Park Service: Common Green Darner",
+          "url": "https://home.nps.gov/articles/000/common-green-darner.htm",
+          "evidence": "Green darner females insert eggs into plant material in water; aquatic nymphs molt, emerge through split skin and expand their adult wings. Female adults can have green thoraxes and brownish abdomens.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "Illustrated green darner-type pond dragonfly, with natural aquatic nymph and adult anatomy; no butterfly-like pupa or cocoon. Timing is deliberately non-numeric because species vary."
+    },
+    "setting": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings.",
+    "props": [
+      "Pond reed stems",
+      "Tiny elongated dragonfly egg inserted into submerged pond-plant tissue",
+      "Natural six-legged brown nymph",
+      "Empty shed nymph skin fixed to reed",
+      "Adult green dragonfly with four clear wings"
+    ],
+    "coverBrief": "A green adult dragonfly rests with four wings spread above a pond reed bearing its empty brown nymph skin. The pond below contains natural plants; no cocoon or butterflies.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A dragonfly flies over the pond. Its life began in the water below.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. One green adult dragonfly with four clear wings flies above a reed-fringed pond. Exact state: Adult natural anatomy; opening establishes air and water habitats.",
+        "imageAlt": "One green adult dragonfly with four clear wings flies above a reed-fringed pond.",
+        "pageDescription": "One green adult dragonfly with four clear wings flies above a reed-fringed pond.",
+        "state": "Adult natural anatomy; opening establishes air and water habitats.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A young dragonfly hatches from an egg. This wingless stage is called a nymph.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. Underwater close view shows a newly hatched tiny six-legged brown nymph beside a small opening in submerged pond-plant tissue. Exact state: Egg was inserted into the plant tissue, not stuck on its surface; nymph has no developed wings, pupa or adult miniaturized body.",
+        "imageAlt": "Underwater close view shows a newly hatched tiny six-legged brown nymph beside a small opening in submerged pond-plant tissue.",
+        "pageDescription": "Underwater close view shows a newly hatched tiny six-legged brown nymph beside a small opening in submerged pond-plant tissue.",
+        "state": "Egg was inserted into the plant tissue, not stuck on its surface; nymph has no developed wings, pupa or adult miniaturized body.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The nymph hides among water plants. It catches smaller animals for food.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. The brown nymph waits among submerged stems and grasps a tiny aquatic insect larva with its extended mouthpart. Exact state: Natural predation without gore; prey smaller than nymph.",
+        "imageAlt": "The brown nymph waits among submerged stems and grasps a tiny aquatic insect larva with its extended mouthpart.",
+        "pageDescription": "The brown nymph waits among submerged stems and grasps a tiny aquatic insect larva with its extended mouthpart.",
+        "state": "Natural predation without gore; prey smaller than nymph.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "As it grows, the nymph sheds its tight outer skin again and again.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. A larger nymph rests on an underwater stem beside an empty smaller shed skin. Exact state: One living nymph and one empty skin; growth over time, not instant transformation.",
+        "imageAlt": "A larger nymph rests on an underwater stem beside an empty smaller shed skin.",
+        "pageDescription": "A larger nymph rests on an underwater stem beside an empty smaller shed skin.",
+        "state": "One living nymph and one empty skin; growth over time, not instant transformation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "At last, it climbs up a stem and out of the water.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. The mature nymph grips a vertical reed above the pond surface, body completely clear of the water. Exact state: Same six legs; wing pads only; no adult wings yet.",
+        "imageAlt": "The mature nymph grips a vertical reed above the pond surface, body completely clear of the water.",
+        "pageDescription": "The mature nymph grips a vertical reed above the pond surface, body completely clear of the water.",
+        "state": "Same six legs; wing pads only; no adult wings yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Its old skin splits. An adult dragonfly pulls free, with soft folded wings.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. The pale adult emerges from a split along the back of the nymph skin, gripping the reed as its soft wings hang together. Exact state: Empty skin remains attached; one emerging adult, no cocoon.",
+        "imageAlt": "The pale adult emerges from a split along the back of the nymph skin, gripping the reed as its soft wings hang together.",
+        "pageDescription": "The pale adult emerges from a split along the back of the nymph skin, gripping the reed as its soft wings hang together.",
+        "state": "Empty skin remains attached; one emerging adult, no cocoon.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The wings spread and harden. Soon, the dragonfly can fly above the pond.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. Later, the now firm adult rests on the reed with four fully expanded wings held out, ready to leave. Exact state: Wings expanded before flight; empty nymph skin still below.",
+        "imageAlt": "Later, the now firm adult rests on the reed with four fully expanded wings held out, ready to leave.",
+        "pageDescription": "Later, the now firm adult rests on the reed with four fully expanded wings held out, ready to leave.",
+        "state": "Wings expanded before flight; empty nymph skin still below.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A female lays eggs in a water plant. More nymphs will grow below the flying adults.",
+        "imageBrief": "One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. A mature female dragonfly places eggs into a pond plant at the water surface while resting on the stem. Exact state: Next generation begins; no new nymph appears instantly; four adult wings and six legs.",
+        "imageAlt": "A mature female dragonfly places eggs into a pond plant at the water surface while resting on the stem.",
+        "pageDescription": "A mature female dragonfly places eggs into a pond plant at the water surface while resting on the stem.",
+        "state": "Next generation begins; no new nymph appears instantly; four adult wings and six legs.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Which part of the dragonfly’s life happens under water?",
+        "listenFor": "The egg/young nymph stage; the nymph feeds and grows there before climbing out to become an adult."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "What has the dragonfly left on the reed?",
+        "lookFor": "Its empty old nymph skin; the adult came out of it."
+      }
+    },
+    "levelRationale": "C combines short paired sentences, sequence markers and broader but supported life-cycle vocabulary. The explicit contrast between wingless water stage and winged adult makes the change followable without an unseen pupa.",
+    "languagePrep": [
+      {
+        "word": "nymph",
+        "meaning": "a young insect stage; this one lives in water"
+      },
+      {
+        "word": "sheds",
+        "meaning": "comes out of an outer covering"
+      },
+      {
+        "word": "adult",
+        "meaning": "the fully grown stage"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-09",
+    "number": 9,
+    "title": "Both Have Wings",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Does flying make a bat a bird?",
+      "progression": "Compare wings, body coverings and feeding young, then distinguish shared movement from animal group traits.",
+      "synthesis": "A shared ability does not put two animals in the same group; bats are mammals and birds have feathers.",
+      "scienceSources": [
+        {
+          "title": "Texas Parks and Wildlife: Bat Background for Teachers",
+          "url": "https://tpwd.texas.gov/education/resources/keep-texas-wild/hanging-around-with-bats/background-for-teachers",
+          "evidence": "Bats are mammals with fur and milk for young, not feathers.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Wildlife Federation: Bats",
+          "url": "https://photos.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Bats",
+          "evidence": "Bat wings contain elongated finger bones joined by skin; fur covers the body.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Cornell Lab of Ornithology: Feathered Friends",
+          "url": "https://www.birds.cornell.edu/k12/feathered-friends/",
+          "evidence": "All living birds have feathers, and living birds are the only animals with feathers.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "San Diego Zoo: Birds",
+          "url": "https://animals.sandiegozoo.org/animals/birds",
+          "evidence": "Birds have feathers and lay eggs.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "Compare a barn swallow and small brown bat. No claim that all birds fly or that no other animals lay eggs; the book compares several traits rather than one exception-prone rule."
+    },
+    "setting": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs.",
+    "props": [
+      "Natural feathered swallow wing",
+      "Natural skin-and-finger bat wing",
+      "Swallow nest with eggs/chick",
+      "Bat mother and nursing pup in sheltered roost"
+    ],
+    "coverBrief": "A barn swallow and little brown bat fly separately across a soft dusk sky, both clearly shaped and anatomically correct. Their feathered and skin-covered wings are easy to compare; no labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A bird and a bat both fly. Does that make a bat a bird?",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. A barn swallow and a little brown bat fly across the same dusk sky without touching or chasing one another. Exact state: Two distinct animals; swallow feathers and bat wing membranes visible.",
+        "imageAlt": "A barn swallow and a little brown bat fly across the same dusk sky without touching or chasing one another.",
+        "pageDescription": "A barn swallow and a little brown bat fly across the same dusk sky without touching or chasing one another.",
+        "state": "Two distinct animals; swallow feathers and bat wing membranes visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Look at the bird’s wing. Long feathers overlap along its edge.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. Close natural view of the swallow’s open wing shows overlapping long flight feathers with clear shafts and vanes. Exact state: Feathers belong to attached wing; no fingers exposed like a bat.",
+        "imageAlt": "Close natural view of the swallow’s open wing shows overlapping long flight feathers with clear shafts and vanes.",
+        "pageDescription": "Close natural view of the swallow’s open wing shows overlapping long flight feathers with clear shafts and vanes.",
+        "state": "Feathers belong to attached wing; no fingers exposed like a bat.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A bat’s wing has no feathers. Thin skin stretches over long finger bones.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. Close view of the bat’s open wing shows thin brown skin supported by elongated digits and a small clawed thumb. Exact state: One pair of wings; no feather shapes or extra human arms.",
+        "imageAlt": "Close view of the bat’s open wing shows thin brown skin supported by elongated digits and a small clawed thumb.",
+        "pageDescription": "Close view of the bat’s open wing shows thin brown skin supported by elongated digits and a small clawed thumb.",
+        "state": "One pair of wings; no feather shapes or extra human arms.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Soft fur covers the bat’s body. The bird has feathers on its body.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. Side-by-side natural close views show the brown furred bat body and feathered swallow body at comparable display scale. Exact state: Explicit comparison, not claim of same real body size; no hybrid animal.",
+        "imageAlt": "Side-by-side natural close views show the brown furred bat body and feathered swallow body at comparable display scale.",
+        "pageDescription": "Side-by-side natural close views show the brown furred bat body and feathered swallow body at comparable display scale.",
+        "state": "Explicit comparison, not claim of same real body size; no hybrid animal.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "A mother bat feeds her baby milk. Bats belong to the mammal group.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. In a dim sheltered roost, a mother bat hangs while her tiny pup clings to her body to nurse. Exact state: Natural mammal nursing; no bottle, nest eggs or clothes.",
+        "imageAlt": "In a dim sheltered roost, a mother bat hangs while her tiny pup clings to her body to nurse.",
+        "pageDescription": "In a dim sheltered roost, a mother bat hangs while her tiny pup clings to her body to nurse.",
+        "state": "Natural mammal nursing; no bottle, nest eggs or clothes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Birds lay eggs. Baby birds hatch with beaks and grow feathers.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. The swallow’s mud nest holds one egg and a small chick with a beak and developing feathers; an adult perches nearby. Exact state: Bird young, not bat pups; plain nest attached under a ledge.",
+        "imageAlt": "The swallow’s mud nest holds one egg and a small chick with a beak and developing feathers; an adult perches nearby.",
+        "pageDescription": "The swallow’s mud nest holds one egg and a small chick with a beak and developing feathers; an adult perches nearby.",
+        "state": "Bird young, not bat pups; plain nest attached under a ledge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Flying tells us how an animal moves. Fur and feathers tell us about its body.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. The bat and swallow rest separately on appropriate supports: bat hanging, swallow perched; their body coverings remain distinct. Exact state: Comparison no longer depends on flight; both whole bodies visible.",
+        "imageAlt": "The bat and swallow rest separately on appropriate supports: bat hanging, swallow perched; their body coverings remain distinct.",
+        "pageDescription": "The bat and swallow rest separately on appropriate supports: bat hanging, swallow perched; their body coverings remain distinct.",
+        "state": "Comparison no longer depends on flight; both whole bodies visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Wings help both animals fly. The bat’s fur and milk show why it belongs with mammals, not birds.",
+        "imageBrief": "Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. Final natural comparison shows the feathered swallow beside its nest and the furred mother bat with her pup in a separate roost inset. Exact state: Clear separate habitats and body evidence; no direct coexistence inside one nest.",
+        "imageAlt": "Final natural comparison shows the feathered swallow beside its nest and the furred mother bat with her pup in a separate roost inset.",
+        "pageDescription": "Final natural comparison shows the feathered swallow beside its nest and the furred mother bat with her pup in a separate roost inset.",
+        "state": "Clear separate habitats and body evidence; no direct coexistence inside one nest.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why is a bat a mammal even though it flies?",
+        "listenFor": "It has fur and mothers feed pups milk; flying alone does not define a bird."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "What stretches between the bat’s long finger bones?",
+        "lookFor": "Thin skin forms the wing; there are no feathers."
+      }
+    },
+    "levelRationale": "C supports classification with explicit paired comparisons and a concrete opening misconception. New mammal and feather vocabulary is repeated beside clear features, without a broader taxonomy lecture.",
+    "languagePrep": [
+      {
+        "word": "mammal",
+        "meaning": "an animal group in which mothers make milk for their young"
+      },
+      {
+        "word": "fur",
+        "meaning": "hair covering an animal’s body"
+      },
+      {
+        "word": "feathers",
+        "meaning": "the body covering found on birds"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-10",
+    "number": 10,
+    "title": "The Apple Core Comes Back",
+    "topic": "caring for our world",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can an old apple core help a new plant grow?",
+      "progression": "Move scraps into a managed compost pile, show dry leaves/air/moisture and time, then use finished compost in soil for a new plant.",
+      "synthesis": "Old food scraps become compost that improves growing soil rather than returning as intact food or instant soil.",
+      "scienceSources": [
+        {
+          "title": "US EPA: Composting at Home",
+          "url": "https://www.epa.gov/recycle/composting-home",
+          "evidence": "Fruit/vegetable scraps and dry leaves break down with air, moisture and microorganisms; finished compost after months is dark and crumbly and benefits soil.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "US EPA: Composting",
+          "url": "https://www.epa.gov/sustainable-management-food/composting",
+          "evidence": "Compost is a soil amendment, not simply soil; it returns nutrients and improves soil health.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "A maintained garden compost bin, not a sealed bottle or an instant transformation. Finished compost is mixed into soil, never used as a substitute for all soil."
+    },
+    "setting": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout.",
+    "props": [
+      "One apple core and fruit peel scraps",
+      "Dry brown leaves",
+      "One ventilated green compost bin",
+      "Small watering can",
+      "Garden fork handled only by adult",
+      "One young tomato plant",
+      "One garden bed of soil",
+      "One small cream snack tray",
+      "One small gray bucket for finished compost",
+      "Two short hand trowels, one for each child"
+    ],
+    "coverBrief": "Kit and Zoe stand beside a young tomato plant in garden soil, with dark crumbly compost in a small bucket and the green compost bin behind. An apple core is shown only as a small separate opening-concept vignette, not as undecomposed material at the plant roots.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "An apple core is left after snack. Can this scrap help something grow?",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Kit and Zoe look at one apple core on a small tray after their classroom snack, with the school garden visible outside. Exact state: Core intact; no compost yet; ordinary meal setting.",
+        "imageAlt": "Kit and Zoe look at one apple core on a small tray after their classroom snack, with the school garden visible outside.",
+        "pageDescription": "Kit and Zoe look at one apple core on a small tray after their classroom snack, with the school garden visible outside.",
+        "state": "Core intact; no compost yet; ordinary meal setting.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit adds it to a compost bin with dry leaves and other fruit scraps.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Kit tips the tray’s core into the open green compost bin containing a thick layer of dry leaves and a few fruit peels. Exact state: No plastic, meat, cooked meal or packaging in bin.",
+        "imageAlt": "Kit tips the tray’s core into the open green compost bin containing a thick layer of dry leaves and a few fruit peels.",
+        "pageDescription": "Kit tips the tray’s core into the open green compost bin containing a thick layer of dry leaves and a few fruit peels.",
+        "state": "No plastic, meat, cooked meal or packaging in bin.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe covers the scraps with more dry leaves. Small living things begin breaking them down.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Zoe adds a generous layer of dry leaves over the food scraps in the ventilated bin. Exact state: Scraps covered; microorganisms not drawn as large fantasy creatures.",
+        "imageAlt": "Zoe adds a generous layer of dry leaves over the food scraps in the ventilated bin.",
+        "pageDescription": "Zoe adds a generous layer of dry leaves over the food scraps in the ventilated bin.",
+        "state": "Scraps covered; microorganisms not drawn as large fantasy creatures.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The pile needs air and some water. A grown-up turns it and checks that it stays damp.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. The adult helper uses a garden fork to turn the bin contents while Kit holds a small watering can nearby and Zoe watches. Exact state: Fork used by adult; mixture moist, not flooded; children not reaching into tool path.",
+        "imageAlt": "The adult helper uses a garden fork to turn the bin contents while Kit holds a small watering can nearby and Zoe watches.",
+        "pageDescription": "The adult helper uses a garden fork to turn the bin contents while Kit holds a small watering can nearby and Zoe watches.",
+        "state": "Fork used by adult; mixture moist, not flooded; children not reaching into tool path.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Weeks pass. The scraps get smaller and the pile sinks. It is not ready yet.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Later view inside the same bin shows darker partly broken-down material, a lower pile and a few recognizable soft scraps. Exact state: Time has passed; material not magically finished after one watering.",
+        "imageAlt": "Later view inside the same bin shows darker partly broken-down material, a lower pile and a few recognizable soft scraps.",
+        "pageDescription": "Later view inside the same bin shows darker partly broken-down material, a lower pile and a few recognizable soft scraps.",
+        "state": "Time has passed; material not magically finished after one watering.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "After several months, the finished compost is dark and crumbly. The apple core is no longer there.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Close view of mature dark crumbly compost in the bin with no visible food scraps; adult scoops some into a small bucket. Exact state: Finished material distinct from earlier scraps; no recognizable core.",
+        "imageAlt": "Close view of mature dark crumbly compost in the bin with no visible food scraps; adult scoops some into a small bucket.",
+        "pageDescription": "Close view of mature dark crumbly compost in the bin with no visible food scraps; adult scoops some into a small bucket.",
+        "state": "Finished material distinct from earlier scraps; no recognizable core.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit and Zoe mix some compost into garden soil. They plant a young tomato plant.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. The children use small hand trowels to mix a modest amount of compost into an existing soil bed, with a young tomato seedling being planted. Exact state: Compost is added to soil, not pure compost as whole growing medium; roots covered naturally.",
+        "imageAlt": "The children use small hand trowels to mix a modest amount of compost into an existing soil bed, with a young tomato seedling being planted.",
+        "pageDescription": "The children use small hand trowels to mix a modest amount of compost into an existing soil bed, with a young tomato seedling being planted.",
+        "state": "Compost is added to soil, not pure compost as whole growing medium; roots covered naturally.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The plant grows new leaves. Compost from old scraps helps its soil hold water and nutrients.",
+        "imageBrief": "World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Later, the same tomato plant has fresh green leaves in the same soil bed; Kit waters at its base while Zoe points to the new growth. Exact state: Growth over time; no instant ripe tomatoes; compost mixed into soil, apple core not reappearing intact.",
+        "imageAlt": "Later, the same tomato plant has fresh green leaves in the same soil bed; Kit waters at its base while Zoe points to the new growth.",
+        "pageDescription": "Later, the same tomato plant has fresh green leaves in the same soil bed; Kit waters at its base while Zoe points to the new growth.",
+        "state": "Growth over time; no instant ripe tomatoes; compost mixed into soil, apple core not reappearing intact.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did the apple core help the new plant?",
+        "listenFor": "It broke down into compost over months; that compost was mixed into soil to help it hold water and nutrients."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "How does the finished compost look different from the first scraps?",
+        "lookFor": "Dark crumbly material with no recognizable apple core or fresh fruit pieces."
+      }
+    },
+    "levelRationale": "C uses clear time markers, paired explanations and an explicit transformation with support for compost and nutrients. The ordered process avoids the inference that scraps instantly turn into soil.",
+    "languagePrep": [
+      {
+        "word": "compost",
+        "meaning": "broken-down plant and food material that can improve soil"
+      },
+      {
+        "word": "damp",
+        "meaning": "a little wet"
+      },
+      {
+        "word": "nutrients",
+        "meaning": "things living things need to grow"
+      }
+    ]
+  }
+]

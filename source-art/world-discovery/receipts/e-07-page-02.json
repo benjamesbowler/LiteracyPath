@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-07",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:04:47.243Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-b523cb6b-1bbd-48e9-a14c-5b16c30bcebc.png",
+  "sourceSha256": "fa2e26689c757e3b7544bc192251e31de3805ca9d9826057917aaf2deb26c372",
+  "output": "public/guided-reading/world-discovery/e-07/page-02.webp",
+  "outputSha256": "61f8b795f0e81c29e328cbc307d5b45a808cda3c5f1ab224c45095d40c5044ee",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Flower’s Night Visitor; World Discovery; nonfiction.\nSetting: Sonoran Desert at night during saguaro flowering, followed by a later fruiting view in daylight. One lesser long-nosed bat with natural brown fur and long muzzle.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Saguaro cactus with creamy white flowers near top; Lesser long-nosed bat; Yellow pollen; Later red saguaro fruit and dark seeds\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): This lesser long-nosed bat drinks nectar, the sweet liquid inside flowers. Its long muzzle fits into the open bloom.\nRequired illustration: Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower. Exact continuity: Bat much smaller than cactus; no oversized canine fangs; wings natural.\nExact current state: Bat much smaller than cactus; no oversized canine fangs; wings natural.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. Nectarbat anatomy: two wings ARE forelimbs withlongfinger supports, onlytwohindfeet, brownfur, modest roundedears, narrowmuzzle withsmall triangularnoseleaf atnostrils. Keep muzzle proportionnatural, notmousewhiskers. Saguaro whiteflowers atcolumnTIP, no spinesinsideflower. Night pages1-6/10, daypages7-9; no fruitsbeforepage7. ManyTINY blackseeds inripe redfruit, nevergiantbeans. Pollendustonlyonfur/stigma notmagictrail. Match precise current life stage, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-07-reference.webp",
+      "sha256": "b4ce39455a38fc8b4cb14e8072afa5cbd55bdb5d4cbb66aecd7a8208af873f0f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:04:48.466Z",
+    "sha256": "61f8b795f0e81c29e328cbc307d5b45a808cda3c5f1ab224c45095d40c5044ee",
+    "note": "Bat elongated muzzle enters flower; wings and two hind feet consistent. Pollen visible around face/neck.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

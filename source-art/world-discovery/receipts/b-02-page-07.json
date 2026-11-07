@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-02",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:03:32.951Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d5b37f8e-ffaa-4282-8a5c-c4b16833077d.png",
+  "sourceSha256": "fdf595d4a75b3a2f6ac8148541c7fff8afa32f6c4a0f7884894c018ceb49e206",
+  "output": "public/guided-reading/world-discovery/b-02/page-07.webp",
+  "outputSha256": "ae67e282f1f3d100106091ed4c8f997c65449344350435aeac01632f012dec77",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Turn on the Drum; World Discovery; fiction.\nSetting: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Now Kit taps the same beat. Zoe listens.\nRequired illustration: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Kit taps his blue drum after Zoe has rested her hands. Exact state: Only Kit plays; roles switch.\nExact current state: Only Kit plays; roles switch.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTAGING: Kit LEFT, Zoe RIGHT, equal size. Two separate low wooden stools, each child seated with drum BETWEEN knees reaching floor; thighs and knees visible each side of drum to show hand positions clearly. Kit's drum BLUE, Zoe's drum RED, cream skins/dark bottom rims. Exactly TWO drums total, NO instruments on shelves. Both children wear same clothes/shoes, Zoe full-length plum overall trousers, deep brown skin throughout. Only KIT plays BLUE drum, one palm on skin and other raised. Zoe listens with BOTH hands flat still on her own KNEES at sides of RED drum, no hand on drum skin. Clear role change, calm listening expression.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-02-reference.webp",
+      "sha256": "d16091b12d1d9fbfcfca29ea4a5241ef65a34f95f4ffd9e0a4bc19d6c1a72a4f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ae67e282f1f3d100106091ed4c8f997c65449344350435aeac01632f012dec77",
+    "note": "Kit alone plays blue drum; Zoe rests hands on knees, clear role switch.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.897Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-35e50109-33c9-49ba-b571-a9641ef35ea7.png",
+  "sourceSha256": "738fa078e28bc5dbb719cc5fc96a67b10a783d0e6809f60757bf67742663d014",
+  "output": "public/guided-reading/world-discovery/b-01/page-01.webp",
+  "outputSha256": "d90bd742b54a0089c3d99a2e15184cec7e068f9f00d07329fd01954b72ba9ff9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: I Can Button It; World Discovery; fiction.\nSetting: World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): I want to close my own bag.\nRequired illustration: World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit lifts the flap of a green satchel on his lap, showing three unfastened yellow buttons. Exact state: Three buttons; three empty buttonholes.\nExact current state: Three buttons; three empty buttonholes.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nMECHANICAL CONTINUITY: Only Kit. One small GREEN flexible satchel with exactly THREE yellow disk buttons permanently sewn to BODY front, left/middle/right horizontal row. Long flexible flap attached at BACK TOP has three vertical slit holes to go over body buttons; lowered flap covers entire front almost to base. NO extra buttons, yellow fasteners or decorations. Buttons do not disappear or multiply. Only CURRENT stage below visible. Whole Kit seated holds long flap UPRIGHT, open above bag front. EXACTLY THREE yellow round buttons exposed on FRONT BODY in horizontal row, and EXACTLY THREE EMPTY vertical slit holes on the raised flap aligned with buttons. No button fastened. Both hands support bag/flap without hiding row. No other bag.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-01-reference.webp",
+      "sha256": "e06bbaf8a3191e61549746ec1be834ab04e77fbda386f314e04bbbe277d5caa1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d90bd742b54a0089c3d99a2e15184cec7e068f9f00d07329fd01954b72ba9ff9",
+    "note": "Opening page: Kit lifts one long flap; three empty buttonholes and three yellow body buttons establish the unfastened bag.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:59:19.715Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-1e79586d-32f7-44b2-a1f4-50adf6cccc2b.png",
+  "sourceSha256": "5257dff4cc69228d1bda8ad48a26ca4ecd5de510b434dccd6c21c52b47669064",
+  "output": "public/guided-reading/world-discovery/e-02/page-02.webp",
+  "outputSha256": "8c47cb37627adcb0067bfdaf44d76b5d97e2311d9309a3a121190bfafeda9d5e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Story, Two Endings; World Discovery; fiction.\nSetting: Classroom art table in daylight, one folded four-page picture story about an unnamed brown dog and red ball. All story images clearly drawings on paper.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Folded blank-paper picture story; Brown dog drawings; Red ball drawing; One blue pencil; One red pencil; Two loose ending sheets; One brown drawing pencil for the dog; the blue pencil draws the bed and the red pencil draws the ball\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): “The dog found it,” Zoe says. But Kit is already sketching a new page: the dog sits on the ball by mistake.\nRequired illustration: Kit draws the same brown dog sitting on a red ball on a separate sheet; Zoe holds her reunion ending. Exact continuity: Two distinct ending pages; dog and ball colors consistent.\nExact current state: Two distinct ending pages; dog and ball colors consistent.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCRITICAL: Only Kit and Zoe in the room, no real dog or ball. All dog and ball pictures are flat pencil drawings ON paper. ONE simple folded four-page booklet bound by a center crease like a normal little book (NOT the accordion prop mockup). Smooth clean flat-color room/skin/clothes, crisp outlines, no canvas or paper texture. Use green wall, blue window left, tan table and blue chairs. Brown pencil draws dog; red pencil ball; blue pencil bed. Loose alternatives do not have book bindings. Show exactly the described page state.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-02-reference.webp",
+      "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.225Z",
+    "sha256": "8c47cb37627adcb0067bfdaf44d76b5d97e2311d9309a3a121190bfafeda9d5e",
+    "note": "Kit draws dog sitting onredball; Zoe holds her separate ending; brownpencilcontact correct.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

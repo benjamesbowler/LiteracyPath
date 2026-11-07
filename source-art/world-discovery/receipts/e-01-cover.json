@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:54:40.855Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e4cb1f90-a81c-4f7c-8e6a-1f9a05817f84.png",
+  "sourceSha256": "c38b676f08f4824bc86bc90ad808a5a9e816a15c635746471631eb4e7c42d179",
+  "output": "public/guided-reading/world-discovery/e-01/cover.webp",
+  "outputSha256": "c0693c1bae9d938a222791268c87c76439999052ac215005e090d1f799c651e4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the attached existing finished picture-book illustration, preserve the exact landscape framing, clean bold dark outlines and flat cel colors. Correct ONLY Zoe’s exposed skin colors. Zoe is the deep-brown-skinned girl on the RIGHT in yellow shirt and plum overalls. The forearm operating the WHITE RABBIT puppet must exactly match Zoe’s own deep brown face/other arm color, including correct cel shadow. Kit, on the LEFT operating the ORANGE FOX, keeps his golden skin unchanged. Preserve the white rabbit, its small brown-painted paw, its precise pose, scenery panel and den, stage, both children, clothes, background, and all other colors and geometry unchanged. No words, labels, watermark or additional props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-01/cover.webp",
+      "sha256": "56a7a97484563f59d0bd1a3f9d472427205a08b534a6b955a6e93d45c80d9359"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:54:40.858Z",
+    "sha256": "c0693c1bae9d938a222791268c87c76439999052ac215005e090d1f799c651e4",
+    "note": "Independent audit correction: white-rabbit operating forearm now matches Zoe deep brown skin. Kit golden skin and fox, puppet design, den scenery and composition preserved; page 8 pointing hand remains Zoe brown with small light highlight.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

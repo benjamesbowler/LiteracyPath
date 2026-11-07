@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-06",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:08:32.580Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-69fabc47-9db2-425b-935e-4e665bf11fe1.png",
+  "sourceSha256": "8ffcbd038920dfd80b2f2a847ccfbaa5383f29a6ac31a560777b381e5f89e5fd",
+  "output": "source-art/world-discovery/c-06-reference.webp",
+  "outputSha256": "15a5bc65899830e2b8aa885cad7aac1c2ad9aca848291d22d93a86c464affdfc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Where Does Daylight Go?; World Discovery; nonfiction.\nSetting: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One plain blue-green globe-like ball; One removable small red dot on its surface; One yellow flashlight held steadily by Kit\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Natural Earth viewpoint; no Moon needed to cause darkness.. For orientation, the opening location/action is: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Zoe looks through the classroom window at a dimming playground under early evening sky. Exact state: Natural Earth viewpoint; no Moon needed to cause darkness.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nModel authority: the blue-green ball is a SIMPLE hand-held sphere with no globe stand, rod or axle. A single small removable RED circular dot marks one place. One yellow handheld flashlight, switched OFF in initial prop reference. Illustrate each as an object, no cosmic ray diagram or daylight mechanism yet. Classroom window shows early evening.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "15a5bc65899830e2b8aa885cad7aac1c2ad9aca848291d22d93a86c464affdfc",
+    "note": "Cast and evening classroom inspected. One plain teal blue-green sphere with one red dot, one yellow flashlight without stand/axis; consistent size and natural hands. Globe elsewhere is background only, model sphere clearly distinct.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

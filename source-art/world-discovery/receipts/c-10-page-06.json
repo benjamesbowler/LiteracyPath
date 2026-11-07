@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:23:25.021Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-538d51e6-7290-4393-aa98-88f57a7fdbef.png",
+  "sourceSha256": "6d2a9010fa77c6bcd87ccd25d7752f244a219afd30a3259edc5468781764d826",
+  "output": "public/guided-reading/world-discovery/c-10/page-06.webp",
+  "outputSha256": "81fce70a005e3056f87eee29a905396bb159b19398886647c789839d4367656d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Make two specific continuity corrections. (1) LOWER the finished dark crumbly compost level inside the open green bin to BELOW HALF HEIGHT, exposing substantial empty inner green walls above it; the pile has shrunk over months, must not be full to rim. Keep mature uniform crumbs without recognizable scraps. (2) Remove the BLUE trowel from Kit's hands, leaving his empty hands resting on his knees. Adult is borrowing that sole blue trowel to scoop into gray bucket; keep adult's blue trowel and Zoe's plum trowel, exactly two total. Preserve adult action, cast, bucket, no tomato plant, empty tray, colors and other elements.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-adc3737b-3dc5-470f-8a94-9b18ec7ca267.png",
+      "sha256": "d88860988518fe31aa9602e162fb63ff5742b026c8080f15bf6bf388ccc917c0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "81fce70a005e3056f87eee29a905396bb159b19398886647c789839d4367656d",
+    "note": "Direct inspection after depth/tool repairs: mature dark crumbly compost sunk below upper bin walls with no recognizable scraps; adult borrows sole blue trowel to gray bucket, Kit empty-handed and Zoe holds sole plum trowel; no tomato yet.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

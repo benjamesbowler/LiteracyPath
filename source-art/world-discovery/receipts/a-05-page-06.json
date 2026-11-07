@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-05",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:21:44.296Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0c64fa0c-48cc-414b-ae95-6ea0d5f703cf.png",
+  "sourceSha256": "221064d73dcacc16683c88085f4b3a4a04bf4d6019f818880b15d52773d04528",
+  "output": "public/guided-reading/world-discovery/a-05/page-06.webp",
+  "outputSha256": "4b6ebdbfa71343cac540b577821c13387cd399f4f22d556906ce0dde0fe14610",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct the geography. Kit is on the rounded TOP of the foreground hill, viewed from behind. Keep him and the whole pond below. REMOVE the entire second hill and climbing path BEYOND the pond; replace that distant area with FLAT parkland and a few trees. The tan path has two halves that come from the foreground left and foreground right, descending the SAME hill beneath Kit and meeting at ONE spot beside the pond. There is only ONE hill, the foreground hill he stands on. No hill behind the water; no extra branches. Preserve exact cast, two reeds and cartoon style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8624377b-425b-418b-961f-2cb07aee905a.png",
+      "sha256": "fcce655c553e9f330140ad63942cf7b3a7077f50308ae7d321d2106f1ff34815"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "4b6ebdbfa71343cac540b577821c13387cd399f4f22d556906ce0dde0fe14610",
+    "note": "Raised view from behind Kit shows entire bean-shaped pond and two descending path halves meeting near reeds; no second hill.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

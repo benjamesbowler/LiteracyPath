@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:58:49.762Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-923f5cb3-1db6-49a7-afe2-ea3a2d48d94b.png",
+  "sourceSha256": "ecd61ae2be38b496a28a28bb7e274c4f82a4baa3e9e3339a9e12a225ee68c9a8",
+  "output": "public/guided-reading/world-discovery/b-08/page-04.webp",
+  "outputSha256": "34dfc62ab833482161ab9b8fcb8db1e14fedbdb9dd21170a28e148fe407cc355",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise picture-book illustration correction. Preserve the one living larva and clearly empty hollow split shed skin exactly; no other animals added. Change ALL soft/blurry background leaves into simple crisp dark-outlined flat-green shapes, with perfectly clean flat pale-blue spaces between them. ZERO depth-of-field blur, soft focus, photographic texture, paint grain or stippling anywhere. Keep the main foreground leaf, main animal/eggs, framing and composition unchanged except stated correction. Entire image must be crisp flat clean 2D cartoon. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-83df1a46-f380-48a2-810a-daadd8ecc33c.png",
+      "sha256": "423c91698a7e6655b9c44ef9f141853dad3693326ecafdb434005c99b3534c59"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:58:50.021952+00:00",
+    "sha256": "34dfc62ab833482161ab9b8fcb8db1e14fedbdb9dd21170a28e148fe407cc355",
+    "note": "One grown larva beside visibly hollow split discarded skin, no second living larva; crisp background throughout."
+  }
+}

@@ -416,6 +416,17 @@
   .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
     grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
   }
+  /* Beginner word targets keep their generous hit areas. Give the short
+     viewport's text enough width to avoid an extra clipped word row. */
+  .guided-reading-reader-open .guided-reader-shell.picture-book[data-reading-flow="word-targets"] .guided-page-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book[data-reading-flow="word-targets"] .guided-page-reading {
+    /* The text's own padding supplies the inset; empty optional-tool rows
+       must not consume two additional gaps in this short viewport. */
+    padding-block: 0;
+    grid-template-rows: minmax(0, 1fr);
+  }
 }
 
 /* Longer shared-reading pages need a larger text band on a short phone.
@@ -565,6 +576,9 @@
     height: auto;
     max-height: none;
     max-inline-size: min(100%, var(--guided-max-line-measure, 32ch));
+    /* Andika's descenders extend below the inline button's line box at
+       projector sizes. Include that ink in the natural text-band height. */
+    padding-block: 8px;
     font-family: Andika, sans-serif;
     font-size: clamp(28px, 2.2vw, 42px) !important;
     overflow-y: visible !important;

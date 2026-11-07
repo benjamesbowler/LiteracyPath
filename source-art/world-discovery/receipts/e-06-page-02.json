@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:30.346Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a19878f7-c5eb-459c-b008-77a612e5c320.png",
+  "sourceSha256": "c22ca2639dd8729b24f5e7067cbc096ab99cce650b19a56acd5fefa688b64c5b",
+  "output": "public/guided-reading/world-discovery/e-06/page-02.webp",
+  "outputSha256": "3a34c07ba6e9999c517143a8281afc395476c5e63834b88968abf9af1664f07f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): The Moon is still a whole round world. Sunlight lights the half facing the Sun, while the other half is dark.\nRequired illustration: Space view shows a spherical Moon with left hemisphere illuminated by light arriving from far left. Exact continuity: Half sphere lit; no Earth shadow involved; no stars showing through dark side.\nExact current state: Half sphere lit; no Earth shadow involved; no stars showing through dark side.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. ONLY ONE perfectlyROUND Moon sphere inblackspace, exactlyLEFT50percent brightgray, RIGHT50percent darkgray. Verticalterminator. Parallel light entersfromfarLEFT, Sun itselfoutsidecrop. NO Earth, no starsthroughdarkdisk, no physicalcutaway.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-06-reference.webp",
+      "sha256": "411a8bb0981665d4c2e130cdd5e59b4fe7338e7dbd8ca31bf2d7627d68cc88b6"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "sha256": "3a34c07ba6e9999c517143a8281afc395476c5e63834b88968abf9af1664f07f",
+    "note": "Whole round Moon with left hemisphere illuminated, right dark; no Earth shadow or cutout.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

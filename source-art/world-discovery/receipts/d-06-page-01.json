@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:41:07.999Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4a777e10-4876-45fc-a6b1-417511b055ed.png",
+  "sourceSha256": "76447e7de6e8fb755d1fce114d6d26e55a6119188e2f871f9190916c341521b0",
+  "output": "public/guided-reading/world-discovery/d-06/page-01.webp",
+  "outputSha256": "0ed9a88536ec3354f0ac5cdb000938b12caa45c077fed7e4f99379445fe04e53",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Marks on the Moon; World Discovery; nonfiction.\nSetting: The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray cratered Moon; One incoming gray space rock; Bowl-shaped crater with raised rim; Scattered fragments and overlapping smaller crater\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Look closely at the Moon. Many round hollows mark its surface. What punched those holes?\nRequired illustration: Gray Moon shown large against black space with several clear circular craters and dark plains. Exact continuity: No face, cheese holes or stars visible through Moon; craters are surface depressions.\nExact current state: No face, cheese holes or stars visible through Moon; craters are surface depressions.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-06-reference.webp",
+      "sha256": "9d046e48daaa20a08468f92df3b83dff6de83f373a7f3f996bc1f2808fb5180c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:41:08.663155+00:00",
+    "sha256": "0ed9a88536ec3354f0ac5cdb000938b12caa45c077fed7e4f99379445fe04e53",
+    "note": "Directly inspected full gray Moon against black sky with dark plains and surface crater depressions; no face or stars through Moon."
+  }
+}

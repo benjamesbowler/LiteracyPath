@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:19:49.931Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-041402dc-e530-4ddb-9416-3e91ff06130c.png",
+  "sourceSha256": "b9ec8fc29cb10c99fd1c280f85f06ff90e9a357946941571470fa9af51000c77",
+  "output": "public/guided-reading/world-discovery/c-10/page-07.webp",
+  "outputSha256": "d0f2c3930e38ec90b888b69cc570c8a54066caad0f72c3135514801a3d565814",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Apple Core Comes Back; World Discovery; nonfiction.\nSetting: World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One apple core and fruit peel scraps; Dry brown leaves; One ventilated green compost bin; Small watering can; Garden fork handled only by adult; One young tomato plant; One garden bed of soil; One small cream snack tray; One small gray bucket for finished compost; Two short hand trowels, one for each child\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Kit and Zoe mix some compost into garden soil. They plant a young tomato plant.\nRequired illustration: World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. The children use small hand trowels to mix a modest amount of compost into an existing soil bed, with a young tomato seedling being planted. Exact state: Compost is added to soil, not pure compost as whole growing medium; roots covered naturally.\nExact current state: Compost is added to soil, not pure compost as whole growing medium; roots covered naturally.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPreserve green square ventilated bin and removable lid, green-sweater adult, Kit/Zoe clothes, cream tray, gray compost bucket, blue/plum short trowels, green watering can, same school garden. Only stage-specific required objects visible. No apple-core vignette, duplicate core, captions, labels or montage.\nONE young tomato seedling in center of existing raised soil bed. Kit uses ONE BLUE-handled trowel; Zoe uses ONE PLUM-handled trowel, both small. Gray bucket holds some mature dark compost. Mixed bed is mostly ordinary brown garden soil with modest darker compost blended in; roots covered. No apple core, fruit scraps or ripe tomatoes. Adult out of frame; green bin behind.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-10-reference.webp",
+      "sha256": "f5e3759f2688e1e8563d991456dd9acc557a3de7a24feeac5164cf8af82d4de8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d0f2c3930e38ec90b888b69cc570c8a54066caad0f72c3135514801a3d565814",
+    "note": "Direct inspection: Kit blue trowel/Zoe plum trowel mix small amounts of dark compost into ordinary brown bed soil around one young tomato; gray bucket, covered roots, adult observes; no food scraps.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

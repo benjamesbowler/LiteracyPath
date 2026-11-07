@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-07",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:39:53.848Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-679c5b68-5ff6-4ed9-ab09-95888bb44eb5.png",
+  "sourceSha256": "1966ac3c59ada0441275b059328f18e87adbe1590558a521f621c5297f9b74e0",
+  "output": "source-art/world-discovery/b-07-reference.webp",
+  "outputSha256": "9a2b4572de14e3c97c6fb445536151e5d3e8dd8c295a70353f9f25aea7e5f586",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise edit: remove the small woman and the tiny duck standing next to her from the lower middle of this reference sheet, leaving plain white there. There must be NO people anywhere. Preserve all large natural female mallard model views, the close foot model with three webbed front toes and one separate rear toe, the feather colors and empty pond location key unchanged. Keep crisp clean 2D outlined cartoon style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-15b72d96-d854-4ec0-a8a8-af7c3eade318.png",
+      "sha256": "67498ca0e28e844d91c57d99af8ec28cd16c8ab46759943cbb76d401c3c8d847"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:39:55.496Z",
+    "sha256": "9a2b4572de14e3c97c6fb445536151e5d3e8dd8c295a70353f9f25aea7e5f586",
+    "note": "Female mallard plumage and two feet consistent; detailed foot shows three webbed front toes and separate rear toe. Unneeded human reference removed. Empty pond key retained."
+  }
+}

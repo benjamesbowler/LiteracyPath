@@ -1,0 +1,1367 @@
+[
+  {
+    "id": "world-discovery-b-01",
+    "number": 1,
+    "title": "I Can Button It",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "storySpine": "Kit wants to fasten his own bag, but pushing a button flat fails; he turns it on edge, works it through, and repeats the movement.",
+      "failedAttempt": "Pushing a broad flat button straight at its slit does not get it through.",
+      "resolution": "Kit fastens all three buttons himself after changing his hand movement and persisting.",
+      "narrator": "Kit narrates his growing everyday skill in first person; this does not claim every child must have the same ability."
+    },
+    "setting": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers.",
+    "props": [
+      "One green satchel with a long flap and exactly three large round yellow buttons in a horizontal row",
+      "Three matching slit buttonholes in the flap"
+    ],
+    "coverBrief": "Kit sits proudly with the green satchel closed on his lap, all three yellow buttons fastened. His usual clothing remains unchanged. No lettering.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "I want to close my own bag.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit lifts the flap of a green satchel on his lap, showing three unfastened yellow buttons. Exact state: Three buttons; three empty buttonholes.",
+        "imageAlt": "Kit lifts the flap of a green satchel on his lap, showing three unfastened yellow buttons.",
+        "pageDescription": "Kit lifts the flap of a green satchel on his lap, showing three unfastened yellow buttons.",
+        "state": "Three buttons; three empty buttonholes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "I push. The button will not go through.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit presses the first button flat against the narrow slit in the flap. Exact state: First button unfastened; other hand steadies cloth.",
+        "imageAlt": "Kit presses the first button flat against the narrow slit in the flap.",
+        "pageDescription": "Kit presses the first button flat against the narrow slit in the flap.",
+        "state": "First button unfastened; other hand steadies cloth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "I turn the button on its edge.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit pinches the first button sideways so its thin edge faces the slit. Exact state: One hand turns the button; one holds fabric.",
+        "imageAlt": "Kit pinches the first button sideways so its thin edge faces the slit.",
+        "pageDescription": "Kit pinches the first button sideways so its thin edge faces the slit.",
+        "state": "One hand turns the button; one holds fabric.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "I slide one edge through the hole.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. One edge of the first button emerges through the matching hole. Exact state: First button halfway through; other two open.",
+        "imageAlt": "One edge of the first button emerges through the matching hole.",
+        "pageDescription": "One edge of the first button emerges through the matching hole.",
+        "state": "First button halfway through; other two open.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "I pull the button the\nrest of the way.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit draws the first button fully through and lets it lie flat on top of the flap. Exact state: First button fastened; two remain open.",
+        "imageAlt": "Kit draws the first button fully through and lets it lie flat on top of the flap.",
+        "pageDescription": "Kit draws the first button fully through and lets it lie flat on top of the flap.",
+        "state": "First button fastened; two remain open.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "One is done. I try the next.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit works the middle button through its hole; the first stays fastened. Exact state: First closed; middle in progress; last open.",
+        "imageAlt": "Kit works the middle button through its hole; the first stays fastened.",
+        "pageDescription": "Kit works the middle button through its hole; the first stays fastened.",
+        "state": "First closed; middle in progress; last open.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The last one is tricky. I try again.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit repositions the edge of the third button with a focused expression. Exact state: First two lie flat through holes; final button not yet through.",
+        "imageAlt": "Kit repositions the edge of the third button with a focused expression.",
+        "pageDescription": "Kit repositions the edge of the third button with a focused expression.",
+        "state": "First two lie flat through holes; final button not yet through.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Three buttons done. I did them myself.",
+        "imageBrief": "World Discovery classroom bench in morning light; Kit sits with a small soft green satchel on his lap, wearing his usual teal shirt, mustard shorts and navy sneakers. Kit rests his hands beside the closed satchel and looks down at three neatly fastened buttons. Exact state: All three closed; same bag; base outfit unchanged.",
+        "imageAlt": "Kit rests his hands beside the closed satchel and looks down at three neatly fastened buttons.",
+        "pageDescription": "Kit rests his hands beside the closed satchel and looks down at three neatly fastened buttons.",
+        "state": "All three closed; same bag; base outfit unchanged.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Kit change when the button got stuck?",
+        "listenFor": "He turned it on edge and worked it through instead of pushing it flat."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What can Kit do now?",
+        "lookFor": "All three buttons are fastened on the same bag."
+      }
+    },
+    "levelRationale": "B uses first-person repeated action, short paired sentences and an explicit physical adjustment. Edge and through have visible support; the completed skill answers the opening want.",
+    "languagePrep": [
+      {
+        "word": "edge",
+        "meaning": "the thin side of something"
+      },
+      {
+        "word": "fasten",
+        "meaning": "close something so it stays shut"
+      },
+      {
+        "word": "myself",
+        "meaning": "by me without someone doing it for me"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-02",
+    "number": 2,
+    "title": "A Turn on the Drum",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants Kit to hear her beat, but he plays over it; after she stops he listens and waits, and they answer each other in turns.",
+      "failedAttempt": "Playing both drums at once prevents Kit from hearing Zoe’s pattern.",
+      "resolution": "Kit holds his hands still, listens, copies Zoe’s beat and pauses for her answer."
+    },
+    "setting": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools.",
+    "props": [
+      "One red hand drum for Zoe",
+      "One blue hand drum for Kit",
+      "No sticks or other instruments"
+    ],
+    "coverBrief": "Kit listens with hands on knees as Zoe taps her red drum. His blue drum is still between his knees.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe taps her drum.\nKit has a drum too.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Zoe taps a red hand drum while Kit holds a blue drum between his knees. Exact state: One drum each; no sticks.",
+        "imageAlt": "Zoe taps a red hand drum while Kit holds a blue drum between his knees.",
+        "pageDescription": "Zoe taps a red hand drum while Kit holds a blue drum between his knees.",
+        "state": "One drum each; no sticks.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "“Listen to my beat,” says Zoe.\nTap, tap, tap.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Zoe raises one hand after a short pattern and looks toward Kit. Exact state: Zoe leads; Kit’s hands hover near his drum.",
+        "imageAlt": "Zoe raises one hand after a short pattern and looks toward Kit.",
+        "pageDescription": "Zoe raises one hand after a short pattern and looks toward Kit.",
+        "state": "Zoe leads; Kit’s hands hover near his drum.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit bangs his drum. He cannot hear Zoe.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Kit strikes the blue drum with open palms while Zoe also plays. Exact state: Both play at once; her pattern is interrupted.",
+        "imageAlt": "Kit strikes the blue drum with open palms while Zoe also plays.",
+        "pageDescription": "Kit strikes the blue drum with open palms while Zoe also plays.",
+        "state": "Both play at once; her pattern is interrupted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe stops. Her hands rest on her knees.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Zoe puts both hands on her knees and looks at Kit, who is still tapping. Exact state: Red drum quiet; blue drum still sounding.",
+        "imageAlt": "Zoe puts both hands on her knees and looks at Kit, who is still tapping.",
+        "pageDescription": "Zoe puts both hands on her knees and looks at Kit, who is still tapping.",
+        "state": "Red drum quiet; blue drum still sounding.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit stops too. “Play it again,” he says.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Kit places both hands on his knees and looks directly at Zoe. Exact state: Both drums now quiet; Kit makes space to listen.",
+        "imageAlt": "Kit places both hands on his knees and looks directly at Zoe.",
+        "pageDescription": "Kit places both hands on his knees and looks directly at Zoe.",
+        "state": "Both drums now quiet; Kit makes space to listen.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe taps. Kit listens with still hands.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Zoe plays while Kit keeps his hands on his knees and watches. Exact state: Only Zoe plays; Kit waits.",
+        "imageAlt": "Zoe plays while Kit keeps his hands on his knees and watches.",
+        "pageDescription": "Zoe plays while Kit keeps his hands on his knees and watches.",
+        "state": "Only Zoe plays; Kit waits.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Now Kit taps the same beat. Zoe listens.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Kit taps his blue drum after Zoe has rested her hands. Exact state: Only Kit plays; roles switch.",
+        "imageAlt": "Kit taps his blue drum after Zoe has rested her hands.",
+        "pageDescription": "Kit taps his blue drum after Zoe has rested her hands.",
+        "state": "Only Kit plays; roles switch.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit stops. He nods. Zoe taps an answer.",
+        "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Kit rests his hands and nods as Zoe begins a new short pattern. Exact state: Alternating turns continue; no grabbing or broken instrument.",
+        "imageAlt": "Kit rests his hands and nods as Zoe begins a new short pattern.",
+        "pageDescription": "Kit rests his hands and nods as Zoe begins a new short pattern.",
+        "state": "Alternating turns continue; no grabbing or broken instrument.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What helped Kit hear Zoe’s beat?",
+        "listenFor": "He stopped, held his hands still and listened before playing."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where are Kit’s hands while Zoe plays the drum?",
+        "lookFor": "Zoe plays; Kit’s hands rest on his knees."
+      }
+    },
+    "levelRationale": "B uses short present-tense actions, controlled dialogue on two pages and a visible pause that repairs an interruption. Repeated tapping/listening changes roles rather than repeating an unchanged event.",
+    "languagePrep": [
+      {
+        "word": "beat",
+        "meaning": "a pattern of sounds in music"
+      },
+      {
+        "word": "taps",
+        "meaning": "hits gently to make a sound"
+      },
+      {
+        "word": "answer",
+        "meaning": "a reply; here another drum pattern"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-03",
+    "number": 3,
+    "title": "Back to the Library",
+    "topic": "community",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants to borrow the fox book that Kit must return today; she accompanies him, waits through check-in, and borrows the returned book.",
+      "failedAttempt": "Zoe asks to borrow the book from Kit, but his library loan ends today and he needs to return it first.",
+      "resolution": "Kit returns the book and Zoe checks it out, giving the same shared book a new reader.",
+      "scienceSources": [
+        {
+          "title": "Brooklyn Public Library: Borrowing",
+          "url": "https://www.bklynlibrary.org/use-the-library/borrow",
+          "evidence": "Library loans have due dates, and library cards give borrowing access. This fictional loan is due today; the story does not imply children cannot read a borrowed book together or declare a universal loan period.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height.",
+    "props": [
+      "One green library book with an orange fox picture and no title lettering",
+      "One low returns desk",
+      "One library card per child, plain shapes without writing"
+    ],
+    "coverBrief": "Kit hands the green fox book across a low library desk while Zoe waits beside him with her own plain card; warm open shelves behind them.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe wants to borrow Kit’s fox book.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. At Kit’s home doorway, Zoe points to the green book with an orange fox picture in Kit’s hands. Exact state: Book remains with Kit; both children wear locked clothes.",
+        "imageAlt": "At Kit’s home doorway, Zoe points to the green book with an orange fox picture in Kit’s hands.",
+        "pageDescription": "At Kit’s home doorway, Zoe points to the green book with an orange fox picture in Kit’s hands.",
+        "state": "Book remains with Kit; both children wear locked clothes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "“This book goes back today,” says Kit.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. Kit holds the green book between them and points toward the nearby public library visible through the doorway. Exact state: No handoff yet; cover fox remains unchanged.",
+        "imageAlt": "Kit holds the green book between them and points toward the nearby public library visible through the doorway.",
+        "pageDescription": "Kit holds the green book between them and points toward the nearby public library visible through the doorway.",
+        "state": "No handoff yet; cover fox remains unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Let’s return it. Then you can borrow it.”",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. Kit carries the closed green fox book under one arm as he and Zoe step out through the home doorway toward the library. Exact state: Both leave with the same single book; no adult at the home; no new books.",
+        "imageAlt": "Kit carries the closed green fox book under one arm as he and Zoe step out through the home doorway toward the library.",
+        "pageDescription": "Kit carries the closed green fox book under one arm as he and Zoe step out through the home doorway toward the library.",
+        "state": "Both leave with the same single book; no adult at the home; no new books.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit puts the book on the returns desk.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. Inside the library, Kit places the green fox book flat on the low returns counter; the worker receives it. Exact state: Book physically returned; Zoe waits beside Kit.",
+        "imageAlt": "Inside the library, Kit places the green fox book flat on the low returns counter; the worker receives it.",
+        "pageDescription": "Inside the library, Kit places the green fox book flat on the low returns counter; the worker receives it.",
+        "state": "Book physically returned; Zoe waits beside Kit.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The worker checks the book back in.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. The worker scans a small plain barcode patch on the book’s back while the children wait. Exact state: Check-in first; book remains on desk; screen angled away with no readable marks.",
+        "imageAlt": "The worker scans a small plain barcode patch on the book’s back while the children wait.",
+        "pageDescription": "The worker scans a small plain barcode patch on the book’s back while the children wait.",
+        "state": "Check-in first; book remains on desk; screen angled away with no readable marks.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe shows her card. She borrows the book.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. Zoe offers her own plain library card; the worker slides the same green fox book toward her. Exact state: New borrowing follows return; Kit’s hands are empty.",
+        "imageAlt": "Zoe offers her own plain library card; the worker slides the same green fox book toward her.",
+        "pageDescription": "Zoe offers her own plain library card; the worker slides the same green fox book toward her.",
+        "state": "New borrowing follows return; Kit’s hands are empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Zoe opens the book. Kit sits beside her.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. The children sit at a low library table; Zoe opens the book to a fox drawing while Kit leans toward it. Exact state: Zoe now holds the borrowed book; one copy only.",
+        "imageAlt": "The children sit at a low library table; Zoe opens the book to a fox drawing while Kit leans toward it.",
+        "pageDescription": "The children sit at a low library table; Zoe opens the book to a fox drawing while Kit leans toward it.",
+        "state": "Zoe now holds the borrowed book; one copy only.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "They find the fox.\nNow Zoe turns the page.",
+        "imageBrief": "World Discovery home doorway on pages 1–3, then neighborhood public library on pages 4–8 on the same sunny afternoon. The library worker appears at the returns desk only, on pages 4–6: an unnamed adult with light brown skin, short gray hair, blue shirt and charcoal pants, about 1.7 times child height. Zoe turns one page of the fox book while Kit watches the orange fox illustration, both seated together. Exact state: New reader controls the page turn; shared book continues in use.",
+        "imageAlt": "Zoe turns one page of the fox book while Kit watches the orange fox illustration, both seated together.",
+        "pageDescription": "Zoe turns one page of the fox book while Kit watches the orange fox illustration, both seated together.",
+        "state": "New reader controls the page turn; shared book continues in use.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit return the book first?",
+        "listenFor": "Kit’s book goes back today. Returning it and checking it in lets Zoe borrow it on her own card."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Who is borrowing the book now?",
+        "lookFor": "Zoe presents her own card and receives the same green book."
+      }
+    },
+    "levelRationale": "B has a single familiar lending sequence, repeated book and Kit/Zoe references and controlled short dialogue on two pages. Borrow and return are supported by concrete transfers, without procedural detail.",
+    "languagePrep": [
+      {
+        "word": "borrow",
+        "meaning": "use something for a while and give it back"
+      },
+      {
+        "word": "return",
+        "meaning": "give something back"
+      },
+      {
+        "word": "library",
+        "meaning": "a place with books people can read and borrow"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-04",
+    "number": 4,
+    "title": "The Hopping Boot",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "storySpine": "Kit wants to put away a boot that hops when he claps; grabbing fails, so he sets a box ahead and uses a clap to pack it.",
+      "failedAttempt": "The boot slips from his hands; clapping again sends it farther away.",
+      "resolution": "He directs one hop into the box, closes it and waves without clapping.",
+      "magicRule": "The loose red gold-dot boot makes one short forward hop per Kit clap. Speech and waves do nothing; no other object is enchanted."
+    },
+    "setting": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object.",
+    "props": [
+      "One loose red enchanted boot with one gold dot, small enough to stand completely inside the box",
+      "One brown box with a removable lid; its rim is low enough for the boot’s established hop, and the inside is tall enough to close over the upright boot"
+    ],
+    "coverBrief": "Kit crouches beside an open low box containing the red gold-dot boot. His hands are apart and navy sneakers remain on his feet.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One clap makes the red boot hop.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit claps as the loose dotted red boot lifts in one short hop. Exact state: Only the loose boot moves; navy sneakers stay worn.",
+        "imageAlt": "Kit claps as the loose dotted red boot lifts in one short hop.",
+        "pageDescription": "Kit claps as the loose dotted red boot lifts in one short hop.",
+        "state": "Only the loose boot moves; navy sneakers stay worn.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit wants the boot in its box.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit points to an empty low box with its lid beside it; the loose boot rests nearby. Exact state: Goal is putting away the loose boot; box empty.",
+        "imageAlt": "Kit points to an empty low box with its lid beside it; the loose boot rests nearby.",
+        "pageDescription": "Kit points to an empty low box with its lid beside it; the loose boot rests nearby.",
+        "state": "Goal is putting away the loose boot; box empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit grabs. The boot slips from his hands.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. The red boot has slipped onto the floor beyond Kit’s empty hands. Exact state: Failed grip causes the drop; no magical hop without a clap.",
+        "imageAlt": "The red boot has slipped onto the floor beyond Kit’s empty hands.",
+        "pageDescription": "The red boot has slipped onto the floor beyond Kit’s empty hands.",
+        "state": "Failed grip causes the drop; no magical hop without a clap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit claps again. The boot hops farther away.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit’s palms meet as the dotted boot hops toward the green rug. Exact state: One clap causes one short hop.",
+        "imageAlt": "Kit’s palms meet as the dotted boot hops toward the green rug.",
+        "pageDescription": "Kit’s palms meet as the dotted boot hops toward the green rug.",
+        "state": "One clap causes one short hop.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "He puts the box in the boot’s path.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit sets the open box ahead of the boot. The broad opening and low rim match the boot’s short forward hop; the box is still taller than the upright boot. Exact state: Box grounded; lid beside it; boot points toward near rim; unchanged box dimensions allow the lid to close over it later.",
+        "imageAlt": "Kit sets the open box ahead of the boot. The broad opening and low rim match the boot’s short forward hop; the box is still taller than the upright boot.",
+        "pageDescription": "Kit sets the open box ahead of the boot. The broad opening and low rim match the boot’s short forward hop; the box is still taller than the upright boot.",
+        "state": "Box grounded; lid beside it; boot points toward near rim; unchanged box dimensions allow the lid to close over it later.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "One clap. The boot hops into the box.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit claps behind the boot as it lands inside the open box. Exact state: Exactly one boot in box; no duplicate objects.",
+        "imageAlt": "Kit claps behind the boot as it lands inside the open box.",
+        "pageDescription": "Kit claps behind the boot as it lands inside the open box.",
+        "state": "Exactly one boot in box; no duplicate objects.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit puts the lid on the box.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit lowers the matching lid over the boot. Exact state: Boot contained; box dimensions unchanged.",
+        "imageAlt": "Kit lowers the matching lid over the boot.",
+        "pageDescription": "Kit lowers the matching lid over the boot.",
+        "state": "Boot contained; box dimensions unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit waves. The box stays still.",
+        "imageBrief": "World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit waves one hand, the other at his side, beside the closed quiet box. Exact state: No clap, no hop; putting-away goal complete.",
+        "imageAlt": "Kit waves one hand, the other at his side, beside the closed quiet box.",
+        "pageDescription": "Kit waves one hand, the other at his side, beside the closed quiet box.",
+        "state": "No clap, no hop; putting-away goal complete.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did Kit use the magic to catch the boot?",
+        "listenFor": "He put the box ahead and clapped once to make the boot hop inside."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Why is the box still?",
+        "lookFor": "Kit waves with his hands apart, so there is no clap."
+      }
+    },
+    "levelRationale": "B follows one concrete fantasy rule with short actions and repeated claps whose consequences change. The turn uses the established rule; there is no unexplained extra magic.",
+    "languagePrep": [
+      {
+        "word": "clap",
+        "meaning": "bring your hands together to make a sound"
+      },
+      {
+        "word": "path",
+        "meaning": "the way something is going"
+      },
+      {
+        "word": "hop",
+        "meaning": "a small jump"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-05",
+    "number": 5,
+    "title": "Down to the Sea",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Where does water in this hill stream go?",
+      "progression": "Follow one connected downhill route from a narrow hill stream through its joining river to the sea.",
+      "synthesis": "The closing view connects the small stream to the large sea through the same river.",
+      "scienceSources": [
+        {
+          "title": "USGS: Streamflow and the Water Cycle",
+          "url": "https://www.usgs.gov/water-science-school/science/streamflow-and-water-cycle",
+          "evidence": "Streams and rivers carry runoff downhill; many rivers deliver water to oceans.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NOAA: What is a watershed?",
+          "url": "https://oceanservice.noaa.gov/facts/watershed.html",
+          "evidence": "Streams join larger waterways; not all water flows directly to the sea. This book follows one illustrative sea-reaching route rather than claiming every stream does.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream.",
+    "props": [
+      "One narrow hill stream",
+      "One larger river joined by that stream",
+      "One stone bridge downstream of the join",
+      "One broad river mouth"
+    ],
+    "coverBrief": "A sweeping bird’s-eye view connects a narrow stream in pale hills to one larger river curving through a green valley and opening into the sea. No labels, arrows, flags or invented geographic names.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This small stream runs down a hill.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. A narrow stream descends between pale rocks on a grassy hillside; the lower valley is visible ahead. Exact state: Water flows downhill; no sea visible yet.",
+        "imageAlt": "A narrow stream descends between pale rocks on a grassy hillside; the lower valley is visible ahead.",
+        "pageDescription": "A narrow stream descends between pale rocks on a grassy hillside; the lower valley is visible ahead.",
+        "state": "Water flows downhill; no sea visible yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Its water slips around the rocks.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it. Exact state: Boulder stays grounded; water continues along one channel.",
+        "imageAlt": "Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it.",
+        "pageDescription": "Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it.",
+        "state": "Boulder stays grounded; water continues along one channel.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The stream flows into a wide river.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. The narrow stream enters the side of a wider river at a clear Y-shaped meeting point below the hills. Exact state: A join, not a crossing; both flows merge downstream.",
+        "imageAlt": "The narrow stream enters the side of a wider river at a clear Y-shaped meeting point below the hills.",
+        "pageDescription": "The narrow stream enters the side of a wider river at a clear Y-shaped meeting point below the hills.",
+        "state": "A join, not a crossing; both flows merge downstream.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The river carries the water through the valley.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. The merged river winds between low green valley slopes; the pale source hills sit behind. Exact state: Continuous channel leads away from hills.",
+        "imageAlt": "The merged river winds between low green valley slopes; the pale source hills sit behind.",
+        "pageDescription": "The merged river winds between low green valley slopes; the pale source hills sit behind.",
+        "state": "Continuous channel leads away from hills.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "It flows under a bridge.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. The same river passes beneath a stone bridge that spans from one bank to the other; supports do not block the channel. Exact state: Bridge lies downstream of the stream junction.",
+        "imageAlt": "The same river passes beneath a stone bridge that spans from one bank to the other; supports do not block the channel.",
+        "pageDescription": "The same river passes beneath a stone bridge that spans from one bank to the other; supports do not block the channel.",
+        "state": "Bridge lies downstream of the stream junction.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The river grows wide near the sea.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. The river opens into a broad mouth with grassy banks spreading apart and the blue sea beyond. Exact state: Banks widen; river and sea are visibly connected.",
+        "imageAlt": "The river opens into a broad mouth with grassy banks spreading apart and the blue sea beyond.",
+        "pageDescription": "The river opens into a broad mouth with grassy banks spreading apart and the blue sea beyond.",
+        "state": "Banks widen; river and sea are visibly connected.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Fresh river water meets salty sea water.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. At the river mouth, natural swirls show the waters mixing without a solid boundary or separate colored wall. Exact state: Water mixes; no claim that fresh water remains a distinct sheet.",
+        "imageAlt": "At the river mouth, natural swirls show the waters mixing without a solid boundary or separate colored wall.",
+        "pageDescription": "At the river mouth, natural swirls show the waters mixing without a solid boundary or separate colored wall.",
+        "state": "Water mixes; no claim that fresh water remains a distinct sheet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "From hill to river to sea.\nOne connected path.",
+        "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order. Exact state: All earlier landmarks connected in one downhill geography; no new destination.",
+        "imageAlt": "A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order.",
+        "pageDescription": "A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order.",
+        "state": "All earlier landmarks connected in one downhill geography; no new destination.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does the little stream reach the sea?",
+        "listenFor": "It joins the larger river, which carries the water down through the valley to its mouth."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Trace the water’s whole route.",
+        "lookFor": "The connected stream, river, bridge and sea; no disconnected channels."
+      }
+    },
+    "levelRationale": "B uses concrete location words, small sentence-frame changes and a simple continuous journey. The final familiar-word phrase makes the visible connection explicit without a watershed terminology burden.",
+    "languagePrep": [
+      {
+        "word": "stream",
+        "meaning": "a small flow of water over the land"
+      },
+      {
+        "word": "valley",
+        "meaning": "low land between hills"
+      },
+      {
+        "word": "sea",
+        "meaning": "a large body of salty water"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-06",
+    "number": 6,
+    "title": "Boot Prints on the Moon",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why can boot prints stay on the Moon for a long time?",
+      "progression": "Make and follow lunar prints, contrast an Earth print altered by rain, then return to the Moon’s lack of rain and wind.",
+      "synthesis": "Without rain or wind to wash or blow them away, lunar boot prints can remain for a long time.",
+      "scienceSources": [
+        {
+          "title": "NASA: Is There Weather on the Moon?",
+          "url": "https://www.nasa.gov/general/is-there-weather-on-the-moon-we-asked-a-nasa-scientist-episode-34/",
+          "evidence": "The Moon has no significant atmosphere and no ordinary atmospheric wind or rain; space weather still changes its surface.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA: 10 Cool Things LRO Is Teaching Us About the Moon",
+          "url": "https://science.nasa.gov/solar-system/moon/10-cool-things-nasas-lunar-reconnaissance-orbiter-is-teaching-us-about-the-moon/",
+          "evidence": "Apollo tracks persist for decades without wind and rain; the book says a long time, not forever.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin.",
+    "props": [
+      "Gray loose lunar dust with ribbed boot prints",
+      "One plain white astronaut suit",
+      "One Earth brown-mud boot print for contrast"
+    ],
+    "coverBrief": "Low close view of a crisp ribbed boot print in gray lunar dust with the matching white suited astronaut walking away in the background under black space. No stars visible in the bright lunar daylight foreground.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A boot presses into the Moon’s gray dust.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. Close view of one white pressure-suit boot firmly pressing into loose gray lunar dust. Exact state: One foot contact; ribbed sole compresses the dust.",
+        "imageAlt": "Close view of one white pressure-suit boot firmly pressing into loose gray lunar dust.",
+        "pageDescription": "Close view of one white pressure-suit boot firmly pressing into loose gray lunar dust.",
+        "state": "One foot contact; ribbed sole compresses the dust.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The boot lifts. A deep print stays.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. The boot lifts just above one clearly pressed ribbed footprint; no dust cloud hangs in air. Exact state: Same footprint newly revealed; low ballistic dust only if any.",
+        "imageAlt": "The boot lifts just above one clearly pressed ribbed footprint; no dust cloud hangs in air.",
+        "pageDescription": "The boot lifts just above one clearly pressed ribbed footprint; no dust cloud hangs in air.",
+        "state": "Same footprint newly revealed; low ballistic dust only if any.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "More steps make a trail of boot prints.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. The same astronaut walks across lunar ground, leaving a spaced alternating trail of consistent ribbed prints behind. Exact state: One astronaut, ordinary two-foot trail, no extra limbs or tracks ahead.",
+        "imageAlt": "The same astronaut walks across lunar ground, leaving a spaced alternating trail of consistent ribbed prints behind.",
+        "pageDescription": "The same astronaut walks across lunar ground, leaving a spaced alternating trail of consistent ribbed prints behind.",
+        "state": "One astronaut, ordinary two-foot trail, no extra limbs or tracks ahead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "On Earth, rain can wash prints away.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. Separate Earth scene: rain falls on a brown muddy garden-path footprint and small rivulets soften its edges. Exact state: Clearly Earth with plants and gray sky; not rain on Moon.",
+        "imageAlt": "Separate Earth scene: rain falls on a brown muddy garden-path footprint and small rivulets soften its edges.",
+        "pageDescription": "Separate Earth scene: rain falls on a brown muddy garden-path footprint and small rivulets soften its edges.",
+        "state": "Clearly Earth with plants and gray sky; not rain on Moon.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "No rain falls on the Moon.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. Return to the exact lunar footprint and dry gray terrain under black space. Exact state: No clouds, puddles, plants or rain; original print intact.",
+        "imageAlt": "Return to the exact lunar footprint and dry gray terrain under black space.",
+        "pageDescription": "Return to the exact lunar footprint and dry gray terrain under black space.",
+        "state": "No clouds, puddles, plants or rain; original print intact.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "No wind blows the Moon dust around.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. A close low lunar view shows crisp undisturbed print edges and small nearby stones under still hard sunlight. Exact state: No wind streaks, fluttering cloth or atmospheric haze.",
+        "imageAlt": "A close low lunar view shows crisp undisturbed print edges and small nearby stones under still hard sunlight.",
+        "pageDescription": "A close low lunar view shows crisp undisturbed print edges and small nearby stones under still hard sunlight.",
+        "state": "No wind streaks, fluttering cloth or atmospheric haze.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The boot prints can stay\nfor a long time.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. A wider view returns to the trail across the same lunar ridge, with the astronaut now out of frame. Exact state: Prints remain clear; no implication that nothing can ever disturb them.",
+        "imageAlt": "A wider view returns to the trail across the same lunar ridge, with the astronaut now out of frame.",
+        "pageDescription": "A wider view returns to the trail across the same lunar ridge, with the astronaut now out of frame.",
+        "state": "Prints remain clear; no implication that nothing can ever disturb them.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The boots are gone.\nTheir marks are still here.",
+        "imageBrief": "Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. The original close footprint fills the foreground, with the matching trail leading away across otherwise quiet lunar ground. Exact state: Opening footprint remains; astronaut absent; inquiry closes on preserved evidence.",
+        "imageAlt": "The original close footprint fills the foreground, with the matching trail leading away across otherwise quiet lunar ground.",
+        "pageDescription": "The original close footprint fills the foreground, with the matching trail leading away across otherwise quiet lunar ground.",
+        "state": "Opening footprint remains; astronaut absent; inquiry closes on preserved evidence.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why do the prints last so long on the Moon?",
+        "listenFor": "There is no ordinary wind or rain to wear them away; the book does not say forever."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Which picture is on Earth? What shows you?",
+        "lookFor": "Rain, wet brown soil, plants and a gray sky identify the comparison scene."
+      }
+    },
+    "levelRationale": "The short two-sentence pattern and visible footprint comparison fit B. Moon and dust are concrete; cause is explicitly given by familiar rain/wind words rather than abstract atmosphere vocabulary.",
+    "languagePrep": [
+      {
+        "word": "dust",
+        "meaning": "very tiny dry pieces of rock or dirt"
+      },
+      {
+        "word": "print",
+        "meaning": "a mark pressed into a surface"
+      },
+      {
+        "word": "trail",
+        "meaning": "marks or a path leading along the ground"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-07",
+    "number": 7,
+    "title": "Feet for Swimming",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How do a duck’s feet help it move through water?",
+      "progression": "Move from the paddling duck to one webbed foot, show the push, then return to the whole swimming animal.",
+      "synthesis": "The duck’s wide webbed feet push water as the duck moves through the pond.",
+      "scienceSources": [
+        {
+          "title": "U.S. Fish and Wildlife Service: What Is a Waterfowl?",
+          "url": "https://www.fws.gov/sites/default/files/documents/2024-04/2117.pdf",
+          "evidence": "Ducks have webbing joining the three front toes; backward/downward strokes of their feet help propel them through water.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Nebraska Game and Parks: Build a Bird",
+          "url": "https://outdoornebraska.gov/wp-content/uploads/2024/04/Build-a-Bird-compressed.pdf",
+          "evidence": "Mallards have webbed feet adapted for swimming; webbing helps the feet push water.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Ducks Unlimited: Webbed Wonders",
+          "url": "https://www.ducks.org/conservation/waterfowl-research-science/webbed-wonders",
+          "evidence": "Waterfowl push backward and downward with their webbed feet while swimming. Ducks have webbing between the three front toes and a separate small hind toe; dabbling ducks can also walk on land.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions.",
+    "props": [
+      "One female mallard",
+      "Clear pond water and a low grassy bank"
+    ],
+    "coverBrief": "A side cutaway-style waterline view shows one naturally proportioned female mallard gliding above water while her orange webbed feet paddle below. No arrows or labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A duck swims across the pond.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. One female mallard glides across a quiet pond toward a low grassy bank. Exact state: Single duck; wings folded; no other animals introduced.",
+        "imageAlt": "One female mallard glides across a quiet pond toward a low grassy bank.",
+        "pageDescription": "One female mallard glides across a quiet pond toward a low grassy bank.",
+        "state": "Single duck; wings folded; no other animals introduced.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Her feet move under the water.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. Side waterline view reveals the duck’s two orange feet beneath her floating body. Exact state: Feet attached naturally; only two feet, both submerged.",
+        "imageAlt": "Side waterline view reveals the duck’s two orange feet beneath her floating body.",
+        "pageDescription": "Side waterline view reveals the duck’s two orange feet beneath her floating body.",
+        "state": "Feet attached naturally; only two feet, both submerged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Skin joins the toes on each wide foot.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. Close view of one submerged mallard foot with webbing joining its three forward toes and a small separate rear toe. Exact state: Natural duck anatomy; no human fingers or four fully webbed toes.",
+        "imageAlt": "Close view of one submerged mallard foot with webbing joining its three forward toes and a small separate rear toe.",
+        "pageDescription": "Close view of one submerged mallard foot with webbing joining its three forward toes and a small separate rear toe.",
+        "state": "Natural duck anatomy; no human fingers or four fully webbed toes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The duck spreads her toes.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. Close view shows the three front toes spread, stretching the webbing into a broad surface. Exact state: Same foot; webbing intact; one moment of the stroke.",
+        "imageAlt": "Close view shows the three front toes spread, stretching the webbing into a broad surface.",
+        "pageDescription": "Close view shows the three front toes spread, stretching the webbing into a broad surface.",
+        "state": "Same foot; webbing intact; one moment of the stroke.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Her wide foot pushes back against the water.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. The spread foot sweeps backward beneath the duck; small water eddies trail behind the foot. Exact state: Backward stroke with broad webbing facing water; no detached foot.",
+        "imageAlt": "The spread foot sweeps backward beneath the duck; small water eddies trail behind the foot.",
+        "pageDescription": "The spread foot sweeps backward beneath the duck; small water eddies trail behind the foot.",
+        "state": "Backward stroke with broad webbing facing water; no detached foot.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The duck moves forward. Her feet keep paddling.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. Side waterline view shows the duck advancing toward the grassy bank while her feet work beneath her. Exact state: Body moves opposite the backward push; wings remain folded.",
+        "imageAlt": "Side waterline view shows the duck advancing toward the grassy bank while her feet work beneath her.",
+        "pageDescription": "Side waterline view shows the duck advancing toward the grassy bank while her feet work beneath her.",
+        "state": "Body moves opposite the backward push; wings remain folded.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "She reaches the bank and steps out.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. The mallard climbs the low muddy bank using the same orange webbed feet. Exact state: Transition from swimming to walking; both feet anatomically consistent.",
+        "imageAlt": "The mallard climbs the low muddy bank using the same orange webbed feet.",
+        "pageDescription": "The mallard climbs the low muddy bank using the same orange webbed feet.",
+        "state": "Transition from swimming to walking; both feet anatomically consistent.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Wide feet for water. Feet for land too.",
+        "imageBrief": "One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions. The duck stands on the bank beside the pond, one webbed foot clearly visible and the water route behind her. Exact state: One animal has completed the pond crossing; feet support it on land.",
+        "imageAlt": "The duck stands on the bank beside the pond, one webbed foot clearly visible and the water route behind her.",
+        "pageDescription": "The duck stands on the bank beside the pond, one webbed foot clearly visible and the water route behind her.",
+        "state": "One animal has completed the pond crossing; feet support it on land.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What helps the duck’s feet push against water?",
+        "listenFor": "Skin between spread toes makes a wide surface for paddling."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "Find the skin between the toes.",
+        "lookFor": "Webbing connects the three front toes; the small rear toe is separate."
+      }
+    },
+    "levelRationale": "B follows one visible body part through a simple action and outcome. Short clauses and repeated foot/feet/water support the few topic words, with no technical force vocabulary.",
+    "languagePrep": [
+      {
+        "word": "toes",
+        "meaning": "the parts at the end of a foot"
+      },
+      {
+        "word": "paddling",
+        "meaning": "pushing against water to move"
+      },
+      {
+        "word": "bank",
+        "meaning": "the land at the edge of the pond"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-08",
+    "number": 8,
+    "title": "A Ladybug Changes",
+    "topic": "life cycles",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a tiny ladybug egg become an adult?",
+      "progression": "Follow the ordered egg, larva, pupa and adult stages, including the adult’s initial pale state and later egg laying.",
+      "synthesis": "The adult lays new eggs, connecting the final stage back to the opening.",
+      "scienceSources": [
+        {
+          "title": "San Diego Zoo: Ladybug",
+          "url": "https://animals.sandiegozoo.org/animals/ladybug",
+          "evidence": "Ladybugs lay eggs on leaves; larvae eat aphids, grow and become pupae; newly emerged adults are pale and later harden/darken.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "UC IPM: Lady Beetles",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/lady-beetles/",
+          "evidence": "Lady beetles pass through egg, larva, pupa and adult stages.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "This sequence follows one female seven-spotted ladybug through time. It does not claim that every egg hatches or every adult lays eggs; the pupal transformation is shown by ordered stages, not a literal transparent cutaway."
+    },
+    "setting": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf.",
+    "props": [
+      "One green plant with broad leaves",
+      "A small cluster of upright yellow eggs",
+      "Natural ladybug larva, pupa and adult stages",
+      "Tiny green aphids"
+    ],
+    "coverBrief": "One red seven-spotted adult ladybug rests on a green leaf beside a small yellow egg cluster. Natural proportions, six legs and antennae; no face added to wing covers.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Tiny yellow eggs cling to a leaf.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. Macro view of a compact yellow egg cluster attached to the underside of a broad green leaf. Exact state: Eggs intact; no adult or larva emerging yet.",
+        "imageAlt": "Macro view of a compact yellow egg cluster attached to the underside of a broad green leaf.",
+        "pageDescription": "Macro view of a compact yellow egg cluster attached to the underside of a broad green leaf.",
+        "state": "Eggs intact; no adult or larva emerging yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A young ladybug hatches. It is a larva.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. One dark, elongated six-legged ladybug larva emerges beside a split yellow egg; the other eggs remain intact. Exact state: Larval form, not a small red adult; no wings.",
+        "imageAlt": "One dark, elongated six-legged ladybug larva emerges beside a split yellow egg; the other eggs remain intact.",
+        "pageDescription": "One dark, elongated six-legged ladybug larva emerges beside a split yellow egg; the other eggs remain intact.",
+        "state": "Larval form, not a small red adult; no wings.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The larva eats tiny green bugs.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. The larva grips one green aphid on the same plant; a few other aphids sit along a stem. Exact state: Natural feeding shown without gore; larva larger than aphid.",
+        "imageAlt": "The larva grips one green aphid on the same plant; a few other aphids sit along a stem.",
+        "pageDescription": "The larva grips one green aphid on the same plant; a few other aphids sit along a stem.",
+        "state": "Natural feeding shown without gore; larva larger than aphid.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It grows. Its tight skin comes off.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. A larger ladybug larva rests beside its shed dark skin on a leaf. Exact state: One living larva and one empty skin; no second live larva implied.",
+        "imageAlt": "A larger ladybug larva rests beside its shed dark skin on a leaf.",
+        "pageDescription": "A larger ladybug larva rests beside its shed dark skin on a leaf.",
+        "state": "One living larva and one empty skin; no second live larva implied.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "It stays still. Its body changes inside.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. An orange-and-black ladybug pupa is fixed by its rear to the leaf surface. Exact state: Pupa attached and still; no cocoon, folded adult wings or butterfly chrysalis.",
+        "imageAlt": "An orange-and-black ladybug pupa is fixed by its rear to the leaf surface.",
+        "pageDescription": "An orange-and-black ladybug pupa is fixed by its rear to the leaf surface.",
+        "state": "Pupa attached and still; no cocoon, folded adult wings or butterfly chrysalis.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The grown ladybug comes out looking pale.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. A pale yellow newly emerged adult ladybug sits beside the opened empty pupal case. Exact state: Soft pale adult without darkened red wing covers yet; natural six legs.",
+        "imageAlt": "A pale yellow newly emerged adult ladybug sits beside the opened empty pupal case.",
+        "pageDescription": "A pale yellow newly emerged adult ladybug sits beside the opened empty pupal case.",
+        "state": "Soft pale adult without darkened red wing covers yet; natural six legs.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Its body hardens. Dark spots show.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. Later, the same adult has hardened red wing covers with seven clear black spots. Exact state: Adult now mature in color; discarded pupa remains near its original attachment.",
+        "imageAlt": "Later, the same adult has hardened red wing covers with seven clear black spots.",
+        "pageDescription": "Later, the same adult has hardened red wing covers with seven clear black spots.",
+        "state": "Adult now mature in color; discarded pupa remains near its original attachment.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "This ladybug lays eggs on a leaf.",
+        "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. A mature female seven-spotted ladybug lays a fresh small yellow egg cluster beneath a new leaf. Exact state: New generation begins; eggs remain eggs, not instantly hatching.",
+        "imageAlt": "A mature female seven-spotted ladybug lays a fresh small yellow egg cluster beneath a new leaf.",
+        "pageDescription": "A mature female seven-spotted ladybug lays a fresh small yellow egg cluster beneath a new leaf.",
+        "state": "New generation begins; eggs remain eggs, not instantly hatching.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What happens after the young ladybug eats and grows?",
+        "listenFor": "It stays still while its body changes, then comes out as the grown ladybug. The teacher can supply pupa as an oral stage name."
+      },
+      "visual": {
+        "page": 2,
+        "prompt": "How does the larva look different from the adult?",
+        "lookFor": "Long dark body and no wings; it is not a tiny spotted adult."
+      }
+    },
+    "levelRationale": "B presents one explicitly ordered life cycle in short clauses. The only printed specialist stage name, larva, is introduced as a young ladybug and repeated; pupa and aphids remain oral enrichment. Visible feeding, shedding and color changes connect each step without an unseen biological explanation.",
+    "languagePrep": [
+      {
+        "word": "larva",
+        "meaning": "the young feeding stage after the egg"
+      },
+      {
+        "word": "pupa",
+        "meaning": "the stage between larva and adult"
+      },
+      {
+        "word": "aphids",
+        "meaning": "tiny insects that feed on plants"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-09",
+    "number": 9,
+    "title": "Sort Them Again",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can the same buttons belong to different groups?",
+      "progression": "Sort a fixed set by color, then recombine and sort the same objects by size.",
+      "synthesis": "The grouping changes when the sorting rule changes, while the buttons remain the same.",
+      "scienceSources": [
+        {
+          "title": "South Australia Department for Education: Collections",
+          "url": "https://www.education.sa.gov.au/parents-and-families/curriculum-and-learning/early-years/learning-with-your-child-greatstart/working-it-out/collections",
+          "evidence": "Objects can be grouped by attributes including color and size, and the same collection can be sorted in different ways. The exact six-button demonstration is authored and directly inspectable.",
+          "checked": "2026-11-07"
+        }
+      ],
+      "scopeNote": "A directly inspectable classification activity using a fixed six-button set; no empirical biological claim."
+    },
+    "setting": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat.",
+    "props": [
+      "Exactly six round four-hole buttons: one large red, two small red, two large blue, one small blue",
+      "One pale blue mat with no printed words",
+      "Two empty shallow trays"
+    ],
+    "coverBrief": "Zoe compares two trays: three large buttons in one, three small buttons in the other, with red and blue in both. All six buttons have four holes.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe spreads six buttons on the mat.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe spreads exactly six craft buttons on the pale blue mat: one large red, two small red, two large blue and one small blue. Both shallow trays beside the mat are empty. Exact state: Six total; two sizes and two colors; four holes on each button; no pouring container needed.",
+        "imageAlt": "Zoe spreads exactly six craft buttons on the pale blue mat: one large red, two small red, two large blue and one small blue. Both shallow trays beside the mat are empty.",
+        "pageDescription": "Zoe spreads exactly six craft buttons on the pale blue mat: one large red, two small red, two large blue and one small blue. Both shallow trays beside the mat are empty.",
+        "state": "Six total; two sizes and two colors; four holes on each button; no pouring container needed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "She puts the red buttons together.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe places the three red buttons into the left tray while the three blue buttons remain on the mat. Exact state: Left tray: one large red and two small red; three blue unsorted.",
+        "imageAlt": "Zoe places the three red buttons into the left tray while the three blue buttons remain on the mat.",
+        "pageDescription": "Zoe places the three red buttons into the left tray while the three blue buttons remain on the mat.",
+        "state": "Left tray: one large red and two small red; three blue unsorted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "She puts the blue buttons together.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe places the three blue buttons in the right tray; the red buttons remain together on the left. Exact state: Right tray: two large blue and one small blue; all six sorted by color.",
+        "imageAlt": "Zoe places the three blue buttons in the right tray; the red buttons remain together on the left.",
+        "pageDescription": "Zoe places the three blue buttons in the right tray; the red buttons remain together on the left.",
+        "state": "Right tray: two large blue and one small blue; all six sorted by color.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Two color groups. Big and small are mixed.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Top view clearly shows a red tray group and a blue tray group, each containing different button sizes. Exact state: No button moves; color rule is complete.",
+        "imageAlt": "Top view clearly shows a red tray group and a blue tray group, each containing different button sizes.",
+        "pageDescription": "Top view clearly shows a red tray group and a blue tray group, each containing different button sizes.",
+        "state": "No button moves; color rule is complete.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe tips all the buttons back out.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe empties both trays onto the mat, keeping all six buttons visible and separate. Exact state: All six recombined; both trays empty.",
+        "imageAlt": "Zoe empties both trays onto the mat, keeping all six buttons visible and separate.",
+        "pageDescription": "Zoe empties both trays onto the mat, keeping all six buttons visible and separate.",
+        "state": "All six recombined; both trays empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "This time, she puts the big buttons together.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe places one large red and two large blue buttons in the left tray; the three small buttons remain on the mat. Exact state: New rule is size, not color; three large buttons grouped.",
+        "imageAlt": "Zoe places one large red and two large blue buttons in the left tray; the three small buttons remain on the mat.",
+        "pageDescription": "Zoe places one large red and two large blue buttons in the left tray; the three small buttons remain on the mat.",
+        "state": "New rule is size, not color; three large buttons grouped.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The small buttons go in the other group.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe places two small red and one small blue button into the right tray. Exact state: All six sorted by size: three large left, three small right.",
+        "imageAlt": "Zoe places two small red and one small blue button into the right tray.",
+        "pageDescription": "Zoe places two small red and one small blue button into the right tray.",
+        "state": "All six sorted by size: three large left, three small right.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Same buttons. New groups. Zoe sorts by size.",
+        "imageBrief": "World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Top view of the final two groups shows large buttons left and small buttons right, with red and blue in both. Exact state: Exact original six retained; final grouping visibly differs from page four.",
+        "imageAlt": "Top view of the final two groups shows large buttons left and small buttons right, with red and blue in both.",
+        "pageDescription": "Top view of the final two groups shows large buttons left and small buttons right, with red and blue in both.",
+        "state": "Exact original six retained; final grouping visibly differs from page four.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What changed when Zoe sorted again?",
+        "listenFor": "First the rule was color; then it was size. The same six buttons stayed in use."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which group has both red and blue buttons?",
+        "lookFor": "Both groups contain both colors; size is the rule now."
+      }
+    },
+    "levelRationale": "B uses a repeated concrete grouping pattern with one explicit rule change. Color and size are familiar, all quantities are visible, and the close names the comparison without abstract classification language.",
+    "languagePrep": [
+      {
+        "word": "sort",
+        "meaning": "put things into groups using a rule"
+      },
+      {
+        "word": "group",
+        "meaning": "things put together"
+      },
+      {
+        "word": "size",
+        "meaning": "how big or small something is"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-10",
+    "number": 10,
+    "title": "The Bag with a Patch",
+    "topic": "caring for our world",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit needs to carry blocks, but his cloth bag has a hole; folding the hole fails, so Zoe helps him patch it and he carries the blocks in the same bag again.",
+      "failedAttempt": "Kit folds the torn corner over, but a block slips through as soon as he lifts the bag.",
+      "resolution": "A strong patch closes the hole and the original bag carries the blocks, remaining useful.",
+      "scienceSources": [
+        {
+          "title": "King County: Reduce, Repair and Reuse",
+          "url": "https://kingcounty.gov/en/dept/dnrp/waste-services/garbage-recycling-compost/solid-waste-programs/re-plus/zero-waste-action-guide/reduce-repair-reuse",
+          "evidence": "Mending and repair keep existing products in use rather than immediately replacing them.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6.",
+    "props": [
+      "One cream cloth drawstring bag with a torn lower corner wide enough for the red cube to slip through",
+      "Exactly three chunky blocks: red cube, blue cube, yellow rectangular block",
+      "One square blue cloth patch larger than the corner tear",
+      "One needle and thread handled only by the adult"
+    ],
+    "coverBrief": "Kit carries the cream cloth bag with its neat blue lower-corner patch while Zoe points to the repair; three blocks are safely inside the bag. No tray, needle or replacement bag.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit puts three blocks in his cloth bag.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. Kit drops a red cube, blue cube and yellow rectangular block into the cream cloth bag on the table; Zoe watches. Exact state: Three blocks in total; the visible tear at the lower corner is wide enough for the red cube to slip through.",
+        "imageAlt": "Kit drops a red cube, blue cube and yellow rectangular block into the cream cloth bag on the table; Zoe watches.",
+        "pageDescription": "Kit drops a red cube, blue cube and yellow rectangular block into the cream cloth bag on the table; Zoe watches.",
+        "state": "Three blocks in total; the visible tear at the lower corner is wide enough for the red cube to slip through.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "One block falls through a hole.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. The red cube sits directly beneath the bag’s torn lower corner after falling; two blocks remain inside. Exact state: One cube outside, two blocks inside; tear caused the fall.",
+        "imageAlt": "The red cube sits directly beneath the bag’s torn lower corner after falling; two blocks remain inside.",
+        "pageDescription": "The red cube sits directly beneath the bag’s torn lower corner after falling; two blocks remain inside.",
+        "state": "One cube outside, two blocks inside; tear caused the fall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit puts it back and folds the corner. The block falls again.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. Kit lifts the bag with its torn corner folded inward; the returned red cube slips out at the same spot. Exact state: Attempted fold fails; no patch yet; exactly three blocks remain accounted for.",
+        "imageAlt": "Kit lifts the bag with its torn corner folded inward; the returned red cube slips out at the same spot.",
+        "pageDescription": "Kit lifts the bag with its torn corner folded inward; the returned red cube slips out at the same spot.",
+        "state": "Attempted fold fails; no patch yet; exactly three blocks remain accounted for.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit empties the bag. Zoe finds a patch and asks for help.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. The red cube, blue cube and yellow rectangular block all rest on the table beside the empty cream bag. Zoe holds the separate square blue patch and looks toward the adult helper, who has just joined them. Exact state: All three blocks outside the bag before sewing; blue patch separate; adult joins now; needle not yet in view.",
+        "imageAlt": "The red cube, blue cube and yellow rectangular block all rest on the table beside the empty cream bag. Zoe holds the separate square blue patch and looks toward the adult helper, who has just joined them.",
+        "pageDescription": "The red cube, blue cube and yellow rectangular block all rest on the table beside the empty cream bag. Zoe holds the separate square blue patch and looks toward the adult helper, who has just joined them.",
+        "state": "All three blocks outside the bag before sewing; blue patch separate; adult joins now; needle not yet in view.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The grown-up sews. Kit holds the bag still.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. The adult stitches the blue patch across the torn corner while Kit holds the opposite top edge well away from the needle. Exact state: Needle in adult hand only; patch being attached; blocks on table.",
+        "imageAlt": "The adult stitches the blue patch across the torn corner while Kit holds the opposite top edge well away from the needle.",
+        "pageDescription": "The adult stitches the blue patch across the torn corner while Kit holds the opposite top edge well away from the needle.",
+        "state": "Needle in adult hand only; patch being attached; blocks on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The blue patch covers the hole.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. Close view of the completed square blue patch, sewn around its edges to the cream bag; Zoe points without touching a needle. Exact state: Hole fully covered; needle stored out of children’s reach.",
+        "imageAlt": "Close view of the completed square blue patch, sewn around its edges to the cream bag; Zoe points without touching a needle.",
+        "pageDescription": "Close view of the completed square blue patch, sewn around its edges to the cream bag; Zoe points without touching a needle.",
+        "state": "Hole fully covered; needle stored out of children’s reach.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit puts the same three blocks back inside.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. Kit returns the red cube, blue cube and yellow block to the repaired bag as Zoe holds its mouth open. Exact state: Three original blocks inside; no replacement bag or extra blocks.",
+        "imageAlt": "Kit returns the red cube, blue cube and yellow block to the repaired bag as Zoe holds its mouth open.",
+        "pageDescription": "Kit returns the red cube, blue cube and yellow block to the repaired bag as Zoe holds its mouth open.",
+        "state": "Three original blocks inside; no replacement bag or extra blocks.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "He lifts the bag.\nAll three blocks stay in.",
+        "imageBrief": "World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. Kit carries the repaired bag by its drawstrings above the empty table; the blue patch bears the load without a gap. Exact state: Bag works again; all three blocks remain in it; repair is visible.",
+        "imageAlt": "Kit carries the repaired bag by its drawstrings above the empty table; the blue patch bears the load without a gap.",
+        "pageDescription": "Kit carries the repaired bag by its drawstrings above the empty table; the blue patch bears the load without a gap.",
+        "state": "Bag works again; all three blocks remain in it; repair is visible.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit’s second fix work?",
+        "listenFor": "The sewn patch closed the hole; folding the torn corner did not. He could keep using the same bag."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Find the part that keeps the blocks inside.",
+        "lookFor": "The stitched blue patch over the original torn lower corner."
+      }
+    },
+    "levelRationale": "B follows one failed fix and one concrete repair, with familiar objects and short paired sentences. Reuse is shown by the same bag and blocks rather than an abstract environmental moral.",
+    "languagePrep": [
+      {
+        "word": "patch",
+        "meaning": "a piece of material used to cover a hole"
+      },
+      {
+        "word": "sews",
+        "meaning": "joins cloth with a needle and thread"
+      },
+      {
+        "word": "cloth",
+        "meaning": "material used for things like clothes and bags"
+      }
+    ]
+  }
+]

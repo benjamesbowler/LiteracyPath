@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-07",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:46:59.942Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-44c7d1b1-d8da-4a98-bff5-1838077732a7.png",
+  "sourceSha256": "b27bffa7fbff06c8fd90706759c8530b14ac3c6bf0d9953503fdabc969d48961",
+  "output": "public/guided-reading/world-discovery/b-07/cover.webp",
+  "outputSha256": "920ed3b6b0a1dbcb55666e7e5aaeaaf79d880f56dc7f8bc15c89124d71b9575f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Feet for Swimming; World Discovery; nonfiction.\nSetting: One natural female mallard on a clear shallow pond in daylight; mottled brown plumage, orange-brown feet, blue wing patch edged white; no clothes or human expressions.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One female mallard; Clear pond water and a low grassy bank\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: A side cutaway-style waterline view shows one naturally proportioned female mallard gliding above water while her orange webbed feet paddle below. No arrows or labels.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nANATOMY AND SCENE LOCK: Only ONE female mallard, naturally proportioned with folded wings. Brown mottled plumage, dark eye stripe, blue wing patch edged white. No people, ducklings or other animals. Exactly TWO orange feet with THREE forward toes joined by continuous webbing and ONE tiny separate rear toe on EACH foot. Legs attach naturally to rear underside of body, never detached. If submerged feet are shown, use a clean SIDE WATERLINE CUTAWAY of the one pond, with duck body above water and its two naturally attached feet below. No duplicate duck, no mirror reflection creating a second body. Clean crisp outlined flat cartoon all water, vegetation and ground; no paint grain, soft-focus backgrounds or photographic texture. No text or arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-07-reference.webp",
+      "sha256": "9a2b4572de14e3c97c6fb445536151e5d3e8dd8c295a70353f9f25aea7e5f586"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:47:01.817032+00:00",
+    "sha256": "920ed3b6b0a1dbcb55666e7e5aaeaaf79d880f56dc7f8bc15c89124d71b9575f",
+    "note": "One female mallard at waterline with two attached orange webbed feet paddling below, natural brown plumage and blue wing patch."
+  }
+}

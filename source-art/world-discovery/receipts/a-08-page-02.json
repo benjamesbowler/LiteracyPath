@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-08",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:39.706Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7a984dbd-b402-4156-9a21-71e8d7e5b9e7.png",
+  "sourceSha256": "f8971697e335f595ea268d90ed296e9bf4ac359eaa61f519f256264d463e2cc3",
+  "output": "public/guided-reading/world-discovery/a-08/page-02.webp",
+  "outputSha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this educational egg cross-section for biological clarity. Keep one intact outer egg outline with a curled late-stage chick wholly INSIDE, no text or labels. Make the TOP end of egg unmistakably BROAD and ROUND and the BOTTOM end gently narrower/tapered. Keep a pale AIR CELL at that broad rounded TOP between the shell membranes and curled chick's head/beak. The chick has compact soft damp down, not a mass of long adult flight feathers: simplify its wing into a small folded developing wing tucked against its curled body, with short delicate down. Keep its head tucked, feet folded, closed eye, beak near upper air cell. Preserve cream shell, warm golden chick, clean 2D cartoon outlines, straw nest background and composition. No additional eggs, birds, panels or cracks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7928d00c-fc58-4e75-ba13-6986dbe18caa.png",
+      "sha256": "0febf438c279f8c0435c4a1c9e0f5fee6f57f7eaedbdc0f0421349211c2968bc"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+    "note": "Inspected corrected cutaway: entire cream shell outline, curled late-stage chick, tucked small wing and folded feet, air space at broad rounded upper end; no conflicting mother scale.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

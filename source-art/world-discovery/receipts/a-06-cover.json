@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-06",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:21:41.165Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-85c97f2e-3f16-4ded-90eb-0bb4970a43a1.png",
+  "sourceSha256": "4e1e233d33b7667c0021861615c20288d6d5a06bc6b48b37efc2ce370be16c03",
+  "output": "public/guided-reading/world-discovery/a-06/cover.webp",
+  "outputSha256": "4c30d138831c50f1b3e598cb332e94c50ffce5292bfa97306415f1d8039f2830",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY the apparent Moon size: shrink the existing right-lit white half-Moon to about ONE THIRD its current height (around 30 pixels high in this 1536\u00d71024 image). Keep its same sky position, straight vertical LEFT edge and curved RIGHT edge. It should be a small distant daytime Moon, not an enormous close object; keep the unlit half invisible against blue sky. Preserve everything else: same exact scene, cloud, Zoe, park, light and style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ed31dc59-b08e-4b62-aba7-261d730fcced.png",
+      "sha256": "0e4d96698a4482593ba214134e6fe6d38494d1a9d598cc2d18ac7ffc007a930f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "4c30d138831c50f1b3e598cb332e94c50ffce5292bfa97306415f1d8039f2830",
+    "note": "Zoe points from beside bench at small right-lit half-Moon; one cloud to right; bright daylight, no Sun or stars.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

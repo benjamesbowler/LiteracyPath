@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-02",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:00:07.622Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-29533237-5977-4891-b8c5-f2c6335b7500.png",
+  "sourceSha256": "d13d42b98deff7dfd3bb9064fa462a619e70e57c7933d83a78eaefbfcf425b03",
+  "output": "public/guided-reading/world-discovery/d-02/page-09.webp",
+  "outputSha256": "d431ff5743386a578ee2b094e87ac8ac10c9e65edccd87f623f0f39ff6570e92",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied finished illustration, preserving characters, clothing, faces, drawing, room colors and all untouched props. CORRECT THE BLOCK STRUCTURE ON THE RUG: exactly SIX identical tan wooden CUBES total form ONE small low bridge, with a real open gap underneath. Four cubes form two short pillars of two cubes stacked vertically. The pillars are close together with a gap a little narrower than one cube. The remaining TWO CUBES sit on top, shifted inward slightly so their inner faces meet over the narrow gap; most of each top cube rests on its pillar. All six are identical cubic proportions, none elongated, none floating. Remove the old block row or old elongated tops completely. No extra cubes, no tall tower. ALSO Zoe must be at the second RECTANGULAR table. Change her current foreground round table into a rectangular oak table, keeping drawing/pencil/hand positions. Put the original EMPTY small round table with its blue chair at the far left background under the window. Remove the unused rectangular table currently at back right so there are exactly two tables total. Keep Zoe waving and Kit approaching empty-handed, and keep long diagonal green line with new leaves on drawing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-05139958-e00d-47f7-ae58-b7695215f826.png",
+      "sha256": "d52d245099624a4c5bf98462224276f9229e6fdbc6e393a3df4ce4caecafeee9"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d431ff5743386a578ee2b094e87ac8ac10c9e65edccd87f623f0f39ff6570e92",
+    "note": "Direct inspection after table/bridge repairs: Zoe draws leaves along long green branch and waves at Kit approaching empty-handed; rectangular table distinct from empty original round table; six-cube bridge stays on rug.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

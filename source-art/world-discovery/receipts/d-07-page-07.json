@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-07",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:19:46.460Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-081ca492-e04f-4807-bcf1-f3c3ffa9361d.png",
+  "sourceSha256": "254996514c9f2891b6ee58c2e0fe9f805a9780e11ee323fb032643df0e9ac2d7",
+  "output": "public/guided-reading/world-discovery/d-07/page-07.webp",
+  "outputSha256": "b22b8e53aab34bc953c40f3866c1bad92f113fc85a50695791b78039257f9c66",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. The supplied complete illustration is the exact edit target. Correct ONLY the brown garden orb-weaver spider's EYES. Remove the three large front eyes and replace them with exactly EIGHT small natural simple black eyes in TWO gently curved rows of FOUR. Four eyes in the upper row and four in the lower row, with modest small highlights and brown skin visible between all eight. The eyes occupy the same front portion of the cephalothorax; do not enlarge the head or add a human expression. No additional eye dots anywhere else. This is a natural orb-weaving spider, not a three-eyed fictional animal.\nKeep every other part exactly: one spider with exactly EIGHT long legs plus its existing short pedipalps, exactly two body regions, existing brown abdomen markings, exact pose and silk contact, web geometry and droplets (except specified page-10 repair), fly/prey state and number, stems, leaves, dusk sky, framing and bold clean flat 2D outlined style. No extra subjects, text, captions, diagram or inset. Return one complete fullsize 3:2 illustration.\n\nThe SECOND image is an EYE DESIGN REFERENCE ONLY. Its spider correctly has eight small eyes, four in each of two rows. Apply precisely this eye layout to the spider in the FIRST image, respecting its current head rotation. Do not copy the second image's pose, web, fly or framing. Count 4+4, not 3+3, 4+3 or 5+3.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-07/page-07.webp",
+      "sha256": "448e7cd652b80dd500df04648541b1be0e53b9e3a6cb4eaefd7b42a84fa4b036",
+      "role": "exact edit target"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ec80ff4d-aaa8-4996-8aca-91914328d32a.png",
+      "sha256": "806dfb1a1f984a53aa3b3ea0090c23ea4f1a7c0dd3e3488aed12aac87d3b011b",
+      "role": "reviewed correct eight-eye layout reference only"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "sha256": "b22b8e53aab34bc953c40f3866c1bad92f113fc85a50695791b78039257f9c66",
+    "note": "Eight small eyes in two rows of four. Eight long legs and two body regions retain pose above web with limited foot contact toward one fly. No duplicate prey or changed web state.",
+    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+  }
+}

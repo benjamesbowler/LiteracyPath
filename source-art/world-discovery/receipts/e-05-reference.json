@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-05",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:21:32.959Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7c074956-32ac-4a1a-98f6-51c68618da5d.png",
+  "sourceSha256": "108f4ae61daaeb6a6b9f8d88f1ba5fab7d22313a337ff00fe4728f099094de7f",
+  "output": "source-art/world-discovery/e-05-reference.webp",
+  "outputSha256": "09b317f78aa80a24ac4d9b06d85ef930e8e214d72c61a7d5e39a0a354c3cb990",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit supplied reference image only: remove EVERY human figure and all anatomy from entire lower portion and replace with plain white. Preserve riverbend upperleft and exact sediment/pebble upperright. No people anywhere. No added content, no text. Clean flat cartoon style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-1f68b044-5e2e-45e1-9b84-b0f093294d08.png",
+      "sha256": "9e05084ebff48814a65dc00157e5b163fb7ede2d3ef76309059193fc8efa3d59"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:44:36.442Z",
+    "sha256": "09b317f78aa80a24ac4d9b06d85ef930e8e214d72c61a7d5e39a0a354c3cb990",
+    "note": "Riverbend and sediment designkey, unnecessary human removed; solitary tree anchors outerbank.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

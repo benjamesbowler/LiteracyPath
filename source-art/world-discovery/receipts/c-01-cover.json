@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-01",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:30:50.511Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-726e0fcc-ff53-4ce2-bc9a-b6603c329343.png",
+  "sourceSha256": "d2a6c57b6a3f0d5d8611ab9503223fdf0f3ce705e672ff8611d09a3b02218895",
+  "output": "public/guided-reading/world-discovery/c-01/cover.webp",
+  "outputSha256": "7f83e0f118af9b8f4f253d7e4b84f25ad098c6c28d3bececda1acc4669a38a8b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this finished picture-book cover only. Remove the extra sheet with two green trees lying flat in the foreground, replacing it with uninterrupted wooden tabletop. Keep the ONE upright two-tree paper backdrop leaning against the six tan blocks. Preserve all other art exactly: Kit operating one red-collared paper dog on a stick, Zoe barking playfully, one simple dog sketch, one gray pencil and one red crayon. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-4ea887b7-b537-469d-923e-323e9386b362.png",
+      "sha256": "49ce6af056713ab4b83f0282d74f390dbe1296cfca627eb8d9712cba7d766905"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "7f83e0f118af9b8f4f253d7e4b84f25ad098c6c28d3bececda1acc4669a38a8b",
+    "note": "Dedicated cover directly inspected: one six-block stage, one supported two-tree backdrop, one red-collared paper dog held on a stick by Kit, Zoe visibly acting the bark; duplicate scenery removed. Correct cast, hand contacts, bright classroom and no text.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

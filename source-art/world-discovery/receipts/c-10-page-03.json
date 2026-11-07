@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:15:22.074Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2e630fed-1f88-4599-8fe7-654ad2547627.png",
+  "sourceSha256": "951cb72df73ece656d9f5d6ff59b94c708c6979808028ce14ca0625b6ce8986f",
+  "output": "public/guided-reading/world-discovery/c-10/page-03.webp",
+  "outputSha256": "1f9a7b6d9188228088fc01db1c3e0f427e3577a2e0a150332d29a315a6e47eed",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct exact current story state: the apple core has ALREADY gone into the bin. Remove ALL food from foreground cream tray so tray is completely EMPTY. Keep only the small scraps already partly covered INSIDE bin. Also REMOVE the adult on right, his garden fork, and foreground watering can, filling their areas with matching garden grass/background. Preserve Zoe's two hands adding dry leaves, Kit watching, open bin/lid, school and empty soil bed. No new objects or people.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f94fd10e-f70d-49b4-87ba-cc2d808f74c1.png",
+      "sha256": "9a1b34ac3bdd9c0c5660e2479c85f138c39a4ceff0c51a8492149333e59a7b5a"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "1f9a7b6d9188228088fc01db1c3e0f427e3577a2e0a150332d29a315a6e47eed",
+    "note": "Direct inspection after duplicate-core removal: Zoe adds generous dry leaves over partly visible scraps in bin, foreground tray empty; Kit observes, no finished compost or premature tomato.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

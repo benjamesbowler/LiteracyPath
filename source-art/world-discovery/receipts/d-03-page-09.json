@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:15:18.829Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9316e323-1ff2-46f6-b15b-78db864ff0e8.png",
+  "sourceSha256": "cad02622f9dfe04651e738998e6525fb2b289a193f35950175293f65a5fc2f69",
+  "output": "public/guided-reading/world-discovery/d-03/page-09.webp",
+  "outputSha256": "61f17d171fc8f4c58f40f5bae13fe3039541a9885c7e9e2101cd1146a4335c83",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this illustration, preserving clean outlined flat-color style, scene and all unmentioned objects.  Remove BOTH human workers completely, replacing their areas with the appropriate existing kitchen cabinetry/floor or outdoor grass/trees as fits this scene. NO people anywhere. Keep plumbing/river/fish otherwise unchanged. Change distant wastewater building's blue roof to neutral GRAY to match gray storage tanks, retaining only distant treated outfall. Preserve three natural fish fully underwater and bank reeds.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-948616e6-f7c8-4b2f-8f2b-b492488773db.png",
+      "sha256": "67367558b23845a8f46dde6fb52b02d0ccb7404ac6dd049e6fc16b68d047616c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "61f17d171fc8f4c58f40f5bae13fe3039541a9885c7e9e2101cd1146a4335c83",
+    "note": "Direct inspection after worker/roof repair: three natural fish underwater with rooted bank reeds, distant gray-roof wastewater outfall above habitat, no humans or implication of drinking raw river water.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

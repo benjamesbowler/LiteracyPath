@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:30.449Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-034ca560-1811-41b4-af4c-7c9136806320.png",
+  "sourceSha256": "ceab3bd8f5661bfd40c99a115bafb628460f5a4722a371c1baecc0e5413f1672",
+  "output": "public/guided-reading/world-discovery/e-06/page-03.webp",
+  "outputSha256": "4e456cc99138a3893d53dc9ba008602abee6c9b62f7e2cc9cacf34f605d86876",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): But we watch from Earth, not from the Sun. We do not always see the entire sunlit half.\nRequired illustration: A simplified top-down space view places Earth near the lower center and one Moon above it, with sunlight arriving parallel from the far left. The Moon’s left half is sunlit and its right half dark; the Earth–Moon direction is about a right angle to the incoming sunlight. Exact continuity: Not to scale; one Moon; Earth and Moon illuminated from the same leftward source; no Earth shadow crossing the Moon.\nExact current state: Not to scale; one Moon; Earth and Moon illuminated from the same leftward source; no Earth shadow crossing the Moon.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. SIMPLIFIED SPACE DIAGRAM oneEarthLOWER CENTER and oneMoonUPPER CENTER. SunlightfromfarLEFT, bothEarthandMoonLEFT HALFBRIGHT andRIGHTHALFDARK withverticalterminator. EarthMoonseparationvertical, lightdirectionhorizontal, aRIGHTANGLE. MooncircularsmallerthanEarth. No labels, no duplicateMoon, no castshadow.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-06-reference.webp",
+      "sha256": "411a8bb0981665d4c2e130cdd5e59b4fe7338e7dbd8ca31bf2d7627d68cc88b6"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "sha256": "4e456cc99138a3893d53dc9ba008602abee6c9b62f7e2cc9cacf34f605d86876",
+    "note": "Top-down simplified diagram has Moon above Earth, incoming light from left and both left halves illuminated; one Moon, no eclipse.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

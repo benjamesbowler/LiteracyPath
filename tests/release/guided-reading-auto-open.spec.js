@@ -96,8 +96,17 @@ test("long fullscreen pages retain their separate reading column", async ({ page
   const reader = page.locator(".guided-reader-shell"), spread = reader.locator(".guided-page-layout");
   await expect(reader).toHaveClass(/fullscreen/);
   await expect(spread).toHaveAttribute("data-text-layout", "long");
-  const image = await spread.locator(".guided-page-image-card").boundingBox();
-  const text = await spread.locator(".guided-page-reading").boundingBox();
-  expect(text.x).toBeGreaterThanOrEqual(image.x + image.width);
+  await expect(reader.locator(".guided-page-text")).toHaveClass(/is-ready/);
+  // A fractional entrance transform can round adjacent DOMRect edges
+  // differently even in one evaluation. Wait for the spread's resting state,
+  // then read both bounds together without relaxing the non-overlap check.
+  await expect(spread).toHaveCSS("transform", "none");
+  await expect(spread).toHaveCSS("opacity", "1");
+  const geometry = await spread.evaluate(element => {
+    const image = element.querySelector(".guided-page-image-card").getBoundingClientRect();
+    const text = element.querySelector(".guided-page-reading").getBoundingClientRect();
+    return { imageRight: image.right, textLeft: text.left };
+  });
+  expect(geometry.textLeft).toBeGreaterThanOrEqual(geometry.imageRight);
   await expect(reader.getByRole("button", { name: "Next page", exact: true })).toBeInViewport();
 });

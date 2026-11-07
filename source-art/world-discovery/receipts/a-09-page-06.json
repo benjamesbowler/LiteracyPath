@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-09",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:09.652Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bb74dfb1-950e-440d-976b-157320273cc5.png",
+  "sourceSha256": "7ba424950afc39f535eb48a6f3d30a955113ad069f64948e16983866125b898f",
+  "output": "public/guided-reading/world-discovery/a-09/page-06.webp",
+  "outputSha256": "76a347ef2a3d7b59bf45fe20d2e14e3f2197a96f356bbaf8673a8ec6da76c2af",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Sort the Tiles; World Discovery; nonfiction.\nSetting: A low pale wooden classroom table, morning. Kit and Zoe work beside two plain gray sorting mats.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Square tiles go over there.\nRequired illustration: Zoe places red square and blue square together on the right mat; two circles remain left.\nExact current state: All four sorted by shape; two on each mat.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTAGING: Kit LEFT, Zoe RIGHT. Two large plain gray rectangular mats side by side with a wide visible tabletop gap between. Tiles are thin flat solids, not outlined marks/cubes/balls. No more than FOUR tiles in entire image, each unique color/shape combination, all unobscured. Left gray mat holds RED CIRCLE and BLUE CIRCLE; right gray mat holds RED SQUARE and BLUE SQUARE, Zoe finishing placement of square. Exactly4 fully visible tiles. No tiles between mats or held elsewhere. Kit at left watches, Zoe at right works.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-09-reference.webp",
+      "sha256": "a6515a4725f4480b138da75a37a00418edbe65af166628908fb1860845d0cfc5"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "76a347ef2a3d7b59bf45fe20d2e14e3f2197a96f356bbaf8673a8ec6da76c2af",
+    "note": "Shape groups complete: red/blue circles left, red/blue squares right; Zoe finishes square placement.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

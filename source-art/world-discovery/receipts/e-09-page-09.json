@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:28:00.853Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-72325ba5-f4b5-46a3-a106-bbb439f0289b.png",
+  "sourceSha256": "7074673b6f526132e12428ef7e78262fd85f9f722c53dae31784363506b32829",
+  "output": "public/guided-reading/world-discovery/e-09/page-09.webp",
+  "outputSha256": "abe4bbec4da869ec95589547d0bde752a2330164a968c6285417d79b683a7499",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): Dolphins are mammals, too. Like whales, they breathe air and feed their young milk, although they spend their lives in water.\nRequired illustration: A bottlenose dolphin with a calf swims near surface at natural scale, single blowhole visible on adult. Exact continuity: Dolphin is cetacean; no gills, scales or blue-whale twin blowholes.\nExact current state: Dolphin is cetacean; no gills, scales or blue-whale twin blowholes.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: ONE bottlenose dolphin and ONE smaller calf near surface. Adult ONE single blowhole top of head, curved dorsal fin, short beak, horizontal tail flukes. NO whale paired blowholes, gills or scales.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nANATOMY PRIORITY: EVERY cetacean tail (both adult and calf, whales and dolphins) must have FLAT HORIZONTAL flukes extending LEFT AND RIGHT, viewed from above in three-quarter perspective like two broad wings of a glider, BOTH top surfaces visible. NEVER draw a vertical fishlike tail with one lobe UP and the other DOWN. Each cetacean body upright: belly below, dorsal fin above. Only silver fish have vertical tails.\nPrecise physiology correction of attached image: adult dolphin raises its forehead just ABOVE the ocean waterline so the single blowhole is exposed to AIR, not open underwater. Waterline must visibly cross just below the blowhole on the head, while body remains in water and calf swims nearby. Both dolphins have naturally CLOSED mouths, no human smiles. Remove ALL air bubbles. Retain horizontal tail flukes exactly as attached, small fish below, friendly normal dolphin anatomy. No exhaled spout, no water fountain, no added animals.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-35dab253-e181-4774-a112-aa57551df4df.png",
+      "sha256": "f9a375ec7341cbee8f1fb856c2951f7cb50ffeb87bbd0f29da4e60d78781b64c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "sha256": "abe4bbec4da869ec95589547d0bde752a2330164a968c6285417d79b683a7499",
+    "note": "Corrected adult dolphin single blowhole to sit ABOVE waterline in air; both mouths closed and ambient bubbles removed; horizontal flukes maintained.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

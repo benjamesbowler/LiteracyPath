@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-01",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:37:24.619Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-29b88d8b-e864-4546-9195-daa16d61bc6c.png",
+  "sourceSha256": "aade0e7ff5b559a3cee13d5719c0c62ea678cb5ce05eb2cb075f6ed22350dd70",
+  "output": "public/guided-reading/world-discovery/c-01/page-06.webp",
+  "outputSha256": "7e5fc04398704ff23b483ce402c177972fbb1f1df0833db52f2785700766c703",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Show for Two; World Discovery; fiction.\nSetting: World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): A stage made from six chunky tan blocks; One white paper scene with two green trees; One rectangular card with Kit\u2019s simple stick-legged dog drawing; One dog-shaped paper puppet with floppy brown ears, attached to one wide craft stick; its red collar is added on page six; One red crayon; One plain gray drawing pencil for Kit\u2019s first dog sketch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Zoe adds a red collar to her dog. \u201cWould you like to use this?\u201d\nRequired illustration: World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Zoe offers the wide craft-stick handle of her dog puppet to Kit; its freshly drawn red collar is visible and the red crayon rests beside her. Exact state: One puppet with floppy ears and finished red collar; Kit\u2019s first card stays flat on table.\nExact current state: One puppet with floppy ears and finished red collar; Kit\u2019s first card stays flat on table.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical exact-state composition: Zoe is handing the ONE finished paper dog puppet with a bright red collar and wide stick to Kit. Her red crayon lies on table. ONE scenery sheet stays propped against the same six-block stage. No second puppet, no collarless copy.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-01-reference.webp",
+      "sha256": "3d6a96f49eb80b9721da0b8eb8f1efa0206aa8134a6d737a342d31d80020a3a2"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "7e5fc04398704ff23b483ce402c177972fbb1f1df0833db52f2785700766c703",
+    "note": "Zoe offers one completed red-collared dog puppet toward Kit\u2019s waiting hand. One scenery sheet is visibly propped against the unchanged two-row, six-block stage. One original sketch, pencil and crayon remain; correct identities and contact.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

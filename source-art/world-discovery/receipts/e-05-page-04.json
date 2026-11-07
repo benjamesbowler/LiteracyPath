@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-05",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:44:32.046Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ea1866c5-9fcd-48e3-837b-53dda3e5d2b0.png",
+  "sourceSha256": "2eaf64f026619a5a0c7d0ce8f0c5bb59df59d805422e50dc8d550a941d133a56",
+  "output": "public/guided-reading/world-discovery/e-05/page-04.webp",
+  "outputSha256": "1664ed6d65c61328b86be962f1e3839b1fb8f4ede0edebef20d0d84c3b941809",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The River Moves the Bank; World Discovery; nonfiction.\nSetting: One gently winding river in a grassy valley over months, with a steep outer bank and low inner sandbar. A solitary broad tree remains beyond the outer bank as a position reference.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Winding river bend; Steep outer bank; Inner sandbar; Loose grains and pebbles; Distant tree as fixed landmark\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The river carries this loose material, called sediment. Fine grains travel in the water; heavier pieces may roll below.\nRequired illustration: Underwater cutaway shows fine suspended sediment and a few small pebbles rolling along the bed. Exact continuity: Cutaway explanatory; grains enlarged enough to see without implying pebble-sized silt.\nExact current state: Cutaway explanatory; grains enlarged enough to see without implying pebble-sized silt.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. UNDERWATER VIEW fillswholeimage, visiblewatersurface topstrip only. Many TINY finebrown particles suspended THROUGH watercolumn; heaviergraypebbles rest/rollalong BOTTOM. Do NOT put sediment floatingonlyonsurface. No standaloneparticlemagnificationinset.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-05-reference.webp",
+      "sha256": "09b317f78aa80a24ac4d9b06d85ef930e8e214d72c61a7d5e39a0a354c3cb990"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:44:36.445Z",
+    "sha256": "1664ed6d65c61328b86be962f1e3839b1fb8f4ede0edebef20d0d84c3b941809",
+    "note": "Underwater cutaway distinguishes tiny suspendedgrains throughoutwatercolumn from largerbedpebbles rollingalongbottom.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

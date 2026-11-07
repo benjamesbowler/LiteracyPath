@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-03",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:16:17.075Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-891b85ba-9850-4947-9c34-976f945ded38.png",
+  "sourceSha256": "90e24f177f8ca828e7716ff03daf8dd48ab7d4a2189b2ff7fb55676303d36661",
+  "output": "public/guided-reading/world-discovery/e-03/page-02.webp",
+  "outputSha256": "c7f148b3984c87eb3d3d05ad8f0f0a3eba9606ea2c7a9f5903cf4c2d6b074890",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Garden for the Rain; World Discovery; nonfiction.\nSetting: One neighborhood community building beside a paved path and stream. A mature shallow rain garden sits safely away from foundations and the walking route. \nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Building gutter and downspout; Paved path; Shallow planted rain garden; Soil cutaway; Visible overflow channel; Nearby stream\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): The roof and pavement let little water soak through. Water flowing over the surface is called runoff.\nRequired illustration: Close oblique view shows droplets joining thin flows across a solid paved surface toward its edge. Exact continuity: Paving intact; no claim absolutely no water can pass any pavement.\nExact current state: Paving intact; no claim absolutely no water can pass any pavement.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific illustration constraint: dry path separated from rain garden; depression has LOW center, not raised planter. Inlet from building LEFT to hollow CENTER; overflow from hollow RIGHT towards stream without crossing path. Use same cream building/redroof/bluegutter. Absolutely ZERO humans in this scene; no animals from referenceboard. No labels arrows writing. Soil cutaways are illustrative clear sections, no glass box. Flat clean vibrant colors with solid black outlines, no textured canvas, grain or brushstrokes. Only current scene matters, not all reference props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-03-reference.webp",
+      "sha256": "2868250f4b180fd8276cb0ba536346e792940d2dd379773df458ba5201b70689"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:21:34.039Z",
+    "sha256": "c7f148b3984c87eb3d3d05ad8f0f0a3eba9606ea2c7a9f5903cf4c2d6b074890",
+    "note": "Thin streams on solid paving foreground, roof collecting rain, distinct path/garden.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

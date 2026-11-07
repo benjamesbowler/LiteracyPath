@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:34:34.071Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e229250e-d88c-4034-bbc8-e2efdc4d155d.png",
+  "sourceSha256": "e755efb18a1b66e286a635b8b391ef572c2b2df84b61adeac937efb152ff9184",
+  "output": "public/guided-reading/world-discovery/e-04/page-07.webp",
+  "outputSha256": "ec5ef66866c2dd1b5d2cda628009aa6b61fc9f81df3a10fdb907763f3169bec3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Remove the bluecloth, silverchalkstick and loosecreamstring from foreground floor; fill those exact regions with plain matching lavenderfloor. Keep Kit alone holdinglargeyellowdentedsphere safelyinsidepuppetroom, bluecurtainsright, solidcreamwall andbrokenrectangle exactly. These three tools stayed in otherroom. No added objects, no other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-451ddfbe-b340-4c85-81ce-57fc8740c1d4.png",
+      "sha256": "d992e70de3743da836f36f5ffc8f7a5ad892abbd07917cb42dbb180f82f9aa2f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.478Z",
+    "sha256": "ec5ef66866c2dd1b5d2cda628009aa6b61fc9f81df3a10fdb907763f3169bec3",
+    "note": "Kit/sphere fullysafeinsidepuppetroom, brokenoutline solidwallbehind; removed transportedchalk/cloth/string.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

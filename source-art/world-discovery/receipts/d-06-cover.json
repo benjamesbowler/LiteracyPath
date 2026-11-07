@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:41:07.807Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c02e2ecc-fcca-4145-8ac7-30b5d828ebba.png",
+  "sourceSha256": "e3ea2cdcd56efe6d64ce67013bda81f8c0aeb53e46e0b9788d44d3bbd451712b",
+  "output": "public/guided-reading/world-discovery/d-06/cover.webp",
+  "outputSha256": "f9afa3b9875580684d9ed11e7ed64ffc3d0a76397c03760a4ffce5e049f581b3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Marks on the Moon; World Discovery; nonfiction.\nSetting: The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray cratered Moon; One incoming gray space rock; Bowl-shaped crater with raised rim; Scattered fragments and overlapping smaller crater\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: A crisp lunar landscape shows a large bowl-shaped crater with a raised rim and a smaller crater crossing one edge, under a black sky.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-06-reference.webp",
+      "sha256": "9d046e48daaa20a08468f92df3b83dff6de83f373a7f3f996bc1f2808fb5180c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:41:08.663040+00:00",
+    "sha256": "f9afa3b9875580684d9ed11e7ed64ffc3d0a76397c03760a4ffce5e049f581b3",
+    "note": "Directly inspected dedicated lunar cover: raised bowl rim, smaller neighboring overlapping crater, dry gray surface and black sky; no lettering, water, atmosphere, people or vehicles."
+  }
+}

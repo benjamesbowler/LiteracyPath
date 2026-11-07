@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:38:37.648Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-93144cb1-bf72-4495-97cf-ce31f5bd8d96.png",
+  "sourceSha256": "9889c4040f9473ad2e7c9bcfda074f3cf08bfd45ff23418bcf7b7cf373c20495",
+  "output": "public/guided-reading/world-discovery/e-04/page-09.webp",
+  "outputSha256": "71289017d2397855012cf6f78037d658aae54169e14100e6d9303d158393dc29",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit FIRST image only; second is exact cast identity and third shows exact Kit + moon prop to copy. Preserve entire first image room and open silver doorway and Zoe. Correct Kit inside doorway to match reference: SHORT STRAIGHT BLACK SIDE-PART hair (not spiky), teal plain T-shirt, mustardshorts, NAVY sneakers withwhite soles. Correct yellow paper moon inhisarms to match third image: SMOOTH solidyellow sphere with single subtle smallLEFTdent, NO ribs/panelstripes, NO hugecutout, NO accordiontexture. Make sphere diameterabout3/4 Kitstandingheight like thirdimage, not tinyball. Keep Kitfullyinsideroom. Remove the duplicate silverchalkstick lyingonfloor because Zoealreadyholds the ONEchalk; keepclothandstring onfloor. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f24a6a4c-b56b-4cfe-b4ec-29e02c2415df.png",
+      "sha256": "22283a5be1e84537d378faa0c2ecc6c8491b66abff703d02c476f92aa2e50706"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-04/page-07.webp",
+      "sha256": "ec5ef66866c2dd1b5d2cda628009aa6b61fc9f81df3a10fdb907763f3169bec3"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.479Z",
+    "sha256": "71289017d2397855012cf6f78037d658aae54169e14100e6d9303d158393dc29",
+    "note": "Corrected cast and moonmodel, reopenedWIDE silverpassage withordinarywooddoorseparate; Kitinsideholding same dented smoothsphere; onechalk inZoehand.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:19:50.520Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2aef32b3-26ea-4d00-80ef-77a8dc2bb86f.png",
+  "sourceSha256": "29d936f96562f30f46c8c5db058bc63bbba35a93d08b84cc5cb78ceaacedc1c1",
+  "output": "public/guided-reading/world-discovery/c-10/page-08.webp",
+  "outputSha256": "66d5c56f983090679c68080be7538e40b7a9fce28634551c6726600e76b7f446",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Apple Core Comes Back; World Discovery; nonfiction.\nSetting: World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One apple core and fruit peel scraps; Dry brown leaves; One ventilated green compost bin; Small watering can; Garden fork handled only by adult; One young tomato plant; One garden bed of soil; One small cream snack tray; One small gray bucket for finished compost; Two short hand trowels, one for each child\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): The plant grows new leaves. Compost from old scraps helps its soil hold water and nutrients.\nRequired illustration: World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Later, the same tomato plant has fresh green leaves in the same soil bed; Kit waters at its base while Zoe points to the new growth. Exact state: Growth over time; no instant ripe tomatoes; compost mixed into soil, apple core not reappearing intact.\nExact current state: Growth over time; no instant ripe tomatoes; compost mixed into soil, apple core not reappearing intact.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPreserve green square ventilated bin and removable lid, green-sweater adult, Kit/Zoe clothes, cream tray, gray compost bucket, blue/plum short trowels, green watering can, same school garden. Only stage-specific required objects visible. No apple-core vignette, duplicate core, captions, labels or montage.\nLater plant in same raised bed larger and leafier, NO tomatoes/flowers yet. Kit tips ONE green watering can gently at base (water lands on soil); Zoe points to fresh small new leaves at top. No trowels, apple core, fruit scraps or vignette. Green bin closed in background.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-10-reference.webp",
+      "sha256": "f5e3759f2688e1e8563d991456dd9acc557a3de7a24feeac5164cf8af82d4de8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "66d5c56f983090679c68080be7538e40b7a9fce28634551c6726600e76b7f446",
+    "note": "Direct inspection: same tomato noticeably larger/leafier than planting scene, Kit waters soil at base while Zoe points to new top leaves; no fruit, intact core or instant growth cue; bin closed.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

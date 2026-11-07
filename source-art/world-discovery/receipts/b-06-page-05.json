@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-06",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:44:33.957Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a485b959-6d64-4885-8b07-fd238551040c.png",
+  "sourceSha256": "fa97dbd1e6713a748d8fe09087072377020130c0319bb808438e7bf8c1553bb1",
+  "output": "public/guided-reading/world-discovery/b-06/page-05.webp",
+  "outputSha256": "5887b5bdaf37eb7b330ecabb84bb512f06808e398edb17865fe4978bd76ee98b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Boot Prints on the Moon; World Discovery; nonfiction.\nSetting: Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray loose lunar dust with ribbed boot prints; One plain white astronaut suit; One Earth brown-mud boot print for contrast\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): No rain falls on the Moon.\nRequired illustration: Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. Return to the exact lunar footprint and dry gray terrain under black space. Exact state: No clouds, puddles, plants or rain; original print intact.\nExact current state: No clouds, puddles, plants or rain; original print intact.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSCENE LOCK: Viewpoint ON the Moon, black starless sky, dry clean gray ground. NO floating Moon or other planet overhead. NO Earth inset, no brown ground, rain, water, grass, clouds, air, dust cloud or wind. NO astronaut or boots, ONLY the existing footprint(s) and lunar terrain. Match the boot tread with simple transverse ribs. No numbers, arrows or labels. Entire scene bold crisp clean flat 2D outlines, sparse outlined stones on flat gray soil, no granular photographic dust texture, stippling, paint or grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-06-reference.webp",
+      "sha256": "a3212b9bcaed081683a4c8f17105bc21d519048edbb7e3eac9288960c90982af"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:47:01.816053+00:00",
+    "sha256": "5887b5bdaf37eb7b330ecabb84bb512f06808e398edb17865fe4978bd76ee98b",
+    "note": "Dry intact lunar footprint under black sky, with no rain, plants, water or astronaut."
+  }
+}

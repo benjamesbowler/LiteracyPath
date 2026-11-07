@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:26:10.585Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-9310805c-a82d-4614-b60c-82c16396c08e.png",
+  "sourceSha256": "b45d7ee1f36570784c28a3ed497ea17245c7cb3340d9fc1c34b543195a4a35dd",
+  "output": "public/guided-reading/world-discovery/e-04/page-03.webp",
+  "outputSha256": "3a38a6b5bc067a0bb9241151394eddcd648b9d307f8ff5721738d4a36f706ba8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Door in the Chalk; World Discovery; fiction.\nSetting: Explicit fantasy in a classroom art room adjoining a puppet room. One cream dividing wall, ordinary narrow doorway at right, silver chalk that opens unbroken outlined doors into the room beyond.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Large lightweight hollow paper moon, a round sphere wider than the ordinary doorway; Silver chalk stick; Cream wall between adjacent rooms; Blue puppet curtain in next room; Soft cloth; Plain string used to compare the moon’s width with the doorway\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): She wipes away the small door and draws a tall, narrow rectangle. When the last line joins, the puppet room appears.\nRequired illustration: Zoe finishes the last corner of a new tall, narrow silver rectangle, revealing the same adjacent puppet room. The wiped-away small demonstration rectangle leaves no intact outline. Exact continuity: Old small door explicitly wiped away; one active magic doorway; blue curtain beyond; new opening remains narrower than the paper sphere.\nExact current state: Old small door explicitly wiped away; one active magic doorway; blue curtain beyond; new opening remains narrower than the paper sphere.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPRECISION: Exactly ONE tall silveroutlined magicpassage atLEFT, width60cm sameheight170cm, bluecurtainvisiblethrough. Oldsmallrectangle FULLYERASED; no faintclosedoldshape. Ordinarywooddoor stillRIGHT. Yellowmoon diameter80cm, no dentyet, heldKitoutsidepassage.\nSmooth clean flatcolor interiors, no grain, no papertexture, no woodgrain, darkcrispoutlines. The referenced moon is a ball/sphere, never flatdisk. Essentialpeople andhandsnatural. No text labels arrows or speechbubbles.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-04-reference.webp",
+      "sha256": "f808693890ebf5f4ad6d07d0bf8c4a2d388a9052e14535884ba4c9d4f2a0d094"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.476Z",
+    "sha256": "3a38a6b5bc067a0bb9241151394eddcd648b9d307f8ff5721738d4a36f706ba8",
+    "note": "One tall narrow magicrectangle, no intactoldsmall outline; moonstilloutside, too wide.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

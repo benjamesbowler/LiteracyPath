@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:00:27.249Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-821bb04b-07b9-4a8c-a70c-392c02b94420.png",
+  "sourceSha256": "9037569297065d980349f6ebafb496bf02707c992a9336e33604c2d1c91bd2e1",
+  "output": "public/guided-reading/world-discovery/d-08/page-05.webp",
+  "outputSha256": "bfe2380c700647dc30ac64be4eaf641006f3e2affee7d19301d08458cca1f93c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: One Bean Becomes Many; World Discovery; nonfiction.\nSetting: One common bush bean plant in a garden bed through a growing season. Consistent green leaves, white flowers and cream seeds; no human cast.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One cream common-bean seed; Brown soil cutaway; White flowers; Green pods that later dry tan; Mature cream beans\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The leaves use sunlight to help the plant make food. More roots, stems, and leaves grow.\nRequired illustration: Young green bean plant stands in the same garden bed with several leaves; cutaway roots spread beneath. Exact continuity: Plant larger through elapsed time; no sunlight drawn as food particles.\nExact current state: Plant larger through elapsed time; no sunlight drawn as food particles.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nBotanical and scene constraint: young common beans first have two thick cotyledons and a pair of simple first leaves; every MATURE leaf consists of THREE leaflets joined to a single petiole (trifoliate), never just many single leaves along the stalk. Keep only the growth stage explicitly required on this page. Brown soil must use smooth flat brown fills and simple outlined clods, no speckle/grain/brush texture. No detached giant seed standing beside the plant, no unrelated life stages.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-08-reference.webp",
+      "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:08:45.969464+00:00",
+    "sha256": "bfe2380c700647dc30ac64be4eaf641006f3e2affee7d19301d08458cca1f93c",
+    "note": "Larger bean plant has distinct trifoliate leaf sets and spreading roots shown in a cutaway. No flowers or pods before their stage."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-03",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:49.024Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c948ac11-4164-438f-a938-9a311edc94a7.png",
+  "sourceSha256": "7d7eff7cd37321ccf45a873fd25c9b7ec68bfd0aab15ee64101129f0e9432302",
+  "output": "public/guided-reading/world-discovery/b-03/page-08.webp",
+  "outputSha256": "f7b4f0d6aa6205aa0f5075f14761969c532e6983f1df4767a2ade49c16e24c90",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Back to the Library; World Discovery; fiction.\nSetting: Neighborhood public library, warm wooden shelves and low desk, a round low reading table with blue chairs, sunny afternoon.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): They find the fox.\nNow Zoe turns the page.\nRequired illustration: Neighborhood public library, warm wooden shelves and low desk, a round low reading table with blue chairs, sunny afternoon. Zoe turns one page of the fox book while Kit watches the orange fox illustration, both seated together. Exact state: New reader controls the page turn; shared book continues in use.\nExact current state: New reader controls the page turn; shared book continues in use.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT SCENE: Same low round reading table/blue chairs. ZOE lifts and turns ONE page of the same open green book with her fingertips, one page visibly curved mid-turn; ORANGE FOX illustration visible on other page. Kit seated beside her watching, his hands do not turn pages. NO adult, no returns desk foreground, no extra book.\nBook design consistent: GREEN hard cover with centered orange fox front, plain green back and small barcode patch, no written title or pages of text. Kit teal/mustard/navy, Zoe yellow/plum full-length overalls/white, equal height. Worker only if specified: adult light brown skin, short gray hair, blue shirt, charcoal pants; never a child.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-03-reference.webp",
+      "sha256": "2bd7f33589cb2c5478829a521616a98310638afcf6b728c4283df9dc33aa9b73"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "f7b4f0d6aa6205aa0f5075f14761969c532e6983f1df4767a2ade49c16e24c90",
+    "note": "Zoe turns one interior page of the same open book while Kit watches beside her; single copy, consistent round table and blue chairs.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

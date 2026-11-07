@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-07",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:21:33.747Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-8058c234-be85-4092-9f71-52a0071c6e70.png",
+  "sourceSha256": "e665ec6e329876a92baa42d8dc5167ffbf46675e3518713ea4f59512a3f708d8",
+  "output": "source-art/world-discovery/e-07-reference.webp",
+  "outputSha256": "b4ce39455a38fc8b4cb14e8072afa5cbd55bdb5d4cbb66aecd7a8208af873f0f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit supplied reference board to accurately depict lesser long-nosed bat and saguaro seeds. Preserve entire board layout, body/wing anatomy and cactus designs. Every bat: make ears modest sized rounded oval, not very long pointy mouse ears; on nose add a SMALL triangular leaf-like fleshy projection above nostrils, characteristic nectar-feeding leaf-nosed bat. Muzzle long and narrow. Keep two hindfeet and wingforelimbs, never extra legs. In opened red cactus fruit, replace few enormous brown bean-like seeds with MANY tiny black pinhead dots densely embedded in redpulp. Isolated seedexamples small blackdots, not hugebeans. No text or labels. Smooth flatcolors crispoutlines.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-5d0ee75d-11d6-4732-96e0-c60d18157218.png",
+      "sha256": "2f50a27d9ef8a2e35d295d233db716fa8c05c4fc463a1f885768096d42089608"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:04:48.466Z",
+    "sha256": "b4ce39455a38fc8b4cb14e8072afa5cbd55bdb5d4cbb66aecd7a8208af873f0f",
+    "note": "Inspected corrected bat reference with narrow muzzle, modest rounded ears, small triangular noseleaf, wing membranes and two hind feet; saguaro flower, later fruit and tiny seeds are separate design studies.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

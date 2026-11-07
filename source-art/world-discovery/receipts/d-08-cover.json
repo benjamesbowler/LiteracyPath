@@ -1,0 +1,20 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:10.501Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ed9f22b2-69e2-4de6-8722-168abdb76884.png",
+  "sourceSha256": "2008ab57f1c2bb04ee9e4919462109053d43a781a0301917f54b4e6b587f84e8",
+  "output": "public/guided-reading/world-discovery/d-08/cover.webp",
+  "outputSha256": "7ed874c4417dbe8aa81b549f4db74dfc7a200c372e1af0c2d3c525c0cdd0ab63",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this common bush-bean plant illustration. Its mature leaves must be TRIFOLIATE: each leaf consists of THREE green leaflets joining one common petiole. Redraw the foliage into a small number of unmistakable three-leaflet groups; do not leave independent single leaves attached along the main stem except the lowest original first pair. Keep green bean pods, white pea-shaped bean flowers, cream beans in one opened dry tan pod in foreground, ordinary garden, and clean crisp cartoon style. Reduce complexity to about five clearly visible three-leaflet groups if necessary. Preserve one connected bush bean plant. No text or grain.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:55:11.812899+00:00",
+    "sha256": "7ed874c4417dbe8aa81b549f4db74dfc7a200c372e1af0c2d3c525c0cdd0ab63",
+    "note": "Corrected and inspected mature common bean foliage into distinct three-leaflet groups; white pea-shaped flowers, green pods and open dry cream-seed pod all connected/logical."
+  }
+}

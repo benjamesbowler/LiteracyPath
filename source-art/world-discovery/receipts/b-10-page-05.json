@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-10",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:19:58.972Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2014c491-acca-490c-8f35-fe2b13b21646.png",
+  "sourceSha256": "d93bf05f7c082d4d3dc0151d6c3959d971b120bb77d97be16af41d8819d55620",
+  "output": "public/guided-reading/world-discovery/b-10/page-05.webp",
+  "outputSha256": "a3a35e09992191e9e388d5f22cb329889dd4d0a4c4c7f31355b334acfee72761",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Bag with a Patch; World Discovery; fiction.\nSetting: World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4\u20136 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult\u2019s sewing on page 5 and is stored away by page 6.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One cream cloth drawstring bag with a torn lower corner wide enough for the red cube to slip through; Exactly three chunky blocks: red cube, blue cube, yellow rectangular block; One square blue cloth patch larger than the corner tear; One needle and thread handled only by the adult\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The grown-up sews. Kit holds the bag still.\nRequired illustration: World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4\u20136 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult\u2019s sewing on page 5 and is stored away by page 6. The adult stitches the blue patch across the torn corner while Kit holds the opposite top edge well away from the needle. Exact state: Needle in adult hand only; patch being attached; blocks on table.\nExact current state: Needle in adult hand only; patch being attached; blocks on table.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT CURRENT INVENTORY: Adult helper in green sweater holds the ONLY needle and thread and sews ONE blue square patch across lower-corner tear of EMPTY cream bag. Kit holds the opposite TOP edge well away from needle. Zoe watches without touching needle. EXACTLY THREE blocks stay outside on table: red cube, blue cube, yellow rectangular block. Natural hands, needle visibly held by adult only. No extra bag, patch or block.\nNo future repair or sewing supplies before specified scene. Cream bag stays SAME size and drawstring design; blue patch only after page four. Entire picture crisp outlined clean flat 2D cartoon including room, table and wall, no painted texture. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-10-reference.webp",
+      "sha256": "0b2708b2fc3cc4c7dfa788f1e3c8dd22c804523190eed1f5189bcbc58eb27860"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:19:59.073257+00:00",
+    "sha256": "a3a35e09992191e9e388d5f22cb329889dd4d0a4c4c7f31355b334acfee72761",
+    "note": "Direct inspection: only adult handles single threaded needle at blue patch; Kit holds distant top rim and Zoe watches with hands at cheeks. Three original blocks on table, empty bag, clean stitch contact."
+  }
+}

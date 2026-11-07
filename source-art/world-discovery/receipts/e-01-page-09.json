@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:51:33.140Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-4c62bc11-ff1c-46e8-a70f-582d8695dffe.png",
+  "sourceSha256": "b6a3f148454bee86420f5a7354d85c80a626338f560d3f5cc1d2e0c1905e5686",
+  "output": "public/guided-reading/world-discovery/e-01/page-09.webp",
+  "outputSha256": "850f4274a4f33618e5537e77d6314e8f5b1b8a21b70d16b73b26e91866a403f3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: More Than the Builder; World Discovery; fiction.\nSetting: Classroom rehearsal corner in afternoon light. Low cardboard puppet theater, blue curtain, wooden chairs for an audience. Only Kit and Zoe are named. The performance audience consists of three unnamed children: one with fair skin, short auburn hair and an orange shirt; one with medium brown skin, short dark curls and a light-blue shirt; one with deep brown skin, long black braids and a green shirt. All have Kit and Zoe’s child scale.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Plain cardboard puppet theater; Blue cloth curtain; Orange fox hand puppet; White rabbit hand puppet with one small brown-painted front paw, visible whenever that paw is raised; Two plain wooden stools; One supplied cardboard scenery panel with a simple brown den doorway drawn on it, placed behind the stage window from page 2 onward\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): At the show, the fox peeps out. Kit’s voice reaches the back row. “Who has been digging near my den?”\nRequired illustration: Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge. Exact continuity: Performance after rehearsal; child audience neutral clothes; Kit behind stage.\nExact current state: Performance after rehearsal; child audience neutral clothes; Kit behind stage.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAll surfaces are smooth flat solid colors with limited cel shade. No fine texture, noise, paper grain, woodgrain or carpet fibers. Preserve the NEW reference theater geometry and puppet designs. ONLY now show the three described audience children, two seated nearer the stage and one seated farther back. Kit and Zoe operate their puppets from behind the front cardboard barrier; their real heads stay low, not up in the stage window. Fox is raised; rabbit waits BELOW the window edge, out of audience sight. No extra people.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-01-reference.webp",
+      "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.955Z",
+    "sha256": "850f4274a4f33618e5537e77d6314e8f5b1b8a21b70d16b73b26e91866a403f3",
+    "note": "Exactly three audience children now present; fox appears alone in stage opening; actors hidden. Wider composition slightly shifts floor/rug palette; story state remains clear.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

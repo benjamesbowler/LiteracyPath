@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-07",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:04:47.543Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3890c458-30fa-4349-93a7-d1f01478e677.png",
+  "sourceSha256": "a720a04b6a29dd87841b2e5334a33ba06f2dc3bb187c491e66c30cd9d76439b4",
+  "output": "public/guided-reading/world-discovery/e-07/page-04.webp",
+  "outputSha256": "32f258755d18c49e359722648cd298f039687e60c83697beb3bbb21c2dd11b25",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Flower’s Night Visitor; World Discovery; nonfiction.\nSetting: Sonoran Desert at night during saguaro flowering, followed by a later fruiting view in daylight. One lesser long-nosed bat with natural brown fur and long muzzle.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Saguaro cactus with creamy white flowers near top; Lesser long-nosed bat; Yellow pollen; Later red saguaro fruit and dark seeds\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The flower has given the bat food. What happens to the pollen when the bat flies away?\nRequired illustration: Bat lifts away from first bloom with a visible fine yellow dusting on its muzzle. Exact continuity: Same pollen remains; no pollen cloud forming magic trail.\nExact current state: Same pollen remains; no pollen cloud forming magic trail.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. Nectarbat anatomy: two wings ARE forelimbs withlongfinger supports, onlytwohindfeet, brownfur, modest roundedears, narrowmuzzle withsmall triangularnoseleaf atnostrils. Keep muzzle proportionnatural, notmousewhiskers. Saguaro whiteflowers atcolumnTIP, no spinesinsideflower. Night pages1-6/10, daypages7-9; no fruitsbeforepage7. ManyTINY blackseeds inripe redfruit, nevergiantbeans. Pollendustonlyonfur/stigma notmagictrail. Match precise current life stage, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-07-reference.webp",
+      "sha256": "b4ce39455a38fc8b4cb14e8072afa5cbd55bdb5d4cbb66aecd7a8208af873f0f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:04:48.467Z",
+    "sha256": "32f258755d18c49e359722648cd298f039687e60c83697beb3bbb21c2dd11b25",
+    "note": "Bat flies away from first cactus; pollen remains on muzzle without magic trail.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-03",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:49.120Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-65eba0fa-2df5-470e-9100-83301a40af27.png",
+  "sourceSha256": "4060a807f275f18f80672c79b9e7309e5961dbcc9be608b3b1a8cdb50a0bfdb6",
+  "output": "public/guided-reading/world-discovery/b-03/page-02.webp",
+  "outputSha256": "ee3247bf1e9ca675b5ab57b1a18325e89befabc63b9fcbe26199f6c7da46442b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Back to the Library; World Discovery; fiction.\nSetting: Kit's home doorway, blue front door and tan house wall, sunny afternoon with garden path toward nearby brick public library.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): \u201cThis book goes back today,\u201d says Kit.\nRequired illustration: Kit's home doorway, blue front door and tan house wall, sunny afternoon with garden path toward nearby brick public library. Kit holds the green book between them and points toward the nearby public library visible through the doorway. Exact state: No handoff yet; cover fox remains unchanged.\nExact current state: No handoff yet; cover fox remains unchanged.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT SCENE: At SAME HOME doorway, Kit still holds ONE green fox book securely in one hand while pointing OUT toward the nearby brick public library visible beyond sunny path. Zoe looks where he points. Doorway belongs to house, not library. NO adult/worker, no returns desk, no card handoff, no book handoff.\nBook design consistent: GREEN hard cover with centered orange fox front, plain green back and small barcode patch, no written title or pages of text. Kit teal/mustard/navy, Zoe yellow/plum full-length overalls/white, equal height. Worker only if specified: adult light brown skin, short gray hair, blue shirt, charcoal pants; never a child.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-03-reference.webp",
+      "sha256": "2bd7f33589cb2c5478829a521616a98310638afcf6b728c4283df9dc33aa9b73"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ee3247bf1e9ca675b5ab57b1a18325e89befabc63b9fcbe26199f6c7da46442b",
+    "note": "Kit points toward distant library while retaining book; home-to-library direction remains coherent.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

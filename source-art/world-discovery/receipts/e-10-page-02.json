@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-10",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:42:49.702Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-631a0aae-3d86-48f5-b945-bc0a99dfd4ba.png",
+  "sourceSha256": "c39e610285f2d99386fc6ed751a165066dc3f3285e25545b7f4d200370d79b85",
+  "output": "public/guided-reading/world-discovery/e-10/page-02.webp",
+  "outputSha256": "7f9eccf7fd1e6dcf16b1944f467fda603a0d467501e8a76e643cfcfba2483c92",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Keep the Water in the Garden; World Discovery; nonfiction.\nSetting: An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Established leafy vegetable plants; Brown soil; Clean straw mulch; Small blue watering can; Blunt trowel; Adult gardener\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): The gardener helps them check below the surface. The soil underneath is darker and still damp. The top did not tell everything.\nRequired illustration: Adult gardener uses a blunt trowel to open a small shallow inspection hole away from the plant stem; children see damp soil below. Exact continuity: Avoid damaged roots; adult does digging; dry surface and damp lower soil contrast.\nExact current state: Avoid damaged roots; adult does digging; dry surface and damp lower soil contrast.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: NO STRAW OR MULCH yet. Adult uses blunt blue-handled trowel in one small shallow inspection hole well away from plant stem; dark damp lower soil beneath pale surface. Children watch, Kit not watering, no damaged/exposed roots.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nGARDEN CARE BLOCKING: All humans keep feet/knees OUTSIDE planted bed, on gray path or grass beside its wooden border. No one stands or kneels on planted soil or straw. They reach over the low border naturally. Preserve hands and arm counts exactly; no duplicates.\nFINAL CORRECTION OVERRIDES earlier image: Recompose camera closer to the LEFT edge of bed: adult gardener kneels on gray PATH LEFT of wooden border, both boots/knees completely outside bed. His hand reaches a short distance across border to trowel a small shallow inspection hole just inside edge, far from plant stem. Children stand behind adult on path. Hole shows darker moist lower soil under pale surface. No straw, no pouring. Never place any human foot/knee on soil.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-51a5fb4c-064b-4218-a380-42f4e7a8563e.png",
+      "sha256": "53a1413586c22fe96e1b5bb185b6076eadd58ca0455e3f50b397e1dfb3fd5648"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:42:51.374Z",
+    "sha256": "7f9eccf7fd1e6dcf16b1944f467fda603a0d467501e8a76e643cfcfba2483c92",
+    "note": "Adult safely uses blunt trowel in shallow hole away from plant; damp dark soil below paler surface; corrected all feet/knees outside planted soil.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

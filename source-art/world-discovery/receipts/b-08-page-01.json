@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:58:48.986Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d39444fa-7667-4f8b-94a8-fed7782bc48e.png",
+  "sourceSha256": "9aa335e56af7d39034973cfb4512737bffc07433147f36fc5f2336c9c6f0b9b7",
+  "output": "public/guided-reading/world-discovery/b-08/page-01.webp",
+  "outputSha256": "9b27bf734c59a281b526e83f823c9a64e1e5aa37b3a326949c74faba52b74bb6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise picture-book illustration correction. Keep the same intact yellow egg cluster visibly attached to underside of main leaf, and all foreground plant geometry unchanged. Change ALL soft/blurry background leaves into simple crisp dark-outlined flat-green shapes, with perfectly clean flat pale-blue spaces between them. ZERO depth-of-field blur, soft focus, photographic texture, paint grain or stippling anywhere. Keep the main foreground leaf, main animal/eggs, framing and composition unchanged except stated correction. Entire image must be crisp flat clean 2D cartoon. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a17dc298-2240-4154-89cc-2ec196a82733.png",
+      "sha256": "2594c450b332bbca66c461cc2869df6571ecb61f11f43ff04028e38415ebd96c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:58:50.021557+00:00",
+    "sha256": "9b27bf734c59a281b526e83f823c9a64e1e5aa37b3a326949c74faba52b74bb6",
+    "note": "Intact yellow egg cluster clings to underside of broad green leaf; no later stages; background blur removed."
+  }
+}

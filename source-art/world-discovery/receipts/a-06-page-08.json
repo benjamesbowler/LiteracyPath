@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-06",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:25:22.814Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-76810a2d-d0b4-4051-ac8c-b9791bb8a9fc.png",
+  "sourceSha256": "ba9e9c51fe0fe2107317c4e14111eb8c8d18ded5ea6dce0f1cdb097716db069f",
+  "output": "public/guided-reading/world-discovery/a-06/page-08.webp",
+  "outputSha256": "6648ff57dddffa7fb1240f7221a650b8361f953773d0784634d013e50a10aa62",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Move the ONE broad cloud from LEFT of the Moon to RIGHT of the Moon (it has already drifted past), leaving clear blue sky in the old cloud position. Shrink the Moon to HALF its current height, about 30\u201335 pixels tall, keeping same sky position and right-lit half phase. Cloud should be fully separated, on far RIGHT without covering Moon. No second cloud. Preserve Zoe seated on bench, daylit park and all else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-410371b5-209b-4e53-a926-545399d39476.png",
+      "sha256": "944cfd77fa58969f46a2722b1718a770f988349fd89e60e670d82dba7c47fdcb"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6648ff57dddffa7fb1240f7221a650b8361f953773d0784634d013e50a10aa62",
+    "note": "Closing daytime bench view; small right-lit half-Moon clear and one cloud departing right after direction correction.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

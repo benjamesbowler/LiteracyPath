@@ -28,6 +28,15 @@ Moonwood designs; a different guardian design from another book is not a
 replacement for Stone. The whole illustration, including its background,
 follows the [clean cartoon standard](../design/ILLUSTRATION_STYLE_STANDARD.md).
 
+**World Discovery** introduces `WD-KIT` and `WD-ZOE` in ordinary contemporary
+settings, alongside factual natural subjects. The
+[World Discovery content Bible](../guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md),
+`source-art/world-discovery/cast-v1.png`, inspected per-book reference sheets and
+ordered scene states govern this separate cast. Each of its ten strands recurs
+at public App levels A–E; fantasy rules stay inside the explicitly fictional
+books and never explain the nonfiction. These are predictable/levelled readers,
+not cumulative decodables.
+
 ## 1. Canon hierarchy: never guess a character
 
 When sources disagree, use this order:

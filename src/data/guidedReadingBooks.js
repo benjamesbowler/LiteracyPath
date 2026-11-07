@@ -10,6 +10,7 @@ import { GUIDED_READING_BRIDGE_BOOKS } from "./guidedReadingBridgeBooks.js";
 import { GUIDED_READING_SMALL_STEPS_BOOKS } from "./guidedReadingSmallStepsBooks.js";
 import { GUIDED_READING_NEXT_STEPS_BOOKS } from "./guidedReadingNextStepsBooks.js";
 import { GUIDED_READING_BRIGHT_IDEAS_BOOKS } from "./guidedReadingBrightIdeasBooks.js";
+import { GUIDED_READING_WORLD_DISCOVERY_BOOKS } from "./guidedReadingWorldDiscoveryBooks.js";
 import { MEADOW_PALS_SCIENCE_BOOKS } from "./meadowPalsScienceBooks.js";
 import { getMeadowPalsSciencePageNarration } from "./meadowPalsScienceNarration.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
@@ -3341,6 +3342,7 @@ const activeGuidedReadingBaseBooks = [
   ...GUIDED_READING_SMALL_STEPS_BOOKS,
   ...GUIDED_READING_NEXT_STEPS_BOOKS,
   ...GUIDED_READING_BRIGHT_IDEAS_BOOKS,
+  ...GUIDED_READING_WORLD_DISCOVERY_BOOKS,
   ...MEADOW_PALS_SCIENCE_BOOKS
 ];
 

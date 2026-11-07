@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:12:04.250Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-58c0420f-07cd-4b50-9d42-f3fc13381d90.png",
+  "sourceSha256": "2df26cba5246f0226daed0e987702fbd9dbce35750e60a726b6407bed3f43ee2",
+  "output": "public/guided-reading/world-discovery/e-08/page-03.webp",
+  "outputSha256": "dd82856c37d782bf2ecbcc4d3f8b6df072ce97fd89b4bbfa53796e52d07db22c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Frog Changes Its Way of Life; World Discovery; nonfiction.\nSetting: A temperate pond edge through the common frog (Rana temporaria) life cycle. Natural brown mottled frogs; spring egg clumps and later seasonal changes.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Jelly-like egg clump with dark centers; Common frog tadpole; Developing hind then front legs; Shrinking tail; Brown mottled froglet and adult\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): A tadpole hatched from an egg. It swam by moving its tail and used gills to take oxygen from the water.\nRequired illustration: One young dark common-frog tadpole swims below surface beside remaining egg jelly. Exact continuity: No legs yet; tail fin intact; do not show adult lungs as external balloons.\nExact current state: No legs yet; tail fin intact; do not show adult lungs as external balloons.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Exactly ONE legless dark tadpole with a long flat tail fin swims underwater beside a little remaining jelly. NO legs or adult frogs.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nPrecise correction to attached image: keep same ONE legless tadpole and clean style. MOVE the remaining jelly-egg clump UP to touch underside of water surface at upper LEFT among stems; it must float near surface, NOT rest on pond bottom. The egg clump much smaller than the tadpole, only six small translucent jelly spheres with dark centers. Remove all air bubbles to avoid suggesting tadpole air-breathing. Preserve tadpole long tail, no legs, no external lungs. No eggs or bubbles on bottom.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-1da6ff25-9a27-45c0-a06b-ac2ccda7050b.png",
+      "sha256": "1a25cb31da58dc903b1bc2fa7305951ac72fa7a57903e0e1bfccd8620ad18da3"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:12:05.458Z",
+    "sha256": "dd82856c37d782bf2ecbcc4d3f8b6df072ce97fd89b4bbfa53796e52d07db22c",
+    "note": "Corrected remaining jelly to float immediately under surface among stems; one legless tadpole with long tail, no air bubbles.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-07",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:25:12.064Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0b2d2675-9443-425e-aa3b-30c22f15f17f.png",
+  "sourceSha256": "086b539bd094272cdd6951b09dcaf8dd31d1b1c0967ddb1add6ff756d4eee640",
+  "output": "public/guided-reading/world-discovery/d-07/page-01.webp",
+  "outputSha256": "44026316cfc8c136e287ef75d0103f935211ce351c145e5eec627fe0e060cfca",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Fix the EYES in the FIRST illustration. The second illustration is the authoritative correct 8-eye design reference.\nREPLACE the entire existing eye cluster in the first image. Clear the present seven dots to brown, then create FOUR COLUMNS of paired eyes: column one has an upper and lower eye; column two an upper and lower eye; column three an upper and lower eye; column four an upper and lower eye. Eight total. Both rows extend the SAME width. Each lower eye has a matching upper eye. Copy this complete eye cluster design from the second image, scaled into the first spider's face and rotated with its head. Make the lower row just as wide as the upper row; NEVER a triangular 4-over-3 arrangement. All four lower eyes must be fully visible, distinct and unobstructed. Tiny black natural eyes with small highlights, all similar size. You may redesign the small brown face patch around the eyes to make them clear; keep the head silhouette and pedipalps.\nKeep the FIRST picture's eight long legs, two body parts, markings, pose, web, fly/prey state, background, camera and fullsize landscape composition. Do not copy any scene content from the reference except the 8-eye design. Bold clean flat 2D illustration, no labels or text, no inset. Return the complete corrected first picture.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c84dc3ed-46a3-4b4e-8374-fc6f2c7b277a.png",
+      "sha256": "e1e1930918f30a9a3d5f4f5140bd1f52298bc759569b9257f070925db38ece6e",
+      "role": "edit target"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-809c11b6-1019-4edf-be0c-132fcc88a24d.png",
+      "sha256": "7edc5046825d08b68903c14a6bee5a09674819561c962f01619460fb0851539b",
+      "role": "correct 8-eye design"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "sha256": "44026316cfc8c136e287ef75d0103f935211ce351c145e5eec627fe0e060cfca",
+    "note": "Central waiting spider retains eight legs, two body regions and one approaching fly. Eye patch now four upper and four lower small eyes, all fully visible; no later prey state.",
+    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+  }
+}

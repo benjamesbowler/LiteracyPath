@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-01",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:19:26.738Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0c475997-d4a5-40ae-8402-04b8681246d7.png",
+  "sourceSha256": "16d927c09ebf0595190532350ce58a1bdaa5caff91659caef937fa581ea28e06",
+  "output": "public/guided-reading/world-discovery/a-01/page-04.webp",
+  "outputSha256": "ca81d0b91a5fb54d4c24d37dacc34249fb481639501532721a8367584bd36d5a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets. Preserve exact reference identity and clothing.\nBook: Zoe Draws Zoe; World Discovery; fiction.\nSetting: A bright art corner at home, morning, low pale wood table and a fixed oval tabletop mirror.\nLocked recurring subjects/props: One oval teal-framed mirror; One cream portrait sheet; Four crayons: brown, black, yellow and plum; Zoe remains in her locked costume\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout.\nPage 4. Printed prose (NOT text to put in art): She adds her two puffs.\nRequired illustration: Zoe draws black hair with exactly two round puffs on the portrait, matching her own hairstyle. Do not yet add a mouth or shirt.\nExact current state: Portrait has face, eyes, black hair and two puffs; no mouth.\nDo not add later events or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-01-reference.webp",
+      "sha256": "0b0f3ecc793ac0cf17c738e2e73233840a4243156b255f1bfe0144f9b3f94cf6"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ca81d0b91a5fb54d4c24d37dacc34249fb481639501532721a8367584bd36d5a",
+    "note": "Two hair puffs added; no mouth or shirt yet.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

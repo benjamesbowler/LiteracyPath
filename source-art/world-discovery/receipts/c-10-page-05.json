@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:23:24.582Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-437b5748-8f4f-4ab9-a6d3-18623c9edbf0.png",
+  "sourceSha256": "cd1aef30b7f07d8a31cda89dfec6b4c05bfc44bbdf5e3029e3f626056a6f804f",
+  "output": "public/guided-reading/world-discovery/c-10/page-05.webp",
+  "outputSha256": "ba75f55decba418469a5db98fdf0cba280f6a157ab09fe68be0c1e159142f68a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. REMOVE ONLY the premature tomato plant from background soil bed at upper-right, leaving bare soil in the same wooden bed. The story has not reached planting yet. Preserve the low half-height partly decomposed pile with recognizable scraps inside green bin, people, tools, empty tray, bucket, colors and all other details. No new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-90c49096-1c04-4f88-9557-673d620b73c1.png",
+      "sha256": "a1b5f3cc2b0a95484c6ce5c06e5999c86e0d17e0eea9366922f0f72049daca7e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ba75f55decba418469a5db98fdf0cba280f6a157ab09fe68be0c1e159142f68a",
+    "note": "Direct inspection after premature-plant removal: same bin pile lower/darker with recognizable soft peel/leaf fragments, not finished; bare soil bed and empty tray, children observe.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

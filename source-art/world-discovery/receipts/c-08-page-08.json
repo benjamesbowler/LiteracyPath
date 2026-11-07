@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:56:05.151Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6e4f8edc-916b-4a10-be1c-4f0d62e8fb49.png",
+  "sourceSha256": "e5c5dac97854e342bf0484d6519aa2b9266a26d3e6b3cd34bc232090f0f6a29e",
+  "output": "public/guided-reading/world-discovery/c-08/page-08.webp",
+  "outputSha256": "ee244327e9a5526af4797b13cb6410c1b530ae5ceb17158f11ac0648fd9efb70",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY wing visibility on the egg-laying adult dragonfly. There must be exactly FOUR distinct transparent veined wings attached to the thorax, each with a separately visible contour/tip: TWO near-side wings and TWO far-side wings fanned slightly apart so none is wholly hidden. Currently only three wing silhouettes show. Add the missing fourth visible far wing carefully, NOT a fifth. Preserve abdomen curved downward with tip contacting reed at water surface, six legs, head, colors, background, and no externally visible egg pile. No other edits, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-26b4f1ab-0385-4d51-9be4-c178e0bf3964.png",
+      "sha256": "f8a41ce455f12d0cb2104097b2aa02bbdd5e0882a2bcf5c9f4567c5aecd103c9"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ee244327e9a5526af4797b13cb6410c1b530ae5ceb17158f11ac0648fd9efb70",
+    "note": "Direct inspection after fourth-wing visibility repair: one female has four distinct wing outlines, abdomen tip contacts plant at water surface to insert eggs; no egg pile or instant hatchling.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

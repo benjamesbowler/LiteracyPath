@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-02",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:00:07.982Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-da3b98dd-a4d8-4f82-80d3-6986ed318737.png",
+  "sourceSha256": "72f1101d07f60a14eb09de3e0a2c5fcfe800c178a71d757d0a5065d6fa8dd0cc",
+  "output": "public/guided-reading/world-discovery/d-02/page-10.webp",
+  "outputSha256": "bd142aeabb3fe49393925b38aa83b5f311a442fb56196639472a25281647c9e4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied finished illustration, preserving characters, clothing, faces, drawing, room colors and all untouched props. CORRECT THE BLOCK STRUCTURE ON THE RUG: exactly SIX identical tan wooden CUBES total form ONE small low bridge, with a real open gap underneath. Four cubes form two short pillars of two cubes stacked vertically. The pillars are close together with a gap a little narrower than one cube. The remaining TWO CUBES sit on top, shifted inward slightly so their inner faces meet over the narrow gap; most of each top cube rests on its pillar. All six are identical cubic proportions, none elongated, none floating. Remove the old block row or old elongated tops completely. No extra cubes, no tall tower.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e3278fc4-1764-4168-a60a-d70a053b5b5d.png",
+      "sha256": "f35fc3a32583d5425483e8734e6c229dfca19c96451777bfcae14720b27de11d"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "bd142aeabb3fe49393925b38aa83b5f311a442fb56196639472a25281647c9e4",
+    "note": "Direct inspection after bridge repair: children share finished green tree at far rectangular table; Kit empty-handed, one green pencil, original round table empty, six-cube bridge on rug.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

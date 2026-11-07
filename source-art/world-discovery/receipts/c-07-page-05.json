@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-07",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:30.348Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2b8401d4-1ac4-410e-b3c9-be20f4d1bd83.png",
+  "sourceSha256": "9e5be1cc32c9ccf691fa3fd7a656e4697005a91ff7ef4f3e2aa8697b69e5fe1e",
+  "output": "public/guided-reading/world-discovery/c-07/page-05.webp",
+  "outputSha256": "d42a5035978e584cac1eeec627ea03354b7ceda69a4138a2f6a518babd2034f9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY the distant background at upper-left. REMOVE the branch dam and waterfall from that background; replace that small area with a continuous ordinary grassy forest shoreline bordering calm pond water. This tight lodge view should not include a dam at all because the existing background waterfall incorrectly pours into the pond. Preserve the entire large lodge cutaway, underwater opening and sloping tunnel, waterline, beaver position/action, dry chamber and all other art exactly. No new props, words, labels, people or animals.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3812b397-a942-4b43-a2ff-1509b8958a57.png",
+      "sha256": "1e754c55539b0c8c17601b9e61425dd47253c45960e1d62dc649d7ae57908076"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d42a5035978e584cac1eeec627ea03354b7ceda69a4138a2f6a518babd2034f9",
+    "note": "Direct inspection after background correction: one beaver swims through submerged lodge opening into upward tunnel, air-filled straw chamber above horizontal waterline. Removed misleading upstream background waterfall.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

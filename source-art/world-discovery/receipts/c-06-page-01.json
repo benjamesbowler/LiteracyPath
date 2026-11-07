@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-06",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:26:12.310Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9cfb8261-7482-4256-9c28-a237912145f5.png",
+  "sourceSha256": "05c686d32595adb6d513a7d2181b5696fa2361dd2d1a0526f98c910f1f376347",
+  "output": "public/guided-reading/world-discovery/c-06/page-01.webp",
+  "outputSha256": "1ad862f31e320ff6c90c69a24f4498a2e39a01528f7ebfe57e2629d25bd8cd3c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Where Does Daylight Go?; World Discovery; nonfiction.\nSetting: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One plain blue-green globe-like ball; One removable small red dot on its surface; One yellow flashlight held steadily by Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Zoe watches daylight fade outside. Where does the bright sunshine go?\nRequired illustration: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Zoe looks through the classroom window at a dimming playground under early evening sky. Exact state: Natural Earth viewpoint; no Moon needed to cause darkness.\nExact current state: Natural Earth viewpoint; no Moon needed to cause darkness.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nThis opening page shows ONLY Zoe observing sunset at the window. NO demonstration yet, no Kit, flashlight, ball or red dot. One coherent quiet moment, warm-to-dim sky outside.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-06-reference.webp",
+      "sha256": "15a5bc65899830e2b8aa885cad7aac1c2ad9aca848291d22d93a86c464affdfc"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "1ad862f31e320ff6c90c69a24f4498a2e39a01528f7ebfe57e2629d25bd8cd3c",
+    "note": "Direct inspection: Zoe alone watches fading early-evening light through classroom window; model equipment not prematurely introduced; no Moon causes darkness.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

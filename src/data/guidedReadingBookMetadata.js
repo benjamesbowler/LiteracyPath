@@ -1,5 +1,6 @@
 import { GUIDED_READING_NEXT_STEPS_METADATA } from "./guidedReadingNextStepsBooks.js";
 import { GUIDED_READING_BRIGHT_IDEAS_METADATA } from "./guidedReadingBrightIdeasBooks.js";
+import { GUIDED_READING_WORLD_DISCOVERY_METADATA } from "./guidedReadingWorldDiscoveryBooks.js";
 // Editorial classification is deliberately authored separately from runtime
 // level overrides. A level may be adjusted for a local shelf; its reviewed
 // reading-band and reading-mode claims must remain stable.
@@ -55,6 +56,7 @@ export const GUIDED_READING_BOOK_METADATA = Object.freeze(Object.fromEntries(
     ...SMALL_STEPS_BOOK_IDS.map(id => [id, DECODABLE]),
     ...Object.entries(GUIDED_READING_NEXT_STEPS_METADATA),
     ...Object.entries(GUIDED_READING_BRIGHT_IDEAS_METADATA),
+    ...Object.entries(GUIDED_READING_WORLD_DISCOVERY_METADATA),
     [MISSING_SANDWICH_BOOK_ID, Object.freeze({
       readingBandProfile: "read-aloud",
       readingMode: "supported-read-together"

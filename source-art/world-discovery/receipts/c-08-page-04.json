@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:47:25.034Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-48caceeb-d4a3-49a5-b228-ce85a37aba12.png",
+  "sourceSha256": "a883c89087b56f5c0602005af5695f37d2bca867860966f2b06cc0e6e8b88591",
+  "output": "public/guided-reading/world-discovery/c-08/page-04.webp",
+  "outputSha256": "e17e76c18196ca46bb57026d105592a22f723d4dc1ca44ff0c116968a08dd0ef",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: From Pond to Sky; World Discovery; nonfiction.\nSetting: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Pond reed stems; Tiny elongated dragonfly egg inserted into submerged pond-plant tissue; Natural six-legged brown nymph; Empty shed nymph skin fixed to reed; Adult green dragonfly with four clear wings\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): As it grows, the nymph sheds its tight outer skin again and again.\nRequired illustration: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. A larger nymph rests on an underwater stem beside an empty smaller shed skin. Exact state: One living nymph and one empty skin; growth over time, not instant transformation.\nExact current state: One living nymph and one empty skin; growth over time, not instant transformation.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAnimal-only scientific page: NO humans, captions, labels, arrows, inset, pupa/cocoon, butterfly or damselfly. Adult has exactly FOUR transparent wings (two left, two right) and SIX legs (three left, three right), all attached only to thorax. Nymph has compact brown segmented body, exactly SIX legs attached to thorax, no developed wings, no long dragonfly adult tail, no three leaf-like tail gills. Draw anatomically controlled separated legs, not duplicate appendages.\nUNDERWATER MACRO ONLY: no adult dragonfly, no sky or surface needed. The nymph is the clear main subject.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-08-reference.webp",
+      "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "e17e76c18196ca46bb57026d105592a22f723d4dc1ca44ff0c116968a08dd0ef",
+    "note": "Direct inspection: larger six-legged living nymph beside smaller pale hollow skin with explicit split back on same submerged stem; no adult wings, instant transformation or duplicate living nymph.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

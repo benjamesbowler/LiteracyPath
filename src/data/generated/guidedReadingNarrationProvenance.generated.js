@@ -4,13 +4,13 @@ export const GUIDED_READING_NARRATION_PROVENANCE = Object.freeze({
   "auditedAudioHashMismatchCount": 0,
   "auditedPageAudioTextMismatchCount": 0,
   "auditedWordSequenceMismatchCount": 0,
-  "corpusSha256": "079e8ddfd04b98e527790bead1dbdbc7c50f2955d8a6b02933d43548238370e5",
+  "corpusSha256": "d632548758c96935115f736ac57307f7ceab58bf68cf2ede9be21ee467271d3e",
   "exactPageAudioByText": Object.freeze({
   "The bun is hot.": "/audio/production/en-US/guided_page/the-bun-is-hot-44b1eb534f.mp3"
 }),
   "generatedBy": "tools/checkGuidedReadingNarrationProvenance.mjs --refresh",
-  "liveBookCount": 296,
-  "livePageCount": 2609,
+  "liveBookCount": 346,
+  "livePageCount": 3049,
   "narrationRebuildClearanceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "productionManifestPageCount": 1603,
   "productionManifestSha256": "8f073c32ac2c9d6c66639ac89501a3146858976e52f29711f94ee94fae3c08f1",

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-03",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:17.025Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d9434ea9-c158-4ff9-ab4b-17a193a947c4.png",
+  "sourceSha256": "c766d2e3ebfde25a6752209756a9a97be1a9de79edf92c0b85d2657f51683a6e",
+  "output": "public/guided-reading/world-discovery/a-03/page-06.webp",
+  "outputSha256": "39c0eb5c4a5d1fd27ef9bad590125ddf03504d896fe7b75a724c861e3d447a3e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY Zoe's clothing below the waist: her plum overalls must have full-length plum trouser legs ending in short cuffs at the ankle, not shorts. Her two sneakers must be entirely white with dark outlines and white soles, not plum/pink. Preserve her leg positions, correct walking anatomy, the cart, handle contact, all other people and objects exactly.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bc036557-f426-4434-bfad-4487a4a6f40c.png",
+      "sha256": "da2748ed0af2a810fe19fa44dd5b0a25e2e4abb2f79da6a88a7343a5cb6ee1d8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "39c0eb5c4a5d1fd27ef9bad590125ddf03504d896fe7b75a724c861e3d447a3e",
+    "note": "Kit and Zoe walk ahead and pull cart behind them on level floor; separate hand contacts; four books; Zoe full-length plum overalls/white shoes restored.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

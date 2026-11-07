@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-09",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:31:08.209Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-68e0fe4b-85ee-412b-94ce-f12bfdb6e1d4.png",
+  "sourceSha256": "cd5489fb9f37d4bb967d4c70b7118c9a5f180039adae722083de969992eb465f",
+  "output": "public/guided-reading/world-discovery/d-09/page-09.webp",
+  "outputSha256": "9ded871b436883dc3bae43e6155360d1404c93b1c4e893b11509c364888f8755",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the bar magnet colors: the end closest to the steel key must be RED, and the end held away from the key by Kit must be BLUE. Preserve the exact picture, all five sorted objects, single loose key on table, characters, layout and clean outlined cartoon style. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-8b0fedf1-7ade-4cc5-8b31-8fc9f35cd6fb.png",
+      "sha256": "89d479366b9f25f5c06f457f5a67a8f41d921352f7726257dc39863718c9ba15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:31:11.333785+00:00",
+    "sha256": "9ded871b436883dc3bae43e6155360d1404c93b1c4e893b11509c364888f8755",
+    "note": "New single steel key on tabletop; Kit brings red magnet end near it; existing five sorted objects retained."
+  }
+}

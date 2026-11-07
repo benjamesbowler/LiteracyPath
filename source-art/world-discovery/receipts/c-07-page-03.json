@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-07",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:38:46.909Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-1ccce227-e1ad-47d7-97ba-79b5f4fbe1a1.png",
+  "sourceSha256": "34cc7e8a17b05f3887e5954ea059f4c5c880d589cd8c0b2a7f9032b69aebd230",
+  "output": "public/guided-reading/world-discovery/c-07/page-03.webp",
+  "outputSha256": "5358a880f2aa6cc13f30fd004ec41131a4e02cef6ba454fc1902aa59f4322c78",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Dam Is Not a Home; World Discovery; nonfiction.\nSetting: One North American beaver\u2019s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One beaver; Branch-and-mud dam across downstream outlet; Separate stick-and-mud lodge in pond; Underwater lodge entrance and raised dry inner chamber\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): The dam slows the flowing water. A pond grows deeper behind it.\nRequired illustration: One North American beaver\u2019s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Wide side view shows deeper pooled water upstream of the dam and shallower flowing water downstream. Exact state: Water level difference physically coherent; no total watertight wall.\nExact current state: Water level difference physically coherent; no total watertight wall.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAnimal-only nonfiction: absolutely NO humans, human silhouettes, tools, clothes, signs, human-built doors or anthropomorphic gestures. Exactly one natural beaver if required. Dam is a low linear branch/mud barrier crossing outlet, lodge a separate high domed stick mound inside pond; water clearly separates them. Avoid confusing dam with lodge.\nUse a clear side-on shoreline cross-section: deeper upstream pond on LEFT, low branch-and-mud dam at CENTER, lower shallow downstream stream on RIGHT. A little water seeps through gaps and spills over low part, not a completely watertight wall. Single continuous scene with natural forest bank above; no labels or arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-07-reference.webp",
+      "sha256": "2e8ab932bb81c958669444dc57a96225e57c66fea9ada756570795bd48af3cc7"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "5358a880f2aa6cc13f30fd004ec41131a4e02cef6ba454fc1902aa59f4322c78",
+    "note": "Direct inspection: upstream pond on left at higher level than shallow rocky downstream right; low dam permits small overflow/seeps, lodge separate upstream.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

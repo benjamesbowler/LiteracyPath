@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-03",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:51.737Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-80c0d17c-923e-4445-a1ef-7529996c0c94.png",
+  "sourceSha256": "4a9c9847eb0693f2d8f0586f4d621f17acf732134ad71dda0501d41e7071b6b4",
+  "output": "public/guided-reading/world-discovery/c-03/page-05.webp",
+  "outputSha256": "258b05ce3e779cb6349f3070d2c4f2deb8c4991a6b982532fba3ebfd2a988dd8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Way Up; World Discovery; nonfiction.\nSetting: World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One red four-wheeled toy cart carrying one blue book-shaped block; One cream model library on a fixed 4-centimeter-high platform; One smooth short tan ramp and one smooth longer tan ramp with the same width and surface\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): They keep the same step but choose a longer board. The new slope is gentler.\nRequired illustration: World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby. Exact state: Height, cart, load and surface unchanged; only ramp length/slope differ.\nExact current state: Height, cart, load and surface unchanged; only ramp length/slope differ.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScale lock: Kit and Zoe are normal equal-sized children standing on the FLOOR BEHIND the table. Only their upper bodies/arms visible above tabletop; NEVER depict a tiny child standing on tabletop. The library, cart and boards are small tabletop toys. Boards are thin rectangular flat planks of CONSTANT thickness, never wedges. The LONG board, about twice the length of the short board, slopes GENTLY from tabletop to the SAME platform height. Short board lies flat separately. Same cart and blue book wait on tabletop at lower end. No change in cart/load or height. Two boards total.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-03-reference.webp",
+      "sha256": "8e6b7dee14a323711f76200c99d10dc51b9204483d73ba18659ed328f7ee9988"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "258b05ce3e779cb6349f3070d2c4f2deb8c4991a6b982532fba3ebfd2a988dd8",
+    "note": "Longer flat board reaches unchanged platform from farther across table with visibly gentler slope; short board lies unused. Same red cart and blue book wait below. No wedge or gap; children at correct scale.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

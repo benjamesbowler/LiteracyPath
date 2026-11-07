@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:09:59.272Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-139fa5ea-a370-415a-8122-22b711f359f6.png",
+  "sourceSha256": "e723cb289def427a989b7449a0d550bdd715c6dd8f481ab9eed265470ef39674",
+  "output": "public/guided-reading/world-discovery/d-03/page-04.webp",
+  "outputSha256": "7379c78761fe009f46ccf0238abe451faf38ae8c06f74746f847738e92f8d097",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Two Pipes Under the Sink; World Discovery; nonfiction.\nSetting: One diagrammatic town beside a river, with a drinking-water works upriver, ordinary homes, and a separate wastewater works downstream. No named people. The drinking-water worker on page 4 is a woman with deep brown skin, silver hair in one braid, teal work overalls and plain closed shoes. The separate wastewater worker on page 8 is a man with medium brown skin, short black hair, navy work shirt, gray trousers and plain closed shoes. Both are unnamed adults.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One white kitchen sink; Narrow blue supply pipe; Wider gray drain pipe; Drinking-water treatment works; Separate wastewater treatment works\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): At the plant, several steps remove dirt and harmful germs. Workers test the water before it enters the supply pipes.\nRequired illustration: An adult woman with deep brown skin, silver hair in one braid and teal work overalls tests a contained sample beside the drinking-water plant\u2019s treatment tanks. Exact continuity: Worker is adult; safety railings; no child handling treatment chemicals.\nExact current state: Worker is adult; safety railings; no child handling treatment chemicals.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. CRITICAL EDUCATIONAL ACCURACY: incoming supply and outgoing drain are distinct pipes that NEVER touch, join, cross-connect or form a closed loop. A blue supply must connect directly to BASE OF METAL FAUCET above the counter, never to basin bottom. A gray drain must connect directly to drain hole at center of BASIN BOTTOM, never to faucet. No faces on water or pipes. No writing, words, labels, numbers or control-screen text. Use only one coherent view. Only the adult woman worker from reference, with visibly adult proportions and silver braid; close contained clear sample vial held over a small plain testing tray, blue-roof drinking plant tanks behind yellow safety rails. She stands on dry walkway, does not reach over rail or touch chemicals. No man, children, household sink, cup, river or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp",
+      "sha256": "4114d53b76b8de4d3b1e2c3c8dbab353616a2244e80defbb9336bc9d0e54d7ec"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "7379c78761fe009f46ccf0238abe451faf38ae8c06f74746f847738e92f8d097",
+    "note": "Direct inspection: adult woman with silver braid/teal overalls inspects contained sample at drinking-water works; safety rails and dry walkway, no child or chemical handling.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

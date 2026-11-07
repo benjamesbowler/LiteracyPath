@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-04",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.937Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9cf5b220-1d74-44ed-953a-befd0221be00.png",
+  "sourceSha256": "2faf445d31e5a2dea3b9343ebfbf74bcd21297371d95ffa33f635147856c8e84",
+  "output": "public/guided-reading/world-discovery/b-04/page-07.webp",
+  "outputSha256": "8468d96166d31103662ea4512fec7d099fe1665c187cc07f6b8de5f1915fb597",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: The Hopping Boot; World Discovery; fiction.\nSetting: World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Kit puts the lid on the box.\nRequired illustration: World Discovery fantasy playroom in afternoon light; pale floor and green rug. Kit wears his usual navy sneakers. One loose red dress-up boot is the only enchanted object. Kit lowers the matching lid over the boot. Exact state: Boot contained; box dimensions unchanged.\nExact current state: Boot contained; box dimensions unchanged.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT MOMENT: Kit lowers ONE separate matching lid onto brown box resting on rug. Hands hold lid edges, lid just above top edge, ONE small red boot fully contained BELOW rim, partly visible in narrowing gap; no boot outside, no clap, no airborne box. Do not alter box proportions.\nProp scale design: red boot stands12cm tall, brown open box interior15cm tall,35cm long,25cm wide; when box present, it is always tall enough to close over boot upright. Boot only ONE gold dot, no face/eyes/limbs. Kit only child. Neutral pale floor,green oval rug,left window,right low shelf. No extra clothing or magical props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-04-reference.webp",
+      "sha256": "a4ed5138f53b9f9a4e907e7c95097998da3d3cb14b9dc1b7fc44a4f162c5df1f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "8468d96166d31103662ea4512fec7d099fe1665c187cc07f6b8de5f1915fb597",
+    "note": "Kit lowers matching lid with hands on edges; boot remains contained below box rim and no external duplicate.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

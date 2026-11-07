@@ -13841,6 +13841,2406 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "reason": "No authorized MetaMetrics measurement receipt for this exact text."
     }
   },
+  "world-discovery-a-01": {
+    "title": "Zoe Draws Zoe",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Concrete drawing and body words; mirror and puffs receive oral preparation.",
+      "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
+      "progression": "Additive portrait steps culminate in noticing and filling one missing feature.",
+      "inference": "Low: the absent smile and its repair are printed directly."
+    },
+    "rationale": "The eight pages use recurring Zoe/she and draws/adds in short concrete clauses. The missing smile is stated before Zoe adds it, giving the picture sequence an explicit outcome without concealed motive or a second plot. This fits A.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:3af61a2b91f1471d",
+    "textHash": "sha256:2346d40c8d623b8e63ef6e75ed654f78dc3349559a8d987196a67d1c0901cd04",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 40,
+      "uniqueWordCount": 24,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 3.93,
+      "averageWordsPerPage": 5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 5,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-02": {
+    "title": "The Red Crayon",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Familiar drawing nouns plus blank and together, supported by the scene.",
+      "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
+      "progression": "Wish, blocked access, recognition, handoff and completed drawings form one clear chain.",
+      "inference": "Low: no dialogue, hidden motive or abstract lesson is needed."
+    },
+    "rationale": "A repeated red-crayon object links one simple social problem to a visible repair. Kit’s wish, Zoe’s withholding, the blank page and the handoff are explicit in five- or six-word clauses; the two finished pictures close the exchange. A is appropriate.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:7ff925f83fda50b2",
+    "textHash": "sha256:1a8fd8707e2871190bc5347eae539fa965be29dc6eb159b05f5854ba26b24a75",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 40,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 4.05,
+      "averageWordsPerPage": 5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 5,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-03": {
+    "title": "Books for Our Class",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Concrete classroom words; cart is introduced with oral support.",
+      "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
+      "progression": "One failed container leads to a larger wheeled container and completed delivery.",
+      "inference": "Low: the reason for changing carrier is stated."
+    },
+    "rationale": "The bag/cart contrast carries a single size problem in short present-tense clauses. Books recur on every stage of an explicit loading, transporting and reading sequence; the pronoun it follows the named cart immediately. A is appropriate.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:5bd5a3fbf0ecab6a",
+    "textHash": "sha256:fd90e55ffbf81cc0332070f039d65c1ef66dc7e4f68d5359cd59718b48ec053c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 40,
+      "uniqueWordCount": 24,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 5,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-04": {
+    "title": "The Hungry Bag",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Familiar sock/bag/bun and action verbs; bites and bun are prepared orally.",
+      "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
+      "progression": "A failed retrieval leads to a food swap and recovered sock.",
+      "inference": "Low: each necessary exchange and outcome appears in the printed text."
+    },
+    "rationale": "The bag grips one object at a time, and the words show the failed pull, alternative bun and released sock. Brief concrete clauses make the single fantasy rule observable through action rather than explanation. The compact causal sequence fits A.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:ee24c8f03453790d",
+    "textHash": "sha256:bfc97a92d7c1d222b8332bcc7fba54b6998f38bf48b9faf33c3f55ac21c82fb8",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 38,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 3.5,
+      "averageWordsPerPage": 4.75,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 5,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.75,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.5,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-05": {
+    "title": "Up the Hill",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Common place and position words; hilltop and below receive oral preparation.",
+      "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
+      "progression": "Low start, uphill movement, top view and return preserve a visible route.",
+      "inference": "Low: each position and the final return are stated."
+    },
+    "rationale": "Repeated path/pond references and literal up/down/beside positions guide a single return route. The hilltop view is explicitly described, with no map decoding, scale calculation or causal theory. Short concrete clauses fit A.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:260cc868d91888fb",
+    "textHash": "sha256:57d7a7037d07a74038547225e1d8b5169cafa254fb8c185d8be1856030476f80",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 41,
+      "uniqueWordCount": 23,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 3.78,
+      "averageWordsPerPage": 5.13,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.13,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-06": {
+    "title": "The Moon in Daylight",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Moon/cloud/sky recur; daylight is introduced in the title and prepared orally.",
+      "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
+      "progression": "Daytime observation, temporary occlusion, reappearance and explicit daylight close.",
+      "inference": "Low: the cloud’s covering and passing are printed directly."
+    },
+    "rationale": "The visible Moon/cloud pattern repeats through a short hide-and-reappear observation. One clause per page keeps the daytime discovery concrete; the manuscript does not require orbital explanation or phase inference. A is appropriate.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:9eeae6f1d7325d64",
+    "textHash": "sha256:231d5cdc0de4b18bbd064894f26c05f12bf79cb0bc52dfe1f03bcc3aab350231",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 35,
+      "uniqueWordCount": 21,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 3.86,
+      "averageWordsPerPage": 4.38,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 5,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.38,
+      "maxWordsPerSentence": 5,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-07": {
+    "title": "In and Out",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "One specialized sense of foot is prepared; the remaining nouns and actions are concrete.",
+      "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
+      "progression": "Emergence and gliding reverse into withdrawal after a visible shadow.",
+      "inference": "Low: the movement and final protected state are explicit, without taxonomy."
+    },
+    "rationale": "Paired out/in actions and repeated snail/shell/foot words organize one close observation. Each short clause states the body part and movement, while the final covering sentence closes the inquiry. The anatomy is concrete enough for A with oral foot support.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:d0ed5514ca64e5b7",
+    "textHash": "sha256:0d0162d053afa081dd7c340a8efa442452ed1b150ce56b127589159b0cfe1e5c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 45,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.49,
+      "averageWordLength": 3.89,
+      "averageWordsPerPage": 5.63,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.63,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-08": {
+    "title": "A Chick Grows",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Concrete bird and egg vocabulary; hen and fluff receive oral preparation.",
+      "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
+      "progression": "One chick develops, hatches, dries, grows feathers and becomes an egg-laying adult.",
+      "inference": "Low: development is stated at every stage, with elapsed time shown by growth."
+    },
+    "rationale": "The eight short clauses name an ordered growth sequence using repeated chick/hen/egg words. This chick explicitly becomes a hen, avoiding a universal sex claim; no dates, embryology terms or causal mechanism are demanded of the reader. A is appropriate.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:50e3722991a053d9",
+    "textHash": "sha256:dba7dbbda8e96f8bc1fe442022ad0339f55abdfa61bac3ea2b41ca564248b6ff",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 42,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 3.93,
+      "averageWordsPerPage": 5.25,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.25,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-09": {
+    "title": "Sort the Tiles",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Familiar red/blue/round/square; sort and tiles receive oral preparation.",
+      "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
+      "progression": "The same four objects move from color groups to shape groups without changing membership.",
+      "inference": "Low with the exact illustrations: both rules are stated and the conserved tiles remain visible."
+    },
+    "rationale": "Short repeated tile/group frames compare two successive, visible sorting rules. Familiar color and shape words change within the same simple syntax, and the final line explicitly says the tiles can change groups. The two concrete demonstrations support A rather than requiring abstract classification terminology.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:d074dc6f45f8c29c",
+    "textHash": "sha256:a328339d3f8b746d3fc2d97ec3d4aaa44eb50e53fbaa8adbd1b4b40f6fb428bb",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 44,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4,
+      "averageWordsPerPage": 5.5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.5,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-10": {
+    "title": "One More Use",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
+      "vocabulary": "Everyday toy/box/cloth words; tucks receives oral preparation.",
+      "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
+      "progression": "Empty box, need for a bed, soft lining, placement and completed reuse form one sequence.",
+      "inference": "Low: both the difficulty and changed use are printed, with no environmental generalization."
+    },
+    "rationale": "Repeated box/bear references support one direct problem and solution. The hard box receives a cloth, the bear fits, and the final line names the new use. Concrete five- or six-word clauses and an explicit outcome fit A.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:b75cf2bd41d26740",
+    "textHash": "sha256:63879f5220ee281188a16204aba52132ad6ca5d6d9251c606cc2a1c966e5b435",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 41,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 3.37,
+      "averageWordsPerPage": 5.13,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.13,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-01": {
+    "title": "I Can Button It",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short first-person clauses, paired sentences and one the-rest-of-the-way phrase.",
+      "vocabulary": "Button, edge and hole recur with visible referents.",
+      "knowledge": "One ordinary dressing skill; no hidden cultural or factual knowledge.",
+      "progression": "A failed push leads to an explicit edge-first method, then two more attempts.",
+      "inference": "Low: the method and independent success are stated."
+    },
+    "rationale": "The first-person account holds one practical goal across eight pages. Short paired clauses describe an explicit failed push, a changed angle, and repeated success, with enough variation beyond A repetition. The supported physical sequence fits B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:8d07a8fb4c61e56b",
+    "textHash": "sha256:19946be1df6c20f16c2137371675f4a7a8034d7bb4aeeb4dd637df9e48c0fcd2",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 60,
+      "uniqueWordCount": 37,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 3.43,
+      "averageWordsPerPage": 7.5,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5,
+      "maxWordsPerSentence": 9,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-02": {
+    "title": "A Turn on the Drum",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short paired statements with two brief dialogue turns.",
+      "vocabulary": "Beat and taps are supported by the repeated drum action.",
+      "knowledge": "An everyday turn-taking situation; no musical notation needed.",
+      "progression": "Overlapping sounds prevent listening, then each child makes space for a response.",
+      "inference": "Low: readers connect still hands with listening; no concealed motive."
+    },
+    "rationale": "The shared rhythm conflict and repair are printed directly. Short dialogue, alternating names and repeated taps require tracking two speakers and their turns, while the physical actions show why listening works. This fits B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:8209dcb678df2230",
+    "textHash": "sha256:97ad6a8f3b03b889fa716594e248f724622178df11a43b09133cbfe9e7c9f24d",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 65,
+      "uniqueWordCount": 36,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 3.65,
+      "averageWordsPerPage": 8.13,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 3.82,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 2,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-03": {
+    "title": "Back to the Library",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short direct statements and two brief quoted turns; one explicit then sequence.",
+      "vocabulary": "Borrow and return recur in a concrete book exchange; checks in receives picture support.",
+      "knowledge": "A local library loan ends today; no universal lending-period claim is needed.",
+      "progression": "The due return precedes Zoe’s own loan, followed by reading together.",
+      "inference": "Low: responsibility and new borrower are explicit."
+    },
+    "rationale": "The return due today motivates a clear community sequence. Brief dialogue and repeated book references connect returning, checking in, borrowing and reading, all with visible transfers. This supports B rather than a procedural or abstract account.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:e88e69aecb020e55",
+    "textHash": "sha256:e0645e9cfecd9ef9efa84dc335cca38658b11764f2501497992bf025a1969533",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 62,
+      "uniqueWordCount": 40,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 3.84,
+      "averageWordsPerPage": 7.75,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.17,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 2,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-04": {
+    "title": "The Hopping Boot",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short action sentences, he/Kit continuity and one brief sentence pair per page.",
+      "vocabulary": "Clap, hop, box and boot recur; path has a visible direction.",
+      "knowledge": "A single declared magic rule, wholly separate from the information books.",
+      "progression": "Rule, goal, failure, changed placement and successful containment form one causal chain.",
+      "inference": "Low: the rule and physical solution are stated; the final wave repeats the rule by contrast."
+    },
+    "rationale": "One clap produces one hop, and Kit uses that repeated rule after a failed grab. Short clauses plus a visible box-placement solution keep the fantasy comprehensible at B without a second magical system.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:badfce5e9fc559aa",
+    "textHash": "sha256:69025fb368d97320baec14e37fdc22105707bde43b9ca2f8f4fde832ef0dac71",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 59,
+      "uniqueWordCount": 32,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 3.63,
+      "averageWordsPerPage": 7.38,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 8,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 4.92,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-05": {
+    "title": "Down to the Sea",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short declarative clauses; final fragments summarize the already-shown path.",
+      "vocabulary": "Stream, river, valley and sea recur with landscape support.",
+      "knowledge": "The specific illustrated stream reaches the sea; the text makes no claim about every river.",
+      "progression": "Downhill flow, joining a river, passing a bridge and reaching the sea stay in sequence.",
+      "inference": "Low: the connection is explicitly restated on the last page."
+    },
+    "rationale": "A single stream is followed into a river and sea. Concrete spatial verbs and repeated water references support a connected route across eight pages; fresh and salty give a simple end comparison. This fits B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:fd44032acdbf8c6d",
+    "textHash": "sha256:db852a4d3121491648bf2719e63bf72707cdc4e7c97403be01a6184848c40f20",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 56,
+      "uniqueWordCount": 34,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 4.23,
+      "averageWordsPerPage": 7,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 9,
+      "averageWordsPerSentence": 6.22,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-06": {
+    "title": "Boot Prints on the Moon",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short subject–verb clauses with can and repeated negatives.",
+      "vocabulary": "Boot, print and dust recur; rain/wind are familiar contrast words.",
+      "knowledge": "Only the absence of ordinary lunar weather is needed; no space-weather mechanism is required.",
+      "progression": "Make a print, compare Earth rain, state lunar conditions, observe retained marks.",
+      "inference": "Low: one straightforward link between absent weather and lasting prints."
+    },
+    "rationale": "One familiar print introduces a simple Earth–Moon comparison. Repeated boot/print references and direct no-rain/no-wind statements carry the explanation without orbital science or dense vocabulary. The conditional can avoids an eternal-preservation claim and suits B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:b20d4a89232921ad",
+    "textHash": "sha256:887cc082456f702180775a10cba7e9dfb847270d25f3195918a8fb750d1400d4",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 61,
+      "uniqueWordCount": 41,
+      "uniqueWordRatio": 0.67,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 7.63,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 10,
+      "averageWordsPerSentence": 6.1,
+      "maxWordsPerSentence": 9,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-07": {
+    "title": "Feet for Swimming",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Mostly one short clause per page; paired clauses explicitly link paddling and movement.",
+      "vocabulary": "Foot/feet, toes, water and duck recur; joins and pushes are visible.",
+      "knowledge": "One ordinary water movement, without technical force terminology.",
+      "progression": "Whole animal, close foot view, spreading, pushing, movement and exit are ordered.",
+      "inference": "Low: readers connect the shown push and movement; the relationship is printed."
+    },
+    "rationale": "The book focuses on one body feature and one function. Short linked clauses show toes spread, the wide foot pushes water back and the duck moves forward, with an explicit return to land. Visible mechanism and controlled syntax fit B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:617996eb4082d0d6",
+    "textHash": "sha256:1d53043c06fc935688a696625d5beff425efb1099f793e2a466e9e56ac39c8c2",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 56,
+      "uniqueWordCount": 35,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 4.11,
+      "averageWordsPerPage": 7,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 8,
+      "sentenceUnitCount": 10,
+      "averageWordsPerSentence": 5.6,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-08": {
+    "title": "A Ladybug Changes",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short simple or paired clauses; it/its refer consistently to the one developing insect.",
+      "vocabulary": "Larva is introduced in plain language; repeated body/bug/eggs limit vocabulary load.",
+      "knowledge": "Stages are chronological, with no hidden explanation of metamorphosis or claim that all eggs hatch.",
+      "progression": "Each visible change advances the same life cycle; the new eggs reconnect to the beginning.",
+      "inference": "Low: changes are printed and ordered; the final female is one case."
+    },
+    "rationale": "The revised manuscript introduces larva as a young ladybug and repeats it once; other specialist stage names are reserved for oral enrichment. Short sentences trace feeding, shedding, stillness, emergence and egg laying through one female’s life. This fits B with pictures and brief oral preparation.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:441b5d871bd85509",
+    "textHash": "sha256:be27e582e10fb408af9333e47f63aed7b195ea5009021d11658defccf58830c7",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 55,
+      "uniqueWordCount": 39,
+      "uniqueWordRatio": 0.71,
+      "averageWordLength": 4.13,
+      "averageWordsPerPage": 6.88,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 8,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 4.58,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-09": {
+    "title": "Sort Them Again",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short statements, two brief fragment pairs and one this-time transition.",
+      "vocabulary": "Color, size, big, small and group are concrete and repeated.",
+      "knowledge": "Two familiar attributes of the same six objects; no abstract taxonomy.",
+      "progression": "First sort, inspect mixed sizes, recombine, then sort by size.",
+      "inference": "Low: the changed rule and unchanged buttons are stated directly."
+    },
+    "rationale": "The same fixed set is sorted by color and then size, with every regrouping action printed. Repeated she/puts/buttons language plus the explicitly named new rule makes one comparison manageable at B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:c5b84fb0d53029bd",
+    "textHash": "sha256:b34f3ab16394ac7ba9e7108c5bf7d739b2c7300267ff3fb8397830988f7f5602",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 58,
+      "uniqueWordCount": 35,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 4.26,
+      "averageWordsPerPage": 7.25,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 8,
+      "sentenceUnitCount": 11,
+      "averageWordsPerSentence": 5.27,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-10": {
+    "title": "The Bag with a Patch",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short paired clauses; one and joins a return and fold, and one joins finding help.",
+      "vocabulary": "Bag, block, hole and patch recur; sews has a visible adult action.",
+      "knowledge": "One practical repair with no abstract environmental claim in the pupil text.",
+      "progression": "Initial use, failure, failed fold, emptying, adult repair and reuse form one sequence.",
+      "inference": "Low: the same bag and three blocks demonstrate reuse without an inferred moral."
+    },
+    "rationale": "One failed folded-corner fix leads to a visible patch and a successful retest. Paired clauses explicitly return the fallen block and empty the bag before sewing, avoiding a hidden state jump. The familiar objects and direct cause chain fit B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:d9c3329fd864c46b",
+    "textHash": "sha256:ea2a78eb71229d079d166d5a1dcc405a5fb517676ad79975f0c4258c2e8cd8ae",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 69,
+      "uniqueWordCount": 40,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 3.97,
+      "averageWordsPerPage": 8.63,
+      "minWordsPerPage": 6,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.75,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-01": {
+    "title": "A Show for Two",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Varied short clauses, paired sentences and three concise dialogue turns.",
+      "vocabulary": "Puppet, stiff and props extend familiar classroom vocabulary; their meanings are physically shown.",
+      "knowledge": "A familiar performance problem combines drawing and construction.",
+      "progression": "Two attempts lead to a shared construction and a functioning show.",
+      "inference": "The reader links each child’s contribution to the result; no concealed motive is required."
+    },
+    "rationale": "The paired failures of a weak drawing and an unsupported paper stage are resolved through explicitly shown contributions. Short linked sentences and brief dialogue require more continuity than B, while the solution and each child’s role remain direct. C fits.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:238f21bdbfc1f9ea",
+    "textHash": "sha256:10b53f73608102a4653bdfa68a225195450909e11d10b567e01a829fcc2db4a9",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 107,
+      "uniqueWordCount": 68,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 13.38,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 15,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 6.29,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 3,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-02": {
+    "title": "The Rolling Game",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Paired sentences, direct speech and changing action verbs.",
+      "vocabulary": "Roll, hoop, closer and soft describe visible play actions and positions.",
+      "knowledge": "A familiar playground disagreement needs no abstract social explanation.",
+      "progression": "Misses lead to frustration, an invitation, an adjustment and a successful shared game.",
+      "inference": "The reader connects Zoe’s listening to the changed game; Kit’s choice is printed."
+    },
+    "rationale": "The narrative connects an unsuccessful throwing game, Kit’s stated wish to stop and Zoe’s invitation to roll instead. Changing actions and dialogue carry one explicit social repair with enough sentence variation for C. The improved result is shown after a second rolling attempt.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:71cc0e3e3078ec91",
+    "textHash": "sha256:81846d0adfdb0233eb8409b378e32412d0a7a986ded40e652c5c8d04b2083b77",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 111,
+      "uniqueWordCount": 67,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 3.98,
+      "averageWordsPerPage": 13.88,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 16,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 5.84,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 5,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-03": {
+    "title": "A Way Up",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short varied statements and paired test/result sentences; a simple but contrast.",
+      "vocabulary": "Ramp, slope, steep and gentler are repeated in directly comparable views.",
+      "knowledge": "A model library and toy cart introduce a single physical comparison.",
+      "progression": "Blocked step, short ramp and longer ramp form a controlled visible sequence.",
+      "inference": "The final generalization restates the tested route rather than requiring an unseen cause."
+    },
+    "rationale": "C is justified by one explicitly tested relationship: a gentler ramp reaches the same height with a smaller push. The same cart, load and surface keep the comparison concrete; paired sentences explain each step without measurement, force terminology or a hidden mechanism.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:30506e0c90bf5c1f",
+    "textHash": "sha256:7dc3a9adc9fef85adc3b35e3edc18e8ec0f9a933428a0b99f139d4057feee618",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 113,
+      "uniqueWordCount": 62,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 3.94,
+      "averageWordsPerPage": 14.13,
+      "minWordsPerPage": 12,
+      "maxWordsPerPage": 16,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 7.06,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-04": {
+    "title": "The Stretchy Bridge",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short dialogue commands alternate with paired narrative sentences.",
+      "vocabulary": "Bridge, bank, tilts and garage extend concrete toy-play vocabulary.",
+      "knowledge": "One fantasy rule transforms a familiar toy arrangement.",
+      "progression": "An obstructing bridge and an early shortening lead to a corrected order of actions.",
+      "inference": "Modest inference about why the truck must get off first, supported by the stated tilt and repair."
+    },
+    "rationale": "The magical long/short rule is explicit, and the failed timing leaves the truck visibly tilted. Dialogue, changing actions and the sequence of restoring the bridge, clearing it and shortening it fit C. The reader follows one local rule through a repair.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:278546839cc2041b",
+    "textHash": "sha256:daafbe27168353df6e02e21af1c82046d4c2bcad5cbc543933ba647c5e8c60ca",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 121,
+      "uniqueWordCount": 70,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.13,
+      "averageWordsPerPage": 15.13,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 5.5,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 5,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-05": {
+    "title": "Follow the Park Map",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Paired statements and direct route language carry several linked actions.",
+      "vocabulary": "Map, path, turn and symbols are supported by matching landmarks.",
+      "knowledge": "A map represents an invented enclosed park with a fixed simple layout.",
+      "progression": "Orient the map, choose the correct branch, check a landmark and arrive.",
+      "inference": "The reader tracks representation and route continuity, with each check stated."
+    },
+    "rationale": "The text links picture symbols, landmarks, a turn and a destination in one continuous route. Varied short sentences and explicit comparisons between map and park fit C. It does not require scale calculations, a compass system or prior knowledge of a real place.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:4c0368d8d49844a0",
+    "textHash": "sha256:3b1f04a7eb19a3c2371249994dd5a2be4092bc9ee3e677ec827bce8bbd332c1c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 124,
+      "uniqueWordCount": 61,
+      "uniqueWordRatio": 0.49,
+      "averageWordLength": 3.73,
+      "averageWordsPerPage": 15.5,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 7.75,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-06": {
+    "title": "Where Does Daylight Go?",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Varied short statements, a question and paired model/explanation sentences.",
+      "vocabulary": "Earth, spins and flashlight are concrete or modeled; familiar day/night words recur.",
+      "knowledge": "One rotating-Earth relationship, with no orbital or seasonal explanation.",
+      "progression": "Fading light leads to a model, a dark dot, a returning bright dot and a direct conclusion.",
+      "inference": "A supported analogy is required; no unseen astronomical mechanism must be supplied."
+    },
+    "rationale": "The day/night concept is introduced through an explicit ball-and-flashlight model. Paired short explanations, like and stands for carry one causal relationship; the dot and fixed light make each change observable. This is C despite the astronomical topic, because the causal conclusion is printed directly.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:a375978f63b58247",
+    "textHash": "sha256:c6fcc591037d2a004ff8613c6d2836b986bddc000f0cad6926e216afa30df660",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 108,
+      "uniqueWordCount": 66,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 4.08,
+      "averageWordsPerPage": 13.5,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 15,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 6.75,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-07": {
+    "title": "A Dam Is Not a Home",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Short varied statements and paired explanatory sentences.",
+      "vocabulary": "Dam, lodge, tunnel and chamber are introduced through concrete structures.",
+      "knowledge": "One pond-building beaver example, scoped to avoid claims about all beavers.",
+      "progression": "Construction affects pond depth before the separate home and its entrance are inspected.",
+      "inference": "The reader connects a structure to its job; the dam/home distinction is stated."
+    },
+    "rationale": "The inquiry distinguishes two structures by their different visible jobs. Short paired explanations connect slowing water, a pond, an underwater lodge entrance and a dry chamber; the conclusion states the contrast. Its limited causal chain and explicit comparisons fit C.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:4d32e66694ae461e",
+    "textHash": "sha256:58ac287ddce0ac7cc16edcbf597a22978d153eb2ad68b8384b9af089482583a0",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 110,
+      "uniqueWordCount": 60,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.25,
+      "averageWordsPerPage": 13.75,
+      "minWordsPerPage": 12,
+      "maxWordsPerPage": 16,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 6.47,
+      "maxWordsPerSentence": 10,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-08": {
+    "title": "From Pond to Sky",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Varied short statements plus as it grows and sequential markers.",
+      "vocabulary": "Nymph, sheds and wings introduce observable lifecycle features; nymph is defined in text.",
+      "knowledge": "One dragonfly example with aquatic young and winged adults.",
+      "progression": "Hatching, feeding, repeated growth, emergence and egg laying form a connected cycle.",
+      "inference": "The reader maintains the animal’s identity across changing forms; each transition is printed."
+    },
+    "rationale": "The eight pages follow one lifecycle through explicitly named transitions from egg to nymph to adult. Paired sentences, temporal markers and supported new vocabulary fit C; the return to eggs supplies a complete sequence without adding a second ecological explanation.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:6fb1780762521897",
+    "textHash": "sha256:d29238cae7cc6cc387de70cc0880b085066083ac21890b0dbbaa98f7e4fc388f",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 106,
+      "uniqueWordCount": 72,
+      "uniqueWordRatio": 0.68,
+      "averageWordLength": 4.21,
+      "averageWordsPerPage": 13.25,
+      "minWordsPerPage": 12,
+      "maxWordsPerPage": 16,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 7.57,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-09": {
+    "title": "Both Have Wings",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "A question, paired comparisons and a concluding causal clause.",
+      "vocabulary": "Feathers, skin, finger bones and mammal extend topic language through visible traits.",
+      "knowledge": "One bird/bat comparison; no claim that all birds fly or that only birds lay eggs.",
+      "progression": "Shared flight is tested against body coverings and care of young, then revisited.",
+      "inference": "The reader contrasts movement with body traits, but the grouping conclusion is explicit."
+    },
+    "rationale": "This is a focused comparison of a bird and a bat, with feathers, wing skin, fur and milk named beside their subjects. Paired explanations and a simple grouping conclusion fit C. The final classification is supplied rather than requiring broader taxonomic knowledge or handling an exception.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:c3790e17565dd510",
+    "textHash": "sha256:73d466992d0d75707e67eaf02500d33cc9f1cebfbf917d1b94b0be1b2a99fe6b",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 108,
+      "uniqueWordCount": 69,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.04,
+      "averageWordsPerPage": 13.5,
+      "minWordsPerPage": 11,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 6.75,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-10": {
+    "title": "The Apple Core Comes Back",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Varied short statements, paired process explanations and time markers.",
+      "vocabulary": "Compost, scraps, crumbly and nutrients broaden garden vocabulary with oral preparation.",
+      "knowledge": "A maintained compost bin and soil amendment form one everyday process.",
+      "progression": "Ingredients, air and moisture precede weeks of partial change, months of finished compost and use.",
+      "inference": "The reader follows a material change over time; it is not presented as instant soil or an intact returning apple."
+    },
+    "rationale": "The compost inquiry links a familiar apple core to a later plant through visible steps and explicitly marked waiting. Short paired explanations and concrete process vocabulary fit C. The text distinguishes finished compost from soil and gives the benefit directly, without a broader nutrient-cycle argument.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:9e9cff063377ce03",
+    "textHash": "sha256:39dcdd34012f01a98005b3d43de39463b8998dc77ea47bc0139feb4ba4dbd233",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 122,
+      "uniqueWordCount": 81,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4.3,
+      "averageWordsPerPage": 15.25,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 7.63,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-01": {
+    "title": "The Box That Would Not Shut",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Paired and compound clauses, direct dialogue, tomorrow/used-to/now contrasts.",
+      "vocabulary": "Concrete keepsakes support figurative matter and room-for-things-to-say.",
+      "knowledge": "Everyday objects stand for past and present interests.",
+      "progression": "A physically successful removal feels incomplete, so a flat representation resolves both needs.",
+      "inference": "Moderate and supported: why the unused train still belongs in Kit’s account of himself."
+    },
+    "rationale": "The story carries a practical space problem and a related identity problem: Kit still values an old interest while making room for a new one. The drawing represents a memory, and the final room-to-say callback depends on the preceding choices. Dialogue, time contrasts and supported symbolism earn D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:23055b0d45f0edac",
+    "textHash": "sha256:5e54076595a55b797ffd8aa4967e3acb98e1b2f4f1afab1cf88e2b0cf71ad7b7",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 187,
+      "uniqueWordCount": 106,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 3.8,
+      "averageWordsPerPage": 18.7,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 8.13,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 4,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-02": {
+    "title": "The Quiet Seat",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Dialogue interleaves with causal actions; relative and participial phrases extend sentence structure.",
+      "vocabulary": "Clatter, jerks and stray connect sound, movement and mark.",
+      "knowledge": "A familiar shared room with two simultaneous needs.",
+      "progression": "Misread invitation, harm to the drawing, clarification, changed behavior and callback.",
+      "inference": "Moderate: distinguish Kit’s assumption from Zoe’s stated need and recognize the final repaired relationship."
+    },
+    "rationale": "Readers must revise Kit’s interpretation of Zoe’s movement: she seeks quiet, not separation from him. A visible accidental mark and her later explanation provide evidence, and the final branch recalls the disruption. The perspective change and sustained dialogue/action links fit D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:379890c684de0dc6",
+    "textHash": "sha256:72b71a98c698eb15640d9d64a7cc90922abd61e3059a1ffc37fe5890132f19a3",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 179,
+      "uniqueWordCount": 110,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 4.02,
+      "averageWordsPerPage": 17.9,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 6.17,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 5,
+      "questionPageCount": 2,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-03": {
+    "title": "Two Pipes Under the Sink",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Paired sentences with before, after, including and a which clause.",
+      "vocabulary": "Supply, treated and sewer recur with explicit destinations and pipe colors.",
+      "knowledge": "A specific water system is explained in the text; no prior utility knowledge is assumed.",
+      "progression": "Source-to-home route, home-to-treatment route, river consequence and synthesis.",
+      "inference": "Moderate integration: connect treatment purpose to the water’s changing state."
+    },
+    "rationale": "Two distinct pipe routes and treatment purposes must be tracked around one sink. Explicit transition words support the route switch, while the river connection extends the explanation beyond the household. The multi-part system and qualified this-town example fit D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:41dd6790b94499a4",
+    "textHash": "sha256:b2f6a30c17eb995e284627eb322fa9116858d72af0e7df47d30dca3e7579209f",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 189,
+      "uniqueWordCount": 101,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.38,
+      "averageWordsPerPage": 18.9,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9,
+      "maxWordsPerSentence": 18,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-04": {
+    "title": "The Pocket of Wind",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "When, but and as clauses connect actions; dialogue remains short.",
+      "vocabulary": "Pocket/pouch, gust, fork and puff recur with concrete states.",
+      "knowledge": "One explicitly fictional mechanism, no extra unseeded power.",
+      "progression": "Demonstration creates the problem; strong upward release fails; two small aimed releases succeed.",
+      "inference": "Moderate: combine force, direction and viewpoint to explain the changed result."
+    },
+    "rationale": "The fantasy establishes wind capture, then requires tracking stored wind, release direction and amount across failed and successful attempts. Changed viewpoint reveals an existing route, and the saved-wind ending recalls the rule. This sustained spatial and causal sequence supports D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:8508a45f4a845dfa",
+    "textHash": "sha256:24e01f9eed4298ef48738f35e7942a8db179949445833ea45cd629d00467f4bd",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 188,
+      "uniqueWordCount": 107,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.02,
+      "averageWordsPerPage": 18.8,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 24,
+      "averageWordsPerSentence": 7.83,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 2,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-05": {
+    "title": "Island or Peninsula?",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Paired sentences and but/without/to-reach constructions; a conditional would-need statement.",
+      "vocabulary": "Peninsula, mainland and island are defined and repeated.",
+      "knowledge": "Water boundary and land continuity, without a named-map knowledge demand.",
+      "progression": "Initial guess, dry-route test, removal, real-world transfer and restored connection.",
+      "inference": "Moderate: retain the defining relation when appearance and size change."
+    },
+    "rationale": "A reversible model change defines two related landforms, then real landscapes test whether size alone matters. Readers track water boundary and dry connection while connecting model and real examples. Explicit definitions support this D comparison.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:57aa16a75eacf61e",
+    "textHash": "sha256:172a9eed31082ee13fa8f741d2b5b1ee95c4207ba43be0090fa52df2a8fdd49b",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 190,
+      "uniqueWordCount": 109,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.1,
+      "averageWordsPerPage": 19,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 8.26,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 1,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-06": {
+    "title": "Marks on the Moon",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Definitions inside sentences plus when, because-in-meaning and comparative phrases.",
+      "vocabulary": "Impact, crater and rim recur with explicit visual referents.",
+      "knowledge": "Impact and surface-change mechanisms are explained; no dates or astronomy facts are assumed.",
+      "progression": "Formation, preserved marks, overlap, then explanation of the overlap clue.",
+      "inference": "Moderate: use a broken older edge to establish order of two events."
+    },
+    "rationale": "The account connects impact formation, Earth–Moon erosion differences and evidence of relative age. The interrupted rim supplies a direct clue, so readers infer order from structure rather than size. This linked explanation and evidence use fits D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:7a09918fe2e39cc3",
+    "textHash": "sha256:3ca75392de4302fda45a30efa87e36468f0a35f609b6bf84759f2f2951b48398",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 178,
+      "uniqueWordCount": 116,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 4.29,
+      "averageWordsPerPage": 17.8,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 8.09,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-07": {
+    "title": "A Trap Made of Silk",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Connected clauses with making, where and not-every qualifications.",
+      "vocabulary": "Silk, spokes, spiral and sticky are repeated with defined spatial relations.",
+      "knowledge": "Natural predation and body contact, without anthropomorphic intentions.",
+      "progression": "Web structure supports capture, vibration detection, movement and prey wrapping.",
+      "inference": "Moderate integration: explain how the same web catches and signals."
+    },
+    "rationale": "The web has several parts and two linked functions: trapping prey and transmitting movement. The account moves from structure to capture, sensation and a resulting gap, with cautious wording about sticky lines. Linking these explained mechanisms across ten pages fits D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:9909a79ef8857afc",
+    "textHash": "sha256:8375aa9c1a78efef441bc94b3ffaafaec9bc5fa1e4c1969076f69e3e89aec757",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 174,
+      "uniqueWordCount": 91,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.2,
+      "averageWordsPerPage": 17.4,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 8.7,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.4,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-08": {
+    "title": "One Bean Becomes Many",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "After, while and as clauses, participial opening and conditional can.",
+      "vocabulary": "Seed, shoot, pod and coat recur; pollination receives oral support.",
+      "knowledge": "Several plant functions are introduced within an ordered familiar garden example.",
+      "progression": "Stored reserves support emergence; leaves and flowers lead to pods and the next seed.",
+      "inference": "Moderate: connect final beans to the opening seed while preserving generation identity."
+    },
+    "rationale": "The bean account connects visible growth to food reserves, sunlight, pollination and new seeds, spanning two generations. Time markers and conditional can keep the full cycle explicit without claiming every seed or flower succeeds. The sustained structural and causal links fit D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:ad62115fa8ba73ee",
+    "textHash": "sha256:020cfbe59d85adb0b0c2f95c7b990ae8d377313e0fc69a96244951662e8fd2d9",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 171,
+      "uniqueWordCount": 96,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.13,
+      "averageWordsPerPage": 17.1,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 8.55,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-09": {
+    "title": "What Will the Magnet Pull?",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Contrasting but clauses, even-when and before constructions.",
+      "vocabulary": "Steel, iron, attract and test recur in concrete comparisons.",
+      "knowledge": "The text explains the material relation; children do not need a prior list of magnetic metals.",
+      "progression": "Prediction, contrasting evidence, further tests, qualified explanation and new test.",
+      "inference": "Moderate: separate appearance, material and observed attraction as different criteria."
+    },
+    "rationale": "The children revise a shiny-material prediction using repeated tests, distinguish metal from attracted-by-this-magnet, and apply the method to a new object. Explicit qualification about metals supports D evidence-based grouping rather than a simple appearance sort.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:29e90712118e93d5",
+    "textHash": "sha256:23912e0cfc9b4ff120787830a5819a559cef41892e5be2149bee0cac07adc763",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 179,
+      "uniqueWordCount": 94,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.03,
+      "averageWordsPerPage": 17.9,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 8.14,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 1,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-10": {
+    "title": "Sunlight After Sunset",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Earlier/as/while transitions and an if condition link multiple times and parts.",
+      "vocabulary": "Solar panel, electricity, battery and energy recur with roles explained.",
+      "knowledge": "One self-contained light rather than grid engineering; no prior circuit knowledge required.",
+      "progression": "Night question, daytime charging, night use, limited charging and care, synthesis.",
+      "inference": "Moderate: explain an effect now using stored energy collected earlier."
+    },
+    "rationale": "A nighttime question is answered through an earlier daytime sequence, a panel-to-battery-to-lamp system and a limit on storage. Readers must distinguish conversion from storage while retaining time and conditions. The supported mechanism and flashback earn D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:f43ae8df54de9cf4",
+    "textHash": "sha256:cb1a92a41145ef8ef43485b73e794419288e2b474449d1b501cdb570198eb64c",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 184,
+      "uniqueWordCount": 106,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.55,
+      "averageWordsPerPage": 18.4,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.76,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-01": {
+    "title": "More Than the Builder",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "While, but and relative clauses, embedded dialogue and a parallel figurative closing.",
+      "vocabulary": "Stage and puppet actions ground role, part, lines and holds-up figurative language.",
+      "knowledge": "A performance contains construction, practice and acting roles; their compatibility is the theme.",
+      "progression": "Unspoken wish, mistaken offer, explicit request, supported rehearsal and public success.",
+      "inference": "Sustained: infer the wish before speech and connect both final successes to the opening label."
+    },
+    "rationale": "Kit’s wish is first conveyed by gaze and practice, then misunderstood as a sound effect before he names it. Readers track the difference between others’ role labels and his two capabilities, with a rehearsal error and a double-meaning ending. This sustained interpretation supports E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:09306e748c5eb38d",
+    "textHash": "sha256:3c87a2ad439fe4844e707b1dfa60c6ee4a308320e6ffcce9c96357a376800150",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 200,
+      "uniqueWordCount": 117,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4,
+      "averageWordsPerPage": 20,
+      "minWordsPerPage": 18,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 27,
+      "averageWordsPerSentence": 7.41,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 1,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 6,
+      "questionPageCount": 3,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-02": {
+    "title": "One Story, Two Endings",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Dialogue and compound sentences include as-if, but, before-in-sequence and purposeful fragments.",
+      "vocabulary": "Ending, sketching and page refer both to collaboration and the drawn story.",
+      "knowledge": "A shared book has an outside authors’ conflict and an inside dog-and-ball plot.",
+      "progression": "Each child overwrites the other; explanations make possible a newly ordered shared ending.",
+      "inference": "Sustained: reconstruct each motive, distinguish drawing from event, and explain how both aims survive."
+    },
+    "rationale": "The reader follows two authors’ competing intentions inside a story-within-a-story. Reciprocal page changes make sense only after the motives emerge, and the revised sequence must prepare a joke while preserving rest. These simultaneous perspectives and nested causality fit E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:8d38cc7310b0afe2",
+    "textHash": "sha256:e36c1e5979dca5d04c99a60164ac7f3c4ccee8d7d0a7430ecfea1e63eaaf2028",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 209,
+      "uniqueWordCount": 107,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 3.8,
+      "averageWordsPerPage": 20.9,
+      "minWordsPerPage": 20,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 7.21,
+      "maxWordsPerSentence": 16,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 6,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-03": {
+    "title": "A Garden for the Rain",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "As, while, that and during clauses plus can/may and cannot-every qualifications.",
+      "vocabulary": "Runoff is defined; hollow, overflow and drainage recur with physical routes.",
+      "knowledge": "A planted drainage system is explained without assuming engineering knowledge.",
+      "progression": "Existing route and problem, alternative route, mechanisms, siting, capacity and observed result.",
+      "inference": "Sustained integration: hold benefit and limit together; overflow is planned behavior rather than failure."
+    },
+    "rationale": "The book connects hard surfaces, transported material, temporary storage, soil infiltration and an overflow exception. Readers must track multiple routes and a capacity limit while evaluating the garden’s partial benefit. This qualified community-system explanation supports E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:a1aec686183e03a4",
+    "textHash": "sha256:30c74f13de43f0bf65436cbf12f9acf069a22838afe67b09ec5bbc9f262f5a13",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 200,
+      "uniqueWordCount": 115,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.53,
+      "averageWordsPerPage": 20,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 10,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-04": {
+    "title": "The Door in the Chalk",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Or, when, until and after clauses express conditions and sequence; brief dialogue carries spatial reasoning.",
+      "vocabulary": "Outline, narrow, width and joins recur as concrete geometric terms.",
+      "knowledge": "One declared magic rule with ordinary geometry; a rigid sphere prevents an unexplained edgewise solution.",
+      "progression": "Seeded opening, dimensional failure, measured revision, interrupted condition, repair and deliberate closure.",
+      "inference": "Sustained: combine width and continuity while tracking Kit in the adjacent unseen room."
+    },
+    "rationale": "The story holds two independent constraints, continuous boundary and adequate width, across separate failures. A visible gap explains an off-screen change, and the final deliberate erasure reverses an earlier accident. Tracking this conditional mechanism and changed intention fits E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:565ca266739954f7",
+    "textHash": "sha256:e1dd9eb94ac8f017a6ede08e574a8f51d981fe8e16daaeebb9bdb2baa789d959",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 200,
+      "uniqueWordCount": 117,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.24,
+      "averageWordsPerPage": 20,
+      "minWordsPerPage": 18,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 25,
+      "averageWordsPerSentence": 8,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 3,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-05": {
+    "title": "The River Moves the Bank",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Where, while, when and after clauses; comparison, qualification and a semicolon connect mechanisms.",
+      "vocabulary": "Erosion, sediment and deposition are explicitly named after concrete observations.",
+      "knowledge": "Transport capacity and bank change are taught through one persistent bend.",
+      "progression": "Contrasting banks, material removal/transport/deposition, gradual shift, stronger flow and synthesis.",
+      "inference": "Sustained: connect loss here with buildup elsewhere without assuming equal amounts or instant change."
+    },
+    "rationale": "Erosion, transport and deposition act in different places at the same bend, and changing flow alters what can move. The reader integrates simultaneous changes and a later storm, retaining a fixed landmark across elapsed time. This interconnected explanation supports E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:cb84dcec5b28a684",
+    "textHash": "sha256:b3fb0fc69bb29c2fd31f0cea0c85a9b8a4d9abb21d61ae8ba8a2f42f957b5b63",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 201,
+      "uniqueWordCount": 119,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.51,
+      "averageWordsPerPage": 20.1,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 9.14,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-06": {
+    "title": "The Moon Has Not Shrunk",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "While, as, near and after constructions link spatial and temporal relationships.",
+      "vocabulary": "Sunlit half, phase, orbiting and viewpoint recur with distinct meanings.",
+      "knowledge": "A whole object and its visible illumination must be kept separate; the needed geometry is supplied.",
+      "progression": "Question, invariant sphere/light, changing view, monthly examples and eclipse distinction.",
+      "inference": "Sustained spatial inference: changing visible area does not imply changing shape or Earth’s shadow."
+    },
+    "rationale": "Readers coordinate a three-dimensional sphere, its illuminated hemisphere and Earth’s changing view across an orbit. The phase sequence is distinguished from physical shape change and an eclipse exception. This multi-viewpoint reasoning and explicit misconception correction earn E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:10b0663b991ffaa2",
+    "textHash": "sha256:aacc93f57615b3a2f6307b0992162776d50f9b36cf93f2ce1d5669331027ddcf",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 199,
+      "uniqueWordCount": 104,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.3,
+      "averageWordsPerPage": 19.9,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 9.05,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-07": {
+    "title": "A Flower’s Night Visitor",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "When, as and after clauses; can/may qualify reproductive outcomes.",
+      "vocabulary": "Nectar and pollination are defined; long muzzle, pollen and flower connect anatomy to function.",
+      "knowledge": "A named bat and cactus example avoids a claim about every bat or flower.",
+      "progression": "Night feeding, pollen transfer, delayed seeds/fruit, additional visitors and reciprocal synthesis.",
+      "inference": "Sustained: one action meets an immediate animal need and a different, delayed plant outcome."
+    },
+    "rationale": "The explanation connects a bat’s feeding adaptations to incidental pollen movement and later cactus reproduction. Benefit to each organism, intent versus consequence, delayed fruiting and other pollinators remain in view. That ecological relationship supports E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:e8026634c8884f7a",
+    "textHash": "sha256:51bb15274ae9c6d4f7da453e6bca0df338220a6bd25f626500946b85d8c09273",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 201,
+      "uniqueWordCount": 119,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.4,
+      "averageWordsPerPage": 20.1,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 9.14,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-08": {
+    "title": "A Frog Changes Its Way of Life",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Earlier, as, while and when clauses, negation and an explicit not-the-same-generation contrast.",
+      "vocabulary": "Gills, froglet, absorbed and generation are grounded in successive body states.",
+      "knowledge": "Common frog scope supports biological accuracy while several body functions are linked.",
+      "progression": "Present frog, earlier egg/tadpole, overlapping transformation, habitat change and next generation.",
+      "inference": "Sustained: distinguish growth, repurposed body material and a new individual life cycle."
+    },
+    "rationale": "The flashback follows overlapping changes to limbs, breathing and tail, then separates the adult’s breeding return from its own early life. Coordinating systems, habitat use and generations gives this E more than an ordered stage list.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:d9bfed3e94de3cd1",
+    "textHash": "sha256:3e1ceae02ae7a835df1e2483aa56031040dc0a7860e85835e684ac892b4887ad",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 203,
+      "uniqueWordCount": 126,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.32,
+      "averageWordsPerPage": 20.3,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9.67,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-09": {
+    "title": "A Whale Is Not a Fish",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "While, although, despite and including phrases; direct questions and qualified some statements.",
+      "vocabulary": "Mammal, trait and streamlined support a comparison across named animal groups.",
+      "knowledge": "The text supplies the biological criteria and concrete exception, without requiring a prior taxonomy.",
+      "progression": "Appearance puzzle, multiple body/life traits, live-birth counterexample and new mammal example.",
+      "inference": "Sustained: distinguish relevant related traits from tempting shared or insufficient single clues."
+    },
+    "rationale": "Readers weigh several classification clues, reject shared habitat and then reject live birth alone using a shark exception. Milk, breathing and internal warmth support the mammal grouping, followed by transfer to dolphins. This multi-criterion reasoning earns E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:a4226bc606356fb4",
+    "textHash": "sha256:3e43ccfcd851b71e6b805f4f57800638c63bdd40b1bd431071d40f3a9890ab1e",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 207,
+      "uniqueWordCount": 136,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4.61,
+      "averageWordsPerPage": 20.7,
+      "minWordsPerPage": 19,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 9,
+      "maxWordsPerSentence": 18,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 1,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-10": {
+    "title": "Keep the Water in the Garden",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "But, if, without and participial phrases relate conditions, causes and choices.",
+      "vocabulary": "Evaporation and mulch are defined; roots/soil/water recur with changing states.",
+      "knowledge": "Visible surface, unseen moisture and care decisions are distinct; no fixed schedule is imposed.",
+      "progression": "Initial appearance, deeper check, loss mechanism, mulch, later need, slow watering and recheck.",
+      "inference": "Sustained: integrate multiple causes and observations to justify both watering and withholding water."
+    },
+    "rationale": "The children revise an appearance-based watering response using hidden moisture, evaporation, mulch and repeated observations. A conditional runoff warning prevents a simple more-water rule, and the final decision depends on evidence across three mornings. This interconnected inquiry supports E.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-07",
+    "textFingerprint": "fnv1a64:74a5cfbdf1d2412f",
+    "textHash": "sha256:249d229e39c8da1528eb8d99740e0e0a220fbe88c45545c88dc1873ec7911d50",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 216,
+      "uniqueWordCount": 125,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.32,
+      "averageWordsPerPage": 21.6,
+      "minWordsPerPage": 21,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 9.39,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
   "meadow-pals-science-01-missing-sandwich": {
     "title": "The Case of the Missing Sandwich",
     "appReadingLevel": "H",

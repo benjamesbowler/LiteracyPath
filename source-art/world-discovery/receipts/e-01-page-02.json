@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:40:51.716Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6112e9c4-2bdf-4cb7-9b37-c71fbed397a5.png",
+  "sourceSha256": "31b032ae8ba217823bbf21570c8526c431606533502f8db1065fb89cb5b12efa",
+  "output": "public/guided-reading/world-discovery/e-01/page-02.webp",
+  "outputSha256": "54b258828d9c8bffcd2185323afecefece738f3df6d4f5f59fa240059bf61630",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: More Than the Builder; World Discovery; fiction.\nSetting: An EMPTY classroom rehearsal corner in afternoon light, peach wall, blue-framed window left, plain shelf right, plain blue rug and tan floor. Only Kit and Zoe are present. This is construction/rehearsal, not the public show.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Plain cardboard puppet theater; Blue cloth curtain; Orange fox hand puppet; White rabbit hand puppet with one small brown-painted front paw, visible whenever that paw is raised; Two plain wooden stools; One supplied cardboard scenery panel with a simple brown den doorway drawn on it, placed behind the stage window from page 2 onward\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): He makes a wide window and hangs the blue curtain. Everyone will see the puppets through the opening he has made.\nRequired illustration: Kit attaches the blue cloth curtain around the finished broad opening of the low cardboard stage; a supplied scenery panel with a simple brown den doorway is already behind the window. Exact continuity: Use pre-cut cardboard; no sharp tool in child hands; puppets still on table; den drawing present before its page 8 cue.\nExact current state: Use pre-cut cardboard; no sharp tool in child hands; puppets still on table; den drawing present before its page 8 cue.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCRITICAL FINAL COMPOSITION: exactly TWO children, Kit and Zoe only. No audience, no spectators, no other people. Use the NEW reference prop designs. All surfaces are perfectly clean flat fills with limited cel shade: no fine texture, noise, carpet fibers, wood grain or paper grain. Foreground uncluttered. Do not copy the reference-board layout. The words everyone will see describe the FUTURE. No watching children. Kit hangs the blue curtain. Zoe can help hold the other side. The two puppets sit unused on the nearby table.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-01-reference.webp",
+      "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.951Z",
+    "sha256": "54b258828d9c8bffcd2185323afecefece738f3df6d4f5f59fa240059bf61630",
+    "note": "Kit and Zoe attach blue curtains to stable cardboard stage, unused puppets nearby; no audience.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

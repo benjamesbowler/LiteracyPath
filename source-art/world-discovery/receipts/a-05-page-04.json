@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-05",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:25:21.546Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8b0870eb-cfad-4cfd-8752-40b3287bc938.png",
+  "sourceSha256": "ca7cfb65ddbebf6ea12ad79028833ff955462921ebaeeedf616182b66de75eaa",
+  "output": "public/guided-reading/world-discovery/a-05/page-04.webp",
+  "outputSha256": "1ea5fdc02831059d15834af41a5b982922ec6227c07cfea04466e3e1d58fd7a3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY the path: REMOVE the whole tan loop encircling the pond, especially the path BEHIND the pond and along its side shores; replace it with grass. Keep just TWO path halves descending from the foreground hill (left half beneath Kit, right half from lower-right) and meeting at ONE spot beside the near edge of the pond. No third branch or ring around pond. Preserve Kit midway down-view, slope, pond/two reeds, trees and style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-52beacee-2030-4971-ac00-cdd00390d00e.png",
+      "sha256": "157933bf5da621ba02c61fc072152e2bfa0adcb5cf7a6fbfa41db6b246842f5b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "1ea5fdc02831059d15834af41a5b982922ec6227c07cfea04466e3e1d58fd7a3",
+    "note": "Kit halfway up looks down continuous slope at same pond; second hill and erroneous pond-ring path removed.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

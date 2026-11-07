@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-d-02",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:51:34.334Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-44daed1a-3c99-40da-bd40-3a410ce9ec17.png",
+  "sourceSha256": "6d366162cc2de16720de279b91119ad346cea7b6a35a7adb0d7c8364664258fd",
+  "output": "public/guided-reading/world-discovery/d-02/page-04.webp",
+  "outputSha256": "988956cb2a5dbbcbeffb0a5e23288466416d8b11e0888d5e541037bf74b4dd4d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Quiet Seat; World Discovery; fiction.\nSetting: A bright classroom activity room, afternoon. Blue chair at a small round table, block rug several steps away, second low table at the far side.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Six plain wooden blocks; One white drawing sheet; One green pencil; Blue chair\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Clack! The stack tips over. Zoe\u2019s pencil jerks, leaving a long green line across her picture.\nRequired illustration: Blocks tumble on the floor and Zoe\u2019s pencil makes one accidental green line across the tree drawing. Exact continuity: The paper gains one unintended line; blocks do not strike Zoe.\nExact current state: The paper gains one unintended line; blocks do not strike Zoe.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. Lock room geography: round oak drawing table LEFT beneath window with ONE blue chair, low rectangular second table far RIGHT, colorful block rug CENTER foreground several steps from round table. Exactly six tan wooden blocks total in scene. Child drawing is simple GREEN pencil only: a single vertical trunk branching into a plain Y with two short bare twigs. No finished leafy tree yet, no colored crayons. Exactly six blocks falling/scattered on FLOOR beside chair, NEVER hitting body/table. Zoe startled, pencil touching paper, one long unintended GREEN diagonal stroke extends from tree trunk toward upper-right of paper across blank space. This new line is bare with no leaves. Distinguish one single stray line clearly. Kit beside falling blocks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-02-reference.webp",
+      "sha256": "74e6b3397c8322de42e60224c7447e1e6d112ea7a3a9b5fbe94b6ef08a143720"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "988956cb2a5dbbcbeffb0a5e23288466416d8b11e0888d5e541037bf74b4dd4d",
+    "note": "Direct inspection: six blocks tumble separately on floor, none strike Zoe; startled pencil movement leaves one long bare green diagonal stroke across unfinished tree drawing.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

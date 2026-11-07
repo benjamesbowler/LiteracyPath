@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-07",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:33:00.164Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0ccf7aeb-ecb2-4622-8727-2217877a6e99.png",
+  "sourceSha256": "a64b3521812557e48896f07f76ba28c69d396a5a43fc9dbbaa2462b925ac517d",
+  "output": "public/guided-reading/world-discovery/a-07/page-04.webp",
+  "outputSha256": "996fe7d46bb9a74719ff8ab4a7e3ce05a6eab8b56df68d3d879700bf49c546a4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Add one tiny BLACK eye dot at the rounded tip of EACH of the two long upper eyestalks of this snail. Its two long tips are currently blank beige. Exactly two tiny black dots total. Preserve everything else exactly: two short lower feelers, broad foot contacting stone, trailing mucus, brown shell, leaf, setting, composition, colors. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-88ad62d0-04fc-49a3-9af3-e3e55e60036a.png",
+      "sha256": "e3842d6018e647c9b48df043a01f7f7532dee1366eead56050a0ed7264a7115d"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "996fe7d46bb9a74719ff8ab4a7e3ce05a6eab8b56df68d3d879700bf49c546a4",
+    "note": "Snail slides right on continuous foot with small mucus trace behind. Corrected two black eye dots at upper tentacle tips; no legs.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

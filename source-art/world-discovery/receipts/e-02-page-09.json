@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:43.899Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-24965fa4-d6ba-4b97-affc-5594131792ee.png",
+  "sourceSha256": "e665d4e61e311913c9d2256fd3ce5403801f8967610c81d17ac9380a7575e4c7",
+  "output": "public/guided-reading/world-discovery/e-02/page-09.webp",
+  "outputSha256": "264c436a1ee35eaa578ba6dc05a4584207ede88badd4b46c5f8625cf86fac7fc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Preserve everything except third/right-hand drawn comic panel. Change that panel so the curled brown dog sleeps INSIDE the blue oval bed (his curled body fits within blue rim), with red ball on ground BESIDE and OUTSIDE bed. This shows rest after ball rolled out. Keep first startled dog panel and middle rolling ball panel, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d086577a-1ad1-4c29-a330-6aec7939013d.png",
+      "sha256": "7f5aad2b2c02f82acca7cba84eb4db1f677144e077315b4379524158a7829db7"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.228Z",
+    "sha256": "264c436a1ee35eaa578ba6dc05a4584207ede88badd4b46c5f8625cf86fac7fc",
+    "note": "Three drawnpanels sequential surprise, rollingredball, curleddog INSIDEbed with balloutside; paper-only art.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

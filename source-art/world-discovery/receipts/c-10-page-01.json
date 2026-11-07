@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:11:41.394Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9b7bacd7-2ae6-4c93-a2e8-ae6b00386a16.png",
+  "sourceSha256": "e04c6a2fd0aab7e71146f609eb7b48b9b5bc06c03a901facc6a6d90b9e15d467",
+  "output": "public/guided-reading/world-discovery/c-10/page-01.webp",
+  "outputSha256": "351d8d9b2fd6d330d02334c30a4f45afb322451bfe25410683476223c707777f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Apple Core Comes Back; World Discovery; nonfiction.\nSetting: World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One apple core and fruit peel scraps; Dry brown leaves; One ventilated green compost bin; Small watering can; Garden fork handled only by adult; One young tomato plant; One garden bed of soil; One small cream snack tray; One small gray bucket for finished compost; Two short hand trowels, one for each child\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): An apple core is left after snack. Can this scrap help something grow?\nRequired illustration: World Discovery school garden beside the classroom, beginning after an apple snack and continuing over several months. Adult helper: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. Same lidded green compost bin throughout. Kit and Zoe look at one apple core on a small tray after their classroom snack, with the school garden visible outside. Exact state: Core intact; no compost yet; ordinary meal setting.\nExact current state: Core intact; no compost yet; ordinary meal setting.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nContinuity: same tapered square GREEN ventilated compost bin with removable green lid and black air holes, cream snack tray, red apple core, brown dry leaves, green watering can, adult green sweater/gray pants. Kit/Zoe same clothing and equal height. Show ONLY objects and people needed now, not the reference prop inventory.\nOpening close classroom snack-table scene: ONLY Kit and Zoe looking at ONE apple core on cream tray. No adult, fork, bucket, trowels, watering action, tomato plant or compost material yet. Garden visible through window is ordinary empty soil bed.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-10-reference.webp",
+      "sha256": "f5e3759f2688e1e8563d991456dd9acc557a3de7a24feeac5164cf8af82d4de8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "351d8d9b2fd6d330d02334c30a4f45afb322451bfe25410683476223c707777f",
+    "note": "Direct inspection: Kit and Zoe observe one core on cream tray at snack table; closed green bin and empty soil bed visible outside, no finished compost or premature plant.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

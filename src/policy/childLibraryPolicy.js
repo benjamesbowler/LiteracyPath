@@ -19,6 +19,7 @@ export const BOOK_COLLECTIONS = Object.freeze([
   Object.freeze({ id: "small-steps", label: "Small Steps" }),
   Object.freeze({ id: "next-steps", label: "Next Steps" }),
   Object.freeze({ id: "bright-ideas", label: "Bright Ideas" }),
+  Object.freeze({ id: "world-discovery", label: "World Discovery" }),
   Object.freeze({ id: "bob-and-nan", label: "Bob & Nan" }),
   Object.freeze({ id: "meadow-pals", label: "Meadow Pals" }),
   Object.freeze({ id: "james-and-anna", label: "James & Anna" }),
@@ -36,6 +37,7 @@ export function bookCollectionId(book = {}) {
   if (id.startsWith("small-steps-")) return "small-steps";
   if (id.startsWith("next-steps-")) return "next-steps";
   if (id.startsWith("bright-ideas-")) return "bright-ideas";
+  if (id.startsWith("world-discovery-")) return "world-discovery";
   if (id.startsWith("bob-and-nan-") || /\b(?:bob and nan|nan and bob)\b/.test(title)) {
     return "bob-and-nan";
   }
@@ -193,7 +195,7 @@ export function buildBookShelves({
     if (mode === "together") pool = pool.filter(book => book.readingBandProfile === "extended"
       || book.readingBandProfile === "read-aloud" || book.readingMode === "supported-read-together");
     const orderedCollection = mode === "all" && pool.length > 0
-      && ["small-steps", "next-steps", "bright-ideas"].includes(pool[0].seriesId)
+      && ["small-steps", "next-steps", "bright-ideas", "world-discovery"].includes(pool[0].seriesId)
       && pool.every(book => book.seriesId === pool[0].seriesId && Number.isInteger(book.seriesOrder));
     pool.sort(orderedCollection ? (a, b) => a.seriesOrder - b.seriesOrder : byOrder);
   }

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:20:47.723Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-53ccae3d-fb1c-481f-b6b8-553fb2059e36.png",
+  "sourceSha256": "b3d6356fd69216252454b0e3359ac4c8ffe1eb5268382e60c2e9204dc9048c7f",
+  "output": "public/guided-reading/world-discovery/d-03/page-02.webp",
+  "outputSha256": "48c28b89fd6dd6f9a3fab8ad9bf64a406e1b0917db530c0da16a447f45a55c44",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit ONLY the FIRST supplied image, the finished page 2 illustration of a kitchen sink. Second supplied image is geometry guidance only. Make one surgical correction: the narrow BLUE SUPPLY RISER must travel BEHIND the opaque white/gray sink basin and counter rim to the faucet mounting hole, exactly as it is occluded in the SECOND reference. Remove all visible blue pipe from INSIDE the bowl/interior basin area. Fill that erased interior segment with the existing uninterrupted bowl surface. The blue riser stays visible BELOW the counter to the LEFT of the gray drain, then disappears behind the sink; the faucet remains mounted on the back rim with no blue tube visible above/in the basin. Keep the gray drain continuously connected below the center bowl, fully SEPARATE from blue supply. Preserve every other part of the FIRST image: both adult workers in original positions and clothing, one blue cup in sink, running tap stream, town background, cabinets, sink shape, proportions, clean bold outlines, flat cel style and landscape 3:2 canvas. Do not copy second reference composition or add arrows, text, labels, additional pipes, joints across supply/drain, or other objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-03/page-02.webp",
+      "sha256": "acb3e66d59cac12c591ab85de96c2912b9a83036a5c14cc8cdb20458ff84c4bd"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-03/page-10.webp",
+      "sha256": "1bf462fd3da75f39d5c32c96c2c816658b282b3df48884280625a18dbe2baf0d"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:20:47.725Z",
+    "sha256": "48c28b89fd6dd6f9a3fab8ad9bf64a406e1b0917db530c0da16a447f45a55c44",
+    "note": "Corrected supply riser is visibly continuous below counter, then occluded by opaque basin/rim to rear-mounted faucet; no blue segment inside bowl. Gray drain remains separate. Original cup, tap state, town and two adult workers preserved.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

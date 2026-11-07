@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:51.026Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-92fdd750-d484-40c5-93bb-8b4e864ad2be.png",
+  "sourceSha256": "fcc1646063ce669ffcfd93827d019d10b8394dd9ef4c505e25ebb1b8ab352f5f",
+  "output": "public/guided-reading/world-discovery/c-08/page-05.webp",
+  "outputSha256": "a9e270e4076b7c69c6050a932caa7f97e4221c409b6a34dda1ed0f2c7c1744bd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: From Pond to Sky; World Discovery; nonfiction.\nSetting: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Pond reed stems; Tiny elongated dragonfly egg inserted into submerged pond-plant tissue; Natural six-legged brown nymph; Empty shed nymph skin fixed to reed; Adult green dragonfly with four clear wings\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): At last, it climbs up a stem and out of the water.\nRequired illustration: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. The mature nymph grips a vertical reed above the pond surface, body completely clear of the water. Exact state: Same six legs; wing pads only; no adult wings yet.\nExact current state: Same six legs; wing pads only; no adult wings yet.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific anatomy and stage: NO humans, labels, arrows, pupa, cocoon, butterfly or damselfly. Adult has exactly FOUR transparent wings (two each side) and SIX thoracic legs (three each side), compact green thorax and slender brown abdomen. Nymph has six thoracic legs, compact brown body, no developed wings and no three tail gills. Any empty shed skin must have an obvious SPLIT OPEN upper back with pale thin edges and hollow interior, no living pupils. ONLY one living brown nymph on reed fully above water; NO adult dragonfly anywhere and NO second skin. All six legs clearly grip stem, three near and three far.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-08-reference.webp",
+      "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "a9e270e4076b7c69c6050a932caa7f97e4221c409b6a34dda1ed0f2c7c1744bd",
+    "note": "Direct inspection: single wingless brown mature nymph grips reed entirely above pond water; three near legs visible with far legs occluded by stem, wing pads only, no premature adult.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

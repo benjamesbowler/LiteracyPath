@@ -1,0 +1,21 @@
+{
+  "bookId": "world-discovery-a-01",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:24:05.615Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a7553590-fecd-4d0d-be5a-0a816f5bd9a7.png",
+  "sourceSha256": "5b11176c3ebb7384ea03c68b7c4441b8f21d0f7d12014ecc4f03f0c68df30461",
+  "output": "public/guided-reading/world-discovery/a-01/page-02.webp",
+  "outputSha256": "c9f16d790f98a64d19459ee166f443e0b34fa89ef785b3bd5ca0e2455f06ea09",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only this book illustration. REMOVE the boy Kit completely from the left side; this is Zoe's solo story and no other person may appear. Reconstruct the simple shelving, wall and rug naturally behind his former position. Preserve Zoe, her single brown crayon held against the paper, the brown round face outline with no features, the other three crayons black/yellow/plum, the teal mirror and Zoe's matching reflection, table, room palette and clean cartoon style. Do not add any figure or new prop. One coherent landscape scene, no text.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "c9f16d790f98a64d19459ee166f443e0b34fa89ef785b3bd5ca0e2455f06ea09",
+    "note": "Repaired extra Kit; solo Zoe draws a bare round face outline with one brown crayon, three others resting.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

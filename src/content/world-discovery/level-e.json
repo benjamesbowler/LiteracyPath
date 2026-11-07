@@ -1,0 +1,1632 @@
+[
+  {
+    "id": "world-discovery-e-01",
+    "number": 1,
+    "title": "More Than the Builder",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants to speak in the class puppet show as well as build its stage, but Zoe assumes he only wants the building job.",
+      "failedAttempt": "He rehearses behind the stage without explaining what he wants, and Zoe mistakes his voice practice for a sound effect.",
+      "resolution": "Kit asks for the fox’s speaking part, rehearses it with Zoe and performs through the stage he built."
+    },
+    "setting": "Classroom rehearsal corner in afternoon light. Low cardboard puppet theater, blue curtain, wooden chairs for an audience. Only Kit and Zoe are named. The performance audience consists of three unnamed children: one with fair skin, short auburn hair and an orange shirt; one with medium brown skin, short dark curls and a light-blue shirt; one with deep brown skin, long black braids and a green shirt. All have Kit and Zoe’s child scale.",
+    "props": [
+      "Plain cardboard puppet theater",
+      "Blue cloth curtain",
+      "Orange fox hand puppet",
+      "White rabbit hand puppet with one small brown-painted front paw, visible whenever that paw is raised",
+      "Two plain wooden stools",
+      "One supplied cardboard scenery panel with a simple brown den doorway drawn on it, placed behind the stage window from page 2 onward"
+    ],
+    "coverBrief": "Kit holds an orange fox puppet through his cardboard theater window while Zoe’s white rabbit puppet peeks beside it; Kit is visible smiling behind the side of the stage.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "“Kit can build our stage,” Zoe says. Kit reaches for the cardboard, but his eyes stay on the orange fox puppet.",
+        "imageBrief": "Zoe indicates flat cardboard while Kit looks past it toward an orange fox hand puppet on the table. Exact continuity: Stage not built yet; fox and white rabbit puppets lie unused.",
+        "imageAlt": "Zoe indicates flat cardboard while Kit looks past it toward an orange fox hand puppet on the table.",
+        "pageDescription": "Zoe indicates flat cardboard while Kit looks past it toward an orange fox hand puppet on the table.",
+        "state": "Stage not built yet; fox and white rabbit puppets lie unused.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "He makes a wide window and hangs the blue curtain. Everyone will see the puppets through the opening he has made.",
+        "imageBrief": "Kit attaches the blue cloth curtain around the finished broad opening of the low cardboard stage; a supplied scenery panel with a simple brown den doorway is already behind the window. Exact continuity: Use pre-cut cardboard; no sharp tool in child hands; puppets still on table; den drawing present before its page 8 cue.",
+        "imageAlt": "Kit attaches the blue cloth curtain around the finished broad opening of the low cardboard stage; a supplied scenery panel with a simple brown den doorway is already behind the window.",
+        "pageDescription": "Kit attaches the blue cloth curtain around the finished broad opening of the low cardboard stage; a supplied scenery panel with a simple brown den doorway is already behind the window.",
+        "state": "Use pre-cut cardboard; no sharp tool in child hands; puppets still on table; den drawing present before its page 8 cue.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "While Zoe practices the rabbit’s lines, Kit speaks softly behind the stage. “Who has been digging near my den?”",
+        "imageBrief": "Zoe holds the white rabbit puppet while Kit crouches behind the stage, looking at the orange fox puppet in his lap. Exact continuity: Kit rehearses fox role softly; no audience yet.",
+        "imageAlt": "Zoe holds the white rabbit puppet while Kit crouches behind the stage, looking at the orange fox puppet in his lap.",
+        "pageDescription": "Zoe holds the white rabbit puppet while Kit crouches behind the stage, looking at the orange fox puppet in his lap.",
+        "state": "Kit rehearses fox role softly; no audience yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe leans around the curtain. “That voice is good! Make one surprised noise when I knock on the door.”",
+        "imageBrief": "Zoe peers around the blue curtain toward Kit as he holds the fox puppet close to his chest. Exact continuity: Her offer is a single sound cue; Kit still wants full part.",
+        "imageAlt": "Zoe peers around the blue curtain toward Kit as he holds the fox puppet close to his chest.",
+        "pageDescription": "Zoe peers around the blue curtain toward Kit as he holds the fox puppet close to his chest.",
+        "state": "Her offer is a single sound cue; Kit still wants full part.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit tries the voice on her signal. Then he stops. There is more he wants to say than one surprised noise.",
+        "imageBrief": "Kit lowers the fox puppet after one rehearsal cue while Zoe holds the rabbit at the stage opening. Exact continuity: Kit’s pause, not an angry outburst; curtain remains attached.",
+        "imageAlt": "Kit lowers the fox puppet after one rehearsal cue while Zoe holds the rabbit at the stage opening.",
+        "pageDescription": "Kit lowers the fox puppet after one rehearsal cue while Zoe holds the rabbit at the stage opening.",
+        "state": "Kit’s pause, not an angry outburst; curtain remains attached.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“I want to play the fox,” he says. Zoe looks at the stage. “But you are our builder.”",
+        "imageBrief": "Kit stands holding the fox puppet and faces Zoe, who gestures toward the completed cardboard stage. Exact continuity: No new cast; stage complete and stable.",
+        "imageAlt": "Kit stands holding the fox puppet and faces Zoe, who gestures toward the completed cardboard stage.",
+        "pageDescription": "Kit stands holding the fox puppet and faces Zoe, who gestures toward the completed cardboard stage.",
+        "state": "No new cast; stage complete and stable.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "“I built it already,” Kit says. He slips his hand into the puppet. “Can I try the whole part?”",
+        "imageBrief": "Kit puts his hand fully inside the orange fox puppet and lifts it toward the stage window. Exact continuity: Request explicit; puppet unchanged; Zoe holds rabbit ready.",
+        "imageAlt": "Kit puts his hand fully inside the orange fox puppet and lifts it toward the stage window.",
+        "pageDescription": "Kit puts his hand fully inside the orange fox puppet and lifts it toward the stage window.",
+        "state": "Request explicit; puppet unchanged; Zoe holds rabbit ready.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "They begin again. Kit forgets one line, so Zoe taps the little den on the scenery. He finds the words.",
+        "imageBrief": "Fox and rabbit puppets face each other in the stage window as Zoe points at a simple drawn den in the scenery. Exact continuity: Purposeful scenery drawing has den opening, no writing; rehearsal includes a recoverable mistake.",
+        "imageAlt": "Fox and rabbit puppets face each other in the stage window as Zoe points at a simple drawn den in the scenery.",
+        "pageDescription": "Fox and rabbit puppets face each other in the stage window as Zoe points at a simple drawn den in the scenery.",
+        "state": "Purposeful scenery drawing has den opening, no writing; rehearsal includes a recoverable mistake.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "At the show, the fox peeps out. Kit’s voice reaches the back row. “Who has been digging near my den?”",
+        "imageBrief": "Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge. Exact continuity: Performance after rehearsal; child audience neutral clothes; Kit behind stage.",
+        "imageAlt": "Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge.",
+        "pageDescription": "Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge.",
+        "state": "Performance after rehearsal; child audience neutral clothes; Kit behind stage.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Zoe’s rabbit raises one muddy paw. Behind the curtain, Kit nearly laughs. The stage holds up, and so does his fox voice.",
+        "imageBrief": "Fox and rabbit puppets share the window, rabbit’s brown-painted paw lifted; Kit and Zoe are partly visible behind the side curtain. Exact continuity: Muddy mark is puppet paint, not wet mud; stage intact and Kit performing, closing both roles.",
+        "imageAlt": "Fox and rabbit puppets share the window, rabbit’s brown-painted paw lifted; Kit and Zoe are partly visible behind the side curtain.",
+        "pageDescription": "Fox and rabbit puppets share the window, rabbit’s brown-painted paw lifted; Kit and Zoe are partly visible behind the side curtain.",
+        "state": "Muddy mark is puppet paint, not wet mud; stage intact and Kit performing, closing both roles.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit need to say what he wanted, even after Zoe liked his fox voice?",
+        "listenFor": "She interpreted his practice as a sound effect and kept the builder label; he wanted a whole speaking part."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "How does Kit show that he wants to try another role?",
+        "lookFor": "He puts on the fox puppet and raises it toward the window while speaking to Zoe."
+      }
+    },
+    "levelRationale": "App E requires sustained interpretation of an unspoken wish, a mistaken helpful offer, an explicit self-advocacy turn and a two-part ending. Temporal change from construction to rehearsal to performance is supported through concrete props.",
+    "languagePrep": [
+      {
+        "word": "rehearsal",
+        "meaning": "practice before a show"
+      },
+      {
+        "word": "role",
+        "meaning": "a part someone takes in a story or activity"
+      },
+      {
+        "word": "scenery",
+        "meaning": "pictures or objects that show where a play happens"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-02",
+    "number": 2,
+    "title": "One Story, Two Endings",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe and Kit want to finish a shared picture story, but each removes the other’s ending because they want different things from it.",
+      "failedAttempt": "Kit replaces Zoe’s quiet reunion with a comic surprise, then Zoe hides his new page; the book no longer has a shared ending.",
+      "resolution": "They explain their intentions, join reunion and prepared surprise into one final sequence, and return both authors’ drawings to the book."
+    },
+    "setting": "Classroom art table in daylight, one folded four-page picture story about an unnamed brown dog and red ball. All story images clearly drawings on paper.",
+    "props": [
+      "Folded blank-paper picture story",
+      "Brown dog drawings",
+      "Red ball drawing",
+      "One blue pencil",
+      "One red pencil",
+      "Two loose ending sheets",
+      "One brown drawing pencil for the dog; the blue pencil draws the bed and the red pencil draws the ball"
+    ],
+    "coverBrief": "Kit and Zoe spread two drawn endings beside their little picture book: a brown dog returning a red ball and a dog sitting on that ball.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe draws the lost red ball beside the dog’s bed. Kit turns the page. “That is where our story stops?”",
+        "imageBrief": "Zoe points to a drawing of a brown dog’s bed with a red ball beside it; Kit holds their paper book open. Exact continuity: All dog scenes are flat child drawings, never living animals in the room.",
+        "imageAlt": "Zoe points to a drawing of a brown dog’s bed with a red ball beside it; Kit holds their paper book open.",
+        "pageDescription": "Zoe points to a drawing of a brown dog’s bed with a red ball beside it; Kit holds their paper book open.",
+        "state": "All dog scenes are flat child drawings, never living animals in the room.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "“The dog found it,” Zoe says. But Kit is already sketching a new page: the dog sits on the ball by mistake.",
+        "imageBrief": "Kit draws the same brown dog sitting on a red ball on a separate sheet; Zoe holds her reunion ending. Exact continuity: Two distinct ending pages; dog and ball colors consistent.",
+        "imageAlt": "Kit draws the same brown dog sitting on a red ball on a separate sheet; Zoe holds her reunion ending.",
+        "pageDescription": "Kit draws the same brown dog sitting on a red ball on a separate sheet; Zoe holds her reunion ending.",
+        "state": "Two distinct ending pages; dog and ball colors consistent.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "He slips his page over hers. “Now it is funny.” Zoe pulls the book toward her and presses it shut.",
+        "imageBrief": "Kit’s funny ending lies over Zoe’s page as Zoe closes the paper book and draws it closer. Exact continuity: No tearing; both ending sheets intact inside book.",
+        "imageAlt": "Kit’s funny ending lies over Zoe’s page as Zoe closes the paper book and draws it closer.",
+        "pageDescription": "Kit’s funny ending lies over Zoe’s page as Zoe closes the paper book and draws it closer.",
+        "state": "No tearing; both ending sheets intact inside book.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Later, Kit opens the book. His new page is gone. Zoe’s dog curls beside the ball as if nothing happened.",
+        "imageBrief": "Kit finds Zoe’s quiet ending restored in the open book; his funny ending is partly visible under Zoe’s elbow. Exact continuity: Time passed; hidden page not destroyed; Zoe nearby.",
+        "imageAlt": "Kit finds Zoe’s quiet ending restored in the open book; his funny ending is partly visible under Zoe’s elbow.",
+        "pageDescription": "Kit finds Zoe’s quiet ending restored in the open book; his funny ending is partly visible under Zoe’s elbow.",
+        "state": "Time passed; hidden page not destroyed; Zoe nearby.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "“You took mine out.” “You covered mine first.” The dog has its ball, but neither child wants to turn the page.",
+        "imageBrief": "Kit and Zoe sit apart across the table with the open book between them and both ending sheets visible. Exact continuity: Disagreement about shared work, not violence; all pages accounted for.",
+        "imageAlt": "Kit and Zoe sit apart across the table with the open book between them and both ending sheets visible.",
+        "pageDescription": "Kit and Zoe sit apart across the table with the open book between them and both ending sheets visible.",
+        "state": "Disagreement about shared work, not violence; all pages accounted for.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe smooths her page. “He looked for it all day. I wanted him to have a rest.” Kit studies the tired dog.",
+        "imageBrief": "Zoe points to the drooping ears and curled body in her dog drawing while Kit looks closely. Exact continuity: Drawing gives evidence for Zoe’s intended rest; no new full plot introduced.",
+        "imageAlt": "Zoe points to the drooping ears and curled body in her dog drawing while Kit looks closely.",
+        "pageDescription": "Zoe points to the drooping ears and curled body in her dog drawing while Kit looks closely.",
+        "state": "Drawing gives evidence for Zoe’s intended rest; no new full plot introduced.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "“I wanted one last laugh,” Kit says. He holds his page beside hers. Zoe points at the round ball under the dog.",
+        "imageBrief": "Kit places his comic ending beside Zoe’s restful ending, both children looking at the red ball. Exact continuity: Two goals made explicit; papers side by side rather than one covering the other.",
+        "imageAlt": "Kit places his comic ending beside Zoe’s restful ending, both children looking at the red ball.",
+        "pageDescription": "Kit places his comic ending beside Zoe’s restful ending, both children looking at the red ball.",
+        "state": "Two goals made explicit; papers side by side rather than one covering the other.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "They move the ball into the bed on the first page. On the next, the sleepy dog sits down without looking.",
+        "imageBrief": "Their revised two-page spread shows the ball in the dog bed first, then the dog lowering into that bed. Exact continuity: Prepared cause precedes surprise; shared revision drawn by both children.",
+        "imageAlt": "Their revised two-page spread shows the ball in the dog bed first, then the dog lowering into that bed.",
+        "pageDescription": "Their revised two-page spread shows the ball in the dog bed first, then the dog lowering into that bed.",
+        "state": "Prepared cause precedes surprise; shared revision drawn by both children.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The dog pops up. The ball rolls out. Then the dog curls down, with the ball safely beside the bed.",
+        "imageBrief": "Three small, clearly separated picture-story panels on one paper show startled dog, rolling ball, then curled dog. Exact continuity: This is printed comic art within the room scene; no speech bubbles or pseudo-writing.",
+        "imageAlt": "Three small, clearly separated picture-story panels on one paper show startled dog, rolling ball, then curled dog.",
+        "pageDescription": "Three small, clearly separated picture-story panels on one paper show startled dog, rolling ball, then curled dog.",
+        "state": "This is printed comic art within the room scene; no speech bubbles or pseudo-writing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Kit turns the last page slowly. Zoe nudges him when the dog jumps. They keep both the laugh and the rest.",
+        "imageBrief": "Kit and Zoe lean together over their finished little picture book, Zoe nudging Kit’s arm as he turns a page. Exact continuity: Book finished; loose rejected alternatives placed aside, not discarded in anger.",
+        "imageAlt": "Kit and Zoe lean together over their finished little picture book, Zoe nudging Kit’s arm as he turns a page.",
+        "pageDescription": "Kit and Zoe lean together over their finished little picture book, Zoe nudging Kit’s arm as he turns a page.",
+        "state": "Book finished; loose rejected alternatives placed aside, not discarded in anger.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did each child want from the ending, and how did they include both ideas?",
+        "listenFor": "Zoe wanted the tired dog to rest; Kit wanted a joke. They prepared the ball surprise before the dog rests."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What change makes the surprise happen for a reason?",
+        "lookFor": "They put the ball in the bed before the sleepy dog sits down."
+      }
+    },
+    "levelRationale": "App E sustains two perspectives, reciprocal changes to shared work and a story-within-a-story. Readers infer why each child removes a page before the dialogue reveals their different intentions.",
+    "languagePrep": [
+      {
+        "word": "ending",
+        "meaning": "the part that brings a story to a close"
+      },
+      {
+        "word": "sketching",
+        "meaning": "making a quick drawing"
+      },
+      {
+        "word": "surprise",
+        "meaning": "something you did not expect"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-03",
+    "number": 3,
+    "title": "A Garden for the Rain",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a community reduce water rushing from roofs and paths toward a stream?",
+      "progression": "Trace rainfall across hard surfaces, identify runoff and carried dirt, then follow a deliberately built planted hollow and its overflow route.",
+      "synthesis": "A rain garden slows and holds some runoff so it can soak into suitable ground; it complements drainage rather than making floods impossible.",
+      "scienceSources": [
+        {
+          "title": "EPA: Types of Green Infrastructure",
+          "url": "https://www.epa.gov/green-infrastructure/types-green-infrastructure",
+          "evidence": "Rain gardens are shallow planted depressions collecting runoff and filtering through soil; bioretention may infiltrate or use an underdrain.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Massachusetts: Stormwater Solutions for Homeowners—Rain Gardens",
+          "url": "https://www.mass.gov/info-details/stormwater-solutions-for-homeowners-fact-sheet-rain-gardens",
+          "evidence": "Rain gardens collect roof and paved-area runoff, reduce offsite runoff and require appropriate siting, soil and design.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "EPA: What You Can Do to Soak Up the Rain",
+          "url": "https://www.epa.gov/soakuptherain/what-you-can-do-soak-rain",
+          "evidence": "Hard surfaces produce runoff that can transport pollutants; planted practices reduce but do not eliminate runoff.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One neighborhood community building beside a paved path and stream. A mature shallow rain garden sits safely away from foundations and the walking route. On page 7 only, two unnamed adult planners stand beside the garden: a woman with deep brown skin, short black curls, navy work shirt and gray trousers; a man with fair skin, short brown hair, green work shirt and tan trousers. This page explains planning, not a new rain event.",
+    "props": [
+      "Building gutter and downspout",
+      "Paved path",
+      "Shallow planted rain garden",
+      "Soil cutaway",
+      "Visible overflow channel",
+      "Nearby stream"
+    ],
+    "coverBrief": "Rain from a community building’s downspout flows toward a shallow garden of grasses and flowers while the clear walking path stays beside it.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Rain taps the roof and runs along the path. Before long, water is rushing toward the stream behind the community building.",
+        "imageBrief": "Rain falls on a plain building roof and paved path, with a shallow stream beyond the grounds. Exact continuity: Water route visible downhill; no dramatic dangerous flood or people in rushing water.",
+        "imageAlt": "Rain falls on a plain building roof and paved path, with a shallow stream beyond the grounds.",
+        "pageDescription": "Rain falls on a plain building roof and paved path, with a shallow stream beyond the grounds.",
+        "state": "Water route visible downhill; no dramatic dangerous flood or people in rushing water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The roof and pavement let little water soak through. Water flowing over the surface is called runoff.",
+        "imageBrief": "Close oblique view shows droplets joining thin flows across a solid paved surface toward its edge. Exact continuity: Paving intact; no claim absolutely no water can pass any pavement.",
+        "imageAlt": "Close oblique view shows droplets joining thin flows across a solid paved surface toward its edge.",
+        "pageDescription": "Close oblique view shows droplets joining thin flows across a solid paved surface toward its edge.",
+        "state": "Paving intact; no claim absolutely no water can pass any pavement.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "As runoff travels, it can pick up loose dirt and litter. Those things may reach the stream with the water.",
+        "imageBrief": "A small moving sheet of runoff carries brown grit and one paper scrap toward a drain at the path edge. Exact continuity: No child handling contaminated water; ordinary small litter, not toxic spill.",
+        "imageAlt": "A small moving sheet of runoff carries brown grit and one paper scrap toward a drain at the path edge.",
+        "pageDescription": "A small moving sheet of runoff carries brown grit and one paper scrap toward a drain at the path edge.",
+        "state": "No child handling contaminated water; ordinary small litter, not toxic spill.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "This community gives some of the rain another route. A downspout directs roof water toward a shallow planted hollow.",
+        "imageBrief": "Roof downspout leads through a stone-lined shallow channel toward a planted depression away from the building. Exact continuity: Building foundation remains above and away from collection area; no pond against walls.",
+        "imageAlt": "Roof downspout leads through a stone-lined shallow channel toward a planted depression away from the building.",
+        "pageDescription": "Roof downspout leads through a stone-lined shallow channel toward a planted depression away from the building.",
+        "state": "Building foundation remains above and away from collection area; no pond against walls.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The hollow is a rain garden. It holds water briefly while the water slowly passes into the soil below.",
+        "imageBrief": "Cutaway through the planted hollow shows shallow pooled rainwater above soil and water entering lower soil spaces. Exact continuity: Temporary shallow water; no permanent deep pond or drinking-water claim.",
+        "imageAlt": "Cutaway through the planted hollow shows shallow pooled rainwater above soil and water entering lower soil spaces.",
+        "pageDescription": "Cutaway through the planted hollow shows shallow pooled rainwater above soil and water entering lower soil spaces.",
+        "state": "Temporary shallow water; no permanent deep pond or drinking-water claim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Plants and soil slow the flow and help trap some of the dirt. Roots take up water as the plants grow.",
+        "imageBrief": "Closer cutaway shows garden stems and roots with a little sediment caught near surface and moisture beneath. Exact continuity: No magical complete purification; dirt retained visibly, plant roots natural.",
+        "imageAlt": "Closer cutaway shows garden stems and roots with a little sediment caught near surface and moisture beneath.",
+        "pageDescription": "Closer cutaway shows garden stems and roots with a little sediment caught near surface and moisture beneath.",
+        "state": "No magical complete purification; dirt retained visibly, plant roots natural.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The garden must suit its place. Workers check the soil and plan a safe route for water that cannot soak in.",
+        "imageBrief": "Two adult planners examine a small soil sample beside a shape-only site plan of the garden and separate overflow path. The woman has deep brown skin, short black curls, navy shirt and gray trousers; the man has fair skin, short brown hair, green shirt and tan trousers. Exact continuity: One dry planning scene at the same site; no readable text; adults handle the soil sample; layout matches the garden seen elsewhere.",
+        "imageAlt": "Two adult planners examine a small soil sample beside a shape-only site plan of the garden and separate overflow path. The woman has deep brown skin, short black curls, navy shirt and gray trousers; the man has fair skin, short brown hair, green shirt and tan trousers.",
+        "pageDescription": "Two adult planners examine a small soil sample beside a shape-only site plan of the garden and separate overflow path. The woman has deep brown skin, short black curls, navy shirt and gray trousers; the man has fair skin, short brown hair, green shirt and tan trousers.",
+        "state": "One dry planning scene at the same site; no readable text; adults handle the soil sample; layout matches the garden seen elsewhere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "During very heavy rain, extra water can leave through that overflow route. A rain garden cannot hold every storm.",
+        "imageBrief": "Full garden has shallow surface water spilling through a designed low stone outlet toward a drainage swale. Exact continuity: Overflow avoids building and footpath; not a broken garden wall.",
+        "imageAlt": "Full garden has shallow surface water spilling through a designed low stone outlet toward a drainage swale.",
+        "pageDescription": "Full garden has shallow surface water spilling through a designed low stone outlet toward a drainage swale.",
+        "state": "Overflow avoids building and footpath; not a broken garden wall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "After the shower, the pooled water sinks away. Flowers remain beside the path, and less roof water has rushed straight downstream.",
+        "imageBrief": "Same rain garden after rain has damp exposed soil without standing water; flowers remain upright beside the dry path. Exact continuity: Time elapsed; some absorbed roof runoff, not guaranteed whole-storm capture.",
+        "imageAlt": "Same rain garden after rain has damp exposed soil without standing water; flowers remain upright beside the dry path.",
+        "pageDescription": "Same rain garden after rain has damp exposed soil without standing water; flowers remain upright beside the dry path.",
+        "state": "Time elapsed; some absorbed roof runoff, not guaranteed whole-storm capture.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The garden changes the journey of the rain: pause, spread, soak. A patch of planted ground becomes part of the town’s drainage.",
+        "imageBrief": "Wide final view links roof, downspout, garden, overflow swale and stream in one coherent landscape. Exact continuity: System route intact; no arrows, labels or suggestion untreated runoff is drinking water.",
+        "imageAlt": "Wide final view links roof, downspout, garden, overflow swale and stream in one coherent landscape.",
+        "pageDescription": "Wide final view links roof, downspout, garden, overflow swale and stream in one coherent landscape.",
+        "state": "System route intact; no arrows, labels or suggestion untreated runoff is drinking water.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does the garden need both soil that accepts water and an overflow route?",
+        "listenFor": "It holds and absorbs some water, but heavy rain can exceed that capacity; excess needs a planned route."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where can extra water leave without crossing the walking path?",
+        "lookFor": "Through the low stone outlet into the separate swale."
+      }
+    },
+    "levelRationale": "App E connects land cover, runoff, pollutants, infiltration and capacity limits across a community system. Conditional language and the overflow exception require synthesis beyond a simple sequence.",
+    "languagePrep": [
+      {
+        "word": "runoff",
+        "meaning": "water that flows over the ground"
+      },
+      {
+        "word": "overflow",
+        "meaning": "water that leaves when a space is too full"
+      },
+      {
+        "word": "drainage",
+        "meaning": "the routes that carry water away"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-04",
+    "number": 4,
+    "title": "The Door in the Chalk",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-ZOE",
+        "WD-KIT"
+      ],
+      "storySpine": "Zoe must carry a large paper moon into the next room for a puppet show, but even a magic chalk doorway fails if its outline is too narrow or broken.",
+      "failedAttempt": "Her first complete doorway is tall but too narrow for the moon; later a rubbed gap closes the wider opening while Kit is in the next room.",
+      "resolution": "Zoe uses the moon’s width to draw a wider continuous outline, then repairs a visible gap to reopen the same passage for Kit.",
+      "magicRule": "An unbroken silver chalk outline makes an opening only into the space immediately beyond the wall. Any gap closes it; rejoining the gap reopens it. The opening has exactly the drawn width and height, and cannot shrink or soften solid objects. Erasing the complete outline removes that opening."
+    },
+    "setting": "Explicit fantasy in a classroom art room adjoining a puppet room. One cream dividing wall, ordinary narrow doorway at right, silver chalk that opens unbroken outlined doors into the room beyond.",
+    "props": [
+      "Large lightweight hollow paper moon, a round sphere wider than the ordinary doorway",
+      "Silver chalk stick",
+      "Cream wall between adjacent rooms",
+      "Blue puppet curtain in next room",
+      "Soft cloth",
+      "Plain string used to compare the moon’s width with the doorway"
+    ],
+    "coverBrief": "Zoe holds silver chalk beside a broad rectangular chalk doorway in a cream wall; Kit carries a large lightweight yellow spherical paper moon through toward a blue puppet curtain.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe’s silver chalk makes a door in any wall. The whole outline must join, or the wall stays solid.",
+        "imageBrief": "Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room. Exact continuity: Explicit magic; only closed chalk outlines open; ordinary doorway visible to the right.",
+        "imageAlt": "Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room.",
+        "pageDescription": "Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room.",
+        "state": "Explicit magic; only closed chalk outlines open; ordinary doorway visible to the right.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Today, their round paper moon will not fit through the ordinary doorway. Kit holds it while Zoe reaches for the chalk.",
+        "imageBrief": "Kit holds a large hollow yellow paper moon sphere at the narrow ordinary doorway; Zoe picks up the silver chalk. Exact continuity: Moon is a rigid lightweight sphere, not a flat disk that could pass edgewise; diameter exceeds doorway width.",
+        "imageAlt": "Kit holds a large hollow yellow paper moon sphere at the narrow ordinary doorway; Zoe picks up the silver chalk.",
+        "pageDescription": "Kit holds a large hollow yellow paper moon sphere at the narrow ordinary doorway; Zoe picks up the silver chalk.",
+        "state": "Moon is a rigid lightweight sphere, not a flat disk that could pass edgewise; diameter exceeds doorway width.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "She wipes away the small door and draws a tall, narrow rectangle. When the last line joins, the puppet room appears.",
+        "imageBrief": "Zoe finishes the last corner of a new tall, narrow silver rectangle, revealing the same adjacent puppet room. The wiped-away small demonstration rectangle leaves no intact outline. Exact continuity: Old small door explicitly wiped away; one active magic doorway; blue curtain beyond; new opening remains narrower than the paper sphere.",
+        "imageAlt": "Zoe finishes the last corner of a new tall, narrow silver rectangle, revealing the same adjacent puppet room. The wiped-away small demonstration rectangle leaves no intact outline.",
+        "pageDescription": "Zoe finishes the last corner of a new tall, narrow silver rectangle, revealing the same adjacent puppet room. The wiped-away small demonstration rectangle leaves no intact outline.",
+        "state": "Old small door explicitly wiped away; one active magic doorway; blue curtain beyond; new opening remains narrower than the paper sphere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit tilts the moon, but it still catches. One side dents. “Taller did not make it wider,” he says.",
+        "imageBrief": "Kit tries to angle the large paper sphere through the narrow chalk doorway; one side gains a small dent where it meets the edge. Exact continuity: Sphere cannot pass by turning; no torn paper; chalk outline intact; Kit remains in art room.",
+        "imageAlt": "Kit tries to angle the large paper sphere through the narrow chalk doorway; one side gains a small dent where it meets the edge.",
+        "pageDescription": "Kit tries to angle the large paper sphere through the narrow chalk doorway; one side gains a small dent where it meets the edge.",
+        "state": "Sphere cannot pass by turning; no torn paper; chalk outline intact; Kit remains in art room.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe rests the moon on the floor. She stretches string across it, then carries that width to the wall.",
+        "imageBrief": "Kit steadies the yellow paper sphere on the floor while Zoe stretches plain string across its widest part. Exact continuity: Same single dent; lightweight sphere supported on floor; string compares diameter, not circumference.",
+        "imageAlt": "Kit steadies the yellow paper sphere on the floor while Zoe stretches plain string across its widest part.",
+        "pageDescription": "Kit steadies the yellow paper sphere on the floor while Zoe stretches plain string across its widest part.",
+        "state": "Same single dent; lightweight sphere supported on floor; string compares diameter, not circumference.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "She wipes away one side and draws it farther out. As the outline closes, the wider doorway opens.",
+        "imageBrief": "Zoe finishes the widened right side of the silver rectangle; the opening now comfortably exceeds the moon’s width. Exact continuity: Old side fully erased; same top/bottom extended; continuous single outline.",
+        "imageAlt": "Zoe finishes the widened right side of the silver rectangle; the opening now comfortably exceeds the moon’s width.",
+        "pageDescription": "Zoe finishes the widened right side of the silver rectangle; the opening now comfortably exceeds the moon’s width.",
+        "state": "Old side fully erased; same top/bottom extended; continuous single outline.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit carries the moon through. His sleeve brushes the chalk. A gap appears, and the doorway closes behind him.",
+        "imageBrief": "Kit and the yellow paper sphere stand safely in the puppet room while a rubbed gap in the chalk leaves a solid cream wall behind. Exact continuity: Passage closes only after Kit and sphere fully clear; no trapped body part.",
+        "imageAlt": "Kit and the yellow paper sphere stand safely in the puppet room while a rubbed gap in the chalk leaves a solid cream wall behind.",
+        "pageDescription": "Kit and the yellow paper sphere stand safely in the puppet room while a rubbed gap in the chalk leaves a solid cream wall behind.",
+        "state": "Passage closes only after Kit and sphere fully clear; no trapped body part.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Zoe?” Kit calls from the other room. She follows the pale line with her finger until she finds the missing piece.",
+        "imageBrief": "Art-room view shows Zoe tracing above the outline toward a small erased section at shoulder height. Exact continuity: Kit off-screen explicitly in next room; Zoe touches beside chalk, not erasing more.",
+        "imageAlt": "Art-room view shows Zoe tracing above the outline toward a small erased section at shoulder height.",
+        "pageDescription": "Art-room view shows Zoe tracing above the outline toward a small erased section at shoulder height.",
+        "state": "Kit off-screen explicitly in next room; Zoe touches beside chalk, not erasing more.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "One short chalk stroke joins the gap. Kit appears with the moon still in his hands. “I was waiting right here.”",
+        "imageBrief": "Zoe closes the small gap with silver chalk and Kit becomes visible through the reopened doorway, holding the round paper moon sphere. Exact continuity: Same destination and same pose; no teleportation to another place.",
+        "imageAlt": "Zoe closes the small gap with silver chalk and Kit becomes visible through the reopened doorway, holding the round paper moon sphere.",
+        "pageDescription": "Zoe closes the small gap with silver chalk and Kit becomes visible through the reopened doorway, holding the round paper moon sphere.",
+        "state": "Same destination and same pose; no teleportation to another place.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "They hang the moon above the curtain. After both return, Zoe wipes the outline away. This time, she means to close it.",
+        "imageBrief": "Back in art room, Zoe erases the chalk outline while Kit stands beside her; through ordinary door the moon hangs over blue curtain. Exact continuity: Both children fully returned before erasure; completed show prop visible through ordinary doorway.",
+        "imageAlt": "Back in art room, Zoe erases the chalk outline while Kit stands beside her; through ordinary door the moon hangs over blue curtain.",
+        "pageDescription": "Back in art room, Zoe erases the chalk outline while Kit stands beside her; through ordinary door the moon hangs over blue curtain.",
+        "state": "Both children fully returned before erasure; completed show prop visible through ordinary doorway.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does Zoe use the same rule to fix the closed doorway and then close it on purpose?",
+        "listenFor": "An unbroken outline opens it; she repairs the gap to reopen and later deliberately breaks the outline after both return."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which small detail explains why the door disappeared?",
+        "lookFor": "A missing piece in the chalk line breaks the outline."
+      }
+    },
+    "levelRationale": "App E holds a magical condition across two different failures: wrong dimensions and an interrupted boundary. Measuring, waiting off-screen and deliberate final erasure require sustained state and cause tracking.",
+    "languagePrep": [
+      {
+        "word": "outline",
+        "meaning": "a line around the outside of a shape"
+      },
+      {
+        "word": "width",
+        "meaning": "how wide something is from side to side"
+      },
+      {
+        "word": "continuous",
+        "meaning": "joined without a break"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-05",
+    "number": 5,
+    "title": "The River Moves the Bank",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a river change the land along its bends?",
+      "progression": "Compare two sides of a bend, follow erosion and carried sediment, then observe deposition and the changed channel over time.",
+      "synthesis": "Water can remove ground in one place and leave sediment elsewhere, so a river’s edges change through connected processes.",
+      "scienceSources": [
+        {
+          "title": "NatureScot: How rivers and burns work",
+          "url": "https://www.nature.scot/landforms-and-geology/scotlands-rocks-landforms-and-soils/landforms/rivers/how-rivers-and-burns-work",
+          "evidence": "River flow controls sediment transport. Moderate flows carry smaller grains in suspension; stronger flows can roll and move larger material.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "US Army Corps of Engineers: Sediment Changes the Depth and Shape",
+          "url": "https://www.mvr.usace.army.mil/Portals/48/docs/Environmental/UMRR/Key%20Docs/UMRR_sediment%20flyer_2023.pdf",
+          "evidence": "Sediment transport, erosion and deposition alter river depth and shape; riverbank erosion and sedimentation are observable connected processes.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Park Service: Fluvial Features—Meandering Stream",
+          "url": "https://www.nps.gov/articles/meandering-stream.htm",
+          "evidence": "Faster flow toward the outside of a bend erodes the outer bank, while reduced current deposits sediment on the inside. These connected changes move a meander over time.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One gently winding river in a grassy valley over months, with a steep outer bank and low inner sandbar. A solitary broad tree remains beyond the outer bank as a position reference.",
+    "props": [
+      "Winding river bend",
+      "Steep outer bank",
+      "Inner sandbar",
+      "Loose grains and pebbles",
+      "Distant tree as fixed landmark"
+    ],
+    "coverBrief": "Elevated view of one river bend contrasts a steep worn outer bank with a low pale sandbar on the inside, preserving a clear downstream channel.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This river bend has two very different edges. One bank is steep. Across the water, a low strip of sand slopes gently.",
+        "imageBrief": "Elevated view of river bend shows steep outer bank with exposed soil opposite low sandy inner bank. Exact continuity: Single bend; no reversing upstream/downstream; tree beyond steep bank.",
+        "imageAlt": "Elevated view of river bend shows steep outer bank with exposed soil opposite low sandy inner bank.",
+        "pageDescription": "Elevated view of river bend shows steep outer bank with exposed soil opposite low sandy inner bank.",
+        "state": "Single bend; no reversing upstream/downstream; tree beyond steep bank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Moving water can loosen soil and carry it away. That wearing away is called erosion. Watch the outside of the bend.",
+        "imageBrief": "Close view shows water at base of outer bank carrying a little loosened brown soil downstream. Exact continuity: No explosive landslide; small erosion at water contact; tree remains inland.",
+        "imageAlt": "Close view shows water at base of outer bank carrying a little loosened brown soil downstream.",
+        "pageDescription": "Close view shows water at base of outer bank carrying a little loosened brown soil downstream.",
+        "state": "No explosive landslide; small erosion at water contact; tree remains inland.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Here, faster water presses against the bank. Bits of soil fall into the flow, leaving the edge farther back.",
+        "imageBrief": "Outer bank has a small fresh notch at waterline and loose soil entering the river. Exact continuity: Same bank retreating gradually; no child near unstable edge.",
+        "imageAlt": "Outer bank has a small fresh notch at waterline and loose soil entering the river.",
+        "pageDescription": "Outer bank has a small fresh notch at waterline and loose soil entering the river.",
+        "state": "Same bank retreating gradually; no child near unstable edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The river carries this loose material, called sediment. Fine grains travel in the water; heavier pieces may roll below.",
+        "imageBrief": "Underwater cutaway shows fine suspended sediment and a few small pebbles rolling along the bed. Exact continuity: Cutaway explanatory; grains enlarged enough to see without implying pebble-sized silt.",
+        "imageAlt": "Underwater cutaway shows fine suspended sediment and a few small pebbles rolling along the bed.",
+        "pageDescription": "Underwater cutaway shows fine suspended sediment and a few small pebbles rolling along the bed.",
+        "state": "Cutaway explanatory; grains enlarged enough to see without implying pebble-sized silt.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Where the current slows, it cannot keep carrying the same load. Some sediment settles onto the riverbed.",
+        "imageBrief": "Widening shallow section inside bend shows sand settling onto a low bar beneath slow-moving water. Exact continuity: No animated hands or intention; deposition shown physically.",
+        "imageAlt": "Widening shallow section inside bend shows sand settling onto a low bar beneath slow-moving water.",
+        "pageDescription": "Widening shallow section inside bend shows sand settling onto a low bar beneath slow-moving water.",
+        "state": "No animated hands or intention; deposition shown physically.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Leaving sediment behind is called deposition. On the inside of this bend, sand collects into a shallow bar.",
+        "imageBrief": "Pale sandbar occupies inside of bend with a damp edge and a few settled pebbles. Exact continuity: Same bar as opening; growth gradual, no instant dry island.",
+        "imageAlt": "Pale sandbar occupies inside of bend with a damp edge and a few settled pebbles.",
+        "pageDescription": "Pale sandbar occupies inside of bend with a damp edge and a few settled pebbles.",
+        "state": "Same bar as opening; growth gradual, no instant dry island.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Over time, the outside edge wears back while the inside bar grows. The curve of the river slowly shifts.",
+        "imageBrief": "Wider view after elapsed months shows larger inner sandbar and farther-back outer bank, tree still fixed beyond it. Exact continuity: Same tree anchors comparison; no duplicate ghost river or unlabeled overlay.",
+        "imageAlt": "Wider view after elapsed months shows larger inner sandbar and farther-back outer bank, tree still fixed beyond it.",
+        "pageDescription": "Wider view after elapsed months shows larger inner sandbar and farther-back outer bank, tree still fixed beyond it.",
+        "state": "Same tree anchors comparison; no duplicate ghost river or unlabeled overlay.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A heavy flow can move larger pieces than a gentle flow. After a storm, the bank and bar may change more quickly.",
+        "imageBrief": "Higher brownish river flow carries pebbles along bank; grass above water and fixed tree establish location. Exact continuity: Storm effect is possible, not every flood identical; no humans in floodwater.",
+        "imageAlt": "Higher brownish river flow carries pebbles along bank; grass above water and fixed tree establish location.",
+        "pageDescription": "Higher brownish river flow carries pebbles along bank; grass above water and fixed tree establish location.",
+        "state": "Storm effect is possible, not every flood identical; no humans in floodwater.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "When the water drops, fresh sand remains. The river has not simply taken land away; it has left material in new places.",
+        "imageBrief": "Lower river level reveals new damp sand on inside bar and a newly exposed outer-bank face. Exact continuity: Sediment retained after flood; no claim equal amounts everywhere.",
+        "imageAlt": "Lower river level reveals new damp sand on inside bar and a newly exposed outer-bank face.",
+        "pageDescription": "Lower river level reveals new damp sand on inside bar and a newly exposed outer-bank face.",
+        "state": "Sediment retained after flood; no claim equal amounts everywhere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Look again at the steep bank and sandy bar. One bend shows two connected changes: ground removed here and sediment left there.",
+        "imageBrief": "Final elevated view balances steep eroded outer edge and broad deposited inner bar in same frame. Exact continuity: Clear two-process synthesis; tree remains in original position; no printed labels.",
+        "imageAlt": "Final elevated view balances steep eroded outer edge and broad deposited inner bar in same frame.",
+        "pageDescription": "Final elevated view balances steep eroded outer edge and broad deposited inner bar in same frame.",
+        "state": "Clear two-process synthesis; tree remains in original position; no printed labels.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How are the steep bank and sandy bar connected?",
+        "listenFor": "Water erodes and carries sediment, then deposits some where flow slows; removal and buildup reshape the same bend."
+      },
+      "visual": {
+        "page": 10,
+        "prompt": "Where has ground been worn away, and where has material built up?",
+        "lookFor": "Steep outer bank shows erosion; low inner bar shows deposition."
+      }
+    },
+    "levelRationale": "App E links two simultaneous processes, transport capacity, changing flow and elapsed time. The reader must connect removal and deposition across separate places while retaining the same river bend.",
+    "languagePrep": [
+      {
+        "word": "erosion",
+        "meaning": "ground being worn away and moved"
+      },
+      {
+        "word": "sediment",
+        "meaning": "loose pieces of rock or soil carried by water"
+      },
+      {
+        "word": "deposition",
+        "meaning": "carried material being left behind"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-06",
+    "number": 6,
+    "title": "The Moon Has Not Shrunk",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why does the Moon look like a thin curve on some evenings and a bright circle on others?",
+      "progression": "Distinguish the whole Moon from its sunlit half, change the observer’s view as it orbits Earth, and connect that geometry to the repeating phases.",
+      "synthesis": "The Moon stays round; phases are changing views of its sunlit half, not pieces disappearing or the ordinary effect of Earth’s shadow.",
+      "scienceSources": [
+        {
+          "title": "NASA Science: Moon Phases",
+          "url": "https://science.nasa.gov/moon/moon-phases/",
+          "evidence": "The Moon remains a sphere with a sunlit half. Our view of that half changes as it orbits; the phase cycle takes about 29.5 days. Northern-view waxing crescents and first quarter are lit on the right.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA Science: Moon Facts",
+          "url": "https://science.nasa.gov/moon/facts/",
+          "evidence": "The Moon is Earth’s natural satellite; orbital geometry determines illumination seen from Earth, while eclipses require alignment.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA Science: Eclipses and the Moon",
+          "url": "https://science.nasa.gov/moon/eclipses/",
+          "evidence": "Earth’s shadow falls on the Moon during a lunar eclipse; the tilted lunar orbit prevents eclipses every month. This differs from ordinary phases caused by changing viewpoint.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.",
+    "props": [
+      "Round gray Moon",
+      "Sun outside or at far left",
+      "Blue Earth",
+      "Consistently lit lunar hemisphere",
+      "Thin crescent and full-disk sky views"
+    ],
+    "coverBrief": "A large round Moon shows a bright crescent and a faint remaining disk against deep blue sky, making the whole spherical shape clear without a face.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One evening, the Moon looks like a thin curved slice. Later, it looks round and bright. Has part of it disappeared?",
+        "imageBrief": "Single evening-sky view shows a thin bright lunar crescent with its full dark circular outline faintly visible. Exact continuity: One Moon only; no literal cutout or bitten edge.",
+        "imageAlt": "Single evening-sky view shows a thin bright lunar crescent with its full dark circular outline faintly visible.",
+        "pageDescription": "Single evening-sky view shows a thin bright lunar crescent with its full dark circular outline faintly visible.",
+        "state": "One Moon only; no literal cutout or bitten edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The Moon is still a whole round world. Sunlight lights the half facing the Sun, while the other half is dark.",
+        "imageBrief": "Space view shows a spherical Moon with left hemisphere illuminated by light arriving from far left. Exact continuity: Half sphere lit; no Earth shadow involved; no stars showing through dark side.",
+        "imageAlt": "Space view shows a spherical Moon with left hemisphere illuminated by light arriving from far left.",
+        "pageDescription": "Space view shows a spherical Moon with left hemisphere illuminated by light arriving from far left.",
+        "state": "Half sphere lit; no Earth shadow involved; no stars showing through dark side.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "But we watch from Earth, not from the Sun. We do not always see the entire sunlit half.",
+        "imageBrief": "A simplified top-down space view places Earth near the lower center and one Moon above it, with sunlight arriving parallel from the far left. The Moon’s left half is sunlit and its right half dark; the Earth–Moon direction is about a right angle to the incoming sunlight. Exact continuity: Not to scale; one Moon; Earth and Moon illuminated from the same leftward source; no Earth shadow crossing the Moon.",
+        "imageAlt": "A simplified top-down space view places Earth near the lower center and one Moon above it, with sunlight arriving parallel from the far left. The Moon’s left half is sunlit and its right half dark; the Earth–Moon direction is about a right angle to the incoming sunlight.",
+        "pageDescription": "A simplified top-down space view places Earth near the lower center and one Moon above it, with sunlight arriving parallel from the far left. The Moon’s left half is sunlit and its right half dark; the Earth–Moon direction is about a right angle to the incoming sunlight.",
+        "state": "Not to scale; one Moon; Earth and Moon illuminated from the same leftward source; no Earth shadow crossing the Moon.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "As the Moon travels around Earth, our view changes. Different amounts of the bright half face toward us.",
+        "imageBrief": "In the same simplified top-down view, Earth stays fixed and one Moon now lies upper-left of Earth. Sunlight still arrives from far left, illuminating the Moon’s left hemisphere; its angle as seen from Earth differs from page 3. Exact continuity: New illustrative orbital position, not a labeled phase chronology; one Moon only; unchanged light direction; no arrows or duplicate ghosts.",
+        "imageAlt": "In the same simplified top-down view, Earth stays fixed and one Moon now lies upper-left of Earth. Sunlight still arrives from far left, illuminating the Moon’s left hemisphere; its angle as seen from Earth differs from page 3.",
+        "pageDescription": "In the same simplified top-down view, Earth stays fixed and one Moon now lies upper-left of Earth. Sunlight still arrives from far left, illuminating the Moon’s left hemisphere; its angle as seen from Earth differs from page 3.",
+        "state": "New illustrative orbital position, not a labeled phase chronology; one Moon only; unchanged light direction; no arrows or duplicate ghosts.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Near new moon, the sunlit half mostly faces away from Earth. The Moon is usually hard to see in the bright sky.",
+        "imageBrief": "Diagram shows Moon between Sun direction and Earth but slightly above direct alignment, dark lunar side facing Earth. Exact continuity: No eclipse alignment; Sun not covered; Moon’s lit half faces away from Earth.",
+        "imageAlt": "Diagram shows Moon between Sun direction and Earth but slightly above direct alignment, dark lunar side facing Earth.",
+        "pageDescription": "Diagram shows Moon between Sun direction and Earth but slightly above direct alignment, dark lunar side facing Earth.",
+        "state": "No eclipse alignment; Sun not covered; Moon’s lit half faces away from Earth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "A few days later, a bright crescent appears. We can see only a narrow part of the Moon’s sunlit half.",
+        "imageBrief": "An Earth-sky view of a young evening crescent above a quiet western horizon shows a narrow bright curve on the right, with the full dark disk subtly retained. Exact continuity: Chosen northern-hemisphere evening viewpoint; illuminated edge faces the unseen setting Sun; no universal right-side rule printed.",
+        "imageAlt": "An Earth-sky view of a young evening crescent above a quiet western horizon shows a narrow bright curve on the right, with the full dark disk subtly retained.",
+        "pageDescription": "An Earth-sky view of a young evening crescent above a quiet western horizon shows a narrow bright curve on the right, with the full dark disk subtly retained.",
+        "state": "Chosen northern-hemisphere evening viewpoint; illuminated edge faces the unseen setting Sun; no universal right-side rule printed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "About a week after new moon, half the Moon’s face looks bright. The whole Moon has not changed shape.",
+        "imageBrief": "An Earth-sky view shows a first-quarter Moon with the right half of the visible disk bright and the left half dark, against an early evening sky. Exact continuity: Same chosen northern-hemisphere viewpoint; round disk remains whole; no physical half-sphere cut away.",
+        "imageAlt": "An Earth-sky view shows a first-quarter Moon with the right half of the visible disk bright and the left half dark, against an early evening sky.",
+        "pageDescription": "An Earth-sky view shows a first-quarter Moon with the right half of the visible disk bright and the left half dark, against an early evening sky.",
+        "state": "Same chosen northern-hemisphere viewpoint; round disk remains whole; no physical half-sphere cut away.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Near full moon, Earth faces almost all of the sunlit half. The bright disk looks round again.",
+        "imageBrief": "Full round Moon appears above horizon with consistent craters; all visible face illuminated. Exact continuity: Do not place Earth’s shadow over Moon; no claim full Moon has no dark far hemisphere.",
+        "imageAlt": "Full round Moon appears above horizon with consistent craters; all visible face illuminated.",
+        "pageDescription": "Full round Moon appears above horizon with consistent craters; all visible face illuminated.",
+        "state": "Do not place Earth’s shadow over Moon; no claim full Moon has no dark far hemisphere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "After that, the bright part we see gets smaller. The pattern repeats in about a month as the Moon keeps orbiting.",
+        "imageBrief": "A later-month predawn view above the eastern horizon shows a waning crescent bright on the left, with the same full circular outline and matching crater geography. Exact continuity: Later stage before sunrise, not an evening waning crescent; chosen northern-hemisphere viewpoint; no literal shrinking of diameter.",
+        "imageAlt": "A later-month predawn view above the eastern horizon shows a waning crescent bright on the left, with the same full circular outline and matching crater geography.",
+        "pageDescription": "A later-month predawn view above the eastern horizon shows a waning crescent bright on the left, with the same full circular outline and matching crater geography.",
+        "state": "Later stage before sunrise, not an evening waning crescent; chosen northern-hemisphere viewpoint; no literal shrinking of diameter.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "These changing views are called phases. Earth’s shadow makes a lunar eclipse, a different event. Ordinary phases come from our changing viewpoint.",
+        "imageBrief": "Space view shows Sun direction, Earth and Moon off exact alignment, with a clear sightline toward partly illuminated Moon. Exact continuity: No eclipse shown; whole sphere and sunlit half remain; final diagram reinforces viewpoint, not shadow covering.",
+        "imageAlt": "Space view shows Sun direction, Earth and Moon off exact alignment, with a clear sightline toward partly illuminated Moon.",
+        "pageDescription": "Space view shows Sun direction, Earth and Moon off exact alignment, with a clear sightline toward partly illuminated Moon.",
+        "state": "No eclipse shown; whole sphere and sunlit half remain; final diagram reinforces viewpoint, not shadow covering.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What changes during the Moon’s ordinary phases, and what stays the same?",
+        "listenFor": "Our view of its sunlit half changes as it orbits; the Moon remains a whole sphere. Earth’s shadow is an eclipse."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "What tells you the Moon is still whole when only half looks bright?",
+        "lookFor": "The dark half completes the round disk; light and dark divide its visible face."
+      }
+    },
+    "levelRationale": "App E coordinates two viewpoints, a sunlit hemisphere and a month-long orbital sequence. The distinction between actual shape, visible illumination and eclipse requires supported conceptual inference.",
+    "languagePrep": [
+      {
+        "word": "phase",
+        "meaning": "one of the Moon’s changing visible light shapes"
+      },
+      {
+        "word": "orbiting",
+        "meaning": "traveling around another object in space"
+      },
+      {
+        "word": "viewpoint",
+        "meaning": "the place from which you look"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-07",
+    "number": 7,
+    "title": "A Flower’s Night Visitor",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a nectar-feeding bat help a cactus while getting its own meal?",
+      "progression": "Follow a lesser long-nosed bat to a night-opening saguaro flower, observe nectar feeding and pollen transfer, then connect pollination to later fruit and seeds.",
+      "synthesis": "Bat and cactus benefit through one connected visit: nectar feeds the bat and transferred pollen helps the cactus reproduce.",
+      "scienceSources": [
+        {
+          "title": "National Park Service: Lesser Long-nosed Bats",
+          "url": "https://www.nps.gov/orpi/learn/nature/lesser-long-nosed-bats.htm",
+          "evidence": "Nectar-feeding lesser long-nosed bats visit night-blooming saguaro flowers; long noses and tongues reach nectar, pollen coats their heads and transfers between flowers.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "University of Arizona Cooperative Extension: Saguaro Cactus",
+          "url": "https://extension.arizona.edu/topics/saguaro-cactus",
+          "evidence": "Saguaros are pollinated by bats, birds and insects; fruits contain many seeds, which animals can disperse.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Sonoran Desert at night during saguaro flowering, followed by a later fruiting view in daylight. One lesser long-nosed bat with natural brown fur and long muzzle.",
+    "props": [
+      "Saguaro cactus with creamy white flowers near top",
+      "Lesser long-nosed bat",
+      "Yellow pollen",
+      "Later red saguaro fruit and dark seeds"
+    ],
+    "coverBrief": "A small brown lesser long-nosed bat hovers beside a white saguaro flower at night, its long tongue reaching into the bloom and a little pollen on its muzzle.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "When the desert grows dark, a saguaro flower opens. A bat is coming for a meal, but not to catch an insect.",
+        "imageBrief": "Creamy white flower opens high on a saguaro cactus against a dark desert sky; a small bat approaches. Exact continuity: Natural cactus flowers near stem top; no moon face or anthropomorphic cactus.",
+        "imageAlt": "Creamy white flower opens high on a saguaro cactus against a dark desert sky; a small bat approaches.",
+        "pageDescription": "Creamy white flower opens high on a saguaro cactus against a dark desert sky; a small bat approaches.",
+        "state": "Natural cactus flowers near stem top; no moon face or anthropomorphic cactus.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "This lesser long-nosed bat drinks nectar, the sweet liquid inside flowers. Its long muzzle fits into the open bloom.",
+        "imageBrief": "Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower. Exact continuity: Bat much smaller than cactus; no oversized canine fangs; wings natural.",
+        "imageAlt": "Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower.",
+        "pageDescription": "Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower.",
+        "state": "Bat much smaller than cactus; no oversized canine fangs; wings natural.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A long tongue reaches deeper than its nose. As the bat feeds, dusty pollen sticks to the fur around its face.",
+        "imageBrief": "Bat laps nectar deep in flower while yellow pollen brushes fur around muzzle and forehead. Exact continuity: Tongue natural long thin form; pollen small dust, not glitter or food chunks.",
+        "imageAlt": "Bat laps nectar deep in flower while yellow pollen brushes fur around muzzle and forehead.",
+        "pageDescription": "Bat laps nectar deep in flower while yellow pollen brushes fur around muzzle and forehead.",
+        "state": "Tongue natural long thin form; pollen small dust, not glitter or food chunks.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The flower has given the bat food. What happens to the pollen when the bat flies away?",
+        "imageBrief": "Bat lifts away from first bloom with a visible fine yellow dusting on its muzzle. Exact continuity: Same pollen remains; no pollen cloud forming magic trail.",
+        "imageAlt": "Bat lifts away from first bloom with a visible fine yellow dusting on its muzzle.",
+        "pageDescription": "Bat lifts away from first bloom with a visible fine yellow dusting on its muzzle.",
+        "state": "Same pollen remains; no pollen cloud forming magic trail.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The bat visits a flower on another saguaro. Some pollen rubs onto the sticky part in the middle of that flower.",
+        "imageBrief": "Bat feeds from a second cactus flower, pollen-dusted muzzle contacting the central receptive flower part. Exact continuity: Second distinct cactus; no self-pollination implied as sole route; flower anatomy readable.",
+        "imageAlt": "Bat feeds from a second cactus flower, pollen-dusted muzzle contacting the central receptive flower part.",
+        "pageDescription": "Bat feeds from a second cactus flower, pollen-dusted muzzle contacting the central receptive flower part.",
+        "state": "Second distinct cactus; no self-pollination implied as sole route; flower anatomy readable.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "That transfer is pollination. It can help the flower make seeds. The bat carries pollen without trying to grow a plant.",
+        "imageBrief": "Close flower view shows a little transferred pollen on the central stigma as bat withdraws. Exact continuity: No instant seeds or fruit; natural incidental transfer, no purposeful gardening expression.",
+        "imageAlt": "Close flower view shows a little transferred pollen on the central stigma as bat withdraws.",
+        "pageDescription": "Close flower view shows a little transferred pollen on the central stigma as bat withdraws.",
+        "state": "No instant seeds or fruit; natural incidental transfer, no purposeful gardening expression.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "After pollination and other changes inside the flower, a fruit may develop. Its seeds will hold the next generation of saguaros.",
+        "imageBrief": "Later daytime view shows developing green saguaro fruit at the site of an old withered flower. Exact continuity: Time elapsed; no claim every pollinated flower necessarily fruits.",
+        "imageAlt": "Later daytime view shows developing green saguaro fruit at the site of an old withered flower.",
+        "pageDescription": "Later daytime view shows developing green saguaro fruit at the site of an old withered flower.",
+        "state": "Time elapsed; no claim every pollinated flower necessarily fruits.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Later still, the ripe fruit opens. Dark seeds sit inside the red flesh, far above the desert ground.",
+        "imageBrief": "Ripe saguaro fruit has split to reveal red flesh with many tiny dark seeds at cactus top. Exact continuity: Distinct later stage; no bat eating insects or carrying seeds required.",
+        "imageAlt": "Ripe saguaro fruit has split to reveal red flesh with many tiny dark seeds at cactus top.",
+        "pageDescription": "Ripe saguaro fruit has split to reveal red flesh with many tiny dark seeds at cactus top.",
+        "state": "Distinct later stage; no bat eating insects or carrying seeds required.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Birds and insects can pollinate saguaro flowers, too. The bat is one visitor in a larger web of living things.",
+        "imageBrief": "Daylight scene shows a small dove at a separate open saguaro blossom while an insect approaches another bloom. Exact continuity: Not all flowers same stage; no bat in bright sun; natural scales and neutral desert.",
+        "imageAlt": "Daylight scene shows a small dove at a separate open saguaro blossom while an insect approaches another bloom.",
+        "pageDescription": "Daylight scene shows a small dove at a separate open saguaro blossom while an insect approaches another bloom.",
+        "state": "Not all flowers same stage; no bat in bright sun; natural scales and neutral desert.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Return to the night flower. Nectar feeds the bat; carried pollen helps the cactus make seeds. One meal connects two lives.",
+        "imageBrief": "Nighttime return shows lesser long-nosed bat feeding at white saguaro flower with pollen on muzzle. Exact continuity: Explicit conceptual return, not reverse time claim; one bat, one cactus flower in focus.",
+        "imageAlt": "Nighttime return shows lesser long-nosed bat feeding at white saguaro flower with pollen on muzzle.",
+        "pageDescription": "Nighttime return shows lesser long-nosed bat feeding at white saguaro flower with pollen on muzzle.",
+        "state": "Explicit conceptual return, not reverse time claim; one bat, one cactus flower in focus.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What does the bat get from the flower, and what does the flower gain from the visit?",
+        "listenFor": "Bat gets nectar; pollen transferred to another flower can enable seed formation. The bat need not intend this."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What part of the bat is carrying pollen to the next flower?",
+        "lookFor": "Pollen clings to fur around muzzle and face and contacts the flower center."
+      }
+    },
+    "levelRationale": "App E links adaptations, feeding, incidental pollen transport and delayed reproduction across night and later-season views. Qualified claims and the distinction between purpose and consequence support a connected ecological explanation.",
+    "languagePrep": [
+      {
+        "word": "nectar",
+        "meaning": "sweet liquid made by some flowers"
+      },
+      {
+        "word": "pollen",
+        "meaning": "tiny grains that help flowering plants make seeds"
+      },
+      {
+        "word": "pollination",
+        "meaning": "moving pollen to a flower part where it can help seeds form"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-08",
+    "number": 8,
+    "title": "A Frog Changes Its Way of Life",
+    "topic": "life cycles",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a pond tadpole become a frog able to live at the water’s edge?",
+      "progression": "Follow a common frog through eggs, aquatic tadpole, changing legs/tail/breathing structures, froglet and adult returning to breed.",
+      "synthesis": "Metamorphosis changes several connected body systems, and the adult’s return to water starts another generation rather than returning its own life to the beginning.",
+      "scienceSources": [
+        {
+          "title": "Natural History Museum: Frogspawn, tadpoles and froglets",
+          "url": "https://www.nhm.ac.uk/discover/frogspawn-tadpoles-and-froglets.html",
+          "evidence": "Common frogs lay frogspawn in clumps; tadpoles and froglets can be observed as seasonal stages in ponds. The Australian Museum source supplies the detailed metamorphosis explanation.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Australian Museum: Frog life cycle",
+          "url": "https://australian.museum/learn/teachers/learning/frog-life-cycle/",
+          "evidence": "Typical frog metamorphosis includes internal changes; tail is absorbed rather than shed; adults use lungs and moist skin. Frog species have exceptions, so manuscript names common frog.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "A temperate pond edge through the common frog (Rana temporaria) life cycle. Natural brown mottled frogs; spring egg clumps and later seasonal changes.",
+    "props": [
+      "Jelly-like egg clump with dark centers",
+      "Common frog tadpole",
+      "Developing hind then front legs",
+      "Shrinking tail",
+      "Brown mottled froglet and adult"
+    ],
+    "coverBrief": "A brown froglet with four legs and a short tail rests at a shallow pond edge, with a larger common frog visible nearby for natural scale.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A small frog sits at the pond’s edge. Months earlier, it could not hop here. It swam underwater with a tail.",
+        "imageBrief": "Small brown frog at moist pond edge, fully formed legs and no tail, viewed close enough for natural anatomy. Exact continuity: Opening present adult-like frog; earlier tadpole is mentioned but not duplicated in scene.",
+        "imageAlt": "Small brown frog at moist pond edge, fully formed legs and no tail, viewed close enough for natural anatomy.",
+        "pageDescription": "Small brown frog at moist pond edge, fully formed legs and no tail, viewed close enough for natural anatomy.",
+        "state": "Opening present adult-like frog; earlier tadpole is mentioned but not duplicated in scene.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Its life began inside an egg. Common frog eggs lie in soft clumps of jelly near the water’s surface.",
+        "imageBrief": "Close pond view shows a clump of translucent jelly eggs with dark embryos among water plants. Exact continuity: Species-specific clump, not toad strings; no hard chicken shells.",
+        "imageAlt": "Close pond view shows a clump of translucent jelly eggs with dark embryos among water plants.",
+        "pageDescription": "Close pond view shows a clump of translucent jelly eggs with dark embryos among water plants.",
+        "state": "Species-specific clump, not toad strings; no hard chicken shells.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A tadpole hatched from an egg. It swam by moving its tail and used gills to take oxygen from the water.",
+        "imageBrief": "One young dark common-frog tadpole swims below surface beside remaining egg jelly. Exact continuity: No legs yet; tail fin intact; do not show adult lungs as external balloons.",
+        "imageAlt": "One young dark common-frog tadpole swims below surface beside remaining egg jelly.",
+        "pageDescription": "One young dark common-frog tadpole swims below surface beside remaining egg jelly.",
+        "state": "No legs yet; tail fin intact; do not show adult lungs as external balloons.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "As it grew, its back legs appeared first. For a while, it had both a swimming tail and little legs.",
+        "imageBrief": "Larger mottled tadpole swims with two small hind legs visible beside the base of its long tail. Exact continuity: Two hind legs only; no front legs at this stage.",
+        "imageAlt": "Larger mottled tadpole swims with two small hind legs visible beside the base of its long tail.",
+        "pageDescription": "Larger mottled tadpole swims with two small hind legs visible beside the base of its long tail.",
+        "state": "Two hind legs only; no front legs at this stage.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Front legs appeared, too. Inside, its body was changing: lungs developed while its gills became less important.",
+        "imageBrief": "A later common-frog tadpole with four legs rises near the surface, its long tail still attached; the view shows only its natural external body. Exact continuity: Four legs plus tail is a metamorph stage; no abrupt no-overlap breathing claim; no speculative cutaway anatomy or external lung balloons.",
+        "imageAlt": "A later common-frog tadpole with four legs rises near the surface, its long tail still attached; the view shows only its natural external body.",
+        "pageDescription": "A later common-frog tadpole with four legs rises near the surface, its long tail still attached; the view shows only its natural external body.",
+        "state": "Four legs plus tail is a metamorph stage; no abrupt no-overlap breathing claim; no speculative cutaway anatomy or external lung balloons.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The tail did not fall off. The body absorbed it, using its materials as the young frog continued to change.",
+        "imageBrief": "Froglet with four strong legs and a visibly shorter tail rests in shallow water. Exact continuity: Tail stub attached smoothly; no detached tail or injury.",
+        "imageAlt": "Froglet with four strong legs and a visibly shorter tail rests in shallow water.",
+        "pageDescription": "Froglet with four strong legs and a visibly shorter tail rests in shallow water.",
+        "state": "Tail stub attached smoothly; no detached tail or injury.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Now the froglet could climb onto a damp bank. Its new legs, lungs, and changing body helped it use another place.",
+        "imageBrief": "Small froglet climbs a moist low bank from shallow pond water; short tail stub remains. Exact continuity: No dry desert habitat; froglet stays near moisture.",
+        "imageAlt": "Small froglet climbs a moist low bank from shallow pond water; short tail stub remains.",
+        "pageDescription": "Small froglet climbs a moist low bank from shallow pond water; short tail stub remains.",
+        "state": "No dry desert habitat; froglet stays near moisture.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Adult common frogs breathe with lungs and moist skin. They can hunt small animals on land, but they still need damp places.",
+        "imageBrief": "Adult brown common frog crouches in damp grass beside pond, facing a tiny insect at natural distance. Exact continuity: No human mouth or clothes; skin moist, no scaly reptile surface.",
+        "imageAlt": "Adult brown common frog crouches in damp grass beside pond, facing a tiny insect at natural distance.",
+        "pageDescription": "Adult brown common frog crouches in damp grass beside pond, facing a tiny insect at natural distance.",
+        "state": "No human mouth or clothes; skin moist, no scaly reptile surface.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "When breeding time comes, adults return to water. New eggs begin another generation, not the same frog’s life all over again.",
+        "imageBrief": "Two adult common frogs are near a fresh egg clump in pond shallows during a later breeding season. Exact continuity: Adults natural mating context without explicit anatomy; new eggs distinct generation.",
+        "imageAlt": "Two adult common frogs are near a fresh egg clump in pond shallows during a later breeding season.",
+        "pageDescription": "Two adult common frogs are near a fresh egg clump in pond shallows during a later breeding season.",
+        "state": "Adults natural mating context without explicit anatomy; new eggs distinct generation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Egg, tadpole, froglet, adult: the changes fit different ways of living. A tiny swimmer becomes a frog at the water’s edge.",
+        "imageBrief": "Final adult common frog at original moist bank, with young tadpoles in the shallows below. Exact continuity: Adults and new-generation tadpoles coexist; not a lineup of identical individuals frozen at once.",
+        "imageAlt": "Final adult common frog at original moist bank, with young tadpoles in the shallows below.",
+        "pageDescription": "Final adult common frog at original moist bank, with young tadpoles in the shallows below.",
+        "state": "Adults and new-generation tadpoles coexist; not a lineup of identical individuals frozen at once.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why is changing from a tadpole to a frog more than just growing legs?",
+        "listenFor": "The tail is absorbed and breathing structures change as legs develop, helping the young frog move from swimming underwater to using damp banks."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Find the froglet’s tail. What is still attached to its body?",
+        "lookFor": "A smaller attached tail stub remains; there is no separate discarded tail."
+      }
+    },
+    "levelRationale": "App E integrates multiple body changes, overlapping development and a return across generations. Temporal shifts and careful distinctions between growth, metamorphosis and reproduction require sustained explanation.",
+    "languagePrep": [
+      {
+        "word": "gills",
+        "meaning": "body parts that take oxygen from water"
+      },
+      {
+        "word": "froglet",
+        "meaning": "a young frog still finishing its change from a tadpole"
+      },
+      {
+        "word": "generation",
+        "meaning": "a new group of offspring in a life cycle"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-09",
+    "number": 9,
+    "title": "A Whale Is Not a Fish",
+    "topic": "classifications",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why do scientists place whales with mammals even though whales live and swim among fish?",
+      "progression": "Start with similar habitat and body shape, compare breathing and feeding young, then reject a single-clue shortcut and apply multiple biological traits.",
+      "synthesis": "Classification uses related body features and ways of living; a shared habitat or one superficially similar trait does not make animals the same kind.",
+      "scienceSources": [
+        {
+          "title": "NOAA: Marine mammals",
+          "url": "https://www.noaa.gov/education/resource-collections/marine-life/marine-mammals",
+          "evidence": "Marine mammals breathe air with lungs, maintain body heat, have hair during some life stage and nurse young with milk.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NOAA Ocean Service: Are dolphins fish?",
+          "url": "https://oceanservice.noaa.gov/facts/dolphin.html",
+          "evidence": "Dolphins use lungs and a blowhole and nurse young with milk; whales, dolphins and porpoises are mammals.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NOAA Fisheries: Whales",
+          "url": "https://www.fisheries.noaa.gov/whales",
+          "evidence": "Whales are cetacean marine mammals; baleen and toothed whales form distinct groups.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NOAA Fisheries: Sandbar Shark",
+          "url": "https://www.fisheries.noaa.gov/species/sandbar-shark",
+          "evidence": "Sandbar sharks are fish that give birth to live young in shallow nursery grounds.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Smithsonian Ocean: Whales and Dolphins",
+          "url": "https://ocean.si.edu/ocean-life/marine-mammals/whales",
+          "evidence": "Baleen whales have two blowholes; toothed whales and dolphins have one.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NOAA: How marine mammals stay warm",
+          "url": "https://www.noaa.gov/office-education/outreach-communication/hands-on-science-activities/how-marine-mammals-stay-warm",
+          "evidence": "Blubber insulates marine mammals in cold water.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Park Service: Blue Whale",
+          "url": "https://www.nps.gov/places/blue-whale.htm",
+          "evidence": "A female blue whale gives birth to a calf, which grows while nursing. The live-born calf supplies the comparison before the separate live-bearing shark example.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.",
+    "props": [
+      "Adult blue whale",
+      "Blue whale calf",
+      "Small silver bony fish with gill covers",
+      "Ocean surface and underwater view",
+      "Sandbar shark and small pups"
+    ],
+    "coverBrief": "A blue whale and its smaller calf swim below the ocean surface while a small school of silver fish passes beneath, making shared habitat and different bodies visible.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A whale swims past a school of fish. Both have streamlined bodies for swimming. Why are they placed in different groups?",
+        "imageBrief": "Adult blue whale swims above small silver fish in a clear underwater scene. Exact continuity: Whale much larger; horizontal tail flukes and fish vertical tails correct.",
+        "imageAlt": "Adult blue whale swims above small silver fish in a clear underwater scene.",
+        "pageDescription": "Adult blue whale swims above small silver fish in a clear underwater scene.",
+        "state": "Whale much larger; horizontal tail flukes and fish vertical tails correct.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Living in the same place does not make animals the same kind. Their bodies and life histories give us more clues.",
+        "imageBrief": "Wide ocean view retains whale and fish in separate depths, each using its own body shape to swim. Exact continuity: Same ocean habitat; different animal groups remain distinct. No literal family tree or labels.",
+        "imageAlt": "Wide ocean view retains whale and fish in separate depths, each using its own body shape to swim.",
+        "pageDescription": "Wide ocean view retains whale and fish in separate depths, each using its own body shape to swim.",
+        "state": "Same ocean habitat; different animal groups remain distinct. No literal family tree or labels.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Watch the whale rise. It takes air into lungs through blowholes on top of its head, then dives while holding its breath.",
+        "imageBrief": "The blue whale’s head reaches the surface with both blowholes clear of the water as it takes in air. Exact continuity: Blue whale has paired blowholes; this moment is inhalation, so no outward spray or water fountain; fish remain underwater.",
+        "imageAlt": "The blue whale’s head reaches the surface with both blowholes clear of the water as it takes in air.",
+        "pageDescription": "The blue whale’s head reaches the surface with both blowholes clear of the water as it takes in air.",
+        "state": "Blue whale has paired blowholes; this moment is inhalation, so no outward spray or water fountain; fish remain underwater.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The fish stay below. Their gills take oxygen from water passing over them. They do not need the whale’s surface-breathing routine.",
+        "imageBrief": "Close side view of silver bony fish shows normal gill covers behind eyes as water flows past. Exact continuity: No human lung graphic in fish; no universal claim every fish never breathes air.",
+        "imageAlt": "Close side view of silver bony fish shows normal gill covers behind eyes as water flows past.",
+        "pageDescription": "Close side view of silver bony fish shows normal gill covers behind eyes as water flows past.",
+        "state": "No human lung graphic in fish; no universal claim every fish never breathes air.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The whale’s calf was born alive and drinks milk made by its mother. Feeding young with milk is a mammal trait.",
+        "imageBrief": "Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position. Exact continuity: No bottle, udder hanging like cow, or milk cloud; natural cetacean anatomy.",
+        "imageAlt": "Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position.",
+        "pageDescription": "Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position.",
+        "state": "No bottle, udder hanging like cow, or milk cloud; natural cetacean anatomy.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Whales also keep their bodies warm from within. A thick layer of fat helps hold that warmth in the cold sea.",
+        "imageBrief": "Simple blue-whale body cutaway shows a layer of blubber beneath skin, with cold blue water outside. Exact continuity: Anatomical educational cutaway; no fur coat or blanket; only relevant layer visible.",
+        "imageAlt": "Simple blue-whale body cutaway shows a layer of blubber beneath skin, with cold blue water outside.",
+        "pageDescription": "Simple blue-whale body cutaway shows a layer of blubber beneath skin, with cold blue water outside.",
+        "state": "Anatomical educational cutaway; no fur coat or blanket; only relevant layer visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Some sharks give birth to live young, too. Sharks are fish. That one clue alone cannot tell us “mammal.”",
+        "imageBrief": "A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy. Exact continuity: No birth depicted; sharks remain fish; no whales in this comparison scene.",
+        "imageAlt": "A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy.",
+        "pageDescription": "A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy.",
+        "state": "No birth depicted; sharks remain fish; no whales in this comparison scene.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Scientists use several clues, including body features and how animals are related. Whales belong with mammals despite their fishlike outline.",
+        "imageBrief": "Return to blue whale and calf, emphasizing lungs at surface and mother-calf relationship without a collage of unrelated animals. Exact continuity: No new symbolic family-tree labels; same whales as earlier.",
+        "imageAlt": "Return to blue whale and calf, emphasizing lungs at surface and mother-calf relationship without a collage of unrelated animals.",
+        "pageDescription": "Return to blue whale and calf, emphasizing lungs at surface and mother-calf relationship without a collage of unrelated animals.",
+        "state": "No new symbolic family-tree labels; same whales as earlier.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Dolphins are mammals, too. Like whales, they breathe air and feed their young milk, although they spend their lives in water.",
+        "imageBrief": "A bottlenose dolphin with a calf swims near surface at natural scale, single blowhole visible on adult. Exact continuity: Dolphin is cetacean; no gills, scales or blue-whale twin blowholes.",
+        "imageAlt": "A bottlenose dolphin with a calf swims near surface at natural scale, single blowhole visible on adult.",
+        "pageDescription": "A bottlenose dolphin with a calf swims near surface at natural scale, single blowhole visible on adult.",
+        "state": "Dolphin is cetacean; no gills, scales or blue-whale twin blowholes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The ocean tells us where these animals live. Their connected features tell us more about the groups they belong to.",
+        "imageBrief": "Final wide scene shows blue whale and calf, distant dolphin pair and school of fish sharing the ocean without mingled anatomy. Exact continuity: Natural spacing and relative scale; no claim all mammals live in ocean.",
+        "imageAlt": "Final wide scene shows blue whale and calf, distant dolphin pair and school of fish sharing the ocean without mingled anatomy.",
+        "pageDescription": "Final wide scene shows blue whale and calf, distant dolphin pair and school of fish sharing the ocean without mingled anatomy.",
+        "state": "Natural spacing and relative scale; no claim all mammals live in ocean.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why are swimming in the ocean and giving birth to live young not enough by themselves to identify a mammal?",
+        "listenFor": "Many different groups share water, and some fish bear live young; mammal traits include milk and other related features."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "Where does the whale take in air?",
+        "lookFor": "At the blowholes on top of its head above the surface."
+      }
+    },
+    "levelRationale": "App E weighs multiple classification criteria, rejects two tempting single-clue rules and introduces a concrete exception. Cross-page comparison and qualification carry more conceptual load than simply naming features.",
+    "languagePrep": [
+      {
+        "word": "mammal",
+        "meaning": "an animal in the group whose mothers make milk for their young"
+      },
+      {
+        "word": "trait",
+        "meaning": "a feature of a living thing"
+      },
+      {
+        "word": "streamlined",
+        "meaning": "shaped to move through water with less resistance"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-10",
+    "number": 10,
+    "title": "Keep the Water in the Garden",
+    "topic": "caring for our world",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE",
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can a garden keep useful moisture around roots without simply adding more water?",
+      "progression": "Observe dry surface versus moisture below, trace where water goes, compare mulch and targeted watering, then apply checking before watering again.",
+      "synthesis": "Checking soil and reducing avoidable loss help use water where plants need it; extra watering is not always the answer.",
+      "scienceSources": [
+        {
+          "title": "EPA WaterSense: Landscaping Tips",
+          "url": "https://www.epa.gov/watersense/landscaping-tips",
+          "evidence": "Mulch reduces evaporation and moderates soil temperature; appropriate irrigation and soil conditions reduce avoidable water use.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "EPA WaterSense: Outdoors",
+          "url": "https://www.epa.gov/watersense/outdoors",
+          "evidence": "Outdoor water conservation includes efficient watering and avoiding waste.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Oregon State University Extension: Conserving water in your yard and garden",
+          "url": "https://extension.oregonstate.edu/catalog/em-9125-conserving-water-your-yard-garden",
+          "evidence": "Soil moisture checks, mulch and slower targeted irrigation help conserve water; needs depend on soil and plants.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.",
+    "props": [
+      "Established leafy vegetable plants",
+      "Brown soil",
+      "Clean straw mulch",
+      "Small blue watering can",
+      "Blunt trowel",
+      "Adult gardener"
+    ],
+    "coverBrief": "Zoe gently lifts straw mulch to look at dark moist soil near a vegetable plant while Kit holds a small blue watering can with its spout lowered.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The garden soil looks pale and dry on top. Kit lifts the watering can, but Zoe kneels beside a plant first.",
+        "imageBrief": "Kit holds a blue watering can while Zoe crouches beside an established leafy plant with pale surface soil. Exact continuity: Can not pouring; adult gardener visible nearby; roots not exposed.",
+        "imageAlt": "Kit holds a blue watering can while Zoe crouches beside an established leafy plant with pale surface soil.",
+        "pageDescription": "Kit holds a blue watering can while Zoe crouches beside an established leafy plant with pale surface soil.",
+        "state": "Can not pouring; adult gardener visible nearby; roots not exposed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The gardener helps them check below the surface. The soil underneath is darker and still damp. The top did not tell everything.",
+        "imageBrief": "Adult gardener uses a blunt trowel to open a small shallow inspection hole away from the plant stem; children see damp soil below. Exact continuity: Avoid damaged roots; adult does digging; dry surface and damp lower soil contrast.",
+        "imageAlt": "Adult gardener uses a blunt trowel to open a small shallow inspection hole away from the plant stem; children see damp soil below.",
+        "pageDescription": "Adult gardener uses a blunt trowel to open a small shallow inspection hole away from the plant stem; children see damp soil below.",
+        "state": "Avoid damaged roots; adult does digging; dry surface and damp lower soil contrast.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Plant roots take up water from the soil. Water left on a hot path cannot help these roots in the same way.",
+        "imageBrief": "Cutaway shows roots within moist bed soil and a separate paved path outside the bed with a small puddle. Exact continuity: No roots magically stretching through pavement; water use relationship concrete.",
+        "imageAlt": "Cutaway shows roots within moist bed soil and a separate paved path outside the bed with a small puddle.",
+        "pageDescription": "Cutaway shows roots within moist bed soil and a separate paved path outside the bed with a small puddle.",
+        "state": "No roots magically stretching through pavement; water use relationship concrete.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Some soil water escapes into the air as invisible vapor. This change is evaporation, and sun and wind can speed it up.",
+        "imageBrief": "Sunny garden scene shows exposed soil and leaves moving in a light breeze; no visible steam rising from ordinary ground. Exact continuity: Water vapor explicitly invisible; no decorative arrows mistaken for vapor.",
+        "imageAlt": "Sunny garden scene shows exposed soil and leaves moving in a light breeze; no visible steam rising from ordinary ground.",
+        "pageDescription": "Sunny garden scene shows exposed soil and leaves moving in a light breeze; no visible steam rising from ordinary ground.",
+        "state": "Water vapor explicitly invisible; no decorative arrows mistaken for vapor.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The gardener spreads clean straw over the bare soil. This covering is mulch. It slows water loss and shades the ground.",
+        "imageBrief": "Adult spreads a thin even layer of clean straw around established vegetable plants while children watch. Exact continuity: Straw away from stems; leaves above mulch; no burial of plants.",
+        "imageAlt": "Adult spreads a thin even layer of clean straw around established vegetable plants while children watch.",
+        "pageDescription": "Adult spreads a thin even layer of clean straw around established vegetable plants while children watch.",
+        "state": "Straw away from stems; leaves above mulch; no burial of plants.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe leaves space around each stem. Mulch should cover the soil, not pile up against the plants. They check beneath it later.",
+        "imageBrief": "Zoe gently shifts straw away from a plant stem, leaving a clear small ring of soil. Exact continuity: Adult nearby; mulch level even; no new watering yet.",
+        "imageAlt": "Zoe gently shifts straw away from a plant stem, leaving a clear small ring of soil.",
+        "pageDescription": "Zoe gently shifts straw away from a plant stem, leaving a clear small ring of soil.",
+        "state": "Adult nearby; mulch level even; no new watering yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Another morning, the soil near the roots is becoming dry. Kit waters slowly beside the plants, keeping water off the path.",
+        "imageBrief": "Kit slowly pours from small blue can at soil level beside plants; Zoe watches the dampening root zone. Exact continuity: Explicit later morning; no puddle or runoff; spout stays above soil.",
+        "imageAlt": "Kit slowly pours from small blue can at soil level beside plants; Zoe watches the dampening root zone.",
+        "pageDescription": "Kit slowly pours from small blue can at soil level beside plants; Zoe watches the dampening root zone.",
+        "state": "Explicit later morning; no puddle or runoff; spout stays above soil.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A little at a time lets water soak in. If water runs away, pouring faster will not put more around the roots.",
+        "imageBrief": "Close view shows water soaking into bed soil beneath the can spout with path remaining dry. Exact continuity: Illustrative conditional statement; no demonstrated flooding needed.",
+        "imageAlt": "Close view shows water soaking into bed soil beneath the can spout with path remaining dry.",
+        "pageDescription": "Close view shows water soaking into bed soil beneath the can spout with path remaining dry.",
+        "state": "Illustrative conditional statement; no demonstrated flooding needed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The next morning, they lift the straw and check again. The soil is damp, so the watering can stays by the gate.",
+        "imageBrief": "Zoe lifts straw to reveal dark damp soil while Kit places the blue can beside the garden gate. Exact continuity: Same bed and plants; no precise universal schedule or invented measurement.",
+        "imageAlt": "Zoe lifts straw to reveal dark damp soil while Kit places the blue can beside the garden gate.",
+        "pageDescription": "Zoe lifts straw to reveal dark damp soil while Kit places the blue can beside the garden gate.",
+        "state": "Same bed and plants; no precise universal schedule or invented measurement.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Leaves stand above the covering of straw. The children have saved water by keeping it useful, without leaving the plants thirsty.",
+        "imageBrief": "Final wide garden view shows healthy leafy vegetables, even straw cover, dry path and blue can resting at gate. Exact continuity: No miraculous overnight growth; adult gardener nearby; conservation supported by observed soil state.",
+        "imageAlt": "Final wide garden view shows healthy leafy vegetables, even straw cover, dry path and blue can resting at gate.",
+        "pageDescription": "Final wide garden view shows healthy leafy vegetables, even straw cover, dry path and blue can resting at gate.",
+        "state": "No miraculous overnight growth; adult gardener nearby; conservation supported by observed soil state.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why do the children check under the soil or mulch before watering?",
+        "listenFor": "Surface color can mislead; soil near roots may already be moist. Checking helps avoid unnecessary watering."
+      },
+      "visual": {
+        "page": 9,
+        "prompt": "What do they find beneath the straw, and what do they do next?",
+        "lookFor": "Damp dark soil; they leave the watering can at the gate."
+      }
+    },
+    "levelRationale": "App E connects observation, hidden soil moisture, evaporation, mulch and conditional watering decisions across several days. The ending depends on checking evidence rather than following a fixed routine.",
+    "languagePrep": [
+      {
+        "word": "moisture",
+        "meaning": "water held in something"
+      },
+      {
+        "word": "evaporation",
+        "meaning": "liquid water changing into invisible gas"
+      },
+      {
+        "word": "mulch",
+        "meaning": "a covering placed over soil to help protect it"
+      }
+    ]
+  }
+]

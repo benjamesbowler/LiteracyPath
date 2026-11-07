@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-03",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:51:26.353Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-77f0c851-9418-4351-b240-e13c2ebd0e20.png",
+  "sourceSha256": "fdf5729b99aa3bd17a200fbea27d84955feeb62dda40a4771665b2f99fea96fd",
+  "output": "public/guided-reading/world-discovery/a-03/page-08.webp",
+  "outputSha256": "d9a9253edd2bfbb4fbede09de61e4a5366405e3decf02c4b9b179f9bc4a2fe52",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Repair the provided landscape story illustration, keeping its locked character identity/clothes, crisp dark outlines and flat clean cartoon style. Preserve exactly the four foreground children sitting and reading their one book each, empty red cart nearby. Remove the tan bag at foreground left (it stayed in library). Change background to their classroom: a few pale-wood school desks with blue chairs, bright window, one small low shelf with plain book spines and a globe. Remove the library display of duplicate globe/elephant/volcano/Saturn books entirely. Exactly FOUR featured books total, all in children's hands. No written words.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-83781268-4248-4345-99b5-d3badbd234e3.png",
+      "sha256": "82d3652d2f62c27945525b48a8b7d81e4b23c85eaa223109be037ce6475d336c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d9a9253edd2bfbb4fbede09de61e4a5366405e3decf02c4b9b179f9bc4a2fe52",
+    "note": "Four children read their open designated books on classroom rug; cart empty; bag remains back in library; duplicate display removed.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

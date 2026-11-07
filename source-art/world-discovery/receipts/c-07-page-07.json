@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-07",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:35.015Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-503fd1b2-f4a4-49eb-a62b-2b1bb102539d.png",
+  "sourceSha256": "4ffc4c3faca68af2edb0c3d9711d6b333339cd60e068a37a3611fde85dc44b08",
+  "output": "public/guided-reading/world-discovery/c-07/page-07.webp",
+  "outputSha256": "ecb7270dbef9820138c5b6d0acf9d1e943c6056ad5ac25f6b42fbdb72aef67ec",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Dam Is Not a Home; World Discovery; nonfiction.\nSetting: One North American beaver\u2019s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One beaver; Branch-and-mud dam across downstream outlet; Separate stick-and-mud lodge in pond; Underwater lodge entrance and raised dry inner chamber\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Outside, water still trickles through the dam. The pond covers the lodge\u2019s opening.\nRequired illustration: One North American beaver\u2019s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Waterline view shows a small downstream trickle at the dam and the lodge entrance submerged in the deeper upstream pond. Exact state: Some flow continues; lodge entrance underwater, chamber remains above it.\nExact current state: Some flow continues; lodge entrance underwater, chamber remains above it.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific diagram accuracy: one continuous side-on CUTAWAY of pond, no inset boxes/panels. Outside pond water has a perfectly horizontal waterline. Dome lodge extends down to solid pond bed. A SUBMERGED entrance in the lodge's side connects to a short sloping interior tunnel. Tunnel rises from BELOW the waterline to a DRY chamber whose entire floor is ABOVE that same horizontal pond waterline. Water occupies only lower tunnel, never higher than outside waterline. No above-water exterior doorway or human door. Separate downstream dam must never become the lodge roof. All animals natural, no humans, words, labels or arrows. Composition: lodge on LEFT in deeper upstream pond, low linear dam at RIGHT outlet, shallower downstream water far RIGHT. A substantial stretch of water separates lodge from dam. Lodge entrance BELOW upstream waterline, chamber floor ABOVE it. Small stream trickles through dam at right; no water beneath chamber reaching its floor.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-07-reference.webp",
+      "sha256": "2e8ab932bb81c958669444dc57a96225e57c66fea9ada756570795bd48af3cc7"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ecb7270dbef9820138c5b6d0acf9d1e943c6056ad5ac25f6b42fbdb72aef67ec",
+    "note": "Direct inspection: separate lodge left with underwater entrance and dry chamber; open deep pond between lodge and downstream dam right, trickle leaves dam into lower stream.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

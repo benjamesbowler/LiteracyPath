@@ -1,0 +1,1606 @@
+[
+  {
+    "id": "world-discovery-d-01",
+    "number": 1,
+    "title": "The Box That Would Not Shut",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants his small keepsake box to show both what he used to love and what he loves now, but the lid will not close.",
+      "failedAttempt": "He removes his old toy train to make room, then realizes its missing place leaves out a memory he still wants to share.",
+      "resolution": "Kit replaces the bulky train with his own drawing, keeping room for his current kite while leaving the train on his shelf."
+    },
+    "setting": "Kit’s bedroom in afternoon daylight, low oak table, blue shelf and a small orange lidded box. Zoe visits throughout.",
+    "props": [
+      "Orange box with hinged lid",
+      "Blue wooden toy train with four blue wheels and one short chimney; it fits in the box with the sock, but not with the kite stacked on top",
+      "Tiny white baby sock",
+      "Small folded red paper kite",
+      "White drawing card",
+      "Blue drawing pencil"
+    ],
+    "coverBrief": "Kit and Zoe crouch beside an open orange keepsake box. A red paper kite, tiny sock and drawn blue train fit inside; the real blue train stands on the shelf behind.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit brings his orange box to the table. Tomorrow he will show his class some things that matter to him.",
+        "imageBrief": "Kit sets a small closed orange box on the low table while Zoe pulls up a chair. Exact continuity: Box closed; all keepsakes still inside except new red kite on table.",
+        "imageAlt": "Kit sets a small closed orange box on the low table while Zoe pulls up a chair.",
+        "pageDescription": "Kit sets a small closed orange box on the low table while Zoe pulls up a chair.",
+        "state": "Box closed; all keepsakes still inside except new red kite on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Inside are a tiny sock and a blue train. “That train went everywhere with me,” Kit tells Zoe.",
+        "imageBrief": "Kit holds the blue toy train above the open box; one tiny white sock lies inside. Exact continuity: Only train and sock were in the box; red kite remains outside.",
+        "imageAlt": "Kit holds the blue toy train above the open box; one tiny white sock lies inside.",
+        "pageDescription": "Kit holds the blue toy train above the open box; one tiny white sock lies inside.",
+        "state": "Only train and sock were in the box; red kite remains outside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Now Kit likes making kites. He puts his newest kite on top, but the lid will not close.",
+        "imageBrief": "Kit lowers the orange lid toward the folded red kite resting on the bulky blue train inside the box. Exact continuity: The combined train-and-kite stack blocks the lid; the train fitted before the kite was added; no crushing or size change.",
+        "imageAlt": "Kit lowers the orange lid toward the folded red kite resting on the bulky blue train inside the box.",
+        "pageDescription": "Kit lowers the orange lid toward the folded red kite resting on the bulky blue train inside the box.",
+        "state": "The combined train-and-kite stack blocks the lid; the train fitted before the kite was added; no crushing or size change.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "“Too full,” says Zoe. Kit lifts out the train. The lid shuts, but he keeps looking at the blue wheels.",
+        "imageBrief": "Kit holds the removed train while Zoe touches the now-closed orange box. Exact continuity: Sock and kite inside closed box; train outside in Kit’s hands.",
+        "imageAlt": "Kit holds the removed train while Zoe touches the now-closed orange box.",
+        "pageDescription": "Kit holds the removed train while Zoe touches the now-closed orange box.",
+        "state": "Sock and kite inside closed box; train outside in Kit’s hands.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "“I do not play with it much now,” he says. “I still want to tell them about it.”",
+        "imageBrief": "Kit turns the blue train in his hands, looking from it to the box. Exact continuity: Train unchanged; closed box remains on table.",
+        "imageAlt": "Kit turns the blue train in his hands, looking from it to the box.",
+        "pageDescription": "Kit turns the blue train in his hands, looking from it to the box.",
+        "state": "Train unchanged; closed box remains on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe slides over a drawing card. Kit puts the train beside it and starts with the four blue wheels.",
+        "imageBrief": "Zoe passes one blank white card to Kit; he draws four blue circles with the train as reference. Exact continuity: One card, one train and one blue pencil; drawing just begun.",
+        "imageAlt": "Zoe passes one blank white card to Kit; he draws four blue circles with the train as reference.",
+        "pageDescription": "Zoe passes one blank white card to Kit; he draws four blue circles with the train as reference.",
+        "state": "One card, one train and one blue pencil; drawing just begun.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "He draws the chimney, too. Then he adds the long track he used to build around his bed.",
+        "imageBrief": "Kit adds a train chimney and a looping track to the card; the actual train stands beside the paper. Exact continuity: The picture is a purposeful child drawing without words; track exists only in drawing.",
+        "imageAlt": "Kit adds a train chimney and a looping track to the card; the actual train stands beside the paper.",
+        "pageDescription": "Kit adds a train chimney and a looping track to the card; the actual train stands beside the paper.",
+        "state": "The picture is a purposeful child drawing without words; track exists only in drawing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit opens the box. His picture slides under the little sock. The red kite fits beside it.",
+        "imageBrief": "Kit slides the finished train picture under the white sock inside the orange box, beside the folded red kite. Exact continuity: Real toy train remains outside; picture now inside; all objects fit without shrinking.",
+        "imageAlt": "Kit slides the finished train picture under the white sock inside the orange box, beside the folded red kite.",
+        "pageDescription": "Kit slides the finished train picture under the white sock inside the orange box, beside the folded red kite.",
+        "state": "Real toy train remains outside; picture now inside; all objects fit without shrinking.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "“Old train. New kite,” Kit says. He closes the lid without a bump and pats the smooth orange top.",
+        "imageBrief": "Kit closes the lid fully while Zoe watches; blue train waits beside the box. Exact continuity: Box fully closed; no protruding kite or crushed objects.",
+        "imageAlt": "Kit closes the lid fully while Zoe watches; blue train waits beside the box.",
+        "pageDescription": "Kit closes the lid fully while Zoe watches; blue train waits beside the box.",
+        "state": "Box fully closed; no protruding kite or crushed objects.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The train goes back on Kit’s shelf. In the box, there is room for the things he wants to say.",
+        "imageBrief": "Kit places the blue train on the low shelf while carrying the closed orange box in his other hand. Exact continuity: Zoe at table; train stays part of Kit’s room rather than being discarded.",
+        "imageAlt": "Kit places the blue train on the low shelf while carrying the closed orange box in his other hand.",
+        "pageDescription": "Kit places the blue train on the low shelf while carrying the closed orange box in his other hand.",
+        "state": "Zoe at table; train stays part of Kit’s room rather than being discarded.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does Kit keep a picture of the train?",
+        "listenFor": "He needs space for the kite but still values the older memory; changing interests do not erase it."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What went into the box instead of the real train?",
+        "lookFor": "The flat train drawing lies under the sock; the real train stays outside."
+      }
+    },
+    "levelRationale": "Ten linked events require tracking an old interest, a present interest, a failed space solution and the symbolic use of a drawing. Paired sentences and restrained dialogue support a fair motive inference at App D.",
+    "languagePrep": [
+      {
+        "word": "keepsake",
+        "meaning": "something kept because it helps you remember"
+      },
+      {
+        "word": "matter",
+        "meaning": "be important to someone"
+      },
+      {
+        "word": "chimney",
+        "meaning": "the short pipe on top of this toy train"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-02",
+    "number": 2,
+    "title": "The Quiet Seat",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants Zoe to join his noisy block game, but she is trying to finish a drawing in a quiet seat nearby.",
+      "failedAttempt": "Kit brings his clattering game closer to include her, making it harder for her to draw and causing her to move away.",
+      "resolution": "Kit asks what Zoe needs, moves the noisy blocks back to the rug and waits for her invitation to see the finished drawing."
+    },
+    "setting": "A bright classroom activity room, afternoon. Blue chair at a small round table, block rug several steps away, second low table at the far side.",
+    "props": [
+      "Six plain wooden blocks",
+      "One white drawing sheet",
+      "One green pencil",
+      "Blue chair"
+    ],
+    "coverBrief": "Zoe draws at the small round table while Kit quietly shows a low block bridge from several steps away; both have clear space.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit’s blocks fall with a clatter. Zoe pulls her blue chair away from the rug and keeps drawing.",
+        "imageBrief": "Six wooden blocks lie scattered on the rug as Zoe shifts her blue chair farther toward the round table. Exact continuity: Drawing and green pencil remain on round table; no thrown blocks.",
+        "imageAlt": "Six wooden blocks lie scattered on the rug as Zoe shifts her blue chair farther toward the round table.",
+        "pageDescription": "Six wooden blocks lie scattered on the rug as Zoe shifts her blue chair farther toward the round table.",
+        "state": "Drawing and green pencil remain on round table; no thrown blocks.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "“Come and build,” Kit calls. Zoe holds up one finger. “I want to finish this first.”",
+        "imageBrief": "Kit gestures toward the fallen blocks; seated Zoe raises one finger while keeping her other hand beside her drawing. Exact continuity: No hostility; the drawing is unfinished tree branches.",
+        "imageAlt": "Kit gestures toward the fallen blocks; seated Zoe raises one finger while keeping her other hand beside her drawing.",
+        "pageDescription": "Kit gestures toward the fallen blocks; seated Zoe raises one finger while keeping her other hand beside her drawing.",
+        "state": "No hostility; the drawing is unfinished tree branches.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit stacks the blocks beside her table. Now she can join without moving. He adds one more block.",
+        "imageBrief": "Kit places a narrow stack of wooden blocks on the floor beside Zoe’s blue chair. Exact continuity: Same six blocks; tower is close to chair but not on paper.",
+        "imageAlt": "Kit places a narrow stack of wooden blocks on the floor beside Zoe’s blue chair.",
+        "pageDescription": "Kit places a narrow stack of wooden blocks on the floor beside Zoe’s blue chair.",
+        "state": "Same six blocks; tower is close to chair but not on paper.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Clack! The stack tips over. Zoe’s pencil jerks, leaving a long green line across her picture.",
+        "imageBrief": "Blocks tumble on the floor and Zoe’s pencil makes one accidental green line across the tree drawing. Exact continuity: The paper gains one unintended line; blocks do not strike Zoe.",
+        "imageAlt": "Blocks tumble on the floor and Zoe’s pencil makes one accidental green line across the tree drawing.",
+        "pageDescription": "Blocks tumble on the floor and Zoe’s pencil makes one accidental green line across the tree drawing.",
+        "state": "The paper gains one unintended line; blocks do not strike Zoe.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe carries her picture to the far table. Kit stays by the blocks. “Did you not want me here?”",
+        "imageBrief": "Zoe carries paper and pencil to the far table; Kit kneels beside the scattered blocks and looks toward her. Exact continuity: Blue chair remains at original table; Zoe takes only paper and pencil.",
+        "imageAlt": "Zoe carries paper and pencil to the far table; Kit kneels beside the scattered blocks and looks toward her.",
+        "pageDescription": "Zoe carries paper and pencil to the far table; Kit kneels beside the scattered blocks and looks toward her.",
+        "state": "Blue chair remains at original table; Zoe takes only paper and pencil.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“I wanted quiet,” she says. Kit looks at the blocks, then at the long green line.",
+        "imageBrief": "Kit stands at a respectful distance as Zoe shows the unintended green line on her drawing. Exact continuity: Kit’s attention connects clatter to mark; no new props.",
+        "imageAlt": "Kit stands at a respectful distance as Zoe shows the unintended green line on her drawing.",
+        "pageDescription": "Kit stands at a respectful distance as Zoe shows the unintended green line on her drawing.",
+        "state": "Kit’s attention connects clatter to mark; no new props.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "“Where can I build?” he asks. Zoe points to the rug. “There. I can show you when I finish.”",
+        "imageBrief": "Zoe points back toward the original block rug while Kit listens with empty hands. Exact continuity: Clear distance between drawing table and rug; request is specific.",
+        "imageAlt": "Zoe points back toward the original block rug while Kit listens with empty hands.",
+        "pageDescription": "Zoe points back toward the original block rug while Kit listens with empty hands.",
+        "state": "Clear distance between drawing table and rug; request is specific.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit carries the blocks back in two quiet loads. He makes a low bridge that does not need a tall tower.",
+        "imageBrief": "Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge. Exact continuity: Exactly six blocks; no more towers near Zoe.",
+        "imageAlt": "Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge.",
+        "pageDescription": "Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge.",
+        "state": "Exactly six blocks; no more towers near Zoe.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Zoe adds little leaves along the stray line. It becomes another branch. Then she waves Kit over.",
+        "imageBrief": "Zoe adds small green leaves to the accidental line and raises her free hand toward Kit. Exact continuity: The original stray line remains visibly incorporated rather than erased.",
+        "imageAlt": "Zoe adds small green leaves to the accidental line and raises her free hand toward Kit.",
+        "pageDescription": "Zoe adds small green leaves to the accidental line and raises her free hand toward Kit.",
+        "state": "The original stray line remains visibly incorporated rather than erased.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Kit comes with empty hands. Zoe moves her picture between them. “This branch was your loud bit,” she says.",
+        "imageBrief": "Kit sits beside Zoe at the far table, both looking at the finished branching tree drawing. Exact continuity: Blocks remain on rug; quiet shared viewing; unintended line now a leafy branch.",
+        "imageAlt": "Kit sits beside Zoe at the far table, both looking at the finished branching tree drawing.",
+        "pageDescription": "Kit sits beside Zoe at the far table, both looking at the finished branching tree drawing.",
+        "state": "Blocks remain on rug; quiet shared viewing; unintended line now a leafy branch.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Kit misunderstand, and what did he change?",
+        "listenFor": "He thought Zoe needed the game nearer; she needed quiet to finish. He asked, moved blocks and waited."
+      },
+      "visual": {
+        "page": 10,
+        "prompt": "What shows that Kit listened?",
+        "lookFor": "He brings no blocks, sits calmly and looks at the picture when invited."
+      }
+    },
+    "levelRationale": "The reader revises Kit’s assumption using an explicit boundary, a physical consequence and a later conversation. Ten linked dialogue/action pages and a callback support App D without abstract emotion vocabulary.",
+    "languagePrep": [
+      {
+        "word": "clatter",
+        "meaning": "a loud sound made by hard things hitting"
+      },
+      {
+        "word": "stray",
+        "meaning": "going where it was not meant to go"
+      },
+      {
+        "word": "quiet",
+        "meaning": "making little sound"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-03",
+    "number": 3,
+    "title": "Two Pipes Under the Sink",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Where does a community’s tap water come from, and where does used sink water go?",
+      "progression": "Follow one town’s separate incoming drinking-water and outgoing wastewater routes, each with its own treatment destination.",
+      "synthesis": "The sink connects two different journeys; water must be treated for its next use rather than simply disappearing.",
+      "scienceSources": [
+        {
+          "title": "CDC: How Water Treatment Works",
+          "url": "https://www.cdc.gov/drinking-water/about/how-water-treatment-works.html",
+          "evidence": "Utilities treat source water, including river water, to remove germs and contaminants before distribution; treatment varies by source.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "USGS: Wastewater Treatment Water Use",
+          "url": "https://www.usgs.gov/water-science-school/science/wastewater-treatment-water-use",
+          "evidence": "Wastewater includes sink water, soap and scraps; treatment reduces pollutants before environmental release and protects aquatic habitats.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One diagrammatic town beside a river, with a drinking-water works upriver, ordinary homes, and a separate wastewater works downstream. No named people. The drinking-water worker on page 4 is a woman with deep brown skin, silver hair in one braid, teal work overalls and plain closed shoes. The separate wastewater worker on page 8 is a man with medium brown skin, short black hair, navy work shirt, gray trousers and plain closed shoes. Both are unnamed adults.",
+    "props": [
+      "One white kitchen sink",
+      "Narrow blue supply pipe",
+      "Wider gray drain pipe",
+      "Drinking-water treatment works",
+      "Separate wastewater treatment works"
+    ],
+    "coverBrief": "A clear cutaway of one kitchen sink reveals a narrow blue incoming pipe and a wider gray outgoing pipe continuing separately underground.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Water pours from a tap. After washing a cup, the used water slips down the drain. Where does it go?",
+        "imageBrief": "A clear stream rinses one blue cup in a white sink, with water flowing toward the open drain. Exact continuity: One cup; tap open; no food or trash in sink.",
+        "imageAlt": "A clear stream rinses one blue cup in a white sink, with water flowing toward the open drain.",
+        "pageDescription": "A clear stream rinses one blue cup in a white sink, with water flowing toward the open drain.",
+        "state": "One cup; tap open; no food or trash in sink.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Look under this sink. One pipe brings water in. A different pipe takes the used water away.",
+        "imageBrief": "A household cutaway shows one blue supply line reaching the tap and a wider gray drain beneath the bowl. Exact continuity: Supply and drain never join; no extra pipe that creates a false loop.",
+        "imageAlt": "A household cutaway shows one blue supply line reaching the tap and a wider gray drain beneath the bowl.",
+        "pageDescription": "A household cutaway shows one blue supply line reaching the tap and a wider gray drain beneath the bowl.",
+        "state": "Supply and drain never join; no extra pipe that creates a false loop.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "In this town, water comes from a river. It travels to a treatment plant before reaching homes.",
+        "imageBrief": "Bird’s-eye town view follows a pipe from an upriver intake to the separate drinking-water works. Exact continuity: River-water example only; no universal claim about every town.",
+        "imageAlt": "Bird’s-eye town view follows a pipe from an upriver intake to the separate drinking-water works.",
+        "pageDescription": "Bird’s-eye town view follows a pipe from an upriver intake to the separate drinking-water works.",
+        "state": "River-water example only; no universal claim about every town.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "At the plant, several steps remove dirt and harmful germs. Workers test the water before it enters the supply pipes.",
+        "imageBrief": "An adult woman with deep brown skin, silver hair in one braid and teal work overalls tests a contained sample beside the drinking-water plant’s treatment tanks. Exact continuity: Worker is adult; safety railings; no child handling treatment chemicals.",
+        "imageAlt": "An adult woman with deep brown skin, silver hair in one braid and teal work overalls tests a contained sample beside the drinking-water plant’s treatment tanks.",
+        "pageDescription": "An adult woman with deep brown skin, silver hair in one braid and teal work overalls tests a contained sample beside the drinking-water plant’s treatment tanks.",
+        "state": "Worker is adult; safety railings; no child handling treatment chemicals.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Those pipes carry treated water through the town. Smaller pipes lead into each home, including the pipe beneath our tap.",
+        "imageBrief": "Cutaway street view shows one blue supply main branching toward ordinary houses and the featured white sink. Exact continuity: All blue branches serve supply; gray drain route stays visually separate.",
+        "imageAlt": "Cutaway street view shows one blue supply main branching toward ordinary houses and the featured white sink.",
+        "pageDescription": "Cutaway street view shows one blue supply main branching toward ordinary houses and the featured white sink.",
+        "state": "All blue branches serve supply; gray drain route stays visually separate.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Now follow the gray drain. Used sink water joins other used water in a larger pipe called a sewer.",
+        "imageBrief": "Under-street cutaway shows the featured sink’s gray drain joining a larger gray sewer below the homes. Exact continuity: Gray wastewater network separate from blue supply; water flows away from homes.",
+        "imageAlt": "Under-street cutaway shows the featured sink’s gray drain joining a larger gray sewer below the homes.",
+        "pageDescription": "Under-street cutaway shows the featured sink’s gray drain joining a larger gray sewer below the homes.",
+        "state": "Gray wastewater network separate from blue supply; water flows away from homes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The sewer leads to another treatment plant. This plant cleans used water, which may contain soap, scraps, and other waste.",
+        "imageBrief": "Gray sewer enters the downstream wastewater works, where covered channels and settling tanks are visible. Exact continuity: Different site from drinking-water works; no clean-water pipe joining untreated sewer.",
+        "imageAlt": "Gray sewer enters the downstream wastewater works, where covered channels and settling tanks are visible.",
+        "pageDescription": "Gray sewer enters the downstream wastewater works, where covered channels and settling tanks are visible.",
+        "state": "Different site from drinking-water works; no clean-water pipe joining untreated sewer.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Workers remove waste and check the treated water. In this town, it can then flow back into the river.",
+        "imageBrief": "An adult man with medium brown skin, short black hair, navy work shirt and gray trousers samples the wastewater plant’s final outlet; a controlled outfall enters the downstream river. Exact continuity: Separate worker and treatment site; outlet downstream of intake; treatment completed before release.",
+        "imageAlt": "An adult man with medium brown skin, short black hair, navy work shirt and gray trousers samples the wastewater plant’s final outlet; a controlled outfall enters the downstream river.",
+        "pageDescription": "An adult man with medium brown skin, short black hair, navy work shirt and gray trousers samples the wastewater plant’s final outlet; a controlled outfall enters the downstream river.",
+        "state": "Separate worker and treatment site; outlet downstream of intake; treatment completed before release.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The river does not belong to the sink. Fish and plants need that water, too, so cleaning it matters.",
+        "imageBrief": "Downstream river scene shows fish below the surface and reeds at the bank, with the distant treatment outlet upstream. Exact continuity: Natural fish and plant anatomy; no implication water is ready to drink directly.",
+        "imageAlt": "Downstream river scene shows fish below the surface and reeds at the bank, with the distant treatment outlet upstream.",
+        "pageDescription": "Downstream river scene shows fish below the surface and reeds at the bank, with the distant treatment outlet upstream.",
+        "state": "Natural fish and plant anatomy; no implication water is ready to drink directly.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "At the sink, two pipes show two different routes: treated water coming in and used water going out.",
+        "imageBrief": "Return to the sink cutaway with both complete separate routes visible below the kitchen floor. Exact continuity: Cup now clean and on counter; tap closed; blue incoming and gray outgoing paths remain separate.",
+        "imageAlt": "Two separate pipes connect the sink: a blue incoming water pipe reaches the tap and a gray outgoing pipe leads from the drain.",
+        "pageDescription": "Two separate pipes connect the sink: a blue incoming water pipe reaches the tap and a gray outgoing pipe leads from the drain.",
+        "state": "Cup now clean and on counter; tap closed; blue incoming and gray outgoing paths remain separate.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does the water pass through different plants before and after the sink?",
+        "listenFor": "Incoming water is treated for drinking; used water contains waste and needs treatment before its next destination."
+      },
+      "visual": {
+        "page": 10,
+        "prompt": "Follow each pipe. Which reaches the tap, and which begins at the drain?",
+        "lookFor": "The incoming water route reaches the tap. The outgoing water route begins at the drain below the sink."
+      }
+    },
+    "levelRationale": "App D follows two linked routes and distinguishes two treatment purposes, with explicit transitions and a return to the original sink. Vocabulary is supported by concrete pipe and destination imagery.",
+    "languagePrep": [
+      {
+        "word": "treated",
+        "meaning": "cleaned in steps for a particular use"
+      },
+      {
+        "word": "sewer",
+        "meaning": "a pipe that carries used water away"
+      },
+      {
+        "word": "drain",
+        "meaning": "the opening and pipe that let used water leave"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-04",
+    "number": 4,
+    "title": "The Pocket of Wind",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-ZOE",
+        "WD-KIT"
+      ],
+      "storySpine": "Zoe wants to bring a red kite out of a low tree using a pocket that stores wind, but her first gust wedges it farther in.",
+      "failedAttempt": "She releases a strong gust from below the kite; the wind drives the kite deeper into the branch fork.",
+      "resolution": "Zoe moves to the other side and releases a small stored puff through a narrow opening, lifting the kite toward Kit’s waiting hands.",
+      "magicRule": "The separate blue zip pouch stores wind caught from a real breeze while open and sealed by its zipper. Reopening releases the stored wind in the aimed direction; a small opening gives a small puff and closing preserves what remains. It creates no new wind, and no other object is enchanted."
+    },
+    "setting": "A fictional garden with a low forked apple tree, short lawn and low brick wall, windy afternoon. A removable blue zip pouch holds captured wind only in this story.",
+    "props": [
+      "Blue cloth zip pouch small enough for Zoe’s palm",
+      "Red diamond kite with one short white tail",
+      "Kite string and wooden spool",
+      "Low forked tree"
+    ],
+    "coverBrief": "Zoe aims a partly opened blue wind pouch toward a red kite caught in a low tree fork while Kit waits on the other side with both hands ready.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe has a magic pocket. Open it into the breeze, zip it shut, and the wind stays inside.",
+        "imageBrief": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree. Exact continuity: Pouch separate from clothing; this is explicit fantasy; kite lies on grass.",
+        "imageAlt": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree.",
+        "pageDescription": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree.",
+        "state": "Pouch separate from clothing; this is explicit fantasy; kite lies on grass.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "When Zoe opens the pocket again, the saved wind rushes out. Kit’s loose kite lifts from the grass.",
+        "imageBrief": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass. Exact continuity: First demonstration empties pouch; kite has one short white tail and attached string.",
+        "imageAlt": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass.",
+        "pageDescription": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass.",
+        "state": "First demonstration empties pouch; kite has one short white tail and attached string.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The kite catches in the tree’s low fork. Kit pulls the string, but the red paper presses against a twig.",
+        "imageBrief": "Red kite is wedged between two low branches; Kit gently pulls its string from the ground. Exact continuity: Children remain grounded; kite not torn; pouch empty in Zoe’s hand.",
+        "imageAlt": "Red kite is wedged between two low branches; Kit gently pulls its string from the ground.",
+        "pageDescription": "Red kite is wedged between two low branches; Kit gently pulls its string from the ground.",
+        "state": "Children remain grounded; kite not torn; pouch empty in Zoe’s hand.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe catches another gust in her pocket. “I will blow it out,” she says, standing beneath the kite.",
+        "imageBrief": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground. Exact continuity: Second stored gust; zipper closed after refilling; Kit has not yet stopped pulling; one moment after the catch.",
+        "imageAlt": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground.",
+        "pageDescription": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground.",
+        "state": "Second stored gust; zipper closed after refilling; Kit has not yet stopped pulling; one moment after the catch.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "She opens the pocket wide. Whoosh! The kite jumps higher and sticks deeper in the fork.",
+        "imageBrief": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below. Exact continuity: Failed attempt worsens wedge; kite still low enough to reach from opposite ground position.",
+        "imageAlt": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below.",
+        "pageDescription": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below.",
+        "state": "Failed attempt worsens wedge; kite still low enough to reach from opposite ground position.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit stops pulling. Zoe walks around the tree. From here, she can see a clear gap behind the kite.",
+        "imageBrief": "Zoe stands opposite her first position, looking through an open gap behind the red kite; Kit holds slack string. Exact continuity: No new magic; changed viewing angle reveals existing exit.",
+        "imageAlt": "Zoe stands opposite her first position, looking through an open gap behind the red kite; Kit holds slack string.",
+        "pageDescription": "Zoe stands opposite her first position, looking through an open gap behind the red kite; Kit holds slack string.",
+        "state": "No new magic; changed viewing angle reveals existing exit.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "She fills the pocket once more and points it through the gap. This time she opens only a tiny corner.",
+        "imageBrief": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little. Exact continuity: Third gust stored; small opening releases part of it; pouch aimed outward through gap.",
+        "imageAlt": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little.",
+        "pageDescription": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little.",
+        "state": "Third gust stored; small opening releases part of it; pouch aimed outward through gap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A little puff lifts one kite corner. Kit holds out his hands as Zoe lets a second puff escape.",
+        "imageBrief": "One red kite corner frees from the twig as Kit reaches from the clear side, feet on grass. Exact continuity: Two small releases from same third stored gust; no grabbing sharp twigs.",
+        "imageAlt": "One red kite corner frees from the twig as Kit reaches from the clear side, feet on grass.",
+        "pageDescription": "One red kite corner frees from the twig as Kit reaches from the clear side, feet on grass.",
+        "state": "Two small releases from same third stored gust; no grabbing sharp twigs.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The kite slides out into Kit’s hands. Its paper is bent, but there is no hole. Zoe shuts the pocket.",
+        "imageBrief": "Kit catches the freed red kite with both hands while Zoe closes the zipper. Exact continuity: Kite intact but bent along one corner; string remains attached; remaining wind kept inside.",
+        "imageAlt": "Kit catches the freed red kite with both hands while Zoe closes the zipper.",
+        "pageDescription": "Kit catches the freed red kite with both hands while Zoe closes the zipper.",
+        "state": "Kite intact but bent along one corner; string remains attached; remaining wind kept inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Kit smooths the bent corner. “Save some wind for flying,” he says. Zoe gives the zipped pocket a small pat.",
+        "imageBrief": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him. Exact continuity: Resolved kite retrieval; bent corner being smoothed; stored puff retained, not a new power.",
+        "imageAlt": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him.",
+        "pageDescription": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him.",
+        "state": "Resolved kite retrieval; bent corner being smoothed; stored puff retained, not a new power.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does Zoe’s smaller puff work after her large gust fails?",
+        "listenFor": "She changes position, uses the clear gap and releases less wind in the direction that frees the kite."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Where is the opening that lets the kite escape?",
+        "lookFor": "The branch gap behind the kite aligns with the small outward puff."
+      }
+    },
+    "levelRationale": "App D tracks a seeded magical mechanism, failed force/direction choice, changed viewpoint and two controlled attempts. The concrete repeated pouch state supports a fair spatial inference.",
+    "languagePrep": [
+      {
+        "word": "gust",
+        "meaning": "a sudden strong rush of wind"
+      },
+      {
+        "word": "fork",
+        "meaning": "where one branch divides into two"
+      },
+      {
+        "word": "wedged",
+        "meaning": "stuck tightly in a narrow space"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-05",
+    "number": 5,
+    "title": "Island or Peninsula?",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a small model show the difference between an island and a peninsula?",
+      "progression": "Observe water around a connected land shape, test a dry route, remove the connecting strip and compare the changed boundary.",
+      "synthesis": "An island has water all around; a peninsula is almost surrounded but retains a land connection.",
+      "scienceSources": [
+        {
+          "title": "National Geographic Education: Peninsula",
+          "url": "https://education.nationalgeographic.org/resource/peninsula/",
+          "evidence": "A peninsula is almost surrounded by water while connected to the mainland; peninsulas vary greatly in size.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "National Geographic Education: Island",
+          "url": "https://education.nationalgeographic.org/resource/island/",
+          "evidence": "An island is land surrounded by water; islands occur in oceans, seas, lakes and rivers.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "A classroom low table with a shallow blue rectangular water tray; brown modeling clay represents land. Daylight; Kit and Zoe watch from opposite long edges.",
+    "props": [
+      "Shallow blue tray with a thin layer of water",
+      "Brown clay mainland fixed along left tray edge",
+      "Rounded clay lobe connected by narrow strip",
+      "Small yellow toy person",
+      "Blunt wooden modeling stick"
+    ],
+    "coverBrief": "Overhead view of Kit and Zoe studying a clay peninsula in a blue water tray, with a yellow toy figure on the narrow dry connection.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Water surrounds most of Kit’s clay land. “An island?” he asks. Zoe looks at the narrow strip behind it.",
+        "imageBrief": "Kit and Zoe lean over a blue tray containing a rounded clay lobe connected to clay mainland on the left. Exact continuity: Water on three sides of lobe; narrow connecting strip above water.",
+        "imageAlt": "Kit and Zoe lean over a blue tray containing a rounded clay lobe connected to clay mainland on the left.",
+        "pageDescription": "Kit and Zoe lean over a blue tray containing a rounded clay lobe connected to clay mainland on the left.",
+        "state": "Water on three sides of lobe; narrow connecting strip above water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The strip joins the large piece of land. A tiny toy can walk along it without crossing water.",
+        "imageBrief": "Zoe moves one yellow toy person along the raised clay strip from mainland toward the rounded lobe. Exact continuity: Toy stays on dry clay; same water height.",
+        "imageAlt": "Zoe moves one yellow toy person along the raised clay strip from mainland toward the rounded lobe.",
+        "pageDescription": "Zoe moves one yellow toy person along the raised clay strip from mainland toward the rounded lobe.",
+        "state": "Toy stays on dry clay; same water height.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "This shape is a peninsula. Water is around most of it, but land still connects it to the mainland.",
+        "imageBrief": "Clear overhead close view of the entire connected clay shape with water around its outer sides. Exact continuity: Connection remains unbroken and visibly above water; no real-world map boundaries.",
+        "imageAlt": "Clear overhead close view of the entire connected clay shape with water around its outer sides.",
+        "pageDescription": "Clear overhead close view of the entire connected clay shape with water around its outer sides.",
+        "state": "Connection remains unbroken and visibly above water; no real-world map boundaries.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe traces the water’s edge with one finger above the tray. Her finger cannot go around the land in a circle.",
+        "imageBrief": "Zoe’s fingertip hovers just above the shoreline near the narrow strip, showing where a water route is blocked. Exact continuity: Finger not carving clay; toy remains on lobe; no arrows or text.",
+        "imageAlt": "Zoe’s fingertip hovers just above the shoreline near the narrow strip, showing where a water route is blocked.",
+        "pageDescription": "Zoe’s fingertip hovers just above the shoreline near the narrow strip, showing where a water route is blocked.",
+        "state": "Finger not carving clay; toy remains on lobe; no arrows or text.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit lifts out the narrow strip with a flat stick. Water flows into the gap between the two clay pieces.",
+        "imageBrief": "Kit uses a blunt stick to lift the strip clear as blue water fills the gap; Zoe watches. Exact continuity: Removed clay held on stick; lobe and mainland otherwise unchanged.",
+        "imageAlt": "Kit uses a blunt stick to lift the strip clear as blue water fills the gap; Zoe watches.",
+        "pageDescription": "Kit uses a blunt stick to lift the strip clear as blue water fills the gap; Zoe watches.",
+        "state": "Removed clay held on stick; lobe and mainland otherwise unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Now water surrounds the smaller piece on every side. The model has an island.",
+        "imageBrief": "Overhead view shows a complete blue-water ring around the isolated clay lobe. Exact continuity: No hidden clay bridge; mainland left; removed strip beside tray.",
+        "imageAlt": "Overhead view shows a complete blue-water ring around the isolated clay lobe.",
+        "pageDescription": "Overhead view shows a complete blue-water ring around the isolated clay lobe.",
+        "state": "No hidden clay bridge; mainland left; removed strip beside tray.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Zoe puts the toy on the mainland. To reach the island now, it would need a boat or a bridge.",
+        "imageBrief": "Zoe sets the same yellow toy person on the mainland edge, facing the new water gap and the clay island. Exact continuity: Toy deliberately returned from lobe to mainland by Zoe; no actual boat or bridge appears; the dry route is gone.",
+        "imageAlt": "Zoe sets the same yellow toy person on the mainland edge, facing the new water gap and the clay island.",
+        "pageDescription": "Zoe sets the same yellow toy person on the mainland edge, facing the new water gap and the clay island.",
+        "state": "Toy deliberately returned from lobe to mainland by Zoe; no actual boat or bridge appears; the dry route is gone.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Real islands can sit in lakes, rivers, or oceans. Their size does not change the water all around them.",
+        "imageBrief": "A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore. Exact continuity: Explicit move from model to real lake; no people crossing water; island boundary visible.",
+        "imageAlt": "A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore.",
+        "pageDescription": "A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore.",
+        "state": "Explicit move from model to real lake; no people crossing water; island boundary visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "A real peninsula may be very wide. Look for the land connection, not just the shape of its tip.",
+        "imageBrief": "Elevated coastal landscape shows a broad peninsula connected to mainland behind, with sea wrapping around the tip. Exact continuity: Continuous land connection visible; neutral geography, no flags or labels.",
+        "imageAlt": "Elevated coastal landscape shows a broad peninsula connected to mainland behind, with sea wrapping around the tip.",
+        "pageDescription": "Elevated coastal landscape shows a broad peninsula connected to mainland behind, with sea wrapping around the tip.",
+        "state": "Continuous land connection visible; neutral geography, no flags or labels.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Back at the tray, Zoe replaces the clay strip. The island becomes a peninsula again. The dry path makes the difference.",
+        "imageBrief": "Zoe presses the original clay strip into the gap, reconnecting lobe and mainland above the water. Exact continuity: Original tray and toy return; one restored dry connection displaces water locally.",
+        "imageAlt": "Zoe presses the original clay strip into the gap, reconnecting lobe and mainland above the water.",
+        "pageDescription": "Zoe presses the original clay strip into the gap, reconnecting lobe and mainland above the water.",
+        "state": "Original tray and toy return; one restored dry connection displaces water locally.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What must you check before calling a piece of land an island?",
+        "listenFor": "Water must surround it on every side; size or a rounded tip alone is insufficient."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Can you trace water all the way around the small land shape?",
+        "lookFor": "A continuous water ring separates the clay island from the mainland."
+      }
+    },
+    "levelRationale": "App D uses a model-to-real-world comparison and a reversible change to distinguish related landforms. The reader tracks a boundary and route across several pages; explicit definitions prevent unsupported guessing.",
+    "languagePrep": [
+      {
+        "word": "peninsula",
+        "meaning": "land with water around most of it and a land connection"
+      },
+      {
+        "word": "mainland",
+        "meaning": "the larger main area of land"
+      },
+      {
+        "word": "island",
+        "meaning": "land with water all around it"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-06",
+    "number": 6,
+    "title": "Marks on the Moon",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What made the Moon’s round hollows, and why can we still see many of them?",
+      "progression": "Observe a crater, follow an impact and scattered rock, then compare overlapping old/new craters and slow surface change.",
+      "synthesis": "Many lunar craters record impacts whose marks remain because Earth-like wind and rain do not erase them.",
+      "scienceSources": [
+        {
+          "title": "NASA Science: Moon Craters",
+          "url": "https://science.nasa.gov/moon/lunar-craters/",
+          "evidence": "Lunar impact craters result from colliding asteroids, meteoroids or comets; low erosion preserves many craters and ejecta.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA Science: Why Study Moon Craters?",
+          "url": "https://science.nasa.gov/moon/lunar-craters/why-study-craters/",
+          "evidence": "No liquid water or wind erases lunar evidence as on Earth; impact structures preserve history.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA: LRO Educator Resource Kit",
+          "url": "https://science.nasa.gov/wp-content/uploads/2024/01/lro-educator-resource-kit.pdf",
+          "evidence": "Superposition of craters reveals relative ages; impacts form different crater sizes and raised rims.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA ARES: Crater Comparisons student guide",
+          "url": "https://ares.jsc.nasa.gov/engagement/activities/resources/crater-comparisons/student-guide.pdf",
+          "evidence": "A crater overlapping another crater’s rim must have formed later. The illustrated broken rim supplies the age clue; small size alone does not.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.",
+    "props": [
+      "Gray cratered Moon",
+      "One incoming gray space rock",
+      "Bowl-shaped crater with raised rim",
+      "Scattered fragments and overlapping smaller crater"
+    ],
+    "coverBrief": "A crisp lunar landscape shows a large bowl-shaped crater with a raised rim and a smaller crater crossing one edge, under a black sky.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Look closely at the Moon. Many round hollows mark its surface. What punched those holes?",
+        "imageBrief": "Gray Moon shown large against black space with several clear circular craters and dark plains. Exact continuity: No face, cheese holes or stars visible through Moon; craters are surface depressions.",
+        "imageAlt": "Gray Moon shown large against black space with several clear circular craters and dark plains.",
+        "pageDescription": "Gray Moon shown large against black space with several clear circular craters and dark plains.",
+        "state": "No face, cheese holes or stars visible through Moon; craters are surface depressions.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A rock races through space toward the Moon. The Moon has very little air to slow it down.",
+        "imageBrief": "One irregular gray rock approaches the lunar surface from upper left; the Moon fills lower right. Exact continuity: No flame trail or thick lunar atmosphere; illustrative distance, no scale claim.",
+        "imageAlt": "One irregular gray rock approaches the lunar surface from upper left; the Moon fills lower right.",
+        "pageDescription": "One irregular gray rock approaches the lunar surface from upper left; the Moon fills lower right.",
+        "state": "No flame trail or thick lunar atmosphere; illustrative distance, no scale claim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The rock hits hard. The crash digs into the ground and throws broken rock out around the hole.",
+        "imageBrief": "One impact ejects gray lunar material outward from a forming depression, viewed from a safe imaginary distance. Exact continuity: No lava eruption from below; material moves outward from strike site.",
+        "imageAlt": "One impact ejects gray lunar material outward from a forming depression, viewed from a safe imaginary distance.",
+        "pageDescription": "One impact ejects gray lunar material outward from a forming depression, viewed from a safe imaginary distance.",
+        "state": "No lava eruption from below; material moves outward from strike site.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The hole is an impact crater. A raised edge, called a rim, often circles the hollow.",
+        "imageBrief": "Close oblique view of a simple fresh bowl-shaped crater with a clearly raised rim and scattered rock outside. Exact continuity: Impact over; no intact huge meteor sitting like a ball in crater.",
+        "imageAlt": "Close oblique view of a simple fresh bowl-shaped crater with a clearly raised rim and scattered rock outside.",
+        "pageDescription": "Close oblique view of a simple fresh bowl-shaped crater with a clearly raised rim and scattered rock outside.",
+        "state": "Impact over; no intact huge meteor sitting like a ball in crater.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Some craters are small. Others are much wider than a city. Not every crash leaves the same-sized mark.",
+        "imageBrief": "A broad crater landscape contains one large crater and several much smaller nearby craters. Exact continuity: Natural relative crater variation; no city placed on Moon for scale.",
+        "imageAlt": "A broad crater landscape contains one large crater and several much smaller nearby craters.",
+        "pageDescription": "A broad crater landscape contains one large crater and several much smaller nearby craters.",
+        "state": "Natural relative crater variation; no city placed on Moon for scale.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "On Earth, rain and flowing water can wear old marks away. Wind and other changes help reshape the ground.",
+        "imageBrief": "An Earth hillside shows a weathered rounded crater-like basin with a small stream and ordinary clouds above. Exact continuity: Illustrative Earth comparison, green/brown ground and water; no claim about a named crater.",
+        "imageAlt": "An Earth hillside shows a weathered rounded crater-like basin with a small stream and ordinary clouds above.",
+        "pageDescription": "An Earth hillside shows a weathered rounded crater-like basin with a small stream and ordinary clouds above.",
+        "state": "Illustrative Earth comparison, green/brown ground and water; no claim about a named crater.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The Moon has no rain or flowing rivers. Many crater marks remain for a very long time.",
+        "imageBrief": "Return to the same gray lunar crater, sharp rim dry and unchanged beneath black sky. Exact continuity: No water, clouds, grass or windblown flags; same crater as page four.",
+        "imageAlt": "Return to the same gray lunar crater, sharp rim dry and unchanged beneath black sky.",
+        "pageDescription": "Return to the same gray lunar crater, sharp rim dry and unchanged beneath black sky.",
+        "state": "No water, clouds, grass or windblown flags; same crater as page four.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "New impacts can change old marks. Here, a smaller crater cuts across the rim of a larger one.",
+        "imageBrief": "Overhead close view shows a small circular crater excavated across one section of a larger crater’s rim. Exact continuity: Small crater visibly interrupts old rim; size alone is not the age clue.",
+        "imageAlt": "Overhead close view shows a small circular crater excavated across one section of a larger crater’s rim.",
+        "pageDescription": "Overhead close view shows a small circular crater excavated across one section of a larger crater’s rim.",
+        "state": "Small crater visibly interrupts old rim; size alone is not the age clue.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "That broken edge is a clue. The large crater was already there when the smaller one struck its rim.",
+        "imageBrief": "Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides. Exact continuity: Same overlapping pair; no arbitrary date labels or extra impacts.",
+        "imageAlt": "Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides.",
+        "pageDescription": "Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides.",
+        "state": "Same overlapping pair; no arbitrary date labels or extra impacts.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The Moon’s hollows are more than spots. They hold clues about crashes that changed the surface, one impact after another.",
+        "imageBrief": "Pull back to the Moon with the overlapping pair still foregrounded among many craters. Exact continuity: Full concept return; no faces, labels or unsupported ages.",
+        "imageAlt": "Pull back to the Moon with the overlapping pair still foregrounded among many craters.",
+        "pageDescription": "Pull back to the Moon with the overlapping pair still foregrounded among many craters.",
+        "state": "Full concept return; no faces, labels or unsupported ages.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What tells us which of the two overlapping craters formed later?",
+        "listenFor": "The smaller crater cuts the older rim; the interrupted edge, not size alone, is evidence."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which crater breaks the edge of the other?",
+        "lookFor": "The smaller crater cuts through part of the larger rim."
+      }
+    },
+    "levelRationale": "App D links impact, visible landform and a supported relative-age clue. Contrast with Earth adds one explanatory relationship, while repeated concrete crater/rim language supports the ten-page progression.",
+    "languagePrep": [
+      {
+        "word": "impact",
+        "meaning": "a strong collision"
+      },
+      {
+        "word": "crater",
+        "meaning": "a hollow made here by an impact"
+      },
+      {
+        "word": "rim",
+        "meaning": "the raised edge around a hollow"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-07",
+    "number": 7,
+    "title": "A Trap Made of Silk",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does an orb-weaving spider catch food without chasing it through the garden?",
+      "progression": "Examine a garden orb weaver’s supported web, distinguish sticky capture lines, then follow vibration detection, prey wrapping and the small gap left by capture.",
+      "synthesis": "The web is both a trap and a way to sense movement; different silk lines do different jobs.",
+      "scienceSources": [
+        {
+          "title": "Australian Museum: Spider facts",
+          "url": "https://australian.museum/learn/animals/spiders/spider-facts/",
+          "evidence": "Orb webs have dry centers and spokes and sticky capture spirals; foot anatomy and limited contact help spiders move.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Australian Museum: Prey capture and feeding",
+          "url": "https://australian.museum/learn/animals/spiders/prey-capture-and-feeding/",
+          "evidence": "Orb webs trap insects and spiders sense vibration; wrapping in silk subdues or packages prey.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Australian Museum: Spider webs",
+          "url": "https://australian.museum/learn/animals/spiders/spider-webs/",
+          "evidence": "Orb web building uses frame, radii and capture spiral; species vary in web architecture.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "A quiet garden gap between two shrub stems at dusk. One brown garden orb-weaver spider, natural eight-legged anatomy, and one small fly.",
+    "props": [
+      "Two fixed green shrub stems",
+      "Silk frame and dry spokes",
+      "Sticky spiral capture line",
+      "One small fly"
+    ],
+    "coverBrief": "A natural brown orb-weaving spider rests near the center of a full wheel-shaped web between two green stems, with a small fly approaching one side.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A fly moves through the garden. Nearby, an orb-weaving spider waits in a web shaped like a wheel.",
+        "imageBrief": "One brown orb weaver rests at the web center while a small fly approaches from the right. Exact continuity: Eight spider legs, two body regions; fly much smaller; no human face.",
+        "imageAlt": "One brown orb weaver rests at the web center while a small fly approaches from the right.",
+        "pageDescription": "One brown orb weaver rests at the web center while a small fly approaches from the right.",
+        "state": "Eight spider legs, two body regions; fly much smaller; no human face.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The spider made the web from silk. Strong lines attach it to the stems on either side.",
+        "imageBrief": "Close wide view emphasizes the silk frame secured to two real shrub stems around the wheel-shaped web. Exact continuity: Web anchored at visible points; no floating disconnected strands.",
+        "imageAlt": "Close wide view emphasizes the silk frame secured to two real shrub stems around the wheel-shaped web.",
+        "pageDescription": "Close wide view emphasizes the silk frame secured to two real shrub stems around the wheel-shaped web.",
+        "state": "Web anchored at visible points; no floating disconnected strands.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Other lines reach from the edges to the middle. These spokes help hold the web in place.",
+        "imageBrief": "Oblique close view shows dry radial spokes converging toward the web center where the spider rests. Exact continuity: Same frame, same stem positions; spokes distinct from spiral.",
+        "imageAlt": "Oblique close view shows dry radial spokes converging toward the web center where the spider rests.",
+        "pageDescription": "Oblique close view shows dry radial spokes converging toward the web center where the spider rests.",
+        "state": "Same frame, same stem positions; spokes distinct from spiral.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Between the spokes, a sticky silk line curls around the center. This part can hold a small insect.",
+        "imageBrief": "Detailed but uncluttered close-up shows the capture spiral crossing radial spokes, with tiny clear sticky droplets on spiral. Exact continuity: Sticky droplets restricted to spiral; no giant decorative beads.",
+        "imageAlt": "Detailed but uncluttered close-up shows the capture spiral crossing radial spokes, with tiny clear sticky droplets on spiral.",
+        "pageDescription": "Detailed but uncluttered close-up shows the capture spiral crossing radial spokes, with tiny clear sticky droplets on spiral.",
+        "state": "Sticky droplets restricted to spiral; no giant decorative beads.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The fly hits that sticky line. Its legs and wings struggle, making the silk move.",
+        "imageBrief": "The small fly is caught on the right section of the spiral, with two wings and six legs visible. Exact continuity: No gore; web pulls slightly around fly; spider still near middle.",
+        "imageAlt": "The small fly is caught on the right section of the spiral, with two wings and six legs visible.",
+        "pageDescription": "The small fly is caught on the right section of the spiral, with two wings and six legs visible.",
+        "state": "No gore; web pulls slightly around fly; spider still near middle.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The spider feels the moving threads through its legs. It turns toward the place where the fly is caught.",
+        "imageBrief": "The brown spider faces the caught fly with its leg tips touching silk spokes. Exact continuity: Physical contact carries vibration; no sound ears, smile or magical signal.",
+        "imageAlt": "The brown spider faces the caught fly with its leg tips touching silk spokes.",
+        "pageDescription": "The brown spider faces the caught fly with its leg tips touching silk spokes.",
+        "state": "Physical contact carries vibration; no sound ears, smile or magical signal.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The spider follows the threads. Its feet touch only small parts of the web, and not every line is sticky.",
+        "imageBrief": "Spider moves along a radial spoke toward the fly, body held clear of the sticky spiral. Exact continuity: Eight separate legs, limited foot contact; no claim it only ever walks on dry silk.",
+        "imageAlt": "Spider moves along a radial spoke toward the fly, body held clear of the sticky spiral.",
+        "pageDescription": "Spider moves along a radial spoke toward the fly, body held clear of the sticky spiral.",
+        "state": "Eight separate legs, limited foot contact; no claim it only ever walks on dry silk.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "It wraps the fly in more silk. The captured insect will be food for the spider.",
+        "imageBrief": "The spider wraps the small fly in a compact silk bundle on the right side of the web. Exact continuity: Matter-of-fact predation, no blood or exaggerated suffering; fly remains small.",
+        "imageAlt": "The spider wraps the small fly in a compact silk bundle on the right side of the web.",
+        "pageDescription": "The spider wraps the small fly in a compact silk bundle on the right side of the web.",
+        "state": "Matter-of-fact predation, no blood or exaggerated suffering; fly remains small.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The fly’s struggle broke part of the spiral. A small gap remains where the insect was caught.",
+        "imageBrief": "Close view of the torn right-side spiral shows a small gap; the spider rests beside the compact wrapped fly nearby. Exact continuity: Frame and most spiral remain intact; exact capture gap visible; no unsupported reconstruction of sticky silk.",
+        "imageAlt": "Close view of the torn right-side spiral shows a small gap; the spider rests beside the compact wrapped fly nearby.",
+        "pageDescription": "Close view of the torn right-side spiral shows a small gap; the spider rests beside the compact wrapped fly nearby.",
+        "state": "Frame and most spiral remain intact; exact capture gap visible; no unsupported reconstruction of sticky silk.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The spider waits again. Its silk web can catch food and carry tiny movements to its feet.",
+        "imageBrief": "Full web returns between the same stems, spider waiting at center and the small capture gap visible on the right. Exact continuity: Dusk consistent; one prey bundle remains near the gap; no new fly required; remaining web still spans the stems.",
+        "imageAlt": "Full web returns between the same stems, spider waiting at center and the small capture gap visible on the right.",
+        "pageDescription": "Full web returns between the same stems, spider waiting at center and the small capture gap visible on the right.",
+        "state": "Dusk consistent; one prey bundle remains near the gap; no new fly required; remaining web still spans the stems.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does the web help the spider in two different ways?",
+        "listenFor": "Sticky lines catch prey; movements through silk alert the spider and guide it to the caught animal."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Which lines curl around, and which run toward the middle?",
+        "lookFor": "Sticky spiral circles around; straighter spokes lead toward center."
+      }
+    },
+    "levelRationale": "App D connects structure, function and a multistep prey-capture sequence. Supported terms frame, spokes, sticky and silk introduce relationships without turning natural predation into a character story.",
+    "languagePrep": [
+      {
+        "word": "orb",
+        "meaning": "a round shape"
+      },
+      {
+        "word": "spokes",
+        "meaning": "lines reaching from the middle toward an edge"
+      },
+      {
+        "word": "silk",
+        "meaning": "thin strong threads made by a spider"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-08",
+    "number": 8,
+    "title": "One Bean Becomes Many",
+    "topic": "life cycles",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can one dry bean lead to new beans?",
+      "progression": "Follow a common bean seed through germination, leaf growth, flowers, pods, mature seeds and the next planting.",
+      "synthesis": "The beans in mature pods are seeds that can begin another plant’s life cycle under suitable conditions.",
+      "scienceSources": [
+        {
+          "title": "Kew: Common bean",
+          "url": "https://www.kew.org/plants/common-bean",
+          "evidence": "Common bean flowers produce pods containing seeds; the species has edible seeds and pods.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "University of Minnesota Extension: Growing beans",
+          "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-beans",
+          "evidence": "Beans germinate best in warmed soil; flowering precedes pods, and developing seeds bulge within mature pods.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Mississippi State University Extension: Beans",
+          "url": "https://www.extension.msstate.edu/lawn-and-garden/vegetable-gardens/beans",
+          "evidence": "Common garden beans lift their two cotyledons above the soil during emergence; soil moisture and temperature affect germination.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "West Virginia University Extension: Germinating Seeds",
+          "url": "https://extension.wvu.edu/lawn-gardening-pests/news/2021/02/01/germinating-seeds",
+          "evidence": "A seed contains an embryo and food reserves; root emergence and early seed-leaf support precede independent leaf growth.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Smithsonian Science Education Center: What is Photosynthesis?",
+          "url": "https://ssec.si.edu/node/915",
+          "evidence": "Plants use sunlight, water and carbon dioxide to make food. Leaves take part in the process; sunlight is energy, not a substance poured into the plant.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One common bush bean plant in a garden bed through a growing season. Consistent green leaves, white flowers and cream seeds; no human cast.",
+    "props": [
+      "One cream common-bean seed",
+      "Brown soil cutaway",
+      "White flowers",
+      "Green pods that later dry tan",
+      "Mature cream beans"
+    ],
+    "coverBrief": "A mature bush bean plant with green pods stands beside one opened dry tan pod showing cream seeds, the beginning and ending of the cycle.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This dry bean is a seed. Inside its coat is a tiny plant waiting for the right conditions.",
+        "imageBrief": "Large educational cutaway of one cream bean seed shows the tiny embryo between two thick seed halves. Exact continuity: Diagram magnified; no fully formed miniature flowering plant inside.",
+        "imageAlt": "Large educational cutaway of one cream bean seed shows the tiny embryo between two thick seed halves.",
+        "pageDescription": "Large educational cutaway of one cream bean seed shows the tiny embryo between two thick seed halves.",
+        "state": "Diagram magnified; no fully formed miniature flowering plant inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "In warm, damp soil, the seed takes in water. It swells, and its coat begins to split.",
+        "imageBrief": "Soil cutaway shows the same swollen cream bean with a small split in its coat. Exact continuity: Soil damp not flooded; no roots or leaves yet.",
+        "imageAlt": "Soil cutaway shows the same swollen cream bean with a small split in its coat.",
+        "pageDescription": "Soil cutaway shows the same swollen cream bean with a small split in its coat.",
+        "state": "Soil damp not flooded; no roots or leaves yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A small root grows out first. It reaches into the soil, taking in water as the new plant grows.",
+        "imageBrief": "Cutaway shows a white root emerging from the split seed and curving downward into damp soil. Exact continuity: Single seed; root first; no green leaf underground.",
+        "imageAlt": "Cutaway shows a white root emerging from the split seed and curving downward into damp soil.",
+        "pageDescription": "Cutaway shows a white root emerging from the split seed and curving downward into damp soil.",
+        "state": "Single seed; root first; no green leaf underground.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "A shoot rises toward the light. The thick seed halves feed the young plant while its first leaves open.",
+        "imageBrief": "Young bean shoot bends upward above soil with two thick seed leaves and the first small true leaves beginning to open. Exact continuity: Common bean cotyledons raised above soil; roots below; no mature pods.",
+        "imageAlt": "Young bean shoot bends upward above soil with two thick seed leaves and the first small true leaves beginning to open.",
+        "pageDescription": "Young bean shoot bends upward above soil with two thick seed leaves and the first small true leaves beginning to open.",
+        "state": "Common bean cotyledons raised above soil; roots below; no mature pods.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The leaves use sunlight to help the plant make food. More roots, stems, and leaves grow.",
+        "imageBrief": "Young green bean plant stands in the same garden bed with several leaves; cutaway roots spread beneath. Exact continuity: Plant larger through elapsed time; no sunlight drawn as food particles.",
+        "imageAlt": "Young green bean plant stands in the same garden bed with several leaves; cutaway roots spread beneath.",
+        "pageDescription": "Young green bean plant stands in the same garden bed with several leaves; cutaway roots spread beneath.",
+        "state": "Plant larger through elapsed time; no sunlight drawn as food particles.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Later, small flowers open among the leaves. Each flower has parts that can help form seeds.",
+        "imageBrief": "The same bush bean now carries several small white pea-shaped flowers among green leaves. Exact continuity: Explicit later growth; flowers naturally attached; no pods yet at featured flower.",
+        "imageAlt": "The same bush bean now carries several small white pea-shaped flowers among green leaves.",
+        "pageDescription": "The same bush bean now carries several small white pea-shaped flowers among green leaves.",
+        "state": "Explicit later growth; flowers naturally attached; no pods yet at featured flower.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "After a flower is pollinated, a pod can grow. The new seeds develop inside it.",
+        "imageBrief": "Close view shows a small green pod developing beneath the withered remains of one white bean flower. Exact continuity: One chosen flower-to-pod progression; no requirement for a bee in every bean flower.",
+        "imageAlt": "Close view shows a small green pod developing beneath the withered remains of one white bean flower.",
+        "pageDescription": "Close view shows a small green pod developing beneath the withered remains of one white bean flower.",
+        "state": "One chosen flower-to-pod progression; no requirement for a bee in every bean flower.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The pod grows longer. Look closely: the beans inside make small bumps along its sides.",
+        "imageBrief": "A mature green bean pod hangs from the same plant, showing several gentle seed bulges. Exact continuity: Seeds enclosed; no transparent actual pod unless explicit cutaway used.",
+        "imageAlt": "A mature green bean pod hangs from the same plant, showing several gentle seed bulges.",
+        "pageDescription": "A mature green bean pod hangs from the same plant, showing several gentle seed bulges.",
+        "state": "Seeds enclosed; no transparent actual pod unless explicit cutaway used.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Left on the plant, this pod dries and turns brown. Its firm beans are ready to be collected as seeds.",
+        "imageBrief": "One tan dry pod opens along its seam to reveal cream beans, with older leaves behind. Exact continuity: Dry mature seeds; no eating raw beans; same common-bean variety.",
+        "imageAlt": "One tan dry pod opens along its seam to reveal cream beans, with older leaves behind.",
+        "pageDescription": "One tan dry pod opens along its seam to reveal cream beans, with older leaves behind.",
+        "state": "Dry mature seeds; no eating raw beans; same common-bean variety.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "One of those beans goes into warm, damp soil. A new root begins the journey again.",
+        "imageBrief": "A new cream seed with an emerging root sits in soil, with the opened dry pod resting above ground nearby. Exact continuity: This is a new seed generation; original plant not magically shrinking back.",
+        "imageAlt": "A new cream seed with an emerging root sits in soil, with the opened dry pod resting above ground nearby.",
+        "pageDescription": "A new cream seed with an emerging root sits in soil, with the opened dry pod resting above ground nearby.",
+        "state": "This is a new seed generation; original plant not magically shrinking back.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does a bean in the final pod matter to the next plant?",
+        "listenFor": "It is a new seed; in suitable warm, damp conditions it can germinate and repeat the cycle."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What makes the bumps along this pod?",
+        "lookFor": "The developing beans, which are seeds, inside it."
+      }
+    },
+    "levelRationale": "App D sustains a full plant cycle and links visible structures to food supply, pollination and new seeds. Time markers and repeated seed/pod references make the causal sequence explicit.",
+    "languagePrep": [
+      {
+        "word": "seed coat",
+        "meaning": "the outside covering of a seed"
+      },
+      {
+        "word": "shoot",
+        "meaning": "new plant growth that becomes a stem and leaves"
+      },
+      {
+        "word": "pod",
+        "meaning": "the fruit that holds these bean seeds"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-09",
+    "number": 9,
+    "title": "What Will the Magnet Pull?",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can shiny appearance tell us which objects a magnet will attract?",
+      "progression": "Predict from appearance, test metal and nonmetal objects, record two groups, then test a new steel object against the revised material rule.",
+      "synthesis": "Testing sorts this set by magnetic attraction; shiny appearance and the word metal alone do not predict the result.",
+      "scienceSources": [
+        {
+          "title": "American Chemical Society: Metals and Magnetism",
+          "url": "https://www.acs.org/education/whatischemistry/adventures-in-chemistry/experiments/metals-magnetism.html",
+          "evidence": "Classroom magnets attract iron and common steel objects; aluminum foil and nonmetal items do not show the same attraction. Steel contains iron.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Classroom science table in daylight. One large classroom bar magnet with fully enclosed poles; children supervised by an adult out of frame.",
+    "props": [
+      "Large red-and-blue bar magnet with no printed letters",
+      "Plain steel paper clip",
+      "Crumpled aluminum foil ball",
+      "Wooden block",
+      "Plastic spoon",
+      "Plain steel washer",
+      "Two plain shallow trays",
+      "Plain steel key"
+    ],
+    "coverBrief": "Kit holds a large bar magnet near a steel paper clip while Zoe compares a shiny foil ball that stays on the table; two sorting trays sit behind.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit puts a shiny paper clip beside shiny foil. “Will the magnet pull both?” Zoe brings two empty trays.",
+        "imageBrief": "Steel clip and aluminum foil ball lie apart on the table; Kit holds large magnet and Zoe sets down two trays. Exact continuity: No loose small magnets; two test objects initially unsorted.",
+        "imageAlt": "Steel clip and aluminum foil ball lie apart on the table; Kit holds large magnet and Zoe sets down two trays.",
+        "pageDescription": "Steel clip and aluminum foil ball lie apart on the table; Kit holds large magnet and Zoe sets down two trays.",
+        "state": "No loose small magnets; two test objects initially unsorted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The magnet pulls the steel clip. Kit lifts the magnet, and the clip hangs from one end.",
+        "imageBrief": "One steel paper clip hangs from the red end of the large enclosed red-and-blue bar magnet in Kit’s hand. Exact continuity: Clip attached by attraction; no string or finger support; red end used in subsequent tests.",
+        "imageAlt": "One steel paper clip hangs from the red end of the large enclosed red-and-blue bar magnet in Kit’s hand.",
+        "pageDescription": "One steel paper clip hangs from the red end of the large enclosed red-and-blue bar magnet in Kit’s hand.",
+        "state": "Clip attached by attraction; no string or finger support; red end used in subsequent tests.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe tries the foil. It stays on the table, even when the same end of the magnet comes close.",
+        "imageBrief": "Zoe brings the same red magnet end beside the aluminum foil ball, which remains resting on the table. Exact continuity: No foil movement; same magnet and approach distance.",
+        "imageAlt": "Zoe brings the same red magnet end beside the aluminum foil ball, which remains resting on the table.",
+        "pageDescription": "Zoe brings the same red magnet end beside the aluminum foil ball, which remains resting on the table.",
+        "state": "No foil movement; same magnet and approach distance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Both objects are metal, but only the steel clip moved. Being shiny was not enough to tell them apart.",
+        "imageBrief": "Clip rests in left tray and foil ball in right tray, both visibly metallic. Exact continuity: One object per tray; no printed labels; same finish not a universal rule.",
+        "imageAlt": "Clip rests in left tray and foil ball in right tray, both visibly metallic.",
+        "pageDescription": "Clip rests in left tray and foil ball in right tray, both visibly metallic.",
+        "state": "One object per tray; no printed labels; same finish not a universal rule.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "A wooden block stays still, too. Kit puts it in the tray with the foil.",
+        "imageBrief": "Kit places the wooden block in the right tray alongside the foil; the large magnet rests on the table after its test. Exact continuity: Right tray now foil and wood; steel clip remains alone left; one moment after the block stayed still.",
+        "imageAlt": "Kit places the wooden block in the right tray alongside the foil; the large magnet rests on the table after its test.",
+        "pageDescription": "Kit places the wooden block in the right tray alongside the foil; the large magnet rests on the table after its test.",
+        "state": "Right tray now foil and wood; steel clip remains alone left; one moment after the block stayed still.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The plastic spoon does not move toward the magnet. Zoe adds it to the same tray.",
+        "imageBrief": "Zoe holds the bar magnet close to a plastic spoon on the tabletop with the right tray ready behind. Exact continuity: Spoon not yet moved into tray during test; left clip unchanged.",
+        "imageAlt": "Zoe holds the bar magnet close to a plastic spoon on the tabletop with the right tray ready behind.",
+        "pageDescription": "Zoe holds the bar magnet close to a plastic spoon on the tabletop with the right tray ready behind.",
+        "state": "Spoon not yet moved into tray during test; left clip unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Now Kit tries a steel washer. The magnet lifts it, just as it lifted the clip.",
+        "imageBrief": "Large bar magnet lifts one flat steel washer while Kit holds it above the table. Exact continuity: Washer plain steel, not aluminum; spoon now in right tray.",
+        "imageAlt": "Large bar magnet lifts one flat steel washer while Kit holds it above the table.",
+        "pageDescription": "Large bar magnet lifts one flat steel washer while Kit holds it above the table.",
+        "state": "Washer plain steel, not aluminum; spoon now in right tray.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Steel usually contains plenty of iron. Magnets attract iron, but they do not pull every kind of metal like this.",
+        "imageBrief": "Steel washer and clip lie together in left tray while foil, block and plastic spoon lie right. Exact continuity: Exact five objects accounted for; no claims about all stainless steels or all metals.",
+        "imageAlt": "Steel washer and clip lie together in left tray while foil, block and plastic spoon lie right.",
+        "pageDescription": "Steel washer and clip lie together in left tray while foil, block and plastic spoon lie right.",
+        "state": "Exact five objects accounted for; no claims about all stainless steels or all metals.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The children put a steel key beside the trays. Before sorting it, they test it with the magnet.",
+        "imageBrief": "Zoe offers one plain steel key on the table as Kit brings the magnet near. Exact continuity: New sixth object; explicitly steel key; no guessing by color.",
+        "imageAlt": "Zoe offers one plain steel key on the table as Kit brings the magnet near.",
+        "pageDescription": "Zoe offers one plain steel key on the table as Kit brings the magnet near.",
+        "state": "New sixth object; explicitly steel key; no guessing by color.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The key lifts. Into the clip tray it goes. These groups tell what the magnet did, not what looked shiny.",
+        "imageBrief": "Key hangs from magnet over left tray containing washer and clip; right holds foil, block and spoon. Exact continuity: Final tested grouping; no unexplained extra objects or altered materials.",
+        "imageAlt": "Key hangs from magnet over left tray containing washer and clip; right holds foil, block and spoon.",
+        "pageDescription": "Key hangs from magnet over left tray containing washer and clip; right holds foil, block and spoon.",
+        "state": "Final tested grouping; no unexplained extra objects or altered materials.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why was “shiny things” a poor rule for this sorting task?",
+        "listenFor": "Both foil and steel looked shiny, but only the steel objects were attracted by the magnet."
+      },
+      "visual": {
+        "page": 10,
+        "prompt": "Which shiny object belongs in the other tray?",
+        "lookFor": "The aluminum foil stays with the objects that were not pulled."
+      }
+    },
+    "levelRationale": "App D requires revising an appearance-based prediction using several tests and applying the revised rule to a new object. The category criterion is explicit, with measured qualifications about metals.",
+    "languagePrep": [
+      {
+        "word": "attract",
+        "meaning": "pull toward something"
+      },
+      {
+        "word": "steel",
+        "meaning": "a metal made mainly from iron"
+      },
+      {
+        "word": "test",
+        "meaning": "try something to find out what happens"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-10",
+    "number": 10,
+    "title": "Sunlight After Sunset",
+    "topic": "caring for our world",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a solar light shine after the Sun has set?",
+      "progression": "Follow energy from daytime sunlight through a solar panel into a rechargeable battery, then to a nighttime lamp; check shade and charging limits.",
+      "synthesis": "The battery makes daytime solar energy available later; the panel itself does not keep sunlight trapped inside.",
+      "scienceSources": [
+        {
+          "title": "U.S. Department of Energy: Solar-Powered Street and Area Lighting Considerations",
+          "url": "https://bbsc.energy.gov/sites/default/files/attachments/Solar-Powered%20Street%20and%20Area%20Lighting%20Considerations%20-%20Factsheet.pdf",
+          "evidence": "Photovoltaic lighting systems combine a PV panel, battery and LED luminaire; solar availability and storage affect operation.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "USDA Forest Service: Solar Light Towers and Mobile Solar Power",
+          "url": "https://www.fs.usda.gov/sites/default/files/2022-07/GFT-BMP-Solar-Lt-n-Power.pdf",
+          "evidence": "Solar lighting uses panels and battery storage to support night operation; stored energy has finite capacity.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One ordinary garden path with a self-contained black solar path light, small square top panel, enclosed battery and white LED beneath. Day-to-night sequence. Page 8 shows only one adult hand with medium brown skin and a plain gray sleeve lifting the fallen leaf; no recurring adult character.",
+    "props": [
+      "One black solar path light",
+      "Square dark-blue top panel",
+      "Enclosed rechargeable battery",
+      "White LED",
+      "Nearby shrub casting a shadow"
+    ],
+    "coverBrief": "A black solar path light shines on a garden stepping stone at dusk, with its dark-blue top panel clearly visible above the lamp.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The garden light shines after sunset. Its small solar panel is dark. What keeps the lamp glowing?",
+        "imageBrief": "One black solar path light casts a soft white pool on a stepping stone in evening darkness. Exact continuity: Panel unlit; no power cord or Moon beam entering it.",
+        "imageAlt": "One black solar path light casts a soft white pool on a stepping stone in evening darkness.",
+        "pageDescription": "One black solar path light casts a soft white pool on a stepping stone in evening darkness.",
+        "state": "Panel unlit; no power cord or Moon beam entering it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Earlier, sunlight fell on the panel. The panel changed some of that light energy into electricity.",
+        "imageBrief": "Same lamp in bright daytime, with sunlight reaching its dark-blue square panel; LED off. Exact continuity: Explicit flashback; no stored sunlight drawn as liquid or trapped rays.",
+        "imageAlt": "Same lamp in bright daytime, with sunlight reaching its dark-blue square panel; LED off.",
+        "pageDescription": "Same lamp in bright daytime, with sunlight reaching its dark-blue square panel; LED off.",
+        "state": "Explicit flashback; no stored sunlight drawn as liquid or trapped rays.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Inside the light, wires carry electricity to a battery. The battery stores energy for later.",
+        "imageBrief": "Simple cutaway of lamp head shows panel connected by wires to a safely enclosed rechargeable battery. Exact continuity: Technical illustration, not child opening device; continuous electrical connections.",
+        "imageAlt": "Simple cutaway of lamp head shows panel connected by wires to a safely enclosed rechargeable battery.",
+        "pageDescription": "Simple cutaway of lamp head shows panel connected by wires to a safely enclosed rechargeable battery.",
+        "state": "Technical illustration, not child opening device; continuous electrical connections.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The Sun moves across the sky while the battery charges. The lamp does not need to shine in daylight.",
+        "imageBrief": "Afternoon view of same lamp on path, panel sunny and LED off; shrub shadow falls away from panel. Exact continuity: Single moment; no multiple suns; battery remains inside.",
+        "imageAlt": "Afternoon view of same lamp on path, panel sunny and LED off; shrub shadow falls away from panel.",
+        "pageDescription": "Afternoon view of same lamp on path, panel sunny and LED off; shrub shadow falls away from panel.",
+        "state": "Single moment; no multiple suns; battery remains inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "As evening grows dark, a control switches the lamp on. The battery now supplies energy to the light.",
+        "imageBrief": "At dusk, same lamp begins glowing while the panel lies in dim light. Exact continuity: Automatic control is internal; no child switching exposed wires.",
+        "imageAlt": "At dusk, same lamp begins glowing while the panel lies in dim light.",
+        "pageDescription": "At dusk, same lamp begins glowing while the panel lies in dim light.",
+        "state": "Automatic control is internal; no child switching exposed wires.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "That is why the lamp can glow without sunlight. Energy collected earlier is being used now.",
+        "imageBrief": "Nighttime cutaway shows the enclosed battery connected to the lit LED beneath the dark panel. Exact continuity: No arrows needed; electrical route visible; panel not producing at night.",
+        "imageAlt": "Nighttime cutaway shows the enclosed battery connected to the lit LED beneath the dark panel.",
+        "pageDescription": "Nighttime cutaway shows the enclosed battery connected to the lit LED beneath the dark panel.",
+        "state": "No arrows needed; electrical route visible; panel not producing at night.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "But the battery cannot store an endless supply. If little sunlight reaches the panel, the light may not last as long.",
+        "imageBrief": "A daylight view of the same garden light shows the shrub’s shadow covering most of its top panel while the surrounding path is sunlit. Exact continuity: One daytime cause of weak charging; lamp off in daylight; no nighttime shadow falsely shown as blocked sunlight.",
+        "imageAlt": "A daylight view of the same garden light shows the shrub’s shadow covering most of its top panel while the surrounding path is sunlit.",
+        "pageDescription": "A daylight view of the same garden light shows the shrub’s shadow covering most of its top panel while the surrounding path is sunlit.",
+        "state": "One daytime cause of weak charging; lamp off in daylight; no nighttime shadow falsely shown as blocked sunlight.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A leaf covers part of this panel during the day. Removing it lets more sunlight reach the panel again.",
+        "imageBrief": "Daytime close view shows one adult hand lifting a fallen leaf from the solar panel. Exact continuity: Time transition clear; leaf removed, no electrical disassembly.",
+        "imageAlt": "Daytime close view shows one adult hand lifting a fallen leaf from the solar panel.",
+        "pageDescription": "Daytime close view shows one adult hand lifting a fallen leaf from the solar panel.",
+        "state": "Time transition clear; leaf removed, no electrical disassembly.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The light uses energy from the Sun, but its parts still need materials and care. Using less light saves energy, too.",
+        "imageBrief": "Same intact solar lamp illuminates only the stepping stone and path edge while the rest of the garden remains dark. Exact continuity: No claim zero environmental impact; light directed downward, not into sky.",
+        "imageAlt": "Same intact solar lamp illuminates only the stepping stone and path edge while the rest of the garden remains dark.",
+        "pageDescription": "Same intact solar lamp illuminates only the stepping stone and path edge while the rest of the garden remains dark.",
+        "state": "No claim zero environmental impact; light directed downward, not into sky.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Daytime light, stored energy, nighttime lamp: the battery connects two parts of the day. The garden path is bright enough to see.",
+        "imageBrief": "Final evening view shows the same lamp lighting the next stepping stone, with clear path and quiet garden beyond. Exact continuity: Same device, no additional lamps; endpoint resolves opening nighttime glow.",
+        "imageAlt": "Final evening view shows the same lamp lighting the next stepping stone, with clear path and quiet garden beyond.",
+        "pageDescription": "Final evening view shows the same lamp lighting the next stepping stone, with clear path and quiet garden beyond.",
+        "state": "Same device, no additional lamps; endpoint resolves opening nighttime glow.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Which part lets the light use daytime energy after sunset?",
+        "listenFor": "The rechargeable battery stores energy; the solar panel converts light but does not store it itself."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What connects the battery to the glowing lamp?",
+        "lookFor": "The enclosed wires complete the route to the LED."
+      }
+    },
+    "levelRationale": "App D tracks a three-part energy system across a flashback and evening return. Concrete parts and explicit time markers support the distinction between converting energy and storing it.",
+    "languagePrep": [
+      {
+        "word": "solar panel",
+        "meaning": "a device that changes sunlight into electricity"
+      },
+      {
+        "word": "battery",
+        "meaning": "a device that stores energy for later use"
+      },
+      {
+        "word": "electricity",
+        "meaning": "energy carried through an electrical circuit"
+      }
+    ]
+  }
+]

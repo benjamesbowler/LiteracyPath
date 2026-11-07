@@ -1,5 +1,26 @@
 # Current system cleanup — 31 July 2026
 
+## World Discovery — 7 November 2026
+
+The [collection Bible](guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md) owns
+fifty books, 440 reading pages, fifty covers and their separate card renditions.
+Selected narration, exact repair inputs, cast/per-book references and direct
+visual provenance remain active inputs. Native generated originals are retained.
+The existing 458 held visual sources retain their exact dispositions; their
+source-reachability proof is refreshed for the expanded runtime, without
+turning held sources into pixel approvals.
+
+Removed 27 unpublished superseded narration files and two unreferenced,
+unpublished card renditions only after checking current runtime/operational
+references, selected hashes and Git status. Also removed the 54 disposable
+audio candidates and the manuscript scratch script after preserving selected
+outputs and reproducible source payloads. These scratch deletions are not Git
+recovery copies; retained inputs can reproduce the production workflow.
+Exact cleanup records and required browser/source evidence remain in ignored
+`.artifacts/world-discovery/`; obsolete browser trace archives are disposable
+after their resolved findings and screenshots are retained. Protected animation
+roots and unrelated work are outside this cleanup.
+
 ## Shared media storage preparation — 3 November 2026
 
 Replaced the unactivated R2 draft with strictly free static asset publication

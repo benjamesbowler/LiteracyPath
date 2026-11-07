@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:51.992Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-75e9880c-2415-4029-99e4-50b7555849e5.png",
+  "sourceSha256": "5c7820ddf6bce6b970599fea82d203f65f5fa66d18f1657ce2950d123b613d61",
+  "output": "public/guided-reading/world-discovery/c-08/page-06.webp",
+  "outputSha256": "6def67a4547672af00e59bc366ed99eaccaf65c30359da20edc12ec5135058ac",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: From Pond to Sky; World Discovery; nonfiction.\nSetting: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Pond reed stems; Tiny elongated dragonfly egg inserted into submerged pond-plant tissue; Natural six-legged brown nymph; Empty shed nymph skin fixed to reed; Adult green dragonfly with four clear wings\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Its old skin splits. An adult dragonfly pulls free, with soft folded wings.\nRequired illustration: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. The pale adult emerges from a split along the back of the nymph skin, gripping the reed as its soft wings hang together. Exact state: Empty skin remains attached; one emerging adult, no cocoon.\nExact current state: Empty skin remains attached; one emerging adult, no cocoon.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific anatomy and stage: NO humans, labels, arrows, pupa, cocoon, butterfly or damselfly. Adult has exactly FOUR transparent wings (two each side) and SIX thoracic legs (three each side), compact green thorax and slender brown abdomen. Nymph has six thoracic legs, compact brown body, no developed wings and no three tail gills. Any empty shed skin must have an obvious SPLIT OPEN upper back with pale thin edges and hollow interior, no living pupils. ONE emerging pale green adult climbs up from the hollow back split of ONE brown skin; its soft FOUR wings are still small, folded and hanging, not yet spread. Abdomen partly emerging or just freed, six adult legs grip reed above old shell. No extra body or head.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-08-reference.webp",
+      "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6def67a4547672af00e59bc366ed99eaccaf65c30359da20edc12ec5135058ac",
+    "note": "Direct inspection: one adult pulls abdomen from split dorsal skin, gripping reed; soft folded overlapping wings hang downward, old shell remains empty and attached; no cocoon or extra insect.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

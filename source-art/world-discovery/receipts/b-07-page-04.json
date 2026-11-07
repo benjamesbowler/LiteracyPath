@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-07",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:52:28.908Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b430ab2d-163c-44d1-8ec8-d549157dda82.png",
+  "sourceSha256": "cf28912bc7c6cd411150a68670ff4f397dbedaaec37fc712b01e572b2e0afdcc",
+  "output": "public/guided-reading/world-discovery/b-07/page-04.webp",
+  "outputSha256": "612626119cdd75b46b6aabd2b40233d0e2ac6492770e6f2d5d1c50cad4d6cb81",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Recompose this illustration as a TRUE UNDERWATER CLOSE-UP of ONE orange duck foot actively SPREADING its three forward toes wide so the skin between them forms a broad webbed fan. One tiny separate rear toe is behind the ankle. Crop the duck's BODY, HEAD and other foot completely OUT of frame: one natural orange leg extends diagonally from upper-left edge to the centered foot, attached outside this close view. Show the three webbed toe tips spread across the center, all fully visible with at least 12% clear blue space from image edges. Same clear blue pond water and a few simple outlined stones low in the frame. No sky, grass, second foot, extra toe, text, arrows or inset. Keep clean flat outlined cartoon style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6dec209c-481a-4523-8062-022415465365.png",
+      "sha256": "0e07b242fd83b1368f61aee5175349f713645d2f4837e4f56af172a94c0c5404"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:52:31.180Z",
+    "sha256": "612626119cdd75b46b6aabd2b40233d0e2ac6492770e6f2d5d1c50cad4d6cb81",
+    "note": "Broad spread webbing between exactly three forward toes shown in close-up, with separate rear toe; no extra foot."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-10",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:39:55.221Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-db30c5ae-7411-4ff3-bc8a-098469c085ab.png",
+  "sourceSha256": "255f7f5145b1f26a5e172f972ecb7fbcb64a80295389a4ae47675306dd56361c",
+  "output": "source-art/world-discovery/b-10-reference.webp",
+  "outputSha256": "0b2708b2fc3cc4c7dfa788f1e3c8dd22c804523190eed1f5189bcbc58eb27860",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Bag with a Patch; World Discovery; fiction.\nSetting: World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One cream cloth drawstring bag with a torn lower corner wide enough for the red cube to slip through; Exactly three chunky blocks: red cube, blue cube, yellow rectangular block; One square blue cloth patch larger than the corner tear; One needle and thread handled only by the adult\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Three blocks in total; the visible tear at the lower corner is wide enough for the red cube to slip through.. For orientation, the opening location/action is: World Discovery classroom craft table in afternoon light. An unnamed adult helper joins on pages 4–6 only: medium brown skin, short curly dark hair, green sweater and gray pants, about 1.7 times child height. The needle appears only during the adult’s sewing on page 5 and is stored away by page 6. Kit drops a red cube, blue cube and yellow rectangular block into the cream cloth bag on the table; Zoe watches. Exact state: Three blocks in total; the visible tear at the lower corner is wide enough for the red cube to slip through.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nREFERENCE STRUCTURE: separated isolated model of cream drawstring bag with clearly open lower-corner tear large enough for red cube; isolated blue square cloth patch NOT yet attached; exactly three isolated blocks: red cube, blue cube, yellow rectangular block. Adult helper has medium brown skin, short dark curly hair, green sweater, gray pants; show isolated adult model clearly taller than Kit/Zoe. Small needle and thread as separate adult-hand detail only, no child with needle. Do not depict a repaired bag anywhere in this reference. EMPTY classroom craft-table location key without any people, bags, patches, blocks or needle. No labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:39:55.493Z",
+    "sha256": "0b2708b2fc3cc4c7dfa788f1e3c8dd22c804523190eed1f5189bcbc58eb27860",
+    "note": "Kit and Zoe, taller adult in green sweater, torn cream bag, separate blue patch, three original blocks and adult needle detail inspected; empty classroom location key."
+  }
+}

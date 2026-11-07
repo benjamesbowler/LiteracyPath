@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:43:14.643Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1b34fe06-ca40-4d1a-9e92-436e4f74b02a.png",
+  "sourceSha256": "8639855e8b533865630bbd685021207780dc650e9a39be043d8b8ed27a07d80e",
+  "output": "public/guided-reading/world-discovery/d-06/page-06.webp",
+  "outputSha256": "6ff8fc2f7eb6012056489a73d6bd80b24b1ab92cea6bfa63e88eb7e7074cfd5c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Marks on the Moon; World Discovery; nonfiction.\nSetting: The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray cratered Moon; One incoming gray space rock; Bowl-shaped crater with raised rim; Scattered fragments and overlapping smaller crater\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): On Earth, rain and flowing water can wear old marks away. Wind and other changes help reshape the ground.\nRequired illustration: An Earth hillside shows a weathered rounded crater-like basin with a small stream and ordinary clouds above. Exact continuity: Illustrative Earth comparison, green/brown ground and water; no claim about a named crater.\nExact current state: Illustrative Earth comparison, green/brown ground and water; no claim about a named crater.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-06-reference.webp",
+      "sha256": "9d046e48daaa20a08468f92df3b83dff6de83f373a7f3f996bc1f2808fb5180c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:49:00.431566+00:00",
+    "sha256": "6ff8fc2f7eb6012056489a73d6bd80b24b1ab92cea6bfa63e88eb7e7074cfd5c",
+    "note": "Earth comparison is explicitly green/brown terrain with a stream and ordinary clouds; rounded weathered basin shown in crisp clean cartoon forms."
+  }
+}

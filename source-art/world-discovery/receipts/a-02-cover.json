@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-02",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:24:54.967Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-949d29a0-8f9d-4e2c-b83d-afd561da8ad1.png",
+  "sourceSha256": "76bcb083635027c243afae2b20114a3bad47dc415a195603f3bbde2a252ccae4",
+  "output": "public/guided-reading/world-discovery/a-02/cover.webp",
+  "outputSha256": "c75c9b4d50bf4d623dffd16b8af42deb65e94fcfdea862e152a4d6d1879438b5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the supplied completed picture-book cover. Preserve the two children exactly, their equal height, clothes, expressive faces, the red balloon and kite sheets with exactly two clips, classroom, and clean flat cartoon style. Change only framing and the crayon scale: pull the camera back so both complete bodies including shoes and all essential objects sit at least 10% inside every edge, adding ordinary floor/wall continuation. Make the sole red crayon on the table normal child size, about 9cm long, less than the width of Kit's palm. Keep it a single thick red crayon, not a huge prop. No text, extra characters or new objects. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3086a3f7-0a7a-4b5d-ade0-c0ce1e669f08.png",
+      "sha256": "fe67b972998b7211b8bccfedf507e520c3d3f39432031de68c95765ac13e0329"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "c75c9b4d50bf4d623dffd16b8af42deb65e94fcfdea862e152a4d6d1879438b5",
+    "note": "Dedicated cover: both children stand on the floor beside exactly two completed clipped red pictures; small red crayon on table; no text.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

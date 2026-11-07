@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:27:59.897Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-9b9c2f9f-5c3a-4d6e-9ca9-7139462c4e76.png",
+  "sourceSha256": "c5eb00f27a766fd89867bf377d758e3552232074a57b9a34593a36b8f98da2c0",
+  "output": "public/guided-reading/world-discovery/e-09/page-02.webp",
+  "outputSha256": "a9063a3109846d1ec2c76bb35257128d68fe4a4eabf3368797acf057125a72da",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Living in the same place does not make animals the same kind. Their bodies and life histories give us more clues.\nRequired illustration: Wide ocean view retains whale and fish in separate depths, each using its own body shape to swim. Exact continuity: Same ocean habitat; different animal groups remain distinct. No literal family tree or labels.\nExact current state: Same ocean habitat; different animal groups remain distinct. No literal family tree or labels.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Wide ocean view of same ONE blue whale and small silver fish at separate depths. Natural scale, no calf/dolphin/shark or diagram.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nCORRECTION: First attached picture is scene to correct; SECOND is correct HORIZONTAL whale-tail reference. Preserve main scene, but replace EVERY whale tail (adult AND calf if present) with TWO FLUKES SPREAD FLAT LEFT-AND-RIGHT in a horizontal plane, viewed in three-quarter perspective like a wide open shallow W lying flat across the tail tip. Show TOP surfaces of BOTH flukes, NOT upper and lower lobes. Whale body stays upright, belly below, small dorsal fin above. Fish retain upright vertical tails. Do NOT rotate the whole whale. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-373f1336-b953-4c69-b22f-b14badda81eb.png",
+      "sha256": "1ad2aeebbd788cd0c3906cf9505c40d63dd41ed3c3c5aeeda99a667717e39bb3"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7bb9f6ab-4cd5-4a2c-ae82-5f932593f382.png",
+      "sha256": "dc82303052a7d33ae7d470cc8f65af6b268203ad066acec492c72b63f1cd5995"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:00.999Z",
+    "sha256": "a9063a3109846d1ec2c76bb35257128d68fe4a4eabf3368797acf057125a72da",
+    "note": "Shared ocean and different depths; corrected whale flukes to horizontal; fish retain gill covers and upright tails.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

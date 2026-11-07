@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:38:38.377Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2fdd79a3-f0e5-4493-8084-ff1f69b77b5c.png",
+  "sourceSha256": "fd710496ae944572b4f2c1f6bfeb07a25c2b00562586c08efc1dc62a37d03faa",
+  "output": "source-art/world-discovery/e-08-reference.webp",
+  "outputSha256": "6a9e45f7d7666a174cb27a0d7741a136b572bfed10b8582ac031ac458a50af92",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Style edit first frog reference board only, preserve exact scientifically natural anatomy, life stages, positions, sizes and pond setting. Redraw in BOLD CLEAN 2D CHILDREN'S CARTOON: stronger crisp continuous dark outlines, flat solid colors, at most one simple cel-shadow shape perbody, no watercolor, no gouache, no brushed textures, no grain or speckles in environment. Keep brownfrog mottled markings as a FEW FLAT DARKBROWN shapes, maintain darkmask behindeye. Eggsclump and legless/hindleg/fourleg/tailedfroglet stages must remainexact. Simplify pond locationkey to flatclearshapes and smoothcolor. No humanfaces labels text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a799a1c3-7e11-4826-afc7-e82d29b92ace.png",
+      "sha256": "2523530e056c71c196059b3890c67c017c9bcb9aed100833e03f7a0fe488b89d"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:12:05.458Z",
+    "sha256": "6a9e45f7d7666a174cb27a0d7741a136b572bfed10b8582ac031ac458a50af92",
+    "note": "Inspected replacement flat outlined reference, natural common-frog eye mask; separated jelly-clump, tadpole, hind-legs, four-legs, attached-tail and adult designs. First painterly reference rejected.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

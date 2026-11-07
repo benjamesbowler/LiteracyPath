@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-10",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:42:50.741Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f06a9781-ad65-4765-b52a-3ad9562742eb.png",
+  "sourceSha256": "e3e15db88be32c5d87f1dddb93851bfd504aca0c45819d065fe87cfd85e88543",
+  "output": "public/guided-reading/world-discovery/e-10/page-07.webp",
+  "outputSha256": "fce29b7a083683ab4ae567408bccd81374f6e3c5f62f72b4931787d307012173",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Keep the Water in the Garden; World Discovery; nonfiction.\nSetting: An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Established leafy vegetable plants; Brown soil; Clean straw mulch; Small blue watering can; Blunt trowel; Adult gardener\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Another morning, the soil near the roots is becoming dry. Kit waters slowly beside the plants, keeping water off the path.\nRequired illustration: Kit slowly pours from small blue can at soil level beside plants; Zoe watches the dampening root zone. Exact continuity: Explicit later morning; no puddle or runoff; spout stays above soil.\nExact current state: Explicit later morning; no puddle or runoff; spout stays above soil.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Another morning: Kit slowly pours from blue watering can onto soil at base BESIDE plant, spout above soil, thin gentle stream, no wet leaves, no runoff or puddle. Thin straw remains away from stem, path dry. Zoe watching.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nGARDEN CARE BLOCKING: All humans keep feet/knees OUTSIDE planted bed, on gray path or grass beside its wooden border. No one stands or kneels on planted soil or straw. They reach over the low border naturally. Preserve hands and arm counts exactly; no duplicates.\nFINAL CORRECTION OVERRIDES earlier image: Keep Kit watering at soil beside plant with gentle stream, Zoe and adult watching. REPLACE patchy straw rings with a thin even straw layer across MOST of garden soil, leaving only small bare circles around each plant stem. The whole bed was mulched on preceding pages, and must remain covered. No heaps/rings of piled straw, no runoff or path water.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6af814e0-8a81-45d5-a8f5-8fe6887b0a6c.png",
+      "sha256": "8b4b1104a228a40906248139b910265fff9f314193f3fd89d05a06524d19d31d"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:42:51.375Z",
+    "sha256": "fce29b7a083683ab4ae567408bccd81374f6e3c5f62f72b4931787d307012173",
+    "note": "Kit waters gently at soil, no runoff on dry path; corrected patchy straw rings to continuous thin mulch with small clear stem spaces.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

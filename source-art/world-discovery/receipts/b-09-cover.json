@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-09",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:04:33.476Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d6022875-214c-4973-a332-a1436cde6ebc.png",
+  "sourceSha256": "9ce69e12ff78c53c2305932b6fffcca27f5627ab881fa2b27e30afb7e72e35a0",
+  "output": "public/guided-reading/world-discovery/b-09/cover.webp",
+  "outputSha256": "7760aa1a68ba1a916b6933753ad94ba63b9350a4ca95fc48308a6a5b66f259a5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY named human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Sort Them Again; World Discovery; nonfiction.\nSetting: World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Exactly six round four-hole buttons: one large red, two small red, two large blue, one small blue; One pale blue mat with no printed words; Two empty shallow trays\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Zoe compares two trays: three large buttons in one, three small buttons in the other, with red and blue in both. All six buttons have four holes.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT COUNT AND SORT RULE: LEFT tray exactly THREE LARGE buttons: ONE red, TWO blue. RIGHT tray exactly THREE SMALL buttons: TWO red, ONE blue. Mat empty. Exactly SIX buttons in total, every one ROUND with exactly FOUR holes. Large button DIAMETER is twice small button diameter; all large identical in size, all small identical in size. Keep buttons unoccluded and easy to count. ONLY Zoe, no Kit or adult. Two plain neutral SILVER trays, not red or blue trays. No decorative buttons or counters anywhere in background. No text. Entire scene crisp flat outlined cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-09-reference.webp",
+      "sha256": "f8e744fb46715afb481e7c06b35930d62f2e890447520cccf8cda693b65d8325"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:09:04.560446+00:00",
+    "sha256": "7760aa1a68ba1a916b6933753ad94ba63b9350a4ca95fc48308a6a5b66f259a5",
+    "note": "Exact six four-hole buttons: large red and two large blue left, two small red and small blue right; Zoe compares size groups."
+  }
+}

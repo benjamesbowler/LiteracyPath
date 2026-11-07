@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-05",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:42:24.067Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d0c92d53-bdfc-41c1-acdb-225c14c40c3a.png",
+  "sourceSha256": "349924ae18087d11791d06e0fe9643a80036c3fc8cc5246786065f357ab507d0",
+  "output": "source-art/world-discovery/a-05-reference.webp",
+  "outputSha256": "6f3f7377acefa3d42fe5048b65a49f249771788c75e00478bacf6e988f1f59b2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Remove ALL animal illustrations (ducks, frogs, squirrels and birds) from this entire production reference sheet, leaving their former areas clean white. Remove the rock Kit is holding and place his open hands naturally at his sides. The only living subject is Kit. Preserve the Kit identity turnarounds, hill, one bean-shaped pond, two reeds, continuous loop path, trees, palette and location keys. No added objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-185bb34d-bb41-400a-b249-84bff9c95910.png",
+      "sha256": "51fdcf2b4b0dc09732c81cfd95360efca9cd3cee0433c7d1e19d827b0226ad54"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6f3f7377acefa3d42fe5048b65a49f249771788c75e00478bacf6e988f1f59b2",
+    "note": "Directly viewed Kit-only character models and one gentle grassy hill with loop path, bean-shaped pond and reeds. Reference establishes one hill and foot-to-top geography.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

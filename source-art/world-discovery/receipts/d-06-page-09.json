@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:49:00.280Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3a1044ff-4289-42cb-9fea-ac07735b37c7.png",
+  "sourceSha256": "8992bffdbe5f4c4f64bffc76521c530de7a4be0a7ff404c8a90b0329d0a47ebc",
+  "output": "public/guided-reading/world-discovery/d-06/page-09.webp",
+  "outputSha256": "555fa3ce9b1bb0fcd921359178ebc301cf2e49b5b44fca637e0522339745194a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Marks on the Moon; World Discovery; nonfiction.\nSetting: The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray cratered Moon; One incoming gray space rock; Bowl-shaped crater with raised rim; Scattered fragments and overlapping smaller crater\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): That broken edge is a clue. The large crater was already there when the smaller one struck its rim.\nRequired illustration: Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides. Exact continuity: Same overlapping pair; no arbitrary date labels or extra impacts.\nExact current state: Same overlapping pair; no arbitrary date labels or extra impacts.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nUse supplementary page-08 as the exact overlapping-crater geometry reference. Show this same pair from closer, slightly lower oblique view: the SMALL circular crater cuts through the large crater rim, whose interrupted ends meet the intact small rim on both sides. No separate Moon or planet in sky.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-06-reference.webp",
+      "sha256": "9d046e48daaa20a08468f92df3b83dff6de83f373a7f3f996bc1f2808fb5180c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-06/page-08.webp",
+      "sha256": "9625483672d7405d59deeb5bc86638f6710a3adcbd20dce344a9457188b85555"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:49:00.432494+00:00",
+    "sha256": "555fa3ce9b1bb0fcd921359178ebc301cf2e49b5b44fca637e0522339745194a",
+    "note": "Closer oblique view preserves overlapping crater pair and clearly visible interrupted large-rim ends against continuous smaller rim."
+  }
+}

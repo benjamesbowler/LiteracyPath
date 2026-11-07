@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:47:24.281Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-81d38560-9378-41ad-967f-317761485aa4.png",
+  "sourceSha256": "41960a1f7cd66ea62b8c849236e45ae670f8b829185edb38da03a26541437ceb",
+  "output": "public/guided-reading/world-discovery/c-08/page-03.webp",
+  "outputSha256": "47eff4ac0a76e4922e7b8f7a1808e42a3e81850a02e9970ed74ca6acf41cd840",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: From Pond to Sky; World Discovery; nonfiction.\nSetting: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Pond reed stems; Tiny elongated dragonfly egg inserted into submerged pond-plant tissue; Natural six-legged brown nymph; Empty shed nymph skin fixed to reed; Adult green dragonfly with four clear wings\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): The nymph hides among water plants. It catches smaller animals for food.\nRequired illustration: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. The brown nymph waits among submerged stems and grasps a tiny aquatic insect larva with its extended mouthpart. Exact state: Natural predation without gore; prey smaller than nymph.\nExact current state: Natural predation without gore; prey smaller than nymph.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAnimal-only scientific page: NO humans, captions, labels, arrows, inset, pupa/cocoon, butterfly or damselfly. Adult has exactly FOUR transparent wings (two left, two right) and SIX legs (three left, three right), all attached only to thorax. Nymph has compact brown segmented body, exactly SIX legs attached to thorax, no developed wings, no long dragonfly adult tail, no three leaf-like tail gills. Draw anatomically controlled separated legs, not duplicate appendages.\nUNDERWATER MACRO ONLY: no adult dragonfly, no sky or surface needed. The nymph is the clear main subject. Mouthpart precision: the catching organ is the natural short hinged lower lip (labium) extending from BELOW the HEAD toward a tiny wormlike aquatic larva. It is NOT a seventh leg, arm, clawed human hand or extra long snout. Show six ordinary legs separately on thorax, prey held at tip of small forward-projecting labium. No blood.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-08-reference.webp",
+      "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "47eff4ac0a76e4922e7b8f7a1808e42a3e81850a02e9970ed74ca6acf41cd840",
+    "note": "Direct inspection: underwater nymph catches much smaller larva with projecting hinged lower mouthpart; normal thoracic legs separate from mouthpart, no hands or gore.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

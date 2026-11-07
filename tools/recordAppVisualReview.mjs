@@ -72,7 +72,15 @@ if (receiptIndex !== -1) {
       ...[...replacements.values()].filter(item => !existingPaths.has(item.path))
     ].sort((left, right) => left.path.localeCompare(right.path))
   };
-  review.scope = { ...review.scope, imageCount: review.assets.length };
+  const heldSourceCount = review.assets.filter(item => item.status === "held-source").length;
+  review.scope = {
+    ...review.scope,
+    imageCount: review.assets.length,
+    ...(heldSourceCount || review.scope?.heldSourceCount !== undefined ? {
+      heldSourceCount,
+      directlyReviewedImageCount: review.assets.length - heldSourceCount
+    } : {})
+  };
   console.log("Updated " + replacements.size + " directly reviewed images; all unrelated review records preserved.");
 }
 

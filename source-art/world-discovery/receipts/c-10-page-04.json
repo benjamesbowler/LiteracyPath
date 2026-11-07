@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:15:22.474Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9439e91b-e6cb-4e8d-8904-e2f70eaa8c17.png",
+  "sourceSha256": "f89a3fb76833f6fa9974f7895d45c76125e74717872fe79dd6cf7c2415cd70ac",
+  "output": "public/guided-reading/world-discovery/c-10/page-04.webp",
+  "outputSha256": "b4a09fff441deb5b92a66579622dc8bb5f53a95ee14eca4f5ea70141808870df",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct two premature/duplicate story elements only: REMOVE the tomato plant from the background soil bed, leaving an EMPTY soil bed (planting occurs later). Remove ALL apple core and peels from foreground cream tray, leaving EMPTY tray (core already in bin). Preserve adult using garden fork inside open bin, Kit holding green watering can without pouring, Zoe observing, partly broken-down leaves/scraps INSIDE bin, garden, colors and hands. Do not change current main action or add anything.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8fc7d797-1fba-4ed8-92bb-ad8e6e8084dd.png",
+      "sha256": "6a89f3c8588d58fde43330967ca4ed754c6e394f0297e79780fa15be8830ca57"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "b4a09fff441deb5b92a66579622dc8bb5f53a95ee14eca4f5ea70141808870df",
+    "note": "Direct inspection after state correction: adult turns moist mixed scraps/leaves with fork, Kit holds can without pouring, Zoe stays outside tool path; background bed and tray empty, no duplicate core.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

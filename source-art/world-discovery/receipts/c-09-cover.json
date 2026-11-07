@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:56:05.764Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-15af3c92-8600-40e7-947c-ea7e1bd5234f.png",
+  "sourceSha256": "38e608c37fe4d9a4d280ba80c506a35718e403db7804ce09811d60f89116c755",
+  "output": "public/guided-reading/world-discovery/c-09/cover.webp",
+  "outputSha256": "a56848271e4ccc6e4aebdc2ff645e4eddbd838c3a4a770842df64a58a11bc6f7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Both Have Wings; World Discovery; nonfiction.\nSetting: Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Natural feathered swallow wing; Natural skin-and-finger bat wing; Swallow nest with eggs/chick; Bat mother and nursing pup in sheltered roost\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: A barn swallow and little brown bat fly separately across a soft dusk sky, both clearly shaped and anatomically correct. Their feathered and skin-covered wings are easy to compare; no labels.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific animal-only image, no humans or anthropomorphic smiles. Bat has exactly TWO membranous wings that ARE forelimbs, with long finger supports, small clawed thumbs and exactly TWO additional hind legs. No separate human arms, no feathers. Swallow has exactly two feathered wings and two bird legs with forked tail, not membrane wings. Maintain barn swallow rusty throat, cream belly, blue-black back.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-09-reference.webp",
+      "sha256": "a259f9b62e02601e5cca9eef1833736fae4831a8bf7c04fb3f2787299bec4be9"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "a56848271e4ccc6e4aebdc2ff645e4eddbd838c3a4a770842df64a58a11bc6f7",
+    "note": "Direct inspection: distinct barn swallow and brown bat fly separately; two feathered wings/forked tail versus two membranous forelimbs with digits/thumbs and two hind legs.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

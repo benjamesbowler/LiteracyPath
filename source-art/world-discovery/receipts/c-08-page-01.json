@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:50.080Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2c4d100e-4b90-4b39-8b67-f92f7cb48022.png",
+  "sourceSha256": "77f9373260a280232d2bc514817ce3fa48efe5593d414c588b0c9bf3f2444e92",
+  "output": "public/guided-reading/world-discovery/c-08/page-01.webp",
+  "outputSha256": "61168faaac11cddf3eda14adc3e8a883ffa8f993288dacf990488db898ba9876",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. REMOVE the brown nymph from underwater at bottom center, replacing its occupied area with the natural pond bed and plants. Keep ONLY the one green adult dragonfly flying above the pond as the book's opening subject. Preserve all four adult wings, six thoracic legs, face, reed, sky, water and composition. No new subjects, text, insets or arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-bdbe2bcb-79ea-4dbd-8a75-76237a876b89.png",
+      "sha256": "d5bf1b2d14ae50436e14574fc219a4155e362b4717229865c6de11eec0590cd1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "61168faaac11cddf3eda14adc3e8a883ffa8f993288dacf990488db898ba9876",
+    "note": "Direct inspection after removing extra underwater nymph: single adult with four wings flying over pond, natural thoracic legs, water habitat below; no confusing simultaneous stage duplicate.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

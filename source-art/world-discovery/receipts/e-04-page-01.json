@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:26:09.366Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ec46de92-621b-4b32-936f-79167e054c23.png",
+  "sourceSha256": "2af77abdd4d7b603ccc584bd985e27d9a7251437046fedd3dcd5dca1fcbacff9",
+  "output": "public/guided-reading/world-discovery/e-04/page-01.webp",
+  "outputSha256": "1b18ba152c32890c15ec08b87935e96c94b02915fcdd0850a48853343ab5e9a9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Door in the Chalk; World Discovery; fiction.\nSetting: Explicit fantasy in a classroom art room adjoining a puppet room. One cream dividing wall, ordinary narrow doorway at right, silver chalk that opens unbroken outlined doors into the room beyond.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Large lightweight hollow paper moon, a round sphere wider than the ordinary doorway; Silver chalk stick; Cream wall between adjacent rooms; Blue puppet curtain in next room; Soft cloth; Plain string used to compare the moon’s width with the doorway\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Zoe’s silver chalk makes a door in any wall. The whole outline must join, or the wall stays solid.\nRequired illustration: Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room. Exact continuity: Explicit magic; only closed chalk outlines open; ordinary doorway visible to the right.\nExact current state: Explicit magic; only closed chalk outlines open; ordinary doorway visible to the right.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPRECISION: ONLY Zoe in this composition. NO moon sphere yet. Small demonstration CLOSED silverrectangle leftwall, adjacentroom visible THROUGH it. Ordinary narrowdoor remainsRIGHT. Closed rectangle touchesfloor or simple smallwindow acceptable demonstration; no other drawnoutlines.\nSmooth clean flatcolor interiors, no grain, no papertexture, no woodgrain, darkcrispoutlines. The referenced moon is a ball/sphere, never flatdisk. Essentialpeople andhandsnatural. No text labels arrows or speechbubbles.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-04-reference.webp",
+      "sha256": "f808693890ebf5f4ad6d07d0bf8c4a2d388a9052e14535884ba4c9d4f2a0d094"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.475Z",
+    "sha256": "1b18ba152c32890c15ec08b87935e96c94b02915fcdd0850a48853343ab5e9a9",
+    "note": "Zoe alone closes small demonstration silveroutline; bluecurtain visiblethrough magicopening, ordinarydoor separate.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

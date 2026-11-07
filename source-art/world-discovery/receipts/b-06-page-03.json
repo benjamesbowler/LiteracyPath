@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-06",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:44:32.418Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-bc34ff59-8441-4e0e-bb32-74e3693b0111.png",
+  "sourceSha256": "e42a74087fcbc8e53e400efc45800b16016bd27dd558729fa4a46a5a6e4c027f",
+  "output": "public/guided-reading/world-discovery/b-06/page-03.webp",
+  "outputSha256": "95f51dc69df047932dc2d43f61b7a4b78516e170b78df388c38a080fe00cb1f3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the trail of four footprints behind the astronaut. Arrange these four prints as an ordinary alternating two-foot walking trail, visibly staggered left-right-left-right with two footprints on either side of an imaginary center line, all pointing along the astronaut's path. Keep the same four footprints and their transverse rib treads, with their sizes reducing into the distance. No new prints ahead of the astronaut. Preserve the astronaut, all other ground, plain black sky and clean flat outlined cartoon style exactly. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0b9bc91a-0758-4131-bbd0-843b757556dc.png",
+      "sha256": "0c605cc0f3b6d0566cf29fd6bd08b7122183b492d1bd40a0445e44b6ed5535de"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:47:01.815393+00:00",
+    "sha256": "95f51dc69df047932dc2d43f61b7a4b78516e170b78df388c38a080fe00cb1f3",
+    "note": "Trail repaired to alternating left-right steps behind one walking astronaut; no prints ahead."
+  }
+}

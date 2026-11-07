@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-02",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:00:07.264Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ee7fa396-e0bd-4758-82ac-0d03715a4b6e.png",
+  "sourceSha256": "3b0f3340b304414df4b65ed2f32540832f2ea9de743c79a94cdbff6e684f133d",
+  "output": "public/guided-reading/world-discovery/d-02/cover.webp",
+  "outputSha256": "eccb65d8fc302434493c3fbfe91d03cb943b81dc51c5bd85154505d2675b550e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied finished illustration, preserving characters, clothing, faces, drawing, room colors and all untouched props. CORRECT THE BLOCK STRUCTURE ON THE RUG: exactly SIX identical tan wooden CUBES total form ONE small low bridge, with a real open gap underneath. Four cubes form two short pillars of two cubes stacked vertically. The pillars are close together with a gap a little narrower than one cube. The remaining TWO CUBES sit on top, shifted inward slightly so their inner faces meet over the narrow gap; most of each top cube rests on its pillar. All six are identical cubic proportions, none elongated, none floating. Remove the old block row or old elongated tops completely. No extra cubes, no tall tower.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-189d4a0f-6e5c-4438-812f-a10386e41994.png",
+      "sha256": "6367a6d1c2fd842ecbadffabc3b485b4ba9b135f648d973ad350a77d3970b25e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "eccb65d8fc302434493c3fbfe91d03cb943b81dc51c5bd85154505d2675b550e",
+    "note": "Direct inspection after block-shape repair: six same tan cubes form low bridge on rug, Zoe draws separately at round table, Kit shows bridge without crowding her.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

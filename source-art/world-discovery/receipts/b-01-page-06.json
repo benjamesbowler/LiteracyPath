@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.923Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3392617c-f874-484e-938a-1b1d587e1daa.png",
+  "sourceSha256": "9bec49bd7d08f86ec91b15bec85c0eaeeddc6905ee6d09be47d47b4e576cde55",
+  "output": "public/guided-reading/world-discovery/b-01/page-06.webp",
+  "outputSha256": "df3bd1ee81014633dd8a432ec9fc62ba95ebeebdbf037f120051d062a84c1f75",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Refine ONLY middle button contact in this picture. Left yellow button stays fastened FLAT on top of lowered left flap. Middle yellow disk is edge-on and only its LEADING HALF protrudes through the middle slit: the flap fabric must visibly OVERLAP the TRAILING HALF, with the slit edges gripping the disk at its midpoint. Remove any whole yellow disk floating beside an empty slit. Kit fingers pinch the protruding half. Right button remains unfastened beneath raised right flap corner and last empty hole. Exactly three buttons total, same positions and coherent continuous green fabric. Preserve Kit, scene, colors, clothing and framing. No additional slit on bag body or extra fingers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ef917056-eae8-44e0-bdf7-28c2c272db28.png",
+      "sha256": "9b5e572038558fd2337842c4f95e9503a20b49a358024daa311f9741a4148c2b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "df3bd1ee81014633dd8a432ec9fc62ba95ebeebdbf037f120051d062a84c1f75",
+    "note": "First button remains closed, middle button enters its slit edge-on, and right fastening remains open.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

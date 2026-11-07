@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-06",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:46:58.515Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-913fc1c0-571d-49a3-a19c-ff2c3e3b63b7.png",
+  "sourceSha256": "7c9594c208e82b693c95135315473670a9f8ba598a96c458b855309bb5d4b39b",
+  "output": "public/guided-reading/world-discovery/b-06/page-07.webp",
+  "outputSha256": "23a1af10873cabe7514db6cec9f8ef8c124dece719ff3383598bba52a11e607f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the trail of five footprints. Stagger them as ordinary left-right-left-right-left walking prints on two sides of an imaginary center line along the same route into the distance. Move the second and fourth prints slightly to the right side of that route so the alternating foot placement is obvious; keep the first, third and fifth to the left. Preserve footprint shape and transverse tread ribs, print sizes, clean flat lunar ground, outlined stones and black sky. No astronaut, person, boots, flags, text or additional objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d3e2fef4-38e4-4d7a-8b96-a80b16074558.png",
+      "sha256": "bc01acec36671ddaba2ed4831f9dc835ab6bc50a1dc7efb2c10ead78b3ea3ff8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:47:01.816617+00:00",
+    "sha256": "23a1af10873cabe7514db6cec9f8ef8c124dece719ff3383598bba52a11e607f",
+    "note": "Wider persistent trail repaired to visible staggered alternating footprints; astronaut has left scene."
+  }
+}

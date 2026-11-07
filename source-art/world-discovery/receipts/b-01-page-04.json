@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.968Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-02bb03fb-6b83-456f-b666-8faa85294cd3.png",
+  "sourceSha256": "b331a472dead6b8060323ab1aef05f239f444c58b9bcc7d44f10b95f5cc258e2",
+  "output": "public/guided-reading/world-discovery/b-01/page-04.webp",
+  "outputSha256": "c368b3651a469aa7c8ec671c6c851f43c7a2eb38d5319777d08a85fb4992a89c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct the first button's mechanical passage through its hole. Reframe as close view of Kit's hands and green bag on lap. Lower the LEFT flap section so its FIRST vertical slit aligns at the left button's actual position on body. First yellow button turned edge-on is HALFWAY THROUGH that one slit: cloth overlaps its trailing half and leading half protrudes visibly toward viewer; Kit gently pinches the protruding edge. The cloth lip actually wraps the disk at its midpoint. Keep the right section lifted with two EMPTY slits and their two round unfastened buttons below. REMOVE the extra vertical slit currently drawn on the bag BODY below the flap. Bag BODY has NO holes at all, only three sewn buttons; only FLAP has three holes. Exactly three total yellow buttons, no duplicates. Preserve Kit identity, clothing, green satchel design, morning classroom and clean 2D style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f6cbf1c5-207c-4f24-b174-04c315b7aa1b.png",
+      "sha256": "cd8e8e2df28671b86cd9c02ad61f49f983bdb0efd011b76b30b2f2cc60002015"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "c368b3651a469aa7c8ec671c6c851f43c7a2eb38d5319777d08a85fb4992a89c",
+    "note": "Leading edge of the left button emerges through the flap slit; two other fastenings remain open, no spare hole in the body.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:01:21.453Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-eeed2daa-af67-461c-912e-c5f2ceed4909.png",
+  "sourceSha256": "f474816db29aad73cbd5be6d3ac00cecf345e96b4668e8ab1766e40e988ce678",
+  "output": "public/guided-reading/world-discovery/b-08/page-07.webp",
+  "outputSha256": "521e763e6d4731345f897b48328864c19238f8e4d0d35e4edb0baa1dd29795b0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Ladybug Changes; World Discovery; nonfiction.\nSetting: Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One green plant with broad leaves; A small cluster of upright yellow eggs; Natural ladybug larva, pupa and adult stages; Tiny green aphids\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Its body hardens. Dark spots show.\nRequired illustration: Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. Later, the same adult has hardened red wing covers with seven clear black spots. Exact state: Adult now mature in color; discarded pupa remains near its original attachment.\nExact current state: Adult now mature in color; discarded pupa remains near its original attachment.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCURRENT STAGE ONLY: ONE now mature RED adult with EXACTLY SEVEN black spots: three on each wing cover plus one shared near-head central spot. High three-quarter/top view showing all seven spots and SIX legs (three each side), TWO antennae. An EMPTY split pupal shell remains beside it, hollow and plainly discarded; no second living insect.\nNatural insect anatomy, no human eyes or expressions. Whole art clean crisp outlined 2D cartoon, flat leaf colors, no soft focus, painted grain or texture. No captions, numbers, arrows or diagrams of other stages.\nFINAL STYLE KEY is the accepted cover image: ALL foreground and BACKGROUND leaves must be crisp dark outlined flat green shapes against clean flat pale-blue gaps, zero blurry distant vegetation. This cover is a STYLE example only: do not copy its adult or eggs into a page that requires another stage. Current stage above is mandatory.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-08-reference.webp",
+      "sha256": "10a30487b42d44838a5c83ff0f7e5cf804d0da275661e253c53188df902161d7"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-08/cover.webp",
+      "sha256": "6a06a78af6401e419d0b1e24d1cca884c7c3d2435122694cd307f20e78cc5fdb"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:09:04.560194+00:00",
+    "sha256": "521e763e6d4731345f897b48328864c19238f8e4d0d35e4edb0baa1dd29795b0",
+    "note": "Mature adult has exactly seven dark spots, six legs and two antennae; opened empty pupal case remains nearby."
+  }
+}

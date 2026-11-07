@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-07",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:52:28.316Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-246cb581-05f9-4259-8457-82f0c6ee3015.png",
+  "sourceSha256": "0f56b957c97e805f67e9fe33b2ec7dac743a45a0b07e467ffd911d412c8b76bf",
+  "output": "public/guided-reading/world-discovery/b-07/page-03.webp",
+  "outputSha256": "f5e8fd9b864a149636642a311981b2b87dbb36b1a35cc9d6de9a226d28c2911b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Recompose this illustration as a TRUE CLOSE-UP of ONE submerged orange duck foot with three forward toes joined by webbed skin and one tiny separate rear toe. Crop the duck's BODY, HEAD and other foot completely OUT of frame: a single natural orange lower leg extends from the TOP edge to the foot, showing it is attached outside the close view. The one foot is centered and fully visible with at least 12% clear blue underwater space on left, right and bottom, its webbing and three toes clear. Same pond with simple outlined pebbles at bottom, clean blue water. No sky, grass, body, second foot, detached leg, labels, inset or arrows. Preserve crisp flat outlined cartoon look.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1a0e0845-3459-4b67-877e-49ec1bf78c4f.png",
+      "sha256": "90df83c8dda0b1c072c4fdff268ba2b2528913c95204c2cd7981eadd5fcf3a6b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:52:31.179Z",
+    "sha256": "f5e8fd9b864a149636642a311981b2b87dbb36b1a35cc9d6de9a226d28c2911b",
+    "note": "True underwater foot close-up, three webbed forward toes plus one tiny separate rear toe; natural leg extends out of view."
+  }
+}

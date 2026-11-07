@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-05",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:06.205Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-121af856-6501-4784-97ee-2928c8ccd4d8.png",
+  "sourceSha256": "fa91047de46c84e629fb5103675a53e17e741a540880c0d0bdad7038ef37b8ba",
+  "output": "public/guided-reading/world-discovery/a-05/page-01.webp",
+  "outputSha256": "a4223c422dad2982a925ac4e9a7190b2e9ccdac0e64ac0e71bb037e457081a9b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Up the Hill; World Discovery; nonfiction.\nSetting: A fictional ordinary park with a low green hill, one bean-shaped pond at its foot and one tan path looping up and back. Bright afternoon.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): The path starts by the pond.\nRequired illustration: Low eye-level view of Kit at the pond-edge start of a tan path climbing a green hill. Pond shape partly visible, reeds near foreground.\nExact current state: Kit at lower path start; hill and route ahead.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nContinuity: Kit ONLY, no Zoe, no other people or animals. The SAME single gentle hill, SAME bean-shaped pond and exactly two reeds. No additional ponds or hills. Tan path is one continuous loop with no branches: both ends meet at same pond-side foot-of-hill location; one half climbs, other half descends. Soft round hilltop, no steep edge. No inset map or duplicated scene. He remains on path.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-05-reference.webp",
+      "sha256": "6f3f7377acefa3d42fe5048b65a49f249771788c75e00478bacf6e988f1f59b2"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "a4223c422dad2982a925ac4e9a7190b2e9ccdac0e64ac0e71bb037e457081a9b",
+    "note": "Kit starts at pond-side foot; gentle hill and continuous route ahead; two reeds.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

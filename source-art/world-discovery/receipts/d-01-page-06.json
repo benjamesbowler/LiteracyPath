@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-01",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:43:58.694Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9dff08be-b079-4aef-981d-c4d17ba2e584.png",
+  "sourceSha256": "0fe464c9ae97cd09e97e6565be167443fea5059c18d2248916c18571f9feba42",
+  "output": "public/guided-reading/world-discovery/d-01/page-06.webp",
+  "outputSha256": "fa16b4ade80281c10f0ea4dd53357b765f8d8fe398d726cbf9f17452b8564b20",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied illustration. Preserve the entire scene, identities, clothing, room, box, real blue toy train and object positions except precisely these corrections: The white drawing card is too large for the orange box. Make it a SMALL index card, total width about 80% of the orange box's inside width, keeping its long axis horizontal. Keep exactly FOUR plain blue circles in one row on otherwise blank card, no train body or track yet. Naturally reposition Kit's drawing hand and pencil tip to touch the left circle of this smaller card. Keep one blue pencil total and no extra paper. The real toy train still has only two visible near wheels. No text, numbers, labels, duplicate props, texture, or changes to other anatomy.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-18450acc-9d8b-4e8f-86ee-5986f05d8e28.png",
+      "sha256": "a56d52b21fa5025831ba96c5b7a463e4669701d1b06acc5ee1dbf99655546234"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "fa16b4ade80281c10f0ea4dd53357b765f8d8fe398d726cbf9f17452b8564b20",
+    "note": "Direct inspection after size repair: small card fits box, exactly four blue circles, one pencil touching card, real train beside; box remains closed and later drawing absent.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

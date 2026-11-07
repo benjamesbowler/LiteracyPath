@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.980Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-29ba63ad-63f5-4409-9e62-21cdc556e248.png",
+  "sourceSha256": "9d0d52424a935ba5e906297c4e6ecfc3a510c3af5b3e621815fbea00ce21d8f9",
+  "output": "public/guided-reading/world-discovery/b-05/page-07.webp",
+  "outputSha256": "42bdfab25a181765b432db3d4efad49dfde1bca4860ce72a1c42dac5c3f3111d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise geography edit: remove the little waterfall/step and white crashing foam at LEFT foreground where river enters sea. Replace with a broad LEVEL river inflow that glides continuously into the sea; retain subtle interweaving blue ripples/eddies showing mixing, with no solid dividing boundary. This is the same broad mouth as prior page, not a narrow rocky cascade. Keep grassy banks, rocks outside channel, sea horizon, color palette, clean flat 2D style, one coherent close scene and all else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7d26fd39-f5fd-42ef-aaa2-bf68bf0a62bc.png",
+      "sha256": "dad1df2f43ac5dca547911f49363d7f050736c02052bf7ed2e7dea1e232dda0e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "42bdfab25a181765b432db3d4efad49dfde1bca4860ce72a1c42dac5c3f3111d",
+    "note": "Inspected correction removes artificial cascade at mouth; level flowing water and subtle eddies intermingle with sea without colored wall.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

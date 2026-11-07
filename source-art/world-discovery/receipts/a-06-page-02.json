@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-06",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:21:42.231Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e46d967e-15e7-4e33-a3d7-51de68ae5570.png",
+  "sourceSha256": "db19d4b2f1022bbce03d4ed2bc2028a34ed9ec9afc0c221ee844715958236489",
+  "output": "public/guided-reading/world-discovery/a-06/page-02.webp",
+  "outputSha256": "9520212b0a32e7ba28eaaa2e577127229b82a8652b0c8076e7ca5b1fc2699cdb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY the apparent Moon size: shrink the existing right-lit white half-Moon to about ONE THIRD its current height (around 30 pixels high in this 1536\u00d71024 image). Keep its same sky position, straight vertical LEFT edge and curved RIGHT edge. It should be a small distant daytime Moon, not an enormous close object; keep the unlit half invisible against blue sky. Preserve everything else: same exact scene, cloud, Zoe, park, light and style. Also correct only the BACK of Zoe's overalls: remove the front bib pocket mistakenly drawn on her back; show two plum shoulder straps joining a plain upper back panel/waist. Her yellow T-shirt stays visible between straps; keep her pose/head/hands.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bca91d92-5ad6-499a-81d0-4a9ee734330a.png",
+      "sha256": "d52f5e8b19b032eadfa7339865d5d233ef0856e3aed9bfc91a4744295b1001a7"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "9520212b0a32e7ba28eaaa2e577127229b82a8652b0c8076e7ca5b1fc2699cdb",
+    "note": "Over-shoulder gaze at same small half-Moon; cloud approaching from left; overalls back corrected to straps.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

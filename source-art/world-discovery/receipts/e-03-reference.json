@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-03",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:45.370Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f0cb6132-617e-4140-9162-058d30b9ceae.png",
+  "sourceSha256": "756f2b1f689023bd1bcd6f30f06705383febbf0c5515ff937ad74ef04a3fc4e5",
+  "output": "source-art/world-discovery/e-03-reference.webp",
+  "outputSha256": "2868250f4b180fd8276cb0ba536346e792940d2dd379773df458ba5201b70689",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first reference board only. REMOVE ALL HUMAN FIGURES from top row and every other location; replace their areas with pure white. REMOVE the isolated butterfly, bird and frog in middle right; replace with pure white. Preserve isolated blue gutter, plants, shallowgarden section, stonechannel views and entire EMPTY landscape key and four buildingviews exactly. NO people or animals anywhere. NO added objects, no text. This is environment-only reference with clear empty white space. Smooth flat-color cartoon outlines.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-03-reference.webp",
+      "sha256": "a90c0fc265794a3d02c9e6ee623f52955c71e8901e94ca50a24d39ebadf121e4"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:21:34.036Z",
+    "sha256": "2868250f4b180fd8276cb0ba536346e792940d2dd379773df458ba5201b70689",
+    "note": "Environment-only reference corrected to omit unrelated people/animals; building/channel/lowgarden/path/stream distinct.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

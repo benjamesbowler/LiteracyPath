@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-03",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:49.043Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0a4c1480-a9f1-47ee-bd04-3f5db4e0809d.png",
+  "sourceSha256": "4d6e9c758a45e97da687e50bf76e11071f791a911803fa00b181c261374e51fd",
+  "output": "public/guided-reading/world-discovery/b-03/page-07.webp",
+  "outputSha256": "2da7e76967dad9ee69cb2a8f5f0106ad6ada6fa2502c3836d9d4cddaefd14062",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the book and Zoe's hands: lower the ONE open book onto the table, open face-up with its white interior pages visible to viewer and children. Show one orange fox drawing on an interior page, no text. Green hard covers are beneath the white page block, no barcode visible on interior. Zoe supports outer edges of open book, no page turned yet. Kit stays seated beside her with hands away and eyes on book. Preserve exact characters, room, table, blue chairs, composition, crisp clean flat 2D style. Do not add another book or adult.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-cd2d14f7-b3e2-4e41-bd80-9ade2ddabfef.png",
+      "sha256": "02ad2ce530c792a97cc99e56cfa2b342774758ee13be2f8292e264a50651f2f5"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "2da7e76967dad9ee69cb2a8f5f0106ad6ada6fa2502c3836d9d4cddaefd14062",
+    "note": "Inspected repair opens one green book face-up on low round table, with fox drawing on white interior page. Zoe holds edges; Kit sits beside, hands clear.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

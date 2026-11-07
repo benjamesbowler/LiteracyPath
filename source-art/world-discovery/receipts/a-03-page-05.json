@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-03",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:16.333Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c210d01a-efa0-4a7d-8a65-21e3062fcd72.png",
+  "sourceSha256": "1eb115867c0e1cc42e9b01dd3775a22f1cdd0d9e97765e0f986e08c7312f141e",
+  "output": "public/guided-reading/world-discovery/a-03/page-05.webp",
+  "outputSha256": "65d70b14ed8ee369ba6d4774532a45bad4427ff14cf7148850b6b03dd6b5bb9c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Remove ONLY the white down arrow and two white curved motion strokes next to the purple book. Fill those marks with the same red cart surface. Preserve every book and hand exactly: three books rest in cart and one purple book in Kit's hand. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ab11163c-50b6-46df-8bf3-23c691f17ef4.png",
+      "sha256": "46dc7fe6ed6a9ba40e2b721ddd5f677c956d3757c2951866f1c0b920efc93e91"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "65d70b14ed8ee369ba6d4774532a45bad4427ff14cf7148850b6b03dd6b5bb9c",
+    "note": "Exactly three books resting in cart and one purple lowered by Kit; empty bag; no duplicate or graphic arrow after correction.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

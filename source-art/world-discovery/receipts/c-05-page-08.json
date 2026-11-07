@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-05",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:30:07.518Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2ab7c3da-b9c9-4866-9afd-b84ce6bfb00a.png",
+  "sourceSha256": "38ebb5884e95d367d952a0218ef6b7504322b87e5245d3b89ead1c1592008a42",
+  "output": "public/guided-reading/world-discovery/c-05/page-08.webp",
+  "outputSha256": "3bd58363d5e34ebf97dc1f4fa3dd1b5964b4c38d61cb09636746fdc502840bea",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change ONLY the posture and gaze of the single boy Kit standing beside the pond at upper right. Keep him in that exact pond-side location. Rotate Kit's face, nose, eyes and shoulders to face LEFT and slightly DOWN-LEFT toward the bench and entrance. He is looking BACK along the route he walked. His nose MUST point LEFT, never right toward pond. Both his hands hold his map low. Preserve exact scale and clothes. Preserve every other pixel's composition: entrance bottom, bench middle, flowers left, tree right, pond upper-right, paths unchanged. No additional characters, text or objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-00e34cde-0587-47d2-accd-9b714433f860.png",
+      "sha256": "0ca1d9f6146fb4faeb54b50ba619ea85e9414d4cf17d18d718b90a35971a9681"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "3bd58363d5e34ebf97dc1f4fa3dd1b5964b4c38d61cb09636746fdc502840bea",
+    "note": "Direct inspection after position and gaze repairs: Kit remains beside pond holding map and faces left back along connected tree/bench/gate route; all landmarks retain fixed topology.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

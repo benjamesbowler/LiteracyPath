@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-07",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:25:24.169Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-88a2baac-6d24-4fe9-8c40-f0171c762315.png",
+  "sourceSha256": "ff1ede8b6e565e305b310fa7c99b02c69377e128f5e391572542a7a6c4d3edce",
+  "output": "public/guided-reading/world-discovery/a-07/page-01.webp",
+  "outputSha256": "54bc102a703ffbc80eae2a29c88eed72291a4b98b482da8d000aeb8319c780f9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: In and Out; World Discovery; nonfiction.\nSetting: Close observation of one ordinary garden snail on a moist flat garden stone in daylight; natural anatomy, not a character.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): The shell has a small opening.\nRequired illustration: Low close view of the intact brown spiral shell on moist stone, body withdrawn; show the natural shell aperture at the lower front, not a hole drilled in the spiral.\nExact current state: Snail withdrawn; opening visible at lower front.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAnatomy/design: Only ONE real garden snail, never any person. Same brown spiral shell with clean flat brown bands; natural shell opening at LOWER FRONT rim, not central spiral. Gray-tan muscular body, broad legless foot. When head is visible it has TWO long upper eyestalks and TWO short lower feelers, no face or smile, no human eyes. Soft parts appear ONLY as specified by this exact current page state; withdraw or extend the specified anatomy precisely. One moist gray stone and one green leaf; leaf is suspended above snail, never rests on it. Flat color/cartoon outlines, no painterly texture or diagrams.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-07-reference.webp",
+      "sha256": "277c2c6417f6f49712b863ada674e6b8641151debfc86de948e9f5e6b64b1c0f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "54bc102a703ffbc80eae2a29c88eed72291a4b98b482da8d000aeb8319c780f9",
+    "note": "One withdrawn snail shell with a natural lower-front aperture; no head or foot prematurely exposed.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

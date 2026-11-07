@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-04",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:04:33.495Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-53b9cdbe-49a3-4058-abd9-e9c499f25357.png",
+  "sourceSha256": "45edd8feccb75cf12401ea937bbbc0b92363e44212b1c193acb3de74a020e4be",
+  "output": "public/guided-reading/world-discovery/a-04/page-01.webp",
+  "outputSha256": "dcc2b1b36671e0e96506db50c819067633996fe41cfe0820a42b30fdda0e5a46",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit ONLY the location of the single blue plate with its whole round bread bun. Remove it from the rug and place the same plate and bun on TOP OF the low wooden bedside shelf at RIGHT, to the left of its blue lamp. There must be only one bun/plate, on the bedside shelf, none on floor. Preserve the green bag gripping the sock's closed toe, Kit's exact pose and grip, one bare left foot and socked right foot, navy shoes nearby, room and clean cartoon style. Do not change anything else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b1e7a3a0-7f98-4d44-a76a-2e41923016c4.png",
+      "sha256": "3b244440f9c439103d2c7fee75e0c772659d8f26cda240331e38be2a28aa16d7"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "dcc2b1b36671e0e96506db50c819067633996fe41cfe0820a42b30fdda0e5a46",
+    "note": "Bag grips closed toe of one loose sock; open cuff toward Kit; bare left and socked right feet; bun on bedside shelf after continuity repair.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

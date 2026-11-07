@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-05",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:41.352Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ee12fea9-2a3c-478f-9124-f8ec55c5d4ba.png",
+  "sourceSha256": "fc361dce0e2902264f872288c64ad7eebf9efff0e92b92d956a21e3234cdd380",
+  "output": "public/guided-reading/world-discovery/d-05/page-05.webp",
+  "outputSha256": "69a699b64b0bbf87bd86fa608ba25b6054109f927df8a359f46d20907da77491",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create next page by editing this overhead tray scene. Keep SAME wide blue rectangular tray, LEFT broad brown clay mainland, RIGHT rounded clay lobe and ONE yellow toy on RIGHT lobe. REMOVE the narrow clay connection completely, leaving OPEN BLUE WATER gap between left mainland and right island. Show exactly ONE golden light-medium child forearm entering from TOP edge (Kit, all face/body OFF SCREEN), holding the SAME flat blunt wooden modeling stick HORIZONTALLY UNDER the single removed short clay strip, lifting it above the water. The stick supports clay from BELOW, not pushing its top. Delete the spare stick on table because it is now in Kit's hand. No heads, no bodies, no other hands, no extra toys or clay. One clear moment, flat crisp outlined cartoon, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7e43045c-8e08-4c39-9838-22c3d41931ad.png",
+      "sha256": "9646dd2d564f6dd8bdc875e358da01a8fd64be491be112effca2dafd92a24a2b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:41.512644+00:00",
+    "sha256": "69a699b64b0bbf87bd86fa608ba25b6054109f927df8a359f46d20907da77491",
+    "note": "Direct inspection: one Kit forearm from far edge holds a single blunt stick beneath the lifted clay neck; blue water now separates mainland and island, one toy still on island. No detached extra body or spare tool."
+  }
+}

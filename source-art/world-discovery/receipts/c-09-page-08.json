@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:05:32.311Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f05ad0b8-d2aa-48b2-8edd-3c19925f5e28.png",
+  "sourceSha256": "5b1bae6fb764c480424a4a740dbe70cd09114b564b5ceac66a81a734069a4e79",
+  "output": "public/guided-reading/world-discovery/c-09/page-08.webp",
+  "outputSha256": "b69abe4f6c63755738f03e33d6127f0bbb1f481fb2053b964779db4f30e25a22",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Make three precise continuity/anatomy corrections while preserving the composition. (1) In the swallow nest, keep exactly ONE intact speckled egg and ONE chick; remove the two extra eggs, replacing with nest lining. (2) In right inset, give nursing bat pup a small clearly visible FOLDED membranous bat wing along its forelimb/body with tiny gripping thumb, not a mouse-like bare arm or human hand. Keep pup mouth touching mother's chest to nurse. (3) Replace cave-rock interior of inset with the dim wooden beam and wood walls of a sheltered barn roost; mother hangs head-down by two hind feet from underside of beam. Preserve swallow/adult bat identities, main background, inset size, and all other content. No new animals or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-db53b4d9-333f-430a-9c15-2b293fd3abcf.png",
+      "sha256": "3a1d825e726b17f00381183b9524da554286f773577c1a54d4ac14768651cddc"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "b69abe4f6c63755738f03e33d6127f0bbb1f481fb2053b964779db4f30e25a22",
+    "note": "Direct inspection after continuity repairs: swallow family retains one chick/one egg; separate bounded wooden-roost inset shows furred mother nursing pup with folded membrane wing; no shared nest or cave drift.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

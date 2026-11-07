@@ -1,0 +1,27 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:08:31.386Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-fdfaaa78-7848-4533-9136-64452ff1f037.png",
+  "sourceSha256": "17e514f40fbe965d5257cc668d2bb50055150692d63ecbd1be4ba85a31ed155f",
+  "output": "public/guided-reading/world-discovery/e-08/page-05.webp",
+  "outputSha256": "98757d720f3b95acae750d44adf24860f457a1bcdadddcbccc87762d8ce8bba8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the supplied finished World Discovery scientific picture-book illustration, preserving its full 3:2 composition and all scene content. Input image is the EDIT TARGET, not a design sheet.\nOnly correct the visible frog feet anatomy. Every fully exposed HIND foot must have exactly FIVE distinct natural slender toes, with modest webbing toward their bases. Every fully exposed FRONT foot must have exactly FOUR distinct natural slender fingers, not five. Count digits carefully on each animal; the front feet attach to front legs below the chest, hind feet to long rear legs by the tail end. Preserve hidden/occluded far feet naturally; do not add new limbs or reveal a foot that was hidden. Keep the same existing leg joints, stance, contact, size and pose. Correct the three-toe cartoon designs by adding anatomically appropriate small toes, not extra legs. Make the counts readable with clean outlines; no human hands, suction discs or clawed paws.\nPreserve this exact stage/meaning: Front legs appeared, too. Inside, its body was changing: lungs developed while its gills became less important. Four legs plus tail is a metamorph stage; no abrupt no-overlap breathing claim; no speculative cutaway anatomy or external lung balloons.\nPreserve the exact number of animals, all tails (including attached tail length and shape), mottled brown coloring, gold eye, mouth, body, environment, waterline, plants, eggs/tadpoles where present, lighting, palette, and camera. Do not introduce or remove any animal or object. Keep crisp dark outlines, clean flat colors and restrained smooth cel shading throughout; no painted texture, no grain, no text, no labels, no arrows. One finished fullsize image, not panels or cropped detail. No other change.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-08/page-05.webp",
+      "sha256": "66507da07602afcb9117c2514ef02a8290ee68aa7464db7d8421c251d1e7da0a",
+      "role": "edit target; exact pre-edit source receipt retained beside prompt"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "sha256": "98757d720f3b95acae750d44adf24860f457a1bcdadddcbccc87762d8ce8bba8",
+    "note": "Aquatic metamorph retains long attached tail and four distinct legs. Both hind feet have five toes; both front feet have four fingers. Near-surface water setting retained.",
+    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:45:46.973Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-62b2afa3-ba52-4015-854c-02bade923461.png",
+  "sourceSha256": "f80718f3432d1d2c85f49059ed092fef47d942275b7e08a8e03bdcc1f1144ecf",
+  "output": "public/guided-reading/world-discovery/e-01/page-04.webp",
+  "outputSha256": "7588bbe8969077026241ccd9ec6fa1d335fca3e0f4391edb87d021464dbee55a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: More Than the Builder; World Discovery; fiction.\nSetting: Empty classroom rehearsal corner, afternoon. Peach wall, blue-framed window left, bare wall shelf right, solid blue rug on tan floor. Only Kit and Zoe are here; no audience before page 9.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Plain cardboard puppet theater; Blue cloth curtain; Orange fox hand puppet; White rabbit hand puppet with one small brown-painted front paw, visible whenever that paw is raised; Two plain wooden stools; One supplied cardboard scenery panel with a simple brown den doorway drawn on it, placed behind the stage window from page 2 onward\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Zoe leans around the curtain. “That voice is good! Make one surprised noise when I knock on the door.”\nRequired illustration: Zoe peers around the blue curtain toward Kit as he holds the fox puppet close to his chest. Exact continuity: Her offer is a single sound cue; Kit still wants full part.\nExact current state: Her offer is a single sound cue; Kit still wants full part.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCRITICAL: exactly TWO children, Kit and Zoe only. No audience, spectators or other people. Smooth solid flat fills; no fine grain, noise, woodgrain or carpet fibers. The props must stay the NEW reference-sheet designs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-01-reference.webp",
+      "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.953Z",
+    "sha256": "7588bbe8969077026241ccd9ec6fa1d335fca3e0f4391edb87d021464dbee55a",
+    "note": "Zoe leans around curtain giving Kit the cue; fox held externally before he wears it.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

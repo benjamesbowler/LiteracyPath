@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-03",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:49.014Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f448d218-ad50-4101-a78a-b252437ef194.png",
+  "sourceSha256": "2e2d1a0c380e12914b0877734680c4ec96d3bb10a27cdf089fc858c6a22e3cfa",
+  "output": "public/guided-reading/world-discovery/b-03/page-04.webp",
+  "outputSha256": "2479eb5fcb6cb100b34c4a404d3a07c6ab8685eaec3c65295dd9f11dff0ac8e9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Back to the Library; World Discovery; fiction.\nSetting: Neighborhood public library, warm wooden shelves and low desk, a round low reading table with blue chairs, sunny afternoon.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Kit puts the book on the returns desk.\nRequired illustration: Neighborhood public library, warm wooden shelves and low desk, a round low reading table with blue chairs, sunny afternoon. Inside the library, Kit places the green fox book flat on the low returns counter; the worker receives it. Exact state: Book physically returned; Zoe waits beside Kit.\nExact current state: Book physically returned; Zoe waits beside Kit.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT SCENE: Inside LIBRARY. Kit places ONE green fox book flat FRONT-COVER-UP on low wooden returns counter; gray-haired worker behind counter receives with one open hand near book. Zoe waits beside Kit, hands to self. Exactly one handled book, background shelf books allowed. No extra book on counter.\nBook design consistent: GREEN hard cover with centered orange fox front, plain green back and small barcode patch, no written title or pages of text. Kit teal/mustard/navy, Zoe yellow/plum full-length overalls/white, equal height. Worker only if specified: adult light brown skin, short gray hair, blue shirt, charcoal pants; never a child.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-03-reference.webp",
+      "sha256": "2bd7f33589cb2c5478829a521616a98310638afcf6b728c4283df9dc33aa9b73"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "2479eb5fcb6cb100b34c4a404d3a07c6ab8685eaec3c65295dd9f11dff0ac8e9",
+    "note": "Kit sets the front-up fox book on returns desk; adult worker receives it and Zoe waits with empty hands.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

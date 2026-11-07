@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:02:38.442Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-fed15205-94c9-4f76-bb0f-0234c8071c0f.png",
+  "sourceSha256": "7893ac68145b6d3e0aa68713a2d82ddde7b97d8c7fabf3dfa75403f717727d30",
+  "output": "public/guided-reading/world-discovery/d-06/page-03.webp",
+  "outputSha256": "4be4a6e624101790b1e25049507d45cc8635f28f75b0ad2aa956f51d4fc9e13f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this existing finished landscape children's educational lunar illustration, preserving clean bold outline and flat gray cel art. This is the instant of impact forming the large central crater. Preserve the central gray ejecta burst and flying broken rocks, central newly forming bowl geometry, black airless sky, and distant background craters. Remove ONLY the small FRONT-RIGHT crater and its rim, filling that region with normal intact gray ground plus a few small stones. That small neighboring crater does not exist yet. Keep existing central impact bowl and outward ejecta exactly. No flames, water, weather, stars, people, additional bodies, labels or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-06/page-03.webp",
+      "sha256": "02b719659400191e5b0e7adaec0c6aff94199cb100fe2a72d5143ba8c130d917"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:02:38.443Z",
+    "sha256": "4be4a6e624101790b1e25049507d45cc8635f28f75b0ad2aa956f51d4fc9e13f",
+    "note": "Independent sequence correction: central impact ejecta and forming bowl retained, premature front-right smaller crater removed; matches later new bowl without false neighbor. Compared with p2 and p4.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

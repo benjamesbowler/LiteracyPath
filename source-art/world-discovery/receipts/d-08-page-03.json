@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:52:42.919Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-5fa4466e-9801-4500-80b2-a498ffb1675d.png",
+  "sourceSha256": "05faacdba4aafb1220f2abd5d209747534eae8505e525c0aa569e01882951892",
+  "output": "public/guided-reading/world-discovery/d-08/page-03.webp",
+  "outputSha256": "eebbe362930cc98af0c8da06cd55181921f3f66e77a3e8fce13f83b3158af24b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: One Bean Becomes Many; World Discovery; nonfiction.\nSetting: One common bush bean plant in a garden bed through a growing season. Consistent green leaves, white flowers and cream seeds; no human cast.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One cream common-bean seed; Brown soil cutaway; White flowers; Green pods that later dry tan; Mature cream beans\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): A small root grows out first. It reaches into the soil, taking in water as the new plant grows.\nRequired illustration: Cutaway shows a white root emerging from the split seed and curving downward into damp soil. Exact continuity: Single seed; root first; no green leaf underground.\nExact current state: Single seed; root first; no green leaf underground.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-08-reference.webp",
+      "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:55:11.813780+00:00",
+    "sha256": "eebbe362930cc98af0c8da06cd55181921f3f66e77a3e8fce13f83b3158af24b",
+    "note": "Single cream seed root emerges downward into soil, with no premature leaves or pod; garden context and cutaway remain consistent."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:28:00.580Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-70464380-195d-40e9-b9fb-412b456e848e.png",
+  "sourceSha256": "0eabf5108fa778a2e0e59176a774302ca162c7f93b8b6cd633dcd708cd0a73b0",
+  "output": "public/guided-reading/world-discovery/e-09/page-07.webp",
+  "outputSha256": "d6646693c5a4758d745e1170be81ac2d6c052153be3f7571e61edca764942bda",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Some sharks give birth to live young, too. Sharks are fish. That one clue alone cannot tell us “mammal.”\nRequired illustration: A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy. Exact continuity: No birth depicted; sharks remain fish; no whales in this comparison scene.\nExact current state: No birth depicted; sharks remain fish; no whales in this comparison scene.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: ONE adult sandbar shark and TWO much smaller pups in shallow coastal sea. Correct shark anatomy: five gill slits behind head, triangular dorsal fin, vertical asymmetrical tail; NO WHALES or dolphins. No birth action.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nCORRECTION to attached scene only: retain same adult sandbar shark and two pups; each shark MUST have EXACTLY FIVE clearly separate curved vertical gill slits behind the eye and before the pectoral fin. Adult already five; correct BOTH small pups from four to five. No added animals, no changes to vertical asymmetric shark tails.\nThe current attached picture has FOUR gill openings on each shark. For EACH of the three sharks, ADD ONE additional matching curved gill opening on the LEFT side of the existing four, closer to the head. Do not remove or replace any existing four. Four existing plus one new equals FIVE visible parallel gill openings on each shark. Preserve every other pixel-level composition feature.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-27c17651-a18c-44b7-bf44-95e0125abb33.png",
+      "sha256": "d9f8a42fc06aa669aacbadb6445d961a3e8aa1f5409187c9c5d6053022c6d470"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "sha256": "d6646693c5a4758d745e1170be81ac2d6c052153be3f7571e61edca764942bda",
+    "note": "Sandbar shark and two pups only; corrected and counted FIVE visible gill slits on each, upright asymmetrical tails and large dorsal fins; no birth.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

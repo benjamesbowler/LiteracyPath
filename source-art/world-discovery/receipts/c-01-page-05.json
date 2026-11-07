@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-01",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:40:08.958Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-d0dbf4ad-00fe-4317-b4af-d378567cfb71.png",
+  "sourceSha256": "10190b09b17033d3f77a23fe7e4b0ce4bd2779a7f8c0af629b7b805e2f7ade8f",
+  "output": "public/guided-reading/world-discovery/c-01/page-05.webp",
+  "outputSha256": "dbd4bb3eac71b3f849f70631993df1d2fae64b1b127a814ddcba5f7f5475091b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Image 1 is the edit target. Image 2 is a supporting structural reference only. Correct the block stage in image 1 to EXACTLY SIX tan blocks in TWO rows of THREE, matching image 2: remove the extra bottom row and adjust the stage to the lower two-row height. The ONE two-tree paper sheet must rest its bottom edge on the tabletop and lean against the remaining six blocks, as in image 2. Keep Kit's withdrawn hands, Zoe's expression, collarless puppet lying on table, original sketch and tools, classroom and style. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5d097901-26c2-49d0-99d6-bdcf1e170c60.png",
+      "sha256": "a270c2fd05ad814bf100b73d7826062869188de3e2fc10394f2f2b46c48033cd"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-29b88d8b-e864-4546-9195-daa16d61bc6c.png",
+      "sha256": "aade0e7ff5b559a3cee13d5719c0c62ea678cb5ce05eb2cb075f6ed22350dd70"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "dbd4bb3eac71b3f849f70631993df1d2fae64b1b127a814ddcba5f7f5475091b",
+    "note": "Corrected to two rows of three tan blocks. Single scenery sheet rests on tabletop and leans against the blocks, with Kit\u2019s hands visibly withdrawn. Collarless puppet stays flat; support mechanism is visible for discussion.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

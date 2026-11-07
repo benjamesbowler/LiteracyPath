@@ -1,0 +1,1332 @@
+[
+  {
+    "id": "world-discovery-a-01",
+    "number": 1,
+    "title": "Zoe Draws Zoe",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants to draw herself; she builds a portrait from her reflection, notices its missing smile, and adds the expression she sees.",
+      "failedAttempt": "The nearly finished portrait has a straight blank mouth space and does not show her smile.",
+      "resolution": "Zoe adds a smile and smiles back at the completed likeness."
+    },
+    "setting": "A bright art corner at home, morning, low pale wood table and a fixed oval tabletop mirror.",
+    "props": [
+      "One oval teal-framed mirror",
+      "One cream portrait sheet",
+      "Four crayons: brown, black, yellow and plum",
+      "Zoe remains in her locked costume"
+    ],
+    "coverBrief": "Zoe holds her finished child-drawn self-portrait beside her face, matching brown eyes, two hair puffs, yellow shirt and wide smile. Teal mirror on the table. No writing.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe looks in the mirror.",
+        "imageBrief": "Zoe seated at the table studies her own accurate reflection. A blank portrait sheet lies below the mirror with exactly four crayons: brown, black, yellow and plum.",
+        "imageAlt": "Zoe looks at her face in a small mirror.",
+        "pageDescription": "Zoe looks at her face in a small mirror.",
+        "state": "Paper blank; mirror upright; crayons unused.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe draws her round face.",
+        "imageBrief": "Zoe draws one round brown face outline on the portrait sheet. Mirror still reflects Zoe; no features yet in the drawing.",
+        "imageAlt": "Zoe draws the outline of her face.",
+        "pageDescription": "Zoe draws the outline of her face.",
+        "state": "One face outline only; brown crayon touches paper.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "She adds two brown eyes.",
+        "imageBrief": "Show Zoe adding two brown eyes inside the same face outline, looking between paper and mirror. No extra eyes or finished hair in the drawing.",
+        "imageAlt": "Two brown eyes appear in Zoe’s drawing.",
+        "pageDescription": "Two brown eyes appear in Zoe’s drawing.",
+        "state": "Face outline plus exactly two eyes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "She adds her two puffs.",
+        "imageBrief": "Zoe draws black hair with exactly two round puffs on the portrait, matching her own hairstyle. Do not yet add a mouth or shirt.",
+        "imageAlt": "Zoe gives her drawing two hair puffs.",
+        "pageDescription": "Zoe gives her drawing two hair puffs.",
+        "state": "Portrait has face, eyes, black hair and two puffs; no mouth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "She draws her yellow shirt.",
+        "imageBrief": "Zoe adds a yellow shirt below the portrait face and plum overall straps, using the yellow and then plum crayons from the existing set. Keep the mouth space visibly empty; the completed hair and eyes remain unchanged.",
+        "imageAlt": "Zoe colors the shirt in her portrait yellow.",
+        "pageDescription": "Zoe colors the shirt in her portrait yellow.",
+        "state": "Portrait clothing added; mouth still missing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Her picture has no smile.",
+        "imageBrief": "Zoe holds the almost finished portrait and looks between its empty mouth space and her smiling mirror reflection. Make the missing mouth clearly visible.",
+        "imageAlt": "Zoe notices that her drawing has no mouth.",
+        "pageDescription": "Zoe notices that her drawing has no mouth.",
+        "state": "No mouth in portrait; smile in mirror.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Zoe adds her big smile.",
+        "imageBrief": "Zoe draws a curved smiling mouth on the existing portrait, using the dark crayon in one hand. The mirror still shows her smile.",
+        "imageAlt": "Zoe draws a big smile on the face.",
+        "pageDescription": "Zoe draws a big smile on the face.",
+        "state": "Smile being added; all previous features unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe smiles at her picture.",
+        "imageBrief": "Zoe sets her finished portrait upright against the mirror base and smiles at it; the drawn face smiles back. Keep all identifying features matching.",
+        "imageAlt": "Zoe smiles at her finished self-portrait.",
+        "pageDescription": "Zoe smiles at her finished self-portrait.",
+        "state": "Completed portrait; crayons down; drawing and child share a smile.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Zoe add at the end?",
+        "listenFor": "Her smile; she noticed it was missing from her portrait."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What looks the same in Zoe and her picture?",
+        "lookFor": "Brown eyes, two puffs, yellow shirt and smile."
+      }
+    },
+    "levelRationale": "One concrete five- or six-word clause on each page; repeated she/Zoe plus draws/adds; the missing-and-added smile is explicit. A visible drawing sequence supports the identity inquiry without hidden inference.",
+    "languagePrep": [
+      {
+        "word": "mirror",
+        "meaning": "a surface that shows your reflection"
+      },
+      {
+        "word": "puffs",
+        "meaning": "round bunches of hair"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-02",
+    "number": 2,
+    "title": "The Red Crayon",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe holds the only red crayon while Kit wants to draw; seeing Kit put down his blank paper makes Zoe pass the crayon, so both drawings can be finished.",
+      "failedAttempt": "Zoe grips the shared crayon and Kit stops trying to draw.",
+      "resolution": "Zoe hands over the crayon; Kit finishes a balloon and both red pictures are displayed."
+    },
+    "setting": "A classroom art table in daylight; Kit left, Zoe right; same two sheets throughout.",
+    "props": [
+      "One thick red crayon",
+      "Zoe’s white sheet with a red kite",
+      "Kit’s white sheet initially blank",
+      "Two wooden clips on a low display string"
+    ],
+    "coverBrief": "Kit and Zoe stand beside two clipped pictures: Zoe’s red kite and Kit’s red balloon. The single red crayon rests on the art table.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe draws a red kite.",
+        "imageBrief": "Zoe uses the single red crayon to finish a kite on her paper. Kit has a separate blank sheet at the same table.",
+        "imageAlt": "Zoe draws a red kite while Kit’s paper is blank.",
+        "pageDescription": "Zoe draws a red kite while Kit’s paper is blank.",
+        "state": "Kite taking shape; crayon with Zoe; Kit’s sheet blank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit wants the red crayon.",
+        "imageBrief": "Kit holds his blank sheet upright in his left hand and reaches his open right palm toward the red crayon in Zoe’s hand, looking at it. Zoe’s completed red kite lies on her side of the table.",
+        "imageAlt": "Kit reaches for the red crayon.",
+        "pageDescription": "Kit reaches for the red crayon.",
+        "state": "Kite complete; no marks on Kit’s paper.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe holds the crayon tight.",
+        "imageBrief": "Zoe closes her hand around the crayon near her chest and turns slightly away. Kit still holds his blank paper upright in his left hand; his open right hand pauses. No grabbing or tugging.",
+        "imageAlt": "Zoe keeps the crayon close to her.",
+        "pageDescription": "Zoe keeps the crayon close to her.",
+        "state": "Zoe retains sole crayon; Kit cannot begin.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit puts his paper down.",
+        "imageBrief": "Kit lays his untouched white sheet flat and lowers his hands into his lap, looking down. Zoe still holds the crayon.",
+        "imageAlt": "Kit puts his blank paper on the table.",
+        "pageDescription": "Kit puts his blank paper on the table.",
+        "state": "Kit’s sheet blank and flat; Kit withdraws from drawing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe sees Kit’s blank page.",
+        "imageBrief": "Zoe looks directly at Kit’s empty sheet and his lowered hands; her own finished kite is visible beside it.",
+        "imageAlt": "Zoe looks at Kit’s blank paper.",
+        "pageDescription": "Zoe looks at Kit’s blank paper.",
+        "state": "Recognition through gaze; crayon still with Zoe.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe gives Kit the crayon.",
+        "imageBrief": "Zoe places the only red crayon into Kit’s open hand over the table. Show one crayon, an ordinary handoff with separate fingers.",
+        "imageAlt": "Zoe passes the red crayon to Kit.",
+        "pageDescription": "Zoe passes the red crayon to Kit.",
+        "state": "Crayon transfers from Zoe to Kit.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit draws a red balloon.",
+        "imageBrief": "Kit uses the red crayon on his sheet to draw one round balloon with a long red string. Zoe’s finished kite remains nearby.",
+        "imageAlt": "Kit draws a red balloon on his paper.",
+        "pageDescription": "Kit draws a red balloon on his paper.",
+        "state": "Kit’s drawing becomes complete; Zoe’s unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Two red pictures hang together.",
+        "imageBrief": "Both children look at their separate pictures clipped side by side to a low string: exactly one kite and one balloon. Crayon on table below.",
+        "imageAlt": "The red kite and red balloon pictures hang side by side.",
+        "pageDescription": "The red kite and red balloon pictures hang side by side.",
+        "state": "Both pictures complete and displayed; shared crayon available.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Zoe pass the crayon?",
+        "listenFor": "Kit wanted to draw and his page was still blank."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which picture did each child make?",
+        "lookFor": "Zoe made the kite; Kit made the balloon."
+      }
+    },
+    "levelRationale": "Concrete short clauses and repeated red/crayon/paper carry a visible social consequence and repair; no dialogue or subordinate clauses. Kit’s blank page makes the change explicit.",
+    "languagePrep": [
+      {
+        "word": "blank",
+        "meaning": "with nothing drawn on it"
+      },
+      {
+        "word": "together",
+        "meaning": "beside one another here"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-03",
+    "number": 3,
+    "title": "Books for Our Class",
+    "topic": "community",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit and Zoe need to bring library books to their class; a small bag cannot hold the stack, so they use a cart and deliver enough books to read together.",
+      "failedAttempt": "The book stack is taller than Kit’s small bag and some books remain outside.",
+      "resolution": "The children bring the books on a cart and their class reads them."
+    },
+    "setting": "An ordinary school library joined by a level indoor corridor to one classroom, daytime.",
+    "props": [
+      "Four unbranded picture books: blue, green, orange, purple covers with simple drawings but no writing",
+      "Small tan cloth bag",
+      "Low red four-wheeled book cart with black handle",
+      "Two classmates: short auburn-haired child in green; dark straight-haired child in orange"
+    ],
+    "coverBrief": "Kit and Zoe beside a low red cart containing four bright picture books; the classroom doorway beyond shows two children waiting at a reading rug.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The class needs the books.",
+        "imageBrief": "Kit and Zoe stand beside a library stack of exactly four colorful books. Through the open adjacent classroom doorway, two children sit on an empty reading rug.",
+        "imageAlt": "Kit and Zoe look at books for their class.",
+        "pageDescription": "Kit and Zoe look at books for their class.",
+        "state": "Four books stacked; cart parked empty behind shelf; bag empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit fills a small bag.",
+        "imageBrief": "Kit places the blue and green books into a small tan bag. Orange and purple books remain stacked on the library table.",
+        "imageAlt": "Kit puts books in a small bag.",
+        "pageDescription": "Kit puts books in a small bag.",
+        "state": "Two books fill bag; two remain on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bag is too small.",
+        "imageBrief": "Show Kit trying to fit the orange book into the already full bag without forcing it. Purple book remains on table; Zoe observes.",
+        "imageAlt": "The remaining books do not fit in Kit’s bag.",
+        "pageDescription": "The remaining books do not fit in Kit’s bag.",
+        "state": "Bag full with two; orange book held above opening; purple on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe brings the red cart.",
+        "imageBrief": "Zoe rolls the empty red book cart beside Kit and the table. Kit sets the orange book back beside the purple one.",
+        "imageAlt": "Zoe brings a red cart for the books.",
+        "pageDescription": "Zoe brings a red cart for the books.",
+        "state": "Cart empty; bag still contains two books; two on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit puts books in it.",
+        "imageBrief": "Kit transfers the books from the bag and table into the red cart. Show three books in cart and his hand placing the fourth; bag empty.",
+        "imageAlt": "Kit puts all four books in the cart.",
+        "pageDescription": "Kit puts all four books in the cart.",
+        "state": "Four books transferred; bag empty on table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "They pull the cart together.",
+        "imageBrief": "Kit and Zoe both hold separate portions of the black cart handle and roll the cart along the flat corridor toward the classroom. Four books stable inside.",
+        "imageAlt": "Kit and Zoe pull the book cart to class.",
+        "pageDescription": "Kit and Zoe pull the book cart to class.",
+        "state": "Four books in cart; no stairs or obstruction.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The class picks out books.",
+        "imageBrief": "On the classroom rug, Kit holds the blue book, Zoe holds the green book, the auburn-haired classmate holds the orange book, and the dark-haired classmate lifts the last purple book from the low cart. Exactly one book per child; no book remains in the cart.",
+        "imageAlt": "The children each choose a book.",
+        "pageDescription": "The children each choose a book.",
+        "state": "Four books distributed one per child; cart now empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The class reads the books.",
+        "imageBrief": "The four children sit comfortably on the rug looking into their open books, each with one. Empty red cart parked nearby. No visible writing, simple page drawings.",
+        "imageAlt": "The class sits together reading the books.",
+        "pageDescription": "The class sits together reading the books.",
+        "state": "Delivery goal fulfilled; all four books in use.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What helped Kit and Zoe bring all the books?",
+        "listenFor": "The cart held the books that did not fit in the small bag."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "How is the cart different from the bag?",
+        "lookFor": "It has room for all four books and wheels to move them."
+      }
+    },
+    "levelRationale": "Familiar concrete words with small changes in repeated book/cart references; a single clearly stated size obstacle and visible solution. Each page has at most six words.",
+    "languagePrep": [
+      {
+        "word": "cart",
+        "meaning": "a small carrier with wheels"
+      },
+      {
+        "word": "class",
+        "meaning": "children learning together"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-04",
+    "number": 4,
+    "title": "The Hungry Bag",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "storySpine": "Kit’s enchanted bag bites his clean sock and will not let go; Kit offers it a bun, making it open its mouth and drop the sock.",
+      "failedAttempt": "Pulling does not loosen the bag’s grip on the sock.",
+      "resolution": "The bag opens for food; Kit retrieves and wears the sock while the bag eats the bun."
+    },
+    "setting": "World Discovery fantasy version of Kit’s bedroom, just before lunch. One deliberate magical rule: this living bag opens its mouth to bite offered objects and can grip only one object at a time.",
+    "props": [
+      "One small round green drawstring bag with two simple eyes and one soft toothless mouth, no limbs; half Kit’s torso height",
+      "One clean white sock with a single blue stripe",
+      "One plain round bread bun on a low blue plate",
+      "Kit’s left navy shoe beside his bare left foot until page 7"
+    ],
+    "coverBrief": "Kit holds up the recovered blue-striped white sock while the green magic bag opens its soft toothless mouth toward a plain bun on a blue plate. Gentle humorous fantasy, not frightening.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The bag bites Kit’s sock.",
+        "imageBrief": "Kit sits on the bedroom rug with one bare left foot, his left shoe beside him. A small green living bag grips the toe of one loose white sock with a blue stripe in its soft mouth.",
+        "imageAlt": "A green magic bag bites Kit’s loose sock.",
+        "pageDescription": "A green magic bag bites Kit’s loose sock.",
+        "state": "Sock clean, intact and partly in bag mouth; one socked right foot, bare left foot.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit pulls the sock.",
+        "imageBrief": "Kit grips the cuff of the same loose sock and pulls gently while the green bag grips the toe. Both remain on the rug; no stretched limbs.",
+        "imageAlt": "Kit pulls his sock away from the bag.",
+        "pageDescription": "Kit pulls his sock away from the bag.",
+        "state": "Sock stretched slightly; bag still gripping toe.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bag holds it tight.",
+        "imageBrief": "Kit leans back unsuccessfully; the bag remains firmly on the rug with sock toe clamped in mouth. Keep sock intact, not swallowed.",
+        "imageAlt": "The bag will not let go of the sock.",
+        "pageDescription": "The bag will not let go of the sock.",
+        "state": "Attempt fails; sock still visible between Kit and bag.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit finds a big bun.",
+        "imageBrief": "Kit releases the sock cuff and looks toward a plain round bun on a blue snack plate on the low bedside table. Bag still holds sock beside him.",
+        "imageAlt": "Kit spots a bun on a blue plate.",
+        "pageDescription": "Kit spots a bun on a blue plate.",
+        "state": "Sock stays in bag’s mouth; bun still whole on plate.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The bag bites the bun.",
+        "imageBrief": "Kit holds out the bun near the bag. The bag has just bitten the bun; its soft mouth grips only the bun while the released sock begins falling below it. Show this single exchange moment. No teeth, no bitten hand, no sock still trapped beside the bun.",
+        "imageAlt": "The bag bites Kit’s offered bun and lets go of the sock.",
+        "pageDescription": "The bag bites Kit’s offered bun and lets go of the sock.",
+        "state": "One mouth changes from sock to bun; release is visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The sock drops out.",
+        "imageBrief": "The clean intact sock lands on the rug as the bag holds the bun in its mouth. Kit reaches down for the sock.",
+        "imageAlt": "The sock falls onto the rug.",
+        "pageDescription": "The sock falls onto the rug.",
+        "state": "Sock free on rug; bun held by bag.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit puts his sock on.",
+        "imageBrief": "Kit pulls the recovered white blue-striped sock onto his previously bare left foot. Left navy sneaker remains alongside him; bag chews bun nearby.",
+        "imageAlt": "Kit puts the recovered sock on his foot.",
+        "pageDescription": "Kit puts the recovered sock on his foot.",
+        "state": "Both feet now socked; left shoe still off; no duplicate loose sock.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The bag eats its lunch.",
+        "imageBrief": "Kit, both navy shoes now on, sits nearby as the bag chews the last bite of bun over the blue plate. A couple crumbs, no sock in the mouth.",
+        "imageAlt": "The magic bag finishes the bun while Kit wears his sock.",
+        "pageDescription": "The magic bag finishes the bun while Kit wears his sock.",
+        "state": "Kit dressed; sock recovered intact; bun almost eaten; magical swap resolved.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did Kit get his sock back?",
+        "listenFor": "He offered the bun, so the bag opened its mouth and dropped the sock."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What is in the bag’s mouth now?",
+        "lookFor": "The bun, while the sock is on the rug."
+      }
+    },
+    "levelRationale": "A visible one-object magical grip supports a short goal/failed attempt/changed attempt sequence. Five-word or shorter clauses, concrete actions and no dialogue keep the language at A.",
+    "languagePrep": [
+      {
+        "word": "bites",
+        "meaning": "holds something with its mouth"
+      },
+      {
+        "word": "bun",
+        "meaning": "a small round bread roll"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-05",
+    "number": 5,
+    "title": "Up the Hill",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How does the view change on a walk up a hill?",
+      "progression": "Follow one looping path from a pond to a gentle hilltop, compare the elevated view, and trace its return.",
+      "synthesis": "The high point lets Kit see the whole pond and the route leading back to it.",
+      "scienceSources": [
+        {
+          "title": "US Geological Survey: What is a topographic map?",
+          "url": "https://www.usgs.gov/faqs/what-a-topographic-map",
+          "evidence": "Terrain has height, shape and slopes. This staged park walk demonstrates relative up/down position on a gentle hill. The pond, path and exact view are an authored geometric example, not a claim about a real surveyed park or that every hilltop reveals every pond.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "A fictional ordinary park with a low green hill, one bean-shaped pond at its foot and one tan path looping up and back. Bright afternoon.",
+    "props": [
+      "One bean-shaped pond with two reeds at near edge",
+      "One smooth green hill",
+      "One continuous tan loop path",
+      "No roads, maps, steep drops or flags"
+    ],
+    "coverBrief": "Kit on a gentle rounded hilltop overlooks the whole bean-shaped pond and the looping tan path below. Both route ends meet beside the pond.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The path starts by the pond.",
+        "imageBrief": "Low eye-level view of Kit at the pond-edge start of a tan path climbing a green hill. Pond shape partly visible, reeds near foreground.",
+        "imageAlt": "Kit stands by a pond at the start of a path.",
+        "pageDescription": "Kit stands by a pond at the start of a path.",
+        "state": "Kit at lower path start; hill and route ahead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The path goes up the hill.",
+        "imageBrief": "Wide side view of the same path winding gradually uphill; Kit points along it from the foot. Include pond behind him at base.",
+        "imageAlt": "A path curves up a green hill.",
+        "pageDescription": "A path curves up a green hill.",
+        "state": "Kit still at foot; path continuity clearly visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit walks up the path.",
+        "imageBrief": "Kit midway up the gentle path, walking with normal scale and posture, pond now lower behind him.",
+        "imageAlt": "Kit walks uphill on the path.",
+        "pageDescription": "Kit walks uphill on the path.",
+        "state": "Kit halfway up; pond lower in frame.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The pond is down below.",
+        "imageBrief": "From beside Kit halfway up, look down toward the pond below; emphasize height by continuous slope, not shrinking the pond itself.",
+        "imageAlt": "Kit looks down at the pond below the path.",
+        "pageDescription": "Kit looks down at the pond below the path.",
+        "state": "Kit halfway up; same pond shape and reeds.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit reaches the hilltop.",
+        "imageBrief": "Kit steps onto the gently rounded top of the hill, the upward path arriving behind and return path continuing down the other side.",
+        "imageAlt": "Kit reaches the top of the hill.",
+        "pageDescription": "Kit reaches the top of the hill.",
+        "state": "Kit at highest point; no cliff edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "He sees the whole pond.",
+        "imageBrief": "View from just behind Kit at the top reveals the whole bean-shaped pond, two reeds and path ends. Include landscape, not an invented map.",
+        "imageAlt": "Kit can see the whole pond from the top.",
+        "pageDescription": "Kit can see the whole pond from the top.",
+        "state": "Whole pond visible from raised viewpoint.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The path winds down again.",
+        "imageBrief": "Wide side view of Kit walking along the return half of the same continuous tan loop, descending toward the pond.",
+        "imageAlt": "Kit follows the path down the hill.",
+        "pageDescription": "Kit follows the path down the hill.",
+        "state": "Kit descending; return route links back to pond.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "It ends beside the pond.",
+        "imageBrief": "Kit arrives at the same pond-side spot shown at the opening; low camera includes the hilltop and complete loop behind him, revealing the route he walked.",
+        "imageAlt": "Kit returns to the pond beside the hill.",
+        "pageDescription": "Kit returns to the pond beside the hill.",
+        "state": "Opening location restored after up/down route; no teleporting.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What could Kit see from the hilltop?",
+        "listenFor": "The whole pond below and the path that led back."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where is the pond compared with Kit?",
+        "lookFor": "Below him at the foot of the hill."
+      }
+    },
+    "levelRationale": "Short repeated path/pond/Kit sentences with literal up/down/beside relationships; a simple visible route controls the sequence. No map symbols or inferred geographic system.",
+    "languagePrep": [
+      {
+        "word": "hilltop",
+        "meaning": "the top of a hill"
+      },
+      {
+        "word": "below",
+        "meaning": "lower down"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-06",
+    "number": 6,
+    "title": "The Moon in Daylight",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can Zoe see the Moon in a bright daytime sky?",
+      "progression": "Observe a daytime Moon, a passing cloud that hides it, and its reappearance in the same place.",
+      "synthesis": "The Moon is visible again while the sky is still bright; it is not confined to nighttime.",
+      "scienceSources": [
+        {
+          "title": "NASA: Why Can You See the Moon During the Day?",
+          "url": "https://www.nasa.gov/solar-system/why-can-you-see-the-moon-during-the-day-we-asked-a-nasa-scientist-episode-19/",
+          "evidence": "The Moon can be visible in the daytime; its visible light is reflected sunlight. This book observes it rather than implying it makes its own light.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "US Naval Observatory: Phases of the Moon and Percent of the Moon Illuminated",
+          "url": "https://aa.usno.navy.mil/faq/moon_phases",
+          "evidence": "First and last quarter Moons appear roughly 90 degrees from the Sun; a Moon opposite the Sun would be full. The illustrated half-Moon therefore stays a quarter-turn from the off-frame Sun.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA Science: Moon Phases",
+          "url": "https://science.nasa.gov/moon/moon-phases/",
+          "evidence": "A first-quarter Moon rises around midday and remains up into the night, supporting a daytime afternoon observation. The Moon is lit by the Sun; the illustration must not depict emitted rays.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "An ordinary park under a bright pale-blue late-afternoon sky. A waxing half-Moon is roughly a quarter-turn around the sky from the unseen Sun, not opposite it. Choose a northern-hemisphere viewing angle with the Moon’s right half lit. Sun stays well outside the composition; no looking toward the Sun.",
+    "props": [
+      "One small white waxing half-Moon, right half lit, same shape through the sequence",
+      "One broad white cloud drifting left to right",
+      "Low park bench",
+      "No stars or visible Sun"
+    ],
+    "coverBrief": "Zoe beside a low park bench points toward a small white half-Moon in a bright blue afternoon sky. One cloud has drifted clear to the right; no stars, no Sun in frame.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The sky is bright.",
+        "imageBrief": "Zoe looks up from the park bench beneath a bright blue daytime sky; half-Moon small but visible near upper center, a cloud well left.",
+        "imageAlt": "Zoe looks up at a bright blue sky.",
+        "pageDescription": "Zoe looks up at a bright blue sky.",
+        "state": "Daylight; Moon visible; cloud separate to left.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe sees the Moon.",
+        "imageBrief": "Closer view over Zoe’s shoulder toward the same white half-Moon, with right half illuminated and realistic small angular size.",
+        "imageAlt": "Zoe spots a white half-Moon.",
+        "pageDescription": "Zoe spots a white half-Moon.",
+        "state": "Moon same shape; cloud approaching from left.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "It is not night.",
+        "imageBrief": "Wide view includes sunlit grass, crisp daytime shadows and Zoe pointing toward the visible Moon. Sun remains outside frame.",
+        "imageAlt": "The Moon is visible above the sunlit park.",
+        "pageDescription": "The Moon is visible above the sunlit park.",
+        "state": "Unambiguously daytime; no stars, no darkness.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "A cloud covers the Moon.",
+        "imageBrief": "The broad white cloud passes directly across the Moon, obscuring its bright half; Zoe watches from below. Do not show Moon through opaque cloud.",
+        "imageAlt": "A cloud hides the Moon.",
+        "pageDescription": "A cloud hides the Moon.",
+        "state": "Moon occluded by cloud; sky remains bright.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe sees just the cloud.",
+        "imageBrief": "Zoe’s upward gaze meets the broad opaque cloud where the Moon was. No visible Moon anywhere else in scene.",
+        "imageAlt": "Zoe looks at the cloud covering the Moon.",
+        "pageDescription": "Zoe looks at the cloud covering the Moon.",
+        "state": "Moon still hidden; same bench and position.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The cloud moves past.",
+        "imageBrief": "The cloud moves right; a sliver of the Moon’s lit half reappears at the cloud’s trailing left edge.",
+        "imageAlt": "The cloud moves away from the Moon.",
+        "pageDescription": "The cloud moves away from the Moon.",
+        "state": "Occlusion ending; Moon emerging in original sky position.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The Moon shows again.",
+        "imageBrief": "The same right-lit half-Moon is fully visible again; cloud lies to its right, Zoe lowers pointing hand while watching.",
+        "imageAlt": "Zoe sees the Moon again.",
+        "pageDescription": "Zoe sees the Moon again.",
+        "state": "Moon fully clear; phase unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The Moon shines in daylight.",
+        "imageBrief": "Warm wide closing view of Zoe on the bench below the visible white half-Moon and departing cloud, still bright blue daylight. Avoid glow halo.",
+        "imageAlt": "The white Moon is visible in the bright daytime sky.",
+        "pageDescription": "The white Moon is visible in the bright daytime sky.",
+        "state": "Observation resolved; no change to night or lunar phase.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What hid the Moon for a little while?",
+        "listenFor": "A cloud passed in front of it; the Moon was visible again afterward."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What shows that it is daytime?",
+        "lookFor": "Bright blue sky, sunlit grass and clear daytime shadows."
+      }
+    },
+    "levelRationale": "One short concrete sentence per page and repeated Moon/cloud words; a visible hide-and-reappear progression supports the single daytime observation without explaining orbital mechanics.",
+    "languagePrep": [
+      {
+        "word": "daylight",
+        "meaning": "the light outside during the day"
+      },
+      {
+        "word": "covers",
+        "meaning": "hides something behind it"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-07",
+    "number": 7,
+    "title": "In and Out",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What comes out of a snail’s shell and goes back in?",
+      "progression": "Follow the head and foot emerging, the foot moving the snail, then withdrawal after a leaf casts a shadow.",
+      "synthesis": "The same opening lets the soft parts extend for movement and withdraw beneath the shell.",
+      "scienceSources": [
+        {
+          "title": "Smithsonian: Q&A with mollusk curator Ellen Strong",
+          "url": "https://insider.si.edu/2014/07/african-giant-snails-qa-smithsonian-mollusk-curator-ellen-strong/",
+          "evidence": "The protruding body consists of head and muscular foot; the foot glides over surfaces.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Natural History Museum: For the love of snails and slugs",
+          "url": "https://www.nhm.ac.uk/discover/snails-and-slugs.html",
+          "evidence": "A falling shadow can trigger retreat into the shell.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "University of Michigan Animal Diversity Web: Gastropoda",
+          "url": "https://animaldiversity.org/accounts/Gastropoda/",
+          "evidence": "Most gastropods have a coiled shell into which the body can withdraw.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Close observation of one ordinary garden snail on a moist flat garden stone in daylight; natural anatomy, not a character.",
+    "props": [
+      "One small garden snail with brown spiral shell and gray-tan body, two long upper tentacles and two small lower tentacles",
+      "One green leaf above the stone casting a shadow",
+      "No human-like face or limbs"
+    ],
+    "coverBrief": "Close-up of the garden snail with extended head and broad foot beneath its brown spiral shell on a moist stone; a single green leaf above, no diagram labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The shell has a small opening.",
+        "imageBrief": "Low close view of the intact brown spiral shell on moist stone, body withdrawn; show the natural shell aperture at the lower front, not a hole drilled in the spiral.",
+        "imageAlt": "A snail’s shell has an opening underneath.",
+        "pageDescription": "A snail’s shell has an opening underneath.",
+        "state": "Snail withdrawn; opening visible at lower front.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The snail’s head comes out.",
+        "imageBrief": "Same shell orientation as before; snail head and its two long upper and two short lower tentacles extend just through the lower opening. Foot not yet extended forward.",
+        "imageAlt": "The snail’s head comes out through the opening.",
+        "pageDescription": "The snail’s head comes out through the opening.",
+        "state": "Head emerged; shell unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Its soft foot comes out.",
+        "imageBrief": "The broad muscular foot extends forward beneath the head and backward beneath the shell, contacting the moist stone. No legs.",
+        "imageAlt": "The snail’s soft foot stretches beneath its shell.",
+        "pageDescription": "The snail’s soft foot stretches beneath its shell.",
+        "state": "Head and foot both extended; natural snail anatomy.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The snail slides on its foot.",
+        "imageBrief": "Side view of the extended snail moving slowly right across the stone, body sole continuously contacting surface, tiny clear mucus trace behind.",
+        "imageAlt": "The snail glides across the stone on its foot.",
+        "pageDescription": "The snail glides across the stone on its foot.",
+        "state": "Snail advances right; shell rides on body.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "A leaf shades the snail.",
+        "imageBrief": "One green leaf moves over the snail and casts a clear shadow across it, without hitting or crushing it. Head begins to shorten.",
+        "imageAlt": "A leaf casts a shadow over the snail.",
+        "pageDescription": "A leaf casts a shadow over the snail.",
+        "state": "New shadow precedes withdrawal; leaf above not touching.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The snail pulls its head in.",
+        "imageBrief": "Same shadow and shell: head retracts through lower opening; eye tentacles drawn in, foot still partly visible against stone.",
+        "imageAlt": "The snail pulls its head into the shell.",
+        "pageDescription": "The snail pulls its head into the shell.",
+        "state": "Head retracting first; foot remains partly extended.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The snail pulls its foot in.",
+        "imageBrief": "Show last soft tip of the foot pulling inside the shell’s lower aperture; no head or tentacles protrude.",
+        "imageAlt": "The snail draws its foot inside.",
+        "pageDescription": "The snail draws its foot inside.",
+        "state": "Foot nearly withdrawn; shell remains on stone.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The shell covers its soft body.",
+        "imageBrief": "Same shell rests under the leaf shadow with all soft parts withdrawn safely inside, lower aperture in view. No door, plug or detached shell.",
+        "imageAlt": "The snail’s soft body is inside its shell.",
+        "pageDescription": "The snail’s soft body is inside its shell.",
+        "state": "Whole soft body withdrawn; opening and shell remain natural.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Which part helps the snail move?",
+        "listenFor": "Its broad soft foot glides along the ground."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Find the snail’s foot. Where is it?",
+        "lookFor": "Under its head and shell, touching the stone."
+      }
+    },
+    "levelRationale": "Concrete six-word-or-shorter clauses use paired out/in actions and repeated snail/shell/foot. The single anatomical movement is visible; specialist taxonomy is absent.",
+    "languagePrep": [
+      {
+        "word": "shell",
+        "meaning": "the hard outside covering"
+      },
+      {
+        "word": "foot",
+        "meaning": "the soft part this snail moves on"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-08",
+    "number": 8,
+    "title": "A Chick Grows",
+    "topic": "life-cycles",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a chick grow and begin a new egg stage?",
+      "progression": "Follow one female chicken from development inside a warmed fertilized egg through hatching, feather growth and adult egg laying.",
+      "synthesis": "The chick becomes a hen that can lay eggs, returning to the opening stage.",
+      "scienceSources": [
+        {
+          "title": "Penn State Extension: Hen Reproduction",
+          "url": "https://extension.psu.edu/hen-reproduction",
+          "evidence": "A fertilized egg can develop into a chick; chicks grow into adults and hens lay eggs. The book follows one female chick, not a claim that every chick is female or every egg hatches.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "University of Nebraska–Lincoln Extension: EGG Cam — About Chicks Hatching",
+          "url": "https://lancaster.unl.edu/4h/embryology/eggcam/",
+          "evidence": "Chicks emerge damp, rest after hatching and dry before becoming active. Not all eggs hatch. This sequence follows one female chick rather than asserting that every chick is female or every egg develops.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Utah State University Extension: Hatching and Caring for Chicks",
+          "url": "https://extension.usu.edu/utah4h/research/hatching-and-caring-for-chicks",
+          "evidence": "The chick’s head and the egg air cell occupy the broad end, supporting the broad-end cutaway and shell-opening illustration.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "A simple sheltered farm nest and adjacent grassy run, daylight across clearly changing developmental stages. Natural chickens, not Meadow Pals characters.",
+    "props": [
+      "A brown adult hen with a small red comb",
+      "One focal cream fertilized egg among exactly three nest eggs",
+      "The focal female chick has golden down, then brown growing feathers, finally brown adult plumage",
+      "Straw nest with low wooden surround"
+    ],
+    "coverBrief": "A natural brown hen beside a golden chick and cream egg in a straw nest; accurate relative scales, no costumes or human expression. This is a thematic cover, not a time-sequence claim.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The hen warms her eggs.",
+        "imageBrief": "Brown hen settles over exactly three cream eggs in a straw nest. Show part of one focal egg near front, no chick yet.",
+        "imageAlt": "A hen sits over her eggs in a nest.",
+        "pageDescription": "A hen sits over her eggs in a nest.",
+        "state": "Three eggs intact under brooding hen.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A chick grows inside one egg.",
+        "imageBrief": "An educational cutaway of the focal egg showing a late-stage chick curled naturally inside with an air space at broad end. Whole shell outline clear; no mother at conflicting scale.",
+        "imageAlt": "A chick develops inside an egg.",
+        "pageDescription": "A chick develops inside an egg.",
+        "state": "Illustrative cutaway, not a transparent real shell; chick still within egg.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The chick cracks the shell.",
+        "imageBrief": "Return to natural outside view: a small beak tip breaks the focal shell near the broad end. Two other eggs remain intact in background, hen nearby.",
+        "imageAlt": "A chick makes a small break in the eggshell.",
+        "pageDescription": "A chick makes a small break in the eggshell.",
+        "state": "First pip; focal egg still mostly intact.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The chick pushes its way out.",
+        "imageBrief": "Focal chick pushes the upper cap from the cracked shell, head and shoulders emerging with damp down. Hen and two remaining eggs softly behind.",
+        "imageAlt": "The chick pushes out of its cracked shell.",
+        "pageDescription": "The chick pushes out of its cracked shell.",
+        "state": "Shell cap detached; chick partly emerged; no human help.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Its wet fluff dries.",
+        "imageBrief": "Later view of the same chick resting beside empty shell pieces, down now dry and fluffy golden yellow. No literal water dryer or heat lamp near it.",
+        "imageAlt": "The chick rests as its down becomes dry and fluffy.",
+        "pageDescription": "The chick rests as its down becomes dry and fluffy.",
+        "state": "Hatch completed; focal chick dry after elapsed time.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The chick grows new feathers.",
+        "imageBrief": "Weeks later the same female juvenile stands on grass beside the nest area, bigger body, brown wing and tail feathers appearing among remaining golden down.",
+        "imageAlt": "The growing chick has new brown feathers.",
+        "pageDescription": "The growing chick has new brown feathers.",
+        "state": "Clear juvenile stage; no eggs laid yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "This chick grows into a hen.",
+        "imageBrief": "Months later show the same now-adult brown hen with small red comb in the grassy run beside the old nest. No chick-sized proportions.",
+        "imageAlt": "The young chicken becomes a grown hen.",
+        "pageDescription": "The young chicken becomes a grown hen.",
+        "state": "Adult female, full brown feathers; time passage clear from growth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The new hen lays eggs.",
+        "imageBrief": "New adult hen stands beside her own straw nest containing a newly laid cream egg, visually echoing page one. Do not show eggs emerging from body.",
+        "imageAlt": "The grown hen has an egg in her nest.",
+        "pageDescription": "The grown hen has an egg in her nest.",
+        "state": "Life-cycle return: focal bird adult, new egg present.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What does this chick grow into?",
+        "listenFor": "A hen; this book follows a female chick."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What is changing on the growing chick?",
+        "lookFor": "Brown feathers are growing on its wings and tail."
+      }
+    },
+    "levelRationale": "One short clause per page and explicitly named growth steps form a concrete life-cycle sequence. Chick/hen/egg recur; no dense developmental vocabulary or exact-time calculation.",
+    "languagePrep": [
+      {
+        "word": "hen",
+        "meaning": "a grown female chicken"
+      },
+      {
+        "word": "fluff",
+        "meaning": "soft down covering a chick"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-09",
+    "number": 9,
+    "title": "Sort the Tiles",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can the same tiles make different groups?",
+      "progression": "Sort four tiles by color, then move those same four tiles into new groups by shape.",
+      "synthesis": "A tile’s color and shape support two different valid groupings.",
+      "scienceSources": [
+        {
+          "title": "South Australia Department for Education: Collections",
+          "url": "https://www.education.sa.gov.au/parents-and-families/curriculum-and-learning/early-years/learning-with-your-child-greatstart/working-it-out/collections",
+          "evidence": "Objects can be grouped using attributes such as colour or shape, and the same collection can be sorted in different ways. The four exact red/blue circle/square tiles are an authored staged demonstration of these grouping rules.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "A low pale wooden classroom table, morning. Kit and Zoe work beside two plain gray sorting mats.",
+    "props": [
+      "Exactly four flat tiles: red circle, red square, blue circle, blue square; equal thickness and comparable size",
+      "Two plain gray mats side by side",
+      "No labels or extra shapes"
+    ],
+    "coverBrief": "Kit and Zoe show four tiles on a clear table: red circle, red square, blue circle, blue square. Keep circles flat disks and squares flat four-sided tiles, not cubes or spheres.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit has red and blue tiles.",
+        "imageBrief": "Four tiles mixed between two empty gray mats. Kit points to the set; Zoe watches. Count exactly one red circle, red square, blue circle, blue square.",
+        "imageAlt": "Kit has four red and blue tiles.",
+        "pageDescription": "Kit has four red and blue tiles.",
+        "state": "All four tiles mixed; both mats empty.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit puts red tiles here.",
+        "imageBrief": "Kit places red circle and red square together on the left gray mat. Two blue tiles remain between the mats.",
+        "imageAlt": "Kit groups the two red tiles.",
+        "pageDescription": "Kit groups the two red tiles.",
+        "state": "Left mat red circle plus red square; blue tiles unsorted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Blue tiles go over there.",
+        "imageBrief": "Kit places blue circle and blue square on the right gray mat; red pair remains left.",
+        "imageAlt": "The blue tiles go on the other mat.",
+        "pageDescription": "The blue tiles go on the other mat.",
+        "state": "All four sorted by color; two on each mat.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Each color has its own group.",
+        "imageBrief": "Overhead clear view of both complete color groups; Kit’s hands away. Zoe points between two red shapes and two blue shapes.",
+        "imageAlt": "Red tiles form one group and blue tiles another.",
+        "pageDescription": "Red tiles form one group and blue tiles another.",
+        "state": "Finished color grouping; exactly four tiles.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe puts round tiles here.",
+        "imageBrief": "Zoe begins regrouping: one red circle and one blue circle now lie on the left mat; red square and blue square wait between mats. No duplicates.",
+        "imageAlt": "Zoe groups the round tiles together.",
+        "pageDescription": "Zoe groups the round tiles together.",
+        "state": "Same four tiles moved; circles left; squares unsorted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Square tiles go over there.",
+        "imageBrief": "Zoe places red square and blue square together on the right mat; two circles remain left.",
+        "imageAlt": "The two square tiles form the other group.",
+        "pageDescription": "The two square tiles form the other group.",
+        "state": "All four sorted by shape; two on each mat.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Each shape has its own group.",
+        "imageBrief": "Overhead clear comparison of left circles and right squares, each group mixed red/blue. Both children point to matching shape edges.",
+        "imageAlt": "The tiles are now grouped by shape.",
+        "pageDescription": "The tiles are now grouped by shape.",
+        "state": "Finished shape grouping; colors mixed within each group.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The same tiles can change groups.",
+        "imageBrief": "Kit lifts the red square from the square group while Zoe points to the red circle in the circle group; show all four tiles and two mats, no added inset.",
+        "imageAlt": "Kit and Zoe compare the same four tiles after sorting them differently.",
+        "pageDescription": "Kit and Zoe compare the same four tiles after sorting them differently.",
+        "state": "Four original tiles conserved; red square belongs with squares now and reds under earlier rule.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What two ways did the children sort the tiles?",
+        "listenFor": "First by color, then by shape."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "What is the same in each group now?",
+        "lookFor": "Round shapes together; square shapes together; both groups have two colors."
+      }
+    },
+    "levelRationale": "Repeated tiles/groups words and concrete red/blue/round/square changes; a two-step visible re-sorting gives the final line meaning. All sentences are six words or fewer without subordination.",
+    "languagePrep": [
+      {
+        "word": "sort",
+        "meaning": "put things into groups"
+      },
+      {
+        "word": "tiles",
+        "meaning": "small flat pieces"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-10",
+    "number": 10,
+    "title": "One More Use",
+    "topic": "caring-for-our-world",
+    "type": "fiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe has an empty shoebox and a toy bear without a bed; the hard base is unsuitable, so she adds a cloth and turns the box into a snug toy bed.",
+      "failedAttempt": "The hard bare box is not a soft bed for the toy bear.",
+      "resolution": "Zoe lines the box, tucks in the bear and uses the old box as its bed.",
+      "scienceSources": [
+        {
+          "title": "US EPA: How Do I Recycle Common Recyclables?",
+          "url": "https://www.epa.gov/recycle/how-do-i-recycle-common-recyclables",
+          "evidence": "EPA encourages reuse of boxes; this story shows using a clean shoebox again rather than claiming local recycling eligibility.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Zoe’s bedroom on a clean rug beside a low shelf, afternoon. Bear is always visibly a stuffed toy.",
+    "props": [
+      "One plain brown clean shoebox 30 cm long, no lid or writing",
+      "One small tan stuffed bear with stitched black eyes, no clothing, about 20 cm tall",
+      "One folded blue cloth large enough to line and cover the bear"
+    ],
+    "coverBrief": "Zoe kneels beside a clean brown shoebox used as a bed, with her small tan stuffed bear tucked under a blue cloth. No scissors, tape, labels or new bed.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe has an empty box.",
+        "imageBrief": "Zoe holds an empty plain brown shoebox above her rug; tan stuffed bear and folded blue cloth rest separately nearby.",
+        "imageAlt": "Zoe has an empty shoebox.",
+        "pageDescription": "Zoe has an empty shoebox.",
+        "state": "Box empty and unlined; bear and cloth separate.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Her bear has no bed.",
+        "imageBrief": "Zoe sets the empty box down and holds her stuffed bear beside it; no toy bed in the room.",
+        "imageAlt": "Zoe holds her toy bear beside the empty box.",
+        "pageDescription": "Zoe holds her toy bear beside the empty box.",
+        "state": "Toy bear not inside box yet; cloth still folded.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The box is hard inside.",
+        "imageBrief": "Zoe presses one hand flat on the bare cardboard base while the stuffed bear rests beside her. Show actual bottom and open walls.",
+        "imageAlt": "Zoe feels the hard bottom of the box.",
+        "pageDescription": "Zoe feels the hard bottom of the box.",
+        "state": "Box bare; toy bear outside; no liner yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe adds a soft cloth.",
+        "imageBrief": "Zoe unfolds the blue cloth into the shoebox, covering base and letting an extra section fold over one end for a blanket.",
+        "imageAlt": "Zoe lines the box with a blue cloth.",
+        "pageDescription": "Zoe lines the box with a blue cloth.",
+        "state": "Cloth added; enough excess remains to cover bear.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "She puts her bear inside.",
+        "imageBrief": "Zoe gently lays the tan stuffed bear on its back on the cloth-lined base; legs fit inside, head on folded cloth.",
+        "imageAlt": "Zoe lays her toy bear in the box.",
+        "pageDescription": "Zoe lays her toy bear in the box.",
+        "state": "Bear fits lengthwise; blanket end not yet folded over.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "She tucks in the bear.",
+        "imageBrief": "Zoe folds the loose blue cloth over the bear’s lower body, leaving its stitched face and arms visible above.",
+        "imageAlt": "Zoe tucks the cloth around her bear.",
+        "pageDescription": "Zoe tucks the cloth around her bear.",
+        "state": "Bear covered below shoulders; head visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The bear fits just right.",
+        "imageBrief": "Closer view of the snug toy bear in the same box, with space around it and intact box walls; Zoe’s hands now withdrawn.",
+        "imageAlt": "The stuffed bear fits in its soft box bed.",
+        "pageDescription": "The stuffed bear fits in its soft box bed.",
+        "state": "Fit visible; no crushing or oversized bear.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Her old box is a bed.",
+        "imageBrief": "Zoe places the completed box bed beside her shelf and looks down at it; same clean brown shoebox and blue cloth, bear tucked in.",
+        "imageAlt": "Zoe’s old shoebox has become a bed for her toy bear.",
+        "pageDescription": "Zoe’s old shoebox has become a bed for her toy bear.",
+        "state": "Reuse completed; no replacement box or new toy bed.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Zoe add to make the box soft?",
+        "listenFor": "A cloth; she used the old box again as a toy bed."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What is the bear’s bed made from?",
+        "lookFor": "The same old box and blue cloth."
+      }
+    },
+    "levelRationale": "A concrete object transformation with repeated box/bear words and one simple problem/response. Six-word-or-shorter present-tense clauses and clear final reuse support A.",
+    "languagePrep": [
+      {
+        "word": "tucks",
+        "meaning": "puts the cloth snugly around"
+      },
+      {
+        "word": "use",
+        "meaning": "a job something can do"
+      }
+    ]
+  }
+]

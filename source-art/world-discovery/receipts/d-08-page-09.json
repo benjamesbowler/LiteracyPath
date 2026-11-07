@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:04:59.628Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-13197544-a408-4c78-923f-b7e7da750296.png",
+  "sourceSha256": "04335e060b1bf8144825afccbf6a998be900a235fb6cc7c47d901a8c239b5a02",
+  "output": "public/guided-reading/world-discovery/d-08/page-09.webp",
+  "outputSha256": "1e14288734eeda560a7f75a3b334c7800794cb6aba05f88ed55dbf137c811ffe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: One Bean Becomes Many; World Discovery; nonfiction.\nSetting: One common bush bean plant in a garden bed through a growing season. Consistent green leaves, white flowers and cream seeds; no human cast.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One cream common-bean seed; Brown soil cutaway; White flowers; Green pods that later dry tan; Mature cream beans\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): Left on the plant, this pod dries and turns brown. Its firm beans are ready to be collected as seeds.\nRequired illustration: One tan dry pod opens along its seam to reveal cream beans, with older leaves behind. Exact continuity: Dry mature seeds; no eating raw beans; same common-bean variety.\nExact current state: Dry mature seeds; no eating raw beans; same common-bean variety.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nBotanical lock: each mature common-bean leaf has THREE leaflets joined on one petiole. Preserve exact selected growth stage; no younger plant beside an older plant. Soil and foliage are clean solid flat fills, simple outlined clods, no grain/speckles/paint texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-08-reference.webp",
+      "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:08:45.971149+00:00",
+    "sha256": "1e14288734eeda560a7f75a3b334c7800794cb6aba05f88ed55dbf137c811ffe",
+    "note": "Featured dry tan pod opened on plant reveals three cream mature seeds; same bean variety and no eating claim."
+  }
+}

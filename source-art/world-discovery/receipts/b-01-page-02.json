@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.877Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3a89a8d1-f74c-4d64-a3b3-e1005cf2bece.png",
+  "sourceSha256": "2e75bf733c4eba17ca5bb61faa6323c694b47d6178a4fef855ed6ae0a89ff9bb",
+  "output": "public/guided-reading/world-discovery/b-01/page-02.webp",
+  "outputSha256": "03add472c042bbf93dc06c569e00f4ebddc3894bcc26083ec5b48259452c12da",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Style-only edit: remove ALL grain, fabric weave, speckle and painted texture from this entire illustration. Use crisp bold clean 2D cartoon lines, flat solid color fills and only restrained smooth cel shading. Preserve EXACT positions, shapes, hands, palette and fastening state: the first yellow button stays behind the narrow left slit, not fastened; the other two buttons and two empty holes remain visible. Keep three buttons/three holes total. No composition or object changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d3e6a485-5757-46ff-8e75-4e654b97c41d.png",
+      "sha256": "f51659649aee0275fa41e23ab1646fe1b3a0cc3fbb66786e5a74f0767d80ed66"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "03add472c042bbf93dc06c569e00f4ebddc3894bcc26083ec5b48259452c12da",
+    "note": "Close view shows the first button behind its slit, still unable to pass flat; two other buttons and holes remain open. Texture removed by inspected style edit.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

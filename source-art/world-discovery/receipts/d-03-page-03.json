@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:15:17.397Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-320fe3f2-f2bd-4328-a011-fa54cfb009cc.png",
+  "sourceSha256": "acedd8ba3e5507d3e2e6596b4d999e8af0f2d33be81a231e6b211203a9c8793e",
+  "output": "public/guided-reading/world-discovery/d-03/page-03.webp",
+  "outputSha256": "b16a68d735f143928c146a4c33e24fd243d435195b201a1fb650192a1af5ac75",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this illustration, preserving clean outlined flat-color style, scene and all unmentioned objects.  The lower-left screened river intake must visibly DRAW water INTO the plant, not discharge. Remove outward white splashing at intake. Add ONE small simple dark-blue arrow on water pointing from river INTO the screened intake, plus one small white arrow inside intake pipe pointing UP toward the treatment building, and one white arrow inside outlet pipe pointing RIGHT toward houses. No arrows elsewhere, no labels. Keep river-plant-homes route, never bypass plant.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-615b0852-2cf6-4d45-95db-475ebc752c3b.png",
+      "sha256": "9000be73b98d7236d6a3e0a6371ce515ca49d0d39343a41461d23e1cd5432ff1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "b16a68d735f143928c146a4c33e24fd243d435195b201a1fb650192a1af5ac75",
+    "note": "Direct inspection after directional repair: river arrow enters screened intake, intake-pipe arrow rises into drinking works, separate outlet arrow goes toward homes; no bypass or outflow-looking intake splash.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

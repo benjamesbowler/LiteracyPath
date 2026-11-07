@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-07",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:52:29.621Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-47dd3ee0-927b-48d9-bfcc-7122bf14c0c6.png",
+  "sourceSha256": "f9cd760a3889e789c25525d24609b2b675074f091b649b952a0d3ce64bc7e608",
+  "output": "public/guided-reading/world-discovery/b-07/page-05.webp",
+  "outputSha256": "3c58054e7f70807c8c03605b7c7039f0252892b0b8ded1fa53606ebaf1f7a72a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the larger spread duck foot on the LEFT, the one sweeping backward through water. It currently has FOUR forward toes and must have exactly THREE. Remove the extra middle toe and redraw its webbed fan with exactly THREE forward toe tips/claws, with skin joining these three toes, plus the ONE tiny separate rear toe at the ankle. The corrected foot remains attached naturally to the same leg and pushes backward to the left with the existing eddies. Preserve the other foot, duck body, feathers, pond, colors and complete composition. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-15a5e05e-0b59-4b3c-abfd-6f70844b9218.png",
+      "sha256": "fd6e3b324c012e9f8018211690b6e8e07a0cd15e76641d2fd68e0b4f65b40e9e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:52:31.180Z",
+    "sha256": "3c58054e7f70807c8c03605b7c7039f0252892b0b8ded1fa53606ebaf1f7a72a",
+    "note": "Backward sweeping foot corrected to three webbed front toes plus rear toe; small eddies behind stroke and second attached foot retained."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:03:36.566Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-398cef6f-ebba-470f-8386-d775f3a7b17d.png",
+  "sourceSha256": "c0605dcabdfae6ad115e462ba1f19bab63f311d06326bf9fe7f55a477e916566",
+  "output": "public/guided-reading/world-discovery/e-02/page-03.webp",
+  "outputSha256": "44466df2590ef61d151da584e01c342793c32d3e365e67e41e4949a1cf57a847",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Keep clean cartoon style, framing, exact two children and all props. Change Zoe expression to hurt and quietly annoyed: closed unsmiling mouth, lowered brows, no smile. She pulls closed book toward herself protectively. On top visible page change dog drawing to same brown dog sitting ON red ball beneath its rear, matching Kit funny ending, not dog beside ball. Both intact ending pages inside book; no tears. Kit remains pleased unaware. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a3112137-ea7b-4db4-ac45-8f5769536540.png",
+      "sha256": "48239561c35c977f867724c9f5c35e2cfdeeefaa9f44f335169eb3096c541cc4"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-02-reference.webp",
+      "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.225Z",
+    "sha256": "44466df2590ef61d151da584e01c342793c32d3e365e67e41e4949a1cf57a847",
+    "note": "Corrected hurt unsmiling Zoe pulling book closed after Kit covered ending; funnydrawing seatedonball.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}
