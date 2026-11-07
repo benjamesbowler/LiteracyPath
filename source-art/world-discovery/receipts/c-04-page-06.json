@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-04",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:59.384Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ebe3a126-e078-4b8d-8f8d-ef1838c1993f.png",
+  "sourceSha256": "94bbd95b41ab2aee4473c02fe5776b65974dd19c3717db1adefb5b199d09a6e8",
+  "output": "public/guided-reading/world-discovery/c-04/page-06.webp",
+  "outputSha256": "e3fa792ea7b2c48b14e3d7ad9e8189b2b9de01dc26c2545563cfe4e784ed7b55",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Stretchy Bridge; World Discovery; fiction.\nSetting: World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One teal wooden-looking magic toy bridge with low side rails; One yellow four-wheeled toy truck; One red toy garage with hinged door; One fixed blue cloth river and two flat tan cardboard banks\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Zoe says \u201clong\u201d again. The bridge reaches the bank, and Kit rolls the truck off.\nRequired illustration: World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Restored bridge meets the far bank; Kit guides the truck until all four wheels are on tan cardboard beside the garage. Exact state: Truck fully off bridge before any further change.\nExact current state: Truck fully off bridge before any further change.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nReference 3 locks workable long-bridge geometry: garage is just BEHIND the far bridge side rail, so the rail blocks the door's outward swing but bridge's OPEN RIGHT END exits onto clear tan cardboard BESIDE garage. Children normal size behind table; river cloth and cardboard banks unchanged. Restore that exact long bridge. Yellow truck now rests entirely on clear tan cardboard BEYOND bridge's open RIGHT end, BESIDE garage, not inside. All four truck wheels off bridge. Kit's hand lightly guides truck. Garage door still closed, bridge empty.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-04-reference.webp",
+      "sha256": "b0dc3bbca9c417bb26673153c0a82179861781c0338c0602fdc65adcb8172ff8"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-04/page-03.webp",
+      "sha256": "fc1dcd1ffa462a9dbf734dda39eb48617255d9bc672fef977fb520861c90b53a"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "e3fa792ea7b2c48b14e3d7ad9e8189b2b9de01dc26c2545563cfe4e784ed7b55",
+    "note": "Restored long bridge matches corrected geometry; truck is fully off onto clear far-bank cardboard beside garage, under Kit\u2019s guiding hand. Empty bridge still blocks garage door swing via its side rail.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

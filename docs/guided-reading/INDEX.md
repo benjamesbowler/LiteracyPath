@@ -10,13 +10,14 @@ The live book modules are the authority:
 - `src/data/guidedReadingSmallStepsBooks.js`
 - `src/data/guidedReadingNextStepsBooks.js`
 - `src/data/guidedReadingBrightIdeasBooks.js`
+- `src/data/guidedReadingWorldDiscoveryBooks.js`
 - `src/data/guidedReadingBookMetadata.js`
 - `src/data/guidedReadingDiscussionPrompts.js`
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The integrated catalogue contains 297 books and 2,621 pages: 23 A, 86 B,
-63 C, 56 D, 15 E, 36 F, 16 G and 2 H.
+The integrated catalogue contains 347 books and 3,061 pages: 33 A, 96 B,
+73 C, 66 D, 25 E, 36 F, 16 G and 2 H.
 
 Every book uses one public **App level A–H**, assigned by full-manuscript
 editorial review. The [reading-level authority](READING_LEVELS_AND_TEXT_MEASURES.md)
@@ -54,6 +55,12 @@ Their manuscript, phonics and media requirements remain distinct. Exact visual
 decisions are recorded in the [expansion review](foundations-expansion-visual-review.json).
 Release verification is recorded separately; an active local module alone is
 not a deployment claim.
+
+World Discovery adds fifty original predictable/levelled books, ten each at
+App levels A–E, across ten recurring topics. Its 440 story pages, fifty covers,
+exact Leda narration and unscored teacher discussion support are governed by
+the [World Discovery content Bible](WORLD_DISCOVERY_CONTENT_BIBLE.md). Full-text
+level reviews remain separate from image inspection and narration evidence.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as

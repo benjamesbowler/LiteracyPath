@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-07",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:19:43.605Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a5384616-eac0-4c0f-9ace-6649f6f21f86.png",
+  "sourceSha256": "04a64d853154cec93f16c80136fdd74ae7c2d9a819421f0fabf4b1afe4a4ed5d",
+  "output": "public/guided-reading/world-discovery/d-07/cover.webp",
+  "outputSha256": "85d5d8d841849172110937fece5208d70c7797c2fd00cff7ef423269673e24d4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. The FIRST image is the complete exact edit target. The SECOND image provides only the correct spider eye layout: exactly eight small eyes in two rows of FOUR. Replace the incorrect eye cluster in the FIRST image with that same 4+4 layout at its current head position and rotation. Remove the current eyes first, then draw four small black eyes in the upper row and four small black eyes in the lower row. Count all eight, no missing eye, no extra eye, no 3+3, 4+3 or 5+3 arrangement. Preserve modest natural scale and clear spaces between eyes. Preserve every other pixel-level feature of the first image: exactly eight long legs, two body regions, short pedipalps, abdomen markings, body pose, complete web, fly, scenery, palette and flat 2D outlined style. Do not adopt the second image's pose, web, fly or framing. No text, labels, inset or human face. Return one complete full-resolution 3:2 illustration.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-344e014d-bef6-4204-85e8-475c334052dc.png",
+      "sha256": "a73e38e8c93cdebec40d9c4336592dc383c10afb1dc31897fbe4001b82ffe077",
+      "role": "exact edit target"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ec80ff4d-aaa8-4996-8aca-91914328d32a.png",
+      "sha256": "806dfb1a1f984a53aa3b3ea0090c23ea4f1a7c0dd3e3488aed12aac87d3b011b",
+      "role": "reviewed correct eight-eye layout reference only"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "sha256": "85d5d8d841849172110937fece5208d70c7797c2fd00cff7ef423269673e24d4",
+    "note": "Spider remains centered on complete wheel web; one fly approaches right. Eight small eyes in two rows of four, eight long legs and two body regions, natural pedipalps. Dusk palette and stem anchors retained.",
+    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+  }
+}

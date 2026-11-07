@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-02",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:40:09.730Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9e677c64-8b50-4c54-aa09-3f27fdd6a3fb.png",
+  "sourceSha256": "d9d0f1199bb7e1281c9c5cce7c709d742bb53ccd1dea7caf865f90302c0b52fb",
+  "output": "source-art/world-discovery/c-02-reference.webp",
+  "outputSha256": "0da00d7abb12ad2b7354db032649fc436ca1a2cc32820b7bdf7cc491f9935dc0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Rolling Game; World Discovery; fiction.\nSetting: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One yellow hoop lying flat on grass; One red soft ball for Zoe; One blue soft ball for Kit\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Hoop empty; one ball per child.. For orientation, the opening location/action is: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Zoe places a yellow hoop flat on the grass; she holds a red ball while Kit holds a blue ball. Exact state: Hoop empty; one ball per child.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "0da00d7abb12ad2b7354db032649fc436ca1a2cc32820b7bdf7cc491f9935dc0",
+    "note": "Original Kit/Zoe identities and equal-height lineup inspected. Yellow ground hoop, blue ball assigned to Kit and red to Zoe, plain sunny school lawn key, natural hands and no written labels. Reference contains no later game outcome.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

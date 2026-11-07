@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.981Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ae474811-f42e-4f56-8218-742616f937f3.png",
+  "sourceSha256": "471f422450749917b9268f6d7cadce7e2281ed18394f54f2af2141841ecd1f8f",
+  "output": "public/guided-reading/world-discovery/b-05/page-08.webp",
+  "outputSha256": "e84a87a7b5b33c6161e4e75d66638699bd9708d5afb71453b69fe1b511d0a10f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Down to the Sea; World Discovery; nonfiction.\nSetting: High view of same complete watershed: pale rocky source hills upper left with narrow downhill stream, wider river upper right, Y join, merged valley river under ONE bridge downstream, broad mouth opens into blue sea foreground.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): From hill to river to sea.\nOne connected path.\nRequired illustration: High view of same complete watershed: pale rocky source hills upper left with narrow downhill stream, wider river upper right, Y join, merged valley river under ONE bridge downstream, broad mouth opens into blue sea foreground. A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order. Exact state: All earlier landmarks connected in one downhill geography; no new destination.\nExact current state: All earlier landmarks connected in one downhill geography; no new destination.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nGEOGRAPHY LOCK: Readable high bird-eye landscape, traceable complete route. Exactly ONE Y join: stream from pale hills upper left + larger upper-right river merge, ONE merged channel passes under ONE bridge below join, then broadens into mouth and sea lower foreground. Bridge MUST be BELOW join; no second bridge; no arrows, labels, inset or people.\nUse reference for clean 2D style, pale rock shape, green grassy valley and one beige stone arch bridge design only. Compose one finished scene; no reference-sheet layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-05-reference.webp",
+      "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "e84a87a7b5b33c6161e4e75d66638699bd9708d5afb71453b69fe1b511d0a10f",
+    "note": "Closing high view traces same pale hill stream, single Y join, one downstream stone bridge, widening mouth and sea in correct order.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

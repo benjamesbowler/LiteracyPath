@@ -1,0 +1,21 @@
+{
+  "bookId": "world-discovery-a-08",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:14.152Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ed02b247-a025-4668-8908-154e004f6547.png",
+  "sourceSha256": "b5720e28a05b7380c286f3c0bfdc1d9bf9682af42e6bb94487db879a1e27dcf0",
+  "output": "source-art/world-discovery/a-08-reference.webp",
+  "outputSha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Chick Grows; World Discovery; nonfiction.\nSetting: A simple sheltered farm nest and adjacent grassy run, daylight across clearly changing developmental stages. Natural chickens, not Meadow Pals characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): A brown adult hen with a small red comb; One focal cream fertilized egg among exactly three nest eggs; The focal female chick has golden down, then brown growing feathers, finally brown adult plumage; Straw nest with low wooden surround\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Three eggs intact under brooding hen.. For orientation, the opening location/action is: Brown hen settles over exactly three cream eggs in a straw nest. Show part of one focal egg near front, no chick yet.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nStrict board scope: do not invent additional human cast, unrelated animals or objects. Show no story events after the initial state. The reference is for exact subjects specified above only; no copying irrelevant content from any cast reference.",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe",
+    "note": "Directly viewed brown hen, cream eggs, straw nest/coop, yellow chick and developing brown juvenile/adult designs. These are stage references only; final pages show correct ordered lifecycle and distinct hatching states.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

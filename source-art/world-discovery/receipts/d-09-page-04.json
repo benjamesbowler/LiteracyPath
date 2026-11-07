@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-09",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:25:47.837Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-58a908eb-7838-424b-ba5a-74aa164fa6fb.png",
+  "sourceSha256": "4ebb00d927f757d10a0215793c74553b5e8e3853c88eff384e75170d6536baf3",
+  "output": "public/guided-reading/world-discovery/d-09/page-04.webp",
+  "outputSha256": "b2de8644f06a1b8597e8cfc777be138c4efa20db59ca1ae2d27a8029d13ce9d8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: What Will the Magnet Pull?; World Discovery; nonfiction.\nSetting: Classroom science table in daylight. One large classroom bar magnet with fully enclosed poles; children supervised by an adult out of frame.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Large red-and-blue bar magnet with no printed letters; Plain steel paper clip; Crumpled aluminum foil ball; Wooden block; Plastic spoon; Plain steel washer; Two plain shallow trays; Plain steel key\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Both objects are metal, but only the steel clip moved. Being shiny was not enough to tell them apart.\nRequired illustration: Clip rests in left tray and foil ball in right tray, both visibly metallic. Exact continuity: One object per tray; no printed labels; same finish not a universal rule.\nExact current state: One object per tray; no printed labels; same finish not a universal rule.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nClose view of exactly TWO trays: LEFT tray contains ONLY ONE steel paper clip; RIGHT tray contains ONLY ONE crumpled gray foil ball. No other loose object, no block/spoon/washer/key. No children needed in this detail.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-09-reference.webp",
+      "sha256": "fa658257dc80352525ec3302c108e0b496ffad8758f7ecee5cb83ad47f4cf627"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:25:52.337Z",
+    "sha256": "b2de8644f06a1b8597e8cfc777be138c4efa20db59ca1ae2d27a8029d13ce9d8",
+    "note": "Paper clip is alone in left tray and foil alone in right tray; children point to their separate results."
+  }
+}

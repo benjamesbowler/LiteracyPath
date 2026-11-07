@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:35:08.645Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f18bc462-c0bd-4b4a-9e02-d08ae0c6369e.png",
+  "sourceSha256": "15f46696ef5d96a05c06cba44facf7c60a090671e80e886f34fb0657c0dc99c2",
+  "output": "source-art/world-discovery/c-08-reference.webp",
+  "outputSha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This is an animal-only production design reference sheet. REMOVE EVERY HUMAN FIGURE from this sheet and leave clean white background in those spots. No rangers, children, adults, people or human silhouettes anywhere. Preserve all animal designs, anatomical views, environment studies, props and color swatches EXACTLY as drawn; no other edits. Do not add any text or replacement figure.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-9b28c209-e428-4de2-a690-95d8a1dd40a6.png",
+      "sha256": "b224a115f6b4764618c652a66be7d0da42d2c83a102df48dbe361cbcbfdb4d8b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba",
+    "note": "Direct inspection after human removal: dorsal adult has four clear wings and six thoracic legs, nymph six legs without developed wings or tail gills, egg within plant tissue and cast skin on reed; no people.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

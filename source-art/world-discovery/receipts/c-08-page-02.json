@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:47:23.350Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ef589c21-60e2-4030-bb72-d14c8fffdb4e.png",
+  "sourceSha256": "c25fabea201a09ea128b4635bf0c36398e3f90e3992062d1f5d27f05ca295a88",
+  "output": "public/guided-reading/world-discovery/c-08/page-02.webp",
+  "outputSha256": "9c497f8e0db0af2d1b9134e9bd1433d2be24101266936e0a4daadeb82614f815",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: From Pond to Sky; World Discovery; nonfiction.\nSetting: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Pond reed stems; Tiny elongated dragonfly egg inserted into submerged pond-plant tissue; Natural six-legged brown nymph; Empty shed nymph skin fixed to reed; Adult green dragonfly with four clear wings\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): A young dragonfly hatches from an egg. This wingless stage is called a nymph.\nRequired illustration: One freshwater pond with reed stems, viewed across the stages of a dragonfly life cycle. Adult has a green thorax, slender brownish abdomen, large compound eyes, six legs and four transparent wings; nymph has a compact brown aquatic body with six legs and no developed wings. Underwater close view shows a newly hatched tiny six-legged brown nymph beside a small opening in submerged pond-plant tissue. Exact state: Egg was inserted into the plant tissue, not stuck on its surface; nymph has no developed wings, pupa or adult miniaturized body.\nExact current state: Egg was inserted into the plant tissue, not stuck on its surface; nymph has no developed wings, pupa or adult miniaturized body.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAnimal-only scientific page: NO humans, captions, labels, arrows, inset, pupa/cocoon, butterfly or damselfly. Adult has exactly FOUR transparent wings (two left, two right) and SIX legs (three left, three right), all attached only to thorax. Nymph has compact brown segmented body, exactly SIX legs attached to thorax, no developed wings, no long dragonfly adult tail, no three leaf-like tail gills. Draw anatomically controlled separated legs, not duplicate appendages.\nUNDERWATER MACRO ONLY: no adult dragonfly, no sky or surface needed. The nymph is the clear main subject.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-08-reference.webp",
+      "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "9c497f8e0db0af2d1b9134e9bd1433d2be24101266936e0a4daadeb82614f815",
+    "note": "Direct inspection: compact brown wingless nymph beside oval hatch opening within submerged plant tissue; natural insect segments/legs, no external egg pile, adult body or cocoon.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

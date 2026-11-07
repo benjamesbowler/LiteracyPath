@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-04",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:55:33.848Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2fda31da-94c9-448b-ad9e-35d349432717.png",
+  "sourceSha256": "50dbcfaf2872254e9261940c7645022153e73adc49b75780eb4e8b6b32b44600",
+  "output": "public/guided-reading/world-discovery/d-04/page-09.webp",
+  "outputSha256": "b77962eaabebd23a5af77a33ed5018ba5738e1ae92649982843b18d2540137a7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Pocket of Wind; World Discovery; fiction.\nSetting: A fictional garden with a low forked apple tree, short lawn and low brick wall, windy afternoon. A removable blue zip pouch holds captured wind only in this story.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Blue cloth zip pouch small enough for Zoe\u2019s palm; Red diamond kite with one short white tail; Kite string and wooden spool; Low forked tree\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): The kite slides out into Kit\u2019s hands. Its paper is bent, but there is no hole. Zoe shuts the pocket.\nRequired illustration: Kit catches the freed red kite with both hands while Zoe closes the zipper. Exact continuity: Kite intact but bent along one corner; string remains attached; remaining wind kept inside.\nExact current state: Kite intact but bent along one corner; string remains attached; remaining wind kept inside.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTRICT CURRENT STATE: Kit RIGHT holds ONE red diamond kite safely in BOTH HANDS, entirely OUT of tree. Kite has ONE visibly bent/folded corner but NO hole and one short white ribbon tail; attached thin string trails to ONE spool on grass. Zoe LEFT visibly closes zipper on small blue pouch, no gust. Tree fork EMPTY. Both grounded.\nAll background foliage, grass and clouds crisp flat cartoon with clean outlines, no blurry or painted landscape. No text.\nThe THIRD reference shows the EXACT accepted tree fork, kite, child scale and prop design from page 3. Preserve that tree geometry and kite/tail design while composing the new current action and specified wind direction; do not retain earlier character positions when this page requires moving around the tree.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-04-reference.webp",
+      "sha256": "c8a2f09fac5bd4c1ec072a7047102a629dc2aaea1aefff72271a1b08bc35b06d"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3600d71f-c3e5-4de0-81ad-b55200d915b9.png",
+      "sha256": "b4997c94c9cc829915e5da29982baf55d7bb6a82ad2274d382c08dbbd419963a"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:55:33.946083+00:00",
+    "sha256": "b77962eaabebd23a5af77a33ed5018ba5738e1ae92649982843b18d2540137a7",
+    "note": "Viewed full-size: kite free in Kit\u2019s two hands with slight bent top corner and no hole; fork empty; Zoe closes pouch; separate tail and string to one spool."
+  }
+}

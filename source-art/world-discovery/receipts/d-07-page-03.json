@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-07",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:25:12.332Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-cb7c8c1f-7892-4221-87d1-5cdac6fd11a0.png",
+  "sourceSha256": "16a245f2608be5b72fd299716e6f5740c8964918b89bd266890f3a71ae99d0de",
+  "output": "public/guided-reading/world-discovery/d-07/page-03.webp",
+  "outputSha256": "df9489934d52dde8cf96966537343de5f3ecc318668989cafddd6bcd85497f3b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Fix the EYES in the FIRST illustration. The second illustration is the authoritative correct 8-eye design reference.\nREPLACE the entire existing eye cluster in the first image. Clear the present seven dots to brown, then create FOUR COLUMNS of paired eyes: column one has an upper and lower eye; column two an upper and lower eye; column three an upper and lower eye; column four an upper and lower eye. Eight total. Both rows extend the SAME width. Each lower eye has a matching upper eye. Copy this complete eye cluster design from the second image, scaled into the first spider's face and rotated with its head. Make the lower row just as wide as the upper row; NEVER a triangular 4-over-3 arrangement. All four lower eyes must be fully visible, distinct and unobstructed. Tiny black natural eyes with small highlights, all similar size. You may redesign the small brown face patch around the eyes to make them clear; keep the head silhouette and pedipalps.\nKeep the FIRST picture's eight long legs, two body parts, markings, pose, web, fly/prey state, background, camera and fullsize landscape composition. Do not copy any scene content from the reference except the 8-eye design. Bold clean flat 2D illustration, no labels or text, no inset. Return the complete corrected first picture.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-2556d8e1-c3bf-485a-bd93-2f12fbbf34b0.png",
+      "sha256": "73730b783e2f642b630a4955674125a29e2a7ba558d1bad25f2be7c4927144e6",
+      "role": "edit target"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-809c11b6-1019-4edf-be0c-132fcc88a24d.png",
+      "sha256": "7edc5046825d08b68903c14a6bee5a09674819561c962f01619460fb0851539b",
+      "role": "correct 8-eye design"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "sha256": "df9489934d52dde8cf96966537343de5f3ecc318668989cafddd6bcd85497f3b",
+    "note": "Eight eyes in two rows of four; spider remains at radial spoke convergence with eight legs and two body regions. Fly stays on right leaf; frame and spokes preserved.",
+    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+  }
+}

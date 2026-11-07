@@ -1,10 +1,12 @@
 import { GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS } from "./guidedReadingNextStepsBooks.js";
 import { GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS } from "./guidedReadingBrightIdeasBooks.js";
+import { GUIDED_READING_WORLD_DISCOVERY_LEVEL_REVIEWS } from "./guidedReadingWorldDiscoveryBooks.js";
 // Authored full-manuscript reviews; never infer a public level from legacy placement or text length.
 // Update a fingerprint only after reviewing the entire changed manuscript.
 export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   ...GUIDED_READING_NEXT_STEPS_LEVEL_REVIEWS,
   ...GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS,
+  ...GUIDED_READING_WORLD_DISCOVERY_LEVEL_REVIEWS,
   "gr-a-26": {
     "appReadingLevel": "C",
     "rationale": "The dog and cat care lists combine several needs, then hay and room to fly distinguish other pets; the final different-kinds-of-care statement gathers the examples into a comparison.",

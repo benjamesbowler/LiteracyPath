@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:03:30.746Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1d74e672-f983-4c8c-a867-126e88b21294.png",
+  "sourceSha256": "51376b5085ea4615d913dae47b4267c0ccb749af3afc47dbffe0342456c645e2",
+  "output": "source-art/world-discovery/b-05-reference.webp",
+  "outputSha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct geography on this reference sheet ONLY. In the LARGE UPPER-LEFT landscape key, REMOVE the distant stone bridge from the wider river and replace its footprint with uninterrupted blue river and matching grassy banks. Do not introduce any new bridge there. The LOWER-LEFT complete watershed key is correct: preserve its ONE bridge downstream of the Y-shaped stream/river junction, followed by widening mouth into sea. Preserve that lower key and all separate bridge/boulder design views, colors, palette and style. No words, arrows or added objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-84edab0e-d8b5-400c-bbf8-69c759bee629.png",
+      "sha256": "c4ea661c8b8f29bac39a6ba512e891086b5f9f9a36a214ea80f5b878619cb569"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f",
+    "note": "Directly viewed corrected watershed design: narrow pale-hill stream joins larger river, single bridge below confluence on merged channel, widening mouth and sea. Separate bridge/rock views are design models, not additional landscape landmarks.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

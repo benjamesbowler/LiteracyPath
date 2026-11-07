@@ -1,0 +1,20 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:41:08.506Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c9eff0a6-a010-453b-a54e-d93ad9bc0540.png",
+  "sourceSha256": "a88722e0ef646ee223ef0316375e22b90ebd4cf2aae747ec195e81d8ce3d20d2",
+  "output": "source-art/world-discovery/d-08-reference.webp",
+  "outputSha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production reference sheet. Keep the cream common-bean seed/cotyledon cutaway, white pea-shaped flowers, green and dry tan pods, unlettered layout and crisp 2D cartoon style. Correct ONLY the mature bush bean plant in the lower-left garden vignette: after its first pair of simple leaves, common bean mature leaves are TRIFOLIATE, each leaf consisting of THREE clearly connected green leaflets on one petiole. Depict several clear sets of three leaflets, not a stalk of paired single leaves. Keep the plant upright bush habit without mature pods or flowers in that location vignette. Use pure flat clean colors with crisp outlines throughout soil and foliage too. No paint texture, no noise, no typography.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:41:08.662938+00:00",
+    "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee",
+    "note": "Directly inspected corrected common-bean reference: seed halves/embryo, pea-shaped white flowers, green/dry pods, three-leaflet mature leaves. Earlier paired-only mature-leaf candidate superseded."
+  }
+}

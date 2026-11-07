@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-01",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:31:54.700Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-62d13915-5909-41b2-afeb-a454eb563c75.png",
+  "sourceSha256": "04a773adc92e668a00f9c9b0f58f05036b7f2fc89f8429da3d19e4d6502c71b5",
+  "output": "source-art/world-discovery/d-01-reference.webp",
+  "outputSha256": "6bcaafb2e61cdd7e75c0270c71d61bc0e362d52bd579028d9b6efd9af0553bce",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production reference sheet only. Keep all art, layout, characters, proportions, color and props unchanged EXCEPT the blue wooden toy locomotive wheel count in the three bottom-left toy views. This toy has FOUR blue wheels total, two per side, on TWO axles. In the side view show exactly TWO near blue wheels, not three. In the three-quarter view show exactly TWO near wheels and at most glimpses of the two far wheels. The front view should remain showing two wheels. Shorten wheelbase spacing naturally if required but keep the same locomotive body and single chimney. No new objects or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e2630238-e92e-436f-bd1e-4a25d225a0e1.png",
+      "sha256": "1128e3efd46d253217194c9dab99eb00cb3cc581f9a62367ddc245b9dd829820"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6bcaafb2e61cdd7e75c0270c71d61bc0e362d52bd579028d9b6efd9af0553bce",
+    "note": "Direct inspection after wheel repair: canonical cast and bedroom, orange hinged box, blue locomotive two axles/four total wheels (two near wheels in side view), baby sock, red folded kite, blank card and blue pencil. Initial closed-box scene preserved.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

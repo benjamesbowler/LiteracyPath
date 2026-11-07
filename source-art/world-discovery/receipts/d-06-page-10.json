@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:45:57.700Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-595bf3fa-57b9-4aa3-a4d1-499b4d2e7e48.png",
+  "sourceSha256": "c6090ea0aa7c9acd3b0e00bce909eddc8ebd5ecf626c93a0248eac4c4878f70b",
+  "output": "public/guided-reading/world-discovery/d-06/page-10.webp",
+  "outputSha256": "d7594e76da06916370d8d86e63abc33874a088c63eb6155c58e26455c4db8c49",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Marks on the Moon; World Discovery; nonfiction.\nSetting: The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray cratered Moon; One incoming gray space rock; Bowl-shaped crater with raised rim; Scattered fragments and overlapping smaller crater\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 10. Printed prose (NOT text to put in art): The Moon’s hollows are more than spots. They hold clues about crashes that changed the surface, one impact after another.\nRequired illustration: Pull back to the Moon with the overlapping pair still foregrounded among many craters. Exact continuity: Full concept return; no faces, labels or unsupported ages.\nExact current state: Full concept return; no faces, labels or unsupported ages.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPull back to a wider landscape view of ONE continuous lunar surface. Keep the same overlapping large and small pair in foreground. A gently curved distant horizon may imply Moon curvature. NO separate Moon, Earth or globe floating in the black sky.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-06-reference.webp",
+      "sha256": "9d046e48daaa20a08468f92df3b83dff6de83f373a7f3f996bc1f2808fb5180c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:49:00.432729+00:00",
+    "sha256": "d7594e76da06916370d8d86e63abc33874a088c63eb6155c58e26455c4db8c49",
+    "note": "Wider continuous lunar landscape preserves foreground overlapping pair, with many distant craters and black sky; no separate Moon floating above Moon."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-10",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:15.738Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-418bdc7c-1d93-4dd1-b24f-d26ed2cc83bb.png",
+  "sourceSha256": "98a8257253cb38e19574d65ba910503f236c433e3ede6973bf3a59e77fb7def3",
+  "output": "public/guided-reading/world-discovery/a-10/page-06.webp",
+  "outputSha256": "16d72a5fcb7debb8a6291d45175408590f54bc55a5027f30b8eea28aef9c1771",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY named human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: One More Use; World Discovery; fiction.\nSetting: Zoe\u2019s bedroom on a clean rug beside a low shelf, afternoon. Bear is always visibly a stuffed toy.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): She tucks in the bear.\nRequired illustration: Zoe folds the loose blue cloth over the bear\u2019s lower body, leaving its stitched face and arms visible above.\nExact current state: Bear covered below shoulders; head visible.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTAGING AND CURRENT STATE: Zoe has deep brown skin on face, hands AND ankles, black twin puffs, yellow tee, full-length plum overalls, white sneakers. Only ONE Zoe; NO OTHER CHILD. Box is a SMALL 30cm SHOeBOX, bear20cm, not bathtub or child's bed. ONE bear lies on its back lengthwise inside brown shoebox. Zoe folds loose end of SAME BLUE CLOTH over bear's lower body; tan head and both arms visible above blanket edge. Cloth covers belly/legs. Entire bear fits within walls. No extra toy, no new bed, no Kit.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-10-reference.webp",
+      "sha256": "223575b76c0e747d6f1f5a3d0577ebf831589aa9b1e2e6976f608e0ad80d1d60"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "16d72a5fcb7debb8a6291d45175408590f54bc55a5027f30b8eea28aef9c1771",
+    "note": "Zoe folds same cloth over bear lower body, head/arms above blanket, bear fully fits box.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

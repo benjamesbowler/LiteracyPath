@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-09",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:06.202Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-fc3605dc-3014-4c30-8684-fcfd55e9124b.png",
+  "sourceSha256": "8baad71dcf67d291d2f2e27491b31d90e2524c8134c5dc13dac04844d4e177b8",
+  "output": "public/guided-reading/world-discovery/a-09/page-01.webp",
+  "outputSha256": "8be7ae61ee51926374e1087778cb1207799be6dc84cb15ed21d4f82a19643808",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the small exposed skin at BOTH of Zoe's ankles, between her plum trouser cuffs and her white shoes. Zoe is the girl on the RIGHT. Those ankle areas must be the SAME DEEP BROWN as her hands and face, not pale peach or golden. Preserve both children, poses, hand positions, exactly four tiles in their exact current positions/colors/shapes, gray mats, background, framing and style. Do not change Kit on left or add objects. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b568609d-0c79-468e-8fac-9318a1f08c83.png",
+      "sha256": "558dd781823bb0f378bffb20ddcd33dab3ea881ed03ab6149bb807bbe4f1cde3"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "8be7ae61ee51926374e1087778cb1207799be6dc84cb15ed21d4f82a19643808",
+    "note": "Exactly four mixed tiles between two empty mats; Kit points, Zoe watches. Corrected both Zoe ankle skin tones.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

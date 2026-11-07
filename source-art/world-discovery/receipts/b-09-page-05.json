@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-09",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:09:04.115Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-8dfea32c-f87e-4cba-9c38-13ece8c91e3f.png",
+  "sourceSha256": "4c58389f33e8b8da4511cbf87b82b91f7c0407ec05049895e1a9220665110df8",
+  "output": "public/guided-reading/world-discovery/b-09/page-05.webp",
+  "outputSha256": "47bd5b2b0608a9e02c9937d795cfd3fd25df20278f3cc37d44a030b10405b8b6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY named human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Sort Them Again; World Discovery; nonfiction.\nSetting: World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Exactly six round four-hole buttons: one large red, two small red, two large blue, one small blue; One pale blue mat with no printed words; Two empty shallow trays\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): Zoe tips all the buttons back out.\nRequired illustration: World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe empties both trays onto the mat, keeping all six buttons visible and separate. Exact state: All six recombined; both trays empty.\nExact current state: All six recombined; both trays empty.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT COUNT AND SORT RULE: All SIX buttons now recombined on MAT: ONE large red, TWO small red, TWO large blue, ONE small blue. Zoe holds two tipped EMPTY trays; no buttons remaining in trays and none falling hidden. Exactly SIX buttons in total, every one ROUND with exactly FOUR holes. Large button DIAMETER is twice small button diameter; all large identical in size, all small identical in size. Keep buttons unoccluded and easy to count. ONLY Zoe, no Kit or adult. Two plain neutral SILVER trays, not red or blue trays. No decorative buttons or counters anywhere in background. No text. Entire scene crisp flat outlined cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-09-reference.webp",
+      "sha256": "f8e744fb46715afb481e7c06b35930d62f2e890447520cccf8cda693b65d8325"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:09:04.561151+00:00",
+    "sha256": "47bd5b2b0608a9e02c9937d795cfd3fd25df20278f3cc37d44a030b10405b8b6",
+    "note": "Zoe tips two empty trays; all six buttons visibly recombined on mat, original colors and sizes retained."
+  }
+}

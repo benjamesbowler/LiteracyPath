@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-08",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:43.050Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-145b227d-ef23-4010-8b63-843d493bc5f4.png",
+  "sourceSha256": "be8f570415f4ab0abf9e4f56c270b14783a76f4549f14052e95e868637bac187",
+  "output": "public/guided-reading/world-discovery/a-08/page-06.webp",
+  "outputSha256": "ad2af123e7cbb937e50408e659eb03405e586fdb168911bfa908e5ffb2324904",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Chick Grows; World Discovery; nonfiction.\nSetting: A simple sheltered farm nest and adjacent grassy run, daylight across clearly changing developmental stages. Natural chickens, not Meadow Pals characters.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The chick grows new feathers.\nRequired illustration: Weeks later the same female juvenile stands on grass beside the nest area, bigger body, brown wing and tail feathers appearing among remaining golden down.\nExact current state: Clear juvenile stage; no eggs laid yet.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nHARD CURRENT-STATE REQUIREMENTS: ONE juvenile chicken only, standing in grassy run. Bigger than hatchling, golden down still on face/chest, developed BROWN wing and tail feathers, longer yellow legs; no adult comb, no egg, no mother, no hatchling or side-by-side stages. Background empty straw nest.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp",
+      "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ad2af123e7cbb937e50408e659eb03405e586fdb168911bfa908e5ffb2324904",
+    "note": "Distinct juvenile stage with golden down plus brown wing/tail feathers, longer legs, no mature comb or eggs.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

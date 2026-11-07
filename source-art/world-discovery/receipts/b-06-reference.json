@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-06",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:39:53.256Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-80ac14fd-bdcc-4619-a866-7fe4f0e126f6.png",
+  "sourceSha256": "2d31a04f2cad7acde32a4ddabd0d9d1f9913c7d9df7fbf658eb417cb0bd3d741",
+  "output": "source-art/world-discovery/b-06-reference.webp",
+  "outputSha256": "a3212b9bcaed081683a4c8f17105bc21d519048edbb7e3eac9288960c90982af",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this astronaut and footprint reference board and its layout. Change ONLY the visual rendering of all ground/sample scenes to clean crisp flat 2D cartoon, with simple flat gray color, a few outlined rocks and simple ribbed footprint indentation. Remove ALL granular speckles, stippled noise, gritty painted texture and realistic rock shading. The brown Earth footprint scene likewise clean flat brown ground with simple green outlined leaves. Keep boot geometry, astronaut model, empty black-sky location and all object arrangements unchanged. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b6580e12-55da-4640-8909-00df3d59390f.png",
+      "sha256": "b31606b54ff0f24ff6789dc6d8985e07e69e13104890e385ceb4732d8fdbd2dd"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:39:55.495Z",
+    "sha256": "a3212b9bcaed081683a4c8f17105bc21d519048edbb7e3eac9288960c90982af",
+    "note": "Plain white astronaut with opaque gold visor, rectangular backpack and ribbed sole; matching lunar print, separate Earth muddy print and empty starless lunar terrain. Ground rendering repaired to flat clean cartoon."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-10",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:15:21.649Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-37147cc4-86ab-4f98-aafd-0f89dc059d11.png",
+  "sourceSha256": "c6c8adf3deebf581a3da4195b8e85340444cfe1807aa4927be5cb322ad1b0c6a",
+  "output": "public/guided-reading/world-discovery/c-10/page-02.webp",
+  "outputSha256": "72d9087add0660d39a220f3d12a9a8b62c109cb31b39357b7ee8f61d65817c6d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. REMOVE ONLY the adult standing at left and the green watering can on ground at bottom-left, replacing those areas with matching school wall/grass. Keep Kit tipping the ONE apple core from cream tray into OPEN green bin, Zoe watching, brown leaves/fruit peel mixture, lid, all hands and cast unchanged. No new subjects or objects. This page focuses on adding the core; adult and watering can are introduced later.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b52d49e1-4b5c-4882-b6e3-a05e7f573689.png",
+      "sha256": "84f686e4110a32bd076bcb6bb933d79313d85efe1fb01e8818d19596a44f1e7a"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "72d9087add0660d39a220f3d12a9a8b62c109cb31b39357b7ee8f61d65817c6d",
+    "note": "Direct inspection after removing premature adult/tools: Kit tips sole core from cream tray into open ventilated bin atop dry leaves/peels; Zoe watches, lid beside bin, hands coherent.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

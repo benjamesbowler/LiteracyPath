@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-05",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:42.178Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-91bcd48d-2253-4ddd-b596-30f93f1f1281.png",
+  "sourceSha256": "937c8eeb79b8f8f6b2dbda1039b3effb733d2562c1d781c06917b9a4539d53c5",
+  "output": "public/guided-reading/world-discovery/d-05/page-07.webp",
+  "outputSha256": "5bfb9df9a59821a8bb1d9a77bfc40790c8c885b4e29c36f9eb2cac60393635c6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create next page by editing this overhead tray scene. Keep same wide blue rectangular tray. REMOVE narrow clay neck entirely: RIGHT round lobe is one island completely surrounded by blue water, LEFT mainland still touches left tray wall. Move the ONLY yellow toy to LEFT mainland beside the gap; Zoe's ONE deep-brown child hand enters from BOTTOM edge, placing the toy there. RIGHT island is EMPTY. Removed short clay neck lies OUTSIDE tray beside ONE blunt wooden stick on table lower right. No heads or bodies, no other hands, no boat/bridge or extra toy. Crisp flat outlined cartoon, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7e43045c-8e08-4c39-9838-22c3d41931ad.png",
+      "sha256": "9646dd2d564f6dd8bdc875e358da01a8fd64be491be112effca2dafd92a24a2b"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:42.313295+00:00",
+    "sha256": "5bfb9df9a59821a8bb1d9a77bfc40790c8c885b4e29c36f9eb2cac60393635c6",
+    "note": "Direct inspection: Zoe's one hand from near side moves only yellow toy to left mainland. Island empty and water gap continuous; removed neck and single stick remain outside."
+  }
+}

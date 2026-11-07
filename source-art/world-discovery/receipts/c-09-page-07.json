@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:02:05.496Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-4622c4bc-a098-4e2d-a250-d14d528b4f1e.png",
+  "sourceSha256": "01a77c6571e70013221d8afc52602ac160fa8972d116a8be0bd68532f56553ba",
+  "output": "public/guided-reading/world-discovery/c-09/page-07.webp",
+  "outputSha256": "fa1d84730ecf5f31cd0e86fdf4f762f4076b5bf80e5669fe328ece974c83369e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Both Have Wings; World Discovery; nonfiction.\nSetting: Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Natural feathered swallow wing; Natural skin-and-finger bat wing; Swallow nest with eggs/chick; Bat mother and nursing pup in sheltered roost\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Flying tells us how an animal moves. Fur and feathers tell us about its body.\nRequired illustration: Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. The bat and swallow rest separately on appropriate supports: bat hanging, swallow perched; their body coverings remain distinct. Exact state: Comparison no longer depends on flight; both whole bodies visible.\nExact current state: Comparison no longer depends on flight; both whole bodies visible.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific animal-only illustration: no humans, clothes, bottles, hybrid animals. Bat's TWO wings are forelimbs, with elongated finger supports and small clawed thumbs; only TWO hind legs. Body has fur, never feathers. Swallow feathered blue-black/rust/cream with forked tail. Preserve distinct animal identities.\nOne swallow upright perched on LEFT horizontal branch; one bat on RIGHT hanging HEAD DOWN by its two hind feet from higher branch, wings folded at sides. They are separate, not touching. Show whole bodies and no babies or nests.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-09-reference.webp",
+      "sha256": "a259f9b62e02601e5cca9eef1833736fae4831a8bf7c04fb3f2787299bec4be9"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "fa1d84730ecf5f31cd0e86fdf4f762f4076b5bf80e5669fe328ece974c83369e",
+    "note": "Direct inspection: complete swallow upright on left branch and bat head-down by two hind feet on separate right branch; folded wings, fur versus feathers readable without flight.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

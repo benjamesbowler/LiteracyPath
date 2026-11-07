@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-05",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:38:39.841Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-9cc96517-718c-46ce-8d99-cd4e087c097b.png",
+  "sourceSha256": "359f4df8fae3b988cada8f6e3409bff3266edbd977d65d31a998cb400a178d90",
+  "output": "public/guided-reading/world-discovery/e-05/page-01.webp",
+  "outputSha256": "61532dfeb78f89701038258a428d87881945d61f0ea13a4a5aeb0b7d45f98095",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The River Moves the Bank; World Discovery; nonfiction.\nSetting: One gently winding river in a grassy valley over months, with a steep outer bank and low inner sandbar. A solitary broad tree remains beyond the outer bank as a position reference.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Winding river bend; Steep outer bank; Inner sandbar; Loose grains and pebbles; Distant tree as fixed landmark\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): This river bend has two very different edges. One bank is steep. Across the water, a low strip of sand slopes gently.\nRequired illustration: Elevated view of river bend shows steep outer bank with exposed soil opposite low sandy inner bank. Exact continuity: Single bend; no reversing upstream/downstream; tree beyond steep bank.\nExact current state: Single bend; no reversing upstream/downstream; tree beyond steep bank.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. Wide elevated SINGLE bend, steep outerbank atRIGHT/back, sandbar atLEFT/front, solitarytree beyondsteepbank; clearlyshowboth.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-05-reference.webp",
+      "sha256": "09b317f78aa80a24ac4d9b06d85ef930e8e214d72c61a7d5e39a0a354c3cb990"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:44:36.444Z",
+    "sha256": "61532dfeb78f89701038258a428d87881945d61f0ea13a4a5aeb0b7d45f98095",
+    "note": "Two different riveredges clearlyshown, steepouterright and lowinnerleft, treeinland.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

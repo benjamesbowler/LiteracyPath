@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:01:21.192Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2eccc412-34df-4345-b80a-e239d02ec979.png",
+  "sourceSha256": "d2f858431ed34af7555215a9fb078076e956ebd0e9520a59e4ea7feac990d69c",
+  "output": "public/guided-reading/world-discovery/b-08/page-06.webp",
+  "outputSha256": "467f0b7822de892d47d992bcc5b6fde2304a96f6ba6dfc75dff59afd234c8730",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Ladybug Changes; World Discovery; nonfiction.\nSetting: Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One green plant with broad leaves; A small cluster of upright yellow eggs; Natural ladybug larva, pupa and adult stages; Tiny green aphids\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The grown ladybug comes out looking pale.\nRequired illustration: Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. A pale yellow newly emerged adult ladybug sits beside the opened empty pupal case. Exact state: Soft pale adult without darkened red wing covers yet; natural six legs.\nExact current state: Soft pale adult without darkened red wing covers yet; natural six legs.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCURRENT STAGE ONLY: ONE pale YELLOW new adult, no red wing covers and no dark spots yet, exactly six legs and two short antennae. Beside it an opened EMPTY brown-orange pupal shell, split with hollow dark interior, not a second living insect. No mature red adult or larva.\nNatural insect anatomy, no human eyes or expressions. Whole art clean crisp outlined 2D cartoon, flat leaf colors, no soft focus, painted grain or texture. No captions, numbers, arrows or diagrams of other stages.\nFINAL STYLE KEY is the accepted cover image: ALL foreground and BACKGROUND leaves must be crisp dark outlined flat green shapes against clean flat pale-blue gaps, zero blurry distant vegetation. This cover is a STYLE example only: do not copy its adult or eggs into a page that requires another stage. Current stage above is mandatory.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-08-reference.webp",
+      "sha256": "10a30487b42d44838a5c83ff0f7e5cf804d0da275661e253c53188df902161d7"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-08/cover.webp",
+      "sha256": "6a06a78af6401e419d0b1e24d1cca884c7c3d2435122694cd307f20e78cc5fdb"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:09:04.560000+00:00",
+    "sha256": "467f0b7822de892d47d992bcc5b6fde2304a96f6ba6dfc75dff59afd234c8730",
+    "note": "Pale yellow newly emerged adult beside a split hollow empty pupal shell; no mature red color yet."
+  }
+}

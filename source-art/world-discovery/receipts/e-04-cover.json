@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:26:08.823Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-33864ec1-2c8f-404e-ba0b-ef165323f308.png",
+  "sourceSha256": "7acf08283cf14b36707e5697b27e632477564d93d36842d071180c9046f9f066",
+  "output": "public/guided-reading/world-discovery/e-04/cover.webp",
+  "outputSha256": "e8667fe2d8cfe54f32c48cd469abba1892f746bb1ca1b5af5254114c82b2affe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Door in the Chalk; World Discovery; fiction.\nSetting: Explicit fantasy in a classroom art room adjoining a puppet room. One cream dividing wall, ordinary narrow doorway at right, silver chalk that opens unbroken outlined doors into the room beyond.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Large lightweight hollow paper moon, a round sphere wider than the ordinary doorway; Silver chalk stick; Cream wall between adjacent rooms; Blue puppet curtain in next room; Soft cloth; Plain string used to compare the moon’s width with the doorway\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Zoe holds silver chalk beside a broad rectangular chalk doorway in a cream wall; Kit carries a large lightweight yellow spherical paper moon through toward a blue puppet curtain.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPRECISION: The rectangular magic passage is WIDER THAN yellow sphere. Its border is thin continuous silverchalk, NOT wooden frame. Ordinary narrow wooden door remains separately at farRIGHT. Moon has one small dent onleftside, rigidroundsphere, no face.\nSmooth clean flatcolor interiors, no grain, no papertexture, no woodgrain, darkcrispoutlines. The referenced moon is a ball/sphere, never flatdisk. Essentialpeople andhandsnatural. No text labels arrows or speechbubbles.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-04-reference.webp",
+      "sha256": "f808693890ebf5f4ad6d07d0bf8c4a2d388a9052e14535884ba4c9d4f2a0d094"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.475Z",
+    "sha256": "e8667fe2d8cfe54f32c48cd469abba1892f746bb1ca1b5af5254114c82b2affe",
+    "note": "Dedicated wide magical passage admitting moon, ordinary wooden doorway separate, cast and prop colors correct.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:34:34.731Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dfd2c8d3-6a5c-4f50-aabd-a2f58b21916d.png",
+  "sourceSha256": "9fd9509aa316c3094a52030aca95e08dce7df4aaf5f4e94fda61fabc52f63c24",
+  "output": "public/guided-reading/world-discovery/e-04/page-10.webp",
+  "outputSha256": "83e79fd065ecf5f3c3c6aeaed18e822a5f03d32b0f3e3297b33625b1abe921a5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Preserve children in artroom safelyreturned, Zoeerasingmagicoutline, separateordinarywooddoorRIGHT. In nextroom visible throughordinarydoor, adjust hangingyellowmoonsphere and bluecurtain: moon hangs ABOVE topedge of bluecurtain, not infront ofcurtain. Lower topedge ofbluepuppetcurtain to belowmoonsphere, revealingcreamwallbehindmoon. Keep sphere suspendedfromstring withonesmallside dent; make it slightlylarger to remainconsistentlarge prop in fartherroom, partialsideocclusionbywooddoor allowed. No newprops, noextrapeople. Keepstyle.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-83c587d4-d127-41b3-8f74-0c49ad3c3284.png",
+      "sha256": "80cafab4ca585dfe8371cdd0556dfe245da72e61166a07b7da85182d40c9b9c1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.479Z",
+    "sha256": "83e79fd065ecf5f3c3c6aeaed18e822a5f03d32b0f3e3297b33625b1abe921a5",
+    "note": "Bothchildrenreturnedsafely beforeerasure; solidwallinsidebrokenoutline; moonhangs overloweredbluepuppetcurtain inadjacentroom, no duplicateprop.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:02:05.135Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7ff9bc11-6e4c-489e-9d3d-e20450209d73.png",
+  "sourceSha256": "fda0dcd43f6707b6b4be2774963d84ac23b195374dda5651d57100abeed1effc",
+  "output": "public/guided-reading/world-discovery/c-09/page-06.webp",
+  "outputSha256": "0cbb93c20cb9e43db7894f74b7ca9bd306313e0627149db6e79b1c23e25c9be2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Both Have Wings; World Discovery; nonfiction.\nSetting: Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Natural feathered swallow wing; Natural skin-and-finger bat wing; Swallow nest with eggs/chick; Bat mother and nursing pup in sheltered roost\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Birds lay eggs. Baby birds hatch with beaks and grow feathers.\nRequired illustration: Natural observations of one barn swallow and one little brown bat, using separate close views where needed. Swallow: blue-black upperparts, pale belly, rusty throat and forked tail. Bat: brown body fur, large ears, thin brown wing skin over elongated digits, two wings and two hind legs. The swallow\u2019s mud nest holds one egg and a small chick with a beak and developing feathers; an adult perches nearby. Exact state: Bird young, not bat pups; plain nest attached under a ledge.\nExact current state: Bird young, not bat pups; plain nest attached under a ledge.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific animal-only illustration: no humans, clothes, bottles, hybrid animals. Bat's TWO wings are forelimbs, with elongated finger supports and small clawed thumbs; only TWO hind legs. Body has fur, never feathers. Swallow feathered blue-black/rust/cream with forked tail. Preserve distinct animal identities.\nONLY barn swallow family: one adult, one small chick with short developing feathers, ONE intact speckled egg in mud cup nest attached under sheltered wooden ledge. No bats, pups, extra eggs or other species.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-09-reference.webp",
+      "sha256": "a259f9b62e02601e5cca9eef1833736fae4831a8bf7c04fb3f2787299bec4be9"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "0cbb93c20cb9e43db7894f74b7ca9bd306313e0627149db6e79b1c23e25c9be2",
+    "note": "Direct inspection: adult barn swallow beside attached mud cup under ledge, exactly one intact egg and one chick with beak/developing feathers; natural bird family.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-05",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:43.012Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-8570ea39-8355-409b-ab90-685ecc14cccf.png",
+  "sourceSha256": "11981c0dc09579f78d354f4a47ab813111cff9b7f2a7c6c9522a04ac608c6104",
+  "output": "public/guided-reading/world-discovery/d-05/page-09.webp",
+  "outputSha256": "241afcf008711a4d346aeb95f2c009733181474655da347f880151d20edad2ec",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Island or Peninsula?; World Discovery; nonfiction.\nSetting: A classroom low table with a shallow blue rectangular water tray; brown modeling clay represents land. Daylight; Kit and Zoe watch from opposite long edges.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Shallow blue tray with a thin layer of water; Brown clay mainland fixed along left tray edge; Rounded clay lobe connected by narrow strip; Small yellow toy person; Blunt wooden modeling stick\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): A real peninsula may be very wide. Look for the land connection, not just the shape of its tip.\nRequired illustration: Elevated coastal landscape shows a broad peninsula connected to mainland behind, with sea wrapping around the tip. Exact continuity: Continuous land connection visible; neutral geography, no flags or labels.\nExact current state: Continuous land connection visible; neutral geography, no flags or labels.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCURRENT SCENE / GEOMETRY LOCK: REAL COAST landscape, not model. No children, toy, tray, clay or stick. Elevated wide view shows ONE broad green peninsula CONNECTED to large mainland across the TOP BACK of composition, sea wrapping around left/right/tip in foreground. Broad continuous visible dry connection, not island. Clean crisp outlined FLAT cartoon throughout, no terrain texture, labels or flags.\nOnly one scene, no panels. Flat clean outlined cartoon everywhere, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-05-reference.webp",
+      "sha256": "d29ed339d9537432dd2d985c59228ddc56a832c1cf7783aefca68b0322b29819"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:43.110734+00:00",
+    "sha256": "241afcf008711a4d346aeb95f2c009733181474655da347f880151d20edad2ec",
+    "note": "Direct inspection: broad coastal peninsula visibly connects to mainland at rear, water wraps sides and foreground tip; neutral geography and flat cartoon throughout."
+  }
+}

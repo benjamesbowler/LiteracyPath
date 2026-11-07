@@ -1,0 +1,20 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:11.053Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c8ea7bbb-bd64-4c6f-b181-2e7af6cd77c4.png",
+  "sourceSha256": "59288d65c0d267954e5d20fcde984d33fe155a41f99c4325d0528f32204c5edb",
+  "output": "public/guided-reading/world-discovery/d-08/page-01.webp",
+  "outputSha256": "32a9a2ed6d14596c6faf16759450244dd1093b42d903489dd01469efc2d9468e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this magnified scientific bean-seed cutaway. KEEP the single opened cream bean with two thick cotyledons and small green embryo between them. REMOVE the whole garden, soil, planter, sky, Sun, fence and foliage behind it. Replace background with clean plain very pale blue, making this unmistakably an isolated magnified educational diagram rather than a gigantic seed in a garden. Center the cutaway with generous empty margin. Clean bold dark outlines, solid flat colors, minimal smooth cel shading. No text, arrows, labels, borders, texture or additional seeds.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:55:11.813238+00:00",
+    "sha256": "32a9a2ed6d14596c6faf16759450244dd1093b42d903489dd01469efc2d9468e",
+    "note": "Isolated enlarged seed cutaway on plain pale blue clearly reads as a scientific diagram, with two thick cotyledons and embryo rather than a giant seed in a garden."
+  }
+}

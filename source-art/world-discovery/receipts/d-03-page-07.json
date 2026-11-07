@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:10:01.661Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-661049d9-ac71-43c9-8809-e41cabbfa757.png",
+  "sourceSha256": "450f5b8256fe08e3de72ec9bc9bd4dd4f0fcb783f6bc220152f7c6c76c3fd00d",
+  "output": "public/guided-reading/world-discovery/d-03/page-07.webp",
+  "outputSha256": "13ec1009836b05b3a54493b3fd679c375d70957c8dfa6e4831212267cfc95597",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Two Pipes Under the Sink; World Discovery; nonfiction.\nSetting: One diagrammatic town beside a river, with a drinking-water works upriver, ordinary homes, and a separate wastewater works downstream. No named people. The drinking-water worker on page 4 is a woman with deep brown skin, silver hair in one braid, teal work overalls and plain closed shoes. The separate wastewater worker on page 8 is a man with medium brown skin, short black hair, navy work shirt, gray trousers and plain closed shoes. Both are unnamed adults.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One white kitchen sink; Narrow blue supply pipe; Wider gray drain pipe; Drinking-water treatment works; Separate wastewater treatment works\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The sewer leads to another treatment plant. This plant cleans used water, which may contain soap, scraps, and other waste.\nRequired illustration: Gray sewer enters the downstream wastewater works, where covered channels and settling tanks are visible. Exact continuity: Different site from drinking-water works; no clean-water pipe joining untreated sewer.\nExact current state: Different site from drinking-water works; no clean-water pipe joining untreated sewer.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. CRITICAL EDUCATIONAL ACCURACY: incoming supply and outgoing drain are distinct pipes that NEVER touch, join, cross-connect or form a closed loop. A blue supply must connect directly to BASE OF METAL FAUCET above the counter, never to basin bottom. A gray drain must connect directly to drain hole at center of BASIN BOTTOM, never to faucet. No faces on water or pipes. No writing, words, labels, numbers or control-screen text. Use only one coherent view. Only gray-roof wastewater plant, foreground gray sewer enters enclosed inlet channel on LEFT, connected treatment tanks occupy center; gray roof/storage tanks distinguish site from blue-roof drinking plant. Used water contained and slightly dull gray-blue; no drinking-water-blue supply connection, no houses, no workers, no river bypass. Do not depict household cup here.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp",
+      "sha256": "4114d53b76b8de4d3b1e2c3c8dbab353616a2244e80defbb9336bc9d0e54d7ec"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "13ec1009836b05b3a54493b3fd679c375d70957c8dfa6e4831212267cfc95597",
+    "note": "Direct inspection: gray sewer enters enclosed channel at gray-roof wastewater works, contained dull water in treatment tanks, no clean-supply bypass or worker.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-03",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:16:15.676Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-79f02cc1-5ac9-483b-830b-638aef0418f3.png",
+  "sourceSha256": "d2f02d2cfeb647d97eb7fce79cc0e4037134e69e9540e557e268f86c9e62b6a8",
+  "output": "public/guided-reading/world-discovery/e-03/cover.webp",
+  "outputSha256": "f2db1ee59786cdfcd0a6be74fede06bd57d927ff1b44f07432be066511df1e4e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Garden for the Rain; World Discovery; nonfiction.\nSetting: One neighborhood community building beside a paved path and stream. A mature shallow rain garden sits safely away from foundations and the walking route. \nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Building gutter and downspout; Paved path; Shallow planted rain garden; Soil cutaway; Visible overflow channel; Nearby stream\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Rain from a community building’s downspout flows toward a shallow garden of grasses and flowers while the clear walking path stays beside it.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific illustration constraint: dry path separated from rain garden; depression has LOW center, not raised planter. Inlet from building LEFT to hollow CENTER; overflow from hollow RIGHT towards stream without crossing path. Use same cream building/redroof/bluegutter. Absolutely ZERO humans in this scene; no animals from referenceboard. No labels arrows writing. Soil cutaways are illustrative clear sections, no glass box. Flat clean vibrant colors with solid black outlines, no textured canvas, grain or brushstrokes. Only current scene matters, not all reference props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-03-reference.webp",
+      "sha256": "2868250f4b180fd8276cb0ba536346e792940d2dd379773df458ba5201b70689"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:21:34.038Z",
+    "sha256": "f2db1ee59786cdfcd0a6be74fede06bd57d927ff1b44f07432be066511df1e4e",
+    "note": "Rain route to shallow planted hollow; path clear. Explanatory cutaway and downward water arrows support infiltration; no writing.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

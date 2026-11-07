@@ -1,0 +1,21 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:45.993Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e65c85f0-d671-4b9f-b8bb-76564b5334c9.png",
+  "sourceSha256": "2be3512a7d5b233c2432d626c45a5a4ec094a773f60ddcd43da26ba1cef186c1",
+  "output": "source-art/world-discovery/e-06-reference.webp",
+  "outputSha256": "411a8bb0981665d4c2e130cdd5e59b4fe7338e7dbd8ca31bf2d7627d68cc88b6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: One Moon only; no literal cutout or bitten edge.. For orientation, the opening location/action is: Single evening-sky view shows a thin bright lunar crescent with its full dark circular outline faintly visible. Exact continuity: One Moon only; no literal cutout or bitten edge.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nStrict separated reference board on white; EMPTY environment key with initial setting, isolated recurring subject design states, not future story scene. Clean smooth flatcolors and bold outlines, no texture. Reference celestial objects only: one neutral gray cratered Moon sphere, blue-green Earth sphere, yellow Sun disk separately. Supporting sky key northern-hemisphere evening low western horizon. No phase chart, no orbit chart, no labels or confusing multiple Moon copies in one scene. Show spheres separate by white space; neutral gray Moon with smooth crescent terminator example RIGHT side illuminated and left dark. Moon has no human face.",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.158Z",
+    "sha256": "411a8bb0981665d4c2e130cdd5e59b4fe7338e7dbd8ca31bf2d7627d68cc88b6",
+    "note": "Inspected clean reference board: whole gray Moon, Earth, Sun direction, simplified phase silhouettes; final diagrams separately constrain half illumination.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

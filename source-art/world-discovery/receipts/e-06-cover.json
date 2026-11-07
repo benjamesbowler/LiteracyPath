@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:30.161Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-be510b22-3b8f-4176-90b2-3f7332358887.png",
+  "sourceSha256": "debf254c4dbc43f4ff79b7c6e0a6de90cb4a65be170f23f8fdc160b58022d506",
+  "output": "public/guided-reading/world-discovery/e-06/cover.webp",
+  "outputSha256": "7bad308914497b265b2d6a6a4875524f05feedaaadb8d7c9c5cb097b836b8db2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: A large round Moon shows a bright crescent and a faint remaining disk against deep blue sky, making the whole spherical shape clear without a face.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. Dedicated singleEarth-sky view, large gracefulRIGHT-lit crescent withwholefaintdarkcircle againstcleanblue evening sky abovegentlehills. ONE Moon, noEarthsymbol, noSunvisible, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-06-reference.webp",
+      "sha256": "411a8bb0981665d4c2e130cdd5e59b4fe7338e7dbd8ca31bf2d7627d68cc88b6"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.158Z",
+    "sha256": "7bad308914497b265b2d6a6a4875524f05feedaaadb8d7c9c5cb097b836b8db2",
+    "note": "Dedicated whole faint disk with bright right crescent above quiet evening landscape; no bite or text.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

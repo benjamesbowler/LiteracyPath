@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:35:09.605Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5e8354aa-3bee-436e-b89f-cb8da7df2a4c.png",
+  "sourceSha256": "a9dd53170729be1afc95b00b9c1a471489a9e01a30371e3df1a2c2be9d3cae4b",
+  "output": "source-art/world-discovery/c-09-reference.webp",
+  "outputSha256": "a259f9b62e02601e5cca9eef1833736fae4831a8bf7c04fb3f2787299bec4be9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This is an animal-only production design reference sheet. REMOVE EVERY HUMAN FIGURE from this sheet and leave clean white background in those spots. No rangers, children, adults, people or human silhouettes anywhere. Preserve all animal designs, anatomical views, environment studies, props and color swatches EXACTLY as drawn; no other edits. Do not add any text or replacement figure.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-4d6034f1-8f36-4db9-87f0-9af8279cfad8.png",
+      "sha256": "b228f2a8ee6e3b986e7aee0dd81d02d82bb1bab39f0683efe9b4d978bd868880"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "a259f9b62e02601e5cca9eef1833736fae4831a8bf7c04fb3f2787299bec4be9",
+    "note": "Direct inspection after human removal: swallow feathered wings/forked tail/rust throat, bat membranous finger-supported forelimbs and two hind legs, fur and large ears; consistent separate designs without people.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

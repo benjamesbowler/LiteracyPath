@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-09",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:04:33.780Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d65f1e6a-11de-4411-8e5e-cd74e3923a9b.png",
+  "sourceSha256": "306a61a8611723e00f4384624a3572e11f5798368a23beabee30c3ecade9c227",
+  "output": "public/guided-reading/world-discovery/b-09/page-01.webp",
+  "outputSha256": "d5c81b3b05c58819b61feb205ea59c789850312195befaf7f1ee390c41c82049",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY named human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Sort Them Again; World Discovery; nonfiction.\nSetting: World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Exactly six round four-hole buttons: one large red, two small red, two large blue, one small blue; One pale blue mat with no printed words; Two empty shallow trays\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Zoe spreads six buttons on the mat.\nRequired illustration: World Discovery classroom table in daylight; Zoe sorts six large craft buttons on a pale blue mat. Zoe spreads exactly six craft buttons on the pale blue mat: one large red, two small red, two large blue and one small blue. Both shallow trays beside the mat are empty. Exact state: Six total; two sizes and two colors; four holes on each button; no pouring container needed.\nExact current state: Six total; two sizes and two colors; four holes on each button; no pouring container needed.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEXACT COUNT AND SORT RULE: All SIX buttons scattered separately on pale blue MAT: ONE LARGE RED, TWO SMALL RED, TWO LARGE BLUE, ONE SMALL BLUE. BOTH trays EMPTY. Exactly SIX buttons in total, every one ROUND with exactly FOUR holes. Large button DIAMETER is twice small button diameter; all large identical in size, all small identical in size. Keep buttons unoccluded and easy to count. ONLY Zoe, no Kit or adult. Two plain neutral SILVER trays, not red or blue trays. No decorative buttons or counters anywhere in background. No text. Entire scene crisp flat outlined cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-09-reference.webp",
+      "sha256": "f8e744fb46715afb481e7c06b35930d62f2e890447520cccf8cda693b65d8325"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:09:04.560608+00:00",
+    "sha256": "d5c81b3b05c58819b61feb205ea59c789850312195befaf7f1ee390c41c82049",
+    "note": "All six original buttons visible on mat with two trays empty; exact color and size inventory correct."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-08",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:43.811Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7c8490b6-ff9b-48a7-933d-e465d30da9fe.png",
+  "sourceSha256": "3707535a3b1b0f11c98111ce032ad67b6f618accc4e937708bbececf7b9e49f8",
+  "output": "public/guided-reading/world-discovery/a-08/page-07.webp",
+  "outputSha256": "bc07ba9236bdcf6409b1e52d9c980c474295016eb6ab0c19060e52739c54bd80",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Chick Grows; World Discovery; nonfiction.\nSetting: A simple sheltered farm nest and adjacent grassy run, daylight across clearly changing developmental stages. Natural chickens, not Meadow Pals characters.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): This chick grows into a hen.\nRequired illustration: Months later show the same now-adult brown hen with small red comb in the grassy run beside the old nest. No chick-sized proportions.\nExact current state: Adult female, full brown feathers; time passage clear from growth.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nHARD CURRENT-STATE REQUIREMENTS: ONE full-grown brown HEN only, mature adult proportions with small red comb and wattles and full brown feathering. Grassy run beside empty old straw nest. No chick, no eggs, no other bird. No chronology montage.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp",
+      "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "bc07ba9236bdcf6409b1e52d9c980c474295016eb6ab0c19060e52739c54bd80",
+    "note": "Adult brown hen with mature proportions, comb and wattles beside old empty nest; no chick stage duplicated.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-08",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:42.307Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-09b73af9-0ed4-497a-868e-3939ad49bb19.png",
+  "sourceSha256": "07615b69eb9e27bdb782057d90ffc1971f0a3af46ab6c2162e452adbc20c390d",
+  "output": "public/guided-reading/world-discovery/a-08/page-05.webp",
+  "outputSha256": "b330658b625463c91bca43d2f0cc37f2ca2a09a773fda3e6612f2cfcd18d74b1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Chick Grows; World Discovery; nonfiction.\nSetting: A simple sheltered farm nest and adjacent grassy run, daylight across clearly changing developmental stages. Natural chickens, not Meadow Pals characters.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): Its wet fluff dries.\nRequired illustration: Later view of the same chick resting beside empty shell pieces, down now dry and fluffy golden yellow. No literal water dryer or heat lamp near it.\nExact current state: Hatch completed; focal chick dry after elapsed time.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nHARD CURRENT-STATE REQUIREMENTS: ONE small dry golden chick resting outside the now-empty shell pieces. Down visibly fluffy and dry. No wet chick, no chick inside egg. Same nest setting. Mother hen and other eggs may be offscreen; focus on chick and its own empty cream shell only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp",
+      "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "b330658b625463c91bca43d2f0cc37f2ca2a09a773fda3e6612f2cfcd18d74b1",
+    "note": "Dry fluffy golden chick rests outside empty shell pieces; same nest setting.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

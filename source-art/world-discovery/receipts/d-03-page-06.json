@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:12:56.394Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a2ef07b7-f236-41c0-bbb3-7f0a647c9adb.png",
+  "sourceSha256": "1810f322142734376e3955801a614fdb4b02820df3afc024aa9a12086c947c07",
+  "output": "public/guided-reading/world-discovery/d-03/page-06.webp",
+  "outputSha256": "47f1953856fbd2ab39050156d6e4aa65fdf74d14d986d6125497a4f38070565e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Two Pipes Under the Sink; World Discovery; nonfiction.\nSetting: One diagrammatic town beside a river, with a drinking-water works upriver, ordinary homes, and a separate wastewater works downstream. No named people. The drinking-water worker on page 4 is a woman with deep brown skin, silver hair in one braid, teal work overalls and plain closed shoes. The separate wastewater worker on page 8 is a man with medium brown skin, short black hair, navy work shirt, gray trousers and plain closed shoes. Both are unnamed adults.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One white kitchen sink; Narrow blue supply pipe; Wider gray drain pipe; Drinking-water treatment works; Separate wastewater treatment works\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Now follow the gray drain. Used sink water joins other used water in a larger pipe called a sewer.\nRequired illustration: Under-street cutaway shows the featured sink\u2019s gray drain joining a larger gray sewer below the homes. Exact continuity: Gray wastewater network separate from blue supply; water flows away from homes.\nExact current state: Gray wastewater network separate from blue supply; water flows away from homes.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. CRITICAL EDUCATIONAL ACCURACY: incoming supply and outgoing drain are distinct pipes that NEVER touch, join, cross-connect or form a closed loop. A blue supply must connect directly to BASE OF METAL FAUCET above the counter, never to basin bottom. A gray drain must connect directly to drain hole at center of BASIN BOTTOM, never to faucet. No faces on water or pipes. No writing, words, labels, numbers or control-screen text. Use only one coherent view. Focus solely wastewater network: THREE homes above with a white sink in each cutaway, GRAY drain from center basin bottom of each descends into one wider GRAY sewer sloping gently RIGHT. All connections are gray-to-gray only. Omit blue supply network from this focused view to avoid visual clutter; no claim it is absent. A few small pale arrows within gray pipes point downward then right, never toward houses. No exposed untreated sewage spilling into soil or river.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp",
+      "sha256": "4114d53b76b8de4d3b1e2c3c8dbab353616a2244e80defbb9336bc9d0e54d7ec"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "47f1953856fbd2ab39050156d6e4aa65fdf74d14d986d6125497a4f38070565e",
+    "note": "Direct inspection after worker removal: three household sink drains join larger gray sewer, all arrows down then right, no supply/sewer connection or spill.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

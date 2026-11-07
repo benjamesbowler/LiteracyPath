@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:49.085Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f02d630c-f970-4f9f-8204-5370d0a4e4e7.png",
+  "sourceSha256": "17179747de4f21b6448fd8d17c64241fabc2b90c4e30e7019a74d07a7ee9a0f0",
+  "output": "public/guided-reading/world-discovery/c-08/cover.webp",
+  "outputSha256": "aaf1754d74c4e3690b2f1ca79687dc9350df0fae9df1f3543400d8c5c9beef71",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change only the brown shed nymph skin attached to the reed below the green adult. Make it visibly EMPTY: add a clear split open along the upper back/thorax with a hollow dark interior and thin pale torn shell edges, no living eyes or pupil. It is an empty dry skin, not a second living insect. Preserve its six-leg insect anatomy, the green adult's four wings and six legs, reed, pond, colors and composition. No other changes, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3244738d-081e-4d96-b48c-64bd2d001e78.png",
+      "sha256": "2fca2040000d7c034bd81886dc21a53a551d3b4e75ff91513e5ba19160ab2ed9"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "aaf1754d74c4e3690b2f1ca79687dc9350df0fae9df1f3543400d8c5c9beef71",
+    "note": "Direct inspection after skin repair: green adult with four clear wings above hollow split brown exuvia on reed; empty skin visibly distinct from living insect, no cocoon.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-09",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:51:10.923Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-03905842-3d22-4284-8f8b-80766f88fa4e.png",
+  "sourceSha256": "8c311e9cbfaee539313d62e58db122608102dd357f4ebf438941d36a27a56ffe",
+  "output": "public/guided-reading/world-discovery/a-09/page-08.webp",
+  "outputSha256": "204f939cf2e08b44dd3e5625ecd8e49b8dc5537997ce6046390fad72f3664834",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make just one precise color correction to the two round tiles on the LEFT gray mat: the circular tile closest to Zoe's pointing fingertip (the RIGHT circle of that pair) must be RED; the other circle on the far LEFT must be BLUE. Do not move either circle. Keep Kit holding the ONE red square above table; right mat has ONLY the blue square. Exactly four tiles total. Preserve hands, faces, clothing, background, all positions and clean style. This makes Zoe point to the red circle while Kit holds red square. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-93c8752d-3077-4fa5-9f2f-072e917aafdc.png",
+      "sha256": "5a5101b6874db11768de3b93ccb9aee5e3c3c741a77ad22b739069a0ab8029bd"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "204f939cf2e08b44dd3e5625ecd8e49b8dc5537997ce6046390fad72f3664834",
+    "note": "Kit holds sole red square, blue square remains right, circles left. Corrected nearby circle to red so Zoe explicitly points to red circle; no duplicate tile.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

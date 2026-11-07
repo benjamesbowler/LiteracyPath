@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-02",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:24:55.229Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7ffe646d-5cf1-4f08-b5ff-09e4b98788b1.png",
+  "sourceSha256": "ecdfe1a4cdd6b59b3f4f8495ab09e77f546fbf8bac0c2b2aac9572b228c3d1e7",
+  "output": "public/guided-reading/world-discovery/a-02/page-01.webp",
+  "outputSha256": "91ea2d0ee4917ff7bd83ca732a9b0bc650ae5b7f65469cad134c4fc64c4b4a66",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Red Crayon; World Discovery; fiction.\nSetting: A classroom art table in daylight; Kit left, Zoe right; same two sheets throughout.\nLocked recurring subjects/props: One thick red crayon; Zoe\u2019s white sheet with a red kite; Kit\u2019s white sheet initially blank; Two wooden clips on a low display string\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout.\nPage 1. Printed prose (NOT text to put in art): Zoe draws a red kite.\nRequired illustration: Zoe uses the single red crayon to finish a kite on her paper. Kit has a separate blank sheet at the same table.\nExact current state: Kite taking shape; crayon with Zoe; Kit\u2019s sheet blank.\nDo not add later events or a separate inset. No written title; the app renders live text.\nAdditional continuity: the single red crayon is a normal child-size crayon about 9 cm long, smaller than a child's palm. Keep full heads, limbs and necessary props inside a 10% clear frame margin. Display string is EMPTY until the final pictures are hung; no finished pictures on wall early.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-02-reference.webp",
+      "sha256": "3a4238b51e25f9662faf1ece73286932c652a3fc654a63133cade60cbcb78d7f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "91ea2d0ee4917ff7bd83ca732a9b0bc650ae5b7f65469cad134c4fc64c4b4a66",
+    "note": "Zoe draws kite while Kit has blank table sheet; wall clips empty, same cast and classroom. Two tail bows can be followed by third as drawing is completed.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

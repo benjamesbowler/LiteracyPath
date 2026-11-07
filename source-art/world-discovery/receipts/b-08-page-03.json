@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:58:49.497Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-26d9b376-10c0-4645-bf0a-4139e87fdbc9.png",
+  "sourceSha256": "02ff47f0e911c3048194777461b1dfeb6c9010de4b83a24a946e2f6b4770a220",
+  "output": "public/guided-reading/world-discovery/b-08/page-03.webp",
+  "outputSha256": "70baa7febf334599a590024951b8086a04e77d8310bfd7cf756e52a4054226fd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise picture-book illustration correction. Preserve the larva feeding on one aphid and the three aphids on the right-hand stem exactly; three legs on near side with far legs naturally occluded is correct. Change ALL soft/blurry background leaves into simple crisp dark-outlined flat-green shapes, with perfectly clean flat pale-blue spaces between them. ZERO depth-of-field blur, soft focus, photographic texture, paint grain or stippling anywhere. Keep the main foreground leaf, main animal/eggs, framing and composition unchanged except stated correction. Entire image must be crisp flat clean 2D cartoon. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7bba7b59-e12d-4601-afae-7f95ccadd858.png",
+      "sha256": "1c7c9df577998a35dfbe10a9c185e505ce66e6af8a6f7ef39fe6cd556cbf432e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:58:50.021767+00:00",
+    "sha256": "70baa7febf334599a590024951b8086a04e77d8310bfd7cf756e52a4054226fd",
+    "note": "Elongated dark larva feeds on much smaller green aphid without gore; other aphids on stem; crisp flat plant background."
+  }
+}

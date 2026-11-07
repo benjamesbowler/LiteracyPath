@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-05",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:19:46.002Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-2625a882-97da-491a-a770-355f6bfa5983.png",
+  "sourceSha256": "1b991f00f4b79de837fb81532f09b688a39d9e30b309bb79ee17ed8aae0e1efa",
+  "output": "public/guided-reading/world-discovery/c-05/page-01.webp",
+  "outputSha256": "8668d4fc014d50b33903e59623b5151ae304a290997fa0f6ef12117f595e7404",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Follow the Park Map; World Discovery; nonfiction.\nSetting: World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One square paper park map with pictorial gate, bench, tree, pond and flowerbed connected by the exact established paths; One real brown bench; One real tall green tree; One curved pond\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Kit wants to find the pond in the park. He looks at the path map.\nRequired illustration: World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit stands just inside the entrance gate and opens the square park map; the path begins ahead of him. Exact state: Map and real park share the locked route; no pond in immediate foreground.\nExact current state: Map and real park share the locked route; no pond in immediate foreground.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical composition and map consistency: Wide view from entrance looking north: Kit just inside gate at bottom-left, main path leads away to CENTRAL bench/fork. Left branch ends at flowerbed LEFT; right branch passes tall tree MID-RIGHT then reaches pond FAR UPPER-RIGHT BEYOND tree. Pond NEVER near foreground gate. One of each landmark, no extra paths. Map in Kit's hands follows exact same layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-05-reference.webp",
+      "sha256": "abc439a567189f08ff66ddf08f8f6afc2941b48f42c91752662a4377026ae141"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "8668d4fc014d50b33903e59623b5151ae304a290997fa0f6ef12117f595e7404",
+    "note": "Directly inspected: Kit at real entrance studies map; real and mapped single fork, left flowerbed, central bench, right tree before distant pond agree.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

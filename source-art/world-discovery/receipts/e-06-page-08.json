@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:30.960Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d91b8d55-a5b6-482c-ac60-917ea47ebfea.png",
+  "sourceSha256": "b441a9991f73879f6f972b8683148dae74f1dcceaf87829165d9aeb97145d093",
+  "output": "public/guided-reading/world-discovery/e-06/page-08.webp",
+  "outputSha256": "5c065b46dde5e2b4811ed05b2d301729b0816bf344d5f59cad3c1a20ba87eefe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): Near full moon, Earth faces almost all of the sunlit half. The bright disk looks round again.\nRequired illustration: Full round Moon appears above horizon with consistent craters; all visible face illuminated. Exact continuity: Do not place Earth’s shadow over Moon; no claim full Moon has no dark far hemisphere.\nExact current state: Do not place Earth’s shadow over Moon; no claim full Moon has no dark far hemisphere.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. ONE fullperfectlyroundbrightcreamMoon, craterpatternmatches, visiblefaceALLlit. Evening/nighthorizon darkerblue; noEarthsphere orshadow.\nSEQUENCE CORRECTION: Use attached first-quarter sky illustration as exact composition, camera, landscape, Moon outer diameter and center position, AND exact crater geography reference. Entire round Moon must keep EXACT SAME physical diameter in picture, never shrink or grow as phase changes. Preserve full dark circular outline. Change ONLY illuminated portion and time lighting requested. Entire circular face now brightly illuminated; same exact crater pattern, same diameter. Quiet night sky, not twilight sunset.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e7a502c4-4748-480a-8cfd-635f67215935.png",
+      "sha256": "4f96c29d741dd2c38543455793b97bd38f36bec587970774965c0b8f7aacfc64"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "sha256": "5c065b46dde5e2b4811ed05b2d301729b0816bf344d5f59cad3c1a20ba87eefe",
+    "note": "Corrected changing apparent diameter. Full visible disk lit with same size, position and crater geography as p6/7; night sky.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

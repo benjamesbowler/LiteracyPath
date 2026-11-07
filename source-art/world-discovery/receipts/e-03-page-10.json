@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-03",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:21:32.473Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-90cb5290-e8d8-40b4-886c-747dc713ddbb.png",
+  "sourceSha256": "42203f682dce0bb37438a1e15904d70133f239ed72ad307d4a777002e9581758",
+  "output": "public/guided-reading/world-discovery/e-03/page-10.webp",
+  "outputSha256": "d7067ca5b91986f7096e88af819cabd8885f60932004e9fe52f5badac878f71f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Garden for the Rain; World Discovery; nonfiction.\nSetting: One neighborhood community building beside a paved path and stream. A mature shallow rain garden sits safely away from foundations and the walking route. \nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Building gutter and downspout; Paved path; Shallow planted rain garden; Soil cutaway; Visible overflow channel; Nearby stream\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 10. Printed prose (NOT text to put in art): The garden changes the journey of the rain: pause, spread, soak. A patch of planted ground becomes part of the town’s drainage.\nRequired illustration: Wide final view links roof, downspout, garden, overflow swale and stream in one coherent landscape. Exact continuity: System route intact; no arrows, labels or suggestion untreated runoff is drinking water.\nExact current state: System route intact; no arrows, labels or suggestion untreated runoff is drinking water.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScientific illustration constraint: dry path separated from rain garden; depression has LOW center, not raised planter. Inlet from building LEFT to hollow CENTER; overflow from hollow RIGHT towards stream without crossing path. Use same cream building/redroof/bluegutter. Absolutely ZERO humans in this scene; no animals from referenceboard. No labels arrows writing. Soil cutaways are illustrative clear sections, no glass box. Flat clean vibrant colors with solid black outlines, no textured canvas, grain or brushstrokes. Only current scene matters, not all reference props.\\nFinal above-ground landscape view only: NO cutaway/soilsection and NO arrows. Garden is shallow hollow at groundlevel, channels route aroundpath safely; no elevated planter.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-03-reference.webp",
+      "sha256": "2868250f4b180fd8276cb0ba536346e792940d2dd379773df458ba5201b70689"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:21:34.042Z",
+    "sha256": "d7067ca5b91986f7096e88af819cabd8885f60932004e9fe52f5badac878f71f",
+    "note": "Final continuous roof/downspout/garden/overflow/stream landscape, no arrows or labels; no people.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

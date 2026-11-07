@@ -1,0 +1,27 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:08:33.991Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a060df22-10a9-4457-a2c6-b252be4a3367.png",
+  "sourceSha256": "ba720245f499250bcaf806a1025a39481147486e5753ade94f377a91f53406f8",
+  "output": "public/guided-reading/world-discovery/e-08/page-08.webp",
+  "outputSha256": "45dc93fe54a43e458ff133108179c43920df288cb132bb715dc74469cf22baa8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Input is the exact edit target. The closest FRONT foot now wrongly has FIVE projecting fingers. Redraw ONLY this front foot (around x=740,y=850) with exactly FOUR slender frog fingers. Delete the leftmost short downward fifth finger at roughly x=660,y=885 and merge its root smoothly into the palm. Preserve the other four projecting finger tips. Do not change the rear foot, which correctly has five toes, or the far front foot, which correctly has four fingers. The adult remains tailless, facing the same single insect.\nPreserve the entire rest of the image exactly: full 3:2 composition, natural anatomy, pose, leg count, body markings, stage, animals, scenery, colors and bold clean flat 2D cartoon style. Do not introduce any new element, text or diagram. Return one complete full-resolution illustration.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3c8a8362-01d5-48a5-8d90-2039bd464d48.png",
+      "sha256": "9e215a75877dd43139d39f5429e0385ec98fb47e97cdac97a14babe72eabfb69",
+      "role": "directly reviewed second correction target"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "sha256": "45dc93fe54a43e458ff133108179c43920df288cb132bb715dc74469cf22baa8",
+    "note": "Tailless moist adult faces one small insect in damp grass. Fully exposed hind foot has five toes; each front foot four fingers. No extra animal, tongue or lifecycle state introduced.",
+    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+  }
+}

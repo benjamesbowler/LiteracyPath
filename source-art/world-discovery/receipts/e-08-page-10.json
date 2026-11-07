@@ -1,0 +1,27 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:08:35.984Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ce98b285-f945-4833-99cb-142857f754f9.png",
+  "sourceSha256": "499dce160f8eb41514f184cc7b4343ec521dfae67292252e715e03bd441df2c1",
+  "output": "public/guided-reading/world-discovery/e-08/page-10.webp",
+  "outputSha256": "253592aa249e8fbebc9b5c87dc1338811faf3bfe27028fbcc6e7cab243c70fc9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Input is the exact edit target. The closest FRONT foot around x=960,y=550 now wrongly has FIVE finger tips. Redraw ONLY this front foot with exactly FOUR slender frog fingers. Remove the short extra stub pointing down-left near x=918,y=576, between the left-projecting finger and the long down-left finger; merge that stub into the palm cleanly. Preserve four clearly separated remaining tips. Keep the other front foot with four fingers and rear foot with five toes. The tailless adult and exactly three legless tadpoles remain unchanged.\nPreserve the entire rest of the image exactly: full 3:2 composition, natural anatomy, pose, leg count, body markings, stage, animals, scenery, colors and bold clean flat 2D cartoon style. Do not introduce any new element, text or diagram. Return one complete full-resolution illustration.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ca0b43b1-e456-4a28-bdec-addd1cc3e5db.png",
+      "sha256": "4841f080a0d637ccb3a09a5b478e701eb028961040c12ff654726c4dca586616",
+      "role": "directly reviewed second correction target"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "sha256": "253592aa249e8fbebc9b5c87dc1338811faf3bfe27028fbcc6e7cab243c70fc9",
+    "note": "Tailless adult at bank with exactly three legless tadpoles in water. Exposed hind foot has five toes and each front foot four fingers. Body, setting and count retained.",
+    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-03",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:49.156Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3a487cfb-486b-43bf-bbce-462ba5987af6.png",
+  "sourceSha256": "53e11e93a2b4b67e999c0e8ce174b81f6f6b9b6a0c4c95b6f37d410ef0d16363",
+  "output": "public/guided-reading/world-discovery/c-03/cover.webp",
+  "outputSha256": "84e100bfc0c67cf543aa4bdf09a30d14a255b69e3fbc357763a1a0695ff8dd50",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Image 1 is the edit target; image 2 shows the correct normal child scale at the table. Kit must NOT be a miniature child standing on the table. Replace only Kit's body/pose in image 1 with a normal-size Kit standing on the FLOOR BEHIND the table beside Zoe, equal standing height to her, waist and legs hidden behind the tabletop. His arm reaches forward from behind the table and his hand presses the REAR of the toy cart. Preserve his face, identity and outfit. Keep the loaded red cart correctly resting on the long gentle flat-board ramp, its top supported on the fixed library platform, and the short flat board unused on tabletop. Preserve Zoe, the library model and platform, cart, book, room and camera style. The toys stay toy-size; no shoes or legs on tabletop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-09e945a7-1df2-403b-94a7-f3bf5a05557c.png",
+      "sha256": "5cf1f46e3bfddef657cc2daec7ffe7bebb018eb512fd8cd4f7e3977a84fe80fd"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-d961b2f8-a38c-42b0-a10b-5391467b8909.png",
+      "sha256": "8cb295de8a7f15677beb7b845dbbf98c5b2c9055553e85dc075db9ac09f3b576"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "84e100bfc0c67cf543aa4bdf09a30d14a255b69e3fbc357763a1a0695ff8dd50",
+    "note": "Corrected Kit to normal child behind tabletop. One loaded red cart is supported on long gentle flat ramp reaching fixed platform; unused short board lies flat. Toy scale, continuous rolling path and hand contact checked.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:59:18.579Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-c3a33dad-ccf5-4d65-aeae-2f740b178215.png",
+  "sourceSha256": "2d9677e62d04a84d657de1fc0522fcb75c112f373fa6231bc15f3dfeed764993",
+  "output": "public/guided-reading/world-discovery/e-02/cover.webp",
+  "outputSha256": "08f54bb516772040f73d74af4e4922ad5c7339e46f7a17efadea2f45e8123588",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Story, Two Endings; World Discovery; fiction.\nSetting: Classroom art table in daylight, one folded four-page picture story about an unnamed brown dog and red ball. All story images clearly drawings on paper.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Folded blank-paper picture story; Brown dog drawings; Red ball drawing; One blue pencil; One red pencil; Two loose ending sheets; One brown drawing pencil for the dog; the blue pencil draws the bed and the red pencil draws the ball\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Kit and Zoe spread two drawn endings beside their little picture book: a brown dog returning a red ball and a dog sitting on that ball.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCRITICAL: Only Kit and Zoe in the room, no real dog or ball. All dog and ball pictures are flat pencil drawings ON paper. ONE simple folded four-page booklet bound by a center crease like a normal little book (NOT the accordion prop mockup). Smooth clean flat-color room/skin/clothes, crisp outlines, no canvas or paper texture. Use green wall, blue window left, tan table and blue chairs. Brown pencil draws dog; red pencil ball; blue pencil bed. Loose alternatives do not have book bindings. Show exactly the described page state.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-02-reference.webp",
+      "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.223Z",
+    "sha256": "08f54bb516772040f73d74af4e4922ad5c7339e46f7a17efadea2f45e8123588",
+    "note": "Dedicated two-ending cover with clear paper-only drawings, correct cast/colors.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-03",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:59:01.702Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-24d83e22-ad2e-4ca0-a0d4-821093167daa.png",
+  "sourceSha256": "481724fc5b71473b8a018814047b473008e46744df392dd061ce6d01f08cfe1b",
+  "output": "public/guided-reading/world-discovery/c-03/page-08.webp",
+  "outputSha256": "f716b5ed0ff40200feeda6713232b5a2bd9b345ab59b677d8d42e1c4f337d056",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Way Up; World Discovery; nonfiction.\nSetting: World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One red four-wheeled toy cart carrying one blue book-shaped block; One cream model library on a fixed 4-centimeter-high platform; One smooth short tan ramp and one smooth longer tan ramp with the same width and surface\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): The cart cannot roll up the tall step. The gentle ramp gives it a rolling route.\nRequired illustration: World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door. Exact state: Opening barrier and successful route appear together; unused short ramp remains on table.\nExact current state: Opening barrier and successful route appear together; unused short ramp remains on table.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nReference 3 locks the long-ramp arrangement. Normal-size children stand on FLOOR BEHIND table; only upper bodies/arms above tabletop, never children standing on toys. Two boards total: long thin constant-thickness plank installed at gentle slope; short plank lies flat unused. Same small red four-wheel cart with one blue book load. One coherent low side view shows vertical platform face beside attached gentle ramp, cart entirely above beside door. No diagram panels, no arrows, no before/after duplication. Short board unused on tabletop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-03-reference.webp",
+      "sha256": "8e6b7dee14a323711f76200c99d10dc51b9204483d73ba18659ed328f7ee9988"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-03/page-05.webp",
+      "sha256": "258b05ce3e779cb6349f3070d2c4f2deb8c4991a6b982532fba3ebfd2a988dd8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "f716b5ed0ff40200feeda6713232b5a2bd9b345ab59b677d8d42e1c4f337d056",
+    "note": "Low view keeps the vertical platform face visible beside the continuous gentle ramp and cart above at the doorway. The unused short board remains separate. Comparison is one coherent scene, not duplicated stages.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

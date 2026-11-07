@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-04",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:59:02.660Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-39f98845-a348-4ab1-998b-bf6be9ede681.png",
+  "sourceSha256": "2cebdd6e0e873c64b9e7bf88ac3aad12b4ecd353b4ca05ed5dfab046f7a8f494",
+  "output": "public/guided-reading/world-discovery/c-04/cover.webp",
+  "outputSha256": "4ac7ebb29ac021c6ee09b23ccb26a7968af596d156d93d8468dfccd31869f9e3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Stretchy Bridge; World Discovery; fiction.\nSetting: World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One teal wooden-looking magic toy bridge with low side rails; One yellow four-wheeled toy truck; One red toy garage with hinged door; One fixed blue cloth river and two flat tan cardboard banks\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Zoe holds a small teal bridge beside a red toy garage while Kit parks a yellow truck inside. The blue cloth river is clearly a tabletop pretend landscape, not real water.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nExact toy state: the red garage door is swung open on its LEFT hinges. Kit guides ONE yellow toy truck through the opening, with wheels on tan cardboard bank. Zoe holds ONE SHORT teal bridge off to side, away from garage door. Blue river is visibly cloth on classroom tabletop, not real water or outdoor landscape. Children stand on floor behind table, never on miniature banks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-04-reference.webp",
+      "sha256": "b0dc3bbca9c417bb26673153c0a82179861781c0338c0602fdc65adcb8172ff8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "4ac7ebb29ac021c6ee09b23ccb26a7968af596d156d93d8468dfccd31869f9e3",
+    "note": "Zoe holds the short teal bridge away from the open garage while Kit parks the single yellow toy truck. Left-hinged door swings clear; cloth river and cardboard banks are unmistakable tabletop toys, with children behind table.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

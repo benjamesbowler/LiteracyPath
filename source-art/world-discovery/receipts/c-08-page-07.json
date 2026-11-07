@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-08",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:56:04.425Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-335e331d-33fe-451e-b0d0-b056f03d9d32.png",
+  "sourceSha256": "ec37a51adafd19837f8a74213891956f950f5021f4128d3894f1b354db3b629c",
+  "output": "public/guided-reading/world-discovery/c-08/page-07.webp",
+  "outputSha256": "f01cbdffb50d73d7e85b78f94d2046487b54115a803158416b4434d5267d7833",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. REMOVE ONLY the living brown nymph underwater in lower-left; replace with natural pond bed/plants. Keep the SINGLE adult above water with FOUR spread transparent wings and its one EMPTY SPLIT SKIN attached below on reed. Preserve all upper insect anatomy, empty shell, reed, colors and landscape. No additional subjects or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-bd8bb91b-fe07-4ecf-8851-b9d95ac502d6.png",
+      "sha256": "9739b6dd311a755dadf331dec0358aeb8b1443a16a56fe08c140064dad05f5b8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "f01cbdffb50d73d7e85b78f94d2046487b54115a803158416b4434d5267d7833",
+    "note": "Direct inspection after extra-nymph removal: one adult rests above empty split skin, four spread transparent wings clearly separated; no duplicate living stage below.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

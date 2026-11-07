@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-03",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:15:19.798Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-acf36d0f-0942-46f6-a1f7-927a32c8d0a2.png",
+  "sourceSha256": "b6dfeae87b5356ec0d59a8a88e990a101bd745734639add13acc24afecb3bc65",
+  "output": "public/guided-reading/world-discovery/d-03/page-10.webp",
+  "outputSha256": "1bf462fd3da75f39d5c32c96c2c816658b282b3df48884280625a18dbe2baf0d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this illustration, preserving clean outlined flat-color style, scene and all unmentioned objects. CRITICAL PLUMBING REPAIR: the narrow BLUE incoming pipe is incorrectly visible INSIDE the white sink bowl. Correct this: mount the silver faucet properly on the BACK-LEFT WHITE RIM of the sink. Its blue supply rises BEHIND the outside of the basin into the faucet base. The opaque white bowl hides that upper part of the blue riser, so NO BLUE PIPE is visible inside the bowl. Keep the blue riser clearly visible beneath the counter on the LEFT of the basin, directly aligned beneath the faucet mounting, continuing down and bending LEFT underground. Keep wide GRAY drain connected only to basin bottom center, its U trap and right underground outlet unchanged. Blue and gray must never join. Basin interior shows ONLY white ceramic, drain, and existing cup/water when present. Move faucet slightly farther back onto the rim if needed, never mount faucet inside basin. Faucet remains OFF, no stream; one clean blue cup stays on countertop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a4f17d77-2b19-4af3-a6f6-f3af624fe940.png",
+      "sha256": "f005fdbd6cf8bc5cdc47eb8a61563085d9a5c9e62292c7e468d44a7f7f20a5b2"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "1bf462fd3da75f39d5c32c96c2c816658b282b3df48884280625a18dbe2baf0d",
+    "note": "Direct inspection after supply alignment repair: faucet mounted on back-left rim above blue riser concealed behind opaque bowl; distinct gray drain begins at center basin bottom and exits right. Clean cup on counter, tap off; no blue pipe in bowl.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

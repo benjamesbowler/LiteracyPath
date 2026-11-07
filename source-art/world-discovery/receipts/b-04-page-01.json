@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-04",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.931Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6342ad93-2749-4a38-9a18-98c7633c9dd5.png",
+  "sourceSha256": "f4e86f94edf324cf944dff365107ecda5bd02256144d3fb413d773e558a7b88b",
+  "output": "public/guided-reading/world-discovery/b-04/page-01.webp",
+  "outputSha256": "edec346f18c4437bc65e09722eca48b2d0830bafbae03683e4206de6a7354374",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise object orientation edit. Turn ONLY the single loose red boot so its rounded TOE POINTS RIGHT and its heel is LEFT; keep the one gold dot on the side facing viewer, same red design and size. The boot must travel toe-first toward the RIGHT, away from Kit, consistently toward its box. Do not mirror Kit, the room, props, movement lines or entire image. Keep the current exact boot position and state airborne in one short forward hop, with Kit clapping. Preserve all other details, clean 2D bold outlines, flat colors and gentle cel shading. No extra boot or other characters.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bcdb06e3-dadc-4e78-b84c-6516a898cb62.png",
+      "sha256": "33a4f1c94ac273c82a2d78a99795b3ab95c06f972687819de043551e24234602"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "edec346f18c4437bc65e09722eca48b2d0830bafbae03683e4206de6a7354374",
+    "note": "Kit claps and single boot makes a short airborne hop; repaired toe points forward to the right, navy sneakers stay worn.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

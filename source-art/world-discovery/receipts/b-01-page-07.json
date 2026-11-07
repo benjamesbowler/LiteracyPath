@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:26:48.906Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0fd7634c-877f-49bb-a06e-163229126a24.png",
+  "sourceSha256": "b6fbd07b205411c6f78010286b7a70ce2cde4b4779e360b3b28b365afd049da6",
+  "output": "public/guided-reading/world-discovery/b-01/page-07.webp",
+  "outputSha256": "899cee731e16a267a4b1a023456a8cdd725bba94d43eb39219e5afcc76aaa865",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise bag construction correction only. The right vertical EMPTY BUTTONHOLE must be cut through the LOOSE FLAP, not through the exposed body. Extend the lower edge of the flap RIGHTWARD under the existing right slit, so the slit sits entirely within the one continuous flap; then curl up only the extreme right tip of the flap beyond that slit. First two yellow buttons stay already fastened flat ON TOP of the lowered left and middle flap. Kit still pinches third button edge-on OUTSIDE the right empty hole, not yet through. Exactly three buttons. Remove the current diagonal boundary that separates that slit from the flap. Keep Kit, pose, outfit, bench, setting, expression, clean flat cartoon style and all else unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f331093e-1a3b-463e-82e4-65940342b61d.png",
+      "sha256": "1559b9cecbc72935cb5178ec1acb47d153789f818e9eeb64f04e46f56116bf0e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "899cee731e16a267a4b1a023456a8cdd725bba94d43eb39219e5afcc76aaa865",
+    "note": "First two buttons are flat and fastened; Kit holds last button edge-on outside the right flap hole. Inspected repair puts the hole in the flap, not bag body.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-04",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:02:56.147Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8b5f2325-841d-47ef-a8cf-7f9e7722aaca.png",
+  "sourceSha256": "06ba5fb8173a73abf8f74c6b8f9e04eca983ca8d08ca94841821ee258469707d",
+  "output": "public/guided-reading/world-discovery/c-04/page-01.webp",
+  "outputSha256": "6b51a92360cf6137c3aee38b155d9f721228b67fdff8c3febf9313cbd079ff68",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Stretchy Bridge; World Discovery; fiction.\nSetting: World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One teal wooden-looking magic toy bridge with low side rails; One yellow four-wheeled toy truck; One red toy garage with hinged door; One fixed blue cloth river and two flat tan cardboard banks\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Zoe\u2019s toy bridge is magic. \u201cLong\u201d makes it stretch. \u201cShort\u201d makes it shrink.\nRequired illustration: World Discovery classroom play table in afternoon light. A narrow blue cloth river separates two tan cardboard banks; a small red toy garage stands on the far bank with its hinged door facing the river. Zoe holds the teal toy bridge beside Kit\u2019s tabletop river and garage, ready to demonstrate; it is currently short. Exact state: One bridge; initial short length; width and rails fixed.\nExact current state: One bridge; initial short length; width and rails fixed.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical geometry: tabletop toys; children stand on FLOOR behind table, only upper bodies and arms above tabletop. The teal bridge has a flat deck, TWO low side rails running along its LONG edges, and OPEN ends for the truck to drive through. Rails never cross the driving path. Only ONE SHORT teal bridge held in Zoe's hands, not installed and not stretching yet. Yellow truck waits on LEFT near cardboard bank. Red garage on RIGHT far bank has its LEFT-hinged door CLOSED, facing left toward cloth river. No truck inside garage. Blue river is cloth lying on tabletop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-04-reference.webp",
+      "sha256": "b0dc3bbca9c417bb26673153c0a82179861781c0338c0602fdc65adcb8172ff8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6b51a92360cf6137c3aee38b155d9f721228b67fdff8c3febf9313cbd079ff68",
+    "note": "One short bridge held by Zoe, yellow truck on left bank and closed left-hinged garage on right. Cloth river and cardboard banks clearly remain tabletop toys; open bridge driving ends and original cast checked.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

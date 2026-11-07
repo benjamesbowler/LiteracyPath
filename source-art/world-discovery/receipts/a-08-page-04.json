@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-08",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:43:41.351Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e89fe0c6-ee67-4354-b39f-ddb659fa6569.png",
+  "sourceSha256": "1827833b9d637043178a23414cc1bb7033fa338c400b8214ce47bd02cbe052f3",
+  "output": "public/guided-reading/world-discovery/a-08/page-04.webp",
+  "outputSha256": "c1f82f4117ccee8aa91359ec248ec501bfbdbe1d70236a883518ee4bfe68ddf4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Chick Grows; World Discovery; nonfiction.\nSetting: A simple sheltered farm nest and adjacent grassy run, daylight across clearly changing developmental stages. Natural chickens, not Meadow Pals characters.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The chick pushes its way out.\nRequired illustration: Focal chick pushes the upper cap from the cracked shell, head and shoulders emerging with damp down. Hen and two remaining eggs softly behind.\nExact current state: Shell cap detached; chick partly emerged; no human help.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nHARD CURRENT-STATE REQUIREMENTS: ONE focal partially emerged chick: damp golden down, head and shoulders pushing from bottom part of egg, detached upper shell cap nearby. Exactly TWO OTHER intact cream eggs behind and ONE mother hen background. No additional chick. Hatch is incomplete; chick lower body still inside shell.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp",
+      "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "c1f82f4117ccee8aa91359ec248ec501bfbdbe1d70236a883518ee4bfe68ddf4",
+    "note": "Damp chick head/shoulders emerging from lower shell, detached upper cap, two intact eggs and mother behind.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

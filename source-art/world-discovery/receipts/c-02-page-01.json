@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-02",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:43:04.382Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c12281ac-dcc8-461f-9f3f-dbbe74763ff6.png",
+  "sourceSha256": "e2ad2c510fb37cb10702b0459f24579a788efb9a7817147222bc9936462f8991",
+  "output": "public/guided-reading/world-discovery/c-02/page-01.webp",
+  "outputSha256": "9ade5b7d5a5160bc14c638ca7ece3ff97de11e1c6bf1e6e879a0f698c78f9082",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Rolling Game; World Discovery; fiction.\nSetting: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One yellow hoop lying flat on grass; One red soft ball for Zoe; One blue soft ball for Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Zoe sets a hoop on the grass. \u201cThrow your ball into the circle,\u201d she tells Kit.\nRequired illustration: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Zoe places a yellow hoop flat on the grass; she holds a red ball while Kit holds a blue ball. Exact state: Hoop empty; one ball per child.\nExact current state: Hoop empty; one ball per child.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical exact-state composition: Opening game before Kit's failures: one yellow hoop lies flat on grass, Zoe holds ONE red ball at chest height ready to throw; Kit holds ONE blue ball. No ball in hoop yet. Two balls total.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-02-reference.webp",
+      "sha256": "0da00d7abb12ad2b7354db032649fc436ca1a2cc32820b7bdf7cc491f9935dc0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "9ade5b7d5a5160bc14c638ca7ece3ff97de11e1c6bf1e6e879a0f698c78f9082",
+    "note": "Empty yellow hoop lies flat on lawn. Kit holds the blue ball; Zoe holds the red ball and gestures toward the target. Two children, two balls, correct initial state and cast.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

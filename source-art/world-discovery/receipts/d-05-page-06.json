@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-05",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:41.761Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d5006312-6123-439d-87cb-6fb9a53d166c.png",
+  "sourceSha256": "1c59ea5d7e973695ea750e4f14e93fc1fbcfaa1a3994fb71d61e17a871bbad58",
+  "output": "public/guided-reading/world-discovery/d-05/page-06.webp",
+  "outputSha256": "bb08dd9033ff1b227ff0f648c443169271d86635fcfe4928564652b0276c8034",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Keep every part of tray, island, toy, water and left mainland exactly unchanged. The removed brown clay strip lying OUTSIDE the tray at bottom right is much too short. Enlarge that SINGLE clay strip horizontally to roughly the length of the open water gap between mainland and island (about 300 pixels at this image scale), matching the removed strip in image 2. Place it at bottom center, and keep ONE wooden stick alongside it at bottom right; the two must not overlap or touch the tray. No new items, no hands, no text. Keep flat outlined cartoon style and full composition.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-335c6d0a-81a8-48c6-bee3-7883dd74db12.png",
+      "sha256": "855a045e3c7ed7af59a966fcf76cf074cb1de7084df047782e388438ec3b76c9"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-91bcd48d-2253-4ddd-b596-30f93f1f1281.png",
+      "sha256": "937c8eeb79b8f8f6b2dbda1039b3effb733d2562c1d781c06917b9a4539d53c5"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:41.856933+00:00",
+    "sha256": "bb08dd9033ff1b227ff0f648c443169271d86635fcfe4928564652b0276c8034",
+    "note": "Direct inspection: overhead isolated right clay island fully ringed by water, unchanged left mainland, one toy on island; removed neck and one stick outside tray. Clear island boundary and no hidden land bridge."
+  }
+}

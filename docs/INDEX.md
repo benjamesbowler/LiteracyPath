@@ -50,6 +50,7 @@ A dated document must never override current code.
 - [Hop and Stop](product/HOP_AND_STOP.md) — original Bouncy and Speedy song, supported reader and unscored picture-action activity; Books entry requires the complete verified media pack.
 - [Small Steps decodable readers](guided-reading/SMALL_STEPS_CONTENT_BIBLE.md) — cumulative code, exact exception words, original character canon and production requirements
 - [Foundations expansion](guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md) — 30 cumulative decodable and 20 distinctly labeled leveled books, phonics prerequisites, teaching support and media requirements
+- [World Discovery](guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md) — ten books at each public App level A–E, original cast, ten recurring topics, factual sources and complete illustration/narration requirements
 - [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — single public A–H book system, calibrated full-text reviews, shared metadata and verified Lexile provenance
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)

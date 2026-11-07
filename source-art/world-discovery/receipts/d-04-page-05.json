@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-04",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:55:33.423Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-db6b9872-f7b8-4444-bd27-1c96df11203d.png",
+  "sourceSha256": "e2f369f01ae38fb47ac2aa9985833d0dda24e6c006bbdbbb210f0b09f451df3e",
+  "output": "public/guided-reading/world-discovery/d-04/page-05.webp",
+  "outputSha256": "4db776b0031ef9b5856efd13b5c4ad5e49f75ecc064118403978007bd368f399",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit image 1, keeping its exact tree geometry, children, props, garden and clean cartoon style. Make page 5 failed gust scene: Zoe holds her blue pouch open WIDE below the kite and white wind strokes blow UPWARD toward it. Raise the ONE red kite only a SMALL amount within the existing U-shaped fork (about half a kite height). Its upper-right corner catches against a small twig projecting inward from the right branch, causing a tighter wedge; it remains reachable from ground level, not in the leafy canopy. Show one short white ribbon tail and one taut thin string to Kit's single spool. Kit still pulls on right. Do not change the trunk/fork into a different tree or close the fork with a large new branch. Both feet grounded. No text, no extra props. Image2 is only expression/open-pouch reference; do not copy its incorrect tall central tree.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3600d71f-c3e5-4de0-81ad-b55200d915b9.png",
+      "sha256": "b4997c94c9cc829915e5da29982baf55d7bb6a82ad2274d382c08dbbd419963a"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-595fb9df-5b46-40c1-8c0f-871fcfadcca9.png",
+      "sha256": "240167e113b9c078424ccdf285fe70daccebb86b961582a977bc03d05e6e7640"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:55:33.527244+00:00",
+    "sha256": "4db776b0031ef9b5856efd13b5c4ad5e49f75ecc064118403978007bd368f399",
+    "note": "Viewed full-size repair: upward gust from open pouch pushes kite slightly higher into the same low fork; one taut string, one spool, intact short ribbon tail; failed attempt remains reachable and coherent."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:28:00.998Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-8945f1ab-bc6c-4ff7-a502-648927e4ee5d.png",
+  "sourceSha256": "9b72243754f24553d88f5531b9b739955e88f5956e0f14c6a5fc61c51963e74b",
+  "output": "public/guided-reading/world-discovery/e-09/page-10.webp",
+  "outputSha256": "2d9459cc17d0ef1654a1d469679ad2b4b76caf7cb4d4ad10c7c988d7b4a69584",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 10. Printed prose (NOT text to put in art): The ocean tells us where these animals live. Their connected features tell us more about the groups they belong to.\nRequired illustration: Final wide scene shows blue whale and calf, distant dolphin pair and school of fish sharing the ocean without mingled anatomy. Exact continuity: Natural spacing and relative scale; no claim all mammals live in ocean.\nExact current state: Natural spacing and relative scale; no claim all mammals live in ocean.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Natural wide ocean panorama ONE huge blue whale and ONE smaller whale calf, far away ONE dolphin and ONE dolphin calf clearly smaller, tiny silver fish school. Maintain spacing and different anatomical designs, no sharks or mixed bodies.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nANATOMY PRIORITY: EVERY cetacean tail (both adult and calf, whales and dolphins) must have FLAT HORIZONTAL flukes extending LEFT AND RIGHT, viewed from above in three-quarter perspective like two broad wings of a glider, BOTH top surfaces visible. NEVER draw a vertical fishlike tail with one lobe UP and the other DOWN. Each cetacean body upright: belly below, dorsal fin above. Only silver fish have vertical tails.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-09-reference.webp",
+      "sha256": "27ce1cad7fc782603b9645e09b7e737ad3c14f8669c7b05915f99ea087540971"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "sha256": "2d9459cc17d0ef1654a1d469679ad2b4b76caf7cb4d4ad10c7c988d7b4a69584",
+    "note": "Wide ocean scene with whale/calf, much smaller distant dolphin pair and small fish; horizontal cetacean flukes and vertical fish tails remain distinct.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

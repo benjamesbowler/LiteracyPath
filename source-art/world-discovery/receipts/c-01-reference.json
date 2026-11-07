@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-01",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:27:41.107Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ff7f2b4b-c81f-4959-a6c4-43a8b7bcb435.png",
+  "sourceSha256": "2b4a92895c9fc9b135064e3ff02a15bf56ac09f5e4d587021410fb4137d36470",
+  "output": "source-art/world-discovery/c-01-reference.webp",
+  "outputSha256": "3d6a96f49eb80b9721da0b8eb8f1efa0206aa8134a6d737a342d31d80020a3a2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this production reference sheet only. Preserve the exact character designs, clothing, clean cartoon style, six tan block stage (three blocks per row, two rows), drawing tools, simple rectangular dog sketch, and two-tree scenery design. Remove every red collar from every dog puppet: its neck must be plain cream because the red collar is added only late in the story. In the top-left classroom location panel, remove the performing dog puppet and both acting gestures; show Kit and Zoe seated calmly beside the bare six-block stage, with the dog puppet and flexible two-tree paper lying flat on the table. Show the two-tree scenery reference as a SINGLE flexible sheet, never folded into an A-frame and never self-supporting. On the lower row remove the A-frame side-view and replace it with a limp single-sheet side view. Do not add lettering. All other identities, colors and arrangement remain intact.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-27338978-a0fe-48a6-906c-7e2b166595d1.png",
+      "sha256": "a801a18219c95b60db99b7f3047e3158943c46c023b1c58cbb15503a37c2818a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "3d6a96f49eb80b9721da0b8eb8f1efa0206aa8134a6d737a342d31d80020a3a2",
+    "note": "Inspected original cast and revised reference: six tan blocks in two rows, collar absent on initial dog puppet, single flexible scenery sheet with two trees, gray pencil/red crayon, matching Kit/Zoe outfits and equal height; ordinary bright classroom key.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

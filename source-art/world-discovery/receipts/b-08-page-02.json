@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:58:49.239Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3d081f59-14eb-4848-9d63-6a9fcdde309b.png",
+  "sourceSha256": "6125369646983b461072de51b8c3aa46b9cdf4f36e682f5e6ef4874c544f9adc",
+  "output": "public/guided-reading/world-discovery/b-08/page-02.webp",
+  "outputSha256": "ccf099cb10235a9441c2d9dc07bf21ce963486beee8b9572c6667d53d99999b2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise picture-book illustration correction. REMOVE all three green aphids. Correct the larva to exactly SIX legs: three on the near side and three partly visible behind the opposite side of the thorax, ALL near its head. There must be THREE, not four, legs along the visible near edge. Keep its body elongated and dark, the one broken yellow egg and remaining intact eggs. No later-stage animal. Change ALL soft/blurry background leaves into simple crisp dark-outlined flat-green shapes, with perfectly clean flat pale-blue spaces between them. ZERO depth-of-field blur, soft focus, photographic texture, paint grain or stippling anywhere. Keep the main foreground leaf, main animal/eggs, framing and composition unchanged except stated correction. Entire image must be crisp flat clean 2D cartoon. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-edc4f30a-1c79-45a0-b14c-89266f7d4b7a.png",
+      "sha256": "2ff6cec3df78567ce84ff9fcfb708d561a4629ea96efd88fb9f37a79086f6ff0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:58:50.021671+00:00",
+    "sha256": "ccf099cb10235a9441c2d9dc07bf21ce963486beee8b9572c6667d53d99999b2",
+    "note": "One larva emerges beside split egg and six intact eggs, with six short thoracic legs; premature aphids removed and background flattened."
+  }
+}

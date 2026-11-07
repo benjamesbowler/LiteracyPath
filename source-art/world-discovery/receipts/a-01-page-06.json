@@ -1,0 +1,21 @@
+{
+  "bookId": "world-discovery-a-01",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:24:05.638Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-af6440ac-51c3-4cb4-a102-732d6dba7a1d.png",
+  "sourceSha256": "2d50be3716ce907d20382a0be473b9db388b91a8516e96a8ddaf648ae9d08a36",
+  "output": "public/guided-reading/world-discovery/a-01/page-06.webp",
+  "outputSha256": "915ab3050578da9ce98350bcd34574031c7be53e7788138abfc6383d7518a5d9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precision edit of this exact children's book scene. The girl's actual face and her mirror reflection must show the SAME expression. Change only the actual girl's mouth and eyebrows to a cheerful open smile matching the smiling face in the mirror. Keep her eyes naturally looking toward the portrait/mirror. Preserve the drawn self-portrait with NO MOUTH or smile at all, the girl's hands and purple overalls, the four brown/black/yellow/plum crayons, mirror, room and clean cartoon style. It is the PAPER PORTRAIT that lacks a smile; the real girl and reflection both smile identically. No text.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "915ab3050578da9ce98350bcd34574031c7be53e7788138abfc6383d7518a5d9",
+    "note": "Repaired actual/reflected expression mismatch; both Zoe faces smile, paper portrait has no mouth; four crayons.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

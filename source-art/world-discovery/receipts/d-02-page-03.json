@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-d-02",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:51:33.965Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-460d4c5d-b624-42f4-99d8-2f6ac9571839.png",
+  "sourceSha256": "fbe66405a5831f8bcaf769b79f6fae6b78f402aea73da0d4c96b7123118468d5",
+  "output": "public/guided-reading/world-discovery/d-02/page-03.webp",
+  "outputSha256": "e74d326683752796655a822f267341a0d3e85fab22305faf3681862d18877333",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Quiet Seat; World Discovery; fiction.\nSetting: A bright classroom activity room, afternoon. Blue chair at a small round table, block rug several steps away, second low table at the far side.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Six plain wooden blocks; One white drawing sheet; One green pencil; Blue chair\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): Kit stacks the blocks beside her table. Now she can join without moving. He adds one more block.\nRequired illustration: Kit places a narrow stack of wooden blocks on the floor beside Zoe\u2019s blue chair. Exact continuity: Same six blocks; tower is close to chair but not on paper.\nExact current state: Same six blocks; tower is close to chair but not on paper.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. Lock room geography: round oak drawing table LEFT beneath window with ONE blue chair, low rectangular second table far RIGHT, colorful block rug CENTER foreground several steps from round table. Exactly six tan wooden blocks total in scene. Child drawing is simple GREEN pencil only: a single vertical trunk branching into a plain Y with two short bare twigs. No finished leafy tree yet, no colored crayons. Six blocks total now beside blue chair: five cubes in one narrow vertical stack on floor, Kit is adding sixth held directly above top. None left on rug. Zoe draws at table; no stray line yet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-02-reference.webp",
+      "sha256": "74e6b3397c8322de42e60224c7447e1e6d112ea7a3a9b5fbe94b6ef08a143720"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "e74d326683752796655a822f267341a0d3e85fab22305faf3681862d18877333",
+    "note": "Direct inspection: five stacked cubes and sixth held above make six; tower on floor beside blue chair, rug empty, Zoe draws bare green tree.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

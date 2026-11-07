@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-02",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:35:03.914Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-dbad4c45-14c7-4dba-9bbb-34ff884ea5b9.png",
+  "sourceSha256": "4717208cc00ae058621745f42cd065d8115578e9b1bd03dfd0b94988b7abddeb",
+  "output": "public/guided-reading/world-discovery/a-02/page-08.webp",
+  "outputSha256": "ba6dbf4cb9b45ca6d5cd8254b316471aea066b5e40e1953ff8400254a6950082",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the supplied illustration, preserving its clean outlined flat 2D cartoon style and landscape 3:2 composition. Repair the final scene's scale and support. Both children must stand on the FLOOR beside the low table, never on chair seats; move the chairs aside behind them and make their whole bodies/feet anatomically correct, fully visible with floor margin. Shrink the sole red crayon on the table to normal child size, about the length of Kit's palm. Preserve the same completed two clipped pictures (one balloon, one kite with exactly THREE bows), smiling children and their locked clothes, room and clean cartoon style. No extra objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-fd61c04b-9ab1-4066-919d-d9e826ba33e1.png",
+      "sha256": "7ec7892bb33a6af4614a1c54f704e9e975ed067a3875ffbfc3a9ee51ed13ea27"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ba6dbf4cb9b45ca6d5cd8254b316471aea066b5e40e1953ff8400254a6950082",
+    "note": "Exactly two completed red pictures hang together; both children stand on the floor with intact anatomy; single palm-length crayon on table after correction.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

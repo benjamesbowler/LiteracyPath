@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-10",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:42:49.491Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7fde62ee-a97d-4c88-8a24-066d22d0ac62.png",
+  "sourceSha256": "2f67b6bba534bb8205984c490871158a69329a6d2598941bc0ee9e5ec103c463",
+  "output": "public/guided-reading/world-discovery/e-10/page-01.webp",
+  "outputSha256": "08830de043dd1d2ab5c53b1d8136a2773fdc49a252597d717a17b7533cbb1fa6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Keep the Water in the Garden; World Discovery; nonfiction.\nSetting: An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Established leafy vegetable plants; Brown soil; Clean straw mulch; Small blue watering can; Blunt trowel; Adult gardener\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): The garden soil looks pale and dry on top. Kit lifts the watering can, but Zoe kneels beside a plant first.\nRequired illustration: Kit holds a blue watering can while Zoe crouches beside an established leafy plant with pale surface soil. Exact continuity: Can not pouring; adult gardener visible nearby; roots not exposed.\nExact current state: Can not pouring; adult gardener visible nearby; roots not exposed.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Opening bare-soil bed: NO STRAW OR MULCH anywhere. Kit lifts and holds blue can without pouring, Zoe kneels beside plant, adult gardener nearby. Pale dry topsoil; plants same established size, roots hidden.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nGARDEN CARE BLOCKING: All humans keep feet/knees OUTSIDE planted bed, on gray path or grass beside its wooden border. No one stands or kneels on planted soil or straw. They reach over the low border naturally. Preserve hands and arm counts exactly; no duplicates.\nCorrection of attached scene: Move the adult gardener's feet and knee OUT of planted bed onto the gray path behind/beside Zoe, leaning across border. No human feet/knees inside wooden rectangle. Keep bare soil, NO straw or watering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6f0304cd-c938-4d00-ac15-342048a52327.png",
+      "sha256": "c1b08a64c6e12dc7815fa1cf48f948217f4202ce6010f08871b90cbf04b8ba62"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:42:51.374Z",
+    "sha256": "08830de043dd1d2ab5c53b1d8136a2773fdc49a252597d717a17b7533cbb1fa6",
+    "note": "Pale bare surface, Zoe checks and Kit holds can without watering; corrected adult to remain outside bed; no mulch yet.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

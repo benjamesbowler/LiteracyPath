@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-06",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:26:12.998Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6de4cb23-fcc3-415e-8187-57e7c7749747.png",
+  "sourceSha256": "ccc73c84aff3d706a47c797bdd3e153ab3416fffe0dfd7e7f061a83a08ca31ca",
+  "output": "public/guided-reading/world-discovery/c-06/page-02.webp",
+  "outputSha256": "87a3c51d6db81ea198fa70984a51961ddade0c4ae9d593757f3c31303deb1707",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Where Does Daylight Go?; World Discovery; nonfiction.\nSetting: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One plain blue-green globe-like ball; One removable small red dot on its surface; One yellow flashlight held steadily by Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Earth is round, and it spins. The Sun lights the side facing it.\nRequired illustration: One clear standalone space illustration of Earth, separate from the classroom model shown on later pages. A round blue-green Earth floats in space, with the left hemisphere sunlit and the right hemisphere dark; sunlight comes from off-screen left. Exact state: Illuminated and dark halves meet across the visible surface; no Moon shadow, orbit line, classroom, children or flashlight.\nExact current state: Illuminated and dark halves meet across the visible surface; no Moon shadow, orbit line, classroom, children or flashlight.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nThe exact page-specific standalone space view overrides general classroom setting. NO Kit, Zoe, red sticker, flashlight, toys, hands or classroom. Earth with natural recognizable simplified continents, left-facing hemisphere lit, visible right hemisphere dark. Sun offscreen to left; no sun-face, no orbit arcs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-06-reference.webp",
+      "sha256": "15a5bc65899830e2b8aa885cad7aac1c2ad9aca848291d22d93a86c464affdfc"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "87a3c51d6db81ea198fa70984a51961ddade0c4ae9d593757f3c31303deb1707",
+    "note": "Direct inspection: standalone Earth in space with recognizable simplified continents, lit left and dark right hemispheres; no classroom, model, Moon shadow or orbit line.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

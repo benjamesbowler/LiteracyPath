@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:30.766Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-4bb77c03-25ca-4497-884d-4f8f3e36b503.png",
+  "sourceSha256": "4f8f923e631de283240e8cb87ecb48eb165536f210eed894e6b202316e61183d",
+  "output": "public/guided-reading/world-discovery/e-06/page-06.webp",
+  "outputSha256": "5d9c61cf069eca2674e6487ee828d476ef89f5fcae924ecfc7f938e4bfbc8e92",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): A few days later, a bright crescent appears. We can see only a narrow part of the Moon’s sunlit half.\nRequired illustration: An Earth-sky view of a young evening crescent above a quiet western horizon shows a narrow bright curve on the right, with the full dark disk subtly retained. Exact continuity: Chosen northern-hemisphere evening viewpoint; illuminated edge faces the unseen setting Sun; no universal right-side rule printed.\nExact current state: Chosen northern-hemisphere evening viewpoint; illuminated edge faces the unseen setting Sun; no universal right-side rule printed.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. ONE roundMoon with narrowBRIGHTRIGHTcrescent in earlyEVENING westernsky; fullrounddarkdisk faintvisible. Same quiet horizon aspage1, darktrees andbluevioletsky orangeLOWhorizon. NosecondMoon, nocutout.\nSEQUENCE CORRECTION: Use attached first-quarter sky illustration as exact composition, camera, landscape, Moon outer diameter and center position, AND exact crater geography reference. Entire round Moon must keep EXACT SAME physical diameter in picture, never shrink or grow as phase changes. Preserve full dark circular outline. Change ONLY illuminated portion and time lighting requested. RIGHT thin crescent bright; evening sky. Dark part keeps subtle faint craters.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e7a502c4-4748-480a-8cfd-635f67215935.png",
+      "sha256": "4f96c29d741dd2c38543455793b97bd38f36bec587970774965c0b8f7aacfc64"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "sha256": "5d9c61cf069eca2674e6487ee828d476ef89f5fcae924ecfc7f938e4bfbc8e92",
+    "note": "Corrected camera diameter to match first-quarter view. Young right crescent, faint full disk, matching crater positions and landscape.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

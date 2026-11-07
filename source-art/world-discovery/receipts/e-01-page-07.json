@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:45:48.141Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3e0f86aa-b7b1-4fff-8362-c78ba52bf42b.png",
+  "sourceSha256": "3c47d9e1735cba1652bd7e49b851eecae58ae66c50fee72c1721f759bd9a7cc8",
+  "output": "public/guided-reading/world-discovery/e-01/page-07.webp",
+  "outputSha256": "a00ce3a596feb31cc73165643dfe1f47907225794d99873c02d4e7fe7c83fce4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: More Than the Builder; World Discovery; fiction.\nSetting: Empty classroom rehearsal corner, afternoon. Peach wall, blue-framed window left, bare wall shelf right, solid blue rug on tan floor. Only Kit and Zoe are here; no audience before page 9.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Plain cardboard puppet theater; Blue cloth curtain; Orange fox hand puppet; White rabbit hand puppet with one small brown-painted front paw, visible whenever that paw is raised; Two plain wooden stools; One supplied cardboard scenery panel with a simple brown den doorway drawn on it, placed behind the stage window from page 2 onward\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): “I built it already,” Kit says. He slips his hand into the puppet. “Can I try the whole part?”\nRequired illustration: Kit puts his hand fully inside the orange fox puppet and lifts it toward the stage window. Exact continuity: Request explicit; puppet unchanged; Zoe holds rabbit ready.\nExact current state: Request explicit; puppet unchanged; Zoe holds rabbit ready.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCRITICAL: exactly TWO children, Kit and Zoe only. No audience, spectators or other people. Smooth solid flat fills; no fine grain, noise, woodgrain or carpet fibers. The props must stay the NEW reference-sheet designs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-01-reference.webp",
+      "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.954Z",
+    "sha256": "a00ce3a596feb31cc73165643dfe1f47907225794d99873c02d4e7fe7c83fce4",
+    "note": "Kit has inserted hand into fox for audition; stage and rabbit mark match.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -13,16 +13,16 @@ available for listening irrespective of independent reading demands.
 
 The 29 October 2026 cross-collection audit read all 247 then-working books,
 compared neighboring levels and reconciled 37 assignments. The integrated
-catalogue adds the independently reviewed fifty-book Foundations expansion and
-now contains **297 books, 2,621 reading pages and 29,810 word tokens** under the
-conventions below. Its current distribution is **A23, B86, C63, D56, E15, F36,
+catalogue adds the independently reviewed Foundations and World Discovery
+collections and now contains **347 books, 3,061 reading pages and 35,802 word tokens** under the
+conventions below. Its current distribution is **A33, B96, C73, D66, E25, F36,
 G16 and H2**. Current counts come from the runtime and generated analysis.
 
 Integration retained the calibrated main-branch assignments. All ten small
 manuscript/title variants were reread in full (89 current pages), retaining those
 public bands while binding their reviews to the corrected text fingerprints.
 The independent Small Steps and Foundations reviews remain described below.
-One hundred and sixty-seven books have separate image descriptions for every
+Two hundred and seventeen books have separate image descriptions for every
 page, 19 have partial coverage and 111 have only prose-derived descriptions.
 
 This was a Codex full-manuscript editorial review, using actual prose and
@@ -66,6 +66,14 @@ Bright Ideas adds 20 broader leveled readers (2 A, 2 B, 3 C, 4 D, 3 E, 3 F,
 2 G, 1 H). Its wider vocabulary is not labeled cumulatively decodable; the H
 investigation remains supported shared reading. The exact title and ordered
 page-text fingerprints pin every decision to its reviewed manuscript.
+
+The 2026-11-07 World Discovery addition received independent full-manuscript
+review for all fifty books, ten each at A–E. The ten topic strands recur with
+increasing syntax, comparison, causal explanation and inference demands.
+These are predictable/levelled books for interest ages 4–8, with no cumulative
+decodable or publisher-equivalence claim. The individual rationales,
+dimension observations and exact fingerprints are authored in
+`src/content/world-discovery/reviews.json`.
 
 ## Leveling method
 

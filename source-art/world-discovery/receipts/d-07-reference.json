@@ -1,0 +1,20 @@
+{
+  "bookId": "world-discovery-d-07",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:09.818Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7c6c92f2-97ff-40e8-804c-703810e77dd0.png",
+  "sourceSha256": "1b6ce36e6da056b3b03c105e509473e04a367112321631e8dc6e203c6e587f72",
+  "output": "source-art/world-discovery/d-07-reference.webp",
+  "outputSha256": "b025bdffb8926422123fc03ffed8526adc1df1b98bfb771338f4eff721fcb879",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the large lower-right location vignette on this reference board: remove the spider, fly and every silk web line from that vignette, leaving an empty gap between the same two shrub stems at dusk. Make distant foliage and clouds have crisp flat edges instead of blur. Leave EVERY isolated spider and fly model elsewhere on the sheet exactly unchanged, especially their existing legs. Do NOT redraw, add or remove any leg on those isolated models. No text. Clean outlined 2D cartoon.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:55:11.811571+00:00",
+    "sha256": "b025bdffb8926422123fc03ffed8526adc1df1b98bfb771338f4eff721fcb879",
+    "note": "Inspected replacement board retains correct isolated eight-legged spider models and removes the misleading six-legged spider in the scene key. Location now empty; crisp edges. Counted four long walking legs on each side of frontal model, with separate short pedipalps."
+  }
+}

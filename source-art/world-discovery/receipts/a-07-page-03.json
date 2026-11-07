@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-07",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:32:59.550Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-06331230-e4fd-45c8-a58b-7276f3510c3b.png",
+  "sourceSha256": "1c5e762e836cdf52317eae401f789ae16c06d243bba738f21c1c2258493d24f5",
+  "output": "public/guided-reading/world-discovery/a-07/page-03.webp",
+  "outputSha256": "8b196b8bcd3c911fd16bae5d627d7c8cad070375e2c78082c0967eab997a3a3a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct only the anatomy where the snail's soft gray-tan body joins the shell. The large empty dark opening above its foot is wrong: make the soft body physically emerge out of and fill the LOWER FRONT aperture, with the shell lip naturally resting around the body. Do not leave a visible empty hole above a separate foot. Keep the same extended head with exactly two long eyestalks bearing tiny black eye dots, two shorter lower feelers, continuous broad legless foot contacting stone. Preserve all other composition, colors, shell spiral, leaf, droplets and background. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d6ef61f3-bf90-4b3a-9e66-e5cab0bad026.png",
+      "sha256": "ab571795c0bae942c32ba0dc3266816f4f3d5f11709afa2f71ccfd6b2aff2c68"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "8b196b8bcd3c911fd16bae5d627d7c8cad070375e2c78082c0967eab997a3a3a",
+    "note": "Extended broad legless foot contacts stone. Corrected body now physically fills lower shell opening instead of separate empty hole; four tentacles and eyes preserved.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

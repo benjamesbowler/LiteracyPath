@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:02:38.289Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-aa5c477a-d7f8-437f-aea3-3dafbaf7886a.png",
+  "sourceSha256": "fd979c79b31621895d92d88fb64139b56e470818618f6645c82371afa7496b7a",
+  "output": "public/guided-reading/world-discovery/d-06/page-02.webp",
+  "outputSha256": "fe6b23ee0e14296616633b2af296bb5e64816a051327745fda90f83eae450aa1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this existing finished landscape children's educational lunar illustration, preserving clean bold outline and flat gray cel art. This is BEFORE impact. Keep the approaching gray space rock at upper LEFT, black airless space, slanted lunar ground framing and distant background craters. REMOVE BOTH the big central foreground crater AND the smaller front-right crater, filling their entire bowls/rims with ordinary gently sloped, continuous uncratered gray ground and a few small surface stones. The approaching rock is heading toward an intact unbroken target site. No impact or hole has happened there yet. No flames, water, weather, stars, people, additional bodies, labels or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-06/page-02.webp",
+      "sha256": "3613a43a5cd1bd3e777db0f59026e5673836cb2a52fb9864078329ef7820e326"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:02:38.293Z",
+    "sha256": "fe6b23ee0e14296616633b2af296bb5e64816a051327745fda90f83eae450aa1",
+    "note": "Independent sequence correction: incoming upper-left rock now approaches uncratered foreground; only distant pre-existing craters remain. Clear before-impact state.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

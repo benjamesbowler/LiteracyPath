@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:30.664Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-0dc803ab-d34b-441c-a861-012e7927f2d2.png",
+  "sourceSha256": "bda588d458d6cd49cff0c8a6ae72cde489fac403d1b853aaf3d4c6b1de08658b",
+  "output": "public/guided-reading/world-discovery/e-06/page-05.webp",
+  "outputSha256": "3e8f9223eac8600526a6d4dfa5580742333cae4c638f1799ba0a454aea3f9f98",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): Near new moon, the sunlit half mostly faces away from Earth. The Moon is usually hard to see in the bright sky.\nRequired illustration: Diagram shows Moon between Sun direction and Earth but slightly above direct alignment, dark lunar side facing Earth. Exact continuity: No eclipse alignment; Sun not covered; Moon’s lit half faces away from Earth.\nExact current state: No eclipse alignment; Sun not covered; Moon’s lit half faces away from Earth.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. Simplifieddiagram: Sun farLEFT (partialyellowdisc atleftedge okay); Earth atRIGHT, Moon between but placedSLIGHTLY ABOVE lineSunEarth soNONALIGNMENT clear. MoonLEFTHALFlit RIGHTHALFdark facesEarth. BothMoonEarthround. NoSuncovered, no eclipseshadow, nolabels.\nCORRECTION using attached correct diagram style. Keep black/navy SPACE background, never blue daytime sky or foreground clouds. Both Earth AND Moon must have EXACT 50 percent LEFT half lit, EXACT 50 percent RIGHT half dark, with STRAIGHT VERTICAL center terminators on BOTH perfectly round bodies. This is outside-space top-down view, not a crescent as viewed from Earth. Keep the same Earth and Moon design as attached reference. Place Earth at lower right, Moon to its upper-left between Earth and Sun direction but well above their line. No eclipse. Both left half bright and right half dark. All background space dark navy.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-034ca560-1811-41b4-af4c-7c9136806320.png",
+      "sha256": "ceab3bd8f5661bfd40c99a115bafb628460f5a4722a371c1baecc0e5413f1672"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "sha256": "3e8f9223eac8600526a6d4dfa5580742333cae4c638f1799ba0a454aea3f9f98",
+    "note": "Corrected daytime background and fully-lit Earth. Space diagram has off-alignment Moon between Sun direction and Earth, both left halves lit; no eclipse.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

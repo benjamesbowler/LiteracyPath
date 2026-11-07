@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-01",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:03:30.413Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1b55a94a-bab5-4b21-9da5-f0c0b4e4c28c.png",
+  "sourceSha256": "4eccbd42e96dccc5b7f0e5747228fcabd90819019eddbcc343f62c3ed8438143",
+  "output": "source-art/world-discovery/b-01-reference.webp",
+  "outputSha256": "e06bbaf8a3191e61549746ec1be834ab04e77fbda386f314e04bbbe277d5caa1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production reference sheet only. In the middle row, the far LEFT front-view satchel currently has a short flap that does not reach its buttons. Replace that one bag pose with the SAME satchel OPEN, flap lifted upright, exactly THREE empty vertical slit buttonholes on flap and exactly THREE exposed yellow round buttons on the body below. Make the flap long enough to cover the button row when lowered; the holes will align with the buttons. Preserve the other correct open-bag views, Kit, props details, location and clean art. Remove no necessary references and add no lettering. No closed bag view with buttons below the flap; no extra buttons.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ff985ee6-3d46-41a4-9372-ba473db0a92b.png",
+      "sha256": "9bfe1f286c4d35e1496fcbaf8201fc8b9b760f478375ba90d6eec0e55aeaa186"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "e06bbaf8a3191e61549746ec1be834ab04e77fbda386f314e04bbbe277d5caa1",
+    "note": "Directly viewed repaired green satchel model with three yellow buttons on body and three narrow matching slits in one long flap. Kit-only bench setting. Final closure stages independently inspected against this mechanical design.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

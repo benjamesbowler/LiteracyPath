@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-06",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:31.058Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ffa8bf76-0eb5-4132-b5f5-24688621bac8.png",
+  "sourceSha256": "2856801efb99d2f4145b92a77303d294d7a74b14f25e81760d68a3e94f5da08f",
+  "output": "public/guided-reading/world-discovery/e-06/page-09.webp",
+  "outputSha256": "09cb8c3dbc80df649314c95b8f09f1f100232fa9a1c57a4240e81e38b66aa785",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Moon Has Not Shrunk; World Discovery; nonfiction.\nSetting: Diagrammatic space views of Sun, Earth and Moon, then Earth-sky views across the lunar month. Distances and sizes explicitly simplified; no named characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Round gray Moon; Sun outside or at far left; Blue Earth; Consistently lit lunar hemisphere; Thin crescent and full-disk sky views\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): After that, the bright part we see gets smaller. The pattern repeats in about a month as the Moon keeps orbiting.\nRequired illustration: A later-month predawn view above the eastern horizon shows a waning crescent bright on the left, with the same full circular outline and matching crater geography. Exact continuity: Later stage before sunrise, not an evening waning crescent; chosen northern-hemisphere viewpoint; no literal shrinking of diameter.\nExact current state: Later stage before sunrise, not an evening waning crescent; chosen northern-hemisphere viewpoint; no literal shrinking of diameter.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. ONE roundMoon, narrowbrightLEFTcrescent andfaintrounddarkrightdisk. PREDAWN EAST horizon faintpinkLOWbelowMoon, bluevioletabove. Oppositeilluminationtoearliercrescent. NoSunvisible, nosecondMoon.\nSEQUENCE CORRECTION: Use attached first-quarter sky illustration as exact composition, camera, landscape, Moon outer diameter and center position, AND exact crater geography reference. Entire round Moon must keep EXACT SAME physical diameter in picture, never shrink or grow as phase changes. Preserve full dark circular outline. Change ONLY illuminated portion and time lighting requested. LEFT thin crescent bright, all remaining circular disk faintly visible with SAME crater positions. PREDAWN pale bluish eastern sky with soft peach near horizon, distinct from evening. No daylight sunvisible.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e7a502c4-4748-480a-8cfd-635f67215935.png",
+      "sha256": "4f96c29d741dd2c38543455793b97bd38f36bec587970774965c0b8f7aacfc64"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "sha256": "09cb8c3dbc80df649314c95b8f09f1f100232fa9a1c57a4240e81e38b66aa785",
+    "note": "Predawn left-bright waning crescent; fixed diameter and crater geography; whole dark disk retained. No literal shrinking.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

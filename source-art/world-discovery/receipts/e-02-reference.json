@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:54:57.878Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-338b2399-fca7-45b1-9791-c3c1ce906d3f.png",
+  "sourceSha256": "771b44ca8e9601426da72fb4f64a858389d1e9f3cf9f3efcdd0c851368bae102",
+  "output": "source-art/world-discovery/e-02-reference.webp",
+  "outputSha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Story, Two Endings; World Discovery; fiction.\nSetting: Classroom art table in daylight, one folded four-page picture story about an unnamed brown dog and red ball. All story images clearly drawings on paper.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Folded blank-paper picture story; Brown dog drawings; Red ball drawing; One blue pencil; One red pencil; Two loose ending sheets; One brown drawing pencil for the dog; the blue pencil draws the bed and the red pencil draws the ball\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: All dog scenes are flat child drawings, never living animals in the room.. For orientation, the opening location/action is: Zoe points to a drawing of a brown dog’s bed with a red ball beside it; Kit holds their paper book open. Exact continuity: All dog scenes are flat child drawings, never living animals in the room.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nReference board strictly ISOLATED objects and EMPTY architecture key, no full narrative action. Final artwork finish: perfectly smooth flat-color interiors, no texture or grain anywhere, not even wood/paper/floor. For paper use plain color and crisp outline. Separate views with white space, no letters or labels. Lock simple hand-drawn brown floppy-eared dog, red circle ball and blue oval dog bed as DRAWINGS ON PAPER, never a real pet. Do not include later completed funny ending. Empty table key pale green wall, blue window left, tan table, two blue chairs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.221Z",
+    "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311",
+    "note": "Clean cast, isolated paper drawing subjects, bluebed redball brownpencil design locks.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

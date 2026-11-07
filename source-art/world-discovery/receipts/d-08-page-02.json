@@ -1,0 +1,20 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:55:11.508Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-64294a9b-1d5f-4502-899e-7d078198689c.png",
+  "sourceSha256": "55622d5d0bcd2d3e6e4049d18c8eef9bd9c7acd8208350f484e4a78ef08afc8f",
+  "output": "public/guided-reading/world-discovery/d-08/page-02.webp",
+  "outputSha256": "f825447ca7b38fb31e8c21fc6d86f2309100fd3a45a30dfbe6947828a5425943",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep the exact swollen cream bean and small split in its seed coat with NO roots or leaves, buried in the brown soil cutaway, sunny garden strip above. Replace all grainy, speckled, mottled, brushy and soft textured brown soil with completely clean uniform flat brown fills and a few simple crisp outlined clods. Tiny damp regions can be solid dark brown shapes. Remove the free floating water drops drawn as glass beads. Make the soil cutaway clear: the seed is BELOW the horizontal soil surface, surrounded by soil rather than resting on top. No text or additional seeds. Crisp flat 2D cartoon throughout.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:55:11.813453+00:00",
+    "sha256": "f825447ca7b38fb31e8c21fc6d86f2309100fd3a45a30dfbe6947828a5425943",
+    "note": "Swollen cream seed with slight coat split below soil cutaway; no root or leaf yet. Grain removed and no floating glass water drops."
+  }
+}

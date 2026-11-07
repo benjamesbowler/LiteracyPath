@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-01",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:30:50.874Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-d3a11f35-f0e1-4ece-b03a-2b6225ff7f23.png",
+  "sourceSha256": "fcc1d86cdb5c63e3d0f7417ee66ba5afe08a8312c0652a47f88ff612a4f69bf6",
+  "output": "public/guided-reading/world-discovery/c-01/page-01.webp",
+  "outputSha256": "9c0a93b5e09bb06f45484929dc41f487d835a39333c9c98db30f04b33372ea6d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this finished picture-book page only. Erase the dog drawing from the white rectangular card in the foreground so that it is completely blank: Kit has not drawn the dog yet. Preserve the blank white card and ALL other art exactly: Kit placing the sixth tan block atop the five-block stage, Zoe seated with separate blank paper, same cast, hands, clothes, furniture and daylight. No puppet or tree scenery yet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-aceff584-63ff-4f91-886f-5a63d9ee95f6.png",
+      "sha256": "df0bcfd3e7f493e9b09a70093aed6ea8f38804cf2297cca9b96fbc49f60b17f2"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "9c0a93b5e09bb06f45484929dc41f487d835a39333c9c98db30f04b33372ea6d",
+    "note": "Page one directly inspected: five blocks placed plus sixth in Kit\u2019s hand, two blank paper pieces before any drawing, Zoe observing. No puppet or scenery on stage; correct child identity and physical contacts.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

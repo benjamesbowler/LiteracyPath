@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-10",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:42:50.524Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-8f3a3f05-3c24-4dc6-95d6-ad55a81d4382.png",
+  "sourceSha256": "79b39d41d4a76dc5e0f212b991336b38df6d7596a937385d7889fcda70f70b61",
+  "output": "public/guided-reading/world-discovery/e-10/page-06.webp",
+  "outputSha256": "bd25c71aa2519b4d8e256a5180679be91d6e60fd9d55dcc3682cc8c2805e1e20",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Keep the Water in the Garden; World Discovery; nonfiction.\nSetting: An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Established leafy vegetable plants; Brown soil; Clean straw mulch; Small blue watering can; Blunt trowel; Adult gardener\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Zoe leaves space around each stem. Mulch should cover the soil, not pile up against the plants. They check beneath it later.\nRequired illustration: Zoe gently shifts straw away from a plant stem, leaving a clear small ring of soil. Exact continuity: Adult nearby; mulch level even; no new watering yet.\nExact current state: Adult nearby; mulch level even; no new watering yet.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Zoe gently moves thin straw away from a plant stem to expose a small clear circle of soil around stem; adult nearby, Kit can observe. No watering or extra can.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nGARDEN CARE BLOCKING: All humans keep feet/knees OUTSIDE planted bed, on gray path or grass beside its wooden border. No one stands or kneels on planted soil or straw. They reach over the low border naturally. Preserve hands and arm counts exactly; no duplicates.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-10-reference.webp",
+      "sha256": "244b30e48df0525e9bb02a6b20a4ac8d9c033b2eb931b30d0c88d1e42bca1b1e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:42:51.375Z",
+    "sha256": "bd25c71aa2519b4d8e256a5180679be91d6e60fd9d55dcc3682cc8c2805e1e20",
+    "note": "Zoe shifts straw away from stem to leave clear soil ring; two hands naturally reach around foliage, adult near; no pouring.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

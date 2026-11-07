@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-09",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:13:49.321Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-39d7c630-8232-4826-8732-fc02f8a33184.png",
+  "sourceSha256": "341d93e0e935d9dd8971cf8b1676d976e90a6837bb7f75e6f2054fdddaa241af",
+  "output": "source-art/world-discovery/d-09-reference.webp",
+  "outputSha256": "fa658257dc80352525ec3302c108e0b496ffad8758f7ecee5cb83ad47f4cf627",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: What Will the Magnet Pull?; World Discovery; nonfiction.\nSetting: Classroom science table in daylight. One large classroom bar magnet with fully enclosed poles; children supervised by an adult out of frame.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Large red-and-blue bar magnet with no printed letters; Plain steel paper clip; Crumpled aluminum foil ball; Wooden block; Plastic spoon; Plain steel washer; Two plain shallow trays; Plain steel key\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: No loose small magnets; two test objects initially unsorted.. For orientation, the opening location/action is: Steel clip and aluminum foil ball lie apart on the table; Kit holds large magnet and Zoe sets down two trays. Exact continuity: No loose small magnets; two test objects initially unsorted.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nIMPORTANT reference structure: show isolated prop design views on white, plus one EMPTY location key with no people/animals/loose story objects in it. No performance/action vignette. Human models, if present, stand neutrally separated; do not show them holding future props or doing any story event. All materials and backgrounds use crisp flat cartoon shapes, no paper grain, paint, blur or texture. Lock plain shallow sorting trays identical design, large enclosed bar magnet half red half blue WITHOUT any letters or symbols; a plain steel clip, gray angular faceted foil ball, wooden cube, simple plastic spoon, steel washer, steel key as separate reference items. The table in location key is EMPTY.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:25:52.329Z",
+    "sha256": "fa658257dc80352525ec3302c108e0b496ffad8758f7ecee5cb83ad47f4cf627",
+    "note": "Exact recurring object designs and empty classroom table key inspected; two children, red-blue magnet, two empty silver trays, clip, foil, wooden block, plastic spoon, washer and key are distinct."
+  }
+}

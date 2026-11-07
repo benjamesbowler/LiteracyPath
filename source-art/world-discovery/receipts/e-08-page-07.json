@@ -1,0 +1,27 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:08:33.026Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-aa9faf34-99dd-48d7-8d33-d73ff2ed9cb6.png",
+  "sourceSha256": "c422dcca1d21045bfa820c985652164d392318b4b105beaf2c3372fce107d15d",
+  "output": "public/guided-reading/world-discovery/e-08/page-07.webp",
+  "outputSha256": "8da5636fe728779a88c694f6352db15a47d3a6c0fad49b138fdc093177b7d4d7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Input image is the EDIT TARGET. Preserve the entire existing 3:2 illustration exactly except the specifically named feet below.\nCorrect TWO feet. Closest FRONT foot on the slope at x=1000,y=650 STILL has THREE fingers: draw exactly FOUR separate slender fingers. Closest HIND foot at lower left in the water around x=515,y=885 STILL has FOUR toes: draw exactly FIVE separate webbed slender toes. Preserve far front foot, all three existing visible legs, hidden far hind leg, water contact and the attached short tail.\nThis is a scientific common-frog illustration. Count the tips carefully. FOUR front fingers means four separate projecting tips, not three with a crease. FIVE hind toes means five separate projecting tips, not four with an interior line. Do not count the heel as a digit. Keep natural narrow frog digits, no claws or human hands. No other changes to limbs, joints, pose, identity, spots, body, tail, eyes, animals, plant scenery, water, camera, palette or flat bold clean cartoon style. No text, no labels, no inset. Return one complete fullsize illustration.\n",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-28a75895-f682-4209-9128-7ae8c050d699.png",
+      "sha256": "fa5d2dbc14b5ae61d92155573788baa2276de7c5f626dab959187c4dcc33e4c0",
+      "role": "first correction output, directly reviewed, feet count needs targeted second correction"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "sha256": "8da5636fe728779a88c694f6352db15a47d3a6c0fad49b138fdc093177b7d4d7",
+    "note": "Froglet climbs damp bank with short attached tail. Two visible front feet each four fingers; exposed hind foot in water has five toes, far hind leg hidden. Pose and contact retained.",
+    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+  }
+}

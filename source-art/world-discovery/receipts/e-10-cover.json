@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-10",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:42:49.282Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d1b0b813-9691-4017-b6ab-b5ca88d4964f.png",
+  "sourceSha256": "65af69476d0c4ad4a14a106aa7c4dbbdd6028177c961e0949abfab1dbb76cd34",
+  "output": "public/guided-reading/world-discovery/e-10/cover.webp",
+  "outputSha256": "5d7d7939d85301fdf7c6651d2a49030851b68d74c30d4228d50c1eea7f797794",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Keep the Water in the Garden; World Discovery; nonfiction.\nSetting: An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Established leafy vegetable plants; Brown soil; Clean straw mulch; Small blue watering can; Blunt trowel; Adult gardener\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Zoe gently lifts straw mulch to look at dark moist soil near a vegetable plant while Kit holds a small blue watering can with its spout lowered.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: Dedicated cover: Zoe kneels lifting a little straw to see dark moist soil, Kit stands with small blue can spout down and NO WATER POURING. Adult gardener may be distant. Mulch thin and away from plant stems.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nGARDEN CARE BLOCKING: All humans keep feet/knees OUTSIDE planted bed, on gray path or grass beside its wooden border. No one stands or kneels on planted soil or straw. They reach over the low border naturally. Preserve hands and arm counts exactly; no duplicates.\nCorrection of attached scene: Move Kit OUT of the garden bed and place him kneeling beside Zoe on the gray PATH outside the border, holding the ONE blue can upright with NO pouring. All three people outside planted soil. Zoe keeps lifting straw.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-90bc1928-aabe-4757-9ad0-96f817b1ecc5.png",
+      "sha256": "71c8bea3d08d2277d00dea593058d017ae8e368ba2d6ea4243061dac69310bbf"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:42:51.374Z",
+    "sha256": "5d7d7939d85301fdf7c6651d2a49030851b68d74c30d4228d50c1eea7f797794",
+    "note": "Zoe lifts straw over damp soil, Kit holds can upright without pouring; corrected Kit to kneel outside planted bed; adult nearby.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

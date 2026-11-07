@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:02:04.732Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8ef48405-c823-49e8-898b-1a339eb91fad.png",
+  "sourceSha256": "f14538ff3a41f8159c344e639b71045d5431b63f4600bfab86912b4b5590c290",
+  "output": "public/guided-reading/world-discovery/c-09/page-03.webp",
+  "outputSha256": "8e1ee1a71c0ac8bbdc3ebc5c89d6621c95bdeb6589f91da6fa27db029b5278bd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. REMOVE ONLY the small bird from the upper-left background, replacing it with continuous dusk sky and clouds. Keep the large bat and its attached membrane wing, all finger supports, thumb, body fur, two hind legs and background colors exactly. The page explains only the bat wing, no second animal. No text or new subjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c47bccc8-87dc-4e5c-8ef0-0386f1140ca3.png",
+      "sha256": "329077785479249d2de561f072e05d4f4ab74cc87af9ffabae1b84c5ed273059"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "8e1ee1a71c0ac8bbdc3ebc5c89d6621c95bdeb6589f91da6fa27db029b5278bd",
+    "note": "Direct inspection after removing extra bird: dominant attached bat wing shows continuous thin membrane, elongated supports and clawed thumb; two hind legs, furry body, no feather shapes.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

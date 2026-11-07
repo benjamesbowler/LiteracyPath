@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.930Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-58d25898-4474-46df-a2d6-29a12f47730a.png",
+  "sourceSha256": "c0b7975af7a9dc0423d98851b5405b7a396688a7427898838a466ab340096c20",
+  "output": "public/guided-reading/world-discovery/b-05/page-06.webp",
+  "outputSha256": "0b88c3b6eff71d54f8e4888c3aeb773fc78514bc063c07aa2b72486e6be14b91",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Down to the Sea; World Discovery; nonfiction.\nSetting: River mouth in daylight, grassy banks spread apart to connect wide river foreground with broad blue sea beyond. No bridge in frame.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The river grows wide near the sea.\nRequired illustration: River mouth in daylight, grassy banks spread apart to connect wide river foreground with broad blue sea beyond. No bridge in frame. The river opens into a broad mouth with grassy banks spreading apart and the blue sea beyond. Exact state: Banks widen; river and sea are visibly connected.\nExact current state: Banks widen; river and sea are visibly connected.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nGEOGRAPHY LOCK: Low high-angle view from above river looking outward to sea; banks spread wider toward open sea beyond, water continuously connected without a barrier. No narrow pinch at mouth.\nUse reference for clean 2D style, pale rock shape, green grassy valley and one beige stone arch bridge design only. Compose one finished scene; no reference-sheet layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-05-reference.webp",
+      "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "0b88c3b6eff71d54f8e4888c3aeb773fc78514bc063c07aa2b72486e6be14b91",
+    "note": "Broad river mouth connects to sea beyond with spreading grassy banks and no barrier.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

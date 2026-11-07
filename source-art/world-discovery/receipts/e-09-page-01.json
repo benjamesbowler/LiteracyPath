@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:27:59.775Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7bb9f6ab-4cd5-4a2c-ae82-5f932593f382.png",
+  "sourceSha256": "dc82303052a7d33ae7d470cc8f65af6b268203ad066acec492c72b63f1cd5995",
+  "output": "public/guided-reading/world-discovery/e-09/page-01.webp",
+  "outputSha256": "14ea7d669837fb143c46f5a7881230f7b9939b78322596e4c465f126af7c717a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): A whale swims past a school of fish. Both have streamlined bodies for swimming. Why are they placed in different groups?\nRequired illustration: Adult blue whale swims above small silver fish in a clear underwater scene. Exact continuity: Whale much larger; horizontal tail flukes and fish vertical tails correct.\nExact current state: Whale much larger; horizontal tail flukes and fish vertical tails correct.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: ONE immense adult blue whale above school of very small silver bony fish. Horizontal whale tail flukes and vertical fish tail fins. No calf, dolphin or shark here.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-09-reference.webp",
+      "sha256": "27ce1cad7fc782603b9645e09b7e737ad3c14f8669c7b05915f99ea087540971"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:00.999Z",
+    "sha256": "14ea7d669837fb143c46f5a7881230f7b9939b78322596e4c465f126af7c717a",
+    "note": "One blue whale above small fish; blue mottling, rear small dorsal fin and horizontal tail flukes.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-09",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:31:08.942Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-abf40016-0482-4901-859f-12dc7a9b3c82.png",
+  "sourceSha256": "d196c6be1cede8a00cd1f099610e80f1ffc0baa3452477feb4e9fde70d9643c6",
+  "output": "public/guided-reading/world-discovery/d-09/page-10.webp",
+  "outputSha256": "d4abfd5bc1936ebdfe37e2a52226bb012087a8d8a5f9f0d31930d413a1ee2080",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise localized edit of this children's science picture. REMOVE the short silver hook/loop between the magnet and the key. Raise the SINGLE steel key so the TOP EDGE OF ITS ROUND HEAD directly TOUCHES the flat underside of the RED end of the magnet, held by magnetic attraction. The round hole in the key's head remains visibly EMPTY, with background visible through it; no ring, hook, string, chain or other connector passes through it. The key hangs straight down, its teeth and entire body unchanged. Preserve every other object, both trays, colors, characters, composition and crisp flat cartoon style exactly. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-42136e3f-77ec-438c-9fc8-412374f3a703.png",
+      "sha256": "79c1078b6f1b181e8b6b690ef7f1d9c895d2cb92f3d2965a82b91fdd3fa167db"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:31:11.334022+00:00",
+    "sha256": "d4abfd5bc1936ebdfe37e2a52226bb012087a8d8a5f9f0d31930d413a1ee2080",
+    "note": "Steel key directly contacts red end with empty hole and no hook or string; previous five objects retained in correct trays."
+  }
+}

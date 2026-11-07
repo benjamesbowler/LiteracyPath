@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:28:00.307Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-1f079d31-b173-4c8d-a1d1-a69f66e6a62a.png",
+  "sourceSha256": "c94cdded37af68c6be2b2549f0554458a31ff1b6ff95fda6eb41f7819b09a4f5",
+  "output": "public/guided-reading/world-discovery/e-09/page-05.webp",
+  "outputSha256": "37e0dd1ea68f202b74c07d9cb9d735e8249ae8bcb9d7dd237d50041b5c4aa1ce",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The whale’s calf was born alive and drinks milk made by its mother. Feeding young with milk is a mammal trait.\nRequired illustration: Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position. Exact continuity: No bottle, udder hanging like cow, or milk cloud; natural cetacean anatomy.\nExact current state: No bottle, udder hanging like cow, or milk cloud; natural cetacean anatomy.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: ONE adult female blue whale with ONE calf closely below her rear abdomen in natural nonexplicit nursing position near mammary slit. No bottle, cow udder, milk cloud, breasts, fish or dolphin. Natural whales with horizontal tail flukes, no human mouths.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nCORRECTION: First attached picture is scene to correct; SECOND is correct HORIZONTAL whale-tail reference. Preserve main scene, but replace EVERY whale tail (adult AND calf if present) with TWO FLUKES SPREAD FLAT LEFT-AND-RIGHT in a horizontal plane, viewed in three-quarter perspective like a wide open shallow W lying flat across the tail tip. Show TOP surfaces of BOTH flukes, NOT upper and lower lobes. Whale body stays upright, belly below, small dorsal fin above. Fish retain upright vertical tails. Do NOT rotate the whole whale. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-4aa575a6-cf21-4d9a-aad7-65070e3f0b85.png",
+      "sha256": "a8ffc6fcc779c5d4f2c649e54162a00fa486d65f74109d4d60d0bbae2732e945"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7bb9f6ab-4cd5-4a2c-ae82-5f932593f382.png",
+      "sha256": "dc82303052a7d33ae7d470cc8f65af6b268203ad066acec492c72b63f1cd5995"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "sha256": "37e0dd1ea68f202b74c07d9cb9d735e8249ae8bcb9d7dd237d50041b5c4aa1ce",
+    "note": "Calf against mother's rear underside in nonexplicit nursing position; no bottle/udder/milk cloud; corrected calf and mother horizontal flukes.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

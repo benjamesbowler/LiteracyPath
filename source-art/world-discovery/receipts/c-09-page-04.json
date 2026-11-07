@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:05:31.556Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c529b170-d93d-4f8b-9c84-44a659197722.png",
+  "sourceSha256": "916a930e3df0816a647c64dafa9dab5ef19ac8d07bb90a3a5e568cb793c609a3",
+  "output": "public/guided-reading/world-discovery/c-09/page-04.webp",
+  "outputSha256": "27bc7ebc47007ef7d911a4a1681097c1b225e4b9ecd64ca1fb19e41efc17df5c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY the LEFT bat's resting pose. Replace its bird-like upright stance with a natural HEAD-DOWN hanging posture: add a short branch above the bat, its TWO HIND FEET grip that upper branch, furry body hangs beneath and face is at lower-left. Two membranous wings fold alongside body; no separate arms or extra feet. Keep fur clearly exposed for comparison. Preserve bat identity/design, the RIGHT swallow and its branch exactly, all colors and background. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-098a5869-2233-42d0-97ef-2be47f82b62c.png",
+      "sha256": "9130488906bf2399a4baa52710bcd2dacf21352ff12987ea44b2cd8425ec4f85"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "27bc7ebc47007ef7d911a4a1681097c1b225e4b9ecd64ca1fb19e41efc17df5c",
+    "note": "Direct inspection after posture repair: bat hangs head-down by two hind feet, folded membranes frame visible fur; separate upright swallow shows feathered body, comparison clear.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

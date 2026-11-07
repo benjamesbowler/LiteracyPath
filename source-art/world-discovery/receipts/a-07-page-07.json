@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-07",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:33:02.063Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d04287ad-dd05-428e-96b3-dfed4b6cec75.png",
+  "sourceSha256": "ece6307b69515d47f5966d99bee039d5a77b268083a053e7df4c911a34cc8203",
+  "output": "public/guided-reading/world-discovery/a-07/page-07.webp",
+  "outputSha256": "bd359626e706b4561752f615eafeb1ee67a846db41187a87cb244f857d436f8c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "The green leaf overhead must cast a large clear leaf-shaped cool dark shadow across the snail and surrounding moist stone. Add this broad leaf shadow, much larger than the small shell contact shadow, visibly covering shell and stone beneath the suspended leaf. Preserve the snail exactly: no head or tentacles visible; only the final small gray-tan tip of its soft foot just inside the LOWER-RIGHT opening, clearly distinct from an empty aperture. Preserve composition, brown shell spiral, droplets and background. Flat clean cartoon shading, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b78f620e-0aad-4774-b748-bf2defd3ae93.png",
+      "sha256": "e672495475cc08198f8ee7a1df2e47bd9bb9949e91b9b5291d439516ea6f56f1"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "bd359626e706b4561752f615eafeb1ee67a846db41187a87cb244f857d436f8c",
+    "note": "Only final soft foot tip visible just inside lower aperture, no head. Corrected leaf shadow persists.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

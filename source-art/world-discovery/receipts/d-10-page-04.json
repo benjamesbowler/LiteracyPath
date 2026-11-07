@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-10",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:31:09.655Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c7e1c567-417a-47b8-8e6e-2cd83708996c.png",
+  "sourceSha256": "97b91b4c913bceacead53f28f8342a33245b69ccc06122accae8d2b8139c655b",
+  "output": "public/guided-reading/world-discovery/d-10/page-04.webp",
+  "outputSha256": "8cc10aa2f0494894393f94ad8f165f6df4c2a8d7b1c970929653ee0a7e08e261",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Sunlight After Sunset; World Discovery; nonfiction.\nSetting: One ordinary garden path with a self-contained black solar path light, small square top panel, enclosed battery and white LED beneath. Day-to-night sequence. Page 8 shows only one adult hand with medium brown skin and a plain gray sleeve lifting the fallen leaf; no recurring adult character.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One black solar path light; Square dark-blue top panel; Enclosed rechargeable battery; White LED; Nearby shrub casting a shadow\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The Sun moves across the sky while the battery charges. The lamp does not need to shine in daylight.\nRequired illustration: Afternoon view of same lamp on path, panel sunny and LED off; shrub shadow falls away from panel. Exact continuity: Single moment; no multiple suns; battery remains inside.\nExact current state: Single moment; no multiple suns; battery remains inside.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCRITICAL SCENE VISIBILITY: Only ONE intact closed garden lamp, and only ONE Sun if visible. Solar panel fully in direct afternoon light; leafy shrub shadow falls away from panel. LED off with no light pool. No visible battery, wires, cutaway, hands, people, external cord.\nCrisp flat vector-like outlines and clean color throughout ALL background, soil and path. No paper grain or brush texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-10-reference.webp",
+      "sha256": "ddac2bfbfe45fce3799e5d6dd0d1c576fd0419a11802251809297c67a69e46b0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:31:11.334226+00:00",
+    "sha256": "8cc10aa2f0494894393f94ad8f165f6df4c2a8d7b1c970929653ee0a7e08e261",
+    "note": "Intact lamp remains off in afternoon sunlight; shrub shadow leaves panel illuminated."
+  }
+}

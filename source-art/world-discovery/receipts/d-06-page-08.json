@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-06",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:45:57.161Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2f41647e-670d-4299-852d-d6c5dc981aaf.png",
+  "sourceSha256": "7f47c7f88f3f71e7a19e734d24e121638240444513d8a7e6e4209a8d647f4460",
+  "output": "public/guided-reading/world-discovery/d-06/page-08.webp",
+  "outputSha256": "9625483672d7405d59deeb5bc86638f6710a3adcbd20dce344a9457188b85555",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Marks on the Moon; World Discovery; nonfiction.\nSetting: The Moon’s gray rocky surface and black sky, moving from distant sphere to explicit illustrative close views. No people or vehicles.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray cratered Moon; One incoming gray space rock; Bowl-shaped crater with raised rim; Scattered fragments and overlapping smaller crater\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): New impacts can change old marks. Here, a smaller crater cuts across the rim of a larger one.\nRequired illustration: Overhead close view shows a small circular crater excavated across one section of a larger crater’s rim. Exact continuity: Small crater visibly interrupts old rim; size alone is not the age clue.\nExact current state: Small crater visibly interrupts old rim; size alone is not the age clue.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nGeometry must be obvious: the smaller crater overlaps the large crater at the lower-right edge, cutting a clear bite through the old large rim. The small circular rim is intact. The old large rim ends against the new small crater on BOTH sides. Do not draw merely two neighboring craters that touch externally.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-06-reference.webp",
+      "sha256": "9d046e48daaa20a08468f92df3b83dff6de83f373a7f3f996bc1f2808fb5180c"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:49:00.432257+00:00",
+    "sha256": "9625483672d7405d59deeb5bc86638f6710a3adcbd20dce344a9457188b85555",
+    "note": "Smaller circular crater visibly cuts into the lower-right rim of the larger crater. Old rim terminates against the intact small rim on both sides."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-a-03",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:42:25.229Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-4dd69f3f-c618-4481-834a-e94525589977.png",
+  "sourceSha256": "88dabec4525aff9c7e24a01c1e5f5abd0bc7c4975c6bdbc6e5a0562bbf5d1074",
+  "output": "public/guided-reading/world-discovery/a-03/page-01.webp",
+  "outputSha256": "6032902bfec04421500474946159a94a0cf6e91893ad3555da71fef1dcdf207c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Books for Our Class; World Discovery; fiction.\nSetting: An ordinary school library joined by a level indoor corridor to one classroom, daytime.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Four unbranded picture books: blue, green, orange, purple covers with simple drawings but no writing; Small tan cloth bag; Low red four-wheeled book cart with black handle; Two classmates: short auburn-haired child in green; dark straight-haired child in orange\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): The class needs the books.\nRequired illustration: Kit and Zoe stand beside a library stack of exactly four colorful books. Through the open adjacent classroom doorway, two children sit on an empty reading rug.\nExact current state: Four books stacked; cart parked empty behind shelf; bag empty.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nExact design continuity: blue book has globe picture; green book has elephant picture; orange book has volcano picture; purple book has Saturn picture. Four featured books TOTAL, one of each; no duplicate books in hands or on the floor. Table or cart must not silently gain a second set. Black cart handle is a simple rear push/pull bar. Children stay on the floor and remain naturally scaled. The two waiting classmates, only if seen through doorway, have no books yet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-03-reference.webp",
+      "sha256": "267bdaca4312a20f1d7886540a04639a433490091303fdfebe34c57e8e144083"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6032902bfec04421500474946159a94a0cf6e91893ad3555da71fef1dcdf207c",
+    "note": "Four featured books stacked, empty bag and empty cart; two classmates wait in classroom.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

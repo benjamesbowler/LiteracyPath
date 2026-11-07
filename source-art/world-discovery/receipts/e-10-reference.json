@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-10",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:34:36.266Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2fe2fa7c-4817-4108-a87f-e2b611d034dc.png",
+  "sourceSha256": "e1508db82c3f284821da6adac0a2843e6b5b0bc118c916919583fcaa472a58a4",
+  "output": "source-art/world-discovery/e-10-reference.webp",
+  "outputSha256": "244b30e48df0525e9bb02a6b20a4ac8d9c033b2eb931b30d0c88d1e42bca1b1e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Keep the Water in the Garden; World Discovery; nonfiction.\nSetting: An established vegetable bed in a school garden across three mornings, with an afternoon soil check between the first two. Zoe and Kit inspect with an adult gardener nearby, warm medium skin, short brown hair, plain green shirt and tan trousers.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Established leafy vegetable plants; Brown soil; Clean straw mulch; Small blue watering can; Blunt trowel; Adult gardener\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Can not pouring; adult gardener visible nearby; roots not exposed.. For orientation, the opening location/action is: Kit holds a blue watering can while Zoe crouches beside an established leafy plant with pale surface soil. Exact continuity: Can not pouring; adult gardener visible nearby; roots not exposed.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nSeparated design references withwhitebackground, EMPTY settingkey. No fullnarrativeaction. NamedKitZoe supportedcast plus ONLYONE adult gardener warmmediumskin shortbrownhair greenshirt tantrousers nohat. Emptyvegetablebed initialNOmulchyet, mature leafygreenplants spaced inbrownsoil, graypathleft, simplewoodgatebackright. Isolatedstrawbundle, bluewateringcan, bluntshorttrowel. No wateringaction, nofuturemulchedgarden inlocationkey. Cleanflatcolor interiors no grainorcanvastexture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:42:51.374Z",
+    "sha256": "244b30e48df0525e9bb02a6b20a4ac8d9c033b2eb931b30d0c88d1e42bca1b1e",
+    "note": "Inspected Kit/Zoe identity, green-shirt adult gardener, blue can/trowel, straw and empty initial bed key. Bare-soil state separate from later mulch.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

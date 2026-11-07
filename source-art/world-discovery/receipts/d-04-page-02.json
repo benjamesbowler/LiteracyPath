@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-04",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:44.592Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4c9fe668-ffdc-4296-a312-6adaa9070334.png",
+  "sourceSha256": "3b75beb2de45ccfeae6680e278bfded057e36ae3298bfd1a88fe6690604fff5c",
+  "output": "public/guided-reading/world-discovery/d-04/page-02.webp",
+  "outputSha256": "0b080845b7aeb14820fa86d7e4c0345e8bd66fcc824579f2b3bccfd1d45270d7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Pocket of Wind; World Discovery; fiction.\nSetting: A fictional garden with a low forked apple tree, short lawn and low brick wall, windy afternoon. A removable blue zip pouch holds captured wind only in this story.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Blue cloth zip pouch small enough for Zoe\u2019s palm; Red diamond kite with one short white tail; Kite string and wooden spool; Low forked tree\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): When Zoe opens the pocket again, the saved wind rushes out. Kit\u2019s loose kite lifts from the grass.\nRequired illustration: A gust from the open pouch lifts the red kite a short distance while its spool rests on grass. Exact continuity: First demonstration empties pouch; kite has one short white tail and attached string.\nExact current state: First demonstration empties pouch; kite has one short white tail and attached string.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTRICT CURRENT STATE: Zoe at left directs gust from open palm-sized BLUE ZIP POUCH toward ONE red diamond kite lifting just above grass at right. ONE short white tail and one separate thin flying string connected to ONE wooden spool on lawn. Kite NOT caught in tree yet. Kit watches with empty hands; tree behind. Clean white breeze strokes connect pouch to kite. No text.\nAll background foliage, grass and clouds crisp flat cartoon with clean outlines, no blurry or painted landscape. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-04-reference.webp",
+      "sha256": "c8a2f09fac5bd4c1ec072a7047102a629dc2aaea1aefff72271a1b08bc35b06d"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:44.690734+00:00",
+    "sha256": "0b080845b7aeb14820fa86d7e4c0345e8bd66fcc824579f2b3bccfd1d45270d7",
+    "note": "Direct inspection: gust from pouch lifts single kite above grass; attached thin string reaches one spool and separate short white ribbon tail; children grounded, kite clear of tree."
+  }
+}

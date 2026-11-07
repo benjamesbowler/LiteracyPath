@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:26.001Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-623c2de8-fac0-414b-b2cf-0f28fdbb8dbf.png",
+  "sourceSha256": "4935e61f07f687b6203b0e56567e6670694c05d7384dc859f2ecd92b70437c8e",
+  "output": "public/guided-reading/world-discovery/b-05/page-02.webp",
+  "outputSha256": "0ec8e1987dc37a65324b269fabd39b3a0d4dd7641112900a96b6235b07199582",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Down to the Sea; World Discovery; nonfiction.\nSetting: Close view of upstream narrow hill stream in daylight, grassy banks and pale rocks. No sea, bridge or river mouth.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Its water slips around the rocks.\nRequired illustration: Close view of upstream narrow hill stream in daylight, grassy banks and pale rocks. No sea, bridge or river mouth. Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it. Exact state: Boulder stays grounded; water continues along one channel.\nExact current state: Boulder stays grounded; water continues along one channel.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nGEOGRAPHY LOCK: Water enters from background, SPLITS briefly around ONE large fixed pale boulder in stream center, then REJOINS immediately in foreground as one channel. Boulder firmly grounded, water on both sides. Not a permanent fork.\nUse reference for clean 2D style, pale rock shape, green grassy valley and one beige stone arch bridge design only. Compose one finished scene; no reference-sheet layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-05-reference.webp",
+      "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "0ec8e1987dc37a65324b269fabd39b3a0d4dd7641112900a96b6235b07199582",
+    "note": "Water passes around both sides of one fixed central boulder and rejoins below in a single channel.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

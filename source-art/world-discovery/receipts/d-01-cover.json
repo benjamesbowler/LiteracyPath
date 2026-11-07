@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-d-01",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:46:14.814Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-78b2298d-df27-44c5-adcc-ed7dc9182454.png",
+  "sourceSha256": "80620aac4f99f27634d5286a24767d534a5637f724d6ff98bce4e7fe64cdcd2e",
+  "output": "public/guided-reading/world-discovery/d-01/cover.webp",
+  "outputSha256": "7410e44fb1af3d9bd21df3d822622a13f3d74c61f6480b10f2bb25b7e905595e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONE precise correction to this otherwise finished cover. On the white drawing card inside the orange box, the blue outlined child's locomotive currently has FIVE little circular wheels. Replace that row with exactly FOUR evenly spaced blue outlined circles: first, second, third, fourth, and no fifth. Keep the locomotive body, chimney, looping track, card size and all other art exactly unchanged. Do not change the actual blue toy on shelf, which has two visible near wheels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-95aafdc6-4ec2-4103-b919-d7c45b1270ea.png",
+      "sha256": "13777503ba5c9131a33696be8db2c73fac65b6e5fa67bb16f19b2cbd545cc10e"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "7410e44fb1af3d9bd21df3d822622a13f3d74c61f6480b10f2bb25b7e905595e",
+    "note": "Direct inspection after wheel-count repair: four circles on flat train drawing, sock and red kite fit in open box; real four-wheel train on shelf, canonical crouching children.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

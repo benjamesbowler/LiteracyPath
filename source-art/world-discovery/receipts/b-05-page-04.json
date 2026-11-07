@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:26.000Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-65436923-095c-40f8-b998-8dab8ef47132.png",
+  "sourceSha256": "65678a49f4736b0ee889f25bc9125bf7a8f66913ab790c6b88fb1b21ac3aa20c",
+  "output": "public/guided-reading/world-discovery/b-05/page-04.webp",
+  "outputSha256": "b706ae966766f948a2949eaf1e41cb900b3b0d6ca35b46ce96c391a94c3f8b35",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise geography edit only: remove the EXTRA stream/waterfall entering the river at the LOWER LEFT foreground. Replace that extra small waterfall and its foamy runoff with a continuous green grassy LEFT riverbank around the existing pale boulders. Preserve the ONE actual hill stream descending from UPPER LEFT and joining the larger river at middle left. The larger river still runs from upper right through that ONE join to lower foreground as ONE continuous channel. Exactly ONE tributary joining river, no other channels, no waterfall at foreground. Keep viewpoint, hills, colors, main river, trees, clean cartoon style and all else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1a968ac0-ddc6-4bd2-93b0-d78959557ec9.png",
+      "sha256": "342b18fe9d83ccaf7e10a8967e7882c268d9a2240cd8a9b27f364fa8da50e698"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "b706ae966766f948a2949eaf1e41cb900b3b0d6ca35b46ce96c391a94c3f8b35",
+    "note": "Inspected correction removes extra foreground tributary; one hillside stream joins main river, merged channel winds through continuous grassy valley.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

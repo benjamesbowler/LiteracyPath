@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.965Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5e8af7b3-1a5d-4288-8125-3f764c19df57.png",
+  "sourceSha256": "ca6e9c26163638f1b6b05af0cec91e8f8387a9b829e12133b9f91185e7cf3881",
+  "output": "public/guided-reading/world-discovery/b-05/page-01.webp",
+  "outputSha256": "2c20b0fa0204bee47610c37326e07c1156218c1af8da8bdd94f745059ca4bd98",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Down to the Sea; World Discovery; nonfiction.\nSetting: Upstream grassy hillside among pale rocks in daylight; a small stream runs downhill toward lower green valley. No sea, bridge, river mouth or full watershed view.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): This small stream runs down a hill.\nRequired illustration: Upstream grassy hillside among pale rocks in daylight; a small stream runs downhill toward lower green valley. No sea, bridge, river mouth or full watershed view. A narrow stream descends between pale rocks on a grassy hillside; the lower valley is visible ahead. Exact state: Water flows downhill; no sea visible yet.\nExact current state: Water flows downhill; no sea visible yet.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nGEOGRAPHY LOCK: Camera follows narrow stream down gentle hillside among pale rounded rocks. Lower valley ahead; visibly continuous water descending. Focus remains upstream: NO sea and NO bridge.\nUse reference for clean 2D style, pale rock shape, green grassy valley and one beige stone arch bridge design only. Compose one finished scene; no reference-sheet layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-05-reference.webp",
+      "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "2c20b0fa0204bee47610c37326e07c1156218c1af8da8bdd94f745059ca4bd98",
+    "note": "Small stream visibly descends among pale rocks, with lower valley ahead and no premature sea.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-06",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:30:09.311Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3ba5127a-e061-4d99-a636-38919fc53bb6.png",
+  "sourceSha256": "5f1b5aec766df56a8d8c0b2e8d93a7767f2fb8df997a5e64b75e928f5d975630",
+  "output": "public/guided-reading/world-discovery/c-06/page-04.webp",
+  "outputSha256": "86fbe446aaa8f481d20d3496a3f736ff9c9c610ea4e97a464a5d40d54f147c6d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Where Does Daylight Go?; World Discovery; nonfiction.\nSetting: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One plain blue-green globe-like ball; One removable small red dot on its surface; One yellow flashlight held steadily by Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Kit holds a flashlight still. Its light falls on one side of the ball.\nRequired illustration: World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Kit shines the yellow flashlight from left onto the ball; Zoe holds it with the red dot on the bright side. Exact state: Flashlight fixed; same ball and dot; far side dark.\nExact current state: Flashlight fixed; same ball and dot; far side dark.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nThird reference locks the approved classroom layout, plain teal ball and yellow flashlight. Kit remains LEFT and Zoe RIGHT. No continents or stand on MODEL BALL, only ONE red sticker. Keep flashlight fixed at same position. Physical light: LEFT half of ball lit pale teal, RIGHT half dark teal; light beam comes from LEFT and ENDS on ball, never continues behind. The single red dot is CLEARLY ON LEFT LIT HALF, away from central boundary but still visible on near-facing surface. NOT centered, NOT on dark right half.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-06-reference.webp",
+      "sha256": "15a5bc65899830e2b8aa885cad7aac1c2ad9aca848291d22d93a86c464affdfc"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-06/cover.webp",
+      "sha256": "23637c38bca6822a555e3c97006bc70e1e79bd7781bc6cd3cce5e50ba6c48424"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "86fbe446aaa8f481d20d3496a3f736ff9c9c610ea4e97a464a5d40d54f147c6d",
+    "note": "Direct inspection: yellow flashlight fixed left lights left half of sphere, red dot on lit side; right half dark, no beam behind ball.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

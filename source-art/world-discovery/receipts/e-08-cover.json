@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-e-08",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T06:13:50.982Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9b9d54fd-0747-4ff9-b944-331887ac9170.png",
+  "sourceSha256": "28e7f721a2d5fccf3edb2723dd4551d874bcc5ff060fc2febfb82d3b5f1a708a",
+  "output": "public/guided-reading/world-discovery/e-08/cover.webp",
+  "outputSha256": "0591c65684c28ad08775a728a4b15242c3880d92865f6a13b0df2b10da43d693",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise single-foot correction. Preserve this exact illustration everywhere except the LARGE ADULT frog's NEAR HIND webbed foot behind its near front arm. That hind foot currently has SIX toe tips. Remove ONLY its HIGHEST toe, the short upward-right projection whose rounded tip is at approximately x=718,y=515 in this 1536x1024 image, immediately under the adult's bent knee. Smooth that one projection back into the upper edge of the foot and remove its internal dividing ray. Leave all FIVE remaining projecting toes below it untouched (tips approximately x=742,y=545; x=752,y=579; x=742,y=616; x=704,y=638; x=652,y=642). Final near hind foot MUST have EXACTLY FIVE distinct tips, not six or four. All other feet are now correct and must stay unchanged: small froglet near hind five, small front feet four each, adult front feet four each. Preserve tail stages, pose, spots, foreground, water, plants, colors, camera and clean outlined cartoon style. No text, extra digits, extra limbs, or other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0de82261-faae-4ff4-a828-750e2e080a3a.png",
+      "sha256": "4e99f701e0fc2687772196830f3835fbcd1928b6248829a0fc1a0ce7cfd1da08"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T06:13:51.448650+00:00",
+    "sha256": "0591c65684c28ad08775a728a4b15242c3880d92865f6a13b0df2b10da43d693",
+    "note": "Root full-size anatomy count after targeted repair: adult near hind has exactly five webbed tips; froglet near hind five; both exposed adult front feet and both froglet front feet four fingers each. Far hind feet partly occluded. Adult no tail, small four-legged froglet retains short tail; natural scale and pond scene preserved."
+  }
+}

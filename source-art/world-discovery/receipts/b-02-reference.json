@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-02",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:55:58.614Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-fffe6e55-a637-49c5-849e-69ec07b441c3.png",
+  "sourceSha256": "e63c35cd4e075d99fac2e1c2d7e321bb5a14a6da5ab8339aa7427e78e4a91f55",
+  "output": "source-art/world-discovery/b-02-reference.webp",
+  "outputSha256": "d16091b12d1d9fbfcfca29ea4a5241ef65a34f95f4ffd9e0a4bc19d6c1a72a4f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Turn on the Drum; World Discovery; fiction.\nSetting: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One red hand drum for Zoe; One blue hand drum for Kit; No sticks or other instruments\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: One drum each; no sticks.. For orientation, the opening location/action is: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Zoe taps a red hand drum while Kit holds a blue drum between his knees. Exact state: One drum each; no sticks.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nREFERENCE DESIGN CONSTRAINTS: Only Kit and Zoe, equal standingheight, usual outfits. Location key: Kit seated on LEFT low plain wooden stool with BLUE goblet-shaped hand drum between knees; Zoe on RIGHT identical stool with RED goblet-shaped hand drum between knees. Each drum cream round skin head, colored cylindrical/tapered body, dark bottom ring, no letters or sticks. Exactly2instruments in location key, one each. Plain classroom wall with window and empty low shelf, no other instruments. Hands visible clear of knees/drum for consistency.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d16091b12d1d9fbfcfca29ea4a5241ef65a34f95f4ffd9e0a4bc19d6c1a72a4f",
+    "note": "Directly viewed Kit with blue goblet drum and Zoe with red goblet drum, both cream heads/dark base rims; low wooden stools, blue rug and neutral classroom. Same cast/clothes maintained through alternating turns.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

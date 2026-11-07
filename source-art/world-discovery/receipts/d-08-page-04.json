@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-d-08",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:00:26.618Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4d161d49-aa93-47c8-98ba-93747f077e22.png",
+  "sourceSha256": "5df849f11b37eab0f884f6a9f25e1f6bc0d07b33dcd6f7bfc62d2982a10a5b3d",
+  "output": "public/guided-reading/world-discovery/d-08/page-04.webp",
+  "outputSha256": "ce1a2b1a7a760d4e88eaa6a09ddfb133b28ab34f9334d72bd002c244a0313e43",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: One Bean Becomes Many; World Discovery; nonfiction.\nSetting: One common bush bean plant in a garden bed through a growing season. Consistent green leaves, white flowers and cream seeds; no human cast.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One cream common-bean seed; Brown soil cutaway; White flowers; Green pods that later dry tan; Mature cream beans\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): A shoot rises toward the light. The thick seed halves feed the young plant while its first leaves open.\nRequired illustration: Young bean shoot bends upward above soil with two thick seed leaves and the first small true leaves beginning to open. Exact continuity: Common bean cotyledons raised above soil; roots below; no mature pods.\nExact current state: Common bean cotyledons raised above soil; roots below; no mature pods.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nBotanical and scene constraint: young common beans first have two thick cotyledons and a pair of simple first leaves; every MATURE leaf consists of THREE leaflets joined to a single petiole (trifoliate), never just many single leaves along the stalk. Keep only the growth stage explicitly required on this page. Brown soil must use smooth flat brown fills and simple outlined clods, no speckle/grain/brush texture. No detached giant seed standing beside the plant, no unrelated life stages.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-08-reference.webp",
+      "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:08:45.968028+00:00",
+    "sha256": "ce1a2b1a7a760d4e88eaa6a09ddfb133b28ab34f9334d72bd002c244a0313e43",
+    "note": "Young shoot has two thick cotyledons above soil and first pair of opening simple leaves; roots below; no mature pods."
+  }
+}

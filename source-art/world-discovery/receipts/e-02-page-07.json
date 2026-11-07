@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-02",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:08:00.567Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-5d2cb395-f529-409a-835c-a9db1181c343.png",
+  "sourceSha256": "b2604ea29d9aef20e7da7590ec9c7f9bf48387eb905493908be09996e64989a2",
+  "output": "public/guided-reading/world-discovery/e-02/page-07.webp",
+  "outputSha256": "f912a594e3e6e08f24689a3a3478971b50bad36b0bac259de9dd7191fa886421",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image only. Preserve two children, expressions, room and pencils. Replace all paper arrangements with TWO SINGLE FLAT LOOSE SHEETS side by side on table: left sheet under Kit's hand shows same brown floppy-eared dog sitting ON a round red ball under its rear; right sheet under Zoe's hand shows same brown dog curled asleep with red ball beside its nose. No bindings, no internal creases, no repeated dogs, no extra book in this close composition. Zoe points at red ball directly under left dog's rear. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-5bbb8131-4315-47eb-8ad7-39084432fc1d.png",
+      "sha256": "b188bf141329ce5d8aca6d5c79e096bd64b678d4724dfb37298002d51dfec2be"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-02-reference.webp",
+      "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:11:46.227Z",
+    "sha256": "f912a594e3e6e08f24689a3a3478971b50bad36b0bac259de9dd7191fa886421",
+    "note": "Corrected two SINGLE loose endings sidebyside, not extra books; redball underdogrear and rest besideball; Zoe points.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

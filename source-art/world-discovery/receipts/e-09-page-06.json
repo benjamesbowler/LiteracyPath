@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-09",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:28:00.428Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-bb42a427-1277-4159-8e0c-6d8051cc417b.png",
+  "sourceSha256": "8be46ed638b194e140a10ab3c252af404cd2727bc4785b3a71f193872f6a6c25",
+  "output": "public/guided-reading/world-discovery/e-09/page-06.webp",
+  "outputSha256": "39fdc459205ce946c5ed9d6725b6e3e9a52fbc3e5e55ce5d52cd8f27e934ca90",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Whale Is Not a Fish; World Discovery; nonfiction.\nSetting: Ocean habitat with one blue whale and calf and a small school of bony fish; occasional clear comparison views, no human characters.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Adult blue whale; Blue whale calf; Small silver bony fish with gill covers; Ocean surface and underwater view; Sandbar shark and small pups\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Whales also keep their bodies warm from within. A thick layer of fat helps hold that warmth in the cold sea.\nRequired illustration: Simple blue-whale body cutaway shows a layer of blubber beneath skin, with cold blue water outside. Exact continuity: Anatomical educational cutaway; no fur coat or blanket; only relevant layer visible.\nExact current state: Anatomical educational cutaway; no fur coat or blanket; only relevant layer visible.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL EXACT SCENE CONSTRAINTS: ONE blue whale shown in simple educational side cutaway: one local body window just beneath outer skin shows thick pale blubber layer around body, no organs, skeleton or blood. Cool blue ocean outside; not a detached body slice, no fur or blanket, no text/arrows.\nREFERENCE BOARD is design only: never copy multiple specimen poses, stage lineups or white reference-board layout into the scene. Use bold clean clear 2D cartoon, continuous strong dark outlines and flat clean colors, at most simple smooth cel shadows. No painterly texture, grain, stippling, photorealism, 3D or text.\nCORRECTION: First attached picture is scene to correct; SECOND is correct HORIZONTAL whale-tail reference. Preserve main scene, but replace EVERY whale tail (adult AND calf if present) with TWO FLUKES SPREAD FLAT LEFT-AND-RIGHT in a horizontal plane, viewed in three-quarter perspective like a wide open shallow W lying flat across the tail tip. Show TOP surfaces of BOTH flukes, NOT upper and lower lobes. Whale body stays upright, belly below, small dorsal fin above. Fish retain upright vertical tails. Do NOT rotate the whole whale. REMOVE EVERY calf, shark, fish and other animal. Exactly ONE adult whale only. A small clean educational peeled-skin window reveals a layer of pale yellow BLUBBER directly under skin, not a hollow hole or an organ. No exposed wounds, red flesh or organs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e09d442e-6218-4883-b394-1287d9c918ec.png",
+      "sha256": "7d019d966b489c1f28c0c7cbdd3ff21b8faf2f8615d9001c56eff27108e73db2"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7bb9f6ab-4cd5-4a2c-ae82-5f932593f382.png",
+      "sha256": "dc82303052a7d33ae7d470cc8f65af6b268203ad066acec492c72b63f1cd5995"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "sha256": "39fdc459205ce946c5ed9d6725b6e3e9a52fbc3e5e55ce5d52cd8f27e934ca90",
+    "note": "Removed extraneous calf/sharks/fish; single whale with simple pale blubber layer beneath skin, no internal organs or wound; corrected horizontal flukes.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

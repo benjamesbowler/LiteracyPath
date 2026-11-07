@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-10",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:19:58.056Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a7e2f46a-f912-4157-9a5d-28d688525130.png",
+  "sourceSha256": "73cafe4f723f1c713ce4042299775d0c168a69cd252cbd0abf1df7bbe1671a8c",
+  "output": "public/guided-reading/world-discovery/b-10/page-03.webp",
+  "outputSha256": "8ad8e18afba281fd388e874afb7ecd2086d0e2b2d8348fc35a55f7eb15f29427",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the first image only. Keep Kit, Zoe, classroom, red falling cube, cream drawstring bag and flat outlined cartoon style. Correct the bag damage and action: reduce the enormous opening to the SAME small lower-right corner tear shown in image 2. Kit's left visible hand must FOLD a triangular flap of that lower corner INWARD, toward the body of the bag, attempting to cover the hole; the small fold has loosened and the single red cube has slipped through the remaining gap. DO NOT have Kit pull the side outward to enlarge the hole. No cross-section, no transparent fabric: blue cube and yellow rectangular block stay concealed inside opaque bag. Only one red cube below the bag. No blue patch, no adult, no needle, no text. Preserve everything else. Image 2 is only the small original tear continuity reference.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ae0ddb1e-fd4a-4d70-adfa-ab88511a552d.png",
+      "sha256": "09cfcbe3d5ff19fcaec816a490eeb7fe0aad65bf21e5ae585e426ce0382c423c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-cbcab42d-5d0b-4540-b234-e6a2a49b307e.png",
+      "sha256": "0d81faa046a87dacae9a9bf8953b5df54c113ef2ad9dfed04d318623dbaf2dbd"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:19:58.191019+00:00",
+    "sha256": "8ad8e18afba281fd388e874afb7ecd2086d0e2b2d8348fc35a55f7eb15f29427",
+    "note": "Direct inspection of repaired image: Kit folds bag lower corner inward; one red cube slips below fold, other contents remain concealed by opaque cloth. Tear no longer becomes an implausible giant opening. Same children, no patch or adult."
+  }
+}

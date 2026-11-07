@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-b-02",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:03:31.571Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e7aae34f-a140-4161-b3fb-6895a6bca13a.png",
+  "sourceSha256": "0a2b9b16550db702541b2a47f18c3e387b972c7e2d1d30921f6874a1c1d5f915",
+  "output": "public/guided-reading/world-discovery/b-02/page-02.webp",
+  "outputSha256": "9acdc21e4c8cb36ad284e1cce7aa3f84e43daf816a37f82da0e4258706cb12ba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Turn on the Drum; World Discovery; fiction.\nSetting: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): \u201cListen to my beat,\u201d says Zoe.\nTap, tap, tap.\nRequired illustration: World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Zoe raises one hand after a short pattern and looks toward Kit. Exact state: Zoe leads; Kit\u2019s hands hover near his drum.\nExact current state: Zoe leads; Kit\u2019s hands hover near his drum.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSTAGING: Kit LEFT, Zoe RIGHT, equal size. Two separate low wooden stools, each child seated with drum BETWEEN knees reaching floor; thighs and knees visible each side of drum to show hand positions clearly. Kit's drum BLUE, Zoe's drum RED, cream skins/dark bottom rims. Exactly TWO drums total, NO instruments on shelves. Both children wear same clothes/shoes, Zoe full-length plum overall trousers, deep brown skin throughout. Zoe finishes a short RED drum pattern, one hand raised, looking toward Kit. Kit's hands HOVER just above his BLUE drum without contact, ready but not hitting yet. No musical notes or written sound marks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-02-reference.webp",
+      "sha256": "d16091b12d1d9fbfcfca29ea4a5241ef65a34f95f4ffd9e0a4bc19d6c1a72a4f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "9acdc21e4c8cb36ad284e1cce7aa3f84e43daf816a37f82da0e4258706cb12ba",
+    "note": "Zoe raises one hand after pattern; Kit hands visibly hovering above blue drum without contact.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-04",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:11:05.509Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-16ab9089-5859-4951-ab46-bd64d1324c49.png",
+  "sourceSha256": "dc614cb1e8259905b5f1c26139f6c4a0a23d547fe1256eb72cbd8accfd521143",
+  "output": "public/guided-reading/world-discovery/a-04/page-08.webp",
+  "outputSha256": "d3aa0ccdc0f8b88c68cc160fbd42f713c0e1900caa89c61bbae074fd2c90978b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Remove ONLY the loose white sock with blue stripe lying on the foreground rug. It is a duplicate: Kit is already wearing both socks inside his two navy sneakers. Restore the rug pattern cleanly in its former spot. Keep his two shoes on, the bag chewing its last bun bite, crumbs on blue plate and all other parts exactly unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-31a6393b-08bb-4aa2-8660-91dc9983768c.png",
+      "sha256": "05e9c6f38ba1927a54eff5a7a81d2ba925c5c540bfb27849cf3d518bdcaa6d24"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d3aa0ccdc0f8b88c68cc160fbd42f713c0e1900caa89c61bbae074fd2c90978b",
+    "note": "Kit wears both navy sneakers; bag chews final bite with plate crumbs; loose duplicate sock removed.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

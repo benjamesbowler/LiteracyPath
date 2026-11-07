@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:51:32.463Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6828a62b-56de-40da-bc0e-7a8a76a99de3.png",
+  "sourceSha256": "83861ad67eceb488bc775dadc05c11f79af3fcd8090dfe933c90d20fd3bc0165",
+  "output": "public/guided-reading/world-discovery/e-01/page-06.webp",
+  "outputSha256": "3eca09bb7b5418752436385fdab491f71a01b2f2b9f898af147f6261f4412988",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Image1 is target. Keep all scene composition, identities, clothes, theater, curtain, room and Zoe's questioning gesture. Change ONLY two prop states: (1) Kit holds the orange fox puppet AGAINST HIS CHEST by gripping its two lower sides with his two visible hands OUTSIDE the puppet. The open bottom must be visible and empty. Neither hand is inserted or wearing it yet, since that action happens on next page. No extra arms; keep exactly two arms and hands. (2) Put the unused white rabbit puppet with its one brown-painted left paw lying on the stool nearest Zoe, so it is accounted for while both her hands gesture. No floating/duplicate puppets. No texture, writing or other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-660d35b3-8db4-4882-80d5-46905d11e442.png",
+      "sha256": "73e5893ec2047594b0fb650fcaf88bc41d5e09428ad9da987ed323f02bdd1959"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-01-reference.webp",
+      "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.954Z",
+    "sha256": "3eca09bb7b5418752436385fdab491f71a01b2f2b9f898af147f6261f4412988",
+    "note": "Kit asks for role, fox gripped externally with empty sleeve; Zoe gestures, unused rabbit accounted on stool.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

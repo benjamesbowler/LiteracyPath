@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:37:41.529Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a38913f5-2460-4318-9671-b995adce923e.png",
+  "sourceSha256": "c3874e01464a23f5b29641fc2c9e48685edd4d1a408e451e4f9e12213a421809",
+  "output": "source-art/world-discovery/e-01-reference.webp",
+  "outputSha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. A PRODUCTION REFERENCE BOARD on pure white, not a story page. One clean 1536x1024 landscape sheet. Absolutely flat solid color fills, thick continuous black cartoon outlines and at most two flat cel-shade shapes per object. Every surface is uniformly colored: no texture, noise, paper grain, carpet fibers, woodgrain, lighting gradients, watercolor or rough marks. The reference character image locks Kit and Zoe identity and wardrobe.\nShow separate isolated designs with whitespace between them: (1) the plain tan cardboard puppet theater front view and side view, a broad rectangular opening, royal-blue curtains tied back on two sides and a short blue top valance; (2) one orange fox hand puppet with cream muzzle and tummy, open hand-entry base; (3) one white rabbit hand puppet with pink inner ears, one small flat brown-painted patch on its raised LEFT front paw and an open hand-entry base; (4) one small wooden stool design; (5) a flat rectangular cardboard scenery card with a simple brown rounded den doorway and two green bushes, no words; (6) one stack of plain flat tan pre-cut cardboard sheets. Keep all props simple, consistent and untextured.\nInclude one small isolated front-view lineup of Kit and Zoe equal height, beside the theater for scale: theater top just above child shoulder height; Kit golden light-medium skin, short black side-parted hair, teal T-shirt, mustard shorts, navy sneakers; Zoe deep brown skin, two black hair puffs, yellow shirt, plum overalls, white sneakers. They stand neutrally with empty hands, no actions.\nInclude ONLY one small EMPTY location key in lower corner: peach wall, blue-framed window on left, plain shelf on right, solid blue oval rug on plain tan floor. No people or performance in location key. No audience children anywhere. No completed show vignette. No separate story panels, no writing, no titles, no numbers, no labels, no speech bubbles.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.949Z",
+    "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed",
+    "note": "Directly inspected clean isolated prop/empty location key; exact cast, fox/rabbit handsleeves and brown left-paw mark.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-07",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:04:37.518Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-bce9ee4c-b793-40b0-b64a-5e85d9b36cec.png",
+  "sourceSha256": "9bce2dd2c5c0072de7c0405695c2cdd74737bc6240287a592878f6210672fd48",
+  "output": "source-art/world-discovery/a-07-reference.webp",
+  "outputSha256": "277c2c6417f6f49712b863ada674e6b8641151debfc86de948e9f5e6b64b1c0f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct this production reference board. Remove the human woman entirely; no human is part of this book. Replace her former area with a small anatomically accurate extended land-snail reference: same brown spiral shell, gray-tan soft body, broad continuous muscular foot, TWO long upper tentacles with tiny black eye dots and TWO short lower feelers, no human face, no legs. Keep the upper shell turnarounds and the scene of withdrawn snail on moist stone under leaf. Simplify the whole board to crisp clean dark outlines, FLAT color areas and one smooth cel-shadow only: remove painterly mottled texture from shell/stone, retaining shell natural brown band pattern as clean flat shapes. No words, no text, no new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1a938af1-90fe-4a1e-b638-f1e9d0e78c20.png",
+      "sha256": "ecd63544d630b9b8ef76cb5c1611874188d8c8c862660d7c7a5c536f147866c3"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "277c2c6417f6f49712b863ada674e6b8641151debfc86de948e9f5e6b64b1c0f",
+    "note": "Directly viewed corrected natural snail design: brown spiral shell with lower aperture, gray-tan legless foot, two upper eye tentacles and two short lower feelers. Leaf and wet-stone setting; no invented human cast.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-d-05",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:44:42.634Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e0a3bde3-8ce1-451e-843f-1f5248a89b78.png",
+  "sourceSha256": "e20ce326eca92e9ac0ead02789c7ffaee3aec97b26f792058ca04d71fccc8180",
+  "output": "public/guided-reading/world-discovery/d-05/page-08.webp",
+  "outputSha256": "85583adb68003ba34cca17c720bdf1b31b23531d85df5c9b147681b895cffcc7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Island or Peninsula?; World Discovery; nonfiction.\nSetting: A classroom low table with a shallow blue rectangular water tray; brown modeling clay represents land. Daylight; Kit and Zoe watch from opposite long edges.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Shallow blue tray with a thin layer of water; Brown clay mainland fixed along left tray edge; Rounded clay lobe connected by narrow strip; Small yellow toy person; Blunt wooden modeling stick\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): Real islands can sit in lakes, rivers, or oceans. Their size does not change the water all around them.\nRequired illustration: A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore. Exact continuity: Explicit move from model to real lake; no people crossing water; island boundary visible.\nExact current state: Explicit move from model to real lake; no people crossing water; island boundary visible.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCURRENT SCENE / GEOMETRY LOCK: REAL LAKE landscape, not model. No children, no toy, no tray, no clay, no stick. Elevated wide landscape shows ONE small wooded island COMPLETELY surrounded by a continuous ring of open blue lake water, with distant wooded lake banks. Every tree, bank, water and sky shape clean crisp OUTLINED flat cartoon. No photographic/painted background.\nOnly one scene, no panels. Flat clean outlined cartoon everywhere, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-05-reference.webp",
+      "sha256": "d29ed339d9537432dd2d985c59228ddc56a832c1cf7783aefca68b0322b29819"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:44:42.741225+00:00",
+    "sha256": "85583adb68003ba34cca17c720bdf1b31b23531d85df5c9b147681b895cffcc7",
+    "note": "Direct inspection: wooded real lake island completely surrounded by visible lake water, separate from near/far shore; no model props, clean outlined flat landscape."
+  }
+}

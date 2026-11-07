@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-07",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:04:47.846Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-33c81e0f-b2ee-4316-be23-26143b3ca5ca.png",
+  "sourceSha256": "d98ac02a9567bc3c992d7b0462cda21fa9c648b77ec15b8043c58b1684a970c9",
+  "output": "public/guided-reading/world-discovery/e-07/page-06.webp",
+  "outputSha256": "5b646f3f192913bc4e1e93fcd9400e0b501e9a3b8e3a09c96ebd8ebaaf5cc6ec",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Flower’s Night Visitor; World Discovery; nonfiction.\nSetting: Sonoran Desert at night during saguaro flowering, followed by a later fruiting view in daylight. One lesser long-nosed bat with natural brown fur and long muzzle.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Saguaro cactus with creamy white flowers near top; Lesser long-nosed bat; Yellow pollen; Later red saguaro fruit and dark seeds\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): That transfer is pollination. It can help the flower make seeds. The bat carries pollen without trying to grow a plant.\nRequired illustration: Close flower view shows a little transferred pollen on the central stigma as bat withdraws. Exact continuity: No instant seeds or fruit; natural incidental transfer, no purposeful gardening expression.\nExact current state: No instant seeds or fruit; natural incidental transfer, no purposeful gardening expression.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL OVERRIDE: Absolutely no humans or namedcast inthisbook. One exactscene, notrefboard. Boldclean2D cartoon, strongcontinuousdarkoutlines, smoothflatcolors and simplecelshadows, no brushtexture orgrain. No textlogosnumbers, panels or decorativearrows. Nectarbat anatomy: two wings ARE forelimbs withlongfinger supports, onlytwohindfeet, brownfur, modest roundedears, narrowmuzzle withsmall triangularnoseleaf atnostrils. Keep muzzle proportionnatural, notmousewhiskers. Saguaro whiteflowers atcolumnTIP, no spinesinsideflower. Night pages1-6/10, daypages7-9; no fruitsbeforepage7. ManyTINY blackseeds inripe redfruit, nevergiantbeans. Pollendustonlyonfur/stigma notmagictrail. Match precise current life stage, no labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-07-reference.webp",
+      "sha256": "b4ce39455a38fc8b4cb14e8072afa5cbd55bdb5d4cbb66aecd7a8208af873f0f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:04:48.467Z",
+    "sha256": "5b646f3f192913bc4e1e93fcd9400e0b501e9a3b8e3a09c96ebd8ebaaf5cc6ec",
+    "note": "Withdrawn bat and central green stigma with yellow transferred pollen; no instant seeds or fruit.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

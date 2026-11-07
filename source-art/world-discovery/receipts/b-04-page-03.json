@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-04",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.912Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-2038e6bf-7e86-467c-80dc-d7fde63bc450.png",
+  "sourceSha256": "21593b6993ab8cfad173301e3f50e20dcebec6997a3bf42dbc0657d71886fd6e",
+  "output": "public/guided-reading/world-discovery/b-04/page-03.webp",
+  "outputSha256": "b88b734d9224f3420e3992769ab78cebb655cf971d18ec55d952bb4b1919f034",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise object orientation edit. Turn ONLY the single loose red boot so its rounded TOE POINTS RIGHT and its heel is LEFT; keep the one gold dot on the side facing viewer, same red design and size. The boot must travel toe-first toward the RIGHT, away from Kit, consistently toward its box. Do not mirror Kit, the room, props, movement lines or entire image. Keep the current exact boot position and state resting on the floor, Kit's hands apart, no magical hop. Also shift the existing green oval rug to the RIGHT side under and beyond the boot, leaving Kit kneeling on pale floor at left, matching the other scenes. Keep open empty box/lid behind him. No rug under Kit. Preserve all other details, clean 2D bold outlines, flat colors and gentle cel shading. No extra boot or other characters.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-034a7275-0397-4c58-9d15-cece994aa9af.png",
+      "sha256": "8abd7907f2afd7c7396986697cc5592a21a307e918e7ddad4c83a6332443d1d8"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "b88b734d9224f3420e3992769ab78cebb655cf971d18ec55d952bb4b1919f034",
+    "note": "Failed grasp: empty hands reach beyond Kit, boot rests outside box at rug edge. Repair keeps rightward toe and rug to right; no magical airborne hop.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-06",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:41:58.093Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6304de58-6401-41f4-81d5-df684b970a44.png",
+  "sourceSha256": "5c8d3900dedb92ac3ea3d445beccedc506d8169ac671f81ef8e1538c4a839e23",
+  "output": "public/guided-reading/world-discovery/b-06/cover.webp",
+  "outputSha256": "b8769dccacfcba55ab4ec99701f96146a934ef5c0d16007e356b75d66d2088ae",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Boot Prints on the Moon; World Discovery; nonfiction.\nSetting: Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray loose lunar dust with ribbed boot prints; One plain white astronaut suit; One Earth brown-mud boot print for contrast\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Low close view of a crisp ribbed boot print in gray lunar dust with the matching white suited astronaut walking away in the background under black space. No stars visible in the bright lunar daylight foreground.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSCENE LOCK: Viewpoint ON the Moon, black starless sky, dry clean gray ground. NO floating Moon or other planet overhead. NO Earth inset, no brown ground, rain, water, grass, clouds, air, dust cloud or wind. Exactly one astronaut at most; only required boot/body. Match the boot tread with simple transverse ribs. No numbers, arrows or labels. Entire scene bold crisp clean flat 2D outlines, sparse outlined stones on flat gray soil, no granular photographic dust texture, stippling, paint or grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-06-reference.webp",
+      "sha256": "a3212b9bcaed081683a4c8f17105bc21d519048edbb7e3eac9288960c90982af"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:47:01.812729+00:00",
+    "sha256": "b8769dccacfcba55ab4ec99701f96146a934ef5c0d16007e356b75d66d2088ae",
+    "note": "Low view of ribbed lunar footprint with matching suited astronaut walking away, dry gray outlined terrain and black starless sky."
+  }
+}

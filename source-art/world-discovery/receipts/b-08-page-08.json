@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-08",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:09:03.306Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4a613950-6e61-4109-ab71-c52dd010eee2.png",
+  "sourceSha256": "ec0e6ff943e9f0974b0afedc9803334bf66db09e5de1ccf56e6c6edee33d56ad",
+  "output": "public/guided-reading/world-discovery/b-08/page-08.webp",
+  "outputSha256": "ce99e73f2afa3ce38e2a27b0a96abc1ab167cf358eab65f9b5cb41fec425ec44",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Tiny localized edit only: this seven-spotted ladybug currently has SIX black spots, and it needs exactly SEVEN. The wing cover ABOVE the curved central seam has only TWO spots. Add ONE additional small solid round black spot in the empty red area of that UPPER wing cover near its front/left end, just behind the black thorax and ABOVE the existing shared spot that crosses the seam near the head. Preserve all SIX existing spots unchanged, so there are THREE on each side of the seam plus ONE shared near-head spot: SEVEN total. Do not add any spots to the leaf. Preserve the six legs, two antennae, egg cluster beside rear abdomen, leaf underside, colors and entire composition exactly.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-18e487d2-1620-4900-9dde-1fe81f70e8e5.png",
+      "sha256": "ab744185471f978ce8cdb9fcf46a0d8fb5eaef4ef04a14129136e49ea721dee2"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T05:09:04.560296+00:00",
+    "sha256": "ce99e73f2afa3ce38e2a27b0a96abc1ab167cf358eab65f9b5cb41fec425ec44",
+    "note": "Adult supported on underside of leaf lays fresh eggs beside rear abdomen; head points away. Corrected seven spots, six legs and two antennae; no immediate hatching."
+  }
+}

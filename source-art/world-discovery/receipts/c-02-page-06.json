@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-02",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:45:50.703Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e3b96814-c349-4b20-a6a4-0efffe921625.png",
+  "sourceSha256": "713d0977b880bfcb8022b119c2e89d1ac20bec8e066a49803b458005060baa7d",
+  "output": "public/guided-reading/world-discovery/c-02/page-06.webp",
+  "outputSha256": "d86ff682d79caf207b53a2576bc51d97dc9d0dc83c426fd38f905238fe592eea",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Rolling Game; World Discovery; fiction.\nSetting: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One yellow hoop lying flat on grass; One red soft ball for Zoe; One blue soft ball for Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): \u201cWe could roll them,\u201d says Zoe. Kit kneels beside her and takes his blue ball.\nRequired illustration: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Kit kneels next to Zoe and reaches for the blue ball beside her; red ball remains in the hoop. Exact state: Kit chooses to return; rolling invitation rather than a command.\nExact current state: Kit chooses to return; rolling invitation rather than a command.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical exact-state composition: Kit and Zoe both kneel on same side of hoop. Kit reaches down to take the single blue ball beside Zoe. The single red ball remains inside hoop. No duplicate or airborne balls.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-02-reference.webp",
+      "sha256": "0da00d7abb12ad2b7354db032649fc436ca1a2cc32820b7bdf7cc491f9935dc0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "d86ff682d79caf207b53a2576bc51d97dc9d0dc83c426fd38f905238fe592eea",
+    "note": "Kit kneels beside Zoe and reaches to the one blue ball on grass; the red ball remains in hoop. Child choice, return to play and physical hand contact are clear.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

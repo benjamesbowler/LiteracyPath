@@ -1,0 +1,257 @@
+{
+  "reviewedAt": "2026-11-07",
+  "method": "codex-direct-card-rendition-inspection",
+  "evidence": "Five A\u2013E ten-cover QA grids inspected directly at card scale after complete source art inspection; full composition, clarity and recognizable subjects retained. Generated canonical/source/delivery hashes checked.",
+  "assets": [
+    {
+      "path": "/guided-reading/card-covers/06befa35cf86aabc9f0b56dc.webp",
+      "sha256": "06befa35cf86aabc9f0b56dcab9ecbf5882b070307697cb12ffe4ea5931cd8a0",
+      "canonicalSource": "/guided-reading/world-discovery/a-01/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/cf37b382da1cf46c24a9ae74.webp",
+      "sha256": "cf37b382da1cf46c24a9ae7427ede1304c8ce6bdda92886108eed1036f07be18",
+      "canonicalSource": "/guided-reading/world-discovery/a-02/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/a0299262c1956931cea47260.webp",
+      "sha256": "a0299262c1956931cea47260e2a66895f2302c508f36e161d0ee629b1feb651e",
+      "canonicalSource": "/guided-reading/world-discovery/a-03/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/41e42f3712ec3fa6b196b888.webp",
+      "sha256": "41e42f3712ec3fa6b196b888e4934010dddff708fae714101a4444dccc565d2a",
+      "canonicalSource": "/guided-reading/world-discovery/a-04/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/28eeedaca24a49cd4b640e32.webp",
+      "sha256": "28eeedaca24a49cd4b640e32618920c182c1eb4bc053324b6a18b31e945d69aa",
+      "canonicalSource": "/guided-reading/world-discovery/a-05/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/bead6b0151868122bcfae98a.webp",
+      "sha256": "bead6b0151868122bcfae98a15f50dcf512ce12db67bc28dc1d5e22d4d0e3ed1",
+      "canonicalSource": "/guided-reading/world-discovery/a-06/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/eda437929461c2c3aa889337.webp",
+      "sha256": "eda437929461c2c3aa889337e47175f2fd8abe181e691780c4ff3404bb0e2764",
+      "canonicalSource": "/guided-reading/world-discovery/a-07/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/19405ca555a15d114b60d577.webp",
+      "sha256": "19405ca555a15d114b60d57738740336494ca7a937038e4a6988d46740fd93ba",
+      "canonicalSource": "/guided-reading/world-discovery/a-08/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/2e7c6bd50b8fc4f3f1006ca8.webp",
+      "sha256": "2e7c6bd50b8fc4f3f1006ca842cb62efb4f795944ddc28adee77d7d238bc6cbe",
+      "canonicalSource": "/guided-reading/world-discovery/a-09/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/e6a285108a09cf1e4b44a9ac.webp",
+      "sha256": "e6a285108a09cf1e4b44a9aca662510a8804d24fb8228e1dc34b9d0f491954b3",
+      "canonicalSource": "/guided-reading/world-discovery/a-10/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/f48e66cc33b3c6db77ca597f.webp",
+      "sha256": "f48e66cc33b3c6db77ca597f80e5da8f03966b5047e4bc0f5d896c004c7c34b3",
+      "canonicalSource": "/guided-reading/world-discovery/b-01/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/becaaf161cff4121aa70c339.webp",
+      "sha256": "becaaf161cff4121aa70c33909ac56b9830dec14f4115a9de774ee665fcb6939",
+      "canonicalSource": "/guided-reading/world-discovery/b-02/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/10ff1acbf83614fc2966d766.webp",
+      "sha256": "10ff1acbf83614fc2966d766ed5941186198a88fe7015cf683a79ffa1a704ed1",
+      "canonicalSource": "/guided-reading/world-discovery/b-03/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/c6627c6805fc9864674ba921.webp",
+      "sha256": "c6627c6805fc9864674ba9214a921aeef4f9522cd84e64c9cfac57aedb5ea5a9",
+      "canonicalSource": "/guided-reading/world-discovery/b-04/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/26289b1fe76c676747b64f76.webp",
+      "sha256": "26289b1fe76c676747b64f76f337bcc67c4fea78bae695a37a722b0fc0800b60",
+      "canonicalSource": "/guided-reading/world-discovery/b-05/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/3fcee231e924277077958ddf.webp",
+      "sha256": "3fcee231e924277077958ddf264644ae7692279de9d76d3ba03e045ebe4587b2",
+      "canonicalSource": "/guided-reading/world-discovery/b-06/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/1d66505228d41d9e74713c9d.webp",
+      "sha256": "1d66505228d41d9e74713c9d1e128328a1af4d0d8de142830fd85371efbd2ab2",
+      "canonicalSource": "/guided-reading/world-discovery/b-07/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/d44902775c41b091bc12718a.webp",
+      "sha256": "d44902775c41b091bc12718a109b4ed3693f3e5d900d6164e0eaddb32f09148f",
+      "canonicalSource": "/guided-reading/world-discovery/b-08/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/d0282ba57077699fd301a5f9.webp",
+      "sha256": "d0282ba57077699fd301a5f951610528c7f8fd0512ad5ff265f1c0c544f21f46",
+      "canonicalSource": "/guided-reading/world-discovery/b-09/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/870f52743c2185cd63b42296.webp",
+      "sha256": "870f52743c2185cd63b42296dc13be936a91aa986d6cccc270ea07511b9dc67d",
+      "canonicalSource": "/guided-reading/world-discovery/b-10/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/b7896dbbed3cf58f8b9414fe.webp",
+      "sha256": "b7896dbbed3cf58f8b9414feb746fe5d4ed244a2abab9f1d31471202cafc3399",
+      "canonicalSource": "/guided-reading/world-discovery/c-01/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/c558d9e47fc79bc1250653df.webp",
+      "sha256": "c558d9e47fc79bc1250653dfbdad8fd394912841d628842efdb3348a0386e9a7",
+      "canonicalSource": "/guided-reading/world-discovery/c-02/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/ed45379b8da0eea50cfae1ed.webp",
+      "sha256": "ed45379b8da0eea50cfae1ed5e96b965506c5668ab262c9e8545d64cd6ebd8b4",
+      "canonicalSource": "/guided-reading/world-discovery/c-03/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/d352c142ba005407326f9404.webp",
+      "sha256": "d352c142ba005407326f9404cb63d1214304e789c3e6b99d053bde6e1ba57c16",
+      "canonicalSource": "/guided-reading/world-discovery/c-04/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/1518134e0ed4774fb96b73e0.webp",
+      "sha256": "1518134e0ed4774fb96b73e0ddad2a3cfe4a00d9b936d9fc1df4612c27d407df",
+      "canonicalSource": "/guided-reading/world-discovery/c-05/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/40ac16e7f7556c79943bfa73.webp",
+      "sha256": "40ac16e7f7556c79943bfa73541d3a269c73a5f517f52c2407f65262aee19de9",
+      "canonicalSource": "/guided-reading/world-discovery/c-06/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/f18a28c15b4664b657ca4ddd.webp",
+      "sha256": "f18a28c15b4664b657ca4dddbc9812861af37480a2c5ad1e164ee1e14b0cd815",
+      "canonicalSource": "/guided-reading/world-discovery/c-07/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/0bc0e1061d4d53db585671cb.webp",
+      "sha256": "0bc0e1061d4d53db585671cb5996be4b4f2a4e51ef80b8a84edbb0152c57e79c",
+      "canonicalSource": "/guided-reading/world-discovery/c-08/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/8d51c5ebdfbb3487264abc05.webp",
+      "sha256": "8d51c5ebdfbb3487264abc0572d91170a2b42b103e10f6d3655a3acdf8feeebe",
+      "canonicalSource": "/guided-reading/world-discovery/c-09/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/aec70f48b181ebdbeae0720a.webp",
+      "sha256": "aec70f48b181ebdbeae0720ae209fb703b442984e0b348e3b696dd73ebfc410c",
+      "canonicalSource": "/guided-reading/world-discovery/c-10/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/f2e08248281c733f580fb0a4.webp",
+      "sha256": "f2e08248281c733f580fb0a40928d7dc15d4cba516941de58191b26a6821d960",
+      "canonicalSource": "/guided-reading/world-discovery/d-01/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/4bf1a08e7d61bc57114d2861.webp",
+      "sha256": "4bf1a08e7d61bc57114d2861507803ff7c2173f5b0301bf6c3b4607e75af6070",
+      "canonicalSource": "/guided-reading/world-discovery/d-02/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/bd78fb62991f9c2de10eab34.webp",
+      "sha256": "bd78fb62991f9c2de10eab34693db5c9d79cf2fcd911367c066da07cd16771be",
+      "canonicalSource": "/guided-reading/world-discovery/d-03/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/67b68cd04e3610e5394aa092.webp",
+      "sha256": "67b68cd04e3610e5394aa0926eb3b2dc08ed3f647b985023eb28d0316c7892b9",
+      "canonicalSource": "/guided-reading/world-discovery/d-04/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/fed9fae629bd2b6474f32a5e.webp",
+      "sha256": "fed9fae629bd2b6474f32a5e41f5ac7b5a2427e38f9f10df28c9ca44a03e8d5e",
+      "canonicalSource": "/guided-reading/world-discovery/d-05/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/3c88709e06e8ffe42a83d872.webp",
+      "sha256": "3c88709e06e8ffe42a83d8728cc23b7ff709e0a52a91ed405967ee8d8d927236",
+      "canonicalSource": "/guided-reading/world-discovery/d-06/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/d0e5bdc1bcee097c1291cc82.webp",
+      "sha256": "d0e5bdc1bcee097c1291cc825490180fa5e5e41a8b811510603b0471ea2b4211",
+      "canonicalSource": "/guided-reading/world-discovery/d-07/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/0827b2ef52db2f17c38a1047.webp",
+      "sha256": "0827b2ef52db2f17c38a104744fd3bb7e65fe52c7652af1ac0b5e348b66312b0",
+      "canonicalSource": "/guided-reading/world-discovery/d-08/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/8d9f22513c974da071f85a14.webp",
+      "sha256": "8d9f22513c974da071f85a14ac144527e97ad2bcece384b60e4c44128f1938ea",
+      "canonicalSource": "/guided-reading/world-discovery/d-09/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/c07674b5aba8bba7afb3edca.webp",
+      "sha256": "c07674b5aba8bba7afb3edcaea0facc9b19091f198077f073f5251aec6eaba41",
+      "canonicalSource": "/guided-reading/world-discovery/d-10/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/e4c1d24f778e1b919057a7cd.webp",
+      "sha256": "e4c1d24f778e1b919057a7cd25fecda6ca0e892c62bf3d3afedc7980f03bf8e5",
+      "canonicalSource": "/guided-reading/world-discovery/e-01/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/24ef837dc1aa3f993c92d3ea.webp",
+      "sha256": "24ef837dc1aa3f993c92d3ea53e02e5a54f3be7720c03a9b1847b856ebec379a",
+      "canonicalSource": "/guided-reading/world-discovery/e-02/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/2380ad9330667c678e74b33d.webp",
+      "sha256": "2380ad9330667c678e74b33dd619877daafd84b62a9d6536ae4eb6c24faed4bd",
+      "canonicalSource": "/guided-reading/world-discovery/e-03/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/6a17a9d623593dc017f33e02.webp",
+      "sha256": "6a17a9d623593dc017f33e02ffc7b17d8268cf438f2f34c9428ec640a66073e8",
+      "canonicalSource": "/guided-reading/world-discovery/e-04/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/e6b71167c4d686784efa5801.webp",
+      "sha256": "e6b71167c4d686784efa58012c44c5e86f3a4489084601a191513dc23b74201c",
+      "canonicalSource": "/guided-reading/world-discovery/e-05/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/f58552445b4ab460542b2468.webp",
+      "sha256": "f58552445b4ab460542b24689dfb451a11efb0c6cbbcf032abd3ca3409cfcd12",
+      "canonicalSource": "/guided-reading/world-discovery/e-06/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/302fadeff04ea97adc928bab.webp",
+      "sha256": "302fadeff04ea97adc928bab266736f451d86cc0211e799d226fc2ca88c85cce",
+      "canonicalSource": "/guided-reading/world-discovery/e-07/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/abea86dc5dd917169da88a5b.webp",
+      "sha256": "abea86dc5dd917169da88a5b9d8b1b4ab327f176d2641d5276ea1f864b42b435",
+      "canonicalSource": "/guided-reading/world-discovery/e-08/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/2a016fff49a124016171d7f9.webp",
+      "sha256": "2a016fff49a124016171d7f98fa873d26060466b868989d30bec02cf47968d71",
+      "canonicalSource": "/guided-reading/world-discovery/e-09/cover.webp"
+    },
+    {
+      "path": "/guided-reading/card-covers/94e30a57fdd3f6c4be21a9c9.webp",
+      "sha256": "94e30a57fdd3f6c4be21a9c93b56fce7fea8a035479edb5c2a3c10461d140600",
+      "canonicalSource": "/guided-reading/world-discovery/e-10/cover.webp"
+    }
+  ]
+}

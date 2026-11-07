@@ -1,5 +1,6 @@
 import { GUIDED_READING_DISCUSSION_PROMPTS_NEXT_STEPS } from "./guidedReadingNextStepsBooks.js";
 import { GUIDED_READING_DISCUSSION_PROMPTS_BRIGHT_IDEAS } from "./guidedReadingBrightIdeasBooks.js";
+import { GUIDED_READING_DISCUSSION_PROMPTS_WORLD_DISCOVERY } from "./guidedReadingWorldDiscoveryBooks.js";
 import { GUIDED_READING_DISCUSSION_PROMPTS_CORE } from "./guidedReadingDiscussionPrompts.core.js";
 import { GUIDED_READING_DISCUSSION_PROMPTS_SERIES } from "./guidedReadingDiscussionPrompts.series.js";
 import { GUIDED_READING_DISCUSSION_PROMPTS_WORLD } from "./guidedReadingDiscussionPrompts.world.js";
@@ -17,7 +18,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS = Object.freeze({
   ...GUIDED_READING_DISCUSSION_PROMPTS_SCIENCE,
   ...GUIDED_READING_DISCUSSION_PROMPTS_SMALL_STEPS,
   ...GUIDED_READING_DISCUSSION_PROMPTS_NEXT_STEPS,
-  ...GUIDED_READING_DISCUSSION_PROMPTS_BRIGHT_IDEAS
+  ...GUIDED_READING_DISCUSSION_PROMPTS_BRIGHT_IDEAS,
+  ...GUIDED_READING_DISCUSSION_PROMPTS_WORLD_DISCOVERY
 });
 
 export function getGuidedReadingDiscussion(bookOrId) {

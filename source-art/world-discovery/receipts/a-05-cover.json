@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-05",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:25:20.719Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-044ee46a-7112-4f9c-a1eb-b46929c03d9d.png",
+  "sourceSha256": "1cf8ebfad748c8d7e0951eb009e280c11c790d8e6675d27155e5dabcf7062696",
+  "output": "public/guided-reading/world-discovery/a-05/cover.webp",
+  "outputSha256": "6cb48f1e99e3d7ddd0f596176b75a4a7dffb85c67cb71b08d588c72772b818b6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY the tan path geometry. Remove ALL tan path segments that wrap around the LEFT or RIGHT sides of the pond and replace them with green grass. Keep exactly two tan paths descending from the foreground hill, one from bottom-left, one from bottom-right, meeting at a SINGLE point at the NEAR edge of the pond beside its reeds. No third branch, no path around pond, no extra intersections. A short tan hilltop section passes under Kit's feet. Preserve Kit, the foreground hilltop, flat background, pond/two reeds and style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6cdb860c-7b6d-45ee-8258-9a5c0221f7b1.png",
+      "sha256": "a6ee09f2ff9bf10463ad164dc6a3315dabef1499fed26449af23466c94cd23ef"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6cb48f1e99e3d7ddd0f596176b75a4a7dffb85c67cb71b08d588c72772b818b6",
+    "note": "Kit at foreground hilltop views pond below; two route halves meet near reeds, no second hill or pond ring after correction.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

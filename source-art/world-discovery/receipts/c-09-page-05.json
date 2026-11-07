@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-09",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:05:31.919Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3c208113-81b3-4b4e-9284-fb1fad0a13ae.png",
+  "sourceSha256": "7bfd706a9725a94a4e89f090247194551c4db1e0ef7d198188a26b89185db50d",
+  "output": "public/guided-reading/world-discovery/c-09/page-05.webp",
+  "outputSha256": "beea22380d3f9bdc6321e1dcc5d1ba600c02e0d6bab2ade767870eacde3761ba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct ONLY anatomy of the tiny nursing bat pup clinging on mother's chest. The pup currently resembles a mouse with a bare human-like arm. Give that visible forelimb the small FOLDED BAT WING membrane that naturally stretches along the elongated fingers and the side of its body, with a tiny clawed thumb gripping mother. The second wing may be tucked behind. Pup still tiny and nursing with mouth touching mother's chest, no human-like open palm. Keep mother hanging head-down by two hind feet, mother wings, ears, expression, roost wooden beam and colors EXACTLY unchanged. No milk bottle, extra pup, text or eggs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8133ff42-44b3-452a-a79d-f56774c63282.png",
+      "sha256": "9ffeeb1d2ccd63a6f5818bb3ecb3b9c7cdfbc2bddbdf330e381975238c939459"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "beea22380d3f9bdc6321e1dcc5d1ba600c02e0d6bab2ade767870eacde3761ba",
+    "note": "Direct inspection after pup anatomy repair: mother hangs from wooden beam, tiny pup nurses against chest with visible folded wing membrane and gripping thumb; no mouse-like bare arm or bottle.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

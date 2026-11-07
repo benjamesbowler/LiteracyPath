@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-02",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:38:09.751Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-57144374-9bd8-49aa-ada1-da2758966069.png",
+  "sourceSha256": "72aefe45b9e7eca3082943e2a7db972ce0114006352d02520f9f59f72294fa92",
+  "output": "public/guided-reading/world-discovery/a-02/page-03.webp",
+  "outputSha256": "a6939f1ae2fd343a2edeb4f37e49eee994c17896c68ccffe78bc88b79ec30f1f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep this exact picture unchanged except the red kite drawing on the right table sheet. The tail currently has TWO bow knots. Add ONE MORE red bow knot on its tail so there are exactly THREE red bow knots, visibly distinct, all within the paper. Do not change any children, poses, colors, room, blank left sheet, crayon, composition or style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-07c89ae5-97b4-43c1-8103-a99943ae8a0c.png",
+      "sha256": "662fac6f8ed6740f8ec12b930670e9384828f9bab231b1106dd8eac00d468228"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "a6939f1ae2fd343a2edeb4f37e49eee994c17896c68ccffe78bc88b79ec30f1f",
+    "note": "Zoe clutches crayon and turns away; Kit holds blank sheet and open hand; kite stays flat on right with three tail bows after precise correction.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

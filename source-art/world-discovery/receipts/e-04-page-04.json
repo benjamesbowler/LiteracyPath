@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-04",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:26:11.273Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3abb63ae-4f39-4726-8ed7-43d07fbcb371.png",
+  "sourceSha256": "ea6370fea8c49d27ab46fb707195a34294b972f94440ec98c333909d18934f0b",
+  "output": "public/guided-reading/world-discovery/e-04/page-04.webp",
+  "outputSha256": "b7d83633a29bd8feb4aa837f8d01ae45245759a41cee8bfc6d95812ad8a8d398",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. WD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Door in the Chalk; World Discovery; fiction.\nSetting: Explicit fantasy in a classroom art room adjoining a puppet room. One cream dividing wall, ordinary narrow doorway at right, silver chalk that opens unbroken outlined doors into the room beyond.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Large lightweight hollow paper moon, a round sphere wider than the ordinary doorway; Silver chalk stick; Cream wall between adjacent rooms; Blue puppet curtain in next room; Soft cloth; Plain string used to compare the moon’s width with the doorway\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Kit tilts the moon, but it still catches. One side dents. “Taller did not make it wider,” he says.\nRequired illustration: Kit tries to angle the large paper sphere through the narrow chalk doorway; one side gains a small dent where it meets the edge. Exact continuity: Sphere cannot pass by turning; no torn paper; chalk outline intact; Kit remains in art room.\nExact current state: Sphere cannot pass by turning; no torn paper; chalk outline intact; Kit remains in art room.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPRECISION: The yellow sphere is wider than chalkopening. Visible little dent on sphere LEFTedge touching silverborder. Kit stays completely in artroom; moonblocked, nothalfinside. Zoe watches. ONE continuous silverrectangle narrow, ordinarydoorseparate.\nSmooth clean flatcolor interiors, no grain, no papertexture, no woodgrain, darkcrispoutlines. The referenced moon is a ball/sphere, never flatdisk. Essentialpeople andhandsnatural. No text labels arrows or speechbubbles.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-04-reference.webp",
+      "sha256": "f808693890ebf5f4ad6d07d0bf8c4a2d388a9052e14535884ba4c9d4f2a0d094"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:38:41.476Z",
+    "sha256": "b7d83633a29bd8feb4aa837f8d01ae45245759a41cee8bfc6d95812ad8a8d398",
+    "note": "Moon catches narrowchalkedge and dents, Kit fullyoutside, no tornpaper or trappedlimb.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

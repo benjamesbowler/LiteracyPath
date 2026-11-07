@@ -1,0 +1,21 @@
+{
+  "bookId": "world-discovery-a-01",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:24:05.630Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d18a5ea0-2737-49e8-8397-07bc52c75e78.png",
+  "sourceSha256": "b12485cb473ff9f300938a639ac2bf4d5221287b36250aabc0e9e3bf01fb371c",
+  "output": "public/guided-reading/world-discovery/a-01/page-07.webp",
+  "outputSha256": "4a211faad6afcc57ed404cb1fc157f77d9e48f79978ca1f04f61fcf166c704e4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precision edit this exact scene of Zoe adding the smile to her self-portrait. On the paper, replace the simple curved-line mouth with a broad OPEN smiling mouth: black outline, a single white upper tooth band and pink tongue, exactly a child's drawing of the real girl's smile. Put the tip of her single black crayon at the corner of that drawn mouth as she finishes it; adjust only the holding hand position enough for a natural grip. Keep her portrait's eyes, two puffs, shirt and overalls unchanged, all three other crayons on table, real Zoe and her smiling mirror reflection, furniture and clean cartoon rendering. No other child, no extra hand or crayon, no text.\n",
+  "references": [],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "4a211faad6afcc57ed404cb1fc157f77d9e48f79978ca1f04f61fcf166c704e4",
+    "note": "Repaired final drawn mouth continuity; open tooth-band/pink-tongue smile matches ending, black crayon held.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

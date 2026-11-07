@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-01",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:59:17.957Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-c67bd552-7d27-4fdb-bb15-69f70e27ca74.png",
+  "sourceSha256": "e2637840604d8b74c716d9bbc5b0327701e11ea0f2f7731fc8c6208f81ceecb6",
+  "output": "public/guided-reading/world-discovery/e-01/page-01.webp",
+  "outputSha256": "33e02e02f23d52d92f8bf0a263e1cd35b1127b9ba4b5f39c3e5a7f6263faf02c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case illustration-story. NEW composition using cast and prop reference. One landscape 3:2 children's book scene, smooth clean flat colors with bold dark outlines, no textures, text, labels. Same peach classroom, tan table, blue window, blue rug. Camera OVER KIT'S LEFT SHOULDER from behind and slightly above: only back and partial side of his black-haired head visible, no front-face eye detail. Kit teal shirt mustard shorts in left foreground reaches with one hand toward flat tan cardboard sheets on LEFT HALF of table, but clearly turns his head toward the orange fox hand puppet lying on RIGHT HALF of table. FOX IS THE GAZE TARGET. Zoe stands beyond table facing him, gestures toward cardboard, yellowshirt plumoveralls blacktwopuffs. White rabbit handpuppet brownpatchLEFTpaw lies next to fox. Table contains no stage yet, only flatcardboard and unusedpuppets. No audience. Opening beforebuilding. Over-shoulder framing makes Kit's attention to fox clear through head direction.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-01-reference.webp",
+      "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T03:59:19.951Z",
+    "sha256": "33e02e02f23d52d92f8bf0a263e1cd35b1127b9ba4b5f39c3e5a7f6263faf02c",
+    "note": "Opening cardboard unbuilt; unused puppets laid out; over-shoulder Kit orientation toward fox while reaching cardboard.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

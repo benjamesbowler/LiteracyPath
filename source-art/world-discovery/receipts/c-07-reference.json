@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-07",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:35:07.762Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-562f5c06-bd17-4ba2-a93f-0cb84541a4f6.png",
+  "sourceSha256": "ef6e478c2bae96c84352028de28149d73ee8a714c37b05daa3cbbd0f106908a0",
+  "output": "source-art/world-discovery/c-07-reference.webp",
+  "outputSha256": "2e8ab932bb81c958669444dc57a96225e57c66fea9ada756570795bd48af3cc7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This is an animal-only production design reference sheet. REMOVE EVERY HUMAN FIGURE from this sheet and leave clean white background in those spots. No rangers, children, adults, people or human silhouettes anywhere. Preserve all animal designs, anatomical views, environment studies, props and color swatches EXACTLY as drawn; no other edits. Do not add any text or replacement figure.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a9f7bbeb-1090-4474-b154-c3f31ae4593a.png",
+      "sha256": "2213220c8a302a7f21fd0f1f348b9d925abdf3b69fb2a03a84d6e3aa1f64a107"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "2e8ab932bb81c958669444dc57a96225e57c66fea9ada756570795bd48af3cc7",
+    "note": "Direct inspection after human removal: natural four-legged beaver with broad scaly tail and orange incisors, mouth-carried branch; dam crosses downstream outlet separately from dome lodge; cutaway dry chamber above water and underwater approach.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

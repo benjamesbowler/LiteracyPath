@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-02",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:43:03.771Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f58b620e-37a6-43ba-ace0-dc9138782269.png",
+  "sourceSha256": "307aa514a41ca400ec4fe367d6c9d61c951ff36c8a1bd1efc849229d21d64cbb",
+  "output": "public/guided-reading/world-discovery/c-02/cover.webp",
+  "outputSha256": "25115ebfadebe653980a3eb261cae25e85a052ca145c1291b77ce8ce7dc021a5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Rolling Game; World Discovery; fiction.\nSetting: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One yellow hoop lying flat on grass; One red soft ball for Zoe; One blue soft ball for Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Kit and Zoe kneel on the grass beside two soft balls resting together inside a flat yellow hoop. Their faces and body language show an active shared game, not a formal prize moment.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical exact-state composition: Exactly one yellow hoop flat on grass, one blue ball and one red ball BOTH resting together INSIDE hoop. Kit and Zoe kneel beside the hoop smiling toward the balls. Balls touch grass: no airborne throws. Hoop interior wide enough for both balls. Two children, no extras.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-02-reference.webp",
+      "sha256": "0da00d7abb12ad2b7354db032649fc436ca1a2cc32820b7bdf7cc491f9935dc0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "25115ebfadebe653980a3eb261cae25e85a052ca145c1291b77ce8ce7dc021a5",
+    "note": "Dedicated cover: Kit and Zoe kneel beside one yellow hoop with exactly one red and one blue ball together inside. Correct outfits, outdoor lawn, hands and playful shared attention.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

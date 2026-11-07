@@ -1,0 +1,25 @@
+{
+  "bookId": "world-discovery-b-06",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:41:58.658Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c997634c-770c-4c98-8dd4-391a080d6b3b.png",
+  "sourceSha256": "21deb71d62555a84b36f90e9f4f1ccad60006a9920ee8301d2ebb46e18b1650e",
+  "output": "public/guided-reading/world-discovery/b-06/page-01.webp",
+  "outputSha256": "3d900f521d7a409d7b44d816fa800f4f589de496eaa18f623218664f0fc1ab78",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Boot Prints on the Moon; World Discovery; nonfiction.\nSetting: Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Gray loose lunar dust with ribbed boot prints; One plain white astronaut suit; One Earth brown-mud boot print for contrast\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): A boot presses into the Moon\u2019s gray dust.\nRequired illustration: Scientifically grounded comparison of the sunlit gray Moon surface with a separate Earth garden path. One unnamed astronaut in a plain white pressure suit with gold visor, rectangular life-support pack and ribbed boot soles; no logos, flags or exposed skin. Close view of one white pressure-suit boot firmly pressing into loose gray lunar dust. Exact state: One foot contact; ribbed sole compresses the dust.\nExact current state: One foot contact; ribbed sole compresses the dust.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nSCENE LOCK: Viewpoint ON the Moon, black starless sky, dry clean gray ground. NO floating Moon or other planet overhead. NO Earth inset, no brown ground, rain, water, grass, clouds, air, dust cloud or wind. Exactly one astronaut at most; only required boot/body. Match the boot tread with simple transverse ribs. No numbers, arrows or labels. Entire scene bold crisp clean flat 2D outlines, sparse outlined stones on flat gray soil, no granular photographic dust texture, stippling, paint or grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-06-reference.webp",
+      "sha256": "a3212b9bcaed081683a4c8f17105bc21d519048edbb7e3eac9288960c90982af"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T04:47:01.814219+00:00",
+    "sha256": "3d900f521d7a409d7b44d816fa800f4f589de496eaa18f623218664f0fc1ab78",
+    "note": "White suited astronaut presses one boot into gray lunar soil; sole contact and compressed edge clear."
+  }
+}

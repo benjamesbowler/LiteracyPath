@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-d-02",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:57:15.055Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a7c186ef-24f0-45c8-a836-a3c3f7029d91.png",
+  "sourceSha256": "b3930ada506431cb5a68b37d5fabe84f95eb69144fa2febb5ee77a46175d3fe5",
+  "output": "public/guided-reading/world-discovery/d-02/page-08.webp",
+  "outputSha256": "e89fa7008190770769bef608eac1a2a555be596a6924e54ed4fcb1abcbaeee0d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Quiet Seat; World Discovery; fiction.\nSetting: A bright classroom activity room, afternoon. Blue chair at a small round table, block rug several steps away, second low table at the far side.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Six plain wooden blocks; One white drawing sheet; One green pencil; Blue chair\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): Kit carries the blocks back in two quiet loads. He makes a low bridge that does not need a tall tower.\nRequired illustration: Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge. Exact continuity: Exactly six blocks; no more towers near Zoe.\nExact current state: Exactly six blocks; no more towers near Zoe.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. Third reference locks the unfinished drawing: a plain green Y-shaped trunk with tiny bare twigs PLUS one very long bare green diagonal line extending toward upper-right. It is not a composition to copy. Same classroom with round drawing table LEFT at window, colorful rug CENTER and low rectangular second table far RIGHT; no extra drawing sheets or pencils. Exactly SIX wooden blocks total if visible. Never place blocks on drawing table. Close view on colorful rug: precisely THREE cubes already on rug and Kit gently lowers a stack of THREE in his hands beside them. Thus total six, not six plus three. Only beginning a low bridge, NOT completed. Zoe draws at far rectangular table in background; original table/blue chair empty.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-02-reference.webp",
+      "sha256": "74e6b3397c8322de42e60224c7447e1e6d112ea7a3a9b5fbe94b6ef08a143720"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-44daed1a-3c99-40da-bd40-3a410ce9ec17.png",
+      "sha256": "6d366162cc2de16720de279b91119ad346cea7b6a35a7adb0d7c8364664258fd"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "e89fa7008190770769bef608eac1a2a555be596a6924e54ed4fcb1abcbaeee0d",
+    "note": "Direct inspection: three cubes already on rug and three carried/lowered by Kit total six; Zoe draws at far rectangular table, original table/chair remain empty.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

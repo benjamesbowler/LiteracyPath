@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-c-04",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T04:08:30.202Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c543f120-d790-4940-834f-0f9852db6f40.png",
+  "sourceSha256": "990324fddf9b63de8e13a5018ffb320e3b0258326e1ac9b7fe7f089cdbcd41b1",
+  "output": "public/guided-reading/world-discovery/c-04/page-03.webp",
+  "outputSha256": "fc1dcd1ffa462a9dbf734dda39eb48617255d9bc672fef977fb520861c90b53a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the spatial layout of this toy-bridge illustration. Keep the same Kit and Zoe, their poses, the yellow truck at the near left end, ONE long teal bridge spanning the cloth river, cardboard banks, classroom, and clean cartoon style. Move the red toy garage slightly BACKWARD on its existing RIGHT bank, so the long bridge runs ACROSS the space immediately IN FRONT of its closed left-hinged door, rather than driving straight into the door. The bridge's far SIDE RAIL lies in the door's outward swing path and prevents the door from opening. Crucially, the bridge's open RIGHT END exits onto a visible clear area of tan cardboard BESIDE the garage so the truck can roll off and park there later. Show ample clear cardboard beyond the bridge's open right end. Maintain both ends supported on banks, same long bridge length and same near left end. Do not open the door or move the truck yet. No arrows or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7e0609dc-bfa1-4940-a18f-baabf4c259e9.png",
+      "sha256": "36ce38fe81189d20c0f9da9df0fd0eeee7d15ed579cfdf1ac4b5b2476be50d73"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "fc1dcd1ffa462a9dbf734dda39eb48617255d9bc672fef977fb520861c90b53a",
+    "note": "Geometry corrected after direct review: far bridge side rail obstructs garage door\u2019s outward swing, while the open end has clear cardboard beyond beside the garage. Truck can later roll off without lifting. Both ends supported, truck just entering, original cast and toy layout retained.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

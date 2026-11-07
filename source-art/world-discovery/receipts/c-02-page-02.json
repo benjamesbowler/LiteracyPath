@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-02",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:43:05.042Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b28b0420-7056-41e0-b5ca-bad55e7b2362.png",
+  "sourceSha256": "a278165c09b6628f3baee8ae1f1abf4ce88ae31df1e649b284e727383c4e3741",
+  "output": "public/guided-reading/world-discovery/c-02/page-02.webp",
+  "outputSha256": "34613374481f8761ee311e527b9ef90ec47c5152e13a1236447b5e9bc5e670ef",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Rolling Game; World Discovery; fiction.\nSetting: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One yellow hoop lying flat on grass; One red soft ball for Zoe; One blue soft ball for Kit\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Zoe\u2019s ball lands inside. Kit\u2019s ball drops short of the hoop.\nRequired illustration: World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Red ball rests inside the hoop; blue ball lies between Kit\u2019s feet and the near edge of the hoop. Exact state: First attempt: Kit misses short; both balls remain visible.\nExact current state: First attempt: Kit misses short; both balls remain visible.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCritical exact-state composition: Kit's ONE blue ball has landed on grass between him and the yellow hoop, short of the hoop, never inside. Kit's empty hands show his finished throw. The ONE red ball rests inside the yellow hoop after Zoe\u2019s successful throw; Zoe\u2019s hands are empty. Only TWO balls total.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-02-reference.webp",
+      "sha256": "0da00d7abb12ad2b7354db032649fc436ca1a2cc32820b7bdf7cc491f9935dc0"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "34613374481f8761ee311e527b9ef90ec47c5152e13a1236447b5e9bc5e670ef",
+    "note": "Red ball rests inside hoop while Kit\u2019s blue ball is visibly short between him and the hoop. Both hands empty after throws; no duplicate balls and spatial contrast is clear.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-02",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:35:03.901Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8a6932b3-4e7d-4630-b8f5-9ecacd0fdb1d.png",
+  "sourceSha256": "9840ce316e23b8e7cb9b0bb0bf424248bf493e7e7aff152cc0ec43c537bb8e1c",
+  "output": "public/guided-reading/world-discovery/a-02/page-06.webp",
+  "outputSha256": "33e7c2b911bff04c1d29e338552dbdff4d9c97b6a318ae394d95ea8f417f3f5b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the supplied illustration, preserving its clean outlined flat 2D cartoon style and landscape 3:2 composition. Only remove the entire red balloon drawing from Kit's LEFT sheet, making that same sheet completely blank white. This page shows Zoe giving Kit the single red crayon BEFORE he has drawn anything. Preserve the handoff, characters, kite with exactly three tail bows on RIGHT sheet, empty wall string and all other objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-be18a73e-a2a8-4122-8225-cefd59bc418a.png",
+      "sha256": "f21d522327a9cc01ebc341f009ed3d0c2db8bbf596bd2f5031bee6205c86a148"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "33e7c2b911bff04c1d29e338552dbdff4d9c97b6a318ae394d95ea8f417f3f5b",
+    "note": "Zoe gives the single crayon to Kit; his left sheet is entirely blank; completed kite stays right. Future balloon was removed by direct edit.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

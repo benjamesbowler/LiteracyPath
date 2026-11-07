@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-04",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.884Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7ecb39c8-3710-4a4d-b733-e11480f9df2f.png",
+  "sourceSha256": "cd06e5d380d77fe1470c52549924f5b3666ae40547648ff4a2d57fb393482681",
+  "output": "public/guided-reading/world-discovery/b-04/page-04.webp",
+  "outputSha256": "402805eac87e33844f8e94a72096f6623d779e7fcfae97e215819cfd3633dd90",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise object orientation edit. Turn ONLY the single loose red boot so its rounded TOE POINTS RIGHT and its heel is LEFT; keep the one gold dot on the side facing viewer, same red design and size. The boot must travel toe-first toward the RIGHT, away from Kit, consistently toward its box. Do not mirror Kit, the room, props, movement lines or entire image. Keep the current exact boot position and state airborne in one short forward hop, with Kit clapping. Preserve all other details, clean 2D bold outlines, flat colors and gentle cel shading. No extra boot or other characters.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a1ba50a3-e6b3-4e93-b551-0fc4db5c8261.png",
+      "sha256": "9590680ac261e77d15ae7b4e8167fd7aa6e3509ecd32c7e63c81f8acec46a5ff"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "402805eac87e33844f8e94a72096f6623d779e7fcfae97e215819cfd3633dd90",
+    "note": "Kit claps, boot hops farther toward rug with toe forward right; empty box/lid remain behind, away from its path.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}

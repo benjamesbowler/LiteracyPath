@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-03",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:51:24.256Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b721364f-0af5-419a-a7d5-cd519b9f4015.png",
+  "sourceSha256": "7d3155fa94b8fc79e2c3aa0398516077cae507a535bbd3e934c6eb740aac830c",
+  "output": "public/guided-reading/world-discovery/a-03/page-03.webp",
+  "outputSha256": "5548c6b6681a683b3605edc8c1c79e0d2fcb4cb7265e69fcd053a405cdbe8b5c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Repair the provided landscape story illustration, keeping its locked character identity/clothes, crisp dark outlines and flat clean cartoon style. Move the two extra classmates (auburn hair/green shirt and dark bob/orange shirt) OUT of this foreground library area. Put them small, sitting cross-legged, waiting empty-handed on the rainbow rug IN THE DISTANT CLASSROOM THROUGH THE OPEN DOOR. Only Kit and Zoe remain at the foreground table. Preserve Kit holding orange book just above the full tan bag with blue and green books; purple book alone on table; empty red cart background. Keep all four featured books exactly once.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-056bebd6-ef8e-4d0b-9d1f-02ac49396d8f.png",
+      "sha256": "0e4ea91f1718a2938481bd28cbab18ea0c1e034b72af225b305b4975ee134547"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "5548c6b6681a683b3605edc8c1c79e0d2fcb4cb7265e69fcd053a405cdbe8b5c",
+    "note": "Full bag blue/green; Kit attempts orange above opening; purple on table; classmates restored to distant classroom.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

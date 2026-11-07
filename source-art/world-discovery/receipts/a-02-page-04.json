@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-a-02",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:35:03.897Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3557b64c-4865-4dcc-88e8-d49d689ee24e.png",
+  "sourceSha256": "42384a4fac82946e986990f77cc519d3cd504bbe9134a47eed36e465b634c4c9",
+  "output": "public/guided-reading/world-discovery/a-02/page-04.webp",
+  "outputSha256": "ae8a054620d229825aecae2c98eeaf3cc0451fe81b111fbeee54e61e37117c4a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the supplied illustration, preserving its clean outlined flat 2D cartoon style and landscape 3:2 composition. Only repair the completed red kite drawing on the RIGHT sheet: it must have exactly THREE red bow knots along its curling tail. Add the missing third bow. Preserve the diamond, crossbars, all people, poses, Kit's entirely blank sheet and classroom. Everything else stays.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ad9106b8-c4c0-44c2-9eef-d2c5df62afce.png",
+      "sha256": "7d707e33d29d20194f36697ed625c5c00e75ce6fb151e724e09a03b188b25609"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "ae8a054620d229825aecae2c98eeaf3cc0451fe81b111fbeee54e61e37117c4a",
+    "note": "Kit lowers blank sheet and sits with hands in lap; Zoe retains crayon; kite has three bows.",
+    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+  }
+}

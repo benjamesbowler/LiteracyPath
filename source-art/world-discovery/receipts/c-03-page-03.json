@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-c-03",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T03:53:00.818Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-dad28936-0989-4ee0-92a0-fce44a551db7.png",
+  "sourceSha256": "75f9ca4af501364919f18ed06fe1ac43f4a3acbf6ebe62cfa151ee262fec754e",
+  "output": "public/guided-reading/world-discovery/c-03/page-03.webp",
+  "outputSha256": "6c42733a24b29e1556c839e736a279ec065226e384dd1947971a01a56d8f9458",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Way Up; World Discovery; nonfiction.\nSetting: World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One red four-wheeled toy cart carrying one blue book-shaped block; One cream model library on a fixed 4-centimeter-high platform; One smooth short tan ramp and one smooth longer tan ramp with the same width and surface\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): Zoe rests a short board against the step. The board makes a ramp.\nRequired illustration: World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Zoe places the short smooth board with one end on the table and the other firmly on the platform. Exact state: Short ramp stable and wide enough for all four wheels; cart waits below.\nExact current state: Short ramp stable and wide enough for all four wheels; cart waits below.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nEngineering continuity: fixed platform about 4 cm high; short ramp about 8 cm long; later long ramp about 16 cm long, same width and thickness. No dimensions printed. ONE SHORT tan ramp slopes up steeply from tabletop to platform edge, its TOP end touching and supported by the platform, bottom end touching tabletop. No unsupported gap or wedge. Zoe touches the board as she puts it in place. ONE loaded red cart waits on tabletop before the ramp, not on it yet. The long board is not installed.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-03-reference.webp",
+      "sha256": "8e6b7dee14a323711f76200c99d10dc51b9204483d73ba18659ed328f7ee9988"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "6c42733a24b29e1556c839e736a279ec065226e384dd1947971a01a56d8f9458",
+    "note": "Zoe positions one short, flat, constant-thickness board between tabletop and platform. Both ends touch supports and cart waits below. Natural hand contacts, model scale and no gap or wedge.",
+    "limits": "Direct agent visual review; no classroom or physical-device observation."
+  }
+}

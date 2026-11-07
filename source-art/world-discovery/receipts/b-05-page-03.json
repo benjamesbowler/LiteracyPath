@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-b-05",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T05:39:25.962Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-93ec429a-0470-4316-bcf2-3fd7031a2ebe.png",
+  "sourceSha256": "664f067009a7eac4bf2cd9bbe88863dfd3f6013d107861d51c3f2fd6ac7bdb8a",
+  "output": "public/guided-reading/world-discovery/b-05/page-03.webp",
+  "outputSha256": "197bc0b211efbf62f99c1f4e4ed9d64775b1d96bb4b505f37ce2882a607d32d1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Down to the Sea; World Discovery; nonfiction.\nSetting: At foot of pale hills in green valley, a narrow stream from upper left joins a wider river from upper right, merging into ONE downstream channel toward foreground. No sea, bridge or river mouth in this close view.\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): The stream flows into a wide river.\nRequired illustration: At foot of pale hills in green valley, a narrow stream from upper left joins a wider river from upper right, merging into ONE downstream channel toward foreground. No sea, bridge or river mouth in this close view. The narrow stream enters the side of a wider river at a clear Y-shaped meeting point below the hills. Exact state: A join, not a crossing; both flows merge downstream.\nExact current state: A join, not a crossing; both flows merge downstream.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nGEOGRAPHY LOCK: Clear Y confluence, just THREE arms total: narrow stream from upper left joins larger river from upper right, both continue together toward lower center. No crossing/X and no disconnected banks. Same pale rocks/hills on left.\nUse reference for clean 2D style, pale rock shape, green grassy valley and one beige stone arch bridge design only. Compose one finished scene; no reference-sheet layout.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-05-reference.webp",
+      "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f"
+    }
+  ],
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07",
+    "sha256": "197bc0b211efbf62f99c1f4e4ed9d64775b1d96bb4b505f37ce2882a607d32d1",
+    "note": "Narrow upper-left stream joins wider upper-right river in a three-arm Y, both flow toward one downstream channel.",
+    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+  }
+}
