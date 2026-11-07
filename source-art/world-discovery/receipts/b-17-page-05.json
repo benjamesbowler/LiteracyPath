@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:39:07.009Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f8b20a1b-0c56-4a2d-bd6e-70a05a9bdc01.png",
+  "sourceSha256": "71c5ead436d03ae3c1d3121d07995f7bd3abca1341d6dcde2fb99e277f21938e",
+  "output": "public/guided-reading/world-discovery/b-17/page-05.webp",
+  "outputSha256": "a260687b9cf235ca7c37d5b20e5145e502f84c43190e29dfdd7a0a44f372d9bd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Is That a Twig?; World Discovery; nonfiction.\nSetting: One northern walkingstick, Diapheromera femorata, on a leafy deciduous branch in daylight. Adult wingless brown female with six legs, two long antennae and twiglike segmented body; natural compound eyes, no human face. Same forked twig and small oval leaves throughout.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One brown adult northern walkingstick, six legs and two antennae; One forked brown branch; One intact oval leaf that develops a small feeding notch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): Still legs are hard to spot among twigs.\nRequired illustration: Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end. Continuity: Same resting position; concealment is difficult spotting, not literal invisibility.\nExact current state: Same resting position; concealment is difficult spotting, not literal invisibility.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nANATOMY AND SCENE LOCK: ONE wingless brown adult northern walkingstick, EXACTLY SIX continuous slender legs in THREE thoracic pairs, never a seventh stub or leg from abdomen. Two long antennae, tiny natural eyes and no tusks/fangs or human smile. Preserve elongated thorax and long legless segmented abdomen. Feet grip real supporting wood; no hovering feet except the single explicitly lifted leg in a stepping scene. Current leaf is intact through page6, first small mouth bite notch only page7, same notch retained page8. Every insect part and the entire target leaf must be at least12 percent within frame. Natural branch perspective/scale, no warped floating wood, no labels, no diagram or reference-board layout. Use the second image only for branch/leaf identity and woodland palette, not to repeat its exact composition. Compose each required page action afresh.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-17-reference.webp",
+      "sha256": "b14056ceef09c329488afa07ef2716e9bc04c11c4722674b7311bfa468431c57"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-17/page-01.webp",
+      "sha256": "d6d3d291ce421668a9ba16d6a8d52b21290e930b935fc6eed4d603734bb75e39"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.381606+00:00",
+    "outputSha256": "a260687b9cf235ca7c37d5b20e5145e502f84c43190e29dfdd7a0a44f372d9bd",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Wider surrounding twigs make still insect harder to spot; target leaf remains intact; no literal transparency/invisibility. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "a260687b9cf235ca7c37d5b20e5145e502f84c43190e29dfdd7a0a44f372d9bd",
+    "note": "Wider surrounding twigs make still insect harder to spot; target leaf remains intact; no literal transparency/invisibility. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

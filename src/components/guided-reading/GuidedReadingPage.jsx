@@ -1738,7 +1738,7 @@ export function GuidedReadingPage({
     if (!guidedReadingWordSlug) return [];
 
     return [
-      getGuidedReadingWordProductionAudioPath(word)
+      getGuidedReadingWordProductionAudioPath(word, { bookId: selectedBook?.id, page })
     ].filter(Boolean).filter(audioPath =>
       String(audioPath).includes("/audio/production/en-US/")
     );

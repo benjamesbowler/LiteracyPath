@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-17",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:04.245Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ec430b54-3bfb-4b4a-bc2f-b2eb0406cb9f.png",
+  "sourceSha256": "0f5cda48858ebc522797b41857b5d518043179e0ed1b33d47b12cb7c1145b3f3",
+  "output": "public/guided-reading/world-discovery/c-17/page-02.webp",
+  "outputSha256": "66e136cc777a258a8623965151b7dcd1130e8c5ced1e543463b9028601feeae2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact scene for wider framing. Pull camera back 35 percent, keeping 3:2 landscape. Entire otter including whiskers, feet and tail must be within CENTRAL SIXTY-FIVE PERCENT of canvas width and CENTRAL SEVENTY PERCENT of height, with generous surrounding water/kelp. Preserve otter anatomy exactly: two forepaws, two webbed hind feet, ONE tail. Preserve exact current action and positions of the ONE clam and ONE gray stone. Natural paws gripping props, no floating objects. Do not alter developmental/action state. Flat crisp clean 2D cartoon, broad smooth cel colors; no grain/mottled shading. No text or panels. Do not crop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-bdf793ce-da3d-4dd6-9590-4a62563a7515.png",
+      "sha256": "fd324950d969e14b6897ff8297573b801b8d64cdd7d47e746c101dbc67a8d27a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ce9930b3ff66e06b9f3b14afeef5752a734ade78568d649a597715f1f9606e13",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.556245+00:00",
+    "sha256": "66e136cc777a258a8623965151b7dcd1130e8c5ced1e543463b9028601feeae2",
+    "note": "Native source and final WebP directly viewed. Otter ascends underwater holding clam and stone against body with two paws."
+  }
+}

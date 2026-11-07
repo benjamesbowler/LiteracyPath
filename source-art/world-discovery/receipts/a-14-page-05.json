@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:05.605Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-574a87c6-bfad-4fdb-8100-80267a44b562.png",
+  "sourceSha256": "6f83847d6a53446ea2432a81857c874a52a0058c5a335f0dd0c5cee5e68d4a13",
+  "output": "public/guided-reading/world-discovery/a-14/page-05.webp",
+  "outputSha256": "04b43f0ba71f8c3395d1f58e758dbcad2eecb869b625cc41f294051342381194",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep exactly this story state: Kit draws the small wheel on the ONE remaining cream sheet; first sheet consumed. Giant wheel leans at RIGHT of table and wagon still missing near-FRONTRIGHT wheel.  Pull camera BACK25percent and center whole coherent scene with Kit's head/hands/shoes, wagonhandle, allwheelsandimportantprops atleast10percentinsideeveryedge. Wide landscape3:2, no croporborder. Preserve crispflat2Dstyle, correct anatomy, no added text/newobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-843f1864-a705-4420-870d-e11035f5c1d6.png",
+      "sha256": "a9b4b2fedccbc836ae42723dc420efa1fc5a3a3cb37d4014a3a04b0da15fcedd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.766355+00:00",
+    "sha256": "04b43f0ba71f8c3395d1f58e758dbcad2eecb869b625cc41f294051342381194",
+    "note": "Native PNG and installed WebP directly inspected. Smaller circle on remaining sheet; giant now set right of table, wagon still missing near-front wheel. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

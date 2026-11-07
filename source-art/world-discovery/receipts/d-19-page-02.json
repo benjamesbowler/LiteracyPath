@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-19",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:18:34.060Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-a9d2fb39-c861-4db5-89e9-2247f609071c.png",
+  "sourceSha256": "987e9668893d13982c25c87adcd16379beb80125d0d1d1ee8bda2a9ecbd4e479",
+  "output": "public/guided-reading/world-discovery/d-19/page-02.webp",
+  "outputSha256": "d103572da390aba255317246b7896a111e42f557433ad3f49f0c9d0e3ab64cd7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is the edit target. Scale the ENTIRE group of dishes and food down to 75 percent of its present size, centered on this same cream tabletop. Complete plate rims must lie between x=200 and x=1336 on 1536-pixel canvas. Add plain cream tabletop around all sides. Preserve exact food counts and configuration; page 9 stays strictly overhead. No other changes.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Fruit or Seed?; World Discovery; nonfiction.\nSetting: Close observational views on a cream tabletop and two clearly separate real plants in a garden. No characters, cutting tools or handling instructions. Exactly one tomato and one pea pod, opened for comparison in prepared stages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One ripe red tomato with green calyx; prepared halves show seeds in gel chambers; One pea pod containing exactly six green peas; Two cream dishes, left for tomato and right for pea pod; Natural tomato flower and pea flower shown only on their respective plants\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): Open the tomato and look inside. Small seeds sit in soft, wet pockets beneath the skin.\nRequired illustration: Prepared tomato half on left dish with recognizable gel chambers and seeds; other half behind.\nExact current state: No knife or cutting action; pod stays closed on right.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b2d6610c-d6a7-45fd-8155-8873a0877850.png",
+      "sha256": "ddf5e77e7fad3d468ec55ed315255556e3768a7d42e41b8ea1b89b51057d9b0a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-19-reference.webp",
+      "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5c15eed33ab40058de6f45806a97ecf61c792ceb5e2fd959ace3b9cb0ecb9825",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:19:26.983118+00:00",
+    "sha256": "d103572da390aba255317246b7896a111e42f557433ad3f49f0c9d0e3ab64cd7",
+    "note": "Generated source and installed WebP inspected. Two tomato halves show seeds while pod stays closed; ordinary shallow dishes on neutral worktop, all essential objects safely inset.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

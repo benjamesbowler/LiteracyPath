@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:20.495Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-da49d270-e260-481f-a802-f5eefdfaf5bc.png",
+  "sourceSha256": "acd7d33637777ad98a1dd07eb166996c0909ad55e1487555f2aee9826163e5fb",
+  "output": "public/guided-reading/world-discovery/c-19/page-02.webp",
+  "outputSha256": "d91084f5a49dcc9f43ffb236c5028162e1916fe628c8cb1a263bfb97d44476ac",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Edit this physically coherent classroom scene. Keep natural full standing bodies and ordinary waist-high table. WIDEN camera by20% and reduce whole people/table group to85% so all heads/shoes/table legs comfortably12% inside frame; extend surrounding room/floor. EXACT STATE CORRECTION: Recompose people: ZOE is now LEFT of table, Kit RIGHT, teacher middle. Zoe stirs ONLY the cup on BLUE MAT on the LEFT using ONE spoon naturally held in her nearest hand. Few tiny shrinking salt grains at bottom of BLUE cup. GREEN cup RIGHT is plain clear water with NO grains; sand still in FULL beige measuring scoop beside it. LEFT used salt scoop is EMPTY white, no mound. Exactly TWO spoons TOTAL: one in Zoe hand in BLUE cup, one resting beside GREEN cup, no third spoon. Empty dish center. Both cups equal half water. No other changes. Clean crisp flat2D, no texture or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7142ca70-d0c8-4acb-be19-37b633ccc24c.png",
+      "sha256": "40766422349f69d839f2a60c145b182b916bf9dc0e614639ad75c394fb26d0b7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.559246+00:00",
+    "sha256": "d91084f5a49dcc9f43ffb236c5028162e1916fe628c8cb1a263bfb97d44476ac",
+    "note": "Native source and final WebP directly viewed. Zoe stirs blue cup with few salt grains, salt scoop empty, green cup and full sand scoop untouched; only two spoons."
+  }
+}

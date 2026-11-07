@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:39:41.642Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5e1ad27a-2069-4718-9f3b-e17c02ce33f3.png",
+  "sourceSha256": "8c757d27bcd084f033a338ab376c91c2583d26efb2a7e02de7d75613f7d43bbf",
+  "output": "public/guided-reading/world-discovery/b-20/page-01.webp",
+  "outputSha256": "3cdb1cffdaa5b002e9e53bda5d6f7deef059f093fc59ad0be99713337f809e0c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this exact image's whole scene and all people/props/contacts/water states. Only adjust canvas/framing to landscape 3:2, revealing a little more floor below and wall above, so the complete shoe soles sit at least 10 percent above the bottom edge. Preserve existing relative scale and positions, normal child/adult/sink proportions. Do not make a distant tiny scene; do not widen into a panoramic strip. No new objects, furniture, people, writing, water, cup or plant. Preserve Zoe hand on closed faucet, one drop falling, one empty cup on counter, Kit observing, no adult.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/b-20-page-01-24e160d2fa19.webp",
+      "sha256": "24e160d2fa19165f6a7805ea173112e4610b7a5c3302541167f786007f1270db"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.188900+00:00",
+    "outputSha256": "3cdb1cffdaa5b002e9e53bda5d6f7deef059f093fc59ad0be99713337f809e0c",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Zoe closes one tap, one drop remains; empty yellow cup aside; Kit observes; no adult. Final 3:2 framing extends floor naturally with full feet and correct contact.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "3cdb1cffdaa5b002e9e53bda5d6f7deef059f093fc59ad0be99713337f809e0c",
+    "note": "Zoe closes one tap, one drop remains; empty yellow cup aside; Kit observes; no adult. Final 3:2 framing extends floor naturally with full feet and correct contact."
+  }
+}

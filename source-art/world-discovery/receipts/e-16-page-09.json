@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:04.363Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-39b2947f-0ccc-4c6d-a9cc-88c20758f0bc.png",
+  "sourceSha256": "057635015a7309e19d678532e1eb51e9adc3bd0d2974e12bdc0455a63b570c12",
+  "output": "public/guided-reading/world-discovery/e-16/page-09.webp",
+  "outputSha256": "f5454caf6d1be8cef7920865f50114f6457b8355d089fa1a34b1c8f8ba697302",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce the complete existing children, model/table/mats OR outdoor sky scene OR authored diagram/panel composition to fit its essentials inside the central80percent of the final1536x1024canvas. Extend matching room/garden/sky/background naturally. ALL shoes, hair, fingers, viewing mats, model cards, table feet, and full borders of existing authored inset/comparison panels must be at least10percent inside each edge. Preserve the same three cards, their exact near/middle/far positions and equal stand designs, and same body poses. Retain a real ordinary waist-high table with full long legs and complete human legs when floor is visible. For intentional closeups keep lower bodies and floor ENTIRELY out of view. Do not invent table geometry while widening. Preserve authored diagram/counts only where already present; no extra panels, symbols, physical strings or text. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e16-margin-sources/page-09-before.webp",
+      "sha256": "3f29e1960dcc0fe521360da5b5004b828aea864e45301418685c6cc63e821908"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "f5454caf6d1be8cef7920865f50114f6457b8355d089fa1a34b1c8f8ba697302",
+    "method": "codex-direct-image-inspection",
+    "note": "Same three bright stars with exactly two faint dotted mental-guide segments, natural children and school yard, broad safe margins."
+  }
+}

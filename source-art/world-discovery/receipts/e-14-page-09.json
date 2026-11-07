@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:18.707Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-b660b4f0-263c-402b-8aca-472ed25a1a24.png",
+  "sourceSha256": "350e9d06f968a539a54b0f5e04329bde5129fc68eef4325ac4cf3b86c62906dc",
+  "output": "public/guided-reading/world-discovery/e-14/page-09.webp",
+  "outputSha256": "a6d3c39b6c0239ee76106d0620f2b27b86760d2ce4859d3bef531a47e4aaaf0c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Keep one small wet purple patch on red sail. The tray is NOT entirely restored yet: retain one small still-invisible area in the back-left corner of the tray, showing tan tabletop through it with no visible purple paint. Zoe grips only visible solid yellow rim. All boat grips remain natural and solid.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-698988d5-7a2f-43d9-870a-ad61d40b8eb2.png",
+      "sha256": "3104775fb347af3a6c5e3727c5cb47e93ecf0703e8aaceed65545a9da2235911"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "a6d3c39b6c0239ee76106d0620f2b27b86760d2ce4859d3bef531a47e4aaaf0c",
+    "method": "codex-direct-image-inspection",
+    "note": "Kit grips solid blue hull and wipes red sail with one remaining wet-purple patch. Zoe steadies visible yellow rim. Small back-left tray area still invisible, supporting final cleanup. All grips visible and natural."
+  }
+}

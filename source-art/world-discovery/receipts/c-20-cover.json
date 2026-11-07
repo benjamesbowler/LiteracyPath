@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:41:51.451Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-86f1d2a2-56be-4a34-9738-db3410a3cd77.png",
+  "sourceSha256": "bc8084cd0d5a11e2ad0a5fd9028b76cecf2e882c17c28fefec7b6dfbad974151",
+  "output": "public/guided-reading/world-discovery/c-20/cover.webp",
+  "outputSha256": "f6aa3ca68647a90b50b0e81163f7ea3ddadf87506ecdd361723073d1046de5a5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact scene. Widen the entire intact scene by about25percent: uniformly reduce the central children/log/wrapper grouping so ALL essential shoes, hair, hands, log ends and wrapper fit within the central80percent of the final canvas. Extend natural background/soil/path around it, no borders. Preserve human anatomy, poses, exact two-hand grips, scale relationships, setting and current log/wrapper state.  Additionally make each of the THREE gray woodlice HALF its present length and height, about20pixels long in final1536width, no more than one child's fingernail. Keep exact three tiny animals on damp soil near/under lifted log, restore soil around reduced bodies. Do not enlarge insects to make them legible. Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-8eb93345-0575-4f41-8a20-58c2f4a90a80.png",
+      "sha256": "f515c5624dbbc5589ff7503523fcee111c4cf7809632749dfb2928013399bade"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "f6aa3ca68647a90b50b0e81163f7ea3ddadf87506ecdd361723073d1046de5a5",
+    "method": "codex-direct-image-inspection",
+    "note": "Full-scene direct review: natural kneeling/crouching children with two hands supporting only the right log end, three fingernail-scale woodlice on damp soil, fern behind and one wrapper separate on path. Wide margins and complete anatomy; no giant foreground animals."
+  }
+}

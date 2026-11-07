@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-12",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:31:08.197Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-2b4e3011-ef37-4c58-935f-d1b5af8578e9.png",
+  "sourceSha256": "5b157dbad7d9659fdc72674cbb6e1f15637a90ece04791afc2e6114085932c5f",
+  "output": "public/guided-reading/world-discovery/b-12/page-08.webp",
+  "outputSha256": "a7d8d1e5f93d0e252433d8db2331979b9cbad55efe7c060e77c322a8b30b2f72",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this actual image, preserving 1536 by 1024 3:2 format and exact flat cartoon style. Correct ONLY the table and lower image edge. This is a close seated view with children's lower bodies naturally occluded by the large foreground tabletop. The wood tabletop must CONTINUE uninterrupted all the way to the BOTTOM CANVAS EDGE; its diagonal left/right side edges continue to the LEFT and RIGHT canvas edges. The tabletop's front edge is OUTSIDE the image below the bottom. REMOVE any short floating table legs, artificial fading, inset border, or cream blank strip across the bottom. No table front edge or legs visible in this close composition. Maintain natural full-bleed scene. Preserve every child's exact face, upper body pose, hands, food, cup, plate, box contents/state, background and all current generous focal margins. No other change. No text, no panel, no new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3378a090-a270-4b9d-b009-13d99b0932d7.png",
+      "sha256": "7ed025680c570b36a7984ba0dfa0ce2acb11cc06458683de0858a36766cb4f6a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5e63c46809f84999637e01cb64322b71f1f6277058029d50f4641f16cf0de34f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:38:30.530031+00:00",
+    "outputSha256": "a7d8d1e5f93d0e252433d8db2331979b9cbad55efe7c060e77c322a8b30b2f72",
+    "scope": "Production-author direct native and installed final WebP inspection, full ordered prose/state and whole-scene rereview. Independent QA pending.",
+    "notes": "Cheese-topped one cracker held at mouth; plate crumbs only, box empty, sole purple cup. Three upper shelf cups; naturally full-bleed foreground tabletop.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "a7d8d1e5f93d0e252433d8db2331979b9cbad55efe7c060e77c322a8b30b2f72",
+    "note": "Cheese-topped one cracker held at mouth; plate crumbs only, box empty, sole purple cup. Three upper shelf cups; naturally full-bleed foreground tabletop."
+  }
+}

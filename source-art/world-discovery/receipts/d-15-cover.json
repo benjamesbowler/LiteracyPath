@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-15",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:50.453Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-caac98d2-fc6c-47a8-9737-e952dacb1efe.png",
+  "sourceSha256": "1fe54b8d7a5f0abfe0f4e474b0fc7c8aa8a11a0cd7118fdf4c8444cf601ddcf5",
+  "output": "public/guided-reading/world-discovery/d-15/cover.webp",
+  "outputSha256": "520173b0f5d561e5269aaa2187f8206feaca422ee12ee75ada966bd334666d33",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is edit target; others preserve exact cast/prop identity only. Pull camera back to scale the ENTIRE dune and foreground notched rock to70percent, centered; extend featureless sand and sky naturally. Full rock must sit at x15percent and bottom80percent, dune right foot at x85percent or less. Preserve long gentle left and short steep right slopes. Remove EVERY magnifying inset/circle/leader completely. Do not introduce any inset.  Keep other states/counts/expressions/actions unchanged. Natural human anatomy and plausible spatial geometry. Clean flat colors/contours. No text or labels. Full landscape1536by1024, 3:2; no border or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f849d18c-6cce-4e9b-a2ae-26f41e805240.png",
+      "sha256": "f692a7836a634396eb8b54c4c95a86f1d8f14a6058e7a590a0a81d0aa1d0bb04"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-15-reference.webp",
+      "sha256": "8d824634e20522ba4b50694165eb1911fdabf99464f5263c3af089ab8cbe609c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "39b696f4defa16bcfb1cfc77b4fc3b026064c13a880a6bb1c34df05c4e8ad4c1",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:05:07.028Z",
+    "sha256": "520173b0f5d561e5269aaa2187f8206feaca422ee12ee75ada966bd334666d33",
+    "note": "Generated native and installed full WebP directly inspected. Wordless cover gives coherent full dune with grain movement up gentle left slope and down steep right face; fixed notched rock clear. Whole scene is coherent, core explanatory content complete and clear.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

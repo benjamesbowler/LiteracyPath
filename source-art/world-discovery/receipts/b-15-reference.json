@@ -1,0 +1,55 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:48:58.533Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-970e1e92-6206-4aa7-9403-f0bcd7f25836.png",
+  "sourceSha256": "e722447dd53630c843346067c741ba62479780d6ed198ae899e674e36fc8a47b",
+  "output": "source-art/world-discovery/b-15-reference.webp",
+  "outputSha256": "41d36078c35ebc6677a8fcc277067181c5eefcd3a99b63fcd8b7e36e592971e8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the large upper-left location illustration of this production reference board. It must show the initial HIGH TIDE state: a single continuous sheet of clear sea water covers the entire oval rock hollow AND its whole surrounding rock rim and shelf. The submerged oval rim, white mineral vein on its left, and bowl-shaped depression remain clearly visible through the flat turquoise water. No part of that oval rim is above water. The dark upright boulder behind still protrudes above the sea surface. This is the same place submerged, not a separate pool with exposed sides. Preserve the simplified bold clean flat 2D cartoon style; no caustic meshes, grain, mottled patches or painterly textures. Keep ALL the other small separated object design views unchanged, their outline/shape/white vein/palette and blank board layout. No people, animals, words or new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7cca3351-9504-4c7e-9127-3a795f6fb3a3.png",
+      "sha256": "c9d4c892ba0daea17036c852907f88a56b797c3eb11cd8373a51497b0627ed6b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T11:49:24.737Z",
+    "outputSha256": "41d36078c35ebc6677a8fcc277067181c5eefcd3a99b63fcd8b7e36e592971e8",
+    "scope": "Direct reference WebP inspection before final illustration production",
+    "notes": "Full reference WebP viewed. Same oval rock hollow with continuous surrounding bedrock, left white mineral vein and dark boulder. Corrected unwanted humans and textured surfaces; large location key now shows fully submerged starting state and no humans/animals.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "41d36078c35ebc6677a8fcc277067181c5eefcd3a99b63fcd8b7e36e592971e8",
+    "note": "Full reference WebP viewed. Same oval rock hollow with continuous surrounding bedrock, left white mineral vein and dark boulder. Corrected unwanted humans and textured surfaces; large location key now shows fully submerged starting state and no humans/animals."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

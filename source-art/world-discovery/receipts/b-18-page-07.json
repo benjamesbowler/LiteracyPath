@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:27:02.329Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-567023f0-e66a-4e3c-8ce2-99dacd65162c.png",
+  "sourceSha256": "c6fecfb3a2e185c34f6faa8497647d4f0871967f41a63cfe569adfd397d7640a",
+  "output": "public/guided-reading/world-discovery/b-18/page-07.webp",
+  "outputSha256": "dd7094a20520163878bef14c0149fa880c0a7a700bcdf35c300f26619f189c68",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct only the grasshopper's wing arrangement in this exact flying scene. Show exactly FOUR anatomically attached wings as TWO pairs from the thorax: TWO narrow brown forewings with pale longitudinal stripes and TWO broad pale fanlike hind wings beneath them. Currently the far brown forewing is missing/indistinguishable; add its distinct narrow outline above the far pale hind wing, with its root naturally behind the thorax. Keep the near brown forewing and the two broad fanlike hind wings; adjust only their overlap if necessary to make four discrete wings traceable without a fused extra lobe. Preserve this single adult's body, six naturally tucked legs, two antennae, pose, exact field, no second insect or old skin. All antenna/leg/wing tips at least12 percent inside edges; clean flat 2D bold outlines, landscape3:2. No diagrams, text or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-86041d61-5f4c-4fba-a561-2ad0f06270bd.png",
+      "sha256": "4376e5928bacc2c17731803b68fa669b1049d37957c0a5abe8ccc60b85429f78"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.398120+00:00",
+    "outputSha256": "dd7094a20520163878bef14c0149fa880c0a7a700bcdf35c300f26619f189c68",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Adult flies with two distinct narrow brown forewings and two broad pale hind wings, legs tucked and antennae clear; one animal, all wing tips safely framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "dd7094a20520163878bef14c0149fa880c0a7a700bcdf35c300f26619f189c68",
+    "note": "Adult flies with two distinct narrow brown forewings and two broad pale hind wings, legs tucked and antennae clear; one animal, all wing tips safely framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

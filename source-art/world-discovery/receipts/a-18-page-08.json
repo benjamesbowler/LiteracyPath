@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:03:12.731Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-17f00604-6711-4717-ad99-93d0fcc91d9d.png",
+  "sourceSha256": "a9de33068d42fb4232f31bd57f901ccbbda32cc727ff91e0bad11c63963f0b0c",
+  "output": "public/guided-reading/world-discovery/a-18/page-08.webp",
+  "outputSha256": "3f789c8717c30a94285d294503931dab85c11cfb41c2ecad01d0af4f5ae190ae",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Widen composition20percent to keep whole butterfly, all wing tips, complete empty chrysalis, and COMPLETE pink flower head including every petal safely10percent inside image edges. Preserve the exact wing development stage and pose.  Keep all original locations and object count, two antennae, two leaves, one flower, one empty case, one butterfly. Same clean crisp flat2D art, full-bleed3:2, no border, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3b03fd36-9e0f-4031-b676-62afb1717571.png",
+      "sha256": "75f23603b94fb492ab3e1cf3a31d60b6a4e6deefc9fa3f361f37b549d0eed0d2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.101706+00:00",
+    "sha256": "3f789c8717c30a94285d294503931dab85c11cfb41c2ecad01d0af4f5ae190ae",
+    "note": "Flight toward whole coneflower with four wings, two antennae, naturally extended proboscis and thoracic legs; empty case retained. Native generation and installed WebP directly inspected."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:34:14.001Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c1d451b0-f328-415f-87ab-7f2c19c5d60a.png",
+  "sourceSha256": "e84c9255573d43d3e58bf7fe570de7c53b7ae7a7e1f65084a05da45784f07d4f",
+  "output": "public/guided-reading/world-discovery/b-19/cover.webp",
+  "outputSha256": "bdf38696ba9e66ba1cf50cfd43219ca792d19adce765cbadc85cbb32d50ceb30",
+  "width": 1717,
+  "height": 916,
+  "prompt": "Use case: precise-object-edit. Edit this existing children's-book illustration. Widen and recenter the SAME intact scene by about 25 percent: the entire two children, all hair and shoes, the tabletop experiment and screen must sit within the central 76 percent of the canvas, leaving at least 10 percent clear room around essential content on every edge. Extend the ordinary classroom background naturally with continuous walls and floor, same normal scale. Do not add props or characters. Preserve every current pose, hand and finger, correct body anatomy, furniture contact, the three equal samples, single long red toy station wagon, single blue flashlight, white screen, and their exact states and relative arrangement.  Maintain clean flat 2D illustration, solid colors and crisp outlines; no texture, no written words, no labels, no inset panels. The change is framing only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-cb4dc24c-3a2c-4282-84aa-6256be180a80.png",
+      "sha256": "1606f94b117abd23e720ede43865a2d8f5af2ea2ba0c80ea24a366c8daa182f5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:11:10.571224+00:00",
+    "outputSha256": "bdf38696ba9e66ba1cf50cfd43219ca792d19adce765cbadc85cbb32d50ceb30",
+    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
+    "notes": "Clear plastic and wax paper held naturally; one brown card, off flashlight, one red car and screen. Two children and ordinary table/chairs. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "bdf38696ba9e66ba1cf50cfd43219ca792d19adce765cbadc85cbb32d50ceb30",
+    "note": "Clear plastic and wax paper held naturally; one brown card, off flashlight, one red car and screen. Two children and ordinary table/chairs. Independent QA pending."
+  }
+}

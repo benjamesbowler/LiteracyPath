@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-14",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:14.207Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5fe27bbb-ce94-4a92-9bd3-bdc6d29c377c.png",
+  "sourceSha256": "c1c609729c295480fcfe9dd7dce92305cba34095ec2f5d565616b7174fd2f9d9",
+  "output": "public/guided-reading/world-discovery/c-14/page-02.webp",
+  "outputSha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change ONLY the four table legs from wood orange to medium GRAY metal keeping the same ordinary shape and geometry. Keep wooden tabletop and existing gray chair legs unchanged. Preserve exact six arrowheads R,R,R,R,L,R with touching opposed tips, all on continuous shaft; bookmark at start. Preserve children, feet, book, gray pencil, pink eraser and generous framing. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-54b975d0-ec18-442b-8ec4-10f0b59aa4f6.png",
+      "sha256": "75517ac0d13b72732ca8d796ab3f2025f156c5e95138a32f279af364ea674bec"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6bf0214e4c9b70fd3e14b3805b6b47eaa35e1740a8d7791544e2a7f80254b40",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Kit draws continuous six-head shaft R,R,R,R,L,R; fourth/fifth heads meet locally, bookmark at start.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+    "note": "Kit draws continuous six-head shaft R,R,R,R,L,R; fourth/fifth heads meet locally, bookmark at start."
+  }
+}

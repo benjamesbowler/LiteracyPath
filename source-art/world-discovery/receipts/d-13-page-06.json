@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:44.015Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-135bd806-a159-449e-ba78-509592c6348f.png",
+  "sourceSha256": "b9fa5146c21900b5aa0a146f984f9757fb82dc75f75c1637246f6cf8dc694ac3",
+  "output": "public/guided-reading/world-discovery/d-13/page-06.webp",
+  "outputSha256": "60731afd375c4c42fc3c3345b7879ff3916e1883d633c82919ebd7b21138fe29",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Pull camera back substantially: shrink ENTIRE scene to70percent centered. Extend normal street/buildings naturally, revealing COMPLETE rear of blue car at least13percent from left edge, entire traffic light at least13percent from top, people shoes at least13percent above bottom. Preserve traffic head facingLEFT toward RIGHT-facing car, stopped behindline; white WALK; button up-arrow.  Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ea947b57-4faf-4f86-a91d-35c981f5ebab.png",
+      "sha256": "142fb984b792fa4edfcb439d3fc1f2df754b6214496b89fbab2c82c04dedf698"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-13-reference.webp",
+      "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.865Z",
+    "sha256": "60731afd375c4c42fc3c3345b7879ff3916e1883d633c82919ebd7b21138fe29",
+    "note": "Generated native and installed full WebP directly inspected. Oblique red vehicle signal faces left toward right-facing car stopped behind line, not toward pedestrians. White walking figure across road and sound arcs at near speaker. Complete car, people, cane and light comfortably inset; button up-arrow follows crossing.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

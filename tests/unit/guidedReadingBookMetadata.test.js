@@ -49,10 +49,10 @@ test("Moonwood is extended read-together and predictable C books are standard", 
 
 test("the reviewed current catalogue has the exact honest mode split", () => {
   const rows = guidedReadingBooks.map(book => getGuidedReadingBookMetadata(book.id));
-  assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 308);
+  assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 358);
   assert.equal(rows.filter(row => row.readingBandProfile === "extended").length, 37);
   assert.equal(rows.filter(row => row.readingBandProfile === "read-aloud").length, 2);
-  assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 258);
+  assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 308);
   assert.equal(rows.filter(row => row.readingMode === "supported-read-together").length, 39);
   assert.equal(rows.filter(row => row.readingMode === "decodable").length, 50);
 });

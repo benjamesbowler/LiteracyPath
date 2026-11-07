@@ -1,0 +1,50 @@
+{
+  "bookId": "world-discovery-a-19",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:43:27.964Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6dc7e773-2554-48d8-b708-57cf4c51fe61.png",
+  "sourceSha256": "782a11420dc6bc25535bc3675fc534a6fd456b659a488e3e56cb3a0b90f95fd2",
+  "output": "public/guided-reading/world-discovery/a-19/page-02.webp",
+  "outputSha256": "efae55ae7ec6fee4d6b5ca7d4a36e5c42d9fd39d35aafb6e74be240e2a1c7605",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this physically coherent classroom illustration. FIRST dramatically PULL CAMERA BACK by35%: REDUCE entire Zoe-and-table arrangement to about70% its current size within same 3:2 frame, extend plain room/floor around. Whole Zoe head/shoes AND ALL table legs must lie between y=140 and y=870 on1024height; nothing essential within outer12%. Preserve normal waist-high table, four long legs, TWO visible plum trouser legs/white shoes, natural standing posture and hand contact. Do not shorten table legs or hide lower body. Keep same four ordinary objects, two circular mats, room and clothes. EXACT SORTING STATE OVERRIDE: All FOUR objects remain in original UNSORTED row: brick, spoon, bark, pebble. Both mats EMPTY. Preserve exact hand action. Crisp flat2D cartoon no grain/text. Only fix framing and specified object positions; no duplicates.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f21499ed-2191-47f8-acd9-ee680091603d.png",
+      "sha256": "a30c9f31ef90890392fe9ce9cedc77cbe292273b14d893deeb9db7062055f94b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:06:31.971Z",
+    "sha256": "efae55ae7ec6fee4d6b5ca7d4a36e5c42d9fd39d35aafb6e74be240e2a1c7605",
+    "note": "Zoe touches rough brick, four items remain unsorted; complete lower body/feet and ordinary table proportions."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+      "currentSha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

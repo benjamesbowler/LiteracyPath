@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:18.464Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f1a5eab3-56ef-4aea-8a24-b9a051e2032a.png",
+  "sourceSha256": "9bb48f5248d719a9046402b6ab005232c4d76076a8c6ddd9bca1e85556b9ea90",
+  "output": "public/guided-reading/world-discovery/e-14/page-07.webp",
+  "outputSha256": "c42e81939e62e795613a535adf7e6bfa870b148e2ea66a2aecf20ff5ec3869b3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Preserve all current actions, visible and invisible objects, colors, expressions, and the exact number of people and props.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d845d912-09d8-4c4d-b3ef-0cb9ac0ddcab.png",
+      "sha256": "226a26faf0f9a00acca358ac84577e4264c52153be27105132d6272c22edbc16"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "c42e81939e62e795613a535adf7e6bfa870b148e2ea66a2aecf20ff5ec3869b3",
+    "method": "codex-direct-image-inspection",
+    "note": "Damp cloth reveals only small yellow front-left patch/rim; rest tray and whole boat remain invisible. Connected arm, grounded cloth, safe margins."
+  }
+}

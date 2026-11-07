@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:25:12.637Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ece8e99d-d7fd-4e05-9448-5373848cbc1c.png",
+  "sourceSha256": "696605f121619a29d5d4e2d73ed4eb9bbec5fb142daa978f2fc920b6e1f29e67",
+  "output": "public/guided-reading/world-discovery/d-18/page-07.webp",
+  "outputSha256": "e9715bf299853a3554075d4dca36d1c7c20df571aa94747ed1591f7e233ea8b1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, second is identity only. Pull camera BACK so ENTIRE scene becomes70percent of current size, centered, extending natural underwater sand and water. Keep every focal limb tip, stone and food at least15percent from every edge. Preserve exact scene relationships, all natural attached anatomy, dull EMPTY eyecaps and clear empty REAR split of discarded covering; exactly one living crab and one discarded covering, not two animals. No text or additional diagram. Clean flat2D cartoon full1536x1024. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f7b9e412-4cba-466d-84bd-38b18b7c5aa6.png",
+      "sha256": "fd84e9c03c80ed48b457f086297ca47a6d209edd292a0b3b2fe72c2e7c474944"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.842Z",
+    "sha256": "e9715bf299853a3554075d4dca36d1c7c20df571aa94747ed1591f7e233ea8b1",
+    "note": "Generated native and installed full WebP directly inspected. Soft pale crab concealed among foreground grass, two claws and rear paddles plus walking limbs visible where not naturally occluded. Empty covering remains beside farther stone, no predator.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

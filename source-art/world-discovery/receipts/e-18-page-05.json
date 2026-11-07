@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:52:31.161Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6b1b5062-5540-46bb-b583-8906abb46b88.png",
+  "sourceSha256": "2a86b9c1af946e721749bb10dcb9da9e8f09efe3427f4705d4bf595bb7078931",
+  "output": "public/guided-reading/world-discovery/e-18/page-05.webp",
+  "outputSha256": "3c21af3b2914b8e64de8201037873414af933649dee632be321b292534a057f3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Butterfly Relay; World Discovery; nonfiction.\nSetting: Eastern migratory monarch population (Danaus plexippus) only. Autumn flight, central Mexican oyamel-fir winter forest, southern US spring milkweed, northern summer meadow. Never follow one named individual through whole year. Orange adult wings with black veins and white-spotted black borders; egg-laying female lacks male hindwing scent spots. Tiny pale egg beneath milkweed leaf. Monarch caterpillar has black, white and yellow bands. Monarchs have four developed walking legs and a reduced front pair held close to the thorax; do not depict six equally long ground-contact legs.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Locator-map inset only pages 1, 4 and 9: north up, pale land, blue water, broad route from central Mexico through eastern North America; Oyamel fir branches at winter site; milkweed at breeding sites; nectar flowers in adult feeding scenes; No baton, crowns, flags, vehicles or numbered generation badges\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): Their young grow into new butterflies. These are the next generation: the children of the butterflies that left the winter forest.\nRequired illustration: Fresh adult rests beside empty chrysalis on milkweed, wings fully expanded.\nExact current state: Later time; new individual, not parent transformed again.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPRODUCTION DESIGN LOCK: eastern migratory monarch Danaus plexippus, orange wings with black venation and white-spotted black borders. Distinguish large angular forewing from rounded hindwing. A perched butterfly has four long functional walking legs and a short reduced front pair folded close to thorax, two fine clubbed antennae, no face. Egg-laying females have NO black male hindwing scent spots. Eggs tiny pale single ovals on underside of milkweed leaf; never large pearls. Empty chrysalis is small translucent split hanging case. No emergence/body fused to shell: any adult beside empty chrysalis has full firm wings and complete separate body. Oyamel fir is a tall conifer with slender horizontal branches and short needles. Milkweed has broad opposite simple oval leaves and pinkish flower clusters, not oak leaves. Locator map only on pages explicitly requiring it: accurate simplified north-up eastern North America including unmistakable Gulf of Mexico, Florida peninsula and central Mexican highlands; no labels. No false implication one identified butterfly completes annual circuit. No literal relay props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-18-reference.webp",
+      "sha256": "2cfbf36674dedc405eac5f2488a28003e217c3d9700e9190c520c0f755f77ee0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "3c21af3b2914b8e64de8201037873414af933649dee632be321b292534a057f3",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly inspected fresh monarch adult on leaf, firm fully expanded wings, four long functional legs and paired antennae, separate small empty split chrysalis. Plausible leaf/insect scale, no body-shell fusion or parent identity claim."
+  }
+}

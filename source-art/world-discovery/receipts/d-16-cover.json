@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:53.730Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-79170f00-a9dc-4f2b-ab00-703e6b757fc5.png",
+  "sourceSha256": "150eb7cbe52a338dba4c50d6d785bee6f57ab64d91c6ed64aaa33d673ab13b21",
+  "output": "public/guided-reading/world-discovery/d-16/cover.webp",
+  "outputSha256": "a26536327af6b3d03bcf363aeb8fbdcd8a08e1f8dae8f8458cacf463b86f0c18",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact children's educational illustration. Preserve exact partial-eclipse Moon, intact circular outline, fixed gray mare orientation and lower-left curved shadow. Only move/reframe Moon a little downward so its top is at least TEN PERCENT below top image edge. Preserve quiet rooftop and coherent dark sky; no extra Moon. Preserve clean bold dark outlines, flat clean colors and simple coherent shapes, no photographic texture, no lettering, no missing physical Moon material. Diagrams are explanatory and not to physical distance scale. Keep surface identity and exact science; no additional stages.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/d16-e14-completion/d-16-cover-before-margin.webp",
+      "sha256": "87ebf66fbb65a29a633781540fd5de198ad85f5b81d6c41448fb423b8bba60dc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "a26536327af6b3d03bcf363aeb8fbdcd8a08e1f8dae8f8458cacf463b86f0c18",
+    "method": "codex-direct-image-inspection",
+    "note": "Intact round Moon, dark curved lower-left shadow, fixed mare orientation, quiet coherent rooftop; complete Moon safely framed."
+  }
+}

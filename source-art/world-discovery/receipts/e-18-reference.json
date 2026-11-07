@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:28:33.226Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-67efb248-d81c-4fc4-bd7e-5e028b03e520.png",
+  "sourceSha256": "469a87b7a7cb7e806067a483294f0a1cac929ee844d4f9b5d7320f1e62ec1413",
+  "output": "source-art/world-discovery/e-18-reference.webp",
+  "outputSha256": "2cfbf36674dedc405eac5f2488a28003e217c3d9700e9190c520c0f755f77ee0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production reference board, preserving the good monarch adults, milkweed, chrysalis, map and fir designs. Remove both human figures entirely and leave plain white space there; this book has NO people. Repair the caterpillar at upper right: keep striped monarch larval body, but show anatomically correct legs in side view: THREE tiny pointed true legs just behind the head, then an abdomen gap, then FOUR fleshy abdominal prolegs spaced along the middle and ONE rear anal proleg at the tail, with opposite-side partners naturally hidden. No continuous row of 8 identical ball feet. HEAD is the right end, with the longer pair of soft filaments behind it; tail left with short filaments. Preserve the whole clean white landscape board, bold dark outlines/flat colors, no text. No other changes. The sheet is a design reference only, not a final narrative page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e0559ebc-5dca-4f1b-97e8-c52f1414edd9.png",
+      "sha256": "02da27ef6a6b8cacf056e8aee7084ae92e085b5a63b6a8991ea6e77263dbc3f1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "2cfbf36674dedc405eac5f2488a28003e217c3d9700e9190c520c0f755f77ee0",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly inspected corrected board: no humans; larva has three pointed near-head true legs, four middle prolegs and rear anal proleg in side view. Natural monarch wing/antenna/functional leg designs, empty chrysalis separate, milkweed and oyamel habitat. Final scenes independently checked for exact stage."
+  }
+}

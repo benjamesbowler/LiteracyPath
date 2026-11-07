@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:35:41.615Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7e44d012-183f-41df-b73c-ee14633b4db7.png",
+  "sourceSha256": "69852ed2921f45a5e2e0cd47131fe61deabb1c89a7765c31364dd21be842a449",
+  "output": "public/guided-reading/world-discovery/c-19/page-07.webp",
+  "outputSha256": "a989e3d3d0ae485340b0c915097c90942d0e962e4d26e76fe6cbffba1ba6efa5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make two local continuity corrections ONLY. In the clear cup that Kit holds, reduce the water level to ONE THIRD of the cup's interior height, since some was poured into the dish. Keep his two hands around that same cup, well away from his mouth. In the white dish on the table replace the large heap of salt with a SMALL SCATTERING of about twelve tiny white crystals spread across its bottom. Preserve all other scene details, geometry, green cup half full with settled sand, two empty scoops, two spoons, and blue mat empty. No duplicates or changed poses.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3f42c307-7bce-4a1d-97b0-60c35b0b7495.png",
+      "sha256": "0767d69db0082177cfe465c83df91cc2176449aabd1bb32a3e3ee3bf87c14780"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:40:01.360158+00:00",
+    "sha256": "a989e3d3d0ae485340b0c915097c90942d0e962e4d26e76fe6cbffba1ba6efa5",
+    "note": "Native and final WebP directly inspected. Ordinary supported table and grounded standing figures, coherent hand contact; two cups, two empty scoops, two spoons. Cover scoops truly empty; p5 sand cup rests on green mat on table while Zoe pours other cup at sill; p7 held cup one-third full and dish small scattering of crystals."
+  }
+}

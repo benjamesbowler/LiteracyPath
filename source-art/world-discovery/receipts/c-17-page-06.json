@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-17",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:35:40.463Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-22cba07b-29af-4709-be38-b88b562a7744.png",
+  "sourceSha256": "1fcc75d6b2ccd7ab6f4cf9637a932a974e9bad31022193837599de41241df88b",
+  "output": "public/guided-reading/world-discovery/c-17/page-06.webp",
+  "outputSha256": "69fe379061c9e0434d14df9e55519f922279633ba5e02c6a4a9c66e364432b31",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Stone for the Otter; World Discovery; nonfiction.\nSetting: One southern sea otter, Enhydra lutris nereis, in calm coastal water near kelp. Dense brown fur with paler head, four natural paws/feet and a tail; no human hands or clothing. Only this focal otter; natural feeding with no gore.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One closed clam with two matching shell halves; One flat gray stone used as an anvil; Kelp fronds below the water; Clam shell crack growing only after repeated strikes\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The otter strikes again. A crack opens in the hard shell.\nRequired illustration: At the next impact, a visible crack appears along one part of the clam shell against the flat stone. Continuity: Same clam now cracked; no second closed clam remains elsewhere.\nExact current state: Same clam now cracked; no second closed clam remains elsewhere.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nIMPORTANT PHYSICAL CONTINUITY: Use the supplied accepted scene as the posture and camera reference. The otter remains SUPINE, lying ON ITS BACK AT THE WATER SURFACE with belly and chest UP, head LEFT and feet/tail RIGHT. Its back is supported by water. Keep the ONE flat gray stone resting directly ON THE OTTER'S CHEST above the water, never floating beside it and never on the seabed. Two forepaws in front, two webbed hindfeet, one tail; anatomically coherent fur/body. Continue the exact next feeding state given above with only two clam halves total and at most one pale food morsel.  Entire otter including tail, feet, head and all props must remain at least 12% from every frame edge. Calm full-bleed coastal water, no framing border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-09c2faa6-69c4-4b83-a8fb-e610b6155ddc.png",
+      "sha256": "96e2b0250dfc51b7a15d87e2a46c7500a320a3c37415897146b3c2f4063084ce"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ce9930b3ff66e06b9f3b14afeef5752a734ade78568d649a597715f1f9606e13",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:40:01.353815+00:00",
+    "sha256": "69fe379061c9e0434d14df9e55519f922279633ba5e02c6a4a9c66e364432b31",
+    "note": "Native and final WebP directly inspected. Otter visibly supine, stone supported on chest, clam struck above that stone; natural four limbs and single tail. Closed/cracked/open/eaten sequence and shell halves coherent. No floating stone or prone use."
+  }
+}

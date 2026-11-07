@@ -48,7 +48,7 @@ test("every readable Guided Reading word token has current Leda audio", async ()
         /[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*(?:-[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*)*/g
       ) || [];
       for (const token of readableTokens) {
-        const audioPath = getGuidedReadingWordProductionAudioPath({ text: token });
+        const audioPath = getGuidedReadingWordProductionAudioPath({ text: token }, { bookId: book.id, page });
         if (!audioPath.startsWith("/audio/production/en-US/")) {
           missing.add(`${token}:mapping`);
           continue;
@@ -76,7 +76,7 @@ test("runtime Guided Reading word buttons split dash-separated words and all res
           failures.push([...location, "joined-dash", token].join(":"));
           continue;
         }
-        const audioPath = getGuidedReadingWordProductionAudioPath(word);
+        const audioPath = getGuidedReadingWordProductionAudioPath(word, { bookId: book.id, page });
         if (!audioPath.startsWith("/audio/production/en-US/")) {
           failures.push([...location, "mapping", token].join(":"));
           continue;

@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-19",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:56:34.396Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-4003d029-ac93-40aa-9477-a90522b0a6b7.png",
+  "sourceSha256": "eb2dc463c0f30f5feedc99bd894358f83efad68278c12cd7bfe8965156691716",
+  "output": "public/guided-reading/world-discovery/d-19/page-01.webp",
+  "outputSha256": "8e5c73618989ea58f13f685631f5b5e7a987bbb59f230b86e71c55ae18be36e1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the FIRST image. Keep the exact fruit, pea counts, open/closed states and authorized explanatory inset if present, but replace the ENTIRE background with a clean flat cream TABLETOP filling the whole canvas edge to edge. This is a close still-life view of dishes on a real table, not dishes on the garden ground. No table edges are visible because they are beyond the image; no furniture legs needed in this tabletop-only crop. REMOVE all garden plants, grass, soil, shrubs, trees, fence, Sun and sky from this food-comparison image. Keep complete dishes and all food comfortably inside the central 74% of canvas, at least 13% from each edge. Preserve true overhead view for page 9; preserve single right dish for page 7. Natural dish contact shadows. Landscape 3:2. Do not add people or hands.\nCURRENT SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Fruit or Seed?; World Discovery; nonfiction.\nSetting: Close observational views on a cream tabletop and two clearly separate real plants in a garden. No characters, cutting tools or handling instructions. Exactly one tomato and one pea pod, opened for comparison in prepared stages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One ripe red tomato with green calyx; prepared halves show seeds in gel chambers; One pea pod containing exactly six green peas; Two cream dishes, left for tomato and right for pea pod; Natural tomato flower and pea flower shown only on their respective plants\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): A red tomato and a green pea pod sit on the table. Which one is a fruit?\nRequired illustration: One intact tomato at left and one closed six-pea pod at right on cream tabletop.\nExact current state: No loose seeds yet; distinct whole specimens.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b28b126f-a4ed-43fd-b28e-fc33d473be08.png",
+      "sha256": "3a23994971dd09b9ddac9db3a5192afc2ad646c9650bc9051a694c37022d97ee"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-19-reference.webp",
+      "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5c15eed33ab40058de6f45806a97ecf61c792ceb5e2fd959ace3b9cb0ecb9825",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:19:26.982557+00:00",
+    "sha256": "8e5c73618989ea58f13f685631f5b5e7a987bbb59f230b86e71c55ae18be36e1",
+    "note": "Generated source and installed WebP inspected. Whole unopened tomato and closed opaque pod rest on plain cream worktop; no cut/open state prematurely shown.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

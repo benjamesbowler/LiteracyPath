@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-16",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:06:33.673Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-622da244-305a-4ac6-8817-61173e7eab90.png",
+  "sourceSha256": "79cd667ca8422cffb2615415a8a8fc5016746c769d80b691bb47d3f060948121",
+  "output": "source-art/world-discovery/a-16-reference.webp",
+  "outputSha256": "52bcd415aba2be2c815158fb1795db0b53df70bc036f4ae2378e7974193ff2a4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact World Discovery production reference board. Remove EVERY human figure, including all teacher turnarounds and the human scale figure. This book contains NO humans or human objects. Replace those areas with clean white space and a useful simple three-angle view of the ONE tiny irregular dark-gray meteoroid, clearly separate design views. Keep one plain initial night landscape above the low hill with its fixed sparse star positions and NO meteor streak yet. Keep the explanatory Earth curved blue atmospheric-rim view and tiny rock OUTSIDE the atmosphere at the opening explanatory state, unlit and without fire. The close-up explanatory rock is a tiny object, never a planet-sized asteroid. Clean crisp 2D flat colors, dark contours, no grain or painterly texture, no captions or added text. Keep all useful correct design references and avoid inventing new story events.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-de98c0c0-b06a-45fd-a489-5dc13c2028f1.png",
+      "sha256": "5c82cc554e61fab311527cded92efa4ad5a2ddf1f3bf7df9250e4ab254340653"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "126a86d727a4fbd584169dab1d6ef064db535c9d000cb409c753cc3fb4a02d0b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:07:43.558264+00:00",
+    "sha256": "52bcd415aba2be2c815158fb1795db0b53df70bc036f4ae2378e7974193ff2a4",
+    "note": "Directly viewed native repair and final WebP. No humans remain. Low dark hill with sparse fixed star points, separate irregular dark rock design and thin blue Earth atmospheric rim are clear. No initial meteor streak, fire, crater or falling star. Isolated planet/rock design views are explanatory reference only."
+  }
+}

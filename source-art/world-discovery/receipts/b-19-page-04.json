@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-19",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:48:45.850Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-91d9119f-fc16-4d24-b286-6d9be72abab2.png",
+  "sourceSha256": "4756f276f2a8c70235aae435dbc4d38a8474af9ee9f7988b3e658909f2e75a78",
+  "output": "public/guided-reading/world-discovery/b-19/page-04.webp",
+  "outputSha256": "8edc87c76715b3d3bb3b9161d5eda66861c11bcbaf6cce3e84ee46794f3d42af",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Use case: precise-object-edit. Widen/recenter the same intact scene about 20 percent so full children/essential objects have at least 10 percent clear canvas margin. Preserve left-to-right flashlight/card/screen and its dark card-shaped shadow surrounded by illumination, unused flat clear and wax samples, one red toy car. Extend ordinary room naturally, no new objects. Preserve every pose and physical contact. Clean flat 2D, solid colors, no written words or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a099ccb5-fdb5-4324-8407-cdd57fa181b0.png",
+      "sha256": "77f93cffbff24139a05d1c523209316240be87e170a6206e94bcdf43cd2a4a0d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "68e3e78607cde6765b551624ba365e4735c588476e5ae9438bd790aae4c14cea",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:11:10.574682+00:00",
+    "outputSha256": "8edc87c76715b3d3bb3b9161d5eda66861c11bcbaf6cce3e84ee46794f3d42af",
+    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
+    "notes": "Opaque brown card casts dark patch on surrounding lit screen; unused clear/wax aside; physical ray direction coherent. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "8edc87c76715b3d3bb3b9161d5eda66861c11bcbaf6cce3e84ee46794f3d42af",
+    "note": "Opaque brown card casts dark patch on surrounding lit screen; unused clear/wax aside; physical ray direction coherent. Independent QA pending."
+  }
+}

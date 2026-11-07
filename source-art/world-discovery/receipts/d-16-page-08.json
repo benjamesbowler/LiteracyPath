@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:54.514Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5b4dedf5-5669-4d48-a96f-c875be581d9f.png",
+  "sourceSha256": "a4770626d14978de61e7dfadfcb8495d58464b081a4135af132fd189016dbff5",
+  "output": "public/guided-reading/world-discovery/d-16/page-08.webp",
+  "outputSha256": "6942db63dafc224379f6055df8a7ffaeb398ebe0eb352facfd7c78bd9e334f0e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One coherent authored scientific composition, never copy reference board rows or extra planet models. Correct circular astronomical bodies and physically connected light/shadow geometry. Keep all essential whole bodies at least12% inside edges. No humans. \nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Shadow on the Moon; World Discovery; nonfiction.\nSetting: A hypothetical total lunar eclipse seen from Earth on one clear night. No dated event or claim of current visibility. Explanatory space diagrams are deliberately not to scale; daylight comes only from the Sun.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Moon with consistent dark mare pattern and fully round physical outline; Diagram Sun left, Earth middle, Moon right; Earth's dark shadow extending away from Sun; thin pale atmosphere ring only when explaining filtered light\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): More of its face returns to sunlight. At last, the round Moon shines brightly again.\nRequired illustration: Bright full Moon now outside shadow above same rooftop.\nExact current state: Mare pattern and physical diameter unchanged; eclipse ending rather than new lunar phase.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-16-reference.webp",
+      "sha256": "2d9af4afe93fbc412ed445413df45324430e90ecf0e0138e1a3acddf470e9288"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "6942db63dafc224379f6055df8a7ffaeb398ebe0eb352facfd7c78bd9e334f0e",
+    "method": "codex-direct-image-inspection",
+    "note": "Bright full Moon, fixed mare orientation and intact disk above quiet rooftop; safe minimum margin, no extra lunar phase or shadow."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3b2c4dea75c51e4d37e985ca7a33c3eec5ed9c5ab1efaeac674e0b993764d222",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Only p7 illustration metadata changed; p8 prose/brief/state unchanged. Original exact prompt and references preserved."
+}

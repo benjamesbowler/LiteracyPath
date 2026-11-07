@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:34:10.447Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-6239d0bc-f7a9-4157-8731-09c0e7d026b1.png",
+  "sourceSha256": "62631a1e98a5a8cb9415e78573397be0d3abdb2fc886f3dbd30a9c0b59638fe9",
+  "output": "public/guided-reading/world-discovery/e-20/page-02.webp",
+  "outputSha256": "e7386a5996e845bdf2c572e55c0d3830c7c42a94d0ae8a04ef474f8fbf7886c2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image for a finished children's book. Redraw as a coherent CLOSE view of the intact green buds and stems in the meadow patch. All plants here are still pre-flowering: ONLY closed green buds, green leaves and grasses; remove EVERY yellow flower, every brown seed head and the bee. NO humans in foreground. Show the parked small reel mower far away on the cut route in the background as context only. No cut stems, no hypothetical inset, no cutting-height line or text. Make the buds the clear main subject at natural scale. Preserve all other accepted scene elements, clean bold dark outlines and flat colors, natural credible scale and perspective. No words, letters, numbers or extra panels. Keep full 3:2 composition with essentials safely inside image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a7dbe8ec-bce9-4a56-85c1-174a0b3971a5.png",
+      "sha256": "a166b5755324169f989dd9cbca6cad0a8660aab75a0dca037c7c1a10005d4553"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "e7386a5996e845bdf2c572e55c0d3830c7c42a94d0ae8a04ef474f8fbf7886c2",
+    "method": "codex-direct-image-inspection",
+    "note": "Inspected close green-bud stage with intact stems and route context, no flowers or dry seedheads prematurely. Mower is tiny and parked in distance; credible botanical scale, no unnecessary people."
+  }
+}

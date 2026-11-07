@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:04.481Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2a2379c1-e238-40d2-9771-3ba16ee0e53f.png",
+  "sourceSha256": "1ccb9b0cf956d5bb43b9411555caa9ec85fb8b943158a32d21141ae8d4dc1e26",
+  "output": "public/guided-reading/world-discovery/e-16/page-10.webp",
+  "outputSha256": "6c995f5aec98a274d52db6a16ee58c32769306ece38c35ee558a5d4109d22541",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image for a finished children's book. Preserve this exact approved pair of side-by-side comparison panels and EVERYTHING inside them. Make the two panels together only 80 percent of total image width, centered on the same plain white canvas, so their OUTERMOST left and right panel borders have TEN PERCENT clean white margin to image edges. Preserve each panel aspect ratio, aligned sizes and close gap. No other scene changes: exact three sky stars left, two children each, table and three circles right, two viewing mats and natural full legs. This is a clean generous white publication margin, not a colored border. Preserve all other accepted scene elements, clean bold dark outlines and flat colors, natural credible scale and perspective. No words, letters, numbers or extra panels. Keep full 3:2 composition with essentials safely inside image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d7bd5e2a-3792-4e90-84e7-25f40680964b.png",
+      "sha256": "3c8c5a713d32358370f2665d040b786d18718ea1c2b1d35444393334209fe396"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "6c995f5aec98a274d52db6a16ee58c32769306ece38c35ee558a5d4109d22541",
+    "method": "codex-direct-image-inspection",
+    "note": "Two complete educational comparison panels now have more than ten-percent outer white margins; left sky pattern/right three-depth model, coherent full figures/table. No extra marks."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-19",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:25:13.519Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b446cfa1-1a5d-45a6-ae4a-9f5cc8a5926a.png",
+  "sourceSha256": "772caab126fac58ec1b062c859f4e97c0c343c8eb0cf018cab1d055829b25848",
+  "output": "source-art/world-discovery/d-19-reference.webp",
+  "outputSha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "EDIT FIRST IMAGE. Keep the tomato, dishes, six peas in the opened pod, and separate natural plants unchanged. Correct EVERY CLOSED pod view to show a long pod with SIX subtle contiguous rounded bulges, corresponding to its six peas; no three-pea-shaped pod. Preserve closed green shell, do not open these initial views. Crisp flat style, no people.\nThis remains a wordless production reference board, not a final page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-92c1aa1c-23bb-45ff-a239-09e15d87636a.png",
+      "sha256": "987a4bbf6dc0340be5d012093ead674a5df6cc1f0705f48714d7d41b1b196e91"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5c15eed33ab40058de6f45806a97ecf61c792ceb5e2fd959ace3b9cb0ecb9825",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:28:49.085Z",
+    "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908",
+    "note": "Generated source and installed WebP inspected. Tomato and closed pea-pod design board; open pod has six peas, prepared tomato halves on left dish and pod on right dish; no humans or invented labels.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

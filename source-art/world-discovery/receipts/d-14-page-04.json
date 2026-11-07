@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-14",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:44.119Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-f2ff9115-cf61-4fe7-95c0-6a4ad51c57e7.png",
+  "sourceSha256": "fa4f2470faf14121469f3aab184ee10d33b860d704e38ff2818c813a5a38ef5d",
+  "output": "public/guided-reading/world-discovery/d-14/page-04.webp",
+  "outputSha256": "bdd9eca1d58b28464658804499018463443d12d6f05b0febf9da89d68c2678b6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Move ONLY Zoe to the RIGHT side of blue chair. She points DOWN LEFT at the red fan on its seat with clear unobstructed index finger. Keep Kit and his matching empty raised shadow hand exactly unchanged, fan on chair, silver circle unchanged. Keep complete Zoe and all subjects at least13percent inside edges. Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/d14-hand24/page-04-before.webp",
+      "sha256": "72d5f0cd73e38ac55d23dcd6f21b39c43f91ffd12eabd6a98d5ed572fe6db30c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-14-reference.webp",
+      "sha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "297cf219fe94bbfb4925c9430d5e879923aa397b5629d8d7462a1af1994bb69c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.869Z",
+    "sha256": "bdd9eca1d58b28464658804499018463443d12d6f05b0febf9da89d68c2678b6",
+    "note": "Generated native and installed full WebP directly inspected. Zoe is right of chair with clear unobstructed downward pointing finger at red fan on seat. Kit raises empty hand with matching shadow; natural full figures and wide margins.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

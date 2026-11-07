@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:04.854Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-954090ce-90d0-498a-babe-21cb89dad175.png",
+  "sourceSha256": "6d83887e15315b1eb444ba24bed0930413e919327c572240e7fe02499b33fd94",
+  "output": "public/guided-reading/world-discovery/c-15/page-03.webp",
+  "outputSha256": "b546dc9b26832a2f542851d696dc3932907246bd7c1b806fec1f7cc5e258eaa6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull camera back30% so WHOLE finite lava flow lies at least12% inside all four edges. Extend continuous surrounding ground. Preserve current correct state: orange-red molten center, thin dark gray cooling outer edges, low natural flow along ground, not a diagram or cutaway. No other changes. Crisp flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4c31d07f-c6f1-4247-9428-85e5039b3f9c.png",
+      "sha256": "07e425d2d1ec30dd0f16fa0a04c06a321fd446ee4a89acb5412c5f56252536c8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.551299+00:00",
+    "sha256": "b546dc9b26832a2f542851d696dc3932907246bd7c1b806fec1f7cc5e258eaa6",
+    "note": "Native source and final WebP directly viewed. Hot center and cooling dark outer fringes remain distinct."
+  }
+}

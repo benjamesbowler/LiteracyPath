@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:16.748Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-bf39635f-989f-4b7a-8aa5-63b704e57f28.png",
+  "sourceSha256": "a85e0e80749921ff71eb70b24b5e4032499656a072a2dcce688a14b32f6d6208",
+  "output": "public/guided-reading/world-discovery/e-11/page-04.webp",
+  "outputSha256": "2bcf6799501118b3abdf5c7249570707b987f6d2c6efd6e676fc185bed7ac926",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Make all legs of the blue classroom chairs BLUE, the same blue as each chair back; preserve natural connected chair geometry and seated child proportions. Keep table legs orange wood. Keep smiling pool drawing and its bubbles INSIDE BLUE WATER exactly as now, and preserve folded paper/private folder/new public drawing state. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-51c77497-1c03-4896-89fc-fc14b39aca4a.png",
+      "sha256": "bf9c6af0a1e236970fa61896422eab8e032cfc5192de665ec06ec35699f5bbca"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-11-reference.webp",
+      "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:18:08.952925+00:00",
+    "sha256": "2bcf6799501118b3abdf5c7249570707b987f6d2c6efd6e676fc185bed7ac926",
+    "note": "Generated source and installed WebP inspected. Loose private half unfolds; Kit stops short of paper. Hands separate and paper supported naturally.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

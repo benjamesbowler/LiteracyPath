@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:48:57.880Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9232da53-3b64-4d49-b2ea-b584bbba0bc6.png",
+  "sourceSha256": "baa078c4ac0467634524173fb3c798ec331f539d5999c75c046e3a7547b0c051",
+  "output": "public/guided-reading/world-discovery/a-14/page-03.webp",
+  "outputSha256": "b015cff5edd8238a57ef44da1d287c603787c586dc306a715f33532592e9a5a2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact scene and every object/state unchanged, including Kit's pose, paper drawing/transformation, crayons, missing near-front wagon wheel and exposed stub. Pull camera back about20 percent and center the entire scene so Kit's complete body, wagon handle, giant wheel if present, and essential art props all lie at least8 percent inside each image edge (about125px left/right and85px top/bottom). Extend matching cream wall and wood floor around scene; no border. Preserve relative positions/perspective and bold flat2D. No text or new props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d3d02b1a-8ad9-4d0c-b3cb-a332f8cf1ca2.png",
+      "sha256": "d9c7d36519039fdf7a140f03c448c0aedeadbde1dbc4d80ce015e30573f3b1e0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.764555+00:00",
+    "sha256": "b015cff5edd8238a57ef44da1d287c603787c586dc306a715f33532592e9a5a2",
+    "note": "Native PNG and installed WebP directly inspected. First sheet visibly transforms into giant solid wheel, one blank sheet remains; wagon bare-front stub unchanged. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

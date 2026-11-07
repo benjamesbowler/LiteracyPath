@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:19.046Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-75173ff2-eb30-4d7e-b47e-2c7a03928c05.png",
+  "sourceSha256": "9de0a878fa66a705c4bfcce7a94cda2d1f78fe5566eb3123a1392c4841024079",
+  "output": "public/guided-reading/world-discovery/c-15/page-02.webp",
+  "outputSha256": "3ae636b41a397694a96c1ea1b17a17d13af582923efcc42a73f458344702aede",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact early molten lava state and ground fissure. Reduce entire lava flow feature to85% current size and place it centrally so its rightmost front is well before x=1300 on1536px canvas (15% clear ground at right). Surround with continuous brown natural ground; FULL BLEED landscape, no borders or inset. Preserve left distant gray ridge, no new solid crust, no hole or cutaway, no flame. One low orange-red liquid flow from ground fissure.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-eca04a30-b832-4d50-b7f1-565c3e2aeb62.png",
+      "sha256": "5ba67c1dc3039320d10a237115ed4d73fd5a5e6831eef4307f9a9557a20162f7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.550574+00:00",
+    "sha256": "3ae636b41a397694a96c1ea1b17a17d13af582923efcc42a73f458344702aede",
+    "note": "Native source and final WebP directly viewed. Molten lava emerges from a ground fissure and spreads into a low flow; no cone or humans."
+  }
+}

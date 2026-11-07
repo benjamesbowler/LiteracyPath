@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-14",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:49.536Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-082eace2-2bcb-495e-b40f-4190e53d3f34.png",
+  "sourceSha256": "6b00a80f6b973db3f5864348eb5b51747359f782b42888e242132b393892a733",
+  "output": "public/guided-reading/world-discovery/d-14/page-02.webp",
+  "outputSha256": "68283f557934e477196bd57dd6de5a9703ec02ee3c4b7452bd9ad6f2113aa6c8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is edit target; others preserve exact cast/prop identity only. Pull camera back to70percent whole-scene scale. Fit complete children, silver circle, chair, fan and whole giant shadow within central74percent; head, shoes, shadow fan and chalk circle at least13percent from every edge. Extend ordinary flat wall/floor naturally. Window belongs on LEFT wall above left cabinet; if currently on right relocate window to LEFT; keep right wall plain behind shadow/chair. No extra lamps. Keep other states/counts/expressions/actions unchanged. Natural human anatomy and plausible spatial geometry. Clean flat colors/contours. No text or labels. Full landscape1536by1024, 3:2; no border or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e0cb9d8a-5c52-4b5f-8fed-f7bc720a2f94.png",
+      "sha256": "fa7ea0402d8eda416f370b3d80e33d80743a0ef334021537b978d782ab81629b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-14-reference.webp",
+      "sha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "297cf219fe94bbfb4925c9430d5e879923aa397b5629d8d7462a1af1994bb69c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.868Z",
+    "sha256": "68283f557934e477196bd57dd6de5a9703ec02ee3c4b7452bd9ad6f2113aa6c8",
+    "note": "Generated native and installed full WebP directly inspected. Kit stands arms down inside circle; enlarged shadow matches posture. Zoe watches outside circle and fan remains on blue chair.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

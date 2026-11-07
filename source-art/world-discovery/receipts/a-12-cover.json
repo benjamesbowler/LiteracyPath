@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:10:39.704Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-955131da-c74f-43b0-b988-1dabfa6612ee.png",
+  "sourceSha256": "453f25c2f83f24daaccf7a48f82033ef7fd7e2780760bdea878f4a1aa54ad9c7",
+  "output": "public/guided-reading/world-discovery/a-12/cover.webp",
+  "outputSha256": "19f98354d4e8fc14759f331f19bd8ae15de0db39341b49fabbbe6087d231256b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact World Discovery illustration. Recompose this dedicated COVER as a new, distinct view of the story's resolved shared pace. Put Kit and Zoe together near the bend AFTER the wooden bench, walking toward the two yellow swings in SHORT MATCHED STEPS (feet close together, neither running or taking a long stride). Show them in foreground center at equal standing height with Kit warmly glancing toward Zoe. The ONE curved path leads clearly from the blue gate in far-left BACKGROUND, past the bench behind them, around their bend and toward the swing set ahead on the right. Keep both children and all shoes fully inside a generous 10% safe inset. Preserve locked clothes, faces, blue gate, two yellow swings, fence and bold flat cartoon style. No duplicate children, no additional paths, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-55bf707d-0f99-4472-ae65-a6b602f2b810.png",
+      "sha256": "a7bef2f068382b3166dcca152ed3719f8ee37f04696c4d18768bbaa716e4aae3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:22:08.843Z",
+    "sha256": "19f98354d4e8fc14759f331f19bd8ae15de0db39341b49fabbbe6087d231256b",
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Dedicated cover: equal-height Kit and Zoe take short steps together beyond bench, toward two swings, with one continuous curved path. Locked cast, crisp cel style, essential subject margins and no text verified."
+  }
+}

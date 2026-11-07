@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:03.608Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-0857d3c4-3c91-4de0-9b9f-aef346afa624.png",
+  "sourceSha256": "21bec1ec951b5b611d3cb58b340bde0e2cd059bd8f7b3cba5845644c22df3c5f",
+  "output": "public/guided-reading/world-discovery/e-16/page-03.webp",
+  "outputSha256": "8f138bad46fba830a2a6060409a90b6fec66eadf1e738736e64ba9ea1503c8d0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce the complete existing children, model/table/mats OR outdoor sky scene OR authored diagram/panel composition to fit its essentials inside the central80percent of the final1536x1024canvas. Extend matching room/garden/sky/background naturally. ALL shoes, hair, fingers, viewing mats, model cards, table feet, and full borders of existing authored inset/comparison panels must be at least10percent inside each edge. Preserve the same three cards, their exact near/middle/far positions and equal stand designs, and same body poses. Retain a real ordinary waist-high table with full long legs and complete human legs when floor is visible. For intentional closeups keep lower bodies and floor ENTIRELY out of view. Do not invent table geometry while widening. Preserve authored diagram/counts only where already present; no extra panels, symbols, physical strings or text. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e16-margin-sources/page-03-before.webp",
+      "sha256": "c4ca015e58bbda56055074c69410474c898ae23e4996461b67bb0f0f1fd006fe"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "8f138bad46fba830a2a6060409a90b6fec66eadf1e738736e64ba9ea1503c8d0",
+    "method": "codex-direct-image-inspection",
+    "note": "Three equal-design model stands occupy near/middle/far depths; perspective and hand contact coherent, full table and children comfortably framed."
+  }
+}

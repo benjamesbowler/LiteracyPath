@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:26:51.586Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-66780d93-0196-401a-8ef5-81a6ae433a8d.png",
+  "sourceSha256": "85e1a617894e0c0f5bf61ccc6ec17f6700b407b003aeeae1232eeaaf28de17b8",
+  "output": "public/guided-reading/world-discovery/b-13/page-04.webp",
+  "outputSha256": "28202bde43d4d8bf38406987a532853742076b468ac7732d04ef50e889540122",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit FIRST input only. Add exactly three small straight gray horizontal ruled strokes at center of focal cream envelope in scanner, as NON-LETTER address marks. No letters/numbers. Keep same ONE green-star stamp with cancellation, coherent sorting belt and two receiving trays. Do not add duplicate focal envelope or people. Preserve every other object, pose, anatomy, wardrobe, cast, composition, exact counts, geometry, clean dark cartoon outlines and scene. No readable words, letters or numbers. Second input is only stamp identity reference.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-41918e83-b7c6-4610-a543-50d0843cdc3b.png",
+      "sha256": "bc52ff4eff65f5a628c105f55e98f983a3e7c0407afa4f1162b22c880cc42e01"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-13-reference.webp",
+      "sha256": "41ecdc68f758e5b144b9dcd90529d798c0e5aa34f4499a6c6702b7319aeef4ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T11:28:37.222Z",
+    "outputSha256": "28202bde43d4d8bf38406987a532853742076b468ac7732d04ef50e889540122",
+    "scope": "Direct final WebP inspection and complete ordered manuscript/sequence review; production-author review, not independent approval",
+    "notes": "Scanner over routed belt and receiving groups; single focal letter has address strokes and cancellation now. Exact cast, letter identity, opening state and clean cartoon reviewed. Address strokes are straight non-letter symbols permitted by authored setting, not fabricated words. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "28202bde43d4d8bf38406987a532853742076b468ac7732d04ef50e889540122",
+    "note": "Scanner over routed belt and receiving groups; single focal letter has address strokes and cancellation now. Exact cast, letter identity, opening state and clean cartoon reviewed. Address strokes are straight non-letter symbols permitted by authored setting, not fabricated words. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3486a3808eda05309d21676d92e26fa9eb7cf70366f2eddeda727a485d5c5b3a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

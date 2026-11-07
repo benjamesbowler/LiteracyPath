@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-16",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:37:25.687Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-490d0e49-ba79-4f9f-999e-93a601036558.png",
+  "sourceSha256": "b09f6b6769ea979dc0de9a6db948e0939efcb6f3a435ac9a073a7d3883f06bbc",
+  "output": "public/guided-reading/world-discovery/a-16/page-04.webp",
+  "outputSha256": "5511fa236a6d4779ae1121b679934a56971503b070dede26cc6a6705d938c17d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact explanatory Earth illustration to correct the physical placement of the meteor. Keep Earth's curved surface, simple continents/clouds and dark upper space. REMOVE the entire current rock/trail from high dark empty space. Redraw the very small subject LOW in the picture, visibly INSIDE Earth's thin BLUE atmospheric haze immediately above the curved limb, around the lower-middle center at x=800,y=650 on this1536x1024canvas. The atmospheric haze should be a clear thin curved blue band from abouty=580 at its upper edge to the Earth limb at abouty=740 in the middle, following Earth's curvature; ground remains far below the event. This is a greatly enlarged explanatory view, but the small rock must be only about50–65pixels across, never a planet-sized asteroid. One irregular dark gray rock, no luminous tail or fire yet, just entering the upper edge of blue air. Any trail travels shallowly from upper-right toward lower-left entirely within the blue atmospheric band; NO hot trail or glowing rock in the black/dark space above the air. Keep distant stars only in dark space. No explosion, impact, crater, flame torch, second rock, rocket, labels, arrows, inset or text. Preserve clean bold flat 2D shapes and the same Earth colors. The instructional point is visibly AIR around the rock, not empty space.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-395b6440-c00c-45ae-9c47-f65f8ae8fed3.png",
+      "sha256": "ae395a5e88ff173d26d33c0d291e3fba1efd34106caeb6d1b898887e35cdc81f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "126a86d727a4fbd584169dab1d6ef064db535c9d000cb409c753cc3fb4a02d0b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:38:10.724Z",
+    "sha256": "5511fa236a6d4779ae1121b679934a56971503b070dede26cc6a6705d938c17d",
+    "note": "Direct native and installed WebP sequence review: five stars stay fixed in ground views; brief white-gold meteor appears then fades; explanatory small rock is inside the blue atmospheric glow above Earth, heats at its leading edge and becomes a tiny consumed streak; no star falls, rocket, impact, or fire in remote space. Essential event remains clear and inset."
+  }
+}

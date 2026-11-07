@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:30:08.876Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-4f60bf60-9f40-43a2-b63f-966d40142594.png",
+  "sourceSha256": "1d7d5885f2ff0fb7a888e6e7d041d99dc790f17cae9a5f64c678e858fda0b306",
+  "output": "public/guided-reading/world-discovery/b-20/page-07.webp",
+  "outputSha256": "1ac0adf0cb225199b9ae6cab1ef9876f70dce08379affb73cc98db74fe1234a3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact finished illustration only to widen the framing slightly, about 18 percent. Keep a LANDSCAPE 3:2 canvas, not a panoramic strip. Preserve exact people, poses, anatomy, object contact, sink cabinet, plumbing, water/cup state, colors and physical scale. Show a little more ordinary wall above and floor below so every full shoe sole and head and essential prop has at least 10 percent breathing room inside the frame. The scene should remain close and readable, not a tiny distant room. Do not add furniture, props, people, extra water, a second plant, or writing. Keep tap completely dry and closed; hands away, half-full yellow cup aside.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5195a953-2efd-4a12-95bb-1a0eaa1237e9.png",
+      "sha256": "9fa65e5f7a9fa8ca0cfd49f58ffa3c1034cd230694d5de4e196183477283d47f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.193951+00:00",
+    "outputSha256": "1ac0adf0cb225199b9ae6cab1ef9876f70dce08379affb73cc98db74fe1234a3",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Closed tap dry with no droplet; all three watch hands away. Half-full caught cup aside; cabinet closed and no stray tools. Normal furniture/body geometry.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "1ac0adf0cb225199b9ae6cab1ef9876f70dce08379affb73cc98db74fe1234a3",
+    "note": "Closed tap dry with no droplet; all three watch hands away. Half-full caught cup aside; cabinet closed and no stray tools. Normal furniture/body geometry."
+  }
+}

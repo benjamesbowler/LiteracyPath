@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-17",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:09:04.066Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-64b23f80-7fc8-4791-8752-1426c0cae35e.png",
+  "sourceSha256": "cc6eac5eea0bfd1eda974cbe1f8067da7fc0766d10dd2eab7c0bd8ac3b672b33",
+  "output": "public/guided-reading/world-discovery/c-17/page-01.webp",
+  "outputSha256": "07e22fd290fff27eb802cca1162af75d995e77eeacc092b9b0ba506ca7eba5d8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact scene for wider framing. Pull camera back 35 percent, keeping 3:2 landscape. Entire otter including whiskers, feet and tail must be within CENTRAL SIXTY-FIVE PERCENT of canvas width and CENTRAL SEVENTY PERCENT of height, with generous surrounding water/kelp. Preserve otter anatomy exactly: two forepaws, two webbed hind feet, ONE tail. Preserve exact current action and positions of the ONE clam and ONE gray stone. Natural paws gripping props, no floating objects. Do not alter developmental/action state. Flat crisp clean 2D cartoon, broad smooth cel colors; no grain/mottled shading. No text or panels. Do not crop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e2a77ce1-3633-4caf-b00f-58fc2d500764.png",
+      "sha256": "18ca6ab3fdbbe756d7acf784fade7a84d62a027b94493e2549f0a550c7e6672b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ce9930b3ff66e06b9f3b14afeef5752a734ade78568d649a597715f1f9606e13",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.555297+00:00",
+    "sha256": "07e22fd290fff27eb802cca1162af75d995e77eeacc092b9b0ba506ca7eba5d8",
+    "note": "Native source and final WebP directly viewed. Underwater otter reaches closed clam on seabed next to flat stone; coherent four limbs and tail."
+  }
+}

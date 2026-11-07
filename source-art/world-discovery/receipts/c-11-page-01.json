@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-11",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:50:03.744Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-510b832f-a168-4fe9-a1a9-33343376d730.png",
+  "sourceSha256": "3505fede130741e2cd6d160400c43c3e2d76bb6482b7e113bec62b15d71b9e6d",
+  "output": "public/guided-reading/world-discovery/c-11/page-01.webp",
+  "outputSha256": "b2f335e627ef3e6f56ff6ecee516b672d4867c0ddc4638a9f50a960cccfb8c53",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve the exact illustration's cast, anatomy, current object counts, colors, design, natural physical contacts and ordinary room perspective. Widen the same scene on a LANDSCAPE 3:2 canvas by about 22 percent, retaining readable human scale, with all people and focal props at least 10 percent inside every edge. Reveal additional neutral wall/floor at sides and below. The leftmost focal object must move to at least 12 percent inside left edge; rightmost focal object at least 12 percent inside right edge. No decorative border and no tiny distant dollhouse room. Do not add extra props or people. Exactly one blue mat, two yellow cups, one red ball; picture card is a flat drawing. Fixed round table belongs INSIDE to the right of door, never in doorway or garden. Keep mat folded on indoor left shelf. Preserve the round table RIGHT indoors and child's standing legs naturally behind it. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8f22581f-aef0-4b67-a596-98c95887fdc9.png",
+      "sha256": "09e597426a89c80dcaaa414a2b307fcb6b0ad2cbc005fae05c03809debb82ee2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "82dbb69f8fe710729f42f271778bf6297f32a6982af7892f5c8b5cb78fb54c8e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "b2f335e627ef3e6f56ff6ecee516b672d4867c0ddc4638a9f50a960cccfb8c53",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Blank card on round table; one folded mat, two nested cups and one ball on low shelf; Kit points through garden door.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "b2f335e627ef3e6f56ff6ecee516b672d4867c0ddc4638a9f50a960cccfb8c53",
+    "note": "Blank card on round table; one folded mat, two nested cups and one ball on low shelf; Kit points through garden door."
+  }
+}

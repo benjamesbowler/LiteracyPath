@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:18.232Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ff4a7594-58b0-4f38-a742-fb9dda1b085c.png",
+  "sourceSha256": "3969ddb47badf44e6ffe4719b9b7d3774ed32efbf73189ba65ee2c6b001816f6",
+  "output": "public/guided-reading/world-discovery/e-14/page-05.webp",
+  "outputSha256": "2eb96e4d040a7f1e2818bb2a17e45e3a845f5ac9473d9e3e7e9b13327c546c7c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Preserve all current actions, visible and invisible objects, colors, expressions, and the exact number of people and props.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2ea165a9-b746-4085-b6b2-31a95a20b58f.png",
+      "sha256": "b5599a2335a845ec2e6a4303a7905e8f2c2527f64c0c17229dabcd287c0ccb7f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "2eb96e4d040a7f1e2818bb2a17e45e3a845f5ac9473d9e3e7e9b13327c546c7c",
+    "method": "codex-direct-image-inspection",
+    "note": "Kit pauses after blind contact; Zoe concerned. Boat and tray remain wholly invisible, no changed props or explosive disappearance."
+  }
+}

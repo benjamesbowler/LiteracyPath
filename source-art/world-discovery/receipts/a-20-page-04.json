@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:00:37.633Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-5164f75d-e0c4-4c68-9f07-d17634a42768.png",
+  "sourceSha256": "6bfb75ea3d5773df49b15cc839c19083bf96a6087c51bbf4aa867d8805d4c4c5",
+  "output": "public/guided-reading/world-discovery/a-20/page-04.webp",
+  "outputSha256": "03feccc18a0aebcd52f46e02e8c73683bd79b4c5b42434d2b704088bcfbda8af",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair ONLY the bottom furniture support in this illustration. Add two ordinary sturdy wooden front table legs physically JOINED to the underside of the tabletop, one near left underside and one near right underside. Both legs extend straight down CONTINUOUSLY OFF THE BOTTOM OF THE IMAGE, with their feet outside the frame. No isolated stubs, no blank strip under feet, no floating tabletop. This is a close upper-body dining scene at normal dining-table height; keep exact framing, people, expressions, hands, food COUNTS, water glass, blue tin/lid and all upper image unchanged. Do not add floor or zoom out. Crisp flat2D matching original.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/provenance/a20-page-04-before-supports-43394b4cc4b2.webp",
+      "sha256": "43394b4cc4b2714d828b6bcce7c0f57c46586420967eebe4e4b35985ea0135f0",
+      "originalPath": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-20/page-04.webp",
+      "preservation": "Exact prior WebP bytes reconstructed losslessly from original native using same deterministic encoder; SHA256 matches actual edit input."
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:07:03.048Z",
+    "sha256": "03feccc18a0aebcd52f46e02e8c73683bd79b4c5b42434d2b704088bcfbda8af",
+    "note": "Both native replacement and final WebP directly inspected: ordinary front table legs now physically joined to tabletop and continue naturally beyond bottom crop, eliminating floating tabletop/short stubs. Natural seated upper-body composition retained; hands, tin/lid and exact snack count unchanged. Two plate crackers and six in tin."
+  }
+}

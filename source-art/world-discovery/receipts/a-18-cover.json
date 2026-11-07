@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:57:40.357Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-565f219a-9b76-4230-a666-776fb12f19eb.png",
+  "sourceSha256": "369e7ad6d18f31b585ea19c8a422aa70ff04205ace5b875d2d32c9d7c40fc268",
+  "output": "public/guided-reading/world-discovery/a-18/cover.webp",
+  "outputSha256": "f950a6cde557625e9d89b9378bad01ab2b031249879b2d938ec3a7d49ef37dc3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back25 percent and recenter this exact intact butterfly scene. The ENTIRE butterfly, all wing tips and antennae, the entire empty chrysalis, and the ENTIRE coneflower head including all petals must fit with at least10 percent margin inside every frame edge. Currently rightmost petals and some attachmentpoints are too close/cut off. Extend same clean sky/foliage around the scene; continuous twig may exitframe naturally but its central attachment area must be inset. Preserve same wing development state and pose, no added wings/legs/antennae. Preserve all relative locations. Full-bleed landscape3:2, crisp flat2D, no border or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0c7b91a4-bb49-4eb8-abc3-d0d2bbf80c5c.png",
+      "sha256": "373d6cadb24354e4d57ec55c086af6e28ebf6956e0d590a174fac92a4b8c66a2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.091381+00:00",
+    "sha256": "f950a6cde557625e9d89b9378bad01ab2b031249879b2d938ec3a7d49ef37dc3",
+    "note": "Expanded female monarch grips the retained empty case; two clubbed antennae, overlapping wings, complete flower and clear margins. Native generation and installed WebP directly inspected."
+  }
+}

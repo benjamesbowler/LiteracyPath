@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:09:11.240Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1e4c872e-dc85-4d15-a540-8ff27dd257e9.png",
+  "sourceSha256": "815458b922cec31351f13bb9ed2e0bcc2fac3eceb7b90d809197f02d8f6d8c17",
+  "output": "source-art/world-discovery/a-20-reference.webp",
+  "outputSha256": "2044febd19c15cfa1cd8edf083584a799ed0f41b479dd1d201c1b12d5fab6f41",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: A Little First; World Discovery; nonfiction.\nSetting: A home snack table in daylight with Kit and one unnamed grown-up. The scene follows one ordinary snack, not a nutrition or weight lesson.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One round blue tin with a fitted blue lid and ten plain small square crackers initially inside; One small cream plate for Kit; One clear water glass; One unnamed grown-up with light brown skin, short dark hair, green shirt and navy pants\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Plate two crackers; tin eight; lid off.. For orientation, the opening location/action is: Kit transfers exactly two small crackers from the open blue tin to his cream plate. Eight remain visibly in the tin, stacked neatly. Blue lid lies beside it; water glass untouched.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nOnly Kit and the described grown-up appear, never Zoe. The opening location vignette is one exact current instant: Kit's cream plate holds TWO crackers and the open blue tin holds EIGHT remaining crackers, making TEN in total. No extra crackers on table or in hands. Show all eight in tin as a clearly countable separated tidy arrangement, not an ambiguous pile. Isolated closed-tin and lid design views are acceptable reference designs only, not additional tins in the vignette.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:13:05.087908+00:00",
+    "sha256": "2044febd19c15cfa1cd8edf083584a799ed0f41b479dd1d201c1b12d5fab6f41",
+    "note": "Root directly inspected native and installed WebP. Kit and green-shirt adult, cream plate, blue tin/lid and water glass are distinct and consistent. Opening scene has exactly two plate crackers plus eight in tin (two rows of four). No additional crackers in hands or table. Empty/closed variants are isolated designs for later state, not multiple scene tins."
+  }
+}

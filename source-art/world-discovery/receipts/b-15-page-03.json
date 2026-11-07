@@ -1,0 +1,55 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:56.069Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-814bc6ac-19ce-4667-9621-7bca6dd0be21.png",
+  "sourceSha256": "15b87e1334e04ff1adaff4806e4e69e7edcf82067877fc85b7d3cd54535cc46d",
+  "output": "public/guided-reading/world-discovery/b-15/page-03.webp",
+  "outputSha256": "7f1d11f29de72ee1aef836a0978cc928dbe89f5205cd8ff65c978801d6da8750",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Pool Left Behind; World Discovery; nonfiction.\nSetting: One temperate rocky shore over several hours. View from seaward toward a low rock shelf with a deep oval hollow, a white vein in its left rim and one dark upright boulder behind. No children or animals are required; not a series of different pools.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One oval rock hollow with a continuous rim; One white mineral vein in left rim; One dark boulder behind the pool; Sea water with a believable changing level\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): More rock shows.\nWater stays in the deep dip.\nRequired illustration: Sea level now lies below the lowest part of the hollow’s rim. A still pool remains inside while wet rock is exposed outside. Continuity: Pool has just become isolated; the water has not vanished from the hollow.\nExact current state: Pool has just become isolated; the water has not vanished from the hollow.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nMANDATORY WIDE COMPOSITION: landscape3:2,1536x1024. Focal subject and all essential props occupy only the CENTRAL SIXTY-FIVE PERCENT of image width and CENTRAL SEVENTY-FIVE PERCENT of height, surrounded by generous simple setting. Absolutely NO essential extremity touches outer10% frame area. Wide view with whole shape, not zoomed-in crop. Use the same clean flat colors and broad cel shapes; no grain, stipple, mottling or painterly material texture. No people/animals. \nExact current state override: The sea surface now lies BELOW every part of the hollow rim. Show a clearly continuous dry/wet-exposed rock band all around the still-full pool, with lower sea beyond it. The near side of pool rim and left white vein unchanged. Pool is newly isolated, not drained. Natural hollow in one continuous bedrock shelf, not a built stone ring. Its full outer oval and white mineral vein stay in frame. Same dark boulder behind, no changing shape or scale. Reference board is DESIGN ONLY, obey current tide state.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-15-reference.webp",
+      "sha256": "41d36078c35ebc6677a8fcc277067181c5eefcd3a99b63fcd8b7e36e592971e8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "7f1d11f29de72ee1aef836a0978cc928dbe89f5205cd8ff65c978801d6da8750",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Whole rim now exposed; pool isolated from sea, wet shelf around it, complete continuous geology. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "7f1d11f29de72ee1aef836a0978cc928dbe89f5205cd8ff65c978801d6da8750",
+    "note": "Whole rim now exposed; pool isolated from sea, wet shelf around it, complete continuous geology. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "bookId": "world-discovery-b-11",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:46:01.298Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7a381acc-1772-4066-bfc7-b5c9de4de36d.png",
+  "sourceSha256": "ec3e2e35cd80116a9fe3f391918b241b53ad2797c0aeb80548937bb77ec362ed",
+  "output": "public/guided-reading/world-discovery/b-11/page-03.webp",
+  "outputSha256": "5a681524fc483dc1c9af50041e8639e90a3676048b94f4a58427efb098c1e112",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit image 1, the finished page-03 illustration for A Break for Kit. Images 2\u20133 are identity/prop references only. Keep exactly the current characters, facial expressions, poses, truck, block COUNT and block positions relative to one another, furniture and story state. Make these precise production fixes: (1) remove ALL grain/noise/speckling and simulated rug, wood or paper texture from the ENTIRE image. Render the rug as solid flat green with at most one smooth hard-edged shadow shape, the wall/floor as flat colors, and wood as simple flat color shapes. Keep clean continuous dark outlines, with restrained smooth cel shading only, not gradients or textured paint. (2) Widen the camera slightly to put the COMPLETE Kit, Zoe, their feet and hands, all blocks, the red truck and wooden chair at least 8% of image width/height away from every edge. Extend the existing classroom naturally into the margins; no border or blank inset frame. Do not crop, remove or add any story object. Preserve the exact composition relationships and subject sizes relative to each other, just fit them more safely within the same landscape 3:2 frame. No text, no labels, no extra limbs, no extra blocks. The unchanged exact scene specification is:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Break for Kit; World Discovery; fiction.\nSetting: Ordinary classroom floor in daylight; low block road crosses a green rug; one low wooden seat beside the rug. Kit and Zoe retain the locked cast clothing.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Eight large tan rectangular blocks forming one road; One small red toy truck; One low wooden seat; One green rug\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): Kit picks up another block.\nIt slips onto the rug.\nRequired illustration: The seventh block has landed flat on the soft rug beside Kit\u2019s shoes. His empty hands are still above it; no block hits anyone. Continuity: Six road blocks; seventh lies beside road; eighth remains loose. No injury.\nExact current state: Six road blocks; seventh lies beside road; eighth remains loose. No injury.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nComposition/count clarification: Exact count: SIX connected blocks in one straight road, ONE newly dropped block beside Kit's shoes, ONE other loose block farther right. Eight total. Kit empty hands just above dropped block, tired surprised expression, no injury. Zoe at far right. Red truck stays beside the beginning, chair behind/right.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c53e16fb-6316-48d2-bc6a-97122d76454b.png",
+      "sha256": "a31a9f512ea6737bdc9f2af4c0fc68f67105198b5fa60fe0768eb66fee1ace1f"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-11-reference.webp",
+      "sha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T10:56:20.737Z",
+    "outputSha256": "5a681524fc483dc1c9af50041e8639e90a3676048b94f4a58427efb098c1e112",
+    "scope": "direct final WebP and full ordered sequence review; production-author review, not independent approval",
+    "notes": "Six road blocks, one newly dropped near Kit shoes, one other loose. Empty hands, short drop marks, no injury. All original cast/props remain. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "5a681524fc483dc1c9af50041e8639e90a3676048b94f4a58427efb098c1e112",
+    "note": "Six road blocks, one newly dropped near Kit shoes, one other loose. Empty hands, short drop marks, no injury. All original cast/props remain. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending."
+  }
+}

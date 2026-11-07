@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:16:45.503Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-148b3bbf-f61c-4aed-bdf2-a6f06f00ed9d.png",
+  "sourceSha256": "f5bb8b3acde7a2865b02ed9766f5d6268c90f9932a04f31e7312c8d52a2b17dc",
+  "output": "public/guided-reading/world-discovery/b-18/page-05.webp",
+  "outputSha256": "d35d8e58d519cb5885c9ee3543c953e6084d73b632fa2fde5d6ee062cba7a971",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Ready for Wings; World Discovery; nonfiction.\nSetting: One illustrative two-striped grasshopper, Melanoplus bivittatus, across its egg, nymph and adult stages in a grassy field. Six legs, large rear jumping legs, two antennae, brown-green body with two pale lengthwise stripes; no butterfly chrysalis or caterpillar body.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Soil egg pod shown in a natural cutaway; One focal young grasshopper and its successive stages, never duplicate individuals in one scene; Grass blades with feeding notches; Empty shed outer skins distinct from live animals\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): It grows and sheds its skin again.\nSmall wing pads grow.\nRequired illustration: A later, larger nymph rests beside an older empty casing; small wing pads are clearly present along its back. Continuity: Weeks of growth indicated by larger stage; no count or timing claim for every species.\nExact current state: Weeks of growth indicated by larger stage; no count or timing claim for every species.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nCURRENT SCENE INVENTORY: ONE later/larger nymph with clearly SHORT wing pads on thorax, each pad only about one quarter of abdomen length and not covering the segmented abdomen. Six legs (four slim walking, two thick jumping), two antennae. ONE old empty split casing below on stem, pale transparent/hollow not alive. No long adult wings, no second live insect. Grass naturally supports feet.\nSingle continuous scene, no diagram or duplicate poses from reference. Landscape3:2 1536x1024. Compose animal and any old skin in central70% width and central74% height; all antenna/leg/wing tips at least12% from every edge. Natural coherent scale and support, clean flat 2D bold outlines, no grain or paint texture. Reference studies indicate design only; use only correct stage and objects specified now.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-18-reference.webp",
+      "sha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T14:34:09.395613+00:00",
+    "outputSha256": "d35d8e58d519cb5885c9ee3543c953e6084d73b632fa2fde5d6ee062cba7a971",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Larger later nymph has short wing pads and exposed long segmented abdomen; one pale split case below. No adult wing length or second live individual. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "d35d8e58d519cb5885c9ee3543c953e6084d73b632fa2fde5d6ee062cba7a971",
+    "note": "Larger later nymph has short wing pads and exposed long segmented abdomen; one pale split case below. No adult wing length or second live individual. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+  }
+}

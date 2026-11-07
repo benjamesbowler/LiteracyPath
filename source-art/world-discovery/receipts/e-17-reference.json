@@ -1,0 +1,26 @@
+{
+  "bookId": "world-discovery-e-17",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:06:34.414Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d7b343ae-d46b-43ca-a62c-0e28186533b7.png",
+  "sourceSha256": "660c4dce8df3584095e76ce57ea28bf97fa2f8bdb005d2ab31f3331ce9f487f5",
+  "output": "source-art/world-discovery/e-17-reference.webp",
+  "outputSha256": "5c278a3a5bdc77077fdf61437c699a2070575451e9a8f9eb6e01a13625a0f999",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Beaks Below the Mud; World Discovery; nonfiction.\nSetting: One coastal mudflat in nonbreeding season at low water. Exactly one Black-bellied Plover (Pluvialis squatarola), gray-brown and white nonbreeding plumage, stout short black bill. Exactly one Short-billed Dowitcher (Limnodromus griseus), gray above, pale below, longer slender dark bill and greenish legs. Natural anatomy, no humans or anthropomorphic faces. Maintain species and scale across views.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Exposed wet mud at left and shallow water farther right; Tiny marine worms concealed in mud; one small surface crab only where required; Bounded educational mud cutaway on page 6, never ordinary transparent ground\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Exactly two birds, realistically small prey; no giant surface worms.. For orientation, the opening location/action is: Wide mudflat, one plover left and one dowitcher in shallows right; tiny crab near plover.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nPRODUCTION DESIGN LOCK: scientifically grounded natural bird anatomy, not cute humanized birds. Black-bellied plover in NONBREEDING plumage has compact plump body, white/pale underside, gray-brown subtly mottled upperparts, dark eye, SHORT thick dark bill and black legs. Short-billed dowitcher in NONBREEDING plumage has gray-brown upperparts, pale underside, slim neck, LONG slender dark bill (about 2.5 head lengths, almost straight with only a gentle downward tip) and olive-green legs. Both are approximately similar overall body size, plover rounder. Each bird has one head, one closed pair of wings and two legs with three long forward toes and a tiny rear toe; naturally occlude hidden toes instead of inventing paddles or hands. Tiny prey proportional to bills. Mudflat exposed mud LEFT, shallow water RIGHT. No grassland, mountains, cartoon eyebrows or breast markings of breeding plumage. Keep both species recognizably distinct.\nREFERENCE-ONLY CLARIFICATION: do not force all these design props into the opening scene. Separate restrained model views may define props for continuity, but no completed later event. Keep reference background plain white with small separate location/palette key. No text or labels anywhere.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "df43078e5def7fdb3437d0a2b0d7ca5612af6acac693787b371f6d084213bfa9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "5c278a3a5bdc77077fdf61437c699a2070575451e9a8f9eb6e01a13625a0f999",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly inspected distinct nonbreeding plover short dark bill/dark legs and dowitcher long slender bill/olive legs, coherent bird anatomy, tiny prey and exposed-left/water-right mudflat."
+  }
+}

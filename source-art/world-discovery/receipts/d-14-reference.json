@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-14",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:44:44.456Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ef6f07ff-8422-4c38-8eeb-ae5c399a3610.png",
+  "sourceSha256": "eebe849a28702ae1d5276bc1f581cba8fead8c1d8364c85005e574e0c37ab42f",
+  "output": "source-art/world-discovery/d-14-reference.webp",
+  "outputSha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the dark shadow design on this reference board. It must be a solid silhouette matching KIT exactly: short straight side-parted hair, T-shirt, SHORTS with bare lower-leg outlines and sneaker shapes, same boy proportions. No puffs, overalls or long pants. No eyes or face. Preserve every colored character and prop including red semicircular paper fan, blue chair and silver chalk.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c872de83-ae2f-4951-82d8-c30b309c5018.png",
+      "sha256": "567790b8d84f8931421262373516b9efc088517f87ea0ff8189e7f76cd7be57b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "297cf219fe94bbfb4925c9430d5e879923aa397b5629d8d7462a1af1994bb69c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:51:35.238665+00:00",
+    "sha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6",
+    "note": "Inspected generated source and installed WebP: locked Kit and Zoe, shorts-shaped Kit silhouette, one red semicircular folded fan with blunt wooden handle, blue chair, silver chalk and evening room. No flags or future shadow action.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

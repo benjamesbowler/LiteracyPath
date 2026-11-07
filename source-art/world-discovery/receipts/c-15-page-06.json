@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:15:16.600Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-61f8f344-a7e8-4c4c-a3c3-bdf95168322e.png",
+  "sourceSha256": "a8346a9577845a953216f580a8388a29dc4c7b553702f53a78827d8e579021f1",
+  "output": "public/guided-reading/world-discovery/c-15/page-06.webp",
+  "outputSha256": "28bd7f522995d408e052b4b45912a7e7fb6cbf8a17d6f0ebeeea9bb109cde033",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact lava tongue, landscape, camera, and the EXACT LOCATION and OUTER OUTLINE of the scientific cutaway window on its left-facing flank. Show a later cooling stage ONLY inside that SAME cutaway window: thicken the dark gray solid crust inward from all sides until the orange molten interior is reduced to a small narrow orange core. Do not move the window to the front end. Do not change the lava tongue outline or its surface ridges. The window is a diagrammatic cutaway, not an open cave. Same clean flat outlined cartoon. No new objects, labels or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/c15-c16-continuity-repair/world-discovery-c-15-dcd47ae4db1e52fcefebb2f72d6305f03f2ef881074bf28b80e122f029673a6d-anchor.webp",
+      "sha256": "dcd47ae4db1e52fcefebb2f72d6305f03f2ef881074bf28b80e122f029673a6d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:17:37.180Z",
+    "sha256": "28bd7f522995d408e052b4b45912a7e7fb6cbf8a17d6f0ebeeea9bb109cde033",
+    "note": "Directly inspected generated native and installed full-size WebP. Same flank cutaway and tongue outline as page 4; scientifically coherent cooling progression, no relocated section."
+  }
+}

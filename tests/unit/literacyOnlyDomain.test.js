@@ -56,3 +56,32 @@ test("Blender Python numerical imports are allowed while retired product copy st
   fs.appendFileSync(path.join(root, file), "label = 'Math lesson'\n");
   assert.ok(validateLiteracyOnlyDomain({ root, files: [file] }).some(issue => /retired domain term/.test(issue)));
 });
+
+test("canonical World Discovery classification citations do not exempt product copy", () => {
+  const file = "src/content/world-discovery/cohorts/11-20/level-e.json";
+  const url = "https://nrich.maths.org/problems/carroll-diagrams";
+  const book = {
+    id: "world-discovery-e-19",
+    storyBibleReview: { scienceSources: [{ url, evidence: "Classify by two properties." }] },
+    pages: [{ text: "The red circle fits here." }]
+  };
+  const root = fixture({ [file]: JSON.stringify([book], null, 2) });
+  const writeBook = value => fs.writeFileSync(path.join(root, file), JSON.stringify([value], null, 2));
+  assert.deepEqual(validateLiteracyOnlyDomain({ root, files: [file] }), []);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(root, file), "utf8"))[0].storyBibleReview.scienceSources[0].url, url);
+
+  for (const invalid of [
+    { ...book, pages: [{ text: "A maths lesson." }] },
+    { ...book, url },
+    { ...book, storyBibleReview: { scienceSources: [{ url, evidence: "A maths lesson." }] } },
+    { ...book, storyBibleReview: { scienceSources: [{ url: `${url}/maths-lesson` }] } },
+    { ...book, id: "unrelated-book" }
+  ]) {
+    writeBook(invalid);
+    assert.ok(validateLiteracyOnlyDomain({ root, files: [file] }).some(issue => /retired domain term/.test(issue)));
+  }
+
+  const otherFile = "src/other.json";
+  const otherRoot = fixture({ [otherFile]: JSON.stringify([book]) });
+  assert.ok(validateLiteracyOnlyDomain({ root: otherRoot, files: [otherFile] }).some(issue => /retired domain term/.test(issue)));
+});

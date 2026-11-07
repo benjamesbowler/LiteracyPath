@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-12",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:37.757Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c3ad7f62-dbe0-41f3-b25f-54b16230ef48.png",
+  "sourceSha256": "7c250f837e14b069fc15121f47b763f45c2ff4d9e7df26f642c029e650218dbd",
+  "output": "public/guided-reading/world-discovery/e-12/page-03.webp",
+  "outputSha256": "8c21b7d0f6222a5780f8c8d8cec5b8a8eced8320b7eb6dca46c65343acc44475",
+  "width": 1697,
+  "height": 927,
+  "prompt": "Edit only the obvious unfinished edge artifact in this illustration: the purple classroom floor currently stops at a hard rectangle with beige strips along left, right and bottom. Extend the same continuous purple floor seamlessly to the left, right and bottom image edges, and extend the cream wall baseboard horizontally to both side edges at its existing height. No framing, panels, borders, inner rectangle, mat border or paste-in edge. Preserve EVERY other subject and pixel arrangement: children, bench, small falling white-sail tile near baseboard, boat puzzle with top-row third-column gap, empty tan box, blue cushion on Zoe's lap. Keep the existing generous margins and exact wide composition. Crisp flat cartoon finish.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-bb1e84e6-cea7-432c-96d5-a4292ff2cc24.png",
+      "sha256": "4bbc47bf50dd458707b318c830c90c54599c1b76403d244edaed7a605c240012"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:20:34.618509+00:00",
+    "sha256": "8c21b7d0f6222a5780f8c8d8cec5b8a8eced8320b7eb6dca46c65343acc44475",
+    "note": "Producer directly inspected native and final encoded WebP. Zoe sits on bench with cushion on lap while tile falls close to rear baseboard; Kit looks at her face; corrected seamless floor and wide margins."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:20:00.880Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9b52fda4-9441-454b-8f41-deceb0e5bd3f.png",
+  "sourceSha256": "de8f15ebc829f1233bbadbfc69e37f121715aba839ae2625640b8c96a61a9e84",
+  "output": "source-art/world-discovery/a-14-reference.webp",
+  "outputSha256": "8c807d7340b7f062d0db7434ab45417e350e9b68cc40f8eeee8e84a1b74f9151",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact wagon reference board to correct two geometry details. In BOTH the large three-quarter wagon AND the bottom opening-location wagon, REMOVE every yellow wheel arc peeking ABOVE the far red tray rim. Wheels mount UNDER the bed near the ground, never at tray-rim height. Preserve the near-side rear yellow wheel on image LEFT and the bare near-side front axle on RIGHT. The far-front attached wheel may appear ONLY as a small yellow crescent BELOW the far front short edge near the floor; the far-rear wheel is hidden behind the body/near-rear wheel in this angle. There are exactly THREE attached wheels in the design (one near rear, two far-side wheels partly or fully occluded), plus the bare near-front axle. Do not add an extra visible wheel to make hidden wheels countable. Keep the side-view wagon with one rear wheel and front axle unchanged. In the isolated wheel size comparison, reduce the SMALL disk so the large disk's diameter is exactly FOUR TIMES its diameter. Preserve Kit, crayons, sheets, table, all other geometry and clean flat style. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-58758ef1-8649-4914-8620-de1ea2446d3e.png",
+      "sha256": "7d4b6abdb919ead884dc363a75fad0ccf0654f6d400f5cdee1dca5184254069b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:21:22.625457+00:00",
+    "sha256": "8c807d7340b7f062d0db7434ab45417e350e9b68cc40f8eeee8e84a1b74f9151",
+    "note": "Direct native and final WebP inspection: Kit only, three-wheel red wagon model with missing near-front axle on right, blue handle front, side orthographic rear wheel left and bare front axle right; far wheels occluded below bed, no wheel arches above rim. Two blank papers/crayons in initial room; giant-to-small wheel comparison approximately fourfold."
+  }
+}

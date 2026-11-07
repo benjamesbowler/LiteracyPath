@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-15",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:50.813Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-11b84bc3-1ac3-45a1-93e3-d653e898c670.png",
+  "sourceSha256": "1c94d7f97f405a8ce44185bda9eef5e44de3b6dfdd6d7729e863e972b8d6375c",
+  "output": "public/guided-reading/world-discovery/d-15/page-04.webp",
+  "outputSha256": "75e36b91522b5fcfb27908f63f60d4ba980c8fbcc5d8a2c689689188c9f52747",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Pull camera back 20percent: scale full dune plus fixed foreground rock together to80percent of current size around image center. Extend featureless sand/sky. BOTH ends of complete dune at least12percent from left/right edges; foreground rock left edge at least13percent from left and bottom edge at most83percent down. Preserve all explanatory marks and exact one dune silhouette, no new insets. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-cb2b9e86-949d-4170-843d-fe1e630b9c92.png",
+      "sha256": "a8619a2a47dcbb4f94bff2c1aebcedb31f7d512d63950003e9c734d15fc9e83d"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-15-reference.webp",
+      "sha256": "8d824634e20522ba4b50694165eb1911fdabf99464f5263c3af089ab8cbe609c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "39b696f4defa16bcfb1cfc77b4fc3b026064c13a880a6bb1c34df05c4e8ad4c1",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:05:07.029Z",
+    "sha256": "75e36b91522b5fcfb27908f63f60d4ba980c8fbcc5d8a2c689689188c9f52747",
+    "note": "Generated native and installed full WebP directly inspected. Sparse grain paths ascend gentle left slope only; no reversed sheltered-face transport. Whole scene is coherent, core explanatory content complete and clear.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

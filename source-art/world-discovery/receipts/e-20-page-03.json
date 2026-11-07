@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:06.858Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-20c73441-284b-4353-88e1-0dc4363142b8.png",
+  "sourceSha256": "97298892aa8df17263b283287d3c69781d6290b0bad1b5ab3d6646631a93a5c3",
+  "output": "public/guided-reading/world-discovery/e-20/page-03.webp",
+  "outputSha256": "47bfada1e057bc389f2cd3047203ee7db9395a02d3f8d410ace77ab151d23455",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/page-03-before.webp",
+      "sha256": "5e51ff2eb0b0a45e9012c43afd397ebcb23e81130b5c65e4c2887672ed450094"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "47bfada1e057bc389f2cd3047203ee7db9395a02d3f8d410ace77ab151d23455",
+    "method": "codex-direct-image-inspection",
+    "note": "Adult alone operates reel mower along route outside intact bud patch; children remain distant. Natural hand grip, feet/wheels ground contact, broad margins."
+  }
+}

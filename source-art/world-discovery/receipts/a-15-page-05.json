@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-a-15",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:28:34.111Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c773ed87-d747-410e-8e51-b36db370fe19.png",
+  "sourceSha256": "1522f746ef7a0da6123787abc6991afc7c143b37db83f44c46732a2ea7fab729",
+  "output": "public/guided-reading/world-discovery/a-15/page-05.webp",
+  "outputSha256": "0bc840786912ad1895358d250eac1a1bcdaefd1de3da2e7a6d3bfa51ff77221a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Where Sand Meets Sea; World Discovery; nonfiction.\nSetting: A gently sloping sandy beach in calm daylight. One low wave breaks offshore and sends shallow water up the sand. No people, storm surf or animals.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One small white empty clam half-shell partly embedded at mid-beach; One rounded gray pebble farther up the beach and to the left; Fixed distant low headland on the right horizon\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The water slips back down.\nRequired illustration: Same view now shows the thin water sheet draining seaward, exposing the upper edge of the shell and leaving darker wet sand. The shell remains partly embedded and does not float.\nExact current state: Water retreating; shell stays in place.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nUse the last page1 image only to lock beach landmark positions: one partly embedded white shell, one gray pebble LEFT and farther inland, headland on RIGHT horizon. Keep the shell and pebble anchored. Compose the exact new water stage required by this page, not the opening stage.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-15-reference.webp",
+      "sha256": "1cc34648bda0c59c36c95637e9dab1cc36c39414f35ac7dad344e20a2e9c06bb"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-15/page-01.webp",
+      "sha256": "76991e39830f42addd2013119088db8497c47a655310f81695e544737d57e9c4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d9d7bc1e63ba268c6619636e83aa0e179164ba37690573bce9cac8ab0d8d423f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:38:10.720Z",
+    "sha256": "0bc840786912ad1895358d250eac1a1bcdaefd1de3da2e7a6d3bfa51ff77221a",
+    "note": "Direct native and installed WebP sequence review: fixed embedded white shell and dry gray pebble; one continuous water edge advances, surrounds shell, retreats over damp sand and returns; no shell movement or tide claim. Page6 repaired to remove foreground water and restore anchored shell base. All focal landmarks clear with safe margins."
+  }
+}

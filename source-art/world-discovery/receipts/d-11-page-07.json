@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:41:02.371Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-954b4845-7c67-43d1-909f-e4077877c013.png",
+  "sourceSha256": "b17acd9303fdf0ad3bc285a49cc801ad98bcbb2943d6a6a285fd00481e66684b",
+  "output": "public/guided-reading/world-discovery/d-11/page-07.webp",
+  "outputSha256": "ce27fd9b68a1dd14280bbe44fded2790939386ec1c1ffc000237c843f0e776eb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Restore the missing small gray cloud on the upper half of Zoe's paper, above the purple boots. It is only ONE purple boot wide, with no rain strokes. Preserve her hand setting the loose sun on tabletop and preserve boots/right splash. Also pull camera back 20 percent so both complete children and all focal props are at least 12 percent inside every edge, extending ordinary room/floor to edges with no border. Exactly two crayons remain in tray. Keep natural body/chair/table proportions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-71feb0c4-0847-4a6f-8591-8ec42e6bec98.png",
+      "sha256": "2f1a2a018f7d281b1459b7b24e622ca7919d41c7adec881cedc656a89e96bfc8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "sha256": "ce27fd9b68a1dd14280bbe44fded2790939386ec1c1ffc000237c843f0e776eb",
+    "note": "Generated source and installed WebP inspected. Zoe sets the sun beside her drawing; gray cloud remains rainless and Kit gestures with an ordinary open hand. Both crayons in tray and seated body support coherent.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

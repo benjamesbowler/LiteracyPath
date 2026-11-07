@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:12:28.300Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-69f32301-ef27-417e-bb1e-719f36a1edbb.png",
+  "sourceSha256": "b6a4a0c77b58bf06e884d2aba6b2034d2c191925f593543d91ca76ec3c489579",
+  "output": "public/guided-reading/world-discovery/b-17/page-08.webp",
+  "outputSha256": "86a8ed1216bc1d593297ec67aeef1e9305c84d8c634b1e6f3174bc3bda4ec660",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the bitten edge of the single target leaf in the FIRST image, matching the SECOND image's leaf bite. The first image incorrectly puts the notch on the far RIGHT edge. Restore that right edge smoothly. Add the same small irregular bite notch on the leaf's upper-LEFT edge facing the insect's mouth, at exactly the position/shape seen in the second reference. This is the SAME leaf after the bite; do not add a second notch. Keep first image's stepping pose, six legs, two antennae, whole branch/twig, head position, safe margins and flat2D style absolutely unchanged. The second image is reference for notch location only, do not copy its feeding pose. Landscape3:2 1536x1024, no text/panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-fabd2c4a-bccd-4ed0-a876-8e485e8dd474.png",
+      "sha256": "67faf9cb5f37af418c5083d13fdba9c779c4e6204ae8cc1f3e5ef1053625d1be"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-17/page-07.webp",
+      "sha256": "7500c511f30d1f37f647b25d3105197ce76426877dbeaba204cc54baebfd3197"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.383870+00:00",
+    "outputSha256": "86a8ed1216bc1d593297ec67aeef1e9305c84d8c634b1e6f3174bc3bda4ec660",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Stepping pose beside same leaf; single notch retained on upper-left edge after continuity correction, no second notch or duplicate insect. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "86a8ed1216bc1d593297ec67aeef1e9305c84d8c634b1e6f3174bc3bda4ec660",
+    "note": "Stepping pose beside same leaf; single notch retained on upper-left edge after continuity correction, no second notch or duplicate insect. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

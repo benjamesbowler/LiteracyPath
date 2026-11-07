@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:24:33.634Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5411d17a-bc38-4a6e-a23e-e7efe707121e.png",
+  "sourceSha256": "c37373cb0c8c6bcb07c107de89e7657f30a79015b462e2cd0206a8b77bcd34b6",
+  "output": "public/guided-reading/world-discovery/c-12/page-03.webp",
+  "outputSha256": "c126d705b30cb28162bb7860cef66ab8a2d2ce1261bf279e2d5969b1850dfe0d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Repair the physical staging of this classroom illustration: BOTH Kit and Zoe stand with TWO feet naturally planted on the FLOOR, never on chairs. Bring their legs close together in ordinary standing positions. Kit stands left beside the blue pot's window table, facing Zoe with puzzled open palms. Zoe stands near the far edge of front table, using broad open palm near chest, NOT pointing at yellow pot. Keep three blue chairs around craft table but spatially separated from children's feet: front-left and front-right chairs nearer the viewer, third chair at far edge out of children's path. Natural furniture perspective and no leg intersections. Keep exact room, tall blue pot/saucer and watering can left, small yellow pot/loose red ribbon right, one untied brown parcel on table, all cast appearance, and generous3:2 framing. Change only poses/feet to make a normal classroom scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e5f159ad-a2f3-4ce7-8967-5c739bde3dad.png",
+      "sha256": "50fe41f1c607e4a3ccf6129064048a95f5549ec064b1314944bf3c40fa19f624"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "c126d705b30cb28162bb7860cef66ab8a2d2ce1261bf279e2d5969b1850dfe0d",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Questioning arms and repeated gesture; complete grounded legs, normal furniture scale; neither child stands on a chair.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "c126d705b30cb28162bb7860cef66ab8a2d2ce1261bf279e2d5969b1850dfe0d",
+    "note": "Questioning arms and repeated gesture; complete grounded legs, normal furniture scale; neither child stands on a chair."
+  }
+}

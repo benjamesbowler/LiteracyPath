@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:03:11.524Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0e13e519-5426-459b-bfef-02dd3eb9156d.png",
+  "sourceSha256": "5c6eebd083a8c55d24a83700c9690b6941bfd28471509e2091fefe4df24ba6a8",
+  "output": "public/guided-reading/world-discovery/a-18/page-04.webp",
+  "outputSha256": "bb1d22985f4954dccd72142d7fd8b524a008da11015f008c8bd1d68c06e7991f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Widen composition20percent to keep whole butterfly, all wing tips, complete empty chrysalis, and COMPLETE pink flower head including every petal safely10percent inside image edges. Preserve the exact wing development stage and pose.  Keep all original locations and object count, two antennae, two leaves, one flower, one empty case, one butterfly. Same clean crisp flat2D art, full-bleed3:2, no border, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2cb05c5d-82c0-497b-ab70-1ff26e8673a1.png",
+      "sha256": "c78a7aaf0512d8965c9edfb96c87a93c826f4106672a49987b7ed01505c2f7bf"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.097305+00:00",
+    "sha256": "bb1d22985f4954dccd72142d7fd8b524a008da11015f008c8bd1d68c06e7991f",
+    "note": "Wings expand downwards while the butterfly hangs; two antennae, empty chrysalis, entire flower visible. Native generation and installed WebP directly inspected."
+  }
+}

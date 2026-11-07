@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-17",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:16:21.636Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-75599369-f5e3-48e3-b3ed-b00e53665260.png",
+  "sourceSha256": "12b8da0b57a370af973c345f23658f675fd82eff36cb284dbbd1f1410754f1ad",
+  "output": "public/guided-reading/world-discovery/d-17/page-09.webp",
+  "outputSha256": "e6a16279969af8debc8897ca3d0406727fa76f17a8d07255edccb87bd3b1edd9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. First image is edit target. WIDEN camera: complete butterfly and entire pink focal flower must fit the central 74 percent of canvas, with 13 percent background around them. Preserve all anatomy, four developed thoracic legs, reduced folded front legs, two antennae, transparent membrane, and exact pose. Landscape 3:2.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Windows in a Wing; World Discovery; nonfiction.\nSetting: Natural Greta oto glasswing butterfly resting and changing perch in a Central American tropical garden. Clean close observation; no human handling, no microscope dissection and no suggestion that its whole body is transparent.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One adult Greta oto: four wings, slender dark body, two antennae; narrow brown wing borders, dark veins and small pale forewing markings; four developed walking legs and a reduced front pair held near the thorax, not six equally long walking legs; Green leaf behind a clear forewing region; Pale pink flower at the next natural perch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 9. Printed prose (NOT text to put in art): When the wings lift, their thin surfaces move together. Each clear patch belongs to a complete wing.\nRequired illustration: Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.\nExact current state: One instant of movement, no multiple wing trails or extra wing pair.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c965cf76-29d5-4443-abf8-92aac0db8c5c.png",
+      "sha256": "11f56c195dfabfc4781b66dcbe7254225d9818a9ce4d3ddab876c5a73b1621c6"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-17-reference.webp",
+      "sha256": "7a9a696fa92b74f29ef7470fded7ff03cea9392894f62669ed832f8d01572c3e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5a5aae0dc62bd937436aec09507f77a06724c9f49054941f6eb9d4d63203ac1b",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T15:50:08.811645+00:00",
+    "sha256": "e6a16279969af8debc8897ca3d0406727fa76f17a8d07255edccb87bd3b1edd9",
+    "note": "Generated source and installed WebP inspected. One joined wing-lifting pose, no extra wing trails; two antennae, four developed legs and reduced front pair; entire focal flower fits with margin and natural leg contact.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

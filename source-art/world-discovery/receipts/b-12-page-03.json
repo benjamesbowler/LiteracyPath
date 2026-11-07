@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-12",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:31:08.438Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-08f7f752-32c0-4216-b677-0834c6265aba.png",
+  "sourceSha256": "cf76a1f090a98b8d182baa71cf4f06b0c4ee6da6a3cabe1d233a36d627975df5",
+  "output": "public/guided-reading/world-discovery/b-12/page-03.webp",
+  "outputSha256": "1328491a94164b9caeb9ae955c3efd5aed841d92442351ce5623b321070c1ac0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Image 1 is the edit target. Image 2 is the cast design reference only, do not add its extra poses. Make one finished 1536 by 1024 LANDSCAPE 3:2 illustration. Preserve the exact scene, composition, faces, objects, poses and clean flat cartoon style in Image 1 except the following corrections. Extend plain room above/below and pull framing back enough for 12% essential-content safety margins, no border or panel. Correct ONLY clothing continuity and framing: Kit wears MUSTARD SHORTS above bare golden shins, WHITE socks and NAVY sneakers, never navy trousers. Zoe wears PLUM full-length OVERALL TROUSERS and WHITE sneakers, never bare shins or purple shoes. Preserve CLOSED yellow lunch box, cheese with crumbs but NO whole cracker on plate, and exactly one purple cup held by Zoe. Preserve puzzled faces and natural poses. Match Zoe's deep brown skin and clothing from Image 2 across face and both arms/hands, clearly darker than Kit's golden skin. No text. Do not add or remove any other prop. Coherent ordinary child-sized table and chairs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0c00a443-b957-41c8-bec7-c242089df7c0.png",
+      "sha256": "828ebd54262cdc27ef875df777716ea3a8eec4b750b844c4ada3752e34e0af65"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "5e63c46809f84999637e01cb64322b71f1f6277058029d50f4641f16cf0de34f",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:38:30.530031+00:00",
+    "outputSha256": "1328491a94164b9caeb9ae955c3efd5aed841d92442351ce5623b321070c1ac0",
+    "scope": "Production-author direct native and installed final WebP inspection, full ordered prose/state and whole-scene rereview. Independent QA pending.",
+    "notes": "Concerned Zoe holds cup beside crumbs/cheese; closed box. Correct shorts/plum trousers and full seated anatomy.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "1328491a94164b9caeb9ae955c3efd5aed841d92442351ce5623b321070c1ac0",
+    "note": "Concerned Zoe holds cup beside crumbs/cheese; closed box. Correct shorts/plum trousers and full seated anatomy."
+  }
+}

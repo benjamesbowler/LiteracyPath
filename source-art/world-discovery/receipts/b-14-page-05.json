@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-b-14",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:47:55.129Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9390225e-48ac-4169-ad18-b17f503b50c8.png",
+  "sourceSha256": "9e98436aa654d7095b5de27b1e35054fbd3850a6925ba9cf394479a0b2af62b6",
+  "output": "public/guided-reading/world-discovery/b-14/page-05.webp",
+  "outputSha256": "3cda0512051ba5a3de517d6264ea1aad2f51336f252b16df4692e2c563e995fd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This attached image is the edit target. Preserve the entire illustrated action, every prop and its exact color, every clip and cord attachment, cast appearance, faces, gestures, clothing, complete seated lower bodies, chair seats, bent knees and ordinary child-sized table geometry. Make a modest framing adjustment: move the camera back about 18 percent and center the whole existing scene, leaving at least 12 percent of the image height as continuous ordinary floor below the lowest shoe. Keep full heads/hands and all essential props safely inside the edges. Extend the SAME connected room naturally to all four image edges. No mat, frame, vignette, pale border, inset, floating furniture or abrupt floor cutoff. Do not add or remove any person or object. Preserve natural child proportions and physical contact, same clean flat cartoon style. True 1536x1024 landscape 3:2, full bleed. No text. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-378289a3-abbe-485d-9ea9-1a5a91838b8b.png",
+      "sha256": "ca71d3e61e7e1091d1eb6bc0da22c2e24af010cce7d17a1f41369a4531d11559"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b8de296c41d55d00ee5879ef13a1160b88b652467fbcf9569c7d721c76f8b571",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
+    "method": "codex-direct-image-inspection",
+    "sha256": "3cda0512051ba5a3de517d6264ea1aad2f51336f252b16df4692e2c563e995fd",
+    "outputSha256": "3cda0512051ba5a3de517d6264ea1aad2f51336f252b16df4692e2c563e995fd",
+    "note": "Kit points toward blue cart beside red paper while looking toward Zoe, who holds red cup. Two clips free. Natural complete lower bodies/wood chairs/table and continuous floor.",
+    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+  }
+}

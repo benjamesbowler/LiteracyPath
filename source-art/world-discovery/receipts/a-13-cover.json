@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:48:56.248Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2e5a5e32-2b34-479f-956d-ebfdc3e880ab.png",
+  "sourceSha256": "332c7589cbc3cf431395d55ac939a9763045741dd9028409e7f555bb09acd156",
+  "output": "public/guided-reading/world-discovery/a-13/cover.webp",
+  "outputSha256": "5f85e7cf0ab8a29174be50f1f8e02b10e1186666429ba45d4b11197f616d28d9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact clean 2D street-crossing illustration, including every person's pose and location, every car's direction and lane, signal state, road, crosswalk and curb geometry. ONLY PULL THE CAMERA BACK by about 20 percent, recentering the whole intact scene, and extend the same neighborhood scenery naturally around the edges. Do not move objects relative to each other. The ENTIRE adult, children, and every visible car must now lie inside a generous central safe region, at least 8 percent away from EACH image edge (about125 pixels at left/right and85 at top/bottom for1536x1024). Current edge-near shoes and cars are too close. All people still stand fully on sidewalk; all cars stay stopped before crossing. No new objects, no frames, no white borders, no text. Keep landscape3:2 full-bleed, crisp dark continuous outlines and flat clean cel colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-814219da-0d42-412f-8a97-1391301966ad.png",
+      "sha256": "838cd59449b7a6d204b90b02e97cd8d5e57453271b308fe53d1d1b104b2e2316"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.745907+00:00",
+    "sha256": "5f85e7cf0ab8a29174be50f1f8e02b10e1186666429ba45d4b11197f616d28d9",
+    "note": "Native PNG and installed WebP directly inspected. Dedicated curb introduction; opposing blue/right and red/left traffic, orange stop hand, all people on sidewalk. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

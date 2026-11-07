@@ -1,0 +1,45 @@
+{
+  "bookId": "world-discovery-b-11",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T10:49:02.962Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-86615bb2-105e-4b96-8a02-3b3df5cc6cd9.png",
+  "sourceSha256": "2818a395ee5bde937e618d0a2fa12270d4a2bba3048f10a7ac4db49a6efcebd4",
+  "output": "public/guided-reading/world-discovery/b-11/page-04.webp",
+  "outputSha256": "cab3ea78752baea84fb3eaa9611ee1b0289fbed873f927b8e655d5674ff13445",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Break for Kit; World Discovery; fiction.\nSetting: Ordinary classroom floor in daylight; low block road crosses a green rug; one low wooden seat beside the rug. Kit and Zoe retain the locked cast clothing.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Eight large tan rectangular blocks forming one road; One small red toy truck; One low wooden seat; One green rug\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): \u201cI need a break,\u201d says Kit.\nHe sits down.\nRequired illustration: Kit sits on the low seat with both hands resting on his knees. Zoe remains beside the unfinished road; she is not blocking or beckoning him. Continuity: Kit initiates the pause. Dropped block and final loose block remain on the rug.\nExact current state: Kit initiates the pause. Dropped block and final loose block remain on the rug.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPrecise current layout/count: Count eight tan blocks: six touching in one straight road, one dropped block near road left end, one other loose block at far right. Kit now sits on the wooden backed chair at the right rear of rug, both hands on knees, choosing rest; Zoe remains near the road. Red truck parked at left beginning. No new block is added.\nStyle and framing lock: use a wide camera with ALL children, hands/feet, blocks, red truck and wooden chair entirely within the central 84% of the frame. Third image is a finished STYLE reference only: use its smooth solid flat green rug and clean flat wall/floor, with no grain, noise, speckled texture or brush marks anywhere. It does not set this page's pose or block count; obey the current layout above.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-11-reference.webp",
+      "sha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-01e16a89-23b2-4cf1-a0d7-17379de41f28.png",
+      "sha256": "b80a4cd0f95d9550a5743d5cb46ff64d5dec1fdbd94ac13e3f868f46cd740496"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T10:56:20.737Z",
+    "outputSha256": "cab3ea78752baea84fb3eaa9611ee1b0289fbed873f927b8e655d5674ff13445",
+    "scope": "direct final WebP and full ordered sequence review; production-author review, not independent approval",
+    "notes": "Kit sits with hands on knees; six road blocks and two loose remain. Zoe does not direct or prevent his pause; truck stays parked. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "cab3ea78752baea84fb3eaa9611ee1b0289fbed873f927b8e655d5674ff13445",
+    "note": "Kit sits with hands on knees; six road blocks and two loose remain. Zoe does not direct or prevent his pause; truck stays parked. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending."
+  }
+}

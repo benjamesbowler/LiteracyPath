@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-14",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:57:13.921Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-50f5a17b-636f-4a31-bd15-bb57e1e7eaf9.png",
+  "sourceSha256": "12c4703c9ad711b5c31a077ec1ac73405ddc66f0c260b96f19f8fd81b37f576c",
+  "output": "public/guided-reading/world-discovery/c-14/cover.webp",
+  "outputSha256": "c9224b13f4971cb6989b1b56577a07feb8e17072feb0fc4131ae9da6c896a3c5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change ONLY the four table legs from wood orange to medium GRAY metal, keeping exact shape and geometry. Leave wooden tabletop, children, six arrows, bookmark trap, ONEbook, all props, room and generous framing unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-82e5de5e-3e31-4289-bfcc-aa4746400150.png",
+      "sha256": "128a1dcf70aebd67bfee5ef3c3ce451c4c80c37b5e98a9f5225ad04d589c5910"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6bf0214e4c9b70fd3e14b3805b6b47eaa35e1740a8d7791544e2a7f80254b40",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "c9224b13f4971cb6989b1b56577a07feb8e17072feb0fc4131ae9da6c896a3c5",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Six-head route includes local opposing fourth/fifth directions; one bookmark, one book, pencil and eraser, ordinary seated bodies/table.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "c9224b13f4971cb6989b1b56577a07feb8e17072feb0fc4131ae9da6c896a3c5",
+    "note": "Six-head route includes local opposing fourth/fifth directions; one bookmark, one book, pencil and eraser, ordinary seated bodies/table."
+  }
+}

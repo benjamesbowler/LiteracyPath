@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:53:59.388Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-6a6a27d6-565f-4bb4-aef5-166ccef309dd.png",
+  "sourceSha256": "8eca55a7a8cec1bb17d0c7e5e35e7b0089afa52e95149af48ab2320dc4930648",
+  "output": "public/guided-reading/world-discovery/e-11/page-10.webp",
+  "outputSha256": "91c55190f73cb301ed4a6d208592d2c2ecd954f968e3d98bbe9c132fb693d8fe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Correct FIRST picture only. Preserve children, furniture, natural seated poses, closed plum folder and yellow tray with exactly two crayons unchanged. Repair the top70-pixel flat blue strip: extend the real window frame/glass and both wall pictures naturally continuously to top edge, with complete coherent frame edges; no horizontal cut line, color bar or collage seam. Lower the ONE drawing and its ONE silver binder clip to attach PHYSICALLY to the wooden cabinet ledge: clip jaws visibly grip front edge at y350; small silver round handle ABOVE ledge; paper hangs DOWN from jaws against solid cabinet front, from about y365 to y535. Do not suspend clip in midair or mount drawing on invisible support. Keep complete swimming picture visible, slightly smaller if necessary; Zoe points at visible blue water on it, Kit looks at it. Normal plausible room depth and geometry. Keep all essential content8percent from borders; full1536x1024 landscape; clean2D cartoon, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e11-p10-repair/before.webp",
+      "sha256": "f5b276292bac0bb8552f9344bb4ad1381001dfe399fe910c137d72df692a1b22"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-11-reference.webp",
+      "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:54:25.674Z",
+    "sha256": "91c55190f73cb301ed4a6d208592d2c2ecd954f968e3d98bbe9c132fb693d8fe",
+    "note": "Native and installed WebP inspected: continuous window and wall artwork replace former horizontal cut; one silver clip visibly overlaps/grips cabinet ledge, with single swimming drawing hanging down against cabinet front. Zoe points, Kit looks, closed folder and exactly two crayons preserved. Natural seated scale, chair/table support and hands remain coherent.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

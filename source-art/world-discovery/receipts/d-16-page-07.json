@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:53.941Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-848d93f6-dda8-44ba-901f-8d53a2352343.png",
+  "sourceSha256": "7b3531fc78c9a672ade77e4785125f2616cc35e547978e946afdc87aa0a98202",
+  "output": "public/guided-reading/world-discovery/d-16/page-07.webp",
+  "outputSha256": "7f89f6911ea64be691c6f25bde87e6a413976f83ab0fd060f2e502284abb1c20",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact children's educational illustration. Correct ONLY eclipse emergence side and safety margin. Keep exact mare pattern/orientation, round outline, red-copper eclipsed disk, sky and rooftop. REMOVE bright rim on RIGHT; that side remains dim copper. Put a narrow pale bright crescent emerging at LOWER-LEFT limb (about7to9o-clock), the same leading side that darkened first on page1. This is emerging sunlight, not a crater/bite. Do NOT mirror or rotate Moon surface pattern. Moon whole circle at least10 percent inside every edge, no glow that implies a new light source. Preserve clean bold dark outlines, flat clean colors and simple coherent shapes, no photographic texture, no lettering, no missing physical Moon material. Diagrams are explanatory and not to physical distance scale. Keep surface identity and exact science; no additional stages.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c1679140-df34-476e-801c-0597dbbd8813.png",
+      "sha256": "5b3fed2d07d5102c771d2543c1b79de88ece35f81dafb1ea81a709c34f28dc43"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "7f89f6911ea64be691c6f25bde87e6a413976f83ab0fd060f2e502284abb1c20",
+    "method": "codex-direct-image-inspection",
+    "note": "Narrow bright lower-left leading rim reappears while rest remains dim copper; mare orientation retained, consistent with root-corrected p7 metadata."
+  }
+}

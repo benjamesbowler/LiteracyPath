@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-16",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:04.001Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-9ee1b065-ce06-4e1a-9b61-658966de7624.png",
+  "sourceSha256": "2a75be4a88686a8e790aec39016f2f5d8fc477b33c67983a3e62ac1f09bcc4af",
+  "output": "public/guided-reading/world-discovery/e-16/page-06.webp",
+  "outputSha256": "d69762fe989dfce1a29870768a067b726afbfe5ad17f93f648695f68a3725408",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce the complete existing children, model/table/mats OR outdoor sky scene OR authored diagram/panel composition to fit its essentials inside the central80percent of the final1536x1024canvas. Extend matching room/garden/sky/background naturally. ALL shoes, hair, fingers, viewing mats, model cards, table feet, and full borders of existing authored inset/comparison panels must be at least10percent inside each edge. Preserve the same three cards, their exact near/middle/far positions and equal stand designs, and same body poses. Retain a real ordinary waist-high table with full long legs and complete human legs when floor is visible. For intentional closeups keep lower bodies and floor ENTIRELY out of view. Do not invent table geometry while widening. Preserve authored diagram/counts only where already present; no extra panels, symbols, physical strings or text. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e16-margin-sources/page-06-before.webp",
+      "sha256": "e149df0ee218e3760b4ae2a1b7899fc2afb2dc8e0767d9be432e5c1c0df1d80f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "364670d218f377e148ba2191d370480903c26ce9cf50d7a523549ce734949b87",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "d69762fe989dfce1a29870768a067b726afbfe5ad17f93f648695f68a3725408",
+    "method": "codex-direct-image-inspection",
+    "note": "Both children now on green side mat, blue mat empty, three model stands show depth. Natural attached limbs and grounded feet; long table legs and mats safely framed."
+  }
+}

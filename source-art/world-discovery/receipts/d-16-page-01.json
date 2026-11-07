@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:25:16.911Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e46a29ff-b2cb-4ac6-a2d9-3ad772a19562.png",
+  "sourceSha256": "eee55e46b10126f044bb914b38689d9de7f9e00433735fbd8d61c993d76b3424",
+  "output": "public/guided-reading/world-discovery/d-16/page-01.webp",
+  "outputSha256": "0464bc9c0f1d26c8df613a6325923ec1ffab88baddff00b1ba591c3fe6bb4d62",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Composition lock: leave 12 percent clear background around every essential subject/prop. Full bodies, when shown, fit entirely inside the central 76 percent of the frame, including hair and shoe soles. Do not add humans or props beyond exact page. No humans anywhere. Sun, Earth and Moon have round physical outlines, never elliptical disks. The same lunar dark mare pattern persists. Diagram objects have distinct correct relative sizes, not to scale. All rays originate Sun, no ray passes through solid Earth. On page2 Earth lies clearly BELOW the unobstructed Sun-to-Moon rays, with light reflected from Moon back toward Earth; do not show eclipse alignment yet. On page9 top and bottom rows are separate comparison panels only, with no labels and no shadow cone in ordinary lunar-phase row. \nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Shadow on the Moon; World Discovery; nonfiction.\nSetting: A hypothetical total lunar eclipse seen from Earth on one clear night. No dated event or claim of current visibility. Explanatory space diagrams are deliberately not to scale; daylight comes only from the Sun.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Moon with consistent dark mare pattern and fully round physical outline; Diagram Sun left, Earth middle, Moon right; Earth's dark shadow extending away from Sun; thin pale atmosphere ring only when explaining filtered light\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): The full Moon rises bright and round. Later, a dark curved edge begins to cover its face.\nRequired illustration: Earthbound view of full Moon just entering the darker shadow; thin curved dark area at lower left.\nExact current state: One Moon, intact circular outline, fixed mare pattern; no clouds causing darkness.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-16-reference.webp",
+      "sha256": "2d9af4afe93fbc412ed445413df45324430e90ecf0e0138e1a3acddf470e9288"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "0464bc9c0f1d26c8df613a6325923ec1ffab88baddff00b1ba591c3fe6bb4d62",
+    "method": "codex-direct-image-inspection",
+    "note": "Opening partial dark edge begins at lower-left; no cloud or missing physical surface; complete Moon and natural rooftop context."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3b2c4dea75c51e4d37e985ca7a33c3eec5ed9c5ab1efaeac674e0b993764d222",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Current full-level source binding after unrelated book metadata and D16 p7 leading-rim correction; this asset exact prompt/native preserved. Reopened current output against current complete book sequence."
+}

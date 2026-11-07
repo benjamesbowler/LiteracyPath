@@ -21,7 +21,7 @@ test("the reviewed published repair resolves to its exact content-addressed byte
   assert.equal(sha256(readFileSync(path.join("public", resolved))), repair.audioSha256);
   const map = "src/data/generated/guidedReadingLedaGaps.generated.js";
   const before = readFileSync(map, "utf8");
-  const inventory = JSON.parse(execFileSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", "bright-ideas-14"], { encoding: "utf8" }));
+  const inventory = JSON.parse(execFileSync(process.execPath, ["tools/generateGuidedReadingLedaGaps.mjs", "--dry-run", "--book-prefix", "bright-ideas-14"], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
   assert.equal(inventory.preflightPassed, true);
   assert.equal(inventory.wordGenerationInventory.find(row => row.normalizedLookupText === "stood").publicPath, resolved);
   assert.equal(readFileSync(map, "utf8"), before);

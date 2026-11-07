@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:11.383Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b5a52e41-a785-4f06-8e56-1e7a2d4a2850.png",
+  "sourceSha256": "ea263feaea7b3d3c88c683fbd7d3e7720121173d48a79581533fe5c5f50b9daa",
+  "output": "public/guided-reading/world-discovery/d-20/cover.webp",
+  "outputSha256": "3936fc2ef83571a5f08bebd546c4e244ff3847dd6a4d42dfb74da6ffcff10d64",
+  "width": 1672,
+  "height": 941,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels. The opaque shield must direct the warm beam straight downward onto the stoop and narrow path. Remove the bright yellow/golden illumination on the hedge entirely: ALL hedge leaves remain dark cool forest green in ambient dusk, matching surrounding shrubbery. Upper window exterior stays dark/unlit. Keep a modest warm pool on the pathway and restrained wall bounce below the fixture; no upward beam.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-979c9f32-7f73-48a5-84d4-c20074a41126.png",
+      "sha256": "f00ce5ee0087fc6145404182b65344bd3714026b813f49ac30a961770eb87f67"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "3936fc2ef83571a5f08bebd546c4e244ff3847dd6a4d42dfb74da6ffcff10d64",
+    "note": "Native PNG and final WebP directly inspected at full image size. Stable house, child and adult grounded on stoop; shield casts down onto path while window/hedge stay dark."
+  }
+}

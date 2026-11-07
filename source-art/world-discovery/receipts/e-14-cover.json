@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:17.641Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-80971a93-cc38-43a8-8aab-1d9fe4ec824a.png",
+  "sourceSha256": "a9cbbe2634b0904df8d6013495771d15484ee0871324b7050b5d308da4798c24",
+  "output": "public/guided-reading/world-discovery/e-14/cover.webp",
+  "outputSha256": "f22c9ff64ada206d2b14e3b95a8f7c105368a686df3182356856400938adf7b3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make only this precise small correction to the supplied image: Remove the yellow blob entirely from the blue hull and restore that small area to solid BLUE. Keep the small RIGHTMOST END of the hull invisible: erase only that tiny outer end and its outer outline, letting the exact yellow tray show naturally behind. Do not draw a yellow blob or colored patch inside the blue body; it must be an absence at the outside tip. Most hull, red sail, tan mast remain intact. No purple paint anywhere on boat. Preserve all existing safe framing, broad margins, natural hands and arm contacts, upper-body crop with no floor, one pot/cup/brush/cloth, canonical identity and flat 2D style. Full1536x1024 3:2. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7e064673-3299-4009-bbac-46b6fc04e326.png",
+      "sha256": "c33d000c0bda38ba246faec441d57b5561a0c13e8edd21095a8e19f952254679"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "f22c9ff64ada206d2b14e3b95a8f7c105368a686df3182356856400938adf7b3",
+    "method": "codex-direct-image-inspection",
+    "note": "Natural upper-body crop and hands, no floor illusion. Kit wipes blue hull; tiny right outer hull tip remains invisible with yellow tray seen through its absent outline, no colored blob. Red sail and tan mast, safe margins."
+  }
+}

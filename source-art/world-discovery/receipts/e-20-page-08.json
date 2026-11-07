@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:07.870Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-184206f1-7315-48dd-b57e-8b52a8aca4da.png",
+  "sourceSha256": "0948500a3ce735a5f3d2062e78af1defe4bd195b289610e7fdafcf9bb54249b0",
+  "output": "public/guided-reading/world-discovery/e-20/page-08.webp",
+  "outputSha256": "858806f75e0c66fc80ec32aa56db2b08b1949ca5fa5ff8de5e9fd05676106885",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact intact scene by about25percent. Uniformly reduce existing people/flower subjects and markers to fit all essential heads, shoes, hands, full primary flower heads/petals, and both complete corner marker stakes at least10percent inside every final1536x1024edge. Extend natural meadow/sky/path around it; no frame/border. Preserve exact current flower stage (buds/bloom/dry seed heads), relative scale of people/flower heads, natural anatomy, two marker stakes, clear walking route, mower position and exact bee/no-bee state. Never add a bee or any animal. Do not make flowers enormous or alter their stems/contact. Preserve coherent physical scene and perspective. Clean bold flat 2D picture-book cartoon, credible physical perspective. No words/letters/numbers/watermark, no new scene. Full3:2landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e20-margin-sources/page-08-before.webp",
+      "sha256": "41960571627cc7f6d6c25e2ff5e9ff13d12ba9fe2fd134bfdfba48a8300b3ba0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "858806f75e0c66fc80ec32aa56db2b08b1949ca5fa5ff8de5e9fd05676106885",
+    "method": "codex-direct-image-inspection",
+    "note": "Low close view shows a few small dark achenes falling below dry head into soil gaps. Complete head safely below top edge, stems naturally rooted, no instant flowers or seed explosion."
+  }
+}

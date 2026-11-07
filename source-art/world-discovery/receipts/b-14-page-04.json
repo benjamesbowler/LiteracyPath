@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-b-14",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:47:54.900Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9c3db8b8-8867-4b87-8882-6c948740d7c1.png",
+  "sourceSha256": "9f35282b3e352f3bef110d0e8b697466c7605694adb716c89842e684a8cd4c83",
+  "output": "public/guided-reading/world-discovery/b-14/page-04.webp",
+  "outputSha256": "70bf85b2432aa5a082d280604102cdc7d90eb43285d6fe82d176f55ddff8871f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This attached image is the edit target. Preserve the entire illustrated action, every prop and its exact color, every clip and cord attachment, cast appearance, faces, gestures, clothing, complete seated lower bodies, chair seats, bent knees and ordinary child-sized table geometry. Make a modest framing adjustment: move the camera back about 18 percent and center the whole existing scene, leaving at least 12 percent of the image height as continuous ordinary floor below the lowest shoe. Keep full heads/hands and all essential props safely inside the edges. Extend the SAME connected room naturally to all four image edges. No mat, frame, vignette, pale border, inset, floating furniture or abrupt floor cutoff. Do not add or remove any person or object. Preserve natural child proportions and physical contact, same clean flat cartoon style. True 1536x1024 landscape 3:2, full bleed. No text.  Additionally change ONLY the chair LEGS from blue paint to natural golden wood matching the table legs; keep the chair backs and seats blue.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a980c24d-eadf-42b4-959b-951cb5f15a85.png",
+      "sha256": "213ebe82a448d14193429e1c98bf411a2ddbc4fe9645bb803893f709416cf36f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b8de296c41d55d00ee5879ef13a1160b88b652467fbcf9569c7d721c76f8b571",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
+    "method": "codex-direct-image-inspection",
+    "sha256": "70bf85b2432aa5a082d280604102cdc7d90eb43285d6fe82d176f55ddff8871f",
+    "outputSha256": "70bf85b2432aa5a082d280604102cdc7d90eb43285d6fe82d176f55ddff8871f",
+    "note": "Cup restored red and lifted by Zoe; cart blue, paper red, both clips free on table. Full seated anatomy and wood chair legs coherent, all essential edges safe.",
+    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+  }
+}

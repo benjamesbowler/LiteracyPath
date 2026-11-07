@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-11",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:50:03.470Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-49c95c1a-bf43-4665-9874-13617d609133.png",
+  "sourceSha256": "f8ff78d2a3eb52fa333655937e5fded3762819d292ace73a78a323e5af9f3f9a",
+  "output": "public/guided-reading/world-discovery/c-11/cover.webp",
+  "outputSha256": "5b707dabc7d95b551477feda422bd16b91534e848f551d9b4d5b947115b3dc18",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve the exact illustration's cast, anatomy, current object counts, colors, design, natural physical contacts and ordinary room perspective. Widen the same scene on a LANDSCAPE 3:2 canvas by about 22 percent, retaining readable human scale, with all people and focal props at least 10 percent inside every edge. Reveal additional neutral wall/floor at sides and below. The leftmost focal object must move to at least 12 percent inside left edge; rightmost focal object at least 12 percent inside right edge. No decorative border and no tiny distant dollhouse room. Do not add extra props or people. Exactly one blue mat, two yellow cups, one red ball; picture card is a flat drawing. Fixed round table belongs INSIDE to the right of door, never in doorway or garden. Keep Kit's natural raised-three-finger checking gesture and Zoe holding card. REMOVE the little round table blocking the doorway; it is out of view to the right behind Zoe. Garden doorway entirely clear, ordinary garden tree only. Left mat on shelf must be fully at least12 percent from edge.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-dc614fb2-e113-420f-b513-d241734a9c43.png",
+      "sha256": "2da56bffb2a496a87911cb3657f0d588e7bcd863b93b0e894d4b07084698ef87"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "82dbb69f8fe710729f42f271778bf6297f32a6982af7892f5c8b5cb78fb54c8e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "5b707dabc7d95b551477feda422bd16b91534e848f551d9b4d5b947115b3dc18",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Kit's three-finger reminder and Zoe's card show mat, two cups and ball; all three item types still physically indoors; normal room scale.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "5b707dabc7d95b551477feda422bd16b91534e848f551d9b4d5b947115b3dc18",
+    "note": "Kit's three-finger reminder and Zoe's card show mat, two cups and ball; all three item types still physically indoors; normal room scale."
+  }
+}

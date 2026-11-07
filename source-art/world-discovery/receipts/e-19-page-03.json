@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-19",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:15:15.292Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6417b48f-e980-47d8-b0cf-828e15be2385.png",
+  "sourceSha256": "3fb95a2353dd9633119a50aed097bac8dacf40eac7a4137fdf79a5f4665653ce",
+  "output": "public/guided-reading/world-discovery/e-19/page-03.webp",
+  "outputSha256": "9d7a35fd4b83f59fb1bed8437aa8423b23890a8d2f71f01d0f0a122fc678e687",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact physically credible upper-body table scene and every shape, label, hand and clothing detail. Make the whole subject group smaller within the same landscape canvas so ALL heads including hair have a clear 12% canvas-height blank margin above them, and a 12% canvas-width margin at both sides. Keep all shapes and tray above the bottom 12% too. The tabletop must continue off the bottom edge and both side edges; no front edge, legs, floor or room furnishings. It is an intentional close view above a normal tall table. Extend only the plain background wall above and wood tabletop below. Preserve the exact number and position relative to each other of all pieces and all functional labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f8bc7434-9530-49f6-8c15-f07eb4da55ac.png",
+      "sha256": "0c12c9c657c8e345bd5b5ce579501bd56a0df63324cb54450e09ab01f298e4e2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bf9908186dace628eff2f5577d9e6aa898be70cf15b531959ece95e5b49ac18a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:17:37.172Z",
+    "sha256": "9d7a35fd4b83f59fb1bed8437aa8423b23890a8d2f71f01d0f0a122fc678e687",
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+  }
+}

@@ -7,6 +7,7 @@ import {
 import { GUIDED_READING_LEDA_GAPS } from "../../data/generated/guidedReadingLedaGaps.generated.js";
 import { GUIDED_READING_NARRATION_PROVENANCE } from "../../data/generated/guidedReadingNarrationProvenance.generated.js";
 import { getMeadowPalsSciencePageNarration, getMeadowPalsScienceTitleNarration, getMeadowPalsScienceWordAudioPath } from "../../data/meadowPalsScienceNarration.js";
+import { getContextualGuidedReadingWordAudioPath } from "../../data/guidedReadingContextualWordAudio.js";
 
 export const guidedReadingReadAloudPolicy = {
   teacher_preview: true,
@@ -71,15 +72,17 @@ export function getGuidedReadingBookSyncPath(book = {}) {
 
 export function getReadAloudMode(book = {}, page = {}) {
   if (getGuidedReadingBookAudioPath(book) || getGuidedReadingPageAudioPath(page)) return "human_audio";
-  if ((page.words || []).some(word => getGuidedReadingWordProductionAudioPath(word))) {
+  if ((page.words || []).some(word => getGuidedReadingWordProductionAudioPath(word, { bookId: book.id, page }))) {
     return "word_sequence";
   }
   return "none";
 }
 
-export function getGuidedReadingWordProductionAudioPath(word = {}) {
+export function getGuidedReadingWordProductionAudioPath(word = {}, context = {}) {
   const rawText = String(word?.text || word || "");
   const readableText = readableWordText(rawText);
+  const contextual = getContextualGuidedReadingWordAudioPath(readableText, context);
+  if (contextual !== undefined) return contextual;
   return GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(rawText)]
     || getLedaWordAudioPath(rawText)
     || GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(readableText)]

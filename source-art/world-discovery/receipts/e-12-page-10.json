@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-12",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:38.924Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-d0da7fff-637e-4868-961f-ea0db1a50bf4.png",
+  "sourceSha256": "beb990e0dcd94a27c41ba712660d115ce626cb229deef9c0a42cc7569f35cf0c",
+  "output": "public/guided-reading/world-discovery/e-12/page-10.webp",
+  "outputSha256": "0c308778937f96b0b5f3bf3b3b35e7fa9c4aa08ee0ba1db732a4b011fac7cba6",
+  "width": 1695,
+  "height": 928,
+  "prompt": "Edit this exact illustration while preserving its specified moment, natural furniture, cast, color and objects. Widen the composition by 22 percent with seamless real room and floor extension. Full heads, hands, knees/shoes and important puzzle/box must have at least 12 percent canvas clearance. All visible legs remain attached to bodies or furniture; no stretched limbs, no blank bands or outpaint seams. Keep the exact chunky rectangular puzzle grid THREE rows by FOUR columns (12 positions), red boat, blue water, white sail; before page10 exactly one gap TOP ROW THIRD COLUMN and eleven tiles assembled, no extra missing tile. Blue cushion, plain empty tan box. Kit teal T and mustard shorts/navy sneakers; Zoe yellow T and plum LONG overalls/white sneakers, same height. Crisp dark outlined flat 2D, no grain, no text, no arrows. EXCEPTION to missing state: puzzle is now COMPLETE, all12 rectangular tiles and sail tip fitted, Zoe presses the top-row third-column tile flat. No loose tile anywhere.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b13076df-e8a3-4d0a-b7ce-b072e15ba9d8.png",
+      "sha256": "f5cdf313a0ff38d1ccdda5e3ed928a2881a17ab529904c120b6827c1625b5686"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:20:34.618509+00:00",
+    "sha256": "0c308778937f96b0b5f3bf3b3b35e7fa9c4aa08ee0ba1db732a4b011fac7cba6",
+    "note": "Producer directly inspected native and final encoded WebP. Zoe presses sail tile in matching top third-column cell; twelve-piece completed boat, no extra loose tile."
+  }
+}

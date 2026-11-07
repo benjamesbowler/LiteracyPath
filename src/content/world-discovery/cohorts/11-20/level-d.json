@@ -1,0 +1,1575 @@
+[
+  {
+    "id": "world-discovery-d-11",
+    "number": 11,
+    "title": "I Pick the Rain",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants a picture of her best day, but she lets Kit's sunny-day preference hide the rainy detail that makes her own memory special.",
+      "failedAttempt": "She covers her rain cloud with Kit's suggested paper sun, then sees that the picture no longer explains her boots and puddle.",
+      "resolution": "Zoe removes the loose paper sun, restores the rain, and explains why the puddle matters. Their two different best-day pictures hang together."
+    },
+    "setting": "World Discovery. WD-KIT and WD-ZOE retain their locked cast-v1 clothing, proportions and equal height. One ordinary classroom art table and low display ledge in steady afternoon light. Both make pictures of a remembered favorite day; the room itself is dry. Memories appear only as drawings on paper, not as changes of clothing or setting.",
+    "props": [
+      "Zoe's cream drawing sheet: two purple boots above one blue puddle, then one gray cloud and blue rain strokes; no drawn person needed",
+      "Kit's separate cream drawing sheet: orange ball on green grass under one yellow sun",
+      "One loose yellow paper sun disk with short cut rays, large enough to cover Zoe's small drawn cloud; it is never glued",
+      "Gray and blue crayons in a yellow tray; two plain display clips"
+    ],
+    "coverBrief": "Zoe holds her completed rainy-day picture beside Kit's sunny ball picture. Their sheets have the same size; Zoe points proudly to her blue puddle. Show no real rain inside the classroom.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe draws her best day: purple boots splashing in a puddle. Kit draws a ball beneath a bright sun.",
+        "imageBrief": "Zoe adds a blue puddle below two drawn purple boots; Kit's separate sheet already shows an orange ball, green grass and yellow sun.",
+        "imageAlt": "Zoe adds a blue puddle below two drawn purple boots; Kit's separate sheet already shows an orange ball, green grass and yellow sun.",
+        "pageDescription": "Zoe adds a blue puddle below two drawn purple boots; Kit's separate sheet already shows an orange ball, green grass and yellow sun.",
+        "state": "Two separate sheets; Zoe's upper sky still blank; loose paper sun rests beside yellow tray.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "When Zoe adds a rain cloud, Kit looks up. “My best day had sunshine. Would yours look better with a sun?”",
+        "imageBrief": "Kit gestures from his own drawn sun toward Zoe's newly drawn gray cloud; Zoe pauses with gray crayon.",
+        "imageAlt": "Kit gestures from his own drawn sun toward Zoe's newly drawn gray cloud; Zoe pauses with gray crayon.",
+        "pageDescription": "Kit gestures from his own drawn sun toward Zoe's newly drawn gray cloud; Zoe pauses with gray crayon.",
+        "state": "Zoe's cloud has no rain strokes yet; her boots and puddle remain.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "He holds out a yellow paper sun. Zoe lays it over her cloud and puts down the blue crayon.",
+        "imageBrief": "Zoe places the loose yellow paper sun directly over her small gray cloud while Kit watches.",
+        "imageAlt": "Zoe places the loose yellow paper sun directly over her small gray cloud while Kit watches.",
+        "pageDescription": "Zoe places the loose yellow paper sun directly over her small gray cloud while Kit watches.",
+        "state": "Cloud completely covered, sun unglued; blue crayon returned to tray.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The picture is bright now, but Zoe frowns. Without the rain, her puddle seems like the wrong part of the day.",
+        "imageBrief": "Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.",
+        "imageAlt": "Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.",
+        "pageDescription": "Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.",
+        "state": "Do not erase puddle or add rain; her changed expression carries the hesitation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "She remembers the splash reaching her knees. That was the part she had wanted to draw.",
+        "imageBrief": "Close view of Zoe looking at the two drawn boots above the puddle, with her fingertip tracing its splash shape.",
+        "imageAlt": "Close view of Zoe looking at the two drawn boots above the puddle, with her fingertip tracing its splash shape.",
+        "pageDescription": "Close view of Zoe looking at the two drawn boots above the puddle, with her fingertip tracing its splash shape.",
+        "state": "Present classroom moment only; no flashback, additional Zoe, or new boots on real child.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe lifts the paper sun. “I liked the rain,” she says. “It made a puddle big enough to jump in.”",
+        "imageBrief": "Zoe lifts the unglued paper sun away, exposing the original gray cloud to Kit.",
+        "imageAlt": "Zoe lifts the unglued paper sun away, exposing the original gray cloud to Kit.",
+        "pageDescription": "Zoe lifts the unglued paper sun away, exposing the original gray cloud to Kit.",
+        "state": "Sun in Zoe's hand; original cloud unchanged underneath.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "“But you got wet,” says Kit. Zoe grins. “My boots got wet. I wanted one more jump.”",
+        "imageBrief": "Zoe smiles at Kit while resting the loose paper sun beside the tray.",
+        "imageAlt": "Zoe smiles at Kit while resting the loose paper sun beside the tray.",
+        "pageDescription": "Zoe smiles at Kit while resting the loose paper sun beside the tray.",
+        "state": "Paper sun now off sheet; both children retain normal locked clothes and footwear.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "She draws blue rain below the cloud. Now the boots, the splashes, and the sky belong in the same picture.",
+        "imageBrief": "Zoe draws distinct short blue rain strokes beneath the gray cloud, keeping the boots and puddle visible.",
+        "imageAlt": "Zoe draws distinct short blue rain strokes beneath the gray cloud, keeping the boots and puddle visible.",
+        "pageDescription": "Zoe draws distinct short blue rain strokes beneath the gray cloud, keeping the boots and puddle visible.",
+        "state": "Completed drawing includes one cloud, rain strokes, two boots and one puddle; no sun on Zoe's sheet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Kit holds up his sunny picture. Zoe holds up her rainy one. Neither asks the other to change it.",
+        "imageBrief": "Both hold their separate finished pictures at equal height and look across at each other's sheet.",
+        "imageAlt": "Both hold their separate finished pictures at equal height and look across at each other's sheet.",
+        "pageDescription": "Both hold their separate finished pictures at equal height and look across at each other's sheet.",
+        "state": "Kit's sun and ball picture unchanged; Zoe's rain picture complete.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "They clip both pictures to the ledge. Zoe points to the biggest splash. “That is why I picked this day.”",
+        "imageBrief": "Both pictures are clipped side by side to the low display ledge; Zoe points to the puddle's largest drawn splash.",
+        "imageAlt": "Both pictures are clipped side by side to the low display ledge; Zoe points to the puddle's largest drawn splash.",
+        "pageDescription": "Both pictures are clipped side by side to the low display ledge; Zoe points to the puddle's largest drawn splash.",
+        "state": "Two clips, one per picture; loose paper sun remains on art table.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does Zoe take the paper sun off her picture?",
+        "listenFor": "Her favorite part was jumping in the puddle made by rain. Kit's different preference does not have to change her own remembered choice."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which details now help explain why Zoe liked this day?",
+        "lookFor": "The rain cloud and rain connect to the puddle, splashes and jumping boots."
+      }
+    },
+    "levelRationale": "Candidate D: Zoe revises a concrete choice after noticing a mismatch between her memory and someone else's preference. Dialogue, a reversible failed change and the restored picture carry an internal decision across linked pages. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "prefer",
+        "meaning": "to like one choice more than another"
+      },
+      {
+        "word": "puddle",
+        "meaning": "a small pool of water on the ground"
+      },
+      {
+        "word": "remember",
+        "meaning": "to bring something from before back to mind"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-12",
+    "number": 12,
+    "title": "Before You Fix It",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants to finish Zoe's cardboard house while she fetches tape, but he covers the roof opening she made for looking inside.",
+      "failedAttempt": "He sticks a patch across the opening, then tries to pull it off quickly; the roof edge tears.",
+      "resolution": "Kit asks Zoe what should stay, supports the torn edge with her, and leaves the viewing opening clear."
+    },
+    "setting": "World Discovery. WD-KIT and WD-ZOE keep their locked cast-v1 designs, clothing and equal height. Classroom craft table in afternoon daylight. A small cardboard house has a rectangular viewing opening cut in its roof; a red paper bed is visible inside. All cardboard is precut; no cutting is shown.",
+    "props": [
+      "Tan cardboard house with blue door, roof viewing opening and one red folded-paper bed",
+      "One tan rectangular roof patch",
+      "Clear tape dispenser with short ready strips",
+      "Two narrow tan reinforcement strips; small yellow tray"
+    ],
+    "coverBrief": "Kit and Zoe support the repaired roof rim, leaving its rectangular opening clear enough to see the red bed below.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe leaves her little house on the table while she gets tape. Kit spots a hole in its roof.",
+        "imageBrief": "Kit examines the roof opening while Zoe walks toward the tape shelf in the same room.",
+        "imageAlt": "Kit examines the roof opening while Zoe walks toward the tape shelf in the same room.",
+        "pageDescription": "Kit examines the roof opening while Zoe walks toward the tape shelf in the same room.",
+        "state": "Viewing opening intentional but Kit does not know; red bed visible through it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "“I can fix that,” he says. He lays a cardboard patch over the hole and presses tape along its edges.",
+        "imageBrief": "Kit presses one ready strip of tape along a tan patch covering the opening.",
+        "imageAlt": "Kit presses one ready strip of tape along a tan patch covering the opening.",
+        "pageDescription": "Kit presses one ready strip of tape along a tan patch covering the opening.",
+        "state": "Patch now covers opening; no new roof hole or extra house.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe comes back and bends over the roof. “Now I can't see the bed!” she says.",
+        "imageBrief": "Zoe looks down at the covered roof while holding the tape dispenser.",
+        "imageAlt": "Zoe looks down at the covered roof while holding the tape dispenser.",
+        "pageDescription": "Zoe looks down at the covered roof while holding the tape dispenser.",
+        "state": "Bed unchanged inside; opening completely blocked by patch.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "“I thought it was broken.” Kit pulls at the patch. A piece of the roof tears up with it.",
+        "imageBrief": "Kit lifts one corner of the patch; a small triangular tear rises from the near roof rim.",
+        "imageAlt": "Kit lifts one corner of the patch; a small triangular tear rises from the near roof rim.",
+        "pageDescription": "Kit lifts one corner of the patch; a small triangular tear rises from the near roof rim.",
+        "state": "Patch partly peeled; tear confined to near rim; no crushed house.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe catches his hand. “Wait. I made that opening so we could look inside.” Kit lets go.",
+        "imageBrief": "Zoe lightly stops Kit's lifting hand as he releases the loose corner of the partly detached patch.",
+        "imageAlt": "Zoe lightly stops Kit's lifting hand as he releases the loose corner of the partly detached patch.",
+        "pageDescription": "Zoe lightly stops Kit's lifting hand as he releases the loose corner of the partly detached patch.",
+        "state": "One far tape edge still attaches the patch; near edge torn; no hard grip or crushed house.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "He looks at the torn edge. “What do you want to keep?” Zoe points around the hole. “All this space.”",
+        "imageBrief": "Kit holds the loose patch corner clear while Zoe traces the intended rectangular opening beneath it.",
+        "imageAlt": "Kit holds the loose patch corner clear while Zoe traces the intended rectangular opening beneath it.",
+        "pageDescription": "Kit holds the loose patch corner clear while Zoe traces the intended rectangular opening beneath it.",
+        "state": "Patch remains hinged by its last far tape edge; opening visible, torn rim still needs support.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Together they ease off the last tape. Kit holds the roof still while Zoe slips a strip beneath the tear.",
+        "imageBrief": "Zoe slides one narrow reinforcement strip under the torn rim as Kit steadies the far wall.",
+        "imageAlt": "Zoe slides one narrow reinforcement strip under the torn rim as Kit steadies the far wall.",
+        "pageDescription": "Zoe slides one narrow reinforcement strip under the torn rim as Kit steadies the far wall.",
+        "state": "Patch removed and on yellow tray; one reinforcement strip in use, other unused.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "She tapes the strip in place. Kit presses the bent edge flat, leaving the opening clear.",
+        "imageBrief": "Kit presses the supported rim down beside Zoe's applied clear tape.",
+        "imageAlt": "Kit presses the supported rim down beside Zoe's applied clear tape.",
+        "pageDescription": "Kit presses the supported rim down beside Zoe's applied clear tape.",
+        "state": "Opening unblocked; repair lies only underneath the damaged rim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "“Anything else?” he asks. Zoe looks through the roof. “Move the bed a little. It's hiding behind the wall.”",
+        "imageBrief": "Zoe peers through the clear opening while Kit reaches through the blue doorway toward the red bed.",
+        "imageAlt": "Zoe peers through the clear opening while Kit reaches through the blue doorway toward the red bed.",
+        "pageDescription": "Zoe peers through the clear opening while Kit reaches through the blue doorway toward the red bed.",
+        "state": "No roof changes; requested bed adjustment is the only next task.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Kit slides the bed into view. They lean over the opening together. This time, both can see inside.",
+        "imageBrief": "Overhead view of both children looking through the repaired opening at the centered red bed.",
+        "imageAlt": "Overhead view of both children looking through the repaired opening at the centered red bed.",
+        "pageDescription": "Overhead view of both children looking through the repaired opening at the centered red bed.",
+        "state": "House stable; patch unused on tray; roof opening and bed visible.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What does Kit do differently before moving the bed?",
+        "listenFor": "He asks what Zoe wants and waits for a specific request instead of deciding the model is wrong."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where is the repair, and what stays open?",
+        "lookFor": "A taped strip supports the torn rim; it does not cover the viewing hole."
+      }
+    },
+    "levelRationale": "Candidate D: an initially helpful intention causes a visible loss, then a failed undoing creates a second concrete problem. Readers connect different interpretations of the opening to a changed approach and an earned repair. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "patch",
+        "meaning": "a piece used to cover a hole"
+      },
+      {
+        "word": "rim",
+        "meaning": "the edge around an opening"
+      },
+      {
+        "word": "support",
+        "meaning": "hold something in place"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-13",
+    "number": 13,
+    "title": "A Signal You Can Hear",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can one crossing signal give the same message in ways people can see, hear or feel?",
+      "progression": "Follow one adult and child at one example accessible crossing, comparing the visual signal with its sound and vibrating arrow during the same walk interval.",
+      "synthesis": "Different forms carry the crossing information; a sound is not a promise that traffic has stopped.",
+      "scienceSources": [
+        {
+          "title": "US Access Board: Accessibility Guidelines for Pedestrian Facilities",
+          "url": "https://www.access-board.gov/prowag/complete.html",
+          "evidence": "R307 tactile arrow alignment; R308 audible and vibrotactile indications during the walk interval. The example uses one push-button-integrated signal, not a claim about every crossing."
+        },
+        {
+          "title": "US Access Board: Traffic Signal Controllers and APS Technologies",
+          "url": "https://www.access-board.gov/research/prow/interfacing-aps/traffic-signal-controllers-aps-technologies/",
+          "evidence": "Accessible pedestrian signals convey phase information with audible and tactile formats; arrow/button vibrates when WALK is on. Low locator sound differs from walk indication."
+        }
+      ]
+    },
+    "setting": "World Discovery ordinary US street corner in daylight. WD-KIT is with one unnamed adult: medium-brown skin, short black curls, pale gray shirt, navy pants and white mobility cane. Adult is about 1.7 times Kit's height. One straight crosswalk and one accessible signal system; no national symbols.",
+    "props": [
+      "Near-corner yellow push-button box with one black circular vibrating push-button face bearing a high-contrast raised arrow aligned parallel to the crosswalk; speaker grille in the housing above",
+      "Opposite pedestrian display: orange raised hand before crossing, white walking figure during walk interval",
+      "White cane with red lower section",
+      "Marked white crosswalk; near and far curb ramps"
+    ],
+    "coverBrief": "Kit stands beside the adult at the curb while the adult touches the raised arrow on the accessible push-button box; a white walking figure is visible across the street.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "At this corner, Kit watches the orange hand across the street. Beside him, an adult listens near the crossing button.",
+        "imageBrief": "Kit and the adult wait entirely behind the near curb; orange hand illuminated across the road.",
+        "imageAlt": "Kit and the adult wait entirely behind the near curb; orange hand illuminated across the road.",
+        "pageDescription": "Kit and the adult wait entirely behind the near curb; orange hand illuminated across the road.",
+        "state": "No pedestrian in road; adult's cane tip on sidewalk; vehicle stopped short of crosswalk.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A quiet sound helps the adult find the button. That sound does not mean it is time to cross.",
+        "imageBrief": "Adult locates the button housing by its speaker while Kit watches; subtle sound arcs originate at speaker.",
+        "imageAlt": "Adult locates the button housing by its speaker while Kit watches; subtle sound arcs originate at speaker.",
+        "pageDescription": "Adult locates the button housing by its speaker while Kit watches; subtle sound arcs originate at speaker.",
+        "state": "Orange hand still displayed; locating sound only; no walking cue.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The adult presses the button. A raised arrow on its surface points along the crossing they want to use.",
+        "imageBrief": "Close view of the adult pressing the black circular button face that carries the raised arrow itself. The arrow is integral to this moving button, not a separate plate above it; align the arrow parallel to the crosswalk toward the far curb.",
+        "imageAlt": "Close-up of adult finger pressing the button beneath its raised tactile arrow; crosswalk runs in the same direction.",
+        "pageDescription": "Close-up of adult finger pressing the button beneath its raised tactile arrow; crosswalk runs in the same direction.",
+        "state": "Arrow points toward the opposite curb, not toward traffic flowing across the crosswalk.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit can see the arrow. The adult can feel its shape without needing to see the mark.",
+        "imageBrief": "The adult’s fingertips rest on the raised arrow on that same black circular button face while Kit looks from beside the yellow housing. Keep the arrow aligned toward the crossing and show natural finger contact.",
+        "imageAlt": "Adult fingertips rest along the raised arrow; Kit looks at the same arrow from beside the housing.",
+        "pageDescription": "Adult fingertips rest along the raised arrow; Kit looks at the same arrow from beside the housing.",
+        "state": "One arrow and one pair of adult hands; no duplicate button or extra fingers.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "They wait. Pressing the button does not make the cars stop at once.",
+        "imageBrief": "Wider view of both still on sidewalk while a car passes the crosswalk before the walk phase.",
+        "imageAlt": "Wider view of both still on sidewalk while a car passes the crosswalk before the walk phase.",
+        "pageDescription": "Wider view of both still on sidewalk while a car passes the crosswalk before the walk phase.",
+        "state": "Orange hand remains on; adults and child do not enter road.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Now the white walking figure appears. A faster ticking sound comes from the button beside them.",
+        "imageBrief": "Opposite display shows one white walking figure; sound arcs emerge from near button speaker.",
+        "imageAlt": "Opposite display shows one white walking figure; sound arcs emerge from near button speaker.",
+        "pageDescription": "Opposite display shows one white walking figure; sound arcs emerge from near button speaker.",
+        "state": "Only WALK displayed; car lane facing crossing shows red signal and car stopped.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The arrow vibrates too. The adult feels it under a fingertip while Kit watches the walking figure.",
+        "imageBrief": "Close view of one fingertip touching the raised arrow on the vibrating black button face; a few restrained motion marks surround the button, not the entire pole. White walking figure visible across the road; arrow points along the crossing.",
+        "imageAlt": "Close-up on fingertip touching raised arrow with restrained vibration marks; white walking figure visible beyond.",
+        "pageDescription": "Close-up on fingertip touching raised arrow with restrained vibration marks; white walking figure visible beyond.",
+        "state": "Tactile and audible walk cues simultaneous; arrow stays aligned with crosswalk.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The light, sound, and movement give the walk message in different ways. They do not move the traffic themselves.",
+        "imageBrief": "Both people remain at curb, adult listening and turning toward traffic while Kit looks across.",
+        "imageAlt": "Both people remain at curb, adult listening and turning toward traffic while Kit looks across.",
+        "pageDescription": "Both people remain at curb, adult listening and turning toward traffic while Kit looks across.",
+        "state": "White walk indication active; no implication that button controls each driver's behavior.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The adult checks the traffic before they cross together. Kit stays beside the tapping cane.",
+        "imageBrief": "Kit and adult walk together within the marked crosswalk; cane sweeps the path ahead; vehicles stationary behind stop lines.",
+        "imageAlt": "Kit and adult walk together within the marked crosswalk; cane sweeps the path ahead; vehicles stationary behind stop lines.",
+        "pageDescription": "Kit and adult walk together within the marked crosswalk; cane sweeps the path ahead; vehicles stationary behind stop lines.",
+        "state": "No approaching vehicle in crosswalk; adult leads checking and crossing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "On the far sidewalk, Kit looks back. That little box had more than one way to say the same thing.",
+        "imageBrief": "Both have reached far sidewalk and look toward the accessible button on the near corner.",
+        "imageAlt": "Both have reached far sidewalk and look toward the accessible button on the near corner.",
+        "pageDescription": "Both have reached far sidewalk and look toward the accessible button on the near corner.",
+        "state": "Crossing completed; no children touching control boxes or taking them apart.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why might a crossing use a light, a sound, and a vibrating arrow?",
+        "listenFor": "People can receive the same walk message through different senses; the signal still does not replace checking traffic."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "Where does the raised arrow point?",
+        "lookFor": "Along this crosswalk toward the opposite curb, matching the route the people intend to take."
+      }
+    },
+    "levelRationale": "Candidate D: a bounded observation compares three forms of one signal and distinguishes locating, waiting and crossing. The final caution corrects a causal misconception without introducing traffic-engineering detail. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "vibrate",
+        "meaning": "move back and forth very quickly"
+      },
+      {
+        "word": "raised",
+        "meaning": "sticking up enough to feel"
+      },
+      {
+        "word": "signal",
+        "meaning": "a sign or sound that carries a message"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-14",
+    "number": 14,
+    "title": "The Borrowed Shadow",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants his borrowed giant shadow to wave a red fan for Zoe, but the flat shadow cannot pick up the real fan beside the wall.",
+      "failedAttempt": "He opens and closes his empty hand twice, making the shadow grasp through the real fan without moving it.",
+      "resolution": "Kit holds the fan himself; the giant shadow copies the combined shape, and its fan can wave across the wall.",
+      "magicRule": "A silver chalk circle lends the person standing inside it one giant flat shadow on the opposite wall, even without a lamp. It copies that person's outline and held objects, cannot touch real objects, and disappears when the person leaves the circle."
+    },
+    "setting": "World Discovery. WD-KIT and WD-ZOE keep their locked cast-v1 designs, clothing and equal height. Ordinary playroom with pale wall and flat floor at dusk. This is explicit fantasy, not a lesson about real optics. Silver chalk circle lies three child steps from wall; no lamp or other light-shadow lesson.",
+    "props": [
+      "One silver chalk stick and one silver floor circle",
+      "One real small red semicircular folded-paper fan on a short blunt wooden handle",
+      "One empty low blue chair beside wall",
+      "Borrowed shadow is a single dark flat silhouette; no face or independent limbs"
+    ],
+    "coverBrief": "Kit stands inside the silver chalk circle holding the little red fan; his giant shadow and the fan's shadow wave on the pale wall while Zoe watches.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe draws a silver circle. “Stand here,” she says. “It lends you a giant shadow that copies your shape.”",
+        "imageBrief": "Zoe finishes the silver floor circle while Kit waits outside; pale wall blank.",
+        "imageAlt": "Zoe finishes the silver floor circle while Kit waits outside; pale wall blank.",
+        "pageDescription": "Zoe finishes the silver floor circle while Kit waits outside; pale wall blank.",
+        "state": "Fan rests on blue chair by wall; chalk in Zoe's hand; no shadow yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit steps inside. A huge shadow rises on the wall, though there is no lamp behind him.",
+        "imageBrief": "Kit stands in circle with arms down; one matching giant silhouette appears on opposite wall.",
+        "imageAlt": "Kit stands in circle with arms down; one matching giant silhouette appears on opposite wall.",
+        "pageDescription": "Kit stands in circle with arms down; one matching giant silhouette appears on opposite wall.",
+        "state": "Explicit magical appearance; no detached silhouette floating in room.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "He lifts one hand. The shadow lifts one hand. He spreads his fingers, and its huge fingers spread too.",
+        "imageBrief": "Kit raises his right hand; giant silhouette exactly matches posture and five-finger hand shape.",
+        "imageAlt": "Kit raises his right hand; giant silhouette exactly matches posture and five-finger hand shape.",
+        "pageDescription": "Kit raises his right hand; giant silhouette exactly matches posture and five-finger hand shape.",
+        "state": "Zoe outside circle; shadow has same clothing outline and limb count.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "“Wave the fan!” Zoe says. The little red fan rests on a chair beside the shadow's hand.",
+        "imageBrief": "Zoe points at real fan on chair near wall; Kit remains inside circle with empty raised hand.",
+        "imageAlt": "Zoe points at real fan on chair near wall; Kit remains inside circle with empty raised hand.",
+        "pageDescription": "Zoe points at real fan on chair near wall; Kit remains inside circle with empty raised hand.",
+        "state": "Chair and fan are real colored props; shadow hand flat behind them.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit closes his fingers around the air. On the wall, the shadow's fist passes right through the fan.",
+        "imageBrief": "Kit closes empty hand while flat shadow overlaps the real fan without contact.",
+        "imageAlt": "Kit closes empty hand while flat shadow overlaps the real fan without contact.",
+        "pageDescription": "Kit closes empty hand while flat shadow overlaps the real fan without contact.",
+        "state": "Fan stays on chair; no bending or displacement caused by shadow.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "He tries again, more slowly. The fan stays still. “Your hand is flat,” Zoe tells the shadow.",
+        "imageBrief": "Zoe crouches beside untouched fan as Kit's shadow hand closes again on wall.",
+        "imageAlt": "Zoe crouches beside untouched fan as Kit's shadow hand closes again on wall.",
+        "pageDescription": "Zoe crouches beside untouched fan as Kit's shadow hand closes again on wall.",
+        "state": "Failure repeated once; no magic hand emerging from wall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit looks at his own empty fingers. “It's copying me,” he says. “I need something to hold.”",
+        "imageBrief": "Kit studies his empty hand from inside circle; shadow matches that thoughtful pose.",
+        "imageAlt": "Kit studies his empty hand from inside circle; shadow matches that thoughtful pose.",
+        "pageDescription": "Kit studies his empty hand from inside circle; shadow matches that thoughtful pose.",
+        "state": "Zoe remains beside chair; fan still lies there.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe brings him the real fan. When Kit holds it up, a dark fan grows above the giant hand.",
+        "imageBrief": "Zoe passes short fan handle to Kit inside circle; shadow includes fan outline for first time.",
+        "imageAlt": "Zoe passes short fan handle to Kit inside circle; shadow includes fan outline for first time.",
+        "pageDescription": "Zoe passes short fan handle to Kit inside circle; shadow includes fan outline for first time.",
+        "state": "One real red fan, one flat dark fan shadow; chalk circle unbroken.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Kit sweeps his arm. The tiny red fan waves, and its enormous shadow sails across the wall.",
+        "imageBrief": "Kit waves real fan from inside circle; giant silhouette copies same arm and semicircular fan shape.",
+        "imageAlt": "Kit waves real fan from inside circle; giant silhouette copies same arm and semicircular fan shape.",
+        "pageDescription": "Kit waves real fan from inside circle; giant silhouette copies same arm and semicircular fan shape.",
+        "state": "No second fan or autonomous shadow; Zoe stands clear of swing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor.",
+        "imageBrief": "Kit bows inside circle holding fan; giant silhouette bends identically while Zoe waves.",
+        "imageAlt": "Kit bows inside circle holding fan; giant silhouette bends identically while Zoe waves.",
+        "pageDescription": "Kit bows inside circle holding fan; giant silhouette bends identically while Zoe waves.",
+        "state": "Resolution remains visible; Kit still in circle so shadow persists.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does the fan move at the end but not when the shadow first reaches for it?",
+        "listenFor": "Kit holds and moves the real fan; the magic copies its outline but cannot pick up real objects."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What new shape appears on the wall, and what makes it appear?",
+        "lookFor": "A dark semicircular fan joins the hand's silhouette because Kit now holds the real red fan."
+      }
+    },
+    "levelRationale": "Candidate D: the concrete failed grasp leads to a supported inference about one established magical rule. Ten short dialogue/action beats retain clear object identity and end with a visible comic payoff. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "outline",
+        "meaning": "the shape around the outside of something"
+      },
+      {
+        "word": "copies",
+        "meaning": "makes the same shape or action"
+      },
+      {
+        "word": "bow",
+        "meaning": "bend forward to greet or thank an audience"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-15",
+    "number": 15,
+    "title": "The Moving Dune",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a hill of sand change its position without moving as one solid piece?",
+      "progression": "Track wind lifting grains up one gentle slope, depositing them over the crest, and gravity sliding them down the steep side; compare the dune with one fixed rock over time.",
+      "synthesis": "Many small grain movements gradually move the sand hill downwind; the rock is a reference point, not an object pushed by the dune.",
+      "scienceSources": [
+        {
+          "title": "USGS: Eolian Processes",
+          "url": "https://pubs.usgs.gov/gip/deserts/eolian/",
+          "evidence": "Wind moves grains by hopping and creep up a gentle windward slope; accumulating sand slides down the slipface, producing downwind dune migration."
+        },
+        {
+          "title": "NPS: Sand dune geology",
+          "url": "https://home.nps.gov/slbe/learn/nature/sand-dune-geology.htm",
+          "evidence": "Active dunes advance gradually; rates and directions vary. Wind-driven grains collide and bounce; unvegetated downwind slopes are steeper than windward slopes."
+        }
+      ]
+    },
+    "setting": "One illustrative unvegetated sand dune in bright daylight, shown from the same side through a period of prevailing left-to-right wind. Generic example, not a named park or universal dune shape. A fixed dark bedrock outcrop sits in the foreground outside the migrating sand path.",
+    "props": [
+      "Tan sand dune with long gentle left slope and short steep right slope",
+      "Fixed charcoal bedrock outcrop with two notches, always foreground left",
+      "Small magnified grain inset only on pages 2–4; diagram grains not oversized real boulders"
+    ],
+    "coverBrief": "A clean side view shows wind carrying grains up the dune's gentle left slope and a small cascade down its steep right side; the fixed foreground rock anchors the location.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This sandy hill is a dune. Beside a dark rock, its steep edge seems to stand still.",
+        "imageBrief": "Side view of dune with gentle left slope, steep right face and fixed notched rock in foreground.",
+        "imageAlt": "Side view of dune with gentle left slope, steep right face and fixed notched rock in foreground.",
+        "pageDescription": "Side view of dune with gentle left slope, steep right face and fixed notched rock in foreground.",
+        "state": "Opening position; no wind arrows or apparent movement yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Look closer on a windy day. Loose grains roll and hop along the ground.",
+        "imageBrief": "Close view of a few sand grains moving near ground level, with distant dune still recognizable.",
+        "imageAlt": "Close view of a few sand grains moving near ground level, with distant dune still recognizable.",
+        "pageDescription": "Close view of a few sand grains moving near ground level, with distant dune still recognizable.",
+        "state": "Wind left to right; small motion arcs are diagram cues, not jumping creatures.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "When one hopping grain lands, it can knock other grains loose. Soon more sand is moving.",
+        "imageBrief": "Magnified inset shows one grain contacting another at the surface with a short onward hop.",
+        "imageAlt": "Magnified inset shows one grain contacting another at the surface with a short onward hop.",
+        "pageDescription": "Magnified inset shows one grain contacting another at the surface with a short onward hop.",
+        "state": "Grains irregular and lifeless; no faces or bouncing balls; inset scale explicit in composition.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The wind carries sand up the dune's gentle side. Grain after grain reaches the top.",
+        "imageBrief": "Side view shows sparse grain paths ascending gentle left slope to crest.",
+        "imageAlt": "Side view shows sparse grain paths ascending gentle left slope to crest.",
+        "pageDescription": "Side view shows sparse grain paths ascending gentle left slope to crest.",
+        "state": "Steep right slope unchanged; no grains flowing uphill on the sheltered face.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Sand gathers beyond the top. When too much piles there, some slips down the steep side.",
+        "imageBrief": "Small fresh accumulation just past crest begins one shallow slide down right slope.",
+        "imageAlt": "Small fresh accumulation just past crest begins one shallow slide down right slope.",
+        "pageDescription": "Small fresh accumulation just past crest begins one shallow slide down right slope.",
+        "state": "Gravity-driven slide directed downhill; no giant avalanche or lifted whole dune.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The sliding sand settles at the bottom. The steep edge now reaches a little farther forward.",
+        "imageBrief": "Close view of fresh deposited grains at right foot of dune; fixed rock still foreground left.",
+        "imageAlt": "Close view of fresh deposited grains at right foot of dune; fixed rock still foreground left.",
+        "pageDescription": "Close view of fresh deposited grains at right foot of dune; fixed rock still foreground left.",
+        "state": "One incremental extension; no instant large-distance shift.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Meanwhile, wind keeps taking grains from the other side. The hill changes as sand leaves one place and fills another.",
+        "imageBrief": "Wide side view links erosion on left with deposition on right using two restrained directional arrows.",
+        "imageAlt": "Wide side view links erosion on left with deposition on right using two restrained directional arrows.",
+        "pageDescription": "Wide side view links erosion on left with deposition on right using two restrained directional arrows.",
+        "state": "Arrows represent grain movement; bedrock stays fixed and uncovered.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "After many windy days, compare the dune with the rock. Its steep edge is farther away than before.",
+        "imageBrief": "Later same-camera view: dune has migrated right relative to unchanged foreground rock; faint dotted former profile only.",
+        "imageAlt": "Later same-camera view: dune has migrated right relative to unchanged foreground rock; faint dotted former profile only.",
+        "pageDescription": "Later same-camera view: dune has migrated right relative to unchanged foreground rock; faint dotted former profile only.",
+        "state": "Dotted line is a comparison guide, not a second real dune; no stated universal rate.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The rock did not walk, and the dune did not jump. Thousands of small movements changed the hill's position.",
+        "imageBrief": "Close view returns to grains on the dune with fixed notched rock visible at left.",
+        "imageAlt": "Close view returns to grains on the dune with fixed notched rock visible at left.",
+        "pageDescription": "Close view returns to grains on the dune with fixed notched rock visible at left.",
+        "state": "Sand movement is continuous small transfers, not solid sliding block.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "A hill can travel one grain at a time. Here, the wind keeps moving sand toward the dune's steep side.",
+        "imageBrief": "Final broad view of the shifted dune and fixed foreground rock; sparse left-to-right grain flow continues.",
+        "imageAlt": "Final broad view of the shifted dune and fixed foreground rock; sparse left-to-right grain flow continues.",
+        "pageDescription": "Final broad view of the shifted dune and fixed foreground rock; sparse left-to-right grain flow continues.",
+        "state": "Same dune orientation and location; no people, plants or magical agency.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does the dune change places if the whole hill does not jump?",
+        "listenFor": "Wind carries grains up one side; grains slide and settle on the other, so repeated transfers move the dune."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which feature helps us compare the dune's old and new positions?",
+        "lookFor": "The same notched bedrock outcrop stays fixed while the steep edge has shifted relative to it."
+      }
+    },
+    "levelRationale": "Candidate D: a ten-step concrete mechanism connects particle movement with a larger landform change. The stable reference rock supports comparison across time; specialist labels such as saltation and repose are omitted. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "dune",
+        "meaning": "a hill or ridge made of sand"
+      },
+      {
+        "word": "grain",
+        "meaning": "one tiny piece of sand"
+      },
+      {
+        "word": "steep",
+        "meaning": "rising or dropping sharply"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-16",
+    "number": 16,
+    "title": "A Shadow on the Moon",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What makes the full Moon darken during a lunar eclipse?",
+      "progression": "Move from an observed dark edge to a Sun-Earth-Moon explanation, follow the Moon through Earth's shadow, then return to its bright round appearance.",
+      "synthesis": "The Moon remains whole while its path takes it through and out of Earth's shadow; an eclipse is not the ordinary monthly phase cycle.",
+      "scienceSources": [
+        {
+          "title": "NASA Science: Eclipses and the Moon",
+          "url": "https://science.nasa.gov/moon/eclipses/",
+          "evidence": "A lunar eclipse occurs when Earth lies between Sun and Moon and its shadow falls on the Moon; transmitted sunlight through Earth's atmosphere can make the eclipsed Moon reddish."
+        },
+        {
+          "title": "NASA Space Place: Lunar Eclipses and Solar Eclipses",
+          "url": "https://spaceplace.nasa.gov/eclipses/en/",
+          "evidence": "Earth blocks direct sunlight from the Moon during a lunar eclipse; the Moon moves into Earth's shadow, which does not happen every orbit because of the tilted orbital path."
+        }
+      ]
+    },
+    "setting": "A hypothetical total lunar eclipse seen from Earth on one clear night. No dated event or claim of current visibility. Explanatory space diagrams are deliberately not to scale; daylight comes only from the Sun.",
+    "props": [
+      "Moon with consistent dark mare pattern and fully round physical outline",
+      "Diagram Sun left, Earth middle, Moon right",
+      "Earth's dark shadow extending away from Sun; thin pale atmosphere ring only when explaining filtered light"
+    ],
+    "coverBrief": "A round Moon has one dark curved shadow crossing its face above a quiet rooftop; its physical outline is unbroken.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The full Moon rises bright and round. Later, a dark curved edge begins to cover its face.",
+        "imageBrief": "Earthbound view of full Moon just entering the darker shadow; thin curved dark area at lower left.",
+        "imageAlt": "Earthbound view of full Moon just entering the darker shadow; thin curved dark area at lower left.",
+        "pageDescription": "Earthbound view of full Moon just entering the darker shadow; thin curved dark area at lower left.",
+        "state": "One Moon, intact circular outline, fixed mare pattern; no clouds causing darkness.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The Moon shines because sunlight reaches it and reflects toward Earth. What could block that sunlight?",
+        "imageBrief": "Simple space diagram shows Sun left, Earth below light path and Moon right reflecting a few light rays.",
+        "imageAlt": "Simple space diagram shows Sun left, Earth below light path and Moon right reflecting a few light rays.",
+        "pageDescription": "Simple space diagram shows Sun left, Earth below light path and Moon right reflecting a few light rays.",
+        "state": "Pre-eclipse geometry illustrative; light originates at Sun, not Moon.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Tonight, Earth is between the Sun and Moon. Our planet casts a long shadow behind it.",
+        "imageBrief": "Side diagram aligned Sun-Earth-Moon; dark tapered shadow extends right from Earth toward Moon.",
+        "imageAlt": "Side diagram aligned Sun-Earth-Moon; dark tapered shadow extends right from Earth toward Moon.",
+        "pageDescription": "Side diagram aligned Sun-Earth-Moon; dark tapered shadow extends right from Earth toward Moon.",
+        "state": "Sun much larger than Earth, Moon smaller than Earth; distances shortened for explanation.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "As the Moon moves into that shadow, less direct sunlight reaches its surface. The dark patch spreads.",
+        "imageBrief": "Same diagram shows Moon partly entering Earth's central shadow from below; direction clear.",
+        "imageAlt": "Same diagram shows Moon partly entering Earth's central shadow from below; direction clear.",
+        "pageDescription": "Same diagram shows Moon partly entering Earth's central shadow from below; direction clear.",
+        "state": "Only one instantaneous Moon position; shadow cone continuous from Earth.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Soon the whole Moon is inside the darkest part. It may look rusty red instead of disappearing.",
+        "imageBrief": "Earthbound Moon entirely within total eclipse, dim copper-red with recognizable surface markings.",
+        "imageAlt": "Earthbound Moon entirely within total eclipse, dim copper-red with recognizable surface markings.",
+        "pageDescription": "Earthbound Moon entirely within total eclipse, dim copper-red with recognizable surface markings.",
+        "state": "Moon disk not black hole or red light source; example red appearance qualified in text.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Some sunlight passes through the air around Earth. This filtered light can still reach the Moon.",
+        "imageBrief": "Diagram shows a few red-orange light paths skimming Earth's atmosphere and bending toward Moon inside shadow.",
+        "imageAlt": "Diagram shows a few red-orange light paths skimming Earth's atmosphere and bending toward Moon inside shadow.",
+        "pageDescription": "Diagram shows a few red-orange light paths skimming Earth's atmosphere and bending toward Moon inside shadow.",
+        "state": "No straight ray passing through solid Earth; atmosphere thin relative to planet.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The Moon keeps moving. After a while, a bright edge appears as it begins to leave the shadow.",
+        "imageBrief": "A bright rim reappears at the leading lunar edge as the Moon continues through and out of the shadow; keep the same mare orientation.",
+        "imageAlt": "A bright rim reappears at the leading lunar edge as the Moon continues through and out of the shadow; keep the same mare orientation.",
+        "pageDescription": "A bright rim reappears at the leading lunar edge as the Moon continues through and out of the shadow; keep the same mare orientation.",
+        "state": "Same night; no extra Moon; rim source remains sunlight.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "More of its face returns to sunlight. At last, the round Moon shines brightly again.",
+        "imageBrief": "Bright full Moon now outside shadow above same rooftop.",
+        "imageAlt": "Bright full Moon now outside shadow above same rooftop.",
+        "pageDescription": "Bright full Moon now outside shadow above same rooftop.",
+        "state": "Mare pattern and physical diameter unchanged; eclipse ending rather than new lunar phase.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "This change happens over hours. The Moon's usual phases change across many nights as it travels around Earth.",
+        "imageBrief": "Two clearly separate framed diagrams: a short eclipse sequence above, a simple month-view phase sequence below.",
+        "imageAlt": "Two clearly separate framed diagrams: a short eclipse sequence above, a simple month-view phase sequence below.",
+        "pageDescription": "Two clearly separate framed diagrams: a short eclipse sequence above, a simple month-view phase sequence below.",
+        "state": "Comparison only, not simultaneous moons in one sky; no Earth-shadow wedge in ordinary phase diagram.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Nothing took a bite out of the Moon. Earth briefly stood in the way of its sunlight.",
+        "imageBrief": "Return to opening rooftop view with intact bright full Moon and faint explanatory Earth-shadow diagram inset.",
+        "imageAlt": "Return to opening rooftop view with intact bright full Moon and faint explanatory Earth-shadow diagram inset.",
+        "pageDescription": "Return to opening rooftop view with intact bright full Moon and faint explanatory Earth-shadow diagram inset.",
+        "state": "Shadow has passed; opening dark-edge puzzle answered; no bitten or repaired lunar surface.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does the Moon become bright again after this eclipse?",
+        "listenFor": "It continues moving until Earth's shadow no longer blocks the direct sunlight reaching it."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Does the light pass through Earth or around it?",
+        "lookFor": "The few red-orange rays pass through the thin surrounding air and bend toward the Moon; none goes through the solid planet."
+      }
+    },
+    "levelRationale": "Candidate D: a sustained visible change is linked to one spatial cause. Familiar light/shadow language supports eclipse and filtered light; the phase comparison prevents a misconception without teaching orbital calculations. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "eclipse",
+        "meaning": "a time when one space object blocks light from reaching another"
+      },
+      {
+        "word": "reflect",
+        "meaning": "send light back from a surface"
+      },
+      {
+        "word": "filtered",
+        "meaning": "changed while passing through something"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-17",
+    "number": 17,
+    "title": "Windows in a Wing",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why can we see a leaf through part of a glasswing butterfly's wing?",
+      "progression": "Look through one transparent wing region, compare its visible veins and borders, then change the background to show that the patch is a real light-transmitting surface.",
+      "synthesis": "The background can show through the wing membrane without the wing being a hole or the whole animal being invisible.",
+      "scienceSources": [
+        {
+          "title": "Nature Communications: The role of random nanostructures for the omnidirectional anti-reflection properties of the glasswing butterfly",
+          "url": "https://www.nature.com/articles/ncomms7909.pdf",
+          "evidence": "Greta oto has transparent wing membrane regions bordered by brown scaled regions; microscopy and transmission measurements establish real membrane with high light transmission."
+        },
+        {
+          "title": "Scientific Reports: Photonic effects in natural nanostructures on Morpho cypris and Greta oto butterfly wings",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7113256/",
+          "evidence": "Greta oto wing photographs show transparent visible-light regions with wing nerves/other structures still visible. Supports seeing background through membrane while veins and colored areas remain apparent."
+        },
+        {
+          "title": "Journal of Experimental Biology: Developmental, cellular and biochemical basis of transparency in clearwing butterflies",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8340268/",
+          "evidence": "Primary developmental study distinguishes sparse bristle-like scales in transparent regions from broad overlapping scales in opaque regions. The production inset uses that specific contrast."
+        }
+      ]
+    },
+    "setting": "Natural Greta oto glasswing butterfly resting and changing perch in a Central American tropical garden. Clean close observation; no human handling, no microscope dissection and no suggestion that its whole body is transparent.",
+    "props": [
+      "One adult Greta oto: four wings, slender dark body, two antennae; narrow brown wing borders, dark veins and small pale forewing markings; four developed walking legs and a reduced front pair held near the thorax, not six equally long walking legs",
+      "Green leaf behind a clear forewing region",
+      "Pale pink flower at the next natural perch"
+    ],
+    "coverBrief": "A close natural side view of a glasswing butterfly shows a green leaf through its clear wing membrane, with the brown edge and dark veins plainly visible.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A butterfly rests beside a green leaf. Part of its wing seems to be missing. Can you see the leaf through it?",
+        "imageBrief": "Close side view of one Greta oto resting on stem in front of leaf, clear forewing region aligned with leaf.",
+        "imageAlt": "Close side view of one Greta oto resting on stem in front of leaf, clear forewing region aligned with leaf.",
+        "pageDescription": "Close side view of one Greta oto resting on stem in front of leaf, clear forewing region aligned with leaf.",
+        "state": "Four wings overlap naturally; one clear region visibly transmits leaf background.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "This is a glasswing butterfly. The clear patch is a real part of its wing, not an empty hole.",
+        "imageBrief": "Closer view reveals a continuous clear membrane bounded by brown edge and veins.",
+        "imageAlt": "Closer view reveals a continuous clear membrane bounded by brown edge and veins.",
+        "pageDescription": "Closer view reveals a continuous clear membrane bounded by brown edge and veins.",
+        "state": "Membrane intact; no missing patch, cut edge or literal pane of glass.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Light passes through that thin surface. Light from the green leaf can still reach our eyes.",
+        "imageBrief": "Simple observational close-up shows same green leaf clearly through membrane while opaque vein interrupts view.",
+        "imageAlt": "Simple observational close-up shows same green leaf clearly through membrane while opaque vein interrupts view.",
+        "pageDescription": "Simple observational close-up shows same green leaf clearly through membrane while opaque vein interrupts view.",
+        "state": "No rays passing through dark body; leaf physically behind wing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Follow the dark lines across the clear patch. These veins help support the wing.",
+        "imageBrief": "Wing detail with dark veins enclosing transparent cells, attached continuously to opaque border.",
+        "imageAlt": "Wing detail with dark veins enclosing transparent cells, attached continuously to opaque border.",
+        "pageDescription": "Wing detail with dark veins enclosing transparent cells, attached continuously to opaque border.",
+        "state": "Species-specific branching vein pattern; no human-made window grid.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The brown border is easier to see. It has many tiny scales, packed more closely than in the clear area.",
+        "imageBrief": "One magnified circular inset linked to the real wing edge contrasts broad overlapping brown scales on the opaque border with sparse slender bristle-like scales on the transparent membrane. Keep the continuous wing membrane visible beneath the sparse structures; do not turn the clear region into a hole.",
+        "imageAlt": "Magnified circular inset contrasts brown border's denser scales with sparsely scaled clear membrane.",
+        "pageDescription": "Magnified circular inset contrasts brown border's denser scales with sparsely scaled clear membrane.",
+        "state": "Inset explanatory and not giant real flakes; no need to show nanostructures.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Now the butterfly lands beside a pale flower. Look at the same clear patch against this new background.",
+        "imageBrief": "Same Greta oto at pink flower stem; translucent region overlaps pale pink petal behind it.",
+        "imageAlt": "Same Greta oto at pink flower stem; translucent region overlaps pale pink petal behind it.",
+        "pageDescription": "Same Greta oto at pink flower stem; translucent region overlaps pale pink petal behind it.",
+        "state": "Butterfly unchanged in species, body and wing pattern; background changed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The patch looks pale instead of green. The wing has not turned into a flower; we are seeing what lies behind it.",
+        "imageBrief": "Close side view repeats previous wing position with pale petal visible through clear area.",
+        "imageAlt": "Close side view repeats previous wing position with pale petal visible through clear area.",
+        "pageDescription": "Close side view repeats previous wing position with pale petal visible through clear area.",
+        "state": "Opaque brown border remains brown; no active pigment-changing effect.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Its dark body and wing edges still stand out. Clear wings do not make the whole butterfly disappear.",
+        "imageBrief": "Wider view shows full butterfly with obvious dark body, antennae, borders and clear wing centers.",
+        "imageAlt": "Wider view shows full butterfly with obvious dark body, antennae, borders and clear wing centers.",
+        "pageDescription": "Wider view shows full butterfly with obvious dark body, antennae, borders and clear wing centers.",
+        "state": "Do not erase body or legs; no magical fading outline.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "When the wings lift, their thin surfaces move together. Each clear patch belongs to a complete wing.",
+        "imageBrief": "Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.",
+        "imageAlt": "Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.",
+        "pageDescription": "Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.",
+        "state": "One instant of movement, no multiple wing trails or extra wing pair.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Look back at the leaf. What seemed missing was there all along: a wing that lets much of the light through.",
+        "imageBrief": "Return to leaf-backed wing composition, real membrane subtly catches one edge highlight without obscuring transparency.",
+        "imageAlt": "Return to leaf-backed wing composition, real membrane subtly catches one edge highlight without obscuring transparency.",
+        "pageDescription": "Return to leaf-backed wing composition, real membrane subtly catches one edge highlight without obscuring transparency.",
+        "state": "Opening puzzle resolved; no human glass, frame or hole.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can the same clear patch look green and then pale pink?",
+        "listenFor": "Different backgrounds can be seen through it; the butterfly is not changing that patch into the background."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which parts are still easy to see?",
+        "lookFor": "The dark body, antennae, brown wing edges and dark veins remain visible."
+      }
+    },
+    "levelRationale": "Candidate D: the reader tracks the same body part through a controlled change of background and distinguishes transparent material from absence. Paired explanations and supported counterexamples earn more demand than a simple animal label book. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "transparent",
+        "meaning": "letting light pass through so you can see what is behind"
+      },
+      {
+        "word": "membrane",
+        "meaning": "a very thin layer"
+      },
+      {
+        "word": "vein",
+        "meaning": "one of the supporting lines in this wing"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-18",
+    "number": 18,
+    "title": "A Crab Leaves Its Old Coat",
+    "topic": "life cycles",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a young blue crab grow when its hard outer covering cannot stretch enough?",
+      "progression": "Follow a single molt from new soft covering underneath the old shell, through backward emergence and expansion, to a protected interval while the new covering hardens.",
+      "synthesis": "The empty shell and the living crab can look like two crabs, but only one animal has grown and changed its covering.",
+      "scienceSources": [
+        {
+          "title": "Maryland DNR: Blue Crab Fish Facts",
+          "url": "https://dnr.maryland.gov/fisheries/Pages/fish-facts.aspx?fishname=Shellfish+-+Blue+Crab",
+          "evidence": "A new soft shell forms beneath the old outer shell. Water intake around molting expands the pliable new covering; blue crabs grow by molting."
+        },
+        {
+          "title": "Florida Fish and Wildlife Conservation Commission: The Life Cycle of a Blue Crab",
+          "url": "https://myfwc.com/research/saltwater/crustaceans/blue-crabs/life-cycle/",
+          "evidence": "Molting involves the outer covering splitting and the soft crab backing out; water expands it and minerals harden the new covering. Young crabs molt repeatedly; do not imply all adult females keep molting."
+        },
+        {
+          "title": "Maryland DNR: From the Bay and Back Again",
+          "url": "https://news.maryland.gov/dnr/2016/03/20/crab-lifecycle/",
+          "evidence": "The soft-shell period is vulnerable because the crab lacks its hardened protective covering."
+        }
+      ]
+    },
+    "setting": "One young blue crab, Callinectes sapidus, on a shallow estuary floor among eelgrass. Daylight filtered through water. The sequence spans a molt and hardening; no precise time claim and no fishing context.",
+    "props": [
+      "Young blue crab with olive-blue broad shell; two claws, six narrow walking legs and two rear paddle-shaped swimming legs, ten limbs total",
+      "Old empty outer covering after emergence, with split rear seam and no living eye expression",
+      "Three eelgrass clumps and a flat gray stone remain landmarks"
+    ],
+    "coverBrief": "The living soft crab has backed out beside its old empty covering. The rear opening of the discarded shell makes clear why there are two crab-shaped forms.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A young blue crab grows inside a hard covering. That covering protects it, but it cannot stretch enough as the crab grows.",
+        "imageBrief": "Young blue crab beside flat stone, all ten limbs anatomically arranged; covering firm.",
+        "imageAlt": "Young blue crab beside flat stone, all ten limbs anatomically arranged; covering firm.",
+        "pageDescription": "Young blue crab beside flat stone, all ten limbs anatomically arranged; covering firm.",
+        "state": "One living crab; no second shell yet; no clothing-like coat.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Under the old covering, a new one begins to form. For now, the new covering is soft.",
+        "imageBrief": "Simple cutaway at one small rear-shell section reveals a thin new soft layer beneath old shell.",
+        "imageAlt": "Simple cutaway at one small rear-shell section reveals a thin new soft layer beneath old shell.",
+        "pageDescription": "Simple cutaway at one small rear-shell section reveals a thin new soft layer beneath old shell.",
+        "state": "Explanatory sectional inset, not an injury or transparent whole crab.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Soon the old shell opens along the back. The crab starts pulling its body away from the hard outer layer.",
+        "imageBrief": "Rear three-quarter view of opening along old carapace seam and beginning backward emergence.",
+        "imageAlt": "Rear three-quarter view of opening along old carapace seam and beginning backward emergence.",
+        "pageDescription": "Rear three-quarter view of opening along old carapace seam and beginning backward emergence.",
+        "state": "One crab in molt; no detachable turtle-style shell or front opening.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It backs out, drawing its legs and claws free. The old covering stays behind on the estuary floor.",
+        "imageBrief": "Crab partially backward out of split old covering; freed rear paddles and emerging limbs visible.",
+        "imageAlt": "Crab partially backward out of split old covering; freed rear paddles and emerging limbs visible.",
+        "pageDescription": "Crab partially backward out of split old covering; freed rear paddles and emerging limbs visible.",
+        "state": "New body behind old shell, not walking forward out of its mouth; no extra limbs.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now two crab shapes lie beside the stone. One is a living crab. The other is an empty covering.",
+        "imageBrief": "Wide comparison of newly emerged crab and complete empty exuvia with rear split obvious.",
+        "imageAlt": "Wide comparison of newly emerged crab and complete empty exuvia with rear split obvious.",
+        "pageDescription": "Wide comparison of newly emerged crab and complete empty exuvia with rear split obvious.",
+        "state": "Exactly one animal and one empty molt; both scaled consistently before expansion.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The soft crab takes in water, which helps its new covering expand. There is more room for its growing body.",
+        "imageBrief": "Living crab slightly expanded beside smaller discarded covering; natural water surrounds both.",
+        "imageAlt": "Living crab slightly expanded beside smaller discarded covering; natural water surrounds both.",
+        "pageDescription": "Living crab slightly expanded beside smaller discarded covering; natural water surrounds both.",
+        "state": "No balloon body, drinking cup or air inflation; size increase modest.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "While the covering is soft, the crab is easier to hurt. It stays sheltered among the grass.",
+        "imageBrief": "Soft crab partly concealed by eelgrass; discarded shell remains by gray stone farther back.",
+        "imageAlt": "Soft crab partly concealed by eelgrass; discarded shell remains by gray stone farther back.",
+        "pageDescription": "Soft crab partly concealed by eelgrass; discarded shell remains by gray stone farther back.",
+        "state": "No predator attack; only habitat concealment; same ten limbs where visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Its new covering hardens. The soft stage does not last for the rest of the crab's life.",
+        "imageBrief": "Same sheltered crab later, shell appears firmer and characteristic olive-blue; grass landmarks fixed.",
+        "imageAlt": "Same sheltered crab later, shell appears firmer and characteristic olive-blue; grass landmarks fixed.",
+        "pageDescription": "Same sheltered crab later, shell appears firmer and characteristic olive-blue; grass landmarks fixed.",
+        "state": "Hardening indicated by shape and posture, not drying out in air.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The crab moves out to find food. As this young crab keeps growing, it will need to shed again.",
+        "imageBrief": "Crab walks from grass toward a small natural food item on estuary floor.",
+        "imageAlt": "Crab walks from grass toward a small natural food item on estuary floor.",
+        "pageDescription": "Crab walks from grass toward a small natural food item on estuary floor.",
+        "state": "Old shell stays near stone; no new molt starting in same frame.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The empty shape cannot follow. A crab did not become two crabs; one crab left its old covering behind.",
+        "imageBrief": "Living crab farther right while abandoned molt lies open beside fixed stone in left foreground.",
+        "imageAlt": "Living crab farther right while abandoned molt lies open beside fixed stone in left foreground.",
+        "pageDescription": "Living crab farther right while abandoned molt lies open beside fixed stone in left foreground.",
+        "state": "Ending distinguishes exuvia from second animal, dead crab or lost house.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does a growing crab need to leave its old covering?",
+        "listenFor": "Its hard covering cannot stretch enough; a new soft one can expand and then harden."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Which crab-shaped thing is empty, and what clue helps you tell?",
+        "lookFor": "The old covering has an open rear split and no living animal inside; the other form is the newly emerged crab."
+      }
+    },
+    "levelRationale": "Candidate D: one bounded developmental change is told through sequential cause and contrast, with a final inference about two similar-looking forms. Molt is supported by concrete covering language; mating and larval stages are excluded. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "molt",
+        "meaning": "shed an old outer covering"
+      },
+      {
+        "word": "expand",
+        "meaning": "grow wider or larger"
+      },
+      {
+        "word": "sheltered",
+        "meaning": "in a place with some protection"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-19",
+    "number": 19,
+    "title": "Fruit or Seed?",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Is the green pod a fruit, a seed, or a fruit with seeds inside?",
+      "progression": "Compare a tomato and a pea pod as whole fruits, open them to distinguish their seeds, and relate each whole to the flower it developed from.",
+      "synthesis": "Fruit and seed name different plant parts; a pod can be a fruit containing several seeds.",
+      "scienceSources": [
+        {
+          "title": "Oregon State University Extension: Getting the most from your backyard bean crop",
+          "url": "https://extension.oregonstate.edu/es/node/222036/printable/print",
+          "evidence": "Pea pods are legume fruits and individual peas are seeds within them."
+        },
+        {
+          "title": "Iowa State University Extension: Is a tomato a fruit or a vegetable?",
+          "url": "https://yardandgarden.extension.iastate.edu/faq/tomato-fruit-or-vegetable",
+          "evidence": "A tomato develops from a flower and contains seeds, making it a botanical fruit; botanical classification differs from culinary usage."
+        },
+        {
+          "title": "University of Illinois Extension: Great Plant Escape, Plant parts",
+          "url": "https://web.extension.illinois.edu/gpe/case1/c1facts2e.html",
+          "evidence": "Fruit surrounds seeds and develops from a flower's ovary; seeds contain a young plant. This manuscript limits examples to seeded tomato and pea."
+        }
+      ]
+    },
+    "setting": "Close observational views on a cream tabletop and two clearly separate real plants in a garden. No characters, cutting tools or handling instructions. Exactly one tomato and one pea pod, opened for comparison in prepared stages.",
+    "props": [
+      "One ripe red tomato with green calyx; prepared halves show seeds in gel chambers",
+      "One pea pod containing exactly six green peas",
+      "Two cream dishes, left for tomato and right for pea pod",
+      "Natural tomato flower and pea flower shown only on their respective plants"
+    ],
+    "coverBrief": "A red tomato half and an opened green pod sit side by side, their very different seeds visible inside.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A red tomato and a green pea pod sit on the table. Which one is a fruit?",
+        "imageBrief": "One intact tomato at left and one closed six-pea pod at right on cream tabletop.",
+        "imageAlt": "One intact tomato at left and one closed six-pea pod at right on cream tabletop.",
+        "pageDescription": "One intact tomato at left and one closed six-pea pod at right on cream tabletop.",
+        "state": "No loose seeds yet; distinct whole specimens.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Open the tomato and look inside. Small seeds sit in soft, wet pockets beneath the skin.",
+        "imageBrief": "Prepared tomato half on left dish with recognizable gel chambers and seeds; other half behind.",
+        "imageAlt": "Prepared tomato half on left dish with recognizable gel chambers and seeds; other half behind.",
+        "pageDescription": "Prepared tomato half on left dish with recognizable gel chambers and seeds; other half behind.",
+        "state": "No knife or cutting action; pod stays closed on right.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The tomato grew from a flower. As the fruit developed, its seeds grew inside it.",
+        "imageBrief": "One tomato plant branch with a yellow flower and a separate developing green fruit on adjacent stems.",
+        "imageAlt": "One tomato plant branch with a yellow flower and a separate developing green fruit on adjacent stems.",
+        "pageDescription": "One tomato plant branch with a yellow flower and a separate developing green fruit on adjacent stems.",
+        "state": "Comparison of natural stages, not flower and ripe fruit fused together; no precise time claim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Now look inside the pea pod. Six round peas lie in a row. Each pea is a seed.",
+        "imageBrief": "Prepared opened pea pod on right dish shows exactly six attached green peas in one row.",
+        "imageAlt": "Prepared opened pea pod on right dish shows exactly six attached green peas in one row.",
+        "pageDescription": "Prepared opened pea pod on right dish shows exactly six attached green peas in one row.",
+        "state": "Tomato half remains left; no additional loose peas.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The pod grew from a flower too. It is the fruit around those seeds, though it looks unlike the tomato.",
+        "imageBrief": "Pea plant with white pea flower and separate green pod; both anatomically attached at nodes.",
+        "imageAlt": "Pea plant with white pea flower and separate green pod; both anatomically attached at nodes.",
+        "pageDescription": "Pea plant with white pea flower and separate green pod; both anatomically attached at nodes.",
+        "state": "Do not draw peas exposed in a closed growing pod; no tomato leaves on pea plant.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "A pea and its pod have different jobs. The seed holds a tiny new plant; the pod surrounds the seeds.",
+        "imageBrief": "One pea lifted beside its opened pod, which now holds five; simple pea cross-section inset shows embryo.",
+        "imageAlt": "One pea lifted beside its opened pod, which now holds five; simple pea cross-section inset shows embryo.",
+        "pageDescription": "One pea lifted beside its opened pod, which now holds five; simple pea cross-section inset shows embryo.",
+        "state": "Total six peas accounted for; inset is the same single pea, not an extra real specimen.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The whole pod is not one giant seed. Its long wall holds several separate seeds together.",
+        "imageBrief": "Close-up of pod wall and five seated peas, with sixth resting on same dish.",
+        "imageAlt": "Close-up of pod wall and five seated peas, with sixth resting on same dish.",
+        "pageDescription": "Close-up of pod wall and five seated peas, with sixth resting on same dish.",
+        "state": "No imaginary seed inside every pea drawn at full size; actual part-whole relation clear.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The tomato has seeds too, but they are smaller and surrounded by soft flesh. Fruits need not look alike.",
+        "imageBrief": "Side-by-side tomato half and opened pea pod; one loose pea stays on right dish.",
+        "imageAlt": "Side-by-side tomato half and opened pea pod; one loose pea stays on right dish.",
+        "pageDescription": "Side-by-side tomato half and opened pea pod; one loose pea stays on right dish.",
+        "state": "No claim every fruit must have visible seeds; comparison confined to these examples.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Point to a seed in each dish. Then point to the fruit that grew around those seeds.",
+        "imageBrief": "Both dishes overhead, showing one obvious tomato seed within gel and one green pea beside pod.",
+        "imageAlt": "Both dishes overhead, showing one obvious tomato seed within gel and one green pea beside pod.",
+        "pageDescription": "Both dishes overhead, showing one obvious tomato seed within gel and one green pea beside pod.",
+        "state": "No hands necessary; no printed labels or arrows giving answers away.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Both dishes hold fruit and seeds. The pod belongs with the tomato, even though its seeds look very different.",
+        "imageBrief": "Final side-by-side whole-to-part arrangement: tomato halves left; opened pod, five inside peas and one loose pea right.",
+        "imageAlt": "Final side-by-side whole-to-part arrangement: tomato halves left; opened pod, five inside peas and one loose pea right.",
+        "pageDescription": "Final side-by-side whole-to-part arrangement: tomato halves left; opened pod, five inside peas and one loose pea right.",
+        "state": "Classification closes with both fruits and their contained seeds, no arbitrary vegetable bin.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can a pea pod be a fruit even though a pea is a seed?",
+        "listenFor": "The words name different parts; the pod is the fruit around the individual seeds."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "How many separate seeds belong to this pod?",
+        "lookFor": "Six total: five remain inside the opened pod and one rests on the dish."
+      }
+    },
+    "levelRationale": "Candidate D: comparison develops a nested part-whole relationship, correcting the plausible idea that the whole pod is one seed. Several linked explanations and stable examples support botanical vocabulary without encyclopedic categories. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "pod",
+        "meaning": "the case around peas or some other seeds"
+      },
+      {
+        "word": "fruit",
+        "meaning": "the plant part that develops from a flower and can hold seeds"
+      },
+      {
+        "word": "flesh",
+        "meaning": "the soft part of this tomato"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-20",
+    "number": 20,
+    "title": "Light Where We Need It",
+    "topic": "caring for our world",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a porch lamp light a path without sending so much light into unwanted places?",
+      "progression": "Compare one unshielded porch lamp with the same lamp correctly shielded, track where the light falls, and finish with its timer switching it off when no longer needed.",
+      "synthesis": "The useful route can stay lit while light spill is reduced; turning off unneeded light restores darkness locally without claiming one lamp fixes a whole sky.",
+      "scienceSources": [
+        {
+          "title": "DarkSky International and Illuminating Engineering Society: Five Principles for Responsible Outdoor Lighting",
+          "url": "https://darksky.org/resources/guides-and-how-tos/lighting-principles/",
+          "evidence": "Lighting should be useful, directed where needed, no brighter than necessary, controlled for needed times and warm-colored where possible."
+        },
+        {
+          "title": "National Park Service: Light Pollution",
+          "url": "https://www.nps.gov/subjects/nightskies/lightpollution.htm",
+          "evidence": "Unintended light spill, glare and light scattered into the atmosphere affect surroundings and night-sky visibility. The book does not claim a single shield eliminates regional skyglow."
+        }
+      ]
+    },
+    "setting": "One ordinary house porch and short flat path at dusk and night. WD-ZOE observes with an unnamed adult: light-brown skin, short gray hair, plain green shirt, dark pants, about 1.7 times Zoe's height. All fixture fitting is performed by the adult with power switched off, not modeled as a child task.",
+    "props": [
+      "One porch lamp with warm-colored bulb and removable fitted opaque top-and-side shield; its open lower face directs light down",
+      "Short path between front gate and porch; low hedge beside it",
+      "One upstairs window belonging to same house",
+      "Wall light switch and timer control inside doorway"
+    ],
+    "coverBrief": "Zoe and the adult stand by a porch lamp whose fitted shade directs warm light onto the path; the hedge and upper window remain dark.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This porch lamp helps people see the path. But its bare bulb also sends light toward the window and hedge.",
+        "imageBrief": "Unshielded lamp illuminates path and spills visibly onto upper window and hedge; Zoe with adult on porch.",
+        "imageAlt": "Unshielded lamp illuminates path and spills visibly onto upper window and hedge; Zoe with adult on porch.",
+        "pageDescription": "Unshielded lamp illuminates path and spills visibly onto upper window and hedge; Zoe with adult on porch.",
+        "state": "One warm bulb; no dazzling beams into eyes or artificial daytime sky.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "From the gate, the bright bulb is easy to spot. The darker path below is harder to see beside its glare.",
+        "imageBrief": "Gate-level view has bulb's bright point and less distinct path beneath; same physical scene.",
+        "imageAlt": "Gate-level view has bulb's bright point and less distinct path beneath; same physical scene.",
+        "pageDescription": "Gate-level view has bulb's bright point and less distinct path beneath; same physical scene.",
+        "state": "Glare shown by restrained bloom; whole image remains legible clean cartoon.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Does the light need to reach every place? The path needs light. The upstairs window does not.",
+        "imageBrief": "Zoe points along path as adult looks toward unwanted illuminated window.",
+        "imageAlt": "Zoe points along path as adult looks toward unwanted illuminated window.",
+        "pageDescription": "Zoe points along path as adult looks toward unwanted illuminated window.",
+        "state": "No speaking anthropomorphic lamp; destination comparison only.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The adult turns the power off before fitting a shield above the bulb. Zoe watches from the doorway.",
+        "imageBrief": "Daylight-dusk fitting moment: lamp off, adult fitting purpose-made shade from ground-reachable porch position; Zoe clear.",
+        "imageAlt": "Daylight-dusk fitting moment: lamp off, adult fitting purpose-made shade from ground-reachable porch position; Zoe clear.",
+        "pageDescription": "Daylight-dusk fitting moment: lamp off, adult fitting purpose-made shade from ground-reachable porch position; Zoe clear.",
+        "state": "No exposed wires, ladder, live work or child touching fixture.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "When the lamp comes on again, the shield blocks light from shining straight upward.",
+        "imageBrief": "Same fixture on with opaque top and warm light directed below.",
+        "imageAlt": "Same fixture on with opaque top and warm light directed below.",
+        "pageDescription": "Same fixture on with opaque top and warm light directed below.",
+        "state": "Shield blocks direct uplight; no unrealistic zero reflection from the ground.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "More of the useful light falls onto the path. The hedge and window no longer catch the same bright spill.",
+        "imageBrief": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
+        "imageAlt": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
+        "pageDescription": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
+        "state": "Same bulb brightness, same weather; change comes from direction.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "A lamp can also be brighter than a place needs. This path needs enough light to show its edges.",
+        "imageBrief": "Zoe and adult view continuous low-level lit path and its boundaries; no oversized light fan.",
+        "imageAlt": "Zoe and adult view continuous low-level lit path and its boundaries; no oversized light fan.",
+        "pageDescription": "Zoe and adult view continuous low-level lit path and its boundaries; no oversized light fan.",
+        "state": "No recommendation for an exact universal brightness; safe path still visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Light sent into the sky can make stars harder to see. A shield helps keep this lamp's light closer to home.",
+        "imageBrief": "Wide house view with downward lamp and naturally dark sky; faint distant town skyglow remains.",
+        "imageAlt": "Wide house view with downward lamp and naturally dark sky; faint distant town skyglow remains.",
+        "pageDescription": "Wide house view with downward lamp and naturally dark sky; faint distant town skyglow remains.",
+        "state": "Do not imply new stars appear instantly or one fixture eliminates city glow.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Later, when nobody needs the path, the timer turns the lamp off. The porch grows dark again.",
+        "imageBrief": "Empty porch at later night with lamp off; family visible only dimly indoors if needed.",
+        "imageAlt": "Empty porch at later night with lamp off; family visible only dimly indoors if needed.",
+        "pageDescription": "Empty porch at later night with lamp off; family visible only dimly indoors if needed.",
+        "state": "No person walking on unlit path; timer action, not child wiring.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The lamp is ready for the next visitor. For now, the path, hedge, and window share the night.",
+        "imageBrief": "Final quiet exterior: lamp off, dark hedge and path, softly lit closed house window interior.",
+        "imageAlt": "Final quiet exterior: lamp off, dark hedge and path, softly lit closed house window interior.",
+        "pageDescription": "Final quiet exterior: lamp off, dark hedge and path, softly lit closed house window interior.",
+        "state": "No unneeded outdoor light; no full-Moon bright-day effect or new stars claim.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What changes when a shield is fitted, even if the bulb stays the same?",
+        "listenFor": "The direction and spill of the light change; useful light can reach the path without so much going upward or onto the window."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where is the light landing now?",
+        "lookFor": "On the path below the shield, with less direct light reaching the hedge and upper window."
+      }
+    },
+    "levelRationale": "Candidate D: a concrete before-and-after sequence connects lamp design, direction, usefulness and timing. The reader tracks what changes and what stays the same; the scope remains one fixture rather than a wide ecology lecture. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "shield",
+        "meaning": "a cover that blocks light in some directions"
+      },
+      {
+        "word": "glare",
+        "meaning": "very bright light that makes seeing harder"
+      },
+      {
+        "word": "timer",
+        "meaning": "a control that switches something at a chosen time"
+      }
+    ]
+  }
+]

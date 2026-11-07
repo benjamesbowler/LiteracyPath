@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:57:41.388Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-0453021a-e565-4c0e-a87e-347512579ba5.png",
+  "sourceSha256": "f2f0ba67f831cf56be96eb5479b743343b60d2731c4985187ecdf1e61353abaa",
+  "output": "public/guided-reading/world-discovery/a-18/page-03.webp",
+  "outputSha256": "5770095109ca2f71d812af3c764e3ede949fd0aeebf3995df1fcd53df05d23b8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "First remove ONLY the erroneous thin curved black filament rising from the butterfly's HEAD to the twig. A leg must not root in its head. Keep the TWO stout segmented walking legs rooted at the THORAX and gripping twig, plus tiny folded forelegs. Keep exactly TWO clubbed antennae drooping RIGHT; no third antenna or head-to-twig connection. Pull the camera back25 percent and recenter this exact intact butterfly scene. The ENTIRE butterfly, all wing tips and antennae, the entire empty chrysalis, and the ENTIRE coneflower head including all petals must fit with at least10 percent margin inside every frame edge. Currently rightmost petals and some attachmentpoints are too close/cut off. Extend same clean sky/foliage around the scene; continuous twig may exitframe naturally but its central attachment area must be inset. Preserve same wing development state and pose, no added wings/legs/antennae. Preserve all relative locations. Full-bleed landscape3:2, crisp flat2D, no border or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4bb704c5-6426-41ce-a47b-98aeef5570ef.png",
+      "sha256": "94e417b676e40604e5e9ae8c6f80d816878e5ddc7f97470a22d456f434b0873a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.096056+00:00",
+    "sha256": "5770095109ca2f71d812af3c764e3ede949fd0aeebf3995df1fcd53df05d23b8",
+    "note": "Lengthened narrow wings and two thoracic twig-gripping legs; spurious head filament absent. Native generation and installed WebP directly inspected."
+  }
+}

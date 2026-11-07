@@ -1,0 +1,1405 @@
+[
+  {
+    "id": "world-discovery-c-11",
+    "number": 11,
+    "title": "A Way to Remember",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants to bring three things for a garden picnic. Trying to hold Zoe’s picture in his head leaves one thing behind; he invents a spoken check that helps him complete his own job.",
+      "failedAttempt": "Kit studies Zoe’s picture but brings only cups and a ball; trying to picture the missing item still leaves him uncertain.",
+      "resolution": "Kit gives himself a three-part spoken reminder, checks the objects he already has and fetches the mat. He chooses his useful strategy rather than declaring one fixed learning type."
+    },
+    "setting": "Home kitchen opening onto a small enclosed garden. Ordinary daylight. Picnic spot beneath one small tree; no street crossing, public travel or unaccompanied hazardous activity.",
+    "props": [
+      "One blue folded picnic mat",
+      "Two yellow cups stacked together",
+      "One red ball",
+      "One card bearing simple pictures of mat, two cups and ball, with no words",
+      "One low garden table and one tree"
+    ],
+    "coverBrief": "Kit taps three fingers while looking at a blue picnic mat, two yellow cups and a red ball arranged together. Zoe holds the simple picture card beside the garden door; show his active checking, not a test score.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit wants a picnic under the tree. He will bring the mat, two cups, and their red ball.",
+        "imageBrief": "Kit stands at the garden door pointing toward the tree; the folded mat, stacked yellow cups and red ball are visible together on a low kitchen shelf. Continuity: All three item types remain indoors; Zoe stands by the table with a blank card.",
+        "imageAlt": "Kit stands at the garden door pointing toward the tree; the folded mat, stacked yellow cups and red ball are visible together on a low kitchen shelf.",
+        "pageDescription": "Kit stands at the garden door pointing toward the tree; the folded mat, stacked yellow cups and red ball are visible together on a low kitchen shelf.",
+        "state": "All three item types remain indoors; Zoe stands by the table with a blank card.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe draws the three things. Kit studies her picture, leaves it on the table, and goes inside.",
+        "imageBrief": "Zoe’s card now shows the folded mat, stacked cups and ball. Kit looks closely before turning toward the kitchen shelf. Continuity: Picture card stays with Zoe; no printed checklist; exact two cups shown in its drawing.",
+        "imageAlt": "Zoe’s card now shows the folded mat, stacked cups and ball. Kit looks closely before turning toward the kitchen shelf.",
+        "pageDescription": "Zoe’s card now shows the folded mat, stacked cups and ball. Kit looks closely before turning toward the kitchen shelf.",
+        "state": "Picture card stays with Zoe; no printed checklist; exact two cups shown in its drawing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "He brings the cups and ball. Zoe points at the grass. “What will we sit on?”",
+        "imageBrief": "Kit places the two cups and red ball beside the garden tree, on the grass. Zoe points to the bare picnic place. Continuity: Blue mat remains indoors; two cups and ball now outdoors; card stays on table near the door.",
+        "imageAlt": "Kit places the two cups and red ball beside the garden tree, on the grass. Zoe points to the bare picnic place.",
+        "pageDescription": "Kit places the two cups and red ball beside the garden tree, on the grass. Zoe points to the bare picnic place.",
+        "state": "Blue mat remains indoors; two cups and ball now outdoors; card stays on table near the door.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit shuts his eyes to picture the card. He opens them again. “I keep losing one bit.”",
+        "imageBrief": "Kit pauses with eyes just reopening beside the doorway. Zoe waits with the card at her side rather than handing him the answer immediately. Continuity: No new objects moved; his attempted mental picture has not supplied a reliable check.",
+        "imageAlt": "Kit pauses with eyes just reopening beside the doorway. Zoe waits with the card at her side rather than handing him the answer immediately.",
+        "pageDescription": "Kit pauses with eyes just reopening beside the doorway. Zoe waits with the card at her side rather than handing him the answer immediately.",
+        "state": "No new objects moved; his attempted mental picture has not supplied a reliable check.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "He taps three fingers. “Mat, cups, ball.” Then he says it again, with a little beat.",
+        "imageBrief": "Kit taps thumb to three fingers in order while speaking. Zoe watches; the picture card remains lowered. Continuity: He creates a short spoken reminder; no music notes, magical glow or brain diagram.",
+        "imageAlt": "Kit taps thumb to three fingers in order while speaking. Zoe watches; the picture card remains lowered.",
+        "pageDescription": "Kit taps thumb to three fingers in order while speaking. Zoe watches; the picture card remains lowered.",
+        "state": "He creates a short spoken reminder; no music notes, magical glow or brain diagram.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“Mat, cups, ball.” Kit points to the cups and ball. “The mat!” He runs back to the shelf.",
+        "imageBrief": "Kit points at the two present objects, then turns toward the shelf visible through the door, where the blue mat still lies. Continuity: Spoken list is used to check, not assumed to cure all forgetting; missing object identified.",
+        "imageAlt": "Kit points at the two present objects, then turns toward the shelf visible through the door, where the blue mat still lies.",
+        "pageDescription": "Kit points at the two present objects, then turns toward the shelf visible through the door, where the blue mat still lies.",
+        "state": "Spoken list is used to check, not assumed to cure all forgetting; missing object identified.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "He carries the mat outside and spreads it flat. “Mat, cups, ball,” he says, checking each one.",
+        "imageBrief": "Kit unfolds the blue mat beneath the tree; the two yellow cups and red ball sit beside its edge. Zoe helps hold one corner only after he brings it. Continuity: All three item types now present; mat unfolded, no additional cups or balls.",
+        "imageAlt": "Kit unfolds the blue mat beneath the tree; the two yellow cups and red ball sit beside its edge. Zoe helps hold one corner only after he brings it.",
+        "pageDescription": "Kit unfolds the blue mat beneath the tree; the two yellow cups and red ball sit beside its edge. Zoe helps hold one corner only after he brings it.",
+        "state": "All three item types now present; mat unfolded, no additional cups or balls.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe sits at one end. Kit puts down the cups, then rolls the ball to her. Nothing is missing.",
+        "imageBrief": "Both children sit at opposite ends of the blue mat; the two cups stand together safely off the ball’s rolling line. Kit rolls the red ball toward Zoe. Continuity: Picnic place complete; chosen reminder led to a concrete outcome, not a generalized claim about how children learn.",
+        "imageAlt": "Both children sit at opposite ends of the blue mat; the two cups stand together safely off the ball’s rolling line. Kit rolls the red ball toward Zoe.",
+        "pageDescription": "Both children sit at opposite ends of the blue mat; the two cups stand together safely off the ball’s rolling line. Kit rolls the red ball toward Zoe.",
+        "state": "Picnic place complete; chosen reminder led to a concrete outcome, not a generalized claim about how children learn.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Kit change when trying to remember the picnic things?",
+        "listenFor": "He changed from trying to hold the picture in his head to saying and checking a short list. This helped him with this job."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What is present, and what is still missing?",
+        "lookFor": "Two cups and the red ball are outside; the blue mat remains on the indoor shelf."
+      }
+    },
+    "levelRationale": "Candidate C: Paired sentences, brief dialogue and a small inference about an omitted object add demand beyond B. The story makes no fixed learning-style or memory-performance claim; it depicts one child choosing a method for one task.",
+    "languagePrep": [
+      {
+        "word": "remind",
+        "meaning": "help someone bring a thought back"
+      },
+      {
+        "word": "check",
+        "meaning": "look again to find out whether something is right or complete"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-12",
+    "number": 12,
+    "title": "The Ribbon by the Pot",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit needs a ribbon Zoe has put by a plant pot; the vague direction sends him to a different pot, and louder repetition fails until he asks for the distinguishing detail.",
+      "failedAttempt": "Kit checks the first pot he sees. Zoe repeats the same incomplete instruction louder, which does not identify the correct pot.",
+      "resolution": "Kit asks which pot and repeats back the location; he brings the ribbon and both can finish their parcel."
+    },
+    "setting": "Classroom craft corner with one window table and one low shelf. Two clearly different plant pots remain visible from the main table: tall blue pot at window, small yellow pot on shelf.",
+    "props": [
+      "One brown-paper parcel without ribbon",
+      "One long red ribbon",
+      "One tall blue plant pot on the window table",
+      "One small yellow plant pot on the low shelf",
+      "One craft table"
+    ],
+    "coverBrief": "Kit looks from the tall blue window pot to Zoe beside the low shelf and small yellow pot. A length of red ribbon peeks beside the yellow pot; the unwrapped parcel waits between them.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit folds the paper around their parcel. “Where is the ribbon?” Zoe points across the room. “By the pot.”",
+        "imageBrief": "Kit holds the brown paper closed around a small rectangular parcel. Zoe points broadly across the room, where both pots can be seen. Continuity: Red ribbon lies beside yellow shelf pot; parcel has no tie yet.",
+        "imageAlt": "Kit holds the brown paper closed around a small rectangular parcel. Zoe points broadly across the room, where both pots can be seen.",
+        "pageDescription": "Kit holds the brown paper closed around a small rectangular parcel. Zoe points broadly across the room, where both pots can be seen.",
+        "state": "Red ribbon lies beside yellow shelf pot; parcel has no tie yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit looks beside the tall blue pot at the window. There is a watering can, but no ribbon.",
+        "imageBrief": "Kit searches around the blue window pot and lifts the edge of a small watering can to look behind it. Continuity: He is at the wrong pot; yellow shelf pot and ribbon remain elsewhere.",
+        "imageAlt": "Kit searches around the blue window pot and lifts the edge of a small watering can to look behind it.",
+        "pageDescription": "Kit searches around the blue window pot and lifts the edge of a small watering can to look behind it.",
+        "state": "He is at the wrong pot; yellow shelf pot and ribbon remain elsewhere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "“I cannot find it,” he calls. Zoe raises her voice. “It is by the pot!”",
+        "imageBrief": "Kit turns from the window while Zoe speaks from the craft table; her pointing hand still does not distinguish the two pots. Continuity: Same vague message repeated, not a hearing impairment claim; no objects moved.",
+        "imageAlt": "Kit turns from the window while Zoe speaks from the craft table; her pointing hand still does not distinguish the two pots.",
+        "pageDescription": "Kit turns from the window while Zoe speaks from the craft table; her pointing hand still does not distinguish the two pots.",
+        "state": "Same vague message repeated, not a hearing impairment claim; no objects moved.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit looks under the blue pot’s tray. Still no ribbon. He puts the tray back and stops searching.",
+        "imageBrief": "Kit has lifted only the empty edge of the tray beneath the blue pot, keeping the plant stable. He begins to return it without finding the ribbon. Continuity: Second attempt in the same wrong place costs a beat; plant and tray remain intact.",
+        "imageAlt": "Kit has lifted only the empty edge of the tray beneath the blue pot, keeping the plant stable. He begins to return it without finding the ribbon.",
+        "pageDescription": "Kit has lifted only the empty edge of the tray beneath the blue pot, keeping the plant stable. He begins to return it without finding the ribbon.",
+        "state": "Second attempt in the same wrong place costs a beat; plant and tray remain intact.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Which pot?” he asks. Zoe looks at the window, then points to the shelf. “The small yellow one.”",
+        "imageBrief": "Kit holds empty hands up in a question. Zoe now points directly to the small yellow pot on the low shelf. Continuity: Disambiguating detail is introduced in print and gesture; ribbon still beside that pot.",
+        "imageAlt": "Kit holds empty hands up in a question. Zoe now points directly to the small yellow pot on the low shelf.",
+        "pageDescription": "Kit holds empty hands up in a question. Zoe now points directly to the small yellow pot on the low shelf.",
+        "state": "Disambiguating detail is introduced in print and gesture; ribbon still beside that pot.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“The yellow pot on the shelf?” “Yes.” Kit walks past the window and reaches beside the little pot.",
+        "imageBrief": "Kit passes the blue pot without stopping and reaches toward the red ribbon next to the yellow shelf pot. Continuity: He repeats the full location before acting; red ribbon not yet carried away.",
+        "imageAlt": "Kit passes the blue pot without stopping and reaches toward the red ribbon next to the yellow shelf pot.",
+        "pageDescription": "Kit passes the blue pot without stopping and reaches toward the red ribbon next to the yellow shelf pot.",
+        "state": "He repeats the full location before acting; red ribbon not yet carried away.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "His hand closes around the red ribbon. He carries it to Zoe, keeping the long end off the floor.",
+        "imageBrief": "Kit returns with the one red ribbon gathered loosely in both hands; Zoe steadies the paper parcel on the craft table. Continuity: Ribbon transferred from shelf to table; no duplicate at pot or on parcel yet.",
+        "imageAlt": "Kit returns with the one red ribbon gathered loosely in both hands; Zoe steadies the paper parcel on the craft table.",
+        "pageDescription": "Kit returns with the one red ribbon gathered loosely in both hands; Zoe steadies the paper parcel on the craft table.",
+        "state": "Ribbon transferred from shelf to table; no duplicate at pot or on parcel yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top.",
+        "imageBrief": "Close view of the finished parcel: Kit completes two red bow loops while Zoe holds the center. Both pots remain in their original places in the background. Continuity: Original parcel goal resolved through a clearer message; no generic friendship moral.",
+        "imageAlt": "Close view of the finished parcel: Kit completes two red bow loops while Zoe holds the center. Both pots remain in their original places in the background.",
+        "pageDescription": "Close view of the finished parcel: Kit completes two red bow loops while Zoe holds the center. Both pots remain in their original places in the background.",
+        "state": "Original parcel goal resolved through a clearer message; no generic friendship moral.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did saying “by the pot” louder not help?",
+        "listenFor": "There were two pots. Kit needed which pot and where it was, not simply louder words."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Which details make Zoe’s new direction useful?",
+        "lookFor": "The pot is small, yellow and on the shelf, unlike the tall blue one at the window."
+      }
+    },
+    "levelRationale": "Candidate C: Two similar locations create a fair information gap, repaired by a specific question and confirmation. The page sequence supports inference without concealing the ribbon’s true position.",
+    "languagePrep": [
+      {
+        "word": "parcel",
+        "meaning": "a wrapped object ready to give or send"
+      },
+      {
+        "word": "direction",
+        "meaning": "words that help someone find a place or do something"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-13",
+    "number": 13,
+    "title": "Before the Market Opens",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "What has to happen before an empty market stand can offer carrots?",
+      "progression": "Follow one grower’s crate from a nearby field through transport and stall preparation to a customer’s purchase, revealing the work behind the open market.",
+      "synthesis": "Food reaches the buyer through growing, carrying and preparing the stall; the same crate and carrots connect those jobs.",
+      "scienceSources": [
+        {
+          "title": "USDA Agricultural Marketing Service: Local Food Directory Listings",
+          "url": "https://www.ams.usda.gov/services/local-regional/food-directories-listings",
+          "evidence": "Defines farmers markets as recurring physical locations where multiple farm vendors sell agricultural products directly to customers. This book illustrates one grower-owned carrot crop and does not generalize all markets or guarantee local origin for every stall.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "USDA: Emerging Market Opportunities for Small-Scale Producers",
+          "url": "https://www.ams.usda.gov/sites/default/files/media/EmergingMarketOpportunitiesForSmall-ScaleProducers.pdf",
+          "evidence": "Describes direct farm-to-consumer marketing through farmers markets and farm stands. Supports the grower-to-buyer relationship; particular crate, van and stall actions are an illustrative plausible route, not claimed universal procedures.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One illustrative local farmers market and nearby carrot farm. Grower sells her own crop directly. Grower: brown skin, dark braid, rust-colored work shirt and navy trousers. Market worker: light-medium skin, short gray hair, teal vest. Kit’s accompanying adult: deep brown skin, short black hair, plain cream shirt and dark trousers. No named brands, prices, logos or cultural markers.",
+    "props": [
+      "One green wooden produce crate with a pale diagonal brace on one side",
+      "Fresh carrots with green tops",
+      "One plain gray van",
+      "One simple wooden stall table",
+      "One cloth shopping bag carried by Kit’s adult"
+    ],
+    "coverBrief": "The grower places carrot bunches on a simple wooden stand while Kit and his adult approach. The distinctive green crate is visible underneath; neighboring stalls are background context, not extra named protagonists.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Before the market opens, one table stands empty. What must happen before carrots can fill it?",
+        "imageBrief": "Early-morning market space: one empty wooden table occupies the foreground while the worker opens the gate. No carrot stock has arrived at this stall. Continuity: Opening view is earlier than customer arrival; grower and green crate are still at the farm.",
+        "imageAlt": "Early-morning market space: one empty wooden table occupies the foreground while the worker opens the gate. No carrot stock has arrived at this stall.",
+        "pageDescription": "Early-morning market space: one empty wooden table occupies the foreground while the worker opens the gate. No carrot stock has arrived at this stall.",
+        "state": "Opening view is earlier than customer arrival; grower and green crate are still at the farm.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "At a nearby farm, a grower pulls carrots from the soil. She gathers them in a green crate.",
+        "imageBrief": "The grower kneels beside a carrot row and places freshly pulled carrots into the distinctive green crate with its pale diagonal brace. Continuity: One batch of carrots collected; no mechanical field harvesting or unrelated vegetables introduced.",
+        "imageAlt": "The grower kneels beside a carrot row and places freshly pulled carrots into the distinctive green crate with its pale diagonal brace.",
+        "pageDescription": "The grower kneels beside a carrot row and places freshly pulled carrots into the distinctive green crate with its pale diagonal brace.",
+        "state": "One batch of carrots collected; no mechanical field harvesting or unrelated vegetables introduced.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The full crate goes into her van. She takes the carrots to the market with the other growers.",
+        "imageBrief": "The grower slides the full green crate into her plain gray van; distant separate vehicles suggest others arriving without adding named cast. Continuity: Same crate and crop travel together; no claim every farmers market uses this exact transport.",
+        "imageAlt": "The grower slides the full green crate into her plain gray van; distant separate vehicles suggest others arriving without adding named cast.",
+        "pageDescription": "The grower slides the full green crate into her plain gray van; distant separate vehicles suggest others arriving without adding named cast.",
+        "state": "Same crate and crop travel together; no claim every farmers market uses this exact transport.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The worker holds the gate open and points out a space. The grower carries the crate to her table.",
+        "imageBrief": "The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through. Continuity: Gate was opened for setup and remains open; table is the one shown in page 1.",
+        "imageAlt": "The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through.",
+        "pageDescription": "The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through.",
+        "state": "Gate was opened for setup and remains open; table is the one shown in page 1.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The grower lifts carrots onto the stand. She keeps the empty crate underneath for the trip home.",
+        "imageBrief": "Carrot bunches lie on the tabletop; the grower slides the now empty green crate under it with its diagonal brace visible. Continuity: Crop moved onto stall; crate emptied but retained, not discarded or vanished.",
+        "imageAlt": "Carrot bunches lie on the tabletop; the grower slides the now empty green crate under it with its diagonal brace visible.",
+        "pageDescription": "Carrot bunches lie on the tabletop; the grower slides the now empty green crate under it with its diagonal brace visible.",
+        "state": "Crop moved onto stall; crate emptied but retained, not discarded or vanished.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit arrives with a grown-up. He points to a bunch of carrots and asks the grower about them.",
+        "imageBrief": "Kit and his adult stand at the carrot stall; Kit points to one bunch while the grower gestures toward it. Continuity: Market is now open to customers; no transaction completed yet.",
+        "imageAlt": "Kit and his adult stand at the carrot stall; Kit points to one bunch while the grower gestures toward it.",
+        "pageDescription": "Kit and his adult stand at the carrot stall; Kit points to one bunch while the grower gestures toward it.",
+        "state": "Market is now open to customers; no transaction completed yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The grown-up pays. The grower passes the carrots across, and Kit puts them in their cloth bag.",
+        "imageBrief": "Adult hands payment to the grower while Kit lowers the purchased carrot bunch into the cloth bag. Keep money small and non-detailed. Continuity: One bunch transferred; other carrots remain on stall; crate still underneath.",
+        "imageAlt": "Adult hands payment to the grower while Kit lowers the purchased carrot bunch into the cloth bag. Keep money small and non-detailed.",
+        "pageDescription": "Adult hands payment to the grower while Kit lowers the purchased carrot bunch into the cloth bag. Keep money small and non-detailed.",
+        "state": "One bunch transferred; other carrots remain on stall; crate still underneath.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The table was empty before the growers came. Growing, carrying, and setting out the food made this market ready.",
+        "imageBrief": "View across the now working stall: carrot bunches on table, familiar empty crate underneath, Kit carrying the bag beside his adult. Continuity: Closing view echoes opening table with changed state; no unsupported claim that every market item is locally grown.",
+        "imageAlt": "View across the now working stall: carrot bunches on table, familiar empty crate underneath, Kit carrying the bag beside his adult.",
+        "pageDescription": "View across the now working stall: carrot bunches on table, familiar empty crate underneath, Kit carrying the bag beside his adult.",
+        "state": "Closing view echoes opening table with changed state; no unsupported claim that every market item is locally grown.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Which jobs had already happened before Kit arrived?",
+        "listenFor": "The carrots had been grown and harvested, carried to the market and set out for customers."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Where is the crate now, and why is it empty?",
+        "lookFor": "Under the table; its carrots have been moved onto the stand, and the grower will reuse it to carry things home."
+      }
+    },
+    "levelRationale": "Candidate C: The same concrete crate supports a longer connected sequence with before/now relationships and several human roles. The final sentence gathers the causal work rather than listing unrelated community helpers.",
+    "languagePrep": [
+      {
+        "word": "grower",
+        "meaning": "a person who raises plants for food or other uses"
+      },
+      {
+        "word": "stand",
+        "meaning": "a place where goods are displayed for sale"
+      },
+      {
+        "word": "crop",
+        "meaning": "plants grown to be gathered and used"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-14",
+    "number": 14,
+    "title": "The Arrow Bookmark",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "A magic bookmark slides along touching pencil arrows and stops at blank paper. Kit wants it to find his page, but opposing arrows trap it in a short back-and-forth until he corrects the route.",
+      "failedAttempt": "Kit restarts the bookmark without fixing the backward fifth arrow; it reaches the same local loop between arrows four and five.",
+      "resolution": "Kit erases and redraws the backward arrow so the bookmark reaches the page. Zoe removes the route paper and closes the book with the now stationary bookmark inside."
+    },
+    "setting": "Classroom table. Explicit single magic rule: one plain red bookmark follows the direction of each pencil arrow beneath it and stops on blank paper. Adjacent arrows touch so it can pass directly from one to the next. Arrows four and five initially point toward one another, making a short back-and-forth. It has no face, limbs or speech and cannot jump a blank gap. Ordinary erasing changes the route.",
+    "props": [
+      "One red rectangular bookmark with a rounded top and no writing",
+      "One long white paper strip lying flat across the table into an open book",
+      "One gray pencil and pink eraser",
+      "One open animal picture book with unlettered pictures",
+      "Six adjacent touching pencil arrows on a continuous strip; fifth initially points back toward fourth; the last arrow reaches the blank open-book page"
+    ],
+    "coverBrief": "Kit points to the backward pencil arrow on the long white strip while Zoe holds the open picture book at the strip’s end. The plain red bookmark waits just before the wrong arrow. No animated face or floating page.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe’s red bookmark is magic. It slides along pencil arrows, but blank paper makes it stop.",
+        "imageBrief": "Red bookmark rests at the tip of a single pencil arrow on white paper, where the surface ahead becomes blank. Zoe watches its stopped position. Continuity: Rule demonstrated; no drawn eyes, legs, sparkles or motion without an arrow.",
+        "imageAlt": "Red bookmark rests at the tip of a single pencil arrow on white paper, where the surface ahead becomes blank. Zoe watches its stopped position.",
+        "pageDescription": "Red bookmark rests at the tip of a single pencil arrow on white paper, where the surface ahead becomes blank. Zoe watches its stopped position.",
+        "state": "Rule demonstrated; no drawn eyes, legs, sparkles or motion without an arrow.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit wants it to find his page by itself. He draws an arrow path across a long strip of paper.",
+        "imageBrief": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book. Continuity: No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
+        "imageAlt": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book.",
+        "pageDescription": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book.",
+        "state": "No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bookmark turns back at one arrow. Then it slides forward again, still far from Kit’s page.",
+        "imageBrief": "The red bookmark is above the meeting place of the opposing fourth and fifth arrows, moving leftward within that short section. The start is farther left and the open book farther right. Continuity: Bookmark trapped locally between arrows four and five; it does not travel back past arrows one through three.",
+        "imageAlt": "The red bookmark is above the meeting place of the opposing fourth and fifth arrows, moving leftward within that short section. The start is farther left and the open book farther right.",
+        "pageDescription": "The red bookmark is above the meeting place of the opposing fourth and fifth arrows, moving leftward within that short section. The start is farther left and the open book farther right.",
+        "state": "Bookmark trapped locally between arrows four and five; it does not travel back past arrows one through three.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit picks it up and starts again. The bookmark reaches that patch and turns back, just as before.",
+        "imageBrief": "After the restart, the red bookmark again reaches the backward fifth arrow and begins its local reversal. Kit’s hand remains near the starting end; Zoe steadies the open book. Continuity: Restart fails because directions are unchanged; bookmark does not pass fifth arrow toward the book or return to the distant start.",
+        "imageAlt": "After the restart, the red bookmark again reaches the backward fifth arrow and begins its local reversal. Kit’s hand remains near the starting end; Zoe steadies the open book.",
+        "pageDescription": "After the restart, the red bookmark again reaches the backward fifth arrow and begins its local reversal. Kit’s hand remains near the starting end; Zoe steadies the open book.",
+        "state": "Restart fails because directions are unchanged; bookmark does not pass fifth arrow toward the book or return to the distant start.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Let’s follow the points,” Zoe says. Kit traces the arrows. One point sends his finger the wrong way.",
+        "imageBrief": "Kit traces each arrow with a finger and pauses at the fifth, which clearly points left while the book is to the right. Zoe points to the book. Continuity: Fifth arrow points left toward fourth; the other arrows form a continuous onward route. The specific local trap is identified.",
+        "imageAlt": "Kit traces each arrow with a finger and pauses at the fifth, which clearly points left while the book is to the right. Zoe points to the book.",
+        "pageDescription": "Kit traces each arrow with a finger and pauses at the fifth, which clearly points left while the book is to the right. Zoe points to the book.",
+        "state": "Fifth arrow points left toward fourth; the other arrows form a continuous onward route. The specific local trap is identified.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "He rubs out that arrow and draws it toward the book. The paper now gives one clear route.",
+        "imageBrief": "Kit uses the pink eraser on the fifth arrow, then redraws a rightward arrow. Faint erased residue is not a second active arrow. Continuity: Only fifth arrow is erased and redrawn rightward; its connectors touch neighbors, giving continuous onward motion with no blank break.",
+        "imageAlt": "Kit uses the pink eraser on the fifth arrow, then redraws a rightward arrow. Faint erased residue is not a second active arrow.",
+        "pageDescription": "Kit uses the pink eraser on the fifth arrow, then redraws a rightward arrow. Faint erased residue is not a second active arrow.",
+        "state": "Only fifth arrow is erased and redrawn rightward; its connectors touch neighbors, giving continuous onward motion with no blank break.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The bookmark slides past the repaired place and onto Kit’s page. This time, it does not come back.",
+        "imageBrief": "Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip’s end. Kit holds his hands away. Continuity: The last drawn arrow ends directly at blank book page; moving onto that blank paper stops the bookmark under the original rule.",
+        "imageAlt": "Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip’s end. Kit holds his hands away.",
+        "pageDescription": "Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip’s end. Kit holds his hands away.",
+        "state": "The last drawn arrow ends directly at blank book page; moving onto that blank paper stops the bookmark under the original rule.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe pulls the arrow strip away. Kit closes the book. A red tip waits exactly where his reading stopped.",
+        "imageBrief": "Closed book on table with the red rounded bookmark tip visible at its upper edge; Zoe holds removed arrow paper beside it. Continuity: Bookmark stationary on unmarked page; final reading place saved; no unseeded ability or magically generated text.",
+        "imageAlt": "Closed book on table with the red rounded bookmark tip visible at its upper edge; Zoe holds removed arrow paper beside it.",
+        "pageDescription": "Closed book on table with the red rounded bookmark tip visible at its upper edge; Zoe holds removed arrow paper beside it.",
+        "state": "Bookmark stationary on unmarked page; final reading place saved; no unseeded ability or magically generated text.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did starting the bookmark again not solve the problem?",
+        "listenFor": "It reached the same backward arrow and got trapped again. Kit had to change that arrow, not just restart the bookmark."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Which arrow needs changing?",
+        "lookFor": "The fifth arrow points away from the open book while the others point toward it."
+      }
+    },
+    "levelRationale": "Candidate C: A fair visible clue and an unsuccessful workaround require the reader to connect a rule to its consequences. Dialogue is brief; directions and changes remain concrete and printed.",
+    "languagePrep": [
+      {
+        "word": "route",
+        "meaning": "a way from one place to another"
+      },
+      {
+        "word": "trace",
+        "meaning": "follow a line with a finger or tool"
+      },
+      {
+        "word": "bookmark",
+        "meaning": "something that keeps a place in a book"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-15",
+    "number": 15,
+    "title": "From Lava to Rock",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a moving lava flow become solid ground?",
+      "progression": "Follow a basaltic flow from hot moving lava through an outer crust, a still-hot interior and gradually thickening solid layers to rock retaining the flow shape.",
+      "synthesis": "Cooling changes melted rock into solid rock, and a dark solid surface can form long before the entire interior is cool.",
+      "scienceSources": [
+        {
+          "title": "USGS Hawaiian Volcano Observatory: How do lava flows cool and how long does it take?",
+          "url": "https://www.usgs.gov/observatories/hvo/news/volcano-watch-how-do-lava-flows-cool-and-how-long-does-it-take",
+          "evidence": "Explains early top/bottom crust formation, retention of heat by crust, progressive thickening and long solidification times in thick basalt flows. Solidification and cooling to ambient temperature are different; the final page does not claim all solid rock is cool to touch.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "USGS: Why is the 2018 lava still so hot?",
+          "url": "https://www.usgs.gov/news/volcano-watch-why-2018-lava-still-so-hot",
+          "evidence": "Observations show solid upper surfaces can cover very hot interiors; thicker flows can take years to decades to solidify and longer to cool completely. No single cooling time is asserted for every flow.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One illustrative basaltic lava flow on a bare volcanic slope, inspired by observations at Kilauea rather than claiming a precise historic date. No people, buildings or animals near active lava. One low gray ridge at rear anchors the flow’s location; a geological cutaway is used only where specified.",
+    "props": [
+      "One tongue-shaped basaltic lava flow",
+      "One low pre-existing gray ridge behind the flow",
+      "A cooling crust over hotter orange-red interior",
+      "Natural cracks and rope-like surface folds"
+    ],
+    "coverBrief": "A lava tongue shows dark solid crust along its outer edge and a narrow glowing opening in the center. Distant gray ridge gives scale; no glowing sky, explosion, human observers or fantasy faces.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Dark rock covers this old lava flow. It once moved. How did flowing lava become solid ground?",
+        "imageBrief": "Present-day view of a dark tongue-shaped basalt flow with rope-like folds, set below the low gray ridge. No glow or active eruption appears in this opening later-time view. Continuity: Opening shows final solid surface; next page deliberately looks back to formation.",
+        "imageAlt": "Present-day view of a dark tongue-shaped basalt flow with rope-like folds, set below the low gray ridge. No glow or active eruption appears in this opening later-time view.",
+        "pageDescription": "Present-day view of a dark tongue-shaped basalt flow with rope-like folds, set below the low gray ridge. No glow or active eruption appears in this opening later-time view.",
+        "state": "Opening shows final solid surface; next page deliberately looks back to formation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "During an eruption, hot melted rock reaches the surface. We call it lava.",
+        "imageBrief": "Earlier view of the same slope: orange-red lava issues from a low fissure and begins advancing below the gray ridge. Continuity: Formation flashback clearly specified; no giant cone required and no violent ash explosion added.",
+        "imageAlt": "Earlier view of the same slope: orange-red lava issues from a low fissure and begins advancing below the gray ridge.",
+        "pageDescription": "Earlier view of the same slope: orange-red lava issues from a low fissure and begins advancing below the gray ridge.",
+        "state": "Formation flashback clearly specified; no giant cone required and no violent ash explosion added.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The lava spreads over the ground. Its outside loses heat to the cooler air and ground.",
+        "imageBrief": "The tongue-shaped flow advances slowly across bare ground; its margins begin to dull while the center remains bright. Continuity: Heat loss begins at exposed top and ground contact; no snow, water spray or people cooling it.",
+        "imageAlt": "The tongue-shaped flow advances slowly across bare ground; its margins begin to dull while the center remains bright.",
+        "pageDescription": "The tongue-shaped flow advances slowly across bare ground; its margins begin to dull while the center remains bright.",
+        "state": "Heat loss begins at exposed top and ground contact; no snow, water spray or people cooling it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "A thin solid crust forms outside. Under that dark crust, hotter lava can still flow.",
+        "imageBrief": "Single geological cutaway through the advancing flow reveals a thin dark top and bottom crust around an orange-red moving interior. Continuity: Cutaway is explanatory, not a real open cliff people can approach; crust thin and interior hot.",
+        "imageAlt": "Single geological cutaway through the advancing flow reveals a thin dark top and bottom crust around an orange-red moving interior.",
+        "pageDescription": "Single geological cutaway through the advancing flow reveals a thin dark top and bottom crust around an orange-red moving interior.",
+        "state": "Cutaway is explanatory, not a real open cliff people can approach; crust thin and interior hot.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Here, the crust cracks. Bright lava shows through the gap. A dark top does not mean a cool inside.",
+        "imageBrief": "Return to ordinary surface view: a fresh crack in the dark crust reveals orange-red lava below; the same ridge is behind it. Continuity: Crack reveals retained heat; do not depict a safe cool walking surface or fire burning from fuel.",
+        "imageAlt": "Return to ordinary surface view: a fresh crack in the dark crust reveals orange-red lava below; the same ridge is behind it.",
+        "pageDescription": "Return to ordinary surface view: a fresh crack in the dark crust reveals orange-red lava below; the same ridge is behind it.",
+        "state": "Crack reveals retained heat; do not depict a safe cool walking surface or fire burning from fuel.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "As more heat escapes, the solid layer grows thicker. The hot middle cools more slowly.",
+        "imageBrief": "Later cutaway at the same location shows much thicker dark rock enclosing a smaller hot center. Outline of the tongue matches the earlier cross-section. Continuity: Elapsed time; hot interior reduced but still present; no universal exact duration.",
+        "imageAlt": "Later cutaway at the same location shows much thicker dark rock enclosing a smaller hot center. Outline of the tongue matches the earlier cross-section.",
+        "pageDescription": "Later cutaway at the same location shows much thicker dark rock enclosing a smaller hot center. Outline of the tongue matches the earlier cross-section.",
+        "state": "Elapsed time; hot interior reduced but still present; no universal exact duration.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Much later, the whole flow becomes solid rock. Thick flows can take years to reach this stage.",
+        "imageBrief": "Another later cutaway shows solid gray-black rock throughout, with surface folds retained. No orange liquid core remains. Continuity: Whole flow solid, but no claim its temperature instantly equals surrounding air.",
+        "imageAlt": "Another later cutaway shows solid gray-black rock throughout, with surface folds retained. No orange liquid core remains.",
+        "pageDescription": "Another later cutaway shows solid gray-black rock throughout, with surface folds retained. No orange liquid core remains.",
+        "state": "Whole flow solid, but no claim its temperature instantly equals surrounding air.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The rock keeps the shape of the old flow. Melted rock spread here, then cooling made it solid.",
+        "imageBrief": "Ordinary exterior view matches the opening dark flow shape and gray ridge; broad rope-like folds show where material once moved. Continuity: Ending returns to opening surface with an explained process; no vegetation-growth or new-island subplot.",
+        "imageAlt": "Ordinary exterior view matches the opening dark flow shape and gray ridge; broad rope-like folds show where material once moved.",
+        "pageDescription": "Ordinary exterior view matches the opening dark flow shape and gray ridge; broad rope-like folds show where material once moved.",
+        "state": "Ending returns to opening surface with an explained process; no vegetation-growth or new-island subplot.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can lava be dark on top and still hot inside?",
+        "listenFor": "The outside cools and forms a crust first; heat inside takes longer to escape."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What is different from the earlier cutaway?",
+        "lookFor": "The solid outer layer is thicker, but a smaller hot center remains."
+      }
+    },
+    "levelRationale": "Candidate C: One time sequence and repeated outside/inside contrast support a connected explanation. Specialist vocabulary is limited to lava and crust, with cutaways explicitly supporting the relationship.",
+    "languagePrep": [
+      {
+        "word": "lava",
+        "meaning": "melted rock at Earth’s surface"
+      },
+      {
+        "word": "crust",
+        "meaning": "a solid outer layer"
+      },
+      {
+        "word": "solid",
+        "meaning": "holding a shape instead of flowing like a liquid"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-16",
+    "number": 16,
+    "title": "What Is the Comet’s Tail?",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Is the long pale tail a solid part of the comet?",
+      "progression": "Follow a frozen comet nearer the Sun as gas frees dust from its icy center; observe loose dust reflecting sunlight, then a fading tail farther away.",
+      "synthesis": "The tail is spread-out loose dust lit by sunlight, not a solid extension of the comet’s small frozen body.",
+      "scienceSources": [
+        {
+          "title": "NASA Science: Comet Facts",
+          "url": "https://science.nasa.gov/solar-system/comets/facts/",
+          "evidence": "NASA describes icy nuclei, gas released by solar heating carrying dust, and dust-tail development. The book selectively examines the visible dust tail and does not claim it is the only kind of comet tail.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA: Basics of Space Flight, Solar System",
+          "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter1-3/",
+          "evidence": "NASA explains that dust reflects sunlight, spreads outside the small solid center and forms a curved tail; this source supports the solid-versus-loose-material inquiry without introducing gas-tail taxonomy.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "NASA Science: Helio and You, Comets, the Sun, and You",
+          "url": "https://science.nasa.gov/learning-resources/science-activation/helio-and-you-comets-the-sun-and-you/",
+          "evidence": "Supports fading tails as a comet departs the inner solar system. The manuscript uses the more precise direct ice-to-gas description from NASA Comet Facts rather than the informal melting wording on this educational page.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Illustrative comet in space, one body per scene. One irregular charcoal-gray icy center; only the broad pale dust tail is depicted and discussed. This is a selective view of a dust tail, not a claim that no other tail type exists. Sun stays to the left; dust tail is gently curved generally away from it. No flames or atmosphere like a planet.",
+    "props": [
+      "One irregular dark comet center containing ice and dust",
+      "One faint cloud of released dust and gas near the center",
+      "One broad pale gently curved dust tail",
+      "A distant Sun, no face; sparse stars"
+    ],
+    "coverBrief": "A small dark comet center and its long pale, gently curved dust tail against space; sunlight comes from the distant Sun at left. The tail is diffuse, with no solid border or flames. Depict only the dust tail being studied.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A comet has a long pale tail. Is that tail part of a solid body?",
+        "imageBrief": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame. Continuity: Opening near-Sun view; one comet and one visible dust tail; diffuse material, not a solid spike.",
+        "imageAlt": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame.",
+        "pageDescription": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame.",
+        "state": "Opening near-Sun view; one comet and one visible dust tail; diffuse material, not a solid spike.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Far from the Sun, the comet is a small frozen body with dust trapped in its ice.",
+        "imageBrief": "Earlier, more distant view of the same dark icy center with no developed tail. A restrained cutaway reveals dusty ice beneath the crust. Continuity: Earlier orbital position, not a new comet; no liquid pond or flame.",
+        "imageAlt": "Earlier, more distant view of the same dark icy center with no developed tail. A restrained cutaway reveals dusty ice beneath the crust.",
+        "pageDescription": "Earlier, more distant view of the same dark icy center with no developed tail. A restrained cutaway reveals dusty ice beneath the crust.",
+        "state": "Earlier orbital position, not a new comet; no liquid pond or flame.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Nearer the Sun, the ice warms. Gas escapes and carries some of the dust away.",
+        "imageBrief": "The sunlit side of the center releases faint gas and tiny dust particles into space, with the Sun to the left. Continuity: Release from warming ice; not smoke from burning and not wind blowing across a planet surface.",
+        "imageAlt": "The sunlit side of the center releases faint gas and tiny dust particles into space, with the Sun to the left.",
+        "pageDescription": "The sunlit side of the center releases faint gas and tiny dust particles into space, with the Sun to the left.",
+        "state": "Release from warming ice; not smoke from burning and not wind blowing across a planet surface.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The loose dust spreads away from the small center. It is no longer trapped in solid ice.",
+        "imageBrief": "Close view follows scattered dust grains leaving the small dark center and spreading into a widening diffuse plume. Continuity: Dust moves outside the solid center; no giant solid tail material or second tail lesson.",
+        "imageAlt": "Close view follows scattered dust grains leaving the small dark center and spreading into a widening diffuse plume.",
+        "pageDescription": "Close view follows scattered dust grains leaving the small dark center and spreading into a widening diffuse plume.",
+        "state": "Dust moves outside the solid center; no giant solid tail material or second tail lesson.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The dust reflects sunlight. We see a pale tail, even though the dust pieces are tiny.",
+        "imageBrief": "Wide view shows the released dust as a pale luminous curved tail under sunlight from left. Individual grains are not huge stones. Continuity: The dust reflects light; it does not burn or make its own flame.",
+        "imageAlt": "Wide view shows the released dust as a pale luminous curved tail under sunlight from left. Individual grains are not huge stones.",
+        "pageDescription": "Wide view shows the released dust as a pale luminous curved tail under sunlight from left. Individual grains are not huge stones.",
+        "state": "The dust reflects light; it does not burn or make its own flame.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The solid center is much smaller than the tail. Most of that long shape is scattered dust.",
+        "imageBrief": "A full-comet view gives the tail generous space and keeps the dark center small, with the tail fading gradually at its edges. Continuity: Scale comparison within one object; distances illustrative, no numeric scale or multiple comet clones.",
+        "imageAlt": "A full-comet view gives the tail generous space and keeps the dark center small, with the tail fading gradually at its edges.",
+        "pageDescription": "A full-comet view gives the tail generous space and keeps the dark center small, with the tail fading gradually at its edges.",
+        "state": "Scale comparison within one object; distances illustrative, no numeric scale or multiple comet clones.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Farther from the Sun, less dust escapes. The visible tail grows faint as the comet moves away.",
+        "imageBrief": "Later outbound view shows the same center and a shorter, fainter diffuse tail; the Sun is smaller and farther away at left. Continuity: Later in orbit; gradual fading, not instant destruction or a newly growing second tail.",
+        "imageAlt": "Later outbound view shows the same center and a shorter, fainter diffuse tail; the Sun is smaller and farther away at left.",
+        "pageDescription": "Later outbound view shows the same center and a shorter, fainter diffuse tail; the Sun is smaller and farther away at left.",
+        "state": "Later in orbit; gradual fading, not instant destruction or a newly growing second tail.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The long tail is not a solid piece of the comet. It is loose dust, lit by the Sun.",
+        "imageBrief": "Final close view of a fading pale dust tail shows diffuse tiny particles around the small dark center, with sunlight arriving from the left. Continuity: Concluding selective dust-tail view; solid center and loose tail remain distinguishable.",
+        "imageAlt": "Final close view of a fading pale dust tail shows diffuse tiny particles around the small dark center, with sunlight arriving from the left.",
+        "pageDescription": "Final close view of a fading pale dust tail shows diffuse tiny particles around the small dark center, with sunlight arriving from the left.",
+        "state": "Concluding selective dust-tail view; solid center and loose tail remain distinguishable.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What makes the pale dust tail different from the comet’s center?",
+        "listenFor": "The center is a small frozen body; the long tail is loose dust spread through space and reflecting sunlight."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Which part is small and solid, and which part spreads out?",
+        "lookFor": "Small dark center compared with the long, diffuse pale dust tail."
+      }
+    },
+    "levelRationale": "Candidate C: one question contrasts a solid center with a visible loose-dust tail. Short paired clauses connect warming, dust release, reflected light and fading; gas-tail types, ion physics and a second solar-wind mechanism are excluded from child print.",
+    "languagePrep": [
+      {
+        "word": "comet",
+        "meaning": "an icy body that travels around the Sun"
+      },
+      {
+        "word": "dust",
+        "meaning": "very small solid pieces"
+      },
+      {
+        "word": "reflect",
+        "meaning": "send light back from a surface"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-17",
+    "number": 17,
+    "title": "A Stone for the Otter",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a sea otter reach food inside a hard clam shell?",
+      "progression": "Follow one otter collecting prey, floating on its back, using a stone as an anvil, breaking the shell and accessing the food.",
+      "synthesis": "The stone is a tool: an object outside the body used to help obtain food.",
+      "scienceSources": [
+        {
+          "title": "Monterey Bay Aquarium: Sea otter",
+          "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+          "evidence": "The aquarium’s animal account describes sea otters hunting on the seafloor, returning to the surface, using their chest as a table and sometimes using rocks to crack clams or other hard prey; loose forearm skin can carry prey.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "US Geological Survey: What You Otter Know About Sea Otters, Part 1",
+          "url": "https://www.usgs.gov/media/audio/what-you-otter-know-about-sea-otters-part-1",
+          "evidence": "Researcher account describes bringing benthic prey to the surface, floating on the back, holding prey on the chest and processing it with tools such as rocks or shells. The exact illustrated strike sequence is one representative event, not universal behavior.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One southern sea otter, Enhydra lutris nereis, in calm coastal water near kelp. Dense brown fur with paler head, four natural paws/feet and a tail; no human hands or clothing. Only this focal otter; natural feeding with no gore.",
+    "props": [
+      "One closed clam with two matching shell halves",
+      "One flat gray stone used as an anvil",
+      "Kelp fronds below the water",
+      "Clam shell crack growing only after repeated strikes"
+    ],
+    "coverBrief": "Otter floats on its back with a flat gray stone on its chest and one closed clam held above it in its forepaws. Show natural paws, a believable chest-supported tool and calm water.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A sea otter finds a clam on the seabed. Food lies inside, behind a hard shell.",
+        "imageBrief": "Underwater side view: otter reaches with its forepaws toward one closed clam between stones near kelp. Continuity: Clam intact and closed; tool stone lies nearby, not yet on chest.",
+        "imageAlt": "Underwater side view: otter reaches with its forepaws toward one closed clam between stones near kelp.",
+        "pageDescription": "Underwater side view: otter reaches with its forepaws toward one closed clam between stones near kelp.",
+        "state": "Clam intact and closed; tool stone lies nearby, not yet on chest.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The otter takes the clam and a flat stone. It swims back up through the kelp.",
+        "imageBrief": "Otter ascends through kelp using its hind feet, holding the closed clam and flat gray stone close against its body with its two forepaws. Continuity: One clam and one stone held during ascent; no claim that every otter stores a favorite stone or uses a pocket for it.",
+        "imageAlt": "Otter ascends through kelp using its hind feet, holding the closed clam and flat gray stone close against its body with its two forepaws.",
+        "pageDescription": "Otter ascends through kelp using its hind feet, holding the closed clam and flat gray stone close against its body with its two forepaws.",
+        "state": "One clam and one stone held during ascent; no claim that every otter stores a favorite stone or uses a pocket for it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "At the surface, it rolls onto its back. The clam rests on its chest above the water.",
+        "imageBrief": "Otter floats supine, head raised slightly; closed clam rests on chest while stone is brought into position by a forepaw. Continuity: Prey processing above surface; chest acts as support, not a human-built table.",
+        "imageAlt": "Otter floats supine, head raised slightly; closed clam rests on chest while stone is brought into position by a forepaw.",
+        "pageDescription": "Otter floats supine, head raised slightly; closed clam rests on chest while stone is brought into position by a forepaw.",
+        "state": "Prey processing above surface; chest acts as support, not a human-built table.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The otter sets the stone on its chest. It holds the clam above the flat surface.",
+        "imageBrief": "Otter’s forepaws raise the closed clam over the stone lying securely on its chest; hind feet trail naturally in the water. Continuity: Stone is anvil, clam will be struck against it; one clear tool arrangement maintained.",
+        "imageAlt": "Otter’s forepaws raise the closed clam over the stone lying securely on its chest; hind feet trail naturally in the water.",
+        "pageDescription": "Otter’s forepaws raise the closed clam over the stone lying securely on its chest; hind feet trail naturally in the water.",
+        "state": "Stone is anvil, clam will be struck against it; one clear tool arrangement maintained.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Tap! The clam hits the stone, but its shell stays closed.",
+        "imageBrief": "Clam touches stone at a first strike; the shell remains unbroken. Tiny water droplets mark motion, not drawn sound lettering. Continuity: First strike has not opened shell; no red flesh or blood.",
+        "imageAlt": "Clam touches stone at a first strike; the shell remains unbroken. Tiny water droplets mark motion, not drawn sound lettering.",
+        "pageDescription": "Clam touches stone at a first strike; the shell remains unbroken. Tiny water droplets mark motion, not drawn sound lettering.",
+        "state": "First strike has not opened shell; no red flesh or blood.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The otter strikes again. A crack opens in the hard shell.",
+        "imageBrief": "At the next impact, a visible crack appears along one part of the clam shell against the flat stone. Continuity: Same clam now cracked; no second closed clam remains elsewhere.",
+        "imageAlt": "At the next impact, a visible crack appears along one part of the clam shell against the flat stone.",
+        "pageDescription": "At the next impact, a visible crack appears along one part of the clam shell against the flat stone.",
+        "state": "Same clam now cracked; no second closed clam remains elsewhere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Its paws pull the broken shell apart. Now it can reach the food inside.",
+        "imageBrief": "Otter separates the two damaged shell halves above the stone and brings a small pale morsel toward its mouth. Continuity: Shell opened and food accessible; natural feeding without graphic detail.",
+        "imageAlt": "Otter separates the two damaged shell halves above the stone and brings a small pale morsel toward its mouth.",
+        "pageDescription": "Otter separates the two damaged shell halves above the stone and brings a small pale morsel toward its mouth.",
+        "state": "Shell opened and food accessible; natural feeding without graphic detail.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The stone stays outside the otter’s body, but it helps the otter get food. The stone is a tool.",
+        "imageBrief": "Otter rests on its back with the useful stone still on its chest, empty broken shell halves beside it and the meal nearly finished. Continuity: Outcome answers opening hard-shell barrier; no claim all otters use stones for every meal.",
+        "imageAlt": "Otter rests on its back with the useful stone still on its chest, empty broken shell halves beside it and the meal nearly finished.",
+        "pageDescription": "Otter rests on its back with the useful stone still on its chest, empty broken shell halves beside it and the meal nearly finished.",
+        "state": "Outcome answers opening hard-shell barrier; no claim all otters use stones for every meal.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What made the stone a tool in this sequence?",
+        "listenFor": "The otter used it to help break the clam shell and reach food; it was an object used for a job."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What changed after another strike?",
+        "lookFor": "A crack appeared in the same clam shell; the stone stayed underneath as the hard striking surface."
+      }
+    },
+    "levelRationale": "Candidate C: Action and consequence stay concrete while the ending connects a particular action to the category tool. Short paired sentences and a supported contrast earn more demand than a simple feeding list.",
+    "languagePrep": [
+      {
+        "word": "clam",
+        "meaning": "a water animal with two shell halves"
+      },
+      {
+        "word": "tool",
+        "meaning": "an object used to help do a job"
+      },
+      {
+        "word": "seabed",
+        "meaning": "the ground under the sea"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-18",
+    "number": 18,
+    "title": "A Shell from the Start",
+    "topic": "life-cycles",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Does a garden snail hatch without a shell and find one later?",
+      "progression": "Follow brown garden snail eggs, hatching with an attached shell, growth of body and shell together and reproduction by the mature animal.",
+      "synthesis": "The next generation also begins with its own shell; the growing snail does not exchange it for an empty larger shell.",
+      "scienceSources": [
+        {
+          "title": "University of California IPM: Snails and Slugs, Home and Landscape",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/snails-and-slugs/",
+          "evidence": "Brown garden snails lay spherical pale eggs into a soil hole; darker eggs are closer to hatching, and maturation takes considerable time. Mating precedes viable egg laying in the described species.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Natural History Museum: Make a maze for a snail",
+          "url": "https://www.nhm.ac.uk/take-part/outdoor-activities-for-kids/snail-maze",
+          "evidence": "States that snails are born with their shells and that the shell grows with the animal. Supports the book’s central distinction from borrowing or exchanging a shell.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "University of California IPM: Snails and Slugs, Floriculture and Ornamental Nurseries",
+          "url": "https://ipm.ucanr.edu/agriculture/floriculture-and-ornamental-nurseries/snails-and-slugs/",
+          "evidence": "Identifies Cornu aspersum shell pattern, egg laying in soil/media, reproductive maturity and the usual requirement to mate with another individual for viable eggs. No exact age or fixed clutch size is printed.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Brown garden snail, Cornu aspersum, in a damp garden bed beside a curved stone and broad low leaves. One focal individual followed through time; thin pale hatchling shell becomes larger and patterned. Natural shell coiling and two long eye tentacles plus two shorter sensory tentacles.",
+    "props": [
+      "A soil hole containing a partly concealed clutch of round pale eggs",
+      "One focal egg that darkens then opens",
+      "One focal snail and its continuous attached growing shell",
+      "One curved gray stone beside low leaves"
+    ],
+    "coverBrief": "A tiny garden snail with a pale attached spiral shell emerges beside its opened egg under a leaf. An ordinary soil hole and curved gray stone establish scale; no empty replacement shells.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Small round eggs lie in a hole in the soil. A garden snail laid them here.",
+        "imageBrief": "Natural cutaway shows a cluster of pale spherical eggs in a shallow soil hole beside the curved stone. Several eggs are partly hidden behind soil and each other. Continuity: One clutch, not a fixed universal egg count; focal egg nearest viewer is intact.",
+        "imageAlt": "Natural cutaway shows a cluster of pale spherical eggs in a shallow soil hole beside the curved stone. Several eggs are partly hidden behind soil and each other.",
+        "pageDescription": "Natural cutaway shows a cluster of pale spherical eggs in a shallow soil hole beside the curved stone. Several eggs are partly hidden behind soil and each other.",
+        "state": "One clutch, not a fixed universal egg count; focal egg nearest viewer is intact.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Inside each egg, a young snail grows. These eggs are darker now, close to hatching.",
+        "imageBrief": "Later close view of the same soil hole: eggs have slightly darker translucent shells and one faint curled embryo silhouette is visible through the focal egg. Continuity: Time has passed; no fully exposed naked snail inside an opened egg yet.",
+        "imageAlt": "Later close view of the same soil hole: eggs have slightly darker translucent shells and one faint curled embryo silhouette is visible through the focal egg.",
+        "pageDescription": "Later close view of the same soil hole: eggs have slightly darker translucent shells and one faint curled embryo silhouette is visible through the focal egg.",
+        "state": "Time has passed; no fully exposed naked snail inside an opened egg yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A tiny snail pushes out. It already carries a small shell on its back.",
+        "imageBrief": "The focal egg is split and a tiny pale snail emerges with its attached thin spiral shell. Other eggs remain partly hidden in the hole. Continuity: One hatchling, one opened egg; shell present from emergence, not picked up afterward.",
+        "imageAlt": "The focal egg is split and a tiny pale snail emerges with its attached thin spiral shell. Other eggs remain partly hidden in the hole.",
+        "pageDescription": "The focal egg is split and a tiny pale snail emerges with its attached thin spiral shell. Other eggs remain partly hidden in the hole.",
+        "state": "One hatchling, one opened egg; shell present from emergence, not picked up afterward.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The young snail eats soft leaves. Its body grows, and its shell grows with it.",
+        "imageBrief": "Young snail with still pale attached shell feeds along a tender leaf edge near the same curved stone. A small bite notch appears. Continuity: Later juvenile stage above ground; shell larger than at hatching but not adult size.",
+        "imageAlt": "Young snail with still pale attached shell feeds along a tender leaf edge near the same curved stone. A small bite notch appears.",
+        "pageDescription": "Young snail with still pale attached shell feeds along a tender leaf edge near the same curved stone. A small bite notch appears.",
+        "state": "Later juvenile stage above ground; shell larger than at hatching but not adult size.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "It does not leave that shell to find a larger one. The shell remains part of its growing body.",
+        "imageBrief": "Close side view of the juvenile shows continuous attachment between soft body and shell as it moves over a leaf; no other shells present. Continuity: One body and attached shell; no hermit-crab exchange, costume-like shell or detached snail.",
+        "imageAlt": "Close side view of the juvenile shows continuous attachment between soft body and shell as it moves over a leaf; no other shells present.",
+        "pageDescription": "Close side view of the juvenile shows continuous attachment between soft body and shell as it moves over a leaf; no other shells present.",
+        "state": "One body and attached shell; no hermit-crab exchange, costume-like shell or detached snail.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Many months pass. The snail becomes much larger, with a broad, patterned shell.",
+        "imageBrief": "Adult-sized brown garden snail rests beside the same curved stone, its shell now brown and tan with natural banding and flecks. Continuity: Substantial elapsed growth, not instant transformation; shape and species stay consistent.",
+        "imageAlt": "Adult-sized brown garden snail rests beside the same curved stone, its shell now brown and tan with natural banding and flecks.",
+        "pageDescription": "Adult-sized brown garden snail rests beside the same curved stone, its shell now brown and tan with natural banding and flecks.",
+        "state": "Substantial elapsed growth, not instant transformation; shape and species stay consistent.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "When this snail is grown and has mated, it can lay eggs in another soil hole.",
+        "imageBrief": "The mature snail is positioned at a fresh shallow soil hole with newly laid pale eggs partly visible behind its body. No mating scene is depicted. Continuity: Adult reproductive stage; no claim juvenile lays eggs or that every animal is female.",
+        "imageAlt": "The mature snail is positioned at a fresh shallow soil hole with newly laid pale eggs partly visible behind its body. No mating scene is depicted.",
+        "pageDescription": "The mature snail is positioned at a fresh shallow soil hole with newly laid pale eggs partly visible behind its body. No mating scene is depicted.",
+        "state": "Adult reproductive stage; no claim juvenile lays eggs or that every animal is female.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A new snail begins in an egg with its own shell. One body and its shell grow together.",
+        "imageBrief": "Return to a close view of a new focal hatchling with pale attached shell beside an opened egg and the familiar leaf/stone setting. Continuity: New generation, not the adult shrinking back into its own egg; other eggs remain in the background.",
+        "imageAlt": "Return to a close view of a new focal hatchling with pale attached shell beside an opened egg and the familiar leaf/stone setting.",
+        "pageDescription": "Return to a close view of a new focal hatchling with pale attached shell beside an opened egg and the familiar leaf/stone setting.",
+        "state": "New generation, not the adult shrinking back into its own egg; other eggs remain in the background.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How is a snail’s shell different from an empty shell an animal might move into?",
+        "listenFor": "The snail starts life with its attached shell, and that shell grows along with its body."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "What is already on the hatchling’s back?",
+        "lookFor": "Its own small spiral shell; it has not found or put on a separate empty shell."
+      }
+    },
+    "levelRationale": "Candidate C: The familiar snail is examined through a new egg/growth inquiry. Temporal language and a shell-exchange misconception require supported links across pages without using dense reproductive terminology.",
+    "languagePrep": [
+      {
+        "word": "hatch",
+        "meaning": "come out of an egg"
+      },
+      {
+        "word": "clutch",
+        "meaning": "a group of eggs laid together"
+      },
+      {
+        "word": "mature",
+        "meaning": "fully grown and able to reproduce"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-19",
+    "number": 19,
+    "title": "Gone or Still There?",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can salt and sand be grouped by what happens when they are stirred into water?",
+      "progression": "Compare small samples in equal water, let sand settle, then recover dissolved salt by unheated evaporation to show that invisible does not mean gone.",
+      "synthesis": "Both materials begin as grains, but a water test distinguishes dissolving from remaining as separate grains; the salt remains present even when it cannot be seen.",
+      "scienceSources": [
+        {
+          "title": "Royal Society of Chemistry: Separating sand and salt by filtering and evaporation",
+          "url": "https://edu.rsc.org/experiments/separating-sand-and-salt-by-filtering-and-evaporation/386.article",
+          "evidence": "Supports salt solubility, sand insolubility, and recovery of dissolved salt after evaporation. The manuscript does not reproduce the heated school experiment; it uses a small shallow sample drying naturally.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Royal Society of Chemistry: Extraction of salt from rock salt, Experiment with the Vikings",
+          "url": "https://edu.rsc.org/download?ac=15101",
+          "evidence": "Teacher resource explicitly offers leaving salt solution in a warm place to evaporate as an alternative to heating. Supports an unheated, untasted demonstration with visible recovered salt.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Royal Society of Chemistry: Dissolving substances teacher notes",
+          "url": "https://edu.rsc.org/download?ac=12485",
+          "evidence": "Explains salt appearing to disappear while dissolving and sand not dissolving. Small salt quantity is specified so excess undissolved salt does not undermine the intended comparison.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Classroom investigation table. Equal clear water in two sturdy transparent cups; small salt quantity well below saturation. An adult-supervised demonstration, no tasting or heating. Later observation over days on an indoor sunny sill.",
+    "props": [
+      "One clear cup on a blue mat for salt water",
+      "One clear cup on a green mat for sand water",
+      "Equal amounts of water and one small level scoop of each solid",
+      "Two separate stirring spoons",
+      "One shallow white dish for a little salt solution",
+      "Dry white table salt and clean coarse beige sand"
+    ],
+    "coverBrief": "Kit and Zoe examine two cups: clear salt solution on a blue mat and visible settled sand on a green mat. A shallow dish with dried white salt crystals sits nearby. No labels, tasting or flames.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Salt and sand both look like tiny grains. Kit puts a small scoop of each beside two cups of water.",
+        "imageBrief": "Two equal water-filled cups stand on their blue and green mats. A small white salt pile and a small beige sand pile lie in separate scoops beside the matching cups. Continuity: Samples still dry and separate; same water amount; salt quantity small enough to dissolve completely.",
+        "imageAlt": "Two equal water-filled cups stand on their blue and green mats. A small white salt pile and a small beige sand pile lie in separate scoops beside the matching cups.",
+        "pageDescription": "Two equal water-filled cups stand on their blue and green mats. A small white salt pile and a small beige sand pile lie in separate scoops beside the matching cups.",
+        "state": "Samples still dry and separate; same water amount; salt quantity small enough to dissolve completely.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe tips salt into the first cup and stirs. The white grains become harder to see.",
+        "imageBrief": "Zoe stirs the blue-mat cup with its own spoon; a few shrinking salt grains remain visible near the bottom. Continuity: Salt dissolving, not melting; green-mat water and sand sample untouched.",
+        "imageAlt": "Zoe stirs the blue-mat cup with its own spoon; a few shrinking salt grains remain visible near the bottom.",
+        "pageDescription": "Zoe stirs the blue-mat cup with its own spoon; a few shrinking salt grains remain visible near the bottom.",
+        "state": "Salt dissolving, not melting; green-mat water and sand sample untouched.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Soon, the water looks clear. “Has the salt gone?” Kit asks. They leave that cup on its blue mat.",
+        "imageBrief": "The blue-mat cup contains clear solution without visible grains. Kit looks through it while Zoe rests its spoon beside the mat. Continuity: Salt remains in solution; no empty cup or magical disappearance.",
+        "imageAlt": "The blue-mat cup contains clear solution without visible grains. Kit looks through it while Zoe rests its spoon beside the mat.",
+        "pageDescription": "The blue-mat cup contains clear solution without visible grains. Kit looks through it while Zoe rests its spoon beside the mat.",
+        "state": "Salt remains in solution; no empty cup or magical disappearance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit stirs sand into the other cup. Grains swirl, then sink into a layer when he stops.",
+        "imageBrief": "Kit’s separate spoon rests beside the green mat as coarse sand grains settle into a clear bottom layer. Continuity: Sand remains undissolved; no claim all suspended particles settle immediately; this is coarse clean sand.",
+        "imageAlt": "Kit’s separate spoon rests beside the green mat as coarse sand grains settle into a clear bottom layer.",
+        "pageDescription": "Kit’s separate spoon rests beside the green mat as coarse sand grains settle into a clear bottom layer.",
+        "state": "Sand remains undissolved; no claim all suspended particles settle immediately; this is coarse clean sand.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe pours a little clear salt water into a dish. They leave it by the window for several days.",
+        "imageBrief": "Zoe pours a small portion from the blue-mat cup into a shallow white dish on an indoor sill. Both children keep the cups away from their mouths. Continuity: No heat source or tasting; only some solution transferred; salt cup still contains the remainder.",
+        "imageAlt": "Zoe pours a small portion from the blue-mat cup into a shallow white dish on an indoor sill. Both children keep the cups away from their mouths.",
+        "pageDescription": "Zoe pours a small portion from the blue-mat cup into a shallow white dish on an indoor sill. Both children keep the cups away from their mouths.",
+        "state": "No heat source or tasting; only some solution transferred; salt cup still contains the remainder.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The water slowly dries away. Small white salt crystals appear on the dish. The salt was still there.",
+        "imageBrief": "Several days later, the white dish is dry with a visible scattering of white salt crystals. The same window and mats identify the setting. Continuity: Water evaporated; recovered solid is salt, not newly created sand or sugar.",
+        "imageAlt": "Several days later, the white dish is dry with a visible scattering of white salt crystals. The same window and mats identify the setting.",
+        "pageDescription": "Several days later, the white dish is dry with a visible scattering of white salt crystals. The same window and mats identify the setting.",
+        "state": "Water evaporated; recovered solid is salt, not newly created sand or sugar.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Salt can spread through water without visible grains. Sand stays in grains, even after stirring.",
+        "imageBrief": "Kit holds the clear salt-water cup while Zoe points to the settled sand cup; the dish of recovered salt remains between them. Continuity: Evidence for two different behaviors is present together; no unsupported microscope particle diagram.",
+        "imageAlt": "Kit holds the clear salt-water cup while Zoe points to the settled sand cup; the dish of recovered salt remains between them.",
+        "pageDescription": "Kit holds the clear salt-water cup while Zoe points to the settled sand cup; the dish of recovered salt remains between them.",
+        "state": "Evidence for two different behaviors is present together; no unsupported microscope particle diagram.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Both began as grains. The water test puts them in different groups: dissolves and does not dissolve.",
+        "imageBrief": "Final table arrangement groups the salt scoop, clear solution and recovered crystals on blue side, with sand scoop and settled sand cup on green side. Continuity: Grouping based on observed behavior, not color or object size; no new substances introduced.",
+        "imageAlt": "Final table arrangement groups the salt scoop, clear solution and recovered crystals on blue side, with sand scoop and settled sand cup on green side.",
+        "pageDescription": "Final table arrangement groups the salt scoop, clear solution and recovered crystals on blue side, with sand scoop and settled sand cup on green side.",
+        "state": "Grouping based on observed behavior, not color or object size; no new substances introduced.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did they find out that the salt had not simply vanished?",
+        "listenFor": "They let water from a little salt solution evaporate without heating; salt crystals remained in the dish."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What is left after the water has dried away?",
+        "lookFor": "Small white salt crystals in the shallow dish; the dish was filled from the salt-water cup."
+      }
+    },
+    "levelRationale": "Candidate C: Paired sentences link an observation, a question and a confirming test. Two explicit behavior groups keep the new dissolving concept concrete; evaporation is shown as water drying without requiring particle theory.",
+    "languagePrep": [
+      {
+        "word": "dissolve",
+        "meaning": "spread through a liquid so separate grains cannot be seen"
+      },
+      {
+        "word": "settle",
+        "meaning": "come to rest after moving through a liquid"
+      },
+      {
+        "word": "crystal",
+        "meaning": "a solid piece with an ordered form"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-20",
+    "number": 20,
+    "title": "The Log Stays",
+    "topic": "caring-for-our-world",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Why might leaving a fallen log beside a path help the animals underneath?",
+      "progression": "Uncover a damp shaded patch with woodlice, connect their needs and feeding to the fallen wood, then restore the cover while removing actual litter from the path.",
+      "synthesis": "A clear path and a retained small habitat can coexist; the log is shelter and food rather than disposable litter.",
+      "scienceSources": [
+        {
+          "title": "Woodland Trust: Common rough woodlouse",
+          "url": "https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/animals/crustaceans/common-rough-woodlouse/",
+          "evidence": "Describes dark/damp habitat, vulnerability to drying, seven leg-bearing segments and feeding on deadwood and leaf litter. Only those relevant claims are used; no reproductive details from this source are included.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Woodland Trust: Deadwood",
+          "url": "https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/habitats/deadwood/",
+          "evidence": "Describes fallen and decaying wood as habitat, food and nutrient source. Also notes managers weigh location and safety; the manuscript deliberately places a small log beside an unobstructed path, not a dangerous standing tree.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Shaded school garden edge beside a clear narrow path. One short partly decayed log, small enough for Kit to lift one end gently, lies outside the walking route beside a fern. Common rough woodlice, Porcellio scaber, beneath it; no handling of animals.",
+    "props": [
+      "One short brown decaying log with moss on top and damp underside",
+      "One fern beside the log",
+      "Three visible gray woodlice, each with seven pairs of legs when exposed",
+      "Damp leaf fragments under log",
+      "One discarded blue wrapper on path",
+      "One small empty litter bag"
+    ],
+    "coverBrief": "Kit and Zoe kneel beside the log without touching the animals. A narrow lifted end reveals damp dark soil and small gray woodlice. The clear path and one blue wrapper distinguish habitat from litter.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This fallen log lies beside the path. Kit lifts one end to clear the ground.",
+        "imageBrief": "Kit gently raises one end of the short log at the garden edge; Zoe kneels beside the fern. A blue wrapper lies separately on the path. Continuity: Log is beside, not blocking, the walking route; three woodlice beneath are not crushed or picked up.",
+        "imageAlt": "Kit gently raises one end of the short log at the garden edge; Zoe kneels beside the fern. A blue wrapper lies separately on the path.",
+        "pageDescription": "Kit gently raises one end of the short log at the garden edge; Zoe kneels beside the fern. A blue wrapper lies separately on the path.",
+        "state": "Log is beside, not blocking, the walking route; three woodlice beneath are not crushed or picked up.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Underneath, the soil is dark and damp. Tiny gray woodlice hurry into the shade.",
+        "imageBrief": "Close ground-level view reveals three rough woodlice moving toward the shaded underside; damp leaf fragments cover the dark soil. Continuity: Woodlice have oval segmented bodies, seven pairs of legs and antennae; do not give six insect legs.",
+        "imageAlt": "Close ground-level view reveals three rough woodlice moving toward the shaded underside; damp leaf fragments cover the dark soil.",
+        "pageDescription": "Close ground-level view reveals three rough woodlice moving toward the shaded underside; damp leaf fragments cover the dark soil.",
+        "state": "Woodlice have oval segmented bodies, seven pairs of legs and antennae; do not give six insect legs.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Woodlice lose water easily. Cool, damp spaces help them stay moist.",
+        "imageBrief": "The woodlice gather in the log’s shaded crevice rather than on the bright dry path visible beyond. Kit’s hand still supports the same raised end. Continuity: Shade and moisture relationship shown without giving human expressions or guaranteeing survival.",
+        "imageAlt": "The woodlice gather in the log’s shaded crevice rather than on the bright dry path visible beyond. Kit’s hand still supports the same raised end.",
+        "pageDescription": "The woodlice gather in the log’s shaded crevice rather than on the bright dry path visible beyond. Kit’s hand still supports the same raised end.",
+        "state": "Shade and moisture relationship shown without giving human expressions or guaranteeing survival.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "They feed on dead plant pieces. Some are nibbling the soft wood and fallen leaves.",
+        "imageBrief": "Close view of one woodlouse feeding at softened wood and another beside a decaying leaf; the third remains partly hidden under bark. Continuity: No fresh green plant-eating claim; natural tiny mouthparts, no human teeth.",
+        "imageAlt": "Close view of one woodlouse feeding at softened wood and another beside a decaying leaf; the third remains partly hidden under bark.",
+        "pageDescription": "Close view of one woodlouse feeding at softened wood and another beside a decaying leaf; the third remains partly hidden under bark.",
+        "state": "No fresh green plant-eating claim; natural tiny mouthparts, no human teeth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe points to the busy patch. Moving the log would take away its cover.",
+        "imageBrief": "Zoe points to the damp sheltered space while Kit looks down at the animals. The log remains lifted only at one end. Continuity: The habitat consequence is explicit; no further disturbance or specimen collection.",
+        "imageAlt": "Zoe points to the damp sheltered space while Kit looks down at the animals. The log remains lifted only at one end.",
+        "pageDescription": "Zoe points to the damp sheltered space while Kit looks down at the animals. The log remains lifted only at one end.",
+        "state": "The habitat consequence is explicit; no further disturbance or specimen collection.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit lowers the log gently into its old place. He keeps its damp side against the soil.",
+        "imageBrief": "Kit carefully settles the log along its original moss-up orientation, leaving the woodlice beneath it and keeping fingers at the outer end. Continuity: Original cover restored; do not rotate dry upper bark underneath or flatten exposed animals.",
+        "imageAlt": "Kit carefully settles the log along its original moss-up orientation, leaving the woodlice beneath it and keeping fingers at the outer end.",
+        "pageDescription": "Kit carefully settles the log along its original moss-up orientation, leaving the woodlice beneath it and keeping fingers at the outer end.",
+        "state": "Original cover restored; do not rotate dry upper bark underneath or flatten exposed animals.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "They move a discarded wrapper from the path instead. The log stays beside the fern.",
+        "imageBrief": "Zoe holds the small litter bag open while Kit places the blue wrapper inside. The restored log sits outside the now clear path. Continuity: Wrapper removed, log retained; no additional rubbish or felled tree cleanup introduced.",
+        "imageAlt": "Zoe holds the small litter bag open while Kit places the blue wrapper inside. The restored log sits outside the now clear path.",
+        "pageDescription": "Zoe holds the small litter bag open while Kit places the blue wrapper inside. The restored log sits outside the now clear path.",
+        "state": "Wrapper removed, log retained; no additional rubbish or felled tree cleanup introduced.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The path is clear. Beneath the log, shade and damp shelter remain for the small animals living there.",
+        "imageBrief": "Low final view shows the undisturbed log and fern beside the clear path; a small natural gap lets one woodlouse be seen under the damp edge. Continuity: Outcome preserves habitat and access together; no need to lift the log again or use a diagram cutaway.",
+        "imageAlt": "Low final view shows the undisturbed log and fern beside the clear path; a small natural gap lets one woodlouse be seen under the damp edge.",
+        "pageDescription": "Low final view shows the undisturbed log and fern beside the clear path; a small natural gap lets one woodlouse be seen under the damp edge.",
+        "state": "Outcome preserves habitat and access together; no need to lift the log again or use a diagram cutaway.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did the children leave the log but remove the wrapper?",
+        "listenFor": "The log provided food and damp cover for animals; the discarded wrapper was litter on the walking route."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Which part has changed, and which part stayed in place?",
+        "lookFor": "The blue wrapper has gone into the litter bag; the log remains moss-up beside the fern."
+      }
+    },
+    "levelRationale": "Candidate C: A visible discovery leads to a changed practical choice. The short connected explanation adds a clear cause—woodlice’s moisture needs—without a generic conservation slogan.",
+    "languagePrep": [
+      {
+        "word": "damp",
+        "meaning": "slightly wet"
+      },
+      {
+        "word": "shelter",
+        "meaning": "cover that helps protect a living thing"
+      },
+      {
+        "word": "decay",
+        "meaning": "break down gradually after living material dies"
+      }
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:26:54.275Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-d0300f0a-1c31-45e3-a2e3-e0a9495554b1.png",
+  "sourceSha256": "01923d89695c280faac2ba0e6512551ec09db74e2f2d8f0a641008b05d9b0242",
+  "output": "public/guided-reading/world-discovery/b-13/page-08.webp",
+  "outputSha256": "9c80db652e877fe438df05005c0c165b3e6867254bc2be3f59e417d414452eff",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit FIRST input only. Add three short straight parallel gray ruled strokes at center of cream envelope front, below and left of cancellation mark, as NON-LETTER address symbols. No letters/numbers/glyphs. Preserve open flap, green star stamp, Zoe holding one red-truck paper drawing, no other papers or objects. Zoom framing out 12 percent so Zoe's hair and all essential paper/envelope lie safely at least 8 percent inside image frame, continuing same simple room. All identity, object counts, pose and clean flat art stay unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-2be40ab3-ac7f-4489-8112-e37eee4d919b.png",
+      "sha256": "2ff5084bec4c82291ba422366650a8d1e76c362cde2de97d670c63f949e6e736"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-13-reference.webp",
+      "sha256": "41ecdc68f758e5b144b9dcd90529d798c0e5aa34f4499a6c6702b7319aeef4ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T11:28:37.227Z",
+    "outputSha256": "9c80db652e877fe438df05005c0c165b3e6867254bc2be3f59e417d414452eff",
+    "scope": "Direct final WebP inspection and complete ordered manuscript/sequence review; production-author review, not independent approval",
+    "notes": "Zoe inside blue door holds one unfolded red-truck picture; one opened marked envelope separate; wider frame preserves identity and paper. Exact cast, letter identity, opening state and clean cartoon reviewed. Address strokes are straight non-letter symbols permitted by authored setting, not fabricated words. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "9c80db652e877fe438df05005c0c165b3e6867254bc2be3f59e417d414452eff",
+    "note": "Zoe inside blue door holds one unfolded red-truck picture; one opened marked envelope separate; wider frame preserves identity and paper. Exact cast, letter identity, opening state and clean cartoon reviewed. Address strokes are straight non-letter symbols permitted by authored setting, not fabricated words. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3486a3808eda05309d21676d92e26fa9eb7cf70366f2eddeda727a485d5c5b3a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

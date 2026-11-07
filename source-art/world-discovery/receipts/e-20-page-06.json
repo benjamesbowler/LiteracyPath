@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:45:22.859Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ad6bbe43-9030-4a4f-8efe-bf1b5d44ee30.png",
+  "sourceSha256": "16fa406382d342f98544d1cf7ac58265ed0a2ae010ce31ee071ce7f5803db66e",
+  "output": "public/guided-reading/world-discovery/e-20/page-06.webp",
+  "outputSha256": "e594d9a7da50dea88b91f90585ed4a67eac1fb87687d72bb98953aaa111c8ff9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Patch Left to Grow; World Discovery; nonfiction.\nSetting: Illustrative eastern US school meadow edge over summer into early fall. Kit and Zoe keep locked designs. Unnamed adult gardener: warm tan skin, short dark curls, green shirt, brown pants and sturdy boots, about 1.7 times child height. One curved grass walking route borders a planted patch of black-eyed Susan (Rudbeckia hirta) among grasses. Plants follow buds to yellow rays/dark centers to dry brown seed heads; no overnight change.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One clearly bounded planted wildflower patch beside a cut grass route, no barrier across access; Parked manual reel mower used only by adult; children stand well away when it moves; Two low plain wooden corner markers identifying retained patch without readable slogans; Black-eyed Susan plants in correct successive seasonal states; one small natural native bee during bloom scene\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): After flowering, some petals fall. The dark heads remain, and seeds develop where the tiny flowers in each center had been.\nRequired illustration: Close view of one maturing brown seed head with a few faded yellow rays beside a later bloom.\nExact current state: Seasonal overlap plausible; no sunflower-sized seeds or sealed pea pods.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPRODUCTION DESIGN LOCK: Kit and Zoe canonical equal standing height, gardener tan skin short dark curls green shirt brown trousers sturdy boots, adult about 1.7 times child height. Natural feet firmly on ground and coherent hands/elbows. One gently curved short-grass walking route beside an unmown meadow patch; two plain low wooden corner stakes mark patch. Black-eyed Susan Rudbeckia hirta plant has upright slender hairy stems, lance-shaped leaves, yellow ray petals around small raised dark-brown cone centers. Buds green before flowering; mature seed heads dry dark brown with few or no yellow petals. Native bee very small compared with flower, six legs, two antennae, natural wings, no humanoid face. Mower is human-powered REEL mower with two wheels and low cylindrical cutting reel, no engine, never operated by children; children several meters away whenever adult actively mowing. No wire ropes around plot. No random text or tools. Seasonal changes only as exact page requires.\nFINAL SCENE LOCK: Close botanical composition only: one maturing brown seedhead with a few faded rays beside one later open bloom. No people, no mower, no bee, no tray. Natural small Rudbeckia cone, not giant sunflower or seedpod.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-20-reference.webp",
+      "sha256": "e9ba308d9abad17e1795746e933ef89e79e7e4e2273972acd01fbad1ee5c78ba"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "e594d9a7da50dea88b91f90585ed4a67eac1fb87687d72bb98953aaa111c8ff9",
+    "method": "codex-direct-image-inspection",
+    "note": "Inspected close seasonal transition: one maturing brown head with faded rays beside a later fresh bloom. Natural plant scale and intact stems, no giant seeds/pods or unnecessary people."
+  }
+}

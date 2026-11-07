@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-19",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:20.746Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-9b8d25df-49c2-4e97-9d87-6ba116098fd2.png",
+  "sourceSha256": "8e9e82cf0bf7d5c126f3ea934861a06fa8f3d940fef0805478601b51156a1ffe",
+  "output": "public/guided-reading/world-discovery/c-19/page-04.webp",
+  "outputSha256": "da9624c075650ec21de52e5955ad5eddb1ec20670a1c72792a9ce443e54cb83b",
+  "width": 1683,
+  "height": 935,
+  "prompt": "Edit this physically coherent classroom scene. Keep natural full standing bodies and ordinary waist-high table. WIDEN camera by20% and reduce whole people/table group to85% so all heads/shoes/table legs comfortably12% inside frame; extend surrounding room/floor. EXACT STATE CORRECTION: Preserve exact existing state: both scoops empty, both spoons resting, blueleft clear solution, greenright settled beige sand, dish empty. Only widen framing as directed. No other changes. Clean crisp flat2D, no texture or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-14675e49-b9e9-423b-b679-deaf8c29bdbd.png",
+      "sha256": "4609045acb2768266a0332765a4a8d3378d77237422c3b6965c872d32f58fb7a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bc430e1bbb9219d598155f599354b50b3b21ddeb9819eff10a604928639b4374",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.560223+00:00",
+    "sha256": "da9624c075650ec21de52e5955ad5eddb1ec20670a1c72792a9ce443e54cb83b",
+    "note": "Native source and final WebP directly viewed. Blue solution clear, green cup has settled sand; both scoops empty and two resting spoons."
+  }
+}

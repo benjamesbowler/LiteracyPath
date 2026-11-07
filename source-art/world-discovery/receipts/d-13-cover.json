@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:14.364Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3aec657c-da85-41fc-9458-b5a4782351f3.png",
+  "sourceSha256": "0a9daa5d6b6a0c7ce1fe3987915d8ad9989985eefa203be37814b058a9f8342a",
+  "output": "public/guided-reading/world-discovery/d-13/cover.webp",
+  "outputSha256": "056af5fe900d75272ad252120dba2aeb0c763c4708c06598c6b37e3af4cd4f98",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back substantially, scale complete crossing scene to72percent centered and extend surrounding sidewalks/buildings/road. Entire people from hair to shoes, car, both signals, cane tip and crossing button must be INSIDE central74percent, with13percent clear space from all edges. Do not merely move a person. Keep left/right crossing geometry and right-pointing raised arrow integral to black circular moving button. Preserve exact current traffic and pedestrian signal state otherwise. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b4c6e679-abf3-4691-ae37-0003f1b52758.png",
+      "sha256": "2f8388c4d83a12c9d575ce797e250947de69f9acea7824a8e697694c4d205700"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-13-reference.webp",
+      "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.861Z",
+    "sha256": "056af5fe900d75272ad252120dba2aeb0c763c4708c06598c6b37e3af4cd4f98",
+    "note": "Generated native and installed full WebP directly inspected. Adult fingertip meets integral black arrow button; Kit stands beside the white cane, white walking figure across the marked crossing. Full car and natural people/corner scale; arrow follows crossing.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

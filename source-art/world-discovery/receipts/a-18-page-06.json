@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:03:12.134Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b45a918d-3e60-4410-b160-01d0cd0be833.png",
+  "sourceSha256": "67877b1077a806ee4020ca9164cc579af99ef05c3e86121cdcabe667a3005416",
+  "output": "public/guided-reading/world-discovery/a-18/page-06.webp",
+  "outputSha256": "95315deb19422c8ece364bdf5835e5269bceeac739667a2f22b7cfd6b9ae76bb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Widen composition20percent to keep whole butterfly, all wing tips, complete empty chrysalis, and COMPLETE pink flower head including every petal safely10percent inside image edges. Preserve the exact wing development stage and pose.  Keep all original locations and object count, two antennae, two leaves, one flower, one empty case, one butterfly. Same clean crisp flat2D art, full-bleed3:2, no border, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a8671ed0-d7fe-478c-9d01-813964bcbba1.png",
+      "sha256": "968911756decba847c5cc9a369e3d486c03e646fda57fbc902cc893b8b1dd0b9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.099504+00:00",
+    "sha256": "95315deb19422c8ece364bdf5835e5269bceeac739667a2f22b7cfd6b9ae76bb",
+    "note": "Firm closed wings have a defined contour; thoracic grip, two antennae and fixed empty case. Native generation and installed WebP directly inspected."
+  }
+}

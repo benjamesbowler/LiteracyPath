@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-12",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:37.924Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ccfa656c-f586-491e-9569-36f9f63365df.png",
+  "sourceSha256": "7e4807b30e1ffad0b84ae51aeb1196242ea1e3b2ca832d275e47204f10a5f002",
+  "output": "public/guided-reading/world-discovery/e-12/page-04.webp",
+  "outputSha256": "a4dcf62f061f166140b5cdbebfb8002114c882f4ddb1617a2ab213d74437723f",
+  "width": 1695,
+  "height": 928,
+  "prompt": "Edit this exact illustration while preserving its specified moment, natural furniture, cast, color and objects. Widen the composition by 22 percent with seamless real room and floor extension. Full heads, hands, knees/shoes and important puzzle/box must have at least 12 percent canvas clearance. All visible legs remain attached to bodies or furniture; no stretched limbs, no blank bands or outpaint seams. Keep the exact chunky rectangular puzzle grid THREE rows by FOUR columns (12 positions), red boat, blue water, white sail; before page10 exactly one gap TOP ROW THIRD COLUMN and eleven tiles assembled, no extra missing tile. Blue cushion, plain empty tan box. Kit teal T and mustard shorts/navy sneakers; Zoe yellow T and plum LONG overalls/white sneakers, same height. Crisp dark outlined flat 2D, no grain, no text, no arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-adcf1585-84f1-49ba-932f-2057fefb3f17.png",
+      "sha256": "3ab4e73f1d05e2b68c0695bbb72b94300100eeb9ed732520cc43ee78087223dc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:20:34.618509+00:00",
+    "sha256": "a4dcf62f061f166140b5cdbebfb8002114c882f4ddb1617a2ab213d74437723f",
+    "note": "Producer directly inspected native and final encoded WebP. Kit checks empty box worried, Zoe holds cushion on lap; no extra tile, supported ordinary furniture."
+  }
+}

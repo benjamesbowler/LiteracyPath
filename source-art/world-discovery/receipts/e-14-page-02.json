@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:17.878Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-3c9acd20-8190-473a-91b5-ccd5f7ae4f18.png",
+  "sourceSha256": "6aff053b1dd4082f8454907e0fb95a58880c9043c47e0adf6164d54e082a3a56",
+  "output": "public/guided-reading/world-discovery/e-14/page-02.webp",
+  "outputSha256": "3c14ee9f228e53897ea28c315da2de37518cf12c61fd1b0894fd97e89f01f7fd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Preserve all current actions, visible and invisible objects, colors, expressions, and the exact number of people and props.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-eb594b1a-0321-4c3c-a10c-7b170078f62a.png",
+      "sha256": "9162859bcaf6eea977dea8fe09a2513100b0cc0cc3d5ee452426de5c15807b24"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "3c14ee9f228e53897ea28c315da2de37518cf12c61fd1b0894fd97e89f01f7fd",
+    "method": "codex-direct-image-inspection",
+    "note": "Kit alone applies purple to sail; hull/sail/mast visibly wet-coated purple. Yellow tray remains unpainted. Single active brush, cloth/cup off tray, all safely framed."
+  }
+}

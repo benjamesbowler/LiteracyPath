@@ -1,0 +1,50 @@
+{
+  "bookId": "world-discovery-a-19",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:43:28.399Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-f947f16b-6f86-45c6-8b6b-26bbd9270580.png",
+  "sourceSha256": "cbf0cb55b23cb5e24aa04ed68a3a731f5587988ad53efdd80e6eeaf3cbca929c",
+  "output": "public/guided-reading/world-discovery/a-19/page-08.webp",
+  "outputSha256": "881abae5fe5c2df10791dbb2d0efc4df41c1a382f760dc6a39556c5b7a5de873",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this physically coherent classroom illustration. FIRST dramatically PULL CAMERA BACK by35%: REDUCE entire Zoe-and-table arrangement to about70% its current size within same 3:2 frame, extend plain room/floor around. Whole Zoe head/shoes AND ALL table legs must lie between y=140 and y=870 on1024height; nothing essential within outer12%. Preserve normal waist-high table, four long legs, TWO visible plum trouser legs/white shoes, natural standing posture and hand contact. Do not shorten table legs or hide lower body. Keep same four ordinary objects, two circular mats, room and clothes. EXACT SORTING STATE OVERRIDE: TWO completed groups: brick AND bark ON teal LEFT mat; spoon AND gray pebble ON yellow RIGHT mat. Exactly these four objects, none outside the mats. Zoe touches bark with one hand and pebble with the other. Crisp flat2D cartoon no grain/text. Only fix framing and specified object positions; no duplicates.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4217150a-c4ee-48fc-bab8-802d3670a97d.png",
+      "sha256": "ac8a653882909184a59709bababc40cdb4197c6aff159b6dfe7e1a278ba6446f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:06:31.973Z",
+    "sha256": "881abae5fe5c2df10791dbb2d0efc4df41c1a382f760dc6a39556c5b7a5de873",
+    "note": "Completed two groups retained while Zoe touches bark/pebble; whole standing body and connected table supports, no object reset."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+      "currentSha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

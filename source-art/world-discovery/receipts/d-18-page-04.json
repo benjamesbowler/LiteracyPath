@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:17:43.861Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-ee910324-8b3a-4847-aee0-954aa14f550f.png",
+  "sourceSha256": "fd5661b0f29a4f087449e8696abf915ec010c275fa155789bbe93f022d934e42",
+  "output": "public/guided-reading/world-discovery/d-18/page-04.webp",
+  "outputSha256": "ebbe3044fc6da4005b7dc5ee44baec79e55e5eee7171c0e9e3cbae647586dddb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, remaining reference only identity. Pull camera back to70percent whole-scene scale, keeping all existing elements together centered. Extend underwater water/sand naturally. Entire crab with every limb, stone and explanatory inset must lie within central70percent,15percent borders. Make newly emerging crab shell pale soft blue-green, less saturated than old olive shell. Keep all limbs attached; body backsout towardviewer, front/claws still withdrawing from old shell.  Preserve every unmentioned detail, natural anatomy and coherent contact. Clean flat2D cartoon. Full1536x1024 landscape, no text/border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-7ed46531-9d8e-4d39-b7e5-4744d8704cac.png",
+      "sha256": "ea652f8609b5cb63df534060ddc4abd5d5537cbb84b2c4ae74658c2e41c30711"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.839Z",
+    "sha256": "ebbe3044fc6da4005b7dc5ee44baec79e55e5eee7171c0e9e3cbae647586dddb",
+    "note": "Generated native and installed full WebP directly inspected. Pale new body extends backward from old covering, rear paddles already free and front still withdrawing at rear opening. Limb portions concealed by covering remain naturally occluded; one living animal.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

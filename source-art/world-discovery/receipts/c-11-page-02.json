@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-11",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:24:32.502Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-305935ad-7f55-49a1-95df-b98ba32ee8fe.png",
+  "sourceSha256": "8336242c2fdcd3b49d52d811d32792f755b9960fae3edf4972c0de77a488406d",
+  "output": "public/guided-reading/world-discovery/c-11/page-02.webp",
+  "outputSha256": "bfbe4001c3f5af2e0e9096dcdc58d6d23853293145a315d629a13acca2ba7fe8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this whole image and change ONLY the drawing on the flat white picture card. Keep its blue folded mat at left and red ball at right; between them draw exactly TWO separate yellow cups SIDE BY SIDE, not stacked. Small flat simple drawings, not actual cups on paper. Preserve all room geometry, people, hands, two physical cups stacked on shelf, single physical mat/ball, natural proportions and generous framing. No other change.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-45c59211-971e-40e7-9caa-77ef8592c9c0.png",
+      "sha256": "8f584ae644f755d1279ce0931bb9115dfeae20ccec8cb670b3341d492d1b0ecd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "82dbb69f8fe710729f42f271778bf6297f32a6982af7892f5c8b5cb78fb54c8e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "bfbe4001c3f5af2e0e9096dcdc58d6d23853293145a315d629a13acca2ba7fe8",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Card depicts three item types with exactly two cups; Kit turns toward intact physical shelf inventory; natural writing grip.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "bfbe4001c3f5af2e0e9096dcdc58d6d23853293145a315d629a13acca2ba7fe8",
+    "note": "Card depicts three item types with exactly two cups; Kit turns toward intact physical shelf inventory; natural writing grip."
+  }
+}

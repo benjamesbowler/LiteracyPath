@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T15:10:12.583Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0333c44e-ea99-4a4b-871c-76b304e9a57b.png",
+  "sourceSha256": "5b644f008b2520d927d404c62000ebaa440ce729259c87b57ea83351ac36e31c",
+  "output": "public/guided-reading/world-discovery/b-17/page-06.webp",
+  "outputSha256": "57ad2efab98e3c3b5764c3a522e5277d1a0346c5e00302fdb02a5775d763ec2b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Widen this exact scene about18 percent, preserving the one lifted front leg reaching toward the intact leaf and the other five supporting legs. Recenter full insect and ENTIRE target leaf so antenna tips, abdomen tip, feet and complete leaf tip are at least12 percent inside every edge. Do not add or remove legs; exactly six total, all from thorax, with two antennae and legless segmented abdomen. Keep exact branch, colors and field, continuous naturally scaled scene, no border or inset. Landscape3:2 1536x1024, clean flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3d92133c-41b9-4197-b146-5df576f765e2.png",
+      "sha256": "5a21d036dc3a7a2bce96b446db44a4402d27851eb57c7dad7de8a4a0f1ee1829"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.382270+00:00",
+    "outputSha256": "57ad2efab98e3c3b5764c3a522e5277d1a0346c5e00302fdb02a5775d763ec2b",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "One front leg reaches forward while other five support body; intact target leaf fully inside frame, no extra seventh leg. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "57ad2efab98e3c3b5764c3a522e5277d1a0346c5e00302fdb02a5775d763ec2b",
+    "note": "One front leg reaches forward while other five support body; intact target leaf fully inside frame, no extra seventh leg. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

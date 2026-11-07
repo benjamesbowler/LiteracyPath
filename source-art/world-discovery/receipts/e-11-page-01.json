@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-e-11",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:16.291Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-1b4c0a16-18c0-4bac-87db-9385f7676c74.png",
+  "sourceSha256": "015dce6eb9cf82c84945cd64279fa16ef1e08213ecd406c02c37932185de43e6",
+  "output": "public/guided-reading/world-discovery/e-11/page-01.webp",
+  "outputSha256": "35de55745d70cfa42b41a02c300e8b5bf30a188639d7c53801a632c73d54cf4f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back to scale ENTIRE scene group to80percent centered; extend same plain floor and walls. Complete child heads, feet, hands and essential drawing/props must have at least13percent margin. Make all legs of the blue classroom chairs BLUE, the same blue as each chair back; preserve natural connected chair geometry and seated child proportions. Keep table legs orange wood. Keep smiling pool drawing and its bubbles INSIDE BLUE WATER exactly as now, and preserve folded paper/private folder/new public drawing state. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-90022812-495b-4b2b-8fd7-65da42dcd25d.png",
+      "sha256": "a7917eabedc727e0f69306d37e5134ba572da5c1471a247a2efb29b7ff34c4f4"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-11-reference.webp",
+      "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8c552f7912535f472578befa9f8d804e2b3b9b1ead69d830985034cb9ba2b737",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:18:08.950144+00:00",
+    "sha256": "35de55745d70cfa42b41a02c300e8b5bf30a188639d7c53801a632c73d54cf4f",
+    "note": "Generated source and installed WebP inspected. Two-part original has worried figure beside pool and happy figure in water; crease and open folder readable.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

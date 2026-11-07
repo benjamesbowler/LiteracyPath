@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:00:59.664Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-79f664c2-653e-4e95-83fb-05be32968b08.png",
+  "sourceSha256": "92752c966948c9af769a7c3dce415a2324a29037fa09d2cd35a0b207334b21f2",
+  "output": "public/guided-reading/world-discovery/d-11/page-03.webp",
+  "outputSha256": "63e695d1024b850d567948a776ac5720878b1db4050974cd3b0c314845efff40",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "EDIT FIRST IMAGE; use second/third references only for locked identity and newly corrected drawing design. Correct Zoe's drawn puddle in this frame to match the new reference: exactly two purple boots above one blue puddle with one tall curved blue splash rising on the RIGHT to boot-top height and three small blue droplets above it. Preserve that same identifying shape, never a flat puddle alone. If cloud is visible, make it a SMALL gray cloud at most one-fifth of paper width. The opaque center disk of the loose yellow paper sun is one-third of paper width, large enough to hide the entire cloud without relying on gaps between rays. Cloud may only be visible in cover/page2/page6/page7/page8/page9/page10; opening page1 has blank upper sky; page3/page4/page5 have paper sun laid over and fully hiding cloud. Add rain strokes ONLY on cover/page8/page9/page10. Page10 fingertip must point precisely to the tall right-hand splash. Keep the current page's crayon and sun positions and the original separate Kit ball picture. Reframe with the camera about 20 percent farther away. Keep ALL essential subjects including complete hair silhouettes, hands, both paper sheets/house, loose props, and tray at least 10 percent inside ALL four image edges. Extend the ordinary scene background to all edges; no white border, no stretching, no cropping. Preserve the exact action and stage. \n\nFROZEN SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: I Pick the Rain; World Discovery; fiction.\nSetting: World Discovery. WD-KIT and WD-ZOE retain their locked cast-v1 clothing, proportions and equal height. One ordinary classroom art table and low display ledge in steady afternoon light. Both make pictures of a remembered favorite day; the room itself is dry. Memories appear only as drawings on paper, not as changes of clothing or setting.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Zoe's cream drawing sheet: two purple boots above one blue puddle, then one gray cloud and blue rain strokes; no drawn person needed; Kit's separate cream drawing sheet: orange ball on green grass under one yellow sun; One loose yellow paper sun disk with short cut rays, large enough to cover Zoe's small drawn cloud; it is never glued; Gray and blue crayons in a yellow tray; two plain display clips\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): He holds out a yellow paper sun. Zoe lays it over her cloud and puts down the blue crayon.\nRequired illustration: Zoe places the loose yellow paper sun directly over her small gray cloud while Kit watches.\nExact current state: Cloud completely covered, sun unglued; blue crayon returned to tray.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-11-page-03-ecfc23c7c8b6.webp",
+      "sha256": "ecfc23c7c8b645a94ebcf1dc645be1c82cb5c5bf73f93f525c35adb7cc3dd20e"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-11-reference.webp",
+      "sha256": "568bc7258fe9bd07e83c58a24fa3d7cd3e5fb1c57026b4ac0825902874c267de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:02:07.911565+00:00",
+    "sha256": "63e695d1024b850d567948a776ac5720878b1db4050974cd3b0c314845efff40",
+    "note": "Generated source and installed WebP inspected. Zoe lays one loose paper sun over cloud; opaque disk covers small cloud completely. Two boots and raised right-side splash retained; no rain; exactly gray and blue crayons in tray. Hair, hands, sheets, sun and tray are safely inset.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

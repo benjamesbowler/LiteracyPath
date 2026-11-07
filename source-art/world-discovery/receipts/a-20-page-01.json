@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-20",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:53:07.214Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-aa931331-2f52-4804-bbcf-164a33a185de.png",
+  "sourceSha256": "0f3382c26adf20c2c7c78261f5766e20ba34d8ec842b458ef28a6a426f86435e",
+  "output": "public/guided-reading/world-discovery/a-20/page-01.webp",
+  "outputSha256": "c69f97f963874f8fca64a1c7b2c2541c2420df1d303498c5098615890f499e91",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "This is a precise framing edit of an approved children's 2D book picture. Pull the camera BACK25 percent and RECENTER the intact scene. All human hair/head tops and every focal tabletop object including dish/tin/food or four sorting items must lie at least10 percent inside ALL frame edges. Current heads and lower objects are too close. Extend the same plain wall/table/background to the frame. Keep EXACTLY the same visible people, poses, hand contacts, object quantities, arrangement, colors and story state. Do not add or remove any object. Do not redraw a different moment. No border, inset, labels or text. Preserve original landscape3:2 format and bold clean flat cel style. Count all food pieces or sorting items before and after: they must be identical.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6404d3dd-f814-4f9d-9f0e-68cec36a81e5.png",
+      "sha256": "299588a7bb139d302988df3fa213ded9e82a0fd6ced403907b146b0beb1f6a12"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6ecdb83b2c7c8f46f66983b06392c4f0213dca5f48874a8aa7f1be2e7864b21",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:00:04.172913+00:00",
+    "sha256": "c69f97f963874f8fca64a1c7b2c2541c2420df1d303498c5098615890f499e91",
+    "note": "Native PNG and installed WebP directly inspected. Two on plate plus eight in tin; hand touching existing plate cracker, no extra in hand. Coherent anatomy and object contact, clean flat illustration, intact focal shapes with room around them, no unwanted lettering."
+  }
+}

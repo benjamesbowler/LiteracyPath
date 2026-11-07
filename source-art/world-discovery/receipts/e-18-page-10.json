@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:06.090Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dd5391bc-953f-4d4c-82e7-15a7f93dcda8.png",
+  "sourceSha256": "d8d3f544681651f3f0b51c7ffb38b2640b335a98e5cff1b046bb9b7fd1e1b2b2",
+  "output": "public/guided-reading/world-discovery/e-18/page-10.webp",
+  "outputSha256": "ec91e3fa9fa70ae123f677e6a04cca285ce8835b7de80fcc2de610e7d607e84f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact scene by about25percent, uniformly reducing the existing focal butterflies, host plant and any authored map/comparison panels to sit safely inside central80percent of1536x1024canvas. Extend same matching environment around composition. ALL foreground wing tips, antennae, feet, primary egg/chrysalis/larva/flower subjects and FULL map/panel borders must have at least10percent margin from every outsideedge. Preserve EXACT counts, same poses, four functional walking legs and reduced front pair, antennae, wing patterns, exact egg/larva/chrysalis/adult stages, and season. Retain geographic map and route arrow EXACTLY only if present in this input; no extra maps/arrows/panels. Preserve flower contact and natural relative scale; no giant butterflies or detached bodies. No new animals, people or props. Keep crisp bold flat2Dcartoon, full3:2landscape, no crop/border and no words/labels/numbers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e18-margin-sources/page-10-before.webp",
+      "sha256": "c666630263a34c2c70bb6e6a4795c27181e4a3211fc2aacb91d29c9eb5573875"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "ec91e3fa9fa70ae123f677e6a04cca285ce8835b7de80fcc2de610e7d607e84f",
+    "method": "codex-direct-image-inspection",
+    "note": "Exactly three authored seasonal comparison ovals and two arrows, clear winter/summer/new-winter sequence. Complete central butterfly wings and all panels safely framed."
+  }
+}

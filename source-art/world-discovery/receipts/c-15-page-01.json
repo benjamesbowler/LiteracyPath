@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-15",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:23:18.921Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-bff17c7e-4a4a-4ecc-8555-4e39a73a892f.png",
+  "sourceSha256": "ea7b4292998d734078103b0902862294a4306661292420e608b0282a535b2507",
+  "output": "public/guided-reading/world-discovery/c-15/page-01.webp",
+  "outputSha256": "f24cdb5c33491fa9ac10f88585a9e6cdd03f4e39c75a02415a42052dad0396d4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair framing artifact only. This MUST be a continuous full-bleed landscape, not a rectangular ground card surrounded by sky. Remove cyan-blue vertical strips on LEFT and RIGHT and cyan-blue horizontal strip along BOTTOM: extend the adjacent BROWN GROUND seamlessly through every side and bottom edge. Ridge continues to both side edges at horizon. Keep whole old solid gray cooled lava unchanged. NO added border, no panel, no framing outline, no new glow or cutaway. The landscape extends naturally beyond the image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-388a94ab-3dbe-47f0-8009-346b91fc01f1.png",
+      "sha256": "f85a15e5fb7cbcc49637f47da1d27ea62ac68b37aecb7382e39791e6fc426d20"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d88c88e74a30e6a43128aa6e3fe1e74ace926cfa581dcc4ed9ef1c9e2847fd81",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:27:31.549522+00:00",
+    "sha256": "f24cdb5c33491fa9ac10f88585a9e6cdd03f4e39c75a02415a42052dad0396d4",
+    "note": "Native source and final WebP directly viewed. Old wholly solid flow, no molten glow; continuous natural ground, no inset framing."
+  }
+}

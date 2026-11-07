@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:41:52.481Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-75ea8afc-51b5-4b9c-a220-cfe5ad1d9a2e.png",
+  "sourceSha256": "3c8958d9f10994c93f2c33108f09754aa605dd59a03e9b4bb78305491df6be40",
+  "output": "public/guided-reading/world-discovery/c-20/page-04.webp",
+  "outputSha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact scene. Scientific scale and anatomy correction: make EACH of all THREE woodlice HALF its present length and height, so exposed animals body aboutONE QUARTER large deadleaf length. Move first smaller animal to maintain mouth contact with left softwood, second smaller animal to maintain mouth contact with deadleaf edge, third remains partlyhidden under bark. Each of the two exposed animals must have exactlySEVEN clearly separate near-side thin jointed WALKING LEGS in a row below the seven large leg-bearing body plates, plus naturally occluded far-side seven; two antennae; small mouthparts distinct from walking legs; no human teeth. Restore soil behind reduced animal bodies. Preserve macroenvironment and exactfeedingactions. Keep every animal includingantennae at least10percent fromleft/right/bottom. No text. Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dbdd9f25-475c-4ee9-8389-853677078cc9.png",
+      "sha256": "27b60e3cb558f567783122e19b03188857b9280169974ebfaf3c315453b0050c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
+    "method": "codex-direct-image-inspection",
+    "note": "Direct macro feeding review: first animal contacts soft dead wood, second contacts brown dead leaf, third partly concealed by bark. Two exposed animals each show seven separate near walking legs, two antennae and mouthparts, without human teeth; animal scale relative to leaf corrected."
+  }
+}

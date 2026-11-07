@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-b-13",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:39:39.799Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-e17a5589-6e56-49a5-bb6e-16c92ad54691.png",
+  "sourceSha256": "d80892b8fa1ae09f929ee3273489c0aaae054b7d45052fca7a15b20c2045cf68",
+  "output": "public/guided-reading/world-discovery/b-13/page-07.webp",
+  "outputSha256": "b9dd17bcc47ffa0864c74235d1560c3ed65985973fed051f54df3bc70cf8b765",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is EXACT edit target. Other references preserve identity only, never add props or poses from board. Repair framing ONLY: pull camera back so original whole scene becomes70percent of current size centered, extending existing street/house/sky/ground geometry naturally. Every essential head, complete visible shoe, hand, single focal cream envelope with green-star stamp and tray must be at least13percent inside image edges. Preserve exact action, expression, number of letters, hands and body pose, clothing, mailbox/door/van design, existing envelope ruled address lines without any text. Keep any cancellation lines currently present, and do not add any to unstamped stages. Do not alter exact one green-star stamp or red-truck drawing. No new characters, no words, no panel, no flat-colored outpaint rectangles or disconnected ground geometry. Clean flat2D cartoon at full1536x1024. A medium upper-body close view is allowed: carrier hips/legs may naturally continue beyond bottom, but full hair/head and hand/envelope/door slot at least13percent inset. No invented stool/chair. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/b13-framing-de/page-07-before.webp",
+      "sha256": "9eb42e9956dd6b1db472ef6f04779ddc1381b490574fd06c68697d082550f712"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-13-reference.webp",
+      "sha256": "41ecdc68f758e5b144b9dcd90529d798c0e5aa34f4499a6c6702b7319aeef4ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "8626cc98c3f12ba1d6768ef1adabdd37081922a122ac84acf3617cc604796dc4",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:40:53.328Z",
+    "sha256": "b9dd17bcc47ffa0864c74235d1560c3ed65985973fed051f54df3bc70cf8b765",
+    "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Medium carrier view retains naturally cropped lower body while full head, connected arm/hand and envelope/slot are comfortably inset. Exactly one cream letter enters the blue-door slot; no second copy.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3486a3808eda05309d21676d92e26fa9eb7cf70366f2eddeda727a485d5c5b3a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+}

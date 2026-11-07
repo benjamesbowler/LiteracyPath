@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:48:56.849Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a4b901bc-e43b-4065-88e1-14b6587e84d3.png",
+  "sourceSha256": "0f1ba6b98f846c870e3a63184d4e28372958d2f9e456b65e452dd238fc9ef04a",
+  "output": "public/guided-reading/world-discovery/a-13/page-03.webp",
+  "outputSha256": "4fc3bd6c88ae9bd0029a4396489e7327b1c5fb95fff5e4c7f4ac14792cd72203",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact clean 2D street-crossing illustration, including every person's pose and location, every car's direction and lane, signal state, road, crosswalk and curb geometry. ONLY PULL THE CAMERA BACK by about 20 percent, recentering the whole intact scene, and extend the same neighborhood scenery naturally around the edges. Do not move objects relative to each other. The ENTIRE adult, children, and every visible car must now lie inside a generous central safe region, at least 8 percent away from EACH image edge (about125 pixels at left/right and85 at top/bottom for1536x1024). Current edge-near shoes and cars are too close. All people still stand fully on sidewalk; all cars stay stopped before crossing. No new objects, no frames, no white borders, no text. Keep landscape3:2 full-bleed, crisp dark continuous outlines and flat clean cel colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a1284eb8-412d-43f8-9a19-2d297a76228f.png",
+      "sha256": "729d4e6ee339b03b076716f9d2c7104ebfcbbb0ee131b64c4425810687f44bac"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.750766+00:00",
+    "sha256": "4fc3bd6c88ae9bd0029a4396489e7327b1c5fb95fff5e4c7f4ac14792cd72203",
+    "note": "Native PNG and installed WebP directly inspected. Children look toward orange wait signal; same adult and traffic. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

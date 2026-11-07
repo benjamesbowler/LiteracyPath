@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:54.056Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7c03ef5c-dc7e-41d3-b892-36c5677717b1.png",
+  "sourceSha256": "2246381a461c3597eafea54b79c03291930c17c1c550388e0fd62280c9fdbe4c",
+  "output": "public/guided-reading/world-discovery/d-16/page-09.webp",
+  "outputSha256": "298ae4861f5262711d16a5c186275bf363ac83c6a5296cf3936be78ebb134841",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact children's educational illustration. Preserve exactly two distinct framed comparison strips, with top THREE eclipse stages and bottom SEVEN ordinary monthly phase samples. In TOP MIDDLE Moon ONLY, move partial curved shadow to LOWER-LEFT, matching opening entry; upper-right stays bright. Do NOT alter gray mare orientation. Top left full, top middle partial shadow, top right dim copper total. Bottom phases remain unchanged, no Earth shadow wedge. Shrink/reframe both complete panels together to allow at least10 percent margin on all sides. No labels, extra rows or scene elements. Native1536x1024 landscape3:2. Preserve clean bold dark outlines, flat clean colors and simple coherent shapes, no photographic texture, no lettering, no missing physical Moon material. Diagrams are explanatory and not to physical distance scale. Keep surface identity and exact science; no additional stages.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3cb505fa-1b5c-4bdb-aedd-35d9345849be.png",
+      "sha256": "852e670a55f6d7b1358807075e2064dd1a68bd354ed5b3c3d538d548f59c98d5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "298ae4861f5262711d16a5c186275bf363ac83c6a5296cf3936be78ebb134841",
+    "method": "codex-direct-image-inspection",
+    "note": "Two distinct framed comparisons: three eclipse stages above (full, lower-left partial shadow, copper), seven ordinary monthly phase samples below. Phase half/crescent shapes distinct from eclipse curved shadow; panels safely framed."
+  }
+}

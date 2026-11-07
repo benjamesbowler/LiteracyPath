@@ -1,0 +1,45 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:16:25.058Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7107cf6b-ea77-4fa8-b32a-b1f6850d28af.png",
+  "sourceSha256": "12d99df6b066ec8457e28e51aeac313a49347b9d3cc2412de28720f14c4e3c0d",
+  "output": "public/guided-reading/world-discovery/b-20/page-04.webp",
+  "outputSha256": "5a56d0cc836817a12de24a6402117f0f887d0b3d94fc0d20fa342f354f613725",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Little Drip; World Discovery; fiction.\nSetting: Ordinary classroom sink with one compression-style faucet and an accessible adult-operated shutoff below; nearby potted leafy plant. Grown-up has medium brown skin, short dark wavy hair, a green long-sleeved shirt and dark trousers. Children observe; adult alone uses tools.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One silver faucet with a rounded handle; One yellow cup below the spout; One small black worn rubber washer and matching new washer; One adult-held wrench; One potted leafy plant on the nearby sill\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The cup is half full.\nZoe shows the leak to a grown-up.\nRequired illustration: Later, the yellow cup is half full. Zoe points to the continuing drip while the grown-up crouches beside the sink. Continuity: Elapsed time; cup exactly half full, not overflowing; faucet remains closed but leaking.\nExact current state: Elapsed time; cup exactly half full, not overflowing; faucet remains closed but leaking.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nScene quality overrides: natural ordinary school sink cabinet, child-appropriate counter height, adult taller than both children. No huge cabinets surrounding entire room, no impossible perspective, no floating plumbing/limbs, correct hand contact and five natural fingers where exposed. Camera is generous wide, full essential people and objects occupy central 72 percent of frame; hair below 14 percent height and full shoe soles above 86 percent height. Keep at least 10 percent margin on all sides. Reference board is DESIGN ONLY, not a set of current visible objects. Under-sink supply line and shutoff are a thin line separate from the gray U/P-shaped waste drain; never a water shutoff on the drain pipe. One faucet, one handle, one yellow cup, one plant. Only adult touches tools/under-sink valve. For ordinary above-sink scenes, cabinet doors can be closed. No disassembly, washers, wrench or active supply shutoff before page 5. No extra people.\nCURRENT STATE INVENTORY: Exactly one yellow cup HALF full below spout, one drip. Adult woman crouches beside children looking at leak, no tools yet. No second cup.\nThird reference is actual established cover, use its ordinary sink/window dimensions and cabinet shape; one potted plant on LEFT windowsill. Same adult has SHORT wavy hair, no ponytail; only include adult when current page requires her. Wide 3:2 framing with floor beneath all complete shoes, at least 10 percent of picture; do not crop the plant leaves. Preserve correct current-page water amount, not cover half-cup by default. No furniture intersects people's bodies.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-20-reference.webp",
+      "sha256": "77e1137b432f6118d61c2cd0c3d507affac59cb21f714546f69b83d9351fb280"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c11aaf37-1d87-4eb8-8d42-f06bb5d11bea.png",
+      "sha256": "6bd027ca40a2436bfcc97c714f8b340e2e44725c6bc5d485bc3a68736019412c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.191519+00:00",
+    "outputSha256": "5a56d0cc836817a12de24a6402117f0f887d0b3d94fc0d20fa342f354f613725",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Zoe points at persistent drip; cup now half-full; adult crouches to listen. Correct separate arms/hands and child/adult scale.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "5a56d0cc836817a12de24a6402117f0f887d0b3d94fc0d20fa342f354f613725",
+    "note": "Zoe points at persistent drip; cup now half-full; adult crouches to listen. Correct separate arms/hands and child/adult scale."
+  }
+}

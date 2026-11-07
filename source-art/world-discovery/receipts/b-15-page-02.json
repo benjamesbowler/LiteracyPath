@@ -1,0 +1,55 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:16:55.840Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ec5179ea-09e8-4248-acc4-e80feb44a912.png",
+  "sourceSha256": "3972dd1d26945e3fb7e2e03471b9d4cc34dd1796790af2a89881e8dafaaf23bc",
+  "output": "public/guided-reading/world-discovery/b-15/page-02.webp",
+  "outputSha256": "11b1002a784bbb7d8e5110b1f344f8d9331a2115ff0de19b7a77040033d66a8f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY to widen its camera framing. Landscape 3:2 1536x1024. Reduce the existing focal composition to about 78% of its current size and center it, naturally extending the same background, with no border. Every essential extremity must sit at least 12% inside every edge; widest focal bounds should lie in the central 72% of the canvas. The ENTIRE OVAL POOL AND ITS ROCK RIM, including its left/right outer edges, must be visible with generous surrounding water or natural continuous bedrock. Preserve exact tide/water level, exposed versus submerged portions, the low far rim, left white mineral vein, upright dark boulder and their spatial relationships. Do not add a drain, gap or new objects. Keep the exact clean bold flat 2D style, colors and content, no text or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-be772d4e-7ffd-4a17-86e7-c9839e9f1dc3.png",
+      "sha256": "9d9ad60344d3aa07fe3478376887170c79ede619ab5035b893d3506ca0653ecb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "11b1002a784bbb7d8e5110b1f344f8d9331a2115ff0de19b7a77040033d66a8f",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Falling water exposes higher left/near rim; lower far rim remains submerged with water connection over lip. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "11b1002a784bbb7d8e5110b1f344f8d9331a2115ff0de19b7a77040033d66a8f",
+    "note": "Falling water exposes higher left/near rim; lower far rim remains submerged with water connection over lip. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

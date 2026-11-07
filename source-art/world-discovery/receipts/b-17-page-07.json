@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-b-17",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:39:07.245Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-cb2c257a-c031-49cf-8edc-1766c8fd10c8.png",
+  "sourceSha256": "f673526ca192be68b46baf767d97535d88775ec5a7c9c73b06b01c8d173f3276",
+  "output": "public/guided-reading/world-discovery/b-17/page-07.webp",
+  "outputSha256": "7500c511f30d1f37f647b25d3105197ce76426877dbeaba204cc54baebfd3197",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Is That a Twig?; World Discovery; nonfiction.\nSetting: One northern walkingstick, Diapheromera femorata, on a leafy deciduous branch in daylight. Adult wingless brown female with six legs, two long antennae and twiglike segmented body; natural compound eyes, no human face. Same forked twig and small oval leaves throughout.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One brown adult northern walkingstick, six legs and two antennae; One forked brown branch; One intact oval leaf that develops a small feeding notch\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): It reaches a leaf and takes a bite.\nRequired illustration: The insect\u2019s mouth meets the edge of the target leaf; a small fresh notch interrupts the smooth edge. Legs remain gripping the branch. Continuity: First visible feeding notch; no human teeth or chewing smile.\nExact current state: First visible feeding notch; no human teeth or chewing smile.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nANATOMY AND SCENE LOCK: ONE wingless brown adult northern walkingstick, EXACTLY SIX continuous slender legs in THREE thoracic pairs, never a seventh stub or leg from abdomen. Two long antennae, tiny natural eyes and no tusks/fangs or human smile. Preserve elongated thorax and long legless segmented abdomen. Feet grip real supporting wood; no hovering feet except the single explicitly lifted leg in a stepping scene. Current leaf is intact through page6, first small mouth bite notch only page7, same notch retained page8. Every insect part and the entire target leaf must be at least12 percent within frame. Natural branch perspective/scale, no warped floating wood, no labels, no diagram or reference-board layout. Use the second image only for branch/leaf identity and woodland palette, not to repeat its exact composition. Compose each required page action afresh.\nPhysical support: legs must not grip their own body. Far legs pass behind body and reach separate real wood support; exactly three pairs. Near and far legs can overlap naturally but keep six total. The second reference's loose comparison twig need not appear now; it is NOT a second insect.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-17-reference.webp",
+      "sha256": "b14056ceef09c329488afa07ef2716e9bc04c11c4722674b7311bfa468431c57"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-4245b892-70fa-495b-9daa-71cc1465cb38.png",
+      "sha256": "5f7f8a85f08d42ab9402e6a384e6e21e53a6b9d86eeacad14b5dc2fff80ad3a8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "8d6276cc445605be62f36590e8369640893b5e49f075aadc2421bc4a70eb7447",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T15:22:01.383095+00:00",
+    "outputSha256": "7500c511f30d1f37f647b25d3105197ce76426877dbeaba204cc54baebfd3197",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Mouth meets first bite notch on upper-left edge of target leaf; no human teeth; branch/twig and correct insect design retained. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "7500c511f30d1f37f647b25d3105197ce76426877dbeaba204cc54baebfd3197",
+    "note": "Mouth meets first bite notch on upper-left edge of target leaf; no human teeth; branch/twig and correct insect design retained. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+  }
+}

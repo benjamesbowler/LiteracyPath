@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:54.137Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-343eddc8-7904-4062-942c-b59a45b600b9.png",
+  "sourceSha256": "324c87eeee30a41625d50312d2bbf757a27adece297760696d827813aaff2b1d",
+  "output": "public/guided-reading/world-discovery/d-16/page-03.webp",
+  "outputSha256": "0a353bd2f5592ff076a271b61e4a65655b20be4ccc5705c6217e59c827489197",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "RECOMPOSE the supplied diagram with a MAJOR ZOOM OUT. Every diagram element must become about TWO THIRDS its current size and fit together within the CENTER of the 1536x1024 canvas. The entire diagram from LEFTMOST SUN FLAME to RIGHTMOST SHADOW TIP/MOON must span only x=250 to x=1280. Leave broad empty background bands at BOTH SIDES, minimum 250 pixels each. This visible empty margin is mandatory. Do NOT retain the current oversized Sun or current edge positions. Keep diagram relationships perfectly intact, just move the whole grouped composition inward and make it smaller. Sun remains largest, Earth smaller, Moon smallest. Keep Sun-left/Earth-middle/dim Moon-right inside tapered Earth shadow. Preserve the exact background style and flat clean bold 2D shapes. No new elements, labels, frames or border. Native 1536x1024 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-9428c70d-07d3-4afa-88db-fa04a1433730.png",
+      "sha256": "8986209e3d63903340e7decb40640b3fff5fc78dbad9422d799e1911fa85e4c3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "0a353bd2f5592ff076a271b61e4a65655b20be4ccc5705c6217e59c827489197",
+    "method": "codex-direct-image-inspection",
+    "note": "Sun left, Earth middle, dim Moon right inside continuous narrowing Earth shadow. Centered simplified diagram has generous margins."
+  }
+}

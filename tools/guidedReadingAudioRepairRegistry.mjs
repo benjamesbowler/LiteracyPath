@@ -1,9 +1,11 @@
 // Authored, reviewed repairs to already published audio. New URLs preserve
 // cache identity: the old file remains available with its original bytes.
 import { WORLD_DISCOVERY_AUDIO_REPAIRS } from "./worldDiscoveryAudioRepairs.mjs";
+import { WORLD_DISCOVERY_EXPANSION_AUDIO_REPAIRS } from "./worldDiscoveryExpansionAudioRepairs.mjs";
 
 export const GUIDED_READING_AUDIO_REPAIRS = Object.freeze({
   ...WORLD_DISCOVERY_AUDIO_REPAIRS,
+  ...WORLD_DISCOVERY_EXPANSION_AUDIO_REPAIRS,
   "guided_page:woolly chases the loose wool": Object.freeze({
     role: "guided_page",
     normalizedLookupText: "woolly chases the loose wool",

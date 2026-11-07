@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-c-17",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:26:35.811Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a200fb1e-9a83-440d-9452-6771d8e176ed.png",
+  "sourceSha256": "d9b3d5018e2acf8577244649f6f09079ae99b922b82917320966e07c9c7599d7",
+  "output": "source-art/world-discovery/c-17-reference.webp",
+  "outputSha256": "0d980e0c9edfe2e23c53d7b83a005a1491614abc644e80293eb06c34fd7a16eb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Remove the single human ranger standing at middle-right. Replace her with plain white space. Preserve all otter anatomy, animal views, clam and gray stone exactly, and both environment keys. Do not add any human. No text. Preserve crisp clear flat cartoon style, all unchanged geometry and palette. This is a production reference board, not a story page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6d566add-70f3-4949-b73c-e9c7642e401c.png",
+      "sha256": "b3caa9ca0fd5302b65f3fcef11eab1aee080df4cc22431bdc799bae39b7fd00f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ce9930b3ff66e06b9f3b14afeef5752a734ade78568d649a597715f1f9606e13",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:27:22.650813+00:00",
+    "sha256": "0d980e0c9edfe2e23c53d7b83a005a1491614abc644e80293eb06c34fd7a16eb",
+    "note": "Natural otter with two forepaws, two webbed hind feet and one tail, closed clam and flat anvil stone; stray human removed. Native source and installed WebP directly inspected."
+  }
+}

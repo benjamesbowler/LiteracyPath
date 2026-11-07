@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:05.322Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-3c046b43-d872-4bfc-b058-872d5253f431.png",
+  "sourceSha256": "ed6b7194624f29c151dfba709d46e495cc606bb4e00e4f2d074341f22db95873",
+  "output": "public/guided-reading/world-discovery/a-14/cover.webp",
+  "outputSha256": "a0c84504661c9143ba8f0b95e1b7fde3dd3aef0c2f738896b96bf81d7f26f7c4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Restore consistent background arrangement: move the giant unused yellow wheel to the RIGHT of the low art table. Reposition table slightly LEFT and giant wheel to RIGHT wall so both remain clearly visible behind Kit/wagon. Preserve empty table except TWO crayons. Foreground Kit holds one small replacement, wagon has LEFTnear-rear wheel plus bare RIGHTnear-frontstub, no middle wheel.  Pull camera BACK25percent and center whole coherent scene with Kit's head/hands/shoes, wagonhandle, allwheelsandimportantprops atleast10percentinsideeveryedge. Wide landscape3:2, no croporborder. Preserve crispflat2Dstyle, correct anatomy, no added text/newobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7078ef0b-afcb-46cf-a7a7-b1a40ff668b4.png",
+      "sha256": "9886ed734fac71760d02fc41f563738100cd308a7ef31d08cd25864d6709e9ac"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.760078+00:00",
+    "sha256": "a0c84504661c9143ba8f0b95e1b7fde3dd3aef0c2f738896b96bf81d7f26f7c4",
+    "note": "Native PNG and installed WebP directly inspected. Kit holds correct-size replacement, giant rejected wheel right of table; red wagon near-front axle still bare; no resurrected paper. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

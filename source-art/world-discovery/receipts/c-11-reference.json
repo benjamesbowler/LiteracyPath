@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-11",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:30:09.401Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e8658406-8d4c-4c32-ae51-59cc7d5e71e8.png",
+  "sourceSha256": "174df903b41b2b0d463ccdac142ec6496bbfd7e2d39ac5f3a35897c66508f171",
+  "output": "source-art/world-discovery/c-11-reference.webp",
+  "outputSha256": "9ff580565cfc10e0435e69b7e34157c624aa6dfe1a31d3d0fbd00f44aa0dccde",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Way to Remember; World Discovery; fiction.\nSetting: Home kitchen opening onto a small enclosed garden. Ordinary daylight. Picnic spot beneath one small tree; no street crossing, public travel or unaccompanied hazardous activity.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue folded picnic mat; Two yellow cups stacked together; One red ball; One card bearing simple pictures of mat, two cups and ball, with no words; One low garden table and one tree\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: All three item types remain indoors; Zoe stands by the table with a blank card.. For orientation, the opening location/action is: Kit stands at the garden door pointing toward the tree; the folded mat, stacked yellow cups and red ball are visible together on a low kitchen shelf. Continuity: All three item types remain indoors; Zoe stands by the table with a blank card.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nDesign board consistency: clean flat 2D and human child/adult body proportions, correct normal furniture geometry, no impossible perspective or room-sized shelf. All ordinary physical props clean unlettered designs. Reference board is production design only; not final page panels.\nProp inventory exactly: one blue mat folded and open alternatives, two yellow cups (two separate and stacked alternatives), one red ball, one unlettered card showing blue mat plus exactly two yellow cups plus one red ball. Simple regular garden door, low shelf, low table, small garden tree. No bag/picnic basket or food.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "82dbb69f8fe710729f42f271778bf6297f32a6982af7892f5c8b5cb78fb54c8e",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:31:48.042067+00:00",
+    "outputSha256": "9ff580565cfc10e0435e69b7e34157c624aa6dfe1a31d3d0fbd00f44aa0dccde",
+    "scope": "Production-author reference review, not independent final approval",
+    "notes": "Direct native and installed WebP reference: equal-height Kit/Zoe, one folded blue mat, exactly two yellow cups, one red ball and matching picture card; ordinary home shelf/table/garden geography.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "9ff580565cfc10e0435e69b7e34157c624aa6dfe1a31d3d0fbd00f44aa0dccde",
+    "note": "Direct native and installed WebP reference: equal-height Kit/Zoe, one folded blue mat, exactly two yellow cups, one red ball and matching picture card; ordinary home shelf/table/garden geography."
+  }
+}

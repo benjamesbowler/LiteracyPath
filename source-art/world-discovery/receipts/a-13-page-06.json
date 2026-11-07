@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-13",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:04.871Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-11b69e3a-8d1b-4d15-a97d-8186e905f5df.png",
+  "sourceSha256": "6f60a9bc588930479de78bc866fe69381222a64b971e7d19251f5233f8c0449e",
+  "output": "public/guided-reading/world-discovery/a-13/page-06.webp",
+  "outputSha256": "b6dd35534fce15c8114a9b7e85c12a478f860fedea34dd6f52372972355fd29a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull camera BACK25percent and recenter the intact crossing scene, preserving exact road/car directions and sidewalk locations. WHOLE stopped BLUEcar atnearLEFTfacingRIGHT, WHOLE stopped REDcar atfarRIGHTfacingLEFT, all three complete humans, and essential whitewalking signal must lie at least10percent inside all image edges. Extend same neighborhood scenery around edges. Do not move vehicles into crossing; both frontbumperstaysbehindownstopline. Do not alter any other people/location/state. Page5/6 group remains fully on NEARsidewalk;page8group fully on FARsidewalk. No newcars or people, no text,borderorlabels. Crisp clean flat2D landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-426c7545-1766-4965-8edb-9d0910c1932f.png",
+      "sha256": "ca02a10598e6db58f0e97771d5362ee1cb6115a56bbd3f6b02e6488baa827dc2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6218e449fbee89a1292e49b51b95fc7f0f729928f17df2678088f3385bd88084",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.756281+00:00",
+    "sha256": "b6dd35534fce15c8114a9b7e85c12a478f860fedea34dd6f52372972355fd29a",
+    "note": "Native PNG and installed WebP directly inspected. Children look opposite ways with adult between, all remain on sidewalk. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-e-19",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:15:15.781Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6a787bdb-64b4-4584-92ae-6d1cea8113ec.png",
+  "sourceSha256": "b9a48ed70bcfd839e67d316511a06638f2600f1c2d31d7b00888aafacdc14166",
+  "output": "public/guided-reading/world-discovery/e-19/page-06.webp",
+  "outputSha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Recompose the same sorting-board action as a TRUE STRAIGHT-DOWN CLOSE-UP of the tabletop. Wood tabletop is the ONLY background and extends continuously to ALL FOUR image edges. NO room, floor, table edge, table legs, chairs, heads, hair or bodies visible. Preserve the exact existing board labels and precise pieces/positions/stage, and the yellow tray contents. Reduce board+tray+all loose shapes together so ALL teaching objects and complete hands fit inside central 76 percent, at least 12 percent from edges. Only the same children's natural forearms/hands enter from BOTTOM of frame: Kit's light warm skin/teal sleeve on left and Zoe's deep brown skin/yellow sleeve on right. Fingers keep exactly the same task/gesture. At most two hands per child. No additional shapes or props. Words exactly: round, not round, red, not red. Flat crisp 2D cartoon, landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e19-root-repair/page-06-before-f4a4b3864838903cd99d867d5eb425e52eb32fe4919bafd081d0fe5a099d611a.webp",
+      "sha256": "f4a4b3864838903cd99d867d5eb425e52eb32fe4919bafd081d0fe5a099d611a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "bf9908186dace628eff2f5577d9e6aa898be70cf15b531959ece95e5b49ac18a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:17:37.174Z",
+    "sha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:41:53.251Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-2d683194-1422-4bad-96a7-3148e43f7c4a.png",
+  "sourceSha256": "d6c216bce11f0ea4e9523ff896fc3aa5e4339f3a15ae1fa62d485d147be18f2e",
+  "output": "public/guided-reading/world-discovery/c-20/page-07.webp",
+  "outputSha256": "c112f9315ac6623a0d0045b6b67a00299d90add9692cf5cbf9194723500a6e32",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact scene. Widen the entire intact scene by about25percent: uniformly reduce the central children/log/wrapper grouping so ALL essential shoes, hair, hands, log ends and wrapper fit within the central80percent of the final canvas. Extend natural background/soil/path around it, no borders. Preserve human anatomy, poses, exact two-hand grips, scale relationships, setting and current log/wrapper state.  Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-a68b43c9-fb01-4383-b496-1f7378e5d076.png",
+      "sha256": "0ab7b4de2b8b57aa079057376fd848d9bae64bfce151a7775ced93838ff0048e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "c112f9315ac6623a0d0045b6b67a00299d90add9692cf5cbf9194723500a6e32",
+    "method": "codex-direct-image-inspection",
+    "note": "Direct whole-scene review: Zoe holds one open bag and Kit places the one blue wrapper inside, with coherent grips and complete standing bodies. Restored log remains beside fern outside walking route, animals naturally hidden, no second wrapper."
+  }
+}

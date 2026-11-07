@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-16",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:58:29.686Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-f26134c1-53ab-4c88-b047-475fd6f20ce1.png",
+  "sourceSha256": "e67c061fa32b653c0f1ef31d5ba17d21422a45ce96b609784a3de9f6ad956413",
+  "output": "public/guided-reading/world-discovery/b-16/cover.webp",
+  "outputSha256": "e33477dd1fc9fd14cdfb839e176dfce94682f05b6f67f5c79257edc3d2142692",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY for framing. Pull camera back about20%, keeping3:2 landscape1536x1024. The entire rover PLUS obstacle and dip fit within the central75% width and height, leaving broad plain red ground on both sides and below; all wheels and full shallow dip at least10% inside frame. Preserve six-wheel anatomy (occluded far wheel remains occluded), front near wheel ON low gray rock, other near wheels on ground behind, rigid suspension joints, white body/gray mast, exact pose and angle. No new wheel or object. Bold clean flat 2D cartoon, crisp outlines, no grain/mottling/paint texture, no labels/text/logos/humans/animals, no border. Preserve science and all subject states.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-778213aa-4f3f-4109-b5bd-03a7ac107481.png",
+      "sha256": "625c8bf06a099bf070460dd7191121ca086bb98a51b2f519d15f0aa14a4c575c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "377d044665ae51065f17714a8a0e9ef0b5107aab580ad7c7d62c50640eb3adae",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "e33477dd1fc9fd14cdfb839e176dfce94682f05b6f67f5c79257edc3d2142692",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Six-wheel rover front near wheel on rock, rigid linked suspension, no humans; whole rock and dip safely framed. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "e33477dd1fc9fd14cdfb839e176dfce94682f05b6f67f5c79257edc3d2142692",
+    "note": "Six-wheel rover front near wheel on rock, rigid linked suspension, no humans; whole rock and dip safely framed. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  }
+}

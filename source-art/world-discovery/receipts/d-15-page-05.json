@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-15",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:02:50.898Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-0aaae25d-1c9f-40a4-b30c-52a93573cbad.png",
+  "sourceSha256": "23fa372374af9c2622a19f729c01dc547586a5515d0eb9ae734695939cc07004",
+  "output": "public/guided-reading/world-discovery/d-15/page-05.webp",
+  "outputSha256": "da290518f1c7b8f8883f3e575f30fbfd8d634de6bbf1d2f88f2de24b2efe296f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Pull camera back 20percent: scale full dune plus fixed foreground rock together to80percent of current size around image center. Extend featureless sand/sky. BOTH ends of complete dune at least12percent from left/right edges; foreground rock left edge at least13percent from left and bottom edge at most83percent down. Preserve all explanatory marks and exact one dune silhouette, no new insets. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-49059659-40b9-4e32-9b1f-27c36128e99c.png",
+      "sha256": "4b1622a38518e2856c2f8176f7e7c2e53a2f838f12796dc6681c052b1bb2f825"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-15-reference.webp",
+      "sha256": "8d824634e20522ba4b50694165eb1911fdabf99464f5263c3af089ab8cbe609c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "39b696f4defa16bcfb1cfc77b4fc3b026064c13a880a6bb1c34df05c4e8ad4c1",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:05:07.030Z",
+    "sha256": "da290518f1c7b8f8883f3e575f30fbfd8d634de6bbf1d2f88f2de24b2efe296f",
+    "note": "Generated native and installed full WebP directly inspected. Small shallow slide lies just beyond crest down steep face; no whole-dune sliding. Whole scene is coherent, core explanatory content complete and clear.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

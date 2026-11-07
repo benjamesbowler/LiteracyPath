@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-18",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:57:40.718Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e742a457-7092-416d-8c32-fce971506234.png",
+  "sourceSha256": "e96dd7f42d20857c230cec2bfb15f4f59de1f67dd73fed58d12b8b81d3dc109e",
+  "output": "public/guided-reading/world-discovery/a-18/page-01.webp",
+  "outputSha256": "a208a5ca99f016ec14375e3ae9df60cbb53955daf8a46abda77510fbee059f33",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back25 percent and recenter this exact intact butterfly scene. The ENTIRE butterfly, all wing tips and antennae, the entire empty chrysalis, and the ENTIRE coneflower head including all petals must fit with at least10 percent margin inside every frame edge. Currently rightmost petals and some attachmentpoints are too close/cut off. Extend same clean sky/foliage around the scene; continuous twig may exitframe naturally but its central attachment area must be inset. Preserve same wing development state and pose, no added wings/legs/antennae. Preserve all relative locations. Full-bleed landscape3:2, crisp flat2D, no border or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4016b7ac-091a-4eec-afd8-80a98a04d80d.png",
+      "sha256": "cb58c9af6d114e0939d426b4be310a036a4a902f1fe57c4e363a7b8f311e8d41"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T12:06:23.093457+00:00",
+    "sha256": "a208a5ca99f016ec14375e3ae9df60cbb53955daf8a46abda77510fbee059f33",
+    "note": "Emerging monarch retains crumpled wings and full abdomen, two antennae and thoracic case grip. Native generation and installed WebP directly inspected."
+  }
+}

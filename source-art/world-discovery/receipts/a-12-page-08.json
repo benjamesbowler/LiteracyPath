@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-a-12",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:10:40.531Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-e6575f90-5fd2-4153-bbd2-445e577d61a6.png",
+  "sourceSha256": "5635dc280e6db5d5df4f54e0e833a35ba00ea16160226ab833bac5b8c9637eea",
+  "output": "public/guided-reading/world-discovery/a-12/page-08.webp",
+  "outputSha256": "37d16072276cd4bcbecf099d188c53bceb173247c8738962bff7a83d5b77b8f1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: Kit Slows Down; World Discovery; fiction.\nSetting: A fenced school playground in daylight. One curved path runs from a blue gate past a low bench to two empty swings. No roadway.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Blue playground gate at the start; Low wooden bench midway; Two empty yellow swing seats at the destination; Kit and Zoe carry nothing\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): They reach the swings together.\nRequired illustration: Kit and Zoe stand beside the two empty yellow swings, each placing a hand on one chain of their own swing. The path and bench remain behind them. Their shared play destination is reached.\nExact current state: Both at destination; each has access to one swing.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-12-reference.webp",
+      "sha256": "96aa5a358c31f2cfaf97e5c6123cd1f23dbab74394cc6aaff1b6d729cee98e70"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "ab3e4e81223a9fb9f5ff4df0e9182ca5b94ce968e3a1ecc04d6cd3d5e77784ce",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:22:08.847Z",
+    "sha256": "37d16072276cd4bcbecf099d188c53bceb173247c8738962bff7a83d5b77b8f1",
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Both arrive together at the two yellow swing seats, each holding one chain of their own swing; correct coherent hands. Locked cast, crisp cel style, essential subject margins and no text verified."
+  }
+}

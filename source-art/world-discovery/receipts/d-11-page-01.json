@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-d-11",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:41:01.312Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-b0325947-e205-4014-b4b5-7721d78eefa9.png",
+  "sourceSha256": "7947738c66c612d5b65531093e2769f4679e5b8fb161bf74fed5ef4894b1431a",
+  "output": "public/guided-reading/world-discovery/d-11/page-01.webp",
+  "outputSha256": "a47623162facffaed5c1ef9015a84f80d2cdb5070c2699319afa615cbfbeb6c2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One tiny correction only: remove the BLUE crayon from the yellow tray. Keep the blue crayon in Zoe's drawing hand. The tray must contain exactly ONE GRAY crayon. Keep every other detail, drawing, blank sky, body, hand and framing unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-af016dc9-ebd5-4cf0-9690-3e23726a98d6.png",
+      "sha256": "bb402b9a2eddbdb6e243aedb1c41198b8d2dd74ce115bed0e810bcf8d4266154"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "52693093bd252e33d72912235d904439308ab9cfdb6551b211f692584d706541",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "sha256": "a47623162facffaed5c1ef9015a84f80d2cdb5070c2699319afa615cbfbeb6c2",
+    "note": "Generated source and installed WebP inspected. Zoe draws the raised blue splash on a blank-sky sheet, blue crayon in hand and only gray in tray. Natural seated posture and paper contact.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

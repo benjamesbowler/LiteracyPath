@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:16:24.816Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a03222b2-1c72-474c-8506-78032a8004e6.png",
+  "sourceSha256": "4fa8aad03781657b133ff8e49bc4b20ca49633aaae8b161e408361bc9d268471",
+  "output": "public/guided-reading/world-discovery/b-20/page-02.webp",
+  "outputSha256": "7790f8c2a0644946ad08a9d872162f2715f02926b7faaef7415e9fc832ddacce",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Remove ONLY the adult at the right completely, replacing her area with the same normal classroom wall/floor. The adult has not arrived yet. Exactly Kit and Zoe remain. Preserve all other elements, exact camera framing, Kit gently touching closed faucet handle, one drip, one EMPTY yellow cup away from spout, plant left windowsill, cabinet and natural body/hand contacts. No tools, no new people or props, no written text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-a5018219-a783-4e27-bf5c-964a397ae0ff.png",
+      "sha256": "ad505c4dfa18b537b6ca5e39b1a19f383a810995144b47133d7610c2d8613b9a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.189733+00:00",
+    "outputSha256": "7790f8c2a0644946ad08a9d872162f2715f02926b7faaef7415e9fc832ddacce",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Kit gently tries closed handle; one drip persists; Zoe watches; empty cup aside. No adult or premature repair tools.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "7790f8c2a0644946ad08a9d872162f2715f02926b7faaef7415e9fc832ddacce",
+    "note": "Kit gently tries closed handle; one drip persists; Zoe watches; empty cup aside. No adult or premature repair tools."
+  }
+}

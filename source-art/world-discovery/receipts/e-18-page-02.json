@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-18",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:18:04.930Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-49f6c7b1-28bd-4c04-8402-2acb6f4f6746.png",
+  "sourceSha256": "41be96cda7308da103857e7c370c634118d5e5b16465ce20cf2f04071be4bd2e",
+  "output": "public/guided-reading/world-discovery/e-18/page-02.webp",
+  "outputSha256": "c726dd6fb09fdb6772d41f853b4ebd50efd385fe03da7e99e9ab74181f20e7b8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-composition-edit. WIDEN this exact scene by about25percent, uniformly reducing the existing focal butterflies, host plant and any authored map/comparison panels to sit safely inside central80percent of1536x1024canvas. Extend same matching environment around composition. ALL foreground wing tips, antennae, feet, primary egg/chrysalis/larva/flower subjects and FULL map/panel borders must have at least10percent margin from every outsideedge. Preserve EXACT counts, same poses, four functional walking legs and reduced front pair, antennae, wing patterns, exact egg/larva/chrysalis/adult stages, and season. Retain geographic map and route arrow EXACTLY only if present in this input; no extra maps/arrows/panels. Preserve flower contact and natural relative scale; no giant butterflies or detached bodies. No new animals, people or props. Keep crisp bold flat2Dcartoon, full3:2landscape, no crop/border and no words/labels/numbers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e16-20/e18-margin-sources/page-02-before.webp",
+      "sha256": "d6815514d98c619ce7e4406bfba6ee6d43bf1392e53509ccd067f2f3b68e4321"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "d70090856f121565ee442d4d998ff582e0f7ea6686318bb5a9ac04e04bcf8747",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "c726dd6fb09fdb6772d41f853b4ebd50efd385fe03da7e99e9ab74181f20e7b8",
+    "method": "codex-direct-image-inspection",
+    "note": "Widened overwintering monarch cluster; complete focal wings/antennae, natural resting branch attachment and safe margins."
+  }
+}

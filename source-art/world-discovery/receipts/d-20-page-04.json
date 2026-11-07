@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-d-20",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:35:11.947Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-267dc25f-23fa-4144-9ca3-b0e58dec2d3a.png",
+  "sourceSha256": "03eb945767d7b829ba7607e92b409a9e21bc1c85021ba5d046bf673e5a761113",
+  "output": "public/guided-reading/world-discovery/d-20/page-04.webp",
+  "outputSha256": "2ed3b0778104dc362059e9805a7b6de3199d663b34ee3c9a70cde603869bac97",
+  "width": 1666,
+  "height": 944,
+  "prompt": "Edit this exact scene while preserving the house layout, single lamp position, door, windows, hedge, short path, gate and the exact required people/action. Widen the composition by about 18 percent: scale the complete main scene down inside the same landscape canvas, extending the surrounding sky and foreground. In particular, the COMPLETE upstairs window must have at least 12% canvas-height space above it; all people, fixture, window and relevant path must remain comfortably in frame. Do not add any roof or overhang above the stoop. Preserve crisp outlined flat 2D cartoon style, natural anatomy and physical architecture. No added text or labels. The lamp POWER IS OFF during fitting. Its lower opening must be dark, with NO yellow glow, no light cone, and NO gold illumination on hedge, wall or path. All hedge leaves dark cool forest green. Preserve adult fitting the shade with both feet on the reachable stoop, Zoe waiting separately; no exposed wires, tool or ladder.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8c66e06b-788e-44fd-98f8-279c7c6f8ae7.png",
+      "sha256": "bb6f33bfd56cf76ea2f617caa050d358c5cc706d290ee019658d5d6aa8ad7f14"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "b15f26cdef4f3c41190268ad3a904e202ad7fec7ef1dd79c620ae0444cc3a0fd",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "sha256": "2ed3b0778104dc362059e9805a7b6de3199d663b34ee3c9a70cde603869bac97",
+    "note": "Native PNG and final WebP directly inspected at full image size. Lamp off, adult fits reachable opaque shield, child safely watches; hedge dark and lower opening black."
+  }
+}

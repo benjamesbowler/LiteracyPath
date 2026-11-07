@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:48:57.652Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6877cf85-8623-4bbf-bb66-a1f3754ff7c2.png",
+  "sourceSha256": "6ed8b818b83854da2bb5b53721d3a40d1c773e3541e276982342c9839121c96d",
+  "output": "public/guided-reading/world-discovery/a-14/page-02.webp",
+  "outputSha256": "5caf8df49628bb2577488171f65ad67857c274d4327303217f8d6ef30a86e72c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact scene and every object/state unchanged, including Kit's pose, paper drawing/transformation, crayons, missing near-front wagon wheel and exposed stub. Pull camera back about20 percent and center the entire scene so Kit's complete body, wagon handle, giant wheel if present, and essential art props all lie at least8 percent inside each image edge (about125px left/right and85px top/bottom). Extend matching cream wall and wood floor around scene; no border. Preserve relative positions/perspective and bold flat2D. No text or new props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-c9e70aff-cf88-4e8e-8f61-710532ee70ad.png",
+      "sha256": "c7ac3179c6ec4fb973c912f2986496b6746d6095d324d081388542e3f53c4f45"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.763629+00:00",
+    "sha256": "5caf8df49628bb2577488171f65ad67857c274d4327303217f8d6ef30a86e72c",
+    "note": "Native PNG and installed WebP directly inspected. Large yellow wheel drawn on first sheet; second remains blank; wagon unchanged. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

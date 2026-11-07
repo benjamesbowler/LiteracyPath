@@ -1,0 +1,1354 @@
+[
+  {
+    "id": "world-discovery-b-11",
+    "number": 11,
+    "title": "A Break for Kit",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants to finish a long block road, but he is tired; after dropping another block he chooses a break, then returns for the final gap.",
+      "failedAttempt": "Kit keeps carrying blocks despite feeling tired and drops the next block beside the unfinished road.",
+      "resolution": "Kit chooses when to sit and when to return; he places the last block and sends his truck along the completed road."
+    },
+    "setting": "Ordinary classroom floor in daylight; low block road crosses a green rug; one low wooden seat beside the rug. Kit and Zoe retain the locked cast clothing.",
+    "props": [
+      "Eight large tan rectangular blocks forming one road",
+      "One small red toy truck",
+      "One low wooden seat",
+      "One green rug"
+    ],
+    "coverBrief": "Kit sits comfortably on the low seat beside an almost complete block road. His red truck rests on the rug; Zoe kneels by the far end. Emphasize his deliberate pause, not illness, collapse or adult permission.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit wants a long road for his truck.",
+        "imageBrief": "Kit carries a tan block toward a short straight road on the green rug; Zoe kneels at its far end. The red truck waits near Kit. Continuity: Road has four blocks in place; four loose blocks remain; truck is stationary.",
+        "imageAlt": "Kit carries a tan block toward a short straight road on the green rug; Zoe kneels at its far end. The red truck waits near Kit.",
+        "pageDescription": "Kit carries a tan block toward a short straight road on the green rug; Zoe kneels at its far end. The red truck waits near Kit.",
+        "state": "Road has four blocks in place; four loose blocks remain; truck is stationary.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "He carries more blocks.\nHis arms feel tired.",
+        "imageBrief": "Kit sets the sixth road block down and lets his arms hang for a moment. Zoe watches without taking his blocks or directing him. Continuity: Six blocks form the road; two loose blocks remain near Kit.",
+        "imageAlt": "Kit sets the sixth road block down and lets his arms hang for a moment. Zoe watches without taking his blocks or directing him.",
+        "pageDescription": "Kit sets the sixth road block down and lets his arms hang for a moment. Zoe watches without taking his blocks or directing him.",
+        "state": "Six blocks form the road; two loose blocks remain near Kit.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit picks up another block.\nIt slips onto the rug.",
+        "imageBrief": "The seventh block has landed flat on the soft rug beside Kit’s shoes. His empty hands are still above it; no block hits anyone. Continuity: Six road blocks; seventh lies beside road; eighth remains loose. No injury.",
+        "imageAlt": "The seventh block has landed flat on the soft rug beside Kit’s shoes. His empty hands are still above it; no block hits anyone.",
+        "pageDescription": "The seventh block has landed flat on the soft rug beside Kit’s shoes. His empty hands are still above it; no block hits anyone.",
+        "state": "Six road blocks; seventh lies beside road; eighth remains loose. No injury.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "“I need a break,” says Kit.\nHe sits down.",
+        "imageBrief": "Kit sits on the low seat with both hands resting on his knees. Zoe remains beside the unfinished road; she is not blocking or beckoning him. Continuity: Kit initiates the pause. Dropped block and final loose block remain on the rug.",
+        "imageAlt": "Kit sits on the low seat with both hands resting on his knees. Zoe remains beside the unfinished road; she is not blocking or beckoning him.",
+        "pageDescription": "Kit sits on the low seat with both hands resting on his knees. Zoe remains beside the unfinished road; she is not blocking or beckoning him.",
+        "state": "Kit initiates the pause. Dropped block and final loose block remain on the rug.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe adds one block.\nKit watches from his seat.",
+        "imageBrief": "Zoe lifts the dropped seventh block into the road. Kit sits nearby, looking toward the construction; the last loose block remains beside the small gap. Continuity: Seven blocks now placed; eighth remains loose; Kit still rests.",
+        "imageAlt": "Zoe lifts the dropped seventh block into the road. Kit sits nearby, looking toward the construction; the last loose block remains beside the small gap.",
+        "pageDescription": "Zoe lifts the dropped seventh block into the road. Kit sits nearby, looking toward the construction; the last loose block remains beside the small gap.",
+        "state": "Seven blocks now placed; eighth remains loose; Kit still rests.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit rests a little longer.\nThe last gap stays open.",
+        "imageBrief": "Quiet side view: Kit has leaned comfortably against the seat back, hands loose. The road has one clearly visible block-sized gap before its final turn. Continuity: No new blocks placed; one gap and one loose block persist; Zoe waits beside the truck.",
+        "imageAlt": "Quiet side view: Kit has leaned comfortably against the seat back, hands loose. The road has one clearly visible block-sized gap before its final turn.",
+        "pageDescription": "Quiet side view: Kit has leaned comfortably against the seat back, hands loose. The road has one clearly visible block-sized gap before its final turn.",
+        "state": "No new blocks placed; one gap and one loose block persist; Zoe waits beside the truck.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit gets up.\n“I want to put that one in.”",
+        "imageBrief": "Kit stands and reaches toward the eighth block with relaxed shoulders. Zoe moves her hands away, leaving the choice and action to him. Continuity: Kit has chosen to return; final block is not placed yet.",
+        "imageAlt": "Kit stands and reaches toward the eighth block with relaxed shoulders. Zoe moves her hands away, leaving the choice and action to him.",
+        "pageDescription": "Kit stands and reaches toward the eighth block with relaxed shoulders. Zoe moves her hands away, leaving the choice and action to him.",
+        "state": "Kit has chosen to return; final block is not placed yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "He fills the gap.\nHis truck rolls all the way.",
+        "imageBrief": "Kit pushes the small red truck along the now continuous eight-block road. Zoe watches from the other end; the empty seat remains beside the rug. Continuity: All eight blocks form the road; no loose blocks; Kit’s chosen return completes the original goal.",
+        "imageAlt": "Kit pushes the small red truck along the now continuous eight-block road. Zoe watches from the other end; the empty seat remains beside the rug.",
+        "pageDescription": "Kit pushes the small red truck along the now continuous eight-block road. Zoe watches from the other end; the empty seat remains beside the rug.",
+        "state": "All eight blocks form the road; no loose blocks; Kit’s chosen return completes the original goal.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did Kit choose after the block slipped?",
+        "listenFor": "He chose to sit and rest, then chose to return for the last block. Stopping briefly did not mean giving up the road."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What is waiting while Kit rests?",
+        "lookFor": "The last loose block and the one gap in the road; nobody has finished his remaining part for him."
+      }
+    },
+    "levelRationale": "Candidate B: Short present-tense actions and two dialogue pages track one familiar goal. The pause has an observable consequence and a chosen return; no general medical or learning-style claim is made.",
+    "languagePrep": [
+      {
+        "word": "break",
+        "meaning": "a short time to stop and rest"
+      },
+      {
+        "word": "gap",
+        "meaning": "an empty space between things"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-12",
+    "number": 12,
+    "title": "The Saved Cracker",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit eats a cracker Zoe set aside for her snack; his first offer is unsuitable, so he asks what she wants and replaces it with his own saved cracker.",
+      "failedAttempt": "Kit offers a loose crumb after taking the whole cracker; Zoe’s empty plate and reply show why that does not restore her snack.",
+      "resolution": "With Zoe’s agreement, Kit gives her the untouched cracker from his own lunch box; she can finish her planned snack."
+    },
+    "setting": "Classroom snack table, two chairs, clean tabletop. Only Kit and Zoe; all food is already prepared.",
+    "props": [
+      "One small white plate with a blue rim for Zoe",
+      "Two identical square crackers: Zoe’s on her plate and Kit’s untouched in his box",
+      "One yellow lunch box for Kit",
+      "One small piece of cheese on Zoe’s plate",
+      "A few crumbs after Kit eats"
+    ],
+    "coverBrief": "Zoe looks at her blue-rimmed plate, which holds cheese but no cracker. Kit holds his open yellow lunch box with one untouched square cracker visible. Show the specific missing snack, without angry caricatures.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe saves a cracker for her cheese.\nShe gets a cup.",
+        "imageBrief": "Zoe leaves her blue-rimmed plate on the table and reaches toward the cup shelf. One whole square cracker and one piece of cheese sit separately on her plate. Continuity: Kit’s identical cracker remains untouched inside his yellow lunch box. Zoe’s cup is not on the table yet.",
+        "imageAlt": "Zoe leaves her blue-rimmed plate on the table and reaches toward the cup shelf. One whole square cracker and one piece of cheese sit separately on her plate.",
+        "pageDescription": "Zoe leaves her blue-rimmed plate on the table and reaches toward the cup shelf. One whole square cracker and one piece of cheese sit separately on her plate.",
+        "state": "Kit’s identical cracker remains untouched inside his yellow lunch box. Zoe’s cup is not on the table yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit sees the cracker.\nHe eats it.",
+        "imageBrief": "Kit finishes the cracker taken from Zoe’s plate; his hand lowers beside a few crumbs. Zoe is still at the shelf. Continuity: Zoe’s cracker is now eaten; her cheese remains. Kit’s own cracker stays in his closed box.",
+        "imageAlt": "Kit finishes the cracker taken from Zoe’s plate; his hand lowers beside a few crumbs. Zoe is still at the shelf.",
+        "pageDescription": "Kit finishes the cracker taken from Zoe’s plate; his hand lowers beside a few crumbs. Zoe is still at the shelf.",
+        "state": "Zoe’s cracker is now eaten; her cheese remains. Kit’s own cracker stays in his closed box.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe comes back.\n“My cheese has no cracker now.”",
+        "imageBrief": "Zoe sets down her cup and looks at the cheese on the otherwise empty plate. Kit looks from the crumbs to her plate. Continuity: Only cheese and crumbs remain on Zoe’s plate; impact is visible.",
+        "imageAlt": "Zoe sets down her cup and looks at the cheese on the otherwise empty plate. Kit looks from the crumbs to her plate.",
+        "pageDescription": "Zoe sets down her cup and looks at the cheese on the otherwise empty plate. Kit looks from the crumbs to her plate.",
+        "state": "Only cheese and crumbs remain on Zoe’s plate; impact is visible.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit offers a crumb.\nZoe shakes her head.",
+        "imageBrief": "Kit holds one tiny crumb above the table. Zoe leaves her hands beside her plate and gently shakes her head. Continuity: No replacement accepted; a crumb cannot support the cheese.",
+        "imageAlt": "Kit holds one tiny crumb above the table. Zoe leaves her hands beside her plate and gently shakes her head.",
+        "pageDescription": "Kit holds one tiny crumb above the table. Zoe leaves her hands beside her plate and gently shakes her head.",
+        "state": "No replacement accepted; a crumb cannot support the cheese.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit opens his box.\nOne whole cracker is still inside.",
+        "imageBrief": "Kit lifts the yellow box lid, revealing his own untouched square cracker. Zoe’s plate remains beside the box, still lacking a cracker. Continuity: Only the second, original cracker is whole; no new food appears.",
+        "imageAlt": "Kit lifts the yellow box lid, revealing his own untouched square cracker. Zoe’s plate remains beside the box, still lacking a cracker.",
+        "pageDescription": "Kit lifts the yellow box lid, revealing his own untouched square cracker. Zoe’s plate remains beside the box, still lacking a cracker.",
+        "state": "Only the second, original cracker is whole; no new food appears.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“Would you like mine?” asks Kit.\n“Yes,” says Zoe.",
+        "imageBrief": "Kit presents the open box toward Zoe without putting food on her plate yet. Zoe nods and reaches toward the plate. Continuity: Offer and acceptance happen before the transfer; two dialogue pages total in book.",
+        "imageAlt": "Kit presents the open box toward Zoe without putting food on her plate yet. Zoe nods and reaches toward the plate.",
+        "pageDescription": "Kit presents the open box toward Zoe without putting food on her plate yet. Zoe nods and reaches toward the plate.",
+        "state": "Offer and acceptance happen before the transfer; two dialogue pages total in book.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit puts his cracker on her plate.",
+        "imageBrief": "Kit places his untouched cracker next to Zoe’s cheese. His yellow lunch box is now empty. Continuity: One whole cracker transferred from Kit to Zoe; no duplicate cracker in the box.",
+        "imageAlt": "Kit places his untouched cracker next to Zoe’s cheese. His yellow lunch box is now empty.",
+        "pageDescription": "Kit places his untouched cracker next to Zoe’s cheese. His yellow lunch box is now empty.",
+        "state": "One whole cracker transferred from Kit to Zoe; no duplicate cracker in the box.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe puts the cheese on top.\nThis bite has a cracker.",
+        "imageBrief": "Zoe lifts the cracker topped with cheese for her snack. Kit sits beside the empty yellow box; the cup is on Zoe’s side. Continuity: The missing base is restored; the cheese fits on the whole cracker; no forced celebration or stated moral.",
+        "imageAlt": "Zoe lifts the cracker topped with cheese for her snack. Kit sits beside the empty yellow box; the cup is on Zoe’s side.",
+        "pageDescription": "Zoe lifts the cracker topped with cheese for her snack. Kit sits beside the empty yellow box; the cup is on Zoe’s side.",
+        "state": "The missing base is restored; the cheese fits on the whole cracker; no forced celebration or stated moral.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did the crumb not fix Zoe’s problem?",
+        "listenFor": "She had saved a whole cracker to hold her cheese. Kit asked and replaced it with his own whole cracker."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Where did the replacement cracker come from?",
+        "lookFor": "Kit’s yellow box is empty now; the same untouched cracker has moved to Zoe’s plate."
+      }
+    },
+    "levelRationale": "Candidate B: A concrete object remains the goal throughout; brief dialogue occurs on two pages. Taking, impact, an inadequate attempt and agreed repair are all printed rather than left only to faces.",
+    "languagePrep": [
+      {
+        "word": "crumb",
+        "meaning": "a very small broken piece of food"
+      },
+      {
+        "word": "whole",
+        "meaning": "all of it, with no part missing"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-13",
+    "number": 13,
+    "title": "A Letter Finds Zoe",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How does Kit’s letter reach Zoe?",
+      "progression": "Follow one sealed cream envelope from addressing and collection through sorting, transport and final delivery to its recipient.",
+      "synthesis": "The picture reaches Zoe because the address links several workers’ stages of the journey.",
+      "scienceSources": [
+        {
+          "title": "Smithsonian National Postal Museum: Mail Processing",
+          "url": "https://postalmuseum.si.edu/exhibition/about-postal-operations/mail-processing",
+          "evidence": "Indexed primary museum text checked: collection, facing/cancellation, sorting, transport to destination office and carrier delivery to the correct address. Later direct open was blocked; the complete indexed explanation was available. The illustrated route is one example, not a universal promise.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Smithsonian National Postal Museum: Systems at Work resources",
+          "url": "https://postalmuseum.si.edu/exhibition/systems-at-work/resources",
+          "evidence": "Primary museum account describes collection, transport to a sorting facility, belts/rollers, address reading and division by destination. Supports machine sorting without requiring children to read a real address.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Illustrative ordinary postal route from Kit’s home through a sorting center to Zoe’s home. No named postal operator, flags, logos or exact delivery-time claim. Addresses face away or appear as ruled lines, not fabricated readable personal data.",
+    "props": [
+      "One cream envelope with a small green star postage stamp at upper right",
+      "One folded picture of a red toy truck inside",
+      "One blue collection box",
+      "Gray mail trays and one plain delivery van",
+      "Zoe’s blue front door with a mail slot",
+      "Collection worker: tan skin, short brown hair, navy shirt and gray trousers",
+      "Carrier: brown skin, short black hair, pale blue shirt and navy trousers"
+    ],
+    "coverBrief": "The carrier holds the cream envelope beside Zoe’s blue door; Zoe reaches for it. The small green star stamp identifies the same letter, with no visible address wording.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit puts a picture in an envelope.\nHe writes Zoe’s address.",
+        "imageBrief": "Over Kit’s shoulder, show the cream envelope on the table with the red-truck picture partly tucked inside. His writing hand partly occludes the envelope front as he adds the address; the near edge is outside the frame, so no invented address lettering is visible. Continuity: One letter; green star postage stamp already fixed at upper right.",
+        "imageAlt": "Kit slides his red-truck picture into a cream envelope at a desk; the address side faces down toward his writing hand.",
+        "pageDescription": "Kit slides his red-truck picture into a cream envelope at a desk; the address side faces down toward his writing hand.",
+        "state": "Only one letter; small green star postage stamp is already fixed on the envelope’s front.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "He seals the flap.\nThe letter goes into the mailbox.",
+        "imageBrief": "Kit posts the sealed cream envelope into the slot of a plain blue collection box. Its green star stamp is visible, address turned away. Continuity: Envelope sealed; picture enclosed; no delivery or cancellation mark yet.",
+        "imageAlt": "Kit posts the sealed cream envelope into the slot of a plain blue collection box. Its green star stamp is visible, address turned away.",
+        "pageDescription": "Kit posts the sealed cream envelope into the slot of a plain blue collection box. Its green star stamp is visible, address turned away.",
+        "state": "Envelope sealed; picture enclosed; no delivery or cancellation mark yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A worker collects the mail.\nKit’s letter joins the other letters.",
+        "imageBrief": "The collection worker opens the service door of the box and gathers envelopes into a gray tray. The identifiable cream envelope lies on top. Continuity: One focal cream letter among several differently colored background envelopes; stamp not duplicated.",
+        "imageAlt": "The collection worker opens the service door of the box and gathers envelopes into a gray tray. The identifiable cream envelope lies on top.",
+        "pageDescription": "The collection worker opens the service door of the box and gathers envelopes into a gray tray. The identifiable cream envelope lies on top.",
+        "state": "One focal cream letter among several differently colored background envelopes; stamp not duplicated.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "A machine reads the address.\nThe letters go into groups.",
+        "imageBrief": "At a sorting belt, the cream envelope passes an address-reading unit toward one tray; another tray receives other mail. Frame the envelope obliquely so its writing is not legible. Continuity: Focal letter remains sealed; small cancellation strokes now cross its stamp; sorting rather than random scattering.",
+        "imageAlt": "At a sorting belt, the cream envelope passes an address-reading unit toward one tray; another tray receives other mail. Frame the envelope obliquely so its writing is not legible.",
+        "pageDescription": "At a sorting belt, the cream envelope passes an address-reading unit toward one tray; another tray receives other mail. Frame the envelope obliquely so its writing is not legible.",
+        "state": "Focal letter remains sealed; small cancellation strokes now cross its stamp; sorting rather than random scattering.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "A van carries this group to Zoe’s area.",
+        "imageBrief": "The worker slides an open gray mail tray into the plain van. The focal cream letter with its green stamp is visible among the mail; the tray lid rests separately beside it and has not been closed yet. Continuity: The same group is loaded for transport; no claim all letters use this exact route.",
+        "imageAlt": "An open gray mail tray holding the cream letter with its green stamp is loaded into a plain van; the separate lid rests beside the tray.",
+        "pageDescription": "An open gray mail tray holding the cream letter with its green stamp is loaded into a plain van; the separate lid rests beside the tray.",
+        "state": "Open tray being loaded; focal letter still visible before the tray is covered for transport.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Here is Zoe’s street.\nThe carrier checks each address.",
+        "imageBrief": "The carrier walks along a short street holding a sorted bundle; the cream envelope is at the front, beside Zoe’s recognizable blue door ahead. Continuity: Carrier and destination door introduced consistently; letter still unopened.",
+        "imageAlt": "The carrier walks along a short street holding a sorted bundle; the cream envelope is at the front, beside Zoe’s recognizable blue door ahead.",
+        "pageDescription": "The carrier walks along a short street holding a sorted bundle; the cream envelope is at the front, beside Zoe’s recognizable blue door ahead.",
+        "state": "Carrier and destination door introduced consistently; letter still unopened.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The carrier puts the letter through Zoe’s door.",
+        "imageBrief": "Close view of the same carrier placing the cream envelope through the mail slot in the blue door. Continuity: Same letter delivered through slot; no second copy in carrier’s hand.",
+        "imageAlt": "Close view of the same carrier placing the cream envelope through the mail slot in the blue door.",
+        "pageDescription": "Close view of the same carrier placing the cream envelope through the mail slot in the blue door.",
+        "state": "Same letter delivered through slot; no second copy in carrier’s hand.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe opens it.\nKit’s small picture has come a long way.",
+        "imageBrief": "Inside the blue door, Zoe unfolds the red-truck picture; the opened cream envelope with green stamp rests beside her. Continuity: Picture from page 1 is revealed intact; postage and envelope remain separate from the picture.",
+        "imageAlt": "Inside the blue door, Zoe unfolds the red-truck picture; the opened cream envelope with green stamp rests beside her.",
+        "pageDescription": "Inside the blue door, Zoe unfolds the red-truck picture; the opened cream envelope with green stamp rests beside her.",
+        "state": "Picture from page 1 is revealed intact; postage and envelope remain separate from the picture.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What helped the letter reach the right home?",
+        "listenFor": "The address guided sorting and the carrier’s final delivery. Several jobs connected Kit’s picture to Zoe."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What shows this is the letter Kit sent?",
+        "lookFor": "The same green star stamp and the red-truck picture seen at the start."
+      }
+    },
+    "levelRationale": "Candidate B: Each short page advances one familiar object along a concrete route. Three postal terms are supported orally; syntax remains simple and the ending returns to the opening picture.",
+    "languagePrep": [
+      {
+        "word": "address",
+        "meaning": "the written details that tell where mail should go"
+      },
+      {
+        "word": "sort",
+        "meaning": "put things into useful groups"
+      },
+      {
+        "word": "carrier",
+        "meaning": "a person who takes mail to addresses"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-14",
+    "number": 14,
+    "title": "The Swapping Clips",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Magic clips exchange the colors of the two objects they grip; Kit makes his cart red using Zoe’s cup, then must restore her cup and obtain permission for another red object.",
+      "failedAttempt": "The first swap colors Zoe’s cup blue. Kit gets the cart color he wanted but interferes with her cup.",
+      "resolution": "Kit reverses the first swap, asks to use red paper and makes his cart red while Zoe keeps her red cup."
+    },
+    "setting": "Ordinary classroom play table. Explicit fantasy: two silver clips connected by one green cord exchange only the overall colors of the two clipped objects; nothing changes size, shape or ownership. Clips themselves and people never change color. Each exchange happens once when the second clip is fastened; removing and fastening the pair again reverses it. The colors do not keep oscillating while clips remain attached.",
+    "props": [
+      "Two silver spring clips joined by a green cord",
+      "One plain blue wooden toy cart, becoming red after swaps",
+      "Zoe’s plain red cup, briefly blue then restored",
+      "One red sheet of paper, ultimately blue"
+    ],
+    "coverBrief": "Kit clips the blue cart and a red sheet of paper with the connected silver clips. Zoe holds her restored red cup nearby. The central visual is the two ordinary objects linked by the magical cord, not sparkles or a new magical character.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The magic clips swap colors.\nA red cup. A blue cart.",
+        "imageBrief": "Kit holds two connected silver clips beside Zoe’s red cup and his blue cart, ready to attach them. The red paper lies unused farther back. Continuity: Before first swap: cup red, cart blue, paper red; clips still free, silver; cord green.",
+        "imageAlt": "Kit holds two connected silver clips beside Zoe’s red cup and his blue cart, ready to attach them. The red paper lies unused farther back.",
+        "pageDescription": "Kit holds two connected silver clips beside Zoe’s red cup and his blue cart, ready to attach them. The red paper lies unused farther back.",
+        "state": "Before first swap: cup red, cart blue, paper red; clips still free, silver; cord green.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit clips both. His cart turns red.\nHer cup turns blue.",
+        "imageBrief": "The clipped cup is now solid blue and the clipped cart solid red; Kit leans toward his cart. The same red sheet remains untouched. Continuity: First swap complete; object shapes unchanged. No extra cups or carts.",
+        "imageAlt": "The clipped cup is now solid blue and the clipped cart solid red; Kit leans toward his cart. The same red sheet remains untouched.",
+        "pageDescription": "The clipped cup is now solid blue and the clipped cart solid red; Kit leans toward his cart. The same red sheet remains untouched.",
+        "state": "First swap complete; object shapes unchanged. No extra cups or carts.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe reaches for her cup.\n“That is not my red cup!”",
+        "imageBrief": "Zoe pauses with an outstretched hand at her now blue cup; Kit looks at it. The clips remain attached to cup and cart. Continuity: Her reaction identifies the social effect; cup blue, cart red, paper red.",
+        "imageAlt": "Zoe pauses with an outstretched hand at her now blue cup; Kit looks at it. The clips remain attached to cup and cart.",
+        "pageDescription": "Zoe pauses with an outstretched hand at her now blue cup; Kit looks at it. The clips remain attached to cup and cart.",
+        "state": "Her reaction identifies the social effect; cup blue, cart red, paper red.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit swaps them back.\nZoe takes her red cup.",
+        "imageBrief": "Kit has unclipped and reclipped the same two objects to trigger the reverse exchange; Zoe lifts the restored red cup after he removes its clip. Continuity: Cup red again; cart blue again; paper red. Both clips are now free.",
+        "imageAlt": "Kit has unclipped and reclipped the same two objects to trigger the reverse exchange; Zoe lifts the restored red cup after he removes its clip.",
+        "pageDescription": "Kit has unclipped and reclipped the same two objects to trigger the reverse exchange; Zoe lifts the restored red cup after he removes its clip.",
+        "state": "Cup red again; cart blue again; paper red. Both clips are now free.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit still wants a red cart.\nHe finds red paper.",
+        "imageBrief": "Kit sets the blue cart beside the unused red paper and looks toward Zoe. Zoe keeps her red cup out of the clipping area. Continuity: No swap yet; paper remains red; Kit has not taken it without asking.",
+        "imageAlt": "Kit sets the blue cart beside the unused red paper and looks toward Zoe. Zoe keeps her red cup out of the clipping area.",
+        "pageDescription": "Kit sets the blue cart beside the unused red paper and looks toward Zoe. Zoe keeps her red cup out of the clipping area.",
+        "state": "No swap yet; paper remains red; Kit has not taken it without asking.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“May I use this?”\nZoe slides the paper over.",
+        "imageBrief": "Kit points at the red sheet. Zoe slides it across the table to him, with her red cup held in her other hand. Continuity: Permission granted for paper; cup remains red and excluded from new swap.",
+        "imageAlt": "Kit points at the red sheet. Zoe slides it across the table to him, with her red cup held in her other hand.",
+        "pageDescription": "Kit points at the red sheet. Zoe slides it across the table to him, with her red cup held in her other hand.",
+        "state": "Permission granted for paper; cup remains red and excluded from new swap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit clips the blue cart and red paper.\nTheir colors swap.",
+        "imageBrief": "Both connected clips grip cart and paper; the cart has become red and the sheet blue. Zoe’s separate red cup is visible behind her hand. Continuity: Second chosen pair exchanged: cart red, paper blue, cup red; clips silver and cord green.",
+        "imageAlt": "Both connected clips grip cart and paper; the cart has become red and the sheet blue. Zoe’s separate red cup is visible behind her hand.",
+        "pageDescription": "Both connected clips grip cart and paper; the cart has become red and the sheet blue. Zoe’s separate red cup is visible behind her hand.",
+        "state": "Second chosen pair exchanged: cart red, paper blue, cup red; clips silver and cord green.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit rolls his red cart.\nZoe’s red cup stays red.",
+        "imageBrief": "Kit has removed both clips and rolls the red cart across the table. Zoe drinks from her red cup; blue paper and unused clips rest together. Continuity: Goal achieved with agreed material; no active clipped pair; all colors hold their final states.",
+        "imageAlt": "Kit has removed both clips and rolls the red cart across the table. Zoe drinks from her red cup; blue paper and unused clips rest together.",
+        "pageDescription": "Kit has removed both clips and rolls the red cart across the table. Zoe drinks from her red cup; blue paper and unused clips rest together.",
+        "state": "Goal achieved with agreed material; no active clipped pair; all colors hold their final states.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit swap the cup and cart back?",
+        "listenFor": "The first change affected Zoe’s cup. He restored it, then asked to use a different red object."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which three objects now have different or unchanged colors?",
+        "lookFor": "Cart red, paper blue, cup red; silver clips and green cord never changed."
+      }
+    },
+    "levelRationale": "Candidate B: The same three props carry a reversible rule and a visible social consequence. Two dialogue pages and short color/action clauses keep the causal sequence within B; it is explicitly magic, not a claim about color science.",
+    "languagePrep": [
+      {
+        "word": "swap",
+        "meaning": "give one thing and get another in its place"
+      },
+      {
+        "word": "clip",
+        "meaning": "fasten with a small gripping tool"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-15",
+    "number": 15,
+    "title": "A Pool Left Behind",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why does water remain in a rock pool after the sea has fallen?",
+      "progression": "Observe the same rock hollow across a falling tide, isolated low-tide pool and returning tide; distinguish water held by the hollow from surrounding exposed rock.",
+      "synthesis": "The rock hollow holds seawater during low tide and reconnects with the sea as water rises.",
+      "scienceSources": [
+        {
+          "title": "NOAA Ocean Service: What is a tide pool?",
+          "url": "https://oceanservice.noaa.gov/facts/tide-pool.html",
+          "evidence": "Defines a tide pool as an isolated seawater pocket in the intertidal zone and describes exposure as ocean water retreats at low tide and renewal at high tide. The book follows one intact rock hollow, not every possible shore depression.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One temperate rocky shore over several hours. View from seaward toward a low rock shelf with a deep oval hollow, a white vein in its left rim and one dark upright boulder behind. No children or animals are required; not a series of different pools.",
+    "props": [
+      "One oval rock hollow with a continuous rim",
+      "One white mineral vein in left rim",
+      "One dark boulder behind the pool",
+      "Sea water with a believable changing level"
+    ],
+    "coverBrief": "The oval hollow holds clear seawater while the surrounding rock shelf is exposed. Beyond its lower rim, the sea lies visibly farther down the shore. White vein and dark boulder anchor the place.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Sea water covers a dip in rock.",
+        "imageBrief": "At higher tide, clear seawater extends continuously across the rock shelf and its oval hollow; submerged rim and white vein are visible below the surface. Continuity: Same hollow underwater, connected to sea on every side; boulder stands partly above water.",
+        "imageAlt": "At higher tide, clear seawater extends continuously across the rock shelf and its oval hollow; submerged rim and white vein are visible below the surface.",
+        "pageDescription": "At higher tide, clear seawater extends continuously across the rock shelf and its oval hollow; submerged rim and white vein are visible below the surface.",
+        "state": "Same hollow underwater, connected to sea on every side; boulder stands partly above water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Slowly, the sea falls.\nThe rock begins to show.",
+        "imageBrief": "Water level has lowered enough to uncover the high parts of the rim. The lower side still connects the hollow to the surrounding sea. Continuity: Falling tide over time, not one receding wave; boulder unchanged.",
+        "imageAlt": "Water level has lowered enough to uncover the high parts of the rim. The lower side still connects the hollow to the surrounding sea.",
+        "pageDescription": "Water level has lowered enough to uncover the high parts of the rim. The lower side still connects the hollow to the surrounding sea.",
+        "state": "Falling tide over time, not one receding wave; boulder unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "More rock shows.\nWater stays in the deep dip.",
+        "imageBrief": "Sea level now lies below the lowest part of the hollow’s rim. A still pool remains inside while wet rock is exposed outside. Continuity: Pool has just become isolated; the water has not vanished from the hollow.",
+        "imageAlt": "Sea level now lies below the lowest part of the hollow’s rim. A still pool remains inside while wet rock is exposed outside.",
+        "pageDescription": "Sea level now lies below the lowest part of the hollow’s rim. A still pool remains inside while wet rock is exposed outside.",
+        "state": "Pool has just become isolated; the water has not vanished from the hollow.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The sea is lower now.\nThe pool is still here.",
+        "imageBrief": "Wider view at low tide shows exposed shelf between the oval pool and the distant waterline; a damp band marks the former sea level. Continuity: Low tide; white vein in left rim and boulder retain exact locations.",
+        "imageAlt": "Wider view at low tide shows exposed shelf between the oval pool and the distant waterline; a damp band marks the former sea level.",
+        "pageDescription": "Wider view at low tide shows exposed shelf between the oval pool and the distant waterline; a damp band marks the former sea level.",
+        "state": "Low tide; white vein in left rim and boulder retain exact locations.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Rock holds the water around the sides.",
+        "imageBrief": "Close side angle shows the pool surface below a continuous enclosing rock rim. Its lower seaward lip is clearly above the distant sea. Continuity: No invisible drain or opening through rim; hollow itself holds this water.",
+        "imageAlt": "Close side angle shows the pool surface below a continuous enclosing rock rim. Its lower seaward lip is clearly above the distant sea.",
+        "pageDescription": "Close side angle shows the pool surface below a continuous enclosing rock rim. Its lower seaward lip is clearly above the distant sea.",
+        "state": "No invisible drain or opening through rim; hollow itself holds this water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The sea starts to rise again.",
+        "imageBrief": "Same wide shore view later: water reaches the lower shelf below the pool, while the pool remains separate for this moment. Continuity: Rising tide; no wave crosses the lip yet.",
+        "imageAlt": "Same wide shore view later: water reaches the lower shelf below the pool, while the pool remains separate for this moment.",
+        "pageDescription": "Same wide shore view later: water reaches the lower shelf below the pool, while the pool remains separate for this moment.",
+        "state": "Rising tide; no wave crosses the lip yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Water spills over the rim.\nThe pool joins the sea.",
+        "imageBrief": "A gentle sheet of seawater passes over the low rim into the oval hollow. Both surfaces are now reconnecting. Continuity: Incoming tide overtops the same low lip; no separate artificial bucket or dam.",
+        "imageAlt": "A gentle sheet of seawater passes over the low rim into the oval hollow. Both surfaces are now reconnecting.",
+        "pageDescription": "A gentle sheet of seawater passes over the low rim into the oval hollow. Both surfaces are now reconnecting.",
+        "state": "Incoming tide overtops the same low lip; no separate artificial bucket or dam.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Sea in, sea out.\nThe rock dip keeps a pool.",
+        "imageBrief": "A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind. Continuity: Return to covered state clarifies why the hollow will retain water at a later low tide; no diagram duplicating several times in one image.",
+        "imageAlt": "A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind.",
+        "pageDescription": "A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind.",
+        "state": "Return to covered state clarifies why the hollow will retain water at a later low tide; no diagram duplicating several times in one image.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did water stay after the sea moved down the shore?",
+        "listenFor": "The hollow had a bottom and rock sides that held some seawater. Rising tide later covered its rim again."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "What lies between the pool and the sea now?",
+        "lookFor": "A stretch of exposed rock lies between the pool rim and the lower sea waterline."
+      }
+    },
+    "levelRationale": "Candidate B: Short paired observations repeatedly revisit one visible place. The simple holding/connecting relationship is carried by changing water level, with tide and rim prepared orally.",
+    "languagePrep": [
+      {
+        "word": "tide",
+        "meaning": "the sea’s slow rise and fall"
+      },
+      {
+        "word": "rim",
+        "meaning": "the edge around an opening"
+      },
+      {
+        "word": "pool",
+        "meaning": "a small area of water"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-16",
+    "number": 16,
+    "title": "Wheels for Mars",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a Mars rover cross rough ground without a smooth road?",
+      "progression": "Follow one illustrative small-rock crossing by the front, middle and rear wheels on one side, while the articulated suspension changes position.",
+      "synthesis": "Six wheels linked by movable supports let the rover cross uneven ground rather than requiring a flat road.",
+      "scienceSources": [
+        {
+          "title": "NASA: Perseverance Rover Components, Wheels and Legs",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/rover-components/",
+          "evidence": "Six wheels, three on each side; rocker-bogie suspension links the wheels and allows travel over rocks and depressions. The illustration uses a low obstacle and movable joints, not flexible metal supports or a claim that the body always stays perfectly level.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Illustrative surface sequence on Mars, not a claim about a named historic drive. One Perseverance-type six-wheeled rover with white instrument body, gray camera mast, black and gray wheels and visible jointed suspension; dusty rust-red ground under a pale tan sky. No astronauts, plants, faces or flags.",
+    "props": [
+      "One rover with exactly six wheels, three on each side",
+      "Jointed rocker-bogie suspension, not six independent telescoping legs",
+      "One low rounded gray rock, less than half wheel height",
+      "A shallow dip just beyond the rock"
+    ],
+    "coverBrief": "Three-quarter side view of the six-wheeled rover with its near front wheel on a low gray rock and the other near wheels on lower ground. Far wheels partly visible naturally; no invented seventh wheel.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This robot rolls across Mars.\nIt has six wheels.",
+        "imageBrief": "Three-quarter wide view establishes the rover on clear rough ground; three near wheels and the three far-side wheel positions are legible. Continuity: One rover, six wheels; gray obstacle lies ahead, not already beneath it.",
+        "imageAlt": "Three-quarter wide view establishes the rover on clear rough ground; three near wheels and the three far-side wheel positions are legible.",
+        "pageDescription": "Three-quarter wide view establishes the rover on clear rough ground; three near wheels and the three far-side wheel positions are legible.",
+        "state": "One rover, six wheels; gray obstacle lies ahead, not already beneath it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Rocks lie ahead.\nThere is no smooth road.",
+        "imageBrief": "Lower near-side view places the small rounded gray rock in the front wheel’s path, with a shallow dip beyond it. Continuity: All three near wheels still before the obstacle; no paved road or tire track implying a human road.",
+        "imageAlt": "Lower near-side view places the small rounded gray rock in the front wheel’s path, with a shallow dip beyond it.",
+        "pageDescription": "Lower near-side view places the small rounded gray rock in the front wheel’s path, with a shallow dip beyond it.",
+        "state": "All three near wheels still before the obstacle; no paved road or tire track implying a human road.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The front wheel climbs the small rock.",
+        "imageBrief": "Near front wheel rides onto the rock while middle and rear wheels remain on the lower ground behind it. Suspension pivots visibly. Continuity: Front wheel raised; middle and rear grounded; whole body tilts only modestly.",
+        "imageAlt": "Near front wheel rides onto the rock while middle and rear wheels remain on the lower ground behind it. Suspension pivots visibly.",
+        "pageDescription": "Near front wheel rides onto the rock while middle and rear wheels remain on the lower ground behind it. Suspension pivots visibly.",
+        "state": "Front wheel raised; middle and rear grounded; whole body tilts only modestly.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The wheel supports bend at their joints.",
+        "imageBrief": "Closer view centers the rocker and bogie pivot geometry connecting all three near wheels; wheel height changes without rubbery metal bending. Continuity: Supports rotate at joints, not bend as soft rods; same front-wheel-on-rock moment continued.",
+        "imageAlt": "Closer view centers the rocker and bogie pivot geometry connecting all three near wheels; wheel height changes without rubbery metal bending.",
+        "pageDescription": "Closer view centers the rocker and bogie pivot geometry connecting all three near wheels; wheel height changes without rubbery metal bending.",
+        "state": "Supports rotate at joints, not bend as soft rods; same front-wheel-on-rock moment continued.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now the middle wheel rolls over the rock.",
+        "imageBrief": "Rover has advanced: near front wheel is beyond the rock, middle wheel sits on it and rear wheel remains behind. Continuity: Obstacle stays fixed on ground; suspension changes to the new wheel positions.",
+        "imageAlt": "Rover has advanced: near front wheel is beyond the rock, middle wheel sits on it and rear wheel remains behind.",
+        "pageDescription": "Rover has advanced: near front wheel is beyond the rock, middle wheel sits on it and rear wheel remains behind.",
+        "state": "Obstacle stays fixed on ground; suspension changes to the new wheel positions.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The back wheel follows.\nThe front wheel dips down.",
+        "imageBrief": "Near rear wheel crosses the rock while the near front wheel enters the shallow dip beyond; middle wheel is on the ground between. Continuity: Three wheel heights differ; natural articulated support keeps all near tires touching terrain.",
+        "imageAlt": "Near rear wheel crosses the rock while the near front wheel enters the shallow dip beyond; middle wheel is on the ground between.",
+        "pageDescription": "Near rear wheel crosses the rock while the near front wheel enters the shallow dip beyond; middle wheel is on the ground between.",
+        "state": "Three wheel heights differ; natural articulated support keeps all near tires touching terrain.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The wheels come back onto level ground.",
+        "imageBrief": "The rover is beyond both obstacles; its near wheels align along a flatter patch. The same gray rock remains behind the rear wheel. Continuity: Rock crossing completed; no new rock substituted; six-wheel anatomy preserved.",
+        "imageAlt": "The rover is beyond both obstacles; its near wheels align along a flatter patch. The same gray rock remains behind the rear wheel.",
+        "pageDescription": "The rover is beyond both obstacles; its near wheels align along a flatter patch. The same gray rock remains behind the rear wheel.",
+        "state": "Rock crossing completed; no new rock substituted; six-wheel anatomy preserved.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The wheels rise and fall.\nJoints help the rover cross rough ground.",
+        "imageBrief": "Wider final view shows the rover on the flatter patch, with its visible jointed wheel supports and the crossed uneven patch behind. Continuity: Outcome demonstrates the mechanism; no claim of perfectly level body, impossible terrain or human-like robot intention.",
+        "imageAlt": "Wider final view shows the rover on the flatter patch, with its visible jointed wheel supports and the crossed uneven patch behind.",
+        "pageDescription": "Wider final view shows the rover on the flatter patch, with its visible jointed wheel supports and the crossed uneven patch behind.",
+        "state": "Outcome demonstrates the mechanism; no claim of perfectly level body, impossible terrain or human-like robot intention.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moved when a wheel went up over the rock?",
+        "listenFor": "The linked supports changed angle at their joints, allowing wheels at different heights to keep contact with uneven ground."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Which near wheel is on the rock now?",
+        "lookFor": "The middle wheel; front has passed it and rear has not reached it."
+      }
+    },
+    "levelRationale": "Candidate B: Concrete repeated wheel positions support a single physical sequence; no mission history, numerical speed or telecommunications load. Names for front/middle/back are spatially visible.",
+    "languagePrep": [
+      {
+        "word": "rover",
+        "meaning": "a robot that travels across the ground"
+      },
+      {
+        "word": "joint",
+        "meaning": "a place where connected parts can move"
+      },
+      {
+        "word": "rough",
+        "meaning": "not smooth or even"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-17",
+    "number": 17,
+    "title": "Is That a Twig?",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a twiglike insect be recognized among real twigs?",
+      "progression": "Begin with a concealed northern walkingstick, notice its legs and body resemblance, then use movement and feeding to distinguish it from the plant.",
+      "synthesis": "Twiglike shape helps conceal the animal, but its legs and feeding reveal a living insect.",
+      "scienceSources": [
+        {
+          "title": "Missouri Department of Conservation: Walkingsticks (Stick Insects)",
+          "url": "https://mdc.mo.gov/discover-nature/field-guide/walkingsticks-stick-insects",
+          "evidence": "Primary state field guide identifies northern walkingsticks, twiglike camouflage, six-legged insect form and leaf feeding. The book selects wingless adult Diapheromera femorata and does not generalize all stick insects as wingless or able to change color.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One northern walkingstick, Diapheromera femorata, on a leafy deciduous branch in daylight. Adult wingless brown female with six legs, two long antennae and twiglike segmented body; natural compound eyes, no human face. Same forked twig and small oval leaves throughout.",
+    "props": [
+      "One brown adult northern walkingstick, six legs and two antennae",
+      "One forked brown branch",
+      "One intact oval leaf that develops a small feeding notch"
+    ],
+    "coverBrief": "The walkingstick aligns its long body with one thin twig. Its six slim legs and two antennae are carefully distinguishable on inspection; show a real insect, not a branch growing legs.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Is that a twig on the stem?",
+        "imageBrief": "Wide close-up hides the brown walkingstick along the branch fork. Its body color and narrow form blend with real twigs; all body parts remain natural. Continuity: Animal stationary; intact target leaf just ahead; exactly one insect.",
+        "imageAlt": "Wide close-up hides the brown walkingstick along the branch fork. Its body color and narrow form blend with real twigs; all body parts remain natural.",
+        "pageDescription": "Wide close-up hides the brown walkingstick along the branch fork. Its body color and narrow form blend with real twigs; all body parts remain natural.",
+        "state": "Animal stationary; intact target leaf just ahead; exactly one insect.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Look again.\nSix legs grip the plant.",
+        "imageBrief": "A slightly closer angle reveals three pairs of slender legs attached to the insect’s thorax, gripping twigs at separate points. Continuity: Six legs total, plus two distinct antennae; no legs attached to abdomen or leaf.",
+        "imageAlt": "A slightly closer angle reveals three pairs of slender legs attached to the insect’s thorax, gripping twigs at separate points.",
+        "pageDescription": "A slightly closer angle reveals three pairs of slender legs attached to the insect’s thorax, gripping twigs at separate points.",
+        "state": "Six legs total, plus two distinct antennae; no legs attached to abdomen or leaf.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A stick insect hides among twigs.",
+        "imageBrief": "Three-quarter view separates the long insect body visually from the branch while preserving its alignment and twiglike brown shape. Continuity: No change of color or body form; concealment comes from resemblance.",
+        "imageAlt": "Three-quarter view separates the long insect body visually from the branch while preserving its alignment and twiglike brown shape.",
+        "pageDescription": "Three-quarter view separates the long insect body visually from the branch while preserving its alignment and twiglike brown shape.",
+        "state": "No change of color or body form; concealment comes from resemblance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Its long brown body looks like a twig.",
+        "imageBrief": "Side view compares the insect’s narrow segmented outline with the adjacent real twig. Natural small head and antennae are visible. Continuity: Adult northern walkingstick remains wingless; no leaflike wings added.",
+        "imageAlt": "Side view compares the insect’s narrow segmented outline with the adjacent real twig. Natural small head and antennae are visible.",
+        "pageDescription": "Side view compares the insect’s narrow segmented outline with the adjacent real twig. Natural small head and antennae are visible.",
+        "state": "Adult northern walkingstick remains wingless; no leaflike wings added.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Still legs are hard to spot among twigs.",
+        "imageBrief": "Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end. Continuity: Same resting position; concealment is difficult spotting, not literal invisibility.",
+        "imageAlt": "Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end.",
+        "pageDescription": "Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end.",
+        "state": "Same resting position; concealment is difficult spotting, not literal invisibility.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "One leg lifts.\nThe insect takes a slow step.",
+        "imageBrief": "One front leg reaches to a new grip ahead while five other legs support the body; antennae extend forward. Continuity: One leg in motion, not an extra seventh leg; insect advances toward target leaf.",
+        "imageAlt": "One front leg reaches to a new grip ahead while five other legs support the body; antennae extend forward.",
+        "pageDescription": "One front leg reaches to a new grip ahead while five other legs support the body; antennae extend forward.",
+        "state": "One leg in motion, not an extra seventh leg; insect advances toward target leaf.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "It reaches a leaf and takes a bite.",
+        "imageBrief": "The insect’s mouth meets the edge of the target leaf; a small fresh notch interrupts the smooth edge. Legs remain gripping the branch. Continuity: First visible feeding notch; no human teeth or chewing smile.",
+        "imageAlt": "The insect’s mouth meets the edge of the target leaf; a small fresh notch interrupts the smooth edge. Legs remain gripping the branch.",
+        "pageDescription": "The insect’s mouth meets the edge of the target leaf; a small fresh notch interrupts the smooth edge. Legs remain gripping the branch.",
+        "state": "First visible feeding notch; no human teeth or chewing smile.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Its shape helps it hide.\nIts moving legs help us find it.",
+        "imageBrief": "Final view shows the walkingstick stepping beside the now notched leaf, its long body still matching the neighboring twigs. Continuity: Recognition combines earlier shape and motion clues; no predator outcome or universal promise of safety.",
+        "imageAlt": "Final view shows the walkingstick stepping beside the now notched leaf, its long body still matching the neighboring twigs.",
+        "pageDescription": "Final view shows the walkingstick stepping beside the now notched leaf, its long body still matching the neighboring twigs.",
+        "state": "Recognition combines earlier shape and motion clues; no predator outcome or universal promise of safety.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What helped you decide this was not a twig?",
+        "listenFor": "The six legs, their movement and the feeding mouth; its shape still resembles real twigs."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "What changed on the leaf?",
+        "lookFor": "A small bite notch appears at its edge beside the insect’s mouth."
+      }
+    },
+    "levelRationale": "Candidate B: The opening visual puzzle is answered through concrete observations, not a list of animal facts. Repeated familiar body/plant nouns support the limited new terms.",
+    "languagePrep": [
+      {
+        "word": "twig",
+        "meaning": "a thin woody part of a plant"
+      },
+      {
+        "word": "grip",
+        "meaning": "hold on tightly"
+      },
+      {
+        "word": "insect",
+        "meaning": "an animal with six legs and three main body parts"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-18",
+    "number": 18,
+    "title": "Ready for Wings",
+    "topic": "life-cycles",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a young grasshopper become able to fly?",
+      "progression": "Follow soil eggs, a wingless hatchling, feeding, repeated molts, wing-pad development and the final winged adult in chronological order.",
+      "synthesis": "The young hopper and winged adult are stages of the same kind of animal; wings develop during growth rather than appearing in an unrelated creature.",
+      "scienceSources": [
+        {
+          "title": "Utah State University Extension: Grasshoppers",
+          "url": "https://extension.usu.edu/planthealth/research/grasshoppers",
+          "evidence": "Grasshoppers pass through egg, nymph and adult stages; flightless nymphs gradually develop wing pads and pass through molts. Species differ; this book depicts a common winged species rather than all grasshoppers.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "Utah State University Extension: Grasshoppers, vegetable guide",
+          "url": "https://extension.usu.edu/vegetableguide/legumes/grasshoppers",
+          "evidence": "Includes two-striped grasshopper; describes soil eggs, growing nymphs and increasing wing pads until winged adulthood. Supports selecting the illustrated species and keeping juvenile/adult anatomy connected.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "One illustrative two-striped grasshopper, Melanoplus bivittatus, across its egg, nymph and adult stages in a grassy field. Six legs, large rear jumping legs, two antennae, brown-green body with two pale lengthwise stripes; no butterfly chrysalis or caterpillar body.",
+    "props": [
+      "Soil egg pod shown in a natural cutaway",
+      "One focal young grasshopper and its successive stages, never duplicate individuals in one scene",
+      "Grass blades with feeding notches",
+      "Empty shed outer skins distinct from live animals"
+    ],
+    "coverBrief": "One grown grasshopper with long folded wings rests on a grass blade; an empty shed skin clings lower on the stem. No second live juvenile or diagram collage.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Grasshopper eggs lie in the soil.",
+        "imageBrief": "A natural side cutaway shows a grasshopper egg pod below a grassy field, with one focal egg nearest the upper opening. No grasshopper is on the surface yet. Continuity: Opening egg stage; one pod; no visible adult or winged offspring.",
+        "imageAlt": "A natural side cutaway shows a grasshopper egg pod below a grassy field, with one focal egg nearest the upper opening. No grasshopper is on the surface yet.",
+        "pageDescription": "A natural side cutaway shows a grasshopper egg pod below a grassy field, with one focal egg nearest the upper opening. No grasshopper is on the surface yet.",
+        "state": "Opening egg stage; one pod; no visible adult or winged offspring.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A small hopper comes out.\nIt has no long wings.",
+        "imageBrief": "One tiny grasshopper nymph emerges through the soil just above the opened pod; small grass blades and the same ground profile preserve location. Continuity: Hatching follows page 1; six legs, two antennae, large rear jumping legs and no full wings.",
+        "imageAlt": "One tiny grasshopper nymph emerges through the soil just above the opened pod; small grass blades and the same ground profile preserve location.",
+        "pageDescription": "One tiny grasshopper nymph emerges through the soil just above the opened pod; small grass blades and the same ground profile preserve location.",
+        "state": "Hatching follows page 1; six legs, two antennae, large rear jumping legs and no full wings.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "It eats leaves.\nIts body grows.",
+        "imageBrief": "Back at the field surface, the nymph feeds along a grass blade edge, leaving a small notch. Continuity: Back to young nymph stage; body remains wingless and smaller than final adult.",
+        "imageAlt": "Back at the field surface, the nymph feeds along a grass blade edge, leaving a small notch.",
+        "pageDescription": "Back at the field surface, the nymph feeds along a grass blade edge, leaving a small notch.",
+        "state": "Back to young nymph stage; body remains wingless and smaller than final adult.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Its tight outer skin splits.\nThe grasshopper pulls free.",
+        "imageBrief": "Nymph grips a stem while pulling its new pale body out of the split old exoskeleton; old leg casings hang below. Continuity: One live body and one empty casing, not two animals; no wings suddenly grown full-size.",
+        "imageAlt": "Nymph grips a stem while pulling its new pale body out of the split old exoskeleton; old leg casings hang below.",
+        "pageDescription": "Nymph grips a stem while pulling its new pale body out of the split old exoskeleton; old leg casings hang below.",
+        "state": "One live body and one empty casing, not two animals; no wings suddenly grown full-size.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "It grows and sheds its skin again.\nSmall wing pads grow.",
+        "imageBrief": "A later, larger nymph rests beside an older empty casing; small wing pads are clearly present along its back. Continuity: Weeks of growth indicated by larger stage; no count or timing claim for every species.",
+        "imageAlt": "A later, larger nymph rests beside an older empty casing; small wing pads are clearly present along its back.",
+        "pageDescription": "A later, larger nymph rests beside an older empty casing; small wing pads are clearly present along its back.",
+        "state": "Weeks of growth indicated by larger stage; no count or timing claim for every species.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "After the last shed,\nlong wings open and become firm.",
+        "imageBrief": "New adult clings to a stem with lengthening soft wings settling behind it; the last empty skin hangs separately below. Continuity: Final molt; wings not yet flying; maintain two wing pairs arranged naturally.",
+        "imageAlt": "New adult clings to a stem with lengthening soft wings settling behind it; the last empty skin hangs separately below.",
+        "pageDescription": "New adult clings to a stem with lengthening soft wings settling behind it; the last empty skin hangs separately below.",
+        "state": "Final molt; wings not yet flying; maintain two wing pairs arranged naturally.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Now the grown grasshopper can fly.",
+        "imageBrief": "Adult grasshopper flies between two nearby grass stems, hind wings spread beneath the narrower forewings and six legs tucked naturally. Continuity: Adult flight stage; no extra insect or merged wings.",
+        "imageAlt": "Adult grasshopper flies between two nearby grass stems, hind wings spread beneath the narrower forewings and six legs tucked naturally.",
+        "pageDescription": "Adult grasshopper flies between two nearby grass stems, hind wings spread beneath the narrower forewings and six legs tucked naturally.",
+        "state": "Adult flight stage; no extra insect or merged wings.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The little hopper grows wings in stages.\nNow it can hop and fly.",
+        "imageBrief": "The same adult rests with long wings folded along its striped body on the opening grass blade; an old small feeding notch remains nearby. Continuity: Ending identifies the winged adult as the result of the earlier egg and nymph stages; no claim every grasshopper species is winged.",
+        "imageAlt": "The same adult rests with long wings folded along its striped body on the opening grass blade; an old small feeding notch remains nearby.",
+        "pageDescription": "The same adult rests with long wings folded along its striped body on the opening grass blade; an old small feeding notch remains nearby.",
+        "state": "Ending identifies the winged adult as the result of the earlier egg and nymph stages; no claim every grasshopper species is winged.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does the small hopper become able to fly?",
+        "listenFor": "It feeds and grows through molts; wing pads develop into usable wings after the final shed."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Can these small wing pads do the job of the final wings?",
+        "lookFor": "They are short developing pads; the long flying wings appear after the last shed."
+      }
+    },
+    "levelRationale": "Candidate B: One visible change answers the initial inability to fly. Short main clauses avoid a technical definition chain; nymph is oral preparation, while printed wing pads are pictured in context.",
+    "languagePrep": [
+      {
+        "word": "shed",
+        "meaning": "leave an old outer covering behind"
+      },
+      {
+        "word": "wing pads",
+        "meaning": "small parts that will develop into wings"
+      },
+      {
+        "word": "nymph",
+        "meaning": "a young insect with the adult’s basic shape"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-19",
+    "number": 19,
+    "title": "Can Light Get Through?",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can three sheets be grouped by what happens to light and the view through them?",
+      "progression": "Use the same flashlight and screen with clear plastic, wax paper and thick card; first group passing/blocking light, then distinguish clear from blurred views.",
+      "synthesis": "Testing reveals three useful groups even though all three materials began as similarly shaped sheets.",
+      "scienceSources": [
+        {
+          "title": "University of Waikato Science Learning Hub: Investigating shadows using transparent, translucent and opaque materials",
+          "url": "https://www.sciencelearn.org.nz/resources/2792-investigating-shadows-using-transparent-translucent-and-opaque-materials",
+          "evidence": "Primary education investigation distinguishes passing most light, passing some scattered light and blocking light; transparent materials can still cast faint shadows. This book avoids equating clear with absolutely no shadow.",
+          "checked": "2026-11-07"
+        },
+        {
+          "title": "University of Waikato Science Learning Hub: Some materials let through more light than others do",
+          "url": "https://www.sciencelearn.org.nz/images/4015-some-materials-let-through-more-light-than-others-do",
+          "evidence": "Explains clear transmission versus scattering that blurs an object viewed through translucent material, and opaque materials blocking light. Supports the second split of the transmitting group.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Dim but comfortable classroom table with one white screen. Same flashlight position, sample size and screen distance for comparisons. Room is not pitch black; no beam aimed at eyes.",
+    "props": [
+      "One blue flashlight",
+      "One clear square plastic sheet",
+      "One same-sized square of translucent wax paper",
+      "One same-sized square of thick brown card",
+      "One white upright screen",
+      "One red toy car used for viewing through sheets"
+    ],
+    "coverBrief": "Kit holds clear plastic and Zoe holds wax paper at the table; the thick card stands separately. A single flashlight and white screen establish a comparison, with no invented labels or glowing material.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Can light get through these three sheets?",
+        "imageBrief": "Three equal squares lie separately on the table: clear plastic, wax paper and thick brown card. Kit sets the flashlight before the white screen; red toy car sits aside. Continuity: All samples dry and unmarked; same sizes; no light test underway yet.",
+        "imageAlt": "Three equal squares lie separately on the table: clear plastic, wax paper and thick brown card. Kit sets the flashlight before the white screen; red toy car sits aside.",
+        "pageDescription": "Three equal squares lie separately on the table: clear plastic, wax paper and thick brown card. Kit sets the flashlight before the white screen; red toy car sits aside.",
+        "state": "All samples dry and unmarked; same sizes; no light test underway yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit shines a flashlight through clear plastic.\nThe wall stays bright.",
+        "imageBrief": "Kit holds clear plastic in the fixed light path between the flashlight and screen. A bright patch remains visible on the screen through it. Continuity: Plastic transmits most light; faint edge effects allowed; no claim perfectly invisible or shadowless.",
+        "imageAlt": "Kit holds clear plastic in the fixed light path between the flashlight and screen. A bright patch remains visible on the screen through it.",
+        "pageDescription": "Kit holds clear plastic in the fixed light path between the flashlight and screen. A bright patch remains visible on the screen through it.",
+        "state": "Plastic transmits most light; faint edge effects allowed; no claim perfectly invisible or shadowless.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe holds up wax paper.\nA soft glow shows through.",
+        "imageBrief": "Zoe replaces the plastic with wax paper in the same holder position. The paper glows diffusely and the screen light is softer. Continuity: Only sample changes; flashlight and screen distance fixed; plastic lies aside.",
+        "imageAlt": "Zoe replaces the plastic with wax paper in the same holder position. The paper glows diffusely and the screen light is softer.",
+        "pageDescription": "Zoe replaces the plastic with wax paper in the same holder position. The paper glows diffusely and the screen light is softer.",
+        "state": "Only sample changes; flashlight and screen distance fixed; plastic lies aside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Now she holds thick card.\nA dark patch covers the wall.",
+        "imageBrief": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen. Continuity: Opaque card blocks visible light; room remains lit enough to see children and equipment.",
+        "imageAlt": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen.",
+        "pageDescription": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen.",
+        "state": "Opaque card blocks visible light; room remains lit enough to see children and equipment.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe puts the card in one group.\nIt blocks the light.",
+        "imageBrief": "Zoe lays the card alone on the left of the table. Plastic and wax paper remain to the right beside the switched-off flashlight. Continuity: Two provisional groups will form; only one card; no labels needed.",
+        "imageAlt": "Zoe lays the card alone on the left of the table. Plastic and wax paper remain to the right beside the switched-off flashlight.",
+        "pageDescription": "Zoe lays the card alone on the left of the table. Plastic and wax paper remain to the right beside the switched-off flashlight.",
+        "state": "Two provisional groups will form; only one card; no labels needed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The plastic and wax paper go together.\nBoth let light through.",
+        "imageBrief": "Kit places plastic and wax paper side by side in the right-hand group, with a clear gap separating them from the lone card. Continuity: First grouping: one blocking sheet versus two transmitting sheets.",
+        "imageAlt": "Kit places plastic and wax paper side by side in the right-hand group, with a clear gap separating them from the lone card.",
+        "pageDescription": "Kit places plastic and wax paper side by side in the right-hand group, with a clear gap separating them from the lone card.",
+        "state": "First grouping: one blocking sheet versus two transmitting sheets.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit looks through both.\nOne gives a clear view. One blurs it.",
+        "imageBrief": "Kit views the red toy car through wax paper held upright; the car is indistinct behind it. The clear plastic stands beside it, showing its portion of the same car sharply. Continuity: Both transmitting sheets compared without a flashlight shining toward eyes; one real car only.",
+        "imageAlt": "Kit views the red toy car through wax paper held upright; the car is indistinct behind it. The clear plastic stands beside it, showing its portion of the same car sharply.",
+        "pageDescription": "Kit views the red toy car through wax paper held upright; the car is indistinct behind it. The clear plastic stands beside it, showing its portion of the same car sharply.",
+        "state": "Both transmitting sheets compared without a flashlight shining toward eyes; one real car only.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Two groups become three.\nClear view, blurred view, no view.",
+        "imageBrief": "Three separated sheets stand on the table, each in front of a different portion of one long red toy car: clear window at left, blurred middle through wax paper, blocked right behind card. Continuity: Three behavior groups now distinct; no false holes in card or translucent depiction of thick card.",
+        "imageAlt": "Three separated sheets stand on the table, each in front of a different portion of one long red toy car: clear window at left, blurred middle through wax paper, blocked right behind card.",
+        "pageDescription": "Three separated sheets stand on the table, each in front of a different portion of one long red toy car: clear window at left, blurred middle through wax paper, blocked right behind card.",
+        "state": "Three behavior groups now distinct; no false holes in card or translucent depiction of thick card.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit and Zoe split the two light-passing sheets into separate groups?",
+        "listenFor": "Both let light through, but clear plastic gave a clear view and wax paper blurred it."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "What makes the dark patch on the screen?",
+        "lookFor": "The card blocks light in that part of the beam; the screen itself has not been painted."
+      }
+    },
+    "levelRationale": "Candidate B: Concrete testing verbs and familiar clear/blurred/no-view language carry the grouping; technical transparent/translucent/opaque terms are not required in the printed B text.",
+    "languagePrep": [
+      {
+        "word": "clear",
+        "meaning": "easy to see through"
+      },
+      {
+        "word": "blurred",
+        "meaning": "not showing sharp edges"
+      },
+      {
+        "word": "block",
+        "meaning": "stop something from passing through"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-20",
+    "number": 20,
+    "title": "One Little Drip",
+    "topic": "caring-for-our-world",
+    "type": "fiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe notices a faucet still dripping after it is closed; Kit’s extra turn fails, so they catch the water and ask a grown-up to repair the leak.",
+      "failedAttempt": "Turning the closed handle a little farther does not stop the drip; catching it makes the continuing loss visible.",
+      "resolution": "An adult repairs the internal part with the supply off; the restored supply and closed-faucet test confirm no drip, and the caught water is used for a plant.",
+      "scienceSources": [
+        {
+          "title": "US Environmental Protection Agency WaterSense: Fix a Leak Week",
+          "url": "https://www.epa.gov/watersense/fix-leak-week",
+          "evidence": "Worn faucet washers or gaskets can cause drips, and leaks waste water. The agency specifies turning off the supply before repair. This story depicts one compression faucet whose worn washer is the identified cause, not a universal faucet fix.",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "setting": "Ordinary classroom sink with one compression-style faucet and an accessible adult-operated shutoff below; nearby potted leafy plant. Grown-up has medium brown skin, short dark wavy hair, a green long-sleeved shirt and dark trousers. Children observe; adult alone uses tools.",
+    "props": [
+      "One silver faucet with a rounded handle",
+      "One yellow cup below the spout",
+      "One small black worn rubber washer and matching new washer",
+      "One adult-held wrench",
+      "One potted leafy plant on the nearby sill"
+    ],
+    "coverBrief": "Zoe shows a yellow cup partly filled by drips beneath the closed faucet. Kit stands beside her and the grown-up looks toward the source. Focus on small drops accumulating, not a flood.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe turns the faucet off.\nA drop still falls.",
+        "imageBrief": "Zoe has moved the handle to its closed position. One drop hangs under the silver spout above the empty sink. Continuity: Faucet closed but leaking; yellow cup still on the counter.",
+        "imageAlt": "Zoe has moved the handle to its closed position. One drop hangs under the silver spout above the empty sink.",
+        "pageDescription": "Zoe has moved the handle to its closed position. One drop hangs under the silver spout above the empty sink.",
+        "state": "Faucet closed but leaking; yellow cup still on the counter.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit tries the handle.\nDrip. It still leaks.",
+        "imageBrief": "Kit gives the closed handle a small gentle turn, not forcing it with tools. Another drop falls from the spout. Continuity: First attempt fails; no changed water pressure or broken handle.",
+        "imageAlt": "Kit gives the closed handle a small gentle turn, not forcing it with tools. Another drop falls from the spout.",
+        "pageDescription": "Kit gives the closed handle a small gentle turn, not forcing it with tools. Another drop falls from the spout.",
+        "state": "First attempt fails; no changed water pressure or broken handle.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe puts a cup below it.\nDrip, drip, drip.",
+        "imageBrief": "Yellow cup sits directly under the spout; a few drops have begun collecting inside. Zoe and Kit watch. Continuity: Same slow leak; cup starts nearly empty, no instant full cup.",
+        "imageAlt": "Yellow cup sits directly under the spout; a few drops have begun collecting inside. Zoe and Kit watch.",
+        "pageDescription": "Yellow cup sits directly under the spout; a few drops have begun collecting inside. Zoe and Kit watch.",
+        "state": "Same slow leak; cup starts nearly empty, no instant full cup.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The cup is half full.\nZoe shows the leak to a grown-up.",
+        "imageBrief": "Later, the yellow cup is half full. Zoe points to the continuing drip while the grown-up crouches beside the sink. Continuity: Elapsed time; cup exactly half full, not overflowing; faucet remains closed but leaking.",
+        "imageAlt": "Later, the yellow cup is half full. Zoe points to the continuing drip while the grown-up crouches beside the sink.",
+        "pageDescription": "Later, the yellow cup is half full. Zoe points to the continuing drip while the grown-up crouches beside the sink.",
+        "state": "Elapsed time; cup exactly half full, not overflowing; faucet remains closed but leaking.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The grown-up shuts off the water.\nShe fits a new part.",
+        "imageBrief": "Adult alone works on the opened faucet after turning off its supply. The worn black washer rests on a small dry cloth; she fits its matching replacement. Continuity: Supply off; no running spout during dismantling; children stand back; cup of caught water stays intact on counter.",
+        "imageAlt": "Adult alone works on the opened faucet after turning off its supply. The worn black washer rests on a small dry cloth; she fits its matching replacement.",
+        "pageDescription": "Adult alone works on the opened faucet after turning off its supply. The worn black washer rests on a small dry cloth; she fits its matching replacement.",
+        "state": "Supply off; no running spout during dismantling; children stand back; cup of caught water stays intact on counter.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "She turns the water back on.\nKit tests the faucet.",
+        "imageBrief": "Faucet is reassembled; adult finishes opening the supply below while Kit opens the faucet and a normal stream runs into the sink. Continuity: Repair complete before supply returns; yellow cup remains on counter, not discarded down drain.",
+        "imageAlt": "Faucet is reassembled; adult finishes opening the supply below while Kit opens the faucet and a normal stream runs into the sink.",
+        "pageDescription": "Faucet is reassembled; adult finishes opening the supply below while Kit opens the faucet and a normal stream runs into the sink.",
+        "state": "Repair complete before supply returns; yellow cup remains on counter, not discarded down drain.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "He closes it. They wait.\nNo drops fall.",
+        "imageBrief": "Kit’s hand rests away from the closed handle. Zoe and adult watch the dry spout; the sink below is not receiving any drops. Continuity: Test after restored supply confirms repair; no suggestion stopping supply alone fixed leak.",
+        "imageAlt": "Kit’s hand rests away from the closed handle. Zoe and adult watch the dry spout; the sink below is not receiving any drops.",
+        "pageDescription": "Kit’s hand rests away from the closed handle. Zoe and adult watch the dry spout; the sink below is not receiving any drops.",
+        "state": "Test after restored supply confirms repair; no suggestion stopping supply alone fixed leak.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe waters a plant with the saved water.\nThe cup stays empty.",
+        "imageBrief": "Zoe holds the now empty yellow cup beside the potted plant, whose soil has just been watered. The closed faucet is visible behind her without a drop. Continuity: Caught water has been used on the plant; cup empty; no new drips refill it; no plant flooding.",
+        "imageAlt": "Zoe holds the now empty yellow cup beside the potted plant, whose soil has just been watered. The closed faucet is visible behind her without a drop.",
+        "pageDescription": "Zoe holds the now empty yellow cup beside the potted plant, whose soil has just been watered. The closed faucet is visible behind her without a drop.",
+        "state": "Caught water has been used on the plant; cup empty; no new drips refill it; no plant flooding.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did they check that the repair worked?",
+        "listenFor": "The grown-up restored the supply; Kit ran and closed the faucet; they waited and saw no new drops."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Who is fixing the faucet, and where is the saved water?",
+        "lookFor": "The grown-up uses the tool with the supply off; the yellow cup remains safely on the counter."
+      }
+    },
+    "levelRationale": "Candidate B: Two short clauses at a time track a practical failed attempt, help-seeking and verified repair. No procedural instruction asks a child to handle plumbing; the visible cup gives meaning to the small leak.",
+    "languagePrep": [
+      {
+        "word": "leak",
+        "meaning": "water escaping where it should not"
+      },
+      {
+        "word": "repair",
+        "meaning": "fix something that is not working"
+      }
+    ]
+  }
+]

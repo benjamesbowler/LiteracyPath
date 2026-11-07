@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-13",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:08:02.242Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-1ee3bc1a-6d80-4896-9745-87aff67ab26f.png",
+  "sourceSha256": "634fcde00d5395d636e3b365b8d6834760ee674daf75b3dc749b2beafa1598f4",
+  "output": "public/guided-reading/world-discovery/c-13/page-01.webp",
+  "outputSha256": "791c6eb65c2581ea41f9c528eb35db7c61c999ff9c34afe58474b88eac3aea3f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Repair ONLY the green open gate's physical attachment. The gate leaf currently floats away from its hinge post. Connect the open gate's hinged vertical edge physically to the existing tall green post at LEFT of the worker with two visible real hinges; the gate panel must pivot from that same post and angle into the market BEHIND the worker, with its free edge held naturally by her hands. One continuous rigid rectangular gate leaf, no floating separate post/panel and no diagonal elastic hinge. Preserve the worker, empty wooden table, plain cream canopy, morning setting and framing. No other people, van, crate or carrots yet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-08ffa3fa-67d0-421d-9139-050beb15737c.png",
+      "sha256": "787fb6548326e5918fe19b635e5ba60f8506da86e0ae05b8fb7ec87bb4ae532c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "4e0d3da242a5b7a5dd7710516fc3f8beed47f7f4d3047c056857788ed0c8d56d",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "791c6eb65c2581ea41f9c528eb35db7c61c999ff9c34afe58474b88eac3aea3f",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Gate leaf now attached to fixed post with two hinges; worker grips free edge, empty stand and no premature crop/visitor.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "791c6eb65c2581ea41f9c528eb35db7c61c999ff9c34afe58474b88eac3aea3f",
+    "note": "Gate leaf now attached to fixed post with two hinges; worker grips free edge, empty stand and no premature crop/visitor."
+  }
+}

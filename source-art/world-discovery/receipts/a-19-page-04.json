@@ -1,0 +1,50 @@
+{
+  "bookId": "world-discovery-a-19",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:00:37.208Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-2be1a0da-99d7-4899-97f4-279274fed0eb.png",
+  "sourceSha256": "3f39324376ef76ac8ba486660f09b05216bfd1b1ba3fb1bb3e49aa277fe2bab9",
+  "output": "public/guided-reading/world-discovery/a-19/page-04.webp",
+  "outputSha256": "8b8dda10d5e2462b1478be6ac2c98b6f00bdd57ef35a292c36f3ea3d033438b9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY a tiny hand correction: the pointing index finger touching the silver spoon currently has a WHITE fingertip. Recolor this fingertip the SAME BROWN SKIN COLOR as Zoe's finger and hand. It is skin, no white nail, no bandage or glove. Preserve all other pixels/composition, exact objects, two mats, standing body and table unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-aeabc5b2-b5d2-445b-91e1-e35c51816808.png",
+      "sha256": "5360572949cd62e0dffd7213369d8f71d18632de1d72b60f82dfe05d656c9d74"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T16:06:31.972Z",
+    "sha256": "8b8dda10d5e2462b1478be6ac2c98b6f00bdd57ef35a292c36f3ea3d033438b9",
+    "note": "Brick on teal and spoon on yellow, bark/pebble still outside; corrected brown fingertip touches spoon, two natural arms, full legs/feet and stable table."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "2494134962b984da07c886c59eea52804ac2e8fabf61f99762f20ab186e94264",
+      "currentSha256": "a8008fb07a31a5de80906a5be7e2b00473e0ba046ba2ad3055a3ccd8c3f04c54",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

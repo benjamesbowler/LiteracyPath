@@ -16,8 +16,8 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The integrated catalogue contains 347 books and 3,061 pages: 33 A, 96 B,
-73 C, 66 D, 25 E, 36 F, 16 G and 2 H.
+The integrated catalogue contains 397 books and 3,501 pages: 43 A, 106 B,
+83 C, 76 D, 35 E, 36 F, 16 G and 2 H.
 
 Every book uses one public **App level A–H**, assigned by full-manuscript
 editorial review. The [reading-level authority](READING_LEVELS_AND_TEXT_MEASURES.md)
@@ -56,8 +56,8 @@ decisions are recorded in the [expansion review](foundations-expansion-visual-re
 Release verification is recorded separately; an active local module alone is
 not a deployment claim.
 
-World Discovery adds fifty original predictable/levelled books, ten each at
-App levels A–E, across ten recurring topics. Its 440 story pages, fifty covers,
+World Discovery contains one hundred original predictable/levelled books,
+twenty each at App levels A–E, across ten recurring topics. Its 880 story pages, one hundred covers,
 exact Leda narration and unscored teacher discussion support are governed by
 the [World Discovery content Bible](WORLD_DISCOVERY_CONTENT_BIBLE.md). Full-text
 level reviews remain separate from image inspection and narration evidence.

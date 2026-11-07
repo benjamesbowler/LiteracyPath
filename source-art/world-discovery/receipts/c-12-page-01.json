@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-c-12",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:08:01.946Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-87629e02-311d-43e7-beea-fd8b85c613db.png",
+  "sourceSha256": "b93be96de4b1d7b7592a4f2b11a6390309da18af0aa2f00b78930e1f5b6165d6",
+  "output": "public/guided-reading/world-discovery/c-12/page-01.webp",
+  "outputSha256": "2b73aeb6f2d0b9bbeffccea44b769d302dd80e6b71101187a67c6220d957326b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Restore the missing ordinary BLUE plastic child chairs around the craft table: one at viewer-side LEFT of table, one at viewer-side RIGHT, and a third at the FAR CENTER behind table whose back may be partly occluded by children. Exactly three matching blue chairs, same child size as the two chairs in the SECOND reference; do not insert extra people or change scene action. Preserve Kit holding the untied parcel, Zoe's broad open-hand gesture, ribbon still beside yellow pot, blue pot/window/table, all body/hand geometry, full shoes and margins. If needed shift only table slightly back so chairs fit naturally; do not hide legs with invented geometry.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8b6d2ec2-2920-4be6-a30b-9a4f67c29dda.png",
+      "sha256": "6a122607260e156c2a7919b12ca3e09babed31e25429cf62b265be86c6940e51"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-12/page-08.webp",
+      "sha256": "8ae1df53dbd8159a544a7e911db9d2a5dc70ae1d85de225b002b8f41e6c987fc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "1d4fba9e140e1f61dc6c53728ce0df1e88971b756451e7445b792bd18f5564a8",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
+    "outputSha256": "2b73aeb6f2d0b9bbeffccea44b769d302dd80e6b71101187a67c6220d957326b",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Kit holds the untied parcel while Zoe makes an open, nonspecific gesture; exact three chairs now consistent; legs and feet unobstructed.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "2b73aeb6f2d0b9bbeffccea44b769d302dd80e6b71101187a67c6220d957326b",
+    "note": "Kit holds the untied parcel while Zoe makes an open, nonspecific gesture; exact three chairs now consistent; legs and feet unobstructed."
+  }
+}

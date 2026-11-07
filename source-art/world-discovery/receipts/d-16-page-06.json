@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:54.307Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-98cef3af-b5aa-4f5d-820e-cf53c89aea1d.png",
+  "sourceSha256": "f441f81f22269cb4d17cf174d7c869c490aa9a878980af8800044417c6291413",
+  "output": "public/guided-reading/world-discovery/d-16/page-06.webp",
+  "outputSha256": "21bc1c86e6b47dda572f68510d0c3a32bbf34f67716f6c863857e747ce485cad",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "RECOMPOSE the supplied diagram with a MAJOR ZOOM OUT. Every diagram element must become about TWO THIRDS its current size and fit together within the CENTER of the 1536x1024 canvas. The entire diagram from LEFTMOST SUN FLAME to RIGHTMOST SHADOW TIP/MOON must span only x=250 to x=1280. Leave broad empty background bands at BOTH SIDES, minimum 250 pixels each. This visible empty margin is mandatory. Do NOT retain the current oversized Sun or current edge positions. Keep diagram relationships perfectly intact, just move the whole grouped composition inward and make it smaller. Sun remains largest, Earth smaller, Moon smallest. Keep both orange rays straight until they pass through top/bottom thin blue air ring, then bend gently toward copper Moon. Neither intersects solid Earth. Preserve the exact background style and flat clean bold 2D shapes. No new elements, labels, frames or border. Native 1536x1024 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-f04fb0de-4a55-44fc-bafb-78a35cf00ad8.png",
+      "sha256": "b85d61179c914cefcaa1f290d0948d94e59b4ec045e393a13d1a674c177bd2a5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "21bc1c86e6b47dda572f68510d0c3a32bbf34f67716f6c863857e747ce485cad",
+    "method": "codex-direct-image-inspection",
+    "note": "One integrated diagram: two orange rays travel from Sun through top/bottom thin blue atmospheric shell, bend toward copper Moon in shadow, and never cross solid Earth. Centered readable geometry."
+  }
+}

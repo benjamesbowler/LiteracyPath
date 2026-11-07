@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-16",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:04:53.836Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-22f38aca-88bd-4e55-aac8-fbf2e3fc986c.png",
+  "sourceSha256": "5663c92eab4fa7018c45a8a1d7e5cf1dd52f438d81d57ad86664a42aafbb42e3",
+  "output": "public/guided-reading/world-discovery/d-16/page-02.webp",
+  "outputSha256": "e44e5b8b4182140eb883aa3de42148d40e67c04f66aacca85abebbe9c19c76e9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact children's educational illustration. Preserve exact correct geometry: Sun left sends three yellow rays toward Moon upper-right; three pale reflected rays then go from Moon toward Earth below. Sun rays originate at Sun, reflected rays arrow toward Earth. Recompose as native1536x1024 LANDSCAPE3:2, rather than the very wide input. All complete Sun/corona, Earth, Moon and arrowheads inside generous12 percent margins. No extra diagrams or labels. Preserve clean bold dark outlines, flat clean colors and simple coherent shapes, no photographic texture, no lettering, no missing physical Moon material. Diagrams are explanatory and not to physical distance scale. Keep surface identity and exact science; no additional stages.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-5eedc09d-3924-4781-a615-335d673a58ec.png",
+      "sha256": "34dbaf8ce0591d4cb25593f46b9b744b4020199ebbcab58931438c17eab5b816"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "dc2e66d68e9bb002d42977f3973880c8f464c562d18fd152466ea14bc6827f41",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "e44e5b8b4182140eb883aa3de42148d40e67c04f66aacca85abebbe9c19c76e9",
+    "method": "codex-direct-image-inspection",
+    "note": "Sun-origin arrows reach Moon; reflected arrows point from Moon toward Earth below the direct path. All three complete bodies safely framed."
+  }
+}

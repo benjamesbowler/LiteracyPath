@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:48:57.424Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-8a52aedd-08a2-41ca-9de9-e8b1dee385c8.png",
+  "sourceSha256": "74f5e7f8328b75e2f911e74fda394d224cc192c5c83fa52ca1012c242627801c",
+  "output": "public/guided-reading/world-discovery/a-14/page-01.webp",
+  "outputSha256": "a67e883f28069d2b670f18231d4b7bf15133a1be07a123f9f4bdce207c6070ad",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact scene and every object/state unchanged, including Kit's pose, paper drawing/transformation, crayons, missing near-front wagon wheel and exposed stub. Pull camera back about20 percent and center the entire scene so Kit's complete body, wagon handle, giant wheel if present, and essential art props all lie at least8 percent inside each image edge (about125px left/right and85px top/bottom). Extend matching cream wall and wood floor around scene; no border. Preserve relative positions/perspective and bold flat2D. No text or new props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-1b1b3056-018f-4c1e-9743-12adaca85203.png",
+      "sha256": "aee422b13ede7f9f67fe13a4952687034824016b9bdb55c88b667eeba07b61ad"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.762342+00:00",
+    "sha256": "a67e883f28069d2b670f18231d4b7bf15133a1be07a123f9f4bdce207c6070ad",
+    "note": "Native PNG and installed WebP directly inspected. Wagon near-front bare stub, near-rear original wheel; two blank sheets and two crayons on table. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

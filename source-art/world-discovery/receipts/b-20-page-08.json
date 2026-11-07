@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-20",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:30:09.116Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-ee7445cb-3b17-4276-8efa-107eaf624e8f.png",
+  "sourceSha256": "707176d7e0debd3e5b4b09426041049efbc969e947b6a99fd2043a831a7d7fae",
+  "output": "public/guided-reading/world-discovery/b-20/page-08.webp",
+  "outputSha256": "092e161a5d53d71ad92c99534a7476a6c263695a84cc359b0c4a719c1299b29c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact finished illustration only to widen the framing slightly, about 18 percent. Keep a LANDSCAPE 3:2 canvas, not a panoramic strip. Preserve exact people, poses, anatomy, object contact, sink cabinet, plumbing, water/cup state, colors and physical scale. Show a little more ordinary wall above and floor below so every full shoe sole and head and essential prop has at least 10 percent breathing room inside the frame. The scene should remain close and readable, not a tiny distant room. Do not add furniture, props, people, extra water, a second plant, or writing. Keep Zoe's yellow cup visibly empty, plant soil freshly moist without any puddle. Dry faucet. Same short-haired adult. No water stream or droplet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b753811d-57b4-492d-93ff-ce208af6ba6b.png",
+      "sha256": "71d0c234215fc9c8ff4c02a02bc7fe968068a19e425acf4934d3115cf1821c22"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "3c40f0af46b737fdd594f5234b7ceeef3fa851197db0e39e791bd851715b8800",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T16:42:48.215914+00:00",
+    "outputSha256": "092e161a5d53d71ad92c99534a7476a6c263695a84cc359b0c4a719c1299b29c",
+    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
+    "notes": "Zoe holds visibly empty yellow cup beside same plant with fresh moist soil, no flood; repaired tap remains dry. Natural adult/child proportions, full feet and exact one plant/cup.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "092e161a5d53d71ad92c99534a7476a6c263695a84cc359b0c4a719c1299b29c",
+    "note": "Zoe holds visibly empty yellow cup beside same plant with fresh moist soil, no flood; repaired tap remains dry. Natural adult/child proportions, full feet and exact one plant/cup."
+  }
+}

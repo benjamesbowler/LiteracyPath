@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:05.996Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-4a5236a6-5852-4b13-896a-ca0378e890f9.png",
+  "sourceSha256": "4a0997b9b331272e87bf160c49acde7a8c8502b06d21bbb5516e10c18aa80f36",
+  "output": "public/guided-reading/world-discovery/a-14/page-08.webp",
+  "outputSha256": "cad4ae0c02c241b899213ffc10ab484111d362f2be9dba539a384fd6f4f6ff2e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Restore background continuity: giant yellow wheel must stay at RIGHT of the art table, not left. Move low table toward LEFT background and giant wheel to its RIGHT against creamwall, behind but sufficiently visible beside Kit. Keep the unused giantwheel FOURtimes actualsmallwheel diameter. Preserve Kit pulling bluehandleRIGHT, red wagon rolling on FOUR matching small wheels (TWO near-side positionsrearLEFT/frontRIGHT; farpairpartlyoccluded). No papers remain,2crayonsontable.  Pull camera BACK25percent and center whole coherent scene with Kit's head/hands/shoes, wagonhandle, allwheelsandimportantprops atleast10percentinsideeveryedge. Wide landscape3:2, no croporborder. Preserve crispflat2Dstyle, correct anatomy, no added text/newobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-7680c493-58ca-4f8b-a062-65099faaa36b.png",
+      "sha256": "93762510e8ecbc46c1eb767bd1ae32eef022893f427978dc9d62c219cd7fdbd7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.768649+00:00",
+    "sha256": "cad4ae0c02c241b899213ffc10ab484111d362f2be9dba539a384fd6f4f6ff2e",
+    "note": "Native PNG and installed WebP directly inspected. Kit pulls repaired wagon on four small wheels; giant persists right of table, only two crayons remain. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:15.697Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-59f1ebf1-b547-4d4e-87dd-4aec708f1bbc.png",
+  "sourceSha256": "e82c4ae96ceccb374ef155ec4fba10e7e8f9b2fc34b5db203973b37e5fbc8d09",
+  "output": "public/guided-reading/world-discovery/d-13/page-08.webp",
+  "outputSha256": "494206c8b27d32b75f98ea29b1fd5333e527a0cd5bb9bff70e5d7f2eb2163e69",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back substantially, scale complete crossing scene to72percent centered and extend surrounding sidewalks/buildings/road. Entire people from hair to shoes, car, both signals, cane tip and crossing button must be INSIDE central74percent, with13percent clear space from all edges. Do not merely move a person. Keep left/right crossing geometry and right-pointing raised arrow integral to black circular moving button. Preserve exact current traffic and pedestrian signal state otherwise. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8422efa4-2677-487d-b35b-8645922c6c54.png",
+      "sha256": "423d60e3927cd6a83f77eae70f1e4da52aaf661018b4622adaad07f025b4675a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-13-reference.webp",
+      "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.866Z",
+    "sha256": "494206c8b27d32b75f98ea29b1fd5333e527a0cd5bb9bff70e5d7f2eb2163e69",
+    "note": "Generated native and installed full WebP directly inspected. Adult listens with raised hand while waiting at curb with Kit, white figure opposite; neither person enters road. Natural stance and cane contact.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:41:53.484Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-7fc2437a-61a1-414c-a02e-471df3c9cabb.png",
+  "sourceSha256": "522e096141b4dfce2a1a86c520822c4a383f65fef54906a9ad418d1ad5b6545d",
+  "output": "public/guided-reading/world-discovery/c-20/page-08.webp",
+  "outputSha256": "dd6daaa898c705b4a8103f7ee0296a0c54330310f86b59ff1f30c59b51295150",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact scene. Make the ONE visible woodlouse only40percent of its current length and height, a tiny natural animal smaller than one-quarter of the nearby brown leaf length. Put its rear half naturally under opaque lower bark in the damp gap; only front and smallbody visible. Restore soil aroundoldbody. Keep logfullyresting mossup, fernbehind, emptyclearpathright. No people, bag, wrapper or new props. Maintain same fullscene. Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-318f8a25-2446-4da4-a687-1d3c0f333f95.png",
+      "sha256": "d87dbbff6483435ea1da92c385616257604da06704a1c9d145e69e857139c3f3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "dd6daaa898c705b4a8103f7ee0296a0c54330310f86b59ff1f30c59b51295150",
+    "method": "codex-direct-image-inspection",
+    "note": "Direct habitat close view: restored moss-up log and fern remain outside an empty clear path; one tiny woodlouse partly beneath natural damp gap, without lifting or transparency. No returned wrapper, bag, people or extra animals."
+  }
+}

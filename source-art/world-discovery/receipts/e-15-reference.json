@@ -1,0 +1,28 @@
+{
+  "bookId": "world-discovery-e-15",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:30:45.191Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-d7aae67c-c857-4034-bbe9-324af11ac320.png",
+  "sourceSha256": "9f106c76a883910b88c8d329bfb5ab8643420fa9f5d5cfb4ec4ad5ce54af809e",
+  "output": "source-art/world-discovery/e-15-reference.webp",
+  "outputSha256": "915416f894352e6395172bb1b0c12a6f3c9b80ef82b1d386678d8a9c471cd83a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "NATURE-ONLY PRODUCTION REFERENCE: NO HUMANS, silhouettes, people, animals or human scale figures anywhere. Omit generic human model-sheet requirements. Show an unnamed U-shaped mountain valley with BROAD FLAT FLOOR, rounded lower corners, steep mountain sides and a distinctive NOTCH on LEFT ridge. Small winding river crosses broad floor. Gray exposed foreground bedrock has parallel natural scrapes. Initial present-day summer valley has NO GLACIER. One principal landscape key plus clear terrain/rock design details; no future icy reconstruction on this initial design board. Flat contour shapes and smooth cel shading only; no grain, painted texture or photographic surfaces. \nUse case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Valley Shaped by Ice; World Discovery; nonfiction.\nSetting: One unnamed formerly glaciated mountain valley. No humans or buildings. Present summer view has a broad U-shaped cross-section, steep sides, rounded lower corners and modest stream at bottom. All historical views retain a distinctive notch in the left ridge. Reconstruction is illustrative, not a named valley's measured chronology.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Fixed mountain ridges with left-ridge notch; Valley glacier shown only in past, occupying much of valley; Rock fragments embedded in ice base; scratched exposed bedrock after retreat; Small present river winding on broad valley floor\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Summer, glacier absent; river visibly smaller than valley width.. For orientation, the opening location/action is: Present wide valley, narrow central river, distinctive left-ridge notch and exposed foreground bedrock.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "16a7c6f6331a2d7475f6d162d1b3ec8fa604576c62daa8e80c957a07954611e6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T14:31:24.286268+00:00",
+    "sha256": "915416f894352e6395172bb1b0c12a6f3c9b80ef82b1d386678d8a9c471cd83a",
+    "note": "Generated source and installed WebP inspected. Broad U-shaped valley, small river, left notch and parallel bedrock grooves are coherent flat-cartoon reference subjects. No humans or glacier are inserted in initial present-day setting.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

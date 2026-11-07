@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-14",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:00:38.521Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-2106c740-a339-4687-840e-480fc5e7143e.png",
+  "sourceSha256": "448732d863dd1ab99bdc2bb33c0f6fed6083337445565a8aaf8882114c769aec",
+  "output": "public/guided-reading/world-discovery/c-14/page-01.webp",
+  "outputSha256": "f9ca63feb6aeceb56864e085016433aa9608112fd88b1359904e566672677e64",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Widen this exact composition by 20 percent on a landscape 3:2 canvas. Keep all four complete shoes, hair tops, whole book and single-arrow paper at least 10 percent from all canvas edges. Preserve exactly ONE arrow, one red bookmark just beyond it, the natural seated lower bodies and gray metal table legs. Extend the ordinary continuous wall and floor to the full canvas; no frame, border, inset or pasted rectangle.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-4a614e14-cb1c-4908-855f-a02644f81767.png",
+      "sha256": "ff1c7f2bd1e0ec795c3b754e1487a920776d63de83a8c6d13a55d041eb94347a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "c6bf0214e4c9b70fd3e14b3805b6b47eaa35e1740a8d7791544e2a7f80254b40",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
+    "outputSha256": "f9ca63feb6aeceb56864e085016433aa9608112fd88b1359904e566672677e64",
+    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
+    "notes": "Single arrow followed by blank paper; bookmark stopped beyond tip; full natural legs and feet visible.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "f9ca63feb6aeceb56864e085016433aa9608112fd88b1359904e566672677e64",
+    "note": "Single arrow followed by blank paper; bookmark stopped beyond tip; full natural legs and feet visible."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "bookId": "world-discovery-d-13",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T17:00:15.198Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-35a2c040-bd12-4e7b-b26b-222189c00cde.png",
+  "sourceSha256": "457f6d4638dca3e264e386ca2f5c4a4097fcc96d4f3223dd0774f69fc2704bb6",
+  "output": "public/guided-reading/world-discovery/d-13/page-05.webp",
+  "outputSha256": "801219ed6a5c2ddf37685ca21a52ce7f5ec3a42fb937ffbc239aa8bb32fa36dc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is the exact edit target. Remaining references preserve character and prop identity, not layout. Pull camera back substantially, scale complete crossing scene to72percent centered and extend surrounding sidewalks/buildings/road. Entire people from hair to shoes, car, both signals, cane tip and crossing button must be INSIDE central74percent, with13percent clear space from all edges. Do not merely move a person. Keep left/right crossing geometry and right-pointing raised arrow integral to black circular moving button. Preserve exact current traffic and pedestrian signal state otherwise. Preserve every other object state, action, expression, exact count, natural anatomy and object contact, clean flat color and outlines. Do not introduce labels, text, panels or frames. Produce landscape 1536 by 1024, exact 3:2 composition. Background fills canvas. No crop of the original focal scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-8730c28d-4c91-4289-b7f8-511c20b0946e.png",
+      "sha256": "0f0a2da548d8a0916ed59202d614b5a1388070ff8b177935c71f1e80fe091e40"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-13-reference.webp",
+      "sha256": "53380c2daa4364d27eff64f4f17fd83d955749cea869ccb556757c838f0636d7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "6659b92fa17fbc5ddf7f65a34c71bedf3c94841ca5a1d42c8da0d9bddfef1356",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:23:40.864Z",
+    "sha256": "801219ed6a5c2ddf37685ca21a52ce7f5ec3a42fb937ffbc239aa8bb32fa36dc",
+    "note": "Generated native and installed full WebP directly inspected. Blue car is actually on marked crossing while both people remain on sidewalk under orange hand; natural driver and vehicle proportions.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

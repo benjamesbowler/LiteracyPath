@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-b-18",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T12:22:44.149Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-b6b1fbe5-caec-4299-8e4f-ec876b941589.png",
+  "sourceSha256": "6927fec88bf0c3d2883203a18ecceeeeb949f71a7eadb8a8f9b04d65f6126742",
+  "output": "source-art/world-discovery/b-18-reference.webp",
+  "outputSha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production grasshopper model reference sheet only to improve safe spacing and cleanliness. Keep the same early nymph, late short-wing-pad nymph and long-folded-wing adult anatomical design studies, six natural legs each, two antennae, stripe patterns and exact separate egg-stage natural soil location key. Reduce ALL existing content to 78% size centered on a clean white landscape3:2 1536x1024 canvas, leaving at least 10% completely clear outer white margin on ALL four sides. No feet/antennae may approach the edge. Do not add captions/text, insects, stages or objects. Keep original natural anatomy, two pairs of thin front/middle legs plus enlarged paired hindlegs, no human faces. Crisp clean flat fills, remove any paper/grain/paint texture. No changes to the life-stage distinction.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-711080ad-5605-44c8-834d-3876b9d1d57a.png",
+      "sha256": "ade19ad028c91257b9ec4c18e1f98c5991ec982ea5af5ba917b765101f5066e8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "61435584dc64e3a63c4034502a519716b0619c985838ca5b93e3af62432f9e01",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9",
+    "scope": "Direct final reference WebP inspection; production-author design review only",
+    "notes": "Distinct early wingless nymph, late wing-pad nymph and long-winged adult model views; six legs with paired thick jumping hindlegs, two antennae and two pale stripes; egg-only soil location key. Safe study spacing.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9",
+    "note": "Distinct early wingless nymph, late wing-pad nymph and long-winged adult model views; six legs with paired thick jumping hindlegs, two antennae and two pale stripes; egg-only soil location key. Safe study spacing."
+  }
+}

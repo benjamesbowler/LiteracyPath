@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-20",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T14:06:35.011Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-e0eaeafa-646f-4020-99f3-efa6124e49a3.png",
+  "sourceSha256": "92476170e959001683713abbbd783b4d9b96b6215abe6cb8f33d555b9541ae45",
+  "output": "source-art/world-discovery/e-20-reference.webp",
+  "outputSha256": "e9ba308d9abad17e1795746e933ef89e79e7e4e2273972acd01fbad1ee5c78ba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Patch Left to Grow; World Discovery; nonfiction.\nSetting: Illustrative eastern US school meadow edge over summer into early fall. Kit and Zoe keep locked designs. Unnamed adult gardener: warm tan skin, short dark curls, green shirt, brown pants and sturdy boots, about 1.7 times child height. One curved grass walking route borders a planted patch of black-eyed Susan (Rudbeckia hirta) among grasses. Plants follow buds to yellow rays/dark centers to dry brown seed heads; no overnight change.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One clearly bounded planted wildflower patch beside a cut grass route, no barrier across access; Parked manual reel mower used only by adult; children stand well away when it moves; Two low plain wooden corner markers identifying retained patch without readable slogans; Black-eyed Susan plants in correct successive seasonal states; one small natural native bee during bloom scene\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Early summer before main bloom; mower stationary, children clear of blades.. For orientation, the opening location/action is: Gardener beside parked reel mower at meadow edge; children look at green-budded patch from path.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nPRODUCTION DESIGN LOCK: Kit and Zoe canonical equal standing height, gardener tan skin short dark curls green shirt brown trousers sturdy boots, adult about 1.7 times child height. Natural feet firmly on ground and coherent hands/elbows. One gently curved short-grass walking route beside an unmown meadow patch; two plain low wooden corner stakes mark patch. Black-eyed Susan Rudbeckia hirta plant has upright slender hairy stems, lance-shaped leaves, yellow ray petals around small raised dark-brown cone centers. Buds green before flowering; mature seed heads dry dark brown with few or no yellow petals. Native bee very small compared with flower, six legs, two antennae, natural wings, no humanoid face. Mower is human-powered REEL mower with two wheels and low cylindrical cutting reel, no engine, never operated by children; children several meters away whenever adult actively mowing. No wire ropes around plot. No random text or tools. Seasonal changes only as exact page requires.\nREFERENCE-ONLY CLARIFICATION: do not force all these design props into the opening scene. Separate restrained model views may define props for continuity, but no completed later event. Keep reference background plain white with small separate location/palette key. No text or labels anywhere.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "b85d138240fed6610cbbbb8e52bcf5447ff3e85fc1d38c1b9a756f04facf4572",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "e9ba308d9abad17e1795746e933ef89e79e7e4e2273972acd01fbad1ee5c78ba",
+    "method": "codex-direct-image-inspection",
+    "note": "Directly inspected child/adult relative scale, canonical cast and gardener clothing, manual reel mower, plant bud/bloom/seed-head distinctions and curved route with two stakes. Adult-only mower actions and seasonal state checked on every final."
+  }
+}

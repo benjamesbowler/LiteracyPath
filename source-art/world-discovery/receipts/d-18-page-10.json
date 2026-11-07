@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-18",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:25:12.950Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-62399cca-005e-45bd-b3ca-c52abca9cd6e.png",
+  "sourceSha256": "4985f0ca6542f251dfad0f56ddaaa4a58ed2880f8793eb158aae2768fae31a28",
+  "output": "public/guided-reading/world-discovery/d-18/page-10.webp",
+  "outputSha256": "4e6c875b9d2f78061ee3ba64d2c763ac857d82031697cf18cbb56c93a0179160",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. FIRST image is exact edit target, second is identity only. Pull camera BACK so ENTIRE scene becomes70percent of current size, centered, extending natural underwater sand and water. Keep every focal limb tip, stone and food at least15percent from every edge. Preserve exact scene relationships, all natural attached anatomy, dull EMPTY eyecaps and clear empty REAR split of discarded covering; exactly one living crab and one discarded covering, not two animals. No text or additional diagram. Clean flat2D cartoon full1536x1024. Repair living crab right side missing third narrow walking leg: each side has ONE claw plus THREE narrow pointed walking legs plus ONE rear oval paddle, exactly10total. Preserve left3 already correct, and natural attachments. ",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-27b3059e-594f-40c4-9680-fde38e160853.png",
+      "sha256": "61f657077895a253d231bc8bd1a6db5517659979a143ac985cb1cc0227c203c3"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-18-reference.webp",
+      "sha256": "2242548cd8722acd86acc48ac38d7dacd5284e5aa8ecdc1d58766a16544e90c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d70d3ce68e36996a0e08e7128b1b624d08093f223b9643ad5a3ea177fb5ad4f2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T18:27:58.844Z",
+    "sha256": "4e6c875b9d2f78061ee3ba64d2c763ac857d82031697cf18cbb56c93a0179160",
+    "note": "Generated native and installed full WebP directly inspected. Living crab farther right with full ten limbs, empty covering left beside stone. Separate bodies and empty rear cavity resolve one animal leaving a covering; no second live crab.",
+    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+  }
+}

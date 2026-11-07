@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-14",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:54:05.735Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-14bc618e-51f1-4b30-a161-89ef0a729bb1.png",
+  "sourceSha256": "ab5a43f2c7367ef6d02fdb481a84ddcfcfd648a69687d3252dce04ba909c6aeb",
+  "output": "public/guided-reading/world-discovery/a-14/page-06.webp",
+  "outputSha256": "064d24d8ee8e47977bcaf1d95efee9b7d23f6cff2f11b065372e4efc3cfd7c2b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "REMOVE the extra blank sheet from the TABLE; only2crayons may stay there. The SECOND/last sheet is in Kit's hands being consumed into ONE small replacement wheel, so no spare paper exists. ENLARGE that forming small wheel to match original wagon small wheels at its perspective depth (about100pixels diameter before reframing, not tiny60). Keep giant wheel against RIGHT wall beside table. Bare near-front RIGHT axle stays empty.  Pull camera BACK25percent and center whole coherent scene with Kit's head/hands/shoes, wagonhandle, allwheelsandimportantprops atleast10percentinsideeveryedge. Wide landscape3:2, no croporborder. Preserve crispflat2Dstyle, correct anatomy, no added text/newobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-b316ca10-c924-4498-a922-89018042aac3.png",
+      "sha256": "99104eca670a5226d7c04eac2a775a7135788dea92eec3278c5624579b47a27a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "594d98a651b9c43bb57bc8dec8ca0b6c6ab463c95c43104b0b0cff56de1c3ea6",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:58:44.767092+00:00",
+    "sha256": "064d24d8ee8e47977bcaf1d95efee9b7d23f6cff2f11b065372e4efc3cfd7c2b",
+    "note": "Native PNG and installed WebP directly inspected. Last sheet transforms into matching small wheel; table has only two crayons and giant remains beside it. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+  }
+}

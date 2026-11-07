@@ -1,0 +1,32 @@
+{
+  "bookId": "world-discovery-a-11",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:12:44.942Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-277710da-ecd8-48b2-9842-106910bad1c6.png",
+  "sourceSha256": "68f4c3740f3ee63f1054f8128ed1d81c8327395b55c75f4921fb313a73f75449",
+  "output": "public/guided-reading/world-discovery/a-11/page-05.webp",
+  "outputSha256": "f2ec124c500e3284e2e7274dae8be3276a38e828e543ab231bd5a433c7db9f01",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact snack illustration with a tiny continuity correction only. Change the LEFT end of Zoe's LONG breadstick remainder on the PLUM plate into a visible pale rough BROKEN CRUMB FACE matching the already-broken small piece beside it. Keep EXACTLY those TWO bread pieces on her plate. Kit's SINGLE breadstick resting on his BLUE plate must have a small semicircular BITE visibly missing from its RIGHT end (viewer right). Keep the stick's other end and size unchanged. Preserve the EXACT current pear inventory, basket compartments, faces, hands, poses, lighting and background. Do not add any food, pieces, crumbs or props; do not alter anything else. Clean flat 2D outlines remain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-510a146c-0bd9-4754-bb2b-1e86cdf8433b.png",
+      "sha256": "b5dc07b20345dd87c923bc617b610061b68e11914d8bfbcd869a9215054b5d97"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "0c1fb0467841cc8cf22bf43c54d947245bc32081245a6691a748a57092cbe585",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-07T11:13:05.085881+00:00",
+    "sha256": "f2ec124c500e3284e2e7274dae8be3276a38e828e543ab231bd5a433c7db9f01",
+    "note": "Root directly inspected native repair and installed WebP. Zoe's long bread remainder now has the pale broken left face, beside her single short bitten piece; Kit's separate stick on blue plate retains a missing bite at its right end. Two untouched pear wedges remain in basket; bread compartment empty. Hands, cast and composition unchanged."
+  }
+}

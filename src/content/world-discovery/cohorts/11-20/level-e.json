@@ -1,0 +1,1594 @@
+[
+  {
+    "id": "world-discovery-e-11",
+    "number": 11,
+    "title": "The Part I Keep",
+    "topic": "identity",
+    "type": "fiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Zoe wants to share a drawing of her new swimming skill, but the same sheet also holds a private picture of her earlier worry.",
+      "failedAttempt": "She folds the worry picture behind the proud picture, but the back unfolds when Kit offers to hang it. Hiding the whole sheet would also hide what she wants to share.",
+      "resolution": "Zoe explains her boundary, makes a new drawing of the skill she wants to show, and keeps the first sheet in her own closed folder."
+    },
+    "setting": "World Discovery classroom art corner. Kit and Zoe keep locked cast-v1 designs and equal height. No flashback or pool scene: swimming appears only in Zoe's simple drawings. One table and low display ledge; steady daylight.",
+    "props": [
+      "Original cream sheet split by an unprinted center crease: left half shows a small figure frowning beside a blue pool, right half shows a smiling figure making a bubble in the water",
+      "One new cream half-sheet, initially blank, later showing only a smiling swimmer blowing bubbles",
+      "Zoe's plain plum folder with two inside pockets; blue and brown crayons in a yellow tray",
+      "One plain display clip fixed to the low ledge"
+    ],
+    "coverBrief": "Zoe holds a new picture of a smiling swimmer beside her closed plum folder. Kit looks at the picture she has chosen to show; the private original stays hidden.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe draws the day she learned to blow bubbles in the pool. At first, she had been afraid of the water.",
+        "imageBrief": "Zoe looks at her original two-part drawing: worried figure beside pool on left, happy bubble-blowing figure in water on right.",
+        "imageAlt": "Zoe looks at her original two-part drawing: worried figure beside pool on left, happy bubble-blowing figure in water on right.",
+        "pageDescription": "Zoe looks at her original two-part drawing: worried figure beside pool on left, happy bubble-blowing figure in water on right.",
+        "state": "Both halves already drawn; no actual pool or changed character clothes.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Now she wants everyone to see the bubbles, but she does not want to show the worried picture beside them.",
+        "imageBrief": "Zoe points to the bubble half while placing her other hand lightly over the worried half.",
+        "imageAlt": "Zoe points to the bubble half while placing her other hand lightly over the worried half.",
+        "pageDescription": "Zoe points to the bubble half while placing her other hand lightly over the worried half.",
+        "state": "Original sheet flat; folder open beside it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "She folds the worried half behind the happy half. Kit reaches for the clip. “We can hang it here.”",
+        "imageBrief": "Zoe folds left half backward along center crease; Kit gestures toward the ledge's clip.",
+        "imageAlt": "Zoe folds left half backward along center crease; Kit gestures toward the ledge's clip.",
+        "pageDescription": "Zoe folds left half backward along center crease; Kit gestures toward the ledge's clip.",
+        "state": "Only happy half faces viewer; no tear or cut.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "As she lifts the drawing, the folded half swings open. Zoe pulls it back before Kit can hang it.",
+        "imageBrief": "Original sheet opens at loose crease in Zoe's hands; Kit's hands stop short of touching it.",
+        "imageAlt": "Original sheet opens at loose crease in Zoe's hands; Kit's hands stop short of touching it.",
+        "pageDescription": "Original sheet opens at loose crease in Zoe's hands; Kit's hands stop short of touching it.",
+        "state": "Moment of accidental unfolding; no pinned or duplicated original.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Maybe I should keep it all,” she says. She lowers the sheet, though her finger still rests on the bubbles.",
+        "imageBrief": "Zoe holds the open sheet low, finger on the happy half, looking toward the empty display clip.",
+        "imageAlt": "Zoe holds the open sheet low, finger on the happy half, looking toward the empty display clip.",
+        "pageDescription": "Zoe holds the open sheet low, finger on the happy half, looking toward the empty display clip.",
+        "state": "Her wish to share remains visible; Kit waits.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit puts down his hand. “Which part do you want us to see?” Zoe points to the swimmer in the water.",
+        "imageBrief": "Kit's hands relaxed at sides; Zoe points clearly to the happy swimmer on right half.",
+        "imageAlt": "Kit's hands relaxed at sides; Zoe points clearly to the happy swimmer on right half.",
+        "pageDescription": "Kit's hands relaxed at sides; Zoe points clearly to the happy swimmer on right half.",
+        "state": "No one reads, takes or opens the private folder.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "“This part. The other part is for me.” She takes a fresh sheet and draws the bubbles again.",
+        "imageBrief": "Zoe begins a new swimmer on the separate blank half-sheet; original lies face down beside folder.",
+        "imageAlt": "Zoe begins a new swimmer on the separate blank half-sheet; original lies face down beside folder.",
+        "pageDescription": "Zoe begins a new swimmer on the separate blank half-sheet; original lies face down beside folder.",
+        "state": "New sheet distinct and smaller; original now entirely concealed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The new swimmer has a wide smile. This time, there is no other picture waiting to unfold behind it.",
+        "imageBrief": "Zoe adds a smile to the new bubble-blowing swimmer; one uncreased half-sheet visible.",
+        "imageAlt": "Zoe adds a smile to the new bubble-blowing swimmer; one uncreased half-sheet visible.",
+        "pageDescription": "Zoe adds a smile to the new bubble-blowing swimmer; one uncreased half-sheet visible.",
+        "state": "New drawing contains only desired skill; original face down.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Zoe slips the first drawing into her folder. Then she holds out the new one for Kit to hang.",
+        "imageBrief": "Zoe offers new sheet to Kit with one hand; closed plum folder rests beside yellow tray.",
+        "imageAlt": "Zoe offers new sheet to Kit with one hand; closed plum folder rests beside yellow tray.",
+        "pageDescription": "Zoe offers new sheet to Kit with one hand; closed plum folder rests beside yellow tray.",
+        "state": "Original fully inside folder; Kit handles only offered picture.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "When Kit clips it up, Zoe shows him the bubbles. Her first drawing is still hers, safely inside the folder.",
+        "imageBrief": "New bubble drawing hangs from single clip; Zoe points to bubbles while Kit looks; folder closed on table.",
+        "imageAlt": "New bubble drawing hangs from single clip; Zoe points to bubbles while Kit looks; folder closed on table.",
+        "pageDescription": "New bubble drawing hangs from single clip; Zoe points to bubbles while Kit looks; folder closed on table.",
+        "state": "Choice carried through: public picture displayed, private original retained.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does Zoe make a new drawing instead of throwing the first one away?",
+        "listenFor": "She still values the full memory but chooses to share only one part. The new sheet lets her share pride without sharing the private worry."
+      },
+      "visual": {
+        "page": 9,
+        "prompt": "Which drawing has Zoe offered to Kit, and where is the other one?",
+        "lookFor": "The new single picture is in her hand; the original is inside her closed folder."
+      }
+    },
+    "levelRationale": "Candidate E: the reader follows two simultaneous wishes, a failed concealment, a pause that exposes the conflict, and a deliberate solution. Earlier fear, present pride and ownership of personal detail remain connected through concrete sheets and folds. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "private",
+        "meaning": "something you choose to keep for yourself"
+      },
+      {
+        "word": "fold",
+        "meaning": "to bend one part over another"
+      },
+      {
+        "word": "choose",
+        "meaning": "to decide which thing you want"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-12",
+    "number": 12,
+    "title": "The Missing Piece",
+    "topic": "relationships",
+    "type": "fiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit hides the last puzzle piece for a joke, then loses it. He wants to finish the puzzle with Zoe but must reveal what happened before their search can work.",
+      "failedAttempt": "He searches the puzzle box and lets Zoe search the floor without explaining the real hiding place, wasting their search and leaving the gap.",
+      "resolution": "Kit tells the truth, retraces the cushion movement with Zoe, retrieves the piece from behind the bench, and gives Zoe the choice to place it."
+    },
+    "setting": "One ordinary classroom reading corner, same afternoon. Kit and Zoe retain their locked designs. A low table stands in front of a low wooden bench with one removable blue cushion leaning against its open slatted back; bench has open space underneath and a narrow accessible gap behind. The cushion initially hides the small gap between seat and back. No other people.",
+    "props": [
+      "One chunky twelve-piece rectangular puzzle arranged as three rows of four pieces; picture one red boat on blue water with one white sail",
+      "One missing top-row interior piece showing the top of the white sail; eleven other pieces stay assembled",
+      "Plain tan puzzle box, empty after opening",
+      "One blue bench cushion, one low table, one low wooden bench"
+    ],
+    "coverBrief": "Kit offers one white-sail puzzle piece to Zoe beside a nearly complete boat puzzle with a single matching gap. The blue cushion sits on the bench behind them.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Only one piece is missing from the boat. Kit holds it behind his back, waiting for Zoe to notice the gap.",
+        "imageBrief": "Eleven-piece boat puzzle on table; one top-row gap. Kit conceals white-sail piece in his right hand behind back.",
+        "imageAlt": "Eleven-piece boat puzzle on table; one top-row gap. Kit conceals white-sail piece in his right hand behind back.",
+        "pageDescription": "Eleven-piece boat puzzle on table; one top-row gap. Kit conceals white-sail piece in his right hand behind back.",
+        "state": "Exactly twelve pieces total, eleven assembled and one held.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "While she checks the box, he slips the piece behind the blue cushion. He plans to surprise her in a moment.",
+        "imageBrief": "Kit slides single piece vertically between cushion and bench back; Zoe looks into empty tan box.",
+        "imageAlt": "Kit slides single piece vertically between cushion and bench back; Zoe looks into empty tan box.",
+        "pageDescription": "Kit slides single piece vertically between cushion and bench back; Zoe looks into empty tan box.",
+        "state": "Piece visible only to viewer at cushion edge; no extra puzzle pieces.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe pulls the cushion onto her lap. A small tap sounds behind the bench, but Kit is looking at her face.",
+        "imageBrief": "Zoe has lifted cushion forward; sail piece falls toward floor behind bench, below its back edge.",
+        "imageAlt": "Zoe has lifted cushion forward; sail piece falls toward floor behind bench, below its back edge.",
+        "pageDescription": "Zoe has lifted cushion forward; sail piece falls toward floor behind bench, below its back edge.",
+        "state": "Single falling moment; Kit has not seen exact landing point.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "He checks the bench. Nothing. Instead of explaining, he looks in the box again, although he knows it is empty.",
+        "imageBrief": "Kit looks into empty box with worried expression; Zoe holds cushion on lap.",
+        "imageAlt": "Kit looks into empty box with worried expression; Zoe holds cushion on lap.",
+        "pageDescription": "Kit looks into empty box with worried expression; Zoe holds cushion on lap.",
+        "state": "Sail piece now on floor behind bench, out of their view; assembled puzzle unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe searches under the table. Kit watches her crawl past the bench. The joke no longer feels like a joke.",
+        "imageBrief": "Zoe kneels looking beneath table; Kit sits beside puzzle, hands empty and hesitant.",
+        "imageAlt": "Zoe kneels looking beneath table; Kit sits beside puzzle, hands empty and hesitant.",
+        "pageDescription": "Zoe kneels looking beneath table; Kit sits beside puzzle, hands empty and hesitant.",
+        "state": "Cushion returned to bench seat by Zoe before searching; no piece visible to characters.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "“I hid it,” he says. “Behind the cushion. Then I lost it.” Zoe sits back. “Why didn't you tell me?”",
+        "imageBrief": "Kit faces Zoe and points toward blue cushion; Zoe stops searching and looks at him.",
+        "imageAlt": "Kit faces Zoe and points toward blue cushion; Zoe stops searching and looks at him.",
+        "pageDescription": "Kit faces Zoe and points toward blue cushion; Zoe stops searching and looks at him.",
+        "state": "Confession gives useful location; no smiling celebration yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "“I wanted a surprise. I'm sorry.” Kit moves beside the bench. “It made a sound when you lifted the cushion.”",
+        "imageBrief": "Kit kneels at bench side, tracing downward with one finger; Zoe looks toward the rear gap.",
+        "imageAlt": "Kit kneels at bench side, tracing downward with one finger; Zoe looks toward the rear gap.",
+        "pageDescription": "Kit kneels at bench side, tracing downward with one finger; Zoe looks toward the rear gap.",
+        "state": "He offers remembered evidence, not certainty that he saw the fall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "They look behind the bench together. A white corner lies against the wall, just beyond Kit's fingers.",
+        "imageBrief": "Both view floor through open side of bench; single white-sail piece against wall beyond Kit's first reach.",
+        "imageAlt": "Both view floor through open side of bench; single white-sail piece against wall beyond Kit's first reach.",
+        "pageDescription": "Both view floor through open side of bench; single white-sail piece against wall beyond Kit's first reach.",
+        "state": "No head trapped in gap; bench remains steady.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Kit reaches from the other side and lifts out the piece. He gives it to Zoe instead of hiding it again.",
+        "imageBrief": "Kit retrieves piece from the nearer open side and offers it flat on his palm to Zoe.",
+        "imageAlt": "Kit retrieves piece from the nearer open side and offers it flat on his palm to Zoe.",
+        "pageDescription": "Kit retrieves piece from the nearer open side and offers it flat on his palm to Zoe.",
+        "state": "Exactly one retrieved piece, no tool or moved heavy furniture.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Zoe fits the sail into the gap. Kit waits while she presses it flat. This surprise is over; the boat is whole.",
+        "imageBrief": "Zoe presses final sail piece into its matching top-row space while Kit watches with hands resting openly.",
+        "imageAlt": "Zoe presses final sail piece into its matching top-row space while Kit watches with hands resting openly.",
+        "pageDescription": "Zoe presses final sail piece into its matching top-row space while Kit watches with hands resting openly.",
+        "state": "Complete twelve-piece puzzle; blue cushion on bench, box empty.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What makes their second search work better than the first?",
+        "listenFor": "Kit tells where he hid the piece and recalls the sound when the cushion moved. They can follow those clues together; saying sorry alone would not locate it."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which clue shows that they are looking in a useful place now?",
+        "lookFor": "The small white corner of the missing sail piece lies behind the bench, where the cushion movement could have dropped it."
+      }
+    },
+    "levelRationale": "Candidate E: the plot depends on concealed knowledge, an unintended consequence, delayed disclosure and a shared inference from an earlier sound. Pronouns, time clauses and dialogue sustain motives across the whole search without an abstract moral. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "gap",
+        "meaning": "an empty space between things"
+      },
+      {
+        "word": "explain",
+        "meaning": "to tell how or why something happened"
+      },
+      {
+        "word": "clue",
+        "meaning": "something that helps you work out an answer"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-13",
+    "number": 13,
+    "title": "A Cooler Courtyard",
+    "topic": "community",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a school choose a shaded sitting place that works when children actually use the courtyard?",
+      "progression": "An illustrated planning example follows a bench from sunny midday conditions through morning observations, a return at the relevant time and a shade plan that keeps the entrance clear.",
+      "synthesis": "A useful plan considers the time, the place people need and room to move; a shade structure can serve now while a young tree grows.",
+      "scienceSources": [
+        {
+          "title": "US Environmental Protection Agency: Benefits of Trees and Vegetation",
+          "url": "https://www.epa.gov/heatislands/benefits-trees-and-vegetation",
+          "evidence": "Tree shade reduces direct solar heating; a crown's size and placement matter to the area shaded. The story makes no universal temperature claim."
+        },
+        {
+          "title": "US Department of Energy: National Best Practices Manual for Building High Performance Schools",
+          "url": "https://www1.eere.energy.gov/buildings/publications/pdfs/energysmartschools/nationalbestpracticesmanual31545.pdf",
+          "evidence": "School-site planning considers shadow patterns and shade from trees and built structures. The pictured courtyard and discussion are an original illustrative example."
+        }
+      ]
+    },
+    "setting": "An illustrative school courtyard over several days at morning and lunchtime. Locked Kit and Zoe retain designs. One unnamed caretaker: deep-brown skin, bald head, round glasses, gray shirt and navy pants, about 1.7 times child height. Fixed layout: a wall runs along the east side with an open doorway near its north end; a broad route leads from that doorway across the courtyard; bench area west, young tree southwest. Morning sun from the east casts the wall's shadow westward into the courtyard. By midday the proposed morning sitting spot is sunny. No claim to a real measured site.",
+    "props": [
+      "One plain wooden bench on west side, short new tree with small leafy crown southwest",
+      "Open doorway near north end of eastern wall and broad clear route across courtyard",
+      "Small clipboard with an unlabelled courtyard sketch",
+      "Later one properly installed pale-green shade canopy supported by four posts outside walking route"
+    ],
+    "coverBrief": "Kit, Zoe and the caretaker stand beside a bench under a pale-green canopy. A small young tree grows nearby, and the broad route to the doorway stays open.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "At lunchtime, the courtyard bench stands in the sun. Kit and Zoe want a cooler place where their class can sit.",
+        "imageBrief": "Midday sunlit bench with small tree shadow falling away from it; children and caretaker examine the space.",
+        "imageAlt": "Midday sunlit bench with small tree shadow falling away from it; children and caretaker examine the space.",
+        "pageDescription": "Midday sunlit bench with small tree shadow falling away from it; children and caretaker examine the space.",
+        "state": "No child touches overheated surfaces; existing courtyard only, no canopy.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A young tree grows nearby, but its small patch of shade cannot cover the bench yet.",
+        "imageBrief": "Wide view connects small leafy crown to narrow ground shadow, leaving bench outside it.",
+        "imageAlt": "Wide view connects small leafy crown to narrow ground shadow, leaving bench outside it.",
+        "pageDescription": "Wide view connects small leafy crown to narrow ground shadow, leaving bench outside it.",
+        "state": "Tree remains young throughout current-day sequence; no instant growth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The caretaker asks them to help choose a place for shade. They draw the doorway, the bench, and the tree.",
+        "imageBrief": "Zoe draws simple courtyard plan on clipboard while Kit points to actual doorway; caretaker watches.",
+        "imageAlt": "Zoe draws simple courtyard plan on clipboard while Kit points to actual doorway; caretaker watches.",
+        "pageDescription": "Zoe draws simple courtyard plan on clipboard while Kit points to actual doorway; caretaker watches.",
+        "state": "Sketch matches fixed relative locations; no written labels needed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Next morning, a long shadow lies beside the wall. Kit points to it. “Could we move the bench there?”",
+        "imageBrief": "Morning view shows longer wall shadow and Kit pointing to it, with bench unchanged on the west side.",
+        "imageAlt": "Morning view shows longer wall shadow and Kit pointing to it, with bench unchanged on the west side.",
+        "pageDescription": "Morning view shows longer wall shadow and Kit pointing to it, with bench unchanged on the west side.",
+        "state": "Time shift visible by low sunlight; do not move bench yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "When they return at lunchtime, that shadow has shrunk. The space Kit chose is sunny when the class needs to sit.",
+        "imageBrief": "Matching courtyard viewpoint at noon, with wall shadow smaller and proposed empty spot now sunlit.",
+        "imageAlt": "Matching courtyard viewpoint at noon, with wall shadow smaller and proposed empty spot now sunlit.",
+        "pageDescription": "Matching courtyard viewpoint at noon, with wall shadow smaller and proposed empty spot now sunlit.",
+        "state": "Same wall and tree; sunlight change follows time, not vanished objects.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "They mark a new place on their plan. It must fit the bench without blocking the way through the doorway.",
+        "imageBrief": "Overhead plan in Zoe's hands: bench area marked west, route from east-wall doorway visibly kept clear; actual layout behind.",
+        "imageAlt": "Overhead plan in Zoe's hands: bench area marked west, route from east-wall doorway visibly kept clear; actual layout behind.",
+        "pageDescription": "Overhead plan in Zoe's hands: bench area marked west, route from east-wall doorway visibly kept clear; actual layout behind.",
+        "state": "One plan, no duplicate physical benches; marker is a simple oval, not printed sentence.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The caretaker takes their plan to the school. Later, workers put up a shade cover beside the young tree.",
+        "imageBrief": "Completed four-post canopy installation with two adult workers checking secured bases; children observe from doorway.",
+        "imageAlt": "Completed four-post canopy installation with two adult workers checking secured bases; children observe from doorway.",
+        "pageDescription": "Completed four-post canopy installation with two adult workers checking secured bases; children observe from doorway.",
+        "state": "Later day; no children near construction; workers plain gray work clothes, no ladders in child space.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "At lunchtime, the bench now stands beneath the cover. The children check where its shade falls before sitting down.",
+        "imageBrief": "Kit and Zoe inspect bench within canopy shadow at noon; clear doorway route visible beyond.",
+        "imageAlt": "Kit and Zoe inspect bench within canopy shadow at noon; clear doorway route visible beyond.",
+        "pageDescription": "Kit and Zoe inspect bench within canopy shadow at noon; clear doorway route visible beyond.",
+        "state": "Canopy properly sized to shade entire bench at intended time; all posts outside route.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The tree will need time to grow a wider crown. The cover gives shade while the school cares for it.",
+        "imageBrief": "Caretaker waters young tree at base; children sit on shaded bench in background.",
+        "imageAlt": "Caretaker waters young tree at base; children sit on shaded bench in background.",
+        "pageDescription": "Caretaker waters young tree at base; children sit on shaded bench in background.",
+        "state": "Tree unchanged size, water directed to soil; no time-lapse growth or promise of exact future canopy.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Their plan has room for sitting and room for passing through. It works at the time the class needs it.",
+        "imageBrief": "Final wide noon view: children sit under canopy while caretaker walks unobstructed route from doorway.",
+        "imageAlt": "Final wide noon view: children sit under canopy while caretaker walks unobstructed route from doorway.",
+        "pageDescription": "Final wide noon view: children sit under canopy while caretaker walks unobstructed route from doorway.",
+        "state": "One bench, four canopy posts, one young tree; intended two uses visible together.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why wasn't the long morning shadow enough to choose the bench's new place?",
+        "listenFor": "They needed shade at lunchtime, when that shadow had changed. They also needed to keep the doorway route open."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Point to the shaded bench. Where is there still room to walk from the doorway?",
+        "lookFor": "The bench is shaded while the broad route from the doorway stays open and free of canopy posts."
+      }
+    },
+    "levelRationale": "Candidate E: an apparent solution is tested against a different time, revised using a plan, and weighed against a second need. The linked inquiry asks readers to compare observations, distinguish present from future shade and infer why placement matters. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "courtyard",
+        "meaning": "an open space beside or between buildings"
+      },
+      {
+        "word": "shade",
+        "meaning": "a place where something blocks direct sunlight"
+      },
+      {
+        "word": "crown",
+        "meaning": "the branches and leaves at the top of a tree"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-14",
+    "number": 14,
+    "title": "The Vanishing Paint",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "storySpine": "Kit wants to surprise Zoe with a toy boat that seems to disappear, but he paints the display tray as well and loses the boat's visible location.",
+      "failedAttempt": "After the paint dries, Kit reaches where he remembers the boat and knocks it sideways. More blind reaching would still leave him guessing and could knock it again.",
+      "resolution": "Kit recalls the yellow tray corner he wiped clean with the wet cloth. He follows the revealed tray edge to the moved boat, wipes all of the boat and tray clean, and presents the recovered boat honestly.",
+      "magicRule": "The single purple magic paint makes only the painted surface invisible when completely dry; objects remain solid and in place unless moved. Water makes coated surfaces visible while wet; wiping thoroughly with a wet cloth removes the paint. Unpainted objects and people never become invisible."
+    },
+    "setting": "World Discovery craft room, same afternoon. Kit and Zoe retain locked designs. Low tan table against plain wall, purple paint pot, water cup and cloth; no real chemical or ordinary paint explanation. Entire story explicitly fictional magic.",
+    "props": [
+      "One small blue wooden toy boat with red triangular sail, blunt mast and flat base",
+      "One shallow rectangular yellow tray with raised rim, large enough to hold toy boat",
+      "One purple magic-paint pot with a crescent icon but no lettering, one broad brush",
+      "One water cup and one white cloth, visible from opening; tan table stays unpainted"
+    ],
+    "coverBrief": "Kit wipes a damp cloth across the toy boat, revealing its blue hull and red sail above a yellow tray. Zoe watches; one remaining dry painted patch is invisible but its surrounding shape stays understandable.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit’s paint hides things when dry. He wipes a hidden corner clean with a wet cloth. Yellow shows again.",
+        "imageBrief": "Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.",
+        "imageAlt": "Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.",
+        "pageDescription": "Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.",
+        "state": "Seed both rules concretely: dry painted corner was invisible, now damp and revealed; tray otherwise unpainted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "He wants Zoe to see his boat disappear. He paints its blue hull, red sail, and little mast.",
+        "imageBrief": "Kit applies a thin purple coat to the toy’s red sail and blunt mast; its hull is already coated. The boat rests on the yellow tray. Show all visible boat surfaces being covered, including the mast, so no unpainted part can remain visible later.",
+        "imageAlt": "Kit applies thin purple coat to toy's red sail; hull already coated, boat on yellow tray.",
+        "pageDescription": "Kit applies thin purple coat to toy's red sail; hull already coated, boat on yellow tray.",
+        "state": "Hull, sail and mast wet-coated and visible purple; all visible boat surfaces covered. Table, brush, cloth, cup and child not painted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The yellow tray looks too plain beside it. Kit paints that too, spreading purple right up to the rim.",
+        "imageBrief": "Kit finishes coating last yellow section of tray rim; painted boat rests near tray center.",
+        "imageAlt": "Kit finishes coating last yellow section of tray rim; painted boat rests near tray center.",
+        "pageDescription": "Kit finishes coating last yellow section of tray rim; painted boat rests near tray center.",
+        "state": "Both boat and tray fully wet-coated, visible purple; water cup and cloth off tray.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "When Zoe arrives, the paint is dry. The boat has vanished from sight, and so has the tray beneath it.",
+        "imageBrief": "Zoe sees apparently empty tan tabletop beside visible paint pot, brush, cup and cloth; Kit gestures proudly.",
+        "imageAlt": "Zoe sees apparently empty tan tabletop beside visible paint pot, brush, cup and cloth; Kit gestures proudly.",
+        "pageDescription": "Zoe sees apparently empty tan tabletop beside visible paint pot, brush, cup and cloth; Kit gestures proudly.",
+        "state": "Boat and tray remain physically present but invisible; no visible floating shadow revealing exact boat.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit reaches for the boat, but his hand brushes its sail. Something bumps against a rim he cannot see.",
+        "imageBrief": "Kit's hand pauses above table after light contact; Zoe watches with concern.",
+        "imageAlt": "Kit's hand pauses above table after light contact; Zoe watches with concern.",
+        "pageDescription": "Kit's hand pauses above table after light contact; Zoe watches with concern.",
+        "state": "Invisible boat shifted sideways within invisible tray; no shown explosion or material disappearance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "He stops reaching. If he guesses again, the boat might slide farther. Zoe points to the damp cloth beside the cup.",
+        "imageBrief": "Kit draws hand back, looking toward cloth that Zoe indicates; all unpainted tools remain visible.",
+        "imageAlt": "Kit draws hand back, looking toward cloth that Zoe indicates; all unpainted tools remain visible.",
+        "pageDescription": "Kit draws hand back, looking toward cloth that Zoe indicates; all unpainted tools remain visible.",
+        "state": "Boat rests against tray's near-right inner rim; children do not sweep blindly.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit remembers the yellow corner he wiped. He wets the cloth and gently draws it across the hidden tray.",
+        "imageBrief": "Damp cloth touches front-left area of invisible tray, revealing a small yellow patch and front rim.",
+        "imageAlt": "Damp cloth touches front-left area of invisible tray, revealing a small yellow patch and front rim.",
+        "pageDescription": "Damp cloth touches front-left area of invisible tray, revealing a small yellow patch and front rim.",
+        "state": "Wiping begins on known broad tray position; wetness reveals and cloth removes paint locally.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A yellow edge appears. He follows it until the cloth touches something higher. A strip of blue shows through.",
+        "imageBrief": "Kit follows revealed rim toward near-right corner; cloth contacts hull and reveals one blue strip.",
+        "imageAlt": "Kit follows revealed rim toward near-right corner; cloth contacts hull and reveals one blue strip.",
+        "pageDescription": "Kit follows revealed rim toward near-right corner; cloth contacts hull and reveals one blue strip.",
+        "state": "Continuous revealed yellow route leads to boat against inner rim; sail remains invisible for now.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Now he can hold the boat still while he wipes it clean. Zoe steadies the tray by its visible edge.",
+        "imageBrief": "Kit holds the visible blue hull while wiping the last paint from the red sail and blunt mast. Zoe steadies the revealed yellow tray rim. Keep one small purple wet patch still on the sail at this moment; every hand grips a visible solid part.",
+        "imageAlt": "Kit holds visible hull and wipes red sail; Zoe holds revealed yellow tray rim, avoiding paint pot.",
+        "pageDescription": "Kit holds visible hull and wipes red sail; Zoe holds revealed yellow tray rim, avoiding paint pot.",
+        "state": "Boat mostly restored, remaining purple wet patch on sail; every grip connects to visible solid surface.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "When the tray is clean too, Kit sets the boat inside. “My surprise took a little finding,” he says.",
+        "imageBrief": "Both smile at fully restored boat centered in fully wiped yellow tray; damp purple-stained cloth lies beside water cup.",
+        "imageAlt": "Both smile at fully restored boat centered in fully wiped yellow tray; damp purple-stained cloth lies beside water cup.",
+        "pageDescription": "Both smile at fully restored boat centered in fully wiped yellow tray; damp purple-stained cloth lies beside water cup.",
+        "state": "All paint removed from boat and tray; magic pot closed, no unresolved invisible object.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does something Kit learned at the start help him find the boat?",
+        "listenFor": "Water makes the hidden coated surface visible and the cloth wipes paint away. He follows the revealed tray edge instead of guessing where the boat moved."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which visible clue leads Kit toward the boat?",
+        "lookFor": "The revealed yellow tray edge continues to the new blue strip where the cloth has touched the hull."
+      }
+    },
+    "levelRationale": "Candidate E: the reader retains an opening rule, tracks an unseen object's location after contact, recognizes the danger of repeating the failed approach, and connects a remembered observation to a controlled solution. Temporal and conditional clauses support the inference. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "vanish",
+        "meaning": "to disappear from sight"
+      },
+      {
+        "word": "rim",
+        "meaning": "the raised edge around something"
+      },
+      {
+        "word": "visible",
+        "meaning": "able to be seen"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-15",
+    "number": 15,
+    "title": "A Valley Shaped by Ice",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why is this mountain valley much wider than the small river running through it now?",
+      "progression": "Begin with the present valley, reconstruct its former glacier and erosion, then return to the valley's shape and scratched bedrock as evidence.",
+      "synthesis": "The small present river did not work alone: a larger body of flowing ice helped widen and deepen this valley over a long time.",
+      "scienceSources": [
+        {
+          "title": "National Park Service: U-Shaped Valleys, Fjords, and Hanging Valleys",
+          "url": "https://www.nps.gov/articles/ushapedvalleysfjordshangingvalleys.htm",
+          "evidence": "Mountain glaciers can widen and deepen former river valleys, leaving a broad U-shaped cross-section."
+        },
+        {
+          "title": "National Park Service, Glacier Bay: Anatomy of a Glacier",
+          "url": "https://www.nps.gov/glba/learn/nature/anatomy-of-a-glacier.htm",
+          "evidence": "Glaciers flow downslope; embedded rock abrades bedrock and leaves grooves. A retreating front can coexist with forward ice motion."
+        },
+        {
+          "title": "US Geological Survey: Geology of Glacier National Park",
+          "url": "https://www.usgs.gov/geology-and-ecology-of-national-parks/geology-glacier-national-park",
+          "evidence": "Present valleys preserve evidence of erosion by former valley glaciers."
+        }
+      ]
+    },
+    "setting": "One unnamed formerly glaciated mountain valley. No humans or buildings. Present summer view has a broad U-shaped cross-section, steep sides, rounded lower corners and modest stream at bottom. All historical views retain a distinctive notch in the left ridge. Reconstruction is illustrative, not a named valley's measured chronology.",
+    "props": [
+      "Fixed mountain ridges with left-ridge notch",
+      "Valley glacier shown only in past, occupying much of valley",
+      "Rock fragments embedded in ice base; scratched exposed bedrock after retreat",
+      "Small present river winding on broad valley floor"
+    ],
+    "coverBrief": "Wide rounded valley floor and small river beneath tall mountain sides. Foreground exposed bedrock bears parallel scrape marks; no phantom glacier or labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A small river winds through this mountain valley. The valley is so wide that the river leaves most of its floor untouched.",
+        "imageBrief": "Present wide valley, narrow central river, distinctive left-ridge notch and exposed foreground bedrock.",
+        "imageAlt": "Present wide valley, narrow central river, distinctive left-ridge notch and exposed foreground bedrock.",
+        "pageDescription": "Present wide valley, narrow central river, distinctive left-ridge notch and exposed foreground bedrock.",
+        "state": "Summer, glacier absent; river visibly smaller than valley width.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "What shaped all that space? Long ago, thick ice filled much of the valley, from its floor high up its sides.",
+        "imageBrief": "Historical reconstruction from same viewpoint: glacier fills valley well up sides; upper ridges and notch remain.",
+        "imageAlt": "Historical reconstruction from same viewpoint: glacier fills valley well up sides; upper ridges and notch remain.",
+        "pageDescription": "Historical reconstruction from same viewpoint: glacier fills valley well up sides; upper ridges and notch remain.",
+        "state": "Past explicitly established; no river floating on top or altered mountain identity.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "This mass of ice was a glacier. Although it looked still, it slowly flowed down the valley.",
+        "imageBrief": "Elevated side view follows continuous glacier down valley slope; one subtle downslope arrow.",
+        "imageAlt": "Elevated side view follows continuous glacier down valley slope; one subtle downslope arrow.",
+        "pageDescription": "Elevated side view follows continuous glacier down valley slope; one subtle downslope arrow.",
+        "state": "Arrow illustrates direction; no fast waves or liquid river substituted for ice.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Rock caught in the bottom of the moving ice scraped against the valley floor. It left scratches in the hard stone.",
+        "imageBrief": "Close cutaway at ice-bedrock contact shows three embedded fragments against bedrock, with grooves behind them.",
+        "imageAlt": "Close cutaway at ice-bedrock contact shows three embedded fragments against bedrock, with grooves behind them.",
+        "pageDescription": "Close cutaway at ice-bedrock contact shows three embedded fragments against bedrock, with grooves behind them.",
+        "state": "Bounded educational cutaway; fragments embedded, no tools or ordinary transparent-ground claim.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The moving ice also wore at the valley's sides. Over a long time, the valley became wider and deeper.",
+        "imageBrief": "Wide historical cross-section shows glacier against floor and lower walls; same ridge notch above.",
+        "imageAlt": "Wide historical cross-section shows glacier against floor and lower walls; same ridge notch above.",
+        "pageDescription": "Wide historical cross-section shows glacier against floor and lower walls; same ridge notch above.",
+        "state": "No instant collapse or exact rate; thick ice occupies valley.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Later, more ice melted at the glacier's front than arrived from higher up. The end of the glacier grew shorter.",
+        "imageBrief": "Glacier front now farther uphill, with wet exposed bedrock and emerging meltwater below.",
+        "imageAlt": "Glacier front now farther uphill, with wet exposed bedrock and emerging meltwater below.",
+        "pageDescription": "Glacier front now farther uphill, with wet exposed bedrock and emerging meltwater below.",
+        "state": "Front retreats through melting; ice still flows downslope, never slides backward as a solid block.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "As the ice shrank back, it uncovered the broad valley it had helped shape. A river could flow along the bottom.",
+        "imageBrief": "Later view with small glacier remnant far uphill and stream on exposed wide valley floor.",
+        "imageAlt": "Later view with small glacier remnant far uphill and stream on exposed wide valley floor.",
+        "pageDescription": "Later view with small glacier remnant far uphill and stream on exposed wide valley floor.",
+        "state": "Further time passed; no new narrow deep canyon cut instantly.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Today, the ice is gone from this valley. Its steep sides curve into a wide floor, like the bottom of a U.",
+        "imageBrief": "Return to opening viewpoint; broad floor and rounded lower corners clearly visible.",
+        "imageAlt": "Return to opening viewpoint; broad floor and rounded lower corners clearly visible.",
+        "pageDescription": "Return to opening viewpoint; broad floor and rounded lower corners clearly visible.",
+        "state": "Present summer; no giant printed U embedded in scene.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "On bare rock, long scratches give another clue. Stones carried by the old glacier once scraped along these lines.",
+        "imageBrief": "Close foreground bedrock with parallel grooves; river and valley beyond.",
+        "imageAlt": "Close foreground bedrock with parallel grooves; river and valley beyond.",
+        "pageDescription": "Close foreground bedrock with parallel grooves; river and valley beyond.",
+        "state": "Natural grooves, not painted stripes; no claim every scratch everywhere is glacial.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The river still changes the valley, but it did not make this wide space alone. The missing ice left its work behind.",
+        "imageBrief": "Final wide view connects small river, U-shaped valley and scratched foreground bedrock.",
+        "imageAlt": "Final wide view connects small river, U-shaped valley and scratched foreground bedrock.",
+        "pageDescription": "Final wide view connects small river, U-shaped valley and scratched foreground bedrock.",
+        "state": "Same present topography as opening; glacier absent, evidence remains.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What two clues help explain why ice once filled this valley?",
+        "listenFor": "The broad rounded valley shape and scratches on bare rock fit the effects of a glacier; the small river does not tell the whole history."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where can you see the wide floor and the sides curving into it?",
+        "lookFor": "Trace the steep sides down to rounded lower corners and broad floor, rather than following only the narrow river."
+      }
+    },
+    "levelRationale": "Candidate E: a present puzzle prompts reconstruction across past and present, then inference from two remaining clues. One explained specialist noun and a single erosion chain support temporal and causal reasoning without a landform catalogue. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "glacier",
+        "meaning": "a large mass of ice that moves slowly over land"
+      },
+      {
+        "word": "valley",
+        "meaning": "low land between higher land"
+      },
+      {
+        "word": "clue",
+        "meaning": "something that helps explain what happened"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-16",
+    "number": 16,
+    "title": "Stars That Look Close",
+    "topic": "space",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Do stars that form a pattern in our sky have to be close together in space?",
+      "progression": "Compare an apparent sky pattern with a small classroom model whose depths become clear from the side, then return to real stars with the model's limit explained.",
+      "synthesis": "Stars can appear grouped from Earth at different distances. Walking around a small model changes its appearance; walking across a yard cannot provide a comparable side view of real stars.",
+      "scienceSources": [
+        {
+          "title": "NASA Space Place: What Are Constellations?",
+          "url": "https://spaceplace.nasa.gov/constellations/en/",
+          "evidence": "Stars in apparent constellations can lie at very different distances from Earth."
+        },
+        {
+          "title": "Lunar and Planetary Institute: Sky Tellers—Constellations",
+          "url": "https://www.lpi.usra.edu/education/skytellers/constellations/index.shtml",
+          "evidence": "Apparent star patterns occupy three-dimensional space, not a flat plane. Stars' enormous distances make ordinary local viewpoint changes ineffective."
+        }
+      ]
+    },
+    "setting": "Locked Kit and Zoe outdoors at dusk, in classroom next day, then outdoors after dark. No space travel. Model is not a scale model or named constellation. One long rectangular table, three identical yellow circular cards on equal-height gray stands, positioned to appear in a row from near short end while at three different depths.",
+    "props": [
+      "Exactly three yellow circular model cards with no faces on gray stands",
+      "Blue viewing mat at near short end; green viewing mat at long side",
+      "Near, middle and far cards laterally offset to remain separately visible from near-end viewpoint",
+      "Real sky contains a generic few bright stars; connecting lines only as explicit dotted diagram overlay on page 9"
+    ],
+    "coverBrief": "Kit looks from blue mat toward three yellow model stars while Zoe stands beside the table, where the different card distances are obvious. Clearly a classroom model.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Three bright stars seem close together in the sky. From Earth, we see a pattern, but we cannot see its depth.",
+        "imageBrief": "Kit and Zoe look toward three selected points in a shallow slanting row among fainter stars.",
+        "imageAlt": "Kit and Zoe look toward three selected points in a shallow slanting row among fainter stars.",
+        "pageDescription": "Kit and Zoe look toward three selected points in a shallow slanting row among fainter stars.",
+        "state": "Actual sky, no physical rods, no named constellation or distance figures.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Some stars in a pattern are much farther away than others. Kit and Zoe make a small model to explore that idea.",
+        "imageBrief": "Zoe places yellow cards on three stands along table; Kit stands at near-end blue mat.",
+        "imageAlt": "Zoe places yellow cards on three stands along table; Kit stands at near-end blue mat.",
+        "pageDescription": "Zoe places yellow cards on three stands along table; Kit stands at near-end blue mat.",
+        "state": "Daytime classroom; model introduced, not stars brought indoors.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe sets one model star near Kit, one farther back, and one near the far end of the table.",
+        "imageBrief": "Elevated view shows three separate depths with lateral offsets so no card hides another.",
+        "imageAlt": "Elevated view shows three separate depths with lateral offsets so no card hides another.",
+        "pageDescription": "Elevated view shows three separate depths with lateral offsets so no card hides another.",
+        "state": "Identical card sizes, equal stand heights; positions fixed from here.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "From his end, Kit sees all three in a row. Their places look connected, although the spaces between them are different.",
+        "imageBrief": "Over Kit's shoulder from blue mat: three card centers appear in row, depth compressed.",
+        "imageAlt": "Over Kit's shoulder from blue mat: three card centers appear in row, depth compressed.",
+        "pageDescription": "Over Kit's shoulder from blue mat: three card centers appear in row, depth compressed.",
+        "state": "No joining string; brightness is not used to infer distance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe walks to the side. From here, she can see how far the stars stretch along the table.",
+        "imageBrief": "Zoe at green side mat sees the cards spaced along the long table; Kit stays at blue mat. The distances are clearer from this angle.",
+        "imageAlt": "Zoe at green side mat sees the cards spaced along the long table; Kit stays at blue mat. The distances are clearer from this angle.",
+        "pageDescription": "Zoe at green side mat sees the cards spaced along the long table; Kit stays at blue mat. The distances are clearer from this angle.",
+        "state": "Only observer changes position; all stands fixed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit joins her. The same three stars look much farther apart. They were never fixed to one flat picture.",
+        "imageBrief": "Both children at side mat inspect card depths along table; blue mat visible at end.",
+        "imageAlt": "Both children at side mat inspect card depths along table; blue mat visible at end.",
+        "pageDescription": "Both children at side mat inspect card depths along table; blue mat visible at end.",
+        "state": "Same three-dimensional arrangement; view should visibly reveal depths.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Real stars are vastly farther away than these cards. Walking across our yard does not give us this side view of them.",
+        "imageBrief": "Children outdoors at evening a few paces apart, same apparent star grouping above both.",
+        "imageAlt": "Children outdoors at evening a few paces apart, same apparent star grouping above both.",
+        "pageDescription": "Children outdoors at evening a few paces apart, same apparent star grouping above both.",
+        "state": "No giant nearby stars or suggestion small Earth steps change pattern.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "We would need a view from far across space to see the pattern from a very different angle.",
+        "imageBrief": "Bounded conceptual depth diagram: three separated star symbols, Earth viewpoint far to one side and alternate viewpoint far across space.",
+        "imageAlt": "Bounded conceptual depth diagram: three separated star symbols, Earth viewpoint far to one side and alternate viewpoint far across space.",
+        "pageDescription": "Bounded conceptual depth diagram: three separated star symbols, Earth viewpoint far to one side and alternate viewpoint far across space.",
+        "state": "Not to scale; no child spaceship, strings, walls or fixed star plane.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "People join star patterns in their minds to make constellations. The lines help us find shapes; they are not strings in space.",
+        "imageBrief": "Earth night view with faint dotted guide segments between selected stars.",
+        "imageAlt": "Earth night view with faint dotted guide segments between selected stars.",
+        "pageDescription": "Earth night view with faint dotted guide segments between selected stars.",
+        "state": "Guide lines are illustrative overlay, never physical beams; generic pattern.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The stars can share a pattern without sharing one small place. What looks close depends on where we are looking from.",
+        "imageBrief": "Two clearly bordered views: Earth-facing star pattern at left and classroom three-depth model at right.",
+        "imageAlt": "Two clearly bordered views: Earth-facing star pattern at left and classroom three-depth model at right.",
+        "pageDescription": "Two clearly bordered views: Earth-facing star pattern at left and classroom three-depth model at right.",
+        "state": "Explicit educational comparison; same cards and sky pattern retained.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can the model look like a row even though its stars are at different distances?",
+        "listenFor": "Separate objects can line up from one viewpoint. The side view shows model depth; real stars are too distant for a walk across a yard to do that."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What changed, and what stayed in place?",
+        "lookFor": "Zoe changed her viewing position; all three model stars stayed fixed on their stands."
+      }
+    },
+    "levelRationale": "Candidate E: readers transfer a viewpoint-and-depth relationship from a concrete model to the sky, then use an explicit limit to avoid overgeneralizing it. Contrast clauses and cross-page reference sustain a spatial inference, not a constellation list. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "model",
+        "meaning": "a small or simple way to show an idea"
+      },
+      {
+        "word": "depth",
+        "meaning": "distance from front to back"
+      },
+      {
+        "word": "constellation",
+        "meaning": "a named area of sky associated with a pattern of stars"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-17",
+    "number": 17,
+    "title": "Beaks Below the Mud",
+    "topic": "animals",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can two shorebirds find food in the same muddy place in different ways?",
+      "progression": "Follow a plover watching and a dowitcher probing, compare their observed actions, then qualify the comparison with overlapping methods.",
+      "synthesis": "Mud hides food at different depths. Shape and searching behavior help birds reach it, but their methods and food can overlap.",
+      "scienceSources": [
+        {
+          "title": "Cornell Lab of Ornithology: Black-bellied Plover Life History",
+          "url": "https://www.allaboutbirds.org/guide/Black-bellied_Plover/lifehistory",
+          "evidence": "Black-bellied Plovers commonly run, pause and seize prey; they can also pull worms from burrows. Their diet includes marine invertebrates."
+        },
+        {
+          "title": "Cornell Lab of Ornithology: Short-billed Dowitcher Life History",
+          "url": "https://www.allaboutbirds.org/guide/Short-billed_Dowitcher/lifehistory",
+          "evidence": "Short-billed Dowitchers probe coastal mud for buried invertebrates and can also take surface food. No exclusive food zones or absence of competition is claimed."
+        },
+        {
+          "title": "Smithsonian National Zoo: Short-billed Dowitcher",
+          "url": "https://nationalzoo.si.edu/animals/short-billed-dowitcher",
+          "evidence": "Species has a long bill with subtle curvature near its tip, long legs and coastal nonbreeding habitat; its common name compares it with another dowitcher, not the plover."
+        }
+      ]
+    },
+    "setting": "One coastal mudflat in nonbreeding season at low water. Exactly one Black-bellied Plover (Pluvialis squatarola), gray-brown and white nonbreeding plumage, stout short black bill. Exactly one Short-billed Dowitcher (Limnodromus griseus), gray above, pale below, longer slender dark bill and greenish legs. Natural anatomy, no humans or anthropomorphic faces. Maintain species and scale across views.",
+    "props": [
+      "Exposed wet mud at left and shallow water farther right",
+      "Tiny marine worms concealed in mud; one small surface crab only where required",
+      "Bounded educational mud cutaway on page 6, never ordinary transparent ground"
+    ],
+    "coverBrief": "Two natural shorebirds: plover paused on exposed mud and dowitcher with long bill entering an adjacent shallow wet patch. Different search postures are clear without labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The mud looks almost empty, but small animals live on it and inside it. Two shorebirds have come to find a meal.",
+        "imageBrief": "Wide mudflat, one plover left and one dowitcher in shallows right; tiny crab near plover.",
+        "imageAlt": "Wide mudflat, one plover left and one dowitcher in shallows right; tiny crab near plover.",
+        "pageDescription": "Wide mudflat, one plover left and one dowitcher in shallows right; tiny crab near plover.",
+        "state": "Exactly two birds, realistically small prey; no giant surface worms.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "This plover takes a few quick steps, then stops. Its short, strong bill stays above the mud while it looks.",
+        "imageBrief": "Plover paused alertly, one foot just settling; dowitcher distant.",
+        "imageAlt": "Plover paused alertly, one foot just settling; dowitcher distant.",
+        "pageDescription": "Plover paused alertly, one foot just settling; dowitcher distant.",
+        "state": "Single moment, not clones of repeated steps.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A tiny crab moves nearby. The plover darts forward and picks it from the surface before it reaches a hole.",
+        "imageBrief": "Plover holds one small crab just above mud near empty burrow.",
+        "imageAlt": "Plover holds one small crab just above mud near empty burrow.",
+        "pageDescription": "Plover holds one small crab just above mud near empty burrow.",
+        "state": "Natural feeding without gore; same crab not simultaneously in hole.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The other bird is a dowitcher. Its bill is much longer than the plover's, and it searches in a wetter patch.",
+        "imageBrief": "Side view of dowitcher in shallows, long bill angled toward mud; plover small to left.",
+        "imageAlt": "Side view of dowitcher in shallows, long bill angled toward mud; plover small to left.",
+        "pageDescription": "Side view of dowitcher in shallows, long bill angled toward mud; plover small to left.",
+        "state": "Exact Short-billed Dowitcher anatomy despite abbreviated child-facing name.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "It pushes its bill into the soft mud, lifts it, and probes again. Much of its searching happens out of sight.",
+        "imageBrief": "Dowitcher bill inserted almost vertically beneath shallow water into mud.",
+        "imageAlt": "Dowitcher bill inserted almost vertically beneath shallow water into mud.",
+        "pageDescription": "Dowitcher bill inserted almost vertically beneath shallow water into mud.",
+        "state": "One insertion, intact straight-to-gently-curved bill, not bent like straw.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Below the surface, its bill can reach buried food. A worm does not have to come into view first.",
+        "imageBrief": "Framed cutaway shows inserted bill tip near small buried marine worm.",
+        "imageAlt": "Framed cutaway shows inserted bill tip near small buried marine worm.",
+        "pageDescription": "Framed cutaway shows inserted bill tip near small buried marine worm.",
+        "state": "Hidden structure for reader, not X-ray sight by bird; plausible reach.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The plover often searches by watching. The dowitcher often probes. Their different actions help them find food in the same place.",
+        "imageBrief": "Shared view: alert upright plover, probing dowitcher on adjacent patch.",
+        "imageAlt": "Shared view: alert upright plover, probing dowitcher on adjacent patch.",
+        "pageDescription": "Shared view: alert upright plover, probing dowitcher on adjacent patch.",
+        "state": "No hard boundaries or exclusive territories.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "But these are not two fixed menus. A plover can pull out a worm, and a dowitcher can pick up surface food.",
+        "imageBrief": "Plover pulls small worm from burrow while dowitcher takes tiny surface prey nearby.",
+        "imageAlt": "Plover pulls small worm from burrow while dowitcher takes tiny surface prey nearby.",
+        "pageDescription": "Plover pulls small worm from burrow while dowitcher takes tiny surface prey nearby.",
+        "state": "One simultaneous comparison; no claim equal frequencies or entirely separate diets.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Even when a worm stays hidden, the dowitcher's probing marks show where its bill has been.",
+        "imageBrief": "Dowitcher lifts its bill beside a few fresh probing holes in wet mud; plover remains on nearby exposed patch.",
+        "imageAlt": "Dowitcher lifts its bill beside a few fresh probing holes in wet mud; plover remains on nearby exposed patch.",
+        "pageDescription": "Dowitcher lifts its bill beside a few fresh probing holes in wet mud; plover remains on nearby exposed patch.",
+        "state": "No worm visible; natural small holes indicate previous bill entry, not printed paths.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "A long bill is useful for reaching in. A sharp look can help at the surface. This muddy place holds both opportunities.",
+        "imageBrief": "Final shared view emphasizes alert plover and dowitcher probing beside exposed and wetter patches.",
+        "imageAlt": "Final shared view emphasizes alert plover and dowitcher probing beside exposed and wetter patches.",
+        "pageDescription": "Final shared view emphasizes alert plover and dowitcher probing beside exposed and wetter patches.",
+        "state": "Do not suggest bill length alone prevents competition.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does the book say the birds do not have two fixed menus?",
+        "listenFor": "They often search differently, but methods and foods overlap: either can take food reached by the other's common method."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What does the cutaway show that we could not see from above?",
+        "lookFor": "The bill tip reaching into mud toward hidden prey; it reveals structure to the reader, not what the bird sees."
+      }
+    },
+    "levelRationale": "Candidate E: the reader forms a supported comparison, then adjusts it when an exception appears. Hidden prey, visible actions and reach stay connected; two orally introduced bird names support one inquiry rather than an animal catalogue. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "plover",
+        "meaning": "a shorebird that often runs, stops, and looks for food"
+      },
+      {
+        "word": "dowitcher",
+        "meaning": "a shorebird with a long bill that often probes mud"
+      },
+      {
+        "word": "probe",
+        "meaning": "to push into something while searching"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-18",
+    "number": 18,
+    "title": "The Butterfly Relay",
+    "topic": "life cycles",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Does one monarch butterfly complete the whole yearly journey north and south?",
+      "progression": "Follow eastern monarch populations from autumn southward travel through winter, spring egg laying, offspring continuing north, and a later generation returning south.",
+      "synthesis": "The annual route continues through generations. Later autumn travelers are descendants, not the same butterflies returning from the previous winter.",
+      "scienceSources": [
+        {
+          "title": "US Fish and Wildlife Service: Monarch, Danaus plexippus",
+          "url": "https://www.fws.gov/species/monarch-danaus-plexippus",
+          "evidence": "Eastern migratory monarchs overwinter in central Mexico. Multiple generations reproduce northward in spring and summer; a later generation migrates south."
+        },
+        {
+          "title": "National Park Service: Migrating Monarchs",
+          "url": "https://www.nps.gov/subjects/pollinators/migratingmonarchs.htm",
+          "evidence": "The eastern route links Mexican mountain winter sites with northern seasonal breeding areas across generations."
+        },
+        {
+          "title": "US Fish and Wildlife Service: The Phenomenal Monarch Migration",
+          "url": "https://www.fws.gov/story/phenomenal-monarch-migration",
+          "evidence": "Fall migrants survive winter and begin the spring journey; descendants continue the population's movement. No universal exact generation count is asserted."
+        }
+      ]
+    },
+    "setting": "Eastern migratory monarch population (Danaus plexippus) only. Autumn flight, central Mexican oyamel-fir winter forest, southern US spring milkweed, northern summer meadow. Never follow one named individual through whole year. Orange adult wings with black veins and white-spotted black borders; egg-laying female lacks male hindwing scent spots. Tiny pale egg beneath milkweed leaf. Monarch caterpillar has black, white and yellow bands. Monarchs have four developed walking legs and a reduced front pair held close to the thorax; do not depict six equally long ground-contact legs.",
+    "props": [
+      "Locator-map inset only pages 1, 4 and 9: north up, pale land, blue water, broad route from central Mexico through eastern North America",
+      "Oyamel fir branches at winter site; milkweed at breeding sites; nectar flowers in adult feeding scenes",
+      "No baton, crowns, flags, vehicles or numbered generation badges"
+    ],
+    "coverBrief": "A newly emerged monarch with full-sized firm wings rests near its empty chrysalis on milkweed at the edge of a northern meadow. Other adult monarchs fly in the spacious distance above nectar flowers. One coherent natural scene, no locator-map inset, no labels, no race equipment.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Each autumn, monarch butterflies from eastern North America fly south. Many reach mountain forests in Mexico, where they spend the winter.",
+        "imageBrief": "Autumn monarch group in directional flight; small locator map with broad arrow toward central Mexico.",
+        "imageAlt": "Autumn monarch group in directional flight; small locator map with broad arrow toward central Mexico.",
+        "pageDescription": "Autumn monarch group in directional flight; small locator map with broad arrow toward central Mexico.",
+        "state": "Population view, no unique marked individual; geographic map checked.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 2,
+        "text": "They gather on fir trees, wings folded close. These travelers will wait through winter before beginning the journey north.",
+        "imageBrief": "Natural monarch cluster on oyamel fir branch in cool mountain forest.",
+        "imageAlt": "Natural monarch cluster on oyamel fir branch in cool mountain forest.",
+        "pageDescription": "Natural monarch cluster on oyamel fir branch in cool mountain forest.",
+        "state": "No palms, deep snow burial or adult butterflies inside cocoons.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "When spring brings warmer days, the butterflies leave the forest. They fly north, stopping to feed as they go.",
+        "imageBrief": "Adults feeding at flowers near forest edge in spring.",
+        "imageAlt": "Adults feeding at flowers near forest edge in spring.",
+        "pageDescription": "Adults feeding at flowers near forest edge in spring.",
+        "state": "Time advanced, overwintering generation; no guarantee all survive.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Along the way, females lay eggs on milkweed. The butterflies that began this trip will not travel the whole route north.",
+        "imageBrief": "One female lays one tiny pale egg beneath milkweed leaf; small map locates southern part of northward journey.",
+        "imageAlt": "One female lays one tiny pale egg beneath milkweed leaf; small map locates southern part of northward journey.",
+        "pageDescription": "One female lays one tiny pale egg beneath milkweed leaf; small map locates southern part of northward journey.",
+        "state": "No egg pile or adult eating leaf; individual example within population.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Their young grow into new butterflies. These are the next generation: the children of the butterflies that left the winter forest.",
+        "imageBrief": "Fresh adult rests beside empty chrysalis on milkweed, wings fully expanded.",
+        "imageAlt": "Fresh adult rests beside empty chrysalis on milkweed, wings fully expanded.",
+        "pageDescription": "Fresh adult rests beside empty chrysalis on milkweed, wings fully expanded.",
+        "state": "Later time; new individual, not parent transformed again.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Some of these new butterflies keep moving north and lay eggs. Later generations continue as milkweed grows in more northern places.",
+        "imageBrief": "Northern summer milkweed with female at one leaf and one caterpillar on a separate leaf.",
+        "imageAlt": "Northern summer milkweed with female at one leaf and one caterpillar on a separate leaf.",
+        "pageDescription": "Northern summer milkweed with female at one leaf and one caterpillar on a separate leaf.",
+        "state": "Population progression; no fixed generation count or single individual lifespan implied.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "By late summer, many earlier travelers are gone. Their descendants feed in meadows far from the winter forest.",
+        "imageBrief": "Late-summer monarch feeding at northern meadow flower.",
+        "imageAlt": "Late-summer monarch feeding at northern meadow flower.",
+        "pageDescription": "Late-summer monarch feeding at northern meadow flower.",
+        "state": "Fresh late-season population; no need to picture deaths.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Then a new generation begins the long flight south. These butterflies have never visited the forest they are heading toward.",
+        "imageBrief": "Autumn monarchs fly above meadow with distant changing deciduous leaves.",
+        "imageAlt": "Autumn monarchs fly above meadow with distant changing deciduous leaves.",
+        "pageDescription": "Autumn monarchs fly above meadow with distant changing deciduous leaves.",
+        "state": "New migrants; no conscious map memory or inherited remembered landmarks claimed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "They gather in Mexico as the earlier travelers did. The route has come around again, but the butterflies have changed.",
+        "imageBrief": "New autumn arrivals cluster on oyamel fir; inset map shows route ending in same central Mexican region.",
+        "imageAlt": "New autumn arrivals cluster on oyamel fir; inset map shows route ending in same central Mexican region.",
+        "pageDescription": "New autumn arrivals cluster on oyamel fir; inset map shows route ending in same central Mexican region.",
+        "state": "Same regional habitat, new generation; never reuse a unique damaged wing as same individual.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "No single butterfly made the whole yearly journey. Like a relay, the journey continued while one generation gave way to the next.",
+        "imageBrief": "Three clearly separated seasonal recap vignettes: winter adults, northern summer new adult on milkweed, next winter adults.",
+        "imageAlt": "Three clearly separated seasonal recap vignettes: winter adults, northern summer new adult on milkweed, next winter adults.",
+        "pageDescription": "Three clearly separated seasonal recap vignettes: winter adults, northern summer new adult on milkweed, next winter adults.",
+        "state": "Conceptual time sequence, not literal handoff or all generations flying together.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why is this journey compared with a relay?",
+        "listenFor": "It continues across generations. The later southward butterflies are descendants rather than the original winter butterflies making one yearly loop."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What shows that this is a new adult butterfly?",
+        "lookFor": "It rests beside the empty chrysalis from which it emerged after growing from the earlier travelers' young."
+      }
+    },
+    "levelRationale": "Candidate E: the reader distinguishes continuity of a journey from continuity of an individual. Season markers, a plain explanation of generation and return to the winter setting support this inference; exact distances, generation counts and migration mechanisms are excluded. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "generation",
+        "meaning": "a group born at about the same stage in a family"
+      },
+      {
+        "word": "descendants",
+        "meaning": "children, grandchildren, and later family of a living thing"
+      },
+      {
+        "word": "relay",
+        "meaning": "a race in which different runners take turns continuing the race"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-19",
+    "number": 19,
+    "title": "One Group Is Not Enough",
+    "topic": "classification",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can one sorting board show both a shape's color and whether it is round?",
+      "progression": "Sort the same four shapes first by color, then by roundness; combine the two questions in a four-cell grid and test it with two new shapes.",
+      "synthesis": "Each cell answers two questions at once. A piece that matches neither named property still has a place, and a new shape can share a cell without being identical.",
+      "scienceSources": [
+        {
+          "title": "University of Cambridge NRICH: Carroll Diagrams",
+          "url": "https://nrich.maths.org/problems/carroll-diagrams",
+          "evidence": "A Carroll diagram classifies objects simultaneously by two properties and their negations. This book's exact six-shape example and narrative are original."
+        }
+      ]
+    },
+    "setting": "Locked Kit and Zoe at one low classroom table in steady daylight. Top-down board views keep orientation fixed: top row red, bottom row not red; left column round, right column not round. Four equal rectangular cells, never overlapping circles. Word labels are functional diagram text rather than decoration.",
+    "props": [
+      "Initial four flat pieces: one large red circle, one blue circle of same size, one red square and one blue square",
+      "Two additional pieces kept in a separate yellow tray until page 8: one smaller red circle and one red triangle",
+      "One white four-cell sorting board with black dividers; headers red/not red for rows and round/not round for columns",
+      "Plain yellow tray for waiting pieces; no extra decorative shapes"
+    ],
+    "coverBrief": "Kit and Zoe examine a wordless four-cell board holding six pieces: two red circles top left, red square and red triangle top right, blue circle bottom left, blue square bottom right. Cover art has no headers or lettering; exact row/column labels appear only on the specified interior diagram pages.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit sorts four shapes by color. The red ones sit together, and the blue ones make a second group.",
+        "imageBrief": "Top view shows red circle and red square grouped left, blue circle and blue square grouped right.",
+        "imageAlt": "Top view shows red circle and red square grouped left, blue circle and blue square grouped right.",
+        "pageDescription": "Top view shows red circle and red square grouped left, blue circle and blue square grouped right.",
+        "state": "Four active pieces, two new pieces remain inside yellow tray at far edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe wants to find the round shapes together too. But each color group holds one round shape and one square.",
+        "imageBrief": "Zoe points to red circle and blue circle in separate color groups; Kit looks across.",
+        "imageAlt": "Zoe points to red circle and blue circle in separate color groups; Kit looks across.",
+        "pageDescription": "Zoe points to red circle and blue circle in separate color groups; Kit looks across.",
+        "state": "Groups unchanged; only four pieces active.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "They sort by shape instead. Now the circles are together, but the red pieces have become separated again.",
+        "imageBrief": "Two new groups: both circles left, both squares right.",
+        "imageAlt": "Two new groups: both circles left, both squares right.",
+        "pageDescription": "Two new groups: both circles left, both squares right.",
+        "state": "Same four pieces, no duplication or change in color.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Can one board show both things? They draw four spaces, with red above not red and round beside not round.",
+        "imageBrief": "Empty four-cell board with row labels at left and column labels above; four active shapes below board.",
+        "imageAlt": "Empty four-cell board with row labels at left and column labels above; four active shapes below board.",
+        "pageDescription": "Empty four-cell board with row labels at left and column labels above; four active shapes below board.",
+        "state": "Orientation fixed: top red, bottom not red; left round, right not round.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The red circle belongs in the top left space. It is red, and it is round: both answers fit.",
+        "imageBrief": "Kit places large red circle in top-left cell; remaining three active shapes below board.",
+        "imageAlt": "Kit places large red circle in top-left cell; remaining three active shapes below board.",
+        "pageDescription": "Kit places large red circle in top-left cell; remaining three active shapes below board.",
+        "state": "Only top-left occupied; two new pieces stay in tray.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The red square goes beside it. It matches the red row, but it does not belong in the round column.",
+        "imageBrief": "Zoe places red square top right, next to red circle top left.",
+        "imageAlt": "Zoe places red square top right, next to red circle top left.",
+        "pageDescription": "Zoe places red square top right, next to red circle top left.",
+        "state": "Bottom cells still empty; blue pieces waiting.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The blue circle fits below the red circle. The blue square fits beside it: neither red nor round, but still sorted.",
+        "imageBrief": "Four cells now occupied: red circle top left, red square top right, blue circle bottom left, blue square bottom right.",
+        "imageAlt": "Four cells now occupied: red circle top left, red square top right, blue circle bottom left, blue square bottom right.",
+        "pageDescription": "Four cells now occupied: red circle top left, red square top right, blue circle bottom left, blue square bottom right.",
+        "state": "Exactly four placed pieces; two waiting in tray.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe brings a small red circle and a red triangle. Their sizes and shapes differ, but the same two questions still work.",
+        "imageBrief": "Zoe lifts two new pieces from yellow tray above unchanged board; Kit studies headers.",
+        "imageAlt": "Zoe lifts two new pieces from yellow tray above unchanged board; Kit studies headers.",
+        "pageDescription": "Zoe lifts two new pieces from yellow tray above unchanged board; Kit studies headers.",
+        "state": "Now six active pieces; one small red circle and one red triangle newly introduced.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The small circle joins the large one. The triangle joins the red square, because neither of those red shapes is round.",
+        "imageBrief": "Complete board: two red circles top left, red square and red triangle top right, blue circle bottom left, blue square bottom right.",
+        "imageAlt": "Complete board: two red circles top left, red square and red triangle top right, blue circle bottom left, blue square bottom right.",
+        "pageDescription": "Complete board: two red circles top left, red square and red triangle top right, blue circle bottom left, blue square bottom right.",
+        "state": "Six pieces total; size is not a sorting rule.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Sharing a space does not mean every piece is the same. It means they give the same answers to these two questions.",
+        "imageBrief": "Final close board view with children pointing to red square and triangle sharing top-right cell.",
+        "imageAlt": "Final close board view with children pointing to red square and triangle sharing top-right cell.",
+        "pageDescription": "Final close board view with children pointing to red square and triangle sharing top-right cell.",
+        "state": "All six remain correctly placed, same header orientation.",
+        "embeddedImageText": "round; not round; red; not red",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can the red triangle share a space with the red square?",
+        "listenFor": "Both are red and not round. They need not have the same shape because the board asks only about color and roundness."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Why does the blue square belong in the bottom right space?",
+        "lookFor": "It is not red and it is not round, so it satisfies both descriptions of that cell; neither does not mean unsorted."
+      }
+    },
+    "levelRationale": "Candidate E: the reader coordinates two properties, tracks negation and interprets both/neither, then transfers the rule to new examples without adding a size rule. The closing inference distinguishes matching criteria from being identical. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "sort",
+        "meaning": "to put things into groups by a rule"
+      },
+      {
+        "word": "neither",
+        "meaning": "not one and not the other"
+      },
+      {
+        "word": "column",
+        "meaning": "spaces arranged from top to bottom"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-20",
+    "number": 20,
+    "title": "The Patch Left to Grow",
+    "topic": "caring for our world",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Why might a gardener mow a walking route but leave a nearby flowering patch standing?",
+      "progression": "Follow one managed school meadow from buds through bloom and seed, while a separate cut route stays open. Compare immediate tidiness with the time plants and flower visitors need.",
+      "synthesis": "Different parts of a shared place can serve different needs. Leaving an appropriate flower patch standing lets flowering and seed development continue while an adjacent route remains usable.",
+      "scienceSources": [
+        {
+          "title": "Xerces Society: Habitat Management",
+          "url": "https://xerces.org/pollinator-conservation/habitat-restoration/management",
+          "evidence": "Mowing timing and extent affect flowering resources and insects; leaving refuges and managing different areas at different times can retain habitat."
+        },
+        {
+          "title": "Xerces Society: No Mow May Is an Easy Start, but Not the Finish Line",
+          "url": "https://xerces.org/blog/no-mow-may-easy-start-for-nature-friendly-yard-but-not-finish-line",
+          "evidence": "Reduced mowing must accompany appropriate plants and continuing site management; simply stopping all mowing is not a universal habitat solution."
+        },
+        {
+          "title": "USDA Natural Resources Conservation Service: Black-eyed Susan Plant Guide",
+          "url": "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_ruhi2.pdf",
+          "evidence": "Rudbeckia hirta provides resources for pollinator insects and produces seed. Use ordinary yellow rays and dark raised centers, not an invented cultivar."
+        },
+        {
+          "title": "Xerces Society: Maintaining Diverse Stands of Wildflowers Planted for Pollinators",
+          "url": "https://xerces.org/sites/default/files/2018-06/16-028_01_MaintainingDiverseWildflowers_Nov2016-web.pdf",
+          "evidence": "Management timing can allow seed maturation and retention of flowering resources. The illustrated plan is site-specific, with no universal mowing date."
+        }
+      ]
+    },
+    "setting": "Illustrative eastern US school meadow edge over summer into early fall. Kit and Zoe keep locked designs. Unnamed adult gardener: warm tan skin, short dark curls, green shirt, brown pants and sturdy boots, about 1.7 times child height. One curved grass walking route borders a planted patch of black-eyed Susan (Rudbeckia hirta) among grasses. Plants follow buds to yellow rays/dark centers to dry brown seed heads; no overnight change.",
+    "props": [
+      "One clearly bounded planted wildflower patch beside a cut grass route, no barrier across access",
+      "Parked manual reel mower used only by adult; children stand well away when it moves",
+      "Two low plain wooden corner markers identifying retained patch without readable slogans",
+      "Black-eyed Susan plants in correct successive seasonal states; one small natural native bee during bloom scene"
+    ],
+    "coverBrief": "Zoe and Kit walk along a neatly cut grass route beside a standing patch of yellow black-eyed Susan flowers. Gardener checks the patch's edge; no mower near children.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Beside the school path, tall stems carry tight green buds. The gardener has come to cut the grass around them.",
+        "imageBrief": "Gardener beside parked reel mower at meadow edge; children look at green-budded patch from path.",
+        "imageAlt": "Gardener beside parked reel mower at meadow edge; children look at green-budded patch from path.",
+        "pageDescription": "Gardener beside parked reel mower at meadow edge; children look at green-budded patch from path.",
+        "state": "Early summer before main bloom; mower stationary, children clear of blades.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "If the whole patch is cut now, those buds will go with the stems. They will not open into flowers there.",
+        "imageBrief": "Close view of intact buds above proposed grass-cutting height, with mower parked far in background.",
+        "imageAlt": "Close view of intact buds above proposed grass-cutting height, with mower parked far in background.",
+        "pageDescription": "Close view of intact buds above proposed grass-cutting height, with mower parked far in background.",
+        "state": "Do not show actual cut buds or a before-after montage; conditional consequence in text.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe points to the buds. The gardener leaves this patch standing and cuts a route beside it, where people need to walk.",
+        "imageBrief": "Adult operates mower on route outside patch; children observe from distant fixed path.",
+        "imageAlt": "Adult operates mower on route outside patch; children observe from distant fixed path.",
+        "pageDescription": "Adult operates mower on route outside patch; children observe from distant fixed path.",
+        "state": "Mower never enters retained patch; no child operating or standing close.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Weeks later, yellow flowers open above the grass. A small bee lands on a dark center and begins to feed.",
+        "imageBrief": "Summer black-eyed Susan in bloom with one anatomically correct small native bee on raised dark disk.",
+        "imageAlt": "Summer black-eyed Susan in bloom with one anatomically correct small native bee on raised dark disk.",
+        "pageDescription": "Summer black-eyed Susan in bloom with one anatomically correct small native bee on raised dark disk.",
+        "state": "Time advanced; correct yellow rays, dark disk florets and green leaves.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The short route lets Kit and Zoe come close without pushing through the flowers. They watch from its edge.",
+        "imageBrief": "Children stand on cut route beside blooming patch, looking without touching bee or stems.",
+        "imageAlt": "Children stand on cut route beside blooming patch, looking without touching bee or stems.",
+        "pageDescription": "Children stand on cut route beside blooming patch, looking without touching bee or stems.",
+        "state": "Route wide enough for both; no trampling or blocked entrance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "After flowering, some petals fall. The dark heads remain, and seeds develop where the tiny flowers in each center had been.",
+        "imageBrief": "Close view of one maturing brown seed head with a few faded yellow rays beside a later bloom.",
+        "imageAlt": "Close view of one maturing brown seed head with a few faded yellow rays beside a later bloom.",
+        "pageDescription": "Close view of one maturing brown seed head with a few faded yellow rays beside a later bloom.",
+        "state": "Seasonal overlap plausible; no sunflower-sized seeds or sealed pea pods.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The patch looks less bright now. Cutting every stem would remove these seed heads before many seeds could fall.",
+        "imageBrief": "Gardener and children view standing maturing heads beside still-clear route; mower parked away.",
+        "imageAlt": "Gardener and children view standing maturing heads beside still-clear route; mower parked away.",
+        "pageDescription": "Gardener and children view standing maturing heads beside still-clear route; mower parked away.",
+        "state": "No actual removal shown; avoid claiming all seeds always fall together.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The gardener lets this part finish making seeds. Some ripe seeds drop into the spaces beneath the old stems.",
+        "imageBrief": "Close low view of a few tiny dark seeds below mature dry seed head, with open soil gaps among grass.",
+        "imageAlt": "Close low view of a few tiny dark seeds below mature dry seed head, with open soil gaps among grass.",
+        "pageDescription": "Close low view of a few tiny dark seeds below mature dry seed head, with open soil gaps among grass.",
+        "state": "Naturally small achenes; no instant new flowering plants or seed explosion.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The path still needs care, and the patch does too. The gardener checks what is growing before planning the next cut.",
+        "imageBrief": "Gardener examines standing patch and route with children nearby; no active cutting.",
+        "imageAlt": "Gardener examines standing patch and route with children nearby; no active cutting.",
+        "pageDescription": "Gardener examines standing patch and route with children nearby; no active cutting.",
+        "state": "Early fall, mostly brown seed heads; management continues, not abandonment.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "One place can hold a clear way through and a patch left to grow. Keeping both takes more than cutting everything alike.",
+        "imageBrief": "Final wide view: children on maintained route, gardener beside retained seed heads, two corner markers visible.",
+        "imageAlt": "Final wide view: children on maintained route, gardener beside retained seed heads, two corner markers visible.",
+        "pageDescription": "Final wide view: children on maintained route, gardener beside retained seed heads, two corner markers visible.",
+        "state": "Same patch and route; no sudden return to peak summer flowers.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does the gardener treat the path and flower patch differently?",
+        "listenFor": "People need a clear route, while the plants need time to bloom and make seed. The gardener observes and manages each part for its purpose."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What remains after some yellow petals fall?",
+        "lookFor": "The dark central heads stay on the stems and develop seeds; fading petals do not mean that nothing more is happening."
+      }
+    },
+    "levelRationale": "Candidate E: conditional consequences connect a planning choice to changes over weeks, then the reader revises an appearance-based judgment when faded flowers still have a function. The ending integrates access and habitat without a universal rule to stop mowing. Independent placement remains pending.",
+    "languagePrep": [
+      {
+        "word": "bud",
+        "meaning": "a part of a plant that has not opened into a flower yet"
+      },
+      {
+        "word": "seed head",
+        "meaning": "the part of a plant where a group of seeds develops"
+      },
+      {
+        "word": "route",
+        "meaning": "a way to get from one place to another"
+      }
+    ]
+  }
+]

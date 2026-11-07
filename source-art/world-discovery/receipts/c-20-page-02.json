@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-c-20",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T16:41:51.948Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dd7a6d07-88a6-4c94-97b3-afd2cdb327ac.png",
+  "sourceSha256": "b89eece1f438f9acf2d2901dfeee521595204b5e40e1cadeade26b2f78e367b6",
+  "output": "public/guided-reading/world-discovery/c-20/page-02.webp",
+  "outputSha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact scene. Scientific scale correction ONLY: make EACH of the three woodlice HALF its present length and height. The largest animal's BODY must be only aboutONE QUARTER of the large brown leaf length. Preserve actual macro camera, log, soil and leaves. Shift rear-right animal slightly LEFT so antennae and rear tips all have at least10percent margin. Each exposed near-side profile has exactlySEVEN thin jointed walking legs, one per main body segment, and two long antennae; far side legs naturally hidden. Do not count mouthparts or rear uropods as legs. Restore soil in old silhouettes. Keep3animals, no humans. Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ec024e4a-d54d-4eed-b746-716bdf3572c6.png",
+      "sha256": "8c078a851c97009ab49c6c3aa348e10cb9b454576be52936d33b917b63794d5e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "d07db1209fd94af30c12c6e9469552e6f59ee2af5d058355ad0f06a87cd8d27a",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
+    "method": "codex-direct-image-inspection",
+    "note": "Direct macro review: three small woodlice relative to large dead leaves, seven near-side walking legs visibly counted on profiles and two antennae; dark damp soil beneath raised log, no whole human copied into macro and no unrelated props."
+  }
+}

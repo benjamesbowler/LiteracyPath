@@ -1,0 +1,55 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:58:28.172Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-e479b674-7377-47c1-bb2e-01262155ca7c.png",
+  "sourceSha256": "03252b0a4b83c377ee4660eede1b90e9e6e3ed501f7a9b1ad5327883541a4785",
+  "output": "public/guided-reading/world-discovery/b-15/cover.webp",
+  "outputSha256": "20e4edd67948adb4f41b8c314d3b4c78d0bc754d224aca1611632625e460e39b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY for framing. Restore landscape 3:2 proportions, preferably1536x1024 pixels. Preserve the ENTIRE existing image with its current safe left/right margins, no crop and no stretching. Add enough matching plain sky above and matching rocky foreground below to make it3:2. Same pool, low-tide separation, left white vein and dark boulder; preserve every current natural form and water state. No new objects. Bold clean flat 2D cartoon, crisp outlines, no grain/mottling/paint texture, no labels/text/logos/humans/animals, no border. Preserve science and all subject states.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6f9df3f2-72e0-4020-ba62-86626cae466d.png",
+      "sha256": "bd52b321f16cca94ee935f502953f149f467362cc8c84dd371690f8796ce29d4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "20e4edd67948adb4f41b8c314d3b4c78d0bc754d224aca1611632625e460e39b",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "Low-tide isolated clear pool in continuous rock shelf, complete enclosing rim, white mineral vein left and boulder behind/right, safe focal margins. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "20e4edd67948adb4f41b8c314d3b4c78d0bc754d224aca1611632625e460e39b",
+    "note": "Low-tide isolated clear pool in continuous rock shelf, complete enclosing rim, white mineral vein left and boulder behind/right, safe focal margins. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}

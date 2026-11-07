@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-14",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T18:09:18.587Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-d2bd7698-28eb-4607-8fa8-c044656eac64.png",
+  "sourceSha256": "7eeaa72a36980e98570f982bcb107ae376fb4b41d499a68168cdcb69f01e2756",
+  "output": "public/guided-reading/world-discovery/e-14/page-08.webp",
+  "outputSha256": "792330b7efdba6a3502673951828a0a794f5ce0ed58fecb7cedb7cc1c1613052",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the supplied picture, preserving its exact story moment, canonical child designs and physical contacts. Repair the yellow rim at the near-right corner: this is a LOW RECTANGULAR TRAY, so its rim makes an ordinary right-angle turn AWAY into the tabletop plane. It MUST NOT curl up like a canoe bow or banana. The revealed blue hull strip sits just INSIDE this low rim on the right; the rest of boat/sail/mast stays invisible. Keep the visible yellow route from left to right.\nFRAMING IS THE MAIN REQUIRED CHANGE: widen the entire composition by about TWENTY-FIVE PERCENT, placing ALL complete heads/hair/hands and ALL essential tabletop props within the CENTRAL SEVENTY-SIX PERCENT of both width and height. At least TWELVE PERCENT calm room/table margin on all sides around those subjects. Actually move subject bounds inward; do not merely add a sliver. Extend the craft room naturally. This remains an intentional MEDIUM UPPER-BODY crop: the tan tabletop fills the lower area and extends through ALL bottom corners; NO floor, feet or table legs anywhere. No floating or severed torsos. No giant shelf, no warped furniture. Do not paste a smaller image inside a frame; no border. Preserve normal scale and camera perspective. One pot, one brush, one cup, one cloth only. Flat clean bold 2D cartoon; crisp outlines, no texture, no text. Native full 1536x1024 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-4f6680c0-64c1-4ccc-80ff-749e1926db93.png",
+      "sha256": "c6247f2ec5403d66eb75ea3ad3985b4c962b5c9149b736715388484525b55456"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "de14e02c36d59912434131a4cf8775697ba5cf4a07d3d5d1e3da1daaac34cbe2",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "sha256": "792330b7efdba6a3502673951828a0a794f5ce0ed58fecb7cedb7cc1c1613052",
+    "method": "codex-direct-image-inspection",
+    "note": "Continuous low yellow front rim leads right to a blue hull strip just inside the rectangular corner. Sail/mast remain invisible; corrected rim turns away in tabletop plane, not a curled boat bow. Cloth contact natural."
+  }
+}

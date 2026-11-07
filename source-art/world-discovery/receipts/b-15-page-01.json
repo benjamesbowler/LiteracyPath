@@ -1,0 +1,55 @@
+{
+  "bookId": "world-discovery-b-15",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-07T11:58:28.968Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-6cfd9d1c-7d56-4d37-a5eb-2e3edb71f5bd.png",
+  "sourceSha256": "83eed27e939c862a9ef9d9f0527e8acfff0de8fd0551462e6ae8b9977d3101f4",
+  "output": "public/guided-reading/world-discovery/b-15/page-01.webp",
+  "outputSha256": "aeb11040f9f05697ed96d18796f64e7156404569bc249ddbc97abe0e3110f98d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration ONLY for framing. Pull camera back substantially, about25%, keeping3:2 landscape1536x1024. The entire oval hollow's outer rim must fit between x=230 and x=1306; all of it visible with broad water-covered shelf outside it. Move boulder fully into frame with its top below y=120. Preserve HIGH TIDE: continuous clear seawater covers ALL the rock rim and shelf, no exposed pool rim anywhere. White mineral vein left, same dark boulder behind. Do not change geological shapes or water relationships. Bold clean flat 2D cartoon, crisp outlines, no grain/mottling/paint texture, no labels/text/logos/humans/animals, no border. Preserve science and all subject states.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-9d93d25f-e08e-4b54-a228-a352032e97dd.png",
+      "sha256": "ad49993f7be27d6c076f88c4f8ee16656b5ae365b4caebb96484f2e7edacac50"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/src/content/world-discovery/cohorts/11-20",
+    "sha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "reviewer": "author_b_c",
+    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
+    "outputSha256": "aeb11040f9f05697ed96d18796f64e7156404569bc249ddbc97abe0e3110f98d",
+    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
+    "notes": "High-tide sea water covers entire hollow and rim; submerged bedrock shape visible, boulder top remains above. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "method": "codex-direct-image-inspection",
+    "sha256": "aeb11040f9f05697ed96d18796f64e7156404569bc249ddbc97abe0e3110f98d",
+    "note": "High-tide sea water covers entire hollow and rim; submerged bedrock shape visible, boulder top remains above. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+  },
+  "generationManuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
+    "sha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+    "isolated": true,
+    "firstNumber": 11,
+    "lastNumber": 20
+  },
+  "manuscriptMetadataRevisions": [
+    {
+      "reviewedAt": "2026-11-07T19:10:55.979Z",
+      "previousSha256": "953ccc62807338575ef69fd900984373476bdae5126737c840f6e7d04051b1ee",
+      "currentSha256": "80e7b7c66848ad2a93b7c05225f62fe565bb79af518cf0d0022436c439ee8d56",
+      "fields": [
+        "discussion.visual"
+      ],
+      "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
+    }
+  ]
+}
