@@ -97,8 +97,11 @@ test("long fullscreen pages retain their separate reading column", async ({ page
   await expect(reader).toHaveClass(/fullscreen/);
   await expect(spread).toHaveAttribute("data-text-layout", "long");
   await expect(reader.locator(".guided-page-text")).toHaveClass(/is-ready/);
-  // Both columns share the page's entrance animation. Separate browser reads
-  // can observe different frames and report an overlap that never existed.
+  // A fractional entrance transform can round adjacent DOMRect edges
+  // differently even in one evaluation. Wait for the spread's resting state,
+  // then read both bounds together without relaxing the non-overlap check.
+  await expect(spread).toHaveCSS("transform", "none");
+  await expect(spread).toHaveCSS("opacity", "1");
   const geometry = await spread.evaluate(element => {
     const image = element.querySelector(".guided-page-image-card").getBoundingClientRect();
     const text = element.querySelector(".guided-page-reading").getBoundingClientRect();
