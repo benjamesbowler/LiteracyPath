@@ -125,8 +125,11 @@ test("teachers can browse the same reviewed levels across every book type", asyn
     const cards = page.locator(".guided-book-card");
     await expect(cards.first()).toContainText(`App level ${level}`);
     await expect(cards.first()).toContainText("Lexile pending");
-    await cards.first().locator("summary").click();
-    await expect(cards.first().locator(".guided-book-analysis-detail p").first()).toBeVisible();
+    const levelDetails = cards.first().locator(".guided-book-analysis-detail").filter({
+      has: page.locator("summary").filter({ hasText: /^About this level$/ })
+    });
+    await levelDetails.getByText("About this level", { exact: true }).click();
+    await expect(levelDetails.locator("p").first()).toBeVisible();
   }
   await picker.getByRole("button", { name: "All levels", exact: true }).click();
   await expect(picker.getByRole("button", { name: "All levels", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -137,6 +140,9 @@ test("teachers can browse the same reviewed levels across every book type", asyn
   await expect(metadata).toContainText(" · App level ");
   await expect(metadata).toContainText(/ · \d+ pages$/);
   await expect(metadata).not.toContainText("\\u00b7");
-  await searchCard.getByText("About this level", { exact: true }).click();
-  await expect(searchCard.locator(".guided-book-analysis-detail p").first()).toBeVisible();
+  const searchLevelDetails = searchCard.locator(".guided-book-analysis-detail").filter({
+    has: page.locator("summary").filter({ hasText: /^About this level$/ })
+  });
+  await searchLevelDetails.getByText("About this level", { exact: true }).click();
+  await expect(searchLevelDetails.locator("p").first()).toBeVisible();
 });
