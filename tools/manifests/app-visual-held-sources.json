@@ -16625,7 +16625,7 @@
     },
     "runtimeSources": {
       "count": 1726,
-      "sha256": "5778be39cab3ef90c0ee5543c81a8d2ad70ed0c8f5b9c9394265165205c23d7e",
+      "sha256": "510da0da8af51d0c1ce8a68e3a84d7c5e405acf000c660eafc76bdbde4a0bf61",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -19685,19 +19685,19 @@
         },
         {
           "path": "src/data/generated/audioFilePaths.generated.js",
-          "sha256": "b4a4b011bbd4911069294187cc89a6b0610aee53782a5e1a7e23c51c8c0bc847"
+          "sha256": "a8e66bc6fa8e0d63756d86be1b4a1fe9699cc7ba2c7c7218f3a68fcf96bdb2a6"
         },
         {
           "path": "src/data/generated/audioGuidedReadingPaths.generated.js",
-          "sha256": "ba86202016f0ec581ffdeb25952e3846820b3d7c97d0fa64ec55bc175bd953b0"
+          "sha256": "7675c71697b1c754e61d6177e17826bd48e9e455cb5543988f18f37712eba4ee"
         },
         {
           "path": "src/data/generated/audioPhonemePaths.generated.js",
-          "sha256": "2a1e42b0340ad3023ff29c37cb5bf58ded1f0e1ee0a004fc5a92b4ea8bda4808"
+          "sha256": "389a8dfe21772d36954f8d0b0ac60d3147e3561ad28168c45dc894e02a62f82d"
         },
         {
           "path": "src/data/generated/audioQuestPaths.generated.js",
-          "sha256": "f9957a4d75a3196ac84926218cd1ea100b188efab35a6969025fed91ef48870f"
+          "sha256": "a59f1dd377b771185d2e2aa5dd69f0da2af77050cbcf357c6c152abf69088a6b"
         },
         {
           "path": "src/data/generated/cyclePracticeInstructionAudio.generated.js",
@@ -19717,7 +19717,7 @@
         },
         {
           "path": "src/data/generated/guidedReadingLedaGaps.generated.js",
-          "sha256": "be5b0aa61ffaf973b1d0771a6b7364def05f0bf4a925d0cdf56f0acabda7c087"
+          "sha256": "f96a35826a18bf7a9cfa8cd69b312c9cdd83ee3701df117aae70c1fa339f89e9"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationClearance.generated.js",

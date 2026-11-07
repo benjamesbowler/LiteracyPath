@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "Explicit whole-book retirements. Every row requires complete historical byte lineage and a decoded, approved runtime replacement; no generic deletion exception.",
+  "description": "Explicit book, page-narration and scoped unpublished word-audio retirements. Every row requires historical byte lineage and a decoded, reviewed runtime replacement; no generic deletion exception.",
   "retirements": [
     {
       "oldBookId": "willow-street-eid-morning-with-samir",
@@ -308,5 +308,214 @@
       "newSha256": "799bf358858e871998d41265fa46166fe544462cb52f317ef064d2d21078be1a",
       "voice": "en-US-Chirp3-HD-Leda"
     }
-  ]
+  ],
+  "isolatedWordSupersessions": {
+    "scope": "world-discovery-unpublished-11-20",
+    "description": "Exactly nine superseded candidate clips introduced on the unpublished expansion branch. Eight global word defaults now use already reviewed same-meaning clarity takes; one duplicate rejected ribbon-bow take has only an exact C12 page8 replacement. This does not retire published audio or change any current book binding.",
+    "productionRevision": "8c6079d9dfa623a6820f5bef32a320867980883d",
+    "sourceRevision": "aa2236b941b2471ea6eafe2e7fbb3059cfadd95d",
+    "reviewReport": {
+      "path": "source-art/world-discovery/cohorts/11-20/narration-review.json",
+      "sha256": "b182669deae9ec7cc1b706d87ba0a504a6048c7633943228fbcd3b4a09a68c87"
+    },
+    "recoveryRoot": ".artifacts/world-discovery-expansion/audio/first-50/review-audio",
+    "entries": [
+      {
+        "mode": "contextual",
+        "word": "bow",
+        "meaning": "Two ribbon loops tied on a parcel, pronounced /boʊ/.",
+        "pronunciation": "boʊ",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/bow-ribbon-v2-4bfb1ca242.mp3",
+        "oldSha256": "4bfb1ca242c1aa7088a708daa04cc63c55111c255f76bdf12cafc6a3b695a0f5",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/4bfb1ca242c1aa7088a708daa04cc63c55111c255f76bdf12cafc6a3b695a0f5.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/bow-ribbon-v3-8b606bac05.mp3",
+        "newSha256": "8b606bac053ab4bdeb755d924df9704d81c769ee325c9f673463e0204385564c",
+        "contexts": [
+          {
+            "bookId": "world-discovery-c-12",
+            "pageNumber": 8,
+            "pageText": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top."
+          }
+        ],
+        "duplicateRejectedPath": "/audio/production/en-US/isolated_word/bow-ribbon-4bfb1ca242.mp3",
+        "duplicateRejectedSha256": "4bfb1ca242c1aa7088a708daa04cc63c55111c255f76bdf12cafc6a3b695a0f5",
+        "duplicateReviewEvidence": {
+          "path": ".artifacts/world-discovery-expansion/audio/first-50/cleanup.json",
+          "sha256": "ff19f865a7b35aff2466564189bf5b71cb3d8852126cdd84e54d5cadf76f1368"
+        },
+        "retainedDefault": {
+          "audioPath": "/audio/production/en-US/isolated_word/bow-e8c4e7379e.mp3",
+          "sha256": "e8c4e7379e495f7eedb4db122817ee3f2757850b205d26a82020a528364a9709"
+        }
+      },
+      {
+        "mode": "default",
+        "word": "bows",
+        "meaning": "Bends the body forward, as Kit does while his shadow copies him.",
+        "pronunciation": "baʊz",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/bows-a9a580f6d5.mp3",
+        "oldSha256": "71ba8949fa99c875f8f5ba2665cc0346b251590e1f2c9e5058df2e6f53991ba6",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/71ba8949fa99c875f8f5ba2665cc0346b251590e1f2c9e5058df2e6f53991ba6.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/bows-bend-1eb69c4111.mp3",
+        "newSha256": "1eb69c41118cc285aaf21e4e034515cf3f51e19400af173fd4d418f3bf4b2610",
+        "contexts": [
+          {
+            "bookId": "world-discovery-d-14",
+            "pageNumber": 10,
+            "pageText": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor."
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "glacier",
+        "meaning": "A mass of land ice that flows slowly.",
+        "pronunciation": "ˈɡleɪʃɚ",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/glacier-79004d8c33.mp3",
+        "oldSha256": "27accff39fd57160dd9020cc7a02836f9ace8a0109f1d218bc7c1a565ca433d9",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/27accff39fd57160dd9020cc7a02836f9ace8a0109f1d218bc7c1a565ca433d9.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/glacier-clear-v3-f3d13111c7.mp3",
+        "newSha256": "f3d13111c77ac9f569aa83d22ff6b5c541f59e05d42aedfce01968dcec44a5de",
+        "contexts": [
+          {
+            "bookId": "world-discovery-e-15",
+            "pageNumber": 3,
+            "pageText": "This mass of ice was a glacier. Although it looked still, it slowly flowed down the valley."
+          },
+          {
+            "bookId": "world-discovery-e-15",
+            "pageNumber": 6,
+            "pageText": "Later, more ice melted at the glacier's front than arrived from higher up. The end of the glacier grew shorter."
+          },
+          {
+            "bookId": "world-discovery-e-15",
+            "pageNumber": 9,
+            "pageText": "On bare rock, long scratches give another clue. Stones carried by the old glacier once scraped along these lines."
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "lends",
+        "meaning": "Gives temporarily, as the fantasy circle gives Kit a shadow.",
+        "pronunciation": "lɛndz",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/lends-a2679d0155.mp3",
+        "oldSha256": "97d96dd64503412aebbaa68097709859d2371703b3fb6469e3afc140d898463a",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/97d96dd64503412aebbaa68097709859d2371703b3fb6469e3afc140d898463a.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/lends-clear-v5-a6b8cbb9e8.mp3",
+        "newSha256": "a6b8cbb9e8b4a681672712c3e703568424a38b9be68e852435d77104d33a7e30",
+        "contexts": [
+          {
+            "bookId": "world-discovery-d-14",
+            "pageNumber": 1,
+            "pageText": "Zoe draws a silver circle. “Stand here,” she says. “It lends you a giant shadow that copies your shape.”"
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "mated",
+        "meaning": "Reproduced with another snail before laying eggs.",
+        "pronunciation": "ˈmeɪ.tɪd",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/mated-91e5d2b0b4.mp3",
+        "oldSha256": "125a638c6e08269ae5cab0f33464cef3452faa21ea27f553455b8110c05be210",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/125a638c6e08269ae5cab0f33464cef3452faa21ea27f553455b8110c05be210.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/mated-clear-v3-bca9118a81.mp3",
+        "newSha256": "bca9118a812c79e6cf9a1499fd4b2a1da8a6abe8df4eb3741f11a7628c2bcc73",
+        "contexts": [
+          {
+            "bookId": "world-discovery-c-18",
+            "pageNumber": 7,
+            "pageText": "When this snail is grown and has mated, it can lay eggs in another soil hole."
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "nor",
+        "meaning": "Links the second excluded property after neither.",
+        "pronunciation": "nɔr",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/nor-f550879b7e.mp3",
+        "oldSha256": "63b50a0558eed5279145a06692db8165177d9ce96b63824f9c3cbb5c196b93e6",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/63b50a0558eed5279145a06692db8165177d9ce96b63824f9c3cbb5c196b93e6.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/nor-clear-v5-abef6fb1f6.mp3",
+        "newSha256": "abef6fb1f6a87244e6f18588e57f7664fd83c47dab4d37ca8819cbc34549d293",
+        "contexts": [
+          {
+            "bookId": "world-discovery-e-19",
+            "pageNumber": 7,
+            "pageText": "The blue circle fits below the red circle. The blue square fits beside it: neither red nor round, but still sorted."
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "patterned",
+        "meaning": "Having a visible repeated shell pattern.",
+        "pronunciation": "ˈpætərnd",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/patterned-ea1314e284.mp3",
+        "oldSha256": "62f69554c42c0a1c1a39c6f767a37a3c912624e66c3a4fc44881bcecf172928e",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/62f69554c42c0a1c1a39c6f767a37a3c912624e66c3a4fc44881bcecf172928e.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/patterned-clear-99e86edde7.mp3",
+        "newSha256": "99e86edde7dea5d5586c82f65fc104e3cca1bf24c4269142e6f9d81d03817e3a",
+        "contexts": [
+          {
+            "bookId": "world-discovery-c-18",
+            "pageNumber": 6,
+            "pageText": "Many months pass. The snail becomes much larger, with a broad, patterned shell."
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "scratches",
+        "meaning": "Grooves left in stone by scraping.",
+        "pronunciation": "ˈskrætʃɪz",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/scratches-d653180060.mp3",
+        "oldSha256": "c51353602fd976b26ef4b6d24b9519cd84ae464c2c54bc806f250e4bde43bbf9",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/c51353602fd976b26ef4b6d24b9519cd84ae464c2c54bc806f250e4bde43bbf9.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/scratches-clear-v3-f73e7d745b.mp3",
+        "newSha256": "f73e7d745b5d97e1233cfe850466db36a7001c8ed2d47ad03e016b8d774976ae",
+        "contexts": [
+          {
+            "bookId": "world-discovery-e-15",
+            "pageNumber": 4,
+            "pageText": "Rock caught in the bottom of the moving ice scraped against the valley floor. It left scratches in the hard stone."
+          },
+          {
+            "bookId": "world-discovery-e-15",
+            "pageNumber": 9,
+            "pageText": "On bare rock, long scratches give another clue. Stones carried by the old glacier once scraped along these lines."
+          }
+        ]
+      },
+      {
+        "mode": "default",
+        "word": "speeding",
+        "meaning": "Moving fast, describing the rock passing through air.",
+        "pronunciation": "ˈspiːdɪŋ",
+        "voiceName": "en-US-Chirp3-HD-Leda",
+        "oldAudioPath": "/audio/production/en-US/isolated_word/speeding-8c81a8efba.mp3",
+        "oldSha256": "88186a49f735dd5826c4cf922c997215d7af5e07932ccc998b0c155e7063d842",
+        "recoveryPath": ".artifacts/world-discovery-expansion/audio/first-50/review-audio/88186a49f735dd5826c4cf922c997215d7af5e07932ccc998b0c155e7063d842.mp3",
+        "newAudioPath": "/audio/production/en-US/isolated_word/speeding-clear-c6d28f466e.mp3",
+        "newSha256": "c6d28f466e277d0ce0342d96a72f2ea2076f21541fa6ad9c656c0aac02ffe312",
+        "contexts": [
+          {
+            "bookId": "world-discovery-a-16",
+            "pageNumber": 5,
+            "pageText": "Air heats the speeding rock."
+          }
+        ]
+      }
+    ]
+  }
 }

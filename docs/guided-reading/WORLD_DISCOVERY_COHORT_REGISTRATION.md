@@ -76,6 +76,19 @@ release inventories resolve the same page context. Unrelated callers retain thei
 existing dictionary clip; stale explicit context fails closed. These entries do
 not edit the manuscript or overwrite a shared pronunciation.
 
+The unpublished 11–20 cohort's eight superseded generic word takes use already
+reviewed same-meaning defaults through `worldDiscoveryExpansionAudioRepairs.mjs`.
+The rejected duplicate ribbon-bow take uses only its exact C12 page8 context;
+the shared `bow` dictionary remains unchanged. Their nine removals are recorded
+in `isolatedWordSupersessions` in the existing book-retirement manifest. The
+media-overwrite gate verifies pinned production/source history, exact old and
+retained recovery bytes, absence of live references, current accepted word and
+pronunciation contexts, decoded replacement bytes and durable generator aliases.
+An ignored recovery copy is required review evidence, not public media. This
+scoped record does not permit removal of published or unrelated clips. Run
+`node tools/checkMediaOverwriteRisk.js --validate-word-audio-retirements` to
+revalidate the evidence, including after the deletion commit.
+
 Once final sources are placed at their declared checked-in paths, prepare card
 copies without activating books or changing the global card manifest:
 
