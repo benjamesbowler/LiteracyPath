@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-11-09",
+  "failedProductionCommit": "68887b8de9133a22a38b67499c042f1361657a1d",
+  "failedDeployment": "https://vercel.com/benjamin-bowler-s-projects/literacy-path/5ozRpzLZwe4brE9cnL1Hz7VcLzZW",
+  "observedError": "ENOENT reading tests/fixtures/world-discovery/published-first-50.json from readWorldDiscoveryMaintenanceAudio during generateBookIndex prebuild",
+  "cause": "Vercel input filtering excluded the historical fixture required by the hash-pinned maintenance baseline.",
+  "fix": "Include this one fixture and its parent directories in .vercelignore; retain all other fixture exclusions and historical integrity validation.",
+  "fixture": {
+    "path": "tests/fixtures/world-discovery/published-first-50.json",
+    "sha256": "ebfa91d8554550abd92aee64dd9db13307fa2bd1f54de36bfa77ef57bc2cb09d",
+    "bytesUnchanged": true
+  },
+  "reproduction": {
+    "filter": ".vercelignore with gitignore-compatible ignore matching",
+    "sourceFiles": 7533,
+    "storage": "Hard-linked source tree for read-only checks; public and node_modules symlinked; no generators that write public or source were run.",
+    "before": "Same missing-fixture ENOENT reproduced",
+    "after": "397-book index check and 2/2 World Discovery registration checks pass",
+    "unrelatedFixturesRemainExcluded": true
+  },
+  "logs": {
+    "production-filter-before.log": "bee0b31e77d25617c396f8b31d55c023341fcb7277fd19dc516f5076ead59fe6",
+    "production-filter-after.log": "ee43805a5b9a4b678df3e137e8587e6dc37098c398649ec37d4ba9462bfd851e"
+  },
+  "previewBoundary": "Project configuration skips non-production builds; a successful preview status is not compile evidence.",
+  "limitations": "Filtered prebuild reproduction, not a claim of a completed production deployment. Public release verification is separate."
+}

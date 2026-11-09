@@ -39,6 +39,14 @@ tests/unit/*
 !tests/unit/hostedSchemaDriftContract.test.js
 !tests/unit/studentLoginPolicy.test.js
 
+# The book-index prebuild verifies this hash-pinned historical release record.
+# Keep its parents traversable; all other test fixtures remain excluded.
+!tests/fixtures/
+tests/fixtures/*
+!tests/fixtures/world-discovery/
+tests/fixtures/world-discovery/*
+!tests/fixtures/world-discovery/published-first-50.json
+
 # Cruft
 *.log
 .DS_Store
