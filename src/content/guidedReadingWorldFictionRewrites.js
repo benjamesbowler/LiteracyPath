@@ -807,20 +807,20 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     canonIds: ["MOON-PIP", "MOON-LUNA", "MOON-STONE", "MOON-WREN", "MOON-FLINT", "MOON-SPARK"],
     storySpine: "The friends want fallen star fragments returned before dawn, but lifting them from the clearing fails, so they carry them to Tumblerock Cliffs.",
     failedAttempt: "Pip raises one sky spark from the clearing, but it sinks back because the trees block its constellation.",
-    resolution: "The group climbs to Moonwood's highest safe ledge and turns each fragment until its light answers the matching constellation.",
+    resolution: "The group climbs to Moonwood's highest safe ledge and turns each fragment until its light joins the matching constellation.",
     pages: [
       "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing.",
-      "The silent fragments pulsed with warm light and rolled between the mushrooms. Pip, Luna, and the others hurried outside to examine what had fallen.",
+      "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen.",
       "Pip caught one fragment before it rolled into a dark bush. A tiny star pattern glowed across its smooth, warm golden surface.",
       "Each piece glowed brighter when Luna turned it toward the sky. Matching groups of stars flashed above the trees. These groups made patterns called constellations.",
       "Luna studied every pattern carefully. 'These are pieces of old shooting stars,' she explained. 'Their light belongs with those constellations before dawn.'",
       "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands.",
       "'The fragments need a clear view from Tumblerock's highest safe ledge,' Luna said. Flint quickly unfolded a map and led the whole group.",
       "Everyone followed Flint up the rocky path before dawn. Stone carried two fragments while Wren and Spark kept the others wrapped safely.",
-      "Above the trees, each fragment answered its constellation. Fine golden lines joined the little glowing patterns to the distant waiting stars overhead.",
+      "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead.",
       "At the highest ledge, Stone raised both broad hands. Pip and Spark turned each fragment while Luna watched the sky grow lighter.",
-      "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the waiting stars.",
-      "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead."
+      "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars.",
+      "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky."
     ]
   }),
   "moonwood-tales-c-21": fictionRewrite({

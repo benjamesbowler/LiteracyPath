@@ -7639,15 +7639,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::11": {
-    "displayedText": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the waiting stars.",
+    "displayedText": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::12": {
-    "displayedText": "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead.",
+    "displayedText": "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::2": {
-    "displayedText": "The silent fragments pulsed with warm light and rolled between the mushrooms. Pip, Luna, and the others hurried outside to examine what had fallen.",
+    "displayedText": "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::3": {
@@ -7675,7 +7675,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::9": {
-    "displayedText": "Above the trees, each fragment answered its constellation. Fine golden lines joined the little glowing patterns to the distant waiting stars overhead.",
+    "displayedText": "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::1": {

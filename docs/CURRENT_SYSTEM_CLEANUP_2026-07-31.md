@@ -6,7 +6,7 @@ The [audit handoff](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) now
 records all 397 books, 3,501 pages and 397 covers. The durable ledger and repair
 receipts under `source-art/guided-reading-remediation/2026-11-09/` preserve exact
 findings, closures, all installed cover/page hashes, and the prompts and reference
-hashes for 89 legacy image replacements. World Discovery retains its separate
+hashes for 90 legacy image replacements. World Discovery retains its separate
 14-page/one-reference repair provenance and dated registration revisions.
 
 Detailed reports, native outputs, active edit references and full-book review
@@ -23,6 +23,9 @@ After the successful production build and shared-media pruning, verified all
 output. A final code-only compilation also passed; its reproducible output was
 removed after its log and hash evidence were saved. No published narration
 was deleted. This cleanup note does not assert a hosted release result.
+The final live continuity follow-up repaired four Moonwood sentences, their Leda
+clips and one missing hat. Its three complete-book browser cases passed; the four
+historical MP3s remain preserved. The final repair now totals 444 public assets.
 Protected animation, unrelated caches and other projects are outside this scope.
 
 ## World Discovery — 7 November 2026

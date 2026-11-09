@@ -18,11 +18,11 @@ phonics constraints, scientific meaning and intended story mechanisms.
 
 ## Repairs and retained decisions
 
-The repair record contains 427 grouped findings and follow-ups: 415 resolved by
+The repair record contains 432 grouped findings and follow-ups: 420 resolved by
 verified text or artwork changes, 10 retained optional observations and two
 suspicions retracted after native inspection. These are finding groups, not a
 count of faulty pages or a quality percentage. The text/support trace includes
-472 entries across 459 distinct fields; later refinements of the same field are
+477 entries across 464 distinct fields; later refinements of the same field are
 explicitly linked rather than counted as separate final changes.
 Source and review metadata alignments are recorded separately, including six
 refreshed Bright Ideas manuscript hashes and Willow's repeated topic word “words”.
@@ -35,7 +35,7 @@ space, and Luna's natural eyes without unsupported spectacles. The river meaning
 of “bank” is now an actual vocabulary entry in World Discovery C04; its corrected
 receipt is the r2 revision.
 
-**89 legacy images across 26 books** were replaced, plus **14 World Discovery
+**90 legacy images across 26 books** were replaced, plus **14 World Discovery
 pages and one reference sheet**. Every accepted replacement was inspected as an
 output and as the encoded WebP, then checked within its complete book. Exact
 installed hashes match the accepted delivery receipts. Review attribution is
@@ -52,12 +52,13 @@ the ears and horns) and Small Steps 05 page 8 (Dad already touches the hen).
 ## Durable evidence
 
 - [Complete 397-book ledger](../../source-art/guided-reading-remediation/2026-11-09/complete-book-review.json): all-book text/support fingerprints, every installed cover/page hash, finding dispositions, exact final field values and source evidence.
-- [89-image legacy repair receipts](../../source-art/guided-reading-remediation/2026-11-09/image-repairs.json): accepted prompts, actual input-reference hashes, native output hashes, encoded delivery hashes and whole-book review provenance.
+- [90-image legacy repair receipts](../../source-art/guided-reading-remediation/2026-11-09/image-repairs.json): accepted prompts, actual input-reference hashes, native output hashes, encoded delivery hashes and whole-book review provenance.
 - [World Discovery complete-book review, r2](../../source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json), [text repairs](../../source-art/world-discovery/remediation/2026-11-09/text-repairs.json) and [15 image/reference repairs](../../source-art/world-discovery/remediation/2026-11-09/image-repairs.json): cohort-specific evidence. Earlier dated receipts remain historical; the current registration selects the applicable revision.
 - [Local verification](../../source-art/guided-reading-remediation/2026-11-09/local-verification.json): exact coverage, full-suite failures and successful reruns, build/media delivery and evidence hashes.
 - [Linux verification](../../source-art/guided-reading-remediation/2026-11-09/linux-verification.json): 63 scoped browser checks passed in both refresh and verification runs; three directly reviewed screenshot updates were imported.
 - [Production packaging verification](../../source-art/guided-reading-remediation/2026-11-09/production-packaging-verification.json): reproduces and repairs the missing historical fixture after Vercel input filtering. Preview statuses are not build proof because this project skips non-production builds.
-- [Narration screening](../../source-art/guided-reading-remediation/2026-11-09/narration-review.json): 329 currently consumed new Leda files received automated decode, signal and recognition checks. Two rare-bird-name clips retain explicit IPA and recorded residual recognition ambiguity.
+- [Final continuity follow-up](../../source-art/guided-reading-remediation/2026-11-09/late-moon20-verification.json): four literal sentences, four matching Leda clips and Wren’s missing hat repaired after the live check; the full story then passed native sequence review and 36 page checks across three screen sizes. All 3,898 catalogue image hashes were reconciled again.
+- [Narration screening](../../source-art/guided-reading-remediation/2026-11-09/narration-review.json): 333 currently consumed new Leda files received automated decode, signal and recognition checks. Two rare-bird-name clips retain explicit IPA and recorded residual recognition ambiguity.
 
 The original full audits, source snapshots, labeled sequence sheets, native
 follow-ups and installation guards remain required QA evidence in ignored
@@ -86,9 +87,11 @@ not physical-device observations. Catalogue A–H assignments were preserved.
 The child-surface suite passed 13 browser cases. The 115-case device matrix
 passed with two reviewed shelf-snapshot updates confirmed separately: the title
 repair from “A Little First” to “Crackers for Later” changes alphabetical order.
-The full production compile and shared-media postbuild passed. All 110 changed
+The initial production compile and shared-media postbuild passed. Its 110 changed
 public images/cards and 329 new MP3s survived pruning with exact expected hashes.
-Final code was compiled again without duplicating public media. The full unit
+The final follow-up adds one illustration and four MP3s, bringing the task total
+to 111 public images/cards and 333 audio files. Final code was compiled again
+without duplicating public media. The full unit
 run exercised 6,972 tests: 6,961 passed, eight content/cache failures were repaired,
 and three localhost tests needed sandbox permission. All affected suites were
 rerun successfully: 615 passed, zero failed. The 31 overlapping offline image

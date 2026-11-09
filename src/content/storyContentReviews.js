@@ -35,7 +35,7 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 395,
-  sourceFingerprint: "ce2983c7878b315612273a78bf3d9e6b73effe852dedc6a9f649506779a6c465",
+  sourceFingerprint: "8b098a8026d996913580dc5aef5c80b220033c939110880f4fcb20690e8f533f",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,

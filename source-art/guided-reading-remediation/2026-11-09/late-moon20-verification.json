@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-11-09T07:07:51.978958+00:00",
+  "status": "final-content-and-local-reader-verified",
+  "bookId": "moonwood-tales-c-20",
+  "trigger": "Production reader check found page2 mushrooms absent from the picture; fresh full-book native review confirmed three figurative sentences and Wren hat missing on page7.",
+  "repairs": {
+    "literalPages": [
+      2,
+      9,
+      11,
+      12
+    ],
+    "pageWordCounts": [
+      22,
+      22,
+      22,
+      23
+    ],
+    "newLedaPages": 4,
+    "newImagePages": [
+      7
+    ],
+    "publicAppLevel": "F",
+    "wholeBookNativeSequence": "13 images; all12 pages read; no confirmed open finding",
+    "currentTaskTotals": {
+      "books": 397,
+      "pages": 3501,
+      "legacyImages": 90,
+      "worldDiscoveryImages": 14,
+      "worldDiscoveryReferenceSheets": 1,
+      "coverCards": 7,
+      "newConsumedLedaFiles": 333,
+      "resolvedFindingGroups": 420,
+      "openConfirmedFindings": 0
+    }
+  },
+  "validation": {
+    "unchangedBookTextAndSupportHashes": 396,
+    "allCatalogueCoverAndPageHashes": 3898,
+    "focusedBookAndAudioTests": 118,
+    "imageCacheAndOverwriteTests": 638,
+    "appVisualInventoryImages": 12148,
+    "heldSources": 458,
+    "heldSourceProof": "Evaluator rerun; only14 scoped runtime-source hashes changed; asset definitions, eligibility and finite bindings unchanged.",
+    "browser": {
+      "cases": 3,
+      "pages": 36,
+      "viewports": [
+        "768x1024",
+        "320x568",
+        "568x320"
+      ],
+      "pageAndLastWordActualPlayback": true,
+      "landscapeHelpStages": [
+        1,
+        2,
+        3
+      ],
+      "pageErrors": 0,
+      "mediaErrors": 0,
+      "renderedScreenshotsDirectlyInspected": true
+    },
+    "compile": "6579 modules; static HTML seeded for required metadata processing; public media not duplicated. Initial custom copyPublicDir:false attempt lacked legal.html; corrected harness passed without product changes."
+  },
+  "evidence": [
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json",
+      "sha256": "1cc18afbf1dc18c80314fec276a454cf6e5aaef6c93d4a63a365c1b115acc0c9"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/text-audio-execution.json",
+      "sha256": "22e716d8683cbccebea68f1adb1336d21b5ea59007912a6bafa0329f7df4e002"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/ledger-reconciliation.json",
+      "sha256": "cd72f3694087e8e2ea1fe92c25c976bc88c4d09a6474dc0de33745505986c4a3"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/browser-results.json",
+      "sha256": "b81b6f83afcf697a7a451ba911e9122bdb11d6d2ff543e9c759de6d7627624c0"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/browser.log",
+      "sha256": "b8824733a4b9c7ef52365ec599c3578fdef26d1af25760055e71e89147e53ce2"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/build-with-static-html.log",
+      "sha256": "bc9e6c6a680e67eaffae35bb110d13e629d34c62d0e9bf4b6cd510e838a54dae"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/app-visual.log",
+      "sha256": "175daf5efa29b8e2a0d6e54a5f916fdabb540e31f5836d40cd0ea25950fc96d5"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/image-cache-tests.log",
+      "sha256": "80a93649854b1303a509ddb168b110e117b04466b5c20c75640103569c347632"
+    },
+    {
+      "path": ".artifacts/guided-reading-remediation-20261109/late-moon20/image-install.json",
+      "sha256": "65d43009b6689f04320aa8fc8612f0d6f8edffbde137879103635b19aac8dcf3"
+    }
+  ],
+  "limitations": [
+    "Automated recognition, signal analysis and observed real browser media playback are not human listening or physical-device observations.",
+    "This receipt verifies content/local browser and compile; final Git security and actual production deployment checks are recorded separately."
+  ]
+}
