@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:11:51.434Z",
     "note": "Native framing repair directly inspected: entire scene pulled back uniformly; full Zoe figure hair ~18% below top, shoes ~16% above bottom, natural proportions and grounded feet. Hands remain on clothed chest, room and cast preserved, no arrows or extra elements."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

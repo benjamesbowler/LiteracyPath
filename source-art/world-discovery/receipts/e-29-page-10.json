@@ -9,7 +9,7 @@
   "outputSha256": "1aa0aa5b0e37e14d25b6dc1b49af376b2f58e1dbed2414ee81968fb2d3b60459",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit first image with a very modest camera pullback about 12% so the adult woman's leftmost arm and ponytail now have at least 12% image-width clearance from left edge. Keep adult full head-to-shoes at 12\u201385% height. Keep ALL object designs and relationships, five-slat two-roller washboard, same white washer, dry yellow shirt on two pegs, no changes in action. Extend room naturally. Make blue pocket four-sided square with horizontal bottom (cloth may naturally wrinkle slightly); no pointed pentagon. No new props, lettering or borders. Same clean flat cartoon.",
+  "prompt": "Edit first image with a very modest camera pullback about 12% so the adult woman's leftmost arm and ponytail now have at least 12% image-width clearance from left edge. Keep adult full head-to-shoes at 12–85% height. Keep ALL object designs and relationships, five-slat two-roller washboard, same white washer, dry yellow shirt on two pegs, no changes in action. Extend room naturally. Make blue pocket four-sided square with horizontal bottom (cloth may naturally wrinkle slightly); no pointed pentagon. No new props, lettering or borders. Same clean flat cartoon.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-dd03f03b-a3a1-4ea7-918a-7d445a806a8b.png",
@@ -30,5 +30,11 @@
     "sha256": "1aa0aa5b0e37e14d25b6dc1b49af376b2f58e1dbed2414ee81968fb2d3b60459",
     "note": "Neutral presentation of both methods with dry shirt; complete adult and tools inset; no ranking symbols.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "f97a308d2ad7abd5022682b94b1ba0d9239e7b5ac7ba098e78d0d9a91e41abf7",
     "note": "Continuous purple walking route remains on tan path and lower brown footbridge; 25 walking badge clear. Road and ferry access paths separate; full map safely inset.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

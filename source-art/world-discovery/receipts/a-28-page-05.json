@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:23:23.465Z",
     "note": "Directly inspected natural scene: original ant outside near nest and exactly three separate workers shaded just inside entrance, four ants total. Ground completely unmarked; no scent dots/glow. Single fixed pebble and leaf/drop, safe margins, six-legged outside ant."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

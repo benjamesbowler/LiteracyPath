@@ -138,6 +138,11 @@ nonempty `embeddedImageText` may appear as lettering; otherwise art contains no
 text. Optional `coverImageLayout` uses the same three layout values and permits
 only the explanatory elements explicitly described in `coverBrief`. References
 and covers always contain no text; cover diagrams do not relax that restriction.
+For each new or repaired page, `imageAlt` and `pageDescription` describe the
+finished picture for the reader. Use concise, factual language that preserves
+the relevant action, relationship or diagram information. Check it against the
+installed image. Keep generation directions, layout commands and lettering
+instructions in `imageBrief`; do not copy them into reader descriptions.
 The production pipeline adds common style
 and cast references. Discussion has `oral: {prompt, listenFor}` and
 `visual: {page, prompt, lookFor}`. No scored quizzes. `languagePrep` contains a

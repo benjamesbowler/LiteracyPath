@@ -30,5 +30,11 @@
     "sha256": "4580a0e3239b0764152dfc51ece6001d24e0e5f699f6464289b54df54c09fc3a",
     "note": "Wide integrated leaf diagram: sunlight/gas enter leaf, root water rises through stem, food symbols pass toward stem; all symbols visible in safe margins.",
     "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

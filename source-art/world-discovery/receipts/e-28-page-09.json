@@ -30,5 +30,11 @@
     "sha256": "ed1ec0288ffea6f8f4ff0a8bed7299f511a1fd7ebc7975a398211d495ebc74bb",
     "note": "Elapsed-time regrowth fills part of gap; original anchor retained and fallen log visibly decaying; varied growth heights.",
     "limits": "Installed WebP individually inspected. Independent sequence, reader, cards, audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

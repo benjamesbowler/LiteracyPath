@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:35:45.094Z",
     "note": "Directly inspected final diagram: two ants only, left one outward/right-facing and right one returning/left-facing, both six-legged overhead poses with two antennae. Same dotted shared scent path around pebble links nest to food; no one-way arrows or extra stages."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

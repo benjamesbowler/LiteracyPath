@@ -30,5 +30,11 @@
     "sha256": "9f87fb6e6383f406adf9f7bfb18a7a36a8dc92e88f08cd8697f4eaf1ac3cc5ab",
     "note": "Zoe, enclosed sharpener, red hexagonal pencil and explanatory graphite-core section preserve identity and construction; complete inset models, no labels. Manufacturing states are reserved for final scene-specific diagrams.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

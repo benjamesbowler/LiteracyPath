@@ -30,5 +30,11 @@
     "sha256": "86557632f62f8bc8a3979f780191b60d9432e5a6302f29b9c5080c8a35c3c74c",
     "note": "Directly viewed native PNG and installed WebP. Kit touches gray mirror stand while Zoe points below a single bright screen spot. Yellow flashlight stays in its wood cradle, black lens end directed toward back-center mirror; screen is front-right on the reflective side. No visible beam in air, blue card or lettering; main heads/hands/props have safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "02a11cb2d48a5186bd7e0a8f99de75cad39c2a86cb01f3a71a120775d033f96c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

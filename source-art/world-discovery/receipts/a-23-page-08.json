@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:24:52.871Z",
     "note": "Directly inspected native repair: old curved shoulder arrows removed; short opposing horizontal pink-out/blue-in pairs now at lower chest/ribcage height beside elbows. Hands still on upperchest, relaxed shoulders, no cutaway; hair~14% and feet~15% margins after uniform scene pullback."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

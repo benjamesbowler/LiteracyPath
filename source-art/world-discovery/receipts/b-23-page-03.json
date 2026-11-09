@@ -30,5 +30,11 @@
     "sha256": "31a6b554085925d76088fc4eb8464e1e245c0e051303faaf57287fe66295d8b6",
     "note": "Directly viewed native PNG and installed WebP. One lower child dental arch has four incisors, two canines and four molars; pink tongue inside the arch positions one small apple bite beside rear molars. No throat or extra food is shown.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

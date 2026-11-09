@@ -30,5 +30,11 @@
     "sha256": "c30a372c4af3b2284f1b18fc28eb9e2926319e2427665300acd8bde3078d7055",
     "note": "Directly viewed native PNG and installed WebP: intact final separation with soft white cheese above, pale liquid below, no drops or substituted hard cheese; whole bowl/cloth safe.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8603efd41970464a9a88e20ce81a56bbb4b368d24f32537f720301e45b04ef19",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

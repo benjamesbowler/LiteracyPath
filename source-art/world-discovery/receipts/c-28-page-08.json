@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T13:42:28.572Z",
     "note": "Native directly inspected: active four-legged hedgehog walks left toward earthworm at spring dusk. Same leaf nest, forked branch and fresh growth behind; direction/season/animal identity preserved. Soil is clean smooth brown with outlined stones/leaves, no diffuse stipple, essential worm and hedgehog safely framed."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "e855a4632329b94652df219218ab2944fb016f9cee5e2b5b255f01eaa0470928",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

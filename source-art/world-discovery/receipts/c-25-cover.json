@@ -38,5 +38,11 @@
     "sha256": "36a27cc90efe331a8b33b24741a8e9236c41798b8c78238533369ae3b5211c49",
     "note": "Native and actual WebP directly viewed: yellow insulated clip now visibly clamped to bulb left terminal before later removal. Closed switch/ON bulb and exact three-wire loop preserved; natural children and clean style.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "60927b2d5048ae20d08714be01091613ee1764a5c15daf2525d06777525a68af",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

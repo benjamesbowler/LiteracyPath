@@ -30,5 +30,11 @@
     "sha256": "9b772a0f3924e46e85855132fdfaed6c9aca99c7ee6ffaec2b31bcae9bccc4a9",
     "note": "Teaching rays show two absorbed leaf paths, one leaf-reflected upward path, one transmitted gap path to young plant; no claim total light blocked.",
     "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

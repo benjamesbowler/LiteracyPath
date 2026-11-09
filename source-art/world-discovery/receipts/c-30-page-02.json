@@ -30,5 +30,11 @@
     "sha256": "ebc7944ec20c7a6a131cd76cef7fb79b048257ffc0765294d03fd0a40df64021",
     "note": "Upper blue and lower orange tanks separate with white gap; pipes stay separate until one chamber; one nozzle below, downward gas, full nose and plume safely framed.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "deb810aed4d1888ea05744f3a2bb497c0bc416fa149e4fb77952d244e890e843",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

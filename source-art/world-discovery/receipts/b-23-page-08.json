@@ -30,5 +30,11 @@
     "sha256": "494ff46cf20969487d355bb01a7ccf37f86f34707e572e9fa68b9a51dfd5993a",
     "note": "Directly viewed native PNG and installed WebP. Zoe is calm after swallowing with closed-mouth smile, both hands resting beside plate and one remaining peeled slice with one bite missing. Scene matches earlier room and character with generous margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

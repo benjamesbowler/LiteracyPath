@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:27:25.317Z",
     "note": "Directly inspected repaired return pose: one left-facing ant below fixed pebble with exactly six thoracic legs, two elbowed antennae and empty mouth. Stray mouth line removed. Same nest-left/leaf-right geography, no scent marks."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

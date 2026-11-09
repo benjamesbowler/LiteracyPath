@@ -9,7 +9,7 @@
   "outputSha256": "8fa79d56951aac28cc4b822b3a700fd558f1b2f5d56e60e15f8b60c31caa030c",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this finished illustration with a uniform22 percent camera pullback on the same landscape canvas. Extend the same room around it. Preserve all subject proportions, exact action, colors, hands and prop counts. Add generous clear wall above and table/floor below so all essential head/hair, hands and props sit at least12 percent inside every edge. No new text or objects. Crisp clean flat2D. Preserve clock at exactly3:00: twelve correctly placed numerals1\u201312, long blue hand straightup, short red hand straightright. Keep full Kit/Zoe shoes with floor below them, clock safely below top edge, loose unjoined paper strips and single glue stick. No paper chain yet.",
+  "prompt": "Edit this finished illustration with a uniform22 percent camera pullback on the same landscape canvas. Extend the same room around it. Preserve all subject proportions, exact action, colors, hands and prop counts. Add generous clear wall above and table/floor below so all essential head/hair, hands and props sit at least12 percent inside every edge. No new text or objects. Crisp clean flat2D. Preserve clock at exactly3:00: twelve correctly placed numerals1–12, long blue hand straightup, short red hand straightright. Keep full Kit/Zoe shoes with floor below them, clock safely below top edge, loose unjoined paper strips and single glue stick. No paper chain yet.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-30e1f213-0fc3-48a6-831f-22ae9ba67a53.png",
@@ -30,5 +30,11 @@
     "sha256": "8fa79d56951aac28cc4b822b3a700fd558f1b2f5d56e60e15f8b60c31caa030c",
     "note": "Correct single3:00 clock, twelve numerals, blue minute12/red hour3, loose paper strips and seated same-height cast; complete clock and shoes safely inset.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

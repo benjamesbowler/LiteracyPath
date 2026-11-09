@@ -34,5 +34,11 @@
     "sha256": "9467d96e75ff0035e927f32ccec1ffe46ec6484acadd56ac4c77615555712e2b",
     "note": "Directly viewed native PNG and installed WebP. Single dark tongue curls among target leaflets, branch/thorns remain outside mouth, two ossicones/ears intact with generous margins, natural close-view continuity.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "196df0e9094941d10a0198793392a9023e77526803a29764a558a8ef457f7432",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

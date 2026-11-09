@@ -30,5 +30,11 @@
     "sha256": "4201e805ff20dd5aedf654eee921a21467a2f34d2768a9bf37810f41dc9d9ad0",
     "note": "Directly inspected installed WebP: Complete adult diver has two arms, two legs, fins, mask and connected regulator/tank; observing without touching. Left fin now13% inset; same partly pale coral with natural edge. Safe margins and continuous scene.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

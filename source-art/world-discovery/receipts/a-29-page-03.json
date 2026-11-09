@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:58:18.345Z",
     "note": "Directly inspected native: aligned left free-edge corners held by two hands, unpressed rounded loop on right. Approximately 2:1 folded outline, both layers visible, no extra sheet; hands and paper well inset."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

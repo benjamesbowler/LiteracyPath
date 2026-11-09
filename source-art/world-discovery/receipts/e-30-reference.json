@@ -30,5 +30,11 @@
     "sha256": "f65d2d57e453078a67411e41208d17ef9a7a5fd7012bd0018ca1db669cd67997",
     "note": "Installed WebP inspected: simplified tan massive coral with polyp openings, mouth/tentacle-ring design, clear central cavity, white supportive cup and golden algae symbols in living tissue cells. Heavy relief shading removed.",
     "limits": "Full sequence, reader/card and audio review remain pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

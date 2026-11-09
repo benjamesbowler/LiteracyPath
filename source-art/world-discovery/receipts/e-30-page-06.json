@@ -30,5 +30,11 @@
     "sha256": "f3e0d212f58b714b3806c562a36767480a30c1361bf98216e298a41aef542695",
     "note": "Directly inspected installed WebP: Pale living polyp and continuous tissue retained. Three algae remain in magnified tissue cells; two exit into aqua water within circular magnification boundary. Skeleton remains below; main cavity empty.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

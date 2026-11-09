@@ -34,5 +34,11 @@
     "sha256": "6cbcb4de763aeb7d23fb5cbd62eccc69a54cb1e4e320d176773ced7bbd425d77",
     "note": "Native and actual WebP viewed: turning Kit and Zoe with edge-on level compass, fixed north tree/east gate ground relationship, same clean style and safe figure margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

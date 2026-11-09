@@ -34,5 +34,11 @@
     "sha256": "4d2e1466b3283e0fff57bca3c3c8bda4afb6501ab96990a3dd5262a9f20c4f8b",
     "note": "Native and actual WebP directly viewed: Kit turns back north, fixed tree ahead/gate directly east at ground depth; compass corrected to horizontal ellipse, small palm size, N up/E right/S down/W left and red ahead.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

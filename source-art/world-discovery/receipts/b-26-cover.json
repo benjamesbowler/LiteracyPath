@@ -30,5 +30,11 @@
     "sha256": "f0446ba766caeef8f55ceaba7b860c191808c3c0ee4723889ac2bae6fea85a47",
     "note": "Directly viewed native PNG and installed WebP. Exactly one real red cube sits right of one blue rectangular block; camera rear screen clearly shows saved red-on-blue stack with plain triangular playback icon. Zoe grips camera coherently, Kit watches, safe margins and no lettering.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "525a24b588c1767c16569b25157918b5900b354e74e227d5bf34b61c7443df81",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

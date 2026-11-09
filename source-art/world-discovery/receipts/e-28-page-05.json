@@ -30,5 +30,11 @@
     "sha256": "1e5b4ee6ecec54cac206f2001a763b7633275c83af5eb6d9d8b2001cc99ebf35",
     "note": "Corrected two visible forward toes per foot; fruit and regional toucan anatomy; whole bird safely framed.",
     "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

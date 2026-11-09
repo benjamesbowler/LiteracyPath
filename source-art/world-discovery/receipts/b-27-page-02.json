@@ -30,5 +30,11 @@
     "sha256": "03632d35c283f6eac7cb10221c14524683fe6c780a6d6f6b64a786c370a03883",
     "note": "Directly viewed native PNG and installed WebP: adult heats white milk on back-left burner of four-burner stove, handle inward, children well separated at cool counter with safe head margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8603efd41970464a9a88e20ce81a56bbb4b368d24f32537f720301e45b04ef19",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

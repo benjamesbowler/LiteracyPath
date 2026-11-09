@@ -30,5 +30,11 @@
     "sha256": "019f3cb23a6ce5de10a2cdd8c73e8e65266be3d4dc753e199cdb96ec246bbb67",
     "note": "Wider framing preserves closed-door first stop, two original riders seated, three waiting adults, driver, sign and planter. Whole bus is visible with additional surrounding space.",
     "limits": "All native final pictures inspected against text and sequence; actual reader/card rendition remains pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

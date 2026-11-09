@@ -34,5 +34,11 @@
     "sha256": "43411ae6bfa4a6a1b5bfd15714dd1dcc09380b952a9b5fb71cf5e614135ce8a2",
     "note": "Actual PNG and WebP inspected: single blue-circle carton close-up, unobstructed variable bars/spaces and guards, no text, safe10%+ top/bottom margins. Installed WebP automatically decodes exact EAN_13 9526064055028.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d59cea23360058526ea901a2e29037254b3ebeb4c6414bf72ec9466263b3fda1",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

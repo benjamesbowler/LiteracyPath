@@ -34,5 +34,11 @@
     "sha256": "0cbe518227e2e49e805dbaa5bf6a4d1beb22c8040101c496ff5d8b3d333c9065",
     "note": "Second stop open door; yellow-blouse woman and red-haired man outside on sidewalk, braided woman remains seated in third window. Four passenger windows, correct driver, bench distinguishes stop.",
     "limits": "All native final pictures inspected against text and sequence; actual reader/card rendition remains pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

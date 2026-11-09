@@ -30,5 +30,11 @@
     "sha256": "897b5d1ba10ac9d00ebf4422125b0d4a5460eeadcf4435b09affb9b2bd690b9a",
     "note": "Continuous hot gas channel passes from joined feeds/chamber through narrow throat and widening bell; plume flows down ending safely. Feed pipes continue off top as contextual supply connections.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "deb810aed4d1888ea05744f3a2bb497c0bc416fa149e4fb77952d244e890e843",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "dafd2925b7e5b0c6c341b65eac8f446d3ba5672c2d0881e9858e42a668d95540",
     "note": "Twelve plain hour ticks, exactly two hands: long blue12 and short red4. Whole clock and children have generous margins; no labels or duplicated parts.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

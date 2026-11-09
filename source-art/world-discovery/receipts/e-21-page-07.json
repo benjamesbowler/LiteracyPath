@@ -30,5 +30,11 @@
     "sha256": "34ff2df056331113deab36d3375167a3d2aaab4aca6eb3f5811557fd127600a2",
     "note": "5/10/5 blocks now equalouter/doublemiddle proportions with combined walking icons, waiting clock and four-window ferry. Bracket total20, all labels accurate and safe margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T07:31:11.883Z",
     "note": "Directly inspected: one intact small golden kernel with brown base in adult's open palm; normal batch cup behind, empty receiving bowl, closed unheated popper with unlabelled black switch. Adult and all teaching props comfortably inset; clean flat surfaces."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "189950619d31a52c9cc58a8aea6e756d447a1aaef8516951d057d7bd441ccd56",
     "note": "Native and installed WebP directly viewed. Nearly horizontal active extension, rear triceps shorter/thicker and front biceps longer/thinner, correct distinct bones/tendon insertions. Generous margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "a69cbfc6921edf6fa0940d4d9dd11e0245a3058f577ce1cf8504915963b81106",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

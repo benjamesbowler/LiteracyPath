@@ -30,5 +30,11 @@
     "sha256": "d79c1d2efaebfb2969da8c498f11a71929abe90ddcb81279a587f910b1aba182",
     "note": "Directly viewed native PNG and installed WebP: cast and blank blue book fixed; exactly six loose yellow cubes in central study, separate six-unit touching row matches book width for proportion reference. No letters or numbers.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

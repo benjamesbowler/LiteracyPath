@@ -30,5 +30,11 @@
     "sha256": "e26abc7fc5a1ac79b6d34329903fd628d887bcebcc402a0a4b5f07910c974916",
     "note": "Directly viewed native PNG and installed WebP: seven separate irregular ice pieces with broad traceable dark gaps, no rails/chains/glue, safe framing.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8741f8944c9405714e741246003a59b154287cfb03d19b48e2f496ea53e93f8d",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

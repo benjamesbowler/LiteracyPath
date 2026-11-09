@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:36:09.389Z",
     "note": "Directly inspected native framing repair: whole seated figure/drum/room scaled uniformly, hair~18%top, full shoes/drum feet~18%bottom. Right hand on membrane and left on lap, cross-legged anatomy, cream/red/navy drum and contact strokes preserved, both grounded."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

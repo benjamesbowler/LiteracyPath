@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:27:25.437Z",
     "note": "Directly inspected recruitment diagram: exactly three ants travel right along dotted amber explanatory route around the pebble; fourth original ant stays by nest facing left. Heads toward food on travelling ants; six thoracic legs and two antennae, no arrow/paint/cloud, safe scene margins."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

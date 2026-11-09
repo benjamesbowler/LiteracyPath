@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T04:55:07.559Z",
     "note": "Inspected board: Kit/Zoe retain equal child height and canonical clothes; adult has rust blouse, navy trousers, short curly hair. Exterior handle/sidelight appear right and interior reverse appropriately; oval exterior button, three-slot rectangular indoor speaker and shoe shelf are distinct. Clean outlines and flat digital fills. Opening/diagram pages must preserve this physical layout."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

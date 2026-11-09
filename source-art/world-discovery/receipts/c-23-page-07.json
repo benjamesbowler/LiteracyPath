@@ -30,5 +30,11 @@
     "sha256": "39697ffdd7d7ddffc4129fb20014efff9ff14e63ea5aa862be96b2aafa57b0cc",
     "note": "Native and installed WebP directly viewed. Two separated matched right-arm diagrams compare flexion versus near-horizontal extension; front/rear muscle states reverse and tendon-bone identities remain correct. Generous safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "a69cbfc6921edf6fa0940d4d9dd11e0245a3058f577ce1cf8504915963b81106",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

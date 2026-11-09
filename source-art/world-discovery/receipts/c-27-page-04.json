@@ -30,5 +30,11 @@
     "sha256": "f90bfdf26b702123b3849dfd1dbee860409c0f4303c1f1f219f4adeb727baa55",
     "note": "Exactly five dark straight cores supported in five wood grooves with pale glue beside each; same workbench and guarded machine. No premature upper slat.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "0106a3fe8a908d75267504570529cb869beb07dd3d75c26e33f7fd526e78d8e6",
     "note": "Open dry cotton boll with fibers around seeds and corrected palmate lobed mature leaves. Central teaching boll comfortably framed; peripheral plant context may crop naturally.",
     "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

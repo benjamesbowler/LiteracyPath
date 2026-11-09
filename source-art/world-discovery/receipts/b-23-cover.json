@@ -9,7 +9,7 @@
   "outputSha256": "6568a807795cf036f49932f97953e8902a44b29f8a3142866dfb61caa20a39dc",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit image one: pull back the camera20percent and extend the same classroom around the subject. Place the TOP of Zoe\u2019s hair at least120pixels below the top edge and the BOTTOM of the plate at least120pixels above the bottom edge on a1536x1024canvas. Keep all existing identities, hand/peeled-apple contact, separate child-jaw teaching model, table, chair, window and plant intact. Preserve her closed-mouth natural smile. This is a wide room view with generous breathing room, not a face close-up. No text.\nClean bold continuous dark outlines, perfectly smooth flat vectorlike colors, no texture, grain, stipple or painted finish.",
+  "prompt": "Edit image one: pull back the camera20percent and extend the same classroom around the subject. Place the TOP of Zoe’s hair at least120pixels below the top edge and the BOTTOM of the plate at least120pixels above the bottom edge on a1536x1024canvas. Keep all existing identities, hand/peeled-apple contact, separate child-jaw teaching model, table, chair, window and plant intact. Preserve her closed-mouth natural smile. This is a wide room view with generous breathing room, not a face close-up. No text.\nClean bold continuous dark outlines, perfectly smooth flat vectorlike colors, no texture, grain, stipple or painted finish.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-75c9eb7f-4e70-49ea-a61b-c05973e53b67.png",
@@ -30,5 +30,11 @@
     "sha256": "6568a807795cf036f49932f97953e8902a44b29f8a3142866dfb61caa20a39dc",
     "note": "Directly viewed native PNG and installed WebP. Zoe holds one thin peeled apple slice beside a separate child-jaw teaching model. Her whole head, both hands, plate and model have generous margins. Closed-mouth smile, locked clothes, clear smooth outlined shapes and no lettering.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

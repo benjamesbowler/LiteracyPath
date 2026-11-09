@@ -34,5 +34,11 @@
     "sha256": "e5ee6b1ace0d078a96916e2be76dfc249c358013dff6f22b23c76d617b34688f",
     "note": "Directly viewed native PNG and installed WebP. Over-shoulder scene preserves changed actual blue-left/red-right pair while camera saved photo stays red-on-blue with triangle playback icon; exactly two real objects and safe key details.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "525a24b588c1767c16569b25157918b5900b354e74e227d5bf34b61c7443df81",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

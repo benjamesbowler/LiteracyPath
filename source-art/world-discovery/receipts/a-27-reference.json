@@ -24,5 +24,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T04:55:08.031Z",
     "note": "Inspected board: adult-only operator in teal/navy; red popper with clear cover and guarded chute, white bowl, small golden pointed kernel shown at normal hand scale and separate enlarged design views. Popped forms have cream lobes and brown hull remains. No child, text, candy features or dangerous handling; future popped-state designs reference only."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

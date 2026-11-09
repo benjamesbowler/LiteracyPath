@@ -30,5 +30,11 @@
     "sha256": "a978ec16fbe8b9733c623aa704713a8f665ed7b411a7f2ec3d00d30599a292fa",
     "note": "Two time stages: clean shirt rinses then spins; perforated drum sheds drops into outer tub/drain; low residual water, no heat.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

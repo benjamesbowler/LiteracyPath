@@ -30,5 +30,11 @@
     "sha256": "12ee3fd2ff3c0765705bfc2036e283ba91ed30e7d92a38ca7ba276ea4eac2819",
     "note": "Native and installed WebP directly viewed. Same lake, one upward teaching arrow through clear invisible air, no vapor drawn as mist or drops; core arrow safely inset.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "6cd280a9d02dea1e6c9089cb16a616bf16aa70d331309534ccb043504bcb3c09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

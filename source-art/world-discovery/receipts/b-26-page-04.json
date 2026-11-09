@@ -34,5 +34,11 @@
     "sha256": "e010c0e66ace7cce5228fe44f6af13dd6656b24b5fbf532c9975e84a8607594d",
     "note": "Directly viewed native PNG and installed WebP. Kit places red cube directly right of blue block; exactly two real objects, Zoe lowers camera, appropriate hand contacts and clear safe composition.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "525a24b588c1767c16569b25157918b5900b354e74e227d5bf34b61c7443df81",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

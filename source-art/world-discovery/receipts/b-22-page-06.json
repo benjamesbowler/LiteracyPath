@@ -30,5 +30,11 @@
     "sha256": "efff5dd12baa1d75ccc586483f19c048faa832efd407433b2add410e81249ad5",
     "note": "Directly viewed native PNG and installed WebP. Accurate close map preserves northeast Asia left, Alaska right, small islands in the Bering Strait, and a northward route in water west of the Diomedes. Correct Arctic Ocean label placed inside the safe area.",
     "limits": "Direct image inspection only; independent sequence and app review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "d346fe8dc7353560509b50ee1dca945aaecea359fe39c62fa55e24ba80dcea80",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

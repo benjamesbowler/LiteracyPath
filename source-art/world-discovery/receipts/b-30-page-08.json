@@ -34,5 +34,11 @@
     "sha256": "5ab41d5ea84c4f16134f3378294fa8ee81a42eb09d26b55cc614e4c9014ea312",
     "note": "Directly viewed native PNG and installed WebP: whole Saturn left connects one ring sampling point to magnified separated ice pieces right; no extra arrow, letter or misleading solid ice field.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8741f8944c9405714e741246003a59b154287cfb03d19b48e2f496ea53e93f8d",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

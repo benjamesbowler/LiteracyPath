@@ -30,5 +30,11 @@
     "sha256": "046dea1542f873b886cce9f0ebbecaca327156270b663f0c843d14dc9f13c2a1",
     "note": "Native and final WebP directly viewed: destination worker transfers same tagged blue-orange bag to cart after lower-hold unloading; upper cabin windows remain above cargo opening; whole worker, cart, loader and plane safely inset.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

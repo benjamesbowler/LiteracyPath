@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T12:41:39.897Z",
     "note": "Direct native inspection: interior-facing integrated cutaway keeps receiver/shelf on same interior front wall RIGHT of door, matching p5/6 hinge side; one sidelight LEFT. Edge-on teal leaf opens inward from right jamb without intersecting cast. Kit outside cutaway LEFT hovers off button; Zoe points to receiver and adult nearby. Dashed connection arrow and all figures have safe margins. Focused independent geometry recheck requested."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

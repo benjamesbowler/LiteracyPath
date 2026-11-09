@@ -30,5 +30,11 @@
     "sha256": "5cc0e8d74cdb24e4268a25e5c1444b04039040b03de04924ac6f01f542d113c9",
     "note": "Directly viewed native PNG and installed WebP. One windsock turns through an oblique intermediate angle toward viewer and left, foreshortened with its tail opening visible. Pole, bench-left and tree-right remain fixed, with no duplicated tube or wind ribbons.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "a7d4700114dd184758408d85e9d80d32ffe61e9f2d611a6430b36ce36d7a765e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

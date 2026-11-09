@@ -30,5 +30,11 @@
     "sha256": "887dc3c93278da7b27043fc1716efdc34cf4332eae486afb060a1119783e6e4f",
     "note": "Native and installed WebP directly inspected: natural worker hands fasten white tag to exact bag top handle while Kit/guardian wait, bag on grounded scale, canonical wardrobe and main-subject margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

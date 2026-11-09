@@ -30,5 +30,11 @@
     "sha256": "01f2e0f28e4f2211e746576e82a73139dd82c4261e2c67a3ca55f83680b8d0e1",
     "note": "Directly viewed native PNG and installed WebP. Orange cloth collapses in folds downward from unchanged vertical circular mouth ring beside gray pole. Small tail opening remains present. Bench left and tree right remain fixed with still leaves and safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "a7d4700114dd184758408d85e9d80d32ffe61e9f2d611a6430b36ce36d7a765e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

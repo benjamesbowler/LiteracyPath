@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T07:44:44.651Z",
     "note": "Directly inspected: two states of one seed only, intact golden seed left and single larger connected cream result right, one rightward arrow. Brown bases align; scale comparison depicts clear physical expansion. No adult/appliance, all essential contents over10% inside edges."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

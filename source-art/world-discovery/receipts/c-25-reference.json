@@ -30,5 +30,11 @@
     "sha256": "1895d1763d6be7d6723e07b2630d0a5b953e1d352b018d6cae6f7ec4b71ebce2",
     "note": "Native and final WebP directly viewed: enclosed opaque battery holder; exactly three red/yellow/black wires connect battery to left switch pivot, right switch contact to first bulb terminal, second bulb terminal back to battery. Open lever pivots on wired left contact, visible right-side gap and dark incandescent bulb. Kit/Zoe and classroom reference retained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "60927b2d5048ae20d08714be01091613ee1764a5c15daf2525d06777525a68af",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

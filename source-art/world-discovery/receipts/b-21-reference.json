@@ -25,5 +25,11 @@
     "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042",
     "note": "Directly inspected native source and installed WebP. Blue diesel locomotive, red/yellow/green boxcars, open loaded starting state, connected couplers, steel wheelsets on rails and consistent worker clothing are clear. Clean outlined cartoon shapes, no labels or logos. Turnarounds are reference views only; final page coupler/brake-hose geometry and freight-door state still require exact scene review.",
     "limits": "Reference design inspection; no final page, app layout, or human-listening claim."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "4e3868c713b564760043a6dd8ac7e91e1268d533291f3d9e1d1ce19bf0a6461e",
     "note": "Directly viewed final native PNG and installed WebP. Zoe in profile holds gray camera with side-on lens aimed left toward original red-on-blue stack; Kit watches, heads/hands and stack safely inset, lower bodies naturally hidden by table foreground.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "525a24b588c1767c16569b25157918b5900b354e74e227d5bf34b61c7443df81",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

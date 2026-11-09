@@ -30,5 +30,11 @@
     "sha256": "fe8947bce60a4845b227c3ba563a26fc252d691bc272464d0a068c4661281ea5",
     "note": "Three full seated figures safely inside enclosed cabin; museum and east quay beyond closed window. Correct cast/anatomy, no text, feet clear of lower edge and window comfortably inset.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

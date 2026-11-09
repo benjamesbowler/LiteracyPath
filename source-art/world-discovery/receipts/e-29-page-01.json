@@ -9,7 +9,7 @@
   "outputSha256": "d2a958f43c72199ce751a3757dc985ef2c0b777fd2fd8aa7e1e88aaef2f0fa84",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this exact illustration. Pull camera back approximately 22% while keeping ALL action, object relationships, character identity, palette and clean flat cartoon style unchanged. Recenter focal group so entire adult from hair to shoes (if present), whole washboard, tubs and washer (only those already present) fit within x=15\u201385% and y=13\u201385% of canvas. Add natural room background around, never a plain rectangular border. No letters/numbers/new props. Keep exactly FIVE wooden slats, two black rollers and two separate tubs.",
+  "prompt": "Edit this exact illustration. Pull camera back approximately 22% while keeping ALL action, object relationships, character identity, palette and clean flat cartoon style unchanged. Recenter focal group so entire adult from hair to shoes (if present), whole washboard, tubs and washer (only those already present) fit within x=15–85% and y=13–85% of canvas. Add natural room background around, never a plain rectangular border. No letters/numbers/new props. Keep exactly FIVE wooden slats, two black rollers and two separate tubs.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-73324984-dc73-46e8-bb7e-a4203aeac06b.png",
@@ -30,5 +30,11 @@
     "sha256": "d2a958f43c72199ce751a3757dc985ef2c0b777fd2fd8aa7e1e88aaef2f0fa84",
     "note": "Five ridged wood slats, two top rollers, single crank, drain tray and two separate tubs; whole equipment framed.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

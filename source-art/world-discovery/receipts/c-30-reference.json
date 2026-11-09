@@ -30,5 +30,11 @@
     "sha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5",
     "note": "White/navy single-engine rocket, separated sealed blue/orange tanks and separate side feeds joining only at one chamber; no worker, flags or logos. All main references inset.",
     "limits": "Production reference inspection only; final pages reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "deb810aed4d1888ea05744f3a2bb497c0bc416fa149e4fb77952d244e890e843",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

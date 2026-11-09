@@ -38,5 +38,11 @@
     "sha256": "a5c4b081d335b1afc0c8501f4345c3462d70e30bbc455e8d4a82fb4b517c0ee8",
     "note": "Directly viewed native PNG and installed WebP: five identical touching cubes start at book left edge with one-unit shortfall at right, sixth spare above right; Kit hand moves first cube.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

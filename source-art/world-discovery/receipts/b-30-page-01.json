@@ -30,5 +30,11 @@
     "sha256": "c03bf2c1c634c212c54bf7a5f1d1aeec15744eaa32f35a017a8c14153e3ec959",
     "note": "Directly viewed native PNG and installed WebP: complete Saturn and equatorial rings, correct front/back occlusion and distant continuous appearance; no particle inset, safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8741f8944c9405714e741246003a59b154287cfb03d19b48e2f496ea53e93f8d",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

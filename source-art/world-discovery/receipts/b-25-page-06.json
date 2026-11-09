@@ -30,5 +30,11 @@
     "sha256": "c28bdf445b4c732b1698c1b320631b95c97ea69c57f28c279d776a6aaf6d7ede",
     "note": "Directly viewed native PNG and installed WebP. Zoe lifts blue card above the path with generous top margin; no light spot remains on card. Right-shifted screen spot returns at unchanged mirror angle and fixed flashlight/screen positions.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "02a11cb2d48a5186bd7e0a8f99de75cad39c2a86cb01f3a71a120775d033f96c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

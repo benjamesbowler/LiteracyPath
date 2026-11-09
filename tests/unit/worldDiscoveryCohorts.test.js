@@ -147,12 +147,22 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   if (manifest.cohorts[2].active) {
     assert.ok(nonfiction);
     assert.deepEqual(nonfiction.registration.counts, {
-      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1829, screenedClips: 1074
+      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1829, screenedClips: 490
     });
     const inventory = JSON.parse(fs.readFileSync(new URL(`../../${nonfiction.cohort.narrationInventory}`, import.meta.url)));
-    assert.equal(inventory.required.length, 1074);
-    assert.equal(inventory.reused.length, 755);
+    assert.equal(inventory.required.length, 490);
+    assert.equal(inventory.reused.length, 1339);
     assert.equal(new Set([...inventory.required, ...inventory.reused].map(row => row.audioPath)).size, 1829);
+    // Description maintenance reuses the same recordings through the pinned
+    // published baseline; the original screening partition stays historical.
+    const originalRegistration = JSON.parse(fs.readFileSync(new URL("../../src/content/world-discovery/registrations/21-30.json", import.meta.url)));
+    const originalInventory = JSON.parse(fs.readFileSync(new URL("../../source-art/world-discovery/cohorts/21-30/narration-inventory.json", import.meta.url)));
+    assert.equal(originalRegistration.counts.screenedClips, 1074);
+    assert.equal(originalInventory.required.length, 1074);
+    assert.equal(originalInventory.reused.length, 755);
+    const audioBytes = plan => [...plan.required, ...plan.reused]
+      .map(row => [row.audioPath, row.audioSha256]).sort(([a], [b]) => a.localeCompare(b));
+    assert.deepEqual(audioBytes(inventory), audioBytes(originalInventory));
   } else assert.equal(nonfiction, undefined);
   const changed = structuredClone(proof);
   changed.evidenceSha256 = "0".repeat(64);

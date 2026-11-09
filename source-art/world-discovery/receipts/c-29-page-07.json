@@ -9,7 +9,7 @@
   "outputSha256": "3008828a1c544f954b1e9e971b5575cb4d62525db690bc1c4256a07874b51085",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit the referenced finished landscape3:2 flat2D children nonfiction illustration. Crisp clean dark outlines and flat colors. Pull BOTH clocks back together uniformly by25 percent, keep equal size and existing gap, extend same cream background edge-to-edge with NO frame or border. Whole outer blue rims must have at least12 percent left/right margins. Preserve EXACT left3:00 blueup12/redright3 and right4:00 blueup12/reddiagonal4; same correct numerals1\u201312 on each, exactlytwohands each. Do not change hand angles, colors or numbers; no extra labels.",
+  "prompt": "Edit the referenced finished landscape3:2 flat2D children nonfiction illustration. Crisp clean dark outlines and flat colors. Pull BOTH clocks back together uniformly by25 percent, keep equal size and existing gap, extend same cream background edge-to-edge with NO frame or border. Whole outer blue rims must have at least12 percent left/right margins. Preserve EXACT left3:00 blueup12/redright3 and right4:00 blueup12/reddiagonal4; same correct numerals1–12 on each, exactlytwohands each. Do not change hand angles, colors or numbers; no extra labels.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d3b4fa70-45bb-4373-abd6-d9ac34c5b3b6.png",
@@ -30,5 +30,11 @@
     "sha256": "3008828a1c544f954b1e9e971b5575cb4d62525db690bc1c4256a07874b51085",
     "note": "Exactly two equal clocks, both long blue hands at12; left short red3/right short red4. Twelve correct numerals each; safe outer rim margins after pullback.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

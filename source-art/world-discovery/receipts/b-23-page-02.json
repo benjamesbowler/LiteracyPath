@@ -30,5 +30,11 @@
     "sha256": "0892fd4390a122bd0a7c98a3c2ed2efa2db17f693a872dc76f727a96df63e1ff",
     "note": "Directly viewed native PNG and installed WebP. Four upper and four lower front incisors have thin cutting edges closing through one thin peeled apple slice, with a small separated bite visible. No adult molars, full jaw, throat or unrelated diagram. Entire mechanism has safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

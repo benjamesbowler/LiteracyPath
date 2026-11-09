@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:58:32.257Z",
     "note": "Direct native inspection: full room pulled back, adult hair 17% from top and shoes 19% from bottom; Zoe/adult look to same speaker with exactly two sound arcs. Closed door, left handle and glass and right shoe shelf preserved."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

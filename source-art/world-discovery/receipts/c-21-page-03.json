@@ -30,5 +30,11 @@
     "sha256": "2d10e8dbbb818cc2bdde76fde8dcabc88a7a69d953254d85a6024e73b494c584",
     "note": "Native and final WebP directly viewed: tagged orange-striped bag passes reader before physical Y-conveyor junction, branch reaches aircraft loading area; plain secondary bags distinct; no children or invented labels.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

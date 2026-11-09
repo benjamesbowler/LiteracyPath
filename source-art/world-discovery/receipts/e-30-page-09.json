@@ -30,5 +30,11 @@
     "sha256": "ba893fee2ca180e09e8f2c5d8e04b1aa4813c782e9da1a1bddf9909043a75dad",
     "note": "Directly inspected installed WebP: Two states show one pale colony and one partial recovery example, with residual pale patch and increased algae in living tissue; no timeline. Comparison objects comfortably framed, contextual waves are a floating diagram backdrop.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -25,5 +25,11 @@
     "sha256": "bc06e7bde7f767912fca97ea540e5d427be516ed9a63f007603c2f4d7e37e2ff",
     "note": "Directly viewed native PNG and installed WebP. Natural giraffe shows four legs, two ossicones, ears, short mane, tufted tail and cloven-hoof detail. Tan/brown coat includes repeatable large three-lobed neck patch. Vachellia branch studies show small paired leaflets and paired pale thorns. No people or text; final feeding/tongue and branch-reduction states need individual inspection.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "196df0e9094941d10a0198793392a9023e77526803a29764a558a8ef457f7432",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

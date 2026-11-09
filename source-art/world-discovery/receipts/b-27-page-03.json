@@ -34,5 +34,11 @@
     "sha256": "40651a7c2e5efdec6a0e89eafeaf7458301b2f45cfb8f9d5fbf86f8c741a301f",
     "note": "Directly viewed native PNG and installed WebP: adult adds lemon juice while stirring first curds; two correct hands, same four-burner stove, pan on back-left burner with inward handle; essential pan/hand/juice action safely inset.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8603efd41970464a9a88e20ce81a56bbb4b368d24f32537f720301e45b04ef19",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

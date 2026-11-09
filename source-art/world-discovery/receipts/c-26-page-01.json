@@ -30,5 +30,11 @@
     "sha256": "d38d1a3e66bd9bdde68d9b352eba180e771ecf3fb9f8d73427daa36e14991902",
     "note": "Actual installed WebP inspected: safe cast/prop margins, clear Cereal $3, curious Kit and worker gaze, no additional text. Same product barcode automatically decodes EAN_13 9526064055028.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d59cea23360058526ea901a2e29037254b3ebeb4c6414bf72ec9466263b3fda1",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

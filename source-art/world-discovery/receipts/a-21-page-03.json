@@ -30,5 +30,11 @@
     "sha256": "afdc248704a7b37df5ec9254b7c854282b247acb6528b9d6407fe5b27b778903",
     "note": "Two original riders now on sidewalk walking away, three new riders still waiting, driver alone inside; four passenger windows and open door, identities and planter stable.",
     "limits": "Initial image/state review; full sequence and actual reader framing pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

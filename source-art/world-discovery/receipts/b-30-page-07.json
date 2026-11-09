@@ -30,5 +30,11 @@
     "sha256": "6a34415b1b6580052952bc6d76eac64660632b5d4b55962565059372a5449a76",
     "note": "Directly viewed native PNG and installed WebP: smaller distant Saturn with equatorial thin ring sheet appearance, correct front/back occlusion and generous margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8741f8944c9405714e741246003a59b154287cfb03d19b48e2f496ea53e93f8d",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

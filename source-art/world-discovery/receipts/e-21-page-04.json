@@ -30,5 +30,11 @@
     "sha256": "d006fccedc95a81a5ce568472c7739526754b62ca3fc8b1b6ef799ebbc51cd6d",
     "note": "One right-facing yellow bus has tires on gray road bridge. Bus and15 pictogram badge safely inset. Supporting bridge piers and river are contextual scenery; no misleading whole-journey total.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

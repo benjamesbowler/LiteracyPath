@@ -30,5 +30,11 @@
     "sha256": "2ac3fe4388e68e36a80cf306f2bc00e9828708705bde417b8403382ef379559d",
     "note": "Native and installed WebP directly viewed. Main liquid cloud with six round-drop magnification separate from different wispy cold-cloud inset with three six-fold ice crystals. Entire composition safely inset; no implication all clouds are liquid.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "6cd280a9d02dea1e6c9089cb16a616bf16aa70d331309534ccb043504bcb3c09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

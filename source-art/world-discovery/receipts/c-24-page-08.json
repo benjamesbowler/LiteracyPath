@@ -34,5 +34,11 @@
     "sha256": "07c6a6b301524c0cade27561e339e8371d446134e2535e8c4dbad048fe6e3171",
     "note": "Native and final WebP directly viewed. Large final cloud linked to small six-droplet magnification, each nucleus centered. Clear air, same landscape, all core diagram above eight-percent margin.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "6cd280a9d02dea1e6c9089cb16a616bf16aa70d331309534ccb043504bcb3c09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

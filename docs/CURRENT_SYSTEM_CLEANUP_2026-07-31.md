@@ -1847,3 +1847,21 @@ but the tests are reproducible. The 17 superseded original audio takes remain
 because their exact bytes are required by the canonical repair evidence; seven
 also remain shared resolver defaults. See the task’s final cleanup and audio
 provenance audit receipts under `.artifacts/nonfiction-next-50/`.
+
+## Nonfiction description maintenance evidence — 10 November 2026
+
+The live release check found illustration directions in reader-facing picture
+alternatives. The description-only correction retains the original publication
+records and uses new dated maintenance evidence under
+`source-art/world-discovery/remediation/2026-11-10/`. Exact guards preserve all
+reading passages, audio bindings, 13,180 recorded media files and the other
+421 books. The 166 corrected description pairs have independent picture reviews;
+their draft, review and inspection artifacts remain required quality evidence.
+The original and corrected reader/live reports remain distinct.
+
+The final scoped cleanup removed two confirmed empty outputs from unsuccessful
+read-only deployment/log requests, freeing zero bytes. They contained no evidence
+and can be reproduced by repeating those requests. The receipt is
+`.artifacts/nonfiction-next-50/final-empty-file-cleanup.json`. No native media,
+historical review, selected source, protected animation root or current reader
+proof was removed; the task's recorded cleanup total remains 969,865,481 bytes.

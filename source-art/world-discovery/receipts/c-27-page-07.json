@@ -34,5 +34,11 @@
     "sha256": "e3b6cd83ee3e46b37243bb001dbf17e11883133301b1106a1a7dc790597caf28",
     "note": "Five red pencils, four blunt and only bottom fifth sharpened; one graphite core per pencil, no logos/erasers. Same enclosed factory and collection tray.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

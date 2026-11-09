@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T13:37:32.547Z",
     "note": "Native directly inspected: same quiet curled winter hedgehog and thick-leaf cutaway, no literal fat bag or new event. Forked branch and leaf-chamber state retained. Smooth brown ground with discrete frost patches, leaves and stones; no diffuse grain; generous framing."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "e855a4632329b94652df219218ab2944fb016f9cee5e2b5b255f01eaa0470928",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

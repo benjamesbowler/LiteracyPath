@@ -30,5 +30,11 @@
     "sha256": "f9b28103e70b16224d165582b7104b32e6d8eae2b8f79406b7dcc0eb89c4788c",
     "note": "Directly inspected installed WebP: same pale colony and continuous translucent living polyp tissue; white skeleton below, four residual algae, no exposed bones or absent tissue; safe margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

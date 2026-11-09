@@ -30,5 +30,11 @@
     "sha256": "d9ac6feea79f62583c6a63f828fede8ce0ec75a92913c5c3eb8224e0190af47e",
     "note": "Native and final WebP directly viewed: Kit points from outside claim belt beside guardian; bag has consistent left-side carry handle, lower-left to upper-right orange stripe and top tag; foreground children safely inset.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

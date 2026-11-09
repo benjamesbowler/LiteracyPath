@@ -30,5 +30,11 @@
     "sha256": "10881889a6841b54fd90c270ff0ddf22ac379d6497ae30e7110fdaae20a7ceaf",
     "note": "Directly viewed native PNG and installed WebP: Kit and Zoe observe completed six-cube touching row with book endpoints aligned, same props and ample whole-body margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

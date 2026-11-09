@@ -30,5 +30,11 @@
     "sha256": "667974cac28de29ff464d47d4b0369b4c04469039e75d618a001d59efc479771",
     "note": "Repaired exactly two connected arms/hands, both clear of guarded needle; matching sleeve/body seam, no extra hand or outdoor inset, all furniture grounded.",
     "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

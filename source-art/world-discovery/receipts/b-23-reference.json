@@ -30,5 +30,11 @@
     "sha256": "f5339ba2c8d25dab58581bce2c4680f9ac76f869eceda648a19170b9e47e90e7",
     "note": "Directly viewed native and installed reference. Zoe matches cast identity; peeled apple and white plate/wood table are consistent. Separate child-jaw teaching model distinguishes front incisors and ridged rear molars without adult premolars. No written labels or prohibited texture.",
     "limits": "Design reference inspection only. Final anatomical page diagrams require separate direct factual checks."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "39e5e6b5ebd951cca203377c602137987db0123e258406ab353ec322a97a4757",
     "note": "Native and installed WebP directly viewed. Natural unloaded right-arm flexion, other hand rests on knee; complete seated child and chair safely inset, no premature anatomical overlay.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "a69cbfc6921edf6fa0940d4d9dd11e0245a3058f577ce1cf8504915963b81106",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

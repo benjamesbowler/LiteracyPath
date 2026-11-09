@@ -30,5 +30,11 @@
     "sha256": "06e1eee5d9b4953ec19e1506c11e8ea3642486db4820e0e7361e00552330dd68",
     "note": "Directly viewed native PNG and installed WebP. Zoe sits steadily and takes a small bite with front teeth from one thin peeled slice. Both hands, full head, apple and plate have generous margins; exact room and locked outfit retained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

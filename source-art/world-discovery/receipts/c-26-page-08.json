@@ -30,5 +30,11 @@
     "sha256": "7e9f3abb80f0d7f368883ef34d37f59f7a386eaa3546631e9ddcaaa9cc5f7de0",
     "note": "Actual installed WebP directly inspected: Kit and worker return to same checkout, one actual carton with unobscured barcode, matching on-screen blue-circle thumbnail and exact Cereal $4. Safe framing, no extra text or arrow. Auto decode EAN_13 9526064055028.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d59cea23360058526ea901a2e29037254b3ebeb4c6414bf72ec9466263b3fda1",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }
