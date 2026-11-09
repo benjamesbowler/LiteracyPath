@@ -55,6 +55,7 @@ the ears and horns) and Small Steps 05 page 8 (Dad already touches the hen).
 - [89-image legacy repair receipts](../../source-art/guided-reading-remediation/2026-11-09/image-repairs.json): accepted prompts, actual input-reference hashes, native output hashes, encoded delivery hashes and whole-book review provenance.
 - [World Discovery complete-book review, r2](../../source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json), [text repairs](../../source-art/world-discovery/remediation/2026-11-09/text-repairs.json) and [15 image/reference repairs](../../source-art/world-discovery/remediation/2026-11-09/image-repairs.json): cohort-specific evidence. Earlier dated receipts remain historical; the current registration selects the applicable revision.
 - [Local verification](../../source-art/guided-reading-remediation/2026-11-09/local-verification.json): exact coverage, full-suite failures and successful reruns, build/media delivery and evidence hashes.
+- [Linux verification](../../source-art/guided-reading-remediation/2026-11-09/linux-verification.json): 63 scoped browser checks passed in both refresh and verification runs; three directly reviewed screenshot updates were imported.
 - [Narration screening](../../source-art/guided-reading-remediation/2026-11-09/narration-review.json): 329 currently consumed new Leda files received automated decode, signal and recognition checks. Two rare-bird-name clips retain explicit IPA and recorded residual recognition ambiguity.
 
 The original full audits, source snapshots, labeled sequence sheets, native
@@ -92,6 +93,11 @@ and three localhost tests needed sandbox permission. All affected suites were
 rerun successfully: 615 passed, zero failed. The 31 overlapping offline image
 revisions now match the reader, with current-byte and offline-cache regression
 coverage. Hosted publication and production observations are recorded separately.
+
+The Linux reader, practice and device workflow also passed all 63 scoped checks
+twice. Its three accepted screenshot updates cover the landscape reader and
+the Chromebook/projector shelf order. Two small rendering variations were
+reviewed and left unchanged within the existing tolerance.
 
 Cleanup is limited to disposable task-created builders and superseded local
 scratch after their results are preserved. Removed 31 unused new MP3s, 14 unused
