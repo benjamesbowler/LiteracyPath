@@ -1,5 +1,17 @@
 # Current system cleanup — 31 July 2026
 
+## World Discovery ESL audit — 9 November 2026
+
+The existing writing Bible now explicitly applies ESL-first wording to every
+level, title, discussion question and vocabulary explanation. The
+[audit handoff](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) records the
+100-book review and open remediation boundary. Detailed generated reports,
+source/image hashes and visual review sheets remain required QA evidence in
+ignored `.artifacts/world-discovery-esl-audit-20261109/`. Task-created report
+builders are removed after verification; retained reports and source snapshots
+preserve their substantive result. No book source, narration, image, hosted
+state, protected animation or unrelated cache is removed or changed.
+
 ## World Discovery — 7 November 2026
 
 The [collection Bible](guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md) owns

@@ -879,14 +879,24 @@ Use these rules:
 - Use the words that character would actually choose. Child dialogue is usually shorter,
   less formal and less complete than narration. Use contractions when the reading band
   allows them.
-- Use familiar everyday U.S. English across every collection, with particular care for
-  public App levels A–C and children learning English. Prefer *time to eat* or *dinner*
+- Write for children learning English at **every public App level**, in every collection.
+  A higher reading level permits longer ideas and useful topic vocabulary; it does not
+  permit abstract, old-fashioned or adult report language. This is an ESL-first
+  acceptance requirement, reaffirmed by the product owner on 9 November 2026.
+  Use familiar everyday U.S. English. Prefer *time to eat* or *dinner*
   to an unfamiliar regional meal word such as *supper*, and *glasses* to *spectacles*.
   Replace formal, old-fashioned or compressed wording when it adds no useful meaning.
+  Replace avoidable idioms, vague referents and poetic summaries with named people,
+  objects and visible actions. Do not end with phrases such as *the battery connects
+  two parts of the day*, *one meal connects two lives* or *the path shares the night*.
   Keep necessary articles, prepositions and natural verb phrases; shorten the idea
-  instead of dropping grammar to meet a page limit. Apply the same edit to teacher
-  discussion questions. Keep useful story, science and world-specific vocabulary when
-  the action, context or an explicit explanation supports it. For decodable books,
+  instead of dropping grammar to meet a page limit. Apply the same edit to titles,
+  teacher discussion questions and oral vocabulary preparation. A definition must
+  explain a new word with easier language and a concrete example, rather than another
+  unfamiliar synonym. Keep useful story, science and world-specific vocabulary when
+  the action, picture or an explicit plain-language explanation supports it. Preserve
+  the scientific mechanism, story logic and intended thinking task while simplifying
+  its wording. For decodable books,
   preserve the taught code and exact exception/word records; ordinary wording never
   licenses an untaught spelling.
 - Give different characters different rhythms, favorite words and ways of avoiding a
