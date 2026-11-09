@@ -29,8 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:38:10.720Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "5d945cb9cb3ecbc5bff07707d4b3f7d2dbc9b3d0b7c9bd3118cb8640ae6b5deb",
-    "note": "Direct native and installed WebP sequence review: fixed embedded white shell and dry gray pebble; one continuous water edge advances, surrounds shell, retreats over damp sand and returns; no shell movement or tide claim. Page6 repaired to remove foreground water and restore anchored shell base. All focal landmarks clear with safe margins."
+    "note": "Direct native and installed WebP sequence review: fixed embedded white shell and dry gray pebble; one continuous water edge advances, surrounds shell, retreats over damp sand and returns; no shell movement or tide claim. Page6 repaired to remove foreground water and restore anchored shell base. All focal landmarks clear with safe margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-15",
+    "sha256": "d9d7bc1e63ba268c6619636e83aa0e179164ba37690573bce9cac8ab0d8d423f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

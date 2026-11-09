@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "4c3ccd2d7e229bf755464db94b309d2172f7d4d97ba88126d175baf691985c61",
     "method": "codex-direct-image-inspection",
-    "note": "Widened spring feeding scene; full wings and fine walking legs at flower contact, no humanlike anatomy or framing cutoff."
+    "reviewedAt": "2026-11-09",
+    "sha256": "4c3ccd2d7e229bf755464db94b309d2172f7d4d97ba88126d175baf691985c61",
+    "note": "Widened spring feeding scene; full wings and fine walking legs at flower contact, no humanlike anatomy or framing cutoff.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -52,6 +52,7 @@ A dated document must never override current code.
 - [Foundations expansion](guided-reading/FOUNDATIONS_EXPANSION_CONTENT_BIBLE.md) — 30 cumulative decodable and 20 distinctly labeled leveled books, phonics prerequisites, teaching support and media requirements
 - [World Discovery](guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md) — ten books at each public App level A–E, original cast, ten recurring topics, factual sources and complete illustration/narration requirements
 - [World Discovery cohort registration](guided-reading/WORLD_DISCOVERY_COHORT_REGISTRATION.md) — immutable published fifty, one inactive fifty-book expansion, exact media registration and declared 100-book completion target
+- [Complete Guided Reading ESL and image audit](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) — 397-book coverage, concrete ESL and continuity repairs, exact installed-image provenance and verification boundaries.
 - [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — single public A–H book system, calibrated full-text reviews, shared metadata and verified Lexile provenance
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)

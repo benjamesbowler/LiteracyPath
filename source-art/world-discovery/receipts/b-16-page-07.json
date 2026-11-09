@@ -28,14 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
-    "outputSha256": "d870310a3c4a011657c3c7cbe03380bd7107430b7cba5c6315837f828f50fc68",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "All near wheels level beyond both obstacles; rock and dip behind in correct order; natural farther wheel occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "d870310a3c4a011657c3c7cbe03380bd7107430b7cba5c6315837f828f50fc68",
-    "note": "All near wheels level beyond both obstacles; rock and dip behind in correct order; natural farther wheel occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+    "note": "All near wheels level beyond both obstacles; rock and dip behind in correct order; natural farther wheel occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-16",
+    "sha256": "f21fdf5fab9a8e5f93e0bbd642b24ac5519ae657556d200632b2594bfa579d45",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

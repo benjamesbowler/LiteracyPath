@@ -24,15 +24,12 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
-    "outputSha256": "6a691e1a291c1412f1883232b3f61eb291da001a86902a8f083e34b73c364b6b",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "Sea has returned close to low rim but not spilled over; pool still isolated, surrounding lower bedrock inundated. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "6a691e1a291c1412f1883232b3f61eb291da001a86902a8f083e34b73c364b6b",
-    "note": "Sea has returned close to low rim but not spilled over; pool still isolated, surrounding lower bedrock inundated. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+    "note": "Sea has returned close to low rim but not spilled over; pool still isolated, surrounding lower bedrock inundated. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "generationManuscriptSource": {
     "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
@@ -51,5 +48,12 @@
       ],
       "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
     }
-  ]
+  ],
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-15",
+    "sha256": "afd54c3e534abedef88f796c06fc51a508935adffbc6a30cdb5b7afafe7500c4",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+  }
 }

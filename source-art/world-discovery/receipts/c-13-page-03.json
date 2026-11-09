@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
-    "outputSha256": "3c501613715cacd1ae458d7460f5f2d19b3c330563f2b04d182d5b070a3b8f44",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "One full crate at van load floor with natural lifting/pushing contact, ordinary vehicle scale and full safe framing.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "3c501613715cacd1ae458d7460f5f2d19b3c330563f2b04d182d5b070a3b8f44",
-    "note": "One full crate at van load floor with natural lifting/pushing contact, ordinary vehicle scale and full safe framing."
+    "note": "One full crate at van load floor with natural lifting/pushing contact, ordinary vehicle scale and full safe framing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-13",
+    "sha256": "65343fe46b107925a39d733ee89feca4c2fed9998dbf0592e33898fbe238406b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:54:40.858Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "c0693c1bae9d938a222791268c87c76439999052ac215005e090d1f799c651e4",
     "note": "Independent audit correction: white-rabbit operating forearm now matches Zoe deep brown skin. Kit golden skin and fox, puppet design, den scenery and composition preserved; page 8 pointing hand remains Zoe brown with small light highlight.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

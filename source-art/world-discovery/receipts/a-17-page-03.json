@@ -29,8 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T15:15:29.994356+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "e3d40548362b0d2d1b7153fb4bcc31ae470c185bfee4402c075addcf52ff70d0",
-    "note": "Direct native and final WebP inspection after mouth anatomy correction: no ivory tusks or mammal teeth; small orange mouthparts, eye stalks/antennae, claws, ground contact and same shell-occupancy sequence preserved. Whole scene inspected for plausibility. Producer check; independent recheck pending."
+    "note": "Direct native and final WebP inspection after mouth anatomy correction: no ivory tusks or mammal teeth; small orange mouthparts, eye stalks/antennae, claws, ground contact and same shell-occupancy sequence preserved. Whole scene inspected for plausibility. Producer check; independent recheck pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-17",
+    "sha256": "9e297c1158b8c3ca5e402f7e8821e2e8db7e22cf08c972377e96c3abef069e70",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

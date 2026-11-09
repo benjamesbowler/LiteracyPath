@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:11:10.573961+00:00",
-    "outputSha256": "fd2e9ea05c4779d179949093a662eb2e16b0a43ffa59d4fbcb8e13089f5053f3",
-    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
-    "notes": "Zoe holds wax paper in same beam; soft diffuse glow transmitted, unused plastic/card aside; natural grip. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "fd2e9ea05c4779d179949093a662eb2e16b0a43ffa59d4fbcb8e13089f5053f3",
-    "note": "Zoe holds wax paper in same beam; soft diffuse glow transmitted, unused plastic/card aside; natural grip. Independent QA pending."
+    "note": "Zoe holds wax paper in same beam; soft diffuse glow transmitted, unused plastic/card aside; natural grip. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

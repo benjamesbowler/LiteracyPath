@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:12:05.458Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "dd82856c37d782bf2ecbcc4d3f8b6df072ce97fd89b4bbfa53796e52d07db22c",
     "note": "Corrected remaining jelly to float immediately under surface among stems; one legless tadpole with long tail, no air bubbles.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "d5bde33b8ded157ad042f464703fedca3e9daa9ba1c71fe15ae8f57451ee4b12",
     "method": "codex-direct-image-inspection",
-    "note": "Fully restored small boat centered in clean yellow tray, closed purple pot and purple-stained cloth beside cup; both smile. No unresolved invisible object. Upper-body crop and broad margins remain coherent."
+    "reviewedAt": "2026-11-09",
+    "sha256": "d5bde33b8ded157ad042f464703fedca3e9daa9ba1c71fe15ae8f57451ee4b12",
+    "note": "Fully restored small boat centered in clean yellow tray, closed purple pot and purple-stained cloth beside cup; both smile. No unresolved invisible object. Upper-body crop and broad margins remain coherent.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -9,7 +9,7 @@
   "outputSha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this accepted page 5 illustration to show the next exact story moment. Preserve EXACT same tree U-fork geometry, raised red diamond kite, one white ribbon tail, characters' clothing/skin, garden and crisp outlined flat cartoon style. Zoe has WALKED AROUND to the BACK of this tree. Place her clearly BEHIND the trunk/left fork: her lower body is occluded by wood, her face and hands are visible in the OPEN AIR gap ABOVE the low left branch and just LEFT of the kite. Her arms reach into this OPEN AIR gap holding blue pouch BEHIND the kite. The pouch is zipped MOSTLY CLOSED with only a tiny corner open. One SMALL white puff goes sideways RIGHT directly from this opening across OPEN AIR to the BACK of the kite. No wind stroke may cross solid wood. Kit on right has both empty hands waiting, one spool now on grass with visibly slack string attached to kite. Kite remains in same raised location against right twig; not yet free. Both children stay on ground; no climbing, no duplicate props, no text. The back-of-tree position MUST differ clearly from the reference\u2019s front-left position.",
+  "prompt": "Edit this accepted page 5 illustration to show the next exact story moment. Preserve EXACT same tree U-fork geometry, raised red diamond kite, one white ribbon tail, characters' clothing/skin, garden and crisp outlined flat cartoon style. Zoe has WALKED AROUND to the BACK of this tree. Place her clearly BEHIND the trunk/left fork: her lower body is occluded by wood, her face and hands are visible in the OPEN AIR gap ABOVE the low left branch and just LEFT of the kite. Her arms reach into this OPEN AIR gap holding blue pouch BEHIND the kite. The pouch is zipped MOSTLY CLOSED with only a tiny corner open. One SMALL white puff goes sideways RIGHT directly from this opening across OPEN AIR to the BACK of the kite. No wind stroke may cross solid wood. Kit on right has both empty hands waiting, one spool now on grass with visibly slack string attached to kite. Kite remains in same raised location against right twig; not yet free. Both children stay on ground; no climbing, no duplicate props, no text. The back-of-tree position MUST differ clearly from the reference’s front-left position.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-db6b9872-f7b8-4444-bd27-1c96df11203d.png",
@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:57:57.265973+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
-    "note": "Viewed full-size: Zoe reaches through open air behind fork with mostly closed pouch, tiny corner puff aimed toward kite; Kit waits with empty hands, spool on ground; no wind-through-wood."
+    "note": "Viewed full-size: Zoe reaches through open air behind fork with mostly closed pouch, tiny corner puff aimed toward kite; Kit waits with empty hands, spool on ground; no wind-through-wood.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-04",
+    "sha256": "276b1b7042e6da481cec4c0568940b0d78e77d21070e94f1bc0e54270b408f95",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

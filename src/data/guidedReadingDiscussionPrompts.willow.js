@@ -10,7 +10,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "How do Maya and Samir check that their lunches are right?",
     "They check the labels and return the swapped things. Maya spots the spoon left behind, and Samir returns it.",
     7,
-    "Which items on page 7 prove both lunches are correct now?",
+    "Find Maya's apple and spoon. Find Samir's blue cup.",
     "Finds Maya's green apple and spoon together, plus Samir's blue cup and orange napkin."
   ),
   "willow-street-the-lost-library-book": record(
@@ -24,8 +24,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "What two changes finally kept the windy picnic in place?",
     "Names moving beside the hedge and weighting four cloth corners with food boxes.",
     6,
-    "How does page 6 show that every cloth corner is secured?",
-    "Locates one closed food box on each of the four striped-cloth corners."
+    "How do the four boxes stop the cloth from blowing away?",
+    "One food box sits on each corner of the checked cloth."
   ),
   "willow-street-the-puddle-plan": record(
     "What does Leo’s muddy shoe show them about the first route?",
@@ -50,10 +50,10 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
   ),
   "willow-street-nanis-chapati-lunch": record(
     "Why did folding the chapatis solve Maya's packing problem?",
-    "Explains that triangles left room beside the sealed lentil pot.",
+    "Explains that triangles left room beside the small lentil pot.",
     6,
     "Compare the folded chapatis and lentil pot on page 6.",
-    "Notices the chapati triangles fitting neatly beside the small sealed pot."
+    "Notices the chapati triangles fitting neatly beside the small pot."
   ),
   "willow-street-dumplings-for-new-year": record(
     "What did Zoe change when her first dumpling would not close?",
@@ -63,17 +63,17 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Follows her fingers pinching the crescent edge while the filling stays enclosed."
   ),
   "willow-street-drums-for-carnival": record(
-    "What does Leo change after his early beat covers the call?",
+    "Why does Leo wait before he plays again?",
     "He listens for the call to finish before playing the answer.",
     5,
-    "How does Mr Baptiste show Leo that it is his turn?",
-    "Mr Baptiste points toward Leo, who watches with his hands ready at the drum."
+    "How can you tell Leo is waiting for his turn?",
+    "Mr. Baptiste is still playing. Leo watches and waits with his hands off the drum."
   ),
   "willow-street-a-morning-with-friends": record(
     "Why did holding the cups fail to solve the table problem?",
     "Explains that the short leg still had a gap, and the block supports it so the table stays steady.",
     7,
-    "What evidence on page 7 shows that their table repair worked?",
+    "What keeps the table still on page 7?",
     "Finds the one block beneath the short leg and all four cups staying upright while Maya nudges the table."
   ),
   "willow-street-grow-a-bean-in-a-jar": record(
@@ -94,7 +94,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "How can adding one book change the toy car's journey?",
     "Predicts that a slightly higher stable ramp can change how far the released car rolls.",
     8,
-    "What evidence on page 8 lets Leo compare both rolls?",
+    "Point to both marks. Which one is farther from the ramp?",
     "Points to the first blue mark and second yellow mark at the two stopping places."
   ),
   "willow-street-make-fruit-and-yoghurt-cups": record(

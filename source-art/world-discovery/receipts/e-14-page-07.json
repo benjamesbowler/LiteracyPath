@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "c42e81939e62e795613a535adf7e6bfa870b148e2ea66a2aecf20ff5ec3869b3",
     "method": "codex-direct-image-inspection",
-    "note": "Damp cloth reveals only small yellow front-left patch/rim; rest tray and whole boat remain invisible. Connected arm, grounded cloth, safe margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "c42e81939e62e795613a535adf7e6bfa870b148e2ea66a2aecf20ff5ec3869b3",
+    "note": "Damp cloth reveals only small yellow front-left patch/rim; rest tray and whole boat remain invisible. Connected arm, grounded cloth, safe margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

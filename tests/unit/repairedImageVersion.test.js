@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 import { REPAIRED_IMAGE_REVISIONS } from '../../src/data/generated/repairedImageRevisions.generated.js';
+import { GUIDED_READING_IMAGE_REVISIONS } from '../../src/data/generated/guidedReadingImageRevisions.generated.js';
 import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 import { serviceWorkerSource } from '../../tools/viteQuestOfflinePlugin.mjs';
 import { preloadPhysicalPalArt } from '../../src/components/learn/games/shared/physicalPalArt.js';
@@ -18,6 +19,9 @@ test('repaired delivery versions bind to current public image bytes', () => {
   for (const [pathname, expected] of Object.entries(REPAIRED_IMAGE_REVISIONS)) {
     const bytes = readFileSync(new URL('../../public' + pathname, import.meta.url));
     assert.equal(createHash('sha256').update(bytes).digest('hex').slice(0, 12), expected, pathname);
+    if (GUIDED_READING_IMAGE_REVISIONS[pathname]) {
+      assert.equal(expected, GUIDED_READING_IMAGE_REVISIONS[pathname], `${pathname}: offline and reader revisions agree`);
+    }
   }
 });
 
@@ -61,7 +65,10 @@ test('both shared actor loaders refresh atlas transport while retaining canonica
   }
 });
 
-test('service worker bypasses old canonical and old revision images, then restores only the new revision offline', async () => {
+for (const repairPath of [imagePath, ...Object.keys(REPAIRED_IMAGE_REVISIONS).filter(path => GUIDED_READING_IMAGE_REVISIONS[path])]) {
+test(`service worker bypasses old canonical and old revision bytes, then restores only the new revision offline: ${repairPath}`, async () => {
+  const imagePath = repairPath;
+  const revision = REPAIRED_IMAGE_REVISIONS[imagePath];
   const origin = 'https://literacy.guide';
   const stored = new Map([
     [origin + imagePath, new Response('old painted image')],
@@ -96,3 +103,4 @@ test('service worker bypasses old canonical and old revision images, then restor
   assert.equal(await fetchThroughWorker(imagePath + '?v=old'), 'new clean cartoon image');
   assert.equal(requests.length, 1, 'reviewed revision is retained; old keys are never reused');
 });
+}

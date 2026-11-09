@@ -67,7 +67,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe wants a soft bite.",
+        "text": "Zoe wants something soft.",
         "imageBrief": "Zoe places her bitten piece beside the longer section on her plum plate and looks at the ripe pear wedges. Show her open hand poised toward the pear section, without a thought bubble.",
         "imageAlt": "Zoe looks toward the soft pear slices.",
         "pageDescription": "Zoe looks toward the soft pear slices.",
@@ -157,7 +157,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Kit and Zoe walk to play.",
+        "text": "Kit and Zoe walk together.",
         "imageBrief": "Kit and Zoe enter through the blue playground gate together. The same path leads visibly toward two yellow swings in the distance. Their bodies and feet face the destination.",
         "imageAlt": "Kit and Zoe start toward the swings.",
         "pageDescription": "Kit and Zoe start toward the swings.",
@@ -294,7 +294,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Two sidewalks line our street.",
+        "text": "Our street has two sidewalks.",
         "imageBrief": "Wide elevated view of two sidewalks separated by the street. Kit, Zoe and the grown-up are well behind the near curb. Establish one crosswalk and far-side signal pole for the entire sequence.",
         "imageAlt": "Two sidewalks run beside the street.",
         "pageDescription": "Two sidewalks run beside the street.",
@@ -303,7 +303,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Our crossing joins the sidewalks.",
+        "text": "Here is a crossing.",
         "imageBrief": "Lower diagonal view clearly follows the white crosswalk bars between the two curb ramps. The group approaches the near ramp but remains on the sidewalk. Show far-side orange hand signal.",
         "imageAlt": "A marked crossing runs between the sidewalks.",
         "pageDescription": "A marked crossing runs between the sidewalks.",
@@ -312,7 +312,7 @@
       },
       {
         "pageNumber": 3,
-        "text": "The bright hand says wait.",
+        "text": "The hand sign means wait.",
         "imageBrief": "Composition emphasizes the orange raised-hand pedestrian icon on the far-side pole, with the waiting group visible below across the road. Use a hand pictogram, no letters or invented countdown.",
         "imageAlt": "An orange hand shines on the signal.",
         "pageDescription": "An orange hand shines on the signal.",
@@ -439,7 +439,7 @@
       },
       {
         "pageNumber": 3,
-        "text": "His folded drawing becomes real.",
+        "text": "His folded paper becomes a wheel.",
         "imageBrief": "Show one magical transformation at the fold between Kit’s hands: the folded first sheet becomes the huge solid yellow wheel. Use a few crisp flat sparkle marks, not a second duplicate wheel. The sheet itself is disappearing into the object.",
         "imageAlt": "The folded drawing becomes a huge wheel.",
         "pageDescription": "The folded drawing becomes a huge wheel.",
@@ -916,7 +916,7 @@
     "languagePrep": [
       {
         "word": "hermit crab",
-        "meaning": "a crab that shelters its soft abdomen in an empty snail shell"
+        "meaning": "a crab that lives in an empty snail shell"
       },
       {
         "word": "empty",
@@ -1152,7 +1152,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "Different shapes share a group.",
+        "text": "These two things feel smooth.",
         "imageBrief": "Overhead view makes the grouping exact: rectangular brick with irregular bark left, long spoon with oval pebble right. Zoe points at the two differently shaped objects on the right mat without moving them.",
         "imageAlt": "Each group contains different shapes.",
         "pageDescription": "Each group contains different shapes.",
@@ -1195,7 +1195,7 @@
   {
     "id": "world-discovery-a-20",
     "number": 20,
-    "title": "A Little First",
+    "title": "Crackers for Later",
     "topic": "caring for our world",
     "type": "nonfiction",
     "appLevel": "A",
@@ -1293,7 +1293,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The crackers wait for snack time.",
+        "text": "These crackers are for later.",
         "imageBrief": "The closed blue tin rests on a clean pantry shelf; the grown-up’s hand has just set it down. Kit’s used plate stays on the table in the background. This is storage for a later snack, not a new portion demanded now.",
         "imageAlt": "The closed tin is kept for another snack.",
         "pageDescription": "The closed tin is kept for another snack.",

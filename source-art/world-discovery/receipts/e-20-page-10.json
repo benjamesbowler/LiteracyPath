@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "63f16332afd2577d533624c9dcdd0954ff1f1e2e7f2c2cbf6a0f4dbb2a26dee5",
     "method": "codex-direct-image-inspection",
-    "note": "Maintained route beside retained mostly brown seed heads, two markers visible, children walking naturally and gardener inspecting. No peak-summer reset; broad essential margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "63f16332afd2577d533624c9dcdd0954ff1f1e2e7f2c2cbf6a0f4dbb2a26dee5",
+    "note": "Maintained route beside retained mostly brown seed heads, two markers visible, children walking naturally and gardener inspecting. No peak-summer reset; broad essential margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-20",
+    "sha256": "fac02292fb99181c3cdf95a864e5c86a9e22d1df1677d6d1143abbaca2559e90",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

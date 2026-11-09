@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:12:05.458Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f5e8ada0e9e12bf674a3d82a624fa96b7f6da9c90c54365bc71bfd988a5b8ba5",
     "note": "Clump of translucent jelly with dark embryos at pond surface; no toad strings or hard shells.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

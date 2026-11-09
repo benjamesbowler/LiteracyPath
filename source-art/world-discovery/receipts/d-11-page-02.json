@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "2b301d09e7d5270c02292b7f7392beea6526fef856281b1ac61a93cb1d75bb9e",
     "note": "Generated source and installed WebP inspected. One gray crayon draws the small cloud; blue stays in tray. Raised splash remains, no rain yet. Small cloud can be fully covered by opaque sun disk.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-11",
+    "sha256": "e70828bde1a48b334200ec948fbd85b7b7f1570579a972536fcb424ddd436b94",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

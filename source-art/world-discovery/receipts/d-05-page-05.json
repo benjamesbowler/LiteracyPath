@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:44:41.512644+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "69a699b64b0bbf87bd86fa608ba25b6054109f927df8a359f46d20907da77491",
-    "note": "Direct inspection: one Kit forearm from far edge holds a single blunt stick beneath the lifted clay neck; blue water now separates mainland and island, one toy still on island. No detached extra body or spare tool."
+    "note": "Direct inspection: one Kit forearm from far edge holds a single blunt stick beneath the lifted clay neck; blue water now separates mainland and island, one toy still on island. No detached extra body or spare tool.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

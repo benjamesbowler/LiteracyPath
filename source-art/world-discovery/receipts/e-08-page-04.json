@@ -19,9 +19,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "177270441193496d8681f48155e72b51c752b57202619dca1a991a17fd3129c5",
     "note": "Mottled aquatic tadpole keeps long fin tail and exactly two hind legs; each exposed hind foot now has five toes. No front legs added.",
-    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

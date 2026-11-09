@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "9c0a93b5e09bb06f45484929dc41f487d835a39333c9c98db30f04b33372ea6d",
-    "note": "Page one directly inspected: five blocks placed plus sixth in Kit\u2019s hand, two blank paper pieces before any drawing, Zoe observing. No puppet or scenery on stage; correct child identity and physical contacts.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "note": "Page one directly inspected: five blocks placed plus sixth in Kit’s hand, two blank paper pieces before any drawing, Zoe observing. No puppet or scenery on stage; correct child identity and physical contacts.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-01",
+    "sha256": "aab5ad7bb3a3aa170a426df576112da8fb04fed8a936c8e7606643076451794d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

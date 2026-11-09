@@ -40,6 +40,7 @@ test("the splash-word pronunciation repair resolves to its exact Leda bytes", ()
 test("superseded World Discovery word takes cannot return through default lookup or regeneration", () => {
   const words = ["bows", "glacier", "lends", "mated", "nor", "patterned", "scratches", "speeding"];
   const contexts = JSON.parse(readFileSync("src/content/guidedReadingContextualWordAudio.json", "utf8")).entries;
+  const retirements = JSON.parse(readFileSync("tools/manifests/guided-reading-book-retirements.json", "utf8")).isolatedWordSupersessions;
   const review = JSON.parse(readFileSync("source-art/world-discovery/cohorts/11-20/narration-review.json", "utf8"));
   const mapPath = "src/data/generated/guidedReadingLedaGaps.generated.js";
   const before = readFileSync(mapPath, "utf8");
@@ -48,17 +49,33 @@ test("superseded World Discovery word takes cannot return through default lookup
   ], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
   assert.equal(inventory.preflightPassed, true);
   for (const word of words) {
-    const context = contexts.find(row => row.word === word);
+    const retirement = retirements.entries.find(row => row.word === word && row.mode === "default");
+    assert.ok(retirement, `${word}: the original reviewed retirement must remain recorded`);
+    const { newAudioPath: audioPath, newSha256: audioSha256 } = retirement;
+    const liveContexts = contexts.filter(row => row.word === word);
+    if (!liveContexts.length) {
+      // Removing a word from repaired prose withdraws its page selector, not
+      // the approved default MP3, its history or its durable generator alias.
+      const withdrawn = retirements.contextWithdrawals.filter(row => row.oldAudioPath === retirement.oldAudioPath && row.word === word);
+      assert.deepEqual(withdrawn.map(row => row.context), retirement.contexts);
+    }
+    for (const context of liveContexts) {
+      assert.equal(context.audioPath, audioPath);
+      assert.equal(context.audioSha256, audioSha256);
+    }
     const repair = GUIDED_READING_AUDIO_REPAIRS[`isolated_word:${word}`];
     assert.ok(repair, `${word}: the reviewed take needs a durable generator repair`);
-    assert.equal(repair.audioPath, context.audioPath);
-    assert.equal(repair.audioSha256, context.audioSha256);
-    assert.equal(resolveReviewedGuidedReadingAudioRepair({ role: "isolated_word", lookupText: word }, voice, process.cwd()), context.audioPath);
-    assert.equal(getGuidedReadingWordProductionAudioPath(word), context.audioPath);
-    assert.equal(wordSrc(word), context.audioPath);
-    assert.equal(inventory.wordGenerationInventory.find(row => row.normalizedLookupText === word).publicPath, context.audioPath);
-    assert.equal(sha256(readFileSync(path.join("public", context.audioPath))), context.audioSha256);
-    assert.equal(repair.reviewEvidence, review.results.find(row => row.audioPath === context.audioPath).reviewNote);
+    assert.equal(repair.audioPath, audioPath);
+    assert.equal(repair.audioSha256, audioSha256);
+    assert.equal(resolveReviewedGuidedReadingAudioRepair({ role: "isolated_word", lookupText: word }, voice, process.cwd()), audioPath);
+    assert.equal(getGuidedReadingWordProductionAudioPath(word), audioPath);
+    assert.equal(wordSrc(word), audioPath);
+    const generated = inventory.wordGenerationInventory.find(row => row.normalizedLookupText === word);
+    if (generated) assert.equal(generated.publicPath, audioPath);
+    else assert.ok(inventory.preservedMappingInventory.some(row => row.role === "isolated_word"
+      && row.lookupText === word && row.publicPath === audioPath), `${word}: unused approved mapping must survive regeneration`);
+    assert.equal(sha256(readFileSync(path.join("public", audioPath))), audioSha256);
+    assert.equal(repair.reviewEvidence, review.results.find(row => row.audioPath === audioPath).reviewNote);
   }
   assert.equal(GUIDED_READING_AUDIO_REPAIRS["isolated_word:bows"].pronunciations[0].pronunciation, "baʊz");
   assert.match(GUIDED_READING_AUDIO_REPAIRS["isolated_word:lends"].reviewEvidence, /contrast is NOT validated/);

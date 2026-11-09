@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6f3f7377acefa3d42fe5048b65a49f249771788c75e00478bacf6e988f1f59b2",
     "note": "Directly viewed Kit-only character models and one gentle grassy hill with loop path, bean-shaped pond and reeds. Reference establishes one hill and foot-to-top geography.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-05",
+    "sha256": "e6a8048af51d5fbaa628ba04f330083ca5b6f9700517da49d0ef924a2eb79a3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

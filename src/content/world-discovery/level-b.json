@@ -221,7 +221,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Kit stops. He nods. Zoe taps an answer.",
+        "text": "Kit stops. He nods.\nNow Zoe plays her drum again.",
         "imageBrief": "World Discovery classroom music corner in afternoon light; Kit and Zoe sit facing each other on low stools. Kit rests his hands and nods as Zoe begins a new short pattern. Exact state: Alternating turns continue; no grabbing or broken instrument.",
         "imageAlt": "Kit rests his hands and nods as Zoe begins a new short pattern.",
         "pageDescription": "Kit rests his hands and nods as Zoe begins a new short pattern.",
@@ -249,10 +249,6 @@
       {
         "word": "taps",
         "meaning": "hits gently to make a sound"
-      },
-      {
-        "word": "answer",
-        "meaning": "a reply; here another drum pattern"
       }
     ]
   },
@@ -573,7 +569,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Its water slips around the rocks.",
+        "text": "Its water flows around the rocks.",
         "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it. Exact state: Boulder stays grounded; water continues along one channel.",
         "imageAlt": "Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it.",
         "pageDescription": "Close view of the same stream dividing briefly around one fixed boulder and rejoining just below it.",
@@ -627,7 +623,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "From hill to river to sea.\nOne connected path.",
+        "text": "The water flows down the hill.\nIt follows the river to the sea.",
         "imageBrief": "An illustrative natural watershed in daylight, viewed along one consistent connected route; pale rocky hills upstream, a green valley with one bridge, a broad river mouth and blue sea downstream. A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order. Exact state: All earlier landmarks connected in one downhill geography; no new destination.",
         "imageAlt": "A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order.",
         "pageDescription": "A high view shows the complete route: source hill stream, joining river, bridge, widening mouth and sea in their established order.",
@@ -642,7 +638,7 @@
       },
       "visual": {
         "page": 8,
-        "prompt": "Trace the water’s whole route.",
+        "prompt": "Use your finger to follow the water to the sea.",
         "lookFor": "The connected stream, river, bridge and sea; no disconnected channels."
       }
     },
@@ -658,7 +654,11 @@
       },
       {
         "word": "sea",
-        "meaning": "a large body of salty water"
+        "meaning": "a large area of salty water"
+      },
+      {
+        "word": "fresh water",
+        "meaning": "water that is not salty"
       }
     ]
   },
@@ -1027,7 +1027,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "It stays still. Its body changes inside.",
+        "text": "Now it is a pupa.\nIts body changes inside.",
         "imageBrief": "Close natural observations of a seven-spotted ladybug life cycle on a green garden plant, seen over time. Adults have red wing covers with seven black spots, black head with pale side patches and six legs. Larvae are dark elongated six-legged forms with orange markings; pupae are fixed to a leaf. An orange-and-black ladybug pupa is fixed by its rear to the leaf surface. Exact state: Pupa attached and still; no cocoon, folded adult wings or butterfly chrysalis.",
         "imageAlt": "An orange-and-black ladybug pupa is fixed by its rear to the leaf surface.",
         "pageDescription": "An orange-and-black ladybug pupa is fixed by its rear to the leaf surface.",
@@ -1065,7 +1065,7 @@
     "discussion": {
       "oral": {
         "prompt": "What happens after the young ladybug eats and grows?",
-        "listenFor": "It stays still while its body changes, then comes out as the grown ladybug. The teacher can supply pupa as an oral stage name."
+        "listenFor": "It becomes a pupa and stays still while its body changes. Then the adult ladybug comes out."
       },
       "visual": {
         "page": 2,
@@ -1073,15 +1073,15 @@
         "lookFor": "Long dark body and no wings; it is not a tiny spotted adult."
       }
     },
-    "levelRationale": "B presents one explicitly ordered life cycle in short clauses. The only printed specialist stage name, larva, is introduced as a young ladybug and repeated; pupa and aphids remain oral enrichment. Visible feeding, shedding and color changes connect each step without an unseen biological explanation.",
+    "levelRationale": "B presents an ordered life cycle in short clauses. Larva and pupa name the two visible young stages and are explained in simple language. Feeding, shedding and color changes connect the steps.",
     "languagePrep": [
       {
         "word": "larva",
-        "meaning": "the young feeding stage after the egg"
+        "meaning": "a young ladybug with a long body and six legs"
       },
       {
         "word": "pupa",
-        "meaning": "the stage between larva and adult"
+        "meaning": "a ladybug that stays still while its body changes"
       },
       {
         "word": "aphids",

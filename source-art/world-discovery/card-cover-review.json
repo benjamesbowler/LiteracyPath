@@ -1,7 +1,7 @@
 {
-  "reviewedAt": "2026-11-07",
+  "reviewedAt": "2026-11-09",
   "method": "codex-direct-card-rendition-inspection",
-  "evidence": "Five A\u2013E ten-cover QA grids inspected directly at card scale after complete source art inspection; full composition, clarity and recognizable subjects retained. Generated canonical/source/delivery hashes checked.",
+  "evidence": "All100 actual card renditions directly inspected in five20-cover grids after complete manuscript/sequence re-audit. Clear recognizable subjects and complete composition; no new card defect. Canonical covers and card bytes are unchanged.",
   "assets": [
     {
       "path": "/guided-reading/card-covers/06befa35cf86aabc9f0b56dc.webp",

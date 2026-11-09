@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:54:41.002Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "ff1639a8e63bae97b4ca05e5c7c24acf223a8650b38b7d6cb5fa6e465e00111e",
     "note": "Independent audit correction: installed scenery now remains visible from backstage as plain tan back panel, while Kit rehearses with fox in lap and Zoe holds rabbit. Stage, curtains, cast and rehearsal state preserved.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

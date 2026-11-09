@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "95131ef4289e145780e0eb22fa87b86cbcd12e9895f6006cb509a099572617a7",
     "note": "Corrected visible hand-to-stick-to-paper connection. Kit tilts a rigid red-collared dog cutout into a bow while laughing; Zoe barks. Single supported scenery sheet and six-block stage persist; no magical bending or floating puppet.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-01",
+    "sha256": "aab5ad7bb3a3aa170a426df576112da8fb04fed8a936c8e7606643076451794d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

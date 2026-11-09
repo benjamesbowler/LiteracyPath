@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.970812+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "d5f6716c95f9d97fa99eb6306caa6ac15b34b328762452d62e5da68b80cd449f",
-    "note": "Longer intact green pod shows enclosed seed bulges; attached to mature three-leaflet plant; no transparent actual pod."
+    "note": "Longer intact green pod shows enclosed seed bulges; attached to mature three-leaflet plant; no transparent actual pod.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

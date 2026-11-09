@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.867Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "932215d7c23b69de702bf14b7d8a15e1493e491460bf78e1d61bd9e540353712",
     "note": "Generated native and installed full WebP directly inspected. Zoe crouches to draw one silver circle while Kit stays outside; fan lies on blue chair and wall has no magical shadow yet. Natural floor contact.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-14",
+    "sha256": "f556073033b05fe367daba68ebe1f88da06adad7fc5fb9c6bbf48f6d9c900cc9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:27:31.558704+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "d6047e43149a3537a9501054035ec0d4350538a4708b6c1ba1fc258bf1743fae",
-    "note": "Native source and final WebP directly viewed. Equal half-filled cups, separate full salt and sand scoops, two spoons and empty dish; normal standing people and supported waist table."
+    "note": "Native source and final WebP directly viewed. Equal half-filled cups, separate full salt and sand scoops, two spoons and empty dish; normal standing people and supported waist table.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-19",
+    "sha256": "ff3ec94e757aec70e6f8814a436539208441b8bb1dbde8cfb1e9716b59bfcbf9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

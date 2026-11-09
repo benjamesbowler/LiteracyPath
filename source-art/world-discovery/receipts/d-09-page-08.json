@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:31:11.332647+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "e18dcbd97acb62b566c90aed9ff5d9607c007235886e474a63793f2bf952d0dc",
-    "note": "Exactly five objects in two trays: clip and washer on left; foil, wooden cube and spoon on right. Both children observe sorted results."
+    "note": "Exactly five objects in two trays: clip and washer on left; foil, wooden cube and spoon on right. Both children observe sorted results.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

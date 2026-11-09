@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "1bf462fd3da75f39d5c32c96c2c816658b282b3df48884280625a18dbe2baf0d",
     "note": "Direct inspection after supply alignment repair: faucet mounted on back-left rim above blue riser concealed behind opaque bowl; distinct gray drain begins at center basin bottom and exits right. Clean cup on counter, tap off; no blue pipe in bowl.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-03",
+    "sha256": "59a51f506f22d7bc9a1242c8f596509f3743d800937a7a17269afcb8a6bfccba",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

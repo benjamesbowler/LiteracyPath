@@ -2,14 +2,14 @@
   "bookId": "world-discovery-c-14",
   "slot": "reference",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T16:30:10.271Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-44790ff4-0e7d-4506-a9ab-f248ae0ae005.png",
-  "sourceSha256": "87bfb6983d6ec556e6a945dc6c31a210dd3c49ba624027185e77fd895563800a",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-b16b6166-9934-47d1-9182-633253907cec.png",
+  "sourceSha256": "941fbd1e5e66f3519019fb8eace9a6c89fa10afa821833dc318bd6543f8df234",
   "output": "source-art/world-discovery/c-14-reference.webp",
-  "outputSha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b",
+  "outputSha256": "6cea36923145a30d17980ac97f426889b3ef9bbb5771b461975751b87e2fadc9",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Edit this exact character and prop reference sheet, preserving all characters, colors, clothing, book, bookmark, room and layout. Correct ONLY the two white paper strips showing six arrows. The six arrows must form one CONTINUOUS CONNECTED graphite route without any white gap between adjacent arrows. Exactly six arrowheads, in left-to-right order RIGHT, RIGHT, RIGHT, RIGHT, LEFT, RIGHT. Join their stems and tips at the nearest junction with a continuous gray line. At the opposing fourth/right and fifth/left arrowheads, their tips touch or overlap; similarly join fifth shaft to sixth shaft. Do not change to seven arrows or add a return loop. In the scene sample the red bookmark stays before the backward fifth arrow, not on the book. The final right arrow reaches the paper's far edge at the blank open book page; the blank page is where the bookmark stops. Preserve a clear children's cartoon design sheet, no text labels or numbers.",
+  "prompt": "Use case: precise reference-sheet prop repair. Edit ONLY the arrow marks on BOTH paper strips in this exact character/prop reference sheet: (1) the white strip on the desk in the bottom-left classroom scene; (2) the white isolated strip along the bottom near the center-right. Keep the entire reference-sheet layout, every character turnaround, all character anatomy/clothing/colors, all books, red bookmark shapes, pencil/eraser, furniture, room, color swatches, and white background unchanged. On EACH strip draw ONE uninterrupted continuous horizontal gray pencil shaft with EXACTLY SIX clearly separated arrowheads centered at six evenly spaced positions along it. From left to right the heads must point RIGHT, RIGHT, RIGHT, RIGHT, LEFT, RIGHT. There must be a generous clear shaft segment between the fourth right-pointing head and fifth left-pointing head: they must NEVER touch, overlap, cross or form an X. All six heads should be small enough for even spacing. Keep the shaft continuous across the whole paper route: no separate arrows with gaps. The red bookmark on the desk strip stays at the far-left start as currently. Keep both strips' existing endpoints and dimensions. No labels, numbers or extra arrows. Preserve clean crisp dark outlined cartoon art and the exact reference content elsewhere.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-0091f4c9-45a2-41e5-8af2-cf985b38d080.png",
@@ -24,14 +24,31 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:31:48.045290+00:00",
-    "outputSha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b",
-    "scope": "Production-author reference review, not independent final approval",
-    "notes": "Direct native and installed WebP reference: red faceless bookmark, one continuous arrow route with six heads (four right, one left, one right), blank stopping page, coherent table/chairs and cast.",
     "method": "codex-direct-image-inspection",
-    "sha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b",
-    "note": "Direct native and installed WebP reference: red faceless bookmark, one continuous arrow route with six heads (four right, one left, one right), blank stopping page, coherent table/chairs and cast."
+    "reviewedAt": "2026-11-09",
+    "sha256": "6cea36923145a30d17980ac97f426889b3ef9bbb5771b461975751b87e2fadc9",
+    "note": "Both reference strips have six separated arrowheads on a continuous shaft, fifth left; cast and props preserved.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b",
+    "sourceSha256": "87bfb6983d6ec556e6a945dc6c31a210dd3c49ba624027185e77fd895563800a",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-44790ff4-0e7d-4506-a9ab-f248ae0ae005.png",
+    "generatedAt": "2026-11-07T16:30:10.271Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-14-reference.webp",
+      "sha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-14",
+    "sha256": "140ce92291067179d732a3587d485b05a7c166c5a5e7afde2f0d356f4c034a0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

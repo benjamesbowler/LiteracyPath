@@ -24,13 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "520cdd5ef7aedf16a9f089c406e495f63a1c094dd6bc7aecb7f237916d6f855e",
-    "outputSha256": "520cdd5ef7aedf16a9f089c406e495f63a1c094dd6bc7aecb7f237916d6f855e",
     "note": "Zoe slides red paper with one hand and holds red cup in other; Kit points. Cart blue, two clips free. Natural complete bent legs, wood chair legs and safe full-body framing.",
-    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-14",
+    "sha256": "5dbf82b5197909174489d09da89bff6bbf25830375bf64500beb4df71bcf0707",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

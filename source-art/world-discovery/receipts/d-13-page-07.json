@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.865Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "1623c2f7ad320a0a2544fbcee22b72dfc978215f9d6336bde9c6e55f98ad674d",
     "note": "Generated native and installed full WebP directly inspected. Fingertip contacts integral arrow, small vibration marks surround only button face, white walking figure opposite; people remain behind curb.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-13",
+    "sha256": "e97f16950c27023f38ced30023a8980685e1e71dc5b0e26524253b59a24b3e3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

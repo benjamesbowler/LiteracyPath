@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:58:44.747937+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f69ed82a905a96e7c747cce8853a79090b0d8a13431d9c127e5e47f4d631dbb8",
-    "note": "Native PNG and installed WebP directly inspected. Opening near curb, cars in opposing lanes before crossing, no person on road. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+    "note": "Native PNG and installed WebP directly inspected. Opening near curb, cars in opposing lanes before crossing, no person on road. Clear flat art, intact essential shapes and safe framing; no unwanted lettering.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-13",
+    "sha256": "5b67b54e6a8b6a75d335183bcf36b831b659f6db8b2c6143c21fda4086a941e9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

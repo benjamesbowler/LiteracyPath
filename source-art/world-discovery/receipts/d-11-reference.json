@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:51:35.240947+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "568bc7258fe9bd07e83c58a24fa3d7cd3e5fb1c57026b4ac0825902874c267de",
     "note": "Inspected generated source and installed WebP: opening sheet has two purple boots, one blue puddle with a distinct tall curved right-side splash and three droplets; upper sky blank. Separate Kit sun/ball picture, loose paper sun, exactly gray and blue crayons, locked cast.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-11",
+    "sha256": "e70828bde1a48b334200ec948fbd85b7b7f1570579a972536fcb424ddd436b94",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

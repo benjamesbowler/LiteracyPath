@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:52:31.179Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f5e8fd9b864a149636642a311981b2b87dbb36b1a35cc9d6de9a226d28c2911b",
-    "note": "True underwater foot close-up, three webbed forward toes plus one tiny separate rear toe; natural leg extends out of view."
+    "note": "True underwater foot close-up, three webbed forward toes plus one tiny separate rear toe; natural leg extends out of view.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

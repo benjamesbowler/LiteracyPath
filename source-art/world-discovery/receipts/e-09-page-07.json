@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "d6646693c5a4758d745e1170be81ac2d6c052153be3f7571e61edca764942bda",
     "note": "Sandbar shark and two pups only; corrected and counted FIVE visible gill slits on each, upright asymmetrical tails and large dorsal fins; no birth.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-09",
+    "sha256": "43eb926cbe0a07dc0d1b058be1105196bed2baedce48a013f47f33f5ea5b6077",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

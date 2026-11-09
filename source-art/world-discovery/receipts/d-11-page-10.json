@@ -2,14 +2,14 @@
   "bookId": "world-discovery-d-11",
   "slot": "page-10",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T12:25:14.022Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-bd214ddd-8e41-436a-a832-8d8a52765ae2.png",
-  "sourceSha256": "9af7325e1c973099d9ce5d9fe0be8d726a35da01f89b2b126f530d6b644034da",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-830f6513-faba-44ee-9f1c-8a55910af2d0.png",
+  "sourceSha256": "730039ce52f4c2ae7308f9615dfe611c1584f9006e84be402a87095e0142452c",
   "output": "public/guided-reading/world-discovery/d-11/page-10.webp",
-  "outputSha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e",
+  "outputSha256": "4662610e5988a92e246f7356bc1323f43013339151662e81a4689e51568daa6c",
   "width": 1536,
   "height": 1024,
-  "prompt": "CRITICAL DRAWING SIZE: if visible, gray cloud must be only ONE PURPLE BOOT WIDE, half the width of BOTH boots together. Never the large two-boots-wide cloud. Exactly TWO crayons total, both in tray: ONE gray and ONE blue; none in hands.\nEDIT FIRST IMAGE; use second/third references only for locked identity and newly corrected drawing design. Correct Zoe's drawn puddle in this frame to match the new reference: exactly two purple boots above one blue puddle with one tall curved blue splash rising on the RIGHT to boot-top height and three small blue droplets above it. Preserve that same identifying shape, never a flat puddle alone. If cloud is visible, make it a SMALL gray cloud at most one-fifth of paper width. The opaque center disk of the loose yellow paper sun is one-third of paper width, large enough to hide the entire cloud without relying on gaps between rays. Cloud may only be visible in cover/page2/page6/page7/page8/page9/page10; opening page1 has blank upper sky; page3/page4/page5 have paper sun laid over and fully hiding cloud. Add rain strokes ONLY on cover/page8/page9/page10. Page10 fingertip must point precisely to the tall right-hand splash. Keep the current page's crayon and sun positions and the original separate Kit ball picture. Reframe with the camera about 20 percent farther away. Keep ALL essential subjects including complete hair silhouettes, hands, both paper sheets/house, loose props, and tray at least 10 percent inside ALL four image edges. Extend the ordinary scene background to all edges; no white border, no stretching, no cropping. Preserve the exact action and stage. \n\nFROZEN SCENE CONTRACT:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: I Pick the Rain; World Discovery; fiction.\nSetting: World Discovery. WD-KIT and WD-ZOE retain their locked cast-v1 clothing, proportions and equal height. One ordinary classroom art table and low display ledge in steady afternoon light. Both make pictures of a remembered favorite day; the room itself is dry. Memories appear only as drawings on paper, not as changes of clothing or setting.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Zoe's cream drawing sheet: two purple boots above one blue puddle, then one gray cloud and blue rain strokes; no drawn person needed; Kit's separate cream drawing sheet: orange ball on green grass under one yellow sun; One loose yellow paper sun disk with short cut rays, large enough to cover Zoe's small drawn cloud; it is never glued; Gray and blue crayons in a yellow tray; two plain display clips\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 10. Printed prose (NOT text to put in art): They clip both pictures to the ledge. Zoe points to the biggest splash. \u201cThat is why I picked this day.\u201d\nRequired illustration: Both pictures are clipped side by side to the low display ledge; Zoe points to the puddle's largest drawn splash.\nExact current state: Two clips, one per picture; loose paper sun remains on art table.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Preserve all subjects, proportions, expressions and exact composition. Keep Kit and Zoe, the two separate clipped children's drawings (sun/ball/grass at left; cloud/rain/purple boots/blue puddle at right), Zoe's pointing finger, the cut-out yellow sun and two crayons on the table. Repair only surface finish: make walls and floor completely clean solid-color shapes with crisp flat window-shadow polygons; remove cloudy grain/mottling. Make tabletop clean flat warm tan with no wood grain. Do not repaint or add marks to the children's pictures. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/recovered-reference-inputs/d-11-page-10-8edda5c3ede2.webp",
@@ -33,9 +33,34 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:28:49.086Z",
-    "sha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e",
+    "reviewedAt": "2026-11-09",
+    "sha256": "4662610e5988a92e246f7356bc1323f43013339151662e81a4689e51568daa6c",
     "note": "Generated source and installed WebP inspected. Two clipped pictures on ledge; Zoe points to raised right splash, loose sun and two crayons on table, complete standing children naturally proportioned and inset.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e",
+    "sourceSha256": "9af7325e1c973099d9ce5d9fe0be8d726a35da01f89b2b126f530d6b644034da",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-bd214ddd-8e41-436a-a832-8d8a52765ae2.png",
+    "generatedAt": "2026-11-07T12:25:14.022Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-11/page-10.webp",
+      "sha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-11",
+    "sha256": "e70828bde1a48b334200ec948fbd85b7b7f1570579a972536fcb424ddd436b94",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

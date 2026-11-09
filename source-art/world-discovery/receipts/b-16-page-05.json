@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
-    "outputSha256": "0c5de7591762c767823652c554fb1b70106bd63435cf1f36ef91860507f5c742",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "Middle near wheel now on rock; rear before and front beyond on level ground. Corrected smaller bogie pivot links rear and middle; main rigid rocker links body to front wheel. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "0c5de7591762c767823652c554fb1b70106bd63435cf1f36ef91860507f5c742",
-    "note": "Middle near wheel now on rock; rear before and front beyond on level ground. Corrected smaller bogie pivot links rear and middle; main rigid rocker links body to front wheel. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+    "note": "Middle near wheel now on rock; rear before and front beyond on level ground. Corrected smaller bogie pivot links rear and middle; main rigid rocker links body to front wheel. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-16",
+    "sha256": "f21fdf5fab9a8e5f93e0bbd642b24ac5519ae657556d200632b2594bfa579d45",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

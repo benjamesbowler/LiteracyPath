@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "8e1ee1a71c0ac8bbdc3ebc5c89d6621c95bdeb6589f91da6fa27db029b5278bd",
     "note": "Direct inspection after removing extra bird: dominant attached bat wing shows continuous thin membrane, elongated supports and clawed thumb; two hind legs, furry body, no feather shapes.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-09",
+    "sha256": "547724e0d3b9bf1f872360c6d00472dbc9c9795e76d758413329a5a9aae31f81",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

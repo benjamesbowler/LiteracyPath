@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "a6515a4725f4480b138da75a37a00418edbe65af166628908fb1860845d0cfc5",
     "note": "Directly viewed exact four tiles: red circle, red square, blue circle, blue square; gray sorting mats and low table. Kit/Zoe identities and scale consistent; final sequence separately checked for counts and regrouping.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-09",
+    "sha256": "a35811233fa9bd354ffa115cd2b6df107d09c7f179281d47166da01eb7ead266",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

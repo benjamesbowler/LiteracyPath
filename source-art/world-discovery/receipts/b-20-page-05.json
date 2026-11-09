@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:42:48.192376+00:00",
-    "outputSha256": "ca912d8cc982d4cc30fe9236100582a85b611d8c00dff2588d45989d6ff743c9",
-    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
-    "notes": "Supply off and body dry; adult holds removed handle/brass stem and small new black washer against stem bottom. Matching old washer plus one wrench on cloth. Children stand back. Final widened WebP inspected; natural anatomy/contact.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "ca912d8cc982d4cc30fe9236100582a85b611d8c00dff2588d45989d6ff743c9",
-    "note": "Supply off and body dry; adult holds removed handle/brass stem and small new black washer against stem bottom. Matching old washer plus one wrench on cloth. Children stand back. Final widened WebP inspected; natural anatomy/contact."
+    "note": "Supply off and body dry; adult holds removed handle/brass stem and small new black washer against stem bottom. Matching old washer plus one wrench on cloth. Children stand back. Final widened WebP inspected; natural anatomy/contact.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-20",
+    "sha256": "92eaaf25eedbef9efc455f395f0cccab7e5bc8efc5bed9a0f560345c93381a12",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

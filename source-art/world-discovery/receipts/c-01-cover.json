@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "7f83e0f118af9b8f4f253d7e4b84f25ad098c6c28d3bececda1acc4669a38a8b",
     "note": "Dedicated cover directly inspected: one six-block stage, one supported two-tree backdrop, one red-collared paper dog held on a stick by Kit, Zoe visibly acting the bark; duplicate scenery removed. Correct cast, hand contacts, bright classroom and no text.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-01",
+    "sha256": "aab5ad7bb3a3aa170a426df576112da8fb04fed8a936c8e7606643076451794d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

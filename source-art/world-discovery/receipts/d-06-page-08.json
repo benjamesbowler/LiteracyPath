@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:49:00.432257+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "9625483672d7405d59deeb5bc86638f6710a3adcbd20dce344a9457188b85555",
-    "note": "Smaller circular crater visibly cuts into the lower-right rim of the larger crater. Old rim terminates against the intact small rim on both sides."
+    "note": "Smaller circular crater visibly cuts into the lower-right rim of the larger crater. Old rim terminates against the intact small rim on both sides.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-06",
+    "sha256": "e6a0407b219a005833d54e0a93f7dfb04ac4bed11a08b76f4aab6ec8004531a3",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

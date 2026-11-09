@@ -24,9 +24,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "8e0da40d132d2e05ee7520240b22c815d66814bb8981fb34ffe0a6b7d457cd17",
     "note": "Eight small eyes in two rows of four on centered spider. One fly struggles on right-side capture threads, with two wings and six legs; eight spider legs, web deformation and motion cues retained.",
-    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-07",
+    "sha256": "d27435e0f12cb471d6c271d3b7e6df5d68f2cdd378295d4e0705ee47de1a5665",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

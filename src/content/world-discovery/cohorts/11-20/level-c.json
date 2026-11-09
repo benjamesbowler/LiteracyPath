@@ -41,7 +41,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Zoe draws the three things. Kit studies her picture, leaves it on the table, and goes inside.",
+        "text": "Zoe draws what they need. Kit looks at her picture, leaves it on the table, and walks to the shelf.",
         "imageBrief": "Zoe’s card now shows the folded mat, stacked cups and ball. Kit looks closely before turning toward the kitchen shelf. Continuity: Picture card stays with Zoe; no printed checklist; exact two cups shown in its drawing.",
         "imageAlt": "Zoe’s card now shows the folded mat, stacked cups and ball. Kit looks closely before turning toward the kitchen shelf.",
         "pageDescription": "Zoe’s card now shows the folded mat, stacked cups and ball. Kit looks closely before turning toward the kitchen shelf.",
@@ -59,7 +59,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Kit shuts his eyes to picture the card. He opens them again. “I keep losing one bit.”",
+        "text": "Kit closes his eyes and tries to remember the picture. “I cannot remember all the things,” he says.",
         "imageBrief": "Kit pauses with eyes just reopening beside the doorway. Zoe waits with the card at her side rather than handing him the answer immediately. Continuity: No new objects moved; his attempted mental picture has not supplied a reliable check.",
         "imageAlt": "Kit pauses with eyes just reopening beside the doorway. Zoe waits with the card at her side rather than handing him the answer immediately.",
         "pageDescription": "Kit pauses with eyes just reopening beside the doorway. Zoe waits with the card at her side rather than handing him the answer immediately.",
@@ -110,15 +110,15 @@
       },
       "visual": {
         "page": 6,
-        "prompt": "What is present, and what is still missing?",
+        "prompt": "Which picnic things are outside? Which thing is still inside?",
         "lookFor": "Two cups and the red ball are outside; the blue mat remains on the indoor shelf."
       }
     },
     "levelRationale": "Candidate C: Paired sentences, brief dialogue and a small inference about an omitted object add demand beyond B. The story makes no fixed learning-style or memory-performance claim; it depicts one child choosing a method for one task.",
     "languagePrep": [
       {
-        "word": "remind",
-        "meaning": "help someone bring a thought back"
+        "word": "remember",
+        "meaning": "think of something you saw or learned before"
       },
       {
         "word": "check",
@@ -213,7 +213,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "His hand closes around the red ribbon. He carries it to Zoe, keeping the long end off the floor.",
+        "text": "Kit picks up the red ribbon and takes it to Zoe. He keeps the long end off the floor.",
         "imageBrief": "Kit returns with the one red ribbon gathered loosely in both hands; Zoe steadies the paper parcel on the craft table. Continuity: Ribbon transferred from shelf to table; no duplicate at pot or on parcel yet.",
         "imageAlt": "Kit returns with the one red ribbon gathered loosely in both hands; Zoe steadies the paper parcel on the craft table.",
         "pageDescription": "Kit returns with the one red ribbon gathered loosely in both hands; Zoe steadies the paper parcel on the craft table.",
@@ -222,7 +222,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top.",
+        "text": "Zoe holds the knot while Kit pulls the loops tight. The red ribbon keeps their parcel closed.",
         "imageBrief": "Close view of the finished parcel: Kit completes two red bow loops while Zoe holds the center. Both pots remain in their original places in the background. Continuity: Original parcel goal resolved through a clearer message; no generic friendship moral.",
         "imageAlt": "Close view of the finished parcel: Kit completes two red bow loops while Zoe holds the center. Both pots remain in their original places in the background.",
         "pageDescription": "Close view of the finished parcel: Kit completes two red bow loops while Zoe holds the center. Both pots remain in their original places in the background.",
@@ -362,7 +362,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The table was empty before the growers came. Growing, carrying, and setting out the food made this market ready.",
+        "text": "Farmers grew these carrots, brought them here, and put them on the table. Now people can buy them.",
         "imageBrief": "View across the now working stall: carrot bunches on table, familiar empty crate underneath, Kit carrying the bag beside his adult. Continuity: Closing view echoes opening table with changed state; no unsupported claim that every market item is locally grown.",
         "imageAlt": "View across the now working stall: carrot bunches on table, familiar empty crate underneath, Kit carrying the bag beside his adult.",
         "pageDescription": "View across the now working stall: carrot bunches on table, familiar empty crate underneath, Kit carrying the bag beside his adult.",
@@ -418,13 +418,13 @@
       "failedAttempt": "Kit restarts the bookmark without fixing the backward fifth arrow; it reaches the same local loop between arrows four and five.",
       "resolution": "Kit erases and redraws the backward arrow so the bookmark reaches the page. Zoe removes the route paper and closes the book with the now stationary bookmark inside."
     },
-    "setting": "Classroom table. Explicit single magic rule: one plain red bookmark follows the direction of each pencil arrow beneath it and stops on blank paper. Adjacent arrows touch so it can pass directly from one to the next. Arrows four and five initially point toward one another, making a short back-and-forth. It has no face, limbs or speech and cannot jump a blank gap. Ordinary erasing changes the route.",
+    "setting": "Classroom table. Explicit single magic rule: one plain red bookmark follows the direction of each pencil arrow beneath it and stops on blank paper. Six separate arrowheads share one continuous pencil shaft, with no blank gaps or overlapping heads. Arrows four and five initially point toward one another, making a short back-and-forth. It has no face, limbs or speech and cannot jump a blank gap. Ordinary erasing changes the route.",
     "props": [
       "One red rectangular bookmark with a rounded top and no writing",
       "One long white paper strip lying flat across the table into an open book",
       "One gray pencil and pink eraser",
       "One open animal picture book with unlettered pictures",
-      "Six adjacent touching pencil arrows on a continuous strip; fifth initially points back toward fourth; the last arrow reaches the blank open-book page"
+      "Six clearly separated arrowheads on one continuous pencil shaft; fifth initially points left toward the fourth; the last arrow reaches the blank open-book page"
     ],
     "coverBrief": "Kit points to the backward pencil arrow on the long white strip while Zoe holds the open picture book at the strip’s end. The plain red bookmark waits just before the wrong arrow. No animated face or floating page.",
     "pages": [
@@ -440,7 +440,7 @@
       {
         "pageNumber": 2,
         "text": "Kit wants it to find his page by itself. He draws an arrow path across a long strip of paper.",
-        "imageBrief": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book. Continuity: No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
+        "imageBrief": "Kit lays a continuous paper strip into the open book at right and draws six separated arrowheads along one continuous pencil shaft. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book. Continuity: No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
         "imageAlt": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book.",
         "pageDescription": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book.",
         "state": "No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
@@ -466,7 +466,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "“Let’s follow the points,” Zoe says. Kit traces the arrows. One point sends his finger the wrong way.",
+        "text": "“Let’s follow the arrows,” Zoe says. Kit moves his finger along them. One arrow points away from the book.",
         "imageBrief": "Kit traces each arrow with a finger and pauses at the fifth, which clearly points left while the book is to the right. Zoe points to the book. Continuity: Fifth arrow points left toward fourth; the other arrows form a continuous onward route. The specific local trap is identified.",
         "imageAlt": "Kit traces each arrow with a finger and pauses at the fifth, which clearly points left while the book is to the right. Zoe points to the book.",
         "pageDescription": "Kit traces each arrow with a finger and pauses at the fifth, which clearly points left while the book is to the right. Zoe points to the book.",
@@ -475,7 +475,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "He rubs out that arrow and draws it toward the book. The paper now gives one clear route.",
+        "text": "Kit rubs out the wrong arrow and draws a new one. Now all the arrows point toward the book.",
         "imageBrief": "Kit uses the pink eraser on the fifth arrow, then redraws a rightward arrow. Faint erased residue is not a second active arrow. Continuity: Only fifth arrow is erased and redrawn rightward; its connectors touch neighbors, giving continuous onward motion with no blank break.",
         "imageAlt": "Kit uses the pink eraser on the fifth arrow, then redraws a rightward arrow. Faint erased residue is not a second active arrow.",
         "pageDescription": "Kit uses the pink eraser on the fifth arrow, then redraws a rightward arrow. Faint erased residue is not a second active arrow.",
@@ -484,7 +484,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The bookmark slides past the repaired place and onto Kit’s page. This time, it does not come back.",
+        "text": "The bookmark slides over the new arrow and onto Kit’s page. This time, it stops on the page.",
         "imageBrief": "Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip’s end. Kit holds his hands away. Continuity: The last drawn arrow ends directly at blank book page; moving onto that blank paper stops the bookmark under the original rule.",
         "imageAlt": "Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip’s end. Kit holds his hands away.",
         "pageDescription": "Bookmark crosses from strip onto the open picture page, which is blank of arrows beyond the strip’s end. Kit holds his hands away.",
@@ -493,7 +493,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Zoe pulls the arrow strip away. Kit closes the book. A red tip waits exactly where his reading stopped.",
+        "text": "Zoe takes away the paper strip. Kit closes the book. The red bookmark sticks out, marking his page.",
         "imageBrief": "Closed book on table with the red rounded bookmark tip visible at its upper edge; Zoe holds removed arrow paper beside it. Continuity: Bookmark stationary on unmarked page; final reading place saved; no unseeded ability or magically generated text.",
         "imageAlt": "Closed book on table with the red rounded bookmark tip visible at its upper edge; Zoe holds removed arrow paper beside it.",
         "pageDescription": "Closed book on table with the red rounded bookmark tip visible at its upper edge; Zoe holds removed arrow paper beside it.",
@@ -607,7 +607,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Here, the crust cracks. Bright lava shows through the gap. A dark top does not mean a cool inside.",
+        "text": "It is still very hot under the dark crust.",
         "imageBrief": "Return to ordinary surface view: a fresh crack in the dark crust reveals orange-red lava below; the same ridge is behind it. Continuity: Crack reveals retained heat; do not depict a safe cool walking surface or fire burning from fuel.",
         "imageAlt": "Return to ordinary surface view: a fresh crack in the dark crust reveals orange-red lava below; the same ridge is behind it.",
         "pageDescription": "Return to ordinary surface view: a fresh crack in the dark crust reveals orange-red lava below; the same ridge is behind it.",
@@ -616,7 +616,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "As more heat escapes, the solid layer grows thicker. The hot middle cools more slowly.",
+        "text": "As the lava cools, more of it becomes hard rock. The hot middle takes longer to cool.",
         "imageBrief": "Later cutaway at the same location shows much thicker dark rock enclosing a smaller hot center. Outline of the tongue matches the earlier cross-section. Continuity: Elapsed time; hot interior reduced but still present; no universal exact duration.",
         "imageAlt": "Later cutaway at the same location shows much thicker dark rock enclosing a smaller hot center. Outline of the tongue matches the earlier cross-section.",
         "pageDescription": "Later cutaway at the same location shows much thicker dark rock enclosing a smaller hot center. Outline of the tongue matches the earlier cross-section.",
@@ -718,7 +718,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "A comet has a long pale tail. Is that tail part of a solid body?",
+        "text": "A comet has a long, pale tail. Is its tail a long piece of ice?",
         "imageBrief": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame. Continuity: Opening near-Sun view; one comet and one visible dust tail; diffuse material, not a solid spike.",
         "imageAlt": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame.",
         "pageDescription": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame.",
@@ -727,7 +727,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Far from the Sun, the comet is a small frozen body with dust trapped in its ice.",
+        "text": "Far from the Sun, the comet is a small lump of ice and dust. It has no long, bright tail.",
         "imageBrief": "Earlier, more distant view of the same dark icy center with no developed tail. A restrained cutaway reveals dusty ice beneath the crust. Continuity: Earlier orbital position, not a new comet; no liquid pond or flame.",
         "imageAlt": "Earlier, more distant view of the same dark icy center with no developed tail. A restrained cutaway reveals dusty ice beneath the crust.",
         "pageDescription": "Earlier, more distant view of the same dark icy center with no developed tail. A restrained cutaway reveals dusty ice beneath the crust.",
@@ -804,7 +804,7 @@
     "languagePrep": [
       {
         "word": "comet",
-        "meaning": "an icy body that travels around the Sun"
+        "meaning": "a lump of ice and dust that travels around the Sun"
       },
       {
         "word": "dust",
@@ -922,7 +922,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The stone stays outside the otter’s body, but it helps the otter get food. The stone is a tool.",
+        "text": "The otter uses the stone to break the shell and reach its food. The stone is a tool.",
         "imageBrief": "Otter rests on its back with the useful stone still on its chest, empty broken shell halves beside it and the meal nearly finished. Continuity: Outcome answers opening hard-shell barrier; no claim all otters use stones for every meal.",
         "imageAlt": "Otter rests on its back with the useful stone still on its chest, empty broken shell halves beside it and the meal nearly finished.",
         "pageDescription": "Otter rests on its back with the useful stone still on its chest, empty broken shell halves beside it and the meal nearly finished.",
@@ -932,7 +932,7 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "What made the stone a tool in this sequence?",
+        "prompt": "How did the stone help the otter get food?",
         "listenFor": "The otter used it to help break the clam shell and reach food; it was an object used for a job."
       },
       "visual": {
@@ -1060,7 +1060,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "When this snail is grown and has mated, it can lay eggs in another soil hole.",
+        "text": "Later, the grown snail lays eggs in another hole in the soil.",
         "imageBrief": "The mature snail is positioned at a fresh shallow soil hole with newly laid pale eggs partly visible behind its body. No mating scene is depicted. Continuity: Adult reproductive stage; no claim juvenile lays eggs or that every animal is female.",
         "imageAlt": "The mature snail is positioned at a fresh shallow soil hole with newly laid pale eggs partly visible behind its body. No mating scene is depicted.",
         "pageDescription": "The mature snail is positioned at a fresh shallow soil hole with newly laid pale eggs partly visible behind its body. No mating scene is depicted.",
@@ -1069,7 +1069,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "A new snail begins in an egg with its own shell. One body and its shell grow together.",
+        "text": "A baby snail comes out of an egg with its own shell. Its shell grows as the snail grows.",
         "imageBrief": "Return to a close view of a new focal hatchling with pale attached shell beside an opened egg and the familiar leaf/stone setting. Continuity: New generation, not the adult shrinking back into its own egg; other eggs remain in the background.",
         "imageAlt": "Return to a close view of a new focal hatchling with pale attached shell beside an opened egg and the familiar leaf/stone setting.",
         "pageDescription": "Return to a close view of a new focal hatchling with pale attached shell beside an opened egg and the familiar leaf/stone setting.",
@@ -1079,7 +1079,7 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "How is a snail’s shell different from an empty shell an animal might move into?",
+        "prompt": "Does the snail need to find a bigger shell as it grows? How do you know?",
         "listenFor": "The snail starts life with its attached shell, and that shell grows along with its body."
       },
       "visual": {
@@ -1095,12 +1095,12 @@
         "meaning": "come out of an egg"
       },
       {
-        "word": "clutch",
-        "meaning": "a group of eggs laid together"
+        "word": "shell",
+        "meaning": "the hard part on the snail’s back"
       },
       {
-        "word": "mature",
-        "meaning": "fully grown and able to reproduce"
+        "word": "grown",
+        "meaning": "no longer a baby or young animal"
       }
     ]
   },
@@ -1221,7 +1221,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Both began as grains. The water test puts them in different groups: dissolves and does not dissolve.",
+        "text": "Salt dissolves in water. Sand does not. We can sort them into two groups.",
         "imageBrief": "Final table arrangement groups the salt scoop, clear solution and recovered crystals on blue side, with sand scoop and settled sand cup on green side. Continuity: Grouping based on observed behavior, not color or object size; no new substances introduced.",
         "imageAlt": "Final table arrangement groups the salt scoop, clear solution and recovered crystals on blue side, with sand scoop and settled sand cup on green side.",
         "pageDescription": "Final table arrangement groups the salt scoop, clear solution and recovered crystals on blue side, with sand scoop and settled sand cup on green side.",
@@ -1252,7 +1252,7 @@
       },
       {
         "word": "crystal",
-        "meaning": "a solid piece with an ordered form"
+        "meaning": "a small piece of salt with flat sides"
       }
     ]
   },
@@ -1340,7 +1340,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe points to the busy patch. Moving the log would take away its cover.",
+        "text": "Zoe points to the woodlice. The log keeps their home cool and damp.",
         "imageBrief": "Zoe points to the damp sheltered space while Kit looks down at the animals. The log remains lifted only at one end. Continuity: The habitat consequence is explicit; no further disturbance or specimen collection.",
         "imageAlt": "Zoe points to the damp sheltered space while Kit looks down at the animals. The log remains lifted only at one end.",
         "pageDescription": "Zoe points to the damp sheltered space while Kit looks down at the animals. The log remains lifted only at one end.",
@@ -1358,7 +1358,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "They move a discarded wrapper from the path instead. The log stays beside the fern.",
+        "text": "They put the wrapper from the path into a bag. The log stays beside the fern.",
         "imageBrief": "Zoe holds the small litter bag open while Kit places the blue wrapper inside. The restored log sits outside the now clear path. Continuity: Wrapper removed, log retained; no additional rubbish or felled tree cleanup introduced.",
         "imageAlt": "Zoe holds the small litter bag open while Kit places the blue wrapper inside. The restored log sits outside the now clear path.",
         "pageDescription": "Zoe holds the small litter bag open while Kit places the blue wrapper inside. The restored log sits outside the now clear path.",
@@ -1367,7 +1367,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The path is clear. Beneath the log, shade and damp shelter remain for the small animals living there.",
+        "text": "The path is clear. The woodlice still have a cool, damp home under the log.",
         "imageBrief": "Low final view shows the undisturbed log and fern beside the clear path; a small natural gap lets one woodlouse be seen under the damp edge. Continuity: Outcome preserves habitat and access together; no need to lift the log again or use a diagram cutaway.",
         "imageAlt": "Low final view shows the undisturbed log and fern beside the clear path; a small natural gap lets one woodlouse be seen under the damp edge.",
         "pageDescription": "Low final view shows the undisturbed log and fern beside the clear path; a small natural gap lets one woodlouse be seen under the damp edge.",
@@ -1397,8 +1397,8 @@
         "meaning": "cover that helps protect a living thing"
       },
       {
-        "word": "decay",
-        "meaning": "break down gradually after living material dies"
+        "word": "woodlouse",
+        "meaning": "a small animal that lives in damp places; more than one are called woodlice"
       }
     ]
   }

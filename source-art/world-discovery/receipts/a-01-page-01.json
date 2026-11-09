@@ -12,9 +12,17 @@
   "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Equal standing height. Use ONLY named scene cast; never add a child to natural-subject nonfiction. Preserve exact reference identity and clothing.\nBook: Zoe Draws Zoe; World Discovery; fiction.\nSetting: A bright art corner at home, morning, low pale wood table and a fixed oval tabletop mirror.\nLocked recurring subjects/props: One oval teal-framed mirror; One cream portrait sheet; Four crayons: brown, black, yellow and plum; Zoe remains in her locked costume\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout.\nPage 1. Printed prose (NOT text to put in art): Zoe looks in the mirror.\nRequired illustration: Zoe seated at the table studies her own accurate reflection. A blank portrait sheet lies below the mirror with exactly four crayons: brown, black, yellow and plum.\nExact current state: Paper blank; mirror upright; crayons unused.\nDo not add later events or a separate inset. No written title; the app renders live text.",
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "87d02f7e0789c651fd49a5715deacf628166ebbf11e4737f9071afe7b54bc8f3",
     "note": "Blank paper and four unused crayons; Zoe and mirror show matching pose.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-01",
+    "sha256": "9e9ff09db5187f2f80b7770185b588536652642960ff2311ea2490066724d6f6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

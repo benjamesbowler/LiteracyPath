@@ -29,8 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "c3f39db20a273259d54bf7dff84ec06b04aa0bdd57671ac4ef71108263320e03",
-    "note": "Native PNG and final WebP directly inspected at full image size. Empty stoop, installed shield retained, black underside and no halo, lamp off."
+    "note": "Native PNG and final WebP directly inspected at full image size. Empty stoop, installed shield retained, black underside and no halo, lamp off.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-20",
+    "sha256": "1c0c1ebe4d302e72bc6925286eb5e4c635c0846331744f327d3c261dc1200d7d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

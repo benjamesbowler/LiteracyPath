@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:12:05.458Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "6a9e45f7d7666a174cb27a0d7741a136b572bfed10b8582ac031ac458a50af92",
     "note": "Inspected replacement flat outlined reference, natural common-frog eye mask; separated jelly-clump, tadpole, hind-legs, four-legs, attached-tail and adult designs. First painterly reference rejected.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

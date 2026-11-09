@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:47:01.815725+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "905724d750be1c28c1422f3518dd17360814e753aa1ef25f4c7feab4a955d3c3",
-    "note": "Separate Earth scene has plants, rain, brown mud and rivulets softening print; no lunar setting mixed in."
+    "note": "Separate Earth scene has plants, rain, brown mud and rivulets softening print; no lunar setting mixed in.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-06",
+    "sha256": "95c162744226d000ed4c2dbd0905f56e99b5b6cbfb7cd9a17396f67a70d1fda7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

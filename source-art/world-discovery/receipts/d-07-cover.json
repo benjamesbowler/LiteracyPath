@@ -24,9 +24,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "85d5d8d841849172110937fece5208d70c7797c2fd00cff7ef423269673e24d4",
     "note": "Spider remains centered on complete wheel web; one fly approaches right. Eight small eyes in two rows of four, eight long legs and two body regions, natural pedipalps. Dusk palette and stem anchors retained.",
-    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-07",
+    "sha256": "d27435e0f12cb471d6c271d3b7e6df5d68f2cdd378295d4e0705ee47de1a5665",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

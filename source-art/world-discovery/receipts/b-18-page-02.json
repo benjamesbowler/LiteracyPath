@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T14:34:09.392323+00:00",
-    "outputSha256": "63ad95f1fb2b09b8557f016f0d14c547b6945d242f4b5456545e4a2f0209fa37",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "One small wingless nymph at soil surface; same single pod has one opened top egg and six intact eggs. Grass/roots coherent and generous framing. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "63ad95f1fb2b09b8557f016f0d14c547b6945d242f4b5456545e4a2f0209fa37",
-    "note": "One small wingless nymph at soil surface; same single pod has one opened top egg and six intact eggs. Grass/roots coherent and generous framing. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+    "note": "One small wingless nymph at soil surface; same single pod has one opened top egg and six intact eggs. Grass/roots coherent and generous framing. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-18",
+    "sha256": "b6e524aa784fbb38b190331b8b1f1cd01da53d647f37e02571938ae3aef73d1a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "1c597702fdb2c1382814448e1c95db590b7389a6bad546b75f752d88cd5c03a3",
-    "note": "Native PNG and final WebP directly inspected at full image size. Gate view preserves unshielded bulb glare and darker path; upper window fully visible."
+    "note": "Native PNG and final WebP directly inspected at full image size. Gate view preserves unshielded bulb glare and darker path; upper window fully visible.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-20",
+    "sha256": "1c0c1ebe4d302e72bc6925286eb5e4c635c0846331744f327d3c261dc1200d7d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

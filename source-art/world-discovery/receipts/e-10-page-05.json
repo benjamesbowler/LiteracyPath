@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:42:51.375Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "87712f8c1ab6f81c1326a7e4f7ed54611fb7f52010656ef78265581bb6d42af6",
     "note": "Adult spreads thin straw around established plants, leaving stem gaps; children watch, tools idle on path, no watering yet.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-10",
+    "sha256": "44f60e2326c204184b270b264bf65bff135a2beb2716790ba3af36b82d91abad",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

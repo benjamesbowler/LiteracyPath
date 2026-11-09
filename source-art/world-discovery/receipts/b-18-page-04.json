@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T14:34:09.394435+00:00",
-    "outputSha256": "9c35de9c1612b7e2387d00eb991ce5ac31b448a1b9ca8d5611012cbabf1e7588",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "Pale wingless nymph emerges from one hollow split old skin while gripping grass; old case reads empty, all body/antenna/case tips framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "9c35de9c1612b7e2387d00eb991ce5ac31b448a1b9ca8d5611012cbabf1e7588",
-    "note": "Pale wingless nymph emerges from one hollow split old skin while gripping grass; old case reads empty, all body/antenna/case tips framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+    "note": "Pale wingless nymph emerges from one hollow split old skin while gripping grass; old case reads empty, all body/antenna/case tips framed. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-18",
+    "sha256": "b6e524aa784fbb38b190331b8b1f1cd01da53d647f37e02571938ae3aef73d1a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

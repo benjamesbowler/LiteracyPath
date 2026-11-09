@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:28:00.999Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "44a528662d0cb978757467643b19a56ce7e2aae2db6d6391d9c901120ff6f186",
     "note": "Silver bony fish close view with normal gill cover behind eye; no lungs or misleading anatomy.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-09",
+    "sha256": "43eb926cbe0a07dc0d1b058be1105196bed2baedce48a013f47f33f5ea5b6077",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

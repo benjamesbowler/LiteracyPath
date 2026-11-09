@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "dd6daaa898c705b4a8103f7ee0296a0c54330310f86b59ff1f30c59b51295150",
     "method": "codex-direct-image-inspection",
-    "note": "Direct habitat close view: restored moss-up log and fern remain outside an empty clear path; one tiny woodlouse partly beneath natural damp gap, without lifting or transparency. No returned wrapper, bag, people or extra animals."
+    "reviewedAt": "2026-11-09",
+    "sha256": "dd6daaa898c705b4a8103f7ee0296a0c54330310f86b59ff1f30c59b51295150",
+    "note": "Direct habitat close view: restored moss-up log and fern remain outside an empty clear path; one tiny woodlouse partly beneath natural damp gap, without lifting or transparency. No returned wrapper, bag, people or extra animals.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-20",
+    "sha256": "f498b6535d667e31b92f89778e6ca31d176ffa9daef170660e625f36f8e75986",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

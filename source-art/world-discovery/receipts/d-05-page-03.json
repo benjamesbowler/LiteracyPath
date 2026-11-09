@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:34:31.573402+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "118074b7ee2da095ac23d0618800f2e90bf2d2b90b02f05954200d306e31100a",
-    "note": "Direct inspection: overhead continuous clay mainland/neck/lobe, water only three sides, one toy now on lobe and one stick outside tray; clear definition image."
+    "note": "Direct inspection: overhead continuous clay mainland/neck/lobe, water only three sides, one toy now on lobe and one stick outside tray; clear definition image.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

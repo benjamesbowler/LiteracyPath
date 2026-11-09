@@ -25,10 +25,11 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T14:31:24.284392+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "1ff85e1d8c26582ee71a3d2353ac884f620bb9edb47c79070c056bd547c4027a",
     "note": "Generated source and installed WebP inspected. Bald caretaker with glasses and locked equal-height children; west bench, southwest young tree and doorway on east wall. Plan agrees with natural location. Canopy design has four supports and must appear only after installation.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "generationManuscriptSource": {
     "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
@@ -47,5 +48,12 @@
       ],
       "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
     }
-  ]
+  ],
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-13",
+    "sha256": "e1e6172d8f6ee5b3fccc30a252ba868348d977684339902fc43eda686565ae63",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+  }
 }

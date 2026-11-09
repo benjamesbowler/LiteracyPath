@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "f6aa3ca68647a90b50b0e81163f7ea3ddadf87506ecdd361723073d1046de5a5",
     "method": "codex-direct-image-inspection",
-    "note": "Full-scene direct review: natural kneeling/crouching children with two hands supporting only the right log end, three fingernail-scale woodlice on damp soil, fern behind and one wrapper separate on path. Wide margins and complete anatomy; no giant foreground animals."
+    "reviewedAt": "2026-11-09",
+    "sha256": "f6aa3ca68647a90b50b0e81163f7ea3ddadf87506ecdd361723073d1046de5a5",
+    "note": "Full-scene direct review: natural kneeling/crouching children with two hands supporting only the right log end, three fingernail-scale woodlice on damp soil, fern behind and one wrapper separate on path. Wide margins and complete anatomy; no giant foreground animals.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-20",
+    "sha256": "f498b6535d667e31b92f89778e6ca31d176ffa9daef170660e625f36f8e75986",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

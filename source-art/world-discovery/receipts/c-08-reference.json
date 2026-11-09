@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "f49466d0fe35a78231936521466eda331306ffe6492f5915f21386cbccd8c1ba",
     "note": "Direct inspection after human removal: dorsal adult has four clear wings and six thoracic legs, nymph six legs without developed wings or tail gills, egg within plant tissue and cast skin on reed; no people.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-08",
+    "sha256": "c5d5cb8270ca81d7b055ab2f2c494395f136188f4707ae29653f8f410342970b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

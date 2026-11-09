@@ -28,14 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T15:22:01.383870+00:00",
-    "outputSha256": "86a8ed1216bc1d593297ec67aeef1e9305c84d8c634b1e6f3174bc3bda4ec660",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "Stepping pose beside same leaf; single notch retained on upper-left edge after continuity correction, no second notch or duplicate insect. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "86a8ed1216bc1d593297ec67aeef1e9305c84d8c634b1e6f3174bc3bda4ec660",
-    "note": "Stepping pose beside same leaf; single notch retained on upper-left edge after continuity correction, no second notch or duplicate insect. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+    "note": "Stepping pose beside same leaf; single notch retained on upper-left edge after continuity correction, no second notch or duplicate insect. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-17",
+    "sha256": "9d1817788b8107ed835c74432033de05e082d25afebb0b54c85001e5067a2bcf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

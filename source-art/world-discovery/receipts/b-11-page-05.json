@@ -9,7 +9,7 @@
   "outputSha256": "49e006e85640697e7c8022a5df1075bdc6c3dc87a98222a0a1418e46d1b13fab",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Edit supplied image 1 only; images 2\u20133 are fixed character/book references. Preserve every character pose, expression, hand contact, exact block count and road state, red truck position and scene composition relationships. Widen the view by about 15 percent, extending the existing floor and wall naturally, so both children's ENTIRE shoes/hair/hands and all story props are at least 8 percent away from every canvas edge. Specifically no shoe should lie near the left or right edge. No white border or framed inset: still one full-bleed 3:2 landscape classroom scene. Keep clean flat color fills and crisp outlines, no grain/noise or added texture. Do not add/remove/move blocks relative to one another, do not change the gap or its filled state, do not add extra people or writing. The source image is otherwise correct.",
+  "prompt": "Use case: precise-object-edit. Edit supplied image 1 only; images 2–3 are fixed character/book references. Preserve every character pose, expression, hand contact, exact block count and road state, red truck position and scene composition relationships. Widen the view by about 15 percent, extending the existing floor and wall naturally, so both children's ENTIRE shoes/hair/hands and all story props are at least 8 percent away from every canvas edge. Specifically no shoe should lie near the left or right edge. No white border or framed inset: still one full-bleed 3:2 landscape classroom scene. Keep clean flat color fills and crisp outlines, no grain/noise or added texture. Do not add/remove/move blocks relative to one another, do not change the gap or its filled state, do not add extra people or writing. The source image is otherwise correct.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-8a697e76-7371-4f6f-9337-392cb8a73050.png",
@@ -32,14 +32,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T10:56:20.738Z",
-    "outputSha256": "49e006e85640697e7c8022a5df1075bdc6c3dc87a98222a0a1418e46d1b13fab",
-    "scope": "direct final WebP and full ordered sequence review; production-author review, not independent approval",
-    "notes": "Zoe touches and sets seventh far-turn block; six straight blocks plus this seventh and the one loose eighth total eight. Kit stays seated and watches. Corrected framing retains full shoes/hands. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "49e006e85640697e7c8022a5df1075bdc6c3dc87a98222a0a1418e46d1b13fab",
-    "note": "Zoe touches and sets seventh far-turn block; six straight blocks plus this seventh and the one loose eighth total eight. Kit stays seated and watches. Corrected framing retains full shoes/hands. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending."
+    "note": "Zoe touches and sets seventh far-turn block; six straight blocks plus this seventh and the one loose eighth total eight. Kit stays seated and watches. Corrected framing retains full shoes/hands. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-11",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

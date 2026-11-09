@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:11:10.576282+00:00",
-    "outputSha256": "287fbbe792581c3a83339af76ee36de1d214975701f1f51f2509a0421b2eb881",
-    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
-    "notes": "Kit on near side kneels at sheet height looking through clear/wax toward one continuous car behind; sharp and blurred portions distinct; natural knees/feet and normal table scale. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "287fbbe792581c3a83339af76ee36de1d214975701f1f51f2509a0421b2eb881",
-    "note": "Kit on near side kneels at sheet height looking through clear/wax toward one continuous car behind; sharp and blurred portions distinct; natural knees/feet and normal table scale. Independent QA pending."
+    "note": "Kit on near side kneels at sheet height looking through clear/wax toward one continuous car behind; sharp and blurred portions distinct; natural knees/feet and normal table scale. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

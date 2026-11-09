@@ -35,12 +35,12 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 395,
-  sourceFingerprint: "2f9af123064017d88af2ba7e8018ba73d88d73cbc12b521a8f3f52b86016bf9f",
+  sourceFingerprint: "ce2983c7878b315612273a78bf3d9e6b73effe852dedc6a9f649506779a6c465",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-11-07",
-  integrationReview: "The catalogue contains 397 runtime books and 3,501 pages. World Discovery contains 100 independently reviewed full manuscripts, twenty per public App level A–E, with 880 story pages and 100 covers. The second fifty-book cohort adds distinct directions within the ten established strands. Its exact text, scene states, factual sources, public-level rationales and complete-book scorecards are in src/content/world-discovery/cohorts/11-20; independent visual records and automated narration screening are in source-art/world-discovery/cohorts/11-20. The original fifty-book source/media fixture remains unchanged. Current-byte visual and narration gates enforce readiness separately; automated recognition and signal checks are not human listening. No classroom or physical-device observation is claimed.",
+  reviewedAt: "2026-11-09",
+  integrationReview: "The complete 397-book, 3,501-page runtime catalogue was reread and its ordered illustrations inspected for concrete ESL wording, causal and character continuity, literal image support, anatomy, counts and factual accuracy. Authored text, teaching prompts and stale level rationales were repaired without changing assigned A–H levels. The user explicitly authorized repairs to both World Discovery cohorts; versioned November 9 registrations retain the original release fixture and audio evidence as immutable history. Current full-book review and repair provenance are in source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09. Current-byte visual and narration gates enforce readiness separately; automated recognition and signal checks are not human listening. No classroom or physical-device observation is claimed.",
   reviewer: "Editorial and source review",
   claim: "All 395 graded books and 3,477 pages received complete manuscript review. The original 226 graded books received nine page-line corrections and one title correction. Small Steps adds 20 cumulative decodables; Next Steps adds 30 more with exact cumulative pronunciation, word-shape and exception evidence. Bright Ideas adds 19 graded leveled books; its additional shared H book and the existing Missing Sandwich book retain separate exact manuscript contracts. World Discovery adds 100 predictable/levelled books across identity, relationships, community, fantasy, geography, space, animals, life cycles, classification and caring for our world; it makes no cumulative decoding claim. The collections distinguish phonics practice from broader leveled and supported reading. Current illustrations and ordered sequences are enforced by their separate hash-locked visual gate; this text baseline cannot clear a media defect. Exact narration provenance and automated recognition screening remain distinct from human listening. No classroom outcome, publisher-level equivalence or direct human-listening observation is claimed. Reported defects, quarantine and media-integrity failures remain blocking."
 });
@@ -50,10 +50,10 @@ export const guidedReadingPolicyBaseline = Object.freeze({
 export const guidedReadingSharedStoryReviews = Object.freeze([Object.freeze({
   "bookId": "bright-ideas-20",
   "contentStatus": "approved",
-  "manuscriptSha256": "33e71ec8d18e20aaad74f608e1c060407f87da3ed38ac3c390e6676930973cbc",
+  "manuscriptSha256": "670fc3df5f9ac2ae65faf13d75b18784d17b68df53c653233205abaa3927c741",
   "expectedPages": 12,
   "readingPlacement": "App H; shared reading for interest ages 5–9; no independent decoding level",
-  "reviewEvidence": "Complete twelve-page frozen manuscript, science claims and teaching routine independently reviewed. The shared reading contract preserves the exact text, supported placement and Leda narration. Media acceptance is recorded separately in the final expansion review."
+  "reviewEvidence": "November 9 complete twelve-page reread and ordered image review after concrete ESL repairs to water movement, pipe repair and the separate cable route. The shared reading contract pins this exact revised manuscript and supported placement. Matching Leda narration was decoded and independently transcribed; media acceptance and browser checks remain separately recorded."
 }), Object.freeze({
   bookId: MISSING_SANDWICH_BOOK_ID,
   contentStatus: "approved",

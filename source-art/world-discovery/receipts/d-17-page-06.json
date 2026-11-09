@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T15:11:45.875Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "3a2b68c9f16a84bd253df095e50d98f1534a0c2cb240f10c8bf68add56839f92",
     "note": "Generated source and installed WebP inspected. New pink petal is physically behind the clear wing region while the unchanged brown edge remains opaque. Four developed legs support the butterfly on connected stem, two antennae; whole focal flower and butterfly fully inset.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-17",
+    "sha256": "2826cf3312807d6cc892fa1bd9f74d486889fe4d6d27642c1648712c0bc83bb8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

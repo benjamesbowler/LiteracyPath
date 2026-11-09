@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.559290+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "01fcc61d5fe7dca49d0fdb64636e2a6a0aea183a0136fddb1fc18ca8e6a26ed0",
-    "note": "Single intact orange-and-black pupa attached to leaf, with no cocoon or premature adult."
+    "note": "Single intact orange-and-black pupa attached to leaf, with no cocoon or premature adult.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-08",
+    "sha256": "f8a7db5b751295bf896f73c32a89c4e82ae83bccfdc22d76dc9ac019d8578abb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

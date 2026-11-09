@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.970389+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "c87287804a8dfe31ad5a28e34a90e26f2012a864fde72d2a13ee6e4de315a483",
-    "note": "One new small green pod at a withering flower, connected to the same bush bean with trifoliate foliage."
+    "note": "One new small green pod at a withering flower, connected to the same bush bean with trifoliate foliage.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

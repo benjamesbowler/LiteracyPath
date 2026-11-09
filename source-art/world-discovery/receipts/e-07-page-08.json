@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:04:48.467Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "49e89983731ae05a0d279f526c702e28ffd53c92e3a8576346ff96b0eeb93b54",
     "note": "Later ripe split fruit reveals red flesh with many small dark seeds; high cactus position.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-07",
+    "sha256": "b3a3b5ef9be651c9a4107522a6f0a200b7b5460e23c1c7cab702b1270d07050c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

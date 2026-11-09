@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:28:49.085Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "fb8a801aedca1b7d70db16556090c9cabf8d62c7be1bfc8d5c245e0ecbce9908",
     "note": "Generated source and installed WebP inspected. Tomato and closed pea-pod design board; open pod has six peas, prepared tomato halves on left dish and pod on right dish; no humans or invented labels.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-19",
+    "sha256": "ac8434eb87c7ed38d402f824acd8b7188efe9acbdbc2651ec49b779188a64cca",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T15:50:08.816170+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "0163f068ee86f62f7e3cd1b8639f9cfd122fd92ef35366c17198960124b67d05",
     "note": "Generated source and installed WebP inspected. Locked cast, two-part creased original, half-sheet, plum folder, two crayons/tray, clip and room key. Happy swimmer mouth is at water surface and small bubbles are below it, without soap wand or air bubbles; worried drawing remains separate.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-11",
+    "sha256": "4408a56cb14307858530077cfd778003dbeb95184a6c41c9c28c32a67d8d7763",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "bf421a06c1a1985bb3d421db67f099336d9018d62cfd8b32fe0a1d1b66e74d8e",
     "method": "codex-direct-image-inspection",
-    "note": "Summer adult feeding views preserve four functional walking legs and reduced front pair where visible, natural flower contacts and broad wing margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "bf421a06c1a1985bb3d421db67f099336d9018d62cfd8b32fe0a1d1b66e74d8e",
+    "note": "Summer adult feeding views preserve four functional walking legs and reduced front pair where visible, natural flower contacts and broad wing margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

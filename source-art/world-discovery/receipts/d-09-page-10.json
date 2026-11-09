@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:31:11.334022+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "d4abfd5bc1936ebdfe37e2a52226bb012087a8d8a5f9f0d31930d413a1ee2080",
-    "note": "Steel key directly contacts red end with empty hole and no hook or string; previous five objects retained in correct trays."
+    "note": "Steel key directly contacts red end with empty hole and no hook or string; previous five objects retained in correct trays.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

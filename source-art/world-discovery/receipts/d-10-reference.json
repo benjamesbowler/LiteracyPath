@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.338Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "ddac2bfbfe45fce3799e5d6dd0d1c576fd0419a11802251809297c67a69e46b0",
-    "note": "Garden lamp model, closed head, panel, LED and green battery inspected; cutaway has two panel leads and two LED leads; empty garden key and adult hand reference only."
+    "note": "Garden lamp model, closed head, panel, LED and green battery inspected; cutaway has two panel leads and two LED leads; empty garden key and adult hand reference only.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-10",
+    "sha256": "ca01455632d2ab41b0d96149fc43ef59a70841e5fb409f384c603d9dc77bd850",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

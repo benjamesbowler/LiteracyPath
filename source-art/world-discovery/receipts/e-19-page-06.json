@@ -2,14 +2,14 @@
   "bookId": "world-discovery-e-19",
   "slot": "page-06",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T17:15:15.781Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6a787bdb-64b4-4584-92ae-6d1cea8113ec.png",
-  "sourceSha256": "b9a48ed70bcfd839e67d316511a06638f2600f1c2d31d7b00888aafacdc14166",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-978baf7c-de7c-4f02-956a-fed4c2bce7fe.png",
+  "sourceSha256": "ddbe7cb14c31038a3680721959bef6c6b67f0a815515fce81b13701ed4034c9e",
   "output": "public/guided-reading/world-discovery/e-19/page-06.webp",
-  "outputSha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
+  "outputSha256": "827d32b6cc9acb4065f0d463597e40a91ece34f0d10fd10b50a84729dca45702",
   "width": 1536,
   "height": 1024,
-  "prompt": "Recompose the same sorting-board action as a TRUE STRAIGHT-DOWN CLOSE-UP of the tabletop. Wood tabletop is the ONLY background and extends continuously to ALL FOUR image edges. NO room, floor, table edge, table legs, chairs, heads, hair or bodies visible. Preserve the exact existing board labels and precise pieces/positions/stage, and the yellow tray contents. Reduce board+tray+all loose shapes together so ALL teaching objects and complete hands fit inside central 76 percent, at least 12 percent from edges. Only the same children's natural forearms/hands enter from BOTTOM of frame: Kit's light warm skin/teal sleeve on left and Zoe's deep brown skin/yellow sleeve on right. Fingers keep exactly the same task/gesture. At most two hands per child. No additional shapes or props. Words exactly: round, not round, red, not red. Flat crisp 2D cartoon, landscape3:2.",
+  "prompt": "Use case: illustration-story. Edit FIRST attached image ONLY. Second locks the children's skin/clothing colors; do NOT add faces or whole bodies. Essential edit: replace ALL the fine repeated wood-grain texture on the tabletop with ONE completely uniform flat pale warm-tan color. No grain, thin lines, fibres, mottling, pattern, gradient or photographic texture. Preserve EVERYTHING else exactly: overhead composition, white four-space chart with separate headings, every hand and finger pose, every colored shape's exact count, size and position, yellow tray. Keep the only visible text spelled exactly as in original: column headings \"round\" and \"not round\"; row headings \"red\" and \"not red\". No additional text. Crisp bold black outlines and clean flat colored shapes. Large red circle already in top-left cell, Zoe's brown hand places red square in top-right cell. Bottom two cells empty. Blue circle and blue square below board. Small red circle and red triangle remain on yellow tray. Finished 3:2 landscape picture-book illustration, no border or extra panel. Keep accurate teaching layout and natural hand anatomy; only simplify the background surface.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/media/e19-root-repair/page-06-before-f4a4b3864838903cd99d867d5eb425e52eb32fe4919bafd081d0fe5a099d611a.webp",
@@ -25,8 +25,34 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:17:37.174Z",
-    "sha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
-    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+    "reviewedAt": "2026-11-09",
+    "sha256": "827d32b6cc9acb4065f0d463597e40a91ece34f0d10fd10b50a84729dca45702",
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
+    "sourceSha256": "b9a48ed70bcfd839e67d316511a06638f2600f1c2d31d7b00888aafacdc14166",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-6a787bdb-64b4-4584-92ae-6d1cea8113ec.png",
+    "generatedAt": "2026-11-07T17:15:15.781Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-06.webp",
+      "sha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-19",
+    "sha256": "0448cc7a72de4817f959ae9e7b5dde6d50158b7626bb8f96e57b7272e8d4b6e0",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

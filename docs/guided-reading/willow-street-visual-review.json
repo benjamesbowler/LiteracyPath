@@ -749,22 +749,67 @@
       "assetType": "reading-page",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/drums-for-carnival/page-02.webp",
-      "displayedText": "Mr. Baptiste plays first. Everyone waits to answer.",
-      "textSha256": "d037cb1f222a108402108a7b0e4cc59a316388ab4479010648279aa16214269e",
+      "displayedText": "Mr. Baptiste plays a short drum beat. This is the call.",
+      "textSha256": "ecc46ac3d60bb4956514be021ac12090fc9629266f47defa2741313074b91ffc",
       "visualBriefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
       "imageSha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "219c30c73cc16a591cac32d8f2eef6a495cb271482dfb3ddd342dbe601d3aa05",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "title": "Drums Together",
+            "assetType": "reading-page",
+            "pageNumber": 2,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-02.webp",
+            "displayedText": "Mr. Baptiste plays first. Everyone waits to answer.",
+            "textSha256": "d037cb1f222a108402108a7b0e4cc59a316388ab4479010648279aa16214269e",
+            "visualBriefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+            "imageSha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "ecc46ac3d60bb4956514be021ac12090fc9629266f47defa2741313074b91ffc",
+        "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+        "imageSha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -772,22 +817,67 @@
       "assetType": "reading-page",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/drums-for-carnival/page-03.webp",
-      "displayedText": "Leo starts too soon. His drum covers the call.",
-      "textSha256": "cfcb7ff34902741ca8448208bf98290f4fdf1aec869de5cc861a7dbd3ab741b3",
+      "displayedText": "Leo plays too soon. Now nobody can hear the call.",
+      "textSha256": "c954df208b22e65365fd6683f2e25d1cebea7c1e6a0ecfd5c910044427953512",
       "visualBriefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
       "imageSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "6ed5c51d2a201808d7c231e8fc7ff90242a52515a00189b7fe1e70a591222482",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "title": "Drums Together",
+            "assetType": "reading-page",
+            "pageNumber": 3,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-03.webp",
+            "displayedText": "Leo starts too soon. His drum covers the call.",
+            "textSha256": "cfcb7ff34902741ca8448208bf98290f4fdf1aec869de5cc861a7dbd3ab741b3",
+            "visualBriefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+            "imageSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "c954df208b22e65365fd6683f2e25d1cebea7c1e6a0ecfd5c910044427953512",
+        "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+        "imageSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -841,22 +931,67 @@
       "assetType": "reading-page",
       "pageNumber": 6,
       "path": "/guided-reading/willow-street/drums-for-carnival/page-06.webp",
-      "displayedText": "Then Leo answers with the group. Softly, then loudly.",
-      "textSha256": "d4a39a97d90c579ee627e9df60f3401ba9911f0038ecaae36dce37cda7a7bb8b",
+      "displayedText": "Then the group plays back. This is the answer.",
+      "textSha256": "ce141c93ed1c4b52afa213360c76bf4e0beeb11e0074fa35baefc23996ed5199",
       "visualBriefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
       "imageSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "83d60d58c3340d89eb462e50ee5b81435f70202cc4c55613e43bb323cd29b5ca",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "title": "Drums Together",
+            "assetType": "reading-page",
+            "pageNumber": 6,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-06.webp",
+            "displayedText": "Then Leo answers with the group. Softly, then loudly.",
+            "textSha256": "d4a39a97d90c579ee627e9df60f3401ba9911f0038ecaae36dce37cda7a7bb8b",
+            "visualBriefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+            "imageSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "ce141c93ed1c4b52afa213360c76bf4e0beeb11e0074fa35baefc23996ed5199",
+        "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+        "imageSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -864,22 +999,67 @@
       "assetType": "reading-page",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/drums-for-carnival/page-07.webp",
-      "displayedText": "In the hall, their drums answer Mr. Baptiste together.",
-      "textSha256": "4d53a4650eb20b6bf95a6e0cbacc91515c03102614305331d0dfc2da928e68d8",
+      "displayedText": "They wait, then play their drums together.",
+      "textSha256": "88c3a252c50d06ce67493d90856197120029e495d004f2d46fe09eab06f701c0",
       "visualBriefSha256": "34e392c1adb57dd9fc0e8d68eed7e631b1e9a5d7781fe614a3fe6eb5f7d9036a",
       "imageSha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "611d5632b3d773edfb7b2e262837d5b7998bb4b881f87055a34681899559f560",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "title": "Drums Together",
+            "assetType": "reading-page",
+            "pageNumber": 7,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-07.webp",
+            "displayedText": "In the hall, their drums answer Mr. Baptiste together.",
+            "textSha256": "4d53a4650eb20b6bf95a6e0cbacc91515c03102614305331d0dfc2da928e68d8",
+            "visualBriefSha256": "34e392c1adb57dd9fc0e8d68eed7e631b1e9a5d7781fe614a3fe6eb5f7d9036a",
+            "imageSha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "88c3a252c50d06ce67493d90856197120029e495d004f2d46fe09eab06f701c0",
+        "briefSha256": "34e392c1adb57dd9fc0e8d68eed7e631b1e9a5d7781fe614a3fe6eb5f7d9036a",
+        "imageSha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1577,22 +1757,67 @@
       "assetType": "reading-page",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/how-a-book-is-made/page-02.webp",
-      "displayedText": "An editor helps make the meaning clear.",
-      "textSha256": "b90ec4987de10b6c057f1ad421be27b722037c5b306ef72e94d464fdb354b989",
+      "displayedText": "An editor checks the words and makes them easier to understand.",
+      "textSha256": "3874226c607d5cccc44e56bf9f6c91a4f97c7220577d766c9279aea7b0251196",
       "visualBriefSha256": "1e5d02a1f778b9417c02fad13457816e80d53d90478773da2c98e5e5e3067486",
       "imageSha256": "432edd32cd6178b92c8783c3498893761f5add88e83a3df8feb1f372f19dd8dc",
       "visualTreatment": "self-created-photorealistic",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for How a Book Is Made page 2: author-editor collaboration with proof back facing camera; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "79a60bbb8f5728a2c069f409a1e1926753bdcc3a49263031640bcb342b147a2b",
+          "record": {
+            "bookId": "willow-street-how-a-book-is-made",
+            "title": "How a Book Is Made",
+            "assetType": "reading-page",
+            "pageNumber": 2,
+            "path": "/guided-reading/willow-street/how-a-book-is-made/page-02.webp",
+            "displayedText": "An editor helps make the meaning clear.",
+            "textSha256": "b90ec4987de10b6c057f1ad421be27b722037c5b306ef72e94d464fdb354b989",
+            "visualBriefSha256": "1e5d02a1f778b9417c02fad13457816e80d53d90478773da2c98e5e5e3067486",
+            "imageSha256": "432edd32cd6178b92c8783c3498893761f5add88e83a3df8feb1f372f19dd8dc",
+            "visualTreatment": "self-created-photorealistic",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-09-02T12:37:32Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "Original-detail review approved for How a Book Is Made page 2: author-editor collaboration with proof back facing camera; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
+            "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "3874226c607d5cccc44e56bf9f6c91a4f97c7220577d766c9279aea7b0251196",
+        "briefSha256": "1e5d02a1f778b9417c02fad13457816e80d53d90478773da2c98e5e5e3067486",
+        "imageSha256": "432edd32cd6178b92c8783c3498893761f5add88e83a3df8feb1f372f19dd8dc",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-how-a-book-is-made",
+          "rowSha256": "330472f0fd5a84aaf81429bbf4cdf4d5888f39f3c44b6448f244b9951d628718",
+          "finalBookSha256": "81ec01324d58732ed0b433ad5115407c785cccaefcbfeef6e3c673e7c7018bba"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-how-a-book-is-made",
@@ -1692,22 +1917,67 @@
       "assetType": "reading-page",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/how-a-book-is-made/page-07.webp",
-      "displayedText": "The book's page groups are bound inside a cover.",
-      "textSha256": "61303336abae4db9f1b4658660c97df106e80cb16991bfd8bf1c816a6587a850",
+      "displayedText": "Workers sew or glue the pages together, then add a cover.",
+      "textSha256": "17bb4bc707317965efd90998715fc7e0faea71322c65f25cd41e7daaf823f6b4",
       "visualBriefSha256": "5cecd70dd8d03cdaab1218ef79b7cf5cc836247d0797e75729f5adce1d996dab",
       "imageSha256": "eb3355f7b7d68d2d76b86c144e8f6b8e3731658616cc5cd40cac4bcc0b51c3dd",
       "visualTreatment": "self-created-photorealistic",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-09-02T12:37:32Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "Original-detail review approved for How a Book Is Made page 7: sewn sections, controlled glue, and plausible cover case; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
-      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "d6a7f9aae98104f5b84c1c86ff6a2aa5f5127f255a91955cc04ae1886dc912e5",
+          "record": {
+            "bookId": "willow-street-how-a-book-is-made",
+            "title": "How a Book Is Made",
+            "assetType": "reading-page",
+            "pageNumber": 7,
+            "path": "/guided-reading/willow-street/how-a-book-is-made/page-07.webp",
+            "displayedText": "The book's page groups are bound inside a cover.",
+            "textSha256": "61303336abae4db9f1b4658660c97df106e80cb16991bfd8bf1c816a6587a850",
+            "visualBriefSha256": "5cecd70dd8d03cdaab1218ef79b7cf5cc836247d0797e75729f5adce1d996dab",
+            "imageSha256": "eb3355f7b7d68d2d76b86c144e8f6b8e3731658616cc5cd40cac4bcc0b51c3dd",
+            "visualTreatment": "self-created-photorealistic",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-09-02T12:37:32Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "Original-detail review approved for How a Book Is Made page 7: sewn sections, controlled glue, and plausible cover case; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified.",
+            "sourceManifest": "docs/guided-reading/willow-street-photoreal-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "17bb4bc707317965efd90998715fc7e0faea71322c65f25cd41e7daaf823f6b4",
+        "briefSha256": "5cecd70dd8d03cdaab1218ef79b7cf5cc836247d0797e75729f5adce1d996dab",
+        "imageSha256": "eb3355f7b7d68d2d76b86c144e8f6b8e3731658616cc5cd40cac4bcc0b51c3dd",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-how-a-book-is-made",
+          "rowSha256": "330472f0fd5a84aaf81429bbf4cdf4d5888f39f3c44b6448f244b9951d628718",
+          "finalBookSha256": "81ec01324d58732ed0b433ad5115407c785cccaefcbfeef6e3c673e7c7018bba"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-how-a-book-is-made",
@@ -3462,19 +3732,71 @@
       "displayedText": "A wide puddle blocks the garden path.",
       "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
       "visualBriefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
-      "imageSha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
+      "imageSha256": "a614a1cabdcc4ef6a76c6aba05c7c70f10470aea0b91133cb6f93d500027339c",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "accepted; native PNG and encoded WebP pass; whole-book sequence pass; installed; Four stable square stones established before discovery; original two children/blank band retained. Current text and complete-book sequence are bound by the November 9 review ledger. Original image generation and review remain in previousVersions.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "accepted-image-repair-and-current-manuscript-review",
+          "recordSha256": "ac8d537adcf31aa73af8be550b18a96d48690c14744e8c1ccb97d7f0597d7b8f",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "title": "The Puddle Plan",
+            "assetType": "reading-page",
+            "pageNumber": 1,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-01.webp",
+            "displayedText": "A wide puddle blocks the garden path.",
+            "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
+            "visualBriefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
+            "imageSha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "accepted-image-repair-and-current-manuscript-review",
+        "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
+        "briefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
+        "imageSha256": "a614a1cabdcc4ef6a76c6aba05c7c70f10470aea0b91133cb6f93d500027339c",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Accepted replacement native PNG and encoded WebP review, followed by complete-book image sequence and current manuscript review; see the exact repair receipt.",
+        "imageRepair": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+          "id": "puddle-p01",
+          "rowSha256": "82a405ef3cbb5907198030076b6d57ae168d3e02ec418684efe6a56418388f98",
+          "wholeBookEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/final-sequences/review-receipt.json",
+          "installationEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/delivery/installed-p3.json"
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -3485,19 +3807,71 @@
       "displayedText": "Leo points to the edge. “Let’s try over there.”",
       "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
       "visualBriefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
-      "imageSha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
+      "imageSha256": "4475965540eac691d8dd43cca7d9d11e610674b59e773b978fb6045bc56b9a66",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "accepted; native PNG and encoded WebP pass; whole-book sequence pass; installed; Same four stones present; Leo points toward separate muddy edge. Current text and complete-book sequence are bound by the November 9 review ledger. Original image generation and review remain in previousVersions.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "accepted-image-repair-and-current-manuscript-review",
+          "recordSha256": "25b104bff31dc684dc0014668d41b0d0613e0ea96e4c98eebbfe64d577a768a5",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "title": "The Puddle Plan",
+            "assetType": "reading-page",
+            "pageNumber": 2,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-02.webp",
+            "displayedText": "Leo points to the edge. “Let’s try over there.”",
+            "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
+            "visualBriefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+            "imageSha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "accepted-image-repair-and-current-manuscript-review",
+        "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
+        "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+        "imageSha256": "4475965540eac691d8dd43cca7d9d11e610674b59e773b978fb6045bc56b9a66",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Accepted replacement native PNG and encoded WebP review, followed by complete-book image sequence and current manuscript review; see the exact repair receipt.",
+        "imageRepair": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+          "id": "puddle-p02",
+          "rowSha256": "d818c1edfe714cdd22f2bd834db712e2c5b6343b4814bc36abb2605ea2b5228b",
+          "wholeBookEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/final-sequences/review-receipt.json",
+          "installationEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/delivery/installed-p3.json"
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -3508,19 +3882,71 @@
       "displayedText": "Leo’s foot sinks into the soft, sticky mud.",
       "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
       "visualBriefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
-      "imageSha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
+      "imageSha256": "3ff82dfce86690e0c719f1c267465003466fa6ae60479e394794f6b7334e2329",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
-        "width": 1365,
-        "height": 768,
+        "width": 1672,
+        "height": 941,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "accepted; native PNG and encoded WebP pass; whole-book sequence pass; installed; Same four stones present while Leo steps into mud separately; muddy shoe evidence retained. Current text and complete-book sequence are bound by the November 9 review ledger. Original image generation and review remain in previousVersions.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "accepted-image-repair-and-current-manuscript-review",
+          "recordSha256": "722269ec84f423cb506ed7d6246e99422a23a2f02e5251e20e6715f0775118a7",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "title": "The Puddle Plan",
+            "assetType": "reading-page",
+            "pageNumber": 3,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-03.webp",
+            "displayedText": "Leo’s foot sinks into the soft, sticky mud.",
+            "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
+            "visualBriefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+            "imageSha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "accepted-image-repair-and-current-manuscript-review",
+        "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
+        "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+        "imageSha256": "3ff82dfce86690e0c719f1c267465003466fa6ae60479e394794f6b7334e2329",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Accepted replacement native PNG and encoded WebP review, followed by complete-book image sequence and current manuscript review; see the exact repair receipt.",
+        "imageRepair": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+          "id": "puddle-p03",
+          "rowSha256": "5a65bb9ce1f4df7b74f959996ee57feea614656997b58f7f6cafc9cbb6a31879",
+          "wholeBookEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/final-sequences/review-receipt.json",
+          "installationEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/delivery/installed-p3.json"
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -3528,22 +3954,67 @@
       "assetType": "reading-page",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/the-puddle-plan/page-04.webp",
-      "displayedText": "Samir spots some dry stones beside the muddy patch.",
-      "textSha256": "dcd111097317eb4e45450fb24d7061739394125b8c374485b7db4bf9f7aca28e",
+      "displayedText": "Samir spots a line of stones across the puddle.",
+      "textSha256": "a524ac657b9fa6f0d3a4ed60c095d5dadec4f32dedb86508ee587ce84d710cee",
       "visualBriefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
       "imageSha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
       "visualTreatment": "willow-street-illustrated",
       "provenance": "self-created",
-      "reviewer": "Codex direct original-detail visual review",
-      "reviewedAt": "2026-10-30T05:11:12Z",
+      "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded",
+      "reviewedAt": "2026-11-09",
       "viewport": {
         "width": 1365,
         "height": 768,
         "detail": "original"
       },
       "disposition": "approved",
-      "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text.",
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "0e44e5da272f657b55018d34807869d37b69e23e4c41ac57d16bfff8244dbd6f",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "title": "The Puddle Plan",
+            "assetType": "reading-page",
+            "pageNumber": 4,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+            "displayedText": "Samir spots some dry stones beside the muddy patch.",
+            "textSha256": "dcd111097317eb4e45450fb24d7061739394125b8c374485b7db4bf9f7aca28e",
+            "visualBriefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+            "imageSha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
+            "visualTreatment": "willow-street-illustrated",
+            "provenance": "self-created",
+            "reviewer": "Codex direct original-detail visual review",
+            "reviewedAt": "2026-10-30T05:11:12Z",
+            "viewport": {
+              "width": 1365,
+              "height": 768,
+              "detail": "original"
+            },
+            "disposition": "approved",
+            "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
+            "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "a524ac657b9fa6f0d3a4ed60c095d5dadec4f32dedb86508ee587ce84d710cee",
+        "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+        "imageSha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -4269,5 +4740,14 @@
     "bookId": "willow-street-inside-a-fire-station",
     "assets": 9,
     "reason": "User requires clean cartoon style for all new images; entire book redrawn to preserve visual continuity."
+  },
+  "editorialRefresh20261109": {
+    "reviewedAt": "2026-11-09",
+    "scope": "Only the ten changed bindings refreshed. The other 170 reviews, historical method and original approval dates are unchanged; prior records for all ten affected assets are preserved in previousVersions.",
+    "changedAssets": 10,
+    "changedImages": 3,
+    "changedTextBindings": 7,
+    "completeBookEvidence": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+    "imageRepairEvidence": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json"
   }
 }

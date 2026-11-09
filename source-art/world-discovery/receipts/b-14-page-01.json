@@ -24,13 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "e97b9978cf88111bd9b862e8067c1fe8646f6c2d47428197633ce40d2d32dcbc",
-    "outputSha256": "e97b9978cf88111bd9b862e8067c1fe8646f6c2d47428197633ce40d2d32dcbc",
     "note": "Kit holds two free clips with the green cord; cup red, cart blue, paper red. Natural complete seated children at child-height wood table; full shoes are comfortably inside frame.",
-    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-14",
+    "sha256": "5dbf82b5197909174489d09da89bff6bbf25830375bf64500beb4df71bcf0707",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

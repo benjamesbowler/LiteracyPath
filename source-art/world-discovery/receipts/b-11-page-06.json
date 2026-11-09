@@ -2,14 +2,14 @@
   "bookId": "world-discovery-b-11",
   "slot": "page-06",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T10:49:03.439Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-00429fac-c4e9-4d5c-8440-b3d2e106537e.png",
-  "sourceSha256": "0602fc698b8b282da9efb60cb989365c8cdfc1295d546fa91808adddddc6e19e",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-9157019f-30a0-4a08-9a7c-5de61dcefd04.png",
+  "sourceSha256": "9fdf4c4b42625190bc881fd2ef7421d5b3b1503da3b47dad0280399d5c99acde",
   "output": "public/guided-reading/world-discovery/b-11/page-06.webp",
-  "outputSha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176",
+  "outputSha256": "268ccfd916ca74a845af8598d916a07d7eb7f3b814b8e08f9cfbcaf8e035180c",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Break for Kit; World Discovery; fiction.\nSetting: Ordinary classroom floor in daylight; low block road crosses a green rug; one low wooden seat beside the rug. Kit and Zoe retain the locked cast clothing.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Eight large tan rectangular blocks forming one road; One small red toy truck; One low wooden seat; One green rug\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): Kit rests a little longer.\nThe last gap stays open.\nRequired illustration: Quiet side view: Kit has leaned comfortably against the seat back, hands loose. The road has one clearly visible block-sized gap before its final turn. Continuity: No new blocks placed; one gap and one loose block persist; Zoe waits beside the truck.\nExact current state: No new blocks placed; one gap and one loose block persist; Zoe waits beside the truck.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nPrecise current layout/count: Eight blocks total: six touching in a straight segment, one perpendicular final-turn block across ONE block-sized gap, one loose eighth block beside the gap. Kit leans against the wooden chair's BACKREST at rear/right and rests comfortably, empty relaxed hands. Zoe has moved to kneel beside the red truck at the road's left beginning, leaving the final gap unchanged. No extra block, no blocked or touching gap.\nStyle and framing lock: use a wide camera with ALL children, hands/feet, blocks, red truck and wooden chair entirely within the central 84% of the frame. Third image is a finished STYLE reference only: use its smooth solid flat green rug and clean flat wall/floor, with no grain, noise, speckled texture or brush marks anywhere. It does not set this page's pose or block count; obey the current layout above.",
+  "prompt": "Use case: illustration-story. Repair the first picture only. Second picture shows the final completed toy road for continuity; third locks Kit and Zoe identity. Produce one finished 3:2 landscape picture-book illustration. Keep Kit sitting back and resting on the chair, and Zoe kneeling beside the red toy truck. The eighth unused loose block lies below and away from the road. ESSENTIAL EXACT COUNT AND GAP: there are exactly EIGHT equal-size tan rectangular wooden blocks in the whole picture. Seven blocks are already arranged as the same road seen in reference two, except ONE straight road block immediately BEFORE the far-right turning block is missing, leaving a clear gap exactly one block long. Specifically: SIX straight blocks touch end-to-end from left to right; then ONE empty block-sized space; then the SEVENTH placed block turned ninety degrees to form the far-right corner. This far-right corner is already on the same road, clearly aligned with the row across the single gap, not another loose block. The EIGHTH block is the single unused loose one below the road. The final picture's completed road thus needs only this one block inserted. Make the gap and count unmistakable. Keep the red truck at the left start, green rug, window, shelf and plain wooden chair. Preserve character identities, clothing and poses appropriate to this page. Bold clean dark outlines, flat warm colors, smooth small cel-shadows, no texture or grain. No labels, digits, text, arrows, extra blocks or objects, borders or panels.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
@@ -32,14 +32,39 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T10:56:20.739Z",
-    "outputSha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176",
-    "scope": "direct final WebP and full ordered sequence review; production-author review, not independent approval",
-    "notes": "Kit visibly leans against chair back and rests. Zoe is beside truck. Six straight plus separated far-turn block and one loose block remain, with the final gap open. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
     "method": "codex-direct-image-inspection",
-    "sha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176",
-    "note": "Kit visibly leans against chair back and rests. Zoe is beside truck. Six straight plus separated far-turn block and one loose block remain, with the final gap open. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending."
+    "reviewedAt": "2026-11-09",
+    "sha256": "268ccfd916ca74a845af8598d916a07d7eb7f3b814b8e08f9cfbcaf8e035180c",
+    "note": "Kit visibly leans against chair back and rests. Zoe is beside truck. Six straight plus separated far-turn block and one loose block remain, with the final gap open. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176",
+    "sourceSha256": "0602fc698b8b282da9efb60cb989365c8cdfc1295d546fa91808adddddc6e19e",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-00429fac-c4e9-4d5c-8440-b3d2e106537e.png",
+    "generatedAt": "2026-11-07T10:49:03.439Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-06.webp",
+      "sha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-08.webp",
+      "sha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-11",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

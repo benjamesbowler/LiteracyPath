@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "8442552d1db4e3450f54d627809f9032fdaa4f178dc4526c1df38dd3293798b5",
     "note": "Kit presses loaded cart up short steep flat board with visible effort; wheels contact board, upper end is supported on platform. Zoe steadies the base only. Both children remain behind table.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-03",
+    "sha256": "9cd36e379fccd545f12d58a55028c595b0b1af575999c9de53dea74f83c155df",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.335Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "5cc91a7c4552d7ebb54b6f4723c5f76ac6bcea980b777ff5d166dbe0aade6bdd",
-    "note": "Zoe sets two empty trays on table while Kit holds the red-blue bar magnet; clip and foil remain unsorted."
+    "note": "Zoe sets two empty trays on table while Kit holds the red-blue bar magnet; clip and foil remain unsorted.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "fc1dcd1ffa462a9dbf734dda39eb48617255d9bc672fef977fb520861c90b53a",
-    "note": "Geometry corrected after direct review: far bridge side rail obstructs garage door\u2019s outward swing, while the open end has clear cardboard beyond beside the garage. Truck can later roll off without lifting. Both ends supported, truck just entering, original cast and toy layout retained.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "note": "Geometry corrected after direct review: far bridge side rail obstructs garage door’s outward swing, while the open end has clear cardboard beyond beside the garage. Truck can later roll off without lifting. Both ends supported, truck just entering, original cast and toy layout retained.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-04",
+    "sha256": "a8a8e9f00f4c47aec7369fe76755119fd5e5528ea5b9ebccf486d5ba5fb77583",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json"
   }
 }

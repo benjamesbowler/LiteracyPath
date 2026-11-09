@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:38:41.476Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "38da701dce4d54e6a9d277e2c3dd399ed7246d7794969bcd20bb3988b3ddf1cf",
     "note": "Kit holds un-dented spherical moon visibly wider than ordinarydoor; Zoe reacheschalk; no passage event yet.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-04",
+    "sha256": "f91ed039f94d4dba12d2512833f9b6891bb09feeaa1d3548d72a416e1609d640",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

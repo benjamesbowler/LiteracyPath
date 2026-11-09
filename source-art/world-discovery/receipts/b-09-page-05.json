@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.561151+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "47bd5b2b0608a9e02c9937d795cfd3fd25df20278f3cc37d44a030b10405b8b6",
-    "note": "Zoe tips two empty trays; all six buttons visibly recombined on mat, original colors and sizes retained."
+    "note": "Zoe tips two empty trays; all six buttons visibly recombined on mat, original colors and sizes retained.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -1,13 +1,13 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-09-02T12:33:22.977Z
+Generated: 2026-11-09T04:10:14.614Z
 
 ## Current Policy
 
 Guided Reading exports only approved, active app-created fiction and nonfiction books for student readers. Explicitly removed books must remain off the readable shelf.
 
-Visible fiction books: 140
-Visible nonfiction books: 86
+Visible fiction books: 230
+Visible nonfiction books: 167
 
 ## Visible Books
 
@@ -197,7 +197,7 @@ Visible nonfiction books: 86
 | meadow-pals-31-bouncys-hay-lift | Bouncy's Hay Lift | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-32-tinys-giant-berry | Tiny's Giant Berry | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-33-braves-beetle-bridge | Brave's Beetle Tunnel | Fiction | A | approved | 8 | yes | none |
-| meadow-pals-34-grumpys-sun-clock | Grumpy's Sun Clock | Fiction | A | approved | 8 | yes | none |
+| meadow-pals-34-grumpys-sun-clock | Grumpy's Lunch Spot | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-35-gigglys-round-wheel | Giggly's Round Wheel | Fiction | A | approved | 8 | yes | none |
 | dino-pals-21-fancys-moonleaf-arch | Fancy's Moonleaf Arch | Fiction | B | approved | 8 | yes | none |
 | dino-pals-22-shys-sinking-path | Shy's Sinking Path | Fiction | B | approved | 8 | yes | none |
@@ -226,19 +226,190 @@ Visible nonfiction books: 86
 | willow-street-the-squeaky-wheel | The Squeaky Wheel | Fiction | C | approved | 8 | yes | none |
 | willow-street-the-garden-gate | The Garden Gate | Fiction | C | approved | 8 | yes | none |
 | willow-street-nanis-chapati-lunch | Nani's Chapati Lunch | Fiction | C | approved | 8 | yes | none |
-| willow-street-dumplings-for-new-year | Dumplings for New Year | Fiction | C | approved | 8 | yes | none |
-| willow-street-drums-for-carnival | Drums for Carnival | Fiction | C | approved | 8 | yes | none |
-| willow-street-eid-morning-with-samir | Eid Morning with Samir | Fiction | C | approved | 8 | yes | none |
+| willow-street-dumplings-for-new-year | Dumplings for Dinner | Fiction | C | approved | 8 | yes | none |
+| willow-street-drums-for-carnival | Drums Together | Fiction | C | approved | 8 | yes | none |
+| willow-street-a-morning-with-friends | A Morning with Friends | Fiction | C | approved | 8 | yes | none |
 | willow-street-grow-a-bean-in-a-jar | Grow a Bean in a Jar | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-make-a-paper-kite | Make a Paper Kite | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-build-a-cardboard-ramp | Build a Cardboard Ramp | Non-fiction | C | approved | 8 | yes | none |
-| willow-street-make-fruit-and-yoghurt-cups | Make Fruit and Yoghurt Cups | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-make-fruit-and-yoghurt-cups | Make Fruit and Yogurt Cups | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-from-wheat-to-bread | From Wheat to Bread | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-where-rainwater-goes | Where Rainwater Goes | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-inside-a-fire-station | Inside a Fire Station | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-how-paper-is-recycled | How Paper Is Recycled | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-a-snail-comes-out-at-night | A Snail Comes Out at Night | Non-fiction | C | approved | 8 | yes | none |
 | willow-street-how-a-book-is-made | How a Book Is Made | Non-fiction | C | approved | 8 | yes | none |
+| small-steps-01 | A Cat on a Mat | Fiction | B | approved | 6 | yes | none |
+| small-steps-02 | Mud on a Rug | Fiction | B | approved | 8 | yes | none |
+| small-steps-03 | A Pup in a Box | Fiction | B | approved | 7 | yes | none |
+| small-steps-04 | Yum! A Bun! | Fiction | B | approved | 8 | yes | none |
+| small-steps-05 | A Vet and a Hen | Fiction | B | approved | 8 | yes | none |
+| small-steps-06 | Sam and the Jam | Fiction | B | approved | 8 | yes | none |
+| small-steps-07 | Sam Can Zip | Fiction | B | approved | 7 | yes | none |
+| small-steps-08 | A Hat for Dad | Fiction | B | approved | 8 | yes | none |
+| small-steps-09 | A Nap in the Shop | Fiction | B | approved | 7 | yes | none |
+| small-steps-10 | A Chip on a Chin | Fiction | B | approved | 8 | yes | none |
+| small-steps-11 | This and That | Fiction | B | approved | 7 | yes | none |
+| small-steps-12 | A Ball in the Hall | Fiction | B | approved | 6 | yes | none |
+| small-steps-13 | A Pig Can Dig | Fiction | B | approved | 7 | yes | none |
+| small-steps-14 | A Dot on a Map | Fiction | B | approved | 7 | yes | none |
+| small-steps-15 | A Pup in a Tub | Fiction | B | approved | 8 | yes | none |
+| small-steps-16 | Get the Red Net | Fiction | B | approved | 8 | yes | none |
+| small-steps-17 | When Can the Van Whiz? | Fiction | B | approved | 8 | yes | none |
+| small-steps-18 | Pink Ink | Fiction | B | approved | 8 | yes | none |
+| small-steps-19 | Sing a Song | Fiction | B | approved | 8 | yes | none |
+| small-steps-20 | A Bell in a Mess | Fiction | B | approved | 8 | yes | none |
+| next-steps-01 | In and On | Non-fiction | A | approved | 6 | yes | none |
+| next-steps-02 | In the Sun | Fiction | A | approved | 8 | yes | none |
+| next-steps-03 | The Cat Can Run | Fiction | A | approved | 6 | yes | none |
+| next-steps-04 | I Hug Dad | Fiction | A | approved | 7 | yes | none |
+| next-steps-05 | Tag Dad | Fiction | B | approved | 8 | yes | none |
+| next-steps-06 | A Dot on My Cap | Non-fiction | A | approved | 6 | yes | none |
+| next-steps-07 | A Map | Non-fiction | A | approved | 6 | yes | none |
+| next-steps-08 | Is It a Cat? | Fiction | B | approved | 8 | yes | none |
+| next-steps-09 | A Red Dot | Fiction | A | approved | 7 | yes | none |
+| next-steps-10 | A Den for the Cat | Fiction | B | approved | 8 | yes | none |
+| next-steps-11 | A Job for Me | Fiction | A | approved | 8 | yes | none |
+| next-steps-12 | A Wig for Dad | Fiction | B | approved | 8 | yes | none |
+| next-steps-13 | Is This a Win? | Fiction | B | approved | 8 | yes | none |
+| next-steps-14 | Fan the Ship | Fiction | B | approved | 8 | yes | none |
+| next-steps-15 | Can I Chat? | Fiction | B | approved | 8 | yes | none |
+| next-steps-16 | A Dash and a Hop | Fiction | C | approved | 8 | yes | none |
+| next-steps-17 | A Tall Wall | Fiction | B | approved | 6 | yes | none |
+| next-steps-18 | The Quiz | Fiction | B | approved | 6 | yes | none |
+| next-steps-19 | A Job for Each | Fiction | C | approved | 8 | yes | none |
+| next-steps-20 | Cut and Fit | Fiction | B | approved | 8 | yes | none |
+| next-steps-21 | A Big Tug | Fiction | B | approved | 6 | yes | none |
+| next-steps-22 | A Moth in the Shed | Fiction | C | approved | 8 | yes | none |
+| next-steps-23 | Spin, Top! | Fiction | B | approved | 7 | yes | none |
+| next-steps-24 | The Cat Mask | Fiction | B | approved | 6 | yes | none |
+| next-steps-25 | What Am I? | Fiction | C | approved | 8 | yes | none |
+| next-steps-26 | Honk, Honk! | Fiction | B | approved | 8 | yes | none |
+| next-steps-27 | The Prank | Fiction | C | approved | 8 | yes | none |
+| next-steps-28 | The King | Fiction | C | approved | 8 | yes | none |
+| next-steps-29 | Sniff, Pup! | Fiction | B | approved | 7 | yes | none |
+| next-steps-30 | The Bell Band | Fiction | C | approved | 8 | yes | none |
+| bright-ideas-01 | A Leaf Rubbing | Non-fiction | A | approved | 8 | yes | none |
+| bright-ideas-02 | Sam’s Sock Puppet | Fiction | A | approved | 8 | yes | none |
+| bright-ideas-03 | Watch a Pill Bug | Non-fiction | B | approved | 8 | yes | none |
+| bright-ideas-04 | Dot’s Paper Chain | Fiction | B | approved | 8 | yes | none |
+| bright-ideas-05 | Hooks and Loops | Non-fiction | B | approved | 10 | yes | none |
+| bright-ideas-06 | Where Do the Drops Go? | Non-fiction | B | approved | 10 | yes | none |
+| bright-ideas-07 | The Pebble Pattern | Fiction | B | approved | 10 | yes | none |
+| bright-ideas-08 | How a Bicycle Stops | Non-fiction | C | approved | 10 | yes | none |
+| bright-ideas-09 | How Much Rain? | Non-fiction | C | approved | 10 | yes | none |
+| bright-ideas-10 | A Weaverbird Builds | Non-fiction | C | approved | 10 | yes | none |
+| bright-ideas-11 | The Game That Would Not End | Fiction | C | approved | 10 | yes | none |
+| bright-ideas-12 | From Sand to a Bottle | Non-fiction | C | approved | 12 | yes | none |
+| bright-ideas-13 | The Octopus in the Rocks | Non-fiction | C | approved | 12 | yes | none |
+| bright-ideas-14 | Dot’s Two Promises | Fiction | C | approved | 12 | yes | none |
+| bright-ideas-15 | A Footprint Becomes a Fossil | Non-fiction | C | approved | 14 | yes | none |
+| bright-ideas-16 | How a Lock Lifts a Boat | Non-fiction | C | approved | 14 | yes | none |
+| bright-ideas-17 | Whose Sponge Wins? | Fiction | C | approved | 14 | yes | none |
+| bright-ideas-18 | Wren and the Borrowed Ribbons | Fiction | C | approved | 14 | yes | none |
+| bright-ideas-19 | Stone’s Flower in Pieces | Fiction | C | approved | 14 | yes | none |
+| bright-ideas-20 | Beneath Our Street | Non-fiction | READ_ALOUD | approved | 12 | yes | none |
+| world-discovery-a-01 | Zoe Draws Zoe | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-02 | The Red Crayon | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-03 | Books for Our Class | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-04 | The Hungry Bag | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-05 | Up the Hill | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-06 | The Moon in Daylight | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-07 | In and Out | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-08 | A Chick Grows | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-09 | Sort the Tiles | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-10 | One More Use | Fiction | A | approved | 8 | yes | none |
+| world-discovery-b-01 | I Can Button It | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-02 | A Turn on the Drum | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-03 | Back to the Library | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-04 | The Hopping Boot | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-05 | Down to the Sea | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-06 | Boot Prints on the Moon | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-07 | Feet for Swimming | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-08 | A Ladybug Changes | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-09 | Sort Them Again | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-10 | The Bag with a Patch | Fiction | B | approved | 8 | yes | none |
+| world-discovery-c-01 | A Show for Two | Fiction | C | approved | 8 | yes | none |
+| world-discovery-c-02 | The Rolling Game | Fiction | C | approved | 8 | yes | none |
+| world-discovery-c-03 | A Way Up | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-04 | The Stretchy Bridge | Fiction | C | approved | 8 | yes | none |
+| world-discovery-c-05 | Follow the Park Map | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-06 | Where Does Daylight Go? | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-07 | A Dam Is Not a Home | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-08 | From Pond to Sky | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-09 | Both Have Wings | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-10 | From Apple Core to Compost | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-d-01 | The Box That Would Not Shut | Fiction | C | approved | 10 | yes | none |
+| world-discovery-d-02 | The Quiet Seat | Fiction | C | approved | 10 | yes | none |
+| world-discovery-d-03 | Two Pipes Under the Sink | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-04 | The Bag of Wind | Fiction | C | approved | 10 | yes | none |
+| world-discovery-d-05 | Island or Peninsula? | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-06 | Marks on the Moon | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-07 | A Trap Made of Silk | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-08 | One Bean Becomes Many | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-09 | What Will the Magnet Pull? | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-10 | Sunlight After Sunset | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-01 | More Than the Builder | Fiction | C | approved | 10 | yes | none |
+| world-discovery-e-02 | One Story, Two Endings | Fiction | C | approved | 10 | yes | none |
+| world-discovery-e-03 | A Garden for the Rain | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-04 | The Door in the Chalk | Fiction | C | approved | 10 | yes | none |
+| world-discovery-e-05 | The River Moves the Bank | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-06 | The Moon Has Not Shrunk | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-07 | A Flower’s Night Visitor | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-08 | A Frog Changes Its Way of Life | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-09 | A Whale Is Not a Fish | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-10 | Keep the Water in the Garden | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-a-11 | Zoe Picks Her Snack | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-12 | Kit Slows Down | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-13 | Across Our Street | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-14 | The Paper Wheel | Fiction | A | approved | 8 | yes | none |
+| world-discovery-a-15 | Where Sand Meets Sea | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-16 | A Streak in the Sky | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-17 | A Shell That Fits | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-18 | Wings Ready to Fly | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-19 | Sort by Feel | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-a-20 | Crackers for Later | Non-fiction | A | approved | 8 | yes | none |
+| world-discovery-b-11 | A Break for Kit | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-12 | The Saved Cracker | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-13 | A Letter Finds Zoe | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-14 | The Swapping Clips | Fiction | B | approved | 8 | yes | none |
+| world-discovery-b-15 | A Pool Left Behind | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-16 | Wheels for Mars | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-17 | Is That a Twig? | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-18 | Ready for Wings | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-19 | Can Light Get Through? | Non-fiction | B | approved | 8 | yes | none |
+| world-discovery-b-20 | One Little Drip | Fiction | B | approved | 8 | yes | none |
+| world-discovery-c-11 | A Way to Remember | Fiction | C | approved | 8 | yes | none |
+| world-discovery-c-12 | The Ribbon by the Pot | Fiction | C | approved | 8 | yes | none |
+| world-discovery-c-13 | Before the Market Opens | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-14 | The Arrow Bookmark | Fiction | C | approved | 8 | yes | none |
+| world-discovery-c-15 | From Lava to Rock | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-16 | What Is the Comet’s Tail? | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-17 | A Stone for the Otter | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-18 | A Shell from the Start | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-19 | Gone or Still There? | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-c-20 | The Log Stays | Non-fiction | C | approved | 8 | yes | none |
+| world-discovery-d-11 | I Pick the Rain | Fiction | C | approved | 10 | yes | none |
+| world-discovery-d-12 | Before You Fix It | Fiction | C | approved | 10 | yes | none |
+| world-discovery-d-13 | A Signal You Can Hear | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-14 | The Borrowed Shadow | Fiction | C | approved | 10 | yes | none |
+| world-discovery-d-15 | The Moving Dune | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-16 | A Shadow on the Moon | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-17 | Windows in a Wing | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-18 | A Crab Leaves Its Old Coat | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-19 | Fruit or Seed? | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-d-20 | Light Where We Need It | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-11 | The Part I Keep | Fiction | C | approved | 10 | yes | none |
+| world-discovery-e-12 | The Missing Piece | Fiction | C | approved | 10 | yes | none |
+| world-discovery-e-13 | A Cooler Courtyard | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-14 | The Vanishing Paint | Fiction | C | approved | 10 | yes | none |
+| world-discovery-e-15 | A Valley Shaped by Ice | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-16 | Stars That Look Close | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-17 | Beaks Below the Mud | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-18 | The Monarchs’ Long Journey | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-19 | One Group Is Not Enough | Non-fiction | C | approved | 10 | yes | none |
+| world-discovery-e-20 | The Patch Left to Grow | Non-fiction | C | approved | 10 | yes | none |
+| meadow-pals-science-01-missing-sandwich | The Case of the Missing Sandwich | Non-fiction | READ_ALOUD | approved | 12 | yes | none |
 
 ## Result
 

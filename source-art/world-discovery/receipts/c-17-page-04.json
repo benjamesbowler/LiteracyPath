@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:27:31.558144+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "61b0ff5f7d58ef22c2548369a73cada6b16439682322ebba4d5bda7326968e60",
-    "note": "Native source and final WebP directly viewed. Supine at surface, stone on chest and closed clam held above it in two forepaws."
+    "note": "Native source and final WebP directly viewed. Supine at surface, stone on chest and closed clam held above it in two forepaws.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-17",
+    "sha256": "f58b8578b47d3aac8ab067d6adb2af6419728efe5ca660120181fa2050cbf58b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

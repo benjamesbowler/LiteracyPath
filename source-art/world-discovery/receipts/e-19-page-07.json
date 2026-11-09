@@ -2,14 +2,14 @@
   "bookId": "world-discovery-e-19",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T17:15:15.963Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a14d2cef-540f-428d-b536-f51e281129aa.png",
-  "sourceSha256": "b965e43b7061ab8d5f09b48df46c6d2badb240420a9b9a95aea6bb1eeaa7e236",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-2242ea95-ba87-4d6f-b9c4-a762f3ec9501.png",
+  "sourceSha256": "18239aecf380d3bc75558b4e8383106e278f53acd3607f594fcc53c9c4915946",
   "output": "public/guided-reading/world-discovery/e-19/page-07.webp",
-  "outputSha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11",
+  "outputSha256": "a2ea81a88efbd75dc051beed6931ee5ef9b64e82b1cb61ea067a110a510b4830",
   "width": 1536,
   "height": 1024,
-  "prompt": "Make a surgical correction ONLY at the bottom ends of the illustrated arms. Every arm and colored sleeve must CONTINUE UNBROKEN all the way off the BOTTOM IMAGE EDGE. Currently some arm/sleeve ends stop abruptly on the wooden tabletop, making disconnected floating arms. Extend each cut-short arm/sleeve down to the image edge, with coherent natural taper, and remove any tabletop gap below it. Do not move or change any hand, fingers, grid, shape, label, tray or other part of this image. Keep exact counts and colors. This is an intentional top-down close-up; people are outside the bottom frame and ONLY their continuous forearms/hands enter the image.",
+  "prompt": "Use case: illustration-story. Edit FIRST attached image ONLY. Second locks the children's skin/clothing colors; do NOT add faces or whole bodies. Essential edit: replace ALL the fine repeated wood-grain texture on the tabletop with ONE completely uniform flat pale warm-tan color. No grain, thin lines, fibres, mottling, pattern, gradient or photographic texture. Preserve EVERYTHING else exactly: overhead composition, white four-space chart with separate headings, every hand and finger pose, every colored shape's exact count, size and position, yellow tray. Keep the only visible text spelled exactly as in original: column headings \"round\" and \"not round\"; row headings \"red\" and \"not red\". No additional text. Crisp bold black outlines and clean flat colored shapes. Chart has large red circle top-left, red square top-right, blue circle bottom-left, blue square bottom-right. Small red circle and red triangle remain on yellow tray. Four resting hands visible, two light-golden at left and two brown at right. Finished 3:2 landscape picture-book illustration, no border or extra panel. Keep accurate teaching layout and natural hand anatomy; only simplify the background surface.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-ea7189f3-7750-46a5-9f3c-5915c7747db2.png",
@@ -25,8 +25,34 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:17:37.174Z",
-    "sha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11",
-    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+    "reviewedAt": "2026-11-09",
+    "sha256": "a2ea81a88efbd75dc051beed6931ee5ef9b64e82b1cb61ea067a110a510b4830",
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11",
+    "sourceSha256": "b965e43b7061ab8d5f09b48df46c6d2badb240420a9b9a95aea6bb1eeaa7e236",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-a14d2cef-540f-428d-b536-f51e281129aa.png",
+    "generatedAt": "2026-11-07T17:15:15.963Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-07.webp",
+      "sha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-19",
+    "sha256": "0448cc7a72de4817f959ae9e7b5dde6d50158b7626bb8f96e57b7272e8d4b6e0",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

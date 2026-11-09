@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:44:36.445Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "ed91bce975fb64001f67a32198d97ceb36c1052212eaecaec679bc9e82128fb9",
     "note": "Smallsoilcrumbs fallfromfreshouterbanknotch into river; currentdirection consistent.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-05",
+    "sha256": "c9ef5abe40f9ef1dbfa3dfe508e4b409dd008728682119c98f52c1415cf37f63",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

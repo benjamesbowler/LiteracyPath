@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T14:34:09.393382+00:00",
-    "outputSha256": "538b280d3f07538f0f720172b577de0a9f2c957534a470d64a7c959a168bb1ed",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "One wingless nymph feeds at a visible fresh grass-edge notch; no adult wings, natural mouth contact and six-leg plan with far-side occlusion. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "538b280d3f07538f0f720172b577de0a9f2c957534a470d64a7c959a168bb1ed",
-    "note": "One wingless nymph feeds at a visible fresh grass-edge notch; no adult wings, natural mouth contact and six-leg plan with far-side occlusion. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending."
+    "note": "One wingless nymph feeds at a visible fresh grass-edge notch; no adult wings, natural mouth contact and six-leg plan with far-side occlusion. Whole-scene physical scale/support and clean flat 2D style checked. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-18",
+    "sha256": "b6e524aa784fbb38b190331b8b1f1cd01da53d647f37e02571938ae3aef73d1a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:31:48.043080+00:00",
-    "outputSha256": "f780ac489e652c38585b023e6d6d122d6c20934c7a1a231f4931fb2deb9e6fab",
-    "scope": "Production-author reference review, not independent final approval",
-    "notes": "Direct native and installed WebP reference: blue tall pot/saucer at left window, yellow small pot and single loose ribbon at right shelf; untied parcel; coherent child-scale furniture.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "f780ac489e652c38585b023e6d6d122d6c20934c7a1a231f4931fb2deb9e6fab",
-    "note": "Direct native and installed WebP reference: blue tall pot/saucer at left window, yellow small pot and single loose ribbon at right shelf; untied parcel; coherent child-scale furniture."
+    "note": "Direct native and installed WebP reference: blue tall pot/saucer at left window, yellow small pot and single loose ribbon at right shelf; untied parcel; coherent child-scale furniture.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-12",
+    "sha256": "bc4a12f0c141e3b123355150a9fa4c6a5216b1349b243b1524bd93266c29f154",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

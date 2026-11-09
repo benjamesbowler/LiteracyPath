@@ -9,7 +9,7 @@
   "outputSha256": "461c9974a23baa08130078dfa4910545f38cda45122f048ff7271059a1f1d130",
   "width": 1536,
   "height": 1024,
-  "prompt": "Image 1 is the edit target; image 2 shows the correct normal child scale at the table. Kit must NOT be a miniature child standing on the table. Replace only Kit's body/pose in image 1 with a normal-size Kit standing on the FLOOR BEHIND the table beside Zoe, equal standing height to her, waist and legs hidden behind the tabletop. His arm reaches forward from behind the table and his hand presses the REAR of the toy cart. Preserve his face, identity and outfit. Remove both unused wedge-shaped boards from the foreground. Keep the cart\u2019s front wheel blocked against the vertical platform face, all wheels on tabletop, and no installed ramp. Preserve Zoe, the library model and platform, cart, book, room and camera style. The toys stay toy-size; no shoes or legs on tabletop.",
+  "prompt": "Image 1 is the edit target; image 2 shows the correct normal child scale at the table. Kit must NOT be a miniature child standing on the table. Replace only Kit's body/pose in image 1 with a normal-size Kit standing on the FLOOR BEHIND the table beside Zoe, equal standing height to her, waist and legs hidden behind the tabletop. His arm reaches forward from behind the table and his hand presses the REAR of the toy cart. Preserve his face, identity and outfit. Remove both unused wedge-shaped boards from the foreground. Keep the cart’s front wheel blocked against the vertical platform face, all wheels on tabletop, and no installed ramp. Preserve Zoe, the library model and platform, cart, book, room and camera style. The toys stay toy-size; no shoes or legs on tabletop.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-c2473a91-ddca-42ee-8ac9-4beabc2007de.png",
@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "461c9974a23baa08130078dfa4910545f38cda45122f048ff7271059a1f1d130",
-    "note": "Corrected child scale and removed unused wedge artifacts. Kit\u2019s hand pushes rear of one cart whose front wheel touches vertical step; all wheels remain on tabletop. No ramp yet.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "note": "Corrected child scale and removed unused wedge artifacts. Kit’s hand pushes rear of one cart whose front wheel touches vertical step; all wheels remain on tabletop. No ramp yet.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-03",
+    "sha256": "9cd36e379fccd545f12d58a55028c595b0b1af575999c9de53dea74f83c155df",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

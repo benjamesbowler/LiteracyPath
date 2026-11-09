@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "e84a87a7b5b33c6161e4e75d66638699bd9708d5afb71453b69fe1b511d0a10f",
     "note": "Closing high view traces same pale hill stream, single Y join, one downstream stone bridge, widening mouth and sea in correct order.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-05",
+    "sha256": "cf1501b9e77fb5336915f03c544f736f57c701689c1d5acfd0ac3051dd63b1a2",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

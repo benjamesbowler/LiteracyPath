@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
-    "outputSha256": "972613a247404c18b354c05a5e2ad3cbfd0333b4bd033113aeca9a56eb71af13",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "Near-side view with rock then dip ahead of front wheel, all wheels grounded, natural far-side occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "972613a247404c18b354c05a5e2ad3cbfd0333b4bd033113aeca9a56eb71af13",
-    "note": "Near-side view with rock then dip ahead of front wheel, all wheels grounded, natural far-side occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending."
+    "note": "Near-side view with rock then dip ahead of front wheel, all wheels grounded, natural far-side occlusion. Clean flat illustration, physical contacts and essential margins inspected. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-16",
+    "sha256": "f21fdf5fab9a8e5f93e0bbd642b24ac5519ae657556d200632b2594bfa579d45",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.866Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "1600f30776cbf06a283dc869b41eb1bc38d6fa07d47ecdbb9f5da58f8730f223",
     "note": "Generated native and installed full WebP directly inspected. Both stand safely on far sidewalk looking back toward near button; cane touches ground. Crosswalk and opposite corners make completed movement legible.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-13",
+    "sha256": "e97f16950c27023f38ced30023a8980685e1e71dc5b0e26524253b59a24b3e3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

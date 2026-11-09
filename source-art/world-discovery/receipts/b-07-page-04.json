@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:52:31.180Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "612626119cdd75b46b6aabd2b40233d0e2ac6492770e6f2d5d1c50cad4d6cb81",
-    "note": "Broad spread webbing between exactly three forward toes shown in close-up, with separate rear toe; no extra foot."
+    "note": "Broad spread webbing between exactly three forward toes shown in close-up, with separate rear toe; no extra foot.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

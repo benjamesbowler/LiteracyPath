@@ -28,8 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "6b65b0c6589d3d6a681ec4e87e3e0d0a84266abf2106d560837aeec5692daba1",
     "method": "codex-direct-image-inspection",
-    "note": "Directly inspected local correction: short bread piece on purple plate retains clear concave bitten right edge, matching p4/p5. Long piece remains separate, basket empty, second pear partly eaten, cast/poses/table/chair/background scale unchanged."
+    "reviewedAt": "2026-11-09",
+    "sha256": "6b65b0c6589d3d6a681ec4e87e3e0d0a84266abf2106d560837aeec5692daba1",
+    "note": "Directly inspected local correction: short bread piece on purple plate retains clear concave bitten right edge, matching p4/p5. Long piece remains separate, basket empty, second pear partly eaten, cast/poses/table/chair/background scale unchanged.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-11",
+    "sha256": "39dcd311f7e5c478fe89dd2870a0dd687b0f3050ad776015e9675a9886d2e8d5",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

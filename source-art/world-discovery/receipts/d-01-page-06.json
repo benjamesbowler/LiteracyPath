@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "fa16b4ade80281c10f0ea4dd53357b765f8d8fe398d726cbf9f17452b8564b20",
     "note": "Direct inspection after size repair: small card fits box, exactly four blue circles, one pencil touching card, real train beside; box remains closed and later drawing absent.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-01",
+    "sha256": "c03f9e9b25bc79bb3b748737fc3a295ac49f4e2f9a11173bda07c088f669dc3c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

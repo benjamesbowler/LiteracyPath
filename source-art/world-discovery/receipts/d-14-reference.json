@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:51:35.238665+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "2e1fefe1a7c9c8d2fb847639a18d1d64443a13a21181578a6927502c50eb38d6",
     "note": "Inspected generated source and installed WebP: locked Kit and Zoe, shorts-shaped Kit silhouette, one red semicircular folded fan with blunt wooden handle, blue chair, silver chalk and evening room. No flags or future shadow action.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-14",
+    "sha256": "f556073033b05fe367daba68ebe1f88da06adad7fc5fb9c6bbf48f6d9c900cc9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

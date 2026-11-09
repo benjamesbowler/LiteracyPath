@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:47:01.817222+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "767816bb3b689ea92e027ac138009307b7fbcd1a85e00131e3674dcff40ca980",
-    "note": "Single female mallard glides toward low bank with folded wings and two submerged attached feet."
+    "note": "Single female mallard glides toward low bank with folded wings and two submerged attached feet.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

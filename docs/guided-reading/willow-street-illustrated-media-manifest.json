@@ -840,9 +840,9 @@
       "bookId": "willow-street-the-puddle-plan",
       "pageNumber": 1,
       "path": "/guided-reading/willow-street/the-puddle-plan/page-01.webp",
-      "sha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
-      "width": 1365,
-      "height": 768,
+      "sha256": "a614a1cabdcc4ef6a76c6aba05c7c70f10470aea0b91133cb6f93d500027339c",
+      "width": 1672,
+      "height": 941,
       "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
       "briefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
       "visualTreatment": "willow-street-illustrated",
@@ -850,22 +850,92 @@
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+        "reviewedSha256": "a614a1cabdcc4ef6a76c6aba05c7c70f10470aea0b91133cb6f93d500027339c",
+        "reviewedAt": "2026-11-09",
+        "notes": "accepted; native PNG and encoded WebP pass; whole-book sequence pass; installed; Four stable square stones established before discovery; original two children/blank band retained. Current text and complete-book sequence are bound by the November 9 review ledger. Original image generation and review remain in previousVersions."
       },
-      "sourceImageGenOutput": "exec-4dfc3ac1-bcbe-41ac-b146-96f7a2042db3.png",
-      "cacheVersion": "814ed26d4082",
-      "sourceNativeSha256": "ae0412c0f9f6b9da5c0a38f2986c7982d085e7778e83ab45784d2f0c59f3b7f0",
-      "productionPrompt": "Edit only Leo's TWO red shoes before the mudincident. REPLACE BOTH ENTIRE shoes with spotlessREDtrainers with brightWHITE toe caps, WHITE laces and ENTIRELY pureWHITE soles. NO brown/tan/yellow mudstain anywhere. BothfeetstandonDRYpaving justBEFOREpuddleedge, movefrontfootbackslightlyifneeded. Samirbothwhiteblue shoesclean. Preserve thewholewidepuddleblockingpath, 3railgreengate, sameoutfits/pose/architecture/framing; NOcones/steppingstonesyet. This is page1BEFOREonefootgets muddyon3. Flatoutlinedcartoon."
+      "sourceImageGenOutput": "exec-dfc35863-da69-49d2-ad93-fdf484c33607.png",
+      "cacheVersion": "a614a1cabdcc",
+      "sourceNativeSha256": "bdcd4ac8bd70ce3f88c6c25ee9281c5a6aead21141b5f87b0c7c9a75ccce9274",
+      "productionPrompt": "Edit the FIRST reference illustration, preserving its exact characters, actions, architecture, garden, framing and blank cream lower text band. The SECOND reference establishes four stepping stones already in the puddle; it is a continuity reference only. Add exactly FOUR broad flat gray square stepping stones to the shallow puddle in the first scene, in one row across its near/front side, matching their shape, scale and spacing in reference two. They may be partly obscured by clear water reflections, but each is visibly solid with a dry top. They must already exist before the children notice them later; do not show anyone carrying or adding stones. Keep the children looking at the muddy side instead of using the stones yet. Keep Leo ginger/brown hair, orange-white stripes, yellow vest, blue trousers, red shoes; Samir black hair blue hoodie dark-gray trousers blue shoes. Bold crisp clean 2D cartoon throughout with flat colors, restrained cel shading. No grain or painterly texture, absolutely NO TEXT or captions. Keep both children standing on the dry edge, leaning to inspect the wide puddle.",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "accepted-image-repair-and-current-manuscript-review",
+          "recordSha256": "3255186197f5b8c32fcb026a30351b4d7e47ce64444e1f0d5500f7d76278473f",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "pageNumber": 1,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-01.webp",
+            "sha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
+            "briefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+            },
+            "sourceImageGenOutput": "exec-4dfc3ac1-bcbe-41ac-b146-96f7a2042db3.png",
+            "cacheVersion": "814ed26d4082",
+            "sourceNativeSha256": "ae0412c0f9f6b9da5c0a38f2986c7982d085e7778e83ab45784d2f0c59f3b7f0",
+            "productionPrompt": "Edit only Leo's TWO red shoes before the mudincident. REPLACE BOTH ENTIRE shoes with spotlessREDtrainers with brightWHITE toe caps, WHITE laces and ENTIRELY pureWHITE soles. NO brown/tan/yellow mudstain anywhere. BothfeetstandonDRYpaving justBEFOREpuddleedge, movefrontfootbackslightlyifneeded. Samirbothwhiteblue shoesclean. Preserve thewholewidepuddleblockingpath, 3railgreengate, sameoutfits/pose/architecture/framing; NOcones/steppingstonesyet. This is page1BEFOREonefootgets muddyon3. Flatoutlinedcartoon."
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "accepted-image-repair-and-current-manuscript-review",
+        "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
+        "briefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
+        "imageSha256": "a614a1cabdcc4ef6a76c6aba05c7c70f10470aea0b91133cb6f93d500027339c",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Accepted replacement native PNG and encoded WebP review, followed by complete-book image sequence and current manuscript review; see the exact repair receipt.",
+        "imageRepair": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+          "id": "puddle-p01",
+          "rowSha256": "82a405ef3cbb5907198030076b6d57ae168d3e02ec418684efe6a56418388f98",
+          "wholeBookEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/final-sequences/review-receipt.json",
+          "installationEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/delivery/installed-p3.json"
+        }
+      },
+      "productionReferences": [
+        {
+          "path": "public/guided-reading/willow-street/the-puddle-plan/page-01.webp",
+          "sha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f"
+        },
+        {
+          "path": "public/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+          "sha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3"
+        }
+      ],
+      "generationReceipt": {
+        "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+        "id": "puddle-p01",
+        "rowSha256": "82a405ef3cbb5907198030076b6d57ae168d3e02ec418684efe6a56418388f98",
+        "tool": "built-in image_gen.imagegen",
+        "mode": "edit",
+        "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd85-81c3-7ae2-b0f7-5321da01517f/exec-dfc35863-da69-49d2-ad93-fdf484c33607.png"
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/the-puddle-plan/page-02.webp",
-      "sha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
-      "width": 1365,
-      "height": 768,
+      "sha256": "4475965540eac691d8dd43cca7d9d11e610674b59e773b978fb6045bc56b9a66",
+      "width": 1672,
+      "height": 941,
       "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
       "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
       "visualTreatment": "willow-street-illustrated",
@@ -873,11 +943,11 @@
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+        "reviewedSha256": "4475965540eac691d8dd43cca7d9d11e610674b59e773b978fb6045bc56b9a66",
+        "reviewedAt": "2026-11-09",
+        "notes": "accepted; native PNG and encoded WebP pass; whole-book sequence pass; installed; Same four stones present; Leo points toward separate muddy edge. Current text and complete-book sequence are bound by the November 9 review ledger. Original image generation and review remain in previousVersions."
       },
-      "sourceImageGenOutput": "exec-7f91b52c-9780-44dc-a39c-77a9ea514dbf.png",
+      "sourceImageGenOutput": "exec-4185810b-d661-4f61-8636-06478f3b0689.png",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -901,17 +971,110 @@
           }
         }
       },
-      "cacheVersion": "9997cac04af0",
-      "sourceNativeSha256": "c32bd1f675a5f7f930457e2de3aeb297fc1924a212c4d97ae73f4caa2bbd1f26",
-      "productionPrompt": "Camera/framing edit ONLY: zoom OUT by35% and recenter the complete current scene so the ENTIRE puddle including every muddy bank is visible within x12–88% of canvas. The puddle's rightmost shoreline must have12%empty breathingroom before RIGHTedge, nottouchorapproachframe. Wholechildren/feet/hands remaininset12%too. Extend simple flat outlined scenery at sides to fill newspace; preserve ALL current story action, shoe wetness, outfits, building/gategeography. Backgroundgate stays EXACTLYTHREEhorizontalboards withTWOlargeopenGAPS+ONEdiagonalbrace, neveraddrails. Leo pointsat muddyedge, BOTHboys allshoes CLEAN, NOcones/steppingstones yet. Blankcream lower22% straightreadingstrip. Uniformsolidfills crispdarkoutlines no grainornewprops."
+      "cacheVersion": "4475965540ea",
+      "sourceNativeSha256": "69cba27ee5430fe1209eb756b00c2d42eaff7d4221099ef5d68333b6931cb00a",
+      "productionPrompt": "Edit the FIRST reference illustration, preserving its exact characters, actions, architecture, garden, framing and blank cream lower text band. The SECOND reference establishes four stepping stones already in the puddle; it is a continuity reference only. Add exactly FOUR broad flat gray square stepping stones to the shallow puddle in the first scene, in one row across its near/front side, matching their shape, scale and spacing in reference two. They may be partly obscured by clear water reflections, but each is visibly solid with a dry top. They must already exist before the children notice them later; do not show anyone carrying or adding stones. Keep the children looking at the muddy side instead of using the stones yet. Keep Leo ginger/brown hair, orange-white stripes, yellow vest, blue trousers, red shoes; Samir black hair blue hoodie dark-gray trousers blue shoes. Bold crisp clean 2D cartoon throughout with flat colors, restrained cel shading. No grain or painterly texture, absolutely NO TEXT or captions. Keep Leo pointing to the MUDDY EDGE, which is a separate route beside the stone row; his gesture must not point to a stepping stone.",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "accepted-image-repair-and-current-manuscript-review",
+          "recordSha256": "2edcfa2fa5f74e3d7e3ed331bc7bc472f4d1aa55240bb588b2ba3bdae9d0c30f",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "pageNumber": 2,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-02.webp",
+            "sha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
+            "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+            },
+            "sourceImageGenOutput": "exec-7f91b52c-9780-44dc-a39c-77a9ea514dbf.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "d93862668010f202879cc4a94548b731c1252f668bd10a5bb4542cee1718ef73",
+                "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+                "sha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+                  "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+                }
+              }
+            },
+            "cacheVersion": "9997cac04af0",
+            "sourceNativeSha256": "c32bd1f675a5f7f930457e2de3aeb297fc1924a212c4d97ae73f4caa2bbd1f26",
+            "productionPrompt": "Camera/framing edit ONLY: zoom OUT by35% and recenter the complete current scene so the ENTIRE puddle including every muddy bank is visible within x12–88% of canvas. The puddle's rightmost shoreline must have12%empty breathingroom before RIGHTedge, nottouchorapproachframe. Wholechildren/feet/hands remaininset12%too. Extend simple flat outlined scenery at sides to fill newspace; preserve ALL current story action, shoe wetness, outfits, building/gategeography. Backgroundgate stays EXACTLYTHREEhorizontalboards withTWOlargeopenGAPS+ONEdiagonalbrace, neveraddrails. Leo pointsat muddyedge, BOTHboys allshoes CLEAN, NOcones/steppingstones yet. Blankcream lower22% straightreadingstrip. Uniformsolidfills crispdarkoutlines no grainornewprops."
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "accepted-image-repair-and-current-manuscript-review",
+        "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
+        "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+        "imageSha256": "4475965540eac691d8dd43cca7d9d11e610674b59e773b978fb6045bc56b9a66",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Accepted replacement native PNG and encoded WebP review, followed by complete-book image sequence and current manuscript review; see the exact repair receipt.",
+        "imageRepair": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+          "id": "puddle-p02",
+          "rowSha256": "d818c1edfe714cdd22f2bd834db712e2c5b6343b4814bc36abb2605ea2b5228b",
+          "wholeBookEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/final-sequences/review-receipt.json",
+          "installationEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/delivery/installed-p3.json"
+        }
+      },
+      "productionReferences": [
+        {
+          "path": "public/guided-reading/willow-street/the-puddle-plan/page-02.webp",
+          "sha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f"
+        },
+        {
+          "path": "public/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+          "sha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3"
+        }
+      ],
+      "generationReceipt": {
+        "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+        "id": "puddle-p02",
+        "rowSha256": "d818c1edfe714cdd22f2bd834db712e2c5b6343b4814bc36abb2605ea2b5228b",
+        "tool": "built-in image_gen.imagegen",
+        "mode": "edit",
+        "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd85-81c3-7ae2-b0f7-5321da01517f/exec-4185810b-d661-4f61-8636-06478f3b0689.png"
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/the-puddle-plan/page-03.webp",
-      "sha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
-      "width": 1365,
-      "height": 768,
+      "sha256": "3ff82dfce86690e0c719f1c267465003466fa6ae60479e394794f6b7334e2329",
+      "width": 1672,
+      "height": 941,
       "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
       "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
       "visualTreatment": "willow-street-illustrated",
@@ -919,11 +1082,11 @@
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+        "reviewedSha256": "3ff82dfce86690e0c719f1c267465003466fa6ae60479e394794f6b7334e2329",
+        "reviewedAt": "2026-11-09",
+        "notes": "accepted; native PNG and encoded WebP pass; whole-book sequence pass; installed; Same four stones present while Leo steps into mud separately; muddy shoe evidence retained. Current text and complete-book sequence are bound by the November 9 review ledger. Original image generation and review remain in previousVersions."
       },
-      "sourceImageGenOutput": "exec-8ff0e743-dc8f-4481-b09f-1df0fac45eac.png",
+      "sourceImageGenOutput": "exec-88efabd2-8d65-4ab4-91ed-0ed32133ed51.png",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -947,9 +1110,102 @@
           }
         }
       },
-      "cacheVersion": "34024125d08d",
-      "sourceNativeSha256": "383e9d43a3886fb5c1a2bd98d57ecd4fda7a6ebf6289793491071bdd8213b81c",
-      "productionPrompt": "Camera/framing edit ONLY: zoom OUT by35% and recenter the complete current scene so the ENTIRE puddle including every muddy bank is visible within x12–88% of canvas. The puddle's rightmost shoreline must have12%empty breathingroom before RIGHTedge, nottouchorapproachframe. Wholechildren/feet/hands remaininset12%too. Extend simple flat outlined scenery at sides to fill newspace; preserve ALL current story action, shoe wetness, outfits, building/gategeography. Backgroundgate stays EXACTLYTHREEhorizontalboards withTWOlargeopenGAPS+ONEdiagonalbrace, neveraddrails. Leo ONEredshoe sinkssoftmud, otherredshoeCLEAN; SamirbothwhiteblueCLEAN, NOcones/steppingstonesyet. Blankcream lower22% straightreadingstrip. Uniformsolidfills crispdarkoutlines no grainornewprops."
+      "cacheVersion": "3ff82dfce866",
+      "sourceNativeSha256": "1c4808689d32b19ed9103660302406269c5c77b2c5e6c7f46861c49fce6ce451",
+      "productionPrompt": "Edit the FIRST reference illustration, preserving its exact characters, actions, architecture, garden, framing and blank cream lower text band. The SECOND reference establishes four stepping stones already in the puddle; it is a continuity reference only. Add exactly FOUR broad flat gray square stepping stones to the shallow puddle in the first scene, in one row across its near/front side, matching their shape, scale and spacing in reference two. They may be partly obscured by clear water reflections, but each is visibly solid with a dry top. They must already exist before the children notice them later; do not show anyone carrying or adding stones. Keep the children looking at the muddy side instead of using the stones yet. Keep Leo ginger/brown hair, orange-white stripes, yellow vest, blue trousers, red shoes; Samir black hair blue hoodie dark-gray trousers blue shoes. Bold crisp clean 2D cartoon throughout with flat colors, restrained cel shading. No grain or painterly texture, absolutely NO TEXT or captions. Keep Leo's red shoe sinking in the mud at the EDGE, separate from the four stable stones. Keep the clump/ripples around his shoe, his muddy sole and Samir observing. No stone directly beneath the sinking foot.",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "accepted-image-repair-and-current-manuscript-review",
+          "recordSha256": "420107051307f434e984115a6f538d29ec92232ecb3739618290311fd145557c",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "pageNumber": 3,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-03.webp",
+            "sha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
+            "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+            },
+            "sourceImageGenOutput": "exec-8ff0e743-dc8f-4481-b09f-1df0fac45eac.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "3f51df5e3084b11be073dc9eb9df98495ffb0df79fb598faf806d62e2ea7db1f",
+                "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+                "sha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+                  "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+                }
+              }
+            },
+            "cacheVersion": "34024125d08d",
+            "sourceNativeSha256": "383e9d43a3886fb5c1a2bd98d57ecd4fda7a6ebf6289793491071bdd8213b81c",
+            "productionPrompt": "Camera/framing edit ONLY: zoom OUT by35% and recenter the complete current scene so the ENTIRE puddle including every muddy bank is visible within x12–88% of canvas. The puddle's rightmost shoreline must have12%empty breathingroom before RIGHTedge, nottouchorapproachframe. Wholechildren/feet/hands remaininset12%too. Extend simple flat outlined scenery at sides to fill newspace; preserve ALL current story action, shoe wetness, outfits, building/gategeography. Backgroundgate stays EXACTLYTHREEhorizontalboards withTWOlargeopenGAPS+ONEdiagonalbrace, neveraddrails. Leo ONEredshoe sinkssoftmud, otherredshoeCLEAN; SamirbothwhiteblueCLEAN, NOcones/steppingstonesyet. Blankcream lower22% straightreadingstrip. Uniformsolidfills crispdarkoutlines no grainornewprops."
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "accepted-image-repair-and-current-manuscript-review",
+        "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
+        "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+        "imageSha256": "3ff82dfce86690e0c719f1c267465003466fa6ae60479e394794f6b7334e2329",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Accepted replacement native PNG and encoded WebP review, followed by complete-book image sequence and current manuscript review; see the exact repair receipt.",
+        "imageRepair": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+          "id": "puddle-p03",
+          "rowSha256": "5a65bb9ce1f4df7b74f959996ee57feea614656997b58f7f6cafc9cbb6a31879",
+          "wholeBookEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/final-sequences/review-receipt.json",
+          "installationEvidence": ".artifacts/guided-reading-remediation-20261109/partition-3/delivery/installed-p3.json"
+        }
+      },
+      "productionReferences": [
+        {
+          "path": "public/guided-reading/willow-street/the-puddle-plan/page-03.webp",
+          "sha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae"
+        },
+        {
+          "path": "public/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+          "sha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3"
+        }
+      ],
+      "generationReceipt": {
+        "path": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json",
+        "id": "puddle-p03",
+        "rowSha256": "5a65bb9ce1f4df7b74f959996ee57feea614656997b58f7f6cafc9cbb6a31879",
+        "tool": "built-in image_gen.imagegen",
+        "mode": "edit",
+        "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd85-81c3-7ae2-b0f7-5321da01517f/exec-88efabd2-8d65-4ab4-91ed-0ed32133ed51.png"
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -958,7 +1214,7 @@
       "sha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
       "width": 1365,
       "height": 768,
-      "textSha256": "dcd111097317eb4e45450fb24d7061739394125b8c374485b7db4bf9f7aca28e",
+      "textSha256": "a524ac657b9fa6f0d3a4ed60c095d5dadec4f32dedb86508ee587ce84d710cee",
       "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -966,8 +1222,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+        "reviewedAt": "2026-11-09",
+        "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
       },
       "sourceImageGenOutput": "exec-2c5185e7-eebc-4fbb-8dae-ca8a201cc4be.png",
       "editorialReview20260922": {
@@ -995,7 +1251,75 @@
       },
       "cacheVersion": "be023576b3ba",
       "sourceNativeSha256": "b078e20f41ee8fbcbca6fd2cb94c2b47e4e6b6c5ab386b58cad14114727b515b",
-      "productionPrompt": "Edit REFERENCE1 currentpage4 to correct route continuity using REFERENCE2forstonepositionsonly. Reposition its EXACT FOUR dryflatGREYstones into ONE short left-to-right row along NEAR EDGE of the samewidepuddle, like reference2, with drytops raisedabove shallowwater; no newstones. Removeformer4stonepositionsfromgrass. KeepSamirLEFTpointingoutrow, LeoRIGHTwithONE muddyredshoeandonecleanredshoe, nottestingyet. Fourstonesalreadyformroutebeforetestednextpage; noone carriesstones, NOconesyet. Retain3railgreengate/TWOopengaps/ONEbrace, redbricklibraryLEFTpalehallRIGHTgreyroofshedbluecan. Keep entirepuddle/rowwholecastsafelyinset12%, ALLFOURstonesfullyABOVEy70%, lower22%straightquietcreamstrip, noextraobjects. Solidflatfillsboldoutlines."
+      "productionPrompt": "Edit REFERENCE1 currentpage4 to correct route continuity using REFERENCE2forstonepositionsonly. Reposition its EXACT FOUR dryflatGREYstones into ONE short left-to-right row along NEAR EDGE of the samewidepuddle, like reference2, with drytops raisedabove shallowwater; no newstones. Removeformer4stonepositionsfromgrass. KeepSamirLEFTpointingoutrow, LeoRIGHTwithONE muddyredshoeandonecleanredshoe, nottestingyet. Fourstonesalreadyformroutebeforetestednextpage; noone carriesstones, NOconesyet. Retain3railgreengate/TWOopengaps/ONEbrace, redbricklibraryLEFTpalehallRIGHTgreyroofshedbluecan. Keep entirepuddle/rowwholecastsafelyinset12%, ALLFOURstonesfullyABOVEy70%, lower22%straightquietcreamstrip, noextraobjects. Solidflatfillsboldoutlines.",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "b277ddae6478503dc57a13bc66991c6649b66603114e7eb9b4d206c814719e45",
+          "record": {
+            "bookId": "willow-street-the-puddle-plan",
+            "pageNumber": 4,
+            "path": "/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+            "sha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "dcd111097317eb4e45450fb24d7061739394125b8c374485b7db4bf9f7aca28e",
+            "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear."
+            },
+            "sourceImageGenOutput": "exec-2c5185e7-eebc-4fbb-8dae-ca8a201cc4be.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "befbb1977b9379d799ed237e01bdc417ab06f9de5c03298f61a8ca35810ea6e9",
+                "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+                "sha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+                  "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+                }
+              }
+            },
+            "cacheVersion": "be023576b3ba",
+            "sourceNativeSha256": "b078e20f41ee8fbcbca6fd2cb94c2b47e4e6b6c5ab386b58cad14114727b515b",
+            "productionPrompt": "Edit REFERENCE1 currentpage4 to correct route continuity using REFERENCE2forstonepositionsonly. Reposition its EXACT FOUR dryflatGREYstones into ONE short left-to-right row along NEAR EDGE of the samewidepuddle, like reference2, with drytops raisedabove shallowwater; no newstones. Removeformer4stonepositionsfromgrass. KeepSamirLEFTpointingoutrow, LeoRIGHTwithONE muddyredshoeandonecleanredshoe, nottestingyet. Fourstonesalreadyformroutebeforetestednextpage; noone carriesstones, NOconesyet. Retain3railgreengate/TWOopengaps/ONEbrace, redbricklibraryLEFTpalehallRIGHTgreyroofshedbluecan. Keep entirepuddle/rowwholecastsafelyinset12%, ALLFOURstonesfullyABOVEy70%, lower22%straightquietcreamstrip, noextraobjects. Solidflatfillsboldoutlines."
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "a524ac657b9fa6f0d3a4ed60c095d5dadec4f32dedb86508ee587ce84d710cee",
+        "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+        "imageSha256": "be023576b3baf34d3e810c1106e0f969e6cf4b7e6756e5f0b2048b2f15ee37f3",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-the-puddle-plan",
+          "rowSha256": "db872bd24498cc2507385c66d3475b2423cd9de01f09fee3c41c54850ccb6063",
+          "finalBookSha256": "f184ca48c896c595f09e26e4d291654fcebdedb57dca7d2031c52d006f793e7a"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -2387,7 +2711,7 @@
       "sha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
       "width": 1365,
       "height": 768,
-      "textSha256": "d037cb1f222a108402108a7b0e4cc59a316388ab4479010648279aa16214269e",
+      "textSha256": "ecc46ac3d60bb4956514be021ac12090fc9629266f47defa2741313074b91ffc",
       "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -2395,8 +2719,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+        "reviewedAt": "2026-11-09",
+        "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
       },
       "sourceImageGenOutput": "exec-edc070a2-fa7e-44b1-8358-1382850c0954.png",
       "editorialReview20260922": {
@@ -2424,7 +2748,75 @@
       },
       "cacheVersion": "78f7a974ba39",
       "sourceNativeSha256": "11755f6966651596cd07669c523ce71fbee03a6ddea9d25717a97185166d7769",
-      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "4371b646d865697148eab18d6eca202c7e0a2412c460c74e738edff7879f3a42",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "pageNumber": 2,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-02.webp",
+            "sha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "d037cb1f222a108402108a7b0e4cc59a316388ab4479010648279aa16214269e",
+            "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+            },
+            "sourceImageGenOutput": "exec-edc070a2-fa7e-44b1-8358-1382850c0954.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "0f56f2aa26c8c41cbd228d6bf41d5594742e078e46b82187036f4fa1130e070e",
+                "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+                "sha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+                  "notes": "Original-detail review approved for Drums for Carnival page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+                }
+              }
+            },
+            "cacheVersion": "78f7a974ba39",
+            "sourceNativeSha256": "11755f6966651596cd07669c523ce71fbee03a6ddea9d25717a97185166d7769",
+            "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "ecc46ac3d60bb4956514be021ac12090fc9629266f47defa2741313074b91ffc",
+        "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+        "imageSha256": "78f7a974ba399b523929c8da62e45c8d1339a06277ef66bc14ab4dab4f33dccf",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -2433,7 +2825,7 @@
       "sha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
       "width": 1365,
       "height": 768,
-      "textSha256": "cfcb7ff34902741ca8448208bf98290f4fdf1aec869de5cc861a7dbd3ab741b3",
+      "textSha256": "c954df208b22e65365fd6683f2e25d1cebea7c1e6a0ecfd5c910044427953512",
       "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -2441,8 +2833,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+        "reviewedAt": "2026-11-09",
+        "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
       },
       "sourceImageGenOutput": "exec-a5e3ec6a-7a81-45bd-bf33-c11d7baea215.png",
       "editorialReview20260922": {
@@ -2470,7 +2862,75 @@
       },
       "cacheVersion": "33d114569372",
       "sourceNativeSha256": "ca33a9dab5dd939fcd39e5dd25d404e457683fc78c4a1789259c0cf5bcd466f2",
-      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "69743b26b4435633295143fb3de414a96a9f54825060b8a9cc24acccf60ae622",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "pageNumber": 3,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-03.webp",
+            "sha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "cfcb7ff34902741ca8448208bf98290f4fdf1aec869de5cc861a7dbd3ab741b3",
+            "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+            },
+            "sourceImageGenOutput": "exec-a5e3ec6a-7a81-45bd-bf33-c11d7baea215.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "ea5bea03065a430715b4b531c7edbbba77264ab7ff1962a6444e478bb1072f34",
+                "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+                "sha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+                  "notes": "Original-detail review approved for Drums for Carnival page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+                }
+              }
+            },
+            "cacheVersion": "33d114569372",
+            "sourceNativeSha256": "ca33a9dab5dd939fcd39e5dd25d404e457683fc78c4a1789259c0cf5bcd466f2",
+            "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "c954df208b22e65365fd6683f2e25d1cebea7c1e6a0ecfd5c910044427953512",
+        "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+        "imageSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -2571,7 +3031,7 @@
       "sha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
       "width": 1365,
       "height": 768,
-      "textSha256": "d4a39a97d90c579ee627e9df60f3401ba9911f0038ecaae36dce37cda7a7bb8b",
+      "textSha256": "ce141c93ed1c4b52afa213360c76bf4e0beeb11e0074fa35baefc23996ed5199",
       "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -2579,8 +3039,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+        "reviewedAt": "2026-11-09",
+        "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
       },
       "sourceImageGenOutput": "exec-16ba1db4-dcb0-4888-a2b5-36badcc29fbf.png",
       "editorialReview20260922": {
@@ -2608,7 +3068,75 @@
       },
       "cacheVersion": "41a29a9b691a",
       "sourceNativeSha256": "25eb2fe70d00209a54ea20d1a347a036c59797454d00dfdbe44929c23901902d",
-      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "fa0ea46f3f646ae5a9b19433a0b4ddad032e6fa747d88a5557d1eebe554f1111",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "pageNumber": 6,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-06.webp",
+            "sha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "d4a39a97d90c579ee627e9df60f3401ba9911f0038ecaae36dce37cda7a7bb8b",
+            "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+            },
+            "sourceImageGenOutput": "exec-16ba1db4-dcb0-4888-a2b5-36badcc29fbf.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "c16e18484bcf8e07575e13bdd19979a35be20d0eeb9d489820a5abcbe4344ab2",
+                "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+                "sha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+                  "notes": "Original-detail review approved for Drums for Carnival page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+                }
+              }
+            },
+            "cacheVersion": "41a29a9b691a",
+            "sourceNativeSha256": "25eb2fe70d00209a54ea20d1a347a036c59797454d00dfdbe44929c23901902d",
+            "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "ce141c93ed1c4b52afa213360c76bf4e0beeb11e0074fa35baefc23996ed5199",
+        "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+        "imageSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -2617,7 +3145,7 @@
       "sha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
       "width": 1365,
       "height": 768,
-      "textSha256": "4d53a4650eb20b6bf95a6e0cbacc91515c03102614305331d0dfc2da928e68d8",
+      "textSha256": "88c3a252c50d06ce67493d90856197120029e495d004f2d46fe09eab06f701c0",
       "briefSha256": "34e392c1adb57dd9fc0e8d68eed7e631b1e9a5d7781fe614a3fe6eb5f7d9036a",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -2625,8 +3153,8 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
-        "reviewedAt": "2026-10-30T05:11:12Z",
-        "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+        "reviewedAt": "2026-11-09",
+        "notes": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
       },
       "sourceImageGenOutput": "exec-12fca322-147e-4ac9-994d-434f542904b1.png",
       "editorialReview20260922": {
@@ -2654,7 +3182,75 @@
       },
       "cacheVersion": "4aec78936702",
       "sourceNativeSha256": "68ae002e4e2806070b3eba013e66190dabbc8e58490aa08687668a5043d90f7d",
-      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+      "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n",
+      "previousVersions": [
+        {
+          "supersededAt": "2026-11-09",
+          "reason": "retained-image-current-manuscript-review",
+          "recordSha256": "dbd24781fe0219f9d2a2719cf147bf977b215fd5766fbaf1f03c80ba5e0b70df",
+          "record": {
+            "bookId": "willow-street-drums-for-carnival",
+            "pageNumber": 7,
+            "path": "/guided-reading/willow-street/drums-for-carnival/page-07.webp",
+            "sha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
+            "width": 1365,
+            "height": 768,
+            "textSha256": "4d53a4650eb20b6bf95a6e0cbacc91515c03102614305331d0dfc2da928e68d8",
+            "briefSha256": "34e392c1adb57dd9fc0e8d68eed7e631b1e9a5d7781fe614a3fe6eb5f7d9036a",
+            "visualTreatment": "willow-street-illustrated",
+            "generatorProvenance": "self-created",
+            "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+            "directReview": {
+              "state": "approved-original-detail",
+              "reviewedSha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
+              "reviewedAt": "2026-10-30T05:11:12Z",
+              "notes": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+            },
+            "sourceImageGenOutput": "exec-12fca322-147e-4ac9-994d-434f542904b1.png",
+            "editorialReview20260922": {
+              "reviewedAt": "2026-09-22",
+              "reviewer": "Editorial repair team; agent visual review",
+              "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+              "notes": [
+                "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+              ],
+              "evidencePaths": [
+                ".artifacts/editorial-repair/human-manuscript-handoff.json",
+                ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+              ],
+              "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+              "priorFingerprint": {
+                "textSha256": "6769bf327ecdf85b2acbbc515ed264bf93b5b2cb43c07f7164d55610cebec737",
+                "briefSha256": "3ae3e43c586a0422e94f86f14a243910245de323771de813e1584e688fc19cd3",
+                "sha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+                "directReview": {
+                  "state": "approved-original-detail",
+                  "reviewedSha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+                  "notes": "Original-detail review approved for Drums for Carnival page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+                }
+              }
+            },
+            "cacheVersion": "4aec78936702",
+            "sourceNativeSha256": "68ae002e4e2806070b3eba013e66190dabbc8e58490aa08687668a5043d90f7d",
+            "productionPrompt": "One precise local wardrobe edit ONLY. Completely REMOVE the multicolor red/yellow/blue FRINGED WAIST SASH from Mr Baptiste (older darkbrownskinned male bandleader with short salt-and-pepperhair, tealshirt andcreamtrousers). Remove the entire wraparound patterned belt and all dangling tails/fringes/tassels. Under the removed sash continue his PLAIN TEAL SHIRT naturally down to ordinary CREAM TROUSERS, neutral everyday clothes; no new belt/symbol/costume. Preserve every other accepted pixel and the exact story-specific action: cast identities/skin/hair, body and hand poses, two drumsticks and actual held/gripping hand placement, Leo rust-creamstripes/navy/redshoes and his handdrum, other2players/instruments, all drum lacing and counts, camera, full safe framing, warm hall or outdoor hall setting, generic multicolor activity bunting, quietcream bottom22percent. Child Leo remains shorter than adult musicians. No change to existing safe margins. Entire result clean bold outlined2Dcartoon flat solidcolors+restrainedcelshade, no grain/painterlytextures/lettering or nationalreligiouspoliticalsymbols. SAME exact16:9landscape as source. Preserve all other accessories except the specified waist sash; do not change hairbands or instrument straps.\n"
+          }
+        }
+      ],
+      "bindingRefresh20261109": {
+        "reviewedAt": "2026-11-09",
+        "kind": "retained-image-current-manuscript-review",
+        "textSha256": "88c3a252c50d06ce67493d90856197120029e495d004f2d46fe09eab06f701c0",
+        "briefSha256": "34e392c1adb57dd9fc0e8d68eed7e631b1e9a5d7781fe614a3fe6eb5f7d9036a",
+        "imageSha256": "4aec789367022dc6cade65d102f524b89f2336057c51349c9e8f56ed6e80ba24",
+        "completeBookReview": {
+          "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+          "bookId": "willow-street-drums-for-carnival",
+          "rowSha256": "b2821df8a290f3ef0477a199d852992d028244367ed6f6a955dd9ca5a5e1596f",
+          "finalBookSha256": "f46a820f60549968f76d27d22ebfa7659ae878e4d0e7f182486264d796378246"
+        },
+        "hashScheme": "rowSha256 is SHA-256 of sorted-key compact UTF-8 JSON of the exact referenced row; original records are preserved below.",
+        "method": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -3787,5 +4383,14 @@
       "sourceNativeSha256": "59d8a314eb5e1810bc375eaede685d6082117a7afc217ad12d09580fcfa8e927",
       "productionPrompt": "Edit this exact clean cartoon scene with these precise count corrections: Keep exactly FOUR filled clear cups in a TWO BY TWO arrangement and exactly FOUR spoons total, one beside each cup. Correct the blue lids: show exactly FOUR SINGLE FLAT BLUE LIDS, each separate and lying flat in a tidy TWO BY TWO arrangement to the right. No stacks, no nested lids, no multiple rims suggesting stacked lids. Preserve the cup layers and Mum/Zoe's empty hands. Keep the same Mum mustard/navy/brown, Zoe coral/mint/denim/cream and two coral-tied round puffs, all faces, geography and safe wide framing. Bold clean dark outlines with SOLID flat colours, one hard cel shadow at most, no grain. All essential characters and table story objects at least 8% from canvas edges. Lower 22% cream reading area quiet and empty. No image words or scenery faces.\n"
     }
-  ]
+  ],
+  "editorialRefresh20261109": {
+    "reviewedAt": "2026-11-09",
+    "scope": "Only changed current bindings refreshed. Exact original asset records, generation metadata and reviews are preserved in affected previousVersions.",
+    "changedAssets": 8,
+    "changedImages": 3,
+    "changedTextBindings": 5,
+    "completeBookEvidence": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+    "imageRepairEvidence": "source-art/guided-reading-remediation/2026-11-09/image-repairs.json"
+  }
 }

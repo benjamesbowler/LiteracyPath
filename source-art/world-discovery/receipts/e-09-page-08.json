@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f50b4caff5cd83c29eea87cb4fdcafa84fb5171ef23f38ffb5da941c1e720d6c",
     "note": "Mother/calf near surface with paired adult blowholes and corrected horizontal flukes; no anatomy collage.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-09",
+    "sha256": "43eb926cbe0a07dc0d1b058be1105196bed2baedce48a013f47f33f5ea5b6077",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

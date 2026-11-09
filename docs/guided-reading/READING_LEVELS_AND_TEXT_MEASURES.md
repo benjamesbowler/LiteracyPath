@@ -14,22 +14,23 @@ available for listening irrespective of independent reading demands.
 The 29 October 2026 cross-collection audit read all 247 then-working books,
 compared neighboring levels and reconciled 37 assignments. The integrated
 catalogue adds the independently reviewed Foundations and World Discovery
-collections and now contains **347 books, 3,061 reading pages and 35,802 word tokens** under the
-conventions below. Its current distribution is **A33, B96, C73, D66, E25, F36,
+collections. The 9 November 2026 complete-catalogue reread covers **397 books,
+3,501 reading pages and 42,194 word tokens** under the conventions below.
+Its current distribution is **A43, B106, C83, D76, E35, F36,
 G16 and H2**. Current counts come from the runtime and generated analysis.
 
-Integration retained the calibrated main-branch assignments. All ten small
-manuscript/title variants were reread in full (89 current pages), retaining those
-public bands while binding their reviews to the corrected text fingerprints.
+The November ESL remediation retained the calibrated public assignments. All
+397 current manuscripts and their rationale/dimension reviews were reread,
+with stale claims corrected and reviews bound to the final text fingerprints.
 The independent Small Steps and Foundations reviews remain described below.
-Two hundred and seventeen books have separate image descriptions for every
-page, 19 have partial coverage and 111 have only prose-derived descriptions.
+Two hundred and sixty-seven books have separate image descriptions for every
+page, 21 have partial coverage and 109 have only prose-derived descriptions.
 
-This was a Codex full-manuscript editorial review, using actual prose and
-available description metadata. It is not a human classroom validation or a new
-visual inspection. Some picture descriptions repeat the prose and supply no
-independent evidence. Picture support is contextual, not proof of decodability
-or image accuracy.
+These are Codex full-manuscript editorial reviews, not human classroom
+validation. The generated illustration-support field describes metadata
+coverage; it does not certify an image. Direct image and sequence reviews are
+recorded separately in the hash-bound visual audit and remediation receipts.
+Some descriptions repeat the prose and supply no independent picture evidence.
 
 **One public system:** A–H is the only book-complexity letter used in shelves,
 reader headings/details, shared reading, assignment/review pickers, daily book

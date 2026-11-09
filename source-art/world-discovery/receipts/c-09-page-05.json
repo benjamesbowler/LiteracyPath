@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "beea22380d3f9bdc6321e1dcc5d1ba600c02e0d6bab2ade767870eacde3761ba",
     "note": "Direct inspection after pup anatomy repair: mother hangs from wooden beam, tiny pup nurses against chest with visible folded wing membrane and gripping thumb; no mouse-like bare arm or bottle.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-09",
+    "sha256": "547724e0d3b9bf1f872360c6d00472dbc9c9795e76d758413329a5a9aae31f81",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.337Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "d446da5b116fed17242c73f3d292641eff4379892839b51485cf8e10d0ed5e5d",
-    "note": "Zoe tests plastic spoon on tabletop beside red magnet end; left tray has clip, right tray foil and block."
+    "note": "Zoe tests plastic spoon on tabletop beside red magnet end; left tray has clip, right tray foil and block.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "13ec1009836b05b3a54493b3fd679c375d70957c8dfa6e4831212267cfc95597",
     "note": "Direct inspection: gray sewer enters enclosed channel at gray-roof wastewater works, contained dull water in treatment tanks, no clean-supply bypass or worker.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-03",
+    "sha256": "59a51f506f22d7bc9a1242c8f596509f3743d800937a7a17269afcb8a6bfccba",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

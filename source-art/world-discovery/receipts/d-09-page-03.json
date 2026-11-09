@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.337Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "12db2e7195bc01ced9b66613164fc1a3e466c27f657c8c372c7ae2bed14fc32f",
-    "note": "Zoe tests foil near the red magnet end; foil remains flat on table, with clip nearby and both trays empty."
+    "note": "Zoe tests foil near the red magnet end; foil remains flat on table, with clip nearby and both trays empty.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

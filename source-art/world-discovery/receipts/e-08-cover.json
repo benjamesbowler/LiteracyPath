@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:13:51.448650+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "0591c65684c28ad08775a728a4b15242c3880d92865f6a13b0df2b10da43d693",
-    "note": "Root full-size anatomy count after targeted repair: adult near hind has exactly five webbed tips; froglet near hind five; both exposed adult front feet and both froglet front feet four fingers each. Far hind feet partly occluded. Adult no tail, small four-legged froglet retains short tail; natural scale and pond scene preserved."
+    "note": "Root full-size anatomy count after targeted repair: adult near hind has exactly five webbed tips; froglet near hind five; both exposed adult front feet and both froglet front feet four fingers each. Far hind feet partly occluded. Adult no tail, small four-legged froglet retains short tail; natural scale and pond scene preserved.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

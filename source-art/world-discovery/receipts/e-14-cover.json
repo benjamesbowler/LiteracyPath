@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "f22c9ff64ada206d2b14e3b95a8f7c105368a686df3182356856400938adf7b3",
     "method": "codex-direct-image-inspection",
-    "note": "Natural upper-body crop and hands, no floor illusion. Kit wipes blue hull; tiny right outer hull tip remains invisible with yellow tray seen through its absent outline, no colored blob. Red sail and tan mast, safe margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "f22c9ff64ada206d2b14e3b95a8f7c105368a686df3182356856400938adf7b3",
+    "note": "Natural upper-body crop and hands, no floor illusion. Kit wipes blue hull; tiny right outer hull tip remains invisible with yellow tray seen through its absent outline, no colored blob. Red sail and tan mast, safe margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

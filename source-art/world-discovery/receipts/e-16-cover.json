@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "7223dea6158b2974b8a712b3b4932e671f061b7f3a451bc11b17edf77ec2e2db",
     "method": "codex-direct-image-inspection",
-    "note": "Widened whole classroom: complete children, floor mats and four long table legs remain coherent and comfortably framed; three stand depths retained."
+    "reviewedAt": "2026-11-09",
+    "sha256": "7223dea6158b2974b8a712b3b4932e671f061b7f3a451bc11b17edf77ec2e2db",
+    "note": "Widened whole classroom: complete children, floor mats and four long table legs remain coherent and comfortably framed; three stand depths retained.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-16",
+    "sha256": "e8dc48d61762e86c1f86b408af60926486ab6890413bd10757ef502693722ef7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

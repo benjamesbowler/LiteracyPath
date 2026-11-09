@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "03add472c042bbf93dc06c569e00f4ebddc3894bcc26083ec5b48259452c12da",
     "note": "Close view shows the first button behind its slit, still unable to pass flat; two other buttons and holes remain open. Texture removed by inspected style edit.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-01",
+    "sha256": "b8922826168ffd73e46a5199db2beeb6b43a9e5af03035939f6713067a50e1c6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

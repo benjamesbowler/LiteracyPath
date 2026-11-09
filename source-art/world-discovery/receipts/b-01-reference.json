@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "e06bbaf8a3191e61549746ec1be834ab04e77fbda386f314e04bbbe277d5caa1",
     "note": "Directly viewed repaired green satchel model with three yellow buttons on body and three narrow matching slits in one long flap. Kit-only bench setting. Final closure stages independently inspected against this mechanical design.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-01",
+    "sha256": "b8922826168ffd73e46a5199db2beeb6b43a9e5af03035939f6713067a50e1c6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

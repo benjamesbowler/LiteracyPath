@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:20:34.618509+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "8dff70e02b5e1761b83c2a1a0458e316c75d1f81debc18543ee9c0121a6124d9",
-    "note": "Producer directly inspected native and final encoded WebP. Kit inserts single piece behind blue cushion while Zoe examines empty tan box; plausible simultaneous actions."
+    "note": "Producer directly inspected native and final encoded WebP. Kit inserts single piece behind blue cushion while Zoe examines empty tan box; plausible simultaneous actions.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-12",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

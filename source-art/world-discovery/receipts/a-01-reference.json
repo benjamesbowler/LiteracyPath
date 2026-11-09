@@ -9,16 +9,25 @@
   "outputSha256": "0b0f3ecc793ac0cf17c738e2e73233840a4243156b255f1bfe0144f9b3f94cf6",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this exact production model sheet. Keep the character designs, mirror, room, paper, view arrangement, line style and all colors unchanged. The book uses FOUR crayons: brown, black, yellow and plum purple. Add a matching plum-purple crayon to every displayed crayon set on the sheet (the upper object row, tabletop by the drawing, and room table). Preserve the other three crayons and make four total in each relevant set. Add a plum-purple palette swatch if needed. The purple overall straps in the child\u2019s drawing are made with this fourth crayon. No words or writing. This is a precision prop consistency correction only.",
+  "prompt": "Edit this exact production model sheet. Keep the character designs, mirror, room, paper, view arrangement, line style and all colors unchanged. The book uses FOUR crayons: brown, black, yellow and plum purple. Add a matching plum-purple crayon to every displayed crayon set on the sheet (the upper object row, tabletop by the drawing, and room table). Preserve the other three crayons and make four total in each relevant set. Add a plum-purple palette swatch if needed. The purple overall straps in the child’s drawing are made with this fourth crayon. No words or writing. This is a precision prop consistency correction only.",
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:28:26.153166+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "0b0f3ecc793ac0cf17c738e2e73233840a4243156b255f1bfe0144f9b3f94cf6",
-    "note": "Directly inspected cast proportions, Zoe puffs/yellow/plum clothing, teal oval freestanding mirror, cream paper, four brown/black/yellow/plum crayons and empty room key. Finished portrait vignette is a design reference only; final page prompts restrict each drawing stage and exclude Kit from this Zoe-only book."
+    "note": "Directly inspected cast proportions, Zoe puffs/yellow/plum clothing, teal oval freestanding mirror, cream paper, four brown/black/yellow/plum crayons and empty room key. Finished portrait vignette is a design reference only; final page prompts restrict each drawing stage and exclude Kit from this Zoe-only book.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "inputReference": {
     "path": "source-art/world-discovery/a-01-reference.webp",
     "sha256": "58f3e40a21cb50a4756e6d699ab2cec80710cba878f9f4e300e8643092ba21b5"
   },
-  "inputOriginal": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-bdf479e6-cc14-4658-b502-5baa04ab3a37.png"
+  "inputOriginal": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-bdf479e6-cc14-4658-b502-5baa04ab3a37.png",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-01",
+    "sha256": "9e9ff09db5187f2f80b7770185b588536652642960ff2311ea2490066724d6f6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+  }
 }

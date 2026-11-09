@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:57:57.675675+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
-    "note": "Viewed full-size against preceding image: same back-of-tree position and tiny pouch opening; second small puff tilts kite corner clear; grounded Kit reaches with two hands, one slack line and ribbon remain."
+    "note": "Viewed full-size against preceding image: same back-of-tree position and tiny pouch opening; second small puff tilts kite corner clear; grounded Kit reaches with two hands, one slack line and ribbon remain.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-04",
+    "sha256": "276b1b7042e6da481cec4c0568940b0d78e77d21070e94f1bc0e54270b408f95",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T15:22:01.382270+00:00",
-    "outputSha256": "57ad2efab98e3c3b5764c3a522e5277d1a0346c5e00302fdb02a5775d763ec2b",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "One front leg reaches forward while other five support body; intact target leaf fully inside frame, no extra seventh leg. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "57ad2efab98e3c3b5764c3a522e5277d1a0346c5e00302fdb02a5775d763ec2b",
-    "note": "One front leg reaches forward while other five support body; intact target leaf fully inside frame, no extra seventh leg. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+    "note": "One front leg reaches forward while other five support body; intact target leaf fully inside frame, no extra seventh leg. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-17",
+    "sha256": "9d1817788b8107ed835c74432033de05e082d25afebb0b54c85001e5067a2bcf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T10:34:55.342319+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "0ac32f3214d7c0b0db9598658f84d7aa1e056288f234b23fbb4c4f0fac01e9c8",
-    "note": "Directly viewed native source and installed WebP. Kit and Zoe retain locked clothes, facial/hair identity and equal scale; cream divided basket, two breadsticks/two pear wedges and empty blue/plum plates establish opening. Distinct props shown from useful angles; ordinary shaded patio table consistent. Reference variants are design views, not additional scene objects."
+    "note": "Directly viewed native source and installed WebP. Kit and Zoe retain locked clothes, facial/hair identity and equal scale; cream divided basket, two breadsticks/two pear wedges and empty blue/plum plates establish opening. Distinct props shown from useful angles; ordinary shaded patio table consistent. Reference variants are design views, not additional scene objects.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-11",
+    "sha256": "39dcd311f7e5c478fe89dd2870a0dd687b0f3050ad776015e9675a9886d2e8d5",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

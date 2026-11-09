@@ -367,10 +367,10 @@ const createMeadowPalsBook = ({
   theme,
   characterReference: {
     muddy: "Muddy is a friendly Meadow Pals character who loves mud and keeps the same look across the series.",
-    woolly: "Woolly is a gentle Meadow Pals character used consistently across bedtime and friendship pages.",
+    woolly: "MEADOW-WOOLLY — gentle cream/yellow lamb with natural curly fleece, blue eyes, bare pink inner ears and four dark cloven hooves. Loose wool grows from the fleece, never from the bare ear tip. Preserve the established face and proportions.",
     clucky: "Clucky is a busy hen-like Meadow Pals character who appears in farmyard scenes.",
     bouncy: "Bouncy is an energetic Meadow Pals character who hops and moves with playful energy.",
-    grumpy: "Grumpy is a Meadow Pals character with a gruff expression and a kind heart.",
+    grumpy: "MEADOW-GRUMPY — short stocky dark-brown goat with two straight backward-leaning tan horns, white muzzle, small white chin beard, white chest patch and tail tip, black hooves and four-legged proportions. Never use the retired curled-horn ram.",
     sleepy: "Sleepy is a tired Meadow Pals character who often rests or naps.",
     noisy: "Noisy is a loud Meadow Pals character learning when to be quiet.",
     tiny: "Tiny is a very small Meadow Pals character shown with clear scale cues.",

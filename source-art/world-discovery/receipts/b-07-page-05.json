@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:52:31.180Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "3c58054e7f70807c8c03605b7c7039f0252892b0b8ded1fa53606ebaf1f7a72a",
-    "note": "Backward sweeping foot corrected to three webbed front toes plus rear toe; small eddies behind stroke and second attached foot retained."
+    "note": "Backward sweeping foot corrected to three webbed front toes plus rear toe; small eddies behind stroke and second attached foot retained.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

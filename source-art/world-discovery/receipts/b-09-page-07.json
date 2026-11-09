@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:14:49.232642+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f46cd43f60d53b69244d691d1dc63f061aac16b659fa76cc37c1665a872838ad",
-    "note": "Direct inspection: Zoe places small blue in right tray with two small red; left contains one large red and two large blue, exactly six four-hole buttons, empty mat, neutral trays and stable identity."
+    "note": "Direct inspection: Zoe places small blue in right tray with two small red; left contains one large red and two large blue, exactly six four-hole buttons, empty mat, neutral trays and stable identity.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

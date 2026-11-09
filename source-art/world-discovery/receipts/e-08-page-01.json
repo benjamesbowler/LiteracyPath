@@ -19,9 +19,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f0cc94cd6e3c4bdc26ab73577f4d8cc6fb5d1ed469d30dd12c22e6f63a669258",
     "note": "Tailless brown adult at damp pond bank. Nearest exposed hind foot has five toe tips; both exposed front feet have four. Far hind foot is naturally occluded. Body, pose, color and setting retained.",
-    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

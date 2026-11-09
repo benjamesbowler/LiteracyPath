@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:39:55.496Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "9a2b4572de14e3c97c6fb445536151e5d3e8dd8c295a70353f9f25aea7e5f586",
-    "note": "Female mallard plumage and two feet consistent; detailed foot shows three webbed front toes and separate rear toe. Unneeded human reference removed. Empty pond key retained."
+    "note": "Female mallard plumage and two feet consistent; detailed foot shows three webbed front toes and separate rear toe. Unneeded human reference removed. Empty pond key retained.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:44:41.856933+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "bb08dd9033ff1b227ff0f648c443169271d86635fcfe4928564652b0276c8034",
-    "note": "Direct inspection: overhead isolated right clay island fully ringed by water, unchanged left mainland, one toy on island; removed neck and one stick outside tray. Clear island boundary and no hidden land bridge."
+    "note": "Direct inspection: overhead isolated right clay island fully ringed by water, unchanged left mainland, one toy on island; removed neck and one stick outside tray. Clear island boundary and no hidden land bridge.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.870Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "4ee67149e6787a6b2f9523fad56cb862d1c47826d879f045fd7bf9306359ae44",
     "note": "Generated native and installed full WebP directly inspected. Zoe stands right of Kit outside circle, her fingertips touch bottom of single handle held in Kit right hand. Exactly one fan, distinct natural hands, matching fan shadow and empty chair.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-14",
+    "sha256": "f556073033b05fe367daba68ebe1f88da06adad7fc5fb9c6bbf48f6d9c900cc9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

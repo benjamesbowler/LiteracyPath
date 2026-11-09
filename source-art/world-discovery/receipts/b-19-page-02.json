@@ -9,7 +9,7 @@
   "outputSha256": "7d6025fe30fe6950f9646c02f0284bc02055a465df806f4fbd4f7e8ef865e9ec",
   "width": 1717,
   "height": 916,
-  "prompt": "Use case: precise-object-edit. Edit this existing children's-book illustration. Widen and recenter the SAME intact scene by about 25 percent: the entire two children, all hair and shoes, the tabletop experiment and screen must sit within the central 76 percent of the canvas, leaving at least 10 percent clear room around essential content on every edge. Extend the ordinary classroom background naturally with continuous walls and floor, same normal scale. Do not add props or characters. Preserve every current pose, hand and finger, correct body anatomy, furniture contact, the three equal samples, single long red toy station wagon, single blue flashlight, white screen, and their exact states and relative arrangement. Preserve the physically collinear left flashlight \u2192 middle clear plastic \u2192 right white screen bright spot, eyes safely above beam. Unused wax paper and brown card remain flat on table, toy car aside. Maintain clean flat 2D illustration, solid colors and crisp outlines; no texture, no written words, no labels, no inset panels. The change is framing only.",
+  "prompt": "Use case: precise-object-edit. Edit this existing children's-book illustration. Widen and recenter the SAME intact scene by about 25 percent: the entire two children, all hair and shoes, the tabletop experiment and screen must sit within the central 76 percent of the canvas, leaving at least 10 percent clear room around essential content on every edge. Extend the ordinary classroom background naturally with continuous walls and floor, same normal scale. Do not add props or characters. Preserve every current pose, hand and finger, correct body anatomy, furniture contact, the three equal samples, single long red toy station wagon, single blue flashlight, white screen, and their exact states and relative arrangement. Preserve the physically collinear left flashlight → middle clear plastic → right white screen bright spot, eyes safely above beam. Unused wax paper and brown card remain flat on table, toy car aside. Maintain clean flat 2D illustration, solid colors and crisp outlines; no texture, no written words, no labels, no inset panels. The change is framing only.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-41e8f60c-e024-4d85-bb9f-d443507fb95e.png",
@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:11:10.573188+00:00",
-    "outputSha256": "7d6025fe30fe6950f9646c02f0284bc02055a465df806f4fbd4f7e8ef865e9ec",
-    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
-    "notes": "Left flashlight passes through clear plastic to bright screen patch; eyes above beam; two other samples flat aside. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "7d6025fe30fe6950f9646c02f0284bc02055a465df806f4fbd4f7e8ef865e9ec",
-    "note": "Left flashlight passes through clear plastic to bright screen patch; eyes above beam; two other samples flat aside. Independent QA pending."
+    "note": "Left flashlight passes through clear plastic to bright screen patch; eyes above beam; two other samples flat aside. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,6 +24,14 @@ const canonicalText = value => String(value || "").normalize("NFKC").replace(/[â
 const normalizedTopic = value => TOPIC_ALIASES.get(canonicalText(value)) || canonicalText(value);
 const sha256 = value => createHash("sha256").update(value).digest("hex");
 
+function rejectLiteralFieldPaths(value, label, failures) {
+  if (!value || typeof value !== "object") return;
+  for (const [key, child] of Object.entries(value)) {
+    if (/[.[\]]/.test(key)) failures.push(`${label}: literal field-path key ${JSON.stringify(key)}; update the nested field instead`);
+    rejectLiteralFieldPaths(child, `${label}.${key}`, failures);
+  }
+}
+
 function checkSource(source, label, failures) {
   if (!source || !text(source.title) || !text(source.url) || !text(source.evidence || source.claim)) {
     failures.push(`${label}: factual source needs title, URL and supported evidence/claim`);
@@ -52,6 +60,7 @@ function validateDraftSet(books, { requireComplete = true, firstNumber = 1, last
   for (const book of books) {
     const label = book?.id || "(missing id)";
     if (!book || typeof book !== "object") { failures.push(`${label}: invalid manuscript`); continue; }
+    rejectLiteralFieldPaths(book, label, failures);
     if (ids.has(book.id)) failures.push(`${label}: duplicate book ID`);
     ids.add(book.id);
     const titleKey = canonicalText(book.title);
@@ -70,7 +79,9 @@ function validateDraftSet(books, { requireComplete = true, firstNumber = 1, last
     if (book.readingBandProfile !== "standard" || book.readingMode !== "predictable-levelled" || book.interestAge !== "4â€“8") failures.push(`${label}: reading profile/mode/interest age differs from the collection Bible`);
     for (const field of ["title", "setting", "coverBrief", "levelRationale"]) if (!text(book[field])) failures.push(`${label}: missing ${field}`);
     if (!Array.isArray(book.props) || !book.props.every(text)) failures.push(`${label}: props must be an array of descriptions`);
-    if (!Array.isArray(book.languagePrep) || !book.languagePrep.length || book.languagePrep.some(row => !text(row.word) || !text(row.meaning))) failures.push(`${label}: languagePrep needs word/meaning pairs`);
+    if (!Array.isArray(book.languagePrep) || !book.languagePrep.length || book.languagePrep.some(row => !row
+      || JSON.stringify(Object.keys(row).sort()) !== JSON.stringify(["meaning", "word"])
+      || !text(row.word) || !text(row.meaning))) failures.push(`${label}: languagePrep needs exact word/meaning pairs`);
     const review = book.storyBibleReview;
     if (review?.kind !== book.type) failures.push(`${label}: storyBibleReview kind differs from type`);
     if (!Array.isArray(review?.canonIds) || review.canonIds.some(id => !["WD-KIT", "WD-ZOE"].includes(id))) failures.push(`${label}: canonIds must name the locked World Discovery cast only`);

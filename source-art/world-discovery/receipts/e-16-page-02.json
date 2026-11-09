@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "4757ed7fe104a9c4c3b18f0cc4bbc758d4101de01ee655ef7553dc45a53ba655",
     "method": "codex-direct-image-inspection",
-    "note": "Widened scene preserves Zoe placing far card, Kit at end, exactly three stands; credible hands/table and complete legs, mats and shoes inside safe frame."
+    "reviewedAt": "2026-11-09",
+    "sha256": "4757ed7fe104a9c4c3b18f0cc4bbc758d4101de01ee655ef7553dc45a53ba655",
+    "note": "Widened scene preserves Zoe placing far card, Kit at end, exactly three stands; credible hands/table and complete legs, mats and shoes inside safe frame.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-16",
+    "sha256": "e8dc48d61762e86c1f86b408af60926486ab6890413bd10757ef502693722ef7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

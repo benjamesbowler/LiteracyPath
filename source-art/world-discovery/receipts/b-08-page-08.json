@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.560296+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "ce99e73f2afa3ce38e2a27b0a96abc1ab167cf358eab65f9b5cb41fec425ec44",
-    "note": "Adult supported on underside of leaf lays fresh eggs beside rear abdomen; head points away. Corrected seven spots, six legs and two antennae; no immediate hatching."
+    "note": "Adult supported on underside of leaf lays fresh eggs beside rear abdomen; head points away. Corrected seven spots, six legs and two antennae; no immediate hatching.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-08",
+    "sha256": "f8a7db5b751295bf896f73c32a89c4e82ae83bccfdc22d76dc9ac019d8578abb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

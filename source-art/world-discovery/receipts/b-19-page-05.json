@@ -28,14 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:11:10.575455+00:00",
-    "outputSha256": "6a168ce6f90a4e65f82a97d03b115485034461065e64583de832dc353845fb3b",
-    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
-    "notes": "Zoe places card in separate group; clear/wax together right; flashlight off; consistent background room restored. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "6a168ce6f90a4e65f82a97d03b115485034461065e64583de832dc353845fb3b",
-    "note": "Zoe places card in separate group; clear/wax together right; flashlight off; consistent background room restored. Independent QA pending."
+    "note": "Zoe places card in separate group; clear/wax together right; flashlight off; consistent background room restored. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

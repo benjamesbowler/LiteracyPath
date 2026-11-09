@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:55:11.812899+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "7ed874c4417dbe8aa81b549f4db74dfc7a200c372e1af0c2d3c525c0cdd0ab63",
-    "note": "Corrected and inspected mature common bean foliage into distinct three-leaflet groups; white pea-shaped flowers, green pods and open dry cream-seed pod all connected/logical."
+    "note": "Corrected and inspected mature common bean foliage into distinct three-leaflet groups; white pea-shaped flowers, green pods and open dry cream-seed pod all connected/logical.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

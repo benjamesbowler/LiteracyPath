@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "46652507b8508e82c3e9976574fe3c3cc909639777203471bae957ed5e4a000d",
     "method": "codex-direct-image-inspection",
-    "note": "Directly reopened production design board: canonical Kit/Zoe, single blue boat/red sail/tan mast, yellow rectangular tray, purple pot, brush, cup and cloth. Later named cast in board does not imply opening page presence."
+    "reviewedAt": "2026-11-09",
+    "sha256": "46652507b8508e82c3e9976574fe3c3cc909639777203471bae957ed5e4a000d",
+    "note": "Directly reopened production design board: canonical Kit/Zoe, single blue boat/red sail/tan mast, yellow rectangular tray, purple pot, brush, cup and cloth. Later named cast in board does not imply opening page presence.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

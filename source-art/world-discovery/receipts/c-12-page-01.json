@@ -28,14 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
-    "outputSha256": "2b73aeb6f2d0b9bbeffccea44b769d302dd80e6b71101187a67c6220d957326b",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "Kit holds the untied parcel while Zoe makes an open, nonspecific gesture; exact three chairs now consistent; legs and feet unobstructed.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "2b73aeb6f2d0b9bbeffccea44b769d302dd80e6b71101187a67c6220d957326b",
-    "note": "Kit holds the untied parcel while Zoe makes an open, nonspecific gesture; exact three chairs now consistent; legs and feet unobstructed."
+    "note": "Kit holds the untied parcel while Zoe makes an open, nonspecific gesture; exact three chairs now consistent; legs and feet unobstructed.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-12",
+    "sha256": "bc4a12f0c141e3b123355150a9fa4c6a5216b1349b243b1524bd93266c29f154",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:55:11.813453+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f825447ca7b38fb31e8c21fc6d86f2309100fd3a45a30dfbe6947828a5425943",
-    "note": "Swollen cream seed with slight coat split below soil cutaway; no root or leaf yet. Grain removed and no floating glass water drops."
+    "note": "Swollen cream seed with slight coat split below soil cutaway; no root or leaf yet. Grain removed and no floating glass water drops.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

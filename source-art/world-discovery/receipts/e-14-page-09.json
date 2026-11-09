@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "a6d3c39b6c0239ee76106d0620f2b27b86760d2ce4859d3bef531a47e4aaaf0c",
     "method": "codex-direct-image-inspection",
-    "note": "Kit grips solid blue hull and wipes red sail with one remaining wet-purple patch. Zoe steadies visible yellow rim. Small back-left tray area still invisible, supporting final cleanup. All grips visible and natural."
+    "reviewedAt": "2026-11-09",
+    "sha256": "a6d3c39b6c0239ee76106d0620f2b27b86760d2ce4859d3bef531a47e4aaaf0c",
+    "note": "Kit grips solid blue hull and wipes red sail with one remaining wet-purple patch. Zoe steadies visible yellow rim. Small back-left tray area still invisible, supporting final cleanup. All grips visible and natural.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

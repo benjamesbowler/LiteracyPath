@@ -1,8 +1,8 @@
 {
-  "reviewedAt": "2026-11-07T18:50:21.268Z",
+  "reviewedAt": "2026-11-09",
   "status": "complete",
   "method": "codex-direct-card-rendition-inspection",
-  "evidence": "Directly opened and inspected all 50 individual final card WebPs at their actual 512px maximum-edge delivery size, checking clear subjects, key visual clues, preserved composition, no added crop and legible outlines. Exact current canonical-source and delivered-card hashes checked after visual inspection; all prior49 bindings remain unchanged after the final build. B13 and B14 cards were regenerated and directly inspected after repaired canonical covers became stable. This review covers card delivery only; full-book independent acceptance remains separate.",
+  "evidence": "All100 actual card renditions directly inspected in five20-cover grids after complete manuscript/sequence re-audit. Clear recognizable subjects and complete composition; no new card defect. Canonical covers and card bytes are unchanged.",
   "pending": [],
   "assets": [
     {

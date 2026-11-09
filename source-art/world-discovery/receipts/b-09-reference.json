@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:39:55.496Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f8e744fb46715afb481e7c06b35930d62f2e890447520cccf8cda693b65d8325",
-    "note": "Zoe, exact six four-hole buttons in required color and size counts, plain blue mat, two silver trays and empty classroom table inspected."
+    "note": "Zoe, exact six four-hole buttons in required color and size counts, plain blue mat, two silver trays and empty classroom table inspected.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

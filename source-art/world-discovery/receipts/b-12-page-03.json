@@ -28,14 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:38:30.530031+00:00",
-    "outputSha256": "1328491a94164b9caeb9ae955c3efd5aed841d92442351ce5623b321070c1ac0",
-    "scope": "Production-author direct native and installed final WebP inspection, full ordered prose/state and whole-scene rereview. Independent QA pending.",
-    "notes": "Concerned Zoe holds cup beside crumbs/cheese; closed box. Correct shorts/plum trousers and full seated anatomy.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "1328491a94164b9caeb9ae955c3efd5aed841d92442351ce5623b321070c1ac0",
-    "note": "Concerned Zoe holds cup beside crumbs/cheese; closed box. Correct shorts/plum trousers and full seated anatomy."
+    "note": "Concerned Zoe holds cup beside crumbs/cheese; closed box. Correct shorts/plum trousers and full seated anatomy.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-12",
+    "sha256": "972655f5b43451f0d418f5a1e83e5147791c876c84780efdce68b6d2be52066b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

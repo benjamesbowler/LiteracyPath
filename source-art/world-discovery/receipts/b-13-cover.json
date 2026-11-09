@@ -25,10 +25,11 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:40:53.327Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "c6c0aa0eaff723b6feb6a5d72016b0c88c88da6a2a5cc35b8afc3da5ff09b2c5",
     "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Whole carrier and Zoe naturally supported at path/doorstep with coherent scale and ample margins. Same single stamped cream envelope passes between them; no floating hands or outpaint blocks.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "generationManuscriptSource": {
     "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
@@ -37,5 +38,12 @@
     "firstNumber": 11,
     "lastNumber": 20
   },
-  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained.",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-13",
+    "sha256": "731e2a7910fdc66e05d92ea872f09c5a03911ef681278a250e3e9f584ed6ddd2",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+  }
 }

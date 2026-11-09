@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "918c9b48643623264621f70aa3de44d06e37ff8fe49acc330e4770f9a440982c",
     "method": "codex-direct-image-inspection",
-    "note": "One small natural bee feeds on raised dark flower disk, yellow rays complete within safe margins; attached legs/wings/antennae and botanical scale coherent."
+    "reviewedAt": "2026-11-09",
+    "sha256": "918c9b48643623264621f70aa3de44d06e37ff8fe49acc330e4770f9a440982c",
+    "note": "One small natural bee feeds on raised dark flower disk, yellow rays complete within safe margins; attached legs/wings/antennae and botanical scale coherent.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-20",
+    "sha256": "fac02292fb99181c3cdf95a864e5c86a9e22d1df1677d6d1143abbaca2559e90",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

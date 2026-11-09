@@ -8697,7 +8697,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 8,
         "text": "I ring the bell. Ding!",
-        "imageBrief": "Dot holds and rings the single silver handbell with blue handle. Dad enjoys the little celebration. The yellow cup is upright, the green bin contains the fluff, and the table and rug are usable again.",
+        "imageBrief": "Dot holds and rings the single silver handbell with blue handle. Dad enjoys the little celebration. The yellow cup is on the table, the green bin contains the fluff, and the table and rug are usable again.",
         "state": {
           "location": "Daylight craft corner with a low wooden table, pale-blue rug and small waste bin. Dad stays nearby. Ordinary craft materials, no text or chemical supplies.",
           "cast": [
@@ -8717,7 +8717,7 @@ const MANUSCRIPTS = deepFreeze([
       "visual": {
         "page": 8,
         "prompt": "Find the cup, fuzz, bin and bell. How are their positions different from page 1?",
-        "lookFor": "The bell is in Dot’s hand, the cup is upright and no longer hidden, the fuzz is in the bin, and the rug is clear."
+        "lookFor": "The bell is in Dot’s hand, the cup is on the table, the fuzz is in the bin, and the rug is clear."
       }
     }
   }

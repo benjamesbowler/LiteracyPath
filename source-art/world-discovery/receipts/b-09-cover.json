@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.560446+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "7760aa1a68ba1a916b6933753ad94ba63b9350a4ca95fc48308a6a5b66f259a5",
-    "note": "Exact six four-hole buttons: large red and two large blue left, two small red and small blue right; Zoe compares size groups."
+    "note": "Exact six four-hole buttons: large red and two large blue left, two small red and small blue right; Zoe compares size groups.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

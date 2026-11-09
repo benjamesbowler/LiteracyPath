@@ -1,11 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { createHash } from "node:crypto";
+import { fileURLToPath } from "node:url";
 import manifest from "../../src/content/world-discovery/cohorts.json" with { type: "json" };
 import { WORLD_DISCOVERY_REGISTERED_COHORTS } from "../../src/data/generated/worldDiscoveryCohorts.generated.js";
 import { registeredWorldDiscoveryCohorts, validateWorldDiscoveryCohortManifest, validateWorldDiscoveryRegistration, worldDiscoveryCohortIds, worldDiscoverySeriesOrder } from "../../src/data/worldDiscoveryCohortContract.js";
 import { adaptWorldDiscoveryBook } from "../../src/data/worldDiscoveryBookAdapter.js";
-import { buildWorldDiscoveryAudioPlan, collectWorldDiscoveryCohortAudio, readWorldDiscoveryCohort, validateWorldDiscoveryAudioPlan, validateWorldDiscoveryEvidenceReceipt } from "../../tools/worldDiscoveryCohortReleaseLib.mjs";
+import { auditWorldDiscoveryCohort, buildWorldDiscoveryAudioPlan, collectWorldDiscoveryCohortAudio, readWorldDiscoveryCohort, validateWorldDiscoveryAudioPlan, validateWorldDiscoveryEvidenceReceipt } from "../../tools/worldDiscoveryCohortReleaseLib.mjs";
 import { checkRegisteredWorldDiscoveryCohorts, worldDiscoveryCohortModule } from "../../tools/registerWorldDiscoveryCohorts.mjs";
 import { validateWorldDiscoveryCohortDrafts } from "../../tools/worldDiscoveryValidationLib.mjs";
 
@@ -81,7 +83,7 @@ test("audio reuse requires exact registered clip bytes, role and text; inventori
   const audio = collectWorldDiscoveryCohortAudio(source.books);
   const plan = buildWorldDiscoveryAudioPlan(cohort, source, audio);
   assert.equal(plan.required.length, 0);
-  assert.equal(plan.reused.length, 1742);
+  assert.equal(plan.reused.length, 1720);
   for (const change of [
     value => { value.reused.pop(); },
     value => { value.required.push(value.reused.pop()); },
@@ -102,7 +104,7 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   assert.equal(result.entries.length, manifest.cohorts.filter(cohort => cohort.active).length);
   const proof = result.entries[0].registration;
   assert.equal(proof.counts.illustrations, 490);
-  assert.equal(proof.counts.audioFiles, 1742);
+  assert.deepEqual(result.entries.map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]), [["01-10", 1720], ["11-20", 1671]]);
   const changed = structuredClone(proof);
   changed.evidenceSha256 = "0".repeat(64);
   assert.match(validateWorldDiscoveryEvidenceReceipt(proof, changed).join("\n"), /actual media bytes are stale/);
@@ -111,4 +113,70 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   const incomplete = structuredClone(manifest);
   for (const cohort of incomplete.cohorts) cohort.active = cohort.index === 0;
   await assert.rejects(checkRegisteredWorldDiscoveryCohorts({ manifest: incomplete, complete: true, checkModule: false }), /all 100 declared books/);
+});
+
+test("authorized repairs retain the byte-pinned historical registration counts", () => {
+  const hash = bytes => createHash("sha256").update(bytes).digest("hex");
+  const read = relative => fs.readFileSync(new URL(`../../${relative}`, import.meta.url));
+  for (const [index, historicalCount] of [1742, 1722].entries()) {
+    const cohort = manifest.cohorts[index];
+    const baselineBytes = read(cohort.maintenanceBaseline.path);
+    assert.equal(hash(baselineBytes), cohort.maintenanceBaseline.sha256);
+    const baseline = JSON.parse(baselineBytes);
+    const historicalPath = `src/content/world-discovery/registrations/${cohort.id}.json`;
+    assert.notEqual(cohort.registration, historicalPath);
+    const pinned = baseline.historicalEvidence.find(row => row.path === historicalPath);
+    const historicalBytes = read(historicalPath);
+    assert.equal(hash(historicalBytes), pinned.sha256, "original receipt bytes remain unchanged");
+    const original = JSON.parse(historicalBytes);
+    const saved = baseline.cohorts.find(row => row.id === cohort.id);
+    assert.deepEqual(original, saved.registration);
+    assert.equal(original.counts.audioFiles, historicalCount);
+    assert.equal(saved.audio.length, historicalCount);
+  }
+});
+
+// Override evidence reads in memory so stale-proof rejection exercises the real
+// cohort audit without ever rewriting a production receipt or review file.
+function changedJsonRead(t, relative, change) {
+  const target = fileURLToPath(new URL(`../../${relative}`, import.meta.url));
+  const read = fs.readFileSync;
+  const value = JSON.parse(read(target, "utf8"));
+  change(value);
+  const bytes = Buffer.from(JSON.stringify(value));
+  let intercepted = 0;
+  t.mock.method(fs, "readFileSync", (file, options) => {
+    if (String(file) !== target) return read(file, options);
+    intercepted += 1;
+    const encoding = typeof options === "string" ? options : options?.encoding;
+    return encoding ? bytes.toString(encoding) : bytes;
+  });
+  return () => intercepted;
+}
+
+for (const [label, change, message] of [
+  ["missing current review", value => { delete value.reviewedManuscriptSource; }, /maintenance requires a current complete-book review/],
+  ["wrong reviewed book", value => { value.reviewedManuscriptSource.bookId = "world-discovery-a-02"; }, /reviewed manuscript\/state is stale/],
+  ["wrong manuscript path", value => { value.reviewedManuscriptSource.path = "src/content/world-discovery/level-b.json"; }, /reviewed manuscript\/state is stale/],
+  ["stale manuscript hash", value => { value.reviewedManuscriptSource.sha256 = "0".repeat(64); }, /reviewed manuscript\/state is stale/]
+]) test(`maintenance image receipt rejects ${label}`, async t => {
+  const reads = changedJsonRead(t, "source-art/world-discovery/receipts/a-01-reference.json", change);
+  await assert.rejects(auditWorldDiscoveryCohort(manifest.cohorts[0]), message);
+  assert.ok(reads() > 0);
+});
+
+for (const [label, change] of [
+  ["stale complete manuscript", row => { row.sourceBookSha256 = "0".repeat(64); }],
+  ["stale reading text", row => { row.textFingerprint = "stale"; }],
+  ["unreviewed teaching support", row => { row.fullTextPrepAndDiscussionReviewed = false; }],
+  ["incomplete image sequence", row => { row.allReferencesCoversAndPagesReviewed = false; }],
+  ["open finding", row => { row.openFindings = ["Unresolved text/image mismatch"]; }],
+  ["stale installed image", row => { row.assets.find(asset => asset.slot === "reference").sha256 = "0".repeat(64); }],
+  ["duplicate asset proof", row => { row.assets.push({ ...row.assets.find(asset => asset.slot === "reference") }); }]
+]) test(`complete-book image proof rejects ${label}`, async t => {
+  const receipt = JSON.parse(fs.readFileSync(new URL("../../source-art/world-discovery/receipts/a-01-reference.json", import.meta.url)));
+  const reads = changedJsonRead(t, receipt.reviewedManuscriptSource.evidence,
+    value => change(value.books.find(row => row.bookId === receipt.bookId)));
+  await assert.rejects(auditWorldDiscoveryCohort(manifest.cohorts[0]), /complete-book inspection does not bind current text and image/);
+  assert.ok(reads() > 0);
 });

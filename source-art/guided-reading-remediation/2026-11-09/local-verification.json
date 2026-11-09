@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-11-09T05:09:27.640503+00:00",
+  "scope": {
+    "books": 397,
+    "readingPages": 3501,
+    "coverAndPageImages": 3898,
+    "newBookIllustrations": 103,
+    "newCardRenditions": 7,
+    "newLedaMp3Files": 329
+  },
+  "status": "local-verification-complete",
+  "contentReview": {
+    "path": "source-art/guided-reading-remediation/2026-11-09/complete-book-review.json",
+    "sha256": "eea62e3740ac48652e787a6373bdc2f01fcfcad96f398566329f6f8d41d88083",
+    "openConfirmedFindings": 0
+  },
+  "unitTests": {
+    "completeRun": {
+      "tests": 6972,
+      "passed": 6961,
+      "failed": 11
+    },
+    "initialFailureCauses": {
+      "repairedContentOrCacheBindings": 8,
+      "sandboxLocalhostRestrictions": 3
+    },
+    "allFailedSuitesAfterRepair": {
+      "tests": 615,
+      "passed": 615,
+      "failed": 0
+    },
+    "note": "Complete run followed by targeted reruns of every failed suite; not represented as one uninterrupted all-green full-suite run."
+  },
+  "browser": {
+    "worldDiscovery": {
+      "fullBooks": 100,
+      "fullPages": 880,
+      "finalConfirmationCases": 31,
+      "finalLandscapeCssCases": 9
+    },
+    "legacyReplacedArtwork": {
+      "cases": 39,
+      "fullTabletBooks": 26,
+      "tabletPages": 258,
+      "phoneCases": 12,
+      "phonePages": 128,
+      "realPageAudioStarts": 386,
+      "realWordAudioStarts": 386,
+      "verifiedChangedImages": 89,
+      "verifiedCardRenditions": 7
+    },
+    "longPageHelpRegressions": {
+      "passed": 6,
+      "normalAndReducedMotion": true,
+      "allThreeHelpStages": true
+    },
+    "childSurfaceCases": 13,
+    "deviceMatrix": {
+      "cases": 115,
+      "initialPass": 113,
+      "reviewedShelfSnapshotUpdates": 2,
+      "confirmationPass": 2
+    }
+  },
+  "offlineDelivery": {
+    "overlappingImageRevisionsCorrected": 31,
+    "currentBytesAndWorkerCacheTestsPassed": 554,
+    "allCorrectedRevisionsPresentInBuiltWorker": true
+  },
+  "build": {
+    "productionCompilation": "passed",
+    "sharedMediaPostbuild": "passed",
+    "changedPublicAssetsPreservedWithExactHashes": 439,
+    "finalCodeAndWorkerCompilation": "passed",
+    "reproducibleOutputRemoved": true
+  },
+  "additionalGates": [
+    "Story Bible",
+    "discussion prompts",
+    "narration provenance",
+    "human voice wording",
+    "writing evidence",
+    "visual alignment",
+    "current public reading levels",
+    "World Discovery release and registration",
+    "app visual review",
+    "media integrity and overwrite",
+    "word-audio retirement",
+    "lint",
+    "repository hygiene"
+  ],
+  "limits": [
+    "Automated audio decoding and recognition do not constitute human listening.",
+    "Browser/emulator results do not constitute physical iPad or classroom observations.",
+    "Hosted publication and production checks are recorded separately."
+  ],
+  "evidenceRoot": ".artifacts/guided-reading-remediation-20261109",
+  "logHashes": {
+    "unit-full.log": "53dda488b82f211c3fd8ccd7729c055f8a72c1f3407e1fa8284f1dbbffcd2581",
+    "unit-failure-resolution.log": "71adb6d693118185f94e948c4786a132a20a7f2d2cfe7231bfd98d0b82ec5388",
+    "device-matrix-complete.log": "553bd9120a8b6be3fb117998b9cfc059248c8a5b45f0e0d5eb6a33dc6a4bf100",
+    "device-matrix-confirmed.log": "eba39c44c674bda708785c049ad7a84287cedf7522c871293deff02397d8bf9a",
+    "child-surface-final.log": "9da434e3dd043fd3c98d0d8ecefa668d9f586809956416665d2d257032673757",
+    "long-page-help.log": "4b71f3f58c0ab51d1d02e2b8a4f8f0f79b0ca1d7ab63d719cdd5e4b63112a455",
+    "world-discovery-final-css.log": "fc3cc961c0469fb02003b06df91cc0da25acab4d034997bbcfde061be22e64e5",
+    "world-discovery-confirmation-final.log": "1aa7ca372d90ba5286383f9c31301284ac7e29a28ce7a07f529dfe3899e0bf82",
+    "wd-release-confirmed.log": "770895fc4e03d32c35509822ed4da7db66f7d2bf88a6e1555cb5fa01963bd3c7",
+    "wd-registration-confirmed.log": "2db2af389ea46b240a87fe5f57e954f589cd8c0bf6657d9d6127174b9d67d9f0",
+    "app-visual-final.log": "cebeaf1c6a70aac44eb92aca2ac809067bc131155d836cbaa08f47a27f654be0",
+    "compile-final.log": "8a94d70adc88b49e253518ff05aa4e3ed8f5bd33c052afb958b10805d3a2fdca",
+    "lint-final.log": "95cd9335d2d4cc69567445cfba11a8598d136ff9529f1da4e91e92c04944b557",
+    "repo-hygiene-final.log": "8d0b7891b1d777f12b1335d87a903e8c6d92c983a33bd7f216f7d9370f69a1b2",
+    "book-levels-final.log": "4387e2daae11abadd8ff368f2357535d1a2e491925d03021cc75dab1ab5055c0",
+    "media-overwrite-final.log": "86e54f3ebebedacf232b8ded2a67bc37abce2f61c1b1658a1d95bebbbab3f5ad",
+    "maintenance-guard-final.log": "80aebf2911a9825b6fd8bc02c21c3fc574dbe69b7a307d59e732aa7e07088e3f"
+  }
+}

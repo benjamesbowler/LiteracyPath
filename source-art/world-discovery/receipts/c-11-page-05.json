@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
-    "outputSha256": "6729d9f581f7205c023f1ef5942a1e7c6ad1ce25cbc811dbd9d0d268d0652005",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "Three raised fingers touched in sequence; card remains on table, one mat still shelf, cups/ball outdoors.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "6729d9f581f7205c023f1ef5942a1e7c6ad1ce25cbc811dbd9d0d268d0652005",
-    "note": "Three raised fingers touched in sequence; card remains on table, one mat still shelf, cups/ball outdoors."
+    "note": "Three raised fingers touched in sequence; card remains on table, one mat still shelf, cups/ball outdoors.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-11",
+    "sha256": "63c961d6d9bf4f01dbad3a9962ee3cc45d725c26c50200bb306419ab9608359d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

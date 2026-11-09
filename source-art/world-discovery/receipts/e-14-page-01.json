@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "7b6a11136a0c4e7b26470a66a10a0d1e360278938a25f62bcbd035ee507e1003",
     "method": "codex-direct-image-inspection",
-    "note": "Kit alone wipes known small tray corner. Clean yellow is revealed, rest tray unpainted. Small blue boat/red sail/tan mast stays visible at consistent toy scale; natural cloth contact and safe framing."
+    "reviewedAt": "2026-11-09",
+    "sha256": "7b6a11136a0c4e7b26470a66a10a0d1e360278938a25f62bcbd035ee507e1003",
+    "note": "Kit alone wipes known small tray corner. Clean yellow is revealed, rest tray unpainted. Small blue boat/red sail/tan mast stays visible at consistent toy scale; natural cloth contact and safe framing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "0aa90a2ddfe543314f6874a81b2b6b665258ddc76e8c14276df2d9a975108ce8",
     "note": "Near bridge end rests on left bank while far end visibly stops short over cloth, leaving gap to right bank. Truck waits before bridge; closed garage and two banks remain.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-04",
+    "sha256": "a8a8e9f00f4c47aec7369fe76755119fd5e5528ea5b9ebccf486d5ba5fb77583",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json"
   }
 }

@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:34:30.414066+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "aa8bdfa7b42ccc853572215fff7b20c257ff10352d6bf3d627b9997c4d521897",
-    "note": "Direct inspection: opposite table sides, continuous left mainland/narrow dry neck/right lobe, one yellow toy on neck; water on three outer sides, correct cast and flat cartoon."
+    "note": "Direct inspection: opposite table sides, continuous left mainland/narrow dry neck/right lobe, one yellow toy on neck; water on three outer sides, correct cast and flat cartoon.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

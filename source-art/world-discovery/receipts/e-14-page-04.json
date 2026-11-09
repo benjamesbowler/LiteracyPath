@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "9523d7352f7b2a8ed62c02338842c6059030e40f16fa51c28b975ae1f8794345",
     "method": "codex-direct-image-inspection",
-    "note": "Zoe arrives to apparently empty tan tabletop; invisible boat/tray have no revealing outlines or shadows. Kit proud, Zoe surprised, natural hands and room scale."
+    "reviewedAt": "2026-11-09",
+    "sha256": "9523d7352f7b2a8ed62c02338842c6059030e40f16fa51c28b975ae1f8794345",
+    "note": "Zoe arrives to apparently empty tan tabletop; invisible boat/tray have no revealing outlines or shadows. Kit proud, Zoe surprised, natural hands and room scale.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

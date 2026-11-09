@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:41:38.558273+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "ec24e25bb5632ae3d982156652ce59c53366e20c2ea49a77bb50a49a32878850",
     "note": "Generated source and installed WebP inspected. Blue cushion on ordinary slatted bench; red boat on blue water, three by four tile positions, blank tan top-row third-column gap and one separate white sail-peak tile. Normal equal-height cast and table construction.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-12",
+    "sha256": "0c2d880da0cd41ce2d785e11b268b41ab5b537d491182ea76cd24d2c77f908a9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

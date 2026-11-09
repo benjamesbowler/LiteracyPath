@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:58:44.767873+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "32f1aead54775dae26ca5197c78686a830bdf0484eac30921cd76531baafcea1",
-    "note": "Native PNG and installed WebP directly inspected. Only near-rear and near-front wheel positions; Kit presses correct-size front wheel while steadying bed; no middle wheel. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+    "note": "Native PNG and installed WebP directly inspected. Only near-rear and near-front wheel positions; Kit presses correct-size front wheel while steadying bed; no middle wheel. Clear flat art, intact essential shapes and safe framing; no unwanted lettering.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-14",
+    "sha256": "0e2b1717819c73349cb6d3aa72a34b966a5ccfeb5c759c52218922df0cde506e",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

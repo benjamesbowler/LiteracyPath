@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:55:33.527244+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "4db776b0031ef9b5856efd13b5c4ad5e49f75ecc064118403978007bd368f399",
-    "note": "Viewed full-size repair: upward gust from open pouch pushes kite slightly higher into the same low fork; one taut string, one spool, intact short ribbon tail; failed attempt remains reachable and coherent."
+    "note": "Viewed full-size repair: upward gust from open pouch pushes kite slightly higher into the same low fork; one taut string, one spool, intact short ribbon tail; failed attempt remains reachable and coherent.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-04",
+    "sha256": "276b1b7042e6da481cec4c0568940b0d78e77d21070e94f1bc0e54270b408f95",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

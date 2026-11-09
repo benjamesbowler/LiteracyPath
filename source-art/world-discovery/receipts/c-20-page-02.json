@@ -2,14 +2,14 @@
   "bookId": "world-discovery-c-20",
   "slot": "page-02",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T16:41:51.948Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dd7a6d07-88a6-4c94-97b3-afd2cdb327ac.png",
-  "sourceSha256": "b89eece1f438f9acf2d2901dfeee521595204b5e40e1cadeade26b2f78e367b6",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-2bbc466f-bf4f-4edc-90e6-f643d79b4b14.png",
+  "sourceSha256": "8f21dae11e1d61ee3676627fd3b4a9c0d963cf200a53b5efef54712f340eebf4",
   "output": "public/guided-reading/world-discovery/c-20/page-02.webp",
-  "outputSha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
+  "outputSha256": "93631749b667a99b1720bf55dfc3419a18874b8123cff15c0535ba9d4688f39d",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Edit this exact scene. Scientific scale correction ONLY: make EACH of the three woodlice HALF its present length and height. The largest animal's BODY must be only aboutONE QUARTER of the large brown leaf length. Preserve actual macro camera, log, soil and leaves. Shift rear-right animal slightly LEFT so antennae and rear tips all have at least10percent margin. Each exposed near-side profile has exactlySEVEN thin jointed walking legs, one per main body segment, and two long antennae; far side legs naturally hidden. Do not count mouthparts or rear uropods as legs. Restore soil in old silhouettes. Keep3animals, no humans. Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "prompt": "Use case: illustration-story. Edit only the first image; the second image is object-design reference, not a layout to copy. One finished landscape 3:2 full-bleed young-child picture-book illustration. Preserve exactly three gray woodlice under the raised fallen log, each with segmented oval back, two antennae and seven pairs of small jointed legs. Keep damp droplets below the log and brown fallen oak leaves. No child figures. ESSENTIAL STYLE REPAIR: turn the entire scene into crisp bold outlined flat-color 2D cartoon. Replace the photoreal soil speckles, bark fibres and leaf veins/texturing with a few large flat outlined brown and orange shapes and a small number of smooth cel-shadow patches. Keep wood recognizably decayed using a few clearly outlined broken lobes, not thousands of fibrous marks. Plain clean soil with a few small outlined stones, no granular noise. Keep moisture obvious using the existing large outlined water drops. No grain, mottling, brushwork, gradients, fuzzy focus, 3D or photographic rendering anywhere. Preserve the exact positions, action and scale of the three animals and the log. Simplify without removing the ecological teaching clues. No letters, text, numbers, labels, borders, panel divisions or arrows.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-ec024e4a-d54d-4eed-b746-716bdf3572c6.png",
@@ -24,8 +24,35 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
     "method": "codex-direct-image-inspection",
-    "note": "Direct macro review: three small woodlice relative to large dead leaves, seven near-side walking legs visibly counted on profiles and two antennae; dark damp soil beneath raised log, no whole human copied into macro and no unrelated props."
+    "reviewedAt": "2026-11-09",
+    "sha256": "93631749b667a99b1720bf55dfc3419a18874b8123cff15c0535ba9d4688f39d",
+    "note": "Direct macro review: three small woodlice relative to large dead leaves, seven near-side walking legs visibly counted on profiles and two antennae; dark damp soil beneath raised log, no whole human copied into macro and no unrelated props.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
+    "sourceSha256": "b89eece1f438f9acf2d2901dfeee521595204b5e40e1cadeade26b2f78e367b6",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dd7a6d07-88a6-4c94-97b3-afd2cdb327ac.png",
+    "generatedAt": "2026-11-07T16:41:51.948Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-20/page-02.webp",
+      "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-20-reference.webp",
+      "sha256": "494f3a5abe1e805bbee2bcaf8fa4c74cc212d509552450e4ca59cca1f1dde599"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-20",
+    "sha256": "f498b6535d667e31b92f89778e6ca31d176ffa9daef170660e625f36f8e75986",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

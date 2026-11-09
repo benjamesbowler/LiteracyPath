@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:41:08.662938+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee",
-    "note": "Directly inspected corrected common-bean reference: seed halves/embryo, pea-shaped white flowers, green/dry pods, three-leaflet mature leaves. Earlier paired-only mature-leaf candidate superseded."
+    "note": "Directly inspected corrected common-bean reference: seed halves/embryo, pea-shaped white flowers, green/dry pods, three-leaflet mature leaves. Earlier paired-only mature-leaf candidate superseded.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

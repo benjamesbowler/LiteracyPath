@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T15:23:50.906708+00:00",
-    "outputSha256": "77e1137b432f6118d61c2cd0c3d507affac59cb21f714546f69b83d9351fb280",
-    "scope": "Direct final reference WebP production review, not finished-page or independent approval",
-    "notes": "Reference board inspected: locked child cast and taller green-shirt adult, compression faucet, yellow cup, washer pair and wrench. Corrected plumbing visibly separates gray U/P-trap drain from narrow supply line with brass shutoff. Sink/room physically plausible.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "77e1137b432f6118d61c2cd0c3d507affac59cb21f714546f69b83d9351fb280",
-    "note": "Reference board inspected: locked child cast and taller green-shirt adult, compression faucet, yellow cup, washer pair and wrench. Corrected plumbing visibly separates gray U/P-trap drain from narrow supply line with brass shutoff. Sink/room physically plausible."
+    "note": "Reference board inspected: locked child cast and taller green-shirt adult, compression faucet, yellow cup, washer pair and wrench. Corrected plumbing visibly separates gray U/P-trap drain from narrow supply line with brass shutoff. Sink/room physically plausible.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-20",
+    "sha256": "92eaaf25eedbef9efc455f395f0cccab7e5bc8efc5bed9a0f560345c93381a12",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

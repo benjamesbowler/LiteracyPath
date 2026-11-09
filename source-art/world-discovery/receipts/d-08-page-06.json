@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.969958+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "601b5060d5a16b15236be90b101542fead61a68134cd61526d9417adf96cf295",
-    "note": "White pea-shaped flowers attached naturally to a green bush bean with mature three-leaflet foliage; no pod at the featured flower."
+    "note": "White pea-shaped flowers attached naturally to a green bush bean with mature three-leaflet foliage; no pod at the featured flower.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

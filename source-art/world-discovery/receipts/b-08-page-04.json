@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:58:50.021952+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "34dfc62ab833482161ab9b8fcb8db1e14fedbdb9dd21170a28e148fe407cc355",
-    "note": "One grown larva beside visibly hollow split discarded skin, no second living larva; crisp background throughout."
+    "note": "One grown larva beside visibly hollow split discarded skin, no second living larva; crisp background throughout.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-08",
+    "sha256": "f8a7db5b751295bf896f73c32a89c4e82ae83bccfdc22d76dc9ac019d8578abb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -19,9 +19,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:12:00.777515+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "98757d720f3b95acae750d44adf24860f457a1bcdadddcbccc87762d8ce8bba8",
     "note": "Aquatic metamorph retains long attached tail and four distinct legs. Both hind feet have five toes; both front feet have four fingers. Near-surface water setting retained.",
-    "limits": "Direct agent source and installed-image inspection; the repair author reviewed these corrections. No classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-08",
+    "sha256": "5131d7ad0a3b168753e1b5619cb559c2e66d0492adcf47822a94fa8e516f3b2b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

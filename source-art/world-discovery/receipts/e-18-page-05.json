@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "3c21af3b2914b8e64de8201037873414af933649dee632be321b292534a057f3",
     "method": "codex-direct-image-inspection",
-    "note": "Directly inspected fresh monarch adult on leaf, firm fully expanded wings, four long functional legs and paired antennae, separate small empty split chrysalis. Plausible leaf/insect scale, no body-shell fusion or parent identity claim."
+    "reviewedAt": "2026-11-09",
+    "sha256": "3c21af3b2914b8e64de8201037873414af933649dee632be321b292534a057f3",
+    "note": "Directly inspected fresh monarch adult on leaf, firm fully expanded wings, four long functional legs and paired antennae, separate small empty split chrysalis. Plausible leaf/insect scale, no body-shell fusion or parent identity claim.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

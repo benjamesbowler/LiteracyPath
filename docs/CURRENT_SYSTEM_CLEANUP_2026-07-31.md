@@ -1,16 +1,29 @@
 # Current system cleanup — 31 July 2026
 
-## World Discovery ESL audit — 9 November 2026
+## Complete Guided Reading ESL remediation — 9 November 2026
 
-The existing writing Bible now explicitly applies ESL-first wording to every
-level, title, discussion question and vocabulary explanation. The
-[audit handoff](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) records the
-100-book review and open remediation boundary. Detailed generated reports,
-source/image hashes and visual review sheets remain required QA evidence in
-ignored `.artifacts/world-discovery-esl-audit-20261109/`. Task-created report
-builders are removed after verification; retained reports and source snapshots
-preserve their substantive result. No book source, narration, image, hosted
-state, protected animation or unrelated cache is removed or changed.
+The [audit handoff](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) now
+records all 397 books, 3,501 pages and 397 covers. The durable ledger and repair
+receipts under `source-art/guided-reading-remediation/2026-11-09/` preserve exact
+findings, closures, all installed cover/page hashes, and the prompts and reference
+hashes for 89 legacy image replacements. World Discovery retains its separate
+14-page/one-reference repair provenance and dated registration revisions.
+
+Detailed reports, native outputs, active edit references and full-book review
+sheets remain required QA evidence in the two ignored November audit/remediation
+directories. Disposable one-off builders and duplicate intermediate exports are
+removed after their results are preserved; accepted production media and active
+references remain. Manuscripts, images, narration and their exact review records
+were updated together. Local browser coverage and its limits are in the handoff.
+Removed 31 unused new MP3s and 14 unused map entries, seven superseded card
+renditions (recoverable from Git), and 110.4 MB of resolved World Discovery/legacy/device
+trace archives while retaining screenshots and failure/repair summaries.
+After the successful production build and shared-media pruning, verified all
+439 changed public image/audio assets and removed the remaining 676 MB `dist`
+output. A final code-only compilation also passed; its reproducible output was
+removed after its log and hash evidence were saved. No published narration
+was deleted. This cleanup note does not assert a hosted release result.
+Protected animation, unrelated caches and other projects are outside this scope.
 
 ## World Discovery — 7 November 2026
 

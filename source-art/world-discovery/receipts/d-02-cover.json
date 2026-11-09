@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "eccb65d8fc302434493c3fbfe91d03cb943b81dc51c5bd85154505d2675b550e",
     "note": "Direct inspection after block-shape repair: six same tan cubes form low bridge on rug, Zoe draws separately at round table, Kit shows bridge without crowding her.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-02",
+    "sha256": "9a751b9dc6fe87dee6e27896e543775dc1dcea6106b63646d6b97b2981f118f0",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

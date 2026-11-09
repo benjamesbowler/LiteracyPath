@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T15:50:08.809843+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "d8d812efc4ab5476630b31af60f3ed854357486862a7978f410c14bf4943e116",
     "note": "Generated source and installed WebP inspected. Four developed legs attach to thorax, two reduced forelegs folded; abdomen tip has no appendage. Linked magnification contrasts dense overlapping border scales with sparse narrow membrane scales, whole flower and inset comfortably framed.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-17",
+    "sha256": "2826cf3312807d6cc892fa1bd9f74d486889fe4d6d27642c1648712c0bc83bb8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

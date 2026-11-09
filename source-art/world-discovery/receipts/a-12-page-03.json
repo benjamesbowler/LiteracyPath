@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:22:08.845Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "02c1f5a003ad5fd0481274aee56a57f0c6a6bfee9560fec880cd522b8f99ee60",
-    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Kit looks back from bend; Zoe remains behind by bench; single curved path stays continuous. Locked cast, crisp cel style, essential subject margins and no text verified."
+    "note": "Native and installed WebP directly inspected, full book sequence reviewed. Kit looks back from bend; Zoe remains behind by bench; single curved path stays continuous. Locked cast, crisp cel style, essential subject margins and no text verified.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-12",
+    "sha256": "7d583e054a04388d5f4169b3c8c08f4ef605ad683e40a823c844e2d81e58ba62",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

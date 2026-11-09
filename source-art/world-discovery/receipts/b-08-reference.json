@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:39:55.496Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "10a30487b42d44838a5c83ff0f7e5cf804d0da275661e253c53188df902161d7",
-    "note": "Seven-spot mature adult and pale adult, six legs and two antennae; larva top views corrected to three pairs near head; separate pupa, eggs and empty leafy plant key."
+    "note": "Seven-spot mature adult and pale adult, six legs and two antennae; larva top views corrected to three pairs near head; separate pupa, eggs and empty leafy plant key.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-08",
+    "sha256": "f8a7db5b751295bf896f73c32a89c4e82ae83bccfdc22d76dc9ac019d8578abb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -2,14 +2,14 @@
   "bookId": "world-discovery-c-14",
   "slot": "page-02",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T17:57:14.207Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5fe27bbb-ce94-4a92-9bd3-bdc6d29c377c.png",
-  "sourceSha256": "c1c609729c295480fcfe9dd7dce92305cba34095ec2f5d565616b7174fd2f9d9",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-56285221-5933-4d2a-91bf-f4b3e9e7cdfb.png",
+  "sourceSha256": "b865b3e5e6794ed7d20881f185733b7123a6f13374c34fdc214ccb7a5c9b17a2",
   "output": "public/guided-reading/world-discovery/c-14/page-02.webp",
-  "outputSha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+  "outputSha256": "95151dd514fb474ac3cc981ec204b82db1bd212c2614e3c9aed0efd32905c336",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Change ONLY the four table legs from wood orange to medium GRAY metal keeping the same ordinary shape and geometry. Keep wooden tabletop and existing gray chair legs unchanged. Preserve exact six arrowheads R,R,R,R,L,R with touching opposed tips, all on continuous shaft; bookmark at start. Preserve children, feet, book, gray pencil, pink eraser and generous framing. No other changes.",
+  "prompt": "Use case: precise-object-edit. Edit only the first attached image. Finished landscape 3:2 full-bleed kindergarten picture-book illustration, crisp continuous bold outlines and flat clean colors with smooth cel shading. Preserve Kit, Zoe, room, poses, hands, table, paper strip endpoints, red bookmark position and blue book. ESSENTIAL: turn the six disconnected arrows into ONE continuous horizontal graphite pencil shaft from left to right, with SIX clearly separated arrowheads at six evenly spaced positions. Heads 1, 2, 3, 4 and 6 point RIGHT toward the book; head 5 points LEFT. Do not create crossing arrowheads, X shapes or overlapping heads. Connect all shafts so there are no white gaps anywhere between the six arrows. Preserve six-arrow order and spacing. The second attached picture is reference ONLY for the book illustration: change the target book right page to the SAME standing golden lion on green ground and pale blue sky shown in image 2. The left page remains blank. Do not copy image 2 layout or pose. Keep everything else from image 1. No additional text, letters, labels, numbers, symbols, panels, frames, texture, grain or painterly marks.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-54b975d0-ec18-442b-8ec4-10f0b59aa4f6.png",
@@ -24,14 +24,35 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
-    "outputSha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "Kit draws continuous six-head shaft R,R,R,R,L,R; fourth/fifth heads meet locally, bookmark at start.",
     "method": "codex-direct-image-inspection",
-    "sha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
-    "note": "Kit draws continuous six-head shaft R,R,R,R,L,R; fourth/fifth heads meet locally, bookmark at start."
+    "reviewedAt": "2026-11-09",
+    "sha256": "95151dd514fb474ac3cc981ec204b82db1bd212c2614e3c9aed0efd32905c336",
+    "note": "Six separated arrowheads with continuous shaft and unchanged standing lion, or seven near-side walking legs per foreground woodlouse; corrected defect resolved.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+    "sourceSha256": "c1c609729c295480fcfe9dd7dce92305cba34095ec2f5d565616b7174fd2f9d9",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-5fe27bbb-ce94-4a92-9bd3-bdc6d29c377c.png",
+    "generatedAt": "2026-11-07T17:57:14.207Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p2.webp",
+      "sha256": "33fe3d2cc553c77e855859c6c2a6820884537c8ae8e1bc5c0bcbd9db37c4cc87"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p5.webp",
+      "sha256": "846221ec3e2d346ff0f035a0e44a427723a4e6b2521ced8912198b1a7d9a1048"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-14",
+    "sha256": "140ce92291067179d732a3587d485b05a7c166c5a5e7afde2f0d356f4c034a0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }
